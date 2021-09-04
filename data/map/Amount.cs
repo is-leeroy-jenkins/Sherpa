@@ -91,7 +91,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Amount.Fail( ex );
+                Fail( ex );
                 return default( Numeric );
             }
         }
@@ -106,11 +106,11 @@ namespace BudgetExecution
             {
                 return _initial > 0
                     ? _initial
-                    : Amount.Default.GetFunding();
+                    : Default.GetFunding();
             }
             catch( Exception ex )
             {
-                Amount.Fail( ex );
+                Fail( ex );
                 return 0;
             }
         }
@@ -125,12 +125,12 @@ namespace BudgetExecution
             {
                 return _delta != 0
                     ? _delta
-                    : Amount.Default.GetFunding();
+                    : Default.GetFunding();
             }
             catch( Exception ex )
             {
-                Amount.Fail( ex );
-                return Amount.Default.GetFunding();
+                Fail( ex );
+                return Default.GetFunding();
             }
         }
 
@@ -152,7 +152,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Amount.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -178,7 +178,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Amount.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -198,7 +198,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Amount.Fail( ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -212,12 +212,12 @@ namespace BudgetExecution
         /// </returns>
         public bool IsEqual( IAmount amount )
         {
-            if( amount                 != null
-                && amount.GetFunding() != Amount.Default.GetFunding() )
+            if( amount != null
+                && amount.GetFunding() != Default.GetFunding() )
             {
                 try
                 {
-                    if( amount?.GetFunding()                  == _funding
+                    if( amount?.GetFunding() == _funding
                         && amount?.GetName()?.Equals( _name ) == true )
                     {
                         return true;
@@ -225,7 +225,7 @@ namespace BudgetExecution
                 }
                 catch( Exception ex )
                 {
-                    Amount.Fail( ex );
+                    Fail( ex );
                     return false;
                 }
             }
@@ -243,10 +243,10 @@ namespace BudgetExecution
         /// </returns>
         public static bool IsEqual( IAmount first, IAmount second )
         {
-            if( first     != null
-                && first  != Amount.Default
+            if( first != null
+                && first  != Default
                 && first  != null
-                && second != Amount.Default )
+                && second != Default )
             {
                 try
                 {
@@ -258,7 +258,7 @@ namespace BudgetExecution
                 }
                 catch( Exception ex )
                 {
-                    Amount.Fail( ex );
+                    Fail( ex );
                     return false;
                 }
             }
@@ -275,11 +275,11 @@ namespace BudgetExecution
         {
             try
             {
-                using var msg = new Message( "Not Yet Implemented" );
+                using var _message = new Message( "Not Yet Implemented" );
             }
             catch( Exception ex )
             {
-                Amount.Fail( ex );
+                Fail( ex );
             }
         }
     }
