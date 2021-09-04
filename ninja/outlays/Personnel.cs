@@ -144,7 +144,7 @@ namespace BudgetExecution
         /// </inheritdoc>
         public override string ToString()
         {
-            if( _records != null )
+            if( _record != null )
             {
                 try
                 {
@@ -427,7 +427,7 @@ namespace BudgetExecution
         private protected IDictionary<string, object> GetArgs( string code )
         {
             if( Verify.Input( code )
-                && Verify.Input( _records[ $"{Field.RcCode}" ].ToString() )
+                && Verify.Input( _record[ $"{Field.RcCode}" ].ToString() )
                 && code.StartsWith( "06", StringComparison.Ordinal )
                 && code.Length <= 3 )
             {

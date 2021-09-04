@@ -82,7 +82,7 @@ namespace BudgetExecution
         /// <value>
         /// The use or lose.
         /// </value>
-        private protected IAmount UseOrLose { get; set; }
+        private protected IAmount _useOrLose;
 
         /// <summary>
         /// Gets or sets the ProjectedPayPeriod Gets the ProjectedPayPeriod.

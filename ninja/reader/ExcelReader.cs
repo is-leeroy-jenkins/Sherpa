@@ -30,27 +30,27 @@ namespace BudgetExecution
         /// <summary>
         /// The XLS
         /// </summary>
-        private protected readonly string _xls = DataPath.ConnectionString[ "OleDb" ].ToString();
+        private protected readonly string _xls = BudgetPath.ConnectionString[ "OleDb" ].ToString();
 
         /// <summary>
         /// The XLSX
         /// </summary>
-        private protected readonly string _xlsx = DataPath.ConnectionString[ "Excel" ].ToString();
+        private protected readonly string _xlsx = BudgetPath.ConnectionString[ "Excel" ].ToString();
 
         /// <summary>
         /// The CSV
         /// </summary>
-        private protected readonly string _csv = DataPath.ConnectionString[ "CSV" ].ToString();
+        private protected readonly string _csv = BudgetPath.ConnectionString[ "CSV" ].ToString();
 
         /// <summary>
         /// The accdb
         /// </summary>
-        private protected readonly string _accdb = DataPath.ConnectionString[ "Access" ].ToString();
+        private protected readonly string _accdb = BudgetPath.ConnectionString[ "Access" ].ToString();
 
         /// <summary>
         /// The MDB
         /// </summary>
-        private protected readonly string _mdb = DataPath.ConnectionString[ "OleDb" ].ToString();
+        private protected readonly string _mdb = BudgetPath.ConnectionString[ "OleDb" ].ToString();
         
         /// <summary>
         /// Gets or sets the r6.

@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <param name="filepath">The filepath.</param>
         public BudgetFileWatcher( string filepath )
         {
-            _filePath = new DataPath( filepath );
+            _filePath = new BudgetPath( filepath );
             _fileName = _filePath.GetFileName();
         }
 

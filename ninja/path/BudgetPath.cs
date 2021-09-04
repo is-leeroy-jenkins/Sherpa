@@ -14,10 +14,10 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.IPath" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
-    public class DataPath : IPath
+    public class BudgetPath : IPath
     {
         /// <summary>
         /// The full name
@@ -66,17 +66,17 @@ namespace BudgetExecution
             ConfigurationManager.ConnectionStrings;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataPath"/> class.
+        /// Initializes a new instance of the <see cref="BudgetPath"/> class.
         /// </summary>
-        public DataPath()
+        public BudgetPath()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataPath"/> class.
+        /// Initializes a new instance of the <see cref="BudgetPath"/> class.
         /// </summary>
         /// <param name="input">The input.</param>
-        public DataPath( string input )
+        public BudgetPath( string input )
         {
             _input = input;
             _fullName = Path.GetFileNameWithoutExtension( _input );

@@ -49,8 +49,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( DataPath.CurrentDirectory )
-                    ? DataPath.CurrentDirectory
+                return Verify.Input( BudgetPath.CurrentDirectory )
+                    ? BudgetPath.CurrentDirectory
                     : string.Empty;
             }
             catch( Exception ex )
@@ -142,12 +142,12 @@ namespace BudgetExecution
             try
             {
                 var _paths = _files
-                    ?.Select( fd => new DataPath( fd ) )
+                    ?.Select( fd => new BudgetPath( fd ) )
                     ?.ToArray();
 
                 return _paths?.Any() == true
                     ? _paths
-                    : default( DataPath[ ] );
+                    : default( BudgetPath[ ] );
             }
             catch( Exception ex )
             {
@@ -165,7 +165,7 @@ namespace BudgetExecution
             try
             {
                 var _paths = _files
-                    ?.Select( f => new DataPath( f ) )
+                    ?.Select( f => new BudgetPath( f ) )
                     ?.ToArray();
 
                 var _data = _paths
