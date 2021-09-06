@@ -66,20 +66,20 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _range = grid?.GetRange();
-                    var _comment = _range?.AddComment( text, "Budget" );
+                    using var _excelRange = grid?.GetRange();
+                    var _excelComment = _excelRange?.AddComment( text, "Budget" );
 
-                    if( _comment != null )
+                    if( _excelComment != null )
                     {
-                        _comment.From.Row = _range.Start.Row;
-                        _comment.From.Column = _range.Start.Column;
-                        _comment.To.Row = _range.End.Row;
-                        _comment.To.Column = _range.End.Column;
-                        _comment.BackgroundColor = _primaryBackColor;
-                        _comment.Font.FontName = "Consolas";
-                        _comment.Font.Size = 8;
-                        _comment.Font.Color = Color.Black;
-                        _comment.Text = text;
+                        _excelComment.From.Row = _excelRange.Start.Row;
+                        _excelComment.From.Column = _excelRange.Start.Column;
+                        _excelComment.To.Row = _excelRange.End.Row;
+                        _excelComment.To.Column = _excelRange.End.Column;
+                        _excelComment.BackgroundColor = _primaryBackColor;
+                        _excelComment.Font.FontName = "Consolas";
+                        _excelComment.Font.Size = 8;
+                        _excelComment.Font.Color = Color.Black;
+                        _excelComment.Text = text;
                     }
                 }
                 catch( Exception ex )
