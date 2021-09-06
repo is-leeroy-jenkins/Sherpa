@@ -24,9 +24,9 @@ namespace BudgetExecution
         // ********************************************      FIELDS     *********************************************************
         // **********************************************************************************************************************
 
-#pragma warning disable CS0414// The field 'SqlCeQuery.Provider' is assigned but its value is never used
+#pragma warning disable CS0414// The field 'SqlCeQuery._provider' is assigned but its value is never used
         private readonly Provider _provider = Provider.SqlCe;
-#pragma warning restore CS0414// The field 'SqlCeQuery.Provider' is assigned but its value is never used
+#pragma warning restore CS0414// The field 'SqlCeQuery._provider' is assigned but its value is never used
 
         // **********************************************************************************************************************
         // ********************************************   CONSTRUCTORS     ******************************************************

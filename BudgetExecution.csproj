@@ -467,7 +467,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include=".editorconfig" />
     <None Include="App.config" />
     <None Include="data\database\sqlce\ui\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
     <None Include="data\database\sqlce\ui\CompactView.exe.config" />

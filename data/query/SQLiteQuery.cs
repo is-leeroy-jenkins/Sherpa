@@ -4,7 +4,6 @@
 
 namespace BudgetExecution
 {
-
     using System;
     using System.Collections.Generic;
     using System.Data;
@@ -18,10 +17,10 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref = "Query"/>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
-    [SuppressMessage( "ReSharper", "BadListLineBreaks" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [ SuppressMessage( "ReSharper", "BadListLineBreaks" ) ]
     public class SQLiteQuery : Query
     {
         /// <summary>
@@ -30,7 +29,7 @@ namespace BudgetExecution
         /// <value>
         /// The provider.
         /// </value>
-        private protected Provider Provider { get; } = Provider.SQLite;
+        private protected Provider _provider;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "SQLiteQuery"/> class.
@@ -78,10 +77,6 @@ namespace BudgetExecution
         {
         }
 
-        // **********************************************************************************************************************
-        // ********************************************      PROPERTIES    ******************************************************
-        // **********************************************************************************************************************
-
         /// <summary>
         /// </summary>
         public enum ColDataType
@@ -102,10 +97,6 @@ namespace BudgetExecution
             Blob
         }
 
-        // **********************************************************************************************************************
-        // ********************************************      METHODS    *********************************************************
-        // **********************************************************************************************************************
-
         /// <summary>
         /// Gets the data adapter.
         /// </summary>
@@ -122,7 +113,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                SQLiteQuery.Fail( ex );
                 return default( SQLiteDataAdapter );
             }
         }
@@ -143,7 +134,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                SQLiteQuery.Fail( ex );
                 return default( SQLiteDataReader );
             }
         }
@@ -164,7 +155,7 @@ namespace BudgetExecution
             }
             catch( SystemException ex )
             {
-                Fail( ex );
+                SQLiteQuery.Fail( ex );
                 return default( SQLiteCommandBuilder );
             }
         }
@@ -198,7 +189,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                SQLiteQuery.Fail( ex );
                 return default( string );
             }
         }
@@ -221,7 +212,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var dataset = new DataSet();
+                    using var _dataset = new DataSet();
                     var cstring = GetExcelFilePath();
                     var sql = "SELECT * FROM [" + sheetname + "]";
                     var msg = "Sheet Does Not Exist!";
@@ -230,7 +221,7 @@ namespace BudgetExecution
                     connection?.Open();
                     using var table = connection?.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
 
-                    if( table != null
+                    if( table               != null
                         && table.Rows.Count > 0
                         && CheckIfSheetNameExists( sheetname, table ) )
                     {
@@ -243,12 +234,12 @@ namespace BudgetExecution
                     }
 
                     using var adapter = new OleDbDataAdapter( sql, connection );
-                    adapter.Fill( dataset, sheetname );
-                    return dataset.Tables[ 0 ];
+                    adapter.Fill( _dataset, sheetname );
+                    return _dataset.Tables[ 0 ];
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    SQLiteQuery.Fail( ex );
                     return default( DataTable );
                 }
             }
@@ -296,7 +287,7 @@ namespace BudgetExecution
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    SQLiteQuery.Fail( ex );
                     return default( DataTable );
                 }
             }
@@ -317,12 +308,12 @@ namespace BudgetExecution
             try
             {
                 return dict.Keys.Any()
-                    ? dict.ToSqlDbParameters( Provider )
+                    ? dict.ToSqlDbParameters( _provider )
                     : default( IEnumerable<DbParameter> );
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                SQLiteQuery.Fail( ex );
                 return default( IEnumerable<DbParameter> );
             }
         }
@@ -370,11 +361,11 @@ namespace BudgetExecution
             connection.Open();
             command.CommandText = createtablequery;
             command.ExecuteNonQuery();
-            command.CommandText = "INSERT INTO MyTable (Key,Value) Values ('key one','value one')";
+            command.CommandText = "INSERT INTO MyTable (Key,Value) _values ('key one','value one')";
             command.ExecuteNonQuery();
 
             // Add another entry into our database 
-            command.CommandText = "INSERT INTO MyTable (Key,Value) Values ('key two','value value')";
+            command.CommandText = "INSERT INTO MyTable (Key,Value) _values ('key two','value value')";
 
             // Execute the query
             command.ExecuteNonQuery();

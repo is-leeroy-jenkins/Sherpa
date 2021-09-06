@@ -323,7 +323,7 @@ namespace BudgetExecution
                     var sql = "SELECT * FROM [" + sheetname + "]";
 
                     var conectionstring =
-                        $@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={Path.GetDirectoryName( filename )};"
+                        $@"_provider=Microsoft.Jet.OLEDB.4.0;Data Source={Path.GetDirectoryName( filename )};"
                         + @"Extended Properties='Text;HDR=YES;FMT=Delimited'";
 
                     using var connection = new OleDbConnection( conectionstring );

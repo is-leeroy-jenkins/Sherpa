@@ -16,7 +16,7 @@ namespace BudgetExecution
         // *********************************************************************************************************
 
         /// <summary>
-        /// Gets or sets the Provider
+        /// Gets or sets the _provider
         /// </summary>
         private Provider Provider { get; } = Provider.SqlServer;
 
