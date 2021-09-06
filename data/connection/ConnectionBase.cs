@@ -229,10 +229,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var filext = Path.GetExtension( filePath )?.Trim( '.' )?.ToUpper();
+                    var _filext = Path.GetExtension( filePath )?.Trim( '.' )?.ToUpper();
 
-                    _fileExtension = Enum.IsDefined( typeof( EXT ), filext )
-                        ? (EXT)Enum.Parse( typeof( EXT ), filext )
+                    _fileExtension = Enum.IsDefined( typeof( EXT ), _filext )
+                        ? (EXT)Enum.Parse( typeof( EXT ), _filext )
                         : EXT.NS;
                 }
                 catch( Exception ex )
