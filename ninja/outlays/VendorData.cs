@@ -4,10 +4,6 @@
 
 namespace BudgetExecution
 {
-    // ********************************************************************************************************************************
-    // *********************************************************  ASSEMBLIES   ********************************************************
-    // ********************************************************************************************************************************
-
     using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
@@ -17,10 +13,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class VendorData : Obligation
     {
-        // ***************************************************************************************************************************
-        // ****************************************************  CONSTRUCTORS ********************************************************
-        // ***************************************************************************************************************************
-
         /// <summary>
         /// Initializes a new instance of the <see cref="VendorData"/> class.
         /// </summary>
@@ -47,17 +39,13 @@ namespace BudgetExecution
         {
         }
 
-        // ***************************************************************************************************************************
-        // *************************************************   PROPERTIES   **********************************************************
-        // ***************************************************************************************************************************
-
         /// <summary>
         /// Gets the code.
         /// </summary>
         /// <value>
         /// The code.
         /// </value>
-        private protected IElement Code { get; set; }
+        private protected IElement _code;
 
         /// <summary>
         /// Gets the name.
@@ -65,7 +53,7 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        private protected IElement Name { get; set; }
+        private protected IElement _name;
 
         /// <summary>
         /// Gets the duns number.
@@ -73,7 +61,7 @@ namespace BudgetExecution
         /// <value>
         /// The duns number.
         /// </value>
-        private protected IElement DunsNumber { get; set; }
+        private protected IElement _dunsNumber;
 
         /// <summary>
         /// Gets the document number.
@@ -81,7 +69,7 @@ namespace BudgetExecution
         /// <value>
         /// The document number.
         /// </value>
-        private protected IElement DocumentNumber { get; set; }
+        private protected IElement _documentNumber;
 
         /// <summary>
         /// Gets the start date.
@@ -89,7 +77,7 @@ namespace BudgetExecution
         /// <value>
         /// The start date.
         /// </value>
-        private protected ITime StartDate { get; set; }
+        private protected ITime _startDate;
 
         /// <summary>
         /// Gets the end date.
@@ -97,7 +85,7 @@ namespace BudgetExecution
         /// <value>
         /// The end date.
         /// </value>
-        private protected ITime EndDate { get; set; }
+        private protected ITime _endDate;
 
         /// <summary>
         /// Gets the closed date.
@@ -105,7 +93,7 @@ namespace BudgetExecution
         /// <value>
         /// The closed date.
         /// </value>
-        private protected ITime ClosedDate { get; set; }
+        private protected ITime _closedDate;
 
         /// <summary>
         /// Gets the expended.
@@ -113,6 +101,6 @@ namespace BudgetExecution
         /// <value>
         /// The expended.
         /// </value>
-        private protected IAmount Expended { get; set; }
+        private protected IAmount _expended;
     }
 }
