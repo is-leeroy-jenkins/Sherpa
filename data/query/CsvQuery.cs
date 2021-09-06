@@ -98,14 +98,14 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref = "CsvQuery"/> class.
         /// </summary>
-        /// <param name = "connectionbuilder" >
-        /// The connectionbuilder.
+        /// <param name = "connectionBuilder" >
+        /// The connectionBuilder.
         /// </param>
-        /// <param name = "sqlstatement" >
-        /// The sqlstatement.
+        /// <param name = "sqlStatement" >
+        /// The sqlStatement.
         /// </param>
-        public CsvQuery( IConnectionBuilder connectionbuilder, ISqlStatement sqlstatement )
-            : base( connectionbuilder, sqlstatement )
+        public CsvQuery( IConnectionBuilder connectionBuilder, ISqlStatement sqlStatement )
+            : base( connectionBuilder, sqlStatement )
         {
         }
 
@@ -292,10 +292,7 @@ namespace BudgetExecution
         /// </param>
         public void CsvExport( DataTable table, string filepath )
         {
-            if( table != null
-                && table.Columns.Count > 0
-                && table.Rows.Count > 0
-                && Verify.Input( filepath ) )
+            if( table?.Columns.Count > 0 && table.Rows.Count > 0 && Verify.Input( filepath ) )
             {
                 try
                 {
@@ -440,10 +437,7 @@ namespace BudgetExecution
         /// </returns>
         private bool SheetExists( string sheetname, DataTable datatable )
         {
-            if( Verify.Input( sheetname )
-                && datatable != null
-                && datatable.Columns.Count > 0
-                && datatable.Rows.Count > 0 )
+            if( Verify.Input( sheetname ) && datatable?.Columns.Count > 0 && datatable.Rows.Count > 0 )
             {
                 try
                 {

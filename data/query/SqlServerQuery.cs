@@ -38,8 +38,8 @@ namespace BudgetExecution
         {
         }
 
-        public SqlServerQuery( IConnectionBuilder connectionbuilder, ISqlStatement sqlstatement )
-            : base( connectionbuilder, sqlstatement )
+        public SqlServerQuery( IConnectionBuilder connectionBuilder, ISqlStatement sqlStatement )
+            : base( connectionBuilder, sqlStatement )
         {
         }
 

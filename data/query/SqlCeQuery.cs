@@ -73,14 +73,14 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref = "SqlCeQuery"/> class.
         /// </summary>
-        /// <param name = "connectionbuilder" >
-        /// The connectionbuilder.
+        /// <param name = "connectionBuilder" >
+        /// The connectionBuilder.
         /// </param>
-        /// <param name = "sqlstatement" >
-        /// The sqlstatement.
+        /// <param name = "sqlStatement" >
+        /// The sqlStatement.
         /// </param>
-        public SqlCeQuery( IConnectionBuilder connectionbuilder, ISqlStatement sqlstatement )
-            : base( connectionbuilder, sqlstatement )
+        public SqlCeQuery( IConnectionBuilder connectionBuilder, ISqlStatement sqlStatement )
+            : base( connectionBuilder, sqlStatement )
         {
         }
 

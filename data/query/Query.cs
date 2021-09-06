@@ -87,17 +87,17 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref = "Query"/> class.
         /// </summary>
-        /// <param name = "connectionbuilder" >
-        /// The connectionbuilder.
+        /// <param name = "connectionBuilder" >
+        /// The connectionBuilder.
         /// </param>
-        /// <param name = "sqlstatement" >
-        /// The sqlstatement.
+        /// <param name = "sqlStatement" >
+        /// The sqlStatement.
         /// </param>
-        public Query( IConnectionBuilder connectionbuilder, ISqlStatement sqlstatement )
+        public Query( IConnectionBuilder connectionBuilder, ISqlStatement sqlStatement )
         {
-            ConnectionBuilder = connectionbuilder;
+            ConnectionBuilder = connectionBuilder;
             ConnectionFactory = new ConnectionFactory( ConnectionBuilder );
-            SqlStatement = sqlstatement;
+            SqlStatement = sqlStatement;
             CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
             Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter();
             IsDisposed = false;

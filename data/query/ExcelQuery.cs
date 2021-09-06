@@ -80,10 +80,10 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
-        /// <param name="connectionbuilder">The connectionbuilder.</param>
-        /// <param name="sqlstatement">The sqlstatement.</param>
-        public ExcelQuery( IConnectionBuilder connectionbuilder, ISqlStatement sqlstatement )
-            : base( connectionbuilder, sqlstatement )
+        /// <param name="connectionBuilder">The connectionBuilder.</param>
+        /// <param name="sqlStatement">The sqlStatement.</param>
+        public ExcelQuery( IConnectionBuilder connectionBuilder, ISqlStatement sqlStatement )
+            : base( connectionBuilder, sqlStatement )
         {
         }
 
@@ -274,9 +274,7 @@ namespace BudgetExecution
                     var schema =
                         ( (OleDbConnection)connection )?.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
 
-                    if( schema != null
-                        && schema.Columns?.Count > 0
-                        && !SheetExists( sheetname, schema ) )
+                    if( schema?.Columns?.Count > 0 && !SheetExists( sheetname, schema ) )
                     {
                         const string msg = "Sheet Does Not Exist!";
                         using var message = new Message( msg );
@@ -411,10 +409,7 @@ namespace BudgetExecution
         /// </returns>
         private bool SheetExists( string sheetname, DataTable datatable )
         {
-            if( Verify.Input( sheetname )
-                && datatable != null
-                && datatable.Columns.Count > 0
-                && datatable.Rows.Count > 0 )
+            if( Verify.Input( sheetname ) && datatable?.Columns.Count > 0 && datatable.Rows.Count > 0 )
             {
                 try
                 {
