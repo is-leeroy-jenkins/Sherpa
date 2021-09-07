@@ -279,7 +279,8 @@ namespace BudgetExecution
 
             try
             {
-                var _lookup = _rows?.Where( p => p.Field<string>( $"{Field.AhCode}" ).Equals( "6A" ) )
+                var _lookup = _rows
+                    ?.Where( p => p.Field<string>( $"{Field.AhCode}" ).Equals( "6A" ) )
                     ?.Where( f => f.Field<string>( $"{Field.BocCode}" ) != $"{BOC.FTE}" )
                     ?.ToLookup( p => p.Field<string>( $"{Field.OrgCode}" ), p => p );
 
@@ -328,13 +329,15 @@ namespace BudgetExecution
 
             try
             {
-                var _rows = _enumerable?.Where( p => p.Field<string>( $"{Field.FundCode}" ).Contains( $"{FundCode.TR}" ) )
+                var _rows = _enumerable
+                    ?.Where( p => p.Field<string>( $"{Field.FundCode}" ).Contains( $"{FundCode.TR}" ) )
                     ?.Where( f => f.Field<string>( $"{Field.BocCode}" ) != $"{BOC.FTE}" )
                     ?.Select( p => p )?.ToArray();
 
                 for( var i = 0; i < _rows?.Length; i++ )
                 {
-                    var _lookup = _enumerable?.Where( p => p.Field<string>( $"{Field.FundCode}" ).StartsWith( $"{FundCode.TR}" ) )
+                    var _lookup = _enumerable
+                        ?.Where( p => p.Field<string>( $"{Field.FundCode}" ).StartsWith( $"{FundCode.TR}" ) )
                         ?.Where( f => f.Field<string>( $"{Field.BocCode}" ) != $"{BOC.FTE}" )
                         ?.Select( p => p )
                         ?.ToLookup( p => p.Field<string>( $"{Field.AccountCode}" ), p => p );
@@ -376,7 +379,8 @@ namespace BudgetExecution
 
             try
             {
-                var _lookup = _rows?.Where( f => f.Field<string>( $"{Field.FundCode}" ).Equals( $"{FundCode.TS3}" ) )
+                var _lookup = _rows
+                    ?.Where( f => f.Field<string>( $"{Field.FundCode}" ).Equals( $"{FundCode.TS3}" ) )
                     ?.Where( f => f.Field<string>( $"{Field.BocCode}" ) != $"{BOC.FTE}" )
                     ?.ToLookup( p => p.Field<string>( $"{Field.AccountCode}" ), p => p );
 
@@ -416,7 +420,8 @@ namespace BudgetExecution
 
             try
             {
-                var _rows = _enumerable?.Where( f => f.Field<string>( $"{Field.FundCode}" ).Equals( $"{FundCode.FS3}" ) )
+                var _rows = _enumerable
+                    ?.Where( f => f.Field<string>( $"{Field.FundCode}" ).Equals( $"{FundCode.FS3}" ) )
                     ?.Where( f => f.Field<string>( $"{Field.BocCode}" ) != $"{BOC.FTE}" )
                     ?.Select( f => f )?.ToArray();
 

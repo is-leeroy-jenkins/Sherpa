@@ -30,27 +30,27 @@ namespace BudgetExecution
         /// <summary>
         /// The XLS
         /// </summary>
-        private protected readonly string _xls = BudgetPath.ConnectionString[ "OleDb" ].ToString();
+        private protected readonly string _xls = DataPath.ConnectionString[ "OleDb" ].ToString();
 
         /// <summary>
         /// The XLSX
         /// </summary>
-        private protected readonly string _xlsx = BudgetPath.ConnectionString[ "Excel" ].ToString();
+        private protected readonly string _xlsx = DataPath.ConnectionString[ "Excel" ].ToString();
 
         /// <summary>
         /// The CSV
         /// </summary>
-        private protected readonly string _csv = BudgetPath.ConnectionString[ "CSV" ].ToString();
+        private protected readonly string _csv = DataPath.ConnectionString[ "CSV" ].ToString();
 
         /// <summary>
         /// The accdb
         /// </summary>
-        private protected readonly string _accdb = BudgetPath.ConnectionString[ "Access" ].ToString();
+        private protected readonly string _accdb = DataPath.ConnectionString[ "Access" ].ToString();
 
         /// <summary>
         /// The MDB
         /// </summary>
-        private protected readonly string _mdb = BudgetPath.ConnectionString[ "OleDb" ].ToString();
+        private protected readonly string _mdb = DataPath.ConnectionString[ "OleDb" ].ToString();
         
         /// <summary>
         /// Gets or sets the r6.
@@ -288,7 +288,7 @@ namespace BudgetExecution
                     var _sql = "SELECT * FROM [" + sheetName + "]";
 
                     var _connectionString =
-                        $@"_provider=Microsoft.Jet.OLEDB.4.0;_dataRow _source={Path.GetDirectoryName( fileName )};"
+                        $@"Provider=Microsoft.Jet.OLEDB.4.0;_dataRow _source={Path.GetDirectoryName( fileName )};"
                         + @"Extended Properties='Text;HDR=YES;FMT=Delimited'";
 
                     using var _connection = new OleDbConnection( _connectionString );

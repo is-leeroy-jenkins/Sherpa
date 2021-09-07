@@ -47,19 +47,19 @@ namespace BudgetExecution
         {
             _records = new DataBuilder( query )?.GetRecord();
             _id = new Key( _records, PrimaryKey.VendorId );
-            _code = new Element( _records, Field.Code );
-            _name = new Element( _records, Field.Name );
-            _dunsNumber = new Element( _records, Field.DunsNumber );
+            Code = new Element( _records, Field.Code );
+            Name = new Element( _records, Field.Name );
+            DunsNumber = new Element( _records, Field.DunsNumber );
             _programProjectCode = new Element( _records, Field.ProgramProjectCode );
             _focCode = new Element( _records, Field.FocCode );
             _focName = new Element( _records, Field.FocName );
             _documentType = new Element( _records, Field.DocumentType );
-            _documentNumber = new Element( _records, Field.DocumentNumber );
-            _startDate = new Time( _records, EventDate.StartDate );
-            _endDate = new Time( _records, EventDate.EndDate );
-            _closedDate = new Time( _records, EventDate.ClosedDate );
+            DocumentNumber = new Element( _records, Field.DocumentNumber );
+            StartDate = new Time( _records, EventDate.StartDate );
+            EndDate = new Time( _records, EventDate.EndDate );
+            ClosedDate = new Time( _records, EventDate.ClosedDate );
             _amount = new Amount( _records, Numeric.Amount );
-            _expended = new Amount( _records, Numeric.Expended );
+            Expended = new Amount( _records, Numeric.Expended );
             _ulo = new Amount( _records, Numeric.ULO );
             _data = _records?.ToDictionary();
         }
@@ -75,19 +75,19 @@ namespace BudgetExecution
         {
             _records = builder?.GetRecord();
             _id = new Key( _records, PrimaryKey.VendorId );
-            _code = new Element( _records, Field.Code );
-            _name = new Element( _records, Field.Name );
-            _dunsNumber = new Element( _records, Field.DunsNumber );
+            Code = new Element( _records, Field.Code );
+            Name = new Element( _records, Field.Name );
+            DunsNumber = new Element( _records, Field.DunsNumber );
             _programProjectCode = new Element( _records, Field.ProgramProjectCode );
             _focCode = new Element( _records, Field.FocCode );
             _focName = new Element( _records, Field.FocName );
             _documentType = new Element( _records, Field.DocumentType );
-            _documentNumber = new Element( _records, Field.DocumentNumber );
-            _startDate = new Time( _records, EventDate.StartDate );
-            _endDate = new Time( _records, EventDate.EndDate );
-            _closedDate = new Time( _records, EventDate.ClosedDate );
+            DocumentNumber = new Element( _records, Field.DocumentNumber );
+            StartDate = new Time( _records, EventDate.StartDate );
+            EndDate = new Time( _records, EventDate.EndDate );
+            ClosedDate = new Time( _records, EventDate.ClosedDate );
             _amount = new Amount( _records, Numeric.Amount );
-            _expended = new Amount( _records, Numeric.Expended );
+            Expended = new Amount( _records, Numeric.Expended );
             _ulo = new Amount( _records, Numeric.ULO );
             _data = _records?.ToDictionary();
         }
@@ -103,19 +103,19 @@ namespace BudgetExecution
         {
             _records = datarow;
             _id = new Key( _records, PrimaryKey.VendorId );
-            _code = new Element( _records, Field.Code );
-            _name = new Element( _records, Field.Name );
-            _dunsNumber = new Element( _records, Field.DunsNumber );
+            Code = new Element( _records, Field.Code );
+            Name = new Element( _records, Field.Name );
+            DunsNumber = new Element( _records, Field.DunsNumber );
             _programProjectCode = new Element( _records, Field.ProgramProjectCode );
             _focCode = new Element( _records, Field.FocCode );
             _focName = new Element( _records, Field.FocName );
             _documentType = new Element( _records, Field.DocumentType );
-            _documentNumber = new Element( _records, Field.DocumentNumber );
-            _startDate = new Time( _records, EventDate.StartDate );
-            _endDate = new Time( _records, EventDate.EndDate );
-            _closedDate = new Time( _records, EventDate.ClosedDate );
+            DocumentNumber = new Element( _records, Field.DocumentNumber );
+            StartDate = new Time( _records, EventDate.StartDate );
+            EndDate = new Time( _records, EventDate.EndDate );
+            ClosedDate = new Time( _records, EventDate.ClosedDate );
             _amount = new Amount( _records, Numeric.Amount );
-            _expended = new Amount( _records, Numeric.Expended );
+            Expended = new Amount( _records, Numeric.Expended );
             _ulo = new Amount( _records, Numeric.ULO );
             _data = _records?.ToDictionary();
         }
@@ -149,8 +149,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _code )
-                    ? _code
+                return Verify.Element( Code )
+                    ? Code
                     : Element.Default;
             }
             catch( Exception ex )
@@ -169,8 +169,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _name )
-                    ? _name
+                return Verify.Element( Name )
+                    ? Name
                     : Element.Default;
             }
             catch( Exception ex )
@@ -190,8 +190,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _name )
-                    ? _name?.GetValue()
+                return Verify.Element( Name )
+                    ? Name?.GetValue()
                     : string.Empty;
             }
             catch( Exception ex )
@@ -210,8 +210,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _dunsNumber )
-                    ? _dunsNumber
+                return Verify.Element( DunsNumber )
+                    ? DunsNumber
                     : Element.Default;
             }
             catch( Exception ex )
@@ -230,8 +230,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _documentNumber )
-                    ? _documentNumber
+                return Verify.Element( DocumentNumber )
+                    ? DocumentNumber
                     : Element.Default;
             }
             catch( Exception ex )
@@ -250,8 +250,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Time( _startDate )
-                    ? _startDate
+                return Verify.Time( StartDate )
+                    ? StartDate
                     : Time.Default;
             }
             catch( Exception ex )
@@ -270,8 +270,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Time( _endDate )
-                    ? _endDate
+                return Verify.Time( EndDate )
+                    ? EndDate
                     : Time.Default;
             }
             catch( Exception ex )
@@ -290,8 +290,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Time( _closedDate )
-                    ? _closedDate
+                return Verify.Time( ClosedDate )
+                    ? ClosedDate
                     : Time.Default;
             }
             catch( Exception ex )
@@ -310,8 +310,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Amount( _expended )
-                    ? _expended
+                return Verify.Amount( Expended )
+                    ? Expended
                     : default( IAmount );
             }
             catch( Exception ex )

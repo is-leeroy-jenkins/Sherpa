@@ -33,7 +33,7 @@ namespace BudgetExecution
         /// <param name="input">The input.</param>
         public DataFile( string input )
         {
-            _path = new BudgetPath( input );
+            _path = new DataPath( input );
             _fileInfo = new FileInfo( _path.GetFullPath() );
             _fullName = _fileInfo.FullName;
             _hasParent = CheckParent();

@@ -45,18 +45,18 @@ namespace BudgetExecution
         /// </param>
         public Employee( IQuery query )
         {
-            _record = new DataBuilder( query )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.EmployeeId );
-            _section = new Element( _record, Field.Section );
-            _firstName = new Element( _record, Field.FirstName );
-            _lastName = new Element( _record, Field.LastName );
-            _employeeNumber = new Element( _record, Field.EmployeeNumber );
-            _office = new Element( _record, Field.Office );
-            _phoneNumber = new Element( _record, Field.PhoneNumber );
-            _cellNumber = new Element( _record, Field.CellNumber );
-            _email = new Element( _record, Field.Email );
-            _status = new Element( _record, Field.Status );
-            _args = _record?.ToDictionary();
+            _records = new DataBuilder( query )?.GetRecord();
+            _id = new Key( _records, PrimaryKey.EmployeeId );
+            _section = new Element( _records, Field.Section );
+            _firstName = new Element( _records, Field.FirstName );
+            _lastName = new Element( _records, Field.LastName );
+            _employeeNumber = new Element( _records, Field.EmployeeNumber );
+            _office = new Element( _records, Field.Office );
+            _phoneNumber = new Element( _records, Field.PhoneNumber );
+            _cellNumber = new Element( _records, Field.CellNumber );
+            _email = new Element( _records, Field.Email );
+            _status = new Element( _records, Field.Status );
+            _args = _records?.ToDictionary();
         }
 
         /// <summary>
@@ -67,18 +67,18 @@ namespace BudgetExecution
         /// </param>
         public Employee( IBuilder builder )
         {
-            _record = builder?.GetRecord();
-            _id = new Key( _record, PrimaryKey.EmployeeId );
-            _section = new Element( _record, Field.Section );
-            _firstName = new Element( _record, Field.FirstName );
-            _lastName = new Element( _record, Field.LastName );
-            _employeeNumber = new Element( _record, Field.EmployeeNumber );
-            _office = new Element( _record, Field.Office );
-            _phoneNumber = new Element( _record, Field.PhoneNumber );
-            _cellNumber = new Element( _record, Field.CellNumber );
-            _email = new Element( _record, Field.Email );
-            _status = new Element( _record, Field.Status );
-            _args = _record?.ToDictionary();
+            _records = builder?.GetRecord();
+            _id = new Key( _records, PrimaryKey.EmployeeId );
+            _section = new Element( _records, Field.Section );
+            _firstName = new Element( _records, Field.FirstName );
+            _lastName = new Element( _records, Field.LastName );
+            _employeeNumber = new Element( _records, Field.EmployeeNumber );
+            _office = new Element( _records, Field.Office );
+            _phoneNumber = new Element( _records, Field.PhoneNumber );
+            _cellNumber = new Element( _records, Field.CellNumber );
+            _email = new Element( _records, Field.Email );
+            _status = new Element( _records, Field.Status );
+            _args = _records?.ToDictionary();
         }
 
         /// <summary>
@@ -89,18 +89,18 @@ namespace BudgetExecution
         /// </param>
         public Employee( DataRow dataRow )
         {
-            _record = dataRow;
-            _id = new Key( _record, PrimaryKey.EmployeeId );
-            _section = new Element( _record, Field.Section );
-            _firstName = new Element( _record, Field.FirstName );
-            _lastName = new Element( _record, Field.LastName );
-            _employeeNumber = new Element( _record, Field.EmployeeNumber );
-            _office = new Element( _record, Field.Office );
-            _phoneNumber = new Element( _record, Field.PhoneNumber );
-            _cellNumber = new Element( _record, Field.CellNumber );
-            _email = new Element( _record, Field.Email );
-            _status = new Element( _record, Field.Status );
-            _args = _record?.ToDictionary();
+            _records = dataRow;
+            _id = new Key( _records, PrimaryKey.EmployeeId );
+            _section = new Element( _records, Field.Section );
+            _firstName = new Element( _records, Field.FirstName );
+            _lastName = new Element( _records, Field.LastName );
+            _employeeNumber = new Element( _records, Field.EmployeeNumber );
+            _office = new Element( _records, Field.Office );
+            _phoneNumber = new Element( _records, Field.PhoneNumber );
+            _cellNumber = new Element( _records, Field.CellNumber );
+            _email = new Element( _records, Field.Email );
+            _status = new Element( _records, Field.Status );
+            _args = _records?.ToDictionary();
         }
 
         /// <summary>
@@ -111,18 +111,18 @@ namespace BudgetExecution
         /// </param>
         public Employee( string epaNumber )
         {
-            _record = new DataBuilder( _source, SetArgs( epaNumber ) )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.EmployeeId );
-            _section = new Element( _record, Field.Section );
-            _firstName = new Element( _record, Field.FirstName );
-            _lastName = new Element( _record, Field.LastName );
-            _employeeNumber = new Element( _record, Field.EmployeeNumber );
-            _office = new Element( _record, Field.Office );
-            _phoneNumber = new Element( _record, Field.PhoneNumber );
-            _cellNumber = new Element( _record, Field.CellNumber );
-            _email = new Element( _record, Field.Email );
-            _status = new Element( _record, Field.Status );
-            _args = _record?.ToDictionary();
+            _records = new DataBuilder( _source, SetArgs( epaNumber ) )?.GetRecord();
+            _id = new Key( _records, PrimaryKey.EmployeeId );
+            _section = new Element( _records, Field.Section );
+            _firstName = new Element( _records, Field.FirstName );
+            _lastName = new Element( _records, Field.LastName );
+            _employeeNumber = new Element( _records, Field.EmployeeNumber );
+            _office = new Element( _records, Field.Office );
+            _phoneNumber = new Element( _records, Field.PhoneNumber );
+            _cellNumber = new Element( _records, Field.CellNumber );
+            _email = new Element( _records, Field.Email );
+            _status = new Element( _records, Field.Status );
+            _args = _records?.ToDictionary();
         }
         
         /// <summary>

@@ -444,7 +444,7 @@
     <Compile Include="ninja\outlays\VendorData.cs" />
     <Compile Include="ninja\outlays\WorkCode.cs" />
     <Compile Include="ninja\outlays\WorkCodeBase.cs" />
-    <Compile Include="ninja\path\BudgetPath.cs" />
+    <Compile Include="ninja\path\DataPath.cs" />
     <Compile Include="ninja\path\IPath.cs" />
     <Compile Include="ninja\reader\ExcelReader.cs" />
     <Compile Include="ninja\reader\FileReader.cs" />

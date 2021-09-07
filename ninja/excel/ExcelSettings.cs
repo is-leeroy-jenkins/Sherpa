@@ -8,6 +8,7 @@ namespace BudgetExecution
     // ******************************   ASSEMBLIES   ****************************************************************************
     // **************************************************************************************************************************
 
+    using System;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
