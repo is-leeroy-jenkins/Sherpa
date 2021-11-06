@@ -39,10 +39,10 @@ namespace BudgetExecution
         /// <param name="value">The value.</param>
         public Amount( Numeric numeric = Numeric.Amount, double value = 0.0 )
         {
-            _data = value;
+            Data = value;
             _funding = value;
             _numeric = numeric;
-            _name = _numeric.ToString();
+            Name = _numeric.ToString();
             _initial = _funding;
             _delta = _initial - _funding;
         }
@@ -54,10 +54,10 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         public Amount( double value = 0, Numeric numeric = Numeric.Amount )
         {
-            _data = value;
+            Data = value;
             _funding = value;
             _numeric = numeric;
-            _name = _numeric.ToString();
+            Name = _numeric.ToString();
             _initial = _funding;
             _delta = _initial - _funding;
         }
@@ -70,9 +70,9 @@ namespace BudgetExecution
         public Amount( DataRow dataRow, Numeric numeric = Numeric.Amount )
         {
             _funding = double.Parse( dataRow[ $"{numeric}" ].ToString() );
-            _data = _funding.ToString();
+            Data = _funding.ToString();
             _numeric = numeric;
-            _name = _numeric.ToString();
+            Name = _numeric.ToString();
             _initial = _funding;
             _delta = _initial - _funding;
         }
@@ -192,8 +192,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _data?.ToString() )
-                    ? _data?.ToString()
+                return Verify.Input( Data?.ToString() )
+                    ? Data?.ToString()
                     : string.Empty;
             }
             catch( Exception ex )
@@ -218,7 +218,7 @@ namespace BudgetExecution
                 try
                 {
                     if( amount?.GetFunding() == _funding
-                        && amount?.GetName()?.Equals( _name ) == true )
+                        && amount?.GetName()?.Equals( Name ) == true )
                     {
                         return true;
                     }

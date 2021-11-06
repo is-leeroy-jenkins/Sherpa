@@ -76,7 +76,7 @@ namespace BudgetExecution
         /// </summary>
         public ReportFormat()
         {
-            FileInfo = new FileInfo( _filePath );
+            FileInfo = new FileInfo( FilePath );
             Excel = new ExcelPackage( FileInfo );
             Workbook = Excel.Workbook;
         }
@@ -93,17 +93,17 @@ namespace BudgetExecution
             Data = dataTable.AsEnumerable();
             Worksheet = Workbook.Worksheets.Add( dataTable.TableName );
             Worksheet.View.ShowGridLines = false;
-            Worksheet.View.ZoomScale = _zoomLevel;
+            Worksheet.View.ZoomScale = ZoomLevel;
             Worksheet.View.PageLayoutView = true;
             Worksheet.View.ShowHeaders = true;
-            Worksheet.DefaultRowHeight = _rowHeight;
-            Worksheet.DefaultColWidth = _columnWidth;
+            Worksheet.DefaultRowHeight = RowHeight;
+            Worksheet.DefaultColWidth = ColumnWidth;
             Worksheet.PrinterSettings.ShowHeaders = false;
             Worksheet.PrinterSettings.ShowGridLines = false;
-            Worksheet.PrinterSettings.LeftMargin = _leftMargin;
-            Worksheet.PrinterSettings.RightMargin = _rightMargin;
-            Worksheet.PrinterSettings.TopMargin = _topMargin;
-            Worksheet.PrinterSettings.BottomMargin = _bottomMarging;
+            Worksheet.PrinterSettings.LeftMargin = LeftMargin;
+            Worksheet.PrinterSettings.RightMargin = RightMargin;
+            Worksheet.PrinterSettings.TopMargin = TopMargin;
+            Worksheet.PrinterSettings.BottomMargin = BottomMargin;
             Worksheet.PrinterSettings.HorizontalCentered = true;
             Worksheet.PrinterSettings.VerticalCentered = true;
             Worksheet.PrinterSettings.FitToPage = true;
@@ -123,10 +123,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _gridFont = Font;
+                    using var _font = Font;
                     SetFontColor( grid, FontColor );
-                    SetBackgroudColor( grid, _primaryBackColor );
-                    SetHorizontalAligment( grid, _left );
+                    SetBackgroudColor( grid, PrimaryBackColor );
+                    SetHorizontalAligment( grid, Left );
                 }
                 catch( Exception ex )
                 {
@@ -152,8 +152,8 @@ namespace BudgetExecution
                     var _row = _range.Start.Row;
                     var _column = _range.Start.Column;
                     SetFontColor( grid, FontColor );
-                    SetBackgroudColor( grid, _primaryBackColor );
-                    SetHorizontalAligment( grid, _left );
+                    SetBackgroudColor( grid, PrimaryBackColor );
+                    SetHorizontalAligment( grid, Left );
                     _worksheet.Cells[ _row, _column ].Value = "Account";
                     _worksheet.Cells[ _row, _column + 1 ].Value = "Site";
                     _worksheet.Cells[ _row, _column + 2 ].Value = "Travel";
@@ -188,8 +188,8 @@ namespace BudgetExecution
                     {
                         excelRange.Style.Font.SetFromFont( Font );
                         excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                        excelRange.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
-                        excelRange.Style.HorizontalAlignment = _center;
+                        excelRange.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
+                        excelRange.Style.HorizontalAlignment = Center;
                         excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
                     }
                 }
@@ -220,7 +220,7 @@ namespace BudgetExecution
                         excelRange.Style.Font.SetFromFont( Font );
                         excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
                         excelRange.Style.Fill.BackgroundColor.SetColor( Color.White );
-                        excelRange.Style.HorizontalAlignment = _center;
+                        excelRange.Style.HorizontalAlignment = Center;
                         excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
                     }
                 }
@@ -320,8 +320,8 @@ namespace BudgetExecution
                     _range.Style.Font.SetFromFont( TitleFont );
                     _range.Style.Border.BorderAround( ExcelBorderStyle.Thin );
                     _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    _range.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
-                    _range.Style.HorizontalAlignment = _center;
+                    _range.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
+                    _range.Style.HorizontalAlignment = Center;
                 }
                 catch( Exception ex )
                 {
@@ -353,7 +353,7 @@ namespace BudgetExecution
                         excelRange.Start.Row, excelRange.Start.Column + 6 ];
 
                     _total.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    _total.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
+                    _total.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
                     _range.Style.Border.Bottom.Style = ExcelBorderStyle.Double;
                 }
                 catch( Exception ex )

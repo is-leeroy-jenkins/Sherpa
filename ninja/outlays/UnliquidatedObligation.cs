@@ -4,10 +4,6 @@
 
 namespace BudgetExecution
 {
-    // ******************************************************************************************************************************
-    // ******************************************************   ASSEMBLIES   ********************************************************
-    // ******************************************************************************************************************************
-
     using System;
     using System.Collections.Generic;
     using System.Data;
@@ -20,6 +16,14 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class UnliquidatedObligation : Obligation
     {
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public new Source Source { get; } = Source.ULO;
+
         /// <summary>
         /// Initializes a new instance of the <see cref = "UnliquidatedObligation"/> class.
         /// </summary>
@@ -74,14 +78,6 @@ namespace BudgetExecution
             ULO = new Amount( Record, Numeric.ULO );
             Data = Record?.ToDictionary();
         }
-        
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        protected new Source _source = Source.ULO;
         
         /// <summary>
         /// Gets the unliquidated obligation identifier.

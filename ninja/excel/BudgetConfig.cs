@@ -75,7 +75,7 @@ namespace BudgetExecution
                         _excelComment.From.Column = _range.Start.Column;
                         _excelComment.To.Row = _range.End.Row;
                         _excelComment.To.Column = _range.End.Column;
-                        _excelComment.BackgroundColor = _primaryBackColor;
+                        _excelComment.BackgroundColor = PrimaryBackColor;
                         _excelComment.Font.FontName = "Consolas";
                         _excelComment.Font.Size = 8;
                         _excelComment.Font.Color = Color.Black;
@@ -159,17 +159,17 @@ namespace BudgetExecution
             {
                 workSheet = Workbook.Worksheets[ 1 ];
                 workSheet.View.ShowGridLines = false;
-                workSheet.View.ZoomScale = _zoomLevel;
+                workSheet.View.ZoomScale = ZoomLevel;
                 workSheet.View.PageLayoutView = true;
                 workSheet.View.ShowHeaders = true;
-                workSheet.DefaultRowHeight = _rowHeight;
-                workSheet.DefaultColWidth = _columnWidth;
+                workSheet.DefaultRowHeight = RowHeight;
+                workSheet.DefaultColWidth = ColumnWidth;
                 workSheet.PrinterSettings.ShowHeaders = false;
                 workSheet.PrinterSettings.ShowGridLines = false;
-                workSheet.PrinterSettings.LeftMargin = _leftMargin;
-                workSheet.PrinterSettings.RightMargin = _rightMargin;
-                workSheet.PrinterSettings.TopMargin = _topMargin;
-                workSheet.PrinterSettings.BottomMargin = _bottomMarging;
+                workSheet.PrinterSettings.LeftMargin = LeftMargin;
+                workSheet.PrinterSettings.RightMargin = RightMargin;
+                workSheet.PrinterSettings.TopMargin = TopMargin;
+                workSheet.PrinterSettings.BottomMargin = BottomMargin;
                 workSheet.PrinterSettings.HorizontalCentered = true;
                 workSheet.PrinterSettings.VerticalCentered = true;
                 workSheet.PrinterSettings.FitToPage = true;

@@ -27,7 +27,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        private protected new Source _source = Source.Vendors;
+        public new Source Source { get; } = Source.Vendors;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Vendor"/> class.
@@ -58,7 +58,7 @@ namespace BudgetExecution
             StartDate = new Time( Record, EventDate.StartDate );
             EndDate = new Time( Record, EventDate.EndDate );
             ClosedDate = new Time( Record, EventDate.ClosedDate );
-            _amount = new Amount( Record, Numeric.Amount );
+            Amount = new Amount( Record, Numeric.Amount );
             Expended = new Amount( Record, Numeric.Expended );
             ULO = new Amount( Record, Numeric.ULO );
             Data = Record?.ToDictionary();
@@ -86,7 +86,7 @@ namespace BudgetExecution
             StartDate = new Time( Record, EventDate.StartDate );
             EndDate = new Time( Record, EventDate.EndDate );
             ClosedDate = new Time( Record, EventDate.ClosedDate );
-            _amount = new Amount( Record, Numeric.Amount );
+            Amount = new Amount( Record, Numeric.Amount );
             Expended = new Amount( Record, Numeric.Expended );
             ULO = new Amount( Record, Numeric.ULO );
             Data = Record?.ToDictionary();
@@ -114,7 +114,7 @@ namespace BudgetExecution
             StartDate = new Time( Record, EventDate.StartDate );
             EndDate = new Time( Record, EventDate.EndDate );
             ClosedDate = new Time( Record, EventDate.ClosedDate );
-            _amount = new Amount( Record, Numeric.Amount );
+            Amount = new Amount( Record, Numeric.Amount );
             Expended = new Amount( Record, Numeric.Expended );
             ULO = new Amount( Record, Numeric.ULO );
             Data = Record?.ToDictionary();

@@ -24,7 +24,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; } =  Source.Expenditures;
+        public new Source Source { get; } =  Source.Expenditures;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Expenditure"/> class.

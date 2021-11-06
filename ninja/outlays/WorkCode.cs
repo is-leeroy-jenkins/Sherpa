@@ -23,12 +23,8 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        private readonly static Source _source = Source.WorkCodes;
-
-        // ***************************************************************************************************************************
-        // *********************************************   CONSTRUCTORS **************************************************************
-        // ***************************************************************************************************************************
-
+        public Source Source { get; } = Source.WorkCodes;
+        
         /// <summary>
         /// Initializes a new instance of the <see cref = "WorkCode"/> class.
         /// </summary>
@@ -63,7 +59,7 @@ namespace BudgetExecution
             ProjectCode = new Element( Record, Field.ProjectCode );
             ProjectCodeName = new Element( Record, Field.ProjectName );
             ApprovalDate = DateTime.Parse( Record[ $"{Field.ApprovalDate}" ].ToString() );
-            _args = Record?.ToDictionary();
+            Args = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -92,7 +88,7 @@ namespace BudgetExecution
             ProjectCode = new Element( Record, Field.ProjectCode );
             ProjectCodeName = new Element( Record, Field.ProjectName );
             ApprovalDate = DateTime.Parse( Record?[ $"{Field.ApprovalDate}" ].ToString() );
-            _args = Record?.ToDictionary();
+            Args = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -121,7 +117,7 @@ namespace BudgetExecution
             ProjectCode = new Element( Record, Field.ProjectCode );
             ProjectCodeName = new Element( Record, Field.ProjectName );
             ApprovalDate = DateTime.Parse( Record[ $"{Field.ApprovalDate}" ].ToString() );
-            _args = Record?.ToDictionary();
+            Args = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -130,7 +126,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        private readonly IDictionary<string, object> _args;
+        public IDictionary<string, object> Args { get; set; }
         
         /// <summary>
         /// Converts to string.
@@ -327,11 +323,11 @@ namespace BudgetExecution
         /// </returns>
         public IEnumerable<IWorkCode> GetWorkCodes()
         {
-            if( Verify.Map( _args ) )
+            if( Verify.Map( Args ) )
             {
                 try
                 {
-                    var _data = new Builder( Source.WorkCodes, _args )
+                    var _data = new Builder( Source.WorkCodes, Args )
                         ?.GetData()
                         ?.Select( h => h );
 
@@ -361,8 +357,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( _args )
-                    ? _args
+                return Verify.Map( Args )
+                    ? Args
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )
@@ -381,8 +377,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.Source( _source )
-                    ? _source
+                return Validate.Source( Source )
+                    ? Source
                     : Source.NS;
             }
             catch( Exception ex )

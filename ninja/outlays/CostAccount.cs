@@ -18,7 +18,7 @@ namespace BudgetExecution
         /// <summary>
         /// The ProgramResultCodes
         /// </summary>
-        private readonly IProgramResultsCode _prc;
+        public IProgramResultsCode PRC { get; set; }
         
         /// <summary>
         /// Initializes a new instance of the <see cref = "CostAccount"/> class.
@@ -29,7 +29,7 @@ namespace BudgetExecution
         public CostAccount( DataRow dataRow )
         {
             Record = dataRow;
-            _prc = new ProgramResultsCode( dataRow );
+            PRC = new ProgramResultsCode( dataRow );
             ID = new Key( Record, PrimaryKey.PrcId );
             NpmCode = new Element( Record, Field.NpmCode );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
@@ -124,8 +124,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _prc?.GetAmount()?.GetFunding() > 0.0
-                    ? _prc
+                return PRC?.GetAmount()?.GetFunding() > 0.0
+                    ? PRC
                     : default( IProgramResultsCode );
             }
             catch( Exception ex )

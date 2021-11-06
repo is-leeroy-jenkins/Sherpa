@@ -25,7 +25,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        private const Source _source = Source.Deobligations;
+        public new Source Source { get; } = Source.Deobligations;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Deobligation"/> class.
@@ -44,7 +44,7 @@ namespace BudgetExecution
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.DeobligationId );
             OriginalActionDate = GetOriginalActionDate();
-            _amount = GetDeobligations();
+            Amount = GetDeobligations();
             Data = Record?.ToDictionary();
             Type = OutlayType.Deobligation;
         }
@@ -61,7 +61,7 @@ namespace BudgetExecution
             Record = db.GetRecord();
             ID = new Key( Record, PrimaryKey.DeobligationId );
             OriginalActionDate = GetOriginalActionDate();
-            _amount = GetDeobligations();
+            Amount = GetDeobligations();
             Data = Record?.ToDictionary();
             Type = OutlayType.Deobligation;
         }
@@ -78,7 +78,7 @@ namespace BudgetExecution
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.DeobligationId );
             OriginalActionDate = GetOriginalActionDate();
-            _amount = GetDeobligations();
+            Amount = GetDeobligations();
             Data = Record?.ToDictionary();
             Type = OutlayType.Deobligation;
         }

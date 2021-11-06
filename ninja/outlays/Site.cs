@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        private const Source _source = Source.Sites;
+        public new Source Source { get;  } = Source.Sites;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Site"/> class.

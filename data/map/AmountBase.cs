@@ -45,7 +45,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    _name = Verify.Input( columnName )
+                    Name = Verify.Input( columnName )
                         ? columnName
                         : default( string );
                 }
@@ -72,7 +72,7 @@ namespace BudgetExecution
                     var _names = dataRow?.Table
                         ?.GetColumnNames();
 
-                    _name = _names?.Contains( columnName ) == true
+                    Name = _names?.Contains( columnName ) == true
                         ? columnName
                         : default( string );
                 }
@@ -93,7 +93,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    _name = Validate.Numeric( numeric )
+                    Name = Validate.Numeric( numeric )
                         ? numeric.ToString()
                         : default( string );
                 }
@@ -119,7 +119,7 @@ namespace BudgetExecution
                     var _columnNames = dataRow?.Table
                         ?.GetColumnNames();
 
-                    _name = _columnNames?.Contains( numeric.ToString() ) == true
+                    Name = _columnNames?.Contains( numeric.ToString() ) == true
                         ? numeric.ToString()
                         : default( string );
                 }
@@ -243,7 +243,7 @@ namespace BudgetExecution
                 if( Verify.Input( value )
                     && Enum.GetNames( typeof( Numeric ) ).Contains( value ) )
                 {
-                    _value = value;
+                    Value = value;
                 }
             }
             catch( Exception ex )
@@ -268,7 +268,7 @@ namespace BudgetExecution
                     var _names = dataRow.Table
                         ?.GetColumnNames();
 
-                    _value = _names.Contains( columnName )
+                    Value = _names.Contains( columnName )
                         ? dataRow[ columnName ].ToString()
                         : string.Empty;
                 }
@@ -296,7 +296,7 @@ namespace BudgetExecution
 
                     if( _names?.Any() == true )
                     {
-                        _value = _names.Contains( numeric.ToString() )
+                        Value = _names.Contains( numeric.ToString() )
                             ? dataRow[ $"{numeric}" ].ToString()
                             : string.Empty;
                     }

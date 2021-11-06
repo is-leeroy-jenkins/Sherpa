@@ -26,12 +26,12 @@ namespace BudgetExecution
         /// <value>
         /// The amount.
         /// </value>
-        private protected IAmount _amount;
+        public IAmount Amount { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        private const Source _source = Source.Obligations;
+        public Source Source { get; } = Source.Obligations;
 
         /// <inheritdoc/>
         /// <summary>
@@ -52,7 +52,7 @@ namespace BudgetExecution
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.ObligationId );
             OriginalActionDate = GetOriginalActionDate();
-            _amount = new Amount( Record, Numeric.Obligations );
+            Amount = new Amount( Record, Numeric.Obligations );
             Data = Record?.ToDictionary();
             Type = OutlayType.Obligation;
         }
@@ -68,7 +68,7 @@ namespace BudgetExecution
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.ObligationId );
             OriginalActionDate = GetOriginalActionDate();
-            _amount = new Amount( Record, Numeric.Obligations );
+            Amount = new Amount( Record, Numeric.Obligations );
             Data = Record?.ToDictionary();
             Type = OutlayType.Obligation;
         }
@@ -85,7 +85,7 @@ namespace BudgetExecution
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ObligationId );
             OriginalActionDate = GetOriginalActionDate();
-            _amount = new Amount( Record, Numeric.Obligations );
+            Amount = new Amount( Record, Numeric.Obligations );
             Data = Record?.ToDictionary();
             Type = OutlayType.Obligation;
         }
@@ -139,8 +139,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Amount( _amount )
-                    ? _amount
+                return Verify.Amount( Amount )
+                    ? Amount
                     : default( IAmount );
             }
             catch( Exception ex )
@@ -159,8 +159,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.Source( _source )
-                    ? new Builder( _source, Data )
+                return Validate.Source( Source )
+                    ? new Builder( Source, Data )
                     : default( Builder );
             }
             catch( Exception ex )

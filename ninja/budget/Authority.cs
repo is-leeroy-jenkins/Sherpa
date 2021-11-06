@@ -60,15 +60,7 @@ namespace BudgetExecution
         /// The fund.
         /// </value>
         public IFund Fund { get; } 
-
-        /// <summary>
-        /// Gets or sets the budget level.
-        /// </summary>
-        /// <value>
-        /// The budget level.
-        /// </value>
-        public IBudgetLevel BudgetLevel { get; } 
-
+        
         /// <summary>
         /// Gets or sets the allowance holder.
         /// </summary>
@@ -112,7 +104,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; } 
+        public new Source Source { get; } = Source.Allocations;
 
         /// <summary>
         /// Initializes a new instance of the <see/> class.
@@ -135,7 +127,7 @@ namespace BudgetExecution
             BudgetFiscalYear = GetBudgetFiscalYear();
             RPIO = GetResourcePlanningOffice();
             Fund = GetFund();
-            BudgetLevel = GetBudgetLevel();
+            BudgetLevel = new Element( Record, Field.BudgetLevel );
             AllowanceHolder = GetAllowanceHolder();
             Organization = GetOrganization();
             Account = GetAccount();
@@ -157,7 +149,7 @@ namespace BudgetExecution
             BudgetFiscalYear = GetBudgetFiscalYear();
             RPIO = GetResourcePlanningOffice();
             Fund = GetFund();
-            BudgetLevel = GetBudgetLevel();
+            BudgetLevel = new Element( Record, Field.BudgetLevel );
             AllowanceHolder = GetAllowanceHolder();
             Organization = GetOrganization();
             Account = GetAccount();
@@ -180,7 +172,7 @@ namespace BudgetExecution
             BudgetFiscalYear = GetBudgetFiscalYear();
             RPIO = GetResourcePlanningOffice();
             Fund = GetFund();
-            BudgetLevel = GetBudgetLevel();
+            BudgetLevel = new Element( Record, Field.BudgetLevel );
             AllowanceHolder = GetAllowanceHolder();
             Organization = GetOrganization();
             Account = GetAccount();

@@ -44,7 +44,7 @@ namespace BudgetExecution
         /// <value>
         /// The authority data.
         /// </value>
-        private protected CostAccount _prc;
+        public CostAccount PRC { get; set; }
         
         /// <summary>
         /// Gets the outlay identifier.

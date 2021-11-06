@@ -118,7 +118,7 @@ namespace BudgetExecution
                     using var _range = grid.GetRange();
                     _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     _range.Style.Fill.BackgroundColor.SetColor( color );
-                    _range.Style.HorizontalAlignment = _left;
+                    _range.Style.HorizontalAlignment = Left;
                 }
                 catch( Exception ex )
                 {

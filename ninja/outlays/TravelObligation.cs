@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; } =  Source.TravelObligations;
+        public new Source Source { get; } =  Source.TravelObligations;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "TravelObligation"/> class.
@@ -53,7 +53,7 @@ namespace BudgetExecution
             Destination = new Element( Record, Field.Destination );
             StartDate = new Time( Record, EventDate.StartDate );
             EndDate = new Time( Record, EventDate.EndDate );
-            _amount = new Amount( Record, Numeric.Amount );
+            Amount = new Amount( Record, Numeric.Amount );
             Data = Record?.ToDictionary();
             Type = OutlayType.Obligation;
         }
@@ -80,7 +80,7 @@ namespace BudgetExecution
             Destination = new Element( Record, Field.Destination );
             StartDate = new Time( Record, EventDate.StartDate );
             EndDate = new Time( Record, EventDate.EndDate );
-            _amount = new Amount( Record, Numeric.Amount );
+            Amount = new Amount( Record, Numeric.Amount );
             Data = Record?.ToDictionary();
             Type = OutlayType.Obligation;
         }
@@ -106,7 +106,7 @@ namespace BudgetExecution
             Destination = new Element( Record, Field.Destination );
             StartDate = new Time( Record, EventDate.StartDate );
             EndDate = new Time( Record, EventDate.EndDate );
-            _amount = new Amount( Record, Numeric.Amount );
+            Amount = new Amount( Record, Numeric.Amount );
             Data = Record?.ToDictionary();
             Type = OutlayType.Obligation;
         }
@@ -300,8 +300,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _amount?.GetFunding() > -1.0
-                    ? _amount
+                return Amount?.GetFunding() > -1.0
+                    ? Amount
                     : default( IAmount );
             }
             catch( Exception ex )

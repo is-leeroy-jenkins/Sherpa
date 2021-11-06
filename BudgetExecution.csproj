@@ -406,14 +406,10 @@
     <Compile Include="ninja\outlays\Obligation.cs" />
     <Compile Include="ninja\outlays\OpenCommitment.cs" />
     <Compile Include="ninja\outlays\Outlay.cs" />
-    <Compile Include="ninja\outlays\Payment.cs" />
     <Compile Include="ninja\outlays\PayrollBase.cs" />
     <Compile Include="ninja\outlays\PayrollFactory.cs" />
     <Compile Include="ninja\outlays\PayrollHours.cs" />
     <Compile Include="ninja\outlays\PayrollObligation.cs" />
-    <Compile Include="ninja\outlays\Procurement.cs" />
-    <Compile Include="ninja\outlays\ProcurementData.cs" />
-    <Compile Include="ninja\outlays\Purchase.cs" />
     <Compile Include="ninja\outlays\Reimbursable.cs" />
     <Compile Include="ninja\outlays\Site.cs" />
     <Compile Include="ninja\outlays\SiteData.cs" />
