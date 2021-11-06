@@ -13,12 +13,12 @@ namespace BudgetExecution
     public class SqlServerQuery : Query
     {
         /// <summary>
-        /// Gets or sets the _provider
+        /// Gets or sets the Provider
         /// </summary>
         /// <value>
         /// The provider.
         /// </value>
-        private readonly Provider _provider = Provider.SqlServer;
+        public Provider Provider { get; } = Provider.SqlServer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SqlServerQuery"/> class.

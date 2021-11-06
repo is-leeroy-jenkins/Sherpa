@@ -39,7 +39,7 @@ namespace BudgetExecution
         /// <summary>
         /// The file name
         /// </summary>
-        private protected readonly string _fileName = @"\<_source>\<name>";
+        private protected readonly string _fileName = @"\<Source>\<name>";
 
         /// <summary>
         /// The background color

@@ -150,7 +150,6 @@ C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.PdfViewer.Windo
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.XlsIO.Base.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.Data.SQLite.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.IO.Packaging.xml
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Properties.Resources.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.GenerateResource.cache
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.CoreCompileInputs.cache

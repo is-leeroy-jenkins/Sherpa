@@ -16,14 +16,19 @@ namespace BudgetExecution
     using App = Microsoft.Office.Interop.Excel.Application;
     using DataTable = System.Data.DataTable;
 
-    /// <inheritdoc/>
     /// <summary>
+    /// 
     /// </summary>
-    /// <seealso cref = "T:BudgetExecution.Query"/>
-    /// <seealso cref = "T:BudgetExecution.IQueryBase"/>
+    /// <seealso cref="BudgetExecution.Query" />
     public class ExcelQuery : Query
     {
-        private protected Provider Provider { get; } = Provider.Excel;
+        /// <summary>
+        /// Gets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider { get; } = Provider.Excel;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
@@ -35,7 +40,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
-        /// <param name="filePath">The filePath.</param>
+        /// <param name="filePath">The file path.</param>
         /// <param name="command">The command.</param>
         public ExcelQuery( string filePath, SQL command = SQL.SELECT )
             : base( filePath, command )
@@ -45,7 +50,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
-        /// <param name="filePath">The filePath.</param>
+        /// <param name="filePath">The file path.</param>
         /// <param name="command">The command.</param>
         /// <param name="dict">The dictionary.</param>
         public ExcelQuery( string filePath, SQL command, IDictionary<string, object> dict )
@@ -56,7 +61,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
-        /// <param name="filePath">The filePath.</param>
+        /// <param name="filePath">The file path.</param>
         /// <param name="dict">The dictionary.</param>
         public ExcelQuery( string filePath, IDictionary<string, object> dict )
             : base( filePath, SQL.SELECT, dict )
@@ -72,37 +77,11 @@ namespace BudgetExecution
             : base( connectionBuilder, sqlStatement )
         {
         }
-
-        /// <summary>
-        /// Gets or sets the r6.
-        /// </summary>
-        /// <value>
-        /// The r6.
-        /// </value>
-        private protected readonly DataSet _dataSet;
-
-        /// <summary>
-        /// Gets or sets the dataTable.
-        /// </summary>
-        /// <value>
-        /// The dataTable.
-        /// </value>
-        private protected readonly DataTable _table;
-
-        /// <summary>
-        /// Gets or sets the excel.
-        /// </summary>
-        /// <value>
-        /// The excel.
-        /// </value>
-        private protected readonly ExcelPackage _excel;
-
+        
         /// <summary>
         /// Saves the file.
         /// </summary>
-        /// <dict name = "workBook" >
-        /// The workBook.
-        /// </dict>
+        /// <param name="workBook">The work book.</param>
         public void SaveFile( Workbook workBook )
         {
             if( workBook != null )
@@ -131,11 +110,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Exports to excel.
+        /// Writes the excel file.
         /// </summary>
-        /// <dict name = "table" >
-        /// The dataTable.
-        /// </dict>
+        /// <param name="table">The table.</param>
+        /// <param name="filePath">The file path.</param>
         public void WriteExcelFile( DataTable table, string filePath )
         {
             if( Verify.Table( table )
@@ -170,13 +148,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Creates the excel file.
+        /// Reads the excel file.
         /// </summary>
-        /// <param name = "filePath" >
-        /// The filePath.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="filePath">The file path.</param>
+        /// <returns></returns>
         private static ExcelPackage ReadExcelFile( string filePath )
         {
             if( Verify.Input( filePath ) )
@@ -197,10 +172,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the file path.
+        /// Gets the excel file.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public string GetExcelFile()
         {
             try
@@ -231,13 +205,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the data dataTable from excel file.
+        /// Imports the data.
         /// </summary>
-        /// <dict name = "sheetName" >
-        /// The sheetName.
-        /// </dict>
-        /// <returns>
-        /// </returns>
+        /// <param name="sheetName">Name of the sheet.</param>
+        /// <returns></returns>
         public DataTable ImportData( ref string sheetName )
         {
             if( Verify.Input( sheetName ) )
@@ -279,16 +250,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the data dataTable from CSV file.
+        /// CSVs the import.
         /// </summary>
-        /// <dict name = "fileName" >
-        /// The fileName.
-        /// </dict>
-        /// <dict name = "sheetName" >
-        /// The sheetName.
-        /// </dict>
-        /// <returns>
-        /// </returns>
+        /// <param name="fileName">Name of the file.</param>
+        /// <param name="sheetName">Name of the sheet.</param>
+        /// <returns></returns>
         public DataTable CsvImport( string fileName, ref string sheetName )
         {
             if( Verify.Input( fileName )
@@ -300,7 +266,7 @@ namespace BudgetExecution
                     var _sql = "SELECT * FROM [" + sheetName + "]";
 
                     var _connectionString =
-                        $@"_provider=Microsoft.Jet.OLEDB.4.0;Data Source={Path.GetDirectoryName( fileName )};"
+                        $@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={Path.GetDirectoryName( fileName )};"
                         + @"Extended Properties='Text;HDR=YES;FMT=Delimited'";
 
                     using var _connection = new OleDbConnection( _connectionString );
@@ -335,11 +301,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Imports to data grid view.
+        /// Exports to data grid.
         /// </summary>
-        /// <dict name = "dataGrid" >
-        /// The dataGrid.
-        /// </dict>
+        /// <param name="dataGrid">The data grid.</param>
         private void ExportToDataGrid( DataGridView dataGrid )
         {
             try
@@ -376,16 +340,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Checks if sheet name exists.
+        /// Sheets the exists.
         /// </summary>
-        /// <dict name = "sheetName" >
-        /// _name of the sheet.
-        /// </dict>
-        /// <dict name = "dataTable" >
-        /// The dt dataTable.
-        /// </dict>
-        /// <returns>
-        /// </returns>
+        /// <param name="sheetName">Name of the sheet.</param>
+        /// <param name="dataTable">The data table.</param>
+        /// <returns></returns>
         private bool SheetExists( string sheetName, DataTable dataTable )
         {
             if( Verify.Input( sheetName )
@@ -416,20 +375,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Disposes the excel objects.
+        /// Releases the specified range.
         /// </summary>
-        /// <param name = "range" >
-        /// The range.
-        /// </param>
-        /// <param name = "workSheet" >
-        /// The workSheet.
-        /// </param>
-        /// <param name = "workBook" >
-        /// The workBook.
-        /// </param>
-        /// <param name = "excel" >
-        /// The excel.
-        /// </param>
+        /// <param name="range">The range.</param>
+        /// <param name="workSheet">The work sheet.</param>
+        /// <param name="workBook">The work book.</param>
+        /// <param name="excel">The excel.</param>
         protected virtual void Release( Range range, Worksheet workSheet, Workbook workBook,
             App excel )
         {
@@ -450,10 +401,17 @@ namespace BudgetExecution
             }
         }
 
-        /// <inheritdoc/>
         /// <summary>
-        /// The Dispose
+        /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
+        /// <param name="disposing"><c>
+        /// true
+        /// </c>
+        /// to release both managed and unmanaged resources;
+        /// <c>
+        /// false
+        /// </c>
+        /// to release only unmanaged resources.</param>
         protected override void Dispose( bool disposing )
         {
             if( disposing )

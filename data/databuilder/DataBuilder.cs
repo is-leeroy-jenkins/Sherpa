@@ -67,10 +67,10 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="DataBuilder"/> class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        public DataBuilder( DataRow dataRow )
+        /// <param name="row">The data row.</param>
+        public DataBuilder( DataRow row )
         {
-            _record = dataRow;
+            Record = row;
         }
 
         /// <summary>
@@ -80,17 +80,17 @@ namespace BudgetExecution
         /// <returns></returns>
         public DateTime GetDate( Field field )
         {
-            if( Verify.Row( _record )
+            if( Verify.Row( Record )
                 && Validate.Field( field ) )
             {
                 try
                 {
-                    var _columns = _record.Table
+                    var _columns = Record.Table
                         ?.GetColumnNames();
 
                     if( _columns?.Contains( $"{field}" ) == true )
                     {
-                        var _date = _record.GetDate( field );
+                        var _date = Record.GetDate( field );
 
                         return Verify.DateTime( _date )
                             ? _date

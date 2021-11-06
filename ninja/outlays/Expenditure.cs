@@ -19,7 +19,7 @@ namespace BudgetExecution
     public class Expenditure : Obligation
     {
         /// <summary>
-        /// Gets or sets the _source.
+        /// Gets or sets the Source.
         /// </summary>
         /// <value>
         /// The source.

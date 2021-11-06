@@ -18,7 +18,7 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref = "Query"/>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class CsvQuery : Query
     {
         /// <summary>
@@ -27,7 +27,7 @@ namespace BudgetExecution
         /// <value>
         /// The provider.
         /// </value>
-        private readonly Provider _provider = Provider.CSV;
+        public Provider Provider { get; } = Provider.CSV;
         
         /// <summary>
         /// Initializes a new instance of the <see cref = "CsvQuery"/> class.
@@ -94,31 +94,7 @@ namespace BudgetExecution
             : base( connectionBuilder, sqlStatement )
         {
         }
-
-        /// <summary>
-        /// Gets or sets the data set.
-        /// </summary>
-        /// <value>
-        /// The data set.
-        /// </value>
-        private DataSet _dataSet;
-
-        /// <summary>
-        /// Gets or sets the table.
-        /// </summary>
-        /// <value>
-        /// The table.
-        /// </value>
-        private DataTable _table;
-
-        /// <summary>
-        /// Gets or sets the excel.
-        /// </summary>
-        /// <value>
-        /// The excel.
-        /// </value>
-        private ExcelPackage _excel;
-
+        
         /// <summary>
         /// Saves the file.
         /// </summary>
@@ -171,7 +147,8 @@ namespace BudgetExecution
                     var _sql = "SELECT * FROM [" + sheetName + "]";
 
                     var _connectionString =
-                        $@"_provider=Microsoft.Jet.OLEDB.4.0;Data Source={Path.GetDirectoryName( sheetName )};Extended Properties='Text;HDR=YES;FMT=Delimited'";
+                        $@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={Path.GetDirectoryName( sheetName )};"
+                        + "Extended Properties='Text;HDR=YES;FMT=Delimited'";
 
                     using var _connection = new OleDbConnection( _connectionString );
                     var _schema = _connection.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
@@ -226,7 +203,7 @@ namespace BudgetExecution
                     var _sql = "SELECT * FROM [" + sheetName + "]";
 
                     var _connectionString =
-                        $@"_provider=Microsoft.Jet.OLEDB.4.0;Data Source={Path.GetDirectoryName( fileName )};Extended Properties='Text;HDR=YES;FMT=Delimited'";
+                        $@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={Path.GetDirectoryName( fileName )};Extended Properties='Text;HDR=YES;FMT=Delimited'";
 
                     using var _connection = new OleDbConnection( _connectionString );
                     var _schema = _connection.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );

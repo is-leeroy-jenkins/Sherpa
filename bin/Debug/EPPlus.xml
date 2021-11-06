@@ -4955,8 +4955,8 @@
         <member name="M:OfficeOpenXml.Drawing.Chart.ExcelChartPlotArea.CreateDataTable">
             <summary>
             Creates a data table in the plotarea
-            The dataTable can also be accessed via the DataTable propery
-            <see cref="P:OfficeOpenXml.Drawing.Chart.ExcelChartPlotArea.DataTable"/>
+            The dataTable can also be accessed via the Table propery
+            <see cref="P:OfficeOpenXml.Drawing.Chart.ExcelChartPlotArea.Table"/>
             </summary>
         </member>
         <member name="M:OfficeOpenXml.Drawing.Chart.ExcelChartPlotArea.RemoveDataTable">
@@ -4964,7 +4964,7 @@
             Remove the data table if it's created in the plotarea
             </summary>
         </member>
-        <member name="P:OfficeOpenXml.Drawing.Chart.ExcelChartPlotArea.DataTable">
+        <member name="P:OfficeOpenXml.Drawing.Chart.ExcelChartPlotArea.Table">
             <summary>
             The data table object.
             Use the CreateDataTable method to create a dataTable if it does not exist.
@@ -31811,7 +31811,7 @@
             <param name="PrintHeaders">Print the caption property (if set) or the columnname property if not, on first row</param>
             <returns>The filled range</returns>
         </member>
-        <member name="M:OfficeOpenXml.ExcelRangeBase.LoadFromDataTable(System.Data.DataTable,System.Boolean,OfficeOpenXml.Table.TableStyles)">
+        <member name="M:OfficeOpenXml.ExcelRangeBase.LoadFromDataTable(System.Data.Table,System.Boolean,OfficeOpenXml.Table.TableStyles)">
             <summary>
             Load the data from the dataTable starting from the top left cell of the range
             </summary>
@@ -31820,7 +31820,7 @@
             <param name="TableStyle">The table style to apply to the data</param>
             <returns>The filled range</returns>
         </member>
-        <member name="M:OfficeOpenXml.ExcelRangeBase.LoadFromDataTable(System.Data.DataTable,System.Boolean)">
+        <member name="M:OfficeOpenXml.ExcelRangeBase.LoadFromDataTable(System.Data.Table,System.Boolean)">
             <summary>
             Load the data from the dataTable starting from the top left cell of the range
             </summary>

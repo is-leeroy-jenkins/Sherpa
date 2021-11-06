@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        private protected readonly new Source _source = Source.RegionAuthority;
+        private protected readonly  Source _source = Source.RegionAuthority;
 
         /// <summary>
         /// Initializes a new instance of the <see/> class.
