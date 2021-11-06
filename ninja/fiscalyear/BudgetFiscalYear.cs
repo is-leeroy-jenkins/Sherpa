@@ -18,7 +18,7 @@ namespace BudgetExecution
     /// incurring new obligations is shorter than the period of availability for making
     /// disbursements, which iscovered by a general law.  The period of availability is
     /// described by the Budget Fiscal Year. The fiscal year of the Treasury begins on
-    /// October 1 of each year and ends on September 30 of the following year. _accounts
+    /// October 1 of each year and ends on September 30 of the following year. Accounts
     /// of receipts and expenditures required under law to be published each year shall
     /// be published for the fiscal year.
     /// </summary>

@@ -41,11 +41,11 @@ namespace BudgetExecution
         public Deobligation( IQuery query )
             : base( query )
         {
-            _records = new DataBuilder( query )?.GetRecord();
-            _id = new Key( _records, PrimaryKey.DeobligationId );
+            Record = new DataBuilder( query )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.DeobligationId );
             _originalActionDate = GetOriginalActionDate();
             _amount = GetDeobligations();
-            _data = _records?.ToDictionary();
+            _data = Record?.ToDictionary();
             _type = OutlayType.Deobligation;
         }
 
@@ -58,11 +58,11 @@ namespace BudgetExecution
         public Deobligation( IBuilder db )
             : base( db )
         {
-            _records = db.GetRecord();
-            _id = new Key( _records, PrimaryKey.DeobligationId );
+            Record = db.GetRecord();
+            ID = new Key( Record, PrimaryKey.DeobligationId );
             _originalActionDate = GetOriginalActionDate();
             _amount = GetDeobligations();
-            _data = _records?.ToDictionary();
+            _data = Record?.ToDictionary();
             _type = OutlayType.Deobligation;
         }
 
@@ -75,11 +75,11 @@ namespace BudgetExecution
         public Deobligation( DataRow dataRow )
             : base( dataRow )
         {
-            _records = dataRow;
-            _id = new Key( _records, PrimaryKey.DeobligationId );
+            Record = dataRow;
+            ID = new Key( Record, PrimaryKey.DeobligationId );
             _originalActionDate = GetOriginalActionDate();
             _amount = GetDeobligations();
-            _data = _records?.ToDictionary();
+            _data = Record?.ToDictionary();
             _type = OutlayType.Deobligation;
         }
         
@@ -92,8 +92,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( _id )
-                    ? _id 
+                return Verify.Key( ID )
+                    ? ID 
                     : default( IKey );
             }
             catch( Exception ex )

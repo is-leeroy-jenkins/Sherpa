@@ -114,12 +114,12 @@ namespace BudgetExecution
         /// </param>
         public ExcelBudget( IAuthority authority )
         {
-            _excel = new ExcelPackage( new FileInfo( _filePath ) );
-            _workbook = _worksheet.Workbook;
-            _sheetCount = _workbook.Worksheets.Count;
+            Excel = new ExcelPackage( new FileInfo( _filePath ) );
+            Workbook = Worksheet.Workbook;
+            _sheetCount = Workbook.Worksheets.Count;
             _authority = authority;
             _allocation = _authority.GetAllocation();
-            _data = _allocation.GetData();
+            Data = _allocation.GetData();
             _bfy = _authority.GetBudgetFiscalYear();
             _rpio = _authority.GetResourcePlanningOffice();
             _fund = _authority.GetFund();
@@ -193,7 +193,7 @@ namespace BudgetExecution
         /// </summary>
         public void Save()
         {
-            if( _worksheet != null )
+            if( Worksheet != null )
             {
                 try
                 {
@@ -210,11 +210,11 @@ namespace BudgetExecution
         /// </summary>
         public void HideWorksheet()
         {
-            if( _worksheet != null )
+            if( Worksheet != null )
             {
                 try
                 {
-                    _worksheet.Hidden = eWorkSheetHidden.Hidden;
+                    Worksheet.Hidden = eWorkSheetHidden.Hidden;
                 }
                 catch( Exception ex )
                 {
@@ -231,12 +231,12 @@ namespace BudgetExecution
         /// </param>
         public void SetWorksheetName( string name )
         {
-            if( _worksheet != null
+            if( Worksheet != null
                 && Verify.Input( name ) )
             {
                 try
                 {
-                    _worksheet.Name = name;
+                    Worksheet.Name = name;
                 }
                 catch( Exception ex )
                 {
@@ -254,7 +254,7 @@ namespace BudgetExecution
         {
             try
             {
-                return _worksheet ?? default( ExcelWorksheet );
+                return Worksheet ?? default( ExcelWorksheet );
             }
             catch( Exception ex )
             {
@@ -364,7 +364,7 @@ namespace BudgetExecution
                     _sheet.Cells[ _row, _col + 2 ].Value = "Expenses";
                     _sheet.Cells[ _row, _col + 3 ].Value = "Contracts";
                     _sheet.Cells[ _row, _col + 4 ].Value = "Grants";
-                    _sheet.Cells[ _row, _col + 5 ].Value = "_total";
+                    _sheet.Cells[ _row, _col + 5 ].Value = "Total";
                     using var _range = _sheet.Cells[ _row, _col, _row, _col + 6 ];
                     _range.Style.Font.Bold = true;
                     _range.Style.Font.Color.SetColor( _fontColor );
@@ -432,7 +432,7 @@ namespace BudgetExecution
                     _sheet.Cells[ _row, _col + 3 ].Value = "Expenses";
                     _sheet.Cells[ _row, _col + 4 ].Value = "Contracts";
                     _sheet.Cells[ _row, _col + 5 ].Value = "Grants";
-                    _sheet.Cells[ _row, _col + 6 ].Value = "_total";
+                    _sheet.Cells[ _row, _col + 6 ].Value = "Total";
                     using var _range = _sheet.Cells[ _row, _col, _row, _col + 6 ];
                     _range.Style.Font.Bold = true;
                     _range.Style.Font.Color.SetColor( Color.Black );
@@ -630,7 +630,7 @@ namespace BudgetExecution
                         }
                     }
 
-                    _sheet.Cells[ _row, _column ].Value = "_total";
+                    _sheet.Cells[ _row, _column ].Value = "Total";
                     _sheet.Cells[ _row, _column, _row, _column + 1 ].Style.Font.Bold = true;
                     _sheet.Cells[ _row, _column ].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
                     _sheet.Cells[ _row, _column ].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;

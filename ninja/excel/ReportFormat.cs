@@ -23,37 +23,37 @@ namespace BudgetExecution
         /// <summary>
         /// The font color
         /// </summary>
-        private protected readonly Color _fontColor = Color.Black;
+        public Color FontColor  { get; set; } = Color.Black;
 
         /// <summary>
         /// The font
         /// </summary>
-        private protected readonly Font _font = new Font( "Source Code Pro", 8, FontStyle.Regular );
+        public Font Font  { get; set; } = new Font( "Source Code Pro", 8, FontStyle.Regular );
 
         /// <summary>
         /// The title font
         /// </summary>
-        private protected readonly Font _titleFont = new Font( "Source Code Pro", 8, FontStyle.Bold );
+        public Font TitleFont  { get; set; } = new Font( "Source Code Pro", 8, FontStyle.Bold );
 
         /// <summary>
         /// The header image width
         /// </summary>
-        private protected readonly double _headerImageWidth = 1.75;
+        public double HeaderImageWidth  { get; set; } = 1.75;
 
         /// <summary>
         /// The header image height
         /// </summary>
-        private protected readonly double _headerImageHeight = 0.75;
+        public double HeaderImageHeight  { get; set; } = 0.75;
 
         /// <summary>
         /// The footer image width
         /// </summary>
-        private protected readonly double _footerImageWidth = 2.04;
+        public double FooterImageWidth  { get; set; } = 2.04;
 
         /// <summary>
         /// The footer image height
         /// </summary>
-        private protected readonly double _footerImageHeight = 0.70;
+        public double FooterImageHeight  { get; set; } = 0.70;
 
         /// <summary>
         /// Gets or sets the header image.
@@ -61,7 +61,7 @@ namespace BudgetExecution
         /// <value>
         /// The header image.
         /// </value>
-        private protected Image _headerImage;
+        public Image HeaderImage { get; set; }
 
         /// <summary>
         /// Gets or sets the footer image.
@@ -69,16 +69,16 @@ namespace BudgetExecution
         /// <value>
         /// The footer image.
         /// </value>
-        private protected Image _footerImage;
+        public Image FooterImage { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "ReportFormat"/> class.
         /// </summary>
         public ReportFormat()
         {
-            _fileInfo = new FileInfo( _filePath );
-            _excel = new ExcelPackage( _fileInfo );
-            _workbook = _excel.Workbook;
+            FileInfo = new FileInfo( _filePath );
+            Excel = new ExcelPackage( FileInfo );
+            Workbook = Excel.Workbook;
         }
 
         /// <summary>
@@ -90,25 +90,25 @@ namespace BudgetExecution
         public ReportFormat( DataTable dataTable )
             : this()
         {
-            _data = dataTable.AsEnumerable();
-            _worksheet = _workbook.Worksheets.Add( dataTable.TableName );
-            _worksheet.View.ShowGridLines = false;
-            _worksheet.View.ZoomScale = _zoomLevel;
-            _worksheet.View.PageLayoutView = true;
-            _worksheet.View.ShowHeaders = true;
-            _worksheet.DefaultRowHeight = _rowHeight;
-            _worksheet.DefaultColWidth = _columnWidth;
-            _worksheet.PrinterSettings.ShowHeaders = false;
-            _worksheet.PrinterSettings.ShowGridLines = false;
-            _worksheet.PrinterSettings.LeftMargin = _leftMargin;
-            _worksheet.PrinterSettings.RightMargin = _rightMargin;
-            _worksheet.PrinterSettings.TopMargin = _topMargin;
-            _worksheet.PrinterSettings.BottomMargin = _bottomMarging;
-            _worksheet.PrinterSettings.HorizontalCentered = true;
-            _worksheet.PrinterSettings.VerticalCentered = true;
-            _worksheet.PrinterSettings.FitToPage = true;
-            _worksheet.HeaderFooter.AlignWithMargins = true;
-            _worksheet.HeaderFooter.ScaleWithDocument = true;
+            Data = dataTable.AsEnumerable();
+            Worksheet = Workbook.Worksheets.Add( dataTable.TableName );
+            Worksheet.View.ShowGridLines = false;
+            Worksheet.View.ZoomScale = _zoomLevel;
+            Worksheet.View.PageLayoutView = true;
+            Worksheet.View.ShowHeaders = true;
+            Worksheet.DefaultRowHeight = _rowHeight;
+            Worksheet.DefaultColWidth = _columnWidth;
+            Worksheet.PrinterSettings.ShowHeaders = false;
+            Worksheet.PrinterSettings.ShowGridLines = false;
+            Worksheet.PrinterSettings.LeftMargin = _leftMargin;
+            Worksheet.PrinterSettings.RightMargin = _rightMargin;
+            Worksheet.PrinterSettings.TopMargin = _topMargin;
+            Worksheet.PrinterSettings.BottomMargin = _bottomMarging;
+            Worksheet.PrinterSettings.HorizontalCentered = true;
+            Worksheet.PrinterSettings.VerticalCentered = true;
+            Worksheet.PrinterSettings.FitToPage = true;
+            Worksheet.HeaderFooter.AlignWithMargins = true;
+            Worksheet.HeaderFooter.ScaleWithDocument = true;
         }
 
         /// <summary>
@@ -123,8 +123,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _gridFont = _font;
-                    SetFontColor( grid, _fontColor );
+                    using var _gridFont = Font;
+                    SetFontColor( grid, FontColor );
                     SetBackgroudColor( grid, _primaryBackColor );
                     SetHorizontalAligment( grid, _left );
                 }
@@ -151,7 +151,7 @@ namespace BudgetExecution
                     using var _range = grid.GetRange();
                     var _row = _range.Start.Row;
                     var _column = _range.Start.Column;
-                    SetFontColor( grid, _fontColor );
+                    SetFontColor( grid, FontColor );
                     SetBackgroudColor( grid, _primaryBackColor );
                     SetHorizontalAligment( grid, _left );
                     _worksheet.Cells[ _row, _column ].Value = "Account";
@@ -160,7 +160,7 @@ namespace BudgetExecution
                     _worksheet.Cells[ _row, _column + 3 ].Value = "Expenses";
                     _worksheet.Cells[ _row, _column + 4 ].Value = "Contracts";
                     _worksheet.Cells[ _row, _column + 5 ].Value = "Grants";
-                    _worksheet.Cells[ _row, _column + 6 ].Value = "_total";
+                    _worksheet.Cells[ _row, _column + 6 ].Value = "Total";
                 }
                 catch( Exception ex )
                 {
@@ -184,9 +184,9 @@ namespace BudgetExecution
                 {
                     excelRange.Style.Font.Color.SetColor( Color.Black );
 
-                    using( _font )
+                    using( Font )
                     {
-                        excelRange.Style.Font.SetFromFont( _font );
+                        excelRange.Style.Font.SetFromFont( Font );
                         excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
                         excelRange.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
                         excelRange.Style.HorizontalAlignment = _center;
@@ -213,11 +213,11 @@ namespace BudgetExecution
             {
                 try
                 {
-                    excelRange.Style.Font.Color.SetColor( _fontColor );
+                    excelRange.Style.Font.Color.SetColor( FontColor );
 
-                    using( _font )
+                    using( Font )
                     {
-                        excelRange.Style.Font.SetFromFont( _font );
+                        excelRange.Style.Font.SetFromFont( Font );
                         excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
                         excelRange.Style.Fill.BackgroundColor.SetColor( Color.White );
                         excelRange.Style.HorizontalAlignment = _center;
@@ -239,7 +239,7 @@ namespace BudgetExecution
         /// </param>
         private protected void SetAlternatingRowColor( ExcelRange excelRange )
         {
-            if( _worksheet != null
+            if( Worksheet != null
                 && excelRange?.Start?.Row > -1
                 && excelRange.Start.Column > -1
                 && excelRange.End?.Row > -1
@@ -248,7 +248,7 @@ namespace BudgetExecution
                 try
                 {
                     var _prc = 
-                        _worksheet.Cells[ excelRange.Start.Row, excelRange.Start.Column,
+                        Worksheet.Cells[ excelRange.Start.Row, excelRange.Start.Column,
                             excelRange.End.Row, excelRange.End.Column ];
 
                     for( var i = excelRange.Start.Row; i < excelRange.End.Row; i++ )
@@ -281,7 +281,7 @@ namespace BudgetExecution
         /// </param>
         private protected void SetNumericRowFormat( ExcelRange excelRange )
         {
-            if( _worksheet != null
+            if( Worksheet != null
                 && excelRange.Start.Row > -1
                 && excelRange.Start.Column > -1
                 && excelRange.End.Row > -1
@@ -316,8 +316,8 @@ namespace BudgetExecution
                 {
                     SetHeaderText( grid );
                     using var _range = grid.GetRange();
-                    using var _gridFont = _titleFont;
-                    _range.Style.Font.SetFromFont( _titleFont );
+                    using var _gridFont = TitleFont;
+                    _range.Style.Font.SetFromFont( TitleFont );
                     _range.Style.Border.BorderAround( ExcelBorderStyle.Thin );
                     _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     _range.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
@@ -338,7 +338,7 @@ namespace BudgetExecution
         /// </param>
         private protected void SetTotalRowFormat( ExcelRange excelRange )
         {
-            if( _worksheet != null
+            if( Worksheet != null
                 && excelRange.Start.Row > -1
                 && excelRange.Start.Column > -1
                 && excelRange.End.Row > -1
@@ -346,10 +346,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _total = _worksheet.Cells[ excelRange.Start.Row, excelRange.Start.Column, 
+                    var _total = Worksheet.Cells[ excelRange.Start.Row, excelRange.Start.Column, 
                         excelRange.Start.Row, excelRange.Start.Column + 6 ];
 
-                    var _range = _worksheet.Cells[ excelRange.Start.Row, excelRange.Start.Column + 1, 
+                    var _range = Worksheet.Cells[ excelRange.Start.Row, excelRange.Start.Column + 1, 
                         excelRange.Start.Row, excelRange.Start.Column + 6 ];
 
                     _total.Style.Fill.PatternType = ExcelFillStyle.Solid;
@@ -379,8 +379,8 @@ namespace BudgetExecution
         [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
         private protected void Dispose( bool disposing )
         {
-            _titleFont?.Dispose();
-            _font?.Dispose();
+            TitleFont?.Dispose();
+            Font?.Dispose();
         }
 
         /// <summary>

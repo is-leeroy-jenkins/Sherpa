@@ -20,7 +20,7 @@ namespace BudgetExecution
     /// object classes present obligations according to their initial purpose, not the
     /// end product or service. Major object classes are divided into smaller classes
     /// known as Finance Object Classes. EPA uses the categories defined by the values
-    /// of the BOC enumeration.
+    /// of the ObjectClasses enumeration.
     /// </summary>
     /// <seealso cref = "IProgramElement"/>
     /// <seealso cref = "IBudgetObjectClass"/>
@@ -238,7 +238,7 @@ namespace BudgetExecution
         /// Gets the value.
         /// </summary>
         /// <param name = "prc" >
-        /// The PRC.
+        /// The ProgramResultCodes.
         /// </param>
         /// <returns>
         /// </returns>

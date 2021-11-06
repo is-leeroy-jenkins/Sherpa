@@ -42,11 +42,11 @@ namespace BudgetExecution
         public Expenditure( IQuery query )
             : base( query )
         {
-            _records = new DataBuilder( query )?.GetRecord();
-            _id = new Key( _records, PrimaryKey.ExpenditureId );
+            Record = new DataBuilder( query )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.ExpenditureId );
             _originalActionDate = GetOriginalActionDate();
             _expenditures = GetExpenditures();
-            _data = _records?.ToDictionary();
+            _data = Record?.ToDictionary();
             _type = OutlayType.Expenditure;
         }
 
@@ -59,11 +59,11 @@ namespace BudgetExecution
         public Expenditure( IBuilder builder )
             : base( builder )
         {
-            _records = builder?.GetRecord();
-            _id = new Key( _records, PrimaryKey.ExpenditureId );
+            Record = builder?.GetRecord();
+            ID = new Key( Record, PrimaryKey.ExpenditureId );
             _originalActionDate = GetOriginalActionDate();
             _expenditures = GetExpenditures();
-            _data = _records?.ToDictionary();
+            _data = Record?.ToDictionary();
             _type = OutlayType.Expenditure;
         }
 
@@ -76,11 +76,11 @@ namespace BudgetExecution
         public Expenditure( DataRow dataRow )
             : base( dataRow )
         {
-            _records = dataRow;
-            _id = new Key( _records, PrimaryKey.ExpenditureId );
+            Record = dataRow;
+            ID = new Key( Record, PrimaryKey.ExpenditureId );
             _originalActionDate = GetOriginalActionDate();
             _expenditures = GetExpenditures();
-            _data = _records?.ToDictionary();
+            _data = Record?.ToDictionary();
             _type = OutlayType.Expenditure;
         }
         
@@ -93,8 +93,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( _id )
-                    ? _id
+                return Verify.Key( ID )
+                    ? ID
                     : default( IKey );
             }
             catch( Exception ex )

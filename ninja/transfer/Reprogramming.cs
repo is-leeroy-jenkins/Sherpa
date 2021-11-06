@@ -98,15 +98,15 @@ namespace BudgetExecution
         public Reprogramming( IQuery query )
             : base( query )
         {
-            _records = new Builder( query )?.GetRecord();
-            _id = new Key( _records, PrimaryKey.TransferId );
-            _docType = new Element( _records, Field.DocType );
-            _documentNumber = new Element( _records, Field.DocumentNumber );
-            _purpose = new Element( _records, Field.Purpose );
-            _fromTo = new Element( _records, Field.FromTo );
-            _date = DateTime.Parse( _records[ $"{Field.DocumentNumber}" ].ToString() );
-            _amount = GetAmount();
-            _data = _records?.ToDictionary();
+            Record = new Builder( query )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.TransferId );
+            _docType = new Element( Record, Field.DocType );
+            _documentNumber = new Element( Record, Field.DocumentNumber );
+            _purpose = new Element( Record, Field.Purpose );
+            _fromTo = new Element( Record, Field.FromTo );
+            _date = DateTime.Parse( Record[ $"{Field.DocumentNumber}" ].ToString() );
+            Amount = GetAmount();
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -118,15 +118,15 @@ namespace BudgetExecution
         public Reprogramming( IBuilder builder )
             : base( builder )
         {
-            _records = builder?.GetRecord();
-            _id = new Key( _records, PrimaryKey.TransferId );
-            _docType = new Element( _records, Field.DocType );
-            _documentNumber = new Element( _records, Field.DocumentNumber );
-            _purpose = new Element( _records, Field.Purpose );
-            _fromTo = new Element( _records, Field.FromTo );
-            _date = DateTime.Parse( _records?[ $"{Field.DocumentNumber}" ].ToString() );
-            _amount = GetAmount();
-            _data = _records?.ToDictionary();
+            Record = builder?.GetRecord();
+            ID = new Key( Record, PrimaryKey.TransferId );
+            _docType = new Element( Record, Field.DocType );
+            _documentNumber = new Element( Record, Field.DocumentNumber );
+            _purpose = new Element( Record, Field.Purpose );
+            _fromTo = new Element( Record, Field.FromTo );
+            _date = DateTime.Parse( Record?[ $"{Field.DocumentNumber}" ].ToString() );
+            Amount = GetAmount();
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -138,15 +138,15 @@ namespace BudgetExecution
         public Reprogramming( DataRow dataRow )
             : base( dataRow )
         {
-            _records = dataRow;
-            _id = new Key( _records, PrimaryKey.TransferId );
-            _docType = new Element( _records, Field.DocType );
-            _documentNumber = new Element( _records, Field.DocumentNumber );
-            _purpose = new Element( _records, Field.Purpose );
-            _fromTo = new Element( _records, Field.FromTo );
-            _date = DateTime.Parse( _records[ $"{Field.DocumentNumber}" ].ToString() );
-            _amount = GetAmount();
-            _data = _records?.ToDictionary();
+            Record = dataRow;
+            ID = new Key( Record, PrimaryKey.TransferId );
+            _docType = new Element( Record, Field.DocType );
+            _documentNumber = new Element( Record, Field.DocumentNumber );
+            _purpose = new Element( Record, Field.Purpose );
+            _fromTo = new Element( Record, Field.FromTo );
+            _date = DateTime.Parse( Record[ $"{Field.DocumentNumber}" ].ToString() );
+            Amount = GetAmount();
+            Data = Record?.ToDictionary();
         }
         
         /// <summary>
@@ -158,8 +158,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( _id )
-                    ? _id
+                return Verify.Key( ID )
+                    ? ID
                     : Key.Default;
             }
             catch( Exception ex )

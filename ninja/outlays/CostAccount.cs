@@ -16,7 +16,7 @@ namespace BudgetExecution
     public class CostAccount : Cost, ICostAccount
     {
         /// <summary>
-        /// The PRC
+        /// The ProgramResultCodes
         /// </summary>
         private readonly IProgramResultsCode _prc;
         
@@ -28,33 +28,33 @@ namespace BudgetExecution
         /// </param>
         public CostAccount( DataRow dataRow )
         {
-            _records = dataRow;
+            Record = dataRow;
             _prc = new ProgramResultsCode( dataRow );
-            _id = new Key( _records, PrimaryKey.PrcId );
-            _npmCode = new Element( _records, Field.NpmCode );
-            _programProjectCode = new Element( _records, Field.ProgramProjectCode );
-            _programAreaCode = new Element( _records, Field.ProgramAreaCode );
-            _focCode = new Element( _records, Field.FocCode );
-            _focName = new Element( _records, Field.FocName );
-            _documentType = new Element( _records, Field.DocumentType );
-            _documentPrefix = new Element( _records, Field.DocumentPrefix );
-            _dcn = new Element( _records, Field.DocumentType );
-            _originalActionDate = new Time( _records, EventDate.OriginalActionDate );
-            _obligatingDocumentNumber = new Element( _records, Field.ObligatingDocumentNumber );
-            _system = new Element( _records, Field.System );
-            _transactionNumber = new Element( _records, Field.TransactionNumber );
-            _grantNumber = new Element( _records, Field.GrantNumber );
-            _commitments = new Amount( _records, Numeric.Commitments );
-            _openCommitments = new Amount( _records, Numeric.OpenCommitments );
-            _obligations = new Amount( _records, Numeric.Obligations );
-            _deobligations = new Amount( _records, Numeric.Deobligations );
-            _ulo = new Amount( _records, Numeric.ULO );
-            _balance = new Amount( _records, Numeric.Balance );
-            _data = _records?.ToDictionary();
+            ID = new Key( Record, PrimaryKey.PrcId );
+            _npmCode = new Element( Record, Field.NpmCode );
+            _programProjectCode = new Element( Record, Field.ProgramProjectCode );
+            _programAreaCode = new Element( Record, Field.ProgramAreaCode );
+            _focCode = new Element( Record, Field.FocCode );
+            _focName = new Element( Record, Field.FocName );
+            _documentType = new Element( Record, Field.DocumentType );
+            _documentPrefix = new Element( Record, Field.DocumentPrefix );
+            _dcn = new Element( Record, Field.DocumentType );
+            _originalActionDate = new Time( Record, EventDate.OriginalActionDate );
+            _obligatingDocumentNumber = new Element( Record, Field.ObligatingDocumentNumber );
+            _system = new Element( Record, Field.System );
+            _transactionNumber = new Element( Record, Field.TransactionNumber );
+            _grantNumber = new Element( Record, Field.GrantNumber );
+            _commitments = new Amount( Record, Numeric.Commitments );
+            _openCommitments = new Amount( Record, Numeric.OpenCommitments );
+            _obligations = new Amount( Record, Numeric.Obligations );
+            _deobligations = new Amount( Record, Numeric.Deobligations );
+            _ulo = new Amount( Record, Numeric.ULO );
+            _balance = new Amount( Record, Numeric.Balance );
+            _data = Record?.ToDictionary();
         }
         
         /// <summary>
-        /// Gets the PRC identifier.
+        /// Gets the ProgramResultCodes identifier.
         /// </summary>
         /// <returns>
         /// </returns>
@@ -62,8 +62,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( _id )
-                    ? _id
+                return Verify.Key( ID )
+                    ? ID
                     : default( IKey );
             }
             catch( Exception ex )

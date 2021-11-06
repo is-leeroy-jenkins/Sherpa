@@ -9,7 +9,7 @@ namespace BudgetExecution
     public interface IFullTimeEquivalent
     {
         /// <summary>
-        /// Gets the PRC identifier.
+        /// Gets the ProgramResultCodes identifier.
         /// </summary>
         /// <returns>
         /// </returns>

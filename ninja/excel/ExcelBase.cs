@@ -4,10 +4,6 @@
 
 namespace BudgetExecution
 {
-    // **************************************************************************************************************************
-    // ******************************   ASSEMBLIES   ****************************************************************************
-    // **************************************************************************************************************************
-
     using System;
     using System.Collections.Generic;
     using System.Data;
@@ -34,7 +30,7 @@ namespace BudgetExecution
         /// <value>
         /// The file information.
         /// </value>
-        private protected FileInfo _fileInfo;
+        public FileInfo FileInfo { get; set; }
 
         /// <summary>
         /// Gets or sets the excel.
@@ -42,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The excel.
         /// </value>
-        private protected ExcelPackage _excel;
+        public ExcelPackage Excel { get; set; }
 
         /// <summary>
         /// Gets or sets the workbook.
@@ -50,7 +46,7 @@ namespace BudgetExecution
         /// <value>
         /// The workbook.
         /// </value>
-        private protected ExcelWorkbook _workbook;
+        public ExcelWorkbook Workbook { get; set; }
 
         /// <summary>
         /// Gets or sets the workSheet.
@@ -58,7 +54,7 @@ namespace BudgetExecution
         /// <value>
         /// The workSheet.
         /// </value>
-        private protected ExcelWorksheet _worksheet;
+        public ExcelWorksheet Worksheet { get; set; }
 
         /// <summary>
         /// Gets or sets the comment.
@@ -66,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The comment.
         /// </value>
-        private protected IEnumerable<ExcelComment> _comment;
+        public IEnumerable<ExcelComment> Comment { get; set; }
 
         /// <summary>
         /// Gets or sets the data.
@@ -74,7 +70,7 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        private protected IEnumerable<DataRow> _data;
+        public IEnumerable<DataRow> Data { get; set; }
         
         /// <summary>
         /// Sets the width of the column.
@@ -329,7 +325,7 @@ namespace BudgetExecution
         /// Get Error Dialog.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
+        public static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
             _error?.SetText();

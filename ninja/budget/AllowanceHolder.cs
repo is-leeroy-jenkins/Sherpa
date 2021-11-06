@@ -29,7 +29,7 @@ namespace BudgetExecution
     /// Holder. Note there is a separate allotment for every appropriation (Treasury
     /// account symbol) for every fiscal year. The OB Director retains the original
     /// signed apportionment documents on behalf of the agency. This is the agency’s
-    /// formal designation regarding “Administrative Subdivisions of _funds.” The agency
+    /// formal designation regarding “Administrative Subdivisions of Funds.” The agency
     /// does not have sub-allotments. The one restriction on the agency’s allotment is
     /// that it cannot exceed the amount of the apportionment. At the Regional level,
     /// Allowance Holder's further divide the Agency's funding with the Regional

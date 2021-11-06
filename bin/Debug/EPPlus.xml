@@ -31599,7 +31599,7 @@
             A range of cells 
             </summary>
         </member>
-        <member name="F:OfficeOpenXml.ExcelRangeBase._worksheet">
+        <member name="F:OfficeOpenXml.ExcelRangeBase.Worksheet">
             <summary>
             Reference to the worksheet
             </summary>

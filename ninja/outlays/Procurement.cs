@@ -33,27 +33,27 @@ namespace BudgetExecution
         public Procurement( IQuery query )
             : base( query )
         {
-            _records = new Builder( query )?.GetRecord();
-            _id = new Key( _records, PrimaryKey.ProcurementId );
-            _title = new Element( _records, Field.Title );
-            _requestedBy = new Element( _records, Field.RequestedBy );
-            _description = new Element( _records, Field.Description );
-            _createdBy = new Element( _records, Field.CreatedBy );
-            _modifiedBy = new Element( _records, Field.ModifiedBy );
-            _lastActionDate = new Time( _records, EventDate.LastActionDate );
-            _processedDate = new Time( _records, EventDate.ProcessedDate );
-            _closedDate = new Time( _records, EventDate.ClosedDate );
-            _securityOrg = new Element( _records, Field.SecurityOrg );
-            _vendorCode = new Element( _records, Field.VendorCode );
-            _projectCode = new Element( _records, Field.ProjectCode );
-            _documentPrefix = new Element( _records, Field.DocumentPrefix );
-            _documentType = new Element( _records, Field.DocumentType );
-            _documentDate = new Time( _records, EventDate.DocumentDate );
-            _documentControlNumber = new Element( _records, Field.DocumentControlNumber );
-            _ordered = new Amount( _records, Numeric.Ordered );
-            _closed = new Amount( _records, Numeric.Closed );
-            _expended = new Amount( _records, Numeric.Expended );
-            _data = _records?.ToDictionary();
+            Record = new Builder( query )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.ProcurementId );
+            _title = new Element( Record, Field.Title );
+            _requestedBy = new Element( Record, Field.RequestedBy );
+            _description = new Element( Record, Field.Description );
+            _createdBy = new Element( Record, Field.CreatedBy );
+            _modifiedBy = new Element( Record, Field.ModifiedBy );
+            _lastActionDate = new Time( Record, EventDate.LastActionDate );
+            _processedDate = new Time( Record, EventDate.ProcessedDate );
+            _closedDate = new Time( Record, EventDate.ClosedDate );
+            _securityOrg = new Element( Record, Field.SecurityOrg );
+            _vendorCode = new Element( Record, Field.VendorCode );
+            _projectCode = new Element( Record, Field.ProjectCode );
+            _documentPrefix = new Element( Record, Field.DocumentPrefix );
+            _documentType = new Element( Record, Field.DocumentType );
+            _documentDate = new Time( Record, EventDate.DocumentDate );
+            _documentControlNumber = new Element( Record, Field.DocumentControlNumber );
+            _ordered = new Amount( Record, Numeric.Ordered );
+            _closed = new Amount( Record, Numeric.Closed );
+            _expended = new Amount( Record, Numeric.Expended );
+            _data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -65,27 +65,27 @@ namespace BudgetExecution
         public Procurement( IBuilder dataBuilder )
             : base( dataBuilder )
         {
-            _records = dataBuilder.GetRecord();
-            _id = new Key( _records, PrimaryKey.ProcurementId );
-            _title = new Element( _records, Field.Title );
-            _requestedBy = new Element( _records, Field.RequestedBy );
-            _description = new Element( _records, Field.Description );
-            _createdBy = new Element( _records, Field.CreatedBy );
-            _modifiedBy = new Element( _records, Field.ModifiedBy );
-            _lastActionDate = new Time( _records, EventDate.LastActionDate );
-            _processedDate = new Time( _records, EventDate.ProcessedDate );
-            _closedDate = new Time( _records, EventDate.ClosedDate );
-            _securityOrg = new Element( _records, Field.SecurityOrg );
-            _vendorCode = new Element( _records, Field.VendorCode );
-            _projectCode = new Element( _records, Field.ProjectCode );
-            _documentPrefix = new Element( _records, Field.DocumentPrefix );
-            _documentType = new Element( _records, Field.DocumentType );
-            _documentDate = new Time( _records, EventDate.DocumentDate );
-            _documentControlNumber = new Element( _records, Field.DocumentControlNumber );
-            _ordered = new Amount( _records, Numeric.Ordered );
-            _closed = new Amount( _records, Numeric.Closed );
-            _expended = new Amount( _records, Numeric.Expended );
-            _data = _records?.ToDictionary();
+            Record = dataBuilder.GetRecord();
+            ID = new Key( Record, PrimaryKey.ProcurementId );
+            _title = new Element( Record, Field.Title );
+            _requestedBy = new Element( Record, Field.RequestedBy );
+            _description = new Element( Record, Field.Description );
+            _createdBy = new Element( Record, Field.CreatedBy );
+            _modifiedBy = new Element( Record, Field.ModifiedBy );
+            _lastActionDate = new Time( Record, EventDate.LastActionDate );
+            _processedDate = new Time( Record, EventDate.ProcessedDate );
+            _closedDate = new Time( Record, EventDate.ClosedDate );
+            _securityOrg = new Element( Record, Field.SecurityOrg );
+            _vendorCode = new Element( Record, Field.VendorCode );
+            _projectCode = new Element( Record, Field.ProjectCode );
+            _documentPrefix = new Element( Record, Field.DocumentPrefix );
+            _documentType = new Element( Record, Field.DocumentType );
+            _documentDate = new Time( Record, EventDate.DocumentDate );
+            _documentControlNumber = new Element( Record, Field.DocumentControlNumber );
+            _ordered = new Amount( Record, Numeric.Ordered );
+            _closed = new Amount( Record, Numeric.Closed );
+            _expended = new Amount( Record, Numeric.Expended );
+            _data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -97,27 +97,27 @@ namespace BudgetExecution
         public Procurement( DataRow dataRow )
             : base( dataRow )
         {
-            _records = dataRow;
-            _id = new Key( _records, PrimaryKey.ProcurementId );
-            _title = new Element( _records, Field.Title );
-            _requestedBy = new Element( _records, Field.RequestedBy );
-            _description = new Element( _records, Field.Description );
-            _createdBy = new Element( _records, Field.CreatedBy );
-            _modifiedBy = new Element( _records, Field.ModifiedBy );
-            _lastActionDate = new Time( _records, EventDate.LastActionDate );
-            _processedDate = new Time( _records, EventDate.ProcessedDate );
-            _closedDate = new Time( _records, EventDate.ClosedDate );
-            _securityOrg = new Element( _records, Field.SecurityOrg );
-            _vendorCode = new Element( _records, Field.VendorCode );
-            _projectCode = new Element( _records, Field.ProjectCode );
-            _documentPrefix = new Element( _records, Field.DocumentPrefix );
-            _documentType = new Element( _records, Field.DocumentType );
-            _documentDate = new Time( _records, EventDate.DocumentDate );
-            _documentControlNumber = new Element( _records, Field.DocumentControlNumber );
-            _ordered = new Amount( _records, Numeric.Ordered );
-            _closed = new Amount( _records, Numeric.Closed );
-            _expended = new Amount( _records, Numeric.Expended );
-            _data = _records?.ToDictionary();
+            Record = dataRow;
+            ID = new Key( Record, PrimaryKey.ProcurementId );
+            _title = new Element( Record, Field.Title );
+            _requestedBy = new Element( Record, Field.RequestedBy );
+            _description = new Element( Record, Field.Description );
+            _createdBy = new Element( Record, Field.CreatedBy );
+            _modifiedBy = new Element( Record, Field.ModifiedBy );
+            _lastActionDate = new Time( Record, EventDate.LastActionDate );
+            _processedDate = new Time( Record, EventDate.ProcessedDate );
+            _closedDate = new Time( Record, EventDate.ClosedDate );
+            _securityOrg = new Element( Record, Field.SecurityOrg );
+            _vendorCode = new Element( Record, Field.VendorCode );
+            _projectCode = new Element( Record, Field.ProjectCode );
+            _documentPrefix = new Element( Record, Field.DocumentPrefix );
+            _documentType = new Element( Record, Field.DocumentType );
+            _documentDate = new Time( Record, EventDate.DocumentDate );
+            _documentControlNumber = new Element( Record, Field.DocumentControlNumber );
+            _ordered = new Amount( Record, Numeric.Ordered );
+            _closed = new Amount( Record, Numeric.Closed );
+            _expended = new Amount( Record, Numeric.Expended );
+            _data = Record?.ToDictionary();
         }
         
         /// <summary>
@@ -129,8 +129,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( _id )
-                    ? _id
+                return Verify.Key( ID )
+                    ? ID
                     : default( IKey );
             }
             catch( Exception ex )

@@ -297,8 +297,6 @@
     <Compile Include="ninja\budget\Account.cs" />
     <Compile Include="ninja\budget\AccountBase.cs" />
     <Compile Include="ninja\budget\Activity.cs" />
-    <Compile Include="ninja\budget\Allocation.cs" />
-    <Compile Include="ninja\budget\AllocationData.cs" />
     <Compile Include="ninja\budget\AllowanceHolder.cs" />
     <Compile Include="ninja\budget\Authority.cs" />
     <Compile Include="ninja\budget\Awards.cs" />
@@ -346,7 +344,6 @@
     <Compile Include="ninja\budget\ResourcePlanningOffice.cs" />
     <Compile Include="ninja\budget\ResponsibilityCenter.cs" />
     <Compile Include="ninja\budget\Supplemental.cs" />
-    <Compile Include="ninja\budget\TimeOff.cs" />
     <Compile Include="ninja\division\Division.cs" />
     <Compile Include="ninja\division\DivisionBase.cs" />
     <Compile Include="ninja\division\IDivision.cs" />
@@ -385,14 +382,11 @@
     <Compile Include="ninja\folder\Folder.cs" />
     <Compile Include="ninja\folder\FolderBase.cs" />
     <Compile Include="ninja\folder\IFolder.cs" />
-    <Compile Include="ninja\outlays\BenefitFactory.cs" />
     <Compile Include="ninja\outlays\Commitment.cs" />
-    <Compile Include="ninja\outlays\ContactFactory.cs" />
     <Compile Include="ninja\outlays\Cost.cs" />
     <Compile Include="ninja\outlays\CostAccount.cs" />
     <Compile Include="ninja\outlays\Deobligation.cs" />
     <Compile Include="ninja\outlays\Employee.cs" />
-    <Compile Include="ninja\outlays\EmployeeBase.cs" />
     <Compile Include="ninja\outlays\EmploymentBase.cs" />
     <Compile Include="ninja\outlays\Expenditure.cs" />
     <Compile Include="ninja\outlays\Expense.cs" />
@@ -418,8 +412,6 @@
     <Compile Include="ninja\outlays\IUnliquidatedObligation.cs" />
     <Compile Include="ninja\outlays\IVendor.cs" />
     <Compile Include="ninja\outlays\IWorkCode.cs" />
-    <Compile Include="ninja\outlays\Leave.cs" />
-    <Compile Include="ninja\outlays\LeaveBase.cs" />
     <Compile Include="ninja\outlays\Obligation.cs" />
     <Compile Include="ninja\outlays\OpenCommitment.cs" />
     <Compile Include="ninja\outlays\Outlay.cs" />
@@ -428,13 +420,10 @@
     <Compile Include="ninja\outlays\PayrollFactory.cs" />
     <Compile Include="ninja\outlays\PayrollHours.cs" />
     <Compile Include="ninja\outlays\PayrollObligation.cs" />
-    <Compile Include="ninja\outlays\Personnel.cs" />
     <Compile Include="ninja\outlays\Procurement.cs" />
     <Compile Include="ninja\outlays\ProcurementData.cs" />
     <Compile Include="ninja\outlays\Purchase.cs" />
     <Compile Include="ninja\outlays\Reimbursable.cs" />
-    <Compile Include="ninja\outlays\Requisition.cs" />
-    <Compile Include="ninja\outlays\RequisitionData.cs" />
     <Compile Include="ninja\outlays\Site.cs" />
     <Compile Include="ninja\outlays\SiteData.cs" />
     <Compile Include="ninja\outlays\TravelData.cs" />

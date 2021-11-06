@@ -108,30 +108,30 @@ namespace BudgetExecution
         public PayrollObligation( IQuery query )
             : base( query )
         {
-            _records = new DataBuilder( query )?.GetRecord();
-            _id = new Key( _records, PrimaryKey.PayrollObligationId );
-            _rpioCode = new Element( _records, Field.RpioCode );
-            _fundCode = new Element( _records, Field.FundCode );
-            _ahCode = new Element( _records, Field.AhCode );
-            _orgCode = new Element( _records, Field.OrgCode );
-            _rcCode = new Element( _records, Field.RcCode );
-            _accountCode = new Element( _records, Field.AccountCode );
-            _programProjectCode = new Element( _records, Field.ProgramProjectCode );
-            _hrOrgCode = new Element( _records, Field.HrOrgCode );
-            _workCode = new Element( _records, Field.WorkCode );
-            _focCode = new Element( _records, Field.FocCode );
-            _payPeriod = new Element( _records, Field.PayPeriod );
-            _amount = new Amount( _records, Numeric.Amount );
-            _hours = new Amount( _records, Numeric.Hours );
-            _allocationPercentage = new Amount( _records, Numeric.AllocationPercentage );
-            _annualBaseHours = new Amount( _records, Numeric.AnnualBaseHours );
-            _annualBasePaid = new Amount( _records, Numeric.AnnualBasePaid );
-            _cumulativeBenefits = new Amount( _records, Numeric.CumulativeBenefits );
-            _annualOtherHours = new Amount( _records, Numeric.AnnualOtherHours );
-            _annualOtherPaid = new Amount( _records, Numeric.AnnualOtherPaid );
-            _annualOvertimeHours = new Amount( _records, Numeric.AnnualOvertimePaid );
-            _annualOvertimePaid = new Amount( _records, Numeric.AnnualOvertimePaid );
-            _data = _records?.ToDictionary();
+            Record = new DataBuilder( query )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.PayrollObligationId );
+            RpioCode = new Element( Record, Field.RpioCode );
+            FundCode = new Element( Record, Field.FundCode );
+            AhCode = new Element( Record, Field.AhCode );
+            OrgCode = new Element( Record, Field.OrgCode );
+            RcCode = new Element( Record, Field.RcCode );
+            AccountCode = new Element( Record, Field.AccountCode );
+            _programProjectCode = new Element( Record, Field.ProgramProjectCode );
+            _hrOrgCode = new Element( Record, Field.HrOrgCode );
+            _workCode = new Element( Record, Field.WorkCode );
+            _focCode = new Element( Record, Field.FocCode );
+            _payPeriod = new Element( Record, Field.PayPeriod );
+            _amount = new Amount( Record, Numeric.Amount );
+            _hours = new Amount( Record, Numeric.Hours );
+            _allocationPercentage = new Amount( Record, Numeric.AllocationPercentage );
+            _annualBaseHours = new Amount( Record, Numeric.AnnualBaseHours );
+            _annualBasePaid = new Amount( Record, Numeric.AnnualBasePaid );
+            _cumulativeBenefits = new Amount( Record, Numeric.CumulativeBenefits );
+            _annualOtherHours = new Amount( Record, Numeric.AnnualOtherHours );
+            _annualOtherPaid = new Amount( Record, Numeric.AnnualOtherPaid );
+            _annualOvertimeHours = new Amount( Record, Numeric.AnnualOvertimePaid );
+            _annualOvertimePaid = new Amount( Record, Numeric.AnnualOvertimePaid );
+            _data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -143,31 +143,31 @@ namespace BudgetExecution
         public PayrollObligation( IBuilder builder )
             : base( builder )
         {
-            _records = builder?.GetRecord();
-            _id = new Key( _records, PrimaryKey.PayrollObligationId );
-            _rpioCode = new Element( _records, Field.RpioCode );
-            _fundCode = new Element( _records, Field.FundCode );
-            _ahCode = new Element( _records, Field.AhCode );
-            _orgCode = new Element( _records, Field.OrgCode );
-            _rcCode = new Element( _records, Field.RcCode );
-            _accountCode = new Element( _records, Field.AccountCode );
-            _programProjectCode = new Element( _records, Field.ProgramProjectCode );
-            _hrOrgCode = new Element( _records, Field.HrOrgCode );
-            _workCode = new Element( _records, Field.WorkCode );
-            _focCode = new Element( _records, Field.FocCode );
-            _payPeriod = new Element( _records, Field.PayPeriod );
-            _amount = new Amount( _records, Numeric.Amount );
-            _hours = new Amount( _records, Numeric.Hours );
-            _allocationPercentage = new Amount( _records, Numeric.AllocationPercentage );
-            _annualBaseHours = new Amount( _records, Numeric.AnnualBaseHours );
-            _annualBasePaid = new Amount( _records, Numeric.AnnualBasePaid );
-            _cumulativeBenefits = new Amount( _records, Numeric.CumulativeBenefits );
-            _annualOtherHours = new Amount( _records, Numeric.AnnualOtherHours );
-            _annualOtherPaid = new Amount( _records, Numeric.AnnualOtherPaid );
-            _annualOvertimeHours = new Amount( _records, Numeric.AnnualOvertimePaid );
-            _annualOvertimePaid = new Amount( _records, Numeric.AnnualOvertimePaid );
+            Record = builder?.GetRecord();
+            ID = new Key( Record, PrimaryKey.PayrollObligationId );
+            RpioCode = new Element( Record, Field.RpioCode );
+            FundCode = new Element( Record, Field.FundCode );
+            AhCode = new Element( Record, Field.AhCode );
+            OrgCode = new Element( Record, Field.OrgCode );
+            RcCode = new Element( Record, Field.RcCode );
+            AccountCode = new Element( Record, Field.AccountCode );
+            _programProjectCode = new Element( Record, Field.ProgramProjectCode );
+            _hrOrgCode = new Element( Record, Field.HrOrgCode );
+            _workCode = new Element( Record, Field.WorkCode );
+            _focCode = new Element( Record, Field.FocCode );
+            _payPeriod = new Element( Record, Field.PayPeriod );
+            _amount = new Amount( Record, Numeric.Amount );
+            _hours = new Amount( Record, Numeric.Hours );
+            _allocationPercentage = new Amount( Record, Numeric.AllocationPercentage );
+            _annualBaseHours = new Amount( Record, Numeric.AnnualBaseHours );
+            _annualBasePaid = new Amount( Record, Numeric.AnnualBasePaid );
+            _cumulativeBenefits = new Amount( Record, Numeric.CumulativeBenefits );
+            _annualOtherHours = new Amount( Record, Numeric.AnnualOtherHours );
+            _annualOtherPaid = new Amount( Record, Numeric.AnnualOtherPaid );
+            _annualOvertimeHours = new Amount( Record, Numeric.AnnualOvertimePaid );
+            _annualOvertimePaid = new Amount( Record, Numeric.AnnualOvertimePaid );
             _type = OutlayType.Obligation;
-            _data = _records?.ToDictionary();
+            _data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -178,31 +178,31 @@ namespace BudgetExecution
         /// </param>
         public PayrollObligation( DataRow datarow )
         {
-            _records = datarow;
-            _id = new Key( _records, PrimaryKey.PayrollObligationId );
-            _rpioCode = new Element( _records, Field.RpioCode );
-            _fundCode = new Element( _records, Field.FundCode );
-            _ahCode = new Element( _records, Field.AhCode );
-            _orgCode = new Element( _records, Field.OrgCode );
-            _rcCode = new Element( _records, Field.RcCode );
-            _accountCode = new Element( _records, Field.AccountCode );
-            _programProjectCode = new Element( _records, Field.ProgramProjectCode );
-            _hrOrgCode = new Element( _records, Field.HrOrgCode );
-            _workCode = new Element( _records, Field.WorkCode );
-            _focCode = new Element( _records, Field.FocCode );
-            _payPeriod = new Element( _records, Field.PayPeriod );
-            _amount = new Amount( _records, Numeric.Amount );
-            _hours = new Amount( _records, Numeric.Hours );
-            _allocationPercentage = new Amount( _records, Numeric.AllocationPercentage );
-            _annualBaseHours = new Amount( _records, Numeric.AnnualBaseHours );
-            _annualBasePaid = new Amount( _records, Numeric.AnnualBasePaid );
-            _cumulativeBenefits = new Amount( _records, Numeric.CumulativeBenefits );
-            _annualOtherHours = new Amount( _records, Numeric.AnnualOtherHours );
-            _annualOtherPaid = new Amount( _records, Numeric.AnnualOtherPaid );
-            _annualOvertimeHours = new Amount( _records, Numeric.AnnualOvertimePaid );
-            _annualOvertimePaid = new Amount( _records, Numeric.AnnualOvertimePaid );
+            Record = datarow;
+            ID = new Key( Record, PrimaryKey.PayrollObligationId );
+            RpioCode = new Element( Record, Field.RpioCode );
+            FundCode = new Element( Record, Field.FundCode );
+            AhCode = new Element( Record, Field.AhCode );
+            OrgCode = new Element( Record, Field.OrgCode );
+            RcCode = new Element( Record, Field.RcCode );
+            AccountCode = new Element( Record, Field.AccountCode );
+            _programProjectCode = new Element( Record, Field.ProgramProjectCode );
+            _hrOrgCode = new Element( Record, Field.HrOrgCode );
+            _workCode = new Element( Record, Field.WorkCode );
+            _focCode = new Element( Record, Field.FocCode );
+            _payPeriod = new Element( Record, Field.PayPeriod );
+            _amount = new Amount( Record, Numeric.Amount );
+            _hours = new Amount( Record, Numeric.Hours );
+            _allocationPercentage = new Amount( Record, Numeric.AllocationPercentage );
+            _annualBaseHours = new Amount( Record, Numeric.AnnualBaseHours );
+            _annualBasePaid = new Amount( Record, Numeric.AnnualBasePaid );
+            _cumulativeBenefits = new Amount( Record, Numeric.CumulativeBenefits );
+            _annualOtherHours = new Amount( Record, Numeric.AnnualOtherHours );
+            _annualOtherPaid = new Amount( Record, Numeric.AnnualOtherPaid );
+            _annualOvertimeHours = new Amount( Record, Numeric.AnnualOvertimePaid );
+            _annualOvertimePaid = new Amount( Record, Numeric.AnnualOvertimePaid );
             _type = OutlayType.Obligation;
-            _data = _records?.ToDictionary();
+            _data = Record?.ToDictionary();
         }
         
         /// <summary>

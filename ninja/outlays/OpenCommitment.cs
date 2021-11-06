@@ -35,10 +35,10 @@ namespace BudgetExecution
         public OpenCommitment( IQuery query )
             : base( query )
         {
-            _records = new DataBuilder( query )?.GetRecord();
-            _id = new Key( _records, PrimaryKey.OpenCommitmentId );
+            Record = new DataBuilder( query )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.OpenCommitmentId );
             _originalActionDate = GetOriginalActionDate();
-            _data = _records?.ToDictionary();
+            _data = Record?.ToDictionary();
             _type = OutlayType.OpenCommitment;
         }
 
@@ -51,10 +51,10 @@ namespace BudgetExecution
         public OpenCommitment( IBuilder builder )
             : base( builder )
         {
-            _records = builder?.GetRecord();
-            _id = new Key( _records, PrimaryKey.OpenCommitmentId );
+            Record = builder?.GetRecord();
+            ID = new Key( Record, PrimaryKey.OpenCommitmentId );
             _originalActionDate = GetOriginalActionDate();
-            _data = _records?.ToDictionary();
+            _data = Record?.ToDictionary();
             _type = OutlayType.OpenCommitment;
         }
 
@@ -67,10 +67,10 @@ namespace BudgetExecution
         public OpenCommitment( DataRow dataRow )
             : base( dataRow )
         {
-            _records = dataRow;
-            _id = new Key( _records, PrimaryKey.OpenCommitmentId );
+            Record = dataRow;
+            ID = new Key( Record, PrimaryKey.OpenCommitmentId );
             _originalActionDate = GetOriginalActionDate();
-            _data = _records?.ToDictionary();
+            _data = Record?.ToDictionary();
             _type = OutlayType.OpenCommitment;
         }
         
@@ -83,8 +83,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( _id )
-                    ? _id
+                return Verify.Key( ID )
+                    ? ID
                     : default( IKey );
             }
             catch( Exception ex )

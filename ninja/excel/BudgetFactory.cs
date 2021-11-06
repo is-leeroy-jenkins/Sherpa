@@ -1,4 +1,4 @@
-﻿// <copyright file=" <File _name> .cs" company="Terry D. Eppler">
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
@@ -21,29 +21,29 @@ namespace BudgetExecution
         /// <summary>
         /// The budget
         /// </summary>
-        private readonly ExcelBudget _budget;
-        
+        public ExcelBudget Budget { get; }
+
+        /// <summary>
+        /// The allocation
+        /// </summary>
+        public IAllocation Allocation { get; set; }
+
+        /// <summary>
+        /// The authority
+        /// </summary>
+        public IAuthority Authority { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="BudgetFactory"/> class.
         /// </summary>
         /// <param name="excelBudget">The excelBudget.</param>
         public BudgetFactory( ExcelBudget excelBudget )
         {
-            _budget = excelBudget;
-            _worksheet = _budget.GetWorkSheet();
-            _allocation = _budget.GetAllocation();
-            _authority = _allocation.GetAuthority();
+            Budget = excelBudget;
+            Worksheet = Budget.GetWorkSheet();
+            Allocation = Budget.GetAllocation();
+            Authority = Allocation.GetAuthority();
         }
-
-        /// <summary>
-        /// The allocation
-        /// </summary>
-        private readonly IAllocation _allocation;
-
-        /// <summary>
-        /// The authority
-        /// </summary>
-        private readonly IAuthority _authority;
 
         /// <summary>
         /// Gets the epm workSheet.
@@ -51,15 +51,15 @@ namespace BudgetExecution
         /// <returns></returns>
         public ExcelWorksheet GetEpmWorksheet()
         {
-            var _funds = _allocation?.GetFunds();
-            var _supplementals = _allocation?.GetAwards();
-            var _enumerable = _allocation?.GetData();
-            var _grid = new Grid( _worksheet, ( 10, 2 ) );
+            var _funds = Allocation?.GetFunds();
+            var _supplementals = Allocation?.GetAwards();
+            var _enumerable = Allocation?.GetData();
+            var _grid = new Grid( Worksheet, ( 10, 2 ) );
             var _header = _grid.GetFrom().Row  - 1;
             var _start = _grid.GetFrom().Row;
             var _fund = new Fund( $"{FundCode.B}" );
-            _budget?.SetWorksheetProperties( _grid.GetWorksheet() );
-            _budget?.SetBudgetHeaderFormat( _grid, _fund, _allocation?.GetBudgetFiscalYear() );
+            Budget?.SetWorksheetProperties( _grid.GetWorksheet() );
+            Budget?.SetBudgetHeaderFormat( _grid, _fund, Allocation?.GetBudgetFiscalYear() );
             
             try
             {
@@ -72,8 +72,8 @@ namespace BudgetExecution
                 {
                     foreach( var kvp in _lookup )
                     {
-                        _budget?.SetAllocationTableFormat( _grid, _fund );
-                        _budget?.PopulateAccountRows( _grid, _lookup, kvp );
+                        Budget?.SetAllocationTableFormat( _grid, _fund );
+                        Budget?.PopulateAccountRows( _grid, _lookup, kvp );
                         _start++;
                     }
                 }
@@ -85,11 +85,11 @@ namespace BudgetExecution
 
                 if( _select?.Any() ?? false )
                 {
-                    _budget?.SetAwardsHeaderFormat( _grid );
-                    _budget?.SetAwardRowsFormat( _grid, _fund );
+                    Budget?.SetAwardsHeaderFormat( _grid );
+                    Budget?.SetAwardRowsFormat( _grid, _fund );
                 }
 
-                return _worksheet;
+                return Worksheet;
             }
             catch( Exception ex )
             {
@@ -104,8 +104,8 @@ namespace BudgetExecution
         /// <returns></returns>
         public ExcelWorksheet GetStagWorksheet()
         {
-            var _enumerable = _allocation?.GetData();
-            var _funds = _allocation?.GetFunds();
+            var _enumerable = Allocation?.GetData();
+            var _funds = Allocation?.GetFunds();
 
             try
             {
@@ -115,7 +115,7 @@ namespace BudgetExecution
                     ?.Where( f => f.Field<string>( $"{Field.BocCode}" ) != $"{BOC.FTE}" )
                     ?.ToLookup( p => p.Field<string>( $"{Field.AccountCode}" ), p => p );
 
-                return _worksheet;
+                return Worksheet;
             }
             catch( Exception ex )
             {
@@ -130,9 +130,9 @@ namespace BudgetExecution
         /// <returns></returns>
         public ExcelWorksheet GetLustWorksheet()
         {
-            var _enumerable = _allocation.GetData();
-            var awards = _allocation.GetAwards();
-            var funds = _allocation.GetFunds();
+            var _enumerable = Allocation.GetData();
+            var awards = Allocation.GetAwards();
+            var funds = Allocation.GetFunds();
 
             try
             {
@@ -140,7 +140,7 @@ namespace BudgetExecution
                     .Where( f => f.Field<string>( $"{Field.BocCode}" ) != $"{BOC.FTE}" )
                     .ToLookup( p => p.Field<string>( $"{Field.AccountCode}" ), p => p );
 
-                return _worksheet;
+                return Worksheet;
             }
             catch( Exception ex )
             {
@@ -155,9 +155,9 @@ namespace BudgetExecution
         /// <returns></returns>
         public ExcelWorksheet GetOilWorksheet()
         {
-            var _enumerable = _allocation?.GetData();
-            var _supplementals = _allocation?.GetAwards();
-            var _funds = _allocation?.GetFunds();
+            var _enumerable = Allocation?.GetData();
+            var _supplementals = Allocation?.GetAwards();
+            var _funds = Allocation?.GetFunds();
             var _fund = new Fund( $"{FundCode.H}" );
 
             try
@@ -166,7 +166,7 @@ namespace BudgetExecution
                     ?.Where( f => f.Field<string>( $"{Field.BocCode}" ) != $"{BOC.FTE}" )
                     ?.ToLookup( p => p.Field<string>( $"{Field.AccountCode}" ), p => p );
 
-                return _worksheet;
+                return Worksheet;
             }
             catch( Exception ex )
             {
@@ -181,34 +181,34 @@ namespace BudgetExecution
         /// <returns></returns>
         public ExcelWorksheet GetDeepWaterHorizonWorksheet()
         {
-            var _enumerable = _allocation.GetData();
-            var _list = _allocation.GetFunds();
-            var _grid = new Grid( _worksheet, ( 10, 2 ) );
+            var _enumerable = Allocation.GetData();
+            var _list = Allocation.GetFunds();
+            var _grid = new Grid( Worksheet, ( 10, 2 ) );
             var _row = _grid.GetFrom().Row;
             var _first = _row - 1;
             var _fund = new Fund( $"{FundCode.ZL}" );
-            _budget?.SetWorksheetProperties( _grid.GetWorksheet() );
-            _budget?.SetBudgetHeaderFormat( _grid, _fund, _allocation?.GetBudgetFiscalYear() );
+            Budget?.SetWorksheetProperties( _grid.GetWorksheet() );
+            Budget?.SetBudgetHeaderFormat( _grid, _fund, Allocation?.GetBudgetFiscalYear() );
 
             try
             {
                 var _lookup = _enumerable?.Where( f => f.Field<string>( $"{Field.FundCode}" ).StartsWith( $"{FundCode.ZL}" ) )
                     ?.Where( f => f.Field<string>( $"{Field.BocCode}" ) != $"{BOC.FTE}" )
-                    ?.Select( f => f )?.ToLookup( p => p.Field<string>( $"{Field.AccountCode}" ),
-                        p => p );
+                    ?.Select( f => f )
+                    ?.ToLookup( p => p.Field<string>( $"{Field.AccountCode}" ), p => p );
 
                 if( _lookup != null )
                 {
                     foreach( var kvp in _lookup )
                     {
-                        _budget?.SetAllocationTableFormat( _grid, _fund );
-                        _budget?.PopulateAccountRows( _grid, _lookup, kvp );
+                        Budget?.SetAllocationTableFormat( _grid, _fund );
+                        Budget?.PopulateAccountRows( _grid, _lookup, kvp );
                         _row++;
                     }
                 }
 
-                _budget?.SetSummaryFormat( _grid );
-                return _worksheet;
+                Budget?.SetSummaryFormat( _grid );
+                return Worksheet;
             }
             catch( Exception ex )
             {
@@ -223,15 +223,15 @@ namespace BudgetExecution
         /// <returns></returns>
         public ExcelWorksheet GetSuperfundWorksheet()
         {
-            var _enumerable = _allocation.GetData();
-            var _supplementals = _allocation.GetAwards();
-            var _funds = _allocation.GetFunds();
-            var _grid = new Grid( _worksheet, ( 10, 2 ) );
+            var _enumerable = Allocation.GetData();
+            var _supplementals = Allocation.GetAwards();
+            var _funds = Allocation.GetFunds();
+            var _grid = new Grid( Worksheet, ( 10, 2 ) );
             var _first = _grid?.GetFrom().Row;
             var _header = _first - 1;
             var _fund = new Fund( $"{FundCode.T}" );
-            _budget?.SetWorksheetProperties( _grid.GetWorksheet() );
-            _budget?.SetBudgetHeaderFormat( _grid, _fund, _allocation.GetBudgetFiscalYear() );
+            Budget?.SetWorksheetProperties( _grid.GetWorksheet() );
+            Budget?.SetBudgetHeaderFormat( _grid, _fund, Allocation.GetBudgetFiscalYear() );
 
             try
             {
@@ -245,15 +245,15 @@ namespace BudgetExecution
                 {
                     foreach( var kvv in _lookup )
                     {
-                        _budget?.SetAllocationTableFormat( _grid, _fund );
-                        _budget?.PopulateAccountRows( _grid, _lookup, kvv );
+                        Budget?.SetAllocationTableFormat( _grid, _fund );
+                        Budget?.PopulateAccountRows( _grid, _lookup, kvv );
                         _first++;
                     }
                 }
 
                 var _last = _first;
-                _budget?.SetSummaryFormat( _grid );
-                return _worksheet;
+                Budget?.SetSummaryFormat( _grid );
+                return Worksheet;
             }
             catch( Exception ex )
             {
@@ -268,14 +268,14 @@ namespace BudgetExecution
         /// <returns></returns>
         public ExcelWorksheet GetSF6AWorksheet()
         {
-            var _rows = _allocation?.GetData();
-            var _grid = new Grid( _worksheet, ( 10, 2 ) );
+            var _rows = Allocation?.GetData();
+            var _grid = new Grid( Worksheet, ( 10, 2 ) );
             var _first = _grid.GetFrom().Row;
             var _header = _first - 1;
             var _fund = new Fund( $"{FundCode.T}" );
-            var _enumerable = _allocation?.GetBuilder()?.GetData();
-            _budget?.SetWorksheetProperties( _grid.GetWorksheet() );
-            _budget?.SetBudgetHeaderFormat( _grid, _fund, _allocation?.GetBudgetFiscalYear() );
+            var _enumerable = Allocation?.GetBuilder()?.GetData();
+            Budget?.SetWorksheetProperties( _grid.GetWorksheet() );
+            Budget?.SetBudgetHeaderFormat( _grid, _fund, Allocation?.GetBudgetFiscalYear() );
 
             try
             {
@@ -296,14 +296,14 @@ namespace BudgetExecution
                         var _builder = new ConnectionBuilder( Source.AllowanceHolders, Provider.SQLite );
                         var _statement = new SqlStatement( _builder, _dictionary, SQL.SELECT );
                         var _query = new Query( _builder, _statement );
-                        _budget?.SetAllocationTableFormat( _grid, _fund, new AllowanceHolder( _query ) );
-                        _budget?.PopulateAccountRows( _grid, _lookup, kvp );
+                        Budget?.SetAllocationTableFormat( _grid, _fund, new AllowanceHolder( _query ) );
+                        Budget?.PopulateAccountRows( _grid, _lookup, kvp );
                         _first++;
                     }
                 }
 
-                _budget?.SetSummaryFormat( _grid );
-                return _worksheet;
+                Budget?.SetSummaryFormat( _grid );
+                return Worksheet;
             }
             catch( Exception ex )
             {
@@ -318,21 +318,22 @@ namespace BudgetExecution
         /// <returns></returns>
         public ExcelWorksheet GetSpecialAccountsWorksheet()
         {
-            var _enumerable = _allocation?.GetData();
-            var _funds = _allocation?.GetFunds();
-            var _grid = new Grid( _worksheet, ( 10, 2 ) );
+            var _enumerable = Allocation?.GetData();
+            var _funds = Allocation?.GetFunds();
+            var _grid = new Grid( Worksheet, ( 10, 2 ) );
             var _first = _grid.GetFrom().Row;
             var _header = _first - 1;
             var _fund = new Fund( $"{FundCode.TR}" );
-            _budget?.SetWorksheetProperties( _grid.GetWorksheet() );
-            _budget?.SetBudgetHeaderFormat( _grid, _fund, _allocation?.GetBudgetFiscalYear() );
+            Budget?.SetWorksheetProperties( _grid.GetWorksheet() );
+            Budget?.SetBudgetHeaderFormat( _grid, _fund, Allocation?.GetBudgetFiscalYear() );
 
             try
             {
                 var _rows = _enumerable
                     ?.Where( p => p.Field<string>( $"{Field.FundCode}" ).Contains( $"{FundCode.TR}" ) )
                     ?.Where( f => f.Field<string>( $"{Field.BocCode}" ) != $"{BOC.FTE}" )
-                    ?.Select( p => p )?.ToArray();
+                    ?.Select( p => p )
+                    ?.ToArray();
 
                 for( var i = 0; i < _rows?.Length; i++ )
                 {
@@ -344,16 +345,16 @@ namespace BudgetExecution
 
                     foreach( var kvp in _lookup )
                     {
-                        _budget?.SetAllocationTableFormat( _grid, _fund );
-                        _budget?.PopulateAccountRows( _grid, _lookup, kvp );
+                        Budget?.SetAllocationTableFormat( _grid, _fund );
+                        Budget?.PopulateAccountRows( _grid, _lookup, kvp );
                         _first++;
                     }
 
                     var _last = _first;
-                    _budget?.SetSummaryFormat( _grid );
+                    Budget?.SetSummaryFormat( _grid );
                 }
 
-                return _worksheet;
+                return Worksheet;
             }
             catch( Exception ex )
             {
@@ -368,14 +369,14 @@ namespace BudgetExecution
         /// <returns></returns>
         public ExcelWorksheet GetSuperfundSupplementWorksheet()
         {
-            var _rows = _allocation?.GetData();
-            var _enumerable = _allocation?.GetFunds();
-            var _grid = new Grid( _worksheet, ( 10, 2 ) );
+            var _rows = Allocation?.GetData();
+            var _enumerable = Allocation?.GetFunds();
+            var _grid = new Grid( Worksheet, ( 10, 2 ) );
             var _first = _grid.GetFrom().Row;
             var _header = _first - 1;
             var _fund = new Fund( $"{FundCode.TS3}" );
-            _budget?.SetWorksheetProperties( _grid?.GetWorksheet() );
-            _budget?.SetBudgetHeaderFormat( _grid, _fund, _allocation?.GetBudgetFiscalYear() );
+            Budget?.SetWorksheetProperties( _grid?.GetWorksheet() );
+            Budget?.SetBudgetHeaderFormat( _grid, _fund, Allocation?.GetBudgetFiscalYear() );
 
             try
             {
@@ -388,14 +389,14 @@ namespace BudgetExecution
                 {
                     foreach( var kvp in _lookup )
                     {
-                        _budget?.SetNonSiteHeaderFormat( _grid, _fund );
-                        _budget?.PopulateAccountRows( _grid, _lookup, kvp );
+                        Budget?.SetNonSiteHeaderFormat( _grid, _fund );
+                        Budget?.PopulateAccountRows( _grid, _lookup, kvp );
                         _first++;
                     }
                 }
 
-                _budget?.SetSummaryFormat( _grid );
-                return _worksheet;
+                Budget?.SetSummaryFormat( _grid );
+                return Worksheet;
             }
             catch( Exception ex )
             {
@@ -410,20 +411,21 @@ namespace BudgetExecution
         /// <returns></returns>
         public ExcelWorksheet GetLustSupplementalWorksheet()
         {
-            var _enumerable = _allocation?.GetData();
-            var _funds = _allocation?.GetFunds();
+            var _enumerable = Allocation?.GetData();
+            var _funds = Allocation?.GetFunds();
             var _fund = new Fund( $"{FundCode.FS3}" );
-            var _grid = new Grid( _worksheet, ( 10, 2 ) );
+            var _grid = new Grid( Worksheet, ( 10, 2 ) );
             var _first = _grid?.GetFrom().Row;
             var _header = _first - 1;
-            _budget?.SetWorksheetProperties( _grid.GetWorksheet() );
+            Budget?.SetWorksheetProperties( _grid.GetWorksheet() );
 
             try
             {
                 var _rows = _enumerable
                     ?.Where( f => f.Field<string>( $"{Field.FundCode}" ).Equals( $"{FundCode.FS3}" ) )
                     ?.Where( f => f.Field<string>( $"{Field.BocCode}" ) != $"{BOC.FTE}" )
-                    ?.Select( f => f )?.ToArray();
+                    ?.Select( f => f )
+                    ?.ToArray();
 
                 var _lookup = _rows?.ToLookup( p => p.Field<string>( $"{Field.AccountCode}" ), p => p );
 
@@ -431,14 +433,14 @@ namespace BudgetExecution
                 {
                     foreach( var group in _lookup )
                     {
-                        _budget?.SetNonSiteHeaderFormat( _grid, _fund );
-                        _budget?.PopulateAccountRows( _grid, _lookup, group );
+                        Budget?.SetNonSiteHeaderFormat( _grid, _fund );
+                        Budget?.PopulateAccountRows( _grid, _lookup, group );
                         _first++;
                     }
                 }
 
-                _budget?.SetSummaryFormat( _grid );
-                return _worksheet;
+                Budget?.SetSummaryFormat( _grid );
+                return Worksheet;
             }
             catch( Exception ex )
             {

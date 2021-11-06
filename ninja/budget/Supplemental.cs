@@ -75,8 +75,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( _data )
-                    ? new Builder( _source, _data )
+                return Verify.Map( Data )
+                    ? new Builder( _source, Data )
                     : default( Builder );
             }
             catch( Exception ex )
@@ -96,7 +96,7 @@ namespace BudgetExecution
         {
             try
             {
-                return _type + _amount?.GetFunding().ToString( "c" );
+                return _type + Amount?.GetFunding().ToString( "c" );
             }
             catch( Exception ex )
             {
@@ -115,7 +115,7 @@ namespace BudgetExecution
             try
             {
                 return Enum.IsDefined( typeof( AwardType ), _type )
-                    ? new Element( _records, Field.Type )
+                    ? new Element( Record, Field.Type )
                     : default( Element );
             }
             catch( Exception ex )

@@ -37,11 +37,11 @@ namespace BudgetExecution
         public UnliquidatedObligation( IQuery query )
             : base( query )
         {
-            _records = new DataBuilder()?.GetRecord();
-            _id = new Key( _records, PrimaryKey.UnliquidatedObligationId );
+            Record = new DataBuilder()?.GetRecord();
+            ID = new Key( Record, PrimaryKey.UnliquidatedObligationId );
             _originalActionDate = GetOriginalActionDate();
-            _ulo = new Amount( _records, Numeric.ULO );
-            _data = _records?.ToDictionary();
+            _ulo = new Amount( Record, Numeric.ULO );
+            _data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -53,11 +53,11 @@ namespace BudgetExecution
         public UnliquidatedObligation( IBuilder builder )
             : base( builder )
         {
-            _records = builder?.GetRecord();
-            _id = new Key( _records, PrimaryKey.UnliquidatedObligationId );
+            Record = builder?.GetRecord();
+            ID = new Key( Record, PrimaryKey.UnliquidatedObligationId );
             _originalActionDate = GetOriginalActionDate();
-            _ulo = new Amount( _records, Numeric.ULO );
-            _data = _records?.ToDictionary();
+            _ulo = new Amount( Record, Numeric.ULO );
+            _data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -68,11 +68,11 @@ namespace BudgetExecution
         /// </param>
         public UnliquidatedObligation( DataRow datarow )
         {
-            _records = datarow;
-            _id = new Key( _records, PrimaryKey.UnliquidatedObligationId );
+            Record = datarow;
+            ID = new Key( Record, PrimaryKey.UnliquidatedObligationId );
             _originalActionDate = GetOriginalActionDate();
-            _ulo = new Amount( _records, Numeric.ULO );
-            _data = _records?.ToDictionary();
+            _ulo = new Amount( Record, Numeric.ULO );
+            _data = Record?.ToDictionary();
         }
         
         /// <summary>
@@ -92,8 +92,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( _id )
-                    ? _id
+                return Verify.Key( ID )
+                    ? ID
                     : default( IKey );
             }
             catch( Exception ex )

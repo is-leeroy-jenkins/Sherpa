@@ -53,10 +53,10 @@ namespace BudgetExecution
         /// </param>
         public Commitment( IQuery query )
         {
-            _records = new DataBuilder( query )?.GetRecord();
-            _id = new Key( _records, PrimaryKey.CommitmentId );
+            Record = new DataBuilder( query )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.CommitmentId );
             _originalActionDate = GetOriginalActionDate();
-            _data = _records?.ToDictionary();
+            _data = Record?.ToDictionary();
             _type = OutlayType.Commitment;
         }
 
@@ -68,10 +68,10 @@ namespace BudgetExecution
         /// </param>
         public Commitment( IBuilder builder )
         {
-            _records = builder.GetRecord();
-            _id = new Key( _records, PrimaryKey.CommitmentId );
+            Record = builder.GetRecord();
+            ID = new Key( Record, PrimaryKey.CommitmentId );
             _originalActionDate = GetOriginalActionDate();
-            _data = _records?.ToDictionary();
+            _data = Record?.ToDictionary();
             _type = OutlayType.Commitment;
         }
 
@@ -83,10 +83,10 @@ namespace BudgetExecution
         /// </param>
         public Commitment( DataRow dataRow )
         {
-            _records = dataRow;
-            _id = new Key( _records, PrimaryKey.CommitmentId );
+            Record = dataRow;
+            ID = new Key( Record, PrimaryKey.CommitmentId );
             _originalActionDate = GetOriginalActionDate();
-            _data = _records?.ToDictionary();
+            _data = Record?.ToDictionary();
             _type = OutlayType.Commitment;
         }
         
@@ -99,8 +99,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( _id )
-                    ? _id
+                return Verify.Key( ID )
+                    ? ID
                     : Key.Default;
             }
             catch( Exception ex )

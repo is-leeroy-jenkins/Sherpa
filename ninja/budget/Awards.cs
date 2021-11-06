@@ -1,4 +1,4 @@
-﻿// <copyright file = "_awards.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "Awards.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -48,12 +48,12 @@ namespace BudgetExecution
         /// </param>
         public Awards( IQuery query )
         {
-            _records = new DataBuilder( query )?.GetRecord();
-            _id = new Key( _records, PrimaryKey.AwardsId );
-            _fundCode = new Element( _records, Field.FundCode );
-            _boc = new Element( _records, Field.BocCode );
-            _amount = GetAmount();
-            _data = _records?.ToDictionary();
+            Record = new DataBuilder( query )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.AwardsId );
+            FundCode = new Element( Record, Field.FundCode );
+            _boc = new Element( Record, Field.BocCode );
+            Amount = GetAmount();
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -64,12 +64,12 @@ namespace BudgetExecution
         /// </param>
         public Awards( IBuilder dataBuilder )
         {
-            _records = dataBuilder?.GetRecord();
-            _id = new Key( _records, PrimaryKey.AwardsId );
-            _fundCode = new Element( _records, Field.FundCode );
-            _boc = new Element( _records, Field.BocCode );
-            _amount = GetAmount();
-            _data = _records?.ToDictionary();
+            Record = dataBuilder?.GetRecord();
+            ID = new Key( Record, PrimaryKey.AwardsId );
+            FundCode = new Element( Record, Field.FundCode );
+            _boc = new Element( Record, Field.BocCode );
+            Amount = GetAmount();
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -80,12 +80,12 @@ namespace BudgetExecution
         /// </param>
         public Awards( DataRow dataRow )
         {
-            _records = dataRow;
-            _id = new Key( _records, PrimaryKey.AwardsId );
-            _fundCode = new Element( _records, Field.FundCode );
-            _boc = new Element( _records, Field.BocCode );
-            _amount = GetAmount();
-            _data = _records?.ToDictionary();
+            Record = dataRow;
+            ID = new Key( Record, PrimaryKey.AwardsId );
+            FundCode = new Element( Record, Field.FundCode );
+            _boc = new Element( Record, Field.BocCode );
+            Amount = GetAmount();
+            Data = Record?.ToDictionary();
         }
         
         /// <summary>
@@ -98,7 +98,7 @@ namespace BudgetExecution
         {
             try
             {
-                return _type + _amount?.GetFunding().ToString( "c" );
+                return _type + Amount?.GetFunding().ToString( "c" );
             }
             catch( Exception ex )
             {
@@ -114,11 +114,11 @@ namespace BudgetExecution
         /// </returns>
         public IEnumerable<DataRow> GetData()
         {
-            if( Verify.Map( _data ) )
+            if( Verify.Map( Data ) )
             {
                 try
                 {
-                    var _rows = new Builder( _source, _data )
+                    var _rows = new Builder( _source, Data )
                         ?.GetData();
 
                     return _rows?.Any() == true
@@ -144,8 +144,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( _id )
-                    ? _id
+                return Verify.Key( ID )
+                    ? ID
                     : default( IKey );
             }
             catch( Exception ex )

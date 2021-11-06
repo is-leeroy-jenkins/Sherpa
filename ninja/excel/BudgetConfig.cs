@@ -1,4 +1,4 @@
-﻿// <copyright file=" <File _name> .cs" company="Terry D. Eppler">
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
@@ -22,37 +22,37 @@ namespace BudgetExecution
         /// <summary>
         /// The name
         /// </summary>
-        private protected string _name;
+        public string Name { get; set; }
 
         /// <summary>
         /// The title
         /// </summary>
-        private protected Grid _title;
+        public Grid Title { get; set; }
 
         /// <summary>
         /// The control number
         /// </summary>
-        private protected Grid _controlNumber;
+        public Grid ControlNumber { get; set; }
 
         /// <summary>
-        /// The PRC
+        /// The ProgramResultCodes
         /// </summary>
-        private protected Grid _prc;
+        public Grid PRC { get; set; }
 
         /// <summary>
         /// The fte
         /// </summary>
-        private protected Grid _fte;
+        public Grid FTE { get; set; }
 
         /// <summary>
         /// The awards
         /// </summary>
-        private protected Grid _awards;
+        public Grid Awards { get; set; }
 
         /// <summary>
         /// The overtime
         /// </summary>
-        private protected Grid _overtime;
+        public Grid Overtime { get; set; }
 
         /// <summary>
         /// Adds the comment.
@@ -108,7 +108,7 @@ namespace BudgetExecution
                     _sheet.Cells[ _row, _column  + 3 ].Value = "Expenses";
                     _sheet.Cells[ _row, _column  + 4 ].Value = "Contracts";
                     _sheet.Cells[ _row, _column  + 5 ].Value = "Grants";
-                    _sheet.Cells[ _row, _column  + 6 ].Value = "_total";
+                    _sheet.Cells[ _row, _column  + 6 ].Value = "Total";
                 }
                 catch( Exception ex )
                 {
@@ -157,7 +157,7 @@ namespace BudgetExecution
         {
             if( workSheet != null )
             {
-                workSheet = _workbook.Worksheets[ 1 ];
+                workSheet = Workbook.Worksheets[ 1 ];
                 workSheet.View.ShowGridLines = false;
                 workSheet.View.ZoomScale = _zoomLevel;
                 workSheet.View.PageLayoutView = true;
@@ -188,7 +188,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _header = _worksheet.HeaderFooter.FirstHeader;
+                    var _header = Worksheet.HeaderFooter.FirstHeader;
                     _header.CenteredText = headerText;
                 }
                 catch( Exception ex )
