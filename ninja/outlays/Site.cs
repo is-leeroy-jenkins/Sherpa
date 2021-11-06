@@ -44,12 +44,12 @@ namespace BudgetExecution
         {
             Record = new Builder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.SiteId );
-            _programProjectCode = new Element( Record, Field.ProgramProjectCode );
-            _focCode = new Element( Record, Field.FocCode );
-            _dcn = new Element( Record, Field.DCN );
+            ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
+            FocCode = new Element( Record, Field.FocCode );
+            DCN = new Element( Record, Field.DCN );
             EpaSiteId = new Element( Record, Field.EpaSiteId );
             SiteName = new Element( Record, Field.SiteName );
-            _siteProjectCode = new Element( Record, Field.SiteProjectCode );
+            SiteProjectCode = new Element( Record, Field.SiteProjectCode );
             SiteProjectName = new Element( Record, Field.SiteProjectName );
             City = new Element( Record, Field.City );
             District = new Element( Record, Field.District );
@@ -59,15 +59,15 @@ namespace BudgetExecution
             StreetAddressLine1 = new Element( Record, Field.StreetAddressLine1 );
             StreetAddressLine2 = new Element( Record, Field.StreetAddressLine2 );
             ZipCode = new Element( Record, Field.ZipCode );
-            _originalActionDate = new Time( Record, EventDate.OriginalActionDate );
+            OriginalActionDate = new Time( Record, EventDate.OriginalActionDate );
             LastActionDate = new Time( Record, EventDate.LastActionDate );
-            _commitments = new Amount( Record, Numeric.Commitments );
-            _openCommitments = new Amount( Record, Numeric.OpenCommitments );
-            _obligations = new Amount( Record, Numeric.Obligations );
-            _ulo = new Amount( Record, Numeric.ULO );
-            _deobligations = new Amount( Record, Numeric.Deobligations );
-            _expenditures = new Amount( Record, Numeric.Expenditures );
-            _data = Record?.ToDictionary();
+            Commitments = new Amount( Record, Numeric.Commitments );
+            OpenCommitments = new Amount( Record, Numeric.OpenCommitments );
+            Obligations = new Amount( Record, Numeric.Obligations );
+            ULO = new Amount( Record, Numeric.ULO );
+            Deobligations = new Amount( Record, Numeric.Deobligations );
+            Expenditures = new Amount( Record, Numeric.Expenditures );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -81,12 +81,12 @@ namespace BudgetExecution
         {
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.SiteId );
-            _programProjectCode = new Element( Record, Field.ProgramProjectCode );
-            _focCode = new Element( Record, Field.FocCode );
-            _dcn = new Element( Record, Field.DCN );
+            ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
+            FocCode = new Element( Record, Field.FocCode );
+            DCN = new Element( Record, Field.DCN );
             EpaSiteId = new Element( Record, Field.EpaSiteId );
             SiteName = new Element( Record, Field.SiteName );
-            _siteProjectCode = new Element( Record, Field.SiteProjectCode );
+            SiteProjectCode = new Element( Record, Field.SiteProjectCode );
             SiteProjectName = new Element( Record, Field.SiteProjectName );
             City = new Element( Record, Field.City );
             District = new Element( Record, Field.District );
@@ -96,15 +96,15 @@ namespace BudgetExecution
             StreetAddressLine1 = new Element( Record, Field.StreetAddressLine1 );
             StreetAddressLine2 = new Element( Record, Field.StreetAddressLine2 );
             ZipCode = new Element( Record, Field.ZipCode );
-            _originalActionDate = new Time( Record, EventDate.OriginalActionDate );
+            OriginalActionDate = new Time( Record, EventDate.OriginalActionDate );
             LastActionDate = new Time( Record, EventDate.LastActionDate );
-            _commitments = new Amount( Record, Numeric.Commitments );
-            _openCommitments = new Amount( Record, Numeric.OpenCommitments );
-            _obligations = new Amount( Record, Numeric.Obligations );
-            _ulo = new Amount( Record, Numeric.ULO );
-            _deobligations = new Amount( Record, Numeric.Deobligations );
-            _expenditures = new Amount( Record, Numeric.Expenditures );
-            _data = Record?.ToDictionary();
+            Commitments = new Amount( Record, Numeric.Commitments );
+            OpenCommitments = new Amount( Record, Numeric.OpenCommitments );
+            Obligations = new Amount( Record, Numeric.Obligations );
+            ULO = new Amount( Record, Numeric.ULO );
+            Deobligations = new Amount( Record, Numeric.Deobligations );
+            Expenditures = new Amount( Record, Numeric.Expenditures );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -117,12 +117,12 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.SiteId );
-            _programProjectCode = new Element( Record, Field.ProgramProjectCode );
-            _focCode = new Element( Record, Field.FocCode );
-            _dcn = new Element( Record, Field.DCN );
+            ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
+            FocCode = new Element( Record, Field.FocCode );
+            DCN = new Element( Record, Field.DCN );
             EpaSiteId = new Element( Record, Field.EpaSiteId );
             SiteName = new Element( Record, Field.SiteName );
-            _siteProjectCode = new Element( Record, Field.SiteProjectCode );
+            SiteProjectCode = new Element( Record, Field.SiteProjectCode );
             SiteProjectName = new Element( Record, Field.SiteProjectName );
             City = new Element( Record, Field.City );
             District = new Element( Record, Field.District );
@@ -132,15 +132,15 @@ namespace BudgetExecution
             StreetAddressLine1 = new Element( Record, Field.StreetAddressLine1 );
             StreetAddressLine2 = new Element( Record, Field.StreetAddressLine2 );
             ZipCode = new Element( Record, Field.ZipCode );
-            _originalActionDate = new Time( Record, EventDate.OriginalActionDate );
+            OriginalActionDate = new Time( Record, EventDate.OriginalActionDate );
             LastActionDate = new Time( Record, EventDate.LastActionDate );
-            _commitments = new Amount( Record, Numeric.Commitments );
-            _openCommitments = new Amount( Record, Numeric.OpenCommitments );
-            _obligations = new Amount( Record, Numeric.Obligations );
-            _ulo = new Amount( Record, Numeric.ULO );
-            _deobligations = new Amount( Record, Numeric.Deobligations );
-            _expenditures = new Amount( Record, Numeric.Expenditures );
-            _data = Record?.ToDictionary();
+            Commitments = new Amount( Record, Numeric.Commitments );
+            OpenCommitments = new Amount( Record, Numeric.OpenCommitments );
+            Obligations = new Amount( Record, Numeric.Obligations );
+            ULO = new Amount( Record, Numeric.ULO );
+            Deobligations = new Amount( Record, Numeric.Deobligations );
+            Expenditures = new Amount( Record, Numeric.Expenditures );
+            Data = Record?.ToDictionary();
         }
         
         /// <summary>
@@ -392,8 +392,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( _data )
-                    ? _data
+                return Verify.Map( Data )
+                    ? Data
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )

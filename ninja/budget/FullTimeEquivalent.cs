@@ -24,7 +24,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        private const Source _source = Source.FTE;
+        public new Source Source { get; } =  Source.FTE;
 
         /// <summary>
         /// Initializes a new instance of the

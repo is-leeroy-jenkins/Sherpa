@@ -18,7 +18,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        private const Source _source = Source.PayrollObligations;
+        public Source Source { get; } =  Source.PayrollObligations;
 
         /// <summary>
         /// Gets the allocation percentage.
@@ -116,11 +116,11 @@ namespace BudgetExecution
             OrgCode = new Element( Record, Field.OrgCode );
             RcCode = new Element( Record, Field.RcCode );
             AccountCode = new Element( Record, Field.AccountCode );
-            _programProjectCode = new Element( Record, Field.ProgramProjectCode );
-            _hrOrgCode = new Element( Record, Field.HrOrgCode );
-            _workCode = new Element( Record, Field.WorkCode );
-            _focCode = new Element( Record, Field.FocCode );
-            _payPeriod = new Element( Record, Field.PayPeriod );
+            ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
+            HrOrgCode = new Element( Record, Field.HrOrgCode );
+            WorkCode = new Element( Record, Field.WorkCode );
+            FocCode = new Element( Record, Field.FocCode );
+            PayPeriod = new Element( Record, Field.PayPeriod );
             _amount = new Amount( Record, Numeric.Amount );
             _hours = new Amount( Record, Numeric.Hours );
             _allocationPercentage = new Amount( Record, Numeric.AllocationPercentage );
@@ -131,7 +131,7 @@ namespace BudgetExecution
             _annualOtherPaid = new Amount( Record, Numeric.AnnualOtherPaid );
             _annualOvertimeHours = new Amount( Record, Numeric.AnnualOvertimePaid );
             _annualOvertimePaid = new Amount( Record, Numeric.AnnualOvertimePaid );
-            _data = Record?.ToDictionary();
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -151,11 +151,11 @@ namespace BudgetExecution
             OrgCode = new Element( Record, Field.OrgCode );
             RcCode = new Element( Record, Field.RcCode );
             AccountCode = new Element( Record, Field.AccountCode );
-            _programProjectCode = new Element( Record, Field.ProgramProjectCode );
-            _hrOrgCode = new Element( Record, Field.HrOrgCode );
-            _workCode = new Element( Record, Field.WorkCode );
-            _focCode = new Element( Record, Field.FocCode );
-            _payPeriod = new Element( Record, Field.PayPeriod );
+            ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
+            HrOrgCode = new Element( Record, Field.HrOrgCode );
+            WorkCode = new Element( Record, Field.WorkCode );
+            FocCode = new Element( Record, Field.FocCode );
+            PayPeriod = new Element( Record, Field.PayPeriod );
             _amount = new Amount( Record, Numeric.Amount );
             _hours = new Amount( Record, Numeric.Hours );
             _allocationPercentage = new Amount( Record, Numeric.AllocationPercentage );
@@ -166,8 +166,8 @@ namespace BudgetExecution
             _annualOtherPaid = new Amount( Record, Numeric.AnnualOtherPaid );
             _annualOvertimeHours = new Amount( Record, Numeric.AnnualOvertimePaid );
             _annualOvertimePaid = new Amount( Record, Numeric.AnnualOvertimePaid );
-            _type = OutlayType.Obligation;
-            _data = Record?.ToDictionary();
+            Type = OutlayType.Obligation;
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -186,11 +186,11 @@ namespace BudgetExecution
             OrgCode = new Element( Record, Field.OrgCode );
             RcCode = new Element( Record, Field.RcCode );
             AccountCode = new Element( Record, Field.AccountCode );
-            _programProjectCode = new Element( Record, Field.ProgramProjectCode );
-            _hrOrgCode = new Element( Record, Field.HrOrgCode );
-            _workCode = new Element( Record, Field.WorkCode );
-            _focCode = new Element( Record, Field.FocCode );
-            _payPeriod = new Element( Record, Field.PayPeriod );
+            ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
+            HrOrgCode = new Element( Record, Field.HrOrgCode );
+            WorkCode = new Element( Record, Field.WorkCode );
+            FocCode = new Element( Record, Field.FocCode );
+            PayPeriod = new Element( Record, Field.PayPeriod );
             _amount = new Amount( Record, Numeric.Amount );
             _hours = new Amount( Record, Numeric.Hours );
             _allocationPercentage = new Amount( Record, Numeric.AllocationPercentage );
@@ -201,8 +201,8 @@ namespace BudgetExecution
             _annualOtherPaid = new Amount( Record, Numeric.AnnualOtherPaid );
             _annualOvertimeHours = new Amount( Record, Numeric.AnnualOvertimePaid );
             _annualOvertimePaid = new Amount( Record, Numeric.AnnualOvertimePaid );
-            _type = OutlayType.Obligation;
-            _data = Record?.ToDictionary();
+            Type = OutlayType.Obligation;
+            Data = Record?.ToDictionary();
         }
         
         /// <summary>
@@ -214,8 +214,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _hrOrgCode?.GetValue() )
-                    ? _hrOrgCode
+                return Verify.Input( HrOrgCode?.GetValue() )
+                    ? HrOrgCode
                     : default( IElement );
             }
             catch( SystemException ex )

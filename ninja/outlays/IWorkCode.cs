@@ -16,10 +16,6 @@ namespace BudgetExecution
     /// </summary>
     public interface IWorkCode
     {
-        // ***************************************************************************************************************************
-        // ****************************************************     METHODS   ********************************************************
-        // ***************************************************************************************************************************
-
         /// <summary>
         /// Gets the budget fiscal year.
         /// </summary>
@@ -68,14 +64,7 @@ namespace BudgetExecution
         /// <returns>
         /// </returns>
         IEnumerable<IWorkCode> GetWorkCodes();
-
-        /// <summary>
-        /// Gets the division.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IDivision GetDivision();
-
+        
         /// <summary>
         /// Converts to dictionary.
         /// </summary>

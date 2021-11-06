@@ -114,14 +114,14 @@ namespace BudgetExecution
             _checkDate = new Time( Record, EventDate.CheckDate );
             _invoiceDate = new Time( Record, EventDate.InvoiceDate );
             _modificationNumber = new Element( Record, Field.ModificationNumber );
-            _documentType = new Element( Record, Field.DocumentNumber );
-            _dcn = new Element( Record, Field.DCN );
+            DocPrefix = new Element( Record, Field.DocumentNumber );
+            DCN = new Element( Record, Field.DCN );
             _projectCode = new Element( Record, Field.ProjectCode );
-            _focCode = new Element( Record, Field.FocCode );
+            FocCode = new Element( Record, Field.FocCode );
             _costOrgCode = new Element( Record, Field.CostOrgCode );
             _amount = new Amount( Record, Numeric.Payment );
             _disbursed = new Amount( Record, Numeric.Disbursed );
-            _data = Record?.ToDictionary();
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -141,14 +141,14 @@ namespace BudgetExecution
             _checkDate = new Time( Record, EventDate.CheckDate );
             _invoiceDate = new Time( Record, EventDate.InvoiceDate );
             _modificationNumber = new Element( Record, Field.ModificationNumber );
-            _documentType = new Element( Record, Field.DocumentNumber );
-            _dcn = new Element( Record, Field.DCN );
+            DocPrefix = new Element( Record, Field.DocumentNumber );
+            DCN = new Element( Record, Field.DCN );
             _projectCode = new Element( Record, Field.ProjectCode );
-            _focCode = new Element( Record, Field.FocCode );
+            FocCode = new Element( Record, Field.FocCode );
             _costOrgCode = new Element( Record, Field.CostOrgCode );
             _amount = new Amount( Record, Numeric.Payment );
             _disbursed = new Amount( Record, Numeric.Disbursed );
-            _data = Record?.ToDictionary();
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -168,14 +168,14 @@ namespace BudgetExecution
             _checkDate = new Time( Record, EventDate.CheckDate );
             _invoiceDate = new Time( Record, EventDate.InvoiceDate );
             _modificationNumber = new Element( Record, Field.ModificationNumber );
-            _documentType = new Element( Record, Field.DocumentNumber );
-            _dcn = new Element( Record, Field.DCN );
+            DocPrefix = new Element( Record, Field.DocumentNumber );
+            DCN = new Element( Record, Field.DCN );
             _projectCode = new Element( Record, Field.ProjectCode );
-            _focCode = new Element( Record, Field.FocCode );
+            FocCode = new Element( Record, Field.FocCode );
             _costOrgCode = new Element( Record, Field.CostOrgCode );
             _amount = new Amount( Record, Numeric.Payment );
             _disbursed = new Amount( Record, Numeric.Disbursed );
-            _data = Record?.ToDictionary();
+            Data = Record?.ToDictionary();
         }
         
         /// <summary>
@@ -207,8 +207,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _focName )
-                    ? _focName
+                return Verify.Element( FocName )
+                    ? FocName
                     : Element.Default;
             }
             catch( Exception ex )
@@ -427,8 +427,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( _data )
-                    ? _data
+                return Verify.Map( Data )
+                    ? Data
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )

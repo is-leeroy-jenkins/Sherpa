@@ -26,7 +26,7 @@ namespace BudgetExecution
         /// <inheritdoc/>
         public UnliquidatedObligation()
         {
-            _type = OutlayType.ULO;
+            Type = OutlayType.ULO;
         }
 
         /// <summary>
@@ -39,9 +39,9 @@ namespace BudgetExecution
         {
             Record = new DataBuilder()?.GetRecord();
             ID = new Key( Record, PrimaryKey.UnliquidatedObligationId );
-            _originalActionDate = GetOriginalActionDate();
-            _ulo = new Amount( Record, Numeric.ULO );
-            _data = Record?.ToDictionary();
+            OriginalActionDate = GetOriginalActionDate();
+            ULO = new Amount( Record, Numeric.ULO );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -55,9 +55,9 @@ namespace BudgetExecution
         {
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.UnliquidatedObligationId );
-            _originalActionDate = GetOriginalActionDate();
-            _ulo = new Amount( Record, Numeric.ULO );
-            _data = Record?.ToDictionary();
+            OriginalActionDate = GetOriginalActionDate();
+            ULO = new Amount( Record, Numeric.ULO );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -70,9 +70,9 @@ namespace BudgetExecution
         {
             Record = datarow;
             ID = new Key( Record, PrimaryKey.UnliquidatedObligationId );
-            _originalActionDate = GetOriginalActionDate();
-            _ulo = new Amount( Record, Numeric.ULO );
-            _data = Record?.ToDictionary();
+            OriginalActionDate = GetOriginalActionDate();
+            ULO = new Amount( Record, Numeric.ULO );
+            Data = Record?.ToDictionary();
         }
         
         /// <summary>
@@ -112,8 +112,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( _data )
-                    ? _data
+                return Verify.Map( Data )
+                    ? Data
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )
@@ -132,8 +132,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _ulo.GetFunding() > -1.0
-                    ? _ulo
+                return ULO.GetFunding() > -1.0
+                    ? ULO
                     : default( IAmount );
             }
             catch( Exception ex )

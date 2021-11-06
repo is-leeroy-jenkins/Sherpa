@@ -37,9 +37,9 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.OpenCommitmentId );
-            _originalActionDate = GetOriginalActionDate();
-            _data = Record?.ToDictionary();
-            _type = OutlayType.OpenCommitment;
+            OriginalActionDate = GetOriginalActionDate();
+            Data = Record?.ToDictionary();
+            Type = OutlayType.OpenCommitment;
         }
 
         /// <summary>
@@ -53,9 +53,9 @@ namespace BudgetExecution
         {
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.OpenCommitmentId );
-            _originalActionDate = GetOriginalActionDate();
-            _data = Record?.ToDictionary();
-            _type = OutlayType.OpenCommitment;
+            OriginalActionDate = GetOriginalActionDate();
+            Data = Record?.ToDictionary();
+            Type = OutlayType.OpenCommitment;
         }
 
         /// <summary>
@@ -69,9 +69,9 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.OpenCommitmentId );
-            _originalActionDate = GetOriginalActionDate();
-            _data = Record?.ToDictionary();
-            _type = OutlayType.OpenCommitment;
+            OriginalActionDate = GetOriginalActionDate();
+            Data = Record?.ToDictionary();
+            Type = OutlayType.OpenCommitment;
         }
         
         /// <summary>
@@ -103,8 +103,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( _data )
-                    ? _data
+                return Verify.Map( Data )
+                    ? Data
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )
@@ -123,8 +123,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _openCommitments.GetFunding() > -1
-                    ? _openCommitments
+                return OpenCommitments.GetFunding() > -1
+                    ? OpenCommitments
                     : default( IAmount );
             }
             catch( Exception ex )

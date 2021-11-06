@@ -50,18 +50,18 @@ namespace BudgetExecution
             Code = new Element( Record, Field.Code );
             Name = new Element( Record, Field.Name );
             DunsNumber = new Element( Record, Field.DunsNumber );
-            _programProjectCode = new Element( Record, Field.ProgramProjectCode );
-            _focCode = new Element( Record, Field.FocCode );
-            _focName = new Element( Record, Field.FocName );
-            _documentType = new Element( Record, Field.DocumentType );
+            ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
+            FocCode = new Element( Record, Field.FocCode );
+            FocName = new Element( Record, Field.FocName );
+            DocPrefix = new Element( Record, Field.DocumentType );
             DocumentNumber = new Element( Record, Field.DocumentNumber );
             StartDate = new Time( Record, EventDate.StartDate );
             EndDate = new Time( Record, EventDate.EndDate );
             ClosedDate = new Time( Record, EventDate.ClosedDate );
             _amount = new Amount( Record, Numeric.Amount );
             Expended = new Amount( Record, Numeric.Expended );
-            _ulo = new Amount( Record, Numeric.ULO );
-            _data = Record?.ToDictionary();
+            ULO = new Amount( Record, Numeric.ULO );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -78,18 +78,18 @@ namespace BudgetExecution
             Code = new Element( Record, Field.Code );
             Name = new Element( Record, Field.Name );
             DunsNumber = new Element( Record, Field.DunsNumber );
-            _programProjectCode = new Element( Record, Field.ProgramProjectCode );
-            _focCode = new Element( Record, Field.FocCode );
-            _focName = new Element( Record, Field.FocName );
-            _documentType = new Element( Record, Field.DocumentType );
+            ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
+            FocCode = new Element( Record, Field.FocCode );
+            FocName = new Element( Record, Field.FocName );
+            DocPrefix = new Element( Record, Field.DocumentType );
             DocumentNumber = new Element( Record, Field.DocumentNumber );
             StartDate = new Time( Record, EventDate.StartDate );
             EndDate = new Time( Record, EventDate.EndDate );
             ClosedDate = new Time( Record, EventDate.ClosedDate );
             _amount = new Amount( Record, Numeric.Amount );
             Expended = new Amount( Record, Numeric.Expended );
-            _ulo = new Amount( Record, Numeric.ULO );
-            _data = Record?.ToDictionary();
+            ULO = new Amount( Record, Numeric.ULO );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -106,18 +106,18 @@ namespace BudgetExecution
             Code = new Element( Record, Field.Code );
             Name = new Element( Record, Field.Name );
             DunsNumber = new Element( Record, Field.DunsNumber );
-            _programProjectCode = new Element( Record, Field.ProgramProjectCode );
-            _focCode = new Element( Record, Field.FocCode );
-            _focName = new Element( Record, Field.FocName );
-            _documentType = new Element( Record, Field.DocumentType );
+            ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
+            FocCode = new Element( Record, Field.FocCode );
+            FocName = new Element( Record, Field.FocName );
+            DocPrefix = new Element( Record, Field.DocumentType );
             DocumentNumber = new Element( Record, Field.DocumentNumber );
             StartDate = new Time( Record, EventDate.StartDate );
             EndDate = new Time( Record, EventDate.EndDate );
             ClosedDate = new Time( Record, EventDate.ClosedDate );
             _amount = new Amount( Record, Numeric.Amount );
             Expended = new Amount( Record, Numeric.Expended );
-            _ulo = new Amount( Record, Numeric.ULO );
-            _data = Record?.ToDictionary();
+            ULO = new Amount( Record, Numeric.ULO );
+            Data = Record?.ToDictionary();
         }
         
         /// <summary>
@@ -330,8 +330,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Amount( _ulo )
-                    ? _ulo
+                return Verify.Amount( ULO )
+                    ? ULO
                     : default( IAmount );
             }
             catch( Exception ex )
@@ -350,8 +350,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( _data )
-                    ? _data
+                return Verify.Map( Data )
+                    ? Data
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )

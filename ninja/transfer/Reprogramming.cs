@@ -1,6 +1,6 @@
-﻿// <copyright file = "Reprogramming.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
-// </copyright>
+﻿// // <copyright file = "Reprogramming.cs" company = "Terry D. Eppler">
+// // Copyright (c) Terry D. Eppler. All rights reserved.
+// // </copyright>
 
 namespace BudgetExecution
 {
@@ -40,7 +40,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        private const Source _source = Source.Transfers;
+        public new Source Source { get; } = Source.Transfers;
 
         /// <summary>
         /// Gets the date.
@@ -48,7 +48,7 @@ namespace BudgetExecution
         /// <value>
         /// The date.
         /// </value>
-        private readonly DateTime _date;
+        public  DateTime ProcessedDate { get;  }
 
         /// <summary>
         /// Gets the type of the document.
@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the document.
         /// </value>
-        private readonly IElement _docType;
+        public  IElement DocPrefix { get;  }
 
         /// <summary>
         /// Gets from to.
@@ -64,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         /// From to.
         /// </value>
-        private readonly IElement _fromTo;
+        public  IElement FromTo { get;  }
 
         /// <summary>
         /// Gets the document number.
@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The document number.
         /// </value>
-        private readonly IElement _documentNumber;
+        public  IElement DocumentNumber { get;  }
 
         /// <summary>
         /// Gets the purpose.
@@ -80,7 +80,7 @@ namespace BudgetExecution
         /// <value>
         /// The purpose.
         /// </value>
-        private readonly IElement _purpose;
+        public  IElement Purpose { get;  }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Reprogramming"/> class.
@@ -100,11 +100,11 @@ namespace BudgetExecution
         {
             Record = new Builder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.TransferId );
-            _docType = new Element( Record, Field.DocType );
-            _documentNumber = new Element( Record, Field.DocumentNumber );
-            _purpose = new Element( Record, Field.Purpose );
-            _fromTo = new Element( Record, Field.FromTo );
-            _date = DateTime.Parse( Record[ $"{Field.DocumentNumber}" ].ToString() );
+            DocPrefix = new Element( Record, Field.DocType );
+            DocumentNumber = new Element( Record, Field.DocumentNumber );
+            Purpose = new Element( Record, Field.Purpose );
+            FromTo = new Element( Record, Field.FromTo );
+            ProcessedDate = DateTime.Parse( Record[ $"{Field.DocumentNumber}" ].ToString() );
             Amount = GetAmount();
             Data = Record?.ToDictionary();
         }
@@ -120,11 +120,11 @@ namespace BudgetExecution
         {
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.TransferId );
-            _docType = new Element( Record, Field.DocType );
-            _documentNumber = new Element( Record, Field.DocumentNumber );
-            _purpose = new Element( Record, Field.Purpose );
-            _fromTo = new Element( Record, Field.FromTo );
-            _date = DateTime.Parse( Record?[ $"{Field.DocumentNumber}" ].ToString() );
+            DocPrefix = new Element( Record, Field.DocType );
+            DocumentNumber = new Element( Record, Field.DocumentNumber );
+            Purpose = new Element( Record, Field.Purpose );
+            FromTo = new Element( Record, Field.FromTo );
+            ProcessedDate = DateTime.Parse( Record?[ $"{Field.DocumentNumber}" ].ToString() );
             Amount = GetAmount();
             Data = Record?.ToDictionary();
         }
@@ -140,15 +140,15 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.TransferId );
-            _docType = new Element( Record, Field.DocType );
-            _documentNumber = new Element( Record, Field.DocumentNumber );
-            _purpose = new Element( Record, Field.Purpose );
-            _fromTo = new Element( Record, Field.FromTo );
-            _date = DateTime.Parse( Record[ $"{Field.DocumentNumber}" ].ToString() );
+            DocPrefix = new Element( Record, Field.DocType );
+            DocumentNumber = new Element( Record, Field.DocumentNumber );
+            Purpose = new Element( Record, Field.Purpose );
+            FromTo = new Element( Record, Field.FromTo );
+            ProcessedDate = DateTime.Parse( Record[ $"{Field.DocumentNumber}" ].ToString() );
             Amount = GetAmount();
             Data = Record?.ToDictionary();
         }
-        
+
         /// <summary>
         /// Gets the transfer identifier.
         /// </summary>
@@ -164,7 +164,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Reprogramming.Fail( ex );
                 return Key.Default;
             }
         }
@@ -179,13 +179,13 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _documentNumber )
-                    ? _documentNumber.GetValue()
+                return Verify.Element( DocumentNumber )
+                    ? DocumentNumber.GetValue()
                     : string.Empty;
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Reprogramming.Fail( ex );
                 return string.Empty;
             }
         }
@@ -199,13 +199,13 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.DateTime( _date )
-                    ? _date
+                return Verify.DateTime( ProcessedDate )
+                    ? ProcessedDate
                     : default( DateTime );
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Reprogramming.Fail( ex );
                 return default( DateTime );
             }
         }
@@ -219,13 +219,13 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _docType )
-                    ? _docType
+                return Verify.Element( DocPrefix )
+                    ? DocPrefix
                     : Element.Default;
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Reprogramming.Fail( ex );
                 return Element.Default;
             }
         }
@@ -239,13 +239,13 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _fromTo.GetValue() )
-                    ? (FromTo)Enum.Parse( typeof( FromTo ), _fromTo.GetValue() )
+                return Verify.Input( FromTo.GetValue() )
+                    ? (FromTo)Enum.Parse( typeof( FromTo ), FromTo.GetValue() )
                     : default( FromTo );
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Reprogramming.Fail( ex );
                 return default( FromTo );
             }
         }
@@ -259,13 +259,13 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _documentNumber )
-                    ? _documentNumber
+                return Verify.Element( DocumentNumber )
+                    ? DocumentNumber
                     : Element.Default;
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Reprogramming.Fail( ex );
                 return Element.Default;
             }
         }
@@ -279,13 +279,13 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _purpose )
-                    ? _purpose
+                return Verify.Element( Purpose )
+                    ? Purpose
                     : Element.Default;
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Reprogramming.Fail( ex );
                 return Element.Default;
             }
         }
@@ -299,13 +299,13 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.Source( _source )
-                    ? _source
+                return Validate.Source( Source )
+                    ? Source
                     : Source.NS;
             }
             catch( SystemException ex )
             {
-                Fail( ex );
+                Reprogramming.Fail( ex );
                 return Source.NS;
             }
         }

@@ -41,7 +41,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public const Source Source = BudgetExecution.Source.Overtime;
+        public new Source Source { get; } = Source.Overtime;
 
         /// <summary>
         /// 
@@ -61,7 +61,7 @@ namespace BudgetExecution
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.OvertimeId );
             FundCode = new Element( Record, Field.FundCode );
-            _boc = new Element( Record, Field.BocCode );
+            BOC = new Element( Record, Field.BocCode );
             Amount = GetAmount();
             Data = Record?.ToDictionary();
         }
@@ -77,7 +77,7 @@ namespace BudgetExecution
             Record = dataBuilder?.GetRecord();
             ID = new Key( Record, PrimaryKey.OvertimeId );
             FundCode = new Element( Record, Field.FundCode );
-            _boc = new Element( Record, Field.BocCode );
+            BOC = new Element( Record, Field.BocCode );
             Amount = GetAmount();
             Data = Record?.ToDictionary();
         }
@@ -107,7 +107,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _select = new Builder( Overtime.Source, Data )
+                    var _select = new Builder( Source, Data )
                         ?.GetDataTable()
                         ?.AsEnumerable()
                         ?.Where( a => a.Field<string>( $"{Field.Type}" ).Equals( $"{Source.Overtime}" ) )
@@ -157,8 +157,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _type?.GetValue() )
-                    ? _type
+                return Verify.Input( Type?.GetValue() )
+                    ? Type
                     : default( IElement );
             }
             catch( Exception ex )

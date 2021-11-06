@@ -24,7 +24,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        private const Source _source = Source.Expenditures;
+        public Source Source { get; } =  Source.Expenditures;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Expenditure"/> class.
@@ -44,10 +44,10 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.ExpenditureId );
-            _originalActionDate = GetOriginalActionDate();
-            _expenditures = GetExpenditures();
-            _data = Record?.ToDictionary();
-            _type = OutlayType.Expenditure;
+            OriginalActionDate = GetOriginalActionDate();
+            Expenditures = GetExpenditures();
+            Data = Record?.ToDictionary();
+            Type = OutlayType.Expenditure;
         }
 
         /// <summary>
@@ -61,10 +61,10 @@ namespace BudgetExecution
         {
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.ExpenditureId );
-            _originalActionDate = GetOriginalActionDate();
-            _expenditures = GetExpenditures();
-            _data = Record?.ToDictionary();
-            _type = OutlayType.Expenditure;
+            OriginalActionDate = GetOriginalActionDate();
+            Expenditures = GetExpenditures();
+            Data = Record?.ToDictionary();
+            Type = OutlayType.Expenditure;
         }
 
         /// <summary>
@@ -78,10 +78,10 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ExpenditureId );
-            _originalActionDate = GetOriginalActionDate();
-            _expenditures = GetExpenditures();
-            _data = Record?.ToDictionary();
-            _type = OutlayType.Expenditure;
+            OriginalActionDate = GetOriginalActionDate();
+            Expenditures = GetExpenditures();
+            Data = Record?.ToDictionary();
+            Type = OutlayType.Expenditure;
         }
         
         /// <summary>
@@ -114,8 +114,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _expenditures?.GetFunding() > -1
-                    ? _expenditures
+                return Expenditures?.GetFunding() > -1
+                    ? Expenditures
                     : default( IAmount );
             }
             catch( Exception ex )
@@ -134,8 +134,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( _data )
-                    ?  _data
+                return Verify.Map( Data )
+                    ?  Data
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )

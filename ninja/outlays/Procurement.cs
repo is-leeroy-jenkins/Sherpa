@@ -46,14 +46,14 @@ namespace BudgetExecution
             _securityOrg = new Element( Record, Field.SecurityOrg );
             _vendorCode = new Element( Record, Field.VendorCode );
             _projectCode = new Element( Record, Field.ProjectCode );
-            _documentPrefix = new Element( Record, Field.DocumentPrefix );
-            _documentType = new Element( Record, Field.DocumentType );
+            DocType = new Element( Record, Field.DocumentPrefix );
+            DocPrefix = new Element( Record, Field.DocumentType );
             _documentDate = new Time( Record, EventDate.DocumentDate );
             _documentControlNumber = new Element( Record, Field.DocumentControlNumber );
             _ordered = new Amount( Record, Numeric.Ordered );
             _closed = new Amount( Record, Numeric.Closed );
             _expended = new Amount( Record, Numeric.Expended );
-            _data = Record?.ToDictionary();
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -78,14 +78,14 @@ namespace BudgetExecution
             _securityOrg = new Element( Record, Field.SecurityOrg );
             _vendorCode = new Element( Record, Field.VendorCode );
             _projectCode = new Element( Record, Field.ProjectCode );
-            _documentPrefix = new Element( Record, Field.DocumentPrefix );
-            _documentType = new Element( Record, Field.DocumentType );
+            DocType = new Element( Record, Field.DocumentPrefix );
+            DocPrefix = new Element( Record, Field.DocumentType );
             _documentDate = new Time( Record, EventDate.DocumentDate );
             _documentControlNumber = new Element( Record, Field.DocumentControlNumber );
             _ordered = new Amount( Record, Numeric.Ordered );
             _closed = new Amount( Record, Numeric.Closed );
             _expended = new Amount( Record, Numeric.Expended );
-            _data = Record?.ToDictionary();
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -110,14 +110,14 @@ namespace BudgetExecution
             _securityOrg = new Element( Record, Field.SecurityOrg );
             _vendorCode = new Element( Record, Field.VendorCode );
             _projectCode = new Element( Record, Field.ProjectCode );
-            _documentPrefix = new Element( Record, Field.DocumentPrefix );
-            _documentType = new Element( Record, Field.DocumentType );
+            DocType = new Element( Record, Field.DocumentPrefix );
+            DocPrefix = new Element( Record, Field.DocumentType );
             _documentDate = new Time( Record, EventDate.DocumentDate );
             _documentControlNumber = new Element( Record, Field.DocumentControlNumber );
             _ordered = new Amount( Record, Numeric.Ordered );
             _closed = new Amount( Record, Numeric.Closed );
             _expended = new Amount( Record, Numeric.Expended );
-            _data = Record?.ToDictionary();
+            Data = Record?.ToDictionary();
         }
         
         /// <summary>
@@ -309,8 +309,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( _data )
-                    ? _data
+                return Verify.Map( Data )
+                    ? Data
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )

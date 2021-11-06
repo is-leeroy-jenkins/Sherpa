@@ -4,10 +4,6 @@
 
 namespace BudgetExecution
 {
-    // ******************************************************************************************************************************
-    // ******************************************************   ASSEMBLIES   ********************************************************
-    // ******************************************************************************************************************************
-
     using System;
     using System.Collections.Generic;
     using System.Data;
@@ -456,8 +452,8 @@ namespace BudgetExecution
                         var _column = dataTable.Columns[ colinx ];
                         AppendTextCell( _names[ colinx ] + "1", _column.ColumnName, _row );
 
-                        _isNumeric[ colinx ] = _column.DataType.FullName == "_system.Decimal"
-                            || _column.DataType.FullName == "_system.Int32";
+                        _isNumeric[ colinx ] = _column.DataType.FullName == "System.Decimal"
+                            || _column.DataType.FullName == "System.Int32";
                     }
 
                     foreach( DataRow _dataRow in dataTable.Rows )

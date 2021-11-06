@@ -32,7 +32,7 @@ namespace BudgetExecution
         /// </summary>
         public Deobligation()
         {
-            _type = OutlayType.Deobligation;
+            Type = OutlayType.Deobligation;
         }
 
         /// <summary>
@@ -43,10 +43,10 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.DeobligationId );
-            _originalActionDate = GetOriginalActionDate();
+            OriginalActionDate = GetOriginalActionDate();
             _amount = GetDeobligations();
-            _data = Record?.ToDictionary();
-            _type = OutlayType.Deobligation;
+            Data = Record?.ToDictionary();
+            Type = OutlayType.Deobligation;
         }
 
         /// <summary>
@@ -60,10 +60,10 @@ namespace BudgetExecution
         {
             Record = db.GetRecord();
             ID = new Key( Record, PrimaryKey.DeobligationId );
-            _originalActionDate = GetOriginalActionDate();
+            OriginalActionDate = GetOriginalActionDate();
             _amount = GetDeobligations();
-            _data = Record?.ToDictionary();
-            _type = OutlayType.Deobligation;
+            Data = Record?.ToDictionary();
+            Type = OutlayType.Deobligation;
         }
 
         /// <summary>
@@ -77,10 +77,10 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.DeobligationId );
-            _originalActionDate = GetOriginalActionDate();
+            OriginalActionDate = GetOriginalActionDate();
             _amount = GetDeobligations();
-            _data = Record?.ToDictionary();
-            _type = OutlayType.Deobligation;
+            Data = Record?.ToDictionary();
+            Type = OutlayType.Deobligation;
         }
         
         /// <summary>
@@ -113,8 +113,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _deobligations.GetFunding() > -1.0D
-                    ? _deobligations
+                return Deobligations.GetFunding() > -1.0D
+                    ? Deobligations
                     : default( IAmount );
             }
             catch( Exception ex )

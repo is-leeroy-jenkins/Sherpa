@@ -29,7 +29,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        private const Source _source = Source.Reimbursables;
+        public Source Source { get; } =  Source.Reimbursables;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Reimbursable"/> class.
@@ -48,11 +48,11 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.ReimbursableId );
-            _agreementNumber = new Element( Record, Field.ReimbursableAgreementNumber );
-            _openCommitments = new Amount( Record, Numeric.OpenCommitments );
-            _ulo = new Amount( Record, Numeric.ULO );
-            _expenditures = new Amount( Record, Numeric.Expenditures );
-            _data = Record?.ToDictionary();
+            AgreementNumber = new Element( Record, Field.ReimbursableAgreementNumber );
+            OpenCommitments = new Amount( Record, Numeric.OpenCommitments );
+            ULO = new Amount( Record, Numeric.ULO );
+            Expenditures = new Amount( Record, Numeric.Expenditures );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -66,11 +66,11 @@ namespace BudgetExecution
         {
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.ReimbursableId );
-            _agreementNumber = new Element( Record, Field.ReimbursableAgreementNumber );
-            _openCommitments = new Amount( Record, Numeric.OpenCommitments );
-            _ulo = new Amount( Record, Numeric.ULO );
-            _expenditures = new Amount( Record, Numeric.Expenditures );
-            _data = Record?.ToDictionary();
+            AgreementNumber = new Element( Record, Field.ReimbursableAgreementNumber );
+            OpenCommitments = new Amount( Record, Numeric.OpenCommitments );
+            ULO = new Amount( Record, Numeric.ULO );
+            Expenditures = new Amount( Record, Numeric.Expenditures );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -84,11 +84,11 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ReimbursableId );
-            _agreementNumber = new Element( Record, Field.ReimbursableAgreementNumber );
-            _openCommitments = new Amount( Record, Numeric.OpenCommitments );
-            _ulo = new Amount( Record, Numeric.ULO );
-            _expenditures = new Amount( Record, Numeric.Expenditures );
-            _data = Record?.ToDictionary();
+            AgreementNumber = new Element( Record, Field.ReimbursableAgreementNumber );
+            OpenCommitments = new Amount( Record, Numeric.OpenCommitments );
+            ULO = new Amount( Record, Numeric.ULO );
+            Expenditures = new Amount( Record, Numeric.Expenditures );
+            Data = Record?.ToDictionary();
         }
         
         /// <summary>
@@ -140,8 +140,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( _data )
-                    ? _data
+                return Verify.Map( Data )
+                    ? Data
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )

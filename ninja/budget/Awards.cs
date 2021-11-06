@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        private const Source _source = Source.Awards;
+        public new Source Source { get; } =  Source.Awards;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Awards"/> class.
@@ -51,7 +51,7 @@ namespace BudgetExecution
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.AwardsId );
             FundCode = new Element( Record, Field.FundCode );
-            _boc = new Element( Record, Field.BocCode );
+            BOC = new Element( Record, Field.BocCode );
             Amount = GetAmount();
             Data = Record?.ToDictionary();
         }
@@ -67,7 +67,7 @@ namespace BudgetExecution
             Record = dataBuilder?.GetRecord();
             ID = new Key( Record, PrimaryKey.AwardsId );
             FundCode = new Element( Record, Field.FundCode );
-            _boc = new Element( Record, Field.BocCode );
+            BOC = new Element( Record, Field.BocCode );
             Amount = GetAmount();
             Data = Record?.ToDictionary();
         }
@@ -83,7 +83,7 @@ namespace BudgetExecution
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.AwardsId );
             FundCode = new Element( Record, Field.FundCode );
-            _boc = new Element( Record, Field.BocCode );
+            BOC = new Element( Record, Field.BocCode );
             Amount = GetAmount();
             Data = Record?.ToDictionary();
         }
@@ -98,7 +98,7 @@ namespace BudgetExecution
         {
             try
             {
-                return _type + Amount?.GetFunding().ToString( "c" );
+                return Type + Amount?.GetFunding().ToString( "c" );
             }
             catch( Exception ex )
             {
@@ -118,7 +118,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _rows = new Builder( _source, Data )
+                    var _rows = new Builder( Source, Data )
                         ?.GetData();
 
                     return _rows?.Any() == true
@@ -164,8 +164,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Enum.IsDefined( typeof( AwardType ), _type )
-                    ? _type
+                return Enum.IsDefined( typeof( AwardType ), Type )
+                    ? Type
                     : default( IElement );
             }
             catch( Exception ex )

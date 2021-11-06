@@ -31,26 +31,26 @@ namespace BudgetExecution
             Record = dataRow;
             _prc = new ProgramResultsCode( dataRow );
             ID = new Key( Record, PrimaryKey.PrcId );
-            _npmCode = new Element( Record, Field.NpmCode );
-            _programProjectCode = new Element( Record, Field.ProgramProjectCode );
-            _programAreaCode = new Element( Record, Field.ProgramAreaCode );
-            _focCode = new Element( Record, Field.FocCode );
-            _focName = new Element( Record, Field.FocName );
-            _documentType = new Element( Record, Field.DocumentType );
-            _documentPrefix = new Element( Record, Field.DocumentPrefix );
-            _dcn = new Element( Record, Field.DocumentType );
-            _originalActionDate = new Time( Record, EventDate.OriginalActionDate );
-            _obligatingDocumentNumber = new Element( Record, Field.ObligatingDocumentNumber );
-            _system = new Element( Record, Field.System );
-            _transactionNumber = new Element( Record, Field.TransactionNumber );
-            _grantNumber = new Element( Record, Field.GrantNumber );
-            _commitments = new Amount( Record, Numeric.Commitments );
-            _openCommitments = new Amount( Record, Numeric.OpenCommitments );
-            _obligations = new Amount( Record, Numeric.Obligations );
-            _deobligations = new Amount( Record, Numeric.Deobligations );
-            _ulo = new Amount( Record, Numeric.ULO );
-            _balance = new Amount( Record, Numeric.Balance );
-            _data = Record?.ToDictionary();
+            NpmCode = new Element( Record, Field.NpmCode );
+            ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
+            ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
+            FocCode = new Element( Record, Field.FocCode );
+            FocName = new Element( Record, Field.FocName );
+            DocPrefix = new Element( Record, Field.DocumentType );
+            DocType = new Element( Record, Field.DocumentPrefix );
+            DCN = new Element( Record, Field.DocumentType );
+            OriginalActionDate = new Time( Record, EventDate.OriginalActionDate );
+            ObligatingDocumentNumber = new Element( Record, Field.ObligatingDocumentNumber );
+            System = new Element( Record, Field.System );
+            TransactionNumber = new Element( Record, Field.TransactionNumber );
+            GrantNumber = new Element( Record, Field.GrantNumber );
+            Commitments = new Amount( Record, Numeric.Commitments );
+            OpenCommitments = new Amount( Record, Numeric.OpenCommitments );
+            Obligations = new Amount( Record, Numeric.Obligations );
+            Deobligations = new Amount( Record, Numeric.Deobligations );
+            ULO = new Amount( Record, Numeric.ULO );
+            Balance = new Amount( Record, Numeric.Balance );
+            Data = Record?.ToDictionary();
         }
         
         /// <summary>
@@ -82,7 +82,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _code = _focCode?.GetValue();
+                var _code = FocCode?.GetValue();
 
                 return Verify.Input( _code )
                     ? new FinanceObjectClass( _code )
@@ -104,8 +104,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _npmCode?.GetValue() )
-                    ? new NationalProgram( _npmCode?.GetValue() )
+                return Verify.Input( NpmCode?.GetValue() )
+                    ? new NationalProgram( NpmCode?.GetValue() )
                     : default( NationalProgram );
             }
             catch( Exception ex )
@@ -144,8 +144,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _programProjectCode?.GetValue() )
-                    ? new ProgramProject( _programProjectCode?.GetValue() )
+                return Verify.Input( ProgramProjectCode?.GetValue() )
+                    ? new ProgramProject( ProgramProjectCode?.GetValue() )
                     : default( ProgramProject );
             }
             catch( Exception ex )
@@ -164,8 +164,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _programAreaCode?.GetValue() )
-                    ? new ProgramArea( _programAreaCode?.GetValue() )
+                return Verify.Input( ProgramAreaCode?.GetValue() )
+                    ? new ProgramArea( ProgramAreaCode?.GetValue() )
                     : default( ProgramArea );
             }
             catch( Exception ex )

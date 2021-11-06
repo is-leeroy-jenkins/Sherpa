@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// Converts to string.
         /// </summary>
         /// <returns>
-        /// A <see cref = "T:_system.String"/> that represents this instance.
+        /// A <see cref = "T:System.String"/> that represents this instance.
         /// </returns>
         public override string ToString()
         {

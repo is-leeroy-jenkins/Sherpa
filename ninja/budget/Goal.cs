@@ -27,14 +27,16 @@ namespace BudgetExecution
         private const Source _source = Source.Goals;
         
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Goal"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Goal"/> class.
         /// </summary>
         public Goal()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Goal"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Goal"/> class.
         /// </summary>
         /// <param name = "query" >
         /// The query.
@@ -49,7 +51,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Goal"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Goal"/> class.
         /// </summary>
         /// <param name = "builder" >
         /// The builder.
@@ -64,7 +67,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Goal"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Goal"/> class.
         /// </summary>
         /// <param name = "dataRow" >
         /// The dataRow.
@@ -220,7 +224,7 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object>
                     {
-                        [ "_code" ] = goal.ToString()
+                        [ "Code" ] = goal.ToString()
                     };
                 }
                 catch( SystemException ex )
