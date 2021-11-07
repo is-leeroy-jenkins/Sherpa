@@ -141,7 +141,7 @@ namespace BudgetExecution
                 }
                 catch( Exception ex )
                 {
-                    DataBuilder.Fail( ex );
+                    Fail( ex );
                     return default( IEnumerable<DataRow> );
                 }
             }

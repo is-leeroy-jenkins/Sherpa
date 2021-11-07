@@ -18,20 +18,61 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.CommandBase" />
     /// <seealso cref="BudgetExecution.ICommandFactory" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class CommandFactory : CommandBase, ICommandFactory
+    public class CommandFactory : ICommandFactory
     {
         /// <summary>
         /// The command builder
         /// </summary>
-        private readonly ICommandBuilder _commandBuilder;
+        public ICommandBuilder CommandBuilder { get;  }
 
         /// <summary>
-        /// The connection factory
+        /// Gets the connection builder.
         /// </summary>
-        private readonly IConnectionFactory _connectionFactory;
+        /// <value>
+        /// The connection builder.
+        /// </value>
+        public IConnectionBuilder ConnectionBuilder { get; }
+
+        /// <summary>
+        /// Gets the SQL statement.
+        /// </summary>
+        /// <value>
+        /// The SQL statement.
+        /// </value>
+        public ISqlStatement SqlStatement { get; set; }
+
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source { get; set; }
+
+        /// <summary>
+        /// Gets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CommandFactory"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="dict">The dictionary.</param>
+        public CommandFactory( Source source, Provider provider, IDictionary<string, object> dict )
+        {
+            Source = source;
+            Provider = provider;
+            ConnectionBuilder = new ConnectionBuilder( source, provider );
+            SqlStatement = new SqlStatement( ConnectionBuilder, dict );
+            CommandBuilder = new CommandBuilder( SqlStatement );
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CommandFactory"/> class.
@@ -39,9 +80,11 @@ namespace BudgetExecution
         /// <param name="commandBuilder">The command builder.</param>
         public CommandFactory( ICommandBuilder commandBuilder )
         {
-            _commandBuilder = commandBuilder;
-            _sqlStatement = _commandBuilder?.GetSqlStatement();
-            _connectionFactory = new ConnectionFactory( _sqlStatement?.GetConnectionBuilder() );
+            CommandBuilder = commandBuilder;
+            Source = CommandBuilder.Source;
+            Provider = CommandBuilder.Provider;
+            ConnectionBuilder = CommandBuilder.ConnectionBuilder;
+            SqlStatement = CommandBuilder.SqlStatement;
         }
 
         /// <summary>
@@ -57,14 +100,12 @@ namespace BudgetExecution
             {
                 try
                 {
-                    _connectionBuilder = GetConnectionBuilder();
-                    _provider = _connectionBuilder.GetProvider();
                     var _sql = $"CREATE TABLE {tableName}";
 
-                    if( Validate.Provider( _provider )
+                    if( Validate.Provider( Provider )
                         && Verify.Input( _sql ) )
                     {
-                        switch( _provider )
+                        switch( Provider )
                         {
                             case Provider.SQLite:
                             {
@@ -119,15 +160,14 @@ namespace BudgetExecution
         {
             if( Verify.Input( viewName )
                 && dataColumns?.Any() == true
-                && _connectionBuilder != null
-                && _connectionBuilder.GetProvider() != Provider.SqlCe )
+                && ConnectionBuilder != null
+                && ConnectionBuilder.GetProvider() != Provider.SqlCe )
             {
                 try
                 {
-                    _provider = _connectionBuilder.GetProvider();
                     var _sql = $"CREATE VIEW {viewName};";
 
-                    switch( _provider )
+                    switch( Provider )
                     {
                         case Provider.SQLite:
                         {
@@ -172,17 +212,16 @@ namespace BudgetExecution
         public DbCommand GetDropTableCommand( DataTable dataTable )
         {
             if( dataTable != null
-                && _connectionBuilder != null )
+                && ConnectionBuilder != null )
             {
                 try
                 {
                     var _sql = $"DROP {dataTable.TableName};";
-                    _provider = _connectionBuilder.GetProvider();
 
                     if( Verify.Input( _sql )
-                        && Enum.IsDefined( typeof( Provider ), _provider ) )
+                        && Enum.IsDefined( typeof( Provider ), Provider ) )
                     {
-                        switch( _provider )
+                        switch( Provider )
                         {
                             case Provider.SQLite:
                             {
@@ -237,19 +276,17 @@ namespace BudgetExecution
         {
             if( dataTable != null
                 && dataColumn != null
-                && _connectionBuilder != null )
+                && ConnectionBuilder != null )
             {
                 try
                 {
-                    _provider = _connectionBuilder.GetProvider();
-
                     var _sql =
                         $"ALTER TABLE {dataTable.TableName} ADD COLUMN {dataColumn.ColumnName};";
 
                     if( Verify.Input( _sql )
-                        && Enum.IsDefined( typeof( Provider ), _provider ) )
+                        && Enum.IsDefined( typeof( Provider ), Provider ) )
                     {
-                        switch( _provider )
+                        switch( Provider )
                         {
                             case Provider.SQLite:
                             {
@@ -304,17 +341,16 @@ namespace BudgetExecution
         {
             if( dataTable != null
                 && Verify.Input( name )
-                && _commandBuilder != null )
+                && CommandBuilder != null )
             {
                 try
                 {
-                    _provider = _commandBuilder.GetProvider();
                     var _sql = $"ALTER TABLE {dataTable.TableName} RENAME {name};";
 
-                    if( Enum.IsDefined( typeof( Provider ), _provider )
+                    if( Enum.IsDefined( typeof( Provider ), Provider )
                         && Verify.Input( _sql ) )
                     {
-                        switch( _provider )
+                        switch( Provider )
                         {
                             case Provider.SQLite:
                             {
@@ -367,7 +403,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _commandBuilder?.GetCommand();
+                var _sql = new SqlStatement( ConnectionBuilder, SQL.SELECT );
+                return CommandBuilder?.GetSqlCommand( _sql );
             }
             catch( Exception ex )
             {
@@ -384,7 +421,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _commandBuilder?.GetCommand();
+                var _sql = new SqlStatement( ConnectionBuilder, SQL.INSERT );
+                return CommandBuilder?.GetSqlCommand( _sql );
             }
             catch( Exception ex )
             {
@@ -394,14 +432,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the update command.
+        /// Gets the update commande.
         /// </summary>
         /// <returns></returns>
         public DbCommand GetUpdateCommand()
         {
             try
             {
-                return _commandBuilder?.GetCommand();
+                var _sql = new SqlStatement( ConnectionBuilder, SQL.UPDATE );
+                return CommandBuilder?.GetSqlCommand( _sql );
             }
             catch( Exception ex )
             {
@@ -418,13 +457,25 @@ namespace BudgetExecution
         {
             try
             {
-                return _commandBuilder?.GetCommand();
+                var _sql = new SqlStatement( ConnectionBuilder, SQL.DELETE );
+                return CommandBuilder?.GetSqlCommand( _sql );
             }
             catch( Exception ex )
             {
                 Fail( ex );
                 return default( DbCommand );
             }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

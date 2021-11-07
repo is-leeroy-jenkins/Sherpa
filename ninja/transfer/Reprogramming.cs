@@ -164,7 +164,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Reprogramming.Fail( ex );
+                Fail( ex );
                 return Key.Default;
             }
         }
@@ -185,7 +185,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Reprogramming.Fail( ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -205,7 +205,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Reprogramming.Fail( ex );
+                Fail( ex );
                 return default( DateTime );
             }
         }
@@ -225,7 +225,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Reprogramming.Fail( ex );
+                Fail( ex );
                 return Element.Default;
             }
         }
@@ -245,7 +245,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Reprogramming.Fail( ex );
+                Fail( ex );
                 return default( FromTo );
             }
         }
@@ -265,7 +265,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Reprogramming.Fail( ex );
+                Fail( ex );
                 return Element.Default;
             }
         }
@@ -285,7 +285,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Reprogramming.Fail( ex );
+                Fail( ex );
                 return Element.Default;
             }
         }
@@ -305,7 +305,7 @@ namespace BudgetExecution
             }
             catch( SystemException ex )
             {
-                Reprogramming.Fail( ex );
+                Fail( ex );
                 return Source.NS;
             }
         }

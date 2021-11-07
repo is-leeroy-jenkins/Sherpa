@@ -104,7 +104,7 @@ namespace BudgetExecution
                 }
                 catch( Exception ex )
                 {
-                    ExcelQuery.Fail( ex );
+                    Fail( ex );
                 }
             }
         }
@@ -121,7 +121,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _excelPackage = ExcelQuery.ReadExcelFile( filePath );
+                    using var _excelPackage = ReadExcelFile( filePath );
                     var _name = Path.GetFileNameWithoutExtension( filePath );
                     using var _excelWorksheet = _excelPackage.Workbook.Worksheets.Add( _name );
                     var _columns = table.Columns.Count;
@@ -142,7 +142,7 @@ namespace BudgetExecution
                 }
                 catch( Exception ex )
                 {
-                    ExcelQuery.Fail( ex );
+                    Fail( ex );
                 }
             }
         }
@@ -163,7 +163,7 @@ namespace BudgetExecution
                 }
                 catch( Exception ex )
                 {
-                    ExcelQuery.Fail( ex );
+                    Fail( ex );
                     return default( ExcelPackage );
                 }
             }
@@ -199,7 +199,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                ExcelQuery.Fail( ex );
+                Fail( ex );
                 return default( string );
             }
         }
@@ -241,7 +241,7 @@ namespace BudgetExecution
                 }
                 catch( Exception ex )
                 {
-                    ExcelQuery.Fail( ex );
+                    Fail( ex );
                     return default( DataTable );
                 }
             }
@@ -292,7 +292,7 @@ namespace BudgetExecution
                 }
                 catch( Exception ex )
                 {
-                    ExcelQuery.Fail( ex );
+                    Fail( ex );
                     return default( DataTable );
                 }
             }
@@ -335,7 +335,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                ExcelQuery.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -367,7 +367,7 @@ namespace BudgetExecution
                 }
                 catch( Exception ex )
                 {
-                    ExcelQuery.Fail( ex );
+                    Fail( ex );
                 }
             }
 
@@ -397,7 +397,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                ExcelQuery.Fail( ex );
+                Fail( ex );
             }
         }
 

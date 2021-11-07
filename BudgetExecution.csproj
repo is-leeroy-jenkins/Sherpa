@@ -219,7 +219,6 @@
     </Compile>
     <Compile Include="data\adapter\AdapterFactory.cs" />
     <Compile Include="data\adapter\IAdapter.cs" />
-    <Compile Include="data\command\CommandBase.cs" />
     <Compile Include="data\command\CommandBuilder.cs" />
     <Compile Include="data\command\CommandFactory.cs" />
     <Compile Include="data\command\ICommandBuilder.cs" />

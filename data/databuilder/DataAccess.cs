@@ -82,8 +82,11 @@ namespace BudgetExecution
                         DataSetName = $"{Source}"
                     };
 
-                    Table = new DataTable( $"{Source}" );
-                    Table.TableName = $"{Source}";
+                    Table = new DataTable( $"{Source}" )
+                    {
+                        TableName = $"{Source}"
+                    };
+
                     DataSet.Tables.Add( Table );
                     var _adapter = Query?.GetAdapter();
                     _adapter?.Fill( DataSet, Table.TableName );
@@ -118,8 +121,11 @@ namespace BudgetExecution
                         DataSetName = "DataSet"
                     };
 
-                    var _table = new DataTable( $"{Source}" );
-                    _table.TableName = $"{Source}";
+                    var _table = new DataTable( $"{Source}" )
+                    {
+                        TableName = $"{Source}"
+                    };
+
                     DataSet.Tables.Add( _table );
                     using var _adapter = Query?.GetAdapter();
                     _adapter?.Fill( DataSet, _table?.TableName );
@@ -240,17 +246,20 @@ namespace BudgetExecution
                 var _table = GetDataTable();
                 SetColumnCaptions( _table );
 
-                DataSet = new DataSet( $"{Source}" )
+                DataSet = new DataSet( $"{ Source }" )
                 {
                     DataSetName = $"{Source}"
                 };
 
-                var _datatable = new DataTable( $"{Source}" );
-                _datatable.TableName = $"{Source}";
-                DataSet.Tables.Add( _datatable );
+                var _dataTable = new DataTable( $"{ Source }" )
+                {
+                    TableName = $"{Source}"
+                };
+
+                DataSet.Tables.Add( _dataTable );
                 using var _adapter = Query?.GetAdapter();
-                _adapter?.Fill( DataSet, _datatable.TableName );
-                SetColumnCaptions( _datatable );
+                _adapter?.Fill( DataSet, _dataTable.TableName );
+                SetColumnCaptions( _dataTable );
 
                 return _table.Columns.Count > 0
                     ? _table.Columns

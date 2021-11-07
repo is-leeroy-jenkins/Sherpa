@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public new Source Source { get; } = BudgetExecution.Source.RegionAuthority;
+        public new Source Source { get; } = Source.RegionAuthority;
 
         /// <summary>
         /// Initializes a new instance of the <see/> class.

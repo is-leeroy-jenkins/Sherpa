@@ -24,27 +24,27 @@ namespace BudgetExecution
         /// <summary>
         /// The data connection
         /// </summary>
-        private protected readonly DbConnection _dataConnection;
+        public DbConnection Connection { get; set; }
 
         /// <summary>
         /// The SQL statement
         /// </summary>
-        private protected readonly ISqlStatement _sqlStatement;
+        public ISqlStatement SqlStatement { get; set; }
 
         /// <summary>
         /// The command builder
         /// </summary>
-        private protected readonly ICommandBuilder _commandBuilder;
+        public ICommandBuilder CommandBuilder { get; set; }
 
         /// <summary>
         /// The connection builder
         /// </summary>
-        private protected readonly IConnectionBuilder _connectionBuilder;
+        public IConnectionBuilder ConnectionBuilder { get; set; }
 
         /// <summary>
         /// The adapter builder
         /// </summary>
-        private protected readonly AdapterBuilder _adapterBuilder;
+        public AdapterBuilder AdapterBuilder { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AdapterFactory"/> class.
@@ -52,11 +52,11 @@ namespace BudgetExecution
         /// <param name="adapterBuilder">The adapter builder.</param>
         public AdapterFactory( AdapterBuilder adapterBuilder )
         {
-            _adapterBuilder = adapterBuilder;
-            _connectionBuilder = _adapterBuilder.GetConnectionBuilder();
-            _dataConnection = new ConnectionFactory( _connectionBuilder )?.GetConnection();
-            _sqlStatement = new SqlStatement( _connectionBuilder );
-            _commandBuilder = new CommandBuilder( _connectionBuilder, _sqlStatement );
+            AdapterBuilder = adapterBuilder;
+            ConnectionBuilder = AdapterBuilder.GetConnectionBuilder();
+            Connection = new ConnectionFactory( ConnectionBuilder )?.GetConnection();
+            SqlStatement = new SqlStatement( ConnectionBuilder );
+            CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
         }
 
         /// <summary>
@@ -66,11 +66,11 @@ namespace BudgetExecution
         /// <param name="sqlStatement">The SQL statement.</param>
         public AdapterFactory( IConnectionBuilder connectionBuilder, ISqlStatement sqlStatement )
         {
-            _connectionBuilder = connectionBuilder;
-            _sqlStatement = sqlStatement;
-            _adapterBuilder = new AdapterBuilder( _connectionBuilder, _sqlStatement );
-            _dataConnection = new ConnectionFactory( _connectionBuilder )?.GetConnection();
-            _commandBuilder = new CommandBuilder( _connectionBuilder, _sqlStatement );
+            ConnectionBuilder = connectionBuilder;
+            SqlStatement = sqlStatement;
+            AdapterBuilder = new AdapterBuilder( ConnectionBuilder, SqlStatement );
+            Connection = new ConnectionFactory( ConnectionBuilder )?.GetConnection();
+            CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace BudgetExecution
         /// <param name="commandBuilder">The command builder.</param>
         public AdapterFactory( IConnectionBuilder connectionBuilder, ICommandBuilder commandBuilder )
         {
-            _connectionBuilder = connectionBuilder;
-            _commandBuilder = commandBuilder;
-            _sqlStatement = _commandBuilder.GetSqlStatement();
-            _adapterBuilder = new AdapterBuilder( _connectionBuilder, _sqlStatement );
-            _dataConnection = new ConnectionFactory( _connectionBuilder ).GetConnection();
+            ConnectionBuilder = connectionBuilder;
+            CommandBuilder = commandBuilder;
+            SqlStatement = CommandBuilder.SqlStatement;
+            AdapterBuilder = new AdapterBuilder( ConnectionBuilder, SqlStatement );
+            Connection = new ConnectionFactory( ConnectionBuilder ).GetConnection();
         }
 
         /// <summary>
@@ -93,12 +93,12 @@ namespace BudgetExecution
         /// <returns></returns>
         public DbDataAdapter GetAdapter()
         {
-            if( Verify.Input( _connectionBuilder.GetConnectionString() )
-                && Verify.Input( _sqlStatement.GetSelectStatement() ) )
+            if( Verify.Input( ConnectionBuilder.GetConnectionString() )
+                && Verify.Input( SqlStatement.GetSelectStatement() ) )
             {
                 try
                 {
-                    var _provider = _connectionBuilder.GetProvider();
+                    var _provider = ConnectionBuilder.GetProvider();
 
                     if( Validate.Provider( _provider ) )
                     {
@@ -144,14 +144,14 @@ namespace BudgetExecution
         /// <returns></returns>
         private OleDbDataAdapter GetOleDbDataAdapter()
         {
-            if( Verify.Input( _sqlStatement.GetSelectStatement() ) )
+            if( Verify.Input( SqlStatement.GetSelectStatement() ) )
             {
                 try
                 {
-                    var _connectionString = _connectionBuilder?.GetConnectionString();
+                    var _connectionString = ConnectionBuilder?.GetConnectionString();
 
                     return Verify.Input( _connectionString )
-                        ? new OleDbDataAdapter( _sqlStatement.GetSelectStatement(), _connectionString )
+                        ? new OleDbDataAdapter( SqlStatement.GetSelectStatement(), _connectionString )
                         : default( OleDbDataAdapter );
                 }
                 catch( Exception ex )
@@ -170,14 +170,14 @@ namespace BudgetExecution
         /// <returns></returns>
         private SqlDataAdapter GetSqlAdapter()
         {
-            if( Verify.Ref( _sqlStatement ) )
+            if( Verify.Ref( SqlStatement ) )
             {
                 try
                 {
-                    var _connectionString = _connectionBuilder?.GetConnectionString();
+                    var _connectionString = ConnectionBuilder?.GetConnectionString();
 
                     return Verify.Input( _connectionString )
-                        ? new SqlDataAdapter( _sqlStatement.GetSelectStatement(), _connectionString )
+                        ? new SqlDataAdapter( SqlStatement.GetSelectStatement(), _connectionString )
                         : default( SqlDataAdapter );
                 }
                 catch( Exception ex )
@@ -196,13 +196,13 @@ namespace BudgetExecution
         /// <returns></returns>
         private SqlCeDataAdapter GetSqlCeAdapter()
         {
-            if( Verify.Input( _dataConnection?.ConnectionString )
-                && Verify.Input( _sqlStatement?.GetSelectStatement() ) )
+            if( Verify.Input( Connection?.ConnectionString )
+                && Verify.Input( SqlStatement?.GetSelectStatement() ) )
             {
                 try
                 {
-                    var _dataAdapter = new SqlCeDataAdapter( _sqlStatement?.GetSelectStatement(),
-                        _dataConnection as SqlCeConnection );
+                    var _dataAdapter = new SqlCeDataAdapter( SqlStatement?.GetSelectStatement(),
+                        Connection as SqlCeConnection );
 
                     return _dataAdapter ?? default( SqlCeDataAdapter );
                 }
@@ -222,12 +222,12 @@ namespace BudgetExecution
         /// <returns></returns>
         private SQLiteDataAdapter GetSQLiteAdapter()
         {
-            if( _sqlStatement != null )
+            if( SqlStatement != null )
             {
                 try
                 {
-                    var _adapter = new SQLiteDataAdapter( _sqlStatement.GetSelectStatement(),
-                        _dataConnection as SQLiteConnection );
+                    var _adapter = new SQLiteDataAdapter( SqlStatement.GetSelectStatement(),
+                        Connection as SQLiteConnection );
 
                     return _adapter ?? default( SQLiteDataAdapter );
                 }
@@ -256,8 +256,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    _adapterBuilder?.Dispose();
-                    _dataConnection?.Dispose();
+                    AdapterBuilder?.Dispose();
+                    Connection?.Dispose();
                 }
                 catch( Exception ex )
                 {

@@ -1,6 +1,6 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
-// </copyright>
+﻿// // <copyright file = "ConnectionBase.cs" company = "Terry D. Eppler">
+// // Copyright (c) Terry D. Eppler. All rights reserved.
+// // </copyright>
 
 namespace BudgetExecution
 {
@@ -21,48 +21,48 @@ namespace BudgetExecution
         /// <summary>
         /// The connector
         /// </summary>
-        private readonly ConnectionStringSettingsCollection _connector =
+        public readonly ConnectionStringSettingsCollection Connectors =
             ConfigurationManager.ConnectionStrings;
 
         /// <summary>
         /// The provider path
         /// </summary>
-        private protected readonly NameValueCollection _providerPath = ConfigurationManager.AppSettings;
+        public readonly NameValueCollection ProviderPath = ConfigurationManager.AppSettings;
 
         /// <summary>
         /// The source
         /// </summary>
-        private protected Source _source;
+        public Source Source { get; set; }
 
         /// <summary>
         /// The provider
         /// </summary>
-        private protected Provider _provider;
+        public Provider Provider { get; set; }
 
         /// <summary>
         /// The file extension
         /// </summary>
-        private protected EXT _fileExtension;
+        public EXT FileExtension { get; set; }
 
         /// <summary>
         /// The file path
         /// </summary>
-        private protected string _filePath;
+        public string FilePath { get; set; }
 
         /// <summary>
         /// The file name
         /// </summary>
-        private protected string _fileName;
+        public string FileName { get; set; }
 
         /// <summary>
         /// The table name
         /// </summary>
-        private protected string _tableName;
+        public string TableName { get; set; }
 
         /// <summary>
         /// The connection string
         /// </summary>
-        private protected string _connectionString;
+        public string ConnectionString { get; set; }
 
         /// <summary>
         /// Sets the source.
@@ -73,7 +73,7 @@ namespace BudgetExecution
         {
             try
             {
-                _source = Validate.Source( source )
+                Source = Validate.Source( source )
                     ? source
                     : Source.NS;
             }
@@ -95,7 +95,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    _source = (Source)Enum.Parse( typeof( Source ), fileName );
+                    Source = (Source)Enum.Parse( typeof( Source ), fileName );
                 }
                 catch( Exception ex )
                 {
@@ -113,7 +113,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    _source = Source.External;
+                    Source = Source.External;
                 }
                 catch( Exception ex )
                 {
@@ -130,7 +130,7 @@ namespace BudgetExecution
         {
             try
             {
-                _provider = Validate.Provider( provider )
+                Provider = Validate.Provider( provider )
                     && Resource.Providers?.Contains( provider.ToString() ) == true
                         ? (Provider)Enum.Parse( typeof( Provider ), $"{provider}" )
                         : Provider.NS;
@@ -151,7 +151,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    _provider = extension switch
+                    Provider = extension switch
                     {
                         EXT.MDB => Provider.OleDb,
                         EXT.XLS => Provider.OleDb,
@@ -181,17 +181,17 @@ namespace BudgetExecution
             {
                 try
                 {
-                    _filePath = provider switch
+                    FilePath = provider switch
                     {
-                        Provider.OleDb => _providerPath[ "OleDb" ],
-                        Provider.Access => _providerPath[ "Access" ],
-                        Provider.SQLite => _providerPath[ "SQLite" ],
-                        Provider.SqlCe => _providerPath[ "SqlCe" ],
-                        Provider.SqlServer => _providerPath[ "SqlServer" ],
-                        Provider.CSV => _providerPath[ "CSV" ],
-                        Provider.Excel => _providerPath[ "Excel" ],
-                        Provider.NS => _providerPath[ "Excel" ],
-                        _ => _providerPath[ "SQLite" ]
+                        Provider.OleDb => ProviderPath[ "OleDb" ],
+                        Provider.Access => ProviderPath[ "Access" ],
+                        Provider.SQLite => ProviderPath[ "SQLite" ],
+                        Provider.SqlCe => ProviderPath[ "SqlCe" ],
+                        Provider.SqlServer => ProviderPath[ "SqlServer" ],
+                        Provider.CSV => ProviderPath[ "CSV" ],
+                        Provider.Excel => ProviderPath[ "Excel" ],
+                        Provider.NS => ProviderPath[ "Excel" ],
+                        _ => ProviderPath[ "SQLite" ]
                     };
                 }
                 catch( Exception ex )
@@ -209,9 +209,10 @@ namespace BudgetExecution
         {
             try
             {
-                _filePath = Verify.Input( filePath ) && File.Exists( filePath )
-                    ? Path.GetFullPath( filePath )
-                    : default( string );
+                FilePath = Verify.Input( filePath ) 
+                    && File.Exists( filePath )
+                        ? Path.GetFullPath( filePath )
+                        : default( string );
             }
             catch( Exception ex )
             {
@@ -229,10 +230,12 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _filext = Path.GetExtension( filePath )?.Trim( '.' )?.ToUpper();
+                    var _fileExtension = Path.GetExtension( filePath )
+                            ?.Trim( '.' )
+                            ?.ToUpper();
 
-                    _fileExtension = Enum.IsDefined( typeof( EXT ), _filext )
-                        ? (EXT)Enum.Parse( typeof( EXT ), _filext )
+                    FileExtension = Enum.IsDefined( typeof( EXT ), _fileExtension )
+                        ? (EXT)Enum.Parse( typeof( EXT ), _fileExtension )
                         : EXT.NS;
                 }
                 catch( Exception ex )
@@ -254,7 +257,7 @@ namespace BudgetExecution
                 {
                     var _filename = Path.GetFileNameWithoutExtension( filePath );
 
-                    _fileName = Verify.Input( filePath )
+                    FileName = Verify.Input( filePath )
                         ? _filename
                         : string.Empty;
                 }
@@ -277,19 +280,24 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _extension = (EXT)Enum.Parse( typeof( EXT ), Path.GetExtension( filePath ) );
+                    var _extension =
+                        (EXT)Enum.Parse( typeof( EXT ), Path.GetExtension( filePath ) );
 
-                    _filePath = _extension switch
+                    FilePath = _extension switch
                     {
                         EXT.MDB => ConfigurationManager.AppSettings[ "OleDbFilePath" ],
                         EXT.ACCDB => ConfigurationManager.AppSettings[ "AccessFilePath" ],
                         EXT.DB => ConfigurationManager.AppSettings[ "SQLiteFilePath" ],
                         EXT.SDF => ConfigurationManager.AppSettings[ "SqlCeFilePath" ],
                         EXT.MDF => ConfigurationManager.AppSettings[ "SqlServerFilePath" ],
-                        EXT.XLS => ConfigurationManager.AppSettings[ "ExcelFilePath" ].Replace( "{FilePath}", filePath ),
-                        EXT.XLSX => ConfigurationManager.AppSettings[ "ExcelFilePath" ].Replace( "{FilePath}", filePath ),
-                        EXT.CSV => ConfigurationManager.AppSettings[ "CsvFilePath" ].Replace( "{FilePath}", filePath ),
-                        EXT.TXT => ConfigurationManager.AppSettings[ "CsvFilePath" ].Replace( "{FilePath}", filePath ),
+                        EXT.XLS => ConfigurationManager.AppSettings[ "ExcelFilePath" ]
+                                                       .Replace( "{FilePath}", filePath ),
+                        EXT.XLSX => ConfigurationManager.AppSettings[ "ExcelFilePath" ]
+                                                        .Replace( "{FilePath}", filePath ),
+                        EXT.CSV => ConfigurationManager.AppSettings[ "CsvFilePath" ]
+                                                       .Replace( "{FilePath}", filePath ),
+                        EXT.TXT => ConfigurationManager.AppSettings[ "CsvFilePath" ]
+                                                       .Replace( "{FilePath}", filePath ),
                         _ => ConfigurationManager.AppSettings[ "SQLiteFilePath" ]
                     };
                 }
@@ -316,11 +324,12 @@ namespace BudgetExecution
                         case Provider.Excel:
                         case Provider.CSV:
                         {
-                            var _connection = ConfigurationManager.ConnectionStrings[ provider.ToString() ]
-                                ?.ConnectionString;
+                            var _connection = ConfigurationManager
+                                              .ConnectionStrings[ provider.ToString() ]
+                                              ?.ConnectionString;
 
-                            _connectionString = Verify.Input( _connection )
-                                ? _connection?.Replace( "{FilePath}", _filePath )
+                            ConnectionString = Verify.Input( _connection )
+                                ? _connection?.Replace( "{FilePath}", FilePath )
                                 : string.Empty;
 
                             break;
@@ -331,10 +340,11 @@ namespace BudgetExecution
                         case Provider.SqlCe:
                         case Provider.SqlServer:
                         {
-                            var _connection = ConfigurationManager.ConnectionStrings[ provider.ToString() ]
-                                ?.ConnectionString;
+                            var _connection = ConfigurationManager
+                                              .ConnectionStrings[ provider.ToString() ]
+                                              ?.ConnectionString;
 
-                            _connectionString = Verify.Input( _connection )
+                            ConnectionString = Verify.Input( _connection )
                                 ? _connection
                                 : string.Empty;
 
