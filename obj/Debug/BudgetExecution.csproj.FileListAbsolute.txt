@@ -51,8 +51,6 @@ C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\BudgetEnumerations.pdb
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\BudgetEnumerations.dll.config
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\BudgetExtensions.pdb
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\BudgetExtensions.dll.config
-C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\BudgetStatic.pdb
-C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\BudgetStatic.dll.config
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\DocumentFormat.OpenXml.xml
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\EntityFramework.xml
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\EntityFramework.SqlServer.xml
@@ -68,11 +66,7 @@ C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\Syncfusion.Pdf.Windows.x
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\Syncfusion.PdfViewer.Windows.xml
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\Syncfusion.XlsIO.Base.xml
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\System.Data.SQLite.xml
-C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\System.Data.SQLite.EF6.xml
-C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\System.Data.SQLite.Linq.xml
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\System.IO.Packaging.xml
-C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe.config
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Properties.Resources.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.GenerateResource.cache
@@ -157,3 +151,13 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.Cop
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
+C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\BudgetData.dll
+C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\DataGridViewExtension.dll
+C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\SQLite.Designer.dll
+C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\BudgetData.pdb
+C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\BudgetData.xml
+C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\BudgetData.dll.config
+C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\SQLite.Designer.xml
