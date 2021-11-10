@@ -161,4 +161,3 @@ C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\BudgetData.pdb
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\BudgetData.xml
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\BudgetData.dll.config
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\SQLite.Designer.xml
-C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache

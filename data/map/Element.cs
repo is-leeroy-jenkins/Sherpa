@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <summary>
         /// The initial
         /// </summary>
-        private protected string _initial;
+        public string Initial { get; set; }
 
         /// <summary>
         /// The default

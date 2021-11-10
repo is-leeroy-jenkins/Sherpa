@@ -369,9 +369,9 @@ namespace BudgetExecution
             _connection.Open();
             _command.CommandText = _commandText;
             _command.ExecuteNonQuery();
-            _command.CommandText = "INSERT INTO MyTable (Key,Value) _values ('key one','value one')";
+            _command.CommandText = "INSERT INTO MyTable (Key,Value) Values ('key one','value one')";
             _command.ExecuteNonQuery();
-            _command.CommandText = "INSERT INTO MyTable (Key,Value) _values ('key two','value value')";
+            _command.CommandText = "INSERT INTO MyTable (Key,Value) Values ('key two','value value')";
             _command.ExecuteNonQuery();
             _command.CommandText = "Select * FROM MyTable";
             using var _reader = _command.ExecuteReader();
