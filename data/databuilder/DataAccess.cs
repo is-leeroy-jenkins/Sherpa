@@ -41,7 +41,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the data.
+        /// Gets the Data.
         /// </summary>
         /// <returns></returns>
         public IEnumerable<DataRow> GetData()
@@ -68,7 +68,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the data table.
+        /// Gets the Data table.
         /// </summary>
         /// <returns></returns>
         public DataTable GetDataTable()
@@ -107,7 +107,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the data set.
+        /// Gets the Data set.
         /// </summary>
         /// <returns></returns>
         public DataSet GetDataSet()
@@ -204,7 +204,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the column captions.
         /// </summary>
-        /// <param name="dataTable">The data table.</param>
+        /// <param name="dataTable">The Data table.</param>
         public void SetColumnCaptions( DataTable dataTable )
         {
             if( Verify.Table( dataTable ) )
@@ -275,7 +275,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the primary indexes.
         /// </summary>
-        /// <param name="dataRows">The data rows.</param>
+        /// <param name="dataRows">The Data rows.</param>
         /// <returns></returns>
         public IEnumerable<int> GetPrimaryIndexes( IEnumerable<DataRow> dataRows )
         {
@@ -304,7 +304,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the column ordinals.
         /// </summary>
-        /// <param name="dataColumns">The data columns.</param>
+        /// <param name="dataColumns">The Data columns.</param>
         /// <returns></returns>
         public IEnumerable<int> GetColumnOrdinals( IEnumerable<DataColumn> dataColumns )
         {

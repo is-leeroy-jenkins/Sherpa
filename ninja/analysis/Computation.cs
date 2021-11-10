@@ -17,10 +17,10 @@ namespace BudgetExecution
     public class Computation : Builder, IDataFilter
     {
         /// <summary>
-        /// Gets the data.
+        /// Gets the Data.
         /// </summary>
         /// <value>
-        /// The data.
+        /// The Data.
         /// </value>
         private protected IEnumerable<DataRow> _dataRow;
 
@@ -35,7 +35,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref = "Computation"/> class.
         /// </summary>
         /// <param name = "data" >
-        /// The data.
+        /// The Data.
         /// </param>
         public Computation( IDataAccess data )
         {
@@ -43,7 +43,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the data.
+        /// Gets the Data.
         /// </summary>
         /// <param name = "field" >
         /// The field.

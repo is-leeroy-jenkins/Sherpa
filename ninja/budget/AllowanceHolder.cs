@@ -138,7 +138,7 @@ namespace BudgetExecution
         /// <see cref = "AllowanceHolder"/> class.
         /// </summary>
         /// <param name = "data" >
-        /// The data.
+        /// The Data.
         /// </param>
         public AllowanceHolder( DataRow data )
             : this()

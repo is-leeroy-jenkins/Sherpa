@@ -134,7 +134,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Lists to data table.
+        /// Lists to Data table.
         /// </summary>
         /// <typeparam name = "T" >
         /// </typeparam>
@@ -411,7 +411,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Writes the data table to excel workSheet.
+        /// Writes the Data table to excel workSheet.
         /// </summary>
         /// <param name = "dataTable" >
         /// The dataTable.

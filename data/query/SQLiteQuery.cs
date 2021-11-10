@@ -98,7 +98,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the data adapter.
+        /// Gets the Data adapter.
         /// </summary>
         /// <param name = "command" >
         /// The command.
@@ -119,7 +119,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the data reader.
+        /// Gets the Data reader.
         /// </summary>
         /// <param name = "command" >
         /// The command.
@@ -364,7 +364,7 @@ namespace BudgetExecution
                                     )";
 
             SQLiteConnection.CreateFile( "databaseFile.db3" );
-            using var _connection = new SQLiteConnection( "data source=databaseFile.db3" );
+            using var _connection = new SQLiteConnection( "Data source=databaseFile.db3" );
             using var _command = new SQLiteCommand( _connection );
             _connection.Open();
             _command.CommandText = _commandText;

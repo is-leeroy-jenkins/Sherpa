@@ -22,7 +22,7 @@ namespace BudgetExecution
     public class AdapterFactory : IDisposable
     {
         /// <summary>
-        /// The data connection
+        /// The Data connection
         /// </summary>
         public DbConnection Connection { get; set; }
 
@@ -139,7 +139,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the OLE database data adapter.
+        /// Gets the OLE database Data adapter.
         /// </summary>
         /// <returns></returns>
         private OleDbDataAdapter GetOleDbDataAdapter()

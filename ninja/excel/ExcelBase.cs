@@ -65,10 +65,10 @@ namespace BudgetExecution
         public IEnumerable<ExcelComment> Comment { get; set; }
 
         /// <summary>
-        /// Gets or sets the data.
+        /// Gets or sets the Data.
         /// </summary>
         /// <value>
-        /// The data.
+        /// The Data.
         /// </value>
         public IEnumerable<DataRow> Data { get; set; }
         

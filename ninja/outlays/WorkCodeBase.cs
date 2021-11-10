@@ -16,10 +16,10 @@ namespace BudgetExecution
     public abstract class WorkCodeBase
     {
         /// <summary>
-        /// Gets the data.
+        /// Gets the Data.
         /// </summary>
         /// <value>
-        /// The data.
+        /// The Data.
         /// </value>
         public DataRow Record { get; set; }
 

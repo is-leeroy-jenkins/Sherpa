@@ -67,7 +67,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the data builder.
+        /// Gets the Data builder.
         /// </summary>
         /// <returns>
         /// </returns>

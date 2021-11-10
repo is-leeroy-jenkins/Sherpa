@@ -120,7 +120,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Filters the data. </summary>
+        /// <summary> Filters the Data. </summary>
         /// <param name = "field" > The field. </param>
         /// <param name = "filter" > The filter. </param>
         /// <returns> </returns>

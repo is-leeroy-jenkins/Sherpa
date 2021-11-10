@@ -52,10 +52,10 @@ namespace BudgetExecution
         public Source Source { get; } =  Source.BudgetObjectClass;
 
         /// <summary>
-        /// Gets the data.
+        /// Gets the Data.
         /// </summary>
         /// <value>
-        /// The data.
+        /// The Data.
         /// </value>
         public DataRow Record { get; set; } 
 
@@ -176,7 +176,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref = "BudgetObjectClass"/> class.
         /// </summary>
         /// <param name = "dataRow" >
-        /// The data.
+        /// The Data.
         /// </param>
         public BudgetObjectClass( DataRow dataRow )
         {

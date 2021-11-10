@@ -26,7 +26,7 @@ namespace BudgetExecution
         private protected Color _fontColor { get; set; } = Color.Black;
 
         /// <summary>
-        /// The data font
+        /// The Data font
         /// </summary>
         public Font DataFont { get; set; } = new Font( "Consolas", 8, FontStyle.Regular );
 

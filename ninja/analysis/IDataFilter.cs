@@ -14,7 +14,7 @@ namespace BudgetExecution
     public interface IDataFilter
     {
         /// <summary>
-        /// Gets the data.
+        /// Gets the Data.
         /// </summary>
         /// <param name = "field" >
         /// The field.

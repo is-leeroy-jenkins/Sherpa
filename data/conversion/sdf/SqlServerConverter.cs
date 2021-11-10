@@ -185,7 +185,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Copies the data rows.
+        /// Copies the Data rows.
         /// </summary>
         /// <param name="sqlconnstring">The sqlconnstring.</param>
         /// <param name="path">The path.</param>
@@ -1301,7 +1301,7 @@ namespace BudgetExecution
 
                     switch( datatype )
                     {
-                        // Note that not all data type names need to be converted because
+                        // Note that not all Data type names need to be converted because
                         // SQLite establishes type affinity by searching certain strings
                         // in the type name. For example - everything containing the string
                         // 'int' in its type name will be assigned an INTEGER affinity
@@ -1487,10 +1487,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Validates the type of the data.
+        /// Validates the type of the Data.
         /// </summary>
         /// <param name="datatype">The datatype.</param>
-        /// <exception cref="ApplicationException">Validation failed for data type [" +
+        /// <exception cref="ApplicationException">Validation failed for Data type [" +
         /// datatype + "]</exception>
         private void ValidateDataType( string datatype )
         {
@@ -1527,7 +1527,7 @@ namespace BudgetExecution
                 return;
             }
 
-            throw new ApplicationException( "Validation failed for data type [" + datatype + "]" );
+            throw new ApplicationException( "Validation failed for Data type [" + datatype + "]" );
         }
 
         /// <summary>

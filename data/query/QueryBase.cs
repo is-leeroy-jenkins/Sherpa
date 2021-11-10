@@ -86,10 +86,10 @@ namespace BudgetExecution
         public bool IsDisposed { get; set; }
 
         /// <summary>
-        /// Gets or sets the data reader.
+        /// Gets or sets the Data reader.
         /// </summary>
         /// <value>
-        /// The data reader.
+        /// The Data reader.
         /// </value>
         public DbDataReader DataReader { get; set; }
 

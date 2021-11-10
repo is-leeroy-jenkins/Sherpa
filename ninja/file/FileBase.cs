@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <summary>
         /// The path
         /// </summary>
-        private protected IPath _path;
+        public IPath Path { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the file.
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the file.
         /// </value>
-        private protected string _fileName;
+        public string FileName { get; set; }
 
         /// <summary>
         /// Gets or sets the full name.
@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// <value>
         /// The full name.
         /// </value>
-        private protected string _fullName;
+        public string FullName { get; set; }
 
         /// <summary>
         /// Gets or sets the changed date.
@@ -44,7 +44,7 @@ namespace BudgetExecution
         /// <value>
         /// The changed date.
         /// </value>
-        private protected DateTime _changedDate;
+        public DateTime ChangeDate { get; set; }
 
         /// <summary>
         /// Gets the information.
@@ -52,15 +52,15 @@ namespace BudgetExecution
         /// <value>
         /// The information.
         /// </value>
-        private protected FileInfo _fileInfo;
+        public FileInfo FileInfo { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance has parent.
         /// </summary>
         /// <value>
-        ///   <c>true</c> if this instance has parent; otherwise, <c>false</c>.
+        ///   <c>true</c> if this instance has parent { get; set; } otherwise, <c>false</c>.
         /// </value>
-        private protected bool _hasParent;
+        public bool HasParent { get; set; }
 
         /// <summary>
         /// Gets or sets the creation date.
@@ -68,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The creation date.
         /// </value>
-        private protected DateTime _creationDate;
+        public DateTime CreationDate { get; set; }
 
         /// <summary>
         /// Gets or sets the lengeth.
@@ -76,7 +76,7 @@ namespace BudgetExecution
         /// <value>
         /// The lengeth.
         /// </value>
-        private protected long _length;
+        public long Length { get; set; }
 
         /// <summary>
         /// Gets or sets the attributes.
@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// <value>
         /// The attributes.
         /// </value>
-        private protected FileAttributes _attributes;
+        public FileAttributes Attributes { get; set; }
 
         /// <summary>
         /// Gets or sets the security.
@@ -92,7 +92,7 @@ namespace BudgetExecution
         /// <value>
         /// The security.
         /// </value>
-        private protected FileSecurity _security;
+        public FileSecurity FileSecurity { get; set; }
         
         /// <summary>
         /// Gets the input.
@@ -100,7 +100,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public string GetInput()
         {
-            var _input = _path?.GetFullPath();
+            var _input = Path?.GetFullPath();
 
             if( Verify.Input( _input ) )
             {
@@ -128,7 +128,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _root = _path?.GetPathRoot();
+                var _root = Path?.GetPathRoot();
 
                 return Verify.Input( _root )
                     ? _root
@@ -149,7 +149,7 @@ namespace BudgetExecution
         {
             try
             {
-                var name = _path?.GetFileName();
+                var name = Path?.GetFileName();
 
                 return Verify.Input( name )
                     ? name
@@ -170,7 +170,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _extension = _path?.GetFileExtension();
+                var _extension = Path?.GetFileExtension();
 
                 return Verify.Input( _extension )
                     ? (EXT)Enum.Parse( typeof( EXT ), _extension )
@@ -191,8 +191,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _fileInfo.Length > 0
-                    ? _fileInfo.Length
+                return FileInfo.Length > 0
+                    ? FileInfo.Length
                     : 0;
             }
             catch( IOException ex )
@@ -212,7 +212,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    _fileInfo?.MoveTo( filePath );
+                    FileInfo?.MoveTo( filePath );
                 }
                 catch( IOException ex )
                 {
@@ -232,7 +232,7 @@ namespace BudgetExecution
                 if( Verify.Input( filePath )
                     && !File.Exists( filePath ) )
                 {
-                    _fileInfo.CopyTo( filePath );
+                    FileInfo.CopyTo( filePath );
                 }
             }
             catch( IOException ex )
@@ -248,7 +248,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _file = _path?.GetFullName();
+                var _file = Path?.GetFullName();
 
                 if( Verify.Input( _file )
                     && File.Exists( _file ) )
@@ -270,9 +270,9 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _fileInfo?.Name ) 
-                    && File.Exists( _fileInfo?.FullName )
-                        ? _fileInfo
+                return Verify.Input( FileInfo?.Name ) 
+                    && File.Exists( FileInfo?.FullName )
+                        ? FileInfo
                         : default( FileInfo );
             }
             catch( IOException ex )
@@ -292,8 +292,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _fileInfo?.DirectoryName ) 
-                    && Directory.Exists( _fileInfo?.DirectoryName );
+                return Verify.Input( FileInfo?.DirectoryName ) 
+                    && Directory.Exists( FileInfo?.DirectoryName );
             }
             catch( Exception ex )
             {
@@ -310,7 +310,7 @@ namespace BudgetExecution
         {
             try
             {
-                return _security ?? default( FileSecurity );
+                return FileSecurity ?? default( FileSecurity );
             }
             catch( IOException ex )
             {
@@ -327,8 +327,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _attributes )
-                    ? _attributes
+                return Verify.Element( Attributes )
+                    ? Attributes
                     : default( FileAttributes );
             }
             catch( IOException ex )
@@ -346,8 +346,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.DateTime( _creationDate )
-                    ? _creationDate
+                return Verify.DateTime( CreationDate )
+                    ? CreationDate
                     : default( DateTime );
             }
             catch( IOException ex )
@@ -365,8 +365,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.DateTime( _changedDate )
-                    ? _changedDate
+                return Verify.DateTime( ChangeDate )
+                    ? ChangeDate
                     : default( DateTime );
             }
             catch( IOException ex )
@@ -384,7 +384,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _file = _path?.GetFullPath();
+                var _file = Path?.GetFullPath();
 
                 return Verify.Input( _file ) 
                     && File.Exists( _file )

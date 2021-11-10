@@ -17,10 +17,10 @@ namespace BudgetExecution
     public class HolidayFactory : IFederalHoliday
     {
         /// <summary>
-        /// Gets the data.
+        /// Gets the Data.
         /// </summary>
         /// <value>
-        /// The data.
+        /// The Data.
         /// </value>
         private protected readonly DataRow _record;
 

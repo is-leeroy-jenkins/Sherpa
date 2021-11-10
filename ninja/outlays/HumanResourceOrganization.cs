@@ -26,10 +26,10 @@ namespace BudgetExecution
         /// </summary>
         public Source Source { get; } = Source.HumanResourceOrganizations;
         /// <summary>
-        /// Gets the data.
+        /// Gets the Data.
         /// </summary>
         /// <value>
-        /// The data.
+        /// The Data.
         /// </value>
         public DataRow Record { get; set; }
 
@@ -110,7 +110,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name = "data" >
-        /// The data.
+        /// The Data.
         /// </param>
         public HumanResourceOrganization( DataRow data )
         {

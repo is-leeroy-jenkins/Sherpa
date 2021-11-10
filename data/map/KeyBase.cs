@@ -47,7 +47,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the name.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         private protected void SetName( DataRow dataRow )
         {
             if( dataRow != null )
@@ -93,7 +93,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the name.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="index">The index.</param>
         private protected void SetName( DataRow dataRow, PrimaryKey index )
         {
@@ -138,7 +138,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the primary key.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         private protected void SetPrimaryKey( DataRow dataRow )
         {
             if( Verify.Row( dataRow ) )
@@ -191,7 +191,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the primary key.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="keyName">Name of the key.</param>
         private protected void SetPrimaryKey( DataRow dataRow, PrimaryKey keyName )
         {
@@ -235,7 +235,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the index.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="key">The key.</param>
         private protected void SetIndex( DataRow dataRow, PrimaryKey key )
         {

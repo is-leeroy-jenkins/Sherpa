@@ -38,7 +38,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Map"/> class.
         /// </summary>
-        /// <param name="data">The data.</param>
+        /// <param name="data">The Data.</param>
         public Map( DataRow data )
         {
             SetInput( data?.ToDictionary() );

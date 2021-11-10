@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref = "Utilization"/> class.
         /// </summary>
         /// <param name = "data" >
-        /// The data.
+        /// The Data.
         /// </param>
         public Utilization( DataRow data )
             : this()
@@ -147,10 +147,10 @@ namespace BudgetExecution
         private protected string _rcCode;
 
         /// <summary>
-        /// Gets the data.
+        /// Gets the Data.
         /// </summary>
         /// <value>
-        /// The data.
+        /// The Data.
         /// </value>
         private protected readonly DataRow _record;
 

@@ -56,10 +56,10 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Gets or sets the data elements.
+        /// Gets or sets the Data elements.
         /// </summary>
         /// <value>
-        /// The data elements.
+        /// The Data elements.
         /// </value>
         public IEnumerable<IElement> Elements { get; set; }
 
