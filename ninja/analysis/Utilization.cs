@@ -43,10 +43,10 @@ namespace BudgetExecution
         public string RcCode { get; set; }
 
         /// <summary>
-        /// Gets the data.
+        /// Gets the Data.
         /// </summary>
         /// <value>
-        /// The data.
+        /// The Data.
         /// </value>
         public DataRow Record { get; set; }
 
