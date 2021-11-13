@@ -32,7 +32,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Args { get; set; }
+        public IDictionary<string, object> Args { get;  }
 
         /// <summary>
         /// Gets the rc code.
@@ -40,7 +40,7 @@ namespace BudgetExecution
         /// <value>
         /// The rc code.
         /// </value>
-        public string RcCode { get; set; }
+        public string RcCode { get;  }
 
         /// <summary>
         /// Gets the Data.
@@ -48,7 +48,7 @@ namespace BudgetExecution
         /// <value>
         /// The Data.
         /// </value>
-        public DataRow Record { get; set; }
+        public DataRow Record { get;  }
 
         /// <summary>
         /// Gets or sets the outlays.
@@ -64,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public IKey ID { get; set; }
+        public IKey ID { get;  }
 
         /// <summary>
         /// Gets the rpio.
@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The rpio.
         /// </value>
-        private string RpioCode { get; set; }
+        private string RpioCode { get;  }
 
         /// <summary>
         /// Gets the ah code.
@@ -80,7 +80,7 @@ namespace BudgetExecution
         /// <value>
         /// The ah code.
         /// </value>
-        public string AhCode { get; set; }
+        public string AhCode { get;  }
 
         /// <summary>
         /// Gets the org code.
@@ -88,7 +88,7 @@ namespace BudgetExecution
         /// <value>
         /// The org code.
         /// </value>
-        public string OrgCode { get; set; }
+        public string OrgCode { get;  }
 
         /// <summary>
         /// Gets the account code.
@@ -96,7 +96,7 @@ namespace BudgetExecution
         /// <value>
         /// The account code.
         /// </value>
-        public string AccoutCode { get; set; }
+        public string AccoutCode { get;  }
 
         /// <summary>
         /// Gets the bfy.
@@ -104,7 +104,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public string BFY { get; set; }
+        public string BFY { get;  }
 
         /// <summary>
         /// Gets the fund code.
@@ -112,7 +112,7 @@ namespace BudgetExecution
         /// <value>
         /// The fund code.
         /// </value>
-        public string FundCode { get; set; }
+        public string FundCode { get;  }
 
         /// <summary>
         /// Gets or sets the program project code.
@@ -136,7 +136,7 @@ namespace BudgetExecution
         /// <value>
         /// The boc code.
         /// </value>
-        public string BocCode { get; set; }
+        public string BocCode { get;  }
 
         /// <summary>
         /// Gets or sets the foc code.
