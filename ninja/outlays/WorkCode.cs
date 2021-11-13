@@ -95,7 +95,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref = "WorkCode"/> class.
         /// </summary>
         /// <param name = "data" >
-        /// The data.
+        /// The Data.
         /// </param>
         public WorkCode( DataRow data )
         {

@@ -22,32 +22,32 @@ namespace BudgetExecution
         /// <summary>
         /// The full name
         /// </summary>
-        private protected readonly string _fullName;
+        public string FullNae { get; set; }
 
         /// <summary>
         /// The file name
         /// </summary>
-        private protected readonly string _fileName;
+        public string FileName { get; set; }
 
         /// <summary>
         /// The full path
         /// </summary>
-        private protected readonly string _fullPath;
+        public string FullPath { get; set; }
 
         /// <summary>
         /// The file extension
         /// </summary>
-        private protected readonly string _fileExtension;
+        public string FileExtension { get; set; }
 
         /// <summary>
         /// The path root
         /// </summary>
-        private protected readonly string _pathRoot;
+        public string PathRoot { get; set; }
 
         /// <summary>
         /// The input
         /// </summary>
-        private protected readonly string _input;
+        public string Input { get; set; }
 
         /// <summary>
         /// The current directory
@@ -78,12 +78,12 @@ namespace BudgetExecution
         /// <param name="input">The input.</param>
         public DataPath( string input )
         {
-            _input = input;
-            _fullName = Path.GetFileNameWithoutExtension( _input );
-            _fileName = Path.GetFileName( _input );
-            _fullPath = Path.GetFullPath( _input );
-            _fileExtension = Path.GetExtension( _input );
-            _pathRoot = Path.GetPathRoot( _input );
+            Input = input;
+            FullNae = Path.GetFileNameWithoutExtension( Input );
+            FileName = Path.GetFileName( Input );
+            FullPath = Path.GetFullPath( Input );
+            FileExtension = Path.GetExtension( Input );
+            PathRoot = Path.GetPathRoot( Input );
         }
 
         /// <summary>
@@ -94,8 +94,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _fullName )
-                    ? _fullName
+                return Verify.Input( FullNae )
+                    ? FullNae
                     : string.Empty;
             }
             catch( Exception ex )
@@ -113,8 +113,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _fileName )
-                    ? _fileName
+                return Verify.Input( FileName )
+                    ? FileName
                     : string.Empty;
             }
             catch( Exception ex )
@@ -132,8 +132,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _fileExtension )
-                    ? _fileExtension
+                return Verify.Input( FileExtension )
+                    ? FileExtension
                     : string.Empty;
             }
             catch( Exception ex )
@@ -151,8 +151,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _pathRoot )
-                    ? _pathRoot
+                return Verify.Input( PathRoot )
+                    ? PathRoot
                     : string.Empty;
             }
             catch( Exception ex )
@@ -170,8 +170,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _fullPath )
-                    ? _fullPath
+                return Verify.Input( FullPath )
+                    ? FullPath
                     : string.Empty;
             }
             catch( Exception ex )
@@ -192,7 +192,7 @@ namespace BudgetExecution
             {
                 return Verify.Input( ext ) 
                     && Enum.GetNames( typeof( EXT ) ).Contains( ext )
-                        ? Path.ChangeExtension( _fullPath, ext )
+                        ? Path.ChangeExtension( FullPath, ext )
                         : string.Empty;
             }
             catch( Exception ex )
@@ -234,8 +234,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _fullPath )
-                    ? _fullPath
+                return Verify.Input( FullPath )
+                    ? FullPath
                     : string.Empty;
             }
             catch( IOException ex )

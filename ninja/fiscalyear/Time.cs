@@ -89,7 +89,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="Time" /> class.
         /// </summary>
-        /// <param name="dataRow">The data.</param>
+        /// <param name="dataRow">The Data.</param>
         /// <param name="date">The date.</param>
         public Time( DataRow dataRow, EventDate date )
         {
@@ -102,7 +102,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="Time" /> class.
         /// </summary>
-        /// <param name="dataRow">The data.</param>
+        /// <param name="dataRow">The Data.</param>
         /// <param name="value">The value.</param>
         public Time( DataRow dataRow, string value )
         {
@@ -115,7 +115,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="Time" /> class.
         /// </summary>
-        /// <param name="dataRow">The data.</param>
+        /// <param name="dataRow">The Data.</param>
         /// <param name="column">The column.</param>
         public Time( DataRow dataRow, DataColumn column )
         {

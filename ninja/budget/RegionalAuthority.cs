@@ -53,7 +53,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see/> class.
         /// </summary>
         /// <param name = "builder" >
-        /// The data.
+        /// The Data.
         /// </param>
         public RegionalAuthority( IBuilder builder )
             : base( builder )

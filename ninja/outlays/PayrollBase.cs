@@ -16,10 +16,10 @@ namespace BudgetExecution
     public abstract class PayrollBase : IPayrollBase, IPerson
     {
         /// <summary>
-        /// Gets or sets the data.
+        /// Gets or sets the Data.
         /// </summary>
         /// <value>
-        /// The data.
+        /// The Data.
         /// </value>
         public DataRow Record { get; set; }
 

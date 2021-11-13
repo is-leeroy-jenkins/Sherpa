@@ -54,7 +54,7 @@ namespace BudgetExecution
         /// Gets the create table command.
         /// </summary>
         /// <param name="tableName">Name of the table.</param>
-        /// <param name="dataColumns">The data columns.</param>
+        /// <param name="dataColumns">The Data columns.</param>
         /// <returns></returns>
         DbCommand GetCreateTableCommand( string tableName, IEnumerable<DataColumn> dataColumns );
 
@@ -62,29 +62,29 @@ namespace BudgetExecution
         /// Gets the create view command.
         /// </summary>
         /// <param name="viewName">Name of the view.</param>
-        /// <param name="dataColumns">The data columns.</param>
+        /// <param name="dataColumns">The Data columns.</param>
         /// <returns></returns>
         DbCommand GetCreateViewCommand( string viewName, IEnumerable<DataColumn> dataColumns );
 
         /// <summary>
         /// Gets the drop table command.
         /// </summary>
-        /// <param name="dataTable">The data table.</param>
+        /// <param name="dataTable">The Data table.</param>
         /// <returns></returns>
         DbCommand GetDropTableCommand( DataTable dataTable );
 
         /// <summary>
         /// Gets the alter command.
         /// </summary>
-        /// <param name="dataTable">The data table.</param>
-        /// <param name="dataColumn">The data column.</param>
+        /// <param name="dataTable">The Data table.</param>
+        /// <param name="dataColumn">The Data column.</param>
         /// <returns></returns>
         DbCommand GetAlterCommand( DataTable dataTable, DataColumn dataColumn );
 
         /// <summary>
         /// Gets the alter command.
         /// </summary>
-        /// <param name="dataTable">The data table.</param>
+        /// <param name="dataTable">The Data table.</param>
         /// <param name="name">The name.</param>
         /// <returns></returns>
         DbCommand GetAlterCommand( DataTable dataTable, string name );

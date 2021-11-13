@@ -69,7 +69,7 @@ namespace BudgetExecution
         public CommandBuilder( ISqlStatement sqlStatement )
         {
             SqlStatement = sqlStatement;
-            ConnectionBuilder = SqlStatement.GetConnectionBuilder();
+            ConnectionBuilder = SqlStatement.ConnectionBuilder;
             Provider = ConnectionBuilder.GetProvider();
             Source = ConnectionBuilder.GetSource();
         }

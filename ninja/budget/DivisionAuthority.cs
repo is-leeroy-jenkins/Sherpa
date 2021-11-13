@@ -55,7 +55,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the  class.
         /// </summary>
         /// <param name = "builder" >
-        /// The data.
+        /// The Data.
         /// </param>
         public DivisionAuthority( IBuilder builder )
             : base( builder )

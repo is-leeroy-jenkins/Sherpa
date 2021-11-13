@@ -20,7 +20,7 @@ namespace BudgetExecution
         // ***************************************************************************************************************************
 
         /// <summary>
-        /// Gets the workforce data identifier.
+        /// Gets the workforce Data identifier.
         /// </summary>
         /// <returns>
         /// </returns>

@@ -49,15 +49,15 @@ namespace BudgetExecution
         public DataRow Record { get; set; }
 
         /// <summary>
-        /// The data table
+        /// The Data table
         /// </summary>
         public DataTable Table { get; set; }
 
         /// <summary>
-        /// Gets or sets the data set.
+        /// Gets or sets the Data set.
         /// </summary>
         /// <value>
-        /// The data set.
+        /// The Data set.
         /// </value>
         public DataSet DataSet { get; set; }
 

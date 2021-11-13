@@ -24,10 +24,10 @@ namespace BudgetExecution
         private const Source _source = Source.Funds;
 
         /// <summary>
-        /// Gets the data.
+        /// Gets the Data.
         /// </summary>
         /// <value>
-        /// The data.
+        /// The Data.
         /// </value>
         private readonly DataRow _record;
 
@@ -158,7 +158,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref = "Fund"/> class.
         /// </summary>
         /// <param name = "data" >
-        /// The data.
+        /// The Data.
         /// </param>
         public Fund( DataRow data )
             : this()

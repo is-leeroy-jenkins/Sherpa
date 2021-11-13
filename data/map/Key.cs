@@ -55,7 +55,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="Key"/> class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="field">The field.</param>
         public Key( DataRow dataRow, PrimaryKey field )
         {
@@ -81,7 +81,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="Key"/> class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         public Key( DataRow dataRow )
         {
             SetPrimaryKey( dataRow );

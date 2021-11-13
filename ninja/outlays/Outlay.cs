@@ -39,10 +39,10 @@ namespace BudgetExecution
     public abstract class Outlay : Cost
     {
         /// <summary>
-        /// Gets or sets the authority data.
+        /// Gets or sets the authority Data.
         /// </summary>
         /// <value>
-        /// The authority data.
+        /// The authority Data.
         /// </value>
         public CostAccount PRC { get; set; }
         
@@ -88,7 +88,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the data builder.
+        /// Gets the Data builder.
         /// </summary>
         /// <returns>
         /// </returns>

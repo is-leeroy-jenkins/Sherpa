@@ -205,7 +205,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Imports the data.
+        /// Imports the Data.
         /// </summary>
         /// <param name="sheetName">Name of the sheet.</param>
         /// <returns></returns>
@@ -301,9 +301,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Exports to data grid.
+        /// Exports to Data grid.
         /// </summary>
-        /// <param name="dataGrid">The data grid.</param>
+        /// <param name="dataGrid">The Data grid.</param>
         private void ExportToDataGrid( DataGridView dataGrid )
         {
             try
@@ -343,7 +343,7 @@ namespace BudgetExecution
         /// Sheets the exists.
         /// </summary>
         /// <param name="sheetName">Name of the sheet.</param>
-        /// <param name="dataTable">The data table.</param>
+        /// <param name="dataTable">The Data table.</param>
         /// <returns></returns>
         private bool SheetExists( string sheetName, DataTable dataTable )
         {

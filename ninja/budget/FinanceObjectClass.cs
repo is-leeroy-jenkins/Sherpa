@@ -28,10 +28,10 @@ namespace BudgetExecution
         private const Source _source = Source.FinanceObjectClass;
 
         /// <summary>
-        /// Gets the data.
+        /// Gets the Data.
         /// </summary>
         /// <value>
-        /// The data.
+        /// The Data.
         /// </value>
         private readonly DataRow _record;
 

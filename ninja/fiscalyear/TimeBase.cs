@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the date.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="name">The name.</param>
         /// <returns></returns>
         private protected string GetDate( DataRow dataRow, string name )
@@ -95,7 +95,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the date.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="date">The date.</param>
         /// <returns></returns>
         private protected string GetDate( DataRow dataRow, EventDate date )
@@ -152,7 +152,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the date.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="name">The name.</param>
         /// <returns></returns>
         private protected EventDate SetDate( DataRow dataRow, string name )
@@ -186,7 +186,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the date.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="date">The date.</param>
         /// <returns></returns>
         private protected EventDate SetDate( DataRow dataRow, EventDate date )
@@ -238,7 +238,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the day.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="column">The column.</param>
         /// <returns></returns>
         private protected DateTime SetDay( DataRow dataRow, string column )
@@ -270,7 +270,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the day.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="date">The date.</param>
         /// <returns></returns>
         private protected DateTime SetDay( DataRow dataRow, EventDate date )
@@ -319,7 +319,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the value.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="column">The column.</param>
         /// <returns></returns>
         private protected string SetValue( DataRow dataRow, string column )
@@ -350,7 +350,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the value.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="date">The date.</param>
         /// <returns></returns>
         private protected string SetValue( DataRow dataRow, EventDate date )

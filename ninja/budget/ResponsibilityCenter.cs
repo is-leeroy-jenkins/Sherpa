@@ -112,7 +112,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="ResponsibilityCenter"/> class.
         /// </summary>
-        /// <param name="data">The data.</param>
+        /// <param name="data">The Data.</param>
         public ResponsibilityCenter( DataRow data )
             : this()
         {

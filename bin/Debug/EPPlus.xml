@@ -18246,9 +18246,9 @@
             
              private void KickoffZipup()
              {
-                 _folderName = tbDirName.Text;
+                 FolderName = tbDirName.Text;
             
-                 if (_folderName == null || _folderName == "") return;
+                 if (FolderName == null || FolderName == "") return;
                  if (this.tbZipName.Text == null || this.tbZipName.Text == "") return;
             
                  // check for existence of the zip file:
@@ -18273,7 +18273,7 @@
                  var options = new WorkerOptions
                  {
                      ZipName = this.tbZipName.Text,
-                     Folder = _folderName,
+                     Folder = FolderName,
                      Encoding = "ibm437"
                  };
             

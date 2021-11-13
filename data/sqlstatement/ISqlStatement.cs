@@ -5,28 +5,25 @@
 namespace BudgetExecution
 {
     using System.Collections.Generic;
-
-    // ******************************************************************************************************************************
-    // ******************************************************   ASSEMBLIES   ********************************************************
-    // ******************************************************************************************************************************
-
+    
     /// <summary> </summary>
     public interface ISqlStatement
     {
-        // ***************************************************************************************************************************
-        // ************************************************  METHODS   ***************************************************************
-        // ***************************************************************************************************************************
+        IConnectionBuilder ConnectionBuilder { get; set; }
 
-        /// <summary> Gets the type of the command. </summary>
-        /// <returns> SQL </returns>
+        /// <summary>
+        /// Gets the type of the command.
+        /// </summary>
+        /// <returns>
+        /// SQL
+        /// </returns>
         SQL GetCommandType();
-
-        /// <summary> Gets the connection manager. </summary>
-        /// <returns> </returns>
-        IConnectionBuilder GetConnectionBuilder();
-
-        /// <summary> Gets the select statement. </summary>
-        /// <returns> </returns>
+        
+        /// <summary>
+        /// Gets the select statement.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         string GetSelectStatement();
 
         /// <summary> Gets the update statement. </summary>
@@ -40,9 +37,5 @@ namespace BudgetExecution
         /// <summary> Gets the delete statement. </summary>
         /// <returns> </returns>
         string GetDeleteStatement();
-
-        /// <summary> Gets the arguments. </summary>
-        /// <returns> </returns>
-        IDictionary<string, object> GetArgs();
     }
 }

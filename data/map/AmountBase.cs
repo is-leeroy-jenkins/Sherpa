@@ -59,7 +59,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the name.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="columnName">Name of the column.</param>
         private protected void SetName( DataRow dataRow, string columnName )
         {
@@ -107,7 +107,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the name.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="numeric">The numeric.</param>
         private protected void SetName( DataRow dataRow, Numeric numeric )
         {
@@ -157,7 +157,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the numeric.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="columnName">Name of the column.</param>
         private protected void SetNumeric( DataRow dataRow, string columnName )
         {
@@ -206,7 +206,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the numeric.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="numeric">The numeric.</param>
         private protected void SetNumeric( DataRow dataRow, Numeric numeric )
         {
@@ -255,7 +255,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the value.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="columnName">Name of the column.</param>
         private protected void SetValue( DataRow dataRow, string columnName )
         {
@@ -282,7 +282,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the value.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow">The Data row.</param>
         /// <param name="numeric">The numeric.</param>
         private protected void SetValue( DataRow dataRow, Numeric numeric )
         {
