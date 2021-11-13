@@ -63,23 +63,6 @@
     <Reference Include="BaseConnectionLibrary, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\BaseConnectionLibrary.1.0.3\lib\net461\BaseConnectionLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="BudgetBadger">
-      <HintPath>..\BudgetData\bin\Debug\BudgetBadger.dll</HintPath>
-    </Reference>
-    <Reference Include="BudgetData">
-      <HintPath>..\BudgetData\bin\Debug\BudgetData.dll</HintPath>
-    </Reference>
-    <Reference Include="BudgetEnumerations, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\BudgetEnumerations\bin\Debug\BudgetEnumerations.dll</HintPath>
-    </Reference>
-    <Reference Include="BudgetExtensions, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\BudgetExtensions\bin\Debug\BudgetExtensions.dll</HintPath>
-    </Reference>
-    <Reference Include="BudgetStatic">
-      <HintPath>lib\BudgetStatic.dll</HintPath>
-    </Reference>
     <Reference Include="CharmNotification, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\CharmNotification.dll</HintPath>
@@ -121,59 +104,103 @@
     <Reference Include="SQLite.Designer">
       <HintPath>lib\SQLite.Designer.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Chart.Base, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.Calculate.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Syncfusion.Calculate.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Calculate.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Syncfusion.Calculate.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Chart.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.Chart.Base.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Chart.Windows, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.Chart.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.Chart.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Compression.Base, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.Compression.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.Compression.Base.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Grid.Base, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.Data.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Syncfusion.Data.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DataSource.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Syncfusion.DataSource.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.Grid.Base.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Grid.Windows, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.Grid.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.Grid.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Pdf.Base, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.Office2016Theme.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Syncfusion.Office2016Theme.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Office2019Theme.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Syncfusion.Office2019Theme.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.Pdf.Base.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Pdf.Windows, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.Pdf.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.Pdf.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.PdfViewer.Windows, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.PdfViewer.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.PdfViewer.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Shared.Base, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.PivotAnalysis.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Syncfusion.PivotAnalysis.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PivotAnalysis.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PivotChart.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Syncfusion.PivotChart.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PivotConverter.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Syncfusion.PivotConverter.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.Shared.Base.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Shared.Windows, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.Shared.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.Shared.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Spreadsheet.Windows, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.Spreadsheet.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.Spreadsheet.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Tools.Base, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.SpreadsheetHelper.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Syncfusion.SpreadsheetHelper.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.Tools.Base.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Tools.Windows, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.Tools.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.Tools.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.XlsIO.Base, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.XlsIO.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.XlsIO.Base.dll</HintPath>
     </Reference>
@@ -205,6 +232,7 @@
     <Reference Include="System.IO.Packaging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.IO.Packaging.6.0.0\lib\net461\System.IO.Packaging.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
@@ -222,6 +250,545 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="badger\binding\BindingBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\binding\BindingData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\binding\BudgetBinding.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\binding\IBindingSource.cs" />
+    <Compile Include="badger\binding\IDataSource.cs" />
+    <Compile Include="badger\budgetchart\bindingmodel\ChartBinding.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\budgetchart\bindingmodel\SeriesConfig.cs" />
+    <Compile Include="badger\budgetchart\bindingmodel\SeriesModel.cs" />
+    <Compile Include="badger\budgetchart\BudgetChartControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\budgetchart\BudgetChartControl.Designer.cs">
+      <DependentUpon>BudgetChartControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\budgetchart\CallOut.cs" />
+    <Compile Include="badger\budgetchart\ChartBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\budgetchart\ChartData.cs" />
+    <Compile Include="badger\budgetchart\ChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\budgetchart\ChartForm.Designer.cs">
+      <DependentUpon>ChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\budgetchart\ChartPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\budgetchart\ibindingmodel\IChartBinding.cs" />
+    <Compile Include="badger\budgetchart\ibindingmodel\IChartSeriesModel.cs" />
+    <Compile Include="badger\budgetchart\ibindingmodel\ISeriesConfig.cs" />
+    <Compile Include="badger\budgetchart\ibindingmodel\ISourceModel.cs" />
+    <Compile Include="badger\budgetchart\IBudgetChart.cs" />
+    <Compile Include="badger\budgetchart\iseriesmodel\ISeriesModel.cs" />
+    <Compile Include="badger\budgetchart\iseriesmodel\ITitleInfo.cs" />
+    <Compile Include="badger\budgetchart\LegendItem.cs" />
+    <Compile Include="badger\budgetchart\seriesmodel\DataSeries.cs" />
+    <Compile Include="badger\budgetchart\seriesmodel\IDataSeries.cs" />
+    <Compile Include="badger\budgetchart\seriesmodel\SourceModel.cs" />
+    <Compile Include="badger\budgetchart\seriesmodel\TitleInfo.cs" />
+    <Compile Include="badger\button\ButtonBase.cs" />
+    <Compile Include="badger\button\ButtonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\button\ButtonControl.Designer.cs">
+      <DependentUpon>ButtonControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\button\ButtonPanel.cs" />
+    <Compile Include="badger\button\IButton.cs" />
+    <Compile Include="badger\calculator\CalculationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\calculator\CalculationControl.Designer.cs">
+      <DependentUpon>CalculationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\calculator\CalculationPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\calculator\CalculatorData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\calculator\CalculatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\calculator\CalculatorForm.Designer.cs">
+      <DependentUpon>CalculatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\calculator\ICalculator.cs" />
+    <Compile Include="badger\calendar\CalendarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\calendar\CalendarControl.Designer.cs">
+      <DependentUpon>CalendarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\calendar\CalendarData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\calendar\CalendarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\calendar\CalendarForm.Designer.cs">
+      <DependentUpon>CalendarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\calendar\CalendarPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\chartdatagrid\ChartDataControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\chartdatagrid\ChartDataControl.Designer.cs">
+      <DependentUpon>ChartDataControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\chartdatagrid\ChartDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\chartdatagrid\ChartDataForm.Designer.cs">
+      <DependentUpon>ChartDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\clock\ClockControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\clock\ClockControl.Designer.cs">
+      <DependentUpon>ClockControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\clock\ClockPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\clock\IClock.cs" />
+    <Compile Include="badger\closebox\ClosePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\combobox\ComboBoxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\combobox\ComboBoxControl.Designer.cs">
+      <DependentUpon>ComboBoxControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\combobox\ComboBoxData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\combobox\ComboBoxPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\combobox\IComboBox.cs" />
+    <Compile Include="badger\config\AlignConfig.cs" />
+    <Compile Include="badger\config\BorderConfig.cs" />
+    <Compile Include="badger\config\ChartConfig.cs" />
+    <Compile Include="badger\config\ColorConfig.cs" />
+    <Compile Include="badger\config\ControlConfig.cs" />
+    <Compile Include="badger\config\FontConfig.cs" />
+    <Compile Include="badger\config\FormConfig.cs" />
+    <Compile Include="badger\config\IChartConfig.cs" />
+    <Compile Include="badger\config\SizeConfig.cs" />
+    <Compile Include="badger\control\ControlBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\control\ControlBase.Designer.cs">
+      <DependentUpon>ControlBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\control\ControlData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\control\IDataControl.cs" />
+    <Compile Include="badger\conversion\mdb\ConversionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\conversion\mdb\ConversionForm.Designer.cs">
+      <DependentUpon>ConversionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\dialog\browser\FileBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\dialog\browser\FileBrowser.Designer.cs">
+      <DependentUpon>FileBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\dialog\column\ColumnConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\dialog\column\ColumnConfiguration.Designer.cs">
+      <DependentUpon>ColumnConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\dialog\error\Error.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\dialog\error\Error.Designer.cs">
+      <DependentUpon>Error.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\dialog\excel\ExcelBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\dialog\excel\ExcelBrowser.Designer.cs">
+      <DependentUpon>ExcelBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\dialog\message\Message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\dialog\message\Message.Designer.cs">
+      <DependentUpon>Message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\dropmenu\DropMenuPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\dropmenu\IDropMenu.cs" />
+    <Compile Include="badger\editor\EditControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\editor\EditControl.Designer.cs">
+      <DependentUpon>EditControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\editor\EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\editor\EditForm.Designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\editor\RecordControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\editor\RecordControl.Designer.cs">
+      <DependentUpon>RecordControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\editor\RecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\editor\RecordForm.Designer.cs">
+      <DependentUpon>RecordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\excel\ExcelData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\excel\ExcelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\excel\ExcelForm.Designer.cs">
+      <DependentUpon>ExcelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\excel\sheet\ISpreadsheet.cs" />
+    <Compile Include="badger\excel\sheet\RibbonPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\excel\sheet\SheetPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\flowpanel\FlowPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\flowpanel\IFlowPanel.cs" />
+    <Compile Include="badger\format\AlignFormat.cs" />
+    <Compile Include="badger\format\BorderFormat.cs" />
+    <Compile Include="badger\format\ColorForrmat.cs" />
+    <Compile Include="badger\format\FontFormat.cs" />
+    <Compile Include="badger\format\SizeFomat.cs" />
+    <Compile Include="badger\gridcontrol\budgetgrid\BudgetGridControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\gridcontrol\budgetgrid\BudgetGridControl.Designer.cs">
+      <DependentUpon>BudgetGridControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\gridcontrol\budgetgrid\BudgetGridData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\gridcontrol\budgetgrid\BudgetGridPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\gridcontrol\budgetgrid\IBudgetGrid.cs" />
+    <Compile Include="badger\gridcontrol\datagrid\DataGridControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\gridcontrol\datagrid\DataGridControl.Designer.cs">
+      <DependentUpon>DataGridControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\gridcontrol\datagrid\DataGridPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\gridcontrol\datagrid\DataGridPanel.Designer.cs">
+      <DependentUpon>DataGridPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\gridcontrol\datagrid\GridData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\gridcontrol\datagrid\IDataGrid.cs" />
+    <Compile Include="badger\groupbox\GroupBoxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\groupbox\GroupBoxControl.Designer.cs">
+      <DependentUpon>GroupBoxControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\groupbox\GroupBoxData.cs" />
+    <Compile Include="badger\groupbox\GroupBoxPanel.cs" />
+    <Compile Include="badger\groupbox\IGroupBox.cs" />
+    <Compile Include="badger\hover\HoverBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\hover\HoverData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\hover\IHover.cs" />
+    <Compile Include="badger\hover\Info.cs" />
+    <Compile Include="badger\image\BudgetImage.cs" />
+    <Compile Include="badger\image\IBudgetImage.cs" />
+    <Compile Include="badger\image\ImageBuilder.cs" />
+    <Compile Include="badger\image\ImageConfig.cs" />
+    <Compile Include="badger\image\ImageFactory.cs" />
+    <Compile Include="badger\image\ImageList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\label\ILabel.cs" />
+    <Compile Include="badger\label\LabelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\label\LabelControl.Designer.cs">
+      <DependentUpon>LabelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\label\LabelData.cs" />
+    <Compile Include="badger\label\LabelPanel.cs" />
+    <Compile Include="badger\layout\ILayout.cs" />
+    <Compile Include="badger\layout\LayoutPanel.cs" />
+    <Compile Include="badger\listbox\IListBox.cs" />
+    <Compile Include="badger\listbox\ListBoxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\listbox\ListBoxControl.Designer.cs">
+      <DependentUpon>ListBoxControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\listbox\ListBoxData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\listbox\ListPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\loader\Loader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\loader\Loader.Designer.cs">
+      <DependentUpon>Loader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\main\BadgerMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\main\BadgerMain.Designer.cs">
+      <DependentUpon>BadgerMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\notification\Notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\notification\SplashConfig.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\notification\SplashWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\pdf\PdfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\pdf\PdfForm.Designer.cs">
+      <DependentUpon>PdfForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\pdf\PdfPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\picturebox\IPictureBox.cs" />
+    <Compile Include="badger\picturebox\PictureControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\picturebox\PictureControl.Designer.cs">
+      <DependentUpon>PictureControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\picturebox\PicturePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\richtextbox\IRichTextBox.cs" />
+    <Compile Include="badger\richtextbox\RichTextBoxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\richtextbox\RichTextBoxControl.Designer.cs">
+      <DependentUpon>RichTextBoxControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\richtextbox\RichTextData.cs" />
+    <Compile Include="badger\richtextbox\RichTextPanel.cs" />
+    <Compile Include="badger\selector\SelectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\selector\SelectionControl.Designer.cs">
+      <DependentUpon>SelectionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\selector\SelectionPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\splitter\ISplitter.cs" />
+    <Compile Include="badger\splitter\SplitBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\splitter\SplitControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\splitter\SplitControl.Designer.cs">
+      <DependentUpon>SplitControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\splitter\SplitPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\streamer\IStreamer.cs" />
+    <Compile Include="badger\streamer\Streamer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\streamer\StreamerBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\streamer\StreamerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\streamer\StreamerControl.Designer.cs">
+      <DependentUpon>StreamerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\tabcontrol\ITabControl.cs" />
+    <Compile Include="badger\tabcontrol\ITabPage.cs" />
+    <Compile Include="badger\tabcontrol\TabControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\tabcontrol\TabControl.Designer.cs">
+      <DependentUpon>TabControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\tabcontrol\TabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\tabcontrol\TabPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\textbox\ITextBox.cs" />
+    <Compile Include="badger\textbox\TextBoxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\textbox\TextBoxControl.Designer.cs">
+      <DependentUpon>TextBoxControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\textbox\TextBoxData.cs" />
+    <Compile Include="badger\textbox\TextBoxPanel.cs" />
+    <Compile Include="badger\tilelayout\TileLayoutControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\tilelayout\TileLayoutControl.Designer.cs">
+      <DependentUpon>TileLayoutControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\tilelayout\TilePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\tile\ButtonTileControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\tile\ButtonTileControl.Designer.cs">
+      <DependentUpon>ButtonTileControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\tile\ButtonTilePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\tile\IButtonTile.cs" />
+    <Compile Include="badger\tile\IPulsingTile.cs" />
+    <Compile Include="badger\tile\IRotatingTile.cs" />
+    <Compile Include="badger\tile\ITile.cs" />
+    <Compile Include="badger\tile\PulsingTileControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\tile\PulsingTileControl.Designer.cs">
+      <DependentUpon>PulsingTileControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\tile\PulsingTilePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\tile\RotatingTileControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\tile\RotatingTileControl.Designer.cs">
+      <DependentUpon>RotatingTileControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\tile\RotatingTilePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\tile\TileBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\tile\TileConfig.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\BarButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\BarButtonBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\BarComboBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\BarComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\BarLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\BarLabelBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\BarProgress.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\BarTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\IBarButton.cs" />
+    <Compile Include="badger\toolbar\IBarComboBox.cs" />
+    <Compile Include="badger\toolbar\IBarLabel.cs" />
+    <Compile Include="badger\toolbar\IBarTextBox.cs" />
+    <Compile Include="badger\toolbar\IToolBar.cs" />
+    <Compile Include="badger\toolbar\ToolBarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\ToolBarControl.Designer.cs">
+      <DependentUpon>ToolBarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\toolbar\ToolPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\ToolPanelBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\ToolPanelData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\ToolSeparator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\tooltip\ToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="extensions\CollectionExtensions.cs" />
+    <Compile Include="extensions\DataGridExtensions.cs" />
+    <Compile Include="extensions\DataRowExtensions.cs" />
+    <Compile Include="extensions\DataTableExtensions.cs" />
+    <Compile Include="extensions\DateTimeExtensions.cs" />
+    <Compile Include="extensions\DictionaryExtensions.cs" />
+    <Compile Include="extensions\EnumerableExtensions.cs" />
+    <Compile Include="enumerations\AwardType.cs" />
+    <Compile Include="badger\BudgetMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\BudgetMain.Designer.cs">
+      <DependentUpon>BudgetMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="enumerations\BFY.cs" />
+    <Compile Include="enumerations\BOC.cs" />
+    <Compile Include="enumerations\ChartType.cs" />
+    <Compile Include="enumerations\DataType.cs" />
     <Compile Include="data\adapter\AdapterBuilder.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -294,6 +861,25 @@
     <Compile Include="data\worker\DataWorker.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="enumerations\Document.cs" />
+    <Compile Include="enumerations\EventDate.cs" />
+    <Compile Include="enumerations\EXT.cs" />
+    <Compile Include="enumerations\FederalHoliday.cs" />
+    <Compile Include="enumerations\Field.cs" />
+    <Compile Include="enumerations\FromTo.cs" />
+    <Compile Include="enumerations\FundAvailability.cs" />
+    <Compile Include="enumerations\FundCode.cs" />
+    <Compile Include="enumerations\Holiday.cs" />
+    <Compile Include="enumerations\IconResource.cs" />
+    <Compile Include="enumerations\ImageFormat.cs" />
+    <Compile Include="enumerations\ImageSizer.cs" />
+    <Compile Include="enumerations\ImageSource.cs" />
+    <Compile Include="enumerations\Level.cs" />
+    <Compile Include="enumerations\Logic.cs" />
+    <Compile Include="enumerations\Net.cs" />
+    <Compile Include="extensions\ExcelExtensions.cs" />
+    <Compile Include="extensions\FileStreamExtensions.cs" />
+    <Compile Include="extensions\LinqExtensions.cs" />
     <Compile Include="ninja\analysis\Computation.cs" />
     <Compile Include="ninja\analysis\DataMetric.cs" />
     <Compile Include="ninja\analysis\IDataFilter.cs" />
@@ -438,8 +1024,118 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ninja\writer\FileWriter.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="enumerations\NPM.cs" />
+    <Compile Include="enumerations\Numeric.cs" />
+    <Compile Include="enumerations\OutlayType.cs" />
+    <Compile Include="enumerations\PrimaryKey.cs" />
+    <Compile Include="enumerations\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="enumerations\Provider.cs" />
+    <Compile Include="enumerations\RC.cs" />
+    <Compile Include="enumerations\RPIO.cs" />
+    <Compile Include="enumerations\Source.cs" />
+    <Compile Include="enumerations\SQL.cs" />
+    <Compile Include="enumerations\STAT.cs" />
+    <Compile Include="static\Resource.cs" />
+    <Compile Include="static\Static.cs" />
+    <Compile Include="static\Validate.cs" />
+    <Compile Include="static\Verify.cs" />
+    <Compile Include="enumerations\Tool.cs" />
+    <Compile Include="enumerations\TransferType.cs" />
+    <Compile Include="enumerations\UI.cs" />
+    <Compile Include="extensions\StringExtensions.cs" />
+    <Compile Include="extensions\TimeSpanExtensions.cs" />
+    <Compile Include="extensions\TypeObject.cs" />
+    <EmbeddedResource Include="badger\budgetchart\BudgetChartControl.resx">
+      <DependentUpon>BudgetChartControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\BudgetMain.resx">
+      <DependentUpon>BudgetMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\button\ButtonControl.resx">
+      <DependentUpon>ButtonControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\calculator\CalculationControl.resx">
+      <DependentUpon>CalculationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\calendar\CalendarControl.resx">
+      <DependentUpon>CalendarControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\chartdatagrid\ChartDataControl.resx">
+      <DependentUpon>ChartDataControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\clock\ClockControl.resx">
+      <DependentUpon>ClockControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\combobox\ComboBoxControl.resx">
+      <DependentUpon>ComboBoxControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\control\ControlBase.resx">
+      <DependentUpon>ControlBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\control\ControlData.resx">
+      <DependentUpon>ControlData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\editor\EditControl.resx">
+      <DependentUpon>EditControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\editor\EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\editor\RecordControl.resx">
+      <DependentUpon>RecordControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\editor\RecordForm.resx">
+      <DependentUpon>RecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\gridcontrol\datagrid\DataGridControl.resx">
+      <DependentUpon>DataGridControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\groupbox\GroupBoxControl.resx">
+      <DependentUpon>GroupBoxControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\label\LabelControl.resx">
+      <DependentUpon>LabelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\listbox\ListBoxControl.resx">
+      <DependentUpon>ListBoxControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\notification\Notification.resx">
+      <DependentUpon>Notification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\picturebox\PictureControl.resx">
+      <DependentUpon>PictureControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\richtextbox\RichTextBoxControl.resx">
+      <DependentUpon>RichTextBoxControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\selector\SelectionControl.resx">
+      <DependentUpon>SelectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\splitter\SplitControl.resx">
+      <DependentUpon>SplitControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\streamer\StreamerControl.resx">
+      <DependentUpon>StreamerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\tabcontrol\TabControl.resx">
+      <DependentUpon>TabControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\textbox\TextBoxControl.resx">
+      <DependentUpon>TextBoxControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\tilelayout\TileLayoutControl.resx">
+      <DependentUpon>TileLayoutControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\tile\ButtonTileControl.resx">
+      <DependentUpon>ButtonTileControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\tile\PulsingTileControl.resx">
+      <DependentUpon>PulsingTileControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\tile\RotatingTileControl.resx">
+      <DependentUpon>RotatingTileControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -452,6 +1148,7 @@
     </Compile>
     <None Include=".editorconfig" />
     <None Include="App.config" />
+    <None Include="badger\guidance\FundsControlManual.pdf" />
     <None Include="data\database\sqlce\ui\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
     <None Include="data\database\sqlce\ui\CompactView.exe.config" />
     <None Include="data\database\sqlce\ui\CompactView.exe.manifest" />
@@ -1600,28 +2297,58 @@
     <Content Include="lib\MetroSet UI.dll" />
     <Content Include="lib\SQLite.Designer.dll" />
     <Content Include="lib\SQLite.Designer.xml" />
+    <Content Include="lib\Syncfusion.Calculate.Base.dll" />
+    <Content Include="lib\Syncfusion.Calculate.Base.xml" />
+    <Content Include="lib\Syncfusion.Calculate.Windows.dll" />
+    <Content Include="lib\Syncfusion.Calculate.Windows.xml" />
     <Content Include="lib\Syncfusion.Chart.Base.dll" />
     <Content Include="lib\Syncfusion.Chart.Base.xml" />
     <Content Include="lib\Syncfusion.Chart.Windows.dll" />
     <Content Include="lib\Syncfusion.Chart.Windows.xml" />
     <Content Include="lib\Syncfusion.Compression.Base.dll" />
     <Content Include="lib\Syncfusion.Compression.Base.xml" />
+    <Content Include="lib\Syncfusion.Data.WinForms.dll" />
+    <Content Include="lib\Syncfusion.Data.WinForms.xml" />
+    <Content Include="lib\Syncfusion.DataSource.WinForms.dll" />
+    <Content Include="lib\Syncfusion.DataSource.WinForms.xml" />
     <Content Include="lib\Syncfusion.Grid.Base.dll" />
     <Content Include="lib\Syncfusion.Grid.Base.xml" />
     <Content Include="lib\Syncfusion.Grid.Windows.dll" />
+    <Content Include="lib\Syncfusion.Grid.Windows.xml" />
+    <Content Include="lib\Syncfusion.Licensing.dll" />
+    <Content Include="lib\Syncfusion.Office2016Theme.WinForms.dll" />
+    <Content Include="lib\Syncfusion.Office2016Theme.WinForms.xml" />
+    <Content Include="lib\Syncfusion.Office2019Theme.WinForms.dll" />
+    <Content Include="lib\Syncfusion.Office2019Theme.WinForms.xml" />
     <Content Include="lib\Syncfusion.Pdf.Base.dll" />
     <Content Include="lib\Syncfusion.Pdf.Base.xml" />
     <Content Include="lib\Syncfusion.Pdf.Windows.dll" />
     <Content Include="lib\Syncfusion.Pdf.Windows.xml" />
     <Content Include="lib\Syncfusion.PdfViewer.Windows.dll" />
     <Content Include="lib\Syncfusion.PdfViewer.Windows.xml" />
+    <Content Include="lib\Syncfusion.PivotAnalysis.Base.dll" />
+    <Content Include="lib\Syncfusion.PivotAnalysis.Base.xml" />
+    <Content Include="lib\Syncfusion.PivotAnalysis.Windows.dll" />
+    <Content Include="lib\Syncfusion.PivotAnalysis.Windows.xml" />
+    <Content Include="lib\Syncfusion.PivotChart.Windows.dll" />
+    <Content Include="lib\Syncfusion.PivotChart.Windows.xml" />
+    <Content Include="lib\Syncfusion.PivotConverter.Windows.dll" />
+    <Content Include="lib\Syncfusion.PivotConverter.Windows.xml" />
     <Content Include="lib\Syncfusion.Shared.Base.dll" />
+    <Content Include="lib\Syncfusion.Shared.Base.xml" />
     <Content Include="lib\Syncfusion.Shared.Windows.dll" />
+    <Content Include="lib\Syncfusion.Shared.Windows.xml" />
     <Content Include="lib\Syncfusion.Spreadsheet.Windows.dll" />
+    <Content Include="lib\Syncfusion.Spreadsheet.Windows.xml" />
+    <Content Include="lib\Syncfusion.SpreadsheetHelper.Windows.dll" />
+    <Content Include="lib\Syncfusion.SpreadsheetHelper.Windows.xml" />
     <Content Include="lib\Syncfusion.Tools.Base.dll" />
+    <Content Include="lib\Syncfusion.Tools.Base.xml" />
     <Content Include="lib\Syncfusion.Tools.Windows.dll" />
+    <Content Include="lib\Syncfusion.Tools.Windows.xml" />
     <Content Include="lib\Syncfusion.XlsIO.Base.dll" />
     <Content Include="lib\Syncfusion.XlsIO.Base.xml" />
+    <Content Include="lib\System.Data.SqlServerCe.dll" />
     <Content Include="lib\VisualPlus.dll" />
   </ItemGroup>
   <ItemGroup />
