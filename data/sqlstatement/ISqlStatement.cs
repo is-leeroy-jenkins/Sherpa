@@ -4,8 +4,7 @@
 
 namespace BudgetExecution
 {
-    using System.Collections.Generic;
-    
+
     /// <summary> </summary>
     public interface ISqlStatement
     {

@@ -4,8 +4,6 @@
 
 namespace BudgetExecution
 {
-    using System;
-
     public interface IFullTimeEquivalent
     {
         /// <summary>

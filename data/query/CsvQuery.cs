@@ -12,7 +12,6 @@ namespace BudgetExecution
     using System.IO;
     using System.Windows.Forms;
     using OfficeOpenXml;
-    using App = Microsoft.Office.Interop.Excel.Application;
     using DataTable = System.Data.DataTable;
 
     /// <summary>

@@ -318,9 +318,11 @@ namespace BudgetExecution
         {
             try
             {
-                var _dialog = new OpenFileDialog();
-                _dialog.CheckFileExists = true;
-                _dialog.CheckPathExists = true;
+                var _dialog = new OpenFileDialog
+                {
+                    CheckFileExists = true,
+                    CheckPathExists = true
+                };
                 var _file = new DataFile( _dialog?.FileName );
 
                 return File.Exists( _file?.GetFilePath() )
