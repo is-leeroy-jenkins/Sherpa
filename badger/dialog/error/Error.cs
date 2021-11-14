@@ -24,16 +24,19 @@ namespace BudgetExecution
         public Error( string message )
         {
             InitializeComponent();
-            Info.Text = Exception.Source;
-            StackPanel.Text = message;
+
+            if( !string.IsNullOrEmpty( message ) )
+            {
+                StackPanel.Text = message;
+            }
         }
 
         public Exception Exception { get; }
 
         public void SetText()
         {
-            var tracemessage = Exception.ToLogString( "" );
-            StackPanel.Text = tracemessage;
+            var _logString = Exception.ToLogString( "" );
+            StackPanel.Text = _logString;
         }
     }
 }
