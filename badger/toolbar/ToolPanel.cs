@@ -12,6 +12,7 @@ namespace BudgetExecution
     public class ToolPanel : ToolPanelBase, IToolBar
     {
         public ToolPanel()
+            : base()
         {
             Margin = new Padding( 5, 5, 5, 0 );
             Padding = new Padding( 1, 1, 1, 0 );

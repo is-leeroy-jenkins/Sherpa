@@ -19,13 +19,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns></returns>
         ImageSource GetImageSource();
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <returns></returns>
-        string GetName();
-
+        
         /// <summary>
         /// Gets the extension.
         /// </summary>

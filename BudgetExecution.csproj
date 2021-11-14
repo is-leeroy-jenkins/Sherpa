@@ -542,7 +542,7 @@
     <Compile Include="badger\image\BudgetImage.cs" />
     <Compile Include="badger\image\IBudgetImage.cs" />
     <Compile Include="badger\image\ImageBuilder.cs" />
-    <Compile Include="badger\image\ImageConfig.cs" />
+    <Compile Include="badger\config\ImageConfig.cs" />
     <Compile Include="badger\image\ImageFactory.cs" />
     <Compile Include="badger\image\ImageList.cs">
       <SubType>Component</SubType>
@@ -1070,6 +1070,9 @@
     <EmbeddedResource Include="badger\control\ControlData.resx">
       <DependentUpon>ControlData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="badger\dialog\error\Error.resx">
+      <DependentUpon>Error.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="badger\editor\EditControl.resx">
       <DependentUpon>EditControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -1093,6 +1096,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="badger\listbox\ListBoxControl.resx">
       <DependentUpon>ListBoxControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\main\BadgerMain.resx">
+      <DependentUpon>BadgerMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="badger\notification\Notification.resx">
       <DependentUpon>Notification.cs</DependentUpon>
@@ -1129,6 +1135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="badger\tile\RotatingTileControl.resx">
       <DependentUpon>RotatingTileControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="badger\toolbar\ToolBarControl.resx">
+      <DependentUpon>ToolBarControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

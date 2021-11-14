@@ -17,17 +17,49 @@ namespace BudgetExecution
         /// <summary>
         /// The image
         /// </summary>
-        private protected Bitmap _image;
+        public  Bitmap Image { get; set; }
 
         /// <summary>
         /// The source
         /// </summary>
-        private protected ImageSource _source;
+        public ImageSource ImageSource { get; set; }
 
         /// <summary>
         /// The format
         /// </summary>
-        private protected ImageFormat _format;
+        public ImageFormat Format { get; set; }
+
+        /// <summary>
+        /// Gets or sets the color.
+        /// </summary>
+        /// <value>
+        /// The color.
+        /// </value>
+        public Color Color { get; set; }
+
+        /// <summary>
+        /// Gets or sets the size of the image.
+        /// </summary>
+        /// <value>
+        /// The size of the image.
+        /// </value>
+        public Size ImageSize { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the image.
+        /// </summary>
+        /// <value>
+        /// The name of the image.
+        /// </value>
+        public string ImageName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the file extension.
+        /// </summary>
+        /// <value>
+        /// The file extension.
+        /// </value>
+        public string FileExtension { get; set; }
 
         /// <summary>
         /// The small
@@ -59,38 +91,6 @@ namespace BudgetExecution
         protected static Color BackGroundColor = Color.Transparent;
 
         /// <summary>
-        /// Gets or sets the color.
-        /// </summary>
-        /// <value>
-        /// The color.
-        /// </value>
-        protected static Color Color;
-
-        /// <summary>
-        /// Gets or sets the size of the image.
-        /// </summary>
-        /// <value>
-        /// The size of the image.
-        /// </value>
-        private protected Size _imageSize;
-
-        /// <summary>
-        /// Gets or sets the name of the image.
-        /// </summary>
-        /// <value>
-        /// The name of the image.
-        /// </value>
-        private protected string _imageName;
-
-        /// <summary>
-        /// Gets or sets the file extension.
-        /// </summary>
-        /// <value>
-        /// The file extension.
-        /// </value>
-        private protected string _fileExtension;
-
-        /// <summary>
         /// Sets the image source.
         /// </summary>
         /// <param name="source">The source.</param>
@@ -98,7 +98,7 @@ namespace BudgetExecution
         {
             try
             {
-                _source = Validate.ImageResource( source )
+                ImageSource = Validate.ImageResource( source )
                     ? source
                     : ImageSource.NS;
             }
@@ -116,51 +116,14 @@ namespace BudgetExecution
         {
             try
             {
-                return Enum.IsDefined( typeof( ImageSource ), _source )
-                    ? _source
+                return Enum.IsDefined( typeof( ImageSource ), ImageSource )
+                    ? ImageSource
                     : ImageSource.NS;
             }
             catch( Exception ex )
             {
                 Fail( ex );
                 return ImageSource.NS;
-            }
-        }
-
-        /// <summary>
-        /// Sets the name.
-        /// </summary>
-        /// <param name="name">The name.</param>
-        private protected void SetName( string name )
-        {
-            try
-            {
-                _imageName = Verify.Input( name )
-                    ? name
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <returns></returns>
-        public string GetName()
-        {
-            try
-            {
-                return Verify.Input( _imageName )
-                    ? _imageName
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( string );
             }
         }
 
@@ -173,7 +136,7 @@ namespace BudgetExecution
         {
             try
             {
-                _fileExtension = Validate.ImageResource( resource )
+                FileExtension = Validate.ImageResource( resource )
                     && Verify.Input( filePath )
                     && File.Exists( filePath )
                     && resource != ImageSource.NS
@@ -194,8 +157,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _fileExtension )
-                    ? _fileExtension
+                return Verify.Input( FileExtension )
+                    ? FileExtension
                     : ImageFormat.PNG.ToString();
             }
             catch( Exception ex )
@@ -213,7 +176,7 @@ namespace BudgetExecution
         {
             try
             {
-                _format = Enum.IsDefined( typeof( ImageFormat ), format )
+                Format = Enum.IsDefined( typeof( ImageFormat ), format )
                     ? format
                     : ImageFormat.NS;
             }
@@ -235,11 +198,11 @@ namespace BudgetExecution
 
                 if( _names.Contains( extension ) )
                 {
-                    _format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), extension );
+                    Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), extension );
                 }
                 else
                 {
-                    _format = ImageFormat.PNG;
+                    Format = ImageFormat.PNG;
                 }
             }
             catch( Exception ex )
@@ -256,8 +219,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Enum.IsDefined( typeof( ImageFormat ), _format )
-                    ? _format
+                return Enum.IsDefined( typeof( ImageFormat ), Format )
+                    ? Format
                     : ImageFormat.NS;
             }
             catch( Exception ex )
@@ -275,7 +238,7 @@ namespace BudgetExecution
         {
             try
             {
-                _imageSize = size != Size.Empty
+                ImageSize = size != Size.Empty
                     ? GetSize( size )
                     : Size.Empty;
             }
@@ -294,7 +257,7 @@ namespace BudgetExecution
         {
             try
             {
-                _imageSize = width > -1 && height > -1
+                ImageSize = width > -1 && height > -1
                     ? GetSize( width, height )
                     : Size.Empty;
             }
@@ -312,7 +275,7 @@ namespace BudgetExecution
         {
             try
             {
-                _imageSize = Enum.IsDefined( typeof( ImageSizer ), sizer )
+                ImageSize = Enum.IsDefined( typeof( ImageSizer ), sizer )
                     ? GetSize( sizer )
                     : Size.Empty;
             }
@@ -330,8 +293,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _imageSize != Size.Empty
-                    ? _imageSize
+                return ImageSize != Size.Empty
+                    ? ImageSize
                     : Size.Empty;
             }
             catch( Exception ex )
@@ -351,13 +314,13 @@ namespace BudgetExecution
             {
                 try
                 {
-                    for( var i = 0; i < _image.Width; i++ )
+                    for( var i = 0; i < Image.Width; i++ )
                     {
-                        for( var j = 0; j < _image.Height; j++ )
+                        for( var j = 0; j < Image.Height; j++ )
                         {
-                            if( _image.GetPixel( i, j ) != Color.Transparent )
+                            if( Image.GetPixel( i, j ) != Color.Transparent )
                             {
-                                _image.SetPixel( i, j, newcolor );
+                                Image.SetPixel( i, j, newcolor );
                             }
                         }
                     }
@@ -365,7 +328,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    _image.Dispose();
+                    Image.Dispose();
                 }
             }
         }

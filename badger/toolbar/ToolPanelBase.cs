@@ -5,6 +5,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Configuration;
 
     /// <summary> </summary>
     /// <seealso cref = "Syncfusion.Windows.Forms.Tools.ToolStripEx"/>
@@ -13,7 +14,7 @@ namespace BudgetExecution
         /// <summary>
         /// The image path
         /// </summary>
-        public static readonly string ImagePath = Resource.ToolBar;
+        public readonly string ImagePath = ConfigurationManager.AppSettings[ "ToolBarImages" ];
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ToolPanelBase"/> class.
@@ -41,25 +42,25 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the button.
         /// </summary>
-        /// <param name = "imagename" >
+        /// <param name = "imageName" >
         /// The name.
         /// </param>
         /// <returns>
         /// </returns>
-        public BarButton CreateButton( string imagename )
+        public BarButton CreateButton( string imageName )
         {
-            if( Verify.Input( imagename ) )
+            if( Verify.Input( imageName ) )
             {
                 try
                 {
-                    var image = new BudgetImage( imagename, ImageSource.ToolBarImages,
+                    var _image = new BudgetImage( imageName, ImageSource.ToolBarImages,
                         ImageSizer.Small );
 
-                    var button = new BarButton( image );
-                    Items?.Add( button );
+                    var _button = new BarButton( _image );
+                    Items?.Add( _button );
 
                     return Items?.Count > 0
-                        ? button
+                        ? _button
                         : default( BarButton );
                 }
                 catch( Exception ex )
@@ -81,11 +82,11 @@ namespace BudgetExecution
         {
             try
             {
-                var label = new BarLabel();
-                Items?.Add( label );
+                var _label = new BarLabel();
+                Items?.Add( _label );
 
-                return label?.BindingSource != null && Items?.Count > 0
-                    ? label
+                return _label?.BindingSource != null && Items?.Count > 0
+                    ? _label
                     : default( BarLabel );
             }
             catch( Exception ex )
@@ -104,11 +105,11 @@ namespace BudgetExecution
         {
             try
             {
-                var combobox = new BarComboBox();
-                Items?.Add( combobox );
+                var _comboBox = new BarComboBox();
+                Items?.Add( _comboBox );
 
                 return Items?.Count > 0
-                    ? combobox
+                    ? _comboBox
                     : default( BarComboBox );
             }
             catch( Exception ex )
@@ -127,11 +128,11 @@ namespace BudgetExecution
         {
             try
             {
-                var textbox = new BarTextBox();
-                Items?.Add( textbox );
+                var _textBox = new BarTextBox();
+                Items?.Add( _textBox );
 
                 return Items?.Count > 0
-                    ? textbox
+                    ? _textBox
                     : default( BarTextBox );
             }
             catch( Exception ex )

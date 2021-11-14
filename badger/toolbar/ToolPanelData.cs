@@ -19,6 +19,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="ToolPanelData"/> class.
         /// </summary>
         public ToolPanelData()
+            : base()
         {
         }
 

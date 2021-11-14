@@ -29,12 +29,12 @@ namespace BudgetExecution
         /// <param name="fullPath">The fullPath.</param>
         public ImageBuilder( string fullPath )
         {
-            SetName( Path.GetFileNameWithoutExtension( fullPath ) );
-            _source = ImageSource.NS;
+            ImageName = Path.GetFileNameWithoutExtension( fullPath );
+            ImageSource = ImageSource.NS;
             SetFileExtension( Path.GetExtension( fullPath ) );
-            SetImageFilePath( fullPath, _source );
-            SetImageFormat( _fileExtension );
-            SetImageFilePath( _imageName, _source );
+            SetImageFilePath( fullPath, ImageSource );
+            SetImageFormat( FileExtension );
+            SetImageFilePath( ImageName, ImageSource );
             SetImageSize( Medium );
         }
 
@@ -44,12 +44,12 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         public ImageBuilder( ImageSource source )
         {
-            SetName( source.ToString() );
+            ImageName = source.ToString();
             SetImageSource( source );
             SetFileExtension( ImageFormat.PNG.ToString() );
-            SetImageFormat( _fileExtension );
-            SetImageFilePath( _imageName, _source );
-            SetImageFormat( _format );
+            SetImageFormat( FileExtension );
+            SetImageFilePath( ImageName, ImageSource );
+            SetImageFormat( Format );
             SetImageSize( ImageSizer.Medium );
         }
 
@@ -67,12 +67,12 @@ namespace BudgetExecution
         /// </param>
         public ImageBuilder( string name, ImageSource source, ImageSizer size = ImageSizer.Medium )
         {
-            SetName( name );
+            ImageName = name;
             SetImageSource( source );
-            SetFileExtension( _imageName, _source );
-            SetImageFormat( _fileExtension );
-            SetImageFilePath( _imageName, _source );
-            SetImageFormat( _fileExtension );
+            SetFileExtension( ImageName, ImageSource );
+            SetImageFormat( FileExtension );
+            SetImageFilePath( ImageName, ImageSource );
+            SetImageFormat( FileExtension );
             SetImageSize( ImageSizer.Medium );
         }
 
@@ -94,12 +94,12 @@ namespace BudgetExecution
         public ImageBuilder( string name, ImageSource source, int width = 16,
             int height = 16 )
         {
-            SetName( name );
+            ImageName = name;
             SetImageSource( source );
-            SetFileExtension( _imageName, _source );
-            SetImageFormat( _fileExtension );
-            SetImageFilePath( _imageName, _source );
-            SetImageFormat( _fileExtension );
+            SetFileExtension( ImageName, ImageSource );
+            SetImageFormat( FileExtension );
+            SetImageFilePath( ImageName, ImageSource );
+            SetImageFormat( FileExtension );
             SetImageSize( width, height );
         }
 
@@ -117,12 +117,12 @@ namespace BudgetExecution
         /// </param>
         public ImageBuilder( string name, ImageSource source, Size size )
         {
-            SetName( name );
+            ImageName = name;
             SetImageSource( source );
-            SetFileExtension( _imageName, _source );
-            SetImageFormat( _fileExtension );
-            SetImageFilePath( _imageName, _source );
-            SetImageFormat( _fileExtension );
+            SetFileExtension( ImageName, ImageSource );
+            SetImageFormat( FileExtension );
+            SetImageFilePath( ImageName, ImageSource );
+            SetImageFormat( FileExtension );
             SetImageSize( size );
         }
 
@@ -194,9 +194,9 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.ImageResource( _source )
-                    && Verify.Input( Resource.Settings[ $"{_source}" ] )
-                        ? Resource.Settings[ $"{_source}" ]
+                return Validate.ImageResource( ImageSource )
+                    && Verify.Input( Resource.Settings[ $"{ImageSource}" ] )
+                        ? Resource.Settings[ $"{ImageSource}" ]
                         : default( string );
             }
             catch( Exception ex )
@@ -236,8 +236,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.ImageSize( _imageSize )
-                    ? _imageSize
+                return Verify.ImageSize( ImageSize )
+                    ? ImageSize
                     : default( Size );
             }
             catch( Exception ex )
@@ -257,8 +257,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _imageName )
-                    ? _imageName
+                return Verify.Input( ImageName )
+                    ? ImageName
                     : default( string );
             }
             catch( Exception ex )
@@ -277,8 +277,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Enum.IsDefined( typeof( ImageFormat ), _format )
-                    ? _format
+                return Enum.IsDefined( typeof( ImageFormat ), Format )
+                    ? Format
                     : ImageFormat.PNG;
             }
             catch( Exception ex )

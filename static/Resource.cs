@@ -15,7 +15,7 @@ namespace BudgetExecution
     {
         /// <summary>Gets the settings.</summary>
         /// <value>The settings.</value>
-        public static NameValueCollection Settings { get; } = ConfigurationManager.AppSettings;
+        public static readonly NameValueCollection Settings = ConfigurationManager.AppSettings;
 
         /// <summary>The summary</summary>
         public static readonly string Summary = Settings[ "SummaryImages" ];
@@ -24,7 +24,7 @@ namespace BudgetExecution
         public static readonly string FundImages = Settings[ "FundImages" ];
 
         /// <summary>The databases</summary>
-        public static readonly string Databases = Settings[ "Database" ];
+        public static readonly string Databases = Settings[ "DatabaseImages" ];
 
         /// <summary>The data images</summary>
         public static readonly string DataImages = Settings[ "DataImages" ];
@@ -75,7 +75,7 @@ namespace BudgetExecution
         public static readonly string ExecutionImages = Settings[ "ExecutionImages" ];
 
         /// <summary>The tool bar</summary>
-        public static readonly string ToolBar = Settings[ "ToolBar" ];
+        public static readonly string ToolBarImages = Settings[ "ToolBarImages" ];
 
         /// <summary>The division sources</summary>
         public static readonly Source[ ] DivisionSources =

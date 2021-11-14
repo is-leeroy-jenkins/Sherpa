@@ -45,11 +45,11 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="BarButton"/> class.
         /// </summary>
         /// <param name="image">The image.</param>
-        public BarButton( IBudgetImage image )
+        public BarButton( BudgetImage image )
             : this()
         {
             Image = image.GetBitmap();
-            Bar = (Tool)Enum.Parse( typeof( Tool ), image.GetName() );
+            Bar = (Tool)Enum.Parse( typeof( Tool ), image.ImageName );
         }
 
         /// <summary>

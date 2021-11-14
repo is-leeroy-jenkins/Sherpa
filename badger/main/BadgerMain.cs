@@ -16,6 +16,7 @@ namespace BudgetExecution
         {
             InitializeComponent();
             FormClosing += OnClose;
+            BorderColor = ColorConfig.BorderBlue;
         }
 
         private Image GetImage()
@@ -23,7 +24,8 @@ namespace BudgetExecution
             try
             {
                 var _image = new BudgetImage( "SqlCe", ImageSource.DatabaseImages );
-                Label.Text = _image?.GetBuilder()?.GetFilePath();
+                var path = _image?.Builder?.GetFilePath();
+                Label.Text = path;
                 return _image?.GetBitmap();
             }
             catch( Exception ex )

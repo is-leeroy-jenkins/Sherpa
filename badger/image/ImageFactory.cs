@@ -46,7 +46,7 @@ namespace BudgetExecution
         {
             _builder = imagebuilder;
             var imagesource = _builder.GetImageSource();
-            _format = _builder.GetExtenstion();
+            Format = _builder.GetExtenstion();
             _paths = GetPaths( imagesource );
             _names = GetNames( _paths );
             _fileStreams = GetFileStreams( imagesource );
@@ -62,7 +62,7 @@ namespace BudgetExecution
         {
             _builder = new ImageBuilder( imagesource );
             var source = _builder.GetImageSource();
-            _format = _builder.GetExtenstion();
+            Format = _builder.GetExtenstion();
             _paths = GetPaths( source );
             _names = GetNames( _paths );
             _fileStreams = GetFileStreams( source );
