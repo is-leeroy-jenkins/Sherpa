@@ -18,17 +18,12 @@ namespace BudgetExecution
             InitializeComponent();
             Exception = ext;
             Text = "Error!";
-            Info.Text = Exception.Source;
         }
 
         public Error( string message )
         {
             InitializeComponent();
-
-            if( !string.IsNullOrEmpty( message ) )
-            {
-                StackPanel.Text = message;
-            }
+            TextBox.Text = message;
         }
 
         public Exception Exception { get; }
@@ -36,7 +31,7 @@ namespace BudgetExecution
         public void SetText()
         {
             var _logString = Exception.ToLogString( "" );
-            StackPanel.Text = _logString;
+            TextBox.Text = _logString;
         }
     }
 }

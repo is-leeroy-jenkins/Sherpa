@@ -33,24 +33,14 @@ namespace BudgetExecution
             {
                 type = Nullable.GetUnderlyingType( type ) ?? type;
 
-                switch( type.Name )
+                return type.Name switch
                 {
-                    case "String":
-                    case "Boolean":
-                        return "Text";
-
-                    case "DateTime":
-                        return "Date";
-
-                    case "Int32":
-                        return "Double";
-
-                    case "Decimal":
-                        return "Currency";
-
-                    default:
-                        return type.Name;
-                }
+                    "String" or "Boolean" => "Text",
+                    "DateTime" => "Date",
+                    "Int32" => "Double",
+                    "Decimal" => "Currency",
+                    _ => type.Name,
+                };
             }
             catch( Exception ex )
             {

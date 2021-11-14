@@ -6,12 +6,10 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.Grid;
 
     /// <summary>
     /// 
@@ -31,17 +29,6 @@ namespace BudgetExecution
         public ColumnConfiguration()
         {
             InitializeComponent();
-            Size = SizeConfig.DialogMinimum;
-            Margin = ControlConfig.Margin;
-            Padding = ControlConfig.Padding;
-            BackColor = ColorConfig.FormDarkBackColor;
-            BorderColor = ColorConfig.BorderBlue;
-            ForeColor = ColorConfig.ForeGray;
-            Anchor = ControlConfig.GetAnchorStyle();
-            Padding = ControlConfig.Padding;
-            Margin = ControlConfig.Margin;
-            Dock = ControlConfig.GetDockStyle();
-            Font = FontConfig.FontSizeSmall;
             Enabled = true;
             Visible = true;
         }
@@ -58,38 +45,6 @@ namespace BudgetExecution
             Grid = dgv;
             PopUp = new ToolStripDropDown();
             ColumnListBox.CheckOnClick = true;
-            ColumnListBox.ItemCheck += OnDataGridItemChecked;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref = "ColumnConfiguration"/> class.
-        /// </summary>
-        /// <param name = "dgv" >
-        /// The DGV.
-        /// </param>
-        public ColumnConfiguration( DataGridPanel dgv )
-            : this()
-        {
-            DataGridPanel = dgv;
-            PopUp = new ToolStripDropDown();
-            ColumnListBox.CheckOnClick = true;
-            ColumnListBox.ItemCheck += OnDataGridItemChecked;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref = "ColumnConfiguration"/> class.
-        /// </summary>
-        /// <param name = "dgv" >
-        /// The DGV.
-        /// </param>
-        public ColumnConfiguration( BudgetGridPanel dgv )
-            : this()
-        {
-            BudgetGridPanel = dgv;
-            ColumnNames = GetBudgetGridDataColumns( BudgetGridPanel );
-            PopUp = new ToolStripDropDown();
-            ColumnListBox.CheckOnClick = true;
-            ColumnListBox.ItemCheck += OnBudgetGridItemChecked;
         }
 
         /// <summary>
@@ -101,28 +56,12 @@ namespace BudgetExecution
         public DataGridView Grid { get; }
 
         /// <summary>
-        /// Gets the data grid.
-        /// </summary>
-        /// <value>
-        /// The data grid.
-        /// </value>
-        public DataGridPanel DataGridPanel { get; }
-
-        /// <summary>
-        /// Gets or sets the budget grid model.
-        /// </summary>
-        /// <value>
-        /// The budget grid model.
-        /// </value>
-        public BudgetGridPanel BudgetGridPanel { get; }
-
-        /// <summary>
         /// Gets or sets the column names.
         /// </summary>
         /// <value>
         /// The column names.
         /// </value>
-        public IEnumerable<string> ColumnNames { get; }
+        public IEnumerable<string> ColumnNames { get; set; }
 
         /// <summary>
         /// Gets the pop up.
@@ -139,53 +78,7 @@ namespace BudgetExecution
         /// The host.
         /// </value>
         public ToolStripControlHost Host { get; set; }
-
-        /// <summary>
-        /// Gets the data grid pop up.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        private ToolStripDropDown GetDataGridPopUp()
-        {
-            if( DataGridPanel != null )
-            {
-                try
-                {
-                    var popup = new ToolStripDropDown();
-                    return popup;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-
-            return default( ToolStripDropDown );
-        }
-
-        /// <summary>
-        /// Gets the budget grid pop up.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        private ToolStripDropDown GetBudgetGridPopUp()
-        {
-            if( BudgetGridPanel != null )
-            {
-                try
-                {
-                    var popup = new ToolStripDropDown();
-                    return popup;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-
-            return default( ToolStripDropDown );
-        }
-
+        
         /// <summary>
         /// Gets the control host.
         /// </summary>
@@ -200,11 +93,14 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var controlhost = new ToolStripControlHost( this );
-                    controlhost.AutoSize = true;
-                    controlhost.Margin = Padding.Empty;
-                    controlhost.Padding = Padding.Empty;
-                    return controlhost;
+                    var _controlHost = new ToolStripControlHost( this )
+                    {
+                        AutoSize = true,
+                        Margin = Padding.Empty,
+                        Padding = Padding.Empty
+                    };
+
+                    return _controlHost;
                 }
                 catch( Exception ex )
                 {
@@ -214,48 +110,6 @@ namespace BudgetExecution
             }
 
             return default( ToolStripControlHost );
-        }
-
-        /// <summary>
-        /// Gets the budget grid data columns.
-        /// </summary>
-        /// <param name = "datagrid" >
-        /// The datagrid.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public IEnumerable<string> GetBudgetGridDataColumns( BudgetGridPanel datagrid )
-        {
-            try
-            {
-                return ( (DataTable)datagrid?.BindingSource?.DataSource )?.GetColumnNames();
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IEnumerable<string> );
-            }
-        }
-
-        /// <summary>
-        /// Gets the data grid data columns.
-        /// </summary>
-        /// <param name = "datagrid" >
-        /// The datagrid.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public IEnumerable<string> GetDataGridDataColumns( DataGridPanel datagrid )
-        {
-            try
-            {
-                return ( (DataTable)datagrid?.BindingSource?.DataSource )?.GetColumnNames();
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IEnumerable<string> );
-            }
         }
 
         /// <summary>
@@ -298,45 +152,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [budget grid right click].
-        /// </summary>
-        /// <param name = "sender" >
-        /// The sender.
-        /// </param>
-        /// <param name = "e" >
-        /// The <see cref = "MouseEventArgs"/> instance containing the event data.
-        /// </param>
-        public void OnBudgetGridRightClick( object sender, MouseEventArgs e )
-        {
-            if( e.Button == MouseButtons.Right
-                && sender is GridModelDataBinder databinder
-                && databinder.CurrentRowIndex <= 1 )
-            {
-                try
-                {
-                    ColumnListBox.Items.Clear();
-
-                    foreach( var c in ColumnNames )
-                    {
-                        ColumnListBox.Items.Add( c, false );
-                    }
-
-                    using var columnconfiguration = new ColumnConfiguration( BudgetGridPanel )
-                    {
-                        Location = BudgetGridPanel.PointToScreen( new Point( e.X, e.Y ) )
-                    };
-
-                    columnconfiguration.ShowDialog();
-                    columnconfiguration.TopMost = true;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
         /// Called when [data grid item checked].
         /// </summary>
         /// <param name = "sender" >
@@ -352,31 +167,6 @@ namespace BudgetExecution
                 try
                 {
                     Grid.Columns[ e.Index ].Visible = e.NewValue == CheckState.Checked;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [budget grid item checked].
-        /// </summary>
-        /// <param name = "sender" >
-        /// The sender.
-        /// </param>
-        /// <param name = "e" >
-        /// The <see cref = "ItemCheckEventArgs"/> instance containing the event data.
-        /// </param>
-        private void OnBudgetGridItemChecked( object sender, ItemCheckEventArgs e )
-        {
-            if( e != null )
-            {
-                try
-                {
-                    BudgetGridPanel.GridBoundColumns[ e.Index ].Hidden =
-                        e.NewValue == CheckState.Checked;
                 }
                 catch( Exception ex )
                 {
