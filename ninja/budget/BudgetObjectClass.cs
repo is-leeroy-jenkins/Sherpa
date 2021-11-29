@@ -1,4 +1,4 @@
-﻿// <copyright file = "BudgetObjectClass.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "BudgetObjectClasses.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -48,7 +48,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; } =  Source.BudgetObjectClass;
+        public Source Source { get; } =  Source.BudgetObjectClasses;
 
         /// <summary>
         /// Gets the Data.

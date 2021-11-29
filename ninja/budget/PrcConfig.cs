@@ -211,7 +211,7 @@ namespace BudgetExecution
                     [ $"{Field.Code}" ] = BocCode?.GetValue()
                 };
 
-                var _builder = new ConnectionBuilder( Source.BudgetObjectClass );
+                var _builder = new ConnectionBuilder( Source.BudgetObjectClasses );
                 var _statement = new SqlStatement( _builder, _dictionary, SQL.SELECT );
                 using var _query = new Query( _builder, _statement );
                 return new BudgetObjectClass( _query );

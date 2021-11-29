@@ -316,31 +316,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Determines whether the specified source is division.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="source">The source.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified source is division; otherwise, <c>false</c>.
-        /// </returns>
-        public static bool IsDivision<T>( T source )
-            where T : struct
-        {
-            var _source = (Source)Enum.Parse( typeof( Source ), source.ToString() );
-
-            if( !Enum.IsDefined( typeof( Source ), source )
-                || !Resource.DivisionSources.Contains( _source ) )
-            {
-                Fail( new ArgumentException( "Verify [ enum Source ] input argument!" ) );
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        /// <summary>
         /// Determines whether the specified source is supplemental.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -371,7 +346,7 @@ namespace BudgetExecution
         /// <returns>
         ///   <c>true</c> if the specified source is outlay; otherwise, <c>false</c>.
         /// </returns>
-        public static bool IsOutlay<T>( T source )
+        public static bool IsOutflow<T>( T source )
             where T : struct
         {
             if( !Enum.IsDefined( typeof( Source ), source ) )
