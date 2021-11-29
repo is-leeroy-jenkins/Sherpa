@@ -285,6 +285,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="badger\format\AlignConfig.cs" />
+    <Compile Include="badger\format\AlignFormat.cs" />
+    <Compile Include="badger\main\BadgerMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\main\BadgerMain.Designer.cs" />
     <Compile Include="badger\dialog\column\ColumnConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,6 +309,83 @@
     <Compile Include="badger\dialog\message\Message.Designer.cs">
       <DependentUpon>Message.cs</DependentUpon>
     </Compile>
+    <Compile Include="badger\format\BorderConfig.cs" />
+    <Compile Include="badger\format\BorderFormat.cs" />
+    <Compile Include="badger\format\ChartConfig.cs" />
+    <Compile Include="badger\format\ColorConfig.cs" />
+    <Compile Include="badger\format\ColorForrmat.cs" />
+    <Compile Include="badger\format\ControlConfig.cs" />
+    <Compile Include="badger\excel\ExcelData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\excel\ExcelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\excel\ExcelForm.Designer.cs" />
+    <Compile Include="badger\control\ControlBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\control\ControlBase.Designer.cs" />
+    <Compile Include="badger\control\ControlData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\binding\BindingBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\binding\BindingData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\binding\BudgetBinding.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\closebox\ClosePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\button\ButtonBase.cs" />
+    <Compile Include="badger\button\ButtonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\button\ButtonControl.Designer.cs" />
+    <Compile Include="badger\button\ButtonPanel.cs" />
+    <Compile Include="badger\toolbar\BarButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\BarButtonBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\BarComboBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\BarComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\BarLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\BarLabelBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\BarProgress.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\BarTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\image\BudgetImage.cs" />
+    <Compile Include="badger\calculator\CalculationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\calculator\CalculationControl.Designer.cs" />
+    <Compile Include="badger\calculator\CalculationPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\calculator\CalculatorData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\calculator\CalculatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\calculator\CalculatorForm.Designer.cs" />
     <Compile Include="extensions\CollectionExtensions.cs" />
     <Compile Include="extensions\DataGridExtensions.cs" />
     <Compile Include="extensions\DataRowExtensions.cs" />
@@ -406,6 +489,42 @@
     <Compile Include="extensions\ExcelExtensions.cs" />
     <Compile Include="extensions\FileStreamExtensions.cs" />
     <Compile Include="extensions\LinqExtensions.cs" />
+    <Compile Include="badger\excel\sheet\ISpreadsheet.cs" />
+    <Compile Include="badger\format\FontConfig.cs" />
+    <Compile Include="badger\format\FontFormat.cs" />
+    <Compile Include="badger\format\FormConfig.cs" />
+    <Compile Include="badger\format\IChartConfig.cs" />
+    <Compile Include="badger\control\IDataControl.cs" />
+    <Compile Include="badger\binding\IBindingSource.cs" />
+    <Compile Include="badger\binding\IDataSource.cs" />
+    <Compile Include="badger\label\ILabel.cs" />
+    <Compile Include="badger\button\IButton.cs" />
+    <Compile Include="badger\toolbar\IBarButton.cs" />
+    <Compile Include="badger\toolbar\IBarComboBox.cs" />
+    <Compile Include="badger\toolbar\IBarLabel.cs" />
+    <Compile Include="badger\toolbar\IBarTextBox.cs" />
+    <Compile Include="badger\toolbar\IToolBar.cs" />
+    <Compile Include="badger\picturebox\IPictureBox.cs" />
+    <Compile Include="badger\label\LabelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\label\LabelControl.Designer.cs" />
+    <Compile Include="badger\label\LabelData.cs" />
+    <Compile Include="badger\label\LabelPanel.cs" />
+    <Compile Include="badger\image\IBudgetImage.cs" />
+    <Compile Include="badger\image\ImageBuilder.cs" />
+    <Compile Include="badger\image\ImageConfig.cs" />
+    <Compile Include="badger\image\ImageFactory.cs" />
+    <Compile Include="badger\image\ImageList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\calculator\ICalculator.cs" />
+    <Compile Include="badger\layout\ILayout.cs" />
+    <Compile Include="badger\layout\LayoutPanel.cs" />
+    <Compile Include="badger\dialog\browser\FileBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="badger\dialog\browser\FileBrowser.Designer.cs" />
     <Compile Include="ninja\analysis\Computation.cs" />
     <Compile Include="ninja\analysis\DataMetric.cs" />
     <Compile Include="ninja\analysis\IDataFilter.cs" />
@@ -554,6 +673,13 @@
     <Compile Include="enumerations\Numeric.cs" />
     <Compile Include="enumerations\OutlayType.cs" />
     <Compile Include="enumerations\PrimaryKey.cs" />
+    <Compile Include="badger\picturebox\PictureControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\picturebox\PictureControl.Designer.cs" />
+    <Compile Include="badger\picturebox\PicturePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="enumerations\Provider.cs" />
@@ -562,6 +688,14 @@
     <Compile Include="enumerations\Source.cs" />
     <Compile Include="enumerations\SQL.cs" />
     <Compile Include="enumerations\STAT.cs" />
+    <Compile Include="badger\excel\sheet\RibbonPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\excel\sheet\SheetPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\control\SizeConfig.cs" />
+    <Compile Include="badger\control\SizeFomat.cs" />
     <Compile Include="static\Resource.cs" />
     <Compile Include="static\Static.cs" />
     <Compile Include="static\Validate.cs" />
@@ -572,9 +706,34 @@
     <Compile Include="extensions\StringExtensions.cs" />
     <Compile Include="extensions\TimeSpanExtensions.cs" />
     <Compile Include="extensions\TypeObject.cs" />
+    <Compile Include="badger\tooltip\ToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\ToolBarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\ToolBarControl.Designer.cs" />
+    <Compile Include="badger\toolbar\ToolPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\ToolPanelBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\ToolPanelData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\toolbar\ToolSeparator.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="badger\dialog\error\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="badger\control\ControlBase.resx" />
+    <EmbeddedResource Include="badger\control\ControlData.resx" />
+    <EmbeddedResource Include="badger\label\LabelControl.resx" />
+    <EmbeddedResource Include="badger\button\ButtonControl.resx" />
+    <EmbeddedResource Include="badger\picturebox\PictureControl.resx" />
+    <EmbeddedResource Include="badger\calculator\CalculationControl.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -585,6 +744,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="badger\toolbar\ToolBarControl.resx" />
     <None Include=".editorconfig" />
     <None Include="App.config" />
     <None Include="data\database\sqlce\ui\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
