@@ -285,12 +285,17 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="badger\format\AlignConfig.cs" />
-    <Compile Include="badger\format\AlignFormat.cs" />
     <Compile Include="badger\main\BadgerMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="badger\main\BadgerMain.Designer.cs" />
+    <Compile Include="badger\main\BadgerMain.Designer.cs">
+      <DependentUpon>BadgerMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="badger\chart\bindingmodel\ChartBinding.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="badger\format\AlignConfig.cs" />
+    <Compile Include="badger\format\AlignFormat.cs" />
     <Compile Include="badger\dialog\column\ColumnConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -347,6 +352,8 @@
     </Compile>
     <Compile Include="badger\button\ButtonControl.Designer.cs" />
     <Compile Include="badger\button\ButtonPanel.cs" />
+    <Compile Include="badger\chart\bindingmodel\SeriesConfig.cs" />
+    <Compile Include="badger\chart\bindingmodel\SeriesModel.cs" />
     <Compile Include="badger\toolbar\BarButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -386,6 +393,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="badger\calculator\CalculatorForm.Designer.cs" />
+    <Compile Include="badger\chart\seriesmodel\DataSeries.cs" />
     <Compile Include="extensions\CollectionExtensions.cs" />
     <Compile Include="extensions\DataGridExtensions.cs" />
     <Compile Include="extensions\DataRowExtensions.cs" />
@@ -525,6 +533,13 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="badger\dialog\browser\FileBrowser.Designer.cs" />
+    <Compile Include="badger\chart\bindingmodel\IChartBinding.cs" />
+    <Compile Include="badger\chart\bindingmodel\IChartSeriesModel.cs" />
+    <Compile Include="badger\chart\bindingmodel\ISeriesConfig.cs" />
+    <Compile Include="badger\chart\bindingmodel\ISourceModel.cs" />
+    <Compile Include="badger\chart\seriesmodel\IDataSeries.cs" />
+    <Compile Include="badger\chart\seriesmodel\ISeriesModel.cs" />
+    <Compile Include="badger\chart\seriesmodel\ITitleInfo.cs" />
     <Compile Include="ninja\analysis\Computation.cs" />
     <Compile Include="ninja\analysis\DataMetric.cs" />
     <Compile Include="ninja\analysis\IDataFilter.cs" />
@@ -696,6 +711,7 @@
     </Compile>
     <Compile Include="badger\control\SizeConfig.cs" />
     <Compile Include="badger\control\SizeFomat.cs" />
+    <Compile Include="badger\chart\seriesmodel\SourceModel.cs" />
     <Compile Include="static\Resource.cs" />
     <Compile Include="static\Static.cs" />
     <Compile Include="static\Validate.cs" />
@@ -725,6 +741,7 @@
     <Compile Include="badger\toolbar\ToolSeparator.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="badger\chart\seriesmodel\TitleInfo.cs" />
     <EmbeddedResource Include="badger\dialog\error\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
     </EmbeddedResource>
@@ -732,6 +749,9 @@
     <EmbeddedResource Include="badger\control\ControlData.resx" />
     <EmbeddedResource Include="badger\label\LabelControl.resx" />
     <EmbeddedResource Include="badger\button\ButtonControl.resx" />
+    <EmbeddedResource Include="badger\main\BadgerMain.resx">
+      <DependentUpon>BadgerMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="badger\picturebox\PictureControl.resx" />
     <EmbeddedResource Include="badger\calculator\CalculationControl.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
