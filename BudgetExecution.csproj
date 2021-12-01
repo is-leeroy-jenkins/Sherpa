@@ -285,6 +285,24 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Badger\Chart\BudgetChartControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Badger\Chart\BudgetChartControl.Designer.cs" />
+    <Compile Include="Badger\Chart\CallOut.cs" />
+    <Compile Include="Badger\Chart\ChartBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\Chart\ChartData.cs" />
+    <Compile Include="Badger\Chart\ChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Badger\Chart\ChartForm.Designer.cs" />
+    <Compile Include="Badger\Chart\ChartPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\Chart\IBudgetChart.cs" />
+    <Compile Include="Badger\Chart\LegendItem.cs" />
     <Compile Include="Badger\Main\BadgerMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -394,6 +412,46 @@
     </Compile>
     <Compile Include="Badger\Calculator\CalculatorForm.Designer.cs" />
     <Compile Include="Badger\Chart\seriesmodel\DataSeries.cs" />
+    <Compile Include="Badger\BudgetGrid\BudgetGridControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Badger\BudgetGrid\BudgetGridControl.Designer.cs" />
+    <Compile Include="Badger\BudgetGrid\BudgetGridData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\BudgetGrid\BudgetGridPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\Calendar\CalendarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Badger\Calendar\CalendarControl.Designer.cs" />
+    <Compile Include="Badger\Calendar\CalendarData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Badger\Calendar\CalendarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Badger\Calendar\CalendarForm.Designer.cs" />
+    <Compile Include="Badger\Calendar\CalendarPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Badger\ChartGrid\ChartDataControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Badger\ChartGrid\ChartDataControl.Designer.cs" />
+    <Compile Include="Badger\ChartGrid\ChartDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Badger\ChartGrid\ChartDataForm.Designer.cs" />
+    <Compile Include="Badger\DataGrid\DataGridControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Badger\DataGrid\DataGridControl.Designer.cs" />
+    <Compile Include="Badger\DataGrid\DataGridPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\DataGrid\DataGridPanel.Designer.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />
@@ -540,6 +598,18 @@
     <Compile Include="Badger\Chart\seriesmodel\IDataSeries.cs" />
     <Compile Include="Badger\Chart\seriesmodel\ISeriesModel.cs" />
     <Compile Include="Badger\Chart\seriesmodel\ITitleInfo.cs" />
+    <Compile Include="Badger\BudgetGrid\IBudgetGrid.cs" />
+    <Compile Include="Badger\DataGrid\GridData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\DataGrid\IDataGrid.cs" />
+    <Compile Include="Badger\GroupBox\GroupBoxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Badger\GroupBox\GroupBoxControl.Designer.cs" />
+    <Compile Include="Badger\GroupBox\GroupBoxData.cs" />
+    <Compile Include="Badger\GroupBox\GroupBoxPanel.cs" />
+    <Compile Include="Badger\GroupBox\IGroupBox.cs" />
     <Compile Include="Ninja\Analysis\Computation.cs" />
     <Compile Include="Ninja\Analysis\DataMetric.cs" />
     <Compile Include="Ninja\Analysis\IDataFilter.cs" />
@@ -742,6 +812,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\seriesmodel\TitleInfo.cs" />
+    <EmbeddedResource Include="Badger\Chart\BudgetChartControl.resx" />
     <EmbeddedResource Include="Badger\Dialog\Error\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
     </EmbeddedResource>
@@ -754,6 +825,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\PictureBox\PictureControl.resx" />
     <EmbeddedResource Include="Badger\Calculator\CalculationControl.resx" />
+    <EmbeddedResource Include="Badger\BudgetGrid\BudgetGridControl.resx" />
+    <EmbeddedResource Include="Badger\Calendar\CalendarControl.resx" />
+    <EmbeddedResource Include="Badger\ChartGrid\ChartDataControl.resx" />
+    <EmbeddedResource Include="Badger\DataGrid\DataGridControl.resx" />
+    <EmbeddedResource Include="Badger\GroupBox\GroupBoxControl.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
