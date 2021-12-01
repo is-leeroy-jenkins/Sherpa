@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The data set.
         /// </value>
-        private protected DataSet DataSet { get; set; }
+        public DataSet DataSet { get; set; }
 
         /// <summary>
         /// Gets the data table.
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The data table.
         /// </value>
-        private protected DataTable DataTable { get; set; }
+        public DataTable DataTable { get; set; }
 
         /// <summary>
         /// Gets the source.
@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        private protected Source Source { get; set; }
+        public Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the current.
@@ -44,7 +44,7 @@ namespace BudgetExecution
         /// <value>
         /// The current.
         /// </value>
-        private protected DataRow Record { get; set; }
+        public DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the index of the current.
@@ -52,7 +52,7 @@ namespace BudgetExecution
         /// <value>
         /// The index of the current.
         /// </value>
-        private protected int Index { get; set; }
+        public int Index { get; set; }
 
         /// <summary>
         /// Gets or sets the field.
@@ -60,7 +60,7 @@ namespace BudgetExecution
         /// <value>
         /// The field.
         /// </value>
-        private protected Field Field { get; set; }
+        public Field Field { get; set; }
 
         /// <summary>
         /// Gets or sets the data filter.
