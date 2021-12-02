@@ -253,3 +253,5 @@ C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.C
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.DataGrid.DataGridControl.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.GroupBox.GroupBoxControl.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Chart.BudgetChartControl.resources
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Clock.ClockControl.resources
