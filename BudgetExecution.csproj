@@ -396,7 +396,7 @@
     <Compile Include="Badger\Toolbar\BarTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Image\BudgetImage.cs" />
+    <Compile Include="Badger\BudgetImages\BudgetImage.cs" />
     <Compile Include="Badger\Calculator\CalculationControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -452,6 +452,13 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\DataGrid\DataGridPanel.Designer.cs" />
+    <Compile Include="Badger\Clock\ClockControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Badger\Clock\ClockControl.Designer.cs" />
+    <Compile Include="Badger\Clock\ClockPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />
@@ -577,11 +584,11 @@
     <Compile Include="Badger\Label\LabelControl.Designer.cs" />
     <Compile Include="Badger\Label\LabelData.cs" />
     <Compile Include="Badger\Label\LabelPanel.cs" />
-    <Compile Include="Badger\Image\IBudgetImage.cs" />
-    <Compile Include="Badger\Image\ImageBuilder.cs" />
-    <Compile Include="Badger\Image\ImageConfig.cs" />
-    <Compile Include="Badger\Image\ImageFactory.cs" />
-    <Compile Include="Badger\Image\ImageList.cs">
+    <Compile Include="Badger\BudgetImages\IBudgetImage.cs" />
+    <Compile Include="Badger\BudgetImages\ImageBuilder.cs" />
+    <Compile Include="Badger\BudgetImages\ImageConfig.cs" />
+    <Compile Include="Badger\BudgetImages\ImageFactory.cs" />
+    <Compile Include="Badger\BudgetImages\ImageList.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Calculator\ICalculator.cs" />
@@ -610,6 +617,7 @@
     <Compile Include="Badger\GroupBox\GroupBoxData.cs" />
     <Compile Include="Badger\GroupBox\GroupBoxPanel.cs" />
     <Compile Include="Badger\GroupBox\IGroupBox.cs" />
+    <Compile Include="Badger\Clock\IClock.cs" />
     <Compile Include="Ninja\Analysis\Computation.cs" />
     <Compile Include="Ninja\Analysis\DataMetric.cs" />
     <Compile Include="Ninja\Analysis\IDataFilter.cs" />
@@ -830,6 +838,7 @@
     <EmbeddedResource Include="Badger\ChartGrid\ChartDataControl.resx" />
     <EmbeddedResource Include="Badger\DataGrid\DataGridControl.resx" />
     <EmbeddedResource Include="Badger\GroupBox\GroupBoxControl.resx" />
+    <EmbeddedResource Include="Badger\Clock\ClockControl.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -841,7 +850,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Badger\Toolbar\ToolBarControl.resx" />
-    <None Include=".editorconfig" />
     <None Include="App.config" />
     <None Include="Data\Database\sqlce\ui\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
     <None Include="Data\Database\sqlce\ui\CompactView.exe.config" />
