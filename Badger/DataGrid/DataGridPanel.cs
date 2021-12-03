@@ -257,14 +257,14 @@ namespace BudgetExecution
                 {
                     try
                     {
-                        var vals = string.Empty;
+                        var _vals = string.Empty;
 
-                        foreach( var kvp in dict )
+                        foreach( var _kvp in dict )
                         {
-                            vals += $"{kvp.Key} = '{kvp.Value}' AND ";
+                            _vals += $"{_kvp.Key} = '{_kvp.Value}' AND ";
                         }
 
-                        return vals.Trim().Substring( 0, vals.Length - 4 );
+                        return _vals.Trim().Substring( 0, _vals.Length - 4 );
                     }
                     catch( Exception ex )
                     {
@@ -285,8 +285,8 @@ namespace BudgetExecution
         {
             try
             {
-                using var message = new Message( "Not Yet Implemented." );
-                message?.ShowDialog();
+                using var _message = new Message( "Not Yet Implemented." );
+                _message?.ShowDialog();
                 return default;
             }
             catch( Exception ex )
@@ -307,16 +307,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var config = new ColumnConfiguration( this );
+                    using var _columnConfiguration = new ColumnConfiguration( this );
 
                     foreach( DataGridViewColumn c in Columns )
                     {
-                        config.ColumnListBox.Items.Add( c.HeaderText, c.Visible );
+                        _columnConfiguration.ColumnListBox.Items.Add( c.HeaderText, c.Visible );
                     }
 
-                    config.ColumnListBox.Items.Clear();
-                    config.Location = PointToScreen( new Point( e.X, e.Y ) );
-                    config.ShowDialog();
+                    _columnConfiguration.ColumnListBox.Items.Clear();
+                    _columnConfiguration.Location = PointToScreen( new Point( e.X, e.Y ) );
+                    _columnConfiguration.ShowDialog();
                 }
                 catch( Exception ex )
                 {

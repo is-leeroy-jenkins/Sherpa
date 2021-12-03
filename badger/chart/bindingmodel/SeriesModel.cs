@@ -111,10 +111,12 @@ namespace BudgetExecution
         {
             try
             {
-                var values = SeriesData.Values.SelectMany( v => v );
+                var _values = SeriesData
+                    ?.Values
+                    ?.SelectMany( v => v );
 
-                return values?.Any() == true
-                    ? values.ToArray()
+                return ( _values?.Any() == true )
+                    ? _values.ToArray()
                     : default;
             }
             catch( Exception ex )
@@ -132,11 +134,11 @@ namespace BudgetExecution
         {
             try
             {
-                var data = GetSeriesData();
-                var values = data.Keys;
+                var _data = GetSeriesData();
+                var _values = _data.Keys;
 
-                return values?.Any() == true
-                    ? values.ToArray()
+                return _values?.Any() == true
+                    ? _values.ToArray()
                     : default;
             }
             catch( Exception ex )

@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.IPath" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
     public class DataPath : IPath
@@ -52,17 +52,17 @@ namespace BudgetExecution
         /// <summary>
         /// The current directory
         /// </summary>
-        public static string CurrentDirectory = Directory.GetCurrentDirectory();
+        public static string CurrentDirectory { get; set; } = Directory.GetCurrentDirectory();
 
         /// <summary>
         /// The base directory
         /// </summary>
-        public static string BaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        public static string BaseDirectory { get; set; } = AppDomain.CurrentDomain.BaseDirectory;
 
         /// <summary>
         /// The connection string
         /// </summary>
-        public static ConnectionStringSettingsCollection ConnectionString =
+        public static ConnectionStringSettingsCollection ConnectionString { get; set; } =
             ConfigurationManager.ConnectionStrings;
 
         /// <summary>
