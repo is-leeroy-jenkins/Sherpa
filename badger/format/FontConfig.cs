@@ -11,7 +11,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref = "System.IDisposable"/>
+    /// <seealso cref="System.IDisposable" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class FontConfig : IDisposable
     {
@@ -46,35 +46,25 @@ namespace BudgetExecution
         public static Font FontSizeLarge = new Font( "Roboto", 12 );
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "FontConfig"/> class.
+        /// Initializes a new instance of the <see cref="FontConfig"/> class.
         /// </summary>
         public FontConfig()
         {
         }
-        
+
         /// <summary>
         /// Gets or sets a value indicating whether this instance is disposed.
         /// </summary>
         /// <value>
-        /// <c>
-        /// true
-        /// </c>
-        /// if this instance is disposed; otherwise,
-        /// <c>
-        /// false
-        /// </c>
-        /// .
+        ///   <c>true</c> if this instance is disposed; otherwise, <c>false</c>.
         /// </value>
         public bool IsDisposed { get; set; }
-        
+
         /// <summary>
-        /// Gets the size.
+        /// Gets the size of the font.
         /// </summary>
-        /// <param name = "size" >
-        /// The size.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="size">The size.</param>
+        /// <returns></returns>
         public static int GetFontSize( int size = 8 )
         {
             try
@@ -91,13 +81,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the style.
+        /// Gets the font style.
         /// </summary>
-        /// <param name = "style" >
-        /// The style.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="style">The style.</param>
+        /// <returns></returns>
         public static FontStyle GetFontStyle( FontStyle style = FontStyle.Regular )
         {
             try
@@ -116,17 +103,10 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the font.
         /// </summary>
-        /// <param name = "family" >
-        /// The family.
-        /// </param>
-        /// <param name = "size" >
-        /// The size.
-        /// </param>
-        /// <param name = "style" >
-        /// The style.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="family">The family.</param>
+        /// <param name="size">The size.</param>
+        /// <param name="style">The style.</param>
+        /// <returns></returns>
         public static Font GetFont( string family = "Roboto", int size = 8,
             FontStyle style = FontStyle.Regular )
         {
@@ -146,11 +126,8 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the font.
         /// </summary>
-        /// <param name = "font" >
-        /// The font.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="font">The font.</param>
+        /// <returns></returns>
         public static Font GetFont( Font font )
         {
             try
@@ -169,14 +146,10 @@ namespace BudgetExecution
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
-        /// <param name = "disposing" >
-        /// <c>
-        /// true
-        /// </c>
-        /// to release both managed and unmanaged resources;
-        /// <c>
-        /// false
-        /// </c>
+        /// <param name="disposing">
+        /// <c>true</c> to release both managed
+        /// and unmanaged resources;
+        /// <c>false</c>
         /// to release only unmanaged resources.
         /// </param>
         private void Dispose( bool disposing )
@@ -197,8 +170,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or
-        /// resetting unmanaged resources.
+        /// Performs application-defined tasks associated with freeing,
+        /// releasing, or resetting unmanaged resources.
         /// </summary>
         public void Dispose()
         {
@@ -212,16 +185,12 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [font changed].
         /// </summary>
-        /// <param name = "sender" >
-        /// The sender.
-        /// </param>
-        /// <param name = "e" >
-        /// The <see cref = "EventArgs"/> instance containing the event data.
-        /// </param>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public static void OnFontChanged( object sender, EventArgs e )
         {
             if( sender != null
@@ -229,8 +198,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var message = new Message( "NOT YET IMPLEMENTED" );
-                    message?.ShowDialog();
+                    using var _message = new Message( "NOT YET IMPLEMENTED" );
+                    _message?.ShowDialog();
                 }
                 catch( Exception ex )
                 {
@@ -240,14 +209,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

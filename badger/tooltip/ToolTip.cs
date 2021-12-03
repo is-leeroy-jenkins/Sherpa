@@ -10,42 +10,59 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using MetroSet_UI.Components;
     using MetroSet_UI.Design;
-    
+
     /// <summary>
-    /// Defines the
-    /// <see cref = "ToolTip"/>
+    /// 
     /// </summary>
-    /// <seealso cref = "MetroSet_UI.Components.MetroSetToolTip"/>
+    /// <seealso cref="MetroSet_UI.Components.MetroSetToolTip" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "IsExpressionAlwaysTrue" ) ]
     public class ToolTip : MetroSetToolTip
     {
-        /// <summary> Gets or sets the ToolTipIcon Gets the tool tip icon. </summary>
-        /// <value> The tool tip icon. </value>
+        /// <summary>
+        /// Gets or sets the tip icon.
+        /// </summary>
+        /// <value>
+        /// The tip icon.
+        /// </value>
         public ToolTipIcon TipIcon { get; set; } = ToolTipIcon.Info;
 
-        /// <summary> Gets or sets the ToolTipTitle Gets the tool tip title. </summary>
-        /// <value> The tool tip title. </value>
+        /// <summary>
+        /// Gets or sets the tip title.
+        /// </summary>
+        /// <value>
+        /// The tip title.
+        /// </value>
         public string TipTitle { get; set; } = string.Empty;
 
-        /// <summary> Gets or sets the ImageName </summary>
-        /// <value> The name. </value>
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public string Name { get; set; }
 
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the field. </summary>
-        /// <value> The field. </value>
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
         public Field Field { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ToolTip"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ToolTip"/> class.
         /// </summary>
         public ToolTip()
         {
@@ -64,18 +81,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ToolTip"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ToolTip"/> class.
         /// </summary>
-        /// <param name = "control" >
-        /// The control
-        /// <see cref = "Control"/>
-        /// </param>
-        /// <param name = "text" >
-        /// The caption
-        /// <see cref = "string"/>
-        /// </param>
+        /// <param name="control">The control.</param>
+        /// <param name="text">The text.</param>
         public ToolTip( Control control, string text )
             : this()
         {
@@ -85,8 +94,8 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="ToolTip"/> class.
         /// </summary>
-        /// <param name="component">The item.</param>
-        /// <param name="text">The caption.</param>
+        /// <param name="component">The component.</param>
+        /// <param name="text">The text.</param>
         public ToolTip( Component component, string text )
             : this()
         {
@@ -102,13 +111,11 @@ namespace BudgetExecution
         {
             SetToolTipText( toolitem );
         }
-        
-        /// <summary> Sets the animation. </summary>
-        /// <param name = "animate" >
-        /// if set to
-        /// <c> true </c>
-        /// [animate].
-        /// </param>
+
+        /// <summary>
+        /// Sets the animation.
+        /// </summary>
+        /// <param name="animate">if set to <c>true</c> [animate].</param>
         public void SetAnimation( bool animate )
         {
             try
@@ -122,8 +129,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the automatic delay. </summary>
-        /// <param name = "delay" > The delay. </param>
+        /// <summary>
+        /// Sets the automatic delay.
+        /// </summary>
+        /// <param name="delay">The delay.</param>
         public void SetAutomaticDelay( int delay = 500 )
         {
             if( delay > 0 )
@@ -139,8 +148,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the duration. </summary>
-        /// <param name = "time" > The time. </param>
+        /// <summary>
+        /// Sets the duration.
+        /// </summary>
+        /// <param name="time">The time.</param>
         public void SetDuration( int time = 5000 )
         {
             if( time > 0 )
@@ -156,8 +167,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the initial delay. </summary>
-        /// <param name = "delay" > The delay. </param>
+        /// <summary>
+        /// Sets the initial delay.
+        /// </summary>
+        /// <param name="delay">The delay.</param>
         public void SetInitialDelay( int delay = 500 )
         {
             if( delay > 0 )
@@ -173,8 +186,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the reshow delay. </summary>
-        /// <param name = "reshow" > The reshow. </param>
+        /// <summary>
+        /// Sets the reshow delay.
+        /// </summary>
+        /// <param name="reshow">The reshow.</param>
         public void SetReshowDelay( int reshow = 100 )
         {
             if( reshow > 0 )
@@ -190,8 +205,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the field. </summary>
-        /// <param name = "field" > The field. </param>
+        /// <summary>
+        /// Sets the field.
+        /// </summary>
+        /// <param name="field">The field.</param>
         public void SetField( Field field )
         {
             if( Validate.Field( field ) )
@@ -207,8 +224,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the tag. </summary>
-        /// <param name = "tag" > The tag. </param>
+        /// <summary>
+        /// Sets the tag.
+        /// </summary>
+        /// <param name="tag">The tag.</param>
         public void SetTag( object tag )
         {
             if( tag != null )
@@ -225,7 +244,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the tool tip.
+        /// Sets the tool tip text.
         /// </summary>
         /// <param name="control">The control.</param>
         public void SetToolTipText( Control control )
@@ -245,15 +264,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> The ToolTip text to display when the pointer is on the control. </summary>
-        /// <param name = "control" >
-        /// The control
-        /// <see cref = "Control"/>
-        /// </param>
-        /// <param name = "caption" >
-        /// The caption
-        /// <see cref = "string"/>
-        /// </param>
+        /// <summary>
+        /// Sets the tool tip text.
+        /// </summary>
+        /// <param name="control">The control.</param>
+        /// <param name="caption">The caption.</param>
         public void SetToolTipText( Control control, string caption )
         {
             if( control != null
@@ -272,7 +287,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the tool tip.
+        /// Sets the tool tip text.
         /// </summary>
         /// <param name="item">The item.</param>
         public void SetToolTipText( ToolStripItem item )
@@ -299,9 +314,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the tool tip.
+        /// Sets the tool tip text.
         /// </summary>
-        /// <param name="component">The item.</param>
+        /// <param name="component">The component.</param>
         public void SetToolTipText( Component component )
         {
             if( component != null
@@ -324,9 +339,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the tool tip.
+        /// Sets the tool tip text.
         /// </summary>
-        /// <param name="component">The item.</param>
+        /// <param name="component">The component.</param>
         /// <param name="caption">The caption.</param>
         public void SetToolTipText( Component component, string caption )
         {
@@ -349,14 +364,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

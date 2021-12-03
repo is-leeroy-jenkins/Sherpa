@@ -4,6 +4,10 @@
 
 namespace BudgetExecution
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.ControlData" />
     public class ExcelData : ControlData
     {
     }

@@ -2,11 +2,10 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
-
 namespace BudgetExecution
 {
+    using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
     using System;
     using System.Data;
     using System.Data.OleDb;

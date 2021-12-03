@@ -11,25 +11,85 @@ namespace BudgetExecution
     using System.Linq;
     using Syncfusion.Windows.Forms.Chart;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.Chart.ChartSeries" />
+    /// <seealso cref="BudgetExecution.IDataSeries" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class DataSeries : ChartSeries, IDataSeries
     {
+        /// <summary>
+        /// Gets the configuration.
+        /// </summary>
+        /// <value>
+        /// The configuration.
+        /// </value>
+        public ISeriesConfig Config { get; }
+
+        /// <summary>
+        /// Gets the metric.
+        /// </summary>
+        /// <value>
+        /// The metric.
+        /// </value>
+        public STAT Metric { get; }
+
+        /// <summary>
+        /// Gets the source model.
+        /// </summary>
+        /// <value>
+        /// The source model.
+        /// </value>
+        public ISourceModel SourceModel { get; }
+
+        /// <summary>
+        /// Gets the series data.
+        /// </summary>
+        /// <value>
+        /// The series data.
+        /// </value>
+        public IDictionary<string, IEnumerable<double>> SeriesData { get; }
+
+        /// <summary>
+        /// Gets the series categories.
+        /// </summary>
+        /// <value>
+        /// The series categories.
+        /// </value>
+        public IEnumerable<string> SeriesCategories { get; }
+
+        /// <summary>
+        /// Gets the series values.
+        /// </summary>
+        /// <value>
+        /// The series values.
+        /// </value>
+        public IEnumerable<double> SeriesValues { get; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataSeries"/> class.
+        /// </summary>
         public DataSeries()
         {
         }
 
-        public DataSeries( ISeriesModel chartdata )
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataSeries"/> class.
+        /// </summary>
+        /// <param name="chartData">The chart data.</param>
+        public DataSeries( ISeriesModel chartData )
             : this()
         {
-            Config = chartdata.GetSeriesConfiguration();
+            Config = chartData.GetSeriesConfiguration();
             Name = Config.Name;
             Type = GetSeriesType( Config.GetSeriesType() );
             Metric = Config.GetStatistic();
-            SourceModel = chartdata?.GetSourceModel();
+            SourceModel = chartData?.GetSourceModel();
             SeriesData = SourceModel.GetSeriesData();
-            SeriesValues = chartdata?.GetSeriesValues();
-            SeriesCategories = chartdata?.GetSeriesCategories();
+            SeriesValues = chartData?.GetSeriesValues();
+            SeriesCategories = chartData?.GetSeriesCategories();
             SmartLabels = Config.SmartLabels;
             Visible = Config.Visible;
             ShowTicks = Config.ShowTicks;
@@ -41,36 +101,10 @@ namespace BudgetExecution
             SmartLabelsBorderColor = ColorConfig.BorderYellow;
             SmartLabelsBorderWidth = BorderConfig.Thin;
         }
-        
-        /// <summary> Gets the configuration. </summary>
-        /// <value> The configuration. </value>
-        private ISeriesConfig Config { get; }
 
-        /// <summary> Gets the value. </summary>
-        /// <value> The value. </value>
-        private STAT Metric { get; }
-
-        /// <summary> Gets the source model. </summary>
-        /// <value> The source model. </value>
-        private ISourceModel SourceModel { get; }
-
-        /// <summary> Gets the series data. </summary>
-        /// <value> The series data. </value>
-        private IDictionary<string, IEnumerable<double>> SeriesData { get; }
-
-        /// <summary> Gets the series categories. </summary>
-        /// <value> The series categories. </value>
-        private IEnumerable<string> SeriesCategories { get; }
-
-        /// <summary> Gets the series values. </summary>
-        /// <value> The series values. </value>
-        private IEnumerable<double> SeriesValues { get; }
-
-        // ***************************************************************************************************************************
-        // ************************************************  METHODS   ***************************************************************
-        // ***************************************************************************************************************************
-
-        /// <summary> Sets the callout. </summary>
+        /// <summary>
+        /// Sets the callout.
+        /// </summary>
         public void SetCallout()
         {
             try
@@ -89,9 +123,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the type of the series. </summary>
-        /// <param name = "type" > The type. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the type of the series.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
         public ChartSeriesType GetSeriesType( ChartType type = ChartType.Column )
         {
             try
@@ -108,8 +144,10 @@ namespace BudgetExecution
             return ChartSeriesType.Column;
         }
 
-        /// <summary> Sets the point configuration. </summary>
-        /// <param name = "stat" > The value. </param>
+        /// <summary>
+        /// Sets the point configuration.
+        /// </summary>
+        /// <param name="stat">The value.</param>
         public void SetPointConfiguration( STAT stat = STAT.Total )
         {
             if( Validate.STAT( stat ) )
@@ -178,10 +216,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the points. </summary>
-        /// <param name = "data" > The data. </param>
-        /// <param name = "type" > The type. </param>
-        /// <param name = "stat" > The value. </param>
+        /// <summary>
+        /// Sets the points.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        /// <param name="type">The type.</param>
+        /// <param name="stat">The value.</param>
         public void SetPoints( IDictionary<string, double> data, ChartType type = ChartType.Column,
             STAT stat = STAT.Total )
         {
@@ -274,8 +314,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the data. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <returns></returns>
         public IDictionary<string, IEnumerable<double>> GetSeriesValues()
         {
             try
@@ -292,7 +334,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
