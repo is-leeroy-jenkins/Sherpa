@@ -103,7 +103,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BindingSource = this.BudgetBinding;
             this.Controls.Add(this.Button);
-            this.Name = "ButtonControl";
             this.Size = new System.Drawing.Size(160, 80);
             ((System.ComponentModel.ISupportInitialize)(this.BudgetBinding)).EndInit();
             this.ResumeLayout(false);

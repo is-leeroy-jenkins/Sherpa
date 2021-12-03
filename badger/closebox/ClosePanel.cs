@@ -2,10 +2,9 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-using MetroSet_UI.Design;
-
 namespace BudgetExecution
 {
+    using MetroSet_UI.Design;
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
@@ -22,6 +21,14 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public class ClosePanel : MetroSetControlBox
     {
+        /// <summary>
+        /// Gets or sets the tip.
+        /// </summary>
+        /// <value>
+        /// The tip.
+        /// </value>
+        public ToolTip ToolTip { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ButtonPanel" />
@@ -105,32 +112,16 @@ namespace BudgetExecution
             Parent = ControlConfig.GetParent( parent );
             Parent.Controls.Add( this );
         }
-
-        // **********************************************************************************************************************
-        // *************************************************   PROPERTIES   *****************************************************
-        // **********************************************************************************************************************
-
-        /// <summary>
-        /// Gets or sets the tip.
-        /// </summary>
-        /// <value>
-        /// The tip.
-        /// </value>
-        public ToolTip ToolTip { get; set; }
-
-        // ***************************************************************************************************************************
-        // *******************************************************      METHODS        ***********************************************
-        // ***************************************************************************************************************************
-
+        
         /// <summary>
         /// Get Error Dialog.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

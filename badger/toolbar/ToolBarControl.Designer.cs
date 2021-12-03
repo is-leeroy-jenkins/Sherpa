@@ -73,7 +73,6 @@
             this.ToolBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
             this.ToolBar.BindingSource = this.BindingSource;
             this.ToolBar.BorderStyle = Syncfusion.Windows.Forms.Tools.ToolStripBorderStyle.StaticEdge;
-            this.ToolBar.Buttons = null;
             this.ToolBar.CaptionAlignment = Syncfusion.Windows.Forms.Tools.CaptionAlignment.Center;
             this.ToolBar.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ToolBar.DataFilter = null;

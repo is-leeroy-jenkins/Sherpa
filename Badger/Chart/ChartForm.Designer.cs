@@ -199,7 +199,6 @@
             this.Navigator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
             this.Navigator.BindingSource = this.BudgetBinding;
             this.Navigator.BorderStyle = Syncfusion.Windows.Forms.Tools.ToolStripBorderStyle.StaticEdge;
-            this.Navigator.Buttons = null;
             this.Navigator.CaptionFont = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
             this.Navigator.DataFilter = null;
             this.Navigator.Dock = System.Windows.Forms.DockStyle.Bottom;

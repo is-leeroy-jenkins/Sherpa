@@ -19,77 +19,77 @@ namespace BudgetExecution
         /// <summary>
         /// The orange border
         /// </summary>
-        public static Color BorderYellow = Color.FromArgb( 128, 64, 0 );
+        public static Color BorderYellow { get; set; } = Color.FromArgb( 128, 64, 0 );
 
         /// <summary>
         /// The gray border
         /// </summary>
-        public static Color BorderDark = Color.FromArgb( 25, 18, 1 );
+        public static Color BorderDark { get; set; } = Color.FromArgb( 25, 18, 1 );
 
         /// <summary>
         /// The border blue
         /// </summary>
-        public static Color BorderBlue = Color.FromArgb( 0, 120, 212 );
+        public static Color BorderBlue { get; set; } = Color.FromArgb( 0, 120, 212 );
 
         /// <summary>
         /// The red border
         /// </summary>
-        public static Color BorderRed = Color.FromArgb( 192, 0, 0 );
+        public static Color BorderRed { get; set; } = Color.FromArgb( 192, 0, 0 );
 
         /// <summary>
         /// The black background
         /// </summary>
-        public static Color FormDarkBackColor = Color.FromArgb( 5, 5, 5 );
+        public static Color FormDarkBackColor { get; set; } = Color.FromArgb( 5, 5, 5 );
 
         /// <summary>
         /// The hover color yellow
         /// </summary>
-        public static Color HoverYellow = Color.FromArgb( 24, 19, 1 );
+        public static Color HoverYellow { get; set; } = Color.FromArgb( 24, 19, 1 );
 
         /// <summary>
         /// The red foreground
         /// </summary>
-        public static Color ForeRed = Color.FromArgb( 192, 0, 0 );
+        public static Color ForeRed { get; set; } = Color.FromArgb( 192, 0, 0 );
 
         /// <summary>
         /// The gray foreground
         /// </summary>
-        public static Color ForeGray = Color.FromArgb( 141, 139, 138 );
+        public static Color ForeGray { get; set; } = Color.FromArgb( 141, 139, 138 );
 
         /// <summary>
         /// The white foreground
         /// </summary>
-        public static Color ForeWhite = Color.White;
+        public static Color ForeWhite { get; set; } = Color.White;
 
         /// <summary>
         /// The black foreground
         /// </summary>
-        public static Color ForeBlack = Color.Black;
+        public static Color ForeBlack { get; set; } = Color.Black;
 
         /// <summary>
         /// The control dark back color
         /// </summary>
-        public static Color ControlDarkBackColor = Color.FromArgb( 15, 15, 15 );
+        public static Color ControlDarkBackColor { get; set; } = Color.FromArgb( 15, 15, 15 );
 
         /// <summary>
         /// The clear background
         /// </summary>
-        public static Color Transparent = Color.Transparent;
+        public static Color Transparent { get; set; } = Color.Transparent;
 
         /// <summary>
         /// The dark background inside a control
         /// </summary>
-        public static Color ControlDarkInterior = Color.FromArgb( 25, 25, 25 );
+        public static Color ControlDarkInterior { get; set; } = Color.FromArgb( 25, 25, 25 );
 
         /// <summary>
         /// The gray back hover
         /// </summary>
-        public static Color HoverGray = Color.FromArgb( 38, 38, 39 );
+        public static Color HoverGray { get; set; } = Color.FromArgb( 38, 38, 39 );
 
         /// <summary>
         /// The blue back hover
         /// </summary>
-        public static Color HoverBlue = Color.FromArgb( 50, 93, 129 );
+        public static Color HoverBlue { get; set; } = Color.FromArgb( 50, 93, 129 );
         
         /// <summary>
         /// Initializes a new instance of the <see cref = "ColorConfig"/> class.
