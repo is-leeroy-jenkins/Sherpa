@@ -1,13 +1,9 @@
-﻿// // <copyright file = "ToolSeparator.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "ToolSeparator.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
-    // ******************************************************************************************************************************
-    // ******************************************************   ASSEMBLIES   ********************************************************
-    // ******************************************************************************************************************************
-
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
@@ -17,10 +13,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class ToolSeparator : ToolStripSeparator
     {
-        // ***************************************************************************************************************************
-        // ******************************************************  CONSTRUCTORS  *****************************************************
-        // ***************************************************************************************************************************
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "BarLabel"/>
@@ -34,11 +26,7 @@ namespace BudgetExecution
             Font = FontConfig.FontSizeSmall;
             Width = 6;
         }
-
-        // ***************************************************************************************************************************
-        // ******************************************************   PROPERTIES   *****************************************************
-        // ***************************************************************************************************************************
-
+        
         /// <summary>
         /// Sets the width.
         /// </summary>
@@ -65,9 +53,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

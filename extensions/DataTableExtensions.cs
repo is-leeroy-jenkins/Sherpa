@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <summary>
         /// The connection string
         /// </summary>
-        public static readonly ConnectionStringSettingsCollection ConnectionString =
+        public static ConnectionStringSettingsCollection ConnectionString =
             ConfigurationManager.ConnectionStrings;
 
         /// <summary>

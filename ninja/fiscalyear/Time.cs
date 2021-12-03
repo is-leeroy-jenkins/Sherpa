@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <value>
         /// The date.
         /// </value>
-        public EventDate Date { get; set; }
+        public EventDate Date { get; }
 
         /// <summary>
         /// Gets the value.

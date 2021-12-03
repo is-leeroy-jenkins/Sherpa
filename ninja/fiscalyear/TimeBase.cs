@@ -1,6 +1,6 @@
-﻿// // <copyright file = "TimeBase.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "TimeBase.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -189,7 +189,7 @@ namespace BudgetExecution
         /// <param name="dataRow">The Data row.</param>
         /// <param name="date">The date.</param>
         /// <returns></returns>
-        private protected EventDate SetDate( DataRow dataRow, EventDate date )
+        private protected virtual EventDate SetDate( DataRow dataRow, EventDate date )
         {
             if( dataRow != null
                 && Verify.EventDate( date ) )

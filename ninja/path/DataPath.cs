@@ -1,6 +1,6 @@
-﻿// // <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// // Copyright (c) Terry Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -52,17 +52,17 @@ namespace BudgetExecution
         /// <summary>
         /// The current directory
         /// </summary>
-        public static readonly string CurrentDirectory = Directory.GetCurrentDirectory();
+        public static string CurrentDirectory = Directory.GetCurrentDirectory();
 
         /// <summary>
         /// The base directory
         /// </summary>
-        public static readonly string BaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        public static string BaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
         /// <summary>
         /// The connection string
         /// </summary>
-        public static readonly ConnectionStringSettingsCollection ConnectionString =
+        public static ConnectionStringSettingsCollection ConnectionString =
             ConfigurationManager.ConnectionStrings;
 
         /// <summary>

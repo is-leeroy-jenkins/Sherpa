@@ -1,6 +1,6 @@
-﻿// // <copyright file = "FormConfig.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "FormConfig.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -27,7 +27,7 @@ namespace BudgetExecution
         /// <value>
         /// The minimum window.
         /// </value>
-        public static readonly FormWindowState MinimizedState = FormWindowState.Minimized;
+        public static FormWindowState MinimizedState = FormWindowState.Minimized;
 
         /// <summary>
         /// Gets the normal window.
@@ -35,7 +35,7 @@ namespace BudgetExecution
         /// <value>
         /// The normal window.
         /// </value>
-        public static readonly FormWindowState NormalState = FormWindowState.Normal;
+        public static FormWindowState NormalState = FormWindowState.Normal;
 
         /// <summary>
         /// Gets the maximum window.
@@ -43,7 +43,7 @@ namespace BudgetExecution
         /// <value>
         /// The maximum window.
         /// </value>
-        public static readonly FormWindowState MaximizedState = FormWindowState.Maximized;
+        public static FormWindowState MaximizedState = FormWindowState.Maximized;
 
         /// <summary>
         /// Gets the center start.
@@ -51,12 +51,12 @@ namespace BudgetExecution
         /// <value>
         /// The center start.
         /// </value>
-        public static readonly FormStartPosition FormCentered = FormStartPosition.CenterScreen;
+        public static FormStartPosition FormCentered = FormStartPosition.CenterScreen;
 
         /// <summary>
         /// The default location
         /// </summary>
-        public static readonly FormStartPosition DefaultLocation = FormStartPosition.WindowsDefaultLocation;
+        public static FormStartPosition DefaultLocation = FormStartPosition.WindowsDefaultLocation;
 
         /// <summary>
         /// The form
@@ -78,7 +78,7 @@ namespace BudgetExecution
         /// </param>
         public FormConfig( MetroForm form )
         {
-            FormConfig.Form = form;
+            Form = form;
         }
         
         /// <summary>
@@ -87,7 +87,7 @@ namespace BudgetExecution
         /// <value>
         /// The height of the caption.
         /// </value>
-        public static readonly int CaptionHeight = 26;
+        public static int CaptionHeight = 26;
 
         /// <summary>
         /// Gets or sets the start position.
@@ -95,7 +95,7 @@ namespace BudgetExecution
         /// <value>
         /// The start position.
         /// </value>
-        public static readonly FormStartPosition StartPosition = FormStartPosition.CenterScreen;
+        public static FormStartPosition StartPosition = FormStartPosition.CenterScreen;
 
         /// <summary>
         /// Gets or sets the tag.
@@ -161,7 +161,7 @@ namespace BudgetExecution
         /// </returns>
         public static Field GetField( Field field )
         {
-            if( Verify.Field( field ) )
+            if( Validate.Field( field ) )
             {
                 try
                 {

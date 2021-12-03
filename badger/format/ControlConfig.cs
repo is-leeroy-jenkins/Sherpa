@@ -1,6 +1,6 @@
-﻿// // <copyright file = "ControlConfig.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "ControlConfig.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -20,12 +20,12 @@ namespace BudgetExecution
         /// <summary>
         /// The margin
         /// </summary>
-        public static readonly Padding Margin = new Padding( 5 );
+        public static Padding Margin { get; set; } = new Padding( 5 );
 
         /// <summary>
         /// The padding
         /// </summary>
-        public static readonly Padding Padding = new Padding( 1 );
+        public static Padding Padding { get; set; } = new Padding( 1 );
         
         /// <summary>
         /// Gets or sets the parent.
@@ -326,9 +326,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

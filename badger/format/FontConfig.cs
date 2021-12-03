@@ -1,6 +1,6 @@
-﻿// // <copyright file = "FontConfig.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "FontConfig.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -18,32 +18,32 @@ namespace BudgetExecution
         /// <summary>
         /// The font style regular
         /// </summary>
-        public static readonly FontStyle FontStyleRegular = FontStyle.Regular;
+        public static FontStyle FontStyleRegular = FontStyle.Regular;
 
         /// <summary>
         /// The font style bold
         /// </summary>
-        public static readonly FontStyle FontStyleBold = FontStyle.Bold;
+        public static FontStyle FontStyleBold = FontStyle.Bold;
 
         /// <summary>
         /// The font style italic
         /// </summary>
-        public static readonly FontStyle FontStyleItalic = FontStyle.Italic;
+        public static FontStyle FontStyleItalic = FontStyle.Italic;
 
         /// <summary>
         /// The font size small
         /// </summary>
-        public static readonly Font FontSizeSmall = new Font( "Roboto", 8 );
+        public static Font FontSizeSmall = new Font( "Roboto", 8 );
 
         /// <summary>
         /// The font size medium
         /// </summary>
-        public static readonly Font FontSizeMedium = new Font( "Roboto", 10 );
+        public static Font FontSizeMedium = new Font( "Roboto", 10 );
 
         /// <summary>
         /// The font size large
         /// </summary>
-        public static readonly Font FontSizeLarge = new Font( "Roboto", 12 );
+        public static Font FontSizeLarge = new Font( "Roboto", 12 );
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "FontConfig"/> class.

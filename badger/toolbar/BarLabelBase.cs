@@ -1,6 +1,6 @@
-﻿// // <copyright file = "BarLabelBase.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "BarLabelBase.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -10,16 +10,26 @@ namespace BudgetExecution
 
     public class BarLabelBase : ToolStripLabel
     {
-        /// <summary> Gets or sets the field. </summary>
-        /// <value> The field. </value>
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
         public Field Field { get; set; }
 
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public BindingSource BindingSource { get; set; }
-        
-        /// <summary> Sets the font. </summary>
-        /// <param name = "font" > The font. </param>
+
+        /// <summary>
+        /// Sets the font.
+        /// </summary>
+        /// <param name="font">The font.</param>
         public void SetFont( Font font )
         {
             try
@@ -32,8 +42,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the color of the fore. </summary>
-        /// <param name = "color" > The color. </param>
+        /// <summary>
+        /// Sets the color of the fore.
+        /// </summary>
+        /// <param name="color">The color.</param>
         public void SetForeColor( Color color )
         {
             try
@@ -46,8 +58,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the color of the back. </summary>
-        /// <param name = "color" > The color. </param>
+        /// <summary>
+        /// Sets the color of the back.
+        /// </summary>
+        /// <param name="color">The color.</param>
         public void SetBackColor( Color color )
         {
             try
@@ -60,8 +74,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the text. </summary>
-        /// <param name = "text" > The text. </param>
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
+        /// <param name="text">The text.</param>
         public void SetText( string text )
         {
             try
@@ -74,8 +90,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the field. </summary>
-        /// <param name = "field" > The field. </param>
+        /// <summary>
+        /// Sets the field.
+        /// </summary>
+        /// <param name="field">The field.</param>
         public void SetField( Field field )
         {
             try
@@ -88,8 +106,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the tag. </summary>
-        /// <param name = "tag" > The tag. </param>
+        /// <summary>
+        /// Sets the tag.
+        /// </summary>
+        /// <param name="tag">The tag.</param>
         public void SetTag( object tag )
         {
             try
@@ -103,7 +123,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )

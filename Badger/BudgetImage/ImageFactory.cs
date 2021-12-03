@@ -1,6 +1,6 @@
-﻿// // <copyright file = "ImageFactory.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "ImageFactory.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -81,7 +81,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.ImageResource( resource )
+                return Validate.ImageResource( resource )
                     ? Directory.GetFiles( Resource.Settings[ resource.ToString() ] )
                     : default;
             }
@@ -142,7 +142,7 @@ namespace BudgetExecution
         /// </returns>
         private IDictionary<string, FileInfo> GetFileStreams( ImageSource resource )
         {
-            if( Verify.ImageResource( resource ) )
+            if( Validate.ImageResource( resource ) )
             {
                 try
                 {

@@ -1,6 +1,6 @@
-﻿// // <copyright file = "ToolTip.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "ToolTip.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -194,7 +194,7 @@ namespace BudgetExecution
         /// <param name = "field" > The field. </param>
         public void SetField( Field field )
         {
-            if( Verify.Field( field ) )
+            if( Validate.Field( field ) )
             {
                 try
                 {

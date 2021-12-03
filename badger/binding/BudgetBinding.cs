@@ -1,13 +1,9 @@
-﻿// // <copyright file = "BudgetBinding.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "BudgetBinding.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
-    // **************************************************************************************************************************
-    // ********************************************      ASSEMBLIES    **********************************************************
-    // **************************************************************************************************************************
-
     using System;
     using System;
     using System.Collections.Generic;
@@ -21,10 +17,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class BudgetBinding : BindingData, IBindingSource
     {
-        // **************************************************************************************************************************
-        // ********************************************   CONSTRUCTORS     **********************************************************
-        // **************************************************************************************************************************
-
         /// <summary>
         /// Initializes a new instance of the <see cref = "BudgetBinding"/> class.
         /// </summary>
@@ -59,11 +51,7 @@ namespace BudgetExecution
             Index = Position;
             AllowNew = false;
         }
-
-        // **************************************************************************************************************************
-        // ********************************************      METHODS    *************************************************************
-        // **************************************************************************************************************************
-
+        
         /// <summary>
         /// Sets the data filter.
         /// </summary>
@@ -71,7 +59,7 @@ namespace BudgetExecution
         /// <param name="filter">The filter.</param>
         public void SetDataFilter( Field field, string filter )
         {
-            if( Verify.Field( field )
+            if( Validate.Field( field )
                 && Verify.Input( filter ) )
             {
                 try

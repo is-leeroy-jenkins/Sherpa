@@ -1,6 +1,6 @@
-﻿// // <copyright file = "ToolPanelData.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "ToolPanelData.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -13,13 +13,6 @@ namespace BudgetExecution
     
     public class ToolPanelData : ToolStripEx
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ToolPanelData"/> class.
-        /// </summary>
-        public ToolPanelData()
-        {
-        }
-        
         /// <summary>
         /// Gets or sets the binding source.
         /// </summary>
@@ -51,6 +44,13 @@ namespace BudgetExecution
         /// The filter.
         /// </value>
         public IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ToolPanelData"/> class.
+        /// </summary>
+        public ToolPanelData()
+        {
+        }
         
         /// <summary>
         /// Sets the binding source.
@@ -193,7 +193,7 @@ namespace BudgetExecution
             where T1 : IEnumerable<T1> where T2 : struct
         {
             if( Verify.Sequence( data )
-                && Verify.Field( field ) )
+                && Validate.Field( field ) )
             {
                 try
                 {
@@ -290,7 +290,7 @@ namespace BudgetExecution
             where T1 : IEnumerable<T1> where T2 : struct
         {
             if( Verify.Sequence( data )
-                && Verify.Field( field ) )
+                && Validate.Field( field ) )
             {
                 try
                 {

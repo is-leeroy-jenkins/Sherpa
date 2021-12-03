@@ -1,6 +1,6 @@
-﻿// // <copyright file = "BarComboBox.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "BarComboBox.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -17,6 +17,17 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class BarComboBox : BarComboBase, IBarComboBox
     {
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public ToolTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BarComboBox"/> class.
+        /// </summary>
         public BarComboBox()
         {
             Margin = new Padding( 5, 5, 5, 5 );
@@ -71,14 +82,6 @@ namespace BudgetExecution
             BindingSource.DataSource = data.ToList();
             BindingSource.DataMember = filter;
         }
-        
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
-        public ToolTip ToolTip { get; set; }
         
         /// <summary> Sets the data source. </summary>
         /// <param name = "bindingsource" > The bindingsource. </param>

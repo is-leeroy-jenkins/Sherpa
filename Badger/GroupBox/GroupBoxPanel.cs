@@ -1,6 +1,6 @@
-﻿// // <copyright file = "GroupBoxPanel.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "GroupBoxPanel.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -53,8 +53,8 @@ namespace BudgetExecution
             BackColorState.Enabled = ColorConfig.ControlDarkInterior;
 
             // Text Configuration.
-            TextAlignment = AlignConfig.StringCenter;
-            TextLineAlignment = AlignConfig.StringCenter;
+            TextAlignment = AlignConfig.StringAlignCenter;
+            TextLineAlignment = AlignConfig.StringAlignCenter;
             TitleBoxHeight = 30;
 
             // Style Configuration.

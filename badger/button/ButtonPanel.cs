@@ -1,6 +1,6 @@
-﻿// // <copyright file = "ButtonPanel.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "ButtonPanel.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -65,8 +65,8 @@ namespace BudgetExecution
             TextStyle.Disabled = ColorConfig.FormDarkBackColor;
             TextStyle.Enabled = ColorConfig.ForeGray;
             TextStyle.Hover = ColorConfig.ForeGray;
-            TextStyle.TextAlignment = AlignConfig.StringCenter;
-            TextStyle.TextLineAlignment = AlignConfig.StringCenter;
+            TextStyle.TextAlignment = AlignConfig.StringAlignCenter;
+            TextStyle.TextLineAlignment = AlignConfig.StringAlignCenter;
             MouseHover += OnMouseOver;
             MouseLeave += OnMouseLeave;
         }

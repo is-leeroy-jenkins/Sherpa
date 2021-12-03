@@ -1,6 +1,6 @@
-﻿// // <copyright file = "BorderConfig.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "BorderConfig.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -21,17 +21,17 @@ namespace BudgetExecution
         /// <summary>
         /// The fixed
         /// </summary>
-        public static readonly FormBorderStyle Fixed = FormBorderStyle.FixedSingle;
+        public static FormBorderStyle Fixed = FormBorderStyle.FixedSingle;
 
         /// <summary>
         /// The none
         /// </summary>
-        public static readonly FormBorderStyle None = FormBorderStyle.None;
+        public static FormBorderStyle None = FormBorderStyle.None;
 
         /// <summary>
         /// The sizeable
         /// </summary>
-        public static readonly FormBorderStyle Sizeable = FormBorderStyle.Sizable;
+        public static FormBorderStyle Sizeable = FormBorderStyle.Sizable;
 
         /// <summary>
         /// The thin
@@ -64,7 +64,8 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the thickness.
         /// </summary>
-        /// <param name="size">The size.</param>
+        /// <param name="size">
+        /// The size.</param>
         /// <returns></returns>
         public static int GetThickness( int size = 1 )
         {
@@ -84,7 +85,9 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the style.
         /// </summary>
-        /// <param name="style">The style.</param>
+        /// <param name="style">
+        /// The style.
+        /// </param>
         /// <returns></returns>
         public static BorderStyle GetStyle( BorderStyle style = BorderStyle.None )
         {
@@ -124,7 +127,9 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the excel border style.
         /// </summary>
-        /// <param name="border">The border.</param>
+        /// <param name="border">
+        /// The border.
+        /// </param>
         /// <returns></returns>
         public static ExcelBorderStyle GetExcelBorderStyle( ExcelBorderStyle border )
         {

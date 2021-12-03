@@ -141,7 +141,7 @@ namespace BudgetExecution
         /// </returns>
         private protected void SetImageFilePath( string filePath, ImageSource imageSource )
         {
-            if( Verify.ImageResource( imageSource )
+            if( Validate.ImageResource( imageSource )
                 && Verify.Input( filePath )
                 && imageSource != ImageSource.NS )
             {
@@ -199,7 +199,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.ImageResource( Source ) 
+                return Validate.ImageResource( Source ) 
                     && Verify.Input( Resource.Settings[ $"{Source}" ] )
                         ? Resource.Settings[ $"{Source}" ]
                         : default( string );

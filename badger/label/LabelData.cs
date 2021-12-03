@@ -1,6 +1,6 @@
-﻿// // <copyright file = "LabelData.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "LabelData.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -209,7 +209,7 @@ namespace BudgetExecution
             where T1 : IEnumerable<T1> where T2 : struct
         {
             if( Verify.Sequence( data )
-                && Verify.Field( field ) )
+                && Validate.Field( field ) )
             {
                 try
                 {
@@ -306,7 +306,7 @@ namespace BudgetExecution
             where T1 : IEnumerable<T1> where T2 : struct
         {
             if( Verify.Sequence( data )
-                && Verify.Field( field ) )
+                && Validate.Field( field ) )
             {
                 try
                 {

@@ -1,6 +1,6 @@
-﻿// // <copyright file = "DataSeries.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "DataSeries.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -96,7 +96,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.ChartType( type )
+                return Validate.ChartType( type )
                     ? (ChartSeriesType)Enum.Parse( typeof( ChartSeriesType ), type.ToString() )
                     : ChartSeriesType.Column;
             }
@@ -112,7 +112,7 @@ namespace BudgetExecution
         /// <param name = "stat" > The value. </param>
         public void SetPointConfiguration( STAT stat = STAT.Total )
         {
-            if( Verify.STAT( stat ) )
+            if( Validate.STAT( stat ) )
             {
                 try
                 {

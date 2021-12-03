@@ -1,6 +1,6 @@
-﻿// // <copyright file = "ImageConfig.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "ImageConfig.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -36,22 +36,22 @@ namespace BudgetExecution
         /// <summary>
         /// The small
         /// </summary>
-        public static readonly Size Small = new Size( 12, 12 );
+        public static Size Small = new Size( 12, 12 );
 
         /// <summary>
         /// The medium
         /// </summary>
-        public static readonly Size Medium = new Size( 16, 16 );
+        public static Size Medium = new Size( 16, 16 );
 
         /// <summary>
         /// The large
         /// </summary>
-        public static readonly Size Large = new Size( 20, 20 );
+        public static Size Large = new Size( 20, 20 );
 
         /// <summary>
         /// The huge
         /// </summary>
-        public static readonly Size Huge = new Size( 250, 250 );
+        public static Size Huge = new Size( 250, 250 );
         
         /// <summary>
         /// Gets or sets the color of the back ground.
@@ -101,7 +101,7 @@ namespace BudgetExecution
         {
             try
             {
-                Source = Verify.ImageResource( source )
+                Source = Validate.ImageResource( source )
                     ? source
                     : ImageSource.NS;
             }
@@ -176,7 +176,7 @@ namespace BudgetExecution
         {
             try
             {
-                FileExtension = Verify.ImageResource( resource )
+                FileExtension = Validate.ImageResource( resource )
                     && Verify.Input( filePath )
                     && File.Exists( filePath )
                     && resource != ImageSource.NS
@@ -279,7 +279,7 @@ namespace BudgetExecution
             try
             {
                 ImageSize = size != Size.Empty
-                    ? SizeConfig.GetSize( size )
+                    ? GetSize( size )
                     : Size.Empty;
             }
             catch( Exception ex )
@@ -298,7 +298,7 @@ namespace BudgetExecution
             try
             {
                 ImageSize = width > -1 && height > -1
-                    ? SizeConfig.GetSize( width, height )
+                    ? GetSize( width, height )
                     : Size.Empty;
             }
             catch( Exception ex )
@@ -316,7 +316,7 @@ namespace BudgetExecution
             try
             {
                 ImageSize = Enum.IsDefined( typeof( ImageSizer ), sizer )
-                    ? SizeConfig.GetSize( sizer )
+                    ? GetSize( sizer )
                     : Size.Empty;
             }
             catch( Exception ex )

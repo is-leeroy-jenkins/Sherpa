@@ -1,6 +1,6 @@
-﻿// // <copyright file = "LabelPanel.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "LabelPanel.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -38,8 +38,8 @@ namespace BudgetExecution
             Dock = ControlConfig.GetDockStyle();
             Enabled = true;
             Visible = true;
-            TextAlignment = AlignConfig.StringCenter;
-            TextLineAlignment = AlignConfig.StringCenter;
+            TextAlignment = AlignConfig.StringAlignCenter;
+            TextLineAlignment = AlignConfig.StringAlignCenter;
             OutlineColor = ColorConfig.FormDarkBackColor;
         }
 

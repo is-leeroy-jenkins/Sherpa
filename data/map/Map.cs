@@ -186,7 +186,7 @@
                     var _output = new List<IElement>();
                     var _fields = Enum.GetNames( typeof( Field ) );
 
-                    foreach( var kvp in base.Output )
+                    foreach( var kvp in Output )
                     {
                         if( Verify.Input( kvp.Key )
                             && _fields?.Contains( kvp.Key ) == true )

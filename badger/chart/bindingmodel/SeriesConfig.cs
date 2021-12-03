@@ -1,6 +1,6 @@
-﻿// // <copyright file = "SeriesConfig.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "SeriesConfig.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -143,7 +143,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.ChartType( type )
+                return Validate.ChartType( type )
                     ? (ChartType)Enum.Parse( typeof( ChartType ), type.ToString() )
                     : ChartType.Column;
             }
@@ -158,7 +158,7 @@ namespace BudgetExecution
         /// <param name = "stat" > The value. </param>
         public void SetPointConfiguration( STAT stat = STAT.Total )
         {
-            if( Verify.STAT( stat ) )
+            if( Validate.STAT( stat ) )
             {
                 try
                 {

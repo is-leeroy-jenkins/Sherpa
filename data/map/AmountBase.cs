@@ -17,22 +17,22 @@ namespace BudgetExecution
         /// <summary>
         /// The funding
         /// </summary>
-        private protected double _funding;
+        public  double Funding { get; set; }
 
         /// <summary>
         /// The initial
         /// </summary>
-        private protected double _initial;
+        public  double Initial { get; set; }
 
         /// <summary>
         /// The delta
         /// </summary>
-        private protected double _delta;
+        public  double Delta { get; set; }
 
         /// <summary>
         /// The numeric
         /// </summary>
-        private protected Numeric _numeric = Numeric.Amount;
+        public  Numeric Numeric { get; set; } = Numeric.Amount;
 
         /// <summary>
         /// Gets the columnName.
@@ -61,7 +61,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The Data row.</param>
         /// <param name="columnName">Name of the column.</param>
-        private protected void SetName( DataRow dataRow, string columnName )
+        public  void SetName( DataRow dataRow, string columnName )
         {
             if( Verify.Row( dataRow )
                 && Verify.Input( columnName )
@@ -87,7 +87,7 @@ namespace BudgetExecution
         /// Sets the name.
         /// </summary>
         /// <param name="numeric">The numeric.</param>
-        private protected void SetName( Numeric numeric )
+        public  void SetName( Numeric numeric )
         {
             if( Validate.Numeric( numeric ) )
             {
@@ -134,7 +134,7 @@ namespace BudgetExecution
         /// Sets the numeric.
         /// </summary>
         /// <param name="columnName">Name of the column.</param>
-        private protected void SetNumeric( string columnName )
+        public void SetNumeric( string columnName )
         {
             if( Verify.Input( columnName )
                 && Enum.GetNames( typeof( Numeric ) )?.Contains( columnName ) == true )
@@ -143,7 +143,7 @@ namespace BudgetExecution
                 {
                     var _columnValue = (Numeric)Enum.Parse( typeof( Numeric ), columnName );
 
-                    _numeric = Enum.IsDefined( typeof( Numeric ), _columnValue )
+                    Numeric = Enum.IsDefined( typeof( Numeric ), _columnValue )
                         ? _columnValue
                         : Numeric.NS;
                 }
@@ -159,7 +159,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The Data row.</param>
         /// <param name="columnName">Name of the column.</param>
-        private protected void SetNumeric( DataRow dataRow, string columnName )
+        public void SetNumeric( DataRow dataRow, string columnName )
         {
             if( Verify.Row( dataRow )
                 && Verify.Input( columnName ) )
@@ -173,7 +173,7 @@ namespace BudgetExecution
 
                     if( _names?.Any() == true )
                     {
-                        _numeric = _names?.Contains( $"{_columnValue}" ) == true
+                        Numeric = _names?.Contains( $"{_columnValue}" ) == true
                             ? _columnValue
                             : Numeric.NS;
                     }
@@ -189,11 +189,11 @@ namespace BudgetExecution
         /// Sets the numeric.
         /// </summary>
         /// <param name="numeric">The numeric.</param>
-        private protected void SetNumeric( Numeric numeric )
+        public  void SetNumeric( Numeric numeric )
         {
             try
             {
-                _numeric = Validate.Numeric( numeric )
+                Numeric = Validate.Numeric( numeric )
                     ? numeric
                     : Numeric.NS;
             }
@@ -208,7 +208,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The Data row.</param>
         /// <param name="numeric">The numeric.</param>
-        private protected void SetNumeric( DataRow dataRow, Numeric numeric )
+        public  void SetNumeric( DataRow dataRow, Numeric numeric )
         {
             if( dataRow != null
                 && Validate.Numeric( numeric ) )
@@ -220,7 +220,7 @@ namespace BudgetExecution
 
                     if( _names?.Any() == true )
                     {
-                        _numeric = _names.Contains( numeric.ToString() )
+                        Numeric = _names.Contains( numeric.ToString() )
                             ? numeric
                             : Numeric.NS;
                     }
@@ -236,7 +236,7 @@ namespace BudgetExecution
         /// Sets the value.
         /// </summary>
         /// <param name="value">The value.</param>
-        private protected void SetValue( string value )
+        public  void SetValue( string value )
         {
             try
             {
@@ -257,7 +257,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The Data row.</param>
         /// <param name="columnName">Name of the column.</param>
-        private protected void SetValue( DataRow dataRow, string columnName )
+        public  void SetValue( DataRow dataRow, string columnName )
         {
             if( dataRow != null
                 && Verify.Input( columnName )
@@ -284,7 +284,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The Data row.</param>
         /// <param name="numeric">The numeric.</param>
-        private protected void SetValue( DataRow dataRow, Numeric numeric )
+        public  void SetValue( DataRow dataRow, Numeric numeric )
         {
             if( dataRow != null
                 && Validate.Numeric( numeric ) )
@@ -312,11 +312,11 @@ namespace BudgetExecution
         /// Gets the funding.
         /// </summary>
         /// <returns></returns>
-        public double GetFunding()
+        public virtual double GetFunding()
         {
             try
             {
-                return _funding;
+                return Funding;
             }
             catch( Exception ex )
             {
@@ -329,7 +329,7 @@ namespace BudgetExecution
         /// Gets the amount.
         /// </summary>
         /// <returns></returns>
-        public IAmount GetAmount()
+        public virtual IAmount GetAmount()
         {
             try
             {

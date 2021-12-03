@@ -1,6 +1,6 @@
-﻿// // <copyright file = "BindingBase.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "BindingBase.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The data set.
         /// </value>
-        public DataSet DataSet { get; set; }
+        public virtual DataSet DataSet { get; set; }
 
         /// <summary>
         /// Gets the data table.
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The data table.
         /// </value>
-        public DataTable DataTable { get; set; }
+        public virtual DataTable DataTable { get; set; }
 
         /// <summary>
         /// Gets the source.
@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public virtual Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the current.
@@ -44,7 +44,7 @@ namespace BudgetExecution
         /// <value>
         /// The current.
         /// </value>
-        public DataRow Record { get; set; }
+        public virtual DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the index of the current.
@@ -52,7 +52,7 @@ namespace BudgetExecution
         /// <value>
         /// The index of the current.
         /// </value>
-        public int Index { get; set; }
+        public virtual int Index { get; set; }
 
         /// <summary>
         /// Gets or sets the field.
@@ -60,7 +60,7 @@ namespace BudgetExecution
         /// <value>
         /// The field.
         /// </value>
-        public Field Field { get; set; }
+        public virtual Field Field { get; set; }
 
         /// <summary>
         /// Gets or sets the data filter.
@@ -68,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The data filter.
         /// </value>
-        public IDictionary<string, object> DataFilter { get; set; }
+        public virtual IDictionary<string, object> DataFilter { get; set; }
         
         /// <summary>
         /// Gets the source.
@@ -76,11 +76,11 @@ namespace BudgetExecution
         /// <returns>
         /// Returns the Source Enumeration
         /// </returns>
-        public Source GetSource()
+        public virtual Source GetSource()
         {
             try
             {
-                return Verify.Source( Source )
+                return Validate.Source( Source )
                     ? Source
                     : default;
             }
@@ -96,11 +96,11 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public Field GetField()
+        public virtual Field GetField()
         {
             try
             {
-                return Verify.Field( Field )
+                return Validate.Field( Field )
                     ? Field
                     : default;
             }
@@ -116,7 +116,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public IDictionary<string, object> GetDataFilter()
+        public virtual IDictionary<string, object> GetDataFilter()
         {
             try
             {
@@ -136,13 +136,14 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public DataTable GetDataTable()
+        public virtual DataTable GetDataTable()
         {
             try
             {
-                return DataTable?.Rows?.Count > 0 && DataTable?.Columns?.Count > 0
-                    ? DataTable
-                    : default( DataTable );
+                return DataTable?.Rows?.Count > 0 
+                    && DataTable?.Columns?.Count > 0
+                        ? DataTable
+                        : default( DataTable );
             }
             catch( Exception ex )
             {
@@ -156,14 +157,14 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public IEnumerable<DataRow> GetData()
+        public virtual IEnumerable<DataRow> GetData()
         {
             try
             {
-                var data = DataTable?.AsEnumerable();
+                var _dataRows = DataTable?.AsEnumerable();
 
-                return Verify.Input( data )
-                    ? data
+                return Verify.Input( _dataRows )
+                    ? _dataRows
                     : default;
             }
             catch( Exception ex )
@@ -178,7 +179,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public DataRow GetCurrent()
+        public virtual DataRow GetCurrent()
         {
             try
             {
@@ -198,7 +199,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public int GetIndex()
+        public virtual int GetIndex()
         {
             try
             {
@@ -217,11 +218,11 @@ namespace BudgetExecution
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
+        private protected virtual void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

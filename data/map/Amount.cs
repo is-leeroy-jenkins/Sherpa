@@ -40,11 +40,11 @@ namespace BudgetExecution
         public Amount( Numeric numeric = Numeric.Amount, double value = 0.0 )
         {
             Data = value;
-            _funding = value;
-            _numeric = numeric;
-            Name = _numeric.ToString();
-            _initial = _funding;
-            _delta = _initial - _funding;
+            Funding = value;
+            Numeric = numeric;
+            Name = Numeric.ToString();
+            Initial = Funding;
+            Delta = Initial - Funding;
         }
 
         /// <summary>
@@ -55,11 +55,11 @@ namespace BudgetExecution
         public Amount( double value = 0, Numeric numeric = Numeric.Amount )
         {
             Data = value;
-            _funding = value;
-            _numeric = numeric;
-            Name = _numeric.ToString();
-            _initial = _funding;
-            _delta = _initial - _funding;
+            Funding = value;
+            Numeric = numeric;
+            Name = Numeric.ToString();
+            Initial = Funding;
+            Delta = Initial - Funding;
         }
 
         /// <summary>
@@ -69,12 +69,12 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         public Amount( DataRow dataRow, Numeric numeric = Numeric.Amount )
         {
-            _funding = double.Parse( dataRow[ $"{numeric}" ].ToString() );
-            Data = _funding.ToString();
-            _numeric = numeric;
-            Name = _numeric.ToString();
-            _initial = _funding;
-            _delta = _initial - _funding;
+            Funding = double.Parse( dataRow[ $"{numeric}" ].ToString() );
+            Data = Funding.ToString();
+            Numeric = numeric;
+            Name = Numeric.ToString();
+            Initial = Funding;
+            Delta = Initial - Funding;
         }
 
         /// <summary>
@@ -85,8 +85,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Enum.IsDefined( typeof( Numeric ), _numeric )
-                    ? _numeric
+                return Enum.IsDefined( typeof( Numeric ), Numeric )
+                    ? Numeric
                     : Numeric.NS;
             }
             catch( Exception ex )
@@ -104,8 +104,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _initial > 0
-                    ? _initial
+                return Initial > 0
+                    ? Initial
                     : Default.GetFunding();
             }
             catch( Exception ex )
@@ -123,8 +123,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _delta != 0
-                    ? _delta
+                return Delta != 0
+                    ? Delta
                     : Default.GetFunding();
             }
             catch( Exception ex )
@@ -142,10 +142,10 @@ namespace BudgetExecution
         {
             try
             {
-                _delta = amount;
-                _funding += _delta;
+                Delta = amount;
+                Funding += Delta;
 
-                if( _initial != _funding )
+                if( Initial != Funding )
                 {
                     //unfinished
                 }
@@ -164,14 +164,14 @@ namespace BudgetExecution
         {
             try
             {
-                _delta = amount;
+                Delta = amount;
 
-                if( _funding > amount )
+                if( Funding > amount )
                 {
-                    _funding -= amount;
+                    Funding -= amount;
                 }
 
-                if( _initial != _funding )
+                if( Initial != Funding )
                 {
                     // Unfinished
                 }
@@ -217,7 +217,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( amount?.GetFunding() == _funding
+                    if( amount?.GetFunding() == Funding
                         && amount?.GetName()?.Equals( Name ) == true )
                     {
                         return true;

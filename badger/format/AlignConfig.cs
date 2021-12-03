@@ -1,6 +1,6 @@
-﻿// // <copyright file = "AlignConfig.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "AlignConfig.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// <value>
         /// The left align.
         /// </value>
-        public static readonly HorizontalAlignment HorizontalLeft = HorizontalAlignment.Left;
+        public static HorizontalAlignment HorizontalLeft { get; } = HorizontalAlignment.Left;
 
         /// <summary>
         /// Gets the right align.
@@ -30,7 +30,7 @@ namespace BudgetExecution
         /// <value>
         /// The right align.
         /// </value>
-        public static readonly HorizontalAlignment HorizontalRight = HorizontalAlignment.Right;
+        public static HorizontalAlignment HorizontalRight { get; } = HorizontalAlignment.Right;
 
         /// <summary>
         /// Gets the center align.
@@ -38,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The center align.
         /// </value>
-        public static readonly HorizontalAlignment HorizontalCenter = HorizontalAlignment.Center;
+        public static HorizontalAlignment HorizontalCenter { get; } = HorizontalAlignment.Center;
 
         /// <summary>
         /// Gets the center text.
@@ -46,7 +46,7 @@ namespace BudgetExecution
         /// <value>
         /// The center text.
         /// </value>
-        public static readonly StringAlignment StringCenter = StringAlignment.Center;
+        public static StringAlignment StringAlignCenter { get; } = StringAlignment.Center;
 
         /// <summary>
         /// Gets the far text.
@@ -54,7 +54,7 @@ namespace BudgetExecution
         /// <value>
         /// The far text.
         /// </value>
-        public static readonly StringAlignment StringFar = StringAlignment.Far;
+        public static StringAlignment StringAlignFar { get; } = StringAlignment.Far;
 
         /// <summary>
         /// Gets the near text.
@@ -62,32 +62,32 @@ namespace BudgetExecution
         /// <value>
         /// The near text.
         /// </value>
-        public static readonly StringAlignment StringNear = StringAlignment.Near;
+        public static StringAlignment StringAlignNear { get; } = StringAlignment.Near;
 
         /// <summary>
         /// The middle center
         /// </summary>
-        public static readonly ContentAlignment ContentCenter = ContentAlignment.MiddleCenter;
+        public static ContentAlignment ContentAlignCenter { get; } = ContentAlignment.MiddleCenter;
 
         /// <summary>
         /// The content top
         /// </summary>
-        public static readonly ContentAlignment ContentTop = ContentAlignment.TopCenter;
+        public static ContentAlignment ContentAlignTop { get; } = ContentAlignment.TopCenter;
 
         /// <summary>
         /// The content left
         /// </summary>
-        public static readonly ContentAlignment ContentLeft = ContentAlignment.MiddleLeft;
+        public static ContentAlignment ContentAlignLeft { get; } = ContentAlignment.MiddleLeft;
 
         /// <summary>
         /// The content right
         /// </summary>
-        public static readonly ContentAlignment ContentRight = ContentAlignment.MiddleRight;
+        public static ContentAlignment ContentAlignRight { get; } = ContentAlignment.MiddleRight;
 
         /// <summary>
         /// The content bottom
         /// </summary>
-        public static readonly ContentAlignment ContentBottom = ContentAlignment.BottomRight;
+        public static ContentAlignment ContentAlignBottom { get; } = ContentAlignment.BottomRight;
         
         /// <summary>
         /// Initializes a new instance of the <see cref = "ColorConfig"/> class.
@@ -198,8 +198,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var message = new Message( "NOT YET IMPLEMENTED" );
-                    message?.ShowDialog();
+                    using var _message = new Message( "NOT YET IMPLEMENTED" );
+                    _message?.ShowDialog();
                 }
                 catch( Exception ex )
                 {
@@ -214,9 +214,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

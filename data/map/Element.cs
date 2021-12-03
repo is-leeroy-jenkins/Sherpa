@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="BudgetExecution.ElementBase" />
     /// <seealso cref="BudgetExecution.IElement" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Element : ElementBase, IElement
     {
         /// <summary>
