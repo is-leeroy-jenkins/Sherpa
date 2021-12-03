@@ -18,32 +18,32 @@ namespace BudgetExecution
         /// <summary>
         /// The font style regular
         /// </summary>
-        public static FontStyle FontStyleRegular = FontStyle.Regular;
+        public static FontStyle FontStyleRegular { get; set; } = FontStyle.Regular;
 
         /// <summary>
         /// The font style bold
         /// </summary>
-        public static FontStyle FontStyleBold = FontStyle.Bold;
+        public static FontStyle FontStyleBold { get; set; } = FontStyle.Bold;
 
         /// <summary>
         /// The font style italic
         /// </summary>
-        public static FontStyle FontStyleItalic = FontStyle.Italic;
+        public static FontStyle FontStyleItalic { get; set; } = FontStyle.Italic;
 
         /// <summary>
         /// The font size small
         /// </summary>
-        public static Font FontSizeSmall = new Font( "Roboto", 8 );
+        public static Font FontSizeSmall { get; set; } = new Font( "Roboto", 8 );
 
         /// <summary>
         /// The font size medium
         /// </summary>
-        public static Font FontSizeMedium = new Font( "Roboto", 10 );
+        public static Font FontSizeMedium { get; set; } = new Font( "Roboto", 10 );
 
         /// <summary>
         /// The font size large
         /// </summary>
-        public static Font FontSizeLarge = new Font( "Roboto", 12 );
+        public static Font FontSizeLarge { get; set; } = new Font( "Roboto", 12 );
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FontConfig"/> class.
