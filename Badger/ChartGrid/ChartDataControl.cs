@@ -60,21 +60,21 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the binding source.
         /// </summary>
-        /// <param name="bindingsource">The bindingsource.</param>
+        /// <param name="bindingSource">The bindingSource.</param>
         /// <param name="dict">The dictionary.</param>
-        public void SetBindingSource( BindingSource bindingsource, IDictionary<string, object> dict = null )
+        public void SetBindingSource( BindingSource bindingSource, IDictionary<string, object> dict = null )
         {
-            DataGrid.SetBindingSource( bindingsource, dict );
+            DataGrid.SetBindingSource( bindingSource, dict );
         }
 
         /// <summary>
         /// Pascalizes the headers.
         /// </summary>
         /// <param name="data"></param>
-        /// <param name="gridcolumns"></param>
-        public void PascalizeHeaders( IEnumerable<DataRow> data, GridBoundColumnsCollection gridcolumns )
+        /// <param name="gridColumns"></param>
+        public void PascalizeHeaders( IEnumerable<DataRow> data, GridBoundColumnsCollection gridColumns )
         {
-            DataGrid.PascalizeHeaders( data, gridcolumns );
+            DataGrid.PascalizeHeaders( data, gridColumns );
         }
 
         /// <summary>
@@ -283,11 +283,7 @@ namespace BudgetExecution
         {
             return ( (IBudgetChart)Chart ).GetTileInfo();
         }
-
-        // ***************************************************************************************************************************
-        // ****************************************************     EVENTS    ********************************************************
-        // ***************************************************************************************************************************
-
+        
         /// <summary>
         /// Called when [right click].
         /// </summary>

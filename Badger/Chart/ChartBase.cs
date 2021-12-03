@@ -30,7 +30,7 @@ namespace BudgetExecution
         /// <summary>
         /// The style
         /// </summary>
-        private protected static readonly IChartConfig Style = new ChartConfig();
+        public IChartConfig Style { get; set; } = new ChartConfig();
         
         /// <summary>
         /// Gets or sets the source.
@@ -38,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        private protected Source Source { get; set; }
+        public Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the data model.
@@ -46,7 +46,7 @@ namespace BudgetExecution
         /// <value>
         /// The data model.
         /// </value>
-        private protected ISourceModel SourceModel { get; set; }
+        public ISourceModel SourceModel { get; set; }
 
         /// <summary>
         /// Gets the configuration.
@@ -54,7 +54,7 @@ namespace BudgetExecution
         /// <value>
         /// The configuration.
         /// </value>
-        private protected ISeriesConfig Configuration { get; set; }
+        public ISeriesConfig Configuration { get; set; }
 
         /// <summary>
         /// Gets or sets the metric.
@@ -62,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The metric.
         /// </value>
-        private protected IDataMetric DataMetric { get; set; }
+        public IDataMetric DataMetric { get; set; }
 
         /// <summary>
         /// Gets or sets the data.
@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        private protected ISeriesModel ChartData { get; set; }
+        public ISeriesModel ChartData { get; set; }
 
         /// <summary>
         /// Gets the data series.
@@ -78,7 +78,7 @@ namespace BudgetExecution
         /// <value>
         /// The data series.
         /// </value>
-        private protected DataSeries DataSeries { get; set; }
+        public DataSeries DataSeries { get; set; }
 
         /// <summary>
         /// Gets the default title.
@@ -86,7 +86,7 @@ namespace BudgetExecution
         /// <value>
         /// The title information.
         /// </value>
-        private protected ITitleInfo TitleInfo { get; set; }
+        public ITitleInfo TitleInfo { get; set; }
 
         /// <summary>
         /// Gets or sets the binding source.
@@ -153,9 +153,9 @@ namespace BudgetExecution
         {
             try
             {
-                var type = Configuration?.GetSeriesType();
+                var _type = Configuration?.GetSeriesType();
 
-                return type != null && Enum.IsDefined( typeof( ChartType ), type )
+                return _type != null && Enum.IsDefined( typeof( ChartType ), _type )
                     ? Configuration
                     : default;
             }
@@ -174,7 +174,7 @@ namespace BudgetExecution
         {
             try
             {
-                return DataMetric?.Data?.Any() == true
+                return ( DataMetric?.Data?.Any() == true )
                     ? DataMetric
                     : default;
             }
@@ -193,7 +193,7 @@ namespace BudgetExecution
         {
             try
             {
-                return ChartData?.GetSeriesValues()?.Any() == true
+                return ( ChartData?.GetSeriesValues()?.Any() == true )
                     ? ChartData
                     : default;
             }
@@ -212,7 +212,7 @@ namespace BudgetExecution
         {
             try
             {
-                return DataSeries?.Points?.Count > 0
+                return ( DataSeries?.Points?.Count > 0 )
                     ? DataSeries
                     : default;
             }
@@ -248,9 +248,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

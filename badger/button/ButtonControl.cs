@@ -14,7 +14,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets or sets the name of the control.
         /// </summary>
-        public new string Name { get; set; }
+        public new string Name { get;  }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ButtonControl"/> class.

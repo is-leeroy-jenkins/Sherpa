@@ -4,10 +4,6 @@
 
 namespace BudgetExecution
 {
-    // ***************************************************************************************************************************
-    // ****************************************************   ASSEMBLIES  ********************************************************
-    // ***************************************************************************************************************************
-
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
@@ -23,31 +19,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class SheetPanel : Spreadsheet, ISpreadsheet
     {
-        // ***************************************************************************************************************************
-        // ******************************************************  CONSTRUCTORS  *****************************************************
-        // ***************************************************************************************************************************
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SheetPanel"/> class.
-        /// </summary>
-        public SheetPanel()
-        {
-            Size = new Size( 1098, 536 );
-            Dock = DockStyle.Fill;
-            Margin = ControlConfig.Margin;
-            Padding = ControlConfig.Padding;
-            BackColor = ColorConfig.ForeGray;
-            ForeColor = Color.Black;
-            Font = new Font( "Roboto", 8, FontStyle.Regular );
-            DefaultColumnCount = 26;
-            DefaultRowCount = 66;
-            AllowZooming = true;
-        }
-
-        // ***************************************************************************************************************************
-        // ******************************************************   PROPERTIES   *****************************************************
-        // ***************************************************************************************************************************
-
         /// <summary>
         /// Gets or sets the grid.
         /// </summary>
@@ -72,6 +43,23 @@ namespace BudgetExecution
         /// </value>
         public BindingSource BindingSource { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SheetPanel"/> class.
+        /// </summary>
+        public SheetPanel()
+        {
+            Size = new Size( 1098, 536 );
+            Dock = DockStyle.Fill;
+            Margin = ControlConfig.Margin;
+            Padding = ControlConfig.Padding;
+            BackColor = ColorConfig.ForeGray;
+            ForeColor = Color.Black;
+            Font = new Font( "Roboto", 8, FontStyle.Regular );
+            DefaultColumnCount = 26;
+            DefaultRowCount = 66;
+            AllowZooming = true;
+        }
+        
         /// <summary>
         /// Opens the file.
         /// </summary>

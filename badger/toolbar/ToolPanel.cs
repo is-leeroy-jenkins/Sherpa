@@ -22,11 +22,11 @@ namespace BudgetExecution
         /// <value>
         /// The buttons.
         /// </value>
-        public IDictionary<string, BarButton> Buttons { get; set; }
+        public IDictionary<string, BarButton> Buttons { get;  }
 
         /// <summary> Gets or sets the size of the image. </summary>
         /// <value> The size of the image. </value>
-        private Size ImageSize { get; set; } = new Size( 16, 16 );
+        public Size ImageSize { get; set; } = new Size( 16, 16 );
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ToolPanel"/> class.

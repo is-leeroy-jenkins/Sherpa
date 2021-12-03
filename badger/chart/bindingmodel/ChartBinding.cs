@@ -22,6 +22,51 @@ namespace BudgetExecution
     public class ChartBinding : BudgetBinding, IChartBinding, IChartSeriesModel
     {
         /// <summary>
+        /// Gets or sets the chart handler.
+        /// </summary>
+        /// <value>
+        /// The chart handler.
+        /// </value>
+        public ListChangedEventHandler ChartHandler { get; set; }
+
+        /// <summary>
+        /// Occurs when [changed].
+        /// </summary>
+        public event ListChangedEventHandler Changed;
+
+        /// <summary>
+        /// Gets or sets the count.
+        /// </summary>
+        /// <value>
+        /// The count.
+        /// </value>
+        public new int Count { get; set; }
+
+        /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
+        public IEnumerable<DataRow> Data { get; set; }
+
+        /// <summary>
+        /// Gets the configuration.
+        /// </summary>
+        /// <value>
+        /// The configuration.
+        /// </value>
+        public ISeriesConfig SeriesConfiguration { get; set; }
+
+        /// <summary>
+        /// Gets the metric.
+        /// </summary>
+        /// <value>
+        /// The metric.
+        /// </value>
+        public IDataMetric Metric { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="BudgetBinding" />
         /// class.
@@ -71,38 +116,6 @@ namespace BudgetExecution
             AllowNew = true;
             Changed += OnCurrentChanged;
         }
-        
-        /// <summary>
-        /// Gets or sets the count.
-        /// </summary>
-        /// <value>
-        /// The count.
-        /// </value>
-        public new int Count { get; set; }
-
-        /// <summary>
-        /// Gets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        private protected IEnumerable<DataRow> Data { get; set; }
-
-        /// <summary>
-        /// Gets the configuration.
-        /// </summary>
-        /// <value>
-        /// The configuration.
-        /// </value>
-        private protected ISeriesConfig SeriesConfiguration { get; set; }
-
-        /// <summary>
-        /// Gets the metric.
-        /// </summary>
-        /// <value>
-        /// The metric.
-        /// </value>
-        private protected IDataMetric Metric { get; set; }
         
         /// <summary>
         /// Gets the series configuration.
@@ -164,8 +177,8 @@ namespace BudgetExecution
         {
             try
             {
-                var numeric = SeriesConfiguration?.GetNumeric();
-                return double.Parse( Record[ $"{numeric}" ].ToString() ) > 0;
+                var _numeric = SeriesConfiguration?.GetNumeric();
+                return double.Parse( Record[ $"{_numeric}" ].ToString() ) > 0;
             }
             catch( Exception ex )
             {
@@ -183,10 +196,10 @@ namespace BudgetExecution
         {
             try
             {
-                var numeric = SeriesConfiguration?.GetNumeric();
+                var _numeric = SeriesConfiguration?.GetNumeric();
 
                 return !GetEmpty( xindex )
-                    ? double.Parse( Record[ $"{numeric}" ].ToString() )
+                    ? double.Parse( Record[ $"{_numeric}" ].ToString() )
                     : 0;
             }
             catch( Exception ex )
@@ -205,10 +218,10 @@ namespace BudgetExecution
         {
             try
             {
-                var numeric = SeriesConfiguration?.GetNumeric();
+                var _numeric = SeriesConfiguration?.GetNumeric();
 
                 return !GetEmpty( xindex )
-                    ? double.Parse( Record[ $@"{numeric}" ].ToString() )
+                    ? double.Parse( Record[ $@"{_numeric}" ].ToString() )
                     : 0;
             }
             catch( Exception ex )
@@ -218,19 +231,6 @@ namespace BudgetExecution
             }
         }
         
-        /// <summary>
-        /// Gets or sets the chart handler.
-        /// </summary>
-        /// <value>
-        /// The chart handler.
-        /// </value>
-        public ListChangedEventHandler ChartHandler { get; set; }
-
-        /// <summary>
-        /// Occurs when [changed].
-        /// </summary>
-        public event ListChangedEventHandler Changed;
-
         /// <summary>
         /// Called when [current changed].
         /// </summary>
@@ -245,8 +245,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var message = new Message( "NOT YET IMPLEMENTED" );
-                    message?.ShowDialog();
+                    using var _message = new Message( "NOT YET IMPLEMENTED" );
+                    _message?.ShowDialog();
                 }
                 catch( Exception ex )
                 {

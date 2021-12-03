@@ -4,8 +4,15 @@
 
 namespace BudgetExecution
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.ControlBase" />
     public partial class CalendarControl : ControlBase
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CalendarControl"/> class.
+        /// </summary>
         public CalendarControl()
         {
             InitializeComponent();

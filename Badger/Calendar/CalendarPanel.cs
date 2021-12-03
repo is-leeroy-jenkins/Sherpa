@@ -13,6 +13,22 @@ namespace BudgetExecution
     public class CalendarPanel : MonthCalendarAdv
     {
         /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public BudgetBinding BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public ToolTip ToolTip { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "CalendarPanel"/>
         /// class.
@@ -47,13 +63,5 @@ namespace BudgetExecution
             HeaderFont = new Font( "Roboto", 12, FontStyle.Bold );
             HeaderStartColor = Color.FromArgb( 70, 70, 70 );
         }
-        
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
-        public BudgetBinding BindingSource { get; set; }
-
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
-        public ToolTip ToolTip { get; set; }
     }
 }

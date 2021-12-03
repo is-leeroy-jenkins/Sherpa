@@ -18,14 +18,6 @@ namespace BudgetExecution
     public class ControlData : UserControl
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ControlData" /> class.
-        /// </summary>
-        public ControlData()
-        {
-        }
-        
-        /// <summary>
         /// Gets or sets the binding source.
         /// </summary>
         /// <value>
@@ -56,6 +48,14 @@ namespace BudgetExecution
         /// The filter.
         /// </value>
         public IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ControlData" /> class.
+        /// </summary>
+        public ControlData()
+        {
+        }
         
         /// <summary>
         /// Sets the field.

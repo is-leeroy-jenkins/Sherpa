@@ -21,12 +21,12 @@ namespace BudgetExecution
         /// <summary>
         /// The builder
         /// </summary>
-        public ImageBuilder Builder { get; set; }
+        public ImageBuilder Builder { get;  }
 
         /// <summary>
         /// The factory
         /// </summary>
-        public ImageFactory Factory { get; set; }
+        public ImageFactory Factory { get;  }
         
         /// <summary>
         /// Initializes a new instance of the <see cref="BudgetImage"/> class.

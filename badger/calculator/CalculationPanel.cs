@@ -20,6 +20,33 @@ namespace BudgetExecution
     public class CalculationPanel : CalculatorData, ICalculator
     {
         /// <summary>
+        /// Gets the value.
+        /// </summary>
+        /// <value>
+        /// The value.
+        /// </value>
+        /// <remarks>
+        /// The Value property is a shadow of the Calculator Engine's Value property.
+        /// </remarks>
+        public CalculatorValue Result { get; set; }
+
+        /// <summary>
+        /// Gets or sets the calculator text.
+        /// </summary>
+        /// <value>
+        /// The calculator text.
+        /// </value>
+        public LabelPanel Label { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public ToolTip ToolTip { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="CalculationPanel" />
         /// class.
@@ -73,33 +100,6 @@ namespace BudgetExecution
         }
         
         /// <summary>
-        /// Gets the value.
-        /// </summary>
-        /// <value>
-        /// The value.
-        /// </value>
-        /// <remarks>
-        /// The Value property is a shadow of the Calculator Engine's Value property.
-        /// </remarks>
-        public CalculatorValue Result { get; set; }
-
-        /// <summary>
-        /// Gets or sets the calculator text.
-        /// </summary>
-        /// <value>
-        /// The calculator text.
-        /// </value>
-        public LabelPanel Label { get; set; }
-
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
-        public ToolTip ToolTip { get; set; }
-        
-        /// <summary>
         /// Called when [equal button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -110,8 +110,8 @@ namespace BudgetExecution
         {
             try
             {
-                var result = DoubleValue;
-                Label.Text = result.ToString( "c" );
+                var _result = DoubleValue;
+                Label.Text = _result.ToString( "c" );
             }
             catch( Exception ex )
             {

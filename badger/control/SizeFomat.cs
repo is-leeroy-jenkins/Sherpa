@@ -8,6 +8,9 @@ namespace BudgetExecution
 
     public class SizeFormat
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SizeFormat"/> class.
+        /// </summary>
         public SizeFormat()
         {
         }

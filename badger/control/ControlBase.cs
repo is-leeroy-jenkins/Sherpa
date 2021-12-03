@@ -19,6 +19,14 @@ namespace BudgetExecution
     public partial class ControlBase : ControlData, IDataControl
     {
         /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public string HoverText { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="ControlBase"/> class.
         /// </summary>
         public ControlBase()
@@ -32,14 +40,6 @@ namespace BudgetExecution
             Margin = ControlConfig.Margin;
             Font = FontConfig.FontSizeSmall;
         }
-        
-        /// <summary>
-        /// Gets or sets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
-        public string HoverText { get; set; }
         
         /// <summary>
         /// Sets the parent.
@@ -223,11 +223,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
-        // ***************************************************************************************************************************
-        // ****************************************************     EVENTS    ********************************************************
-        // ***************************************************************************************************************************
-
+        
         /// <summary>
         /// Called when [mouse over].
         /// </summary>

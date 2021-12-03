@@ -49,11 +49,7 @@ namespace BudgetExecution
         /// The filter.
         /// </value>
         public IDictionary<string, object> DataFilter { get; set; }
-
-        // ***************************************************************************************************************************
-        // ************************************************  METHODS   ***************************************************************
-        // ***************************************************************************************************************************
-
+        
         /// <summary>
         /// Sets the field.
         /// </summary>
@@ -73,17 +69,17 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the binding source.
         /// </summary>
-        /// <param name="bindingsource">The bindingsource.</param>
-        public void SetDataSource<T1>( T1 bindingsource ) where T1 : IBindingList
+        /// <param name="bindingSource">The bindingSource.</param>
+        public void SetDataSource<T1>( T1 bindingSource ) where T1 : IBindingList
         {
             try
             {
-                if( bindingsource is BindingSource binder
-                    && binder?.DataSource != null )
+                if( bindingSource is BindingSource _binder
+                    && _binder?.DataSource != null )
                 {
                     try
                     {
-                        BindingSource.DataSource = binder.DataSource;
+                        BindingSource.DataSource = _binder.DataSource;
                     }
                     catch( Exception ex )
                     {
@@ -102,35 +98,35 @@ namespace BudgetExecution
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2">The type of the 2.</typeparam>
-        /// <param name="bindinglist">The bindingsource.</param>
+        /// <param name="bindingList">The bindingSource.</param>
         /// <param name="dict">The dictionary.</param>
-        public void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
+        public void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
             where T1 : IBindingList where T2 : IDictionary<string, object>
         {
             try
             {
-                if( Verify.IsBindable( bindinglist )
+                if( Verify.IsBindable( bindingList )
                     && Verify.Map( dict ) )
                 {
                     try
                     {
-                        var list = bindinglist as BindingSource;
-                        var filter = string.Empty;
+                        var _list = bindingList as BindingSource;
+                        var _filter = string.Empty;
 
-                        foreach( var kvp in dict )
+                        foreach( var _kvp in dict )
                         {
-                            if( Verify.Input( kvp.Key )
-                                && Verify.Ref( kvp.Value ) )
+                            if( Verify.Input( _kvp.Key )
+                                && Verify.Ref( _kvp.Value ) )
                             {
-                                filter += $"{kvp.Key} = {kvp.Value} AND";
+                                _filter += $"{_kvp.Key} = {_kvp.Value} AND";
                             }
                         }
 
-                        if( filter?.Length > 0
-                            && list?.DataSource != null )
+                        if( _filter?.Length > 0
+                            && _list?.DataSource != null )
                         {
-                            BindingSource.DataSource = list?.DataSource;
-                            BindingSource.Filter = filter?.TrimEnd( " AND".ToCharArray() );
+                            BindingSource.DataSource = _list?.DataSource;
+                            BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray() );
                         }
                     }
                     catch( Exception ex )
@@ -177,19 +173,19 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var filter = string.Empty;
+                    var _filter = string.Empty;
 
                     foreach( var kvp in dict )
                     {
                         if( Verify.Input( kvp.Key )
                             && kvp.Value != null )
                         {
-                            filter += $"{kvp.Key} = {kvp.Value} AND";
+                            _filter += $"{kvp.Key} = {kvp.Value} AND";
                         }
                     }
 
                     BindingSource.DataSource = data?.ToList();
-                    BindingSource.Filter = filter.TrimEnd( " AND".ToCharArray() );
+                    BindingSource.Filter = _filter.TrimEnd( " AND".ToCharArray() );
                 }
                 catch( Exception ex )
                 {
@@ -278,19 +274,19 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var filter = string.Empty;
+                    var _filter = string.Empty;
 
-                    foreach( var kvp in dict )
+                    foreach( var _kvp in dict )
                     {
-                        if( Verify.Input( kvp.Key )
-                            && kvp.Value != null )
+                        if( Verify.Input( _kvp.Key )
+                            && _kvp.Value != null )
                         {
-                            filter += $"{kvp.Key} = {kvp.Value} AND";
+                            _filter += $"{_kvp.Key} = {_kvp.Value} AND";
                         }
                     }
 
                     BindingSource.DataSource = data?.ToList();
-                    BindingSource.Filter = filter?.TrimEnd( " AND".ToCharArray() );
+                    BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray() );
                 }
                 catch( Exception ex )
                 {
@@ -338,9 +334,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

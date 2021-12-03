@@ -20,6 +20,14 @@ namespace BudgetExecution
     public partial class ToolBarControl : ControlBase, IToolBar
     {
         /// <summary>
+        /// Gets or sets the tool button.
+        /// </summary>
+        /// <value>
+        /// The tool button.
+        /// </value>
+        public IDictionary<string, BarButton> ToolButtons { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="ToolBarControl"/> class.
         /// </summary>
         public ToolBarControl()
@@ -33,14 +41,6 @@ namespace BudgetExecution
             AutoScaleMode = AutoScaleMode.Dpi;
             DoubleBuffered = true;
         }
-        
-        /// <summary>
-        /// Gets or sets the tool button.
-        /// </summary>
-        /// <value>
-        /// The tool button.
-        /// </value>
-        public IDictionary<string, BarButton> ToolButtons { get; set; }
         
         /// <summary>
         /// Called when [load].

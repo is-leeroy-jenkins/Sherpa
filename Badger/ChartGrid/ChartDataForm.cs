@@ -4,10 +4,6 @@
 
 namespace BudgetExecution
 {
-    // ********************************************************************************************************************************
-    // *********************************************************  ASSEMBLIES   ********************************************************
-    // ********************************************************************************************************************************
-
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -25,10 +21,6 @@ namespace BudgetExecution
     /// <seealso cref="BudgetExecution.IBudgetChart" />
     public partial class ChartDataForm : MetroForm, IBudgetGrid, IBudgetChart
     {
-        // ***************************************************************************************************************************
-        // ****************************************************  CONSTRUCTORS ********************************************************
-        // ***************************************************************************************************************************
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ChartDataForm" /> class.
         /// </summary>
@@ -36,11 +28,7 @@ namespace BudgetExecution
         {
             InitializeComponent();
         }
-
-        // ***************************************************************************************************************************
-        // ****************************************************     METHODS   ********************************************************
-        // ***************************************************************************************************************************
-
+        
         /// <summary>
         /// Sets the width of the column.
         /// </summary>
@@ -72,21 +60,21 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the binding source.
         /// </summary>
-        /// <param name="bindingsource">The bindingsource.</param>
+        /// <param name="bindingSource">The bindingSource.</param>
         /// <param name="dict">The dictionary.</param>
-        public void SetBindingSource( BindingSource bindingsource, IDictionary<string, object> dict = null )
+        public void SetBindingSource( BindingSource bindingSource, IDictionary<string, object> dict = null )
         {
-            ( (IBudgetGrid)ChartDataControl ).SetBindingSource( bindingsource, dict );
+            ( (IBudgetGrid)ChartDataControl ).SetBindingSource( bindingSource, dict );
         }
 
         /// <summary>
         /// Pascalizes the headers.
         /// </summary>
         /// <param name="data"></param>
-        /// <param name="gridcolumns"></param>
-        public void PascalizeHeaders( IEnumerable<DataRow> data, GridBoundColumnsCollection gridcolumns )
+        /// <param name="gridColumns"></param>
+        public void PascalizeHeaders( IEnumerable<DataRow> data, GridBoundColumnsCollection gridColumns )
         {
-            ( (IBudgetGrid)ChartDataControl ).PascalizeHeaders( data, gridcolumns );
+            ( (IBudgetGrid)ChartDataControl ).PascalizeHeaders( data, gridColumns );
         }
 
         /// <summary>
@@ -137,8 +125,9 @@ namespace BudgetExecution
         /// Sets the binding source.
         /// </summary>
         /// <typeparam name="T1"></typeparam>
-        /// <param name="bindingsource">The bindingsource.</param>
-        public void SetDataSource<T1>( T1 bindingsource ) where T1 : IBindingList
+        /// <param name="bindingsource">The bindingSource.</param>
+        public void SetDataSource<T1>( T1 bindingsource ) 
+            where T1 : IBindingList
         {
             ( (IBudgetGrid)ChartDataControl ).SetDataSource( bindingsource );
         }
@@ -148,10 +137,11 @@ namespace BudgetExecution
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2">The type of the 2.</typeparam>
-        /// <param name="bindinglist">The bindingsource.</param>
+        /// <param name="bindinglist">The bindingSource.</param>
         /// <param name="dict">The dictionary.</param>
         public void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
-            where T1 : IBindingList where T2 : IDictionary<string, object>
+            where T1 : IBindingList 
+            where T2 : IDictionary<string, object>
         {
             ( (IBudgetGrid)ChartDataControl ).SetDataSource( bindinglist, dict );
         }
@@ -161,7 +151,8 @@ namespace BudgetExecution
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <param name="data">The data.</param>
-        public void SetDataSource<T1>( IEnumerable<T1> data ) where T1 : IEnumerable<DataRow>
+        public void SetDataSource<T1>( IEnumerable<T1> data ) 
+            where T1 : IEnumerable<DataRow>
         {
             ( (IBudgetGrid)ChartDataControl ).SetDataSource( data );
         }
@@ -188,7 +179,8 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The dictionary.</param>
         public void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
-            where T1 : IEnumerable<DataRow> where T2 : struct
+            where T1 : IEnumerable<DataRow> 
+            where T2 : struct
         {
             ( (IBudgetGrid)ChartDataControl ).SetDataSource( data, field, filter );
         }
@@ -213,7 +205,8 @@ namespace BudgetExecution
         /// <param name="data">The data.</param>
         /// <param name="dict"></param>
         public void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
-            where T1 : IEnumerable<DataRow> where T2 : IDictionary<string, object>
+            where T1 : IEnumerable<DataRow> 
+            where T2 : IDictionary<string, object>
         {
             ( (IBudgetGrid)ChartDataControl ).SetDataSource( data, dict );
         }
@@ -227,7 +220,8 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The filter.</param>
         public void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field, object filter = null )
-            where T1 : IEnumerable<DataRow> where T2 : struct
+            where T1 : IEnumerable<DataRow> 
+            where T2 : struct
         {
             ( (IBudgetGrid)ChartDataControl ).SetDataSource( data, field, filter );
         }
@@ -356,11 +350,7 @@ namespace BudgetExecution
         {
             return ( (IBudgetChart)ChartDataControl ).GetTileInfo();
         }
-
-        // ***************************************************************************************************************************
-        // ****************************************************     EVENTS    ********************************************************
-        // ***************************************************************************************************************************
-
+        
         /// <summary>
         /// Called when [right click].
         /// </summary>

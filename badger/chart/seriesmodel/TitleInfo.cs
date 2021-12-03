@@ -10,18 +10,35 @@ namespace BudgetExecution
     using System.Drawing;
     using Syncfusion.Windows.Forms.Chart;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.ITitleInfo" />
     [ SuppressMessage( "ReSharper", "GCSuppressFinalizeForTypeWithoutDestructor" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class TitleInfo : ITitleInfo
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "TitleInfo"/>
-        /// class.
+        /// Gets the main.
         /// </summary>
-        /// <param name = "main" > The main. </param>
+        /// <value>
+        /// The main.
+        /// </value>
+        public string Main { get; }
+
+        /// <summary>
+        /// Gets the axis.
+        /// </summary>
+        /// <value>
+        /// The axis.
+        /// </value>
+        public string Axis { get; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TitleInfo"/> class.
+        /// </summary>
+        /// <param name="main">The main.</param>
         public TitleInfo( string main )
         {
             Main = main;
@@ -29,12 +46,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "TitleInfo"/>
-        /// struct.
+        /// Initializes a new instance of the <see cref="TitleInfo"/> class.
         /// </summary>
-        /// <param name = "main" > The main. </param>
-        /// <param name = "axis" > The axis. </param>
+        /// <param name="main">The main.</param>
+        /// <param name="axis">The axis.</param>
         public TitleInfo( string main, string axis )
         {
             Main = main;
@@ -42,11 +57,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "TitleInfo"/>
-        /// struct.
+        /// Initializes a new instance of the <see cref="TitleInfo"/> class.
         /// </summary>
-        /// <param name = "title" > The title. </param>
+        /// <param name="title">The title.</param>
         public TitleInfo( IDictionary<string, string> title )
         {
             Main = title.ContainsKey( "Main" )
@@ -59,27 +72,19 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "TitleInfo"/>
-        /// struct.
+        /// Initializes a new instance of the <see cref="TitleInfo"/> class.
         /// </summary>
-        /// <param name = "title" > The title. </param>
+        /// <param name="title">The title.</param>
         public TitleInfo( IReadOnlyList<string> title )
         {
             Main = title[ 0 ] ?? string.Empty;
             Axis = title[ 1 ] ?? string.Empty;
         }
-        
-        /// <summary> Gets or sets the main. </summary>
-        /// <value> The main. </value>
-        public string Main { get; }
 
-        /// <summary> Gets or sets the axis. </summary>
-        /// <value> The axis. </value>
-        public string Axis { get; }
-        
-        /// <summary> Sets the main title. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Sets the main title.
+        /// </summary>
+        /// <returns></returns>
         public string GetMainText()
         {
             if( Verify.Input( Main ) )
@@ -98,8 +103,10 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary> Sets the axis title. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Sets the axis title.
+        /// </summary>
+        /// <returns></returns>
         public string GetAxisText()
         {
             if( Verify.Input( Axis ) )
@@ -118,10 +125,12 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary> Sets the data. </summary>
-        /// <param name = "main" > The main. </param>
-        /// <param name = "axis" > The axis. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Sets the data.
+        /// </summary>
+        /// <param name="main">The main.</param>
+        /// <param name="axis">The axis.</param>
+        /// <returns></returns>
         public IDictionary<string, string> SetData( string main, string axis )
         {
             if( Verify.Input( main )
@@ -147,105 +156,23 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary> Gets the main title. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the main title.
+        /// </summary>
+        /// <returns></returns>
         public ChartTitle GetChartMainTitle()
         {
             if( Verify.Input( Main ) )
             {
                 try
                 {
-                    using var title = new ChartTitle();
-                    title.Text = Main;
-                    title.ForeColor = ColorConfig.ForeGray;
-                    title.Visible = true;
-                    title.Font = FontConfig.FontSizeSmall;
-                    title.BackColor = ColorConfig.FormDarkBackColor;
-                    return title;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
-        /// <summary> Gets the axis title. </summary>
-        /// <returns> </returns>
-        public ChartTitle GetChartAxisTitle()
-        {
-            if( Verify.Input( Axis ) )
-            {
-                try
-                {
-                    using var title = new ChartTitle();
-                    title.Text = Main;
-                    title.ForeColor = ColorConfig.ForeGray;
-                    title.Visible = true;
-                    title.Font = FontConfig.FontSizeSmall;
-                    title.BackColor = ColorConfig.FormDarkBackColor;
-                    return title;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
-        /// <summary> Gets the main title. </summary>
-        /// <param name = "color" > The color. </param>
-        /// <param name = "font" > The font. </param>
-        /// <returns> </returns>
-        public ChartTitle GetChartMainTitle( Color color, Font font )
-        {
-            if( !color.IsEmpty
-                && font != null )
-            {
-                try
-                {
-                    using var title = new ChartTitle();
-                    title.Text = Main;
-                    title.Visible = true;
-                    title.Font = font;
-                    title.ForeColor = color;
-                    title.BackColor = ColorConfig.FormDarkBackColor;
-                    return title;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
-        /// <summary> Gets the axis title. </summary>
-        /// <param name = "color" > The color. </param>
-        /// <param name = "font" > The font. </param>
-        /// <returns> </returns>
-        public ChartTitle GetChartAxisTitle( Color color, Font font )
-        {
-            if( !color.IsEmpty
-                && font != null )
-            {
-                try
-                {
-                    using var title = new ChartTitle();
-                    title.Text = Main;
-                    title.Visible = true;
-                    title.Font = font;
-                    title.ForeColor = color;
-                    title.BackColor = ColorConfig.FormDarkBackColor;
-                    return title;
+                    using var _title = new ChartTitle();
+                    _title.Text = Main;
+                    _title.ForeColor = ColorConfig.ForeGray;
+                    _title.Visible = true;
+                    _title.Font = FontConfig.FontSizeSmall;
+                    _title.BackColor = ColorConfig.FormDarkBackColor;
+                    return _title;
                 }
                 catch( Exception ex )
                 {
@@ -258,14 +185,104 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Gets the axis title.
+        /// </summary>
+        /// <returns></returns>
+        public ChartTitle GetChartAxisTitle()
+        {
+            if( Verify.Input( Axis ) )
+            {
+                try
+                {
+                    using var _title = new ChartTitle();
+                    _title.Text = Main;
+                    _title.ForeColor = ColorConfig.ForeGray;
+                    _title.Visible = true;
+                    _title.Font = FontConfig.FontSizeSmall;
+                    _title.BackColor = ColorConfig.FormDarkBackColor;
+                    return _title;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
+        }
+
+        /// <summary>
+        /// Gets the main title.
+        /// </summary>
+        /// <param name="color">The color.</param>
+        /// <param name="font">The font.</param>
+        /// <returns></returns>
+        public ChartTitle GetChartMainTitle( Color color, Font font )
+        {
+            if( !color.IsEmpty
+                && font != null )
+            {
+                try
+                {
+                    using var _title = new ChartTitle();
+                    _title.Text = Main;
+                    _title.Visible = true;
+                    _title.Font = font;
+                    _title.ForeColor = color;
+                    _title.BackColor = ColorConfig.FormDarkBackColor;
+                    return _title;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
+        }
+
+        /// <summary>
+        /// Gets the axis title.
+        /// </summary>
+        /// <param name="color">The color.</param>
+        /// <param name="font">The font.</param>
+        /// <returns></returns>
+        public ChartTitle GetChartAxisTitle( Color color, Font font )
+        {
+            if( !color.IsEmpty
+                && font != null )
+            {
+                try
+                {
+                    using var _title = new ChartTitle();
+                    _title.Text = Main;
+                    _title.Visible = true;
+                    _title.Font = font;
+                    _title.ForeColor = color;
+                    _title.BackColor = ColorConfig.FormDarkBackColor;
+                    return _title;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

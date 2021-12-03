@@ -264,11 +264,7 @@ namespace BudgetExecution
                 }
             }
         }
-
-        // ***************************************************************************************************************************
-        // ****************************************************   EVENTS/DELEGATES  **************************************************
-        // ***************************************************************************************************************************
-
+        
         /// <summary>
         /// Called when [mouse over].
         /// </summary>
@@ -284,8 +280,8 @@ namespace BudgetExecution
             {
                 if( Verify.Input( HoverText ) )
                 {
-                    var text = _button?.HoverText;
-                    var _ = new ToolTip( _button, text );
+                    var _hoverText = _button?.HoverText;
+                    var _ = new ToolTip( _button, _hoverText );
                 }
                 else
                 {

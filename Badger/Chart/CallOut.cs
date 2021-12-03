@@ -6,6 +6,10 @@ namespace BudgetExecution
 {
     using Syncfusion.Windows.Forms.Chart;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.Chart.ChartCalloutInfo" />
     public class CallOut : ChartCalloutInfo
     {
     }

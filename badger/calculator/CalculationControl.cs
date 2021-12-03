@@ -106,8 +106,8 @@ namespace BudgetExecution
         {
             try
             {
-                var result = Calculator.DoubleValue;
-                Label.Text = result.ToString( "c" );
+                var _result = Calculator.DoubleValue;
+                Label.Text = _result.ToString( "c" );
             }
             catch( Exception ex )
             {
