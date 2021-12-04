@@ -2,10 +2,9 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-using OfficeOpenXml.Table;
-
 namespace BudgetExecution
 {
+    using OfficeOpenXml.Table;
     using System;
     using System.Collections.Generic;
     using System.Data;
@@ -13,7 +12,7 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
     using OfficeOpenXml;
-    using TableStyles = TableStyles;
+    using TableStyles = OfficeOpenXml.Table.TableStyles;
 
     [ SuppressMessage( "ReSharper", "MergeCastWithTypeCheck" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]

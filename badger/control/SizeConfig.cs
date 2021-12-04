@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The maximum size of the form.
         /// </value>
-        public static Size FormMaximum = new Size( 1900, 1060 );
+        public static Size FormMaximum { get; set; } = new Size( 1900, 1060 );
 
         /// <summary>
         /// Gets the minimum size of the form.
@@ -36,47 +36,47 @@ namespace BudgetExecution
         /// <value>
         /// The minimum size of the form.
         /// </value>
-        public static Size FormMinimum = new Size( 600, 400 );
+        public static Size FormMinimum { get; set; } = new Size( 600, 400 );
 
         /// <summary>
         /// The dialog size normal
         /// </summary>
-        public static Size DialogNormal = new Size( 680, 530 );
+        public static Size DialogNormal { get; set; } = new Size( 680, 530 );
 
         /// <summary>
         /// The form size maximum
         /// </summary>
-        public static Size DialogMinimum = new Size( 300, 300 );
+        public static Size DialogMinimum { get; set; } = new Size( 300, 300 );
 
         /// <summary>
         /// The form size minimum
         /// </summary>
-        public static Size DialogMaximum = new Size( 800, 800 );
+        public static Size DialogMaximum { get; set; } = new Size( 800, 800 );
 
         /// <summary>
         /// The column configuration size
         /// </summary>
-        public static Size ContextMenuNormal = new Size( 250, 350 );
+        public static Size ContextMenuNormal { get; set; } = new Size( 250, 350 );
 
         /// <summary>
         /// The small
         /// </summary>
-        public static Size ImageSmall = new Size( 12, 12 );
+        public static Size ImageSmall { get; set; } = new Size( 12, 12 );
 
         /// <summary>
         /// The medium
         /// </summary>
-        public static Size ImageMedium = new Size( 16, 16 );
+        public static Size ImageMedium { get; set; } = new Size( 16, 16 );
 
         /// <summary>
         /// The large
         /// </summary>
-        public static Size ImageLarge = new Size( 20, 20 );
+        public static Size ImageLarge { get; set; } = new Size( 20, 20 );
 
         /// <summary>
         /// The largest
         /// </summary>
-        public static Size ImageHuge = new Size( 250, 250 );
+        public static Size ImageHuge { get; set; } = new Size( 250, 250 );
         
         /// <summary>
         /// Initializes a new instance of the <see cref = "SizeConfig"/> class.

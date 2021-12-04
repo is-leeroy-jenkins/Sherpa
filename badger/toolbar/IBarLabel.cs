@@ -2,11 +2,11 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-using System;
-using System.Drawing;
-
 namespace BudgetExecution
 {
+    using System;
+    using System.Drawing;
+
     public interface IBarLabel
     {
         /// <summary> Sets the text. </summary>

@@ -2,11 +2,10 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-using System.Collections.Generic;
-using System.Data;
-
 namespace BudgetExecution
 {
+    using System.Collections.Generic;
+    using System.Data;
     using System;
 
     /// <summary>

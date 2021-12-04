@@ -2,10 +2,10 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-using System.Windows.Forms;
-
 namespace BudgetExecution
 {
+    using System.Windows.Forms;
+
     public interface IBarTextBox
     {
         /// <summary> Sets the hover information. </summary>

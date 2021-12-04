@@ -80,14 +80,14 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the button.
         /// </summary>
-        /// <param name = "imagename" >
+        /// <param name = "imageName" >
         /// The name.
         /// </param>
         /// <returns>
         /// </returns>
-        public BarButton CreateButton( string imagename )
+        public BarButton CreateButton( string imageName )
         {
-            return ( (IToolBar)ToolBar ).CreateButton( imagename );
+            return ( (IToolBar)ToolBar ).CreateButton( imageName );
         }
 
         /// <summary>

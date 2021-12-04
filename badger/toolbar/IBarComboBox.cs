@@ -2,12 +2,12 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-
 namespace BudgetExecution
 {
+    using System;
+    using System.Drawing;
+    using System.Windows.Forms;
+
     public interface IBarComboBox
     {
         /// <summary> Sets the data source. </summary>

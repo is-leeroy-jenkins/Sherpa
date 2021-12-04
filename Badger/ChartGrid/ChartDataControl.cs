@@ -2,15 +2,15 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
-using Syncfusion.Windows.Forms.Grid;
-
 namespace BudgetExecution
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Drawing;
+    using System.Windows.Forms;
+    using Syncfusion.Windows.Forms.Grid;
+
     /// <summary>
     /// 
     /// </summary>

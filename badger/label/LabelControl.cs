@@ -2,10 +2,9 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-using System.Drawing;
-
 namespace BudgetExecution
 {
+    using System.Drawing;
     using System;
 
     public partial class LabelControl : ControlBase, ILabel

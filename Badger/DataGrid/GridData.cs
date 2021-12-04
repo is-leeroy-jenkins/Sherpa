@@ -48,11 +48,7 @@ namespace BudgetExecution
         /// The filter.
         /// </value>
         public IDictionary<string, object> DataFilter { get; set; }
-
-        // ***************************************************************************************************************************
-        // ************************************************  METHODS   ***************************************************************
-        // ***************************************************************************************************************************
-
+        
         /// <summary>
         /// Sets the field.
         /// </summary>
@@ -77,12 +73,12 @@ namespace BudgetExecution
         {
             try
             {
-                if( bindingsource is BindingSource binder
-                    && binder?.DataSource != null )
+                if( bindingsource is BindingSource _binder
+                    && _binder?.DataSource != null )
                 {
                     try
                     {
-                        BindingSource.DataSource = binder.DataSource;
+                        BindingSource.DataSource = _binder.DataSource;
                     }
                     catch( Exception ex )
                     {
@@ -113,23 +109,23 @@ namespace BudgetExecution
                 {
                     try
                     {
-                        var list = bindinglist as BindingSource;
-                        var filter = string.Empty;
+                        var _list = bindinglist as BindingSource;
+                        var _filter = string.Empty;
 
-                        foreach( var kvp in dict )
+                        foreach( var _kvp in dict )
                         {
-                            if( Verify.Input( kvp.Key )
-                                && Verify.Ref( kvp.Value ) )
+                            if( Verify.Input( _kvp.Key )
+                                && Verify.Ref( _kvp.Value ) )
                             {
-                                filter += $"{kvp.Key} = {kvp.Value} AND";
+                                _filter += $"{_kvp.Key} = {_kvp.Value} AND";
                             }
                         }
 
-                        if( filter?.Length > 0
-                            && list?.DataSource != null )
+                        if( _filter?.Length > 0
+                            && _list?.DataSource != null )
                         {
-                            BindingSource.DataSource = list?.DataSource;
-                            BindingSource.Filter = filter?.TrimEnd( " AND".ToCharArray() );
+                            BindingSource.DataSource = _list?.DataSource;
+                            BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray() );
                         }
                     }
                     catch( Exception ex )
@@ -277,19 +273,19 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var filter = string.Empty;
+                    var _filter = string.Empty;
 
-                    foreach( var kvp in dict )
+                    foreach( var _kvp in dict )
                     {
-                        if( Verify.Input( kvp.Key )
-                            && kvp.Value != null )
+                        if( Verify.Input( _kvp.Key )
+                            && _kvp.Value != null )
                         {
-                            filter += $"{kvp.Key} = {kvp.Value} AND";
+                            _filter += $"{_kvp.Key} = {_kvp.Value} AND";
                         }
                     }
 
                     BindingSource.DataSource = data?.ToList();
-                    BindingSource.Filter = filter?.TrimEnd( " AND".ToCharArray() );
+                    BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray() );
                 }
                 catch( Exception ex )
                 {
@@ -337,9 +333,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

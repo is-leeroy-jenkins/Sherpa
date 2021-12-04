@@ -2,11 +2,11 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-using System;
-using System.Windows.Forms;
-
 namespace BudgetExecution
 {
+    using System;
+    using System.Windows.Forms;
+
     public interface IBarButton
     {
         /// <summary> Sets the image.

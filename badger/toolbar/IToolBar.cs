@@ -2,12 +2,12 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Windows.Forms;
-
 namespace BudgetExecution
 {
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Windows.Forms;
+
     public interface IToolBar
     {
         /// <summary>
@@ -19,12 +19,12 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the button.
         /// </summary>
-        /// <param name = "imagename" >
+        /// <param name = "imageName" >
         /// The name.
         /// </param>
         /// <returns>
         /// </returns>
-        BarButton CreateButton( string imagename );
+        BarButton CreateButton( string imageName );
 
         /// <summary>
         /// Creates the label.
@@ -56,24 +56,27 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the binding source.
         /// </summary>
-        /// <param name="bindingsource">The bindingsource.</param>
-        void SetDataSource<T1>( T1 bindingsource ) where T1 : IBindingList;
+        /// <param name="bindingSource">The bindingSource.</param>
+        void SetDataSource<T1>( T1 bindingSource ) 
+            where T1 : IBindingList;
 
         /// <summary>
         /// Sets the binding source.
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2">The type of the 2.</typeparam>
-        /// <param name="bindinglist">The bindingsource.</param>
+        /// <param name="bindinglist">The bindingSource.</param>
         /// <param name="dict">The dictionary.</param>
         void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
-            where T1 : IBindingList where T2 : IDictionary<string, object>;
+            where T1 : IBindingList 
+            where T2 : IDictionary<string, object>;
 
         /// <summary>
         /// Sets the binding source.
         /// </summary>
         /// <param name="data">The data.</param>
-        void SetDataSource<T1>( IEnumerable<T1> data ) where T1 : IEnumerable<T1>;
+        void SetDataSource<T1>( IEnumerable<T1> data ) 
+            where T1 : IEnumerable<T1>;
 
         /// <summary>
         /// Sets the binding source.
@@ -94,7 +97,8 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The dictionary.</param>
         void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
-            where T1 : IEnumerable<T1> where T2 : struct;
+            where T1 : IEnumerable<T1> 
+            where T2 : struct;
 
         /// <summary>
         /// Sets the binding source.
@@ -102,7 +106,8 @@ namespace BudgetExecution
         /// <typeparam name="T1">The type of the 1.</typeparam>
         /// <param name="data">The data.</param>
         /// <param name="field">The field.</param>
-        void SetDataSource<T1>( IEnumerable<T1> data, object field = null ) where T1 : IEnumerable<T1>;
+        void SetDataSource<T1>( IEnumerable<T1> data, object field = null ) 
+            where T1 : IEnumerable<T1>;
 
         /// <summary>
         /// Sets the bindings.
@@ -111,7 +116,8 @@ namespace BudgetExecution
         /// <param>The numeric.</param>
         /// <param name = "dict" > </param>
         void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
-            where T1 : IEnumerable<T1> where T2 : IDictionary<string, object>;
+            where T1 : IEnumerable<T1> 
+            where T2 : IDictionary<string, object>;
 
         /// <summary>
         /// Sets the binding source.
@@ -120,7 +126,8 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The filter.</param>
         void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field, object filter = null )
-            where T1 : IEnumerable<T1> where T2 : struct;
+            where T1 : IEnumerable<T1> 
+            where T2 : struct;
 
         ToolStripItemCollection GetItems();
     }
