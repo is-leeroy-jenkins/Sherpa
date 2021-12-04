@@ -48,10 +48,13 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _chart = new ChartFontInfo();
-                    _chart.FontStyle = font.Style;
-                    _chart.FontFamilyTemplate = font.FontFamily;
-                    _chart.Size = font.Size;
+                    var _chart = new ChartFontInfo
+                    {
+                        FontStyle = font.Style,
+                        FontFamilyTemplate = font.FontFamily,
+                        Size = font.Size
+                    };
+
                     return _chart;
                 }
                 catch( Exception ex )
@@ -84,10 +87,13 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _chart = new ChartFontInfo();
-                    _chart.FontStyle = style;
-                    _chart.Facename = family;
-                    _chart.Size = size;
+                    var _chart = new ChartFontInfo
+                    {
+                        FontStyle = style,
+                        Facename = family,
+                        Size = size
+                    };
+
                     return _chart;
                 }
                 catch( Exception ex )
@@ -135,10 +141,13 @@ namespace BudgetExecution
         {
             try
             {
-                var _style = new ChartLineInfo();
-                _style.Alignment = PenAlignment.Center;
-                _style.Width = width;
-                _style.Color = color;
+                var _style = new ChartLineInfo
+                {
+                    Alignment = PenAlignment.Center,
+                    Width = width,
+                    Color = color
+                };
+
                 return _style;
             }
             catch( Exception ex )

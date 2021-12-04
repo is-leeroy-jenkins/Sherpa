@@ -119,11 +119,13 @@ namespace BudgetExecution
         {
             try
             {
-                ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle();
-                ColumnHeadersDefaultCellStyle.Font = new Font( "Roboto", 11, FontStyle.Bold );
-                ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
-                ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
+                ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
+                {
+                    Font = new Font( "Roboto", 11, FontStyle.Bold ),
+                    Alignment = DataGridViewContentAlignment.MiddleCenter,
+                    ForeColor = Color.Black,
+                    BackColor = Color.SteelBlue
+                };
             }
             catch( Exception ex )
             {
@@ -138,18 +140,22 @@ namespace BudgetExecution
         {
             try
             {
-                RowHeadersDefaultCellStyle = new DataGridViewCellStyle();
-                RowHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter;
-                RowHeadersDefaultCellStyle.ForeColor = Color.Black;
-                RowHeadersDefaultCellStyle.Font = new Font( "Roboto", 10, FontStyle.Bold );
-                RowHeadersDefaultCellStyle.BackColor = ColorConfig.ForeGray;
-                RowsDefaultCellStyle = new DataGridViewCellStyle();
-                RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter;
-                RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-                RowsDefaultCellStyle.SelectionBackColor = SystemColors.ControlLight;
-                RowsDefaultCellStyle.ForeColor = Color.Black;
-                RowsDefaultCellStyle.Font = new Font( "Roboto", 10 );
-                RowsDefaultCellStyle.BackColor = Color.LightSteelBlue;
+                RowHeadersDefaultCellStyle = new DataGridViewCellStyle
+                {
+                    Alignment = DataGridViewContentAlignment.BottomCenter,
+                    ForeColor = Color.Black,
+                    Font = new Font( "Roboto", 10, FontStyle.Bold ),
+                    BackColor = ColorConfig.ForeGray
+                };
+                RowsDefaultCellStyle = new DataGridViewCellStyle
+                {
+                    Alignment = DataGridViewContentAlignment.BottomCenter,
+                    SelectionForeColor = Color.Black,
+                    SelectionBackColor = SystemColors.ControlLight,
+                    ForeColor = Color.Black,
+                    Font = new Font( "Roboto", 10 ),
+                    BackColor = Color.LightSteelBlue
+                };
             }
             catch( Exception ex )
             {

@@ -232,13 +232,15 @@ namespace BudgetExecution
             try
             {
                 TextImageRelation = TextImageRelation.ImageBeforeText;
-                TextStyle = new TextStyle();
-                TextStyle.TextLineAlignment = StringAlignment.Center;
-                TextStyle.TextAlignment = StringAlignment.Center;
-                TextStyle.Hover = ColorConfig.GetColor( format.HoverColor );
-                TextStyle.Enabled = ColorConfig.GetColor( format.EnabledColor );
-                TextStyle.Disabled = ColorConfig.GetColor( format.DisabledColor );
-                TextStyle.Pressed = ColorConfig.GetColor( format.PressedColor );
+                TextStyle = new TextStyle
+                {
+                    TextLineAlignment = StringAlignment.Center,
+                    TextAlignment = StringAlignment.Center,
+                    Hover = ColorConfig.GetColor( format.HoverColor ),
+                    Enabled = ColorConfig.GetColor( format.EnabledColor ),
+                    Disabled = ColorConfig.GetColor( format.DisabledColor ),
+                    Pressed = ColorConfig.GetColor( format.PressedColor )
+                };
             }
             catch( Exception ex )
             {

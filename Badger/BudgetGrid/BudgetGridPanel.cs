@@ -192,8 +192,10 @@ namespace BudgetExecution
 
                 foreach( DataColumn _column in _dataTable.Columns )
                 {
-                    var _gridColumn = new GridBoundColumn();
-                    _gridColumn.HeaderText = _column.Caption;
+                    var _gridColumn = new GridBoundColumn
+                    {
+                        HeaderText = _column.Caption
+                    };
                     _gridColumn.StyleInfo.Font.Bold = true;
                     _gridColumn.StyleInfo.BackColor = ColorConfig.FormDarkBackColor;
                     _gridColumn.StyleInfo.TextColor = Color.White;

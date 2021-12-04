@@ -236,14 +236,9 @@ namespace BudgetExecution
             {
                 var _names = Enum.GetNames( typeof( ImageFormat ) );
 
-                if( _names.Contains( extension ) )
-                {
-                    Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), extension );
-                }
-                else
-                {
-                    Format = ImageFormat.PNG;
-                }
+                Format = _names.Contains( extension )
+                    ? (ImageFormat)Enum.Parse( typeof( ImageFormat ), extension )
+                    : ImageFormat.PNG;
             }
             catch( Exception ex )
             {
