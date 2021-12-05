@@ -274,7 +274,6 @@ C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Qlik.Sense.JsonRpc.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\QlikTools.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\RestSharp.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.ValueTuple.xml
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Chart.BudgetChartControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Control.ControlBase.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Control.ControlData.resources

@@ -115,11 +115,6 @@ namespace BudgetExecution
         DivisionExecution,
 
         /// <summary>
-        /// Identifies the Divisions
-        /// </summary>
-        Divisions,
-
-        /// <summary>
         /// The deobligations
         /// </summary>
         Deobligations,
