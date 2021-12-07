@@ -55,6 +55,14 @@ namespace BudgetExecution
         public FileInfo FileInfo { get; set; }
 
         /// <summary>
+        /// Gets or sets the extension.
+        /// </summary>
+        /// <value>
+        /// The extension.
+        /// </value>
+        public string Extension { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether this instance has parent.
         /// </summary>
         /// <value>
@@ -66,8 +74,7 @@ namespace BudgetExecution
         /// Gets or sets the creation date.
         /// </summary>
         /// <value>
-        /// The creation date.
-        /// </value>
+        /// The creation date.p/// </value>
         public DateTime CreationDate { get; set; }
 
         /// <summary>
@@ -281,7 +288,7 @@ namespace BudgetExecution
                 return default( FileInfo );
             }
         }
-
+        
         /// <summary>
         /// Determines whether [has parent folder].
         /// </summary>
