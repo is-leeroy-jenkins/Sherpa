@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.Unit" />
-    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
     public abstract class KeyBase : Unit
     {
         /// <summary>
@@ -25,95 +25,6 @@ namespace BudgetExecution
         /// The index
         /// </summary>
         public int Index { get; set; }
-
-        /// <summary>
-        /// Sets the name.
-        /// </summary>
-        /// <param name="columnName">Name of the column.</param>
-        public override void SetName( string columnName )
-        {
-            try
-            {
-                Name = Verify.Input( columnName )
-                    ? columnName
-                    : default( string );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the name.
-        /// </summary>
-        /// <param name="dataRow">The Data row.</param>
-        private protected void SetName( DataRow dataRow )
-        {
-            if( dataRow != null )
-            {
-                try
-                {
-                    var _colName = dataRow[ 0 ].ToString();
-                    var _names = dataRow?.Table?.GetColumnNames();
-
-                    Name = Verify.Input( _colName ) 
-                        && _names?.Contains( _colName ) == true
-                            ? _colName
-                            : PrimaryKey.NS.ToString();
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the name.
-        /// </summary>
-        /// <param name="field">The field.</param>
-        private protected void SetName( PrimaryKey field )
-        {
-            if( Validate.Field( field ) )
-            {
-                try
-                {
-                    Name = Validate.Field( field )
-                        ? field.ToString()
-                        : default( string );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the name.
-        /// </summary>
-        /// <param name="dataRow">The Data row.</param>
-        /// <param name="index">The index.</param>
-        private protected void SetName( DataRow dataRow, PrimaryKey index )
-        {
-            if( Verify.Input( dataRow?.ItemArray )
-                && Validate.Field( index ) )
-            {
-                try
-                {
-                    var _names = dataRow?.Table?.GetColumnNames();
-
-                    Name = _names?.Contains( index.ToString() ) == true
-                        ? index.ToString()
-                        : PrimaryKey.NS.ToString();
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
 
         /// <summary>
         /// Sets the primary key.

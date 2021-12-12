@@ -24,25 +24,6 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the columnName.
         /// </summary>
-        /// <param name = "columnName" > </param>
-        public override void SetName( string columnName )
-        {
-            try
-            {
-                Name = Verify.Input( columnName )
-                    && ( Enum.GetNames( typeof( Field ) )?.Contains( columnName ) == true )
-                        ? columnName
-                        : default( string );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the columnName.
-        /// </summary>
         /// <param name = "dataRow" > </param>
         /// <param name = "columnName" > </param>
         private protected void SetName( DataRow dataRow, string columnName )

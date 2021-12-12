@@ -35,28 +35,6 @@ namespace BudgetExecution
         public  Numeric Numeric { get; set; } = Numeric.Amount;
 
         /// <summary>
-        /// Gets the columnName.
-        /// </summary>
-        /// <param name="columnName"></param>
-        public override void SetName( string columnName )
-        {
-            if( Verify.Input( columnName )
-                && Enum.GetNames( typeof( Numeric ) )?.Contains( columnName ) == true )
-            {
-                try
-                {
-                    Name = Verify.Input( columnName )
-                        ? columnName
-                        : default( string );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
         /// Sets the name.
         /// </summary>
         /// <param name="dataRow">The Data row.</param>

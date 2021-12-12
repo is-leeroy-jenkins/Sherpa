@@ -31,60 +31,6 @@ namespace BudgetExecution
         public string Value { get; set; }
 
         /// <summary>
-        /// Sets the name.
-        /// </summary>
-        /// <param name="columnName">Name of the column.</param>
-        public virtual void SetName( string columnName )
-        {
-            try
-            {
-                Name = Verify.Input( columnName )
-                    ? columnName
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the Data.
-        /// </summary>
-        /// <param name="data">The Data.</param>
-        public virtual void SetData( object data )
-        {
-            try
-            {
-                Data = Verify.Input( data?.ToString() )
-                    ? data
-                    : default( object );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the value.
-        /// </summary>
-        /// <param name="data">The Data.</param>
-        public virtual void SetValue( object data )
-        {
-            try
-            {
-                Value = Verify.Input( data?.ToString() )
-                    ? data?.ToString()
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Determines whether the specified unit is match.
         /// </summary>
         /// <param name="unit">The unit.</param>

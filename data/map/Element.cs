@@ -40,7 +40,6 @@ namespace BudgetExecution
         /// <param name="kvp">The KVP.</param>
         public Element( KeyValuePair<string, object> kvp )
         {
-            SetName( kvp.Key );
             SetField( Name );
             SetValue( kvp.Value?.ToString() );
         }
@@ -53,9 +52,7 @@ namespace BudgetExecution
         public Element( string name, string value = "" )
         {
             SetField( name );
-            SetName( name );
             SetValue( value );
-            SetData( name );
         }
 
         /// <summary>
@@ -81,7 +78,6 @@ namespace BudgetExecution
             SetField( field );
             SetName( Field );
             SetValue( value );
-            SetData( value );
         }
 
         /// <summary>
@@ -105,7 +101,6 @@ namespace BudgetExecution
         public Element( DataRow dataRow, DataColumn dataColumn )
         {
             SetField( dataColumn.ColumnName );
-            SetName( dataColumn.ColumnName );
             SetValue( dataRow, dataRow[ dataColumn ].ToString() );
             SetData( dataRow, dataColumn );
         }
