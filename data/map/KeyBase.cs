@@ -32,17 +32,20 @@ namespace BudgetExecution
         /// <param name="keyName">Name of the key.</param>
         private protected void SetPrimaryKey( string keyName )
         {
-            try
+            if( Verify.Input( keyName ) )
             {
-                var _key = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), keyName );
+                try
+                {
+                    var _key = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), keyName );
 
-                PrimaryKey = Enum.IsDefined( typeof( PrimaryKey ), _key )
-                    ? PrimaryKey
-                    : PrimaryKey.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
+                    PrimaryKey = Enum.IsDefined( typeof( PrimaryKey ), _key )
+                        ? PrimaryKey
+                        : PrimaryKey.NS;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
@@ -106,12 +109,12 @@ namespace BudgetExecution
         /// <param name="keyName">Name of the key.</param>
         private protected void SetPrimaryKey( DataRow dataRow, PrimaryKey keyName )
         {
-            if( Verify.Input( dataRow?.ItemArray )
+            if( Verify.Row( dataRow )
                 && Validate.Field( keyName ) )
             {
                 try
                 {
-                    var _names = dataRow?.Table
+                    var _names = dataRow.Table
                         ?.GetColumnNames();
 
                     PrimaryKey = _names?.Contains( keyName.ToString() ) == true
