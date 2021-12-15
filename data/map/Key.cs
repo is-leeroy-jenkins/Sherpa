@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <param name="value">The value.</param>
         public Key( string name, int value = 0 )
         {
-            SetPrimaryKey( name );
+            PrimaryKey = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), name );
             SetIndex( value );
             Data = Index.ToString();
         }
