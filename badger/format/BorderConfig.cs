@@ -21,30 +21,23 @@ namespace BudgetExecution
         /// <summary>
         /// The fixed
         /// </summary>
-        public static FormBorderStyle Fixed = FormBorderStyle.FixedSingle;
+        public  FormBorderStyle Fixed { get; set; } = FormBorderStyle.FixedSingle;
 
         /// <summary>
         /// The none
         /// </summary>
-        public static FormBorderStyle None = FormBorderStyle.None;
+        public static FormBorderStyle None { get; set; } = FormBorderStyle.None;
 
         /// <summary>
         /// The sizeable
         /// </summary>
-        public static FormBorderStyle Sizeable = FormBorderStyle.Sizable;
+        public static FormBorderStyle Sizeable { get; set; } = FormBorderStyle.Sizable;
 
         /// <summary>
         /// The thin
         /// </summary>
-        public static readonly int Thin = 1;
-        
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BorderConfig"/> class.
-        /// </summary>
-        public BorderConfig()
-        {
-        }
-        
+        public static int Thin { get; set; } = 1;
+
         /// <summary>
         /// Gets or sets a value indicating whether this instance is hoverable.
         /// </summary>
@@ -60,7 +53,14 @@ namespace BudgetExecution
         ///   <c>true</c> if this instance has color; otherwise, <c>false</c>.
         /// </value>
         public bool HasColor { get; set; } = false;
-        
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BorderConfig"/> class.
+        /// </summary>
+        public BorderConfig()
+        {
+        }
+      
         /// <summary>
         /// Gets the thickness.
         /// </summary>
