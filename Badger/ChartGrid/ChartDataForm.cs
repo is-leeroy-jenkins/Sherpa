@@ -70,11 +70,11 @@ namespace BudgetExecution
         /// <summary>
         /// Pascalizes the headers.
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="dataRows"></param>
         /// <param name="gridColumns"></param>
-        public void PascalizeHeaders( IEnumerable<DataRow> data, GridBoundColumnsCollection gridColumns )
+        public void PascalizeHeaders( IEnumerable<DataRow> dataRows, GridBoundColumnsCollection gridColumns )
         {
-            ( (IBudgetGrid)ChartDataControl ).PascalizeHeaders( data, gridColumns );
+            ( (IBudgetGrid)ChartDataControl ).PascalizeHeaders( dataRows, gridColumns );
         }
 
         /// <summary>

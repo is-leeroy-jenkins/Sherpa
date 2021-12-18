@@ -25,6 +25,46 @@ namespace BudgetExecution
     public class LayoutPanel : VisualPanel, ILayout
     {
         /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
+        public Field Field { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public ToolTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets the children.
+        /// </summary>
+        /// <value>
+        /// The children.
+        /// </value>
+        public IEnumerable<Control> Children { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="LayoutPanel" />
         /// class.
@@ -121,46 +161,6 @@ namespace BudgetExecution
         }
         
         /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
-        public BindingSource BindingSource { get; set; }
-
-        /// <summary>
-        /// Gets or sets the field.
-        /// </summary>
-        /// <value>
-        /// The field.
-        /// </value>
-        public Field Field { get; set; }
-
-        /// <summary>
-        /// Gets or sets the filter.
-        /// </summary>
-        /// <value>
-        /// The filter.
-        /// </value>
-        public IDictionary<string, object> DataFilter { get; set; }
-
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
-        public ToolTip ToolTip { get; set; }
-
-        /// <summary>
-        /// Gets or sets the children.
-        /// </summary>
-        /// <value>
-        /// The children.
-        /// </value>
-        public IEnumerable<Control> Children { get; set; }
-        
-        /// <summary>
         /// Sets the color of the border.
         /// </summary>
         /// <param name="color">The color.</param>
@@ -233,14 +233,14 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var list = new List<Control>
+                    var _list = new List<Control>
                     {
                         item
                     };
 
-                    return list?.Any() == true
-                        ? list
-                        : default;
+                    return _list?.Any() == true
+                        ? _list
+                        : default( List<Control> );
                 }
                 catch( Exception ex )
                 {
@@ -248,7 +248,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default;
+            return default( IEnumerable<Control> );
         }
 
         /// <summary>
@@ -299,12 +299,12 @@ namespace BudgetExecution
             {
                 return Children?.Any() == true
                     ? Children
-                    : default;
+                    : default( IEnumerable<Control> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IEnumerable<Control> );
             }
         }
 

@@ -338,12 +338,12 @@ namespace BudgetExecution
             {
                 return Style.DisplayText
                     ? Style
-                    : default;
+                    : default( IChartConfig );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IChartConfig );
             }
         }
     }

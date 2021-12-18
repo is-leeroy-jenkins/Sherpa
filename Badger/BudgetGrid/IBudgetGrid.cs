@@ -45,9 +45,9 @@ namespace BudgetExecution
         /// <summary>
         /// Pascalizes the headers.
         /// </summary>
-        /// <param name="data">The data.</param>
+        /// <param name="dataRows">The data.</param>
         /// <param name="gridColumns">The grid columns.</param>
-        void PascalizeHeaders( IEnumerable<DataRow> data, GridBoundColumnsCollection gridColumns );
+        void PascalizeHeaders( IEnumerable<DataRow> dataRows, GridBoundColumnsCollection gridColumns );
 
         /// <summary>
         /// Gets the filter values.

@@ -147,6 +147,7 @@ namespace BudgetExecution
                     Font = new Font( "Roboto", 10, FontStyle.Bold ),
                     BackColor = ColorConfig.ForeGray
                 };
+
                 RowsDefaultCellStyle = new DataGridViewCellStyle
                 {
                     Alignment = DataGridViewContentAlignment.BottomCenter,
@@ -275,11 +276,11 @@ namespace BudgetExecution
                     catch( Exception ex )
                     {
                         Fail( ex );
-                        return default;
+                        return default( string );
                     }
                 }
 
-                return default;
+                return default( string );
             }
         }
 
@@ -293,12 +294,12 @@ namespace BudgetExecution
             {
                 using var _message = new Message( "Not Yet Implemented." );
                 _message?.ShowDialog();
-                return default;
+                return default( DataRow );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( DataRow );
             }
         }
         

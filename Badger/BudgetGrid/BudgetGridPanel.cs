@@ -181,9 +181,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the grid bound data columns.
+        /// Sets the grid bound dataRows columns.
         /// </summary>
-        /// <param name="data">The data.</param>
+        /// <param name="data">The dataRows.</param>
         public void SetGridBoundDataColumns( IEnumerable<DataRow> data )
         {
             if( data.Any() )
@@ -196,6 +196,7 @@ namespace BudgetExecution
                     {
                         HeaderText = _column.Caption
                     };
+
                     _gridColumn.StyleInfo.Font.Bold = true;
                     _gridColumn.StyleInfo.BackColor = ColorConfig.FormDarkBackColor;
                     _gridColumn.StyleInfo.TextColor = Color.White;
@@ -210,9 +211,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the data source.
+        /// Sets the dataRows source.
         /// </summary>
-        /// <param name="data">The data.</param>
+        /// <param name="data">The dataRows.</param>
         /// <param name="dict"></param>
         public void SetBindingSource( IEnumerable<DataRow> data, IDictionary<string, object> dict = null )
         {
@@ -306,16 +307,16 @@ namespace BudgetExecution
         /// <summary>
         /// Pascalizes the headers.
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="dataRows"></param>
         /// <param name="gridColumns"></param>
-        public void PascalizeHeaders( IEnumerable<DataRow> data, GridBoundColumnsCollection gridColumns )
+        public void PascalizeHeaders( IEnumerable<DataRow> dataRows, GridBoundColumnsCollection gridColumns )
         {
-            if( data.Any()
+            if( dataRows.Any()
                 && gridColumns.Count > 0 )
             {
                 try
                 {
-                    var _dataTable = data.CopyToDataTable();
+                    var _dataTable = dataRows.CopyToDataTable();
                     var _columnNames = _dataTable.GetColumnNames();
 
                     for( var i = 0; i < gridColumns?.Count; i++ )
@@ -356,16 +357,16 @@ namespace BudgetExecution
                     catch( Exception ex )
                     {
                         Fail( ex );
-                        return default;
+                        return default( string );
                     }
                 }
 
-                return default;
+                return default( string );
             }
         }
 
         /// <summary>
-        /// Gets the current data row.
+        /// Gets the current dataRows row.
         /// </summary>
         /// <returns></returns>
         public DataRow GetCurrentRow()
@@ -381,17 +382,17 @@ namespace BudgetExecution
                     if( _index > -1 )
                     {
                         var datarow = _dataView[ _index ].Row;
-                        return datarow ?? default;
+                        return datarow ?? default( DataRow );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DataRow );
                 }
             }
 
-            return default;
+            return default( DataRow );
         }
 
         /// <summary>
@@ -446,7 +447,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The
         /// <see cref="MouseEventArgs" />
-        /// instance containing the event data.</param>
+        /// instance containing the event dataRows.</param>
         public void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right
@@ -476,7 +477,7 @@ namespace BudgetExecution
         /// Called when [current changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event dataRows.</param>
         [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
         public void OnCurrentChanged( object sender, EventArgs e )
         {
@@ -494,7 +495,7 @@ namespace BudgetExecution
         /// Models the on selection changed.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="GridSelectionChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="GridSelectionChangedEventArgs"/> instance containing the event dataRows.</param>
         public void ModelOnSelectionChanged( object sender, GridSelectionChangedEventArgs e )
         {
             try

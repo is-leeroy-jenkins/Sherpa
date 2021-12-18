@@ -13,6 +13,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    /// <seealso cref="BudgetExecution.ControlConfig" />
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -22,80 +23,62 @@ namespace BudgetExecution
     public class FormConfig : ControlConfig
     {
         /// <summary>
-        /// Gets the minimum window.
+        /// Gets or sets the state of the minimized.
         /// </summary>
         /// <value>
-        /// The minimum window.
+        /// The state of the minimized.
         /// </value>
-        public static FormWindowState MinimizedState = FormWindowState.Minimized;
+        public FormWindowState MinimizedState { get; set; } = FormWindowState.Minimized;
 
         /// <summary>
-        /// Gets the normal window.
+        /// Gets or sets the state of the normal.
         /// </summary>
         /// <value>
-        /// The normal window.
+        /// The state of the normal.
         /// </value>
-        public static FormWindowState NormalState = FormWindowState.Normal;
+        public FormWindowState NormalState { get; set; } = FormWindowState.Normal;
 
         /// <summary>
-        /// Gets the maximum window.
+        /// Gets or sets the state of the maximized.
         /// </summary>
         /// <value>
-        /// The maximum window.
+        /// The state of the maximized.
         /// </value>
-        public static FormWindowState MaximizedState = FormWindowState.Maximized;
+        public FormWindowState MaximizedState { get; set; } = FormWindowState.Maximized;
 
         /// <summary>
-        /// Gets the center start.
+        /// Gets or sets the form centered.
         /// </summary>
         /// <value>
-        /// The center start.
+        /// The form centered.
         /// </value>
-        public static FormStartPosition FormCentered = FormStartPosition.CenterScreen;
+        public FormStartPosition FormCentered { get; set; } = FormStartPosition.CenterScreen;
 
         /// <summary>
-        /// The default location
+        /// Gets or sets the default location.
         /// </summary>
-        public static FormStartPosition DefaultLocation = FormStartPosition.WindowsDefaultLocation;
+        /// <value>
+        /// The default location.
+        /// </value>
+        public FormStartPosition DefaultLocation { get; set; } = FormStartPosition.WindowsDefaultLocation;
 
         /// <summary>
-        /// The form
+        /// Gets or sets the form.
         /// </summary>
-        private protected static MetroForm Form;
-        
-        /// <summary>
-        /// Initializes a new instance of the <see cref = "FormConfig"/> class.
-        /// </summary>
-        public FormConfig()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref = "FormConfig"/> class.
-        /// </summary>
-        /// <param name = "form" >
+        /// <value>
         /// The form.
-        /// </param>
-        public FormConfig( MetroForm form )
-        {
-            Form = form;
-        }
-        
-        /// <summary>
-        /// Gets the height of the caption.
-        /// </summary>
-        /// <value>
-        /// The height of the caption.
         /// </value>
-        public static int CaptionHeight = 26;
+        public MetroForm Form { get; set; }
 
         /// <summary>
-        /// Gets or sets the start position.
+        /// The caption height
         /// </summary>
-        /// <value>
-        /// The start position.
-        /// </value>
-        public static FormStartPosition StartPosition = FormStartPosition.CenterScreen;
+        public int CaptionHeight = 26;
+
+        /// <summary>
+        /// The start position
+        /// </summary>
+        public FormStartPosition StartPosition = FormStartPosition.CenterScreen;
 
         /// <summary>
         /// Gets or sets the tag.
@@ -125,14 +108,7 @@ namespace BudgetExecution
         /// Gets or sets a value indicating whether this instance is visible.
         /// </summary>
         /// <value>
-        /// <c>
-        /// true
-        /// </c>
-        /// if this instance is visible; otherwise,
-        /// <c>
-        /// false
-        /// </c>
-        /// .
+        ///   <c>true</c> if this instance is visible; otherwise, <c>false</c>.
         /// </value>
         public virtual bool IsVisible { get; set; } = true;
 
@@ -140,25 +116,31 @@ namespace BudgetExecution
         /// Gets or sets a value indicating whether this instance is enabled.
         /// </summary>
         /// <value>
-        /// <c>
-        /// true
-        /// </c>
-        /// if this instance is enabled; otherwise,
-        /// <c>
-        /// false
-        /// </c>
-        /// .
+        ///   <c>true</c> if this instance is enabled; otherwise, <c>false</c>.
         /// </value>
         public virtual bool IsEnabled { get; set; } = true;
-        
+
         /// <summary>
-        /// Sets the field.
+        /// Initializes a new instance of the <see cref="FormConfig"/> class.
         /// </summary>
-        /// <param name = "field" >
-        /// The field.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        public FormConfig()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FormConfig"/> class.
+        /// </summary>
+        /// <param name="form">The form.</param>
+        public FormConfig( MetroForm form )
+        {
+            Form = form;
+        }
+
+        /// <summary>
+        /// Gets the field.
+        /// </summary>
+        /// <param name="field">The field.</param>
+        /// <returns></returns>
         public static Field GetField( Field field )
         {
             if( Validate.Field( field ) )
@@ -170,26 +152,17 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( Field );
                 }
             }
 
-            return default;
+            return default( Field );
         }
 
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
-        /// <param name = "disposing" >
-        /// <c>
-        /// true
-        /// </c>
-        /// to release both managed and unmanaged resources;
-        /// <c>
-        /// false
-        /// </c>
-        /// to release only unmanaged resources.
-        /// </param>
+        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
         protected void Dispose( bool disposing )
         {
             if( disposing )
@@ -208,8 +181,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or
-        /// resetting unmanaged resources.
+        /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
         public void Dispose()
         {

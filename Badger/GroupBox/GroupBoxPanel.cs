@@ -22,6 +22,31 @@ namespace BudgetExecution
     public class GroupBoxPanel : GroupBoxData, IGroupBox
     {
         /// <summary>
+        /// Gets or sets the header text.
+        /// </summary>
+        /// <value>
+        /// The header text.
+        /// </value>
+        public string HeaderText { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tip.
+        /// </summary>
+        /// <value>
+        /// The tip.
+        /// </value>
+        public ToolTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="GroupBoxPanel"/> is separator.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if separator; otherwise, <c>false</c>.
+        /// </value>
+        [ DefaultValue( true ) ]
+        public bool Separate { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="GroupBoxPanel" />
         /// class.
@@ -143,35 +168,6 @@ namespace BudgetExecution
         {
             Text = title;
         }
-
-        // **********************************************************************************************************************
-        // *************************************************   PROPERTIES   *****************************************************
-        // **********************************************************************************************************************
-
-        /// <summary>
-        /// Gets or sets the header text.
-        /// </summary>
-        /// <value>
-        /// The header text.
-        /// </value>
-        public string HeaderText { get; set; }
-
-        /// <summary>
-        /// Gets or sets the tip.
-        /// </summary>
-        /// <value>
-        /// The tip.
-        /// </value>
-        public ToolTip ToolTip { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="GroupBoxPanel"/> is separator.
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if separator; otherwise, <c>false</c>.
-        /// </value>
-        [ DefaultValue( true ) ]
-        public bool Separate { get; set; }
         
         /// <summary>
         /// Sets the color of the border.
@@ -371,16 +367,16 @@ namespace BudgetExecution
 
                     return children.Any()
                         ? children
-                        : default;
+                        : default( List<Control> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<Control> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<Control> );
         }
 
         /// <summary>

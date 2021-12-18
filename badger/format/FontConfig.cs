@@ -46,19 +46,19 @@ namespace BudgetExecution
         public static Font FontSizeLarge { get; set; } = new Font( "Roboto", 12 );
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FontConfig"/> class.
-        /// </summary>
-        public FontConfig()
-        {
-        }
-
-        /// <summary>
         /// Gets or sets a value indicating whether this instance is disposed.
         /// </summary>
         /// <value>
         ///   <c>true</c> if this instance is disposed; otherwise, <c>false</c>.
         /// </value>
         public bool IsDisposed { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FontConfig"/> class.
+        /// </summary>
+        public FontConfig()
+        {
+        }
 
         /// <summary>
         /// Gets the size of the font.
@@ -76,7 +76,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( int );
             }
         }
 
@@ -119,7 +119,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( Font );
             }
         }
 
@@ -134,12 +134,12 @@ namespace BudgetExecution
             {
                 return Verify.Input( font?.FontFamily?.Name )
                     ? font
-                    : default;
+                    : default( Font );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( Font );
             }
         }
 

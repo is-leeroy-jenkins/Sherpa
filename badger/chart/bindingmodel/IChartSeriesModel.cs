@@ -15,19 +15,19 @@ namespace BudgetExecution
         int Count { get; set; }
         
         /// <summary> Gets the empty. </summary>
-        /// <param name = "xindex" > The xindex. </param>
+        /// <param name = "xIndex" > The xIndex. </param>
         /// <returns> </returns>
-        bool GetEmpty( int xindex );
+        bool GetEmpty( int xIndex );
 
         /// <summary> Gets the x. </summary>
-        /// <param name = "xindex" > The xindex. </param>
+        /// <param name = "xIndex" > The xIndex. </param>
         /// <returns> </returns>
-        double GetX( int xindex );
+        double GetX( int xIndex );
 
         /// <summary> Gets the y. </summary>
-        /// <param name = "xindex" > The xindex. </param>
+        /// <param name = "xIndex" > The xIndex. </param>
         /// <returns> </returns>
-        double GetY( int xindex );
+        double GetY( int xIndex );
         
         /// <summary> Occurs when [changed]. </summary>
         event ListChangedEventHandler Changed;

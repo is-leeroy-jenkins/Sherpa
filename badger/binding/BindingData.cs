@@ -12,8 +12,10 @@ namespace BudgetExecution
     using System.Threading;
     using System.Windows.Forms;
 
-    /// <summary> </summary>
-    /// <seealso cref = "BudgetExecution.BindingBase"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.BindingBase" />
     public class BindingData : BindingBase
     {
         /// <summary>
@@ -72,12 +74,18 @@ namespace BudgetExecution
         /// </value>
         public override IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary> Gets or sets the numeric. </summary>
-        /// <value> The numeric. </value>
+        /// <summary>
+        /// Gets or sets the numeric.
+        /// </summary>
+        /// <value>
+        /// The numeric.
+        /// </value>
         public Numeric Numeric { get; set; }
 
-        /// <summary> Sets the field. </summary>
-        /// <param name = "field" > The field. </param>
+        /// <summary>
+        /// Sets the field.
+        /// </summary>
+        /// <param name="field">The field.</param>
         public void SetField( Field field )
         {
             try
@@ -90,14 +98,16 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the binding source. </summary>
-        /// <typeparam name = "T1" > The type of the 1. </typeparam>
-        /// <param name = "bindingsource" > The bindingsource. </param>
-        public void SetDataSource<T1>( T1 bindingsource ) where T1 : IBindingList
+        /// <summary>
+        /// Sets the data source.
+        /// </summary>
+        /// <typeparam name="T1">The type of the 1.</typeparam>
+        /// <param name="bindingSource">The binding source.</param>
+        public void SetDataSource<T1>( T1 bindingSource ) where T1 : IBindingList
         {
             try
             {
-                if( bindingsource is BindingSource _binder
+                if( bindingSource is BindingSource _binder
                     && _binder?.DataSource != null )
                 {
                     try
@@ -116,18 +126,20 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the binding source. </summary>
-        /// <typeparam name = "T1" > The type of the 1. </typeparam>
-        /// <typeparam name = "T2" > The type of the 2. </typeparam>
-        /// <param name = "bindinglist" > The bindingsource. </param>
-        /// <param name = "dict" > The dictionary. </param>
-        public void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
+        /// <summary>
+        /// Sets the data source.
+        /// </summary>
+        /// <typeparam name="T1">The type of the 1.</typeparam>
+        /// <typeparam name="T2">The type of the 2.</typeparam>
+        /// <param name="bindingList">The binding list.</param>
+        /// <param name="dict">The dictionary.</param>
+        public void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
             where T1 : IBindingList where T2 : IDictionary<string, object>
         {
             try
             {
                 if( dict?.Any() == true
-                    && bindinglist is BindingSource _list )
+                    && bindingList is BindingSource _list )
                 {
                     try
                     {
@@ -161,8 +173,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the binding source. </summary>
-        /// <param name = "data" > The data. </param>
+        /// <summary>
+        /// Sets the data source.
+        /// </summary>
+        /// <param name="data">The data.</param>
         public void SetDataSource( IEnumerable<object> data )
         {
             if( Verify.Input( data ) )
@@ -178,10 +192,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the binding source. </summary>
-        /// <typeparam name = "T1" > The type of the 1. </typeparam>
-        /// <param name = "data" > The data. </param>
-        /// <param name = "dict" > The dictionary. </param>
+        /// <summary>
+        /// Sets the data source.
+        /// </summary>
+        /// <typeparam name="T1">The type of the 1.</typeparam>
+        /// <param name="data">The data.</param>
+        /// <param name="dict">The dictionary.</param>
         public void SetDataSource<T1>( IEnumerable<T1> data, IDictionary<string, object> dict )
             where T1 : IEnumerable<DataRow>
         {
@@ -211,13 +227,15 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the binding source. </summary>
-        /// <typeparam name = "T1" > The type of the 1. </typeparam>
-        /// <typeparam name = "T2" > The type of the 2. </typeparam>
-        /// <typeparam name = "T3" > The type of the 3. </typeparam>
-        /// <param name = "data" > The data. </param>
-        /// <param name = "field" > The field. </param>
-        /// <param name = "filter" > The dictionary. </param>
+        /// <summary>
+        /// Sets the data source.
+        /// </summary>
+        /// <typeparam name="T1">The type of the 1.</typeparam>
+        /// <typeparam name="T2">The type of the 2.</typeparam>
+        /// <typeparam name="T3">The type of the 3.</typeparam>
+        /// <param name="data">The data.</param>
+        /// <param name="field">The field.</param>
+        /// <param name="filter">The filter.</param>
         public void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
             where T1 : IEnumerable<DataRow> where T2 : struct
         {
@@ -245,10 +263,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the binding source. </summary>
-        /// <typeparam name = "T1" > The type of the 1. </typeparam>
-        /// <param name = "data" > The data. </param>
-        /// <param name = "field" > The field. </param>
+        /// <summary>
+        /// Sets the data source.
+        /// </summary>
+        /// <typeparam name="T1">The type of the 1.</typeparam>
+        /// <param name="data">The data.</param>
+        /// <param name="field">The field.</param>
         public void SetDataSource<T1>( IEnumerable<T1> data, object field = null )
             where T1 : IEnumerable<DataRow>
         {
@@ -273,11 +293,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the bindings. </summary>
-        /// <typeparam name = "T1" > The type of the 1. </typeparam>
-        /// <typeparam name = "T2" > The type of the 2. </typeparam>
-        /// <param name = "data" > The data. </param>
-        /// <param name = "dict" > The dictionary. </param>
+        /// <summary>
+        /// Sets the data source.
+        /// </summary>
+        /// <typeparam name="T1">The type of the 1.</typeparam>
+        /// <typeparam name="T2">The type of the 2.</typeparam>
+        /// <param name="data">The data.</param>
+        /// <param name="dict">The dictionary.</param>
         public void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
             where T1 : IEnumerable<DataRow> where T2 : IDictionary<string, object>
         {
@@ -307,12 +329,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the binding source. </summary>
-        /// <typeparam name = "T1" > The type of the 1. </typeparam>
-        /// <typeparam name = "T2" > The type of the 2. </typeparam>
-        /// <param name = "data" > The data. </param>
-        /// <param name = "field" > The field. </param>
-        /// <param name = "filter" > The filter. </param>
+        /// <summary>
+        /// Sets the data source.
+        /// </summary>
+        /// <typeparam name="T1">The type of the 1.</typeparam>
+        /// <typeparam name="T2">The type of the 2.</typeparam>
+        /// <param name="data">The data.</param>
+        /// <param name="field">The field.</param>
+        /// <param name="filter">The filter.</param>
         public void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field, object filter = null )
             where T1 : IEnumerable<DataRow> where T2 : struct
         {
@@ -352,60 +376,57 @@ namespace BudgetExecution
             {
                 return Validate.Source( Source )
                     ? Source
-                    : default;
+                    : default( Source );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( Source );
             }
         }
 
         /// <summary>
         /// Gets the field.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public override Field GetField()
         {
             try
             {
                 return Validate.Field( Field )
                     ? Field
-                    : default;
+                    : default( Field );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( Field );
             }
         }
 
         /// <summary>
         /// Gets the data filter.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public override IDictionary<string, object> GetDataFilter()
         {
             try
             {
                 return DataFilter?.Any() == true
                     ? DataFilter
-                    : default;
+                    : default( IDictionary<string, object> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDictionary<string, object> );
             }
         }
 
         /// <summary>
         /// Gets the data table.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public override DataTable GetDataTable()
         {
             try
@@ -417,15 +438,14 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( DataTable );
             }
         }
 
         /// <summary>
         /// Gets the data.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public override IEnumerable<DataRow> GetData()
         {
             try
@@ -434,20 +454,19 @@ namespace BudgetExecution
 
                 return Verify.Input( _rows )
                     ? _rows
-                    : default;
+                    : default( EnumerableRowCollection<DataRow> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IEnumerable<DataRow> );
             }
         }
 
         /// <summary>
         /// Gets the current row.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public override DataRow GetCurrent()
         {
             try
@@ -459,15 +478,14 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( DataRow );
             }
         }
 
         /// <summary>
         /// Gets the index of the current.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public override int GetIndex()
         {
             try
@@ -479,7 +497,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( int );
             }
         }
 

@@ -324,12 +324,12 @@ namespace BudgetExecution
             {
                 return SeriesData?.Any() == true
                     ? SeriesData
-                    : default;
+                    : default( IDictionary<string, IEnumerable<double>> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDictionary<string, IEnumerable<double>> );
             }
         }
 

@@ -26,25 +26,6 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelForm"/> class.
         /// </summary>
-        public ExcelForm()
-        {
-            InitializeComponent();
-            Size = new Size( 1073, 900 );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ExcelForm"/> class.
-        /// </summary>
-        /// <param name="filepath">The filepath.</param>
-        public ExcelForm( string filepath )
-        {
-            InitializeComponent();
-            Size = new Size( 1073, 900 );
-            FilePath = Path.GetFullPath( filepath );
-            FileName = Path.GetFileNameWithoutExtension( FilePath );
-            Sheet.Open( filepath );
-        }
-        
         /// <summary>
         /// Gets or sets the file path.
         /// </summary>
@@ -116,6 +97,28 @@ namespace BudgetExecution
         /// The ext.
         /// </value>
         public EXT Ext { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExcelForm"/> class.
+        /// </summary>
+        public ExcelForm()
+        {
+            InitializeComponent();
+            Size = new Size( 1073, 900 );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExcelForm"/> class.
+        /// </summary>
+        /// <param name="filepath">The filepath.</param>
+        public ExcelForm( string filepath )
+        {
+            InitializeComponent();
+            Size = new Size( 1073, 900 );
+            FilePath = Path.GetFullPath( filepath );
+            FileName = Path.GetFileNameWithoutExtension( FilePath );
+            Sheet.Open( filepath );
+        }
         
         /// <summary>
         /// Sets the file path.
@@ -176,15 +179,15 @@ namespace BudgetExecution
 
                     return Enum.IsDefined( typeof( EXT ), _extension )
                         ? _extension
-                        : default;
+                        : default( EXT );
                 }
 
-                return default;
+                return default( EXT );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( EXT );
             }
         }
 

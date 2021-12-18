@@ -23,9 +23,9 @@ namespace BudgetExecution
         }
 
         [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-        public BudgetBinding( IEnumerable<DataRow> data )
+        public BudgetBinding( IEnumerable<DataRow> dataRows )
         {
-            DataTable = data?.CopyToDataTable();
+            DataTable = dataRows?.CopyToDataTable();
             DataSet = DataTable?.DataSet;
             Source = (Source)Enum.Parse( typeof( Source ), DataTable?.TableName );
             DataSource = DataTable;
@@ -37,11 +37,11 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="BudgetBinding"/> class.
         /// </summary>
-        /// <param name="datatable">The datatable.</param>
+        /// <param name="dataTable">The dataTable.</param>
         [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-        public BudgetBinding( DataTable datatable )
+        public BudgetBinding( DataTable dataTable )
         {
-            DataTable = datatable;
+            DataTable = dataTable;
             DataSet = DataTable?.DataSet;
             DataSource = DataTable;
             Source = (Source)Enum.Parse( typeof( Source ), DataTable?.TableName );
@@ -62,16 +62,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var datafilter = new Dictionary<string, object>
+                    var _dataFilter = new Dictionary<string, object>
                     {
                         {
                             $"{field}", filter
                         }
                     };
 
-                    DataFilter = datafilter?.Any() == true
-                        ? datafilter
-                        : default;
+                    DataFilter = _dataFilter?.Any() == true
+                        ? _dataFilter
+                        : default( Dictionary<string, object> );
                 }
                 catch( Exception ex )
                 {
@@ -121,12 +121,12 @@ namespace BudgetExecution
             {
                 return Verify.Table( DataSet )
                     ? DataSet
-                    : default;
+                    : default( DataSet );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( DataSet );
             }
         }
     }

@@ -63,7 +63,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default;
+            return default( ChartFontInfo );
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default;
+            return default( ChartFontInfo );
         }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( AnchorStyles );
             }
         }
 
@@ -153,7 +153,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ChartLineInfo );
             }
         }
 

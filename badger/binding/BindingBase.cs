@@ -80,12 +80,12 @@ namespace BudgetExecution
             {
                 return Validate.Source( Source )
                     ? Source
-                    : default;
+                    : default( Source );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( Source );
             }
         }
 
@@ -100,12 +100,12 @@ namespace BudgetExecution
             {
                 return Validate.Field( Field )
                     ? Field
-                    : default;
+                    : default( Field );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( Field );
             }
         }
 
@@ -120,12 +120,12 @@ namespace BudgetExecution
             {
                 return DataFilter?.Any() == true
                     ? DataFilter
-                    : default;
+                    : default( IDictionary<string, object> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDictionary<string, object> );
             }
         }
 
@@ -146,7 +146,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( DataTable );
             }
         }
 
@@ -163,12 +163,12 @@ namespace BudgetExecution
 
                 return Verify.Input( _dataRows )
                     ? _dataRows
-                    : default;
+                    : default( EnumerableRowCollection<DataRow> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IEnumerable<DataRow> );
             }
         }
 
@@ -188,7 +188,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( DataRow );
             }
         }
 
@@ -208,7 +208,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( int );
             }
         }
 

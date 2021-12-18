@@ -79,12 +79,12 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="ChartBinding" /> class.
         /// </summary>
         /// <param name="table">The table.</param>
-        /// <param name="seriesconfig">The seriesconfig.</param>
-        public ChartBinding( DataTable table, ISeriesConfig seriesconfig )
+        /// <param name="seriesConfig">The seriesConfig.</param>
+        public ChartBinding( DataTable table, ISeriesConfig seriesConfig )
             : base( table.AsEnumerable() )
         {
             Data = table.AsEnumerable();
-            SeriesConfiguration = seriesconfig;
+            SeriesConfiguration = seriesConfig;
             DataTable = table;
             DataSet = DataTable?.DataSet;
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
@@ -101,12 +101,12 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="data">The data.</param>
-        /// <param name="seriesconfig">The seriesconfig.</param>
-        public ChartBinding( IEnumerable<DataRow> data, ISeriesConfig seriesconfig )
+        /// <param name="seriesConfig">The seriesConfig.</param>
+        public ChartBinding( IEnumerable<DataRow> data, ISeriesConfig seriesConfig )
             : base( data )
         {
             Data = data;
-            SeriesConfiguration = seriesconfig;
+            SeriesConfiguration = seriesConfig;
             DataTable = data.CopyToDataTable();
             DataSet = DataTable.DataSet;
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
@@ -130,7 +130,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ISeriesConfig );
             }
         }
 
@@ -147,7 +147,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDataMetric );
             }
         }
 
@@ -171,9 +171,9 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the empty.
         /// </summary>
-        /// <param name="xindex">The xindex.</param>
+        /// <param name="xIndex">The xIndex.</param>
         /// <returns></returns>
-        public bool GetEmpty( int xindex )
+        public bool GetEmpty( int xIndex )
         {
             try
             {
@@ -190,15 +190,15 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the x.
         /// </summary>
-        /// <param name="xindex">The xindex.</param>
+        /// <param name="xIndex">The xIndex.</param>
         /// <returns></returns>
-        public double GetX( int xindex )
+        public double GetX( int xIndex )
         {
             try
             {
                 var _numeric = SeriesConfiguration?.GetNumeric();
 
-                return !GetEmpty( xindex )
+                return !GetEmpty( xIndex )
                     ? double.Parse( Record[ $"{_numeric}" ].ToString() )
                     : 0;
             }
@@ -212,15 +212,15 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the y.
         /// </summary>
-        /// <param name="xindex">The xindex.</param>
+        /// <param name="xIndex">The xIndex.</param>
         /// <returns></returns>
-        public double GetY( int xindex )
+        public double GetY( int xIndex )
         {
             try
             {
                 var _numeric = SeriesConfiguration?.GetNumeric();
 
-                return !GetEmpty( xindex )
+                return !GetEmpty( xIndex )
                     ? double.Parse( Record[ $@"{_numeric}" ].ToString() )
                     : 0;
             }

@@ -32,11 +32,11 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="SourceModel" /> class.
         /// </summary>
         /// <param name="data">The data.</param>
-        /// <param name="seriesconfig">The seriesconfig.</param>
-        public SourceModel( IEnumerable<DataRow> data, ISeriesConfig seriesconfig )
+        /// <param name="seriesConfig">The seriesConfig.</param>
+        public SourceModel( IEnumerable<DataRow> data, ISeriesConfig seriesConfig )
         {
-            SourceBinding = new ChartBinding( data, seriesconfig );
-            BindingModel = new ChartDataBindModel( data, seriesconfig?.GetField().ToString() );
+            SourceBinding = new ChartBinding( data, seriesConfig );
+            BindingModel = new ChartDataBindModel( data, seriesConfig?.GetField().ToString() );
             Data = SourceBinding.GetData();
             Configuration = SourceBinding?.GetSeriesConfig();
             Stat = Configuration.GetStatistic();
@@ -49,11 +49,11 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="SourceModel" /> class.
         /// </summary>
         /// <param name="table">The table.</param>
-        /// <param name="seriesconfig">The seriesconfig.</param>
-        public SourceModel( DataTable table, ISeriesConfig seriesconfig )
+        /// <param name="seriesConfig">The seriesConfig.</param>
+        public SourceModel( DataTable table, ISeriesConfig seriesConfig )
         {
-            SourceBinding = new ChartBinding( table?.AsEnumerable(), seriesconfig );
-            BindingModel = new ChartDataBindModel( table, seriesconfig?.GetField().ToString() );
+            SourceBinding = new ChartBinding( table?.AsEnumerable(), seriesConfig );
+            BindingModel = new ChartDataBindModel( table, seriesConfig?.GetField().ToString() );
             Data = SourceBinding.GetData();
             Configuration = SourceBinding?.GetSeriesConfig();
             Stat = Configuration.GetStatistic();
@@ -144,12 +144,12 @@ namespace BudgetExecution
             {
                 return Verify.Rows( Data )
                     ? Data
-                    : default;
+                    : default( IEnumerable<DataRow> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IEnumerable<DataRow> );
             }
         }
 
@@ -163,12 +163,12 @@ namespace BudgetExecution
             {
                 return Verify.Ref( SourceBinding )
                     ? SourceBinding
-                    : default;
+                    : default( IChartBinding );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IChartBinding );
             }
         }
 
@@ -182,12 +182,12 @@ namespace BudgetExecution
             {
                 return SeriesData?.Any() == true
                     ? SeriesData
-                    : default;
+                    : default( IDictionary<string, IEnumerable<double>> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDictionary<string, IEnumerable<double>> );
             }
         }
 
@@ -203,12 +203,12 @@ namespace BudgetExecution
 
                 return Verify.Rows( data )
                     ? Metric
-                    : default;
+                    : default( IDataMetric );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDataMetric );
             }
         }
 
@@ -222,12 +222,12 @@ namespace BudgetExecution
             {
                 return Verify.Ref( Configuration )
                     ? Configuration
-                    : default;
+                    : default( ISeriesConfig );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ISeriesConfig );
             }
         }
 

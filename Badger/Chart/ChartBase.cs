@@ -20,17 +20,10 @@ namespace BudgetExecution
     public class ChartBase : ChartControl
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartBase"/> class.
-        /// </summary>
-        public ChartBase()
-        {
-        }
-
-        /// <summary>
         /// The style
         /// </summary>
         public IChartConfig Style { get; set; } = new ChartConfig();
-        
+
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
@@ -94,14 +87,21 @@ namespace BudgetExecution
         /// The binding source.
         /// </value>
         public BindingSource BindingSource { get; set; }
-        
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ChartBase"/> class.
+        /// </summary>
+        public ChartBase()
+        {
+        }
+
         /// <summary>
         /// Sets the legend configuration.
         /// </summary>
         /// <param name="font">The font.</param>
         /// <param name="size">The size.</param>
-        /// <param name="backcolor">The backcolor.</param>
-        public void SetLegend( Font font, Size size, Color backcolor )
+        /// <param name="backColor">The backcolor.</param>
+        public void SetLegend( Font font, Size size, Color backColor )
         {
             try
             {
@@ -109,7 +109,7 @@ namespace BudgetExecution
                 Legend.Font = font;
                 Legend.ItemsSize = size;
                 Legend.VisibleCheckBox = true;
-                Legend.BackInterior = new BrushInfo( backcolor );
+                Legend.BackInterior = new BrushInfo( backColor );
                 Legend.ItemsAlignment = AlignConfig.GetStringAlignment( StringAlignment.Center );
                 Legend.ItemsTextAligment = VerticalAlignment.Center;
                 Legend.Orientation = ChartOrientation.Vertical;
@@ -135,12 +135,12 @@ namespace BudgetExecution
             {
                 return SourceModel?.GetData()?.Any() == true
                     ? SourceModel
-                    : default;
+                    : default( ISourceModel );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ISourceModel );
             }
         }
 
@@ -156,12 +156,12 @@ namespace BudgetExecution
 
                 return _type != null && Enum.IsDefined( typeof( ChartType ), _type )
                     ? Configuration
-                    : default;
+                    : default( ISeriesConfig );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ISeriesConfig );
             }
         }
 
@@ -175,12 +175,12 @@ namespace BudgetExecution
             {
                 return ( DataMetric?.Data?.Any() == true )
                     ? DataMetric
-                    : default;
+                    : default( IDataMetric );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDataMetric );
             }
         }
 
@@ -194,12 +194,12 @@ namespace BudgetExecution
             {
                 return ( ChartData?.GetSeriesValues()?.Any() == true )
                     ? ChartData
-                    : default;
+                    : default( ISeriesModel );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ISeriesModel );
             }
         }
 
@@ -213,12 +213,12 @@ namespace BudgetExecution
             {
                 return ( DataSeries?.Points?.Count > 0 )
                     ? DataSeries
-                    : default;
+                    : default( DataSeries );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDataSeries );
             }
         }
 
@@ -232,12 +232,12 @@ namespace BudgetExecution
             {
                 return Verify.Input( TitleInfo?.GetAxisText() )
                     ? TitleInfo
-                    : default;
+                    : default( ITitleInfo );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ITitleInfo );
             }
         }
 

@@ -60,16 +60,16 @@ namespace BudgetExecution
 
                     return Items?.Count > 0
                         ? _button
-                        : default;
+                        : default( BarButton );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( BarButton );
                 }
             }
 
-            return default;
+            return default( BarButton );
         }
 
         /// <summary>
@@ -86,12 +86,12 @@ namespace BudgetExecution
 
                 return _label?.BindingSource != null && Items?.Count > 0
                     ? _label
-                    : default;
+                    : default( BarLabel );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( BarLabel );
             }
         }
 
@@ -109,12 +109,12 @@ namespace BudgetExecution
 
                 return Items?.Count > 0
                     ? _comboBox
-                    : default;
+                    : default( BarComboBox );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( BarComboBox );
             }
         }
 
@@ -132,12 +132,12 @@ namespace BudgetExecution
 
                 return Items?.Count > 0
                     ? _textBox
-                    : default;
+                    : default( BarTextBox );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( BarTextBox );
             }
         }
     }

@@ -36,11 +36,11 @@ namespace BudgetExecution
         /// <see cref="SeriesModel" />
         /// class.
         /// </summary>
-        /// <param name="bindingsource"></param>
-        public SeriesModel( IChartBinding bindingsource )
-            : base( bindingsource )
+        /// <param name="bindingSource"></param>
+        public SeriesModel( IChartBinding bindingSource )
+            : base( bindingSource )
         {
-            SourceBinding = bindingsource;
+            SourceBinding = bindingSource;
             BindingModel = new ChartDataBindModel( SourceBinding );
             Data = SourceBinding.GetData();
             Configuration = SourceBinding.GetSeriesConfig();
@@ -54,11 +54,11 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="SeriesModel" /> class.
         /// </summary>
         /// <param name="table">The table.</param>
-        /// <param name="seriesconfig">The seriesconfig.</param>
-        public SeriesModel( DataTable table, ISeriesConfig seriesconfig )
-            : base( table, seriesconfig )
+        /// <param name="seriesConfig">The seriesConfig.</param>
+        public SeriesModel( DataTable table, ISeriesConfig seriesConfig )
+            : base( table, seriesConfig )
         {
-            SourceBinding = new ChartBinding( table, seriesconfig );
+            SourceBinding = new ChartBinding( table, seriesConfig );
             BindingModel = new ChartDataBindModel( SourceBinding );
             Data = SourceBinding.GetData();
             Configuration = SourceBinding.GetSeriesConfig();
@@ -72,11 +72,11 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="SeriesModel" /> class.
         /// </summary>
         /// <param name="data">The data.</param>
-        /// <param name="seriesconfig">The seriesconfig.</param>
-        public SeriesModel( IEnumerable<DataRow> data, ISeriesConfig seriesconfig )
-            : base( data, seriesconfig )
+        /// <param name="seriesConfig">The seriesConfig.</param>
+        public SeriesModel( IEnumerable<DataRow> data, ISeriesConfig seriesConfig )
+            : base( data, seriesConfig )
         {
-            SourceBinding = new ChartBinding( data, seriesconfig );
+            SourceBinding = new ChartBinding( data, seriesConfig );
             BindingModel = new ChartDataBindModel( SourceBinding );
             Data = SourceBinding.GetData();
             Configuration = SourceBinding.GetSeriesConfig();
@@ -99,7 +99,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDataMetric );
             }
         }
 
@@ -117,12 +117,12 @@ namespace BudgetExecution
 
                 return ( _values?.Any() == true )
                     ? _values.ToArray()
-                    : default;
+                    : default( double[ ] );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IEnumerable<double> );
             }
         }
 
@@ -139,12 +139,12 @@ namespace BudgetExecution
 
                 return _values?.Any() == true
                     ? _values.ToArray()
-                    : default;
+                    : default( string[ ] );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IEnumerable<string> );
             }
         }
 
@@ -161,7 +161,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ISourceModel );
             }
         }
     }

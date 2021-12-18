@@ -71,10 +71,10 @@ namespace BudgetExecution
 
                 return _buttons?.Count > 0
                     ? _buttons
-                    : default;
+                    : default( SortedList<string, BarButton> );
             }
 
-            return default;
+            return default( IDictionary<string, BarButton> );
         }
     }
 }
