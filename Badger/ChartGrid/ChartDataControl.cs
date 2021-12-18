@@ -41,20 +41,20 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the grid bound data columns.
         /// </summary>
-        /// <param name="data">The data.</param>
-        public void SetGridBoundDataColumns( IEnumerable<DataRow> data )
+        /// <param name="dataRows">The data.</param>
+        public void SetGridBoundDataColumns( IEnumerable<DataRow> dataRows )
         {
-            DataGrid.SetGridBoundDataColumns( data );
+            DataGrid.SetGridBoundDataColumns( dataRows );
         }
 
         /// <summary>
         /// Sets the data source.
         /// </summary>
-        /// <param name="data">The data.</param>
+        /// <param name="dataRows">The dataRows.</param>
         /// <param name="dict"></param>
-        public void SetBindingSource( IEnumerable<DataRow> data, IDictionary<string, object> dict = null )
+        public void SetBindingSource( IEnumerable<DataRow> dataRows, IDictionary<string, object> dict = null )
         {
-            DataGrid.SetBindingSource( data, dict );
+            DataGrid.SetBindingSource( dataRows, dict );
         }
 
         /// <summary>
@@ -215,10 +215,10 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="font">The font.</param>
         /// <param name="size">The size.</param>
-        /// <param name="backcolor">The backcolor.</param>
-        public void SetLegend( Font font, Size size, Color backcolor )
+        /// <param name="backColor">The backColor.</param>
+        public void SetLegend( Font font, Size size, Color backColor )
         {
-            ( (IBudgetChart)Chart ).SetLegend( font, size, backcolor );
+            ( (IBudgetChart)Chart ).SetLegend( font, size, backColor );
         }
 
         /// <summary>

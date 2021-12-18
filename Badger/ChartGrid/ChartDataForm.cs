@@ -41,20 +41,20 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the grid bound data columns.
         /// </summary>
-        /// <param name="data">The data.</param>
-        public void SetGridBoundDataColumns( IEnumerable<DataRow> data )
+        /// <param name="dataRows">The data.</param>
+        public void SetGridBoundDataColumns( IEnumerable<DataRow> dataRows )
         {
-            ( (IBudgetGrid)ChartDataControl ).SetGridBoundDataColumns( data );
+            ( (IBudgetGrid)ChartDataControl ).SetGridBoundDataColumns( dataRows );
         }
 
         /// <summary>
         /// Sets the data source.
         /// </summary>
-        /// <param name="data">The data.</param>
+        /// <param name="dataRows">The dataRows </param>
         /// <param name="dict"></param>
-        public void SetBindingSource( IEnumerable<DataRow> data, IDictionary<string, object> dict = null )
+        public void SetBindingSource( IEnumerable<DataRow> dataRows, IDictionary<string, object> dict = null )
         {
-            ( (IBudgetGrid)ChartDataControl ).SetBindingSource( data, dict );
+            ( (IBudgetGrid)ChartDataControl ).SetBindingSource( dataRows, dict );
         }
 
         /// <summary>
@@ -125,11 +125,11 @@ namespace BudgetExecution
         /// Sets the binding source.
         /// </summary>
         /// <typeparam name="T1"></typeparam>
-        /// <param name="bindingsource">The bindingSource.</param>
-        public void SetDataSource<T1>( T1 bindingsource ) 
+        /// <param name="bindingSource">The bindingSource.</param>
+        public void SetDataSource<T1>( T1 bindingSource ) 
             where T1 : IBindingList
         {
-            ( (IBudgetGrid)ChartDataControl ).SetDataSource( bindingsource );
+            ( (IBudgetGrid)ChartDataControl ).SetDataSource( bindingSource );
         }
 
         /// <summary>
@@ -137,13 +137,13 @@ namespace BudgetExecution
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2">The type of the 2.</typeparam>
-        /// <param name="bindinglist">The bindingSource.</param>
+        /// <param name="bindingList">The bindingSource.</param>
         /// <param name="dict">The dictionary.</param>
-        public void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
+        public void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
             where T1 : IBindingList 
             where T2 : IDictionary<string, object>
         {
-            ( (IBudgetGrid)ChartDataControl ).SetDataSource( bindinglist, dict );
+            ( (IBudgetGrid)ChartDataControl ).SetDataSource( bindingList, dict );
         }
 
         /// <summary>
@@ -282,10 +282,10 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="font">The font.</param>
         /// <param name="size">The size.</param>
-        /// <param name="backcolor">The backcolor.</param>
-        public void SetLegend( Font font, Size size, Color backcolor )
+        /// <param name="backColor">The backColor.</param>
+        public void SetLegend( Font font, Size size, Color backColor )
         {
-            ( (IBudgetChart)ChartDataControl ).SetLegend( font, size, backcolor );
+            ( (IBudgetChart)ChartDataControl ).SetLegend( font, size, backColor );
         }
 
         /// <summary>

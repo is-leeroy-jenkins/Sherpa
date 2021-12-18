@@ -309,7 +309,7 @@
     <Compile Include="Badger\Main\BadgerMain.Designer.cs">
       <DependentUpon>BadgerMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Chart\bindingmodel\ChartBinding.cs">
+    <Compile Include="Badger\Chart\BindingModel\ChartBinding.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Format\AlignConfig.cs" />
@@ -370,8 +370,8 @@
     </Compile>
     <Compile Include="Badger\Button\ButtonControl.Designer.cs" />
     <Compile Include="Badger\Button\ButtonPanel.cs" />
-    <Compile Include="Badger\Chart\bindingmodel\SeriesConfig.cs" />
-    <Compile Include="Badger\Chart\bindingmodel\SeriesModel.cs" />
+    <Compile Include="Badger\Chart\BindingModel\SeriesConfig.cs" />
+    <Compile Include="Badger\Chart\BindingModel\SeriesModel.cs" />
     <Compile Include="Badger\Toolbar\BarButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -411,7 +411,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Badger\Calculator\CalculatorForm.Designer.cs" />
-    <Compile Include="Badger\Chart\seriesmodel\DataSeries.cs" />
+    <Compile Include="Badger\Chart\SeriesModel\DataSeries.cs" />
     <Compile Include="Badger\BudgetGrid\BudgetGridControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -598,13 +598,13 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Badger\Dialog\Browser\FileBrowser.Designer.cs" />
-    <Compile Include="Badger\Chart\bindingmodel\IChartBinding.cs" />
-    <Compile Include="Badger\Chart\bindingmodel\IChartSeriesModel.cs" />
-    <Compile Include="Badger\Chart\bindingmodel\ISeriesConfig.cs" />
-    <Compile Include="Badger\Chart\bindingmodel\ISourceModel.cs" />
-    <Compile Include="Badger\Chart\seriesmodel\IDataSeries.cs" />
-    <Compile Include="Badger\Chart\seriesmodel\ISeriesModel.cs" />
-    <Compile Include="Badger\Chart\seriesmodel\ITitleInfo.cs" />
+    <Compile Include="Badger\Chart\BindingModel\IChartBinding.cs" />
+    <Compile Include="Badger\Chart\BindingModel\IChartSeriesModel.cs" />
+    <Compile Include="Badger\Chart\BindingModel\ISeriesConfig.cs" />
+    <Compile Include="Badger\Chart\BindingModel\ISourceModel.cs" />
+    <Compile Include="Badger\Chart\SeriesModel\IDataSeries.cs" />
+    <Compile Include="Badger\Chart\SeriesModel\ISeriesModel.cs" />
+    <Compile Include="Badger\Chart\SeriesModel\ITitleInfo.cs" />
     <Compile Include="Badger\BudgetGrid\IBudgetGrid.cs" />
     <Compile Include="Badger\DataGrid\GridData.cs">
       <SubType>Component</SubType>
@@ -789,7 +789,7 @@
     </Compile>
     <Compile Include="Badger\Control\SizeConfig.cs" />
     <Compile Include="Badger\Control\SizeFomat.cs" />
-    <Compile Include="Badger\Chart\seriesmodel\SourceModel.cs" />
+    <Compile Include="Badger\Chart\SeriesModel\SourceModel.cs" />
     <Compile Include="Static\Resource.cs" />
     <Compile Include="Static\Static.cs" />
     <Compile Include="Static\Validate.cs" />
@@ -819,7 +819,7 @@
     <Compile Include="Badger\Toolbar\ToolSeparator.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Chart\seriesmodel\TitleInfo.cs" />
+    <Compile Include="Badger\Chart\SeriesModel\TitleInfo.cs" />
     <EmbeddedResource Include="Badger\Chart\BudgetChartControl.resx" />
     <EmbeddedResource Include="Badger\Dialog\Error\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>

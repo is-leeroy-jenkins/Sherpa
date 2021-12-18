@@ -33,10 +33,10 @@ namespace BudgetExecution
         public IEnumerable<Image> Images { get; set; }
 
         /// <summary>
-        /// Gets or sets the tip.
+        /// Gets or sets the tool tip.
         /// </summary>
         /// <value>
-        /// The tip.
+        /// The tool tip.
         /// </value>
         public ToolTip ToolTip { get; set; }
 
@@ -55,9 +55,9 @@ namespace BudgetExecution
         /// The hover text.
         /// </value>
         public string HoverText { get; set; }
-        
+
         /// <summary>
-        /// Gets the size.
+        /// Sets the size.
         /// </summary>
         /// <param name="size">The size.</param>
         public void SetSize( Size size )
@@ -73,7 +73,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the size.
+        /// Sets the size.
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
@@ -106,7 +106,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the location.
+        /// Sets the location.
         /// </summary>
         /// <param name="point">The point.</param>
         public void SetLocation( Point point )
@@ -122,7 +122,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the location.
+        /// Sets the location.
         /// </summary>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
@@ -235,7 +235,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
@@ -244,7 +244,7 @@ namespace BudgetExecution
             error?.SetText();
             error?.ShowDialog();
         }
-        
+
         /// <summary>
         /// Called when [mouse leave].
         /// </summary>
