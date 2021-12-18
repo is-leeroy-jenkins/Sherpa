@@ -20,48 +20,75 @@ namespace BudgetExecution
     public class DataPath : IPath
     {
         /// <summary>
-        /// The full name
+        /// Gets or sets the full nae.
         /// </summary>
+        /// <value>
+        /// The full nae.
+        /// </value>
         public string FullNae { get; set; }
 
         /// <summary>
-        /// The file name
+        /// Gets or sets the name of the file.
         /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
         public string FileName { get; set; }
 
         /// <summary>
-        /// The full path
+        /// Gets or sets the full path.
         /// </summary>
+        /// <value>
+        /// The full path.
+        /// </value>
         public string FullPath { get; set; }
 
         /// <summary>
-        /// The file extension
+        /// Gets or sets the file extension.
         /// </summary>
+        /// <value>
+        /// The file extension.
+        /// </value>
         public string FileExtension { get; set; }
 
         /// <summary>
-        /// The path root
+        /// Gets or sets the path root.
         /// </summary>
+        /// <value>
+        /// The path root.
+        /// </value>
         public string PathRoot { get; set; }
 
         /// <summary>
-        /// The input
+        /// Gets or sets the input.
         /// </summary>
+        /// <value>
+        /// The input.
+        /// </value>
         public string Input { get; set; }
 
         /// <summary>
-        /// The current directory
+        /// Gets or sets the current directory.
         /// </summary>
+        /// <value>
+        /// The current directory.
+        /// </value>
         public static string CurrentDirectory { get; set; } = Directory.GetCurrentDirectory();
 
         /// <summary>
-        /// The base directory
+        /// Gets or sets the base directory.
         /// </summary>
+        /// <value>
+        /// The base directory.
+        /// </value>
         public static string BaseDirectory { get; set; } = AppDomain.CurrentDomain.BaseDirectory;
 
         /// <summary>
-        /// The connection string
+        /// Gets or sets the connection string.
         /// </summary>
+        /// <value>
+        /// The connection string.
+        /// </value>
         public static ConnectionStringSettingsCollection ConnectionString { get; set; } =
             ConfigurationManager.ConnectionStrings;
 
