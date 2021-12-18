@@ -29,7 +29,6 @@
         {
             SetInput( dict );
             SetOutput( Input );
-            SetData( dict );
             Names = GetNames();
             Values = GetValues();
             Count = Output.Count;
@@ -43,7 +42,6 @@
         {
             SetInput( data?.ToDictionary() );
             SetOutput( Input );
-            SetData( data );
             Names = GetNames();
             Values = GetValues();
             Count = Output.Count;

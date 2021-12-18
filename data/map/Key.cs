@@ -33,7 +33,6 @@ namespace BudgetExecution
         /// <param name="kvp">The KVP.</param>
         public Key( KeyValuePair<string, object> kvp )
         {
-            SetName( kvp.Key );
             SetPrimaryKey( Name );
             SetIndex( int.Parse( kvp.Value.ToString() ) );
             Data = Index.ToString();
@@ -46,8 +45,7 @@ namespace BudgetExecution
         /// <param name="value">The value.</param>
         public Key( string name, int value = 0 )
         {
-            SetPrimaryKey( name );
-            SetName( name );
+            PrimaryKey = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), name );
             SetIndex( value );
             Data = Index.ToString();
         }
@@ -60,7 +58,6 @@ namespace BudgetExecution
         public Key( DataRow dataRow, PrimaryKey field )
         {
             SetPrimaryKey( dataRow, field );
-            SetName( dataRow, field );
             SetIndex( dataRow, field );
             Data = Index.ToString();
         }
@@ -73,7 +70,6 @@ namespace BudgetExecution
         public Key( PrimaryKey field, string value = "0" )
         {
             SetPrimaryKey( field );
-            SetName( field );
             SetIndex( int.Parse( value ) );
             Data = Index.ToString();
         }
@@ -85,7 +81,6 @@ namespace BudgetExecution
         public Key( DataRow dataRow )
         {
             SetPrimaryKey( dataRow );
-            SetName( dataRow, PrimaryKey );
             SetIndex( dataRow, PrimaryKey );
             Data = Index.ToString();
         }

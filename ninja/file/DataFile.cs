@@ -97,9 +97,9 @@ namespace BudgetExecution
 
             try
             {
-                foreach( var fileinfo in folder?.GetFiles() )
+                foreach( var _fileInfo in folder?.GetFiles() )
                 {
-                    Directory.Move( fileinfo.FullName, folder.Name );
+                    Directory.Move( _fileInfo.FullName, folder.Name );
                 }
             }
             catch( IOException ex )
@@ -323,6 +323,7 @@ namespace BudgetExecution
                     CheckFileExists = true,
                     CheckPathExists = true
                 };
+
                 var _file = new DataFile( _dialog?.FileName );
 
                 return File.Exists( _file?.GetFilePath() )
