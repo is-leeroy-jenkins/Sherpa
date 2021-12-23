@@ -69,7 +69,7 @@ namespace BudgetExecution
         /// <param name="value">The value.</param>
         public Key( PrimaryKey field, string value = "0" )
         {
-            SetPrimaryKey( field );
+            PrimaryKey = field;
             SetIndex( int.Parse( value ) );
             Data = Index.ToString();
         }

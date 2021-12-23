@@ -214,12 +214,12 @@ namespace BudgetExecution
         /// Charts the type.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="charttype">The charttype.</param>
+        /// <param name="chartType">The chartType.</param>
         /// <returns></returns>
-        public static bool ChartType<T>( T charttype )
+        public static bool ChartType<T>( T chartType )
             where T : struct
         {
-            if( !Enum.IsDefined( typeof( ChartType ), charttype ) )
+            if( !Enum.IsDefined( typeof( ChartType ), chartType ) )
             {
                 Fail( new ArgumentException( "Verify [ eum ChartType ] input argument!" ) );
                 return false;

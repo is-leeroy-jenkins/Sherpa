@@ -203,19 +203,19 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the connection manager.
         /// </summary>
-        /// <param name = "fullpath" >
-        /// The fullpath.
+        /// <param name = "fullPath" >
+        /// The fullPath.
         /// </param>
         /// <returns>
         /// </returns>
-        private protected void SetConnectionBuilder( string fullpath )
+        private protected void SetConnectionBuilder( string fullPath )
         {
-            if( Verify.Input( fullpath )
-                && File.Exists( fullpath ) )
+            if( Verify.Input( fullPath )
+                && File.Exists( fullPath ) )
             {
                 try
                 {
-                    ConnectionBuilder = new ConnectionBuilder( fullpath );
+                    ConnectionBuilder = new ConnectionBuilder( fullPath );
                 }
                 catch( Exception ex )
                 {
