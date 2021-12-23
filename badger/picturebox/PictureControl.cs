@@ -9,6 +9,10 @@ namespace BudgetExecution
 
     public partial class PictureControl : UserControl, IPictureBox
     {
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="PictureControl"/> class.
+        /// </summary>
         public PictureControl()
         {
             InitializeComponent();
@@ -42,12 +46,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the image size mode.
+        /// Sets the image size sizeMode.
         /// </summary>
-        /// <param name="mode">The mode.</param>
-        public void SetImageSizeMode( PictureBoxSizeMode mode = PictureBoxSizeMode.Normal )
+        /// <param name="sizeMode">The sizeMode.</param>
+        public void SetImageSizeMode( PictureBoxSizeMode sizeMode = PictureBoxSizeMode.Normal )
         {
-            PictureBox.SetImageSizeMode( mode );
+            PictureBox.SetImageSizeMode( sizeMode );
         }
         
         /// <summary>

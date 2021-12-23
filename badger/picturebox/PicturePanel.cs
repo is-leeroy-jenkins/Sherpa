@@ -185,14 +185,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the image size mode.
+        /// Sets the image size sizeMode.
         /// </summary>
-        /// <param name="mode">The mode.</param>
-        public void SetImageSizeMode( PictureBoxSizeMode mode = PictureBoxSizeMode.Normal )
+        /// <param name="sizeMode">The sizeMode.</param>
+        public void SetImageSizeMode( PictureBoxSizeMode sizeMode = PictureBoxSizeMode.Normal )
         {
             try
             {
-                SizeMode = mode;
+                SizeMode = sizeMode;
             }
             catch( Exception ex )
             {

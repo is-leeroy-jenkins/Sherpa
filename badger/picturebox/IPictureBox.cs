@@ -33,10 +33,10 @@ namespace BudgetExecution
         void SetTag( object tag );
 
         /// <summary>
-        /// Sets the image size mode.
+        /// Sets the image size sizeMode.
         /// </summary>
-        /// <param name="mode">The mode.</param>
-        void SetImageSizeMode( PictureBoxSizeMode mode = PictureBoxSizeMode.Normal );
+        /// <param name="sizeMode">The sizeMode.</param>
+        void SetImageSizeMode( PictureBoxSizeMode sizeMode = PictureBoxSizeMode.Normal );
 
         /// <summary>
         /// Called when [mouse hover].
