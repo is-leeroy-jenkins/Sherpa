@@ -234,7 +234,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( FirstYear )
+                return Verify.IsElement( FirstYear )
                     ? FirstYear
                     : Element.Default;
             }
@@ -254,7 +254,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( LastYear )
+                return Verify.IsElement( LastYear )
                     ? LastYear
                     : Element.Default;
             }
@@ -274,7 +274,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Availability )
+                return Verify.IsElement( Availability )
                     ? Availability
                     : Element.Default;
             }

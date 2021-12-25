@@ -105,7 +105,7 @@ namespace BudgetExecution
             try
             {
                 if( Verify.IsBindable( bindinglist )
-                    && Verify.Map( dict ) )
+                    && Verify.IsMap( dict ) )
                 {
                     try
                     {
@@ -115,7 +115,7 @@ namespace BudgetExecution
                         foreach( var _kvp in dict )
                         {
                             if( Verify.Input( _kvp.Key )
-                                && Verify.Ref( _kvp.Value ) )
+                                && Verify.IsRef( _kvp.Value ) )
                             {
                                 _filter += $"{_kvp.Key} = {_kvp.Value} AND";
                             }
@@ -146,7 +146,7 @@ namespace BudgetExecution
         /// <param name="data">The data.</param>
         public void SetDataSource<T1>( IEnumerable<T1> data ) where T1 : IEnumerable<DataRow>
         {
-            if( Verify.Sequence( data ) )
+            if( Verify.IsSequence( data ) )
             {
                 try
                 {
@@ -168,7 +168,7 @@ namespace BudgetExecution
         public void SetDataSource<T1>( IEnumerable<T1> data, IDictionary<string, object> dict )
             where T1 : IEnumerable<DataRow>
         {
-            if( Verify.Sequence( data ) )
+            if( Verify.IsSequence( data ) )
             {
                 try
                 {
@@ -205,7 +205,7 @@ namespace BudgetExecution
         public void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
             where T1 : IEnumerable<DataRow> where T2 : struct
         {
-            if( Verify.Sequence( data )
+            if( Verify.IsSequence( data )
                 && Validate.Field( field ) )
             {
                 try
@@ -268,8 +268,8 @@ namespace BudgetExecution
         public void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
             where T1 : IEnumerable<DataRow> where T2 : IDictionary<string, object>
         {
-            if( Verify.Sequence( data )
-                && Verify.Map( dict ) )
+            if( Verify.IsSequence( data )
+                && Verify.IsMap( dict ) )
             {
                 try
                 {
@@ -303,7 +303,7 @@ namespace BudgetExecution
         public void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field, object filter = null )
             where T1 : IEnumerable<DataRow> where T2 : struct
         {
-            if( Verify.Sequence( data )
+            if( Verify.IsSequence( data )
                 && Validate.Field( field ) )
             {
                 try

@@ -147,7 +147,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( Args )
+                return Verify.IsMap( Args )
                     ? Args
                     : default( IDictionary<string, object> );
             }
@@ -227,7 +227,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Time( CalendarDate )
+                return Verify.IsTime( CalendarDate )
                     ? CalendarDate
                     : Time.Default;
             }
@@ -247,7 +247,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Time( StartDate )
+                return Verify.IsTime( StartDate )
                     ? StartDate
                     : Time.Default;
             }
@@ -267,7 +267,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Time( EndDate )
+                return Verify.IsTime( EndDate )
                     ? EndDate
                     : Time.Default;
             }
@@ -287,7 +287,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( HrOrgCode )
+                return Verify.IsElement( HrOrgCode )
                     ? HrOrgCode
                     : Element.Default;
             }
@@ -308,7 +308,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( HrOrgName )
+                return Verify.IsElement( HrOrgName )
                     ? HrOrgName
                     : Element.Default;
             }
@@ -328,7 +328,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( WorkCode )
+                return Verify.IsElement( WorkCode )
                     ? WorkCode
                     : Element.Default;
             }
@@ -348,7 +348,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( ReportingCode )
+                return Verify.IsElement( ReportingCode )
                     ? ReportingCode
                     : Element.Default;
             }
@@ -368,7 +368,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( ReportingCodeName )
+                return Verify.IsElement( ReportingCodeName )
                     ? ReportingCodeName
                     : Element.Default;
             }

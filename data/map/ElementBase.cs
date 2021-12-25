@@ -281,7 +281,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Data = Verify.Ref( dataRow[ $"{field}" ] )
+                    Data = Verify.IsRef( dataRow[ $"{field}" ] )
                         ? dataRow[ $"{field}" ]
                         : default( object );
                 }
@@ -304,7 +304,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Data = Verify.Ref( dataRow[ columnName ] )
+                    Data = Verify.IsRef( dataRow[ columnName ] )
                         ? dataRow[ columnName ]
                         : default( object );
                 }
@@ -327,7 +327,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Data = Verify.Ref( dataRow[ dataColumn ] )
+                    Data = Verify.IsRef( dataRow[ dataColumn ] )
                         ? dataRow[ dataColumn ]
                         : default( object );
                 }

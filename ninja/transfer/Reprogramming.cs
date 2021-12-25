@@ -179,7 +179,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( DocumentNumber )
+                return Verify.IsElement( DocumentNumber )
                     ? DocumentNumber.GetValue()
                     : string.Empty;
             }
@@ -199,7 +199,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.DateTime( ProcessedDate )
+                return Verify.IsDateTime( ProcessedDate )
                     ? ProcessedDate
                     : default( DateTime );
             }
@@ -219,7 +219,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( DocPrefix )
+                return Verify.IsElement( DocPrefix )
                     ? DocPrefix
                     : Element.Default;
             }
@@ -259,7 +259,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( DocumentNumber )
+                return Verify.IsElement( DocumentNumber )
                     ? DocumentNumber
                     : Element.Default;
             }
@@ -279,7 +279,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Purpose )
+                return Verify.IsElement( Purpose )
                     ? Purpose
                     : Element.Default;
             }

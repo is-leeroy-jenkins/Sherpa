@@ -42,7 +42,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( BudgetLevel )
+                return Verify.IsElement( BudgetLevel )
                     ? new BudgetLevel( BudgetLevel?.GetValue() )
                     : default( BudgetLevel );
             }
@@ -62,7 +62,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( BFY )
+                return Verify.IsElement( BFY )
                     ? new BudgetFiscalYear( BFY?.GetValue() )
                     : default( BudgetFiscalYear );
             }
@@ -134,7 +134,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( FundCode )
+                return Verify.IsElement( FundCode )
                     ? new Fund( FundCode?.GetValue() )
                     : default( Fund );
             }

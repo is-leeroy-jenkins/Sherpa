@@ -304,7 +304,7 @@ namespace BudgetExecution
         /// </returns>
         public IEnumerable<DbParameter> GetParameters( Dictionary<string, object> dict )
         {
-            if( Verify.Map( dict ) )
+            if( Verify.IsMap( dict ) )
             {
                 try
                 {

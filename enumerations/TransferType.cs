@@ -1,4 +1,4 @@
-﻿// <copyright file = "TransferType.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "IsTransfer.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -10,7 +10,7 @@ namespace BudgetExecution
 
 
     /// <summary>
-    /// Defines the TransferType
+    /// Defines the IsTransfer
     /// </summary>
     public enum TransferType
     {

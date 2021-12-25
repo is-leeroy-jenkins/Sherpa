@@ -181,7 +181,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( _data )
+                return Verify.IsMap( _data )
                     ? _data
                     : default( IDictionary<string, object> );
             }
@@ -202,7 +202,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _code )
+                return Verify.IsElement( _code )
                     ? _code?.GetValue()
                     : string.Empty;
             }
@@ -319,7 +319,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _code )
+                return Verify.IsElement( _code )
                     ? _code
                     : Element.Default;
             }
@@ -339,7 +339,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _name )
+                return Verify.IsElement( _name )
                     ? _name
                     : Element.Default;
             }
@@ -359,7 +359,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _title )
+                return Verify.IsElement( _title )
                     ? _title
                     : Element.Default;
             }
@@ -379,7 +379,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _treasurySymbol )
+                return Verify.IsElement( _treasurySymbol )
                     ? _treasurySymbol
                     : Element.Default;
             }

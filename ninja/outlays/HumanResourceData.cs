@@ -212,8 +212,8 @@ namespace BudgetExecution
         /// </returns>
         public override string ToString()
         {
-            if( Verify.Element( _firstName )
-                && Verify.Element( _lastName ) )
+            if( Verify.IsElement( _firstName )
+                && Verify.IsElement( _lastName ) )
             {
                 try
                 {
@@ -238,7 +238,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( _args )
+                return Verify.IsMap( _args )
                     ? _args
                     : default( IDictionary<string, object> );
             }
@@ -330,7 +330,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _jobTitle )
+                return Verify.IsElement( _jobTitle )
                     ? _jobTitle
                     : Element.Default;
             }
@@ -350,7 +350,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _occupationalSeries )
+                return Verify.IsElement( _occupationalSeries )
                     ? _occupationalSeries
                     : Element.Default;
             }
@@ -370,7 +370,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _status )
+                return Verify.IsElement( _status )
                     ? _status
                     : Element.Default;
             }
@@ -390,7 +390,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _grade )
+                return Verify.IsElement( _grade )
                     ? _grade
                     : Element.Default;
             }
@@ -410,7 +410,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _step )
+                return Verify.IsElement( _step )
                     ? _step
                     : Element.Default;
             }

@@ -103,7 +103,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public IEnumerable<DataRow> GetData()
         {
-            if( Verify.Map( Data ) )
+            if( Verify.IsMap( Data ) )
             {
                 try
                 {

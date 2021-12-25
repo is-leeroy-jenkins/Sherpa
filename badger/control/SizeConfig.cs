@@ -176,7 +176,7 @@ namespace BudgetExecution
         /// </returns>
         public static Size GetSize( ImageSizer size )
         {
-            if( Verify.ImageSize( size ) )
+            if( Verify.IsImageSize( size ) )
             {
                 try
                 {

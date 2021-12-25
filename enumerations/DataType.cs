@@ -44,7 +44,7 @@ namespace BudgetExecution
         Decimal,
 
         /// <summary>
-        /// Defines the DateTime
+        /// Defines the IsDateTime
         /// </summary>
         DateTime,
 

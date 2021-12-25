@@ -190,7 +190,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( Args ) && Verify.Input( CommandText )
+                return Verify.IsMap( Args ) && Verify.Input( CommandText )
                     ? CommandText
                     : string.Empty;
             }

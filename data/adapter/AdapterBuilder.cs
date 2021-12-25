@@ -100,7 +100,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Ref( Connection )
+                return Verify.IsRef( Connection )
                     ? Connection
                     : default( DbConnection );
             }
@@ -119,7 +119,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Ref( ConnectionBuilder )
+                return Verify.IsRef( ConnectionBuilder )
                     ? ConnectionBuilder
                     : default( IConnectionBuilder );
             }

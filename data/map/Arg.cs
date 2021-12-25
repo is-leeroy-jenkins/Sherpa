@@ -46,7 +46,7 @@ namespace BudgetExecution
         /// <param name="dict">The dictionary.</param>
         private protected void SetInput( IDictionary<string, object> dict )
         {
-            if( Verify.Map( dict ) )
+            if( Verify.IsMap( dict ) )
             {
                 try
                 {
@@ -79,7 +79,7 @@ namespace BudgetExecution
         /// <param name="dict">The dictionary.</param>
         private protected void SetOutput( IDictionary<string, object> dict )
         {
-            if( Verify.Map( dict ) )
+            if( Verify.IsMap( dict ) )
             {
                 try
                 {

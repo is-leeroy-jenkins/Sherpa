@@ -146,7 +146,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( Data )
+                return Verify.IsMap( Data )
                     ? Data
                     : default( IDictionary<string, object> );
             }
@@ -167,7 +167,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Code )
+                return Verify.IsElement( Code )
                     ? Code?.GetValue()
                     : string.Empty;
             }

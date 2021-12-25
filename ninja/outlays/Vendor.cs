@@ -149,7 +149,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Code )
+                return Verify.IsElement( Code )
                     ? Code
                     : Element.Default;
             }
@@ -169,7 +169,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Name )
+                return Verify.IsElement( Name )
                     ? Name
                     : Element.Default;
             }
@@ -190,7 +190,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Name )
+                return Verify.IsElement( Name )
                     ? Name?.GetValue()
                     : string.Empty;
             }
@@ -210,7 +210,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( DunsNumber )
+                return Verify.IsElement( DunsNumber )
                     ? DunsNumber
                     : Element.Default;
             }
@@ -230,7 +230,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( DocumentNumber )
+                return Verify.IsElement( DocumentNumber )
                     ? DocumentNumber
                     : Element.Default;
             }
@@ -250,7 +250,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Time( StartDate )
+                return Verify.IsTime( StartDate )
                     ? StartDate
                     : Time.Default;
             }
@@ -270,7 +270,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Time( EndDate )
+                return Verify.IsTime( EndDate )
                     ? EndDate
                     : Time.Default;
             }
@@ -290,7 +290,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Time( ClosedDate )
+                return Verify.IsTime( ClosedDate )
                     ? ClosedDate
                     : Time.Default;
             }
@@ -350,7 +350,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( Data )
+                return Verify.IsMap( Data )
                     ? Data
                     : default( IDictionary<string, object> );
             }

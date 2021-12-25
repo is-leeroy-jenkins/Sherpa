@@ -36,7 +36,7 @@ namespace BudgetExecution
                 return type.Name switch
                 {
                     "String" or "Boolean" => "Text",
-                    "DateTime" => "Date",
+                    "IsDateTime" => "Date",
                     "Int32" => "Double",
                     "Decimal" => "Currency",
                     _ => type.Name,

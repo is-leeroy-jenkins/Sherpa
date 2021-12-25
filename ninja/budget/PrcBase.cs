@@ -230,7 +230,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( AhCode )
+                return Verify.IsElement( AhCode )
                     ? AhCode
                     : Element.Default;
             }
@@ -250,7 +250,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( FundCode )
+                return Verify.IsElement( FundCode )
                     ? FundCode
                     : Element.Default;
             }
@@ -270,7 +270,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( OrgCode )
+                return Verify.IsElement( OrgCode )
                     ? OrgCode
                     : Element.Default;
             }
@@ -290,7 +290,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( AccountCode )
+                return Verify.IsElement( AccountCode )
                     ? AccountCode
                     : Element.Default;
             }
@@ -310,7 +310,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( RcCode )
+                return Verify.IsElement( RcCode )
                     ? RcCode
                     : Element.Default;
             }
@@ -330,7 +330,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( BocCode )
+                return Verify.IsElement( BocCode )
                     ? BocCode
                     : Element.Default;
             }
@@ -350,7 +350,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( ActivityCode )
+                return Verify.IsElement( ActivityCode )
                     ? ActivityCode
                     : Element.Default;
             }

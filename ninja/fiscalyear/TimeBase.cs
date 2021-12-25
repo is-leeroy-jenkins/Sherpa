@@ -81,7 +81,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.EventDate( date )
+                return Verify.IsEventDate( date )
                     ? date.ToString()
                     : EventDate.NS.ToString();
             }
@@ -101,7 +101,7 @@ namespace BudgetExecution
         private protected string GetDate( DataRow dataRow, EventDate date )
         {
             if( Verify.Row( dataRow )
-                && Verify.EventDate( date ) )
+                && Verify.IsEventDate( date ) )
             {
                 try
                 {
@@ -192,7 +192,7 @@ namespace BudgetExecution
         private protected virtual EventDate SetDate( DataRow dataRow, EventDate date )
         {
             if( dataRow != null
-                && Verify.EventDate( date ) )
+                && Verify.IsEventDate( date ) )
             {
                 try
                 {
@@ -276,7 +276,7 @@ namespace BudgetExecution
         private protected DateTime SetDay( DataRow dataRow, EventDate date )
         {
             if( dataRow != null
-                && Verify.EventDate( date ) )
+                && Verify.IsEventDate( date ) )
             {
                 try
                 {
@@ -356,7 +356,7 @@ namespace BudgetExecution
         private protected string SetValue( DataRow dataRow, EventDate date )
         {
             if( dataRow != null
-                && Verify.EventDate( date ) )
+                && Verify.IsEventDate( date ) )
             {
                 try
                 {

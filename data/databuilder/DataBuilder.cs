@@ -99,7 +99,7 @@ namespace BudgetExecution
                     {
                         var _date = Record.GetDate( field );
 
-                        return Verify.DateTime( _date )
+                        return Verify.IsDateTime( _date )
                             ? _date
                             : default( DateTime );
                     }

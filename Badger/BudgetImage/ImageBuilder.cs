@@ -241,7 +241,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.ImageSize( ImageSize )
+                return Verify.IsImageSize( ImageSize )
                     ? ImageSize
                     : default( Size );
             }

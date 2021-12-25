@@ -162,7 +162,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( Args )
+                return Verify.IsMap( Args )
                     ? Args
                     : default( IDictionary<string, object> );
             }

@@ -118,7 +118,7 @@ namespace BudgetExecution
         /// <param name="dict">The dictionary.</param>
         private protected void SetSelectStatement( IDictionary<string, object> dict )
         {
-            if( Verify.Map( dict ) )
+            if( Verify.IsMap( dict ) )
             {
                 try
                 {
@@ -150,7 +150,7 @@ namespace BudgetExecution
         /// <param name="dict">The dictionary.</param>
         private protected void SetUpdateStatement( IDictionary<string, object> dict )
         {
-            if( Verify.Map( dict ) )
+            if( Verify.IsMap( dict ) )
             {
                 try
                 {
@@ -177,7 +177,7 @@ namespace BudgetExecution
         /// <param name="dict">The dictionary.</param>
         private protected void SetInsertStatement( IDictionary<string, object> dict )
         {
-            if( Verify.Map( dict ) )
+            if( Verify.IsMap( dict ) )
             {
                 try
                 {
@@ -209,7 +209,7 @@ namespace BudgetExecution
         /// <param name="dict">The dictionary.</param>
         private protected void SetDeleteStatement( IDictionary<string, object> dict )
         {
-            if( Verify.Map( dict ) )
+            if( Verify.IsMap( dict ) )
             {
                 try
                 {
@@ -265,7 +265,7 @@ namespace BudgetExecution
             {
                 SetSelectStatement();
             }
-            else if( Verify.Map( dict ) )
+            else if( Verify.IsMap( dict ) )
             {
                 try
                 {

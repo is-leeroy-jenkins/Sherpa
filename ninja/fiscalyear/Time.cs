@@ -1,4 +1,4 @@
-﻿// <copyright file = "Time.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "IsTime.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -133,7 +133,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.DateTime( Day )
+                return Verify.IsDateTime( Day )
                     ? Day
                     : default( DateTime );
             }
@@ -172,7 +172,7 @@ namespace BudgetExecution
             try
             {
                 return Enum.IsDefined( typeof( EventDate ), Date ) 
-                    && Verify.EventDate( Date )
+                    && Verify.IsEventDate( Date )
                         ? $"{Name} = {Day}"
                         : string.Empty;
             }
@@ -212,7 +212,7 @@ namespace BudgetExecution
         {
             try
             {
-                return !Verify.DateTime( Day )
+                return !Verify.IsDateTime( Day )
                     ? Name + " = " + Day
                     : string.Empty;
             }

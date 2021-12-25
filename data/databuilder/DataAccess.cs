@@ -308,7 +308,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public IEnumerable<int> GetColumnOrdinals( IEnumerable<DataColumn> dataColumns )
         {
-            if( Verify.Sequence( dataColumns ) )
+            if( Verify.IsSequence( dataColumns ) )
             {
                 try
                 {

@@ -86,7 +86,7 @@ namespace BudgetExecution
         /// <param name="dict">The dictionary.</param>
         public void SetDataFilter( IDictionary<string, object> dict )
         {
-            if( Verify.Map( dict ) )
+            if( Verify.IsMap( dict ) )
             {
                 try
                 {

@@ -334,7 +334,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Attributes )
+                return Verify.IsElement( Attributes )
                     ? Attributes
                     : default( FileAttributes );
             }
@@ -353,7 +353,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.DateTime( CreationDate )
+                return Verify.IsDateTime( CreationDate )
                     ? CreationDate
                     : default( DateTime );
             }
@@ -372,7 +372,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.DateTime( ChangeDate )
+                return Verify.IsDateTime( ChangeDate )
                     ? ChangeDate
                     : default( DateTime );
             }

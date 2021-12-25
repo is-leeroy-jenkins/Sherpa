@@ -123,7 +123,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Ref( Builder )
+                return Verify.IsRef( Builder )
                     ? Builder
                     : default( ImageBuilder );
             }
@@ -142,7 +142,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Ref( Factory )
+                return Verify.IsRef( Factory )
                     ? Factory
                     : default( ImageFactory );
             }
@@ -159,8 +159,8 @@ namespace BudgetExecution
         /// <param name="tag">The tag.</param>
         public void SetTag( object tag )
         {
-            if( Verify.Ref( Image )
-                && Verify.Ref( tag ) )
+            if( Verify.IsRef( Image )
+                && Verify.IsRef( tag ) )
             {
                 try
                 {
@@ -182,7 +182,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Ref( Image )
+                return Verify.IsRef( Image )
                     ? Image
                     : default( Bitmap );
             }

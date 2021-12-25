@@ -136,7 +136,7 @@ namespace BudgetExecution
         /// </returns>
         public override string ToString()
         {
-            if( Verify.Element( Code ) )
+            if( Verify.IsElement( Code ) )
             {
                 try
                 {
@@ -161,7 +161,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( BFY )
+                return Verify.IsElement( BFY )
                     ? new BudgetFiscalYear( BFY?.GetValue() )
                     : default( BudgetFiscalYear );
             }
@@ -179,7 +179,7 @@ namespace BudgetExecution
         /// </returns>
         public IFinanceObjectClass GetFinanceObjectClass()
         {
-            if( Verify.Element( FocCode ) )
+            if( Verify.IsElement( FocCode ) )
             {
                 try
                 {
@@ -212,7 +212,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( FundCode )
+                return Verify.IsElement( FundCode )
                     ? new Fund( FundCode?.GetValue() )
                     : default( Fund );
             }
@@ -230,7 +230,7 @@ namespace BudgetExecution
         /// </returns>
         public IOrganization GetOrganization()
         {
-            if( Verify.Element( CostOrgCode ) )
+            if( Verify.IsElement( CostOrgCode ) )
             {
                 try
                 {
@@ -261,7 +261,7 @@ namespace BudgetExecution
         /// </returns>
         public IAccount GetAccount()
         {
-            if( Verify.Element( AccountCode ) )
+            if( Verify.IsElement( AccountCode ) )
             {
                 try
                 {
@@ -292,7 +292,7 @@ namespace BudgetExecution
         /// </returns>
         public IResponsibilityCenter GetResponsibilityCenter()
         {
-            if( Verify.Element( RcCode ) )
+            if( Verify.IsElement( RcCode ) )
             {
                 try
                 {
@@ -323,7 +323,7 @@ namespace BudgetExecution
         /// </returns>
         public IEnumerable<IWorkCode> GetWorkCodes()
         {
-            if( Verify.Map( Args ) )
+            if( Verify.IsMap( Args ) )
             {
                 try
                 {
@@ -357,7 +357,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( Args )
+                return Verify.IsMap( Args )
                     ? Args
                     : default( IDictionary<string, object> );
             }
@@ -417,7 +417,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Code )
+                return Verify.IsElement( Code )
                     ? Code
                     : Element.Default;
             }
@@ -437,7 +437,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Name )
+                return Verify.IsElement( Name )
                     ? Name
                     : Element.Default;
             }

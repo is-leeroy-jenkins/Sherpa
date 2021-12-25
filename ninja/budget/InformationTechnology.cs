@@ -220,7 +220,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( ProjectCode )
+                return Verify.IsElement( ProjectCode )
                     ? ProjectCode
                     : Element.Default;
             }
@@ -240,7 +240,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( ProgramProjectName )
+                return Verify.IsElement( ProgramProjectName )
                     ? ProgramProjectName
                     : Element.Default;
             }
@@ -260,7 +260,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( CostAreaCode )
+                return Verify.IsElement( CostAreaCode )
                     ? CostAreaCode
                     : Element.Default;
             }
@@ -280,7 +280,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( CostAreaName )
+                return Verify.IsElement( CostAreaName )
                     ? CostAreaName
                     : Element.Default;
             }
@@ -298,8 +298,8 @@ namespace BudgetExecution
         /// </returns>
         public IDictionary<string, object> ToDictionary()
         {
-            if( Verify.Element( Name )
-                && Verify.Element( Code )
+            if( Verify.IsElement( Name )
+                && Verify.IsElement( Code )
                 && Verify.Key( ID ) )
             {
                 try
@@ -350,7 +350,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Code )
+                return Verify.IsElement( Code )
                     ? Code
                     : Element.Default;
             }
@@ -370,7 +370,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Name )
+                return Verify.IsElement( Name )
                     ? Name
                     : Element.Default;
             }

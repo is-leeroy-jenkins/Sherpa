@@ -156,7 +156,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.DateTime( CreationDate ) 
+                return Verify.IsDateTime( CreationDate ) 
                     ? CreationDate 
                     : default( DateTime );
             }
@@ -175,7 +175,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.DateTime( ChangeDate )
+                return Verify.IsDateTime( ChangeDate )
                     ? ChangeDate
                     : default( DateTime );
             }
@@ -215,7 +215,7 @@ namespace BudgetExecution
             {
                 var _enumerable = DirectoryInfo?.EnumerateFiles( FolderPath );
 
-                return Verify.Sequence(  _enumerable )
+                return Verify.IsSequence(  _enumerable )
                     ? _enumerable
                     : default( IEnumerable<FileInfo> );
             }

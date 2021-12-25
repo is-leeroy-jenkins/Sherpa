@@ -148,7 +148,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _newYears )
+                return Verify.IsElement( _newYears )
                     ? _newYears
                     : default( IElement );
             }
@@ -168,7 +168,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _martinLutherKing )
+                return Verify.IsElement( _martinLutherKing )
                     ? _martinLutherKing
                     : default( IElement );
             }
@@ -188,7 +188,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _presidents )
+                return Verify.IsElement( _presidents )
                     ? _presidents
                     : default( IElement );
             }
@@ -208,7 +208,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _memorial )
+                return Verify.IsElement( _memorial )
                     ? _memorial
                     : default( IElement );
             }
@@ -228,7 +228,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _veterans )
+                return Verify.IsElement( _veterans )
                     ? _veterans
                     : default( IElement );
             }
@@ -248,7 +248,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _labor )
+                return Verify.IsElement( _labor )
                     ? _labor
                     : default( IElement );
             }
@@ -268,7 +268,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _independence )
+                return Verify.IsElement( _independence )
                     ? _independence
                     : default( IElement );
             }
@@ -288,7 +288,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _columbus )
+                return Verify.IsElement( _columbus )
                     ? _columbus
                     : default( IElement );
             }
@@ -308,7 +308,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _thanksgiving )
+                return Verify.IsElement( _thanksgiving )
                     ? _thanksgiving
                     : default( IElement );
             }
@@ -328,7 +328,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _christmas )
+                return Verify.IsElement( _christmas )
                     ? _christmas
                     : default( IElement );
             }
@@ -408,7 +408,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( _args )
+                return Verify.IsMap( _args )
                     ? _args
                     : default( IDictionary<string, object> );
             }

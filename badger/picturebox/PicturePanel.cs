@@ -174,7 +174,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tag = Verify.Ref( tag )
+                Tag = Verify.IsRef( tag )
                     ? tag
                     : null;
             }

@@ -95,7 +95,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Ref( SqlStatement )
+                return Verify.IsRef( SqlStatement )
                     ? SqlStatement
                     : default( ISqlStatement );
             }
@@ -113,7 +113,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public DbCommand GetCommand( ISqlStatement sqlStatement )
         {
-            if( Verify.Ref( sqlStatement )
+            if( Verify.IsRef( sqlStatement )
                 && Enum.IsDefined( typeof( Provider ), ConnectionBuilder.GetProvider() ) )
             {
                 try
@@ -170,7 +170,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public DbCommand GetSQLiteCommand( ISqlStatement sqlStatement )
         {
-            if( Verify.Ref( sqlStatement ) )
+            if( Verify.IsRef( sqlStatement ) )
             {
                 try
                 {
@@ -241,7 +241,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public DbCommand GetSqlCeCommand( ISqlStatement sqlStatement )
         {
-            if( Verify.Ref( sqlStatement ) )
+            if( Verify.IsRef( sqlStatement ) )
             {
                 try
                 {
@@ -315,7 +315,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public DbCommand GetSqlCommand( ISqlStatement sqlStatement )
         {
-            if( Verify.Ref( sqlStatement ) )
+            if( Verify.IsRef( sqlStatement ) )
             {
                 try
                 {
@@ -386,7 +386,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public DbCommand GetOleDbCommand( ISqlStatement sqlStatement )
         {
-            if( Verify.Ref( sqlStatement ) )
+            if( Verify.IsRef( sqlStatement ) )
             {
                 try
                 {

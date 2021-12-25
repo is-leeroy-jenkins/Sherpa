@@ -166,11 +166,11 @@ namespace BudgetExecution
         /// </returns>
         public override string ToString()
         {
-            if( Verify.Element( _code ) )
+            if( Verify.IsElement( _code ) )
             {
                 try
                 {
-                    return Verify.Element( _code )
+                    return Verify.IsElement( _code )
                         ? _code.GetValue()
                         : string.Empty;
                 }
@@ -193,7 +193,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( _data )
+                return Verify.IsMap( _data )
                     ? _data
                     : default( IDictionary<string, object> );
             }
@@ -233,7 +233,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _code )
+                return Verify.IsElement( _code )
                     ? _code
                     : Element.Default;
             }
@@ -253,7 +253,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( _name )
+                return Verify.IsElement( _name )
                     ? _name
                     : Element.Default;
             }

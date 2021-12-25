@@ -216,7 +216,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( Data )
+                return Verify.IsMap( Data )
                     ? Data
                     : default( IDictionary<string, object> );
             }
@@ -256,7 +256,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Code )
+                return Verify.IsElement( Code )
                     ? Code
                     : Element.Default;
             }
@@ -276,7 +276,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Name )
+                return Verify.IsElement( Name )
                     ? Name
                     : Element.Default;
             }

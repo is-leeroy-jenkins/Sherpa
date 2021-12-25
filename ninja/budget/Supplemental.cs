@@ -75,7 +75,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( Data )
+                return Verify.IsMap( Data )
                     ? new Builder( Source, Data )
                     : default( Builder );
             }

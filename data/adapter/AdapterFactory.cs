@@ -170,7 +170,7 @@ namespace BudgetExecution
         /// <returns></returns>
         private SqlDataAdapter GetSqlAdapter()
         {
-            if( Verify.Ref( SqlStatement ) )
+            if( Verify.IsRef( SqlStatement ) )
             {
                 try
                 {

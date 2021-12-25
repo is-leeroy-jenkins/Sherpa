@@ -161,7 +161,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Ref( SourceBinding )
+                return Verify.IsRef( SourceBinding )
                     ? SourceBinding
                     : default( IChartBinding );
             }
@@ -220,7 +220,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Ref( Configuration )
+                return Verify.IsRef( Configuration )
                     ? Configuration
                     : default( ISeriesConfig );
             }

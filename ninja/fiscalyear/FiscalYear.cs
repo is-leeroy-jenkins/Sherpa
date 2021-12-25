@@ -127,7 +127,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( StartDate )
+                return Verify.IsElement( StartDate )
                     ? StartDate
                     : Element.Default;
             }
@@ -147,7 +147,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( ExpiringYear )
+                return Verify.IsElement( ExpiringYear )
                     ? ExpiringYear
                     : Element.Default;
             }
@@ -167,7 +167,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( CancellationDate )
+                return Verify.IsElement( CancellationDate )
                     ? CancellationDate
                     : Element.Default;
             }
@@ -298,7 +298,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( Data )
+                return Verify.IsMap( Data )
                     ? Data
                     : default( IDictionary<string, object> );
             }

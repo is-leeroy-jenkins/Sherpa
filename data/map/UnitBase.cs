@@ -39,7 +39,7 @@ namespace BudgetExecution
         /// </returns>
         public virtual bool IsMatch( IUnit unit )
         {
-            if( Verify.Ref( unit ) )
+            if( Verify.IsRef( unit ) )
             {
                 try
                 {

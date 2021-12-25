@@ -228,7 +228,7 @@ namespace BudgetExecution
         public IBuilder GetBuilder()
         {
             if( Validate.Source( Source )
-                && Verify.Map( Data ) )
+                && Verify.IsMap( Data ) )
             {
                 try
                 {
@@ -256,7 +256,7 @@ namespace BudgetExecution
         public IEnumerable<DataRow> GetData()
         {
             if( Validate.Source( Source )
-                && Verify.Map( Data ) )
+                && Verify.IsMap( Data ) )
             {
                 try
                 {
@@ -326,7 +326,7 @@ namespace BudgetExecution
                 var _element = BudgetFiscalYear
                     ?.GetAvailability();
 
-                if( Verify.Element( _element ) )
+                if( Verify.IsElement( _element ) )
                 {
                     try
                     {

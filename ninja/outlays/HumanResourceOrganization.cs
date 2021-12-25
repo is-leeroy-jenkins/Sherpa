@@ -150,7 +150,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Code )
+                return Verify.IsElement( Code )
                     ? Code
                     : Element.Default;
             }
@@ -170,7 +170,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Name )
+                return Verify.IsElement( Name )
                     ? Name
                     : Element.Default;
             }
@@ -206,7 +206,7 @@ namespace BudgetExecution
         /// </returns>
         public IEnumerable<IHumanResourceOrganization> GetHumanResourceOrganizations()
         {
-            if( Verify.Map( Args ) )
+            if( Verify.IsMap( Args ) )
             {
                 try
                 {
@@ -241,7 +241,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Code )
+                return Verify.IsElement( Code )
                     ? Code.GetValue()
                     : string.Empty;
             }

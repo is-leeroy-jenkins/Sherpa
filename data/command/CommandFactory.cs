@@ -96,7 +96,7 @@ namespace BudgetExecution
         public DbCommand GetCreateTableCommand( string tableName, IEnumerable<DataColumn> dataColumns )
         {
             if( Verify.Input( tableName )
-                && Verify.Sequence( dataColumns ) )
+                && Verify.IsSequence( dataColumns ) )
             {
                 try
                 {

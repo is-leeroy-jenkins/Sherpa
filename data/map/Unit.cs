@@ -78,7 +78,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Ref( Data )
+                return Verify.IsRef( Data )
                     ? Data
                     : default( object );
             }

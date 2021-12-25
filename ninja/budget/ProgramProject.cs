@@ -149,7 +149,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Definition )
+                return Verify.IsElement( Definition )
                     ? Definition
                     : Element.Default;
             }
@@ -169,7 +169,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Laws )
+                return Verify.IsElement( Laws )
                     ? Laws
                     : Element.Default;
             }
@@ -189,7 +189,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Title )
+                return Verify.IsElement( Title )
                     ? Title
                     : Element.Default;
             }
@@ -209,7 +209,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Narrative )
+                return Verify.IsElement( Narrative )
                     ? Narrative
                     : Element.Default;
             }
@@ -229,7 +229,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( ProgramAreaName )
+                return Verify.IsElement( ProgramAreaName )
                     ? ProgramAreaCode
                     : Element.Default;
             }
@@ -249,7 +249,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( ProgramAreaName )
+                return Verify.IsElement( ProgramAreaName )
                     ? ProgramAreaName
                     : Element.Default;
             }
@@ -270,7 +270,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Code )
+                return Verify.IsElement( Code )
                     ? Code.GetValue()
                     : string.Empty;
             }
@@ -290,7 +290,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( Data )
+                return Verify.IsMap( Data )
                     ? Data
                     : default( IDictionary<string, object> );
             }
@@ -330,7 +330,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Code )
+                return Verify.IsElement( Code )
                     ? Code
                     : Element.Default;
             }
@@ -350,7 +350,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Name )
+                return Verify.IsElement( Name )
                     ? Name
                     : Element.Default;
             }

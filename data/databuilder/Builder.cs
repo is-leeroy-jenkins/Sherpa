@@ -113,7 +113,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string column )
         {
-            if( Verify.Sequence( dataRows )
+            if( Verify.IsSequence( dataRows )
                 && Verify.Input( column ) )
             {
                 try
@@ -145,7 +145,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, Field field, string filter )
         {
-            if( Verify.Sequence( dataRows )
+            if( Verify.IsSequence( dataRows )
                 && Validate.Field( field )
                 && Verify.Input( filter ) )
             {
@@ -388,7 +388,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public static IEnumerable<DataRow> FilterData( IEnumerable<DataRow> dataRows, Field field, string filter )
         {
-            if( Verify.Sequence( dataRows )
+            if( Verify.IsSequence( dataRows )
                 && Verify.Input( filter )
                 && Validate.Field( field ) )
             {

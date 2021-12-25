@@ -259,7 +259,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Element( Status )
+                return Verify.IsElement( Status )
                     ? Status
                     : Element.Default;
             }
@@ -279,7 +279,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Map( Args )
+                return Verify.IsMap( Args )
                     ? Args
                     : default( IDictionary<string, object> );
             }
