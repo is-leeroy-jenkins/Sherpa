@@ -138,7 +138,7 @@ namespace BudgetExecution
         {
             try
             {
-                ImageName = Verify.Input( name )
+                ImageName = Verify.IsInput( name )
                     ? name
                     : string.Empty;
             }
@@ -156,7 +156,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( ImageName )
+                return Verify.IsInput( ImageName )
                     ? ImageName
                     : string.Empty;
             }
@@ -177,7 +177,7 @@ namespace BudgetExecution
             try
             {
                 FileExtension = Validate.ImageResource( resource )
-                    && Verify.Input( filePath )
+                    && Verify.IsInput( filePath )
                     && File.Exists( filePath )
                     && resource != ImageSource.NS
                         ? filePath
@@ -197,7 +197,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FileExtension )
+                return Verify.IsInput( FileExtension )
                     ? FileExtension
                     : ImageFormat.PNG.ToString();
             }

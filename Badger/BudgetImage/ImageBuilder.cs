@@ -142,7 +142,7 @@ namespace BudgetExecution
         private protected void SetImageFilePath( string filePath, ImageSource imageSource )
         {
             if( Validate.ImageResource( imageSource )
-                && Verify.Input( filePath )
+                && Verify.IsInput( filePath )
                 && imageSource != ImageSource.NS )
             {
                 try
@@ -154,7 +154,7 @@ namespace BudgetExecution
                         ?.Select( n => n )
                         ?.FirstOrDefault();
 
-                    if( Verify.Input( _path ) )
+                    if( Verify.IsInput( _path ) )
                     {
                         FullPath = File.Exists( _path )
                             ? _path
@@ -175,7 +175,7 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected void GetImageFilePath( string filePath )
         {
-            if( Verify.Input( filePath ) )
+            if( Verify.IsInput( filePath ) )
             {
                 try
                 {
@@ -200,7 +200,7 @@ namespace BudgetExecution
             try
             {
                 return Validate.ImageResource( Source ) 
-                    && Verify.Input( Resource.Settings[ $"{Source}" ] )
+                    && Verify.IsInput( Resource.Settings[ $"{Source}" ] )
                         ? Resource.Settings[ $"{Source}" ]
                         : default( string );
             }
@@ -220,7 +220,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FullPath )
+                return Verify.IsInput( FullPath )
                     ? FullPath
                     : default( string );
             }
@@ -262,7 +262,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( ImageName )
+                return Verify.IsInput( ImageName )
                     ? ImageName
                     : default( string );
             }
@@ -302,7 +302,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FullPath ) && File.Exists( FullPath )
+                return Verify.IsInput( FullPath ) && File.Exists( FullPath )
                     ? File.OpenRead( FullPath )
                     : default( FileStream );
             }

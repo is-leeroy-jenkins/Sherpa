@@ -147,7 +147,7 @@ namespace BudgetExecution
 
                         foreach( var _kvp in dict )
                         {
-                            if( Verify.Input( _kvp.Key )
+                            if( Verify.IsInput( _kvp.Key )
                                 && _kvp.Value != null )
                             {
                                 _filter += $"{_kvp.Key} = {_kvp.Value} AND";
@@ -179,7 +179,7 @@ namespace BudgetExecution
         /// <param name="data">The data.</param>
         public void SetDataSource( IEnumerable<object> data )
         {
-            if( Verify.Input( data ) )
+            if( Verify.IsInput( data ) )
             {
                 try
                 {
@@ -210,7 +210,7 @@ namespace BudgetExecution
 
                     foreach( var _kvp in dict )
                     {
-                        if( Verify.Input( _kvp.Key )
+                        if( Verify.IsInput( _kvp.Key )
                             && _kvp.Value != null )
                         {
                             _filter += $"{_kvp.Key} = {_kvp.Value} AND";
@@ -244,7 +244,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Verify.Input( filter ) )
+                    if( Verify.IsInput( filter ) )
                     {
                         DataSource = data.ToList();
                         DataMember = field.ToString();
@@ -312,7 +312,7 @@ namespace BudgetExecution
 
                     foreach( var _kvp in dict )
                     {
-                        if( Verify.Input( _kvp.Key )
+                        if( Verify.IsInput( _kvp.Key )
                             && Verify.IsRef( _kvp.Value ) )
                         {
                             _filter += $"{_kvp.Key} = {_kvp.Value} AND";
@@ -452,7 +452,7 @@ namespace BudgetExecution
             {
                 var _rows = DataTable?.AsEnumerable();
 
-                return Verify.Input( _rows )
+                return Verify.IsInput( _rows )
                     ? _rows
                     : default( EnumerableRowCollection<DataRow> );
             }

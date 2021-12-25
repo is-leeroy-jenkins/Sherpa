@@ -62,7 +62,7 @@ namespace BudgetExecution
         public void AddComment( Grid grid, string text )
         {
             if( Validate.Grid( grid )
-                && Verify.Input( text ) )
+                && Verify.IsInput( text ) )
             {
                 try
                 {
@@ -135,7 +135,7 @@ namespace BudgetExecution
                         foreach( var caption in text )
                         {
                             if( cell != null
-                                && Verify.Input( caption ) )
+                                && Verify.IsInput( caption ) )
                             {
                                 cell.Value = caption;
                             }
@@ -184,7 +184,7 @@ namespace BudgetExecution
         /// <param name="headerText">The header text.</param>
         public void SetHeaderFooterText( string headerText )
         {
-            if( Verify.Input( headerText ) )
+            if( Verify.IsInput( headerText ) )
             {
                 try
                 {

@@ -192,7 +192,7 @@ namespace BudgetExecution
         /// </returns>
         private protected Source GetSource( DataRow dataRow )
         {
-            if( Verify.Row( dataRow ) )
+            if( Verify.IsRow( dataRow ) )
             {
                 try
                 {
@@ -200,7 +200,7 @@ namespace BudgetExecution
                         ?.Table
                         ?.TableName;
 
-                    if( Verify.Input( _name ) )
+                    if( Verify.IsInput( _name ) )
                     {
                         var _value = (Source)Enum.Parse( typeof( Source ), _name );
 
@@ -234,7 +234,7 @@ namespace BudgetExecution
                 {
                     var _builder = new Builder( Source, Data );
 
-                    return Verify.Rows( _builder?.GetData() )
+                    return Verify.IsRows( _builder?.GetData() )
                         ? _builder
                         : default( Builder );
                 }
@@ -263,7 +263,7 @@ namespace BudgetExecution
                     var _rows = new DataBuilder( Source, Data )
                         ?.GetData();
 
-                    return Verify.Rows( _rows )
+                    return Verify.IsRows( _rows )
                         ? _rows
                         : default( IEnumerable<DataRow> );
                 }
@@ -290,7 +290,7 @@ namespace BudgetExecution
         public IEnumerable<DataRow> FilterData( Field field, string filter )
         {
             if( Validate.Field( field )
-                && Verify.Input( filter ) )
+                && Verify.IsInput( filter ) )
             {
                 try
                 {
@@ -300,7 +300,7 @@ namespace BudgetExecution
                     var _filter = _rows
                         ?.Filter( field.ToString(), filter );
 
-                    return Verify.Rows( _filter )
+                    return Verify.IsRows( _filter )
                         ? _filter
                         : default( IEnumerable<DataRow> );
                 }
@@ -367,7 +367,7 @@ namespace BudgetExecution
         /// </returns>
         public IDataMetric GetMetric( IEnumerable<DataRow> dataRow, Field field, Numeric numeric = Numeric.Amount )
         {
-            if( Verify.Rows( dataRow )
+            if( Verify.IsRows( dataRow )
                 && Validate.Field( field )
                 && Validate.Numeric( numeric )
                 && dataRow.HasNumeric() )

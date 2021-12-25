@@ -293,7 +293,7 @@ namespace BudgetExecution
         /// <param name="text">The text.</param>
         public void SetHeaderText( string text )
         {
-            if( Verify.Input( text ) )
+            if( Verify.IsInput( text ) )
             {
                 try
                 {
@@ -385,7 +385,7 @@ namespace BudgetExecution
         /// <param name="text">The text.</param>
         public void SetHoverText( string text )
         {
-            if( Verify.Input( text ) )
+            if( Verify.IsInput( text ) )
             {
                 try
                 {

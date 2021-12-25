@@ -22,7 +22,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID
                     : Key.Default;
             }

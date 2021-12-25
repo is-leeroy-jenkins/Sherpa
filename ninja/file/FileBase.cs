@@ -109,7 +109,7 @@ namespace BudgetExecution
         {
             var _input = Path?.GetFullPath();
 
-            if( Verify.Input( _input ) )
+            if( Verify.IsInput( _input ) )
             {
                 try
                 {
@@ -137,7 +137,7 @@ namespace BudgetExecution
             {
                 var _root = Path?.GetPathRoot();
 
-                return Verify.Input( _root )
+                return Verify.IsInput( _root )
                     ? _root
                     : string.Empty;
             }
@@ -158,7 +158,7 @@ namespace BudgetExecution
             {
                 var name = Path?.GetFileName();
 
-                return Verify.Input( name )
+                return Verify.IsInput( name )
                     ? name
                     : string.Empty;
             }
@@ -179,7 +179,7 @@ namespace BudgetExecution
             {
                 var _extension = Path?.GetFileExtension();
 
-                return Verify.Input( _extension )
+                return Verify.IsInput( _extension )
                     ? (EXT)Enum.Parse( typeof( EXT ), _extension )
                     : default( EXT );
             }
@@ -215,7 +215,7 @@ namespace BudgetExecution
         /// <param name="filePath">The destination.</param>
         public void Move( string filePath )
         {
-            if( Verify.Input( filePath ) )
+            if( Verify.IsInput( filePath ) )
             {
                 try
                 {
@@ -236,7 +236,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( Verify.Input( filePath )
+                if( Verify.IsInput( filePath )
                     && !File.Exists( filePath ) )
                 {
                     FileInfo.CopyTo( filePath );
@@ -257,7 +257,7 @@ namespace BudgetExecution
             {
                 var _file = Path?.GetFullName();
 
-                if( Verify.Input( _file )
+                if( Verify.IsInput( _file )
                     && File.Exists( _file ) )
                 {
                     File.Delete( _file );
@@ -277,7 +277,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FileInfo?.Name ) 
+                return Verify.IsInput( FileInfo?.Name ) 
                     && File.Exists( FileInfo?.FullName )
                         ? FileInfo
                         : default( FileInfo );
@@ -299,7 +299,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FileInfo?.DirectoryName ) 
+                return Verify.IsInput( FileInfo?.DirectoryName ) 
                     && Directory.Exists( FileInfo?.DirectoryName );
             }
             catch( Exception ex )
@@ -393,7 +393,7 @@ namespace BudgetExecution
             {
                 var _file = Path?.GetFullPath();
 
-                return Verify.Input( _file ) 
+                return Verify.IsInput( _file ) 
                     && File.Exists( _file )
                         ? new FileInfo( _file )?.Create()
                         : default( FileStream );

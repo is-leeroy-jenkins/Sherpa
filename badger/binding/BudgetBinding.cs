@@ -58,7 +58,7 @@ namespace BudgetExecution
         public void SetDataFilter( Field field, string filter )
         {
             if( Validate.Field( field )
-                && Verify.Input( filter ) )
+                && Verify.IsInput( filter ) )
             {
                 try
                 {
@@ -97,7 +97,7 @@ namespace BudgetExecution
 
                     foreach( var kvp in dict )
                     {
-                        if( Verify.Input( kvp.Key )
+                        if( Verify.IsInput( kvp.Key )
                             && kvp.Value != null )
                         {
                             DataFilter?.Add( kvp.Key, kvp.Value );
@@ -119,7 +119,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Table( DataSet )
+                return Verify.IsTable( DataSet )
                     ? DataSet
                     : default( DataSet );
             }

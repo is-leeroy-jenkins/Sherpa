@@ -163,7 +163,7 @@ namespace BudgetExecution
         /// </returns>
         private IDictionary<string, object> GetArgs( string code )
         {
-            if( Verify.Input( code ) )
+            if( Verify.IsInput( code ) )
             {
                 try
                 {
@@ -191,7 +191,7 @@ namespace BudgetExecution
         /// </returns>
         public override string ToString()
         {
-            if( Verify.Input( Name?.GetValue() ) )
+            if( Verify.IsInput( Name?.GetValue() ) )
             {
                 try
                 {
@@ -236,7 +236,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID
                     : Key.Default;
             }

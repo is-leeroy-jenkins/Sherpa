@@ -280,14 +280,14 @@ namespace BudgetExecution
 
             try
             {
-                if( Verify.Input( HoverText ) )
+                if( Verify.IsInput( HoverText ) )
                 {
                     var _hoverText = _button?.HoverText;
                     var _ = new ToolTip( _button, _hoverText );
                 }
                 else
                 {
-                    if( Verify.Input( Tag?.ToString() ) )
+                    if( Verify.IsInput( Tag?.ToString() ) )
                     {
                         var _ = new ToolTip( _button, Tag?.ToString()?.SplitPascal() );
                     }

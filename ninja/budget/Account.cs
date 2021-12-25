@@ -135,7 +135,7 @@ namespace BudgetExecution
         /// </returns>
         public IActivity GetActivity()
         {
-            if( Verify.Input( ActivityCode.GetValue() ) )
+            if( Verify.IsInput( ActivityCode.GetValue() ) )
             {
                 try
                 {
@@ -299,7 +299,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( Code?.GetValue() )
+                return Verify.IsInput( Code?.GetValue() )
                     ? Code?.GetValue()
                     : string.Empty;
             }
@@ -362,7 +362,7 @@ namespace BudgetExecution
                 var _name = GetProgramProject()
                     ?.GetName();
 
-                return Verify.Input( _name?.GetValue() )
+                return Verify.IsInput( _name?.GetValue() )
                     ? _name
                     : default( IElement );
             }

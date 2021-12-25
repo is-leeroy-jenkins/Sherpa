@@ -64,7 +64,7 @@ namespace BudgetExecution
         public IEnumerable<DataRow> FilterData( Field field, string filter )
         {
             if( Validate.Field( field )
-                && Verify.Input( filter ) )
+                && Verify.IsInput( filter ) )
             {
                 try
                 {
@@ -95,7 +95,7 @@ namespace BudgetExecution
         public static IEnumerable<string> GetCodes( IEnumerable<DataRow> dataRow, Field field )
         {
             if( dataRow.Any()
-                && Verify.Input( $"{field}" ) )
+                && Verify.IsInput( $"{field}" ) )
             {
                 try
                 {

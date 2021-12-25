@@ -160,7 +160,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID
                     : Key.Default;
             }
@@ -441,7 +441,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Amount( Hours )
+                return Verify.IsAmount( Hours )
                     ? Hours
                     : default( IAmount );
             }

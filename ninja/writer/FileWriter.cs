@@ -65,7 +65,7 @@ namespace BudgetExecution
                 {
                     var _writer = File.ReadAllText( _fileInfo.FullName );
 
-                    if( Verify.Input( _writer ) )
+                    if( Verify.IsInput( _writer ) )
                     {
                         File.WriteAllText( _fileInfo.FullName, _writer );
                     }
@@ -135,7 +135,7 @@ namespace BudgetExecution
         public static void Overwrite( string source, string destination )
         {
             if( File.Exists( source )
-                && Verify.Input( destination ) )
+                && Verify.IsInput( destination ) )
             {
                 if( File.Exists( destination ) )
                 {
@@ -176,7 +176,7 @@ namespace BudgetExecution
         /// <param name="text">The text.</param>
         public void AppendText( string text )
         {
-            if( Verify.Input( text ) )
+            if( Verify.IsInput( text ) )
             {
                 try
                 {

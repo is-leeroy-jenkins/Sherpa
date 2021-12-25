@@ -206,7 +206,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( GetAccount().ToString() )
+                return Verify.IsInput( GetAccount().ToString() )
                     ? GetAccount().GetProgramArea()
                     : default( IProgramArea );
             }
@@ -245,7 +245,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( AccountCode.GetValue() )
+                return Verify.IsInput( AccountCode.GetValue() )
                     ? AccountCode.GetValue()
                     : string.Empty;
             }

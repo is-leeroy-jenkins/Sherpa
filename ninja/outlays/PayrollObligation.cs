@@ -214,7 +214,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( HrOrgCode?.GetValue() )
+                return Verify.IsInput( HrOrgCode?.GetValue() )
                     ? HrOrgCode
                     : default( IElement );
             }

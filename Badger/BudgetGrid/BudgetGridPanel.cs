@@ -284,7 +284,7 @@ namespace BudgetExecution
                     BindingSource.DataSource = ( bindingSource.DataSource as IEnumerable<DataRow> )
                         ?.CopyToDataTable();
 
-                    if( Verify.Input( BindingSource.Filter ) )
+                    if( Verify.IsInput( BindingSource.Filter ) )
                     {
                         BindingSource.RemoveFilter();
                         BindingSource.Filter = GetFilterValues( dict );

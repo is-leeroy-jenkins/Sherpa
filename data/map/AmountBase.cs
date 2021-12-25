@@ -41,8 +41,8 @@ namespace BudgetExecution
         /// <param name="columnName">Name of the column.</param>
         public  void SetName( DataRow dataRow, string columnName )
         {
-            if( Verify.Row( dataRow )
-                && Verify.Input( columnName )
+            if( Verify.IsRow( dataRow )
+                && Verify.IsInput( columnName )
                 && Enum.GetNames( typeof( Numeric ) )?.Contains( columnName ) == true )
             {
                 try
@@ -114,7 +114,7 @@ namespace BudgetExecution
         /// <param name="columnName">Name of the column.</param>
         public void SetNumeric( string columnName )
         {
-            if( Verify.Input( columnName )
+            if( Verify.IsInput( columnName )
                 && Enum.GetNames( typeof( Numeric ) )?.Contains( columnName ) == true )
             {
                 try
@@ -139,8 +139,8 @@ namespace BudgetExecution
         /// <param name="columnName">Name of the column.</param>
         public void SetNumeric( DataRow dataRow, string columnName )
         {
-            if( Verify.Row( dataRow )
-                && Verify.Input( columnName ) )
+            if( Verify.IsRow( dataRow )
+                && Verify.IsInput( columnName ) )
             {
                 try
                 {
@@ -218,7 +218,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( Verify.Input( value )
+                if( Verify.IsInput( value )
                     && Enum.GetNames( typeof( Numeric ) ).Contains( value ) )
                 {
                     Value = value;
@@ -238,7 +238,7 @@ namespace BudgetExecution
         public  void SetValue( DataRow dataRow, string columnName )
         {
             if( dataRow != null
-                && Verify.Input( columnName )
+                && Verify.IsInput( columnName )
                 && Enum.GetNames( typeof( Numeric ) ).Contains( columnName ) )
             {
                 try

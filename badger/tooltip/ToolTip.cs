@@ -249,7 +249,7 @@ namespace BudgetExecution
         /// <param name="control">The control.</param>
         public void SetToolTipText( Control control )
         {
-            if( Verify.Input( control?.Tag?.ToString() ) )
+            if( Verify.IsInput( control?.Tag?.ToString() ) )
             {
                 try
                 {
@@ -272,7 +272,7 @@ namespace BudgetExecution
         public void SetToolTipText( Control control, string caption )
         {
             if( control != null
-                && Verify.Input( caption ) )
+                && Verify.IsInput( caption ) )
             {
                 try
                 {
@@ -300,7 +300,7 @@ namespace BudgetExecution
                     Control parent = item.GetCurrentParent();
                     var caption = item?.Tag?.ToString();
 
-                    if( Verify.Input( caption ) )
+                    if( Verify.IsInput( caption ) )
                     {
                         RemoveAll();
                         SetToolTipText( parent, caption );
@@ -324,7 +324,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Verify.Input( control?.Tag?.ToString() ) )
+                    if( Verify.IsInput( control?.Tag?.ToString() ) )
                     {
                         var caption = control.Tag.ToString();
                         RemoveAll();
@@ -346,7 +346,7 @@ namespace BudgetExecution
         public void SetToolTipText( Component component, string caption )
         {
             if( component != null
-                && Verify.Input( caption ) )
+                && Verify.IsInput( caption ) )
             {
                 try
                 {

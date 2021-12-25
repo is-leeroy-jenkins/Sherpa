@@ -123,7 +123,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( OriginalActionDate.GetValue() )
+                return Verify.IsInput( OriginalActionDate.GetValue() )
                     ? OriginalActionDate
                     : default( ITime );
             }
@@ -237,7 +237,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( PayPeriod?.GetValue() )
+                return Verify.IsInput( PayPeriod?.GetValue() )
                     ? PayPeriod
                     : default( IElement );
             }
@@ -257,7 +257,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( HrOrgCode?.GetValue() )
+                return Verify.IsInput( HrOrgCode?.GetValue() )
                     ? HrOrgCode
                     : default( IElement );
             }
@@ -277,7 +277,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( WorkCode?.GetValue() )
+                return Verify.IsInput( WorkCode?.GetValue() )
                     ? WorkCode
                     : default( IElement );
             }

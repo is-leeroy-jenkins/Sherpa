@@ -186,7 +186,7 @@ namespace BudgetExecution
         /// </returns>
         public IElement GetProjectCode()
         {
-            if( Verify.Input( ProjectCode?.GetValue() ) )
+            if( Verify.IsInput( ProjectCode?.GetValue() ) )
             {
                 try
                 {
@@ -209,7 +209,7 @@ namespace BudgetExecution
         /// </returns>
         public IElement GetProjectCodeName()
         {
-            if( Verify.Input( ProjectCodeName?.GetValue() ) )
+            if( Verify.IsInput( ProjectCodeName?.GetValue() ) )
             {
                 try
                 {
@@ -234,7 +234,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID.GetIndex()
                     : -1;
             }
@@ -256,7 +256,7 @@ namespace BudgetExecution
             {
                 var _element = ( (IProgramElement)this ).GetCode();
 
-                return Verify.Input( _element.GetValue() )
+                return Verify.IsInput( _element.GetValue() )
                     ? _element
                     : default( IElement );
             }
@@ -276,7 +276,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( Name.GetValue() )
+                return Verify.IsInput( Name.GetValue() )
                     ? Name
                     : default( IElement );
             }
@@ -296,7 +296,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( ShortName.GetValue() )
+                return Verify.IsInput( ShortName.GetValue() )
                     ? ShortName
                     : default( IElement );
             }
@@ -316,7 +316,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( Status.GetValue() )
+                return Verify.IsInput( Status.GetValue() )
                     ? Status
                     : default( IElement );
             }

@@ -93,8 +93,8 @@ namespace BudgetExecution
         /// <returns></returns>
         public DbDataAdapter GetAdapter()
         {
-            if( Verify.Input( ConnectionBuilder.GetConnectionString() )
-                && Verify.Input( SqlStatement.GetSelectStatement() ) )
+            if( Verify.IsInput( ConnectionBuilder.GetConnectionString() )
+                && Verify.IsInput( SqlStatement.GetSelectStatement() ) )
             {
                 try
                 {
@@ -144,13 +144,13 @@ namespace BudgetExecution
         /// <returns></returns>
         private OleDbDataAdapter GetOleDbDataAdapter()
         {
-            if( Verify.Input( SqlStatement.GetSelectStatement() ) )
+            if( Verify.IsInput( SqlStatement.GetSelectStatement() ) )
             {
                 try
                 {
                     var _connectionString = ConnectionBuilder?.GetConnectionString();
 
-                    return Verify.Input( _connectionString )
+                    return Verify.IsInput( _connectionString )
                         ? new OleDbDataAdapter( SqlStatement.GetSelectStatement(), _connectionString )
                         : default( OleDbDataAdapter );
                 }
@@ -176,7 +176,7 @@ namespace BudgetExecution
                 {
                     var _connectionString = ConnectionBuilder?.GetConnectionString();
 
-                    return Verify.Input( _connectionString )
+                    return Verify.IsInput( _connectionString )
                         ? new SqlDataAdapter( SqlStatement.GetSelectStatement(), _connectionString )
                         : default( SqlDataAdapter );
                 }
@@ -196,8 +196,8 @@ namespace BudgetExecution
         /// <returns></returns>
         private SqlCeDataAdapter GetSqlCeAdapter()
         {
-            if( Verify.Input( Connection?.ConnectionString )
-                && Verify.Input( SqlStatement?.GetSelectStatement() ) )
+            if( Verify.IsInput( Connection?.ConnectionString )
+                && Verify.IsInput( SqlStatement?.GetSelectStatement() ) )
             {
                 try
                 {

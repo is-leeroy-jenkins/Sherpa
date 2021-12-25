@@ -178,7 +178,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FocCode?.GetValue() )
+                return Verify.IsInput( FocCode?.GetValue() )
                     ? FocCode
                     : default( IElement );
             }
@@ -198,7 +198,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FocName?.GetValue() )
+                return Verify.IsInput( FocName?.GetValue() )
                     ? FocName
                     : default( IElement );
             }
@@ -218,7 +218,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( ProgramProjectCode?.GetValue() )
+                return Verify.IsInput( ProgramProjectCode?.GetValue() )
                     ? ProgramProjectCode
                     : default( IElement );
             }
@@ -238,7 +238,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( ProgramAreaCode?.GetValue() )
+                return Verify.IsInput( ProgramAreaCode?.GetValue() )
                     ? ProgramAreaCode
                     : default( IElement );
             }
@@ -258,7 +258,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( NpmCode?.GetValue() )
+                return Verify.IsInput( NpmCode?.GetValue() )
                     ? NpmCode
                     : default( IElement );
             }
@@ -278,7 +278,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( DocPrefix?.GetValue() )
+                return Verify.IsInput( DocPrefix?.GetValue() )
                     ? DocPrefix
                     : default( IElement );
             }
@@ -298,7 +298,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( DocType?.GetValue() )
+                return Verify.IsInput( DocType?.GetValue() )
                     ? DocType
                     : default( IElement );
             }
@@ -318,7 +318,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( AgreementNumber?.GetValue() )
+                return Verify.IsInput( AgreementNumber?.GetValue() )
                     ? AgreementNumber
                     : default( IElement );
             }
@@ -338,7 +338,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( SiteProjectCode?.GetValue() )
+                return Verify.IsInput( SiteProjectCode?.GetValue() )
                     ? SiteProjectCode
                     : default( IElement );
             }
@@ -358,7 +358,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( System?.GetValue() )
+                return Verify.IsInput( System?.GetValue() )
                     ? System
                     : default( IElement );
             }
@@ -378,7 +378,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( PurchaseRequest?.GetValue() )
+                return Verify.IsInput( PurchaseRequest?.GetValue() )
                     ? PurchaseRequest
                     : default( IElement );
             }
@@ -398,7 +398,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( DCN?.GetValue() )
+                return Verify.IsInput( DCN?.GetValue() )
                     ? DCN
                     : default( IElement );
             }
@@ -418,7 +418,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( GrantNumber?.GetValue() )
+                return Verify.IsInput( GrantNumber?.GetValue() )
                     ? GrantNumber
                     : default( IElement );
             }
@@ -438,7 +438,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( ObligatingDocumentNumber?.GetValue() )
+                return Verify.IsInput( ObligatingDocumentNumber?.GetValue() )
                     ? ObligatingDocumentNumber
                     : default( IElement );
             }
@@ -458,7 +458,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( TransactionNumber?.GetValue() )
+                return Verify.IsInput( TransactionNumber?.GetValue() )
                     ? TransactionNumber
                     : default( IElement );
             }

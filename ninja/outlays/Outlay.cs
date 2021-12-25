@@ -55,7 +55,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID
                     : Key.Default;
             }
@@ -76,7 +76,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( AccountCode?.GetValue() )
+                return Verify.IsInput( AccountCode?.GetValue() )
                     ? AccountCode?.GetValue()
                     : string.Empty;
             }

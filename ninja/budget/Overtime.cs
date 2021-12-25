@@ -137,7 +137,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID
                     : default( IKey );
             }
@@ -157,7 +157,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( Type?.GetValue() )
+                return Verify.IsInput( Type?.GetValue() )
                     ? Type
                     : default( IElement );
             }

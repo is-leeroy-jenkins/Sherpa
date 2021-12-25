@@ -105,7 +105,7 @@ namespace BudgetExecution
                     ?.Table
                     ?.TableName;
 
-                return Verify.Input( _name )
+                return Verify.IsInput( _name )
                     ? _source != null
                         ? (Source)Enum.Parse( typeof( Source ), _name )
                         : Source.NS

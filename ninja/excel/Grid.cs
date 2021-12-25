@@ -271,7 +271,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _worksheet.Name )
+                return Verify.IsInput( _worksheet.Name )
                     ? _worksheet
                     : default( ExcelWorksheet );
             }

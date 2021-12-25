@@ -99,7 +99,7 @@ namespace BudgetExecution
         /// </returns>
         private IEnumerable<string> GetNames( IEnumerable<string> paths )
         {
-            if( Verify.Input( paths ) )
+            if( Verify.IsInput( paths ) )
             {
                 try
                 {
@@ -107,7 +107,7 @@ namespace BudgetExecution
 
                     foreach( var _path in paths )
                     {
-                        if( Verify.Input( _path ) )
+                        if( Verify.IsInput( _path ) )
                         {
                             var _fileName = Path.GetFileName( _path );
 

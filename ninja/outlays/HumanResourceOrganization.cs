@@ -130,7 +130,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID
                     : Key.Default;
             }
@@ -282,7 +282,7 @@ namespace BudgetExecution
         /// </returns>
         private IDictionary<string, object> GetArgs( string hrOrgCode )
         {
-            if( Verify.Input( hrOrgCode ) )
+            if( Verify.IsInput( hrOrgCode ) )
             {
                 try
                 {

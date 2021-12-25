@@ -64,7 +64,7 @@ namespace BudgetExecution
                 {
                     var _stream = File.ReadAllText( _file );
 
-                    return Verify.Input( _stream )
+                    return Verify.IsInput( _stream )
                         ? _stream
                         : string.Empty;
                 }
@@ -116,7 +116,7 @@ namespace BudgetExecution
             {
                 var _file = FileInfo?.FullName;
 
-                if( Verify.Input( _file ) )
+                if( Verify.IsInput( _file ) )
                 {
                     var _stream = File.ReadAllBytes( _file );
 
@@ -145,7 +145,7 @@ namespace BudgetExecution
                 using var _reader = FileInfo?.OpenText();
                 var _result = _reader?.ReadToEnd();
 
-                return Verify.Input( _result )
+                return Verify.IsInput( _result )
                     ? _result
                     : string.Empty;
             }

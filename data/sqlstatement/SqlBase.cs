@@ -102,7 +102,7 @@ namespace BudgetExecution
         {
             try
             {
-                CommandText = Verify.Input( ConnectionBuilder?.GetConnectionString() )
+                CommandText = Verify.IsInput( ConnectionBuilder?.GetConnectionString() )
                     ? $"{SQL.SELECT} * FROM {ConnectionBuilder?.GetTableName()};"
                     : string.Empty;
             }
@@ -243,7 +243,7 @@ namespace BudgetExecution
         {
             try
             {
-                CommandText = Verify.Input( sql )
+                CommandText = Verify.IsInput( sql )
                     ? sql
                     : string.Empty;
             }
@@ -261,7 +261,7 @@ namespace BudgetExecution
         public void SetCommandText( IDictionary<string, object> dict, SQL commandType = SQL.SELECT )
         {
             if( dict == null
-                && Verify.Input( ConnectionBuilder?.GetConnectionString() ) )
+                && Verify.IsInput( ConnectionBuilder?.GetConnectionString() ) )
             {
                 SetSelectStatement();
             }
@@ -324,7 +324,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( CommandText )
+                return Verify.IsInput( CommandText )
                     ? CommandText
                     : string.Empty;
             }

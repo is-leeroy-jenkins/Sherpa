@@ -258,7 +258,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( _id )
+                return Verify.IsKey( _id )
                     ? _id
                     : Key.Default;
             }

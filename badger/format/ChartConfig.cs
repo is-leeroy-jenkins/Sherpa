@@ -83,7 +83,7 @@ namespace BudgetExecution
         public static ChartFontInfo SetFont( string family = "Roboto", int size = 8,
             FontStyle style = FontStyle.Regular )
         {
-            if( Verify.Input( family ) )
+            if( Verify.IsInput( family ) )
             {
                 try
                 {

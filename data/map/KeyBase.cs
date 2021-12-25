@@ -32,7 +32,7 @@ namespace BudgetExecution
         /// <param name="keyName">Name of the key.</param>
         private protected void SetPrimaryKey( string keyName )
         {
-            if( Verify.Input( keyName ) )
+            if( Verify.IsInput( keyName ) )
             {
                 try
                 {
@@ -55,7 +55,7 @@ namespace BudgetExecution
         /// <param name="dataRow">The Data row.</param>
         private protected void SetPrimaryKey( DataRow dataRow )
         {
-            if( Verify.Row( dataRow ) )
+            if( Verify.IsRow( dataRow ) )
             {
                 try
                 {
@@ -109,7 +109,7 @@ namespace BudgetExecution
         /// <param name="keyName">Name of the key.</param>
         private protected void SetPrimaryKey( DataRow dataRow, PrimaryKey keyName )
         {
-            if( Verify.Row( dataRow )
+            if( Verify.IsRow( dataRow )
                 && Validate.Field( keyName ) )
             {
                 try
@@ -153,7 +153,7 @@ namespace BudgetExecution
         /// <param name="key">The key.</param>
         private protected void SetIndex( DataRow dataRow, PrimaryKey key )
         {
-            if( Verify.Input( dataRow?.ItemArray )
+            if( Verify.IsInput( dataRow?.ItemArray )
                 && Validate.PrimaryKey( key ) )
             {
                 try

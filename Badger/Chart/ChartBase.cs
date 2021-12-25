@@ -230,7 +230,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( TitleInfo?.GetAxisText() )
+                return Verify.IsInput( TitleInfo?.GetAxisText() )
                     ? TitleInfo
                     : default( ITitleInfo );
             }

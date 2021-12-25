@@ -182,7 +182,7 @@ namespace BudgetExecution
                         {
                             var _sql = sqlStatement?.GetSelectStatement();
 
-                            return Verify.Input( _sql )
+                            return Verify.IsInput( _sql )
                                 ? new SQLiteCommand( _sql, _connection as SQLiteConnection )
                                 : default( SQLiteCommand );
                         }
@@ -191,7 +191,7 @@ namespace BudgetExecution
                         {
                             var _sql = sqlStatement?.GetInsertStatement();
 
-                            return Verify.Input( _sql )
+                            return Verify.IsInput( _sql )
                                 ? new SQLiteCommand( _sql, _connection as SQLiteConnection )
                                 : default( SQLiteCommand );
                         }
@@ -200,7 +200,7 @@ namespace BudgetExecution
                         {
                             var _sql = sqlStatement?.GetUpdateStatement();
 
-                            return Verify.Input( _sql )
+                            return Verify.IsInput( _sql )
                                 ? new SQLiteCommand( _sql, _connection as SQLiteConnection )
                                 : default( SQLiteCommand );
                         }
@@ -209,7 +209,7 @@ namespace BudgetExecution
                         {
                             var _sql = sqlStatement?.GetDeleteStatement();
 
-                            return Verify.Input( _sql )
+                            return Verify.IsInput( _sql )
                                 ? new SQLiteCommand( _sql, _connection as SQLiteConnection )
                                 : default( SQLiteCommand );
                         }
@@ -218,7 +218,7 @@ namespace BudgetExecution
                         {
                             var _sql = sqlStatement?.GetSelectStatement();
 
-                            return Verify.Input( _sql )
+                            return Verify.IsInput( _sql )
                                 ? new SQLiteCommand( _sql, _connection as SQLiteConnection )
                                 : default( SQLiteCommand );
                         }
@@ -247,7 +247,7 @@ namespace BudgetExecution
                 {
                     var _connection = new ConnectionFactory( ConnectionBuilder )?.GetConnection();
 
-                    if( Verify.Input( _connection?.ConnectionString ) )
+                    if( Verify.IsInput( _connection?.ConnectionString ) )
                     {
                         switch( sqlStatement?.GetCommandType() )
                         {
@@ -255,7 +255,7 @@ namespace BudgetExecution
                             {
                                 var _sql = sqlStatement?.GetSelectStatement();
 
-                                return Verify.Input( _sql )
+                                return Verify.IsInput( _sql )
                                     ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                     : default( SqlCeCommand );
                             }
@@ -264,7 +264,7 @@ namespace BudgetExecution
                             {
                                 var _sql = sqlStatement?.GetInsertStatement();
 
-                                return Verify.Input( _sql )
+                                return Verify.IsInput( _sql )
                                     ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                     : default( SqlCeCommand );
                             }
@@ -273,7 +273,7 @@ namespace BudgetExecution
                             {
                                 var _sql = sqlStatement?.GetUpdateStatement();
 
-                                return Verify.Input( _sql )
+                                return Verify.IsInput( _sql )
                                     ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                     : default( SqlCeCommand );
                             }
@@ -282,7 +282,7 @@ namespace BudgetExecution
                             {
                                 var _sql = sqlStatement?.GetDeleteStatement();
 
-                                return Verify.Input( _sql )
+                                return Verify.IsInput( _sql )
                                     ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                     : default( SqlCeCommand );
                             }
@@ -291,7 +291,7 @@ namespace BudgetExecution
                             {
                                 var _sql = sqlStatement?.GetSelectStatement();
 
-                                return Verify.Input( _sql )
+                                return Verify.IsInput( _sql )
                                     ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                     : default( DbCommand );
                             }
@@ -327,7 +327,7 @@ namespace BudgetExecution
                         {
                             var _sql = sqlStatement?.GetSelectStatement();
 
-                            return Verify.Input( _sql )
+                            return Verify.IsInput( _sql )
                                 ? new SqlCommand( _sql, _connection as SqlConnection )
                                 : default( DbCommand );
                         }
@@ -336,7 +336,7 @@ namespace BudgetExecution
                         {
                             var _sql = sqlStatement?.GetInsertStatement();
 
-                            return Verify.Input( _sql )
+                            return Verify.IsInput( _sql )
                                 ? new SqlCommand( _sql, _connection as SqlConnection )
                                 : default( DbCommand );
                         }
@@ -345,7 +345,7 @@ namespace BudgetExecution
                         {
                             var _sql = sqlStatement?.GetUpdateStatement();
 
-                            return Verify.Input( _sql )
+                            return Verify.IsInput( _sql )
                                 ? new SqlCommand( _sql, _connection as SqlConnection )
                                 : default( DbCommand );
                         }
@@ -354,7 +354,7 @@ namespace BudgetExecution
                         {
                             var _sql = sqlStatement?.GetDeleteStatement();
 
-                            return Verify.Input( _sql )
+                            return Verify.IsInput( _sql )
                                 ? new SqlCommand( _sql, _connection as SqlConnection )
                                 : default( DbCommand );
                         }
@@ -363,7 +363,7 @@ namespace BudgetExecution
                         {
                             var _sql = sqlStatement?.GetSelectStatement();
 
-                            return Verify.Input( _sql )
+                            return Verify.IsInput( _sql )
                                 ? new SqlCommand( _sql, _connection as SqlConnection )
                                 : default( DbCommand );
                         }
@@ -398,7 +398,7 @@ namespace BudgetExecution
                         {
                             var _sql = sqlStatement?.GetSelectStatement();
 
-                            return Verify.Input( _sql )
+                            return Verify.IsInput( _sql )
                                 ? new OleDbCommand( _sql, _connection as OleDbConnection )
                                 : default( DbCommand );
                         }
@@ -407,7 +407,7 @@ namespace BudgetExecution
                         {
                             var _sql = sqlStatement?.GetInsertStatement();
 
-                            return Verify.Input( _sql )
+                            return Verify.IsInput( _sql )
                                 ? new OleDbCommand( _sql, _connection as OleDbConnection )
                                 : default( DbCommand );
                         }
@@ -416,7 +416,7 @@ namespace BudgetExecution
                         {
                             var _sql = sqlStatement.GetUpdateStatement();
 
-                            return Verify.Input( _sql )
+                            return Verify.IsInput( _sql )
                                 ? new OleDbCommand( _sql, _connection as OleDbConnection )
                                 : default( DbCommand );
                         }
@@ -425,7 +425,7 @@ namespace BudgetExecution
                         {
                             var _sql = sqlStatement?.GetDeleteStatement();
 
-                            return Verify.Input( _sql )
+                            return Verify.IsInput( _sql )
                                 ? new OleDbCommand( _sql, _connection as OleDbConnection )
                                 : default( DbCommand );
                         }
@@ -434,7 +434,7 @@ namespace BudgetExecution
                         {
                             var _sql = sqlStatement?.GetSelectStatement();
 
-                            return Verify.Input( _sql )
+                            return Verify.IsInput( _sql )
                                 ? new OleDbCommand( _sql, _connection as OleDbConnection )
                                 : default( DbCommand );
                         }

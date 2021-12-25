@@ -134,8 +134,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( Name )
-                    && Verify.Input( Value )
+                return Verify.IsInput( Name )
+                    && Verify.IsInput( Value )
                         ? $"{Name} = {Value}"
                         : string.Empty;
             }

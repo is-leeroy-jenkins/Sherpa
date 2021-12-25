@@ -158,7 +158,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID
                     : Key.Default;
             }
@@ -239,7 +239,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FromTo.GetValue() )
+                return Verify.IsInput( FromTo.GetValue() )
                     ? (FromTo)Enum.Parse( typeof( FromTo ), FromTo.GetValue() )
                     : default( FromTo );
             }

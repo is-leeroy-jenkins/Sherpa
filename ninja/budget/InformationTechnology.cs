@@ -192,7 +192,7 @@ namespace BudgetExecution
         /// </returns>
         private IDictionary<string, object> GetArgs( string code )
         {
-            if( Verify.Input( code ) )
+            if( Verify.IsInput( code ) )
             {
                 try
                 {
@@ -300,7 +300,7 @@ namespace BudgetExecution
         {
             if( Verify.IsElement( Name )
                 && Verify.IsElement( Code )
-                && Verify.Key( ID ) )
+                && Verify.IsKey( ID ) )
             {
                 try
                 {
@@ -330,7 +330,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID
                     : Key.Default;
             }
@@ -428,7 +428,7 @@ namespace BudgetExecution
         public override string ToString()
         {
             if( Code != null
-                && Verify.Input( Code.GetValue() ) )
+                && Verify.IsInput( Code.GetValue() ) )
             {
                 try
                 {

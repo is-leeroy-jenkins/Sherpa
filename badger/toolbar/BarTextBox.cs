@@ -57,7 +57,7 @@ namespace BudgetExecution
         /// <param name = "text" > The text. </param>
         public void SetHoverText( string text )
         {
-            if( Verify.Input( text ) )
+            if( Verify.IsInput( text ) )
             {
                 try
                 {
@@ -115,7 +115,7 @@ namespace BudgetExecution
         {
             var _text = item?.Tag?.ToString();
 
-            if( Verify.Input( _text ) )
+            if( Verify.IsInput( _text ) )
             {
                 try
                 {

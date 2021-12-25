@@ -121,7 +121,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FullNae )
+                return Verify.IsInput( FullNae )
                     ? FullNae
                     : string.Empty;
             }
@@ -140,7 +140,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FileName )
+                return Verify.IsInput( FileName )
                     ? FileName
                     : string.Empty;
             }
@@ -159,7 +159,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FileExtension )
+                return Verify.IsInput( FileExtension )
                     ? FileExtension
                     : string.Empty;
             }
@@ -178,7 +178,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( PathRoot )
+                return Verify.IsInput( PathRoot )
                     ? PathRoot
                     : string.Empty;
             }
@@ -197,7 +197,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FullPath )
+                return Verify.IsInput( FullPath )
                     ? FullPath
                     : string.Empty;
             }
@@ -217,7 +217,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( ext ) 
+                return Verify.IsInput( ext ) 
                     && Enum.GetNames( typeof( EXT ) ).Contains( ext )
                         ? Path.ChangeExtension( FullPath, ext )
                         : string.Empty;
@@ -239,8 +239,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( first ) 
-                    && Verify.Input( second )
+                return Verify.IsInput( first ) 
+                    && Verify.IsInput( second )
                         ? Path.Combine( first, second )
                         : string.Empty;
             }
@@ -261,7 +261,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FullPath )
+                return Verify.IsInput( FullPath )
                     ? FullPath
                     : string.Empty;
             }

@@ -45,7 +45,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( Name )
+                return Verify.IsInput( Name )
                     ? Name
                     : string.Empty;
             }

@@ -187,7 +187,7 @@ namespace BudgetExecution
         /// <param name="text">The text.</param>
         public void SetText( string text )
         {
-            if( Verify.Input( text ) )
+            if( Verify.IsInput( text ) )
             {
                 try
                 {

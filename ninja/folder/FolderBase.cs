@@ -95,7 +95,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FolderName )
+                return Verify.IsInput( FolderName )
                     ? FolderName
                     : string.Empty;
             }
@@ -114,7 +114,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FolderPath )
+                return Verify.IsInput( FolderPath )
                     ? FolderPath
                     : string.Empty;
             }
@@ -137,7 +137,7 @@ namespace BudgetExecution
                     ?.GetFileInfo()
                     ?.Directory;
 
-                return Verify.Input( _file?.FullName )
+                return Verify.IsInput( _file?.FullName )
                     ? Directory.CreateDirectory( _file?.FullName )
                     : default( DirectoryInfo );
             }
@@ -277,8 +277,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( Verify.Input( destinationPath )
-                    && Verify.Input( sourcePath ) )
+                if( Verify.IsInput( destinationPath )
+                    && Verify.IsInput( sourcePath ) )
                 {
                     ZipFile.CreateFromDirectory( sourcePath, destinationPath );
                 }

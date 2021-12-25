@@ -150,7 +150,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID
                     : default( IKey );
             }
@@ -170,7 +170,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( BudgetLevel?.GetValue() )
+                return Verify.IsInput( BudgetLevel?.GetValue() )
                     ? BudgetLevel
                     : default( IElement );
             }
@@ -190,7 +190,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( BFY?.GetValue() )
+                return Verify.IsInput( BFY?.GetValue() )
                     ? BFY
                     : default( IElement );
             }
@@ -210,7 +210,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( RpioCode?.GetValue() )
+                return Verify.IsInput( RpioCode?.GetValue() )
                     ? RpioCode
                     : default( IElement );
             }

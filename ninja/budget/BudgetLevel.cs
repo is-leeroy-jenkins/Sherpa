@@ -104,7 +104,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _name )
+                return Verify.IsInput( _name )
                     ? _name
                     : default( string );
             }
@@ -147,7 +147,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( budgetLevel )
+                return Verify.IsInput( budgetLevel )
                     && int.Parse( budgetLevel ) < 9
                     && int.Parse( budgetLevel ) > 6
                     && !Enum.IsDefined( typeof( Level ), int.Parse( budgetLevel ) )
@@ -171,7 +171,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _code )
+                return Verify.IsInput( _code )
                     ? _code
                     : string.Empty;
             }
@@ -190,8 +190,8 @@ namespace BudgetExecution
         public IDictionary<string, object> ToDictionary()
         {
             if( Enum.IsDefined( typeof( Level ), _level )
-                && Verify.Input( _code )
-                && Verify.Input( _name ) )
+                && Verify.IsInput( _code )
+                && Verify.IsInput( _name ) )
             {
                 try
                 {

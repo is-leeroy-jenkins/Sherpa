@@ -28,8 +28,8 @@ namespace BudgetExecution
         /// <param name = "columnName" > </param>
         private protected void SetName( DataRow dataRow, string columnName )
         {
-            if( Verify.Row( dataRow )
-                && Verify.Input( columnName )
+            if( Verify.IsRow( dataRow )
+                && Verify.IsInput( columnName )
                 && Enum.GetNames( typeof( Field ) )?.Contains( columnName ) == true )
             {
                 try
@@ -76,7 +76,7 @@ namespace BudgetExecution
         /// <param name = "field" > </param>
         private protected void SetName( DataRow dataRow, Field field )
         {
-            if( Verify.Row( dataRow )
+            if( Verify.IsRow( dataRow )
                 && Validate.Field( field ) )
             {
                 try
@@ -101,7 +101,7 @@ namespace BudgetExecution
         /// <param name = "fieldName" > </param>
         private protected void SetField( string fieldName )
         {
-            if( Verify.Input( fieldName )
+            if( Verify.IsInput( fieldName )
                 && Enum.GetNames( typeof( Field ) )?.Contains( fieldName ) == true )
             {
                 try
@@ -126,8 +126,8 @@ namespace BudgetExecution
         /// <param name = "fieldName" > </param>
         private protected void SetField( DataRow dataRow, string fieldName )
         {
-            if( Verify.Row( dataRow )
-                && Verify.Input( fieldName ) )
+            if( Verify.IsRow( dataRow )
+                && Verify.IsInput( fieldName ) )
             {
                 try
                 {
@@ -174,7 +174,7 @@ namespace BudgetExecution
         /// <param name = "field" > </param>
         private protected void SetField( DataRow dataRow, Field field )
         {
-            if( Verify.Row( dataRow )
+            if( Verify.IsRow( dataRow )
                 && Validate.Field( field ) )
             {
                 try
@@ -201,7 +201,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( Verify.Input( value ) )
+                if( Verify.IsInput( value ) )
                 {
                     Data = value;
                 }
@@ -223,8 +223,8 @@ namespace BudgetExecution
         /// <param name = "columnName" > </param>
         private protected void SetValue( DataRow dataRow, string columnName )
         {
-            if( Verify.Row( dataRow )
-                && Verify.Input( columnName )
+            if( Verify.IsRow( dataRow )
+                && Verify.IsInput( columnName )
                 && Enum.GetNames( typeof( Field ) ).Contains( columnName ) )
             {
                 try
@@ -250,7 +250,7 @@ namespace BudgetExecution
         /// <param name = "field" > </param>
         private protected void SetValue( DataRow dataRow, Field field )
         {
-            if( Verify.Row( dataRow )
+            if( Verify.IsRow( dataRow )
                 && Validate.Field( field ) )
             {
                 try
@@ -276,7 +276,7 @@ namespace BudgetExecution
         /// <param name = "field" > </param>
         private protected void SetData( DataRow dataRow, Field field )
         {
-            if( Verify.Row( dataRow )
+            if( Verify.IsRow( dataRow )
                 && Validate.Field( field ) )
             {
                 try
@@ -299,8 +299,8 @@ namespace BudgetExecution
         /// <param name = "columnName" > </param>
         private protected void SetData( DataRow dataRow, string columnName )
         {
-            if( Verify.Row( dataRow )
-                && Verify.Input( columnName ) )
+            if( Verify.IsRow( dataRow )
+                && Verify.IsInput( columnName ) )
             {
                 try
                 {
@@ -322,8 +322,8 @@ namespace BudgetExecution
         /// <param name = "dataColumn" > </param>
         private protected void SetData( DataRow dataRow, DataColumn dataColumn )
         {
-            if( Verify.Row( dataRow )
-                && Verify.Input( dataColumn ) )
+            if( Verify.IsRow( dataRow )
+                && Verify.IsInput( dataColumn ) )
             {
                 try
                 {

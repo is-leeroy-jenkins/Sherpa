@@ -55,7 +55,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( Type?.GetValue() )
+                return Verify.IsInput( Type?.GetValue() )
                     ? Type
                     : Element.Default;
             }

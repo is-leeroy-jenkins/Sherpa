@@ -161,7 +161,7 @@ namespace BudgetExecution
             {
                 var _dataRows = DataTable?.AsEnumerable();
 
-                return Verify.Input( _dataRows )
+                return Verify.IsInput( _dataRows )
                     ? _dataRows
                     : default( EnumerableRowCollection<DataRow> );
             }

@@ -126,7 +126,7 @@ namespace BudgetExecution
         /// <param name="filepath">The filepath.</param>
         public void SetFilePath( string filepath )
         {
-            if( Verify.Input( filepath )
+            if( Verify.IsInput( filepath )
                 && File.Exists( filepath ) )
             {
                 try
@@ -147,7 +147,7 @@ namespace BudgetExecution
         /// <param name="filepath">The filepath.</param>
         public void SetFileName( string filepath )
         {
-            if( Verify.Input( filepath )
+            if( Verify.IsInput( filepath )
                 && File.Exists( filepath ) )
             {
                 try
@@ -199,8 +199,8 @@ namespace BudgetExecution
         /// <returns></returns>
         public virtual string GetConnectionString( string extension, string filepath )
         {
-            if( Verify.Input( extension )
-                && Verify.Input( filepath ) )
+            if( Verify.IsInput( extension )
+                && Verify.IsInput( filepath ) )
             {
                 try
                 {
@@ -215,7 +215,7 @@ namespace BudgetExecution
                         _ => ConnectionString
                     };
 
-                    return Verify.Input( ConnectionString )
+                    return Verify.IsInput( ConnectionString )
                         ? ConnectionString
                         : string.Empty;
                 }

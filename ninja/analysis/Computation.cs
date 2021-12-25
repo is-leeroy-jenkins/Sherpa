@@ -56,7 +56,7 @@ namespace BudgetExecution
         {
             if( GetData()?.Any() == true
                 && Enum.IsDefined( typeof( Field ), field )
-                && Verify.Input( filter ) )
+                && Verify.IsInput( filter ) )
             {
                 try
                 {

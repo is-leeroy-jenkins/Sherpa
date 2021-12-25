@@ -87,7 +87,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public string GetMainText()
         {
-            if( Verify.Input( Main ) )
+            if( Verify.IsInput( Main ) )
             {
                 try
                 {
@@ -109,7 +109,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public string GetAxisText()
         {
-            if( Verify.Input( Axis ) )
+            if( Verify.IsInput( Axis ) )
             {
                 try
                 {
@@ -133,8 +133,8 @@ namespace BudgetExecution
         /// <returns></returns>
         public IDictionary<string, string> SetData( string main, string axis )
         {
-            if( Verify.Input( main )
-                && Verify.Input( axis ) )
+            if( Verify.IsInput( main )
+                && Verify.IsInput( axis ) )
             {
                 try
                 {
@@ -162,7 +162,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public ChartTitle GetChartMainTitle()
         {
-            if( Verify.Input( Main ) )
+            if( Verify.IsInput( Main ) )
             {
                 try
                 {
@@ -190,7 +190,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public ChartTitle GetChartAxisTitle()
         {
-            if( Verify.Input( Axis ) )
+            if( Verify.IsInput( Axis ) )
             {
                 try
                 {

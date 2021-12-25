@@ -121,7 +121,7 @@ namespace BudgetExecution
         /// </returns>
         private IDictionary<string, object> GetArgs( string code )
         {
-            if( Verify.Input( code ) )
+            if( Verify.IsInput( code ) )
             {
                 try
                 {
@@ -310,7 +310,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID
                     : Key.Default;
             }

@@ -112,7 +112,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( family ) && size > 0 && Enum.IsDefined( typeof( FontStyle ), style )
+                return Verify.IsInput( family ) && size > 0 && Enum.IsDefined( typeof( FontStyle ), style )
                     ? new Font( family, size, style )
                     : new Font( "Roboto", 8, FontStyle.Regular );
             }
@@ -132,7 +132,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( font?.FontFamily?.Name )
+                return Verify.IsInput( font?.FontFamily?.Name )
                     ? font
                     : default( Font );
             }

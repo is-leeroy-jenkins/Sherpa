@@ -101,18 +101,18 @@ namespace BudgetExecution
         public void OnMouseHover( object sender, EventArgs e )
         {
             if( sender is BarLabel _label
-                && Verify.Input( _label?.HoverText ) )
+                && Verify.IsInput( _label?.HoverText ) )
             {
                 try
                 {
-                    if( Verify.Input( HoverText ) )
+                    if( Verify.IsInput( HoverText ) )
                     {
                         var _text = _label?.HoverText;
                         var _ = new ToolTip( this, _text );
                     }
                     else
                     {
-                        if( Verify.Input( Tag?.ToString() ) )
+                        if( Verify.IsInput( Tag?.ToString() ) )
                         {
                             var _ = new ToolTip( _label, Tag?.ToString()?.SplitPascal() );
                         }

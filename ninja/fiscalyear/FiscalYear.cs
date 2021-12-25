@@ -214,7 +214,7 @@ namespace BudgetExecution
         /// </returns>
         private protected IDictionary<string, object> SetArgs( string year )
         {
-            if( Verify.Input( year )
+            if( Verify.IsInput( year )
                 && year.Length == 4
                 && int.Parse( year ) > 2018
                 && int.Parse( year ) < 2040 )

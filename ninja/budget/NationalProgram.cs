@@ -178,7 +178,7 @@ namespace BudgetExecution
         /// </returns>
         private IDictionary<string, object> GetArgs( string code )
         {
-            if( Verify.Input( code ) )
+            if( Verify.IsInput( code ) )
             {
                 try
                 {
@@ -206,7 +206,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _rpioCode?.GetValue() )
+                return Verify.IsInput( _rpioCode?.GetValue() )
                     ? _rpioCode
                     : Element.Default;
             }
@@ -287,7 +287,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( _id )
+                return Verify.IsKey( _id )
                     ? _id
                     : Key.Default;
             }

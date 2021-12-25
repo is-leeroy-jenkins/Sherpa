@@ -124,18 +124,18 @@ namespace BudgetExecution
         public void OnMouseHover( object sender, EventArgs e )
         {
             if( sender is BarProgress progress
-                && Verify.Input( progress?.HoverText ) )
+                && Verify.IsInput( progress?.HoverText ) )
             {
                 try
                 {
-                    if( Verify.Input( HoverText ) )
+                    if( Verify.IsInput( HoverText ) )
                     {
                         var text = progress?.HoverText;
                         var _ = new ToolTip( this, text );
                     }
                     else
                     {
-                        if( Verify.Input( Tag?.ToString() ) )
+                        if( Verify.IsInput( Tag?.ToString() ) )
                         {
                             var _ = new ToolTip( progress, Tag?.ToString()?.SplitPascal() );
                         }

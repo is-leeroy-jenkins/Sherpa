@@ -60,7 +60,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _fileName )
+                return Verify.IsInput( _fileName )
                     ? _fileName
                     : string.Empty;
             }
@@ -79,7 +79,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _filePath?.GetFullPath() )
+                return Verify.IsInput( _filePath?.GetFullPath() )
                     ? _filePath?.GetFullPath()
                     : string.Empty;
             }
@@ -98,7 +98,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( _filePath?.GetFileExtension() )
+                return Verify.IsInput( _filePath?.GetFileExtension() )
                     ? _filePath?.GetFileExtension()
                     : string.Empty;
             }

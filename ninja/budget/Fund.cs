@@ -223,7 +223,7 @@ namespace BudgetExecution
         /// </returns>
         private IDictionary<string, object> GetArgs( string fundcode )
         {
-            if( Verify.Input( fundcode )
+            if( Verify.IsInput( fundcode )
                 && fundcode.Length < 5 )
             {
                 try
@@ -244,7 +244,7 @@ namespace BudgetExecution
                 }
             }
 
-            if( Verify.Input( fundcode )
+            if( Verify.IsInput( fundcode )
                 && fundcode.Length > 5 )
             {
                 try
@@ -299,7 +299,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( _id )
+                return Verify.IsKey( _id )
                     ? _id
                     : Key.Default;
             }

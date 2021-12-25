@@ -195,7 +195,7 @@ namespace BudgetExecution
         /// </returns>
         public override string ToString()
         {
-            if( Verify.Input( Code.GetValue() ) )
+            if( Verify.IsInput( Code.GetValue() ) )
             {
                 try
                 {
@@ -266,7 +266,7 @@ namespace BudgetExecution
         /// </returns>
         private IDictionary<string, object> SetArgs( string code )
         {
-            if( Verify.Input( code )
+            if( Verify.IsInput( code )
                 && code.Length == 2
                 && Codes.Contains( code ) )
             {
@@ -283,7 +283,7 @@ namespace BudgetExecution
                     return default( IDictionary<string, object> );
                 }
             }
-            else if( Verify.Input( code )
+            else if( Verify.IsInput( code )
                 && code.Length > 2
                 && Enum.GetNames( typeof( BOC ) ).Contains( code ) )
             {
@@ -314,7 +314,7 @@ namespace BudgetExecution
         /// </returns>
         private IDictionary<string, object> SetArgs( BOC boc )
         {
-            if( Verify.Input( boc.ToString() )
+            if( Verify.IsInput( boc.ToString() )
                 && boc.ToString().Length == 2
                 && Codes.Contains( boc.ToString() ) )
             {
@@ -344,7 +344,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID
                     : default( IKey );
             }
@@ -364,7 +364,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( Code?.GetValue() ) 
+                return Verify.IsInput( Code?.GetValue() ) 
                     && Code?.GetValue()?.Length < 3
                         ? Code
                         : default( IElement );
@@ -385,7 +385,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( Name?.GetValue() )
+                return Verify.IsInput( Name?.GetValue() )
                     ? Name
                     : default( IElement );
             }
@@ -415,7 +415,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( Name?.GetValue() ) 
+                return Verify.IsInput( Name?.GetValue() ) 
                     && Enum.IsDefined( typeof( BOC ), Name?.GetValue() )
                         ? (BOC)Enum.Parse( typeof( BOC ), Name?.GetValue() )
                         : BOC.NS;

@@ -62,7 +62,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID
                     : default( IKey );
             }
@@ -84,7 +84,7 @@ namespace BudgetExecution
             {
                 var _code = FocCode?.GetValue();
 
-                return Verify.Input( _code )
+                return Verify.IsInput( _code )
                     ? new FinanceObjectClass( _code )
                     : default( FinanceObjectClass );
             }
@@ -104,7 +104,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( NpmCode?.GetValue() )
+                return Verify.IsInput( NpmCode?.GetValue() )
                     ? new NationalProgram( NpmCode?.GetValue() )
                     : default( NationalProgram );
             }
@@ -144,7 +144,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( ProgramProjectCode?.GetValue() )
+                return Verify.IsInput( ProgramProjectCode?.GetValue() )
                     ? new ProgramProject( ProgramProjectCode?.GetValue() )
                     : default( ProgramProject );
             }
@@ -164,7 +164,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( ProgramAreaCode?.GetValue() )
+                return Verify.IsInput( ProgramAreaCode?.GetValue() )
                     ? new ProgramArea( ProgramAreaCode?.GetValue() )
                     : default( ProgramArea );
             }

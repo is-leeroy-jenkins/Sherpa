@@ -171,12 +171,12 @@ namespace BudgetExecution
         /// <param name="dict">The dictionary.</param>
         public void SetBindingSource( IEnumerable<DataRow> data, IDictionary<string, object> dict )
         {
-            if( Verify.Input( data )
+            if( Verify.IsInput( data )
                 && dict?.Any() == true )
             {
                 try
                 {
-                    if( Verify.Input( BindingSource.Filter ) )
+                    if( Verify.IsInput( BindingSource.Filter ) )
                     {
                         BindingSource.RemoveFilter();
                     }
@@ -205,7 +205,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Verify.Input( BindingSource.Filter ) )
+                    if( Verify.IsInput( BindingSource.Filter ) )
                     {
                         BindingSource.RemoveFilter();
                     }
@@ -230,7 +230,7 @@ namespace BudgetExecution
         /// <param name="data">The data.</param>
         public void PascalizeHeaders( IEnumerable<DataRow> data )
         {
-            if( Verify.Input( data ) )
+            if( Verify.IsInput( data ) )
             {
                 try
                 {

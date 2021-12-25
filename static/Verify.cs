@@ -25,7 +25,7 @@ namespace BudgetExecution
         /// <typeparam name="T"></typeparam>
         /// <param name="data">The input.</param>
         /// <returns></returns>
-        public static bool Table<T>( T data )
+        public static bool IsTable<T>( T data )
             where T : IListSource
         {
             if( !data?.ContainsListCollection == true )
@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <typeparam name="T"></typeparam>
         /// <param name="data">The input.</param>
         /// <returns></returns>
-        public static bool Row<T>( T data )
+        public static bool IsRow<T>( T data )
             where T : DataRow
         {
             if( !data?.ItemArray?.Any() == true )
@@ -64,7 +64,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns></returns>
-        public static bool Input( object input )
+        public static bool IsInput( object input )
         {
             if( string.IsNullOrEmpty( input?.ToString() ) )
             {
@@ -83,7 +83,7 @@ namespace BudgetExecution
         /// <typeparam name="T"></typeparam>
         /// <param name="data">The input.</param>
         /// <returns></returns>
-        public static bool Rows<T>( T data )
+        public static bool IsRows<T>( T data )
             where T : IEnumerable<DataRow>
         {
             if( !data?.Any() == true )
@@ -120,7 +120,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="data">The object.</param>
         /// <returns></returns>
-        public static bool Key( object data )
+        public static bool IsKey( object data )
         {
             if( data != null )
             {
@@ -138,7 +138,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="data">The object.</param>
         /// <returns></returns>
-        public static bool Amount( object data )
+        public static bool IsAmount( object data )
         {
             if( data != null )
             {

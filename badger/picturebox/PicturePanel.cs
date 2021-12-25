@@ -138,7 +138,7 @@ namespace BudgetExecution
         {
             try
             {
-                HoverText = Verify.Input( text )
+                HoverText = Verify.IsInput( text )
                     ? text
                     : string.Empty;
             }
@@ -214,13 +214,13 @@ namespace BudgetExecution
             {
                 var picturepanel = sender as PicturePanel;
 
-                if( Verify.Input( HoverText ) )
+                if( Verify.IsInput( HoverText ) )
                 {
                     var _ = new ToolTip( picturepanel, HoverText );
                 }
                 else
                 {
-                    if( Verify.Input( Tag?.ToString() ) )
+                    if( Verify.IsInput( Tag?.ToString() ) )
                     {
                         var _ = new ToolTip( picturepanel, Tag?.ToString().SplitPascal() );
                     }

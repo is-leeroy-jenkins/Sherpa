@@ -21,14 +21,14 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        private protected string GetDate( string name )
+        public string GetDate( string name )
         {
-            if( Verify.Input( name )
+            if( Verify.IsInput( name )
                 && Enum.GetNames( typeof( EventDate ) )?.Contains( name ) == true )
             {
                 try
                 {
-                    return Verify.Input( name )
+                    return Verify.IsInput( name )
                         ? name
                         : string.Empty;
                 }
@@ -48,10 +48,10 @@ namespace BudgetExecution
         /// <param name="dataRow">The Data row.</param>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        private protected string GetDate( DataRow dataRow, string name )
+        public string GetDate( DataRow dataRow, string name )
         {
             if( dataRow != null
-                && Verify.Input( name )
+                && Verify.IsInput( name )
                 && Enum.GetNames( typeof( EventDate ) )?.Contains( name ) == true )
             {
                 try
@@ -77,7 +77,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="date">The date.</param>
         /// <returns></returns>
-        private protected string GetDate( EventDate date )
+        public string GetDate( EventDate date )
         {
             try
             {
@@ -98,9 +98,9 @@ namespace BudgetExecution
         /// <param name="dataRow">The Data row.</param>
         /// <param name="date">The date.</param>
         /// <returns></returns>
-        private protected string GetDate( DataRow dataRow, EventDate date )
+        public string GetDate( DataRow dataRow, EventDate date )
         {
-            if( Verify.Row( dataRow )
+            if( Verify.IsRow( dataRow )
                 && Verify.IsEventDate( date ) )
             {
                 try
@@ -126,9 +126,9 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        private protected EventDate SetDate( string name )
+        public EventDate SetDate( string name )
         {
-            if( Verify.Input( name )
+            if( Verify.IsInput( name )
                 && Enum.GetNames( typeof( EventDate ) )?.Contains( name ) == true )
             {
                 try
@@ -155,10 +155,10 @@ namespace BudgetExecution
         /// <param name="dataRow">The Data row.</param>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        private protected EventDate SetDate( DataRow dataRow, string name )
+        public EventDate SetDate( DataRow dataRow, string name )
         {
             if( dataRow != null
-                && Verify.Input( name ) )
+                && Verify.IsInput( name ) )
             {
                 try
                 {
@@ -189,7 +189,7 @@ namespace BudgetExecution
         /// <param name="dataRow">The Data row.</param>
         /// <param name="date">The date.</param>
         /// <returns></returns>
-        private protected virtual EventDate SetDate( DataRow dataRow, EventDate date )
+        public  EventDate SetDate( DataRow dataRow, EventDate date )
         {
             if( dataRow != null
                 && Verify.IsEventDate( date ) )
@@ -220,11 +220,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns></returns>
-        private protected DateTime SetDay( string value )
+        public DateTime SetDay( string value )
         {
             try
             {
-                return Verify.Input( value )
+                return Verify.IsInput( value )
                     ? DateTime.Parse( value )
                     : default( DateTime );
             }
@@ -241,10 +241,10 @@ namespace BudgetExecution
         /// <param name="dataRow">The Data row.</param>
         /// <param name="column">The column.</param>
         /// <returns></returns>
-        private protected DateTime SetDay( DataRow dataRow, string column )
+        public DateTime SetDay( DataRow dataRow, string column )
         {
             if( dataRow != null
-                && Verify.Input( column )
+                && Verify.IsInput( column )
                 && Enum.GetNames( typeof( EventDate ) )?.Contains( column ) == true )
             {
                 try
@@ -253,7 +253,7 @@ namespace BudgetExecution
 
                     var _timeString = dataRow[ column ]?.ToString();
 
-                    return _names?.Contains( column ) == true && Verify.Input( _timeString )
+                    return _names?.Contains( column ) == true && Verify.IsInput( _timeString )
                         ? DateTime.Parse( _timeString )
                         : default( DateTime );
                 }
@@ -273,7 +273,7 @@ namespace BudgetExecution
         /// <param name="dataRow">The Data row.</param>
         /// <param name="date">The date.</param>
         /// <returns></returns>
-        private protected DateTime SetDay( DataRow dataRow, EventDate date )
+        public DateTime SetDay( DataRow dataRow, EventDate date )
         {
             if( dataRow != null
                 && Verify.IsEventDate( date ) )
@@ -301,11 +301,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns></returns>
-        private protected string SetValue( string value )
+        public string SetValue( string value )
         {
             try
             {
-                return Verify.Input( value )
+                return Verify.IsInput( value )
                     ? value
                     : string.Empty;
             }
@@ -322,10 +322,10 @@ namespace BudgetExecution
         /// <param name="dataRow">The Data row.</param>
         /// <param name="column">The column.</param>
         /// <returns></returns>
-        private protected string SetValue( DataRow dataRow, string column )
+        public string SetValue( DataRow dataRow, string column )
         {
             if( dataRow != null
-                && Verify.Input( column )
+                && Verify.IsInput( column )
                 && Enum.GetNames( typeof( EventDate ) )?.Contains( column ) == true )
             {
                 try
@@ -333,7 +333,7 @@ namespace BudgetExecution
                     var _names = dataRow.Table?.GetColumnNames();
                     var _input = dataRow[ column ]?.ToString();
 
-                    return _names?.Contains( column ) == true && Verify.Input( _input )
+                    return _names?.Contains( column ) == true && Verify.IsInput( _input )
                         ? dataRow[ column ].ToString()
                         : string.Empty;
                 }
@@ -353,7 +353,7 @@ namespace BudgetExecution
         /// <param name="dataRow">The Data row.</param>
         /// <param name="date">The date.</param>
         /// <returns></returns>
-        private protected string SetValue( DataRow dataRow, EventDate date )
+        public string SetValue( DataRow dataRow, EventDate date )
         {
             if( dataRow != null
                 && Verify.IsEventDate( date ) )

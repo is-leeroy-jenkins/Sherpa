@@ -40,7 +40,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( Name )
+                return Verify.IsInput( Name )
                     ? Name
                     : string.Empty;
             }
@@ -59,7 +59,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( Value )
+                return Verify.IsInput( Value )
                     ? Value
                     : string.Empty;
             }
@@ -99,8 +99,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( Name )
-                    && Verify.Input( Value )
+                return Verify.IsInput( Name )
+                    && Verify.IsInput( Value )
                         ? Name + " = " + Value
                         : string.Empty;
             }

@@ -167,7 +167,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID
                     : Key.Default;
             }
@@ -187,7 +187,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( RpioCode?.GetValue() )
+                return Verify.IsInput( RpioCode?.GetValue() )
                     ? RpioCode
                     : Element.Default;
             }
@@ -207,7 +207,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( PayPeriod?.GetValue() )
+                return Verify.IsInput( PayPeriod?.GetValue() )
                     ? PayPeriod
                     : Element.Default;
             }
@@ -413,8 +413,8 @@ namespace BudgetExecution
         private IDictionary<string, object> GetArgs( string firstname, string lastname )
         {
             if( Record.ToDictionary() != null
-                && Verify.Input( firstname )
-                && Verify.Input( lastname ) )
+                && Verify.IsInput( firstname )
+                && Verify.IsInput( lastname ) )
             {
                 try
                 {
@@ -448,8 +448,8 @@ namespace BudgetExecution
         /// </returns>
         private IDictionary<string, object> GetArgs( IPerson employee )
         {
-            if( Verify.Input( employee?.GetFirstName()?.GetValue() )
-                && Verify.Input( employee?.GetLastName()?.GetValue() ) )
+            if( Verify.IsInput( employee?.GetFirstName()?.GetValue() )
+                && Verify.IsInput( employee?.GetLastName()?.GetValue() ) )
             {
                 try
                 {

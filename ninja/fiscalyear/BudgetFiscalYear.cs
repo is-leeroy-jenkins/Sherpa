@@ -214,7 +214,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( FiscalYearId )
+                return Verify.IsKey( FiscalYearId )
                     ? FiscalYearId
                     : Key.Default;
             }
@@ -329,7 +329,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( FirstYear?.GetValue() )
+                return Verify.IsInput( FirstYear?.GetValue() )
                     ? FirstYear?.GetValue()
                     : default( string );
             }

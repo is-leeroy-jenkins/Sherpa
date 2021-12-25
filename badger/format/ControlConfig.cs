@@ -56,7 +56,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return Verify.Input( tag.ToString() )
+                    return Verify.IsInput( tag.ToString() )
                         ? tag
                         : default( object );
                 }
@@ -78,7 +78,7 @@ namespace BudgetExecution
         /// </param>
         public static string GetText( string text )
         {
-            if( Verify.Input( text ) )
+            if( Verify.IsInput( text ) )
             {
                 try
                 {
@@ -304,7 +304,7 @@ namespace BudgetExecution
         public static ToolTip GetToolTip( Control control, string text )
         {
             if( control != null
-                && Verify.Input( text ) )
+                && Verify.IsInput( text ) )
             {
                 try
                 {

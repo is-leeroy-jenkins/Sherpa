@@ -129,7 +129,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID
                     : Key.Default;
             }
@@ -310,7 +310,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Amount( Expended )
+                return Verify.IsAmount( Expended )
                     ? Expended
                     : default( IAmount );
             }
@@ -330,7 +330,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Amount( ULO )
+                return Verify.IsAmount( ULO )
                     ? ULO
                     : default( IAmount );
             }

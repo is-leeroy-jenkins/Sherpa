@@ -142,7 +142,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Rows( Data )
+                return Verify.IsRows( Data )
                     ? Data
                     : default( IEnumerable<DataRow> );
             }
@@ -201,7 +201,7 @@ namespace BudgetExecution
             {
                 var data = Metric?.Data;
 
-                return Verify.Rows( data )
+                return Verify.IsRows( data )
                     ? Metric
                     : default( IDataMetric );
             }

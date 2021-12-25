@@ -147,7 +147,7 @@ namespace BudgetExecution
         /// <param name="text">The text.</param>
         public void SetText( string text )
         {
-            if( Verify.Input( text ) )
+            if( Verify.IsInput( text ) )
             {
                 try
                 {
@@ -232,7 +232,7 @@ namespace BudgetExecution
         public void OnMouseOver( object sender, EventArgs e )
         {
             if( sender is Control control
-                && Verify.Input( control?.Tag?.ToString() ) )
+                && Verify.IsInput( control?.Tag?.ToString() ) )
             {
                 try
                 {
@@ -243,7 +243,7 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
-            else if( Verify.Input( HoverText ) )
+            else if( Verify.IsInput( HoverText ) )
             {
                 try
                 {

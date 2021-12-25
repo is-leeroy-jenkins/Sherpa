@@ -231,7 +231,7 @@ namespace BudgetExecution
         /// </returns>
         public IDictionary<string, object> SetArgs( string code )
         {
-            if( Verify.Input( code ) )
+            if( Verify.IsInput( code ) )
             {
                 try
                 {

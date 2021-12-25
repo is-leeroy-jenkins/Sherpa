@@ -152,7 +152,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Key( ID )
+                return Verify.IsKey( ID )
                     ? ID
                     : default( IKey );
             }
@@ -172,7 +172,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( EpaSiteId?.GetValue() )
+                return Verify.IsInput( EpaSiteId?.GetValue() )
                     ? EpaSiteId
                     : default( IElement );
             }
@@ -192,7 +192,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( SiteName?.GetValue() )
+                return Verify.IsInput( SiteName?.GetValue() )
                     ? SiteName
                     : default( IElement );
             }
@@ -212,7 +212,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( SiteProjectName?.GetValue() )
+                return Verify.IsInput( SiteProjectName?.GetValue() )
                     ? SiteProjectName
                     : default( IElement );
             }
@@ -232,7 +232,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( City?.GetValue() )
+                return Verify.IsInput( City?.GetValue() )
                     ? City
                     : default( IElement );
             }
@@ -252,7 +252,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( District?.GetValue() )
+                return Verify.IsInput( District?.GetValue() )
                     ? District
                     : default( IElement );
             }
@@ -272,7 +272,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( County?.GetValue() )
+                return Verify.IsInput( County?.GetValue() )
                     ? County
                     : default( IElement );
             }
@@ -292,7 +292,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( StateCode?.GetName() )
+                return Verify.IsInput( StateCode?.GetName() )
                     ? StateCode
                     : default( IElement );
             }
@@ -312,7 +312,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( StateName?.GetValue() )
+                return Verify.IsInput( StateName?.GetValue() )
                     ? StateName
                     : default( IElement );
             }
@@ -332,7 +332,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( StreetAddressLine1?.GetName() )
+                return Verify.IsInput( StreetAddressLine1?.GetName() )
                     ? StreetAddressLine1
                     : default( IElement );
             }
@@ -352,7 +352,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( District?.GetValue() )
+                return Verify.IsInput( District?.GetValue() )
                     ? District
                     : default( IElement );
             }
@@ -372,7 +372,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.Input( LastActionDate?.GetValue() )
+                return Verify.IsInput( LastActionDate?.GetValue() )
                     ? LastActionDate
                     : default( ITime );
             }

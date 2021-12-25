@@ -50,7 +50,7 @@ namespace BudgetExecution
         /// </returns>
         public BarButton CreateButton( string imagename )
         {
-            if( Verify.Input( imagename ) )
+            if( Verify.IsInput( imagename ) )
             {
                 try
                 {

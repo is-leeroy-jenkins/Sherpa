@@ -68,7 +68,7 @@ namespace BudgetExecution
                 var _command = connection?.CreateCommand();
                 _command.CommandText = sql;
 
-                return Verify.Input( _command?.CommandText )
+                return Verify.IsInput( _command?.CommandText )
                     ? _command
                     : default( IDbCommand );
             }
@@ -112,7 +112,7 @@ namespace BudgetExecution
             {
                 var _stringBuilder = new StringBuilder();
 
-                if( Verify.Input( message ) )
+                if( Verify.IsInput( message ) )
                 {
                     _stringBuilder.Append( message );
                     _stringBuilder.Append( Environment.NewLine );
