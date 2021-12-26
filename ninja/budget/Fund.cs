@@ -417,7 +417,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsSource( _source )
+                return Verify.IsSource( _source )
                     ? _source
                     : Source.NS;
             }

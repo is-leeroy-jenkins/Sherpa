@@ -45,10 +45,10 @@ namespace BudgetExecution
         public HolidayFactory Holidays { get; set; }
 
         /// <summary>
-        /// Gets the availablity.
+        /// Gets the Availablity.
         /// </summary>
         /// <value>
-        /// The availablity.
+        /// The Availablity.
         /// </value>
         public IElement Availability { get; set; }
 
@@ -367,7 +367,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsSource( Source )
+                return Verify.IsSource( Source )
                     ? Source
                     : Source.NS;
             }

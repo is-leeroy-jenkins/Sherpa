@@ -13,18 +13,26 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref = "WorkCodeBase"/>
+    /// <seealso cref = "PayrollCostCode"/>
     /// <seealso cref = "ISource"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class WorkCode : WorkCodeBase, ISource, IWorkCode
+    public class WorkCode : PayrollCostCode, ISource, IWorkCode
     {
         /// <summary>
         /// The source
         /// </summary>
         public Source Source { get; } = Source.WorkCodes;
-        
+
+        /// <summary>
+        /// Gets the arguments.
+        /// </summary>
+        /// <value>
+        /// The arguments.
+        /// </value>
+        public IDictionary<string, object> Args { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref = "WorkCode"/> class.
         /// </summary>
@@ -120,14 +128,6 @@ namespace BudgetExecution
             Args = Record?.ToDictionary();
         }
 
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public IDictionary<string, object> Args { get; set; }
-        
         /// <summary>
         /// Converts to string.
         /// </summary>
@@ -377,7 +377,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsSource( Source )
+                return Verify.IsSource( Source )
                     ? Source
                     : Source.NS;
             }

@@ -265,7 +265,7 @@ namespace BudgetExecution
         {
             try
             {
-                var elements = new List<IElement>
+                var _elements = new List<IElement>
                 {
                     BudgetLevel,
                     BFY,
@@ -279,8 +279,8 @@ namespace BudgetExecution
                     ActivityCode
                 };
 
-                return elements?.Any() == true
-                    ? elements
+                return _elements?.Any() == true
+                    ? _elements
                     : default( List<IElement> );
             }
             catch( Exception ex )
@@ -338,7 +338,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsSource( Source )
+                return Verify.IsSource( Source )
                     ? Source
                     : default( Source );
             }

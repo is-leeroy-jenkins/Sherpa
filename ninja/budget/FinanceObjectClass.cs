@@ -12,9 +12,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref = "IFinanceObjectClass"/>
-    /// <seealso cref = "IProgramElement"/>
-    /// <seealso cref = "ISource"/>
+    /// <seealso cref="BudgetExecution.IFinanceObjectClass" />
+    /// <seealso cref="BudgetExecution.IProgramElement" />
+    /// <seealso cref="BudgetExecution.ISource" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
@@ -23,49 +23,52 @@ namespace BudgetExecution
     public class FinanceObjectClass : IFinanceObjectClass, IProgramElement, ISource
     {
         /// <summary>
-        /// The source
-        /// </summary>
-        private const Source _source = Source.FinanceObjectClass;
-
-        /// <summary>
-        /// Gets the Data.
+        /// Gets the source.
         /// </summary>
         /// <value>
-        /// The Data.
+        /// The source.
         /// </value>
-        private readonly DataRow _record;
+        public Source Source { get; } = Source.FinanceObjectClass;
 
         /// <summary>
-        /// Gets the arguments.
+        /// Gets or sets the record.
         /// </summary>
         /// <value>
-        /// The arguments.
+        /// The record.
         /// </value>
-        private readonly IDictionary<string, object> _data;
+        public DataRow Record { get; set; }
 
         /// <summary>
-        /// Gets the code.
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
+        public IDictionary<string, object> Data { get; set; }
+
+        /// <summary>
+        /// Gets or sets the code.
         /// </summary>
         /// <value>
         /// The code.
         /// </value>
-        private readonly IElement _code;
+        public IElement Code { get; set; }
 
         /// <summary>
-        /// Gets the finance object class identifier.
+        /// Gets or sets the identifier.
         /// </summary>
         /// <value>
-        /// The finance object class identifier.
+        /// The identifier.
         /// </value>
-        private readonly IKey _id;
+        public IKey ID { get; set; }
 
         /// <summary>
-        /// Gets the name.
+        /// Gets or sets the name.
         /// </summary>
         /// <value>
         /// The name.
         /// </value>
-        private readonly IElement _name;
+        public IElement Name { get; set; }
 
         /// <summary>
         /// Gets or sets the category.
@@ -73,83 +76,72 @@ namespace BudgetExecution
         /// <value>
         /// The category.
         /// </value>
-        private protected readonly BOC _category;
+        public BOC Category { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "FinanceObjectClass"/> class.
+        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
         /// </summary>
         public FinanceObjectClass()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "FinanceObjectClass"/> class.
+        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
         /// </summary>
-        /// <param name = "query" >
-        /// The query.
-        /// </param>
+        /// <param name="query">The query.</param>
         public FinanceObjectClass( IQuery query )
         {
-            _record = new DataBuilder( query )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.FinanceObjectClassId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = new DataBuilder( query )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.FinanceObjectClassId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "FinanceObjectClass"/> class.
+        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
         /// </summary>
-        /// <param name = "builder" >
-        /// The database.
-        /// </param>
+        /// <param name="builder">The builder.</param>
         public FinanceObjectClass( IBuilder builder )
         {
-            _record = builder?.GetRecord();
-            _id = new Key( _record, PrimaryKey.FinanceObjectClassId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = builder?.GetRecord();
+            ID = new Key( Record, PrimaryKey.FinanceObjectClassId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "FinanceObjectClass"/> class.
+        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
         /// </summary>
-        /// <param name = "dataRow" >
-        /// The dataRow.
-        /// </param>
+        /// <param name="dataRow">The data row.</param>
         public FinanceObjectClass( DataRow dataRow )
         {
-            _record = dataRow;
-            _id = new Key( _record, PrimaryKey.FinanceObjectClassId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = dataRow;
+            ID = new Key( Record, PrimaryKey.FinanceObjectClassId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "FinanceObjectClass"/> class.
+        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
         /// </summary>
-        /// <param name = "focCode" >
-        /// The focCode.
-        /// </param>
+        /// <param name="focCode">The foc code.</param>
         public FinanceObjectClass( string focCode )
         {
-            _record = new DataBuilder( _source, GetArgs( focCode ) )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.FinanceObjectClassId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = new DataBuilder( Source, GetArgs( focCode ) )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.FinanceObjectClassId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
-        /// Sets the arguments.
+        /// Gets the arguments.
         /// </summary>
-        /// <param name = "code" >
-        /// The code.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="code">The code.</param>
+        /// <returns></returns>
         private IDictionary<string, object> GetArgs( string code )
         {
             if( Verify.IsInput( code ) )
@@ -175,14 +167,14 @@ namespace BudgetExecution
         /// Converts to string.
         /// </summary>
         /// <returns>
-        /// A <see cref = "string"/> that represents this instance.
+        /// A <see cref="System.String" /> that represents this instance.
         /// </returns>
         public override string ToString()
         {
             try
             {
-                return Verify.IsElement( _code )
-                    ? _code.GetValue()
+                return Verify.IsElement( Code )
+                    ? Code.GetValue()
                     : string.Empty;
             }
             catch( Exception ex )
@@ -195,14 +187,13 @@ namespace BudgetExecution
         /// <summary>
         /// Converts to dictionary.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public IDictionary<string, object> ToDictionary()
         {
             try
             {
-                return Verify.IsMap( _data )
-                    ? _data
+                return Verify.IsMap( Data )
+                    ? Data
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )
@@ -211,18 +202,17 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
-        
+
         /// <summary>
-        /// Gets the finance object class identifier.
+        /// Gets the identifier.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public IKey GetId()
         {
             try
             {
-                return Verify.IsKey( _id )
-                    ? _id
+                return Verify.IsKey( ID )
+                    ? ID
                     : Key.Default;
             }
             catch( Exception ex )
@@ -233,16 +223,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the finance object class code.
+        /// Gets the code.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public IElement GetCode()
         {
             try
             {
-                return Verify.IsElement( _code )
-                    ? _code
+                return Verify.IsElement( Code )
+                    ? Code
                     : Element.Default;
             }
             catch( Exception ex )
@@ -253,16 +242,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the name of the finance object class.
+        /// Gets the name.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public IElement GetName()
         {
             try
             {
-                return Verify.IsElement( _name )
-                    ? _name
+                return Verify.IsElement( Name )
+                    ? Name
                     : Element.Default;
             }
             catch( Exception ex )
@@ -275,8 +263,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the finance object class.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public IFinanceObjectClass GetFinanceObjectClass()
         {
             try
@@ -293,14 +280,13 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the source.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         Source ISource.GetSource()
         {
             try
             {
-                return Validate.IsSource( _source )
-                    ? _source
+                return Verify.IsSource( Source )
+                    ? Source
                     : Source.NS;
             }
             catch( SystemException ex )
@@ -311,7 +297,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )

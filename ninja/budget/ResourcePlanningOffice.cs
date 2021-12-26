@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        private const Source _source = Source.ResourcePlanningOffices;
+        public Source Source = Source.ResourcePlanningOffices;
         
         /// <summary>
         /// Gets the dataRow.
@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <value>
         /// The dataRow.
         /// </value>
-        private protected readonly DataRow _record;
+        public DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -39,7 +39,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        private protected readonly IDictionary<string, object> _data;
+        public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Gets the code.
@@ -47,7 +47,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        private protected readonly IElement _code;
+        public IElement Code { get; set; }
 
         /// <summary>
         /// Gets the resource planning office identifier.
@@ -55,7 +55,7 @@ namespace BudgetExecution
         /// <value>
         /// The resource planning office identifier.
         /// </value>
-        private protected readonly IKey _id;
+        public IKey ID { get; set; }
 
         /// <summary>
         /// Gets the name.
@@ -63,7 +63,7 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        private protected readonly IElement _name;
+        public IElement Name { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -83,11 +83,11 @@ namespace BudgetExecution
         public ResourcePlanningOffice( IQuery query )
             : this()
         {
-            _record = new DataBuilder( query )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.ResourcePlanningOfficeId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = new DataBuilder( query )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficeId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -99,11 +99,11 @@ namespace BudgetExecution
         /// </param>
         public ResourcePlanningOffice( IBuilder builder )
         {
-            _record = builder?.GetRecord();
-            _id = new Key( _record, PrimaryKey.ResourcePlanningOfficeId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = builder?.GetRecord();
+            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficeId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -116,11 +116,11 @@ namespace BudgetExecution
         public ResourcePlanningOffice( DataRow dataRow )
             : this()
         {
-            _record = dataRow;
-            _id = new Key( _record, PrimaryKey.ResourcePlanningOfficeId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = dataRow;
+            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficeId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -133,11 +133,11 @@ namespace BudgetExecution
         public ResourcePlanningOffice( string rpioCode )
             : this()
         {
-            _record = new DataBuilder( _source, SetArgs( rpioCode ) )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.ResourcePlanningOfficeId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = new DataBuilder( Source, SetArgs( rpioCode ) )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficeId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -179,8 +179,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _code )
-                    ? _code.GetValue()
+                return Verify.IsElement( Code )
+                    ? Code.GetValue()
                     : string.Empty;
             }
             catch( Exception ex )
@@ -199,74 +199,14 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsMap( _data )
-                    ? _data
+                return Verify.IsMap( Data )
+                    ? Data
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
                 return default( IDictionary<string, object> );
-            }
-        }
-
-        /// <summary>
-        /// Gets the resource planning office identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IKey GetId()
-        {
-            try
-            {
-                return Verify.IsKey( _id )
-                    ? _id
-                    : Key.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Key.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the resource planning office code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetCode()
-        {
-            try
-            {
-                return Verify.IsElement( _code )
-                    ? _code
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the resource planning office.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetName()
-        {
-            try
-            {
-                return Verify.IsElement( _name )
-                    ? _name
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
             }
         }
 
@@ -289,8 +229,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsSource( _source )
-                    ? _source
+                return Verify.IsSource( Source )
+                    ? Source
                     : Source.NS;
             }
             catch( Exception ex )

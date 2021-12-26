@@ -4,40 +4,11 @@
 
 namespace BudgetExecution
 {
-    // ******************************************************************************************************************************
-    // ******************************************************   ASSEMBLIES   ********************************************************
-    // ******************************************************************************************************************************
-
     /// <summary>
     /// 
     /// </summary>
-    public interface IResponsibilityCenter
+    public interface IResponsibilityCenter : IProgramElement
     {
-        // ***************************************************************************************************************************
-        // ************************************************  METHODS   ***************************************************************
-        // ***************************************************************************************************************************
-
-        /// <summary>
-        /// Gets the responsibility center identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IKey GetId();
-
-        /// <summary>
-        /// Gets the responsibility center code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetCode();
-
-        /// <summary>
-        /// Gets the name of the responsibility center.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetName();
-
         /// <summary>
         /// Gets the responsibility center.
         /// </summary>

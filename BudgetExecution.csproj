@@ -738,8 +738,6 @@
     <Compile Include="Ninja\Outlays\OpenCommitment.cs" />
     <Compile Include="Ninja\Outlays\Outlay.cs" />
     <Compile Include="Ninja\Outlays\PayrollBase.cs" />
-    <Compile Include="Ninja\Outlays\PayrollFactory.cs" />
-    <Compile Include="Ninja\Outlays\PayrollHours.cs" />
     <Compile Include="Ninja\Outlays\PayrollObligation.cs" />
     <Compile Include="Ninja\Outlays\Reimbursable.cs" />
     <Compile Include="Ninja\Outlays\Site.cs" />
@@ -750,7 +748,7 @@
     <Compile Include="Ninja\Outlays\Vendor.cs" />
     <Compile Include="Ninja\Outlays\VendorData.cs" />
     <Compile Include="Ninja\Outlays\WorkCode.cs" />
-    <Compile Include="Ninja\Outlays\WorkCodeBase.cs" />
+    <Compile Include="Ninja\Outlays\PayrollCostCode.cs" />
     <Compile Include="Ninja\Path\DataPath.cs" />
     <Compile Include="Ninja\Path\IPath.cs" />
     <Compile Include="Ninja\Reader\ExcelReader.cs" />

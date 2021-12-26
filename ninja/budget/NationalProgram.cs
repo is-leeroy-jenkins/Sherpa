@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        private const Source _source = Source.NationalPrograms;
+        public Source Source { get; } = Source.NationalPrograms;
 
         /// <summary>
         /// Gets the record.
@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <value>
         /// The record.
         /// </value>
-        private readonly DataRow _record;
+        public DataRow Record { get; set; } 
 
         /// <summary>
         /// Gets the arguments.
@@ -39,7 +39,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        private readonly IDictionary<string, object> _data;
+        public IDictionary<string, object> Data { get; set; } 
 
         /// <summary>
         /// Gets the code.
@@ -47,7 +47,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        private readonly IElement _code;
+        public IElement Code { get; set; } 
 
         /// <summary>
         /// Gets the title.
@@ -55,7 +55,7 @@ namespace BudgetExecution
         /// <value>
         /// The title.
         /// </value>
-        private readonly IElement _title;
+        public IElement Title { get; set; } 
 
         /// <summary>
         /// Gets the national program identifier.
@@ -63,7 +63,7 @@ namespace BudgetExecution
         /// <value>
         /// The national program identifier.
         /// </value>
-        private readonly IKey _id;
+        public IKey ID { get; set; } 
 
         /// <summary>
         /// Gets the name.
@@ -71,7 +71,7 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        private readonly IElement _name;
+        public IElement Name { get; set; } 
 
         /// <summary>
         /// Gets the rpio code.
@@ -79,7 +79,15 @@ namespace BudgetExecution
         /// <value>
         /// The rpio code.
         /// </value>
-        private readonly IElement _rpioCode;
+        public IElement RpioCode { get; set; } 
+
+        /// <summary>
+        /// Gets or sets the NPM.
+        /// </summary>
+        /// <value>
+        /// The NPM.
+        /// </value>
+        public NPM NPM { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "NationalProgram"/> class.
@@ -96,14 +104,14 @@ namespace BudgetExecution
         /// </param>
         public NationalProgram( IQuery query )
         {
-            _record = new DataBuilder( query )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.NationalProgramId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _rpioCode = new Element( _record, Field.RpioCode );
-            _title = new Element( _record, Field.Title );
-            _data = _record?.ToDictionary();
-            NPM = (NPM)Enum.Parse( typeof( NPM ), _code.GetValue() );
+            Record = new DataBuilder( query )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.NationalProgramId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            RpioCode = new Element( Record, Field.RpioCode );
+            Title = new Element( Record, Field.Title );
+            Data = Record?.ToDictionary();
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code.GetValue() );
         }
 
         /// <summary>
@@ -114,14 +122,14 @@ namespace BudgetExecution
         /// </param>
         public NationalProgram( IBuilder builder )
         {
-            _record = builder?.GetRecord();
-            _id = new Key( _record, PrimaryKey.NationalProgramId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _rpioCode = new Element( _record, Field.RpioCode );
-            _title = new Element( _record, Field.Title );
-            _data = _record?.ToDictionary();
-            NPM = (NPM)Enum.Parse( typeof( NPM ), _code.GetValue() );
+            Record = builder?.GetRecord();
+            ID = new Key( Record, PrimaryKey.NationalProgramId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            RpioCode = new Element( Record, Field.RpioCode );
+            Title = new Element( Record, Field.Title );
+            Data = Record?.ToDictionary();
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code.GetValue() );
         }
 
         /// <summary>
@@ -132,14 +140,14 @@ namespace BudgetExecution
         /// </param>
         public NationalProgram( DataRow dataRow )
         {
-            _record = dataRow;
-            _id = new Key( _record, PrimaryKey.NationalProgramId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _rpioCode = new Element( _record, Field.RpioCode );
-            _title = new Element( _record, Field.Title );
-            _data = _record?.ToDictionary();
-            NPM = (NPM)Enum.Parse( typeof( NPM ), _code.GetValue() );
+            Record = dataRow;
+            ID = new Key( Record, PrimaryKey.NationalProgramId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            RpioCode = new Element( Record, Field.RpioCode );
+            Title = new Element( Record, Field.Title );
+            Data = Record?.ToDictionary();
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code.GetValue() );
         }
 
         /// <summary>
@@ -150,24 +158,16 @@ namespace BudgetExecution
         /// </param>
         public NationalProgram( string code )
         {
-            _record = new DataBuilder( _source, GetArgs( code ) )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.NationalProgramId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _rpioCode = new Element( _record, Field.RpioCode );
-            _title = new Element( _record, Field.Title );
-            _data = _record?.ToDictionary();
-            NPM = (NPM)Enum.Parse( typeof( NPM ), _code.GetValue() );
+            Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.NationalProgramId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            RpioCode = new Element( Record, Field.RpioCode );
+            Title = new Element( Record, Field.Title );
+            Data = Record?.ToDictionary();
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code.GetValue() );
         }
         
-        /// <summary>
-        /// Gets or sets the NPM.
-        /// </summary>
-        /// <value>
-        /// The NPM.
-        /// </value>
-        public NPM NPM { get; set; }
-
         /// <summary>
         /// Sets the arguments.
         /// </summary>
@@ -206,8 +206,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _rpioCode?.GetValue() )
-                    ? _rpioCode
+                return Verify.IsInput( RpioCode?.GetValue() )
+                    ? RpioCode
                     : Element.Default;
             }
             catch( Exception ex )
@@ -227,8 +227,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _code )
-                    ? _code.GetValue()
+                return Verify.IsElement( Code )
+                    ? Code.GetValue()
                     : string.Empty;
             }
             catch( Exception ex )
@@ -247,8 +247,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsMap( _data )
-                    ? _data
+                return Verify.IsMap( Data )
+                    ? Data
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )
@@ -287,8 +287,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsKey( _id )
-                    ? _id
+                return Verify.IsKey( ID )
+                    ? ID
                     : Key.Default;
             }
             catch( Exception ex )
@@ -307,8 +307,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _code )
-                    ? _code
+                return Verify.IsElement( Code )
+                    ? Code
                     : Element.Default;
             }
             catch( Exception ex )
@@ -327,8 +327,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _name )
-                    ? _name
+                return Verify.IsElement( Name )
+                    ? Name
                     : Element.Default;
             }
             catch( Exception ex )
@@ -347,8 +347,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _title )
-                    ? _title
+                return Verify.IsElement( Title )
+                    ? Title
                     : Element.Default;
             }
             catch( Exception ex )
@@ -385,8 +385,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsSource( _source )
-                    ? _source
+                return Verify.IsSource( Source )
+                    ? Source
                     : Source.NS;
             }
             catch( Exception ex )

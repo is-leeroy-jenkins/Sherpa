@@ -374,7 +374,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsSource( Source )
+                return Verify.IsSource( Source )
                     ? Source
                     : default( Source );
             }

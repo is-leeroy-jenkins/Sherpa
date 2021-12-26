@@ -2,11 +2,8 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-// ReSharper disable All
-
 namespace BudgetExecution
 {
-
     using System;
     using System.Collections.Generic;
     using System.Data;
@@ -33,7 +30,7 @@ namespace BudgetExecution
         /// <summary>
         /// The codes
         /// </summary>
-        private readonly IEnumerable<string> Codes = new[]
+        public readonly IEnumerable<string> Codes = new[ ]
         {
             "10",
             "17",
@@ -416,8 +413,8 @@ namespace BudgetExecution
             try
             {
                 return Verify.IsInput( Name?.GetValue() ) 
-                    && Enum.IsDefined( typeof( BOC ), Name?.GetValue() )
-                        ? (BOC)Enum.Parse( typeof( BOC ), Name?.GetValue() )
+                    && Enum.IsDefined( typeof( BOC ), Name?.GetValue() ?? string.Empty )
+                        ? (BOC)Enum.Parse( typeof( BOC ), Name?.GetValue() ?? string.Empty )
                         : BOC.NS;
             }
             catch( SystemException ex )
@@ -436,7 +433,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsSource( Source )
+                return Verify.IsSource( Source )
                     ? Source
                     : default( Source );
             }
@@ -453,7 +450,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            Fail( ex );
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

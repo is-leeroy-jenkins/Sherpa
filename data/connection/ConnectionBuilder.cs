@@ -206,7 +206,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsProvider( Provider )
+                return Verify.IsProvider( Provider )
                     ? Provider
                     : default( Provider );
             }
@@ -225,7 +225,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsSource( Source )
+                return Verify.IsSource( Source )
                     ? Source
                     : Source.NS;
             }

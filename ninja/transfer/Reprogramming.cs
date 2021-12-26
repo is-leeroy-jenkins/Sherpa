@@ -83,14 +83,16 @@ namespace BudgetExecution
         public  IElement Purpose { get;  }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Reprogramming"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Reprogramming"/> class.
         /// </summary>
         public Reprogramming()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Reprogramming"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Reprogramming"/> class.
         /// </summary>
         /// <param name = "query" >
         /// The query.
@@ -113,7 +115,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref = "Reprogramming"/> class.
         /// </summary>
         /// <param name = "builder" >
-        /// The databuilder.
+        /// Builder
         /// </param>
         public Reprogramming( IBuilder builder )
             : base( builder )
@@ -299,7 +301,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsSource( Source )
+                return Verify.IsSource( Source )
                     ? Source
                     : Source.NS;
             }

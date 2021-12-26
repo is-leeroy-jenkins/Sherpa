@@ -227,7 +227,7 @@ namespace BudgetExecution
         /// </returns>
         public IBuilder GetBuilder()
         {
-            if( Validate.IsSource( Source )
+            if( Verify.IsSource( Source )
                 && Verify.IsMap( Data ) )
             {
                 try
@@ -255,7 +255,7 @@ namespace BudgetExecution
         /// </returns>
         public IEnumerable<DataRow> GetData()
         {
-            if( Validate.IsSource( Source )
+            if( Verify.IsSource( Source )
                 && Verify.IsMap( Data ) )
             {
                 try

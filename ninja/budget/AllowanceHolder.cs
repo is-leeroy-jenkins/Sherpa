@@ -15,10 +15,10 @@ namespace BudgetExecution
     /// Because the term has many uses in practice, it does not have a well-defined,
     /// standard meaning in the legislative process. It is used to describe an agency’s
     /// mission, functions, activities, services, projects, and processes. An Allowance
-    /// Hoder is also an element within a budget account. For annually appropriated
+    /// Holder is also an element within a budget account. For annually appropriated
     /// accounts, the Office of Management and Budget (OMB) and agencies identify PPAs
     /// by reference to committee reports and budget justifications; for permanent
-    /// appropriations, OMB and agencies identify Allowance Hoders by the program and
+    /// appropriations, OMB and agencies identify Allowance Holders by the program and
     /// financing schedules that the President provides in the “Detailed Budget
     /// Estimates” in the budget submission for the relevant fiscal year. Program
     /// activity structures are intended to provide a meaningful representation of the
@@ -75,7 +75,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        public IElement Code { get;  } 
+        public IElement Code { get; set; } 
 
         /// <summary>
         /// Gets the allowance holder identifier.
@@ -83,7 +83,7 @@ namespace BudgetExecution
         /// <value>
         /// The allowance holder identifier.
         /// </value>
-        public IKey ID { get;  } 
+        public IKey ID { get; set; } 
 
         /// <summary>
         /// Gets the name.
@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        public IElement Name { get;  } 
+        public IElement Name { get; set; } 
 
         /// <summary>
         /// Initializes a new instance of the
@@ -241,66 +241,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the allowance holder identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IKey GetId()
-        {
-            try
-            {
-                return Verify.IsKey( ID )
-                    ? ID
-                    : default( IKey );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IKey );
-            }
-        }
-
-        /// <summary>
-        /// Gets the allowance holder code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetCode()
-        {
-            try
-            {
-                return Verify.IsInput( Code.GetValue() )
-                    ? Code
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IElement );
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the allowance holder.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetName()
-        {
-            try
-            {
-                return Verify.IsInput( Name.GetValue() )
-                    ? Name
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IElement );
-            }
-        }
-
-        /// <summary>
         /// Gets the allowance holder.
         /// </summary>
         /// <returns>
@@ -327,7 +267,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsSource( Source )
+                return Verify.IsSource( Source )
                     ? Source
                     : Source.NS;
             }

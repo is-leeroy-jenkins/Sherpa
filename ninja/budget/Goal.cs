@@ -19,13 +19,53 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class Goal : IGoal, IProgramElement, ISource
+    public class Goal : IGoal, ISource
     {
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source = Source.Goals;
-        
+        public Source Source { get; } = Source.Goals;
+
+        /// <summary>
+        /// Gets the record.
+        /// </summary>
+        /// <value>
+        /// The record.
+        /// </value>
+        public DataRow Record { get; set; }
+
+        /// <summary>
+        /// Gets the arguments.
+        /// </summary>
+        /// <value>
+        /// The arguments.
+        /// </value>
+        public IDictionary<string, object> Data { get; set; }
+
+        /// <summary>
+        /// Gets the code.
+        /// </summary>
+        /// <value>
+        /// The code.
+        /// </value>
+        public IElement Code { get; set; }
+
+        /// <summary>
+        /// Gets the goal identifier.
+        /// </summary>
+        /// <value>
+        /// The goal identifier.
+        /// </value>
+        public IKey ID { get; set; }
+
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public IElement Name { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "Goal"/> class.
@@ -97,46 +137,6 @@ namespace BudgetExecution
             Data = Record?.ToDictionary();
         }
 
-        /// <summary>
-        /// Gets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        private protected readonly DataRow Record;
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        private protected readonly IDictionary<string, object> Data;
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        private protected readonly IElement Code;
-
-        /// <summary>
-        /// Gets the goal identifier.
-        /// </summary>
-        /// <value>
-        /// The goal identifier.
-        /// </value>
-        private protected readonly IKey ID;
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        private protected readonly IElement Name;
-        
         /// <summary>
         /// Converts to dictionary.
         /// </summary>
@@ -236,67 +236,7 @@ namespace BudgetExecution
 
             return default( IDictionary<string, object> );
         }
-
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IKey GetId()
-        {
-            try
-            {
-                return Verify.IsKey( ID )
-                    ? ID
-                    : default( IKey );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IKey );
-            }
-        }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetCode()
-        {
-            try
-            {
-                return Verify.IsInput( Code?.GetValue() )
-                    ? Code
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IElement );
-            }
-        }
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetName()
-        {
-            try
-            {
-                return Verify.IsInput( Name?.GetValue() )
-                    ? Name
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IElement );
-            }
-        }
-
+        
         /// <summary>
         /// Gets the goal.
         /// </summary>
@@ -324,7 +264,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsSource( Source )
+                return Verify.IsSource( Source )
                     ? Source
                     : Source.NS;
             }

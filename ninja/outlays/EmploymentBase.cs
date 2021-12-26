@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The employee number.
         /// </value>
-        private protected IElement _employeeNumber;
+        public IElement EmployeeNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the first name.
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The first name.
         /// </value>
-        private protected IElement _firstName;
+        public IElement FirstName { get; set; }
 
         /// <summary>
         /// Gets or sets the last name.
@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// <value>
         /// The last name.
         /// </value>
-        private protected IElement _lastName;
+        public IElement LastName { get; set; }
 
         /// <summary>
         /// Gets or sets the human resource organization code.
@@ -44,7 +44,7 @@ namespace BudgetExecution
         /// <value>
         /// The human resource organization code.
         /// </value>
-        private protected IElement _humanResourceOrganizationCode;
+        public IElement HumanResourceOrganizationCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the human resource organization.
@@ -52,7 +52,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the human resource organization.
         /// </value>
-        private protected IElement _humanResourceOrganizationName;
+        public IElement HumanResourceOrganizationName { get; set; }
 
         /// <summary>
         /// Gets or sets the appointment authority.
@@ -60,7 +60,7 @@ namespace BudgetExecution
         /// <value>
         /// The appointment authority.
         /// </value>
-        private protected IElement _appointmentAuthority;
+        public IElement AppointmentAuthority { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the appointment.
@@ -68,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the appointment.
         /// </value>
-        private protected IElement _appointmentType;
+        public IElement AppointmentType { get; set; }
 
         /// <summary>
         /// Gets or sets the bargaining unit.
@@ -76,7 +76,7 @@ namespace BudgetExecution
         /// <value>
         /// The bargaining unit.
         /// </value>
-        private protected IElement _bargainingUnit;
+        public IElement BargainingUnit { get; set; }
 
         /// <summary>
         /// Gets or sets the retirement plan.
@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// <value>
         /// The retirement plan.
         /// </value>
-        private protected IElement _retirementPlan;
+        public IElement RetirementPlan { get; set; }
 
         /// <summary>
         /// Gets or sets the hire date.
@@ -92,7 +92,7 @@ namespace BudgetExecution
         /// <value>
         /// The hire date.
         /// </value>
-        private protected ITime _hireDate;
+        public ITime HireDate { get; set; }
 
         /// <summary>
         /// Gets or sets the service date.
@@ -100,7 +100,7 @@ namespace BudgetExecution
         /// <value>
         /// The service date.
         /// </value>
-        private protected ITime _serviceDate;
+        public ITime ServiceDate { get; set; }
 
         /// <summary>
         /// Gets or sets the grade entry date.
@@ -108,7 +108,7 @@ namespace BudgetExecution
         /// <value>
         /// The grade entry date.
         /// </value>
-        private protected ITime _gradeEntryDate;
+        public ITime GradeEntryDate { get; set; }
 
         /// <summary>
         /// Gets or sets the step entry date.
@@ -116,15 +116,15 @@ namespace BudgetExecution
         /// <value>
         /// The step entry date.
         /// </value>
-        private protected ITime _stepEntryDate;
+        public ITime StepEntryDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the wigi due date.
+        /// Gets or sets the WIGI due date.
         /// </summary>
         /// <value>
-        /// The wigi due date.
+        /// The WIGI due date.
         /// </value>
-        private protected ITime _wigiDueDate;
+        public ITime WigiDueDate { get; set; }
         
         /// <summary>
         /// Gets the employee number.
@@ -135,8 +135,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _employeeNumber.GetValue() )
-                    ? _employeeNumber
+                return Verify.IsInput( EmployeeNumber.GetValue() )
+                    ? EmployeeNumber
                     : default( IElement );
             }
             catch( Exception ex )
@@ -155,8 +155,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _firstName.GetValue() )
-                    ? _firstName
+                return Verify.IsInput( FirstName.GetValue() )
+                    ? FirstName
                     : default( IElement );
             }
             catch( Exception ex )
@@ -175,8 +175,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _lastName.GetValue() )
-                    ? _lastName
+                return Verify.IsInput( LastName.GetValue() )
+                    ? LastName
                     : default( IElement );
             }
             catch( Exception ex )
@@ -195,8 +195,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _humanResourceOrganizationCode.GetValue() )
-                    ? _humanResourceOrganizationCode
+                return Verify.IsInput( HumanResourceOrganizationCode.GetValue() )
+                    ? HumanResourceOrganizationCode
                     : default( IElement );
             }
             catch( Exception ex )
@@ -215,8 +215,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _humanResourceOrganizationName.GetValue() )
-                    ? _humanResourceOrganizationName
+                return Verify.IsInput( HumanResourceOrganizationName.GetValue() )
+                    ? HumanResourceOrganizationName
                     : default( IElement );
             }
             catch( Exception ex )
@@ -235,8 +235,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _hireDate?.GetValue() )
-                    ? _hireDate
+                return Verify.IsInput( HireDate?.GetValue() )
+                    ? HireDate
                     : default( ITime );
             }
             catch( Exception ex )
@@ -255,8 +255,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _serviceDate?.GetValue() )
-                    ? _serviceDate
+                return Verify.IsInput( ServiceDate?.GetValue() )
+                    ? ServiceDate
                     : default( ITime );
             }
             catch( Exception ex )
@@ -275,8 +275,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _gradeEntryDate?.GetValue() )
-                    ? _gradeEntryDate
+                return Verify.IsInput( GradeEntryDate?.GetValue() )
+                    ? GradeEntryDate
                     : default( ITime );
             }
             catch( Exception ex )
@@ -295,8 +295,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _stepEntryDate?.GetValue() )
-                    ? _stepEntryDate
+                return Verify.IsInput( StepEntryDate?.GetValue() )
+                    ? StepEntryDate
                     : default( ITime );
             }
             catch( Exception ex )
@@ -307,7 +307,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the wigi due date.
+        /// Gets the WIGI due date.
         /// </summary>
         /// <returns>
         /// </returns>
@@ -315,8 +315,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _wigiDueDate?.GetValue() )
-                    ? _wigiDueDate
+                return Verify.IsInput( WigiDueDate?.GetValue() )
+                    ? WigiDueDate
                     : default( ITime );
             }
             catch( Exception ex )
@@ -335,8 +335,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _appointmentAuthority.GetValue() )
-                    ? _appointmentAuthority
+                return Verify.IsInput( AppointmentAuthority.GetValue() )
+                    ? AppointmentAuthority
                     : default( IElement );
             }
             catch( Exception ex )
@@ -355,8 +355,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _appointmentType.GetValue() )
-                    ? _appointmentType
+                return Verify.IsInput( AppointmentType.GetValue() )
+                    ? AppointmentType
                     : default( IElement );
             }
             catch( Exception ex )
@@ -375,8 +375,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _bargainingUnit.GetValue() )
-                    ? _bargainingUnit
+                return Verify.IsInput( BargainingUnit.GetValue() )
+                    ? BargainingUnit
                     : default( IElement );
             }
             catch( Exception ex )
@@ -395,8 +395,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _retirementPlan.GetValue() )
-                    ? _retirementPlan
+                return Verify.IsInput( RetirementPlan.GetValue() )
+                    ? RetirementPlan
                     : default( IElement );
             }
             catch( Exception ex )

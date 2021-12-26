@@ -24,7 +24,13 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public class ConnectionFactory : ISource, IConnectionFactory
     {
-        private readonly IConnectionBuilder _connectionBuilder;
+        /// <summary>
+        /// Gets or sets the connection builder.
+        /// </summary>
+        /// <value>
+        /// The connection builder.
+        /// </value>
+        public IConnectionBuilder ConnectionBuilder { get; set; }
 
         /// <summary>
         /// Gets the connection.
@@ -32,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The connection.
         /// </value>
-        private readonly DbConnection _connection;
+        public DbConnection Connection { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "ConnectionFactory"/> class.
@@ -49,8 +55,8 @@ namespace BudgetExecution
         /// </param>
         public ConnectionFactory( IConnectionBuilder builder )
         {
-            _connectionBuilder = GetConnectionBuilder( builder );
-            _connection = SetConnection( _connectionBuilder );
+            ConnectionBuilder = GetConnectionBuilder( builder );
+            Connection = SetConnection( ConnectionBuilder );
         }
 
         /// <summary>
@@ -64,8 +70,8 @@ namespace BudgetExecution
         /// </param>
         public ConnectionFactory( IConnectionBuilder builder, ISqlStatement sqlStatement )
         {
-            _connectionBuilder = GetConnectionBuilder( builder );
-            _connection = SetConnection( _connectionBuilder );
+            ConnectionBuilder = GetConnectionBuilder( builder );
+            Connection = SetConnection( ConnectionBuilder );
         }
 
         /// <summary>
@@ -101,8 +107,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsRef( _connectionBuilder )
-                    ? _connectionBuilder
+                return Verify.IsRef( ConnectionBuilder )
+                    ? ConnectionBuilder
                     : default( IConnectionBuilder );
             }
             catch( Exception ex )
@@ -125,7 +131,7 @@ namespace BudgetExecution
                 {
                     var _provider = connectionBuilder.GetProvider();
 
-                    if( Validate.IsProvider( _provider ) )
+                    if( Verify.IsProvider( _provider ) )
                     {
                         switch( _provider )
                         {
@@ -194,8 +200,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsRef( _connection )
-                    ? _connection
+                return Verify.IsRef( Connection )
+                    ? Connection
                     : default( DbConnection );
             }
             catch( Exception ex )
@@ -215,7 +221,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _connectionString = _connectionBuilder?.GetConnectionString();
+                var _connectionString = ConnectionBuilder?.GetConnectionString();
 
                 return Verify.IsInput( _connectionString )
                     ? _connectionString
@@ -237,9 +243,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _provider = _connectionBuilder.GetProvider();
+                var _provider = ConnectionBuilder.GetProvider();
 
-                return Validate.IsProvider( _provider )
+                return Verify.IsProvider( _provider )
                     ? _provider
                     : Provider.NS;
             }
@@ -259,9 +265,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _source = _connectionBuilder.GetSource();
+                var _source = ConnectionBuilder.GetSource();
 
-                return Validate.IsSource( _source )
+                return Verify.IsSource( _source )
                     ? _source
                     : Source.NS;
             }

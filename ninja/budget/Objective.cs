@@ -14,12 +14,12 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class Objective : IObjective, IProgramElement, ISource
+    public class Objective : IObjective, ISource
     {
         /// <summary>
         /// The source
         /// </summary>
-        private const Source _source = Source.Objectives;
+        public Source Source { get; } = Source.Objectives;
 
         /// <summary>
         /// Gets the record.
@@ -27,7 +27,7 @@ namespace BudgetExecution
         /// <value>
         /// The record.
         /// </value>
-        private readonly DataRow _record;
+        public DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -35,7 +35,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        private readonly IDictionary<string, object> _data;
+        public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Gets the code.
@@ -43,7 +43,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        private readonly IElement _code;
+        public IElement Code { get; set; }
 
         /// <summary>
         /// Gets the objective identifier.
@@ -51,7 +51,7 @@ namespace BudgetExecution
         /// <value>
         /// The objective identifier.
         /// </value>
-        private readonly IKey _id;
+        public IKey ID { get; set; }
 
         /// <summary>
         /// Gets the name.
@@ -59,7 +59,7 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        private readonly IElement _name;
+        public IElement Name { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Objective"/> class.
@@ -76,11 +76,11 @@ namespace BudgetExecution
         /// </param>
         public Objective( IQuery query )
         {
-            _record = new DataBuilder( query )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.ObjectiveId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = new DataBuilder( query )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.ObjectiveId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -91,11 +91,11 @@ namespace BudgetExecution
         /// </param>
         public Objective( IBuilder builder )
         {
-            _record = builder?.GetRecord();
-            _id = new Key( _record, PrimaryKey.ObjectiveId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = builder?.GetRecord();
+            ID = new Key( Record, PrimaryKey.ObjectiveId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -107,11 +107,11 @@ namespace BudgetExecution
         public Objective( DataRow dataRow )
             : this()
         {
-            _record = dataRow;
-            _id = new Key( _record, PrimaryKey.ObjectiveId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = dataRow;
+            ID = new Key( Record, PrimaryKey.ObjectiveId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -122,11 +122,11 @@ namespace BudgetExecution
         /// </param>
         public Objective( string code )
         {
-            _record = new DataBuilder( _source, SetArgs( code ) )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.ObjectiveId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = new DataBuilder( Source, SetArgs( code ) )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.ObjectiveId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -166,12 +166,12 @@ namespace BudgetExecution
         /// </returns>
         public override string ToString()
         {
-            if( Verify.IsElement( _code ) )
+            if( Verify.IsElement( Code ) )
             {
                 try
                 {
-                    return Verify.IsElement( _code )
-                        ? _code.GetValue()
+                    return Verify.IsElement( Code )
+                        ? Code.GetValue()
                         : string.Empty;
                 }
                 catch( Exception ex )
@@ -193,8 +193,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsMap( _data )
-                    ? _data
+                return Verify.IsMap( Data )
+                    ? Data
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )
@@ -213,8 +213,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsKey( _id )
-                    ? _id
+                return Verify.IsKey( ID )
+                    ? ID
                     : Key.Default;
             }
             catch( Exception ex )
@@ -233,8 +233,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _code )
-                    ? _code
+                return Verify.IsElement( Code )
+                    ? Code
                     : Element.Default;
             }
             catch( Exception ex )
@@ -253,8 +253,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _name )
-                    ? _name
+                return Verify.IsElement( Name )
+                    ? Name
                     : Element.Default;
             }
             catch( Exception ex )
@@ -291,8 +291,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsSource( _source )
-                    ? _source
+                return Verify.IsSource( Source )
+                    ? Source
                     : Source.NS;
             }
             catch( Exception ex )

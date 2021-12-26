@@ -33,7 +33,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Activity : IActivity, IProgramElement, ISource
+    public class Activity : IActivity, ISource
     {
         /// <summary>
         /// Gets the source.
@@ -49,7 +49,7 @@ namespace BudgetExecution
         /// <value>
         /// The dataRow.
         /// </value>
-        public DataRow Record { get;  }
+        public DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the activity identifier.
@@ -57,7 +57,7 @@ namespace BudgetExecution
         /// <value>
         /// The activity identifier.
         /// </value>
-        public IKey ID { get;  }
+        public IKey ID { get; set; }
 
         /// <summary>
         /// Gets the code.
@@ -65,7 +65,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        public IElement Code { get;  }
+        public IElement Code { get; set; }
 
         /// <summary>
         /// Gets the name.
@@ -73,7 +73,7 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        public IElement Name { get;  }
+        public IElement Name { get;  set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -81,7 +81,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get;  }
+        public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Activity"/> class.
@@ -226,67 +226,7 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
-
-        /// <summary>
-        /// Gets the activity identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IKey GetId()
-        {
-            try
-            {
-                return Verify.IsKey( ID )
-                    ? ID
-                    : Key.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Key.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the activity code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetCode()
-        {
-            try
-            {
-                return Verify.IsElement( Code )
-                    ? Code
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the activity.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetName()
-        {
-            try
-            {
-                return Verify.IsElement( Name )
-                    ? Name
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the activity.
         /// </summary>
@@ -314,7 +254,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsSource( Source )
+                return Verify.IsSource( Source )
                     ? Source
                     : Source.NS;
             }

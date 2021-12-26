@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref = "IPayrollCostData"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public abstract class WorkCodeBase
+    public abstract class PayrollCostCode
     {
         /// <summary>
         /// Gets the Data.
@@ -158,7 +158,7 @@ namespace BudgetExecution
         /// The name of the project code.
         /// </value>
         public IElement ProjectCodeName { get; set; }
-        
+
         /// <summary>
         /// Gets the approval date.
         /// </summary>
@@ -254,7 +254,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _element = ( (IProgramElement)this ).GetCode();
+                var _element = ( (IProgramElement)this ).Code;
 
                 return Verify.IsInput( _element.GetValue() )
                     ? _element
