@@ -63,7 +63,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public IEnumerable<DataRow> FilterData( Field field, string filter )
         {
-            if( Validate.Field( field )
+            if( Validate.IsField( field )
                 && Verify.IsInput( filter ) )
             {
                 try

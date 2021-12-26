@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        private const Source _source = Source.Organizations;
+        public Source Source { get; } = Source.Organizations;
 
         /// <summary>
         /// Gets the dataRow.
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The dataRow.
         /// </value>
-        private readonly DataRow _record;
+        public DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        private readonly IDictionary<string, object> _data;
+        public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Gets the code.
@@ -44,7 +44,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        private readonly IElement _code;
+        public IElement Code { get; set; }
 
         /// <summary>
         /// Gets the organization identifier.
@@ -52,7 +52,7 @@ namespace BudgetExecution
         /// <value>
         /// The organization identifier.
         /// </value>
-        private readonly IKey _id;
+        public IKey ID { get; set; }
 
         /// <summary>
         /// Gets the name.
@@ -60,7 +60,7 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        private readonly IElement _name;
+        public IElement Name { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Organization"/> class.
@@ -77,11 +77,11 @@ namespace BudgetExecution
         /// </param>
         public Organization( IQuery query )
         {
-            _record = new DataBuilder( query )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.OrganizationId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = new DataBuilder( query )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.OrganizationId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -92,11 +92,11 @@ namespace BudgetExecution
         /// </param>
         public Organization( string org )
         {
-            _record = new DataBuilder( _source, GetArgs( org ) )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.OrganizationId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = new DataBuilder( Source, GetArgs( org ) )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.OrganizationId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -107,11 +107,11 @@ namespace BudgetExecution
         /// </param>
         public Organization( IBuilder builder )
         {
-            _record = builder?.GetRecord();
-            _id = new Key( _record, PrimaryKey.OrganizationId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = builder?.GetRecord();
+            ID = new Key( Record, PrimaryKey.OrganizationId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -122,11 +122,11 @@ namespace BudgetExecution
         /// </param>
         public Organization( DataRow dataRow )
         {
-            _record = dataRow;
-            _id = new Key( _record, PrimaryKey.OrganizationId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = dataRow;
+            ID = new Key( Record, PrimaryKey.OrganizationId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -168,8 +168,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _code )
-                    ? _code.GetValue()
+                return Verify.IsElement( Code )
+                    ? Code.GetValue()
                     : string.Empty;
             }
             catch( Exception ex )
@@ -188,8 +188,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsMap( _data )
-                    ? _data
+                return Verify.IsMap( Data )
+                    ? Data
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )
@@ -208,8 +208,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsKey( _id )
-                    ? _id
+                return Verify.IsKey( ID )
+                    ? ID
                     : Key.Default;
             }
             catch( Exception ex )
@@ -228,8 +228,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _code )
-                    ? _code
+                return Verify.IsElement( Code )
+                    ? Code
                     : Element.Default;
             }
             catch( Exception ex )
@@ -248,8 +248,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _name )
-                    ? _name
+                return Verify.IsElement( Name )
+                    ? Name
                     : Element.Default;
             }
             catch( Exception ex )
@@ -286,8 +286,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.Source( _source )
-                    ? _source
+                return Validate.IsSource( Source )
+                    ? Source
                     : Source.NS;
             }
             catch( Exception ex )

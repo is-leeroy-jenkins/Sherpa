@@ -19,7 +19,7 @@ namespace BudgetExecution
         /// <typeparam name="T"></typeparam>
         /// <param name="field">The field.</param>
         /// <returns></returns>
-        public static bool Field<T>( T field )
+        public static bool IsField<T>( T field )
             where T : struct
         {
             if( !Enum.IsDefined( typeof( Field ), field ) )
@@ -39,7 +39,7 @@ namespace BudgetExecution
         /// <typeparam name="T"></typeparam>
         /// <param name="source">The source.</param>
         /// <returns></returns>
-        public static bool Source<T>( T source )
+        public static bool IsSource<T>( T source )
             where T : struct
         {
             if( !Enum.IsDefined( typeof( Source ), source ) )
@@ -59,7 +59,7 @@ namespace BudgetExecution
         /// <typeparam name="T"></typeparam>
         /// <param name="provider">The provider.</param>
         /// <returns></returns>
-        public static bool Provider<T>( T provider )
+        public static bool IsProvider<T>( T provider )
             where T : struct
         {
             if( !Enum.IsDefined( typeof( Provider ), provider ) )
@@ -311,7 +311,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Numerics the specified numeric.
+        /// Numeric the specified numeric.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="numeric">The numeric.</param>

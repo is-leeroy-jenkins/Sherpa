@@ -29,7 +29,7 @@ namespace BudgetExecution
         /// <summary>
         /// The border blue
         /// </summary>
-        public static Color BorderBlue { get; set; } = Color.FromArgb( 0, 120, 212 );
+        public static Color BorderBlue { get; set; } = Color.FromArgb( 0, 120, 210 );
 
         /// <summary>
         /// The red border

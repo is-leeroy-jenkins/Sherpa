@@ -159,7 +159,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.Source( Source )
+                return Validate.IsSource( Source )
                     ? new Builder( Source, Data )
                     : default( Builder );
             }

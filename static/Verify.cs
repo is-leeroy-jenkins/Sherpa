@@ -369,7 +369,7 @@ namespace BudgetExecution
         public static bool IsDateTime<T>( T date )
             where T : struct
         {
-            if( !System.DateTime.TryParse( date.ToString(), out _ ) )
+            if( !DateTime.TryParse( date.ToString(), out _ ) )
             {
                 Fail( new ArgumentException( "Verify [ IsDateTime date ] input argument!" ) );
                 return false;

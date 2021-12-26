@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// <value>
         /// The dataRow.
         /// </value>
-        private readonly DataRow _record;
+        public DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        private readonly IDictionary<string, object> _data;
+        public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Gets the code.
@@ -39,7 +39,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        private readonly IElement _code;
+        public IElement Code { get; set; }
 
         /// <summary>
         /// Gets the program area identifier.
@@ -47,7 +47,7 @@ namespace BudgetExecution
         /// <value>
         /// The program area identifier.
         /// </value>
-        private readonly IKey _id;
+        public IKey ID { get; set; }
 
         /// <summary>
         /// Gets the name.
@@ -55,12 +55,12 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        private readonly IElement _name;
+        public IElement Name { get; set; }
 
         /// <summary>
         /// The source
         /// </summary>
-        private const Source _source = Source.ProgramAreas;
+        public Source Source { get; } = Source.ProgramAreas;
         
         /// <summary>
         /// Initializes a new instance of the <see cref = "ProgramArea"/> class.
@@ -77,11 +77,11 @@ namespace BudgetExecution
         /// </param>
         public ProgramArea( IQuery query )
         {
-            _record = new DataBuilder( query )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.ProgramAreaId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = new DataBuilder( query )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.ProgramAreaId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -92,11 +92,11 @@ namespace BudgetExecution
         /// </param>
         public ProgramArea( IBuilder builder )
         {
-            _record = builder?.GetRecord();
-            _id = new Key( _record, PrimaryKey.ProgramAreaId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = builder?.GetRecord();
+            ID = new Key( Record, PrimaryKey.ProgramAreaId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -108,11 +108,11 @@ namespace BudgetExecution
         public ProgramArea( DataRow dataRow )
             : this()
         {
-            _record = dataRow;
-            _id = new Key( _record, PrimaryKey.ProgramAreaId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = dataRow;
+            ID = new Key( Record, PrimaryKey.ProgramAreaId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -123,11 +123,11 @@ namespace BudgetExecution
         /// </param>
         public ProgramArea( string code )
         {
-            _record = new DataBuilder( _source, SetArgs( code ) )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.ProgramAreaId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _data = _record?.ToDictionary();
+            Record = new DataBuilder( Source, SetArgs( code ) )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.ProgramAreaId );
+            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code );
+            Data = Record?.ToDictionary();
         }
         
         /// <summary>
@@ -169,8 +169,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _code )
-                    ? _code.GetValue()
+                return Verify.IsElement( Code )
+                    ? Code.GetValue()
                     : string.Empty;
             }
             catch( Exception ex )
@@ -189,8 +189,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsMap( _data )
-                    ? _data
+                return Verify.IsMap( Data )
+                    ? Data
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )
@@ -209,8 +209,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsKey( _id )
-                    ? _id
+                return Verify.IsKey( ID )
+                    ? ID
                     : Key.Default;
             }
             catch( Exception ex )
@@ -229,8 +229,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _code )
-                    ? _code
+                return Verify.IsElement( Code )
+                    ? Code
                     : Element.Default;
             }
             catch( Exception ex )
@@ -249,8 +249,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _name )
-                    ? _name
+                return Verify.IsElement( Name )
+                    ? Name
                     : Element.Default;
             }
             catch( Exception ex )
@@ -287,8 +287,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.Source( _source )
-                    ? _source
+                return Verify.IsSource( Source )
+                    ? Source
                     : Source.NS;
             }
             catch( Exception ex )

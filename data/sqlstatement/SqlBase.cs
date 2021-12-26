@@ -45,7 +45,7 @@ namespace BudgetExecution
         {
             try
             {
-                ConnectionBuilder = Validate.Source( source ) && Validate.Provider( provider )
+                ConnectionBuilder = Validate.IsSource( source ) && Validate.IsProvider( provider )
                     ? new ConnectionBuilder( source, provider )
                     : default( ConnectionBuilder );
             }

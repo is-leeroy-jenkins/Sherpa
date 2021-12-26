@@ -787,8 +787,8 @@
     <Compile Include="Badger\Excel\sheet\SheetPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Control\SizeConfig.cs" />
-    <Compile Include="Badger\Control\SizeFomat.cs" />
+    <Compile Include="Badger\Format\SizeConfig.cs" />
+    <Compile Include="Badger\Format\SizeFomat.cs" />
     <Compile Include="Badger\Chart\SeriesModel\SourceModel.cs" />
     <Compile Include="Static\Resource.cs" />
     <Compile Include="Static\Static.cs" />

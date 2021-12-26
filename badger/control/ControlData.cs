@@ -228,7 +228,7 @@ namespace BudgetExecution
             where T1 : IEnumerable<T1> where T2 : struct
         {
             if( Verify.IsSequence( data )
-                && BudgetExecution.Validate.Field( field ) )
+                && BudgetExecution.Validate.IsField( field ) )
             {
                 try
                 {
@@ -328,7 +328,7 @@ namespace BudgetExecution
             where T1 : IEnumerable<T1> where T2 : struct
         {
             if( Verify.IsSequence( data )
-                && BudgetExecution.Validate.Field( field ) )
+                && BudgetExecution.Validate.IsField( field ) )
             {
                 try
                 {

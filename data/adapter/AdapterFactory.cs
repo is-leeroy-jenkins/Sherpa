@@ -100,7 +100,7 @@ namespace BudgetExecution
                 {
                     var _provider = ConnectionBuilder.GetProvider();
 
-                    if( Validate.Provider( _provider ) )
+                    if( Validate.IsProvider( _provider ) )
                     {
                         switch( _provider )
                         {

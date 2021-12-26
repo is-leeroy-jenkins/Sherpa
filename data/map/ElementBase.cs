@@ -54,11 +54,11 @@ namespace BudgetExecution
         /// <param name = "field" > </param>
         private protected void SetName( Field field )
         {
-            if( Validate.Field( field ) )
+            if( Validate.IsField( field ) )
             {
                 try
                 {
-                    Name = Validate.Field( field )
+                    Name = Validate.IsField( field )
                         ? field.ToString()
                         : Field.NS.ToString();
                 }
@@ -77,7 +77,7 @@ namespace BudgetExecution
         private protected void SetName( DataRow dataRow, Field field )
         {
             if( Verify.IsRow( dataRow )
-                && Validate.Field( field ) )
+                && Validate.IsField( field ) )
             {
                 try
                 {
@@ -157,7 +157,7 @@ namespace BudgetExecution
         {
             try
             {
-                Field = Validate.Field( field )
+                Field = Validate.IsField( field )
                     ? field
                     : Field.NS;
             }
@@ -175,7 +175,7 @@ namespace BudgetExecution
         private protected void SetField( DataRow dataRow, Field field )
         {
             if( Verify.IsRow( dataRow )
-                && Validate.Field( field ) )
+                && Validate.IsField( field ) )
             {
                 try
                 {
@@ -251,7 +251,7 @@ namespace BudgetExecution
         private protected void SetValue( DataRow dataRow, Field field )
         {
             if( Verify.IsRow( dataRow )
-                && Validate.Field( field ) )
+                && Validate.IsField( field ) )
             {
                 try
                 {
@@ -277,7 +277,7 @@ namespace BudgetExecution
         private protected void SetData( DataRow dataRow, Field field )
         {
             if( Verify.IsRow( dataRow )
-                && Validate.Field( field ) )
+                && Validate.IsField( field ) )
             {
                 try
                 {

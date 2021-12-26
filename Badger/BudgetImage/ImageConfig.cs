@@ -36,22 +36,22 @@ namespace BudgetExecution
         /// <summary>
         /// The small
         /// </summary>
-        public static Size Small = new Size( 12, 12 );
+        public static Size Small { get; } = new Size( 12, 12 );
 
         /// <summary>
         /// The medium
         /// </summary>
-        public static Size Medium = new Size( 16, 16 );
+        public static Size Medium { get; } = new Size( 16, 16 );
 
         /// <summary>
         /// The large
         /// </summary>
-        public static Size Large = new Size( 20, 20 );
+        public static Size Large { get; } = new Size( 20, 20 );
 
         /// <summary>
         /// The huge
         /// </summary>
-        public static Size Huge = new Size( 250, 250 );
+        public static Size XtraLarge { get; } = new Size( 250, 250 );
         
         /// <summary>
         /// Gets or sets the color of the back ground.
@@ -342,10 +342,10 @@ namespace BudgetExecution
         /// <summary>
         /// Res the color.
         /// </summary>
-        /// <param name="newcolor">The newcolor.</param>
-        public void ReColor( Color newcolor )
+        /// <param name="newColor">The newColor.</param>
+        public void ReColor( Color newColor )
         {
-            if( newcolor != Color.Empty )
+            if( newColor != Color.Empty )
             {
                 try
                 {
@@ -355,7 +355,7 @@ namespace BudgetExecution
                         {
                             if( Image.GetPixel( i, j ) != Color.Transparent )
                             {
-                                Image.SetPixel( i, j, newcolor );
+                                Image.SetPixel( i, j, newColor );
                             }
                         }
                     }
@@ -371,14 +371,14 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the color of the back ground.
         /// </summary>
-        /// <param name="newcolor">The newcolor.</param>
-        public void SetBackGroundColor( Color newcolor )
+        /// <param name="newColor">The newColor.</param>
+        public void SetBackGroundColor( Color newColor )
         {
-            if( newcolor != Color.Empty )
+            if( newColor != Color.Empty )
             {
                 try
                 {
-                    BackGroundColor = newcolor;
+                    BackGroundColor = newColor;
                 }
                 catch( Exception ex )
                 {

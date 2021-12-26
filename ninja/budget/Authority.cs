@@ -227,7 +227,7 @@ namespace BudgetExecution
         /// </returns>
         public IBuilder GetBuilder()
         {
-            if( Validate.Source( Source )
+            if( Validate.IsSource( Source )
                 && Verify.IsMap( Data ) )
             {
                 try
@@ -255,7 +255,7 @@ namespace BudgetExecution
         /// </returns>
         public IEnumerable<DataRow> GetData()
         {
-            if( Validate.Source( Source )
+            if( Validate.IsSource( Source )
                 && Verify.IsMap( Data ) )
             {
                 try
@@ -289,7 +289,7 @@ namespace BudgetExecution
         /// </returns>
         public IEnumerable<DataRow> FilterData( Field field, string filter )
         {
-            if( Validate.Field( field )
+            if( Validate.IsField( field )
                 && Verify.IsInput( filter ) )
             {
                 try
@@ -368,7 +368,7 @@ namespace BudgetExecution
         public IDataMetric GetMetric( IEnumerable<DataRow> dataRow, Field field, Numeric numeric = Numeric.Amount )
         {
             if( Verify.IsRows( dataRow )
-                && Validate.Field( field )
+                && Validate.IsField( field )
                 && Validate.Numeric( numeric )
                 && dataRow.HasNumeric() )
             {
