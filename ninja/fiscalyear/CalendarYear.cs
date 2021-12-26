@@ -166,7 +166,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IElement );
+                return Element.Default;
             }
         }
 
@@ -184,7 +184,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IElement );
+                return Element.Default;
             }
         }
 
@@ -202,7 +202,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IElement );
+                return Element.Default;
             }
         }
 

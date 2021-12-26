@@ -160,7 +160,7 @@ namespace BudgetExecution
             catch( SystemException ex )
             {
                 Fail( ex );
-                return default( IElement );
+                return Element.Default;
             }
         }
 

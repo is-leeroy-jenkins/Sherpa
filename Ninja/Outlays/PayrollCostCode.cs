@@ -195,11 +195,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( IElement );
+                    return Element.Default;
                 }
             }
 
-            return default( IElement );
+            return Element.Default;
         }
 
         /// <summary>
@@ -218,33 +218,13 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( IElement );
+                    return Element.Default;
                 }
             }
 
-            return default( IElement );
+            return Element.Default;
         }
-
-        /// <summary>
-        /// Gets the work code identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public int GetWorkCodeId()
-        {
-            try
-            {
-                return Verify.IsKey( ID )
-                    ? ID.GetIndex()
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return -1;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the work code.
         /// </summary>
@@ -263,7 +243,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IElement );
+                return Element.Default;
             }
         }
 
@@ -283,7 +263,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IElement );
+                return Element.Default;
             }
         }
 
@@ -303,7 +283,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IElement );
+                return Element.Default;
             }
         }
 
@@ -323,7 +303,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IElement );
+                return Element.Default;
             }
         }
 
@@ -343,7 +323,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IElement );
+                return Element.Default;
             }
         }
 
@@ -363,7 +343,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IElement );
+                return Element.Default;
             }
         }
 
