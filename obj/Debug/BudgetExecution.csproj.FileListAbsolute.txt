@@ -271,3 +271,4 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Dat
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.GroupBox.GroupBoxControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Clock.ClockControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Toolbar.ToolBarControl.resources
+C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
