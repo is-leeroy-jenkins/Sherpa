@@ -48,7 +48,7 @@ namespace BudgetExecution
         /// <value>
         /// The information technology identifier.
         /// </value>
-        public IKey ID { get;  }
+        public IKey ID { get; set; }
 
         /// <summary>
         /// Gets the project code.
@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// <value>
         /// The project code.
         /// </value>
-        public IElement ProjectCode { get;  }
+        public IElement ProjectCode { get; set; }
 
         /// <summary>
         /// Gets the code.
@@ -64,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        public IElement Code { get;  }
+        public IElement Code { get; set; }
 
         /// <summary>
         /// Gets the name.
@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        public IElement Name { get;  }
+        public IElement Name { get; set; }
 
         /// <summary>
         /// Gets the cost area code.

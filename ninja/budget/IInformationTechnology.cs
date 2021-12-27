@@ -7,29 +7,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IInformationTechnology
+    public interface IInformationTechnology : IProgramElement
     {
-        /// <summary>
-        /// Gets the information technology identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IKey GetId();
-
-        /// <summary>
-        /// Gets the information technology code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetCode();
-
-        /// <summary>
-        /// Gets the name of the information technology.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetName();
-
         /// <summary>
         /// Gets it code.
         /// </summary>
