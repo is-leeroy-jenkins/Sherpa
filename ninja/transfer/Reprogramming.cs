@@ -24,10 +24,10 @@ namespace BudgetExecution
     /// reprogramming action may be implemented.
     /// </summary>
     /// <seealso cref = "ProgramResultsCode"/>
-    /// <seealso cref = "IProgramElement"/>
+    /// <seealso cref = "IProgram"/>
     /// <seealso cref = "ISource"/>
     /// <seealso cref = "IDataBuilder"/>
-    /// <seealso cref = "IProgramElement"/>
+    /// <seealso cref = "IProgram"/>
     /// <seealso cref = "IReprogramming"/>
     /// <seealso cref = "ISource"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]

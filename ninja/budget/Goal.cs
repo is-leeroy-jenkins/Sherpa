@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref = "IGoal"/>
-    /// <seealso cref = "IProgramElement"/>
+    /// <seealso cref = "IProgram"/>
     /// <seealso cref = "ISource"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]

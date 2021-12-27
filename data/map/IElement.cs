@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IElement : IUnit
+    public interface IElement : IDataUnit
     {
         /// <summary>
         /// Gets or sets the name.

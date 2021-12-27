@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.IUnit" />
+    /// <seealso cref="IDataUnit" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class DataUnit : IElement
@@ -37,19 +37,19 @@ namespace BudgetExecution
         public Field Field { get; set; }
         
         /// <summary>
-        /// Determines whether the specified unit is match.
+        /// Determines whether the specified dataUnit is match.
         /// </summary>
-        /// <param name="unit">The unit.</param>
+        /// <param name="dataUnit">The dataUnit.</param>
         /// <returns>
-        ///   <c>true</c> if the specified unit is match; otherwise, <c>false</c>.
+        ///   <c>true</c> if the specified dataUnit is match; otherwise, <c>false</c>.
         /// </returns>
-        public virtual bool IsMatch( IUnit unit )
+        public virtual bool IsMatch( IDataUnit dataUnit )
         {
-            if( Verify.IsRef( unit ) )
+            if( Verify.IsRef( dataUnit ) )
             {
                 try
                 {
-                    return unit?.Value?.ToString()?.Equals( Value ) == true;
+                    return dataUnit?.Value?.ToString()?.Equals( Value ) == true;
                 }
                 catch( Exception ex )
                 {

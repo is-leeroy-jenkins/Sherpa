@@ -517,7 +517,7 @@
     <Compile Include="Data\Map\IElement.cs" />
     <Compile Include="Data\Map\IKey.cs" />
     <Compile Include="Data\Map\IMap.cs" />
-    <Compile Include="Data\Map\IUnit.cs" />
+    <Compile Include="Data\Map\IDataUnit.cs" />
     <Compile Include="Data\Map\Key.cs" />
     <Compile Include="Data\Map\Map.cs" />
     <Compile Include="Data\Map\DataUnit.cs" />
@@ -651,7 +651,7 @@
     <Compile Include="Ninja\Budget\IObjective.cs" />
     <Compile Include="Ninja\Budget\IOrganization.cs" />
     <Compile Include="Ninja\Budget\IProgramArea.cs" />
-    <Compile Include="Ninja\Budget\IProgramElement.cs" />
+    <Compile Include="Ninja\Budget\IProgram.cs" />
     <Compile Include="Ninja\Budget\IProgramProject.cs" />
     <Compile Include="Ninja\Budget\IProgramResultsCode.cs" />
     <Compile Include="Ninja\Budget\IResourcePlanningOffice.cs" />

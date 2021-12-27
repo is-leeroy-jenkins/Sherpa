@@ -28,7 +28,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref = "IDataBuilder"/>
     /// <seealso cref = "IBudgetLevel"/>
-    /// <seealso cref = "IProgramElement"/>
+    /// <seealso cref = "IProgram"/>
     /// <seealso cref = "IOutlay"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]

@@ -215,7 +215,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( HumanResourceOrganizationName.Value )
+                return Verify.IsElement( HumanResourceOrganizationName )
                     ? HumanResourceOrganizationName
                     : default( IElement );
             }
@@ -235,7 +235,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( HireDate?.Value?.ToString() )
+                return Verify.IsTime( HireDate )
                     ? HireDate
                     : default( ITime );
             }

@@ -330,10 +330,10 @@ namespace BudgetExecution
                 {
                     try
                     {
-                        var _value = _element?.Value?.ToString()?.ToString();
+                        var _value = _element?.Value?.ToString();
                         var _availability = (FundAvailability)Enum.Parse( typeof( FundAvailability ), _value );
 
-                        return Validate.Availability( _availability )
+                        return Verify.Availability( _availability )
                             ? _availability
                             : default( FundAvailability );
                     }
@@ -365,7 +365,8 @@ namespace BudgetExecution
         /// </param>
         /// <returns>
         /// </returns>
-        public IDataMetric GetMetric( IEnumerable<DataRow> dataRow, Field field, Numeric numeric = Numeric.Amount )
+        public IDataMetric GetMetric( IEnumerable<DataRow> dataRow, Field field, 
+            Numeric numeric = Numeric.Amount )
         {
             if( Verify.IsRows( dataRow )
                 && Validate.IsField( field )

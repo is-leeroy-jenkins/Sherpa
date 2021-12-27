@@ -231,7 +231,7 @@ namespace BudgetExecution
         /// </c>
         /// .
         /// </returns>
-        public bool IsEqual( IUnit day )
+        public bool IsEqual( IDataUnit day )
         {
             if( day != null
                 && day != Default )

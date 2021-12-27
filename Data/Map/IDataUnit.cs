@@ -4,7 +4,7 @@
 
 namespace BudgetExecution
 {
-    public interface IUnit 
+    public interface IDataUnit 
     {
         /// <summary>
         /// Gets or sets the value.
@@ -13,16 +13,16 @@ namespace BudgetExecution
         /// The value.
         /// </value>
         object Value { get; set; }
-
-        /// <summary> Determines whether the specified unit is equal. </summary>
-        /// <param name = "unit" > The unit. </param>
+        
+        /// <summary> Determines whether the specified dataUnit is equal. </summary>
+        /// <param name = "dataUnit" > The dataUnit. </param>
         /// <returns>
         /// <c> true </c>
-        /// if the specified unit is equal; otherwise,
+        /// if the specified dataUnit is equal; otherwise,
         /// <c> false </c>
         /// .
         /// </returns>
-        bool IsMatch( IUnit unit );
+        bool IsMatch( IDataUnit dataUnit );
 
         /// <summary> Converts to string. </summary>
         /// <returns>

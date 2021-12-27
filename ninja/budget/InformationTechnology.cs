@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref = "IDataBuilder"/>
-    /// <seealso cref = "IProgramElement"/>
+    /// <seealso cref = "IProgram"/>
     /// <seealso cref = "ISource"/>
     /// <seealso cref = "IInformationTechnology"/>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]

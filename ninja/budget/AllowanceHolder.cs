@@ -36,7 +36,7 @@ namespace BudgetExecution
     /// Administrator being identified as the primary regional Allowance Holder.
     /// </summary>
     /// <seealso cref = "IAllowanceHolder"/>
-    /// <seealso cref = "IProgramElement"/>
+    /// <seealso cref = "IProgram"/>
     /// <seealso cref = "ISource"/>
     /// <seealso cref = "IAllowanceHolder"/>
     /// <seealso cref = "IDataBuilder"/>

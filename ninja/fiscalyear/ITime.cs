@@ -9,7 +9,7 @@ namespace BudgetExecution
     /// <summary>
     /// Defines the interface for the budget time objects
     /// </summary>
-    public interface ITime : IUnit
+    public interface ITime : IDataUnit
     {
         /// <summary>
         /// Gets the time.
@@ -41,6 +41,6 @@ namespace BudgetExecution
         /// </c>
         /// .
         /// </returns>
-        bool IsEqual( IUnit element );
+        bool IsEqual( IDataUnit element );
     }
 }

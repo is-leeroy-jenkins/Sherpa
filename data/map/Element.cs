@@ -144,17 +144,17 @@ namespace BudgetExecution
         /// <summary>
         /// Determines whether the specified element is match.
         /// </summary>
-        /// <param name="unit">The element.</param>
+        /// <param name="dataUnit">The element.</param>
         /// <returns>
         ///   <c>true</c> if the specified element is match; otherwise, <c>false</c>.
         /// </returns>
-        public override bool IsMatch( IUnit unit )
+        public override bool IsMatch( IDataUnit dataUnit )
         {
-            if( Verify.IsRef( unit ) )
+            if( Verify.IsRef( dataUnit ) )
             {
                 try
                 {
-                    if( unit.Value?.Equals( Value ) == true )
+                    if( dataUnit.Value?.Equals( Value ) == true )
                     {
                         return true;
                     }

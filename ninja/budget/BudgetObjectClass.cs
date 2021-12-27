@@ -18,7 +18,7 @@ namespace BudgetExecution
     /// known as Finance Object Classes. EPA uses the categories defined by the values
     /// of the ObjectClasses enumeration.
     /// </summary>
-    /// <seealso cref = "IProgramElement"/>
+    /// <seealso cref = "IProgram"/>
     /// <seealso cref = "IBudgetObjectClass"/>
     /// <seealso cref = "ISource"/>
     /// <seealso cref = "IDataBuilder"/>

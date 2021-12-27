@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.IFinanceObjectClass" />
-    /// <seealso cref="BudgetExecution.IProgramElement" />
+    /// <seealso cref="IProgram" />
     /// <seealso cref="BudgetExecution.ISource" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]

@@ -25,7 +25,7 @@ namespace BudgetExecution
     /// specific budget account—usually by project, activity, or organization.
     /// </summary>
     /// <seealso cref = "IActivity"/>
-    /// <seealso cref = "IProgramElement"/>
+    /// <seealso cref = "IProgram"/>
     /// <seealso cref = "ISource"/>
     /// <seealso cref = "IActivity"/>
     /// <seealso cref = "IDataBuilder"/>

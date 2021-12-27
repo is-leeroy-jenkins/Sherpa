@@ -15,7 +15,7 @@ namespace BudgetExecution
     /// regular appropriations act.
     /// </summary>
     /// <seealso cref = "ProgramResultsCode"/>
-    /// <seealso cref = "IProgramElement"/>
+    /// <seealso cref = "IProgram"/>
     /// <seealso cref = "ISupplemental"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
@@ -42,12 +42,7 @@ namespace BudgetExecution
         /// Gets the code.
         /// </summary>
         public string Code { get; set; }
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        public string Name { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the type.
         /// </summary>

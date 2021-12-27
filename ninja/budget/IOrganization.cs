@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IOrganization : IProgramElement
+    public interface IOrganization : IProgram
     {
         /// <summary>
         /// Gets the organization.

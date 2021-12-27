@@ -1,4 +1,4 @@
-﻿// <copyright file = "IProgramElement.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "IProgram.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IProgramElement : IElement
+    public interface IProgram : IElement
     {
         /// <summary>
         /// Gets the identifier.

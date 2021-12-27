@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IActivity : IProgramElement
+    public interface IActivity : IProgram
     {
         /// <summary>
         /// Gets the activity.

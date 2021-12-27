@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IHumanResourceOrganization : IProgramElement
+    public interface IHumanResourceOrganization : IProgram
     {
         /// <summary>
         /// Gets the human resource organization.

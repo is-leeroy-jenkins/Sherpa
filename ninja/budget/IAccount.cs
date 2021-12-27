@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IAccount : IProgramElement
+    public interface IAccount : IProgram
     {
         /// <summary>
         /// Gets the account.
@@ -57,17 +57,5 @@ namespace BudgetExecution
         /// <returns>
         /// </returns>
         IProgramArea GetProgramArea();
-
-        /// <inheritdoc>
-        /// <cref>
-        /// </cref>
-        /// </inheritdoc>
-        /// <summary>
-        /// Converts to string.
-        /// </summary>
-        /// <returns>
-        /// A <see cref = "T:System.String"/> that represents this instance.
-        /// </returns>
-        string ToString();
     }
 }

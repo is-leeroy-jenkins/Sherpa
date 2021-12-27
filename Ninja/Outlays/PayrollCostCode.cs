@@ -234,7 +234,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _element = ( (IProgramElement)this );
+                var _element = ( (IProgram)this );
 
                 return Verify.IsElement( _element )
                     ? _element

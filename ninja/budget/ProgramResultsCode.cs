@@ -20,7 +20,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref = "PrcConfig"/>
     /// <seealso cref = "IProgramResultsCode"/>
-    /// <seealso cref = "IProgramElement"/>
+    /// <seealso cref = "IProgram"/>
     /// <seealso cref = "IDataBuilder"/>
     /// <seealso cref = "IProgramResultsCode"/>
     /// <seealso cref = "IFund"/>

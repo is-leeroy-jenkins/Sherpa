@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IGoal : IProgramElement
+    public interface IGoal : IProgram
     {
         /// <summary>
         /// Gets the goal.
