@@ -19,7 +19,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class Goal : IGoal, ISource
+    public class Goal : Unit, IGoal, ISource
     {
         /// <summary>
         /// The source
@@ -48,7 +48,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        public IElement Code { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
         /// Gets the goal identifier.
@@ -57,15 +57,7 @@ namespace BudgetExecution
         /// The goal identifier.
         /// </value>
         public IKey ID { get; set; }
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public IElement Name { get; set; }
-
+        
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "Goal"/> class.
@@ -85,8 +77,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.GoalId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
         }
 
@@ -101,8 +93,8 @@ namespace BudgetExecution
         {
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.GoalId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
         }
 
@@ -117,8 +109,8 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.GoalId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
         }
 
@@ -132,8 +124,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
             ID = new Key( Record, PrimaryKey.GoalId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
         }
 
@@ -167,8 +159,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( Code )
-                    ? Code?.GetValue()
+                return Verify.IsInput( Code )
+                    ? Code
                     : string.Empty;
             }
             catch( Exception ex )
@@ -273,17 +265,6 @@ namespace BudgetExecution
                 Fail( ex );
                 return Source.NS;
             }
-        }
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
         }
     }
 }

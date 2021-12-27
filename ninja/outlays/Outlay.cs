@@ -76,8 +76,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( AccountCode?.GetValue() )
-                    ? AccountCode?.GetValue()
+                return Verify.IsInput( AccountCode?.Value?.ToString() )
+                    ? AccountCode?.Value?.ToString()
                     : string.Empty;
             }
             catch( Exception ex )

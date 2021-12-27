@@ -123,7 +123,7 @@ namespace BudgetExecution
         {
             try
             {
-                return OpenCommitments.GetFunding() > -1
+                return OpenCommitments.Funding > -1
                     ? OpenCommitments
                     : default( IAmount );
             }

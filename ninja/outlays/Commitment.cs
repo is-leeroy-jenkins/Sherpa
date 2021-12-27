@@ -143,7 +143,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Commitments?.GetFunding() > -1
+                return Commitments?.Funding > -1
                     ? Commitments
                     : default( IAmount );
             }

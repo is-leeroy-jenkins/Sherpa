@@ -4,40 +4,11 @@
 
 namespace BudgetExecution
 {
-    // ******************************************************************************************************************************
-    // ******************************************************   ASSEMBLIES   ********************************************************
-    // ******************************************************************************************************************************
-
     /// <summary>
     /// 
     /// </summary>
-    public interface IHumanResourceOrganization
+    public interface IHumanResourceOrganization : IProgramElement
     {
-        // ***************************************************************************************************************************
-        // ************************************************  METHODS   ***************************************************************
-        // ***************************************************************************************************************************
-
-        /// <summary>
-        /// Gets the human resource organization identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IKey GetId();
-
-        /// <summary>
-        /// Gets the human resource organization code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetCode();
-
-        /// <summary>
-        /// Gets the name of the human resource organization.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetName();
-
         /// <summary>
         /// Gets the human resource organization.
         /// </summary>

@@ -19,7 +19,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MissingBlankLines" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class HumanResourceOrganization : IHumanResourceOrganization, ISource
+    public class HumanResourceOrganization : Unit, IHumanResourceOrganization, ISource
     {
         /// <summary>
         /// The source
@@ -47,7 +47,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        public IElement Code { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
         /// Gets the human resource organization identifier.
@@ -56,15 +56,7 @@ namespace BudgetExecution
         /// The human resource organization identifier.
         /// </value>
         public IKey ID { get; set; }
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public IElement Name { get; set; }
-
+        
         /// <summary>
         /// Initializes a new instance of the <see cref = "HumanResourceOrganization"/>
         /// class.
@@ -84,8 +76,8 @@ namespace BudgetExecution
         {
             Record = new Builder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.HumanResourceOrganizationId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Args = Record?.ToDictionary();
         }
 
@@ -100,8 +92,8 @@ namespace BudgetExecution
         {
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.HumanResourceOrganizationId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Args = Record?.ToDictionary();
         }
 
@@ -116,71 +108,11 @@ namespace BudgetExecution
         {
             Record = data;
             ID = new Key( Record, PrimaryKey.HumanResourceOrganizationId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Args = Record?.ToDictionary();
         }
-
-        /// <summary>
-        /// Gets the human resource organization identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IKey GetId()
-        {
-            try
-            {
-                return Verify.IsKey( ID )
-                    ? ID
-                    : Key.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Key.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the human resource organization code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetCode()
-        {
-            try
-            {
-                return Verify.IsElement( Code )
-                    ? Code
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the human resource organization.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetName()
-        {
-            try
-            {
-                return Verify.IsElement( Name )
-                    ? Name
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the human resource organization.
         /// </summary>
@@ -241,8 +173,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( Code )
-                    ? Code.GetValue()
+                return Verify.IsInput( Code )
+                    ? Code
                     : string.Empty;
             }
             catch( Exception ex )
@@ -319,17 +251,6 @@ namespace BudgetExecution
                 Fail( ex );
                 return Source.NS;
             }
-        }
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
         }
     }
 }

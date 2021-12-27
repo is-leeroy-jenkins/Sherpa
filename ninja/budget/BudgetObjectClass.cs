@@ -25,7 +25,7 @@ namespace BudgetExecution
     /// <seealso cref = "IBudgetObjectClass"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class BudgetObjectClass : IProgramElement, IBudgetObjectClass, ISource
+    public class BudgetObjectClass : Unit, IBudgetObjectClass, ISource
     {
         /// <summary>
         /// The codes
@@ -77,24 +77,16 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        public IElement Code { get; set; } 
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public IElement Name { get; set; } 
-
+        public string Code { get; set; } 
+        
         /// <summary>
         /// Gets the category.
         /// </summary>
         /// <value>
         /// The category.
         /// </value>
-        public BOC Category { get; set; } 
-
+        public BOC Category { get; set; }
+        
         /// <summary>
         /// Initializes a new instance of the <see cref = "BudgetObjectClass"/> class.
         /// </summary>
@@ -113,8 +105,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, SetArgs( boc ) )?.GetRecord();
             ID = new Key( Record, PrimaryKey.BudgetObjectClassId );
-            Name = new Element( Record, Field.BudgetObjectClassName );
-            Code = new Element( Record, Field.BudgetObjectClassCode );
+            Name = new Element( Record, Field.BudgetObjectClassName ).Name;
+            Code = new Element( Record, Field.BudgetObjectClassCode ).Code;
             Category = boc;
             Data = Record?.ToDictionary();
         }
@@ -130,9 +122,9 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, SetArgs( code ) )?.GetRecord();
             ID = new Key( Record, PrimaryKey.BudgetObjectClassId );
-            Name = new Element( Record, Field.BudgetObjectClassName );
-            Code = new Element( Record, Field.BudgetObjectClassCode );
-            Category = (BOC)Enum.Parse( typeof( BOC ), Name.GetValue() );
+            Name = new Element( Record, Field.BudgetObjectClassName ).Name;
+            Code = new Element( Record, Field.BudgetObjectClassCode ).Code;
+            Category = (BOC)Enum.Parse( typeof( BOC ), Name );
             Data = Record?.ToDictionary();
         }
 
@@ -146,9 +138,9 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.BudgetObjectClassId );
-            Name = new Element( Record, Field.BudgetObjectClassName );
-            Code = new Element( Record, Field.BudgetObjectClassCode );
-            Category = (BOC)Enum.Parse( typeof( BOC ), Name.GetValue() );
+            Name = new Element( Record, Field.BudgetObjectClassName ).Name;
+            Code = new Element( Record, Field.BudgetObjectClassCode ).Code;
+            Category = (BOC)Enum.Parse( typeof( BOC ), Name );
             Data = Record?.ToDictionary();
         }
 
@@ -162,9 +154,9 @@ namespace BudgetExecution
         {
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.BudgetObjectClassId );
-            Name = new Element( Record, Field.BudgetObjectClassName );
-            Code = new Element( Record, Field.BudgetObjectClassCode );
-            Category = (BOC)Enum.Parse( typeof( BOC ), Name.GetValue() );
+            Name = new Element( Record, Field.BudgetObjectClassName ).Name;
+            Code = new Element( Record, Field.BudgetObjectClassCode ).Code;
+            Category = (BOC)Enum.Parse( typeof( BOC ), Name );
             Data = Record?.ToDictionary();
         }
 
@@ -178,9 +170,9 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.BudgetObjectClassId );
-            Name = new Element( Record, Field.BudgetObjectClassName );
-            Code = new Element( Record, Field.BudgetObjectClassCode );
-            Category = (BOC)Enum.Parse( typeof( BOC ), Name.GetValue() );
+            Name = new Element( Record, Field.BudgetObjectClassName ).Name;
+            Code = new Element( Record, Field.BudgetObjectClassCode ).Code;
+            Category = (BOC)Enum.Parse( typeof( BOC ), Name );
             Data = Record?.ToDictionary();
         }
         
@@ -192,11 +184,11 @@ namespace BudgetExecution
         /// </returns>
         public override string ToString()
         {
-            if( Verify.IsInput( Code.GetValue() ) )
+            if( Verify.IsInput( Code ) )
             {
                 try
                 {
-                    return Code.GetValue();
+                    return Code;
                 }
                 catch( Exception ex )
                 {
@@ -242,8 +234,8 @@ namespace BudgetExecution
             {
                 var amount = prc?.GetAmount();
 
-                return amount?.GetFunding() > -1
-                    ? amount.GetFunding()
+                return amount?.Funding > -1
+                    ? amount.Funding
                     : 0;
             }
             catch( Exception ex )
@@ -331,68 +323,7 @@ namespace BudgetExecution
 
             return default( IDictionary<string, object> );
         }
-
-        /// <summary>
-        /// Gets the budget object class identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IKey GetId()
-        {
-            try
-            {
-                return Verify.IsKey( ID )
-                    ? ID
-                    : default( IKey );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IKey );
-            }
-        }
-
-        /// <summary>
-        /// Gets the budget object class code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetCode()
-        {
-            try
-            {
-                return Verify.IsInput( Code?.GetValue() ) 
-                    && Code?.GetValue()?.Length < 3
-                        ? Code
-                        : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the budget object class.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetName()
-        {
-            try
-            {
-                return Verify.IsInput( Name?.GetValue() )
-                    ? Name
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the budget object class.
         /// </summary>
@@ -412,9 +343,9 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( Name?.GetValue() ) 
-                    && Enum.IsDefined( typeof( BOC ), Name?.GetValue() ?? string.Empty )
-                        ? (BOC)Enum.Parse( typeof( BOC ), Name?.GetValue() ?? string.Empty )
+                return Verify.IsInput( Name ) 
+                    && Enum.IsDefined( typeof( BOC ), Name )
+                        ? (BOC)Enum.Parse( typeof( BOC ), Name )
                         : BOC.NS;
             }
             catch( SystemException ex )
@@ -442,17 +373,6 @@ namespace BudgetExecution
                 Fail( ex );
                 return default( Source );
             }
-        }
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
         }
     }
 }

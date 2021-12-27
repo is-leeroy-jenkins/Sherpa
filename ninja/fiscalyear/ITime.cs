@@ -4,35 +4,13 @@
 
 namespace BudgetExecution
 {
-    // ********************************************************************************************************************************
-    // *********************************************************  ASSEMBLIES   ********************************************************
-    // ********************************************************************************************************************************
-
     using System;
 
     /// <summary>
     /// Defines the interface for the budget time objects
     /// </summary>
-    public interface ITime
+    public interface ITime : IUnit
     {
-        // ***************************************************************************************************************************
-        // ****************************************************     METHODS   ********************************************************
-        // ***************************************************************************************************************************
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        string GetName();
-
-        /// <summary>
-        /// Gets the value.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        string GetValue();
-
         /// <summary>
         /// Gets the time.
         /// </summary>
@@ -46,15 +24,7 @@ namespace BudgetExecution
         /// <returns>
         /// </returns>
         EventDate GetEventDate();
-
-        /// <summary>
-        /// Converts to string.
-        /// </summary>
-        /// <returns>
-        /// A <see cref = "string"/> that represents this instance.
-        /// </returns>
-        string ToString();
-
+        
         /// <summary>
         /// Determines whether the specified element is equal.
         /// </summary>
@@ -71,6 +41,6 @@ namespace BudgetExecution
         /// </c>
         /// .
         /// </returns>
-        bool IsEqual( ITime element );
+        bool IsEqual( IUnit element );
     }
 }

@@ -217,7 +217,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return FirstName.GetValue() + " " + LastName.GetValue();
+                    return FirstName.Value + " " + LastName.Value;
                 }
                 catch( Exception ex )
                 {
@@ -430,7 +430,7 @@ namespace BudgetExecution
         {
             try
             {
-                return CompensationRate.GetFunding() > -1.0
+                return CompensationRate.Funding > -1.0
                     ? CompensationRate
                     : default( IAmount );
             }

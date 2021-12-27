@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public abstract class PrcBase 
+    public abstract class PrcBase : Unit
     {
         /// <summary>
         /// Gets or sets the dataRow.
@@ -170,7 +170,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( BudgetLevel?.GetValue() )
+                return Verify.IsInput( BudgetLevel?.Value?.ToString() )
                     ? BudgetLevel
                     : default( IElement );
             }
@@ -190,7 +190,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( BFY?.GetValue() )
+                return Verify.IsInput( BFY?.Value?.ToString() )
                     ? BFY
                     : default( IElement );
             }
@@ -210,7 +210,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( RpioCode?.GetValue() )
+                return Verify.IsInput( RpioCode?.Value?.ToString() )
                     ? RpioCode
                     : default( IElement );
             }
@@ -359,17 +359,6 @@ namespace BudgetExecution
                 Fail( ex );
                 return Element.Default;
             }
-        }
-        
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
-        {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
         }
     }
 }

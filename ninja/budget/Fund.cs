@@ -16,12 +16,12 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
-    public class Fund : IFund, ISource
+    public class Fund : Unit, IFund, ISource
     {
         /// <summary>
         /// The source
         /// </summary>
-        private const Source _source = Source.Funds;
+        public Source Source { get; } = Source.Funds;
 
         /// <summary>
         /// Gets the Data.
@@ -29,7 +29,7 @@ namespace BudgetExecution
         /// <value>
         /// The Data.
         /// </value>
-        private readonly DataRow _record;
+        public DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -37,7 +37,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        private readonly IDictionary<string, object> _data;
+        public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Gets the treasury symbol.
@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury symbol.
         /// </value>
-        private readonly IElement _treasurySymbol;
+        public IElement TreasurySymbol { get; set; }
 
         /// <summary>
         /// Gets the code.
@@ -53,7 +53,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        private readonly IElement _code;
+        public string Code { get; set; }
 
         /// <summary>
         /// Gets the fund identifier.
@@ -61,23 +61,15 @@ namespace BudgetExecution
         /// <value>
         /// The fund identifier.
         /// </value>
-        private readonly IKey _id;
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        private readonly IElement _name;
-
+        public IKey ID { get; set; }
+        
         /// <summary>
         /// Gets the title.
         /// </summary>
         /// <value>
         /// The title.
         /// </value>
-        private readonly IElement _title;
+        public IElement Title { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Fund"/> class.
@@ -94,13 +86,13 @@ namespace BudgetExecution
         /// </param>
         public Fund( FundCode fundcode )
         {
-            _record = new DataBuilder( _source, GetArgs( fundcode ) )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.FundId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _title = new Element( _record, Field.Title );
-            _treasurySymbol = new Element( _record, Field.TreasurySymbol );
-            _data = _record?.ToDictionary();
+            Record = new DataBuilder( Source, GetArgs( fundcode ) )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.FundId );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
+            Title = new Element( Record, Field.Title );
+            TreasurySymbol = new Element( Record, Field.TreasurySymbol );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -111,13 +103,13 @@ namespace BudgetExecution
         /// </param>
         public Fund( string code )
         {
-            _record = new DataBuilder( _source, GetArgs( code ) )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.FundId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _title = new Element( _record, Field.Title );
-            _treasurySymbol = new Element( _record, Field.TreasurySymbol );
-            _data = _record?.ToDictionary();
+            Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.FundId );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
+            Title = new Element( Record, Field.Title );
+            TreasurySymbol = new Element( Record, Field.TreasurySymbol );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -128,13 +120,13 @@ namespace BudgetExecution
         /// </param>
         public Fund( IQuery query )
         {
-            _record = new DataBuilder( query )?.GetRecord();
-            _id = new Key( _record, PrimaryKey.FundId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _title = new Element( _record, Field.Title );
-            _treasurySymbol = new Element( _record, Field.TreasurySymbol );
-            _data = _record?.ToDictionary();
+            Record = new DataBuilder( query )?.GetRecord();
+            ID = new Key( Record, PrimaryKey.FundId );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
+            Title = new Element( Record, Field.Title );
+            TreasurySymbol = new Element( Record, Field.TreasurySymbol );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -145,13 +137,13 @@ namespace BudgetExecution
         /// </param>
         public Fund( IBuilder builder )
         {
-            _record = builder?.GetRecord();
-            _id = new Key( _record, PrimaryKey.FundId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _title = new Element( _record, Field.Title );
-            _treasurySymbol = new Element( _record, Field.TreasurySymbol );
-            _data = _record?.ToDictionary();
+            Record = builder?.GetRecord();
+            ID = new Key( Record, PrimaryKey.FundId );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
+            Title = new Element( Record, Field.Title );
+            TreasurySymbol = new Element( Record, Field.TreasurySymbol );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -163,13 +155,13 @@ namespace BudgetExecution
         public Fund( DataRow data )
             : this()
         {
-            _record = data;
-            _id = new Key( _record, PrimaryKey.FundId );
-            _name = new Element( _record, Field.Name );
-            _code = new Element( _record, Field.Code );
-            _title = new Element( _record, Field.Title );
-            _treasurySymbol = new Element( _record, Field.TreasurySymbol );
-            _data = _record?.ToDictionary();
+            Record = data;
+            ID = new Key( Record, PrimaryKey.FundId );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
+            Title = new Element( Record, Field.Title );
+            TreasurySymbol = new Element( Record, Field.TreasurySymbol );
+            Data = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -181,8 +173,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsMap( _data )
-                    ? _data
+                return Verify.IsMap( Data )
+                    ? Data
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )
@@ -202,8 +194,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _code )
-                    ? _code?.GetValue()
+                return Verify.IsInput( Code )
+                    ? Code
                     : string.Empty;
             }
             catch( Exception ex )
@@ -289,67 +281,7 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
-
-        /// <summary>
-        /// Gets the fund identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IKey GetId()
-        {
-            try
-            {
-                return Verify.IsKey( _id )
-                    ? _id
-                    : Key.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Key.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the fund code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetCode()
-        {
-            try
-            {
-                return Verify.IsElement( _code )
-                    ? _code
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the fund.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetName()
-        {
-            try
-            {
-                return Verify.IsElement( _name )
-                    ? _name
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the fund title.
         /// </summary>
@@ -359,8 +291,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _title )
-                    ? _title
+                return Verify.IsElement( Title )
+                    ? Title
                     : Element.Default;
             }
             catch( Exception ex )
@@ -379,8 +311,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( _treasurySymbol )
-                    ? _treasurySymbol
+                return Verify.IsElement( TreasurySymbol )
+                    ? TreasurySymbol
                     : Element.Default;
             }
             catch( Exception ex )
@@ -417,8 +349,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsSource( _source )
-                    ? _source
+                return Verify.IsSource( Source )
+                    ? Source
                     : Source.NS;
             }
             catch( Exception ex )
@@ -426,17 +358,6 @@ namespace BudgetExecution
                 Fail( ex );
                 return Source.NS;
             }
-        }
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
         }
     }
 }

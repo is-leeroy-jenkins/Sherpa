@@ -4,10 +4,6 @@
 
 namespace BudgetExecution
 {
-    // ********************************************************************************************************************************
-    // *********************************************************  ASSEMBLIES   ********************************************************
-    // ********************************************************************************************************************************
-
     using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
@@ -17,56 +13,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class VendorData : Obligation
     {
-        // ***************************************************************************************************************************
-        // ****************************************************  CONSTRUCTORS ********************************************************
-        // ***************************************************************************************************************************
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VendorData"/> class.
-        /// </summary>
-        /// <inheritdoc />
-        public VendorData()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VendorData"/> class.
-        /// </summary>
-        /// <param name="query"></param>
-        public VendorData( IQuery query )
-            : base( query )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VendorData"/> class.
-        /// </summary>
-        /// <param name="builder">The builder.</param>
-        public VendorData( IBuilder builder )
-            : base( builder )
-        {
-        }
-
-        // ***************************************************************************************************************************
-        // *************************************************   PROPERTIES   **********************************************************
-        // ***************************************************************************************************************************
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        private protected IElement Code { get; set; }
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        private protected IElement Name { get; set; }
-
         /// <summary>
         /// Gets the duns number.
         /// </summary>
@@ -114,5 +60,39 @@ namespace BudgetExecution
         /// The expended.
         /// </value>
         private protected IAmount Expended { get; set; }
+
+        /// <summary>
+        /// Gets or sets the code.
+        /// </summary>
+        /// <value>
+        /// The code.
+        /// </value>
+        public string Code { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VendorData"/> class.
+        /// </summary>
+        /// <inheritdoc />
+        public VendorData()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VendorData"/> class.
+        /// </summary>
+        /// <param name="query"></param>
+        public VendorData( IQuery query )
+            : base( query )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VendorData"/> class.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        public VendorData( IBuilder builder )
+            : base( builder )
+        {
+        }
     }
 }

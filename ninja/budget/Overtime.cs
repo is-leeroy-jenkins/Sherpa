@@ -157,7 +157,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( Type?.GetValue() )
+                return Verify.IsInput( Type?.Value?.ToString() )
                     ? Type
                     : default( IElement );
             }

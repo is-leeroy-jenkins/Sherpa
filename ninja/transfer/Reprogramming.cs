@@ -182,7 +182,7 @@ namespace BudgetExecution
             try
             {
                 return Verify.IsElement( DocumentNumber )
-                    ? DocumentNumber.GetValue()
+                    ? DocumentNumber.Value.ToString()
                     : string.Empty;
             }
             catch( Exception ex )
@@ -241,8 +241,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( FromTo.GetValue() )
-                    ? (FromTo)Enum.Parse( typeof( FromTo ), FromTo.GetValue() )
+                return Verify.IsElement( FromTo )
+                    ? (FromTo)Enum.Parse( typeof( FromTo ), FromTo.Value.ToString() )
                     : default( FromTo );
             }
             catch( Exception ex )

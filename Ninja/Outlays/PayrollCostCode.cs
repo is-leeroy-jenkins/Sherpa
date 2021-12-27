@@ -37,7 +37,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        public IElement Code { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        public IElement Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the short name.
@@ -186,7 +186,7 @@ namespace BudgetExecution
         /// </returns>
         public IElement GetProjectCode()
         {
-            if( Verify.IsInput( ProjectCode?.GetValue() ) )
+            if( Verify.IsInput( ProjectCode?.Value?.ToString() ) )
             {
                 try
                 {
@@ -209,7 +209,7 @@ namespace BudgetExecution
         /// </returns>
         public IElement GetProjectCodeName()
         {
-            if( Verify.IsInput( ProjectCodeName?.GetValue() ) )
+            if( Verify.IsInput( ProjectCodeName?.Value?.ToString() ) )
             {
                 try
                 {
@@ -234,9 +234,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _element = ( (IProgramElement)this ).Code;
+                var _element = ( (IProgramElement)this );
 
-                return Verify.IsInput( _element.GetValue() )
+                return Verify.IsElement( _element )
                     ? _element
                     : default( IElement );
             }
@@ -252,18 +252,18 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public IElement GetWorkCodeName()
+        public string GetWorkCodeName()
         {
             try
             {
-                return Verify.IsInput( Name.GetValue() )
+                return Verify.IsInput( Name )
                     ? Name
-                    : default( IElement );
+                    : string.Empty;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Element.Default;
+                return string.Empty;
             }
         }
 
@@ -276,7 +276,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( ShortName.GetValue() )
+                return Verify.IsInput( ShortName.Value )
                     ? ShortName
                     : default( IElement );
             }
@@ -296,7 +296,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( Status.GetValue() )
+                return Verify.IsInput( Status.Value )
                     ? Status
                     : default( IElement );
             }
@@ -316,7 +316,7 @@ namespace BudgetExecution
         {
             try
             {
-                return string.IsNullOrEmpty( Notification.GetValue() )
+                return Verify.IsElement( Notification )
                     ? Notification
                     : default( IElement );
             }
@@ -336,7 +336,7 @@ namespace BudgetExecution
         {
             try
             {
-                return string.IsNullOrEmpty( PayPeriod.GetValue() )
+                return Verify.IsElement( PayPeriod )
                     ? PayPeriod
                     : default( IElement );
             }

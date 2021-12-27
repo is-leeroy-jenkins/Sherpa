@@ -114,7 +114,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Expenditures?.GetFunding() > -1
+                return Expenditures?.Funding > -1
                     ? Expenditures
                     : default( IAmount );
             }

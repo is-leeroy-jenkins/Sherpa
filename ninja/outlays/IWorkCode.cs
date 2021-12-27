@@ -88,28 +88,14 @@ namespace BudgetExecution
         /// <returns>
         /// </returns>
         IElement GetProjectCodeName();
-
-        /// <summary>
-        /// Gets the work code identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IKey GetId();
-
+        
         /// <summary>
         /// Gets the work code.
         /// </summary>
         /// <returns>
         /// </returns>
         IElement GetWorkCode();
-
-        /// <summary>
-        /// Gets the name of the work code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetWorkCodeName();
-
+        
         /// <summary>
         /// Gets the short name.
         /// </summary>

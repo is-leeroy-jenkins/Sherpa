@@ -140,7 +140,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( BFY?.GetValue() )
+                return Verify.IsElement( BFY )
                     ? BFY
                     : default( IElement );
             }
@@ -160,7 +160,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( Destination?.GetName() )
+                return Verify.IsElement( Destination )
                     ? Destination
                     : default( IElement );
             }
@@ -180,7 +180,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( FirstName?.GetValue() )
+                return Verify.IsElement( FirstName )
                     ? FirstName
                     : default( IElement );
             }
@@ -200,7 +200,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( MiddleName.GetValue() )
+                return Verify.IsInput( MiddleName.Value )
                     ? MiddleName
                     : default( IElement );
             }
@@ -220,7 +220,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( LastName?.GetValue() )
+                return Verify.IsInput( LastName?.Value?.ToString() )
                     ? LastName
                     : default( IElement );
             }
@@ -240,7 +240,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( Email?.GetValue() )
+                return Verify.IsInput( Email?.Value?.ToString() )
                     ? Email
                     : default( IElement );
             }
@@ -260,7 +260,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( StartDate?.GetValue() )
+                return Verify.IsInput( StartDate?.Value?.ToString() )
                     ? StartDate
                     : default( ITime );
             }
@@ -280,7 +280,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( EndDate?.GetValue() )
+                return Verify.IsInput( EndDate?.Value?.ToString() )
                     ? EndDate
                     : default( ITime );
             }
@@ -300,7 +300,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Amount?.GetFunding() > -1.0
+                return Amount?.Funding > -1.0
                     ? Amount
                     : default( IAmount );
             }

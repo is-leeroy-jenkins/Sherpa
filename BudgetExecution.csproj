@@ -511,20 +511,16 @@
     <Compile Include="Data\Databuilder\IDataBuilder.cs" />
     <Compile Include="Data\Databuilder\IDataSchema.cs" />
     <Compile Include="Data\Map\Amount.cs" />
-    <Compile Include="Data\Map\AmountBase.cs" />
     <Compile Include="Data\Map\Arg.cs" />
     <Compile Include="Data\Map\Element.cs" />
-    <Compile Include="Data\Map\ElementBase.cs" />
     <Compile Include="Data\Map\IAmount.cs" />
     <Compile Include="Data\Map\IElement.cs" />
     <Compile Include="Data\Map\IKey.cs" />
     <Compile Include="Data\Map\IMap.cs" />
     <Compile Include="Data\Map\IUnit.cs" />
     <Compile Include="Data\Map\Key.cs" />
-    <Compile Include="Data\Map\KeyBase.cs" />
     <Compile Include="Data\Map\Map.cs" />
     <Compile Include="Data\Map\Unit.cs" />
-    <Compile Include="Data\Map\UnitBase.cs" />
     <Compile Include="Data\Query\AccessQuery.cs" />
     <Compile Include="Data\Query\CsvQuery.cs" />
     <Compile Include="Data\Query\ExcelQuery.cs" />
@@ -848,6 +844,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Badger\Toolbar\ToolBarControl.resx" />
+    <None Include=".editorconfig" />
     <None Include="App.config" />
     <None Include="Data\Database\sqlce\ui\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
     <None Include="Data\Database\sqlce\ui\CompactView.exe.config" />

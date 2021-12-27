@@ -47,8 +47,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.VendorId );
-            Code = new Element( Record, Field.Code );
-            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code ).Code;
+            Name = new Element( Record, Field.Name ).Name;
             DunsNumber = new Element( Record, Field.DunsNumber );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
             FocCode = new Element( Record, Field.FocCode );
@@ -75,8 +75,8 @@ namespace BudgetExecution
         {
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.VendorId );
-            Code = new Element( Record, Field.Code );
-            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code ).Code;
+            Name = new Element( Record, Field.Name ).Name;
             DunsNumber = new Element( Record, Field.DunsNumber );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
             FocCode = new Element( Record, Field.FocCode );
@@ -103,8 +103,8 @@ namespace BudgetExecution
         {
             Record = datarow;
             ID = new Key( Record, PrimaryKey.VendorId );
-            Code = new Element( Record, Field.Code );
-            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code ).Code;
+            Name = new Element( Record, Field.Name ).Name;
             DunsNumber = new Element( Record, Field.DunsNumber );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
             FocCode = new Element( Record, Field.FocCode );
@@ -121,66 +121,6 @@ namespace BudgetExecution
         }
         
         /// <summary>
-        /// Gets the vendor identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public override IKey GetId()
-        {
-            try
-            {
-                return Verify.IsKey( ID )
-                    ? ID
-                    : Key.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Key.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the vendor code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetCode()
-        {
-            try
-            {
-                return Verify.IsElement( Code )
-                    ? Code
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the vendor.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetName()
-        {
-            try
-            {
-                return Verify.IsElement( Name )
-                    ? Name
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
         /// Converts to string.
         /// </summary>
         /// <returns>
@@ -191,7 +131,7 @@ namespace BudgetExecution
             try
             {
                 return Verify.IsElement( Name )
-                    ? Name?.GetValue()
+                    ? Name
                     : string.Empty;
             }
             catch( Exception ex )

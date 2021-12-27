@@ -18,7 +18,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class NationalProgram : INationalProgram, ISource
+    public class NationalProgram : Unit, INationalProgram, ISource
     {
         /// <summary>
         /// The source
@@ -47,7 +47,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        public IElement Code { get; set; } 
+        public string Code { get; set; } 
 
         /// <summary>
         /// Gets the title.
@@ -64,15 +64,7 @@ namespace BudgetExecution
         /// The national program identifier.
         /// </value>
         public IKey ID { get; set; } 
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public IElement Name { get; set; } 
-
+        
         /// <summary>
         /// Gets the rpio code.
         /// </summary>
@@ -106,12 +98,12 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.NationalProgramId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             RpioCode = new Element( Record, Field.RpioCode );
             Title = new Element( Record, Field.Title );
             Data = Record?.ToDictionary();
-            NPM = (NPM)Enum.Parse( typeof( NPM ), Code.GetValue() );
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
 
         /// <summary>
@@ -124,12 +116,12 @@ namespace BudgetExecution
         {
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.NationalProgramId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             RpioCode = new Element( Record, Field.RpioCode );
             Title = new Element( Record, Field.Title );
             Data = Record?.ToDictionary();
-            NPM = (NPM)Enum.Parse( typeof( NPM ), Code.GetValue() );
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
 
         /// <summary>
@@ -142,12 +134,12 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.NationalProgramId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             RpioCode = new Element( Record, Field.RpioCode );
             Title = new Element( Record, Field.Title );
             Data = Record?.ToDictionary();
-            NPM = (NPM)Enum.Parse( typeof( NPM ), Code.GetValue() );
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
 
         /// <summary>
@@ -160,12 +152,12 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
             ID = new Key( Record, PrimaryKey.NationalProgramId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             RpioCode = new Element( Record, Field.RpioCode );
             Title = new Element( Record, Field.Title );
             Data = Record?.ToDictionary();
-            NPM = (NPM)Enum.Parse( typeof( NPM ), Code.GetValue() );
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
         
         /// <summary>
@@ -206,7 +198,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( RpioCode?.GetValue() )
+                return Verify.IsInput( RpioCode?.Value?.ToString() )
                     ? RpioCode
                     : Element.Default;
             }
@@ -227,8 +219,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( Code )
-                    ? Code.GetValue()
+                return Verify.IsInput( Code )
+                    ? Code
                     : string.Empty;
             }
             catch( Exception ex )
@@ -277,67 +269,7 @@ namespace BudgetExecution
                 return NPM.NS;
             }
         }
-
-        /// <summary>
-        /// Gets the national program identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IKey GetId()
-        {
-            try
-            {
-                return Verify.IsKey( ID )
-                    ? ID
-                    : Key.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Key.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the national program code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetCode()
-        {
-            try
-            {
-                return Verify.IsElement( Code )
-                    ? Code
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the national program.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetName()
-        {
-            try
-            {
-                return Verify.IsElement( Name )
-                    ? Name
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the national program office.
         /// </summary>
@@ -394,17 +326,6 @@ namespace BudgetExecution
                 Fail( ex );
                 return Source.NS;
             }
-        }
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
         }
     }
 }

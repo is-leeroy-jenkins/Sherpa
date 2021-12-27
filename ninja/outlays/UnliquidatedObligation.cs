@@ -128,7 +128,7 @@ namespace BudgetExecution
         {
             try
             {
-                return ULO.GetFunding() > -1.0
+                return ULO.Funding > -1.0
                     ? ULO
                     : default( IAmount );
             }

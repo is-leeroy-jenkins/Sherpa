@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
-    public abstract class AccountBase
+    public abstract class AccountBase : Unit
     {
         /// <summary>
         /// Gets the Data.
@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <value>
         /// The account code.
         /// </value>
-        public IElement Code { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
         /// Gets the program project code.
@@ -142,37 +142,6 @@ namespace BudgetExecution
                 Fail( ex );
                 return default( IKey );
             }
-        }
-
-        /// <summary>
-        /// Gets the account code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetCode()
-        {
-            try
-            {
-                return Verify.IsInput( Code?.GetValue() )
-                    ? Code
-                    : default( IElement );
-            }
-            catch( SystemException ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error.SetText();
-            _error.ShowDialog();
         }
     }
 }

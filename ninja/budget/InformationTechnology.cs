@@ -19,7 +19,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class InformationTechnology : IInformationTechnology, ISource
+    public class InformationTechnology : Unit, IInformationTechnology, ISource
     {
         /// <summary>
         /// The source
@@ -64,16 +64,8 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        public IElement Code { get; set; }
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public IElement Name { get; set; }
-
+        public string Code { get; set; }
+        
         /// <summary>
         /// Gets the cost area code.
         /// </summary>
@@ -115,8 +107,8 @@ namespace BudgetExecution
         {
             Record = new Builder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.InformationTechnologyId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             ProjectCode = new Element( Record, Field.ProjectCode );
             ProgramProjectName = new Element( Record, Field.ProjectName );
             CostAreaCode = new Element( Record, Field.CostAreaCode );
@@ -135,8 +127,8 @@ namespace BudgetExecution
         {
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.InformationTechnologyId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             ProjectCode = new Element( Record, Field.ProjectCode );
             ProgramProjectName = new Element( Record, Field.ProjectName );
             CostAreaCode = new Element( Record, Field.CostAreaCode );
@@ -154,8 +146,8 @@ namespace BudgetExecution
         {
             Record = data;
             ID = new Key( Record, PrimaryKey.InformationTechnologyId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             ProjectCode = new Element( Record, Field.ProjectCode );
             ProgramProjectName = new Element( Record, Field.ProjectName );
             CostAreaCode = new Element( Record, Field.CostAreaCode );
@@ -173,8 +165,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( itcode ) )?.GetRecord();
             ID = new Key( Record, PrimaryKey.InformationTechnologyId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             ProjectCode = new Element( Record, Field.ProjectCode );
             ProgramProjectName = new Element( Record, Field.ProjectName );
             CostAreaCode = new Element( Record, Field.CostAreaCode );
@@ -299,16 +291,16 @@ namespace BudgetExecution
         public IDictionary<string, object> ToDictionary()
         {
             if( Verify.IsElement( Name )
-                && Verify.IsElement( Code )
+                && Verify.IsInput( Code )
                 && Verify.IsKey( ID ) )
             {
                 try
                 {
                     return new Dictionary<string, object>
                     {
-                        [ PrimaryKey.InformationTechnologyId.ToString() ] = ID.GetIndex(),
-                        [ Field.Name.ToString() ] = Name.GetValue(),
-                        [ Field.Code.ToString() ] = Code.GetValue()
+                        [ PrimaryKey.InformationTechnologyId.ToString() ] = ID.Index,
+                        [ Field.Name.ToString() ] = Name,
+                        [ Field.Code.ToString() ] = Code
                     };
                 }
                 catch( Exception ex )
@@ -320,67 +312,7 @@ namespace BudgetExecution
 
             return default( IDictionary<string, object> );
         }
-
-        /// <summary>
-        /// Gets the information technology identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IKey GetId()
-        {
-            try
-            {
-                return Verify.IsKey( ID )
-                    ? ID
-                    : Key.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Key.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the information technology code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetCode()
-        {
-            try
-            {
-                return Verify.IsElement( Code )
-                    ? Code
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the information technology.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetName()
-        {
-            try
-            {
-                return Verify.IsElement( Name )
-                    ? Name
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
+        
         /// <summary>
         /// Gets it code.
         /// </summary>
@@ -428,11 +360,11 @@ namespace BudgetExecution
         public override string ToString()
         {
             if( Code != null
-                && Verify.IsInput( Code.GetValue() ) )
+                && Verify.IsInput( Code ) )
             {
                 try
                 {
-                    return Code.GetValue();
+                    return Code;
                 }
                 catch( Exception ex )
                 {
@@ -442,17 +374,6 @@ namespace BudgetExecution
             }
 
             return string.Empty;
-        }
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
         }
     }
 }

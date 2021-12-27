@@ -7,18 +7,33 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Linq;
 
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.KeyBase" />
     /// <seealso cref="BudgetExecution.IKey" />
-    public class Key : KeyBase, IKey
+    public class Key : IKey
     {
         /// <summary>
         /// The default
         /// </summary>
         public static IKey Default { get; } = new Key( PrimaryKey.NS, "-1" );
+        
+        /// <summary>
+        /// The primary key
+        /// </summary>
+        public PrimaryKey PrimaryKey { get; set; }
+
+        /// <summary>
+        /// The index
+        /// </summary>
+        public int Index { get; set; }
+
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        public string Name { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Key"/> class.
@@ -33,9 +48,8 @@ namespace BudgetExecution
         /// <param name="kvp">The KVP.</param>
         public Key( KeyValuePair<string, object> kvp )
         {
-            SetPrimaryKey( Name );
-            SetIndex( int.Parse( kvp.Value.ToString() ) );
-            Data = Index.ToString();
+            PrimaryKey = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), kvp.Key );
+            Index = int.Parse( kvp.Value.ToString() );
         }
 
         /// <summary>
@@ -46,8 +60,7 @@ namespace BudgetExecution
         public Key( string name, int value = 0 )
         {
             PrimaryKey = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), name );
-            SetIndex( value );
-            Data = Index.ToString();
+            Index = value;
         }
 
         /// <summary>
@@ -57,9 +70,8 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         public Key( DataRow dataRow, PrimaryKey field )
         {
-            SetPrimaryKey( dataRow, field );
-            SetIndex( dataRow, field );
-            Data = Index.ToString();
+            PrimaryKey = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), field.ToString() );
+            Index = (int)dataRow[ field.ToString() ];
         }
 
         /// <summary>
@@ -70,8 +82,7 @@ namespace BudgetExecution
         public Key( PrimaryKey field, string value = "0" )
         {
             PrimaryKey = field;
-            SetIndex( int.Parse( value ) );
-            Data = Index.ToString();
+            Index = int.Parse( value );
         }
 
         /// <summary>
@@ -80,49 +91,10 @@ namespace BudgetExecution
         /// <param name="dataRow">The Data row.</param>
         public Key( DataRow dataRow )
         {
-            SetPrimaryKey( dataRow );
-            SetIndex( dataRow, PrimaryKey );
-            Data = Index.ToString();
+            PrimaryKey = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), dataRow[ 0 ].ToString() );
+            Index = int.Parse( dataRow[ 0 ].ToString() );
         }
-
-        /// <summary>
-        /// Gets the index.
-        /// </summary>
-        /// <returns></returns>
-        public int GetIndex()
-        {
-            try
-            {
-                return Index > -1
-                    ? Index
-                    : (int)PrimaryKey.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return (int)PrimaryKey.NS;
-            }
-        }
-
-        /// <summary>
-        /// Gets the primary key.
-        /// </summary>
-        /// <returns></returns>
-        public PrimaryKey GetPrimaryKey()
-        {
-            try
-            {
-                return Enum.IsDefined( typeof( PrimaryKey ), PrimaryKey )
-                    ? PrimaryKey
-                    : PrimaryKey.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return PrimaryKey.NS;
-            }
-        }
-
+       
         /// <summary>
         /// Converts to string.
         /// </summary>
@@ -159,8 +131,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return key?.GetIndex() == Index
-                        && key?.GetName()?.Equals( Name ) == true;
+                    return key?.Index == Index
+                        && key?.Name?.Equals( Name ) == true;
                 }
                 catch( Exception ex )
                 {
@@ -182,13 +154,13 @@ namespace BudgetExecution
         /// </returns>
         public static bool IsMatch( IKey primary, IKey secondary )
         {
-            if( primary?.GetIndex() > -1
-                && secondary?.GetIndex() > -1 )
+            if( primary?.Index > -1
+                && secondary?.Index > -1 )
             {
                 try
                 {
-                    return primary?.GetIndex() == secondary?.GetIndex()
-                        && primary?.GetName().Equals( secondary?.GetName() ) == true;
+                    return primary?.Index == secondary?.Index
+                        && primary?.Name?.Equals( secondary?.Name ) == true;
                 }
                 catch( Exception ex )
                 {
@@ -198,6 +170,163 @@ namespace BudgetExecution
             }
 
             return false;
+        }
+        
+        /// <summary>
+        /// Sets the primary key.
+        /// </summary>
+        /// <param name="keyName">Name of the key.</param>
+        private protected void SetPrimaryKey( string keyName )
+        {
+            if( Verify.IsInput( keyName ) )
+            {
+                try
+                {
+                    var _key = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), keyName );
+
+                    PrimaryKey = Enum.IsDefined( typeof( PrimaryKey ), _key )
+                        ? PrimaryKey
+                        : PrimaryKey.NS;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the primary key.
+        /// </summary>
+        /// <param name="dataRow">The Data row.</param>
+        private protected void SetPrimaryKey( DataRow dataRow )
+        {
+            if( Verify.IsRow( dataRow ) )
+            {
+                try
+                {
+                    var _columns = Enum.GetNames( typeof( PrimaryKey ) );
+
+                    if( _columns?.Contains( dataRow[ 0 ]?.ToString() ) == true )
+                    {
+                        var _field = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), dataRow[ 0 ].ToString() );
+
+                        var _names = dataRow.Table
+                            ?.GetColumnNames();
+
+                        PrimaryKey = _names?.Contains( _field.ToString() ) == true
+                            ? _field
+                            : PrimaryKey.NS;
+                    }
+                    else
+                    {
+                        PrimaryKey = PrimaryKey.NS;
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the primary key.
+        /// </summary>
+        /// <param name="keyName">Name of the key.</param>
+        private protected void SetPrimaryKey( PrimaryKey keyName )
+        {
+            try
+            {
+                PrimaryKey = Validate.IsField( keyName )
+                    ? keyName
+                    : PrimaryKey.NS;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the primary key.
+        /// </summary>
+        /// <param name="dataRow">The Data row.</param>
+        /// <param name="keyName">Name of the key.</param>
+        private protected void SetPrimaryKey( DataRow dataRow, PrimaryKey keyName )
+        {
+            if( Verify.IsRow( dataRow )
+                && Validate.IsField( keyName ) )
+            {
+                try
+                {
+                    var _names = dataRow.Table
+                        ?.GetColumnNames();
+
+                    PrimaryKey = _names?.Contains( keyName.ToString() ) == true
+                        ? keyName
+                        : PrimaryKey.NS;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the index.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        private protected void SetIndex( int value )
+        {
+            try
+            {
+                Index = value > -1
+                    ? value
+                    : (int)PrimaryKey.NS;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the index.
+        /// </summary>
+        /// <param name="dataRow">The Data row.</param>
+        /// <param name="key">The key.</param>
+        private protected void SetIndex( DataRow dataRow, PrimaryKey key )
+        {
+            if( Verify.IsInput( dataRow?.ItemArray )
+                && Validate.PrimaryKey( key ) )
+            {
+                try
+                {
+                    var _names = dataRow?.Table
+                        ?.GetColumnNames();
+
+                    Index = _names?.Contains( key.ToString() ) == true
+                        ? int.Parse( dataRow[ $"{key}" ].ToString() )
+                        : (int)PrimaryKey.NS;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Get Error Dialog.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

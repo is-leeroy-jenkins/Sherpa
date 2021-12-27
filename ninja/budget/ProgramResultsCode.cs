@@ -182,7 +182,7 @@ namespace BudgetExecution
 
                 var dict = new Dictionary<string, object>
                 {
-                    [ $"{Field.Code}" ] = account?.GetProgramProject()?.GetCode()
+                    [ $"{Field.Code}" ] = account?.GetProgramProject()?.Code
                 };
 
                 var connectbuilder = new ConnectionBuilder( Source.ProgramProjects, Provider.SQLite );
@@ -245,8 +245,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( AccountCode.GetValue() )
-                    ? AccountCode.GetValue()
+                return Verify.IsRef( AccountCode.Value )
+                    ? AccountCode.Value.ToString()
                     : string.Empty;
             }
             catch( Exception ex )
@@ -319,7 +319,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Amount?.GetFunding() > -1
+                return Amount?.Funding > -1
                     ? Amount
                     : default( IAmount );
             }

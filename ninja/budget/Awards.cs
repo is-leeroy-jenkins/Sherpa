@@ -98,7 +98,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Type + Amount?.GetFunding().ToString( "c" );
+                return Type + Amount?.Funding.ToString( "c" );
             }
             catch( Exception ex )
             {

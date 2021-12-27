@@ -20,7 +20,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Global" ) ]
-    public abstract class Supplemental : ProgramResultsCode, ISupplemental
+    public abstract class Supplemental : ProgramResultsCode
     {
         /// <summary>
         /// Gets the source.
@@ -29,6 +29,24 @@ namespace BudgetExecution
         /// The source.
         /// </value>
         public new Source Source { get; } =  Source.Supplemental;
+
+        /// <summary>
+        /// Gets or sets the ProgramResultCodes identifier.
+        /// </summary>
+        /// <value>
+        /// The ProgramResultCodes identifier.
+        /// </value>
+        public IKey Index { get; set; }
+
+        /// <summary>
+        /// Gets the code.
+        /// </summary>
+        public string Code { get; set; }
+
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the type.
@@ -46,26 +64,6 @@ namespace BudgetExecution
         /// </value>
         public IElement BOC { get; set; }
         
-        /// <summary>
-        /// Gets the type of the supplemental.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetSupplementalType()
-        {
-            try
-            {
-                return Verify.IsInput( Type?.GetValue() )
-                    ? Type
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
         /// <summary>
         /// Gets the Data builder.
         /// </summary>
@@ -96,7 +94,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Type + Amount?.GetFunding().ToString( "c" );
+                return Type + Amount?.Funding.ToString( "c" );
             }
             catch( Exception ex )
             {

@@ -123,7 +123,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( OriginalActionDate.GetValue() )
+                return Verify.IsInput( OriginalActionDate.Value )
                     ? OriginalActionDate
                     : default( ITime );
             }
@@ -237,7 +237,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( PayPeriod?.GetValue() )
+                return Verify.IsInput( PayPeriod?.Value?.ToString() )
                     ? PayPeriod
                     : default( IElement );
             }
@@ -257,7 +257,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( HrOrgCode?.GetValue() )
+                return Verify.IsInput( HrOrgCode?.Value?.ToString() )
                     ? HrOrgCode
                     : default( IElement );
             }
@@ -277,7 +277,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( WorkCode?.GetValue() )
+                return Verify.IsInput( WorkCode?.Value?.ToString() )
                     ? WorkCode
                     : default( IElement );
             }
@@ -297,7 +297,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Commitments?.GetFunding() > -1
+                return Commitments?.Funding > -1
                     ? Commitments
                     : default( IAmount );
             }
@@ -317,7 +317,7 @@ namespace BudgetExecution
         {
             try
             {
-                return OpenCommitments?.GetFunding() > -1
+                return OpenCommitments?.Funding > -1
                     ? OpenCommitments
                     : Amount.Default;
             }
@@ -337,7 +337,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Obligations?.GetFunding() > -1
+                return Obligations?.Funding > -1
                     ? Obligations
                     : Amount.Default;
             }
@@ -357,7 +357,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Deobligations?.GetFunding() > -1.0
+                return Deobligations?.Funding > -1.0
                     ? Deobligations
                     : Amount.Default;
             }
@@ -377,7 +377,7 @@ namespace BudgetExecution
         {
             try
             {
-                return ULO?.GetFunding() > -1
+                return ULO?.Funding > -1
                     ? ULO
                     : Amount.Default;
             }
@@ -397,7 +397,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Expenditures?.GetFunding() > -1
+                return Expenditures?.Funding > -1
                     ? Expenditures
                     : Amount.Default;
             }
@@ -417,7 +417,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Balance?.GetFunding() > -1
+                return Balance?.Funding > -1
                     ? Balance
                     : Amount.Default;
             }

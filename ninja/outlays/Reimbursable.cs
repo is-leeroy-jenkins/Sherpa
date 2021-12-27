@@ -120,7 +120,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( BFY?.GetValue() )
+                return Verify.IsInput( BFY?.Value?.ToString() )
                     ? BFY
                     : default( IElement );
             }

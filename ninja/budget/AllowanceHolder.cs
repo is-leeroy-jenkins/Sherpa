@@ -46,7 +46,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Local" ) ]
-    public class AllowanceHolder : IAllowanceHolder, IProgramElement, ISource
+    public class AllowanceHolder : Unit, IAllowanceHolder, ISource
     {
         /// <summary>
         /// The source
@@ -75,7 +75,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        public IElement Code { get; set; } 
+        public string Code { get; set; } 
 
         /// <summary>
         /// Gets the allowance holder identifier.
@@ -84,15 +84,7 @@ namespace BudgetExecution
         /// The allowance holder identifier.
         /// </value>
         public IKey ID { get; set; } 
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public IElement Name { get; set; } 
-
+        
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "AllowanceHolder"/> class.
@@ -112,8 +104,8 @@ namespace BudgetExecution
         {
             Record = dataBuilder?.GetRecord();
             ID = new Key( Record, PrimaryKey.AllowanceHolderId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
         }
 
@@ -128,8 +120,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.AllowanceHolderId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
         }
 
@@ -145,8 +137,8 @@ namespace BudgetExecution
         {
             Record = data;
             ID = new Key( Record, PrimaryKey.AllowanceHolderId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
         }
 
@@ -161,8 +153,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, SetArgs( ahcode ) )?.GetRecord();
             ID = new Key( Record, PrimaryKey.AllowanceHolderId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
         }
 
@@ -204,11 +196,11 @@ namespace BudgetExecution
         /// </returns>
         public override string ToString()
         {
-            if( Verify.IsInput( Code.GetValue() ) )
+            if( Verify.IsInput( Code ) )
             {
                 try
                 {
-                    return Code.GetValue();
+                    return Code;
                 }
                 catch( Exception ex )
                 {
@@ -276,17 +268,6 @@ namespace BudgetExecution
                 Fail( ex );
                 return Source.NS;
             }
-        }
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
         }
     }
 }

@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IProgramElement
+    public interface IProgramElement : IElement
     {
         /// <summary>
         /// Gets the identifier.
@@ -21,13 +21,6 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        IElement Code { get; set; }
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement Name { get; set; }
+        string Code { get; set; }
     }
 }

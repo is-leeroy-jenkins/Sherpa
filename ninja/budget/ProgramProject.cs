@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class ProgramProject : ProgramBase, IProgramProject, IProgramElement, ISource
+    public class ProgramProject : ProgramBase, IProgramProject, ISource
     {
         /// <summary>
         /// The source
@@ -21,7 +21,8 @@ namespace BudgetExecution
         public Source Source { get; } = Source.ProgramProjects;
         
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ProgramProject"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ProgramProject"/> class.
         /// </summary>
         public ProgramProject()
         {
@@ -37,8 +38,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.ProgramProjectId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Title = new Element( Record, Field.Title );
             Definition = new Element( Record, Field.Definition );
             Laws = new Element( Record, Field.Laws );
@@ -58,8 +59,8 @@ namespace BudgetExecution
         {
             Record = dataBuilder?.GetRecord();
             ID = new Key( Record, PrimaryKey.ProgramProjectId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Title = new Element( Record, Field.Title );
             Definition = new Element( Record, Field.Definition );
             Laws = new Element( Record, Field.Laws );
@@ -79,8 +80,8 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ProgramProjectId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Title = new Element( Record, Field.Title );
             Definition = new Element( Record, Field.Definition );
             Laws = new Element( Record, Field.Laws );
@@ -100,8 +101,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
             ID = new Key( Record, PrimaryKey.ProgramProjectId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Title = new Element( Record, Field.Title );
             Definition = new Element( Record, Field.Definition );
             Laws = new Element( Record, Field.Laws );
@@ -270,8 +271,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( Code )
-                    ? Code.GetValue()
+                return Verify.IsInput( Code )
+                    ? Code
                     : string.Empty;
             }
             catch( Exception ex )
@@ -300,67 +301,7 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
-
-        /// <summary>
-        /// Gets the program project identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IKey GetId()
-        {
-            try
-            {
-                return Verify.IsKey( ID )
-                    ? ID
-                    : Key.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Key.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the program project code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetCode()
-        {
-            try
-            {
-                return Verify.IsElement( Code )
-                    ? Code
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the program project.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetName()
-        {
-            try
-            {
-                return Verify.IsElement( Name )
-                    ? Name
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the program project.
         /// </summary>

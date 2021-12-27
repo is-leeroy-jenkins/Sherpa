@@ -135,7 +135,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( EmployeeNumber.GetValue() )
+                return Verify.IsInput( EmployeeNumber.Value )
                     ? EmployeeNumber
                     : default( IElement );
             }
@@ -155,7 +155,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( FirstName.GetValue() )
+                return Verify.IsInput( FirstName.Value )
                     ? FirstName
                     : default( IElement );
             }
@@ -175,7 +175,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( LastName.GetValue() )
+                return Verify.IsInput( LastName.Value )
                     ? LastName
                     : default( IElement );
             }
@@ -195,7 +195,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( HumanResourceOrganizationCode.GetValue() )
+                return Verify.IsInput( HumanResourceOrganizationCode.Value )
                     ? HumanResourceOrganizationCode
                     : default( IElement );
             }
@@ -215,7 +215,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( HumanResourceOrganizationName.GetValue() )
+                return Verify.IsInput( HumanResourceOrganizationName.Value )
                     ? HumanResourceOrganizationName
                     : default( IElement );
             }
@@ -235,7 +235,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( HireDate?.GetValue() )
+                return Verify.IsInput( HireDate?.Value?.ToString() )
                     ? HireDate
                     : default( ITime );
             }
@@ -255,7 +255,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( ServiceDate?.GetValue() )
+                return Verify.IsInput( ServiceDate?.Value?.ToString() )
                     ? ServiceDate
                     : default( ITime );
             }
@@ -275,7 +275,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( GradeEntryDate?.GetValue() )
+                return Verify.IsInput( GradeEntryDate?.Value?.ToString() )
                     ? GradeEntryDate
                     : default( ITime );
             }
@@ -295,7 +295,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( StepEntryDate?.GetValue() )
+                return Verify.IsInput( StepEntryDate?.Value?.ToString() )
                     ? StepEntryDate
                     : default( ITime );
             }
@@ -315,7 +315,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( WigiDueDate?.GetValue() )
+                return Verify.IsInput( WigiDueDate?.Value?.ToString() )
                     ? WigiDueDate
                     : default( ITime );
             }
@@ -335,7 +335,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( AppointmentAuthority.GetValue() )
+                return Verify.IsInput( AppointmentAuthority.Value )
                     ? AppointmentAuthority
                     : default( IElement );
             }
@@ -355,7 +355,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( AppointmentType.GetValue() )
+                return Verify.IsInput( AppointmentType.Value )
                     ? AppointmentType
                     : default( IElement );
             }
@@ -375,7 +375,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( BargainingUnit.GetValue() )
+                return Verify.IsInput( BargainingUnit.Value )
                     ? BargainingUnit
                     : default( IElement );
             }
@@ -395,7 +395,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( RetirementPlan.GetValue() )
+                return Verify.IsInput( RetirementPlan.Value )
                     ? RetirementPlan
                     : default( IElement );
             }

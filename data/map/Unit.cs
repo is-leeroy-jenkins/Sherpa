@@ -6,17 +6,36 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
 
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.UnitBase" />
     /// <seealso cref="BudgetExecution.IUnit" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class Unit : UnitBase, IUnit
+    public class Unit : IElement
     {
+        /// <summary>
+        /// The value
+        /// </summary>
+        public object Value { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets the field.
+        /// </summary>
+        public Field Field { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Unit"/> class.
         /// </summary>
@@ -30,63 +49,34 @@ namespace BudgetExecution
         /// <param name="kvp">The KVP.</param>
         public Unit( KeyValuePair<string, object> kvp )
         {
+            Field = (Field)Enum.Parse( typeof( Field ), kvp.Key );
+            Name = kvp.Key;
+            Value = kvp.Value.ToString();
         }
-
+        
         /// <summary>
-        /// Gets the name.
+        /// Determines whether the specified unit is match.
         /// </summary>
-        /// <returns></returns>
-        public virtual string GetName()
+        /// <param name="unit">The unit.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified unit is match; otherwise, <c>false</c>.
+        /// </returns>
+        public virtual bool IsMatch( IUnit unit )
         {
-            try
+            if( Verify.IsRef( unit ) )
             {
-                return Verify.IsInput( Name )
-                    ? Name
-                    : string.Empty;
+                try
+                {
+                    return unit?.Value?.ToString()?.Equals( Value ) == true;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return false;
+                }
             }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
-        }
 
-        /// <summary>
-        /// Gets the value.
-        /// </summary>
-        /// <returns></returns>
-        public virtual string GetValue()
-        {
-            try
-            {
-                return Verify.IsInput( Value )
-                    ? Value
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
-        }
-
-        /// <summary>
-        /// Gets the Data.
-        /// </summary>
-        /// <returns></returns>
-        public virtual object GetData()
-        {
-            try
-            {
-                return Verify.IsRef( Data )
-                    ? Data
-                    : default( object );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( object );
-            }
+            return false;
         }
 
         /// <summary>
@@ -109,6 +99,17 @@ namespace BudgetExecution
                 Fail( ex );
                 return string.Empty;
             }
+        }
+        
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

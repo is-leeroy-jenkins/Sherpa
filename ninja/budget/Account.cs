@@ -40,7 +40,7 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.AccountId );
-            Code = new Element( Record, Field.Code );
+            Code = new Element( Record, Field.Code ).Code;
             NpmCode = new Element( Record, Field.NpmCode );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
             ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
@@ -60,7 +60,7 @@ namespace BudgetExecution
         {
             Record = dataBuilder?.GetRecord();
             ID = new Key( Record, PrimaryKey.AccountId );
-            Code = new Element( Record, Field.Code );
+            Code = new Element( Record, Field.Code ).Code;
             NpmCode = new Element( Record, Field.NpmCode );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
             ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
@@ -80,7 +80,7 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.AccountId );
-            Code = new Element( Record, Field.Code );
+            Code = new Element( Record, Field.Code ).Code;
             NpmCode = new Element( Record, Field.NpmCode );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
             ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
@@ -100,7 +100,7 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
             ID = new Key( Record, PrimaryKey.AccountId );
-            Code = new Element( Record, Field.Code );
+            Code = new Element( Record, Field.Code ).Code;
             NpmCode = new Element( Record, Field.NpmCode );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
             ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
@@ -135,13 +135,13 @@ namespace BudgetExecution
         /// </returns>
         public IActivity GetActivity()
         {
-            if( Verify.IsInput( ActivityCode.GetValue() ) )
+            if( Verify.IsInput( ActivityCode.Value ) )
             {
                 try
                 {
                     var _dictionary = new Dictionary<string, object>
                     {
-                        [ $"{Field.ActivityCode}" ] = ActivityCode.GetValue()
+                        [ $"{Field.ActivityCode}" ] = ActivityCode.Value
                     };
 
                     var _connection = new ConnectionBuilder( Source.Activity, Provider.SQLite );
@@ -299,8 +299,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( Code?.GetValue() )
-                    ? Code?.GetValue()
+                return Verify.IsInput( Code )
+                    ? Code
                     : string.Empty;
             }
             catch( SystemException ex )
@@ -347,29 +347,6 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return Source.NS;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the account.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetName()
-        {
-            try
-            {
-                var _name = GetProgramProject()
-                    ?.GetName();
-
-                return Verify.IsInput( _name?.GetValue() )
-                    ? _name
-                    : default( IElement );
-            }
-            catch( SystemException ex )
-            {
-                Fail( ex );
-                return Element.Default;
             }
         }
     }

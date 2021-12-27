@@ -82,7 +82,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _code = FocCode?.GetValue();
+                var _code = FocCode?.Value?.ToString();
 
                 return Verify.IsInput( _code )
                     ? new FinanceObjectClass( _code )
@@ -104,8 +104,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( NpmCode?.GetValue() )
-                    ? new NationalProgram( NpmCode?.GetValue() )
+                return Verify.IsInput( NpmCode?.Value?.ToString() )
+                    ? new NationalProgram( NpmCode?.Value?.ToString() )
                     : default( NationalProgram );
             }
             catch( Exception ex )
@@ -124,7 +124,7 @@ namespace BudgetExecution
         {
             try
             {
-                return PRC?.GetAmount()?.GetFunding() > 0.0
+                return PRC?.GetAmount()?.Funding > 0.0
                     ? PRC
                     : default( IProgramResultsCode );
             }
@@ -144,8 +144,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( ProgramProjectCode?.GetValue() )
-                    ? new ProgramProject( ProgramProjectCode?.GetValue() )
+                return Verify.IsInput( ProgramProjectCode?.Value?.ToString() )
+                    ? new ProgramProject( ProgramProjectCode?.Value?.ToString() )
                     : default( ProgramProject );
             }
             catch( Exception ex )
@@ -164,8 +164,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( ProgramAreaCode?.GetValue() )
-                    ? new ProgramArea( ProgramAreaCode?.GetValue() )
+                return Verify.IsInput( ProgramAreaCode?.Value?.ToString() )
+                    ? new ProgramArea( ProgramAreaCode?.Value?.ToString() )
                     : default( ProgramArea );
             }
             catch( Exception ex )

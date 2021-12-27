@@ -4,27 +4,15 @@
 
 namespace BudgetExecution
 {
-    // ******************************************************************************************************************************
-    // ******************************************************   ASSEMBLIES   ********************************************************
-    // ******************************************************************************************************************************
-
-    public interface IUnit
+    public interface IUnit 
     {
-        // ***************************************************************************************************************************
-        // ************************************************  METHODS   ***************************************************************
-        // ***************************************************************************************************************************
-
-        /// <summary> Gets the name. </summary>
-        /// <returns> </returns>
-        string GetName();
-
-        /// <summary> Gets the value. </summary>
-        /// <returns> </returns>
-        string GetValue();
-
-        /// <summary> Gets the Data. </summary>
-        /// <returns> </returns>
-        object GetData();
+        /// <summary>
+        /// Gets or sets the value.
+        /// </summary>
+        /// <value>
+        /// The value.
+        /// </value>
+        object Value { get; set; }
 
         /// <summary> Determines whether the specified unit is equal. </summary>
         /// <param name = "unit" > The unit. </param>

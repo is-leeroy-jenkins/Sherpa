@@ -18,7 +18,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class ResourcePlanningOffice : IResourcePlanningOffice, IProgramElement, ISource
+    public class ResourcePlanningOffice : Unit, IResourcePlanningOffice, ISource
     {
         /// <summary>
         /// The source
@@ -47,7 +47,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        public IElement Code { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
         /// Gets the resource planning office identifier.
@@ -56,15 +56,7 @@ namespace BudgetExecution
         /// The resource planning office identifier.
         /// </value>
         public IKey ID { get; set; }
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public IElement Name { get; set; }
-
+        
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "ResourcePlanningOffice"/> class.
@@ -85,8 +77,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.ResourcePlanningOfficeId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
         }
 
@@ -101,8 +93,8 @@ namespace BudgetExecution
         {
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.ResourcePlanningOfficeId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
         }
 
@@ -118,8 +110,8 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ResourcePlanningOfficeId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
         }
 
@@ -135,8 +127,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, SetArgs( rpioCode ) )?.GetRecord();
             ID = new Key( Record, PrimaryKey.ResourcePlanningOfficeId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.Code );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
         }
 
@@ -179,8 +171,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( Code )
-                    ? Code.GetValue()
+                return Verify.IsInput( Code )
+                    ? Code
                     : string.Empty;
             }
             catch( Exception ex )
@@ -238,17 +230,6 @@ namespace BudgetExecution
                 Fail( ex );
                 return Source.NS;
             }
-        }
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
         }
     }
 }

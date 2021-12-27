@@ -113,7 +113,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Deobligations.GetFunding() > -1.0D
+                return Deobligations.Funding > -1.0D
                     ? Deobligations
                     : default( IAmount );
             }

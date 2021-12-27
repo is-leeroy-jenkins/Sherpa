@@ -11,8 +11,18 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public abstract class ProgramBase
+    public abstract class ProgramBase : Unit, IProgramElement
     {
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        public IKey ID { get; set; }
+
+        /// <summary>
+        /// Gets the code.
+        /// </summary>
+        public string Code { get; set; }
+        
         /// <summary>
         /// Gets the record.
         /// </summary>
@@ -28,31 +38,7 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Gets the program project identifier.
-        /// </summary>
-        /// <value>
-        /// The program project identifier.
-        /// </value>
-        public IKey ID { get; set; }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public IElement Code { get; set; }
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public IElement Name { get; set; }
-
+        
         /// <summary>
         /// Gets the definition.
         /// </summary>
@@ -100,16 +86,5 @@ namespace BudgetExecution
         /// The name of the program area.
         /// </value>
         public IElement ProgramAreaName { get; set; }
-        
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
-        }
     }
 }

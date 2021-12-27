@@ -214,7 +214,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( HrOrgCode?.GetValue() )
+                return Verify.IsInput( HrOrgCode?.Value?.ToString() )
                     ? HrOrgCode
                     : default( IElement );
             }
@@ -234,7 +234,7 @@ namespace BudgetExecution
         {
             try
             {
-                return AnnualBasePaid?.GetFunding() > -1.0
+                return AnnualBasePaid?.Funding > -1.0
                     ? AnnualBasePaid
                     : default( IAmount );
             }
@@ -254,7 +254,7 @@ namespace BudgetExecution
         {
             try
             {
-                return AnnualBaseHours.GetFunding() > -1.0
+                return AnnualBaseHours.Funding > -1.0
                     ? AnnualBaseHours
                     : default( IAmount );
             }
@@ -274,7 +274,7 @@ namespace BudgetExecution
         {
             try
             {
-                return CumulativeBenefits.GetFunding() > -1.0
+                return CumulativeBenefits.Funding > -1.0
                     ? CumulativeBenefits
                     : default( IAmount );
             }
@@ -294,7 +294,7 @@ namespace BudgetExecution
         {
             try
             {
-                return AnnualOtherHours?.GetFunding() > -1.0
+                return AnnualOtherHours?.Funding > -1.0
                     ? AnnualOtherHours
                     : default( IAmount );
             }
@@ -314,7 +314,7 @@ namespace BudgetExecution
         {
             try
             {
-                return AnnualOtherPaid?.GetFunding() > -1.0
+                return AnnualOtherPaid?.Funding > -1.0
                     ? AnnualOtherPaid
                     : default( IAmount );
             }
@@ -334,7 +334,7 @@ namespace BudgetExecution
         {
             try
             {
-                return AnnualOvertimeHours?.GetFunding() > -1.0
+                return AnnualOvertimeHours?.Funding > -1.0
                     ? AnnualOvertimeHours
                     : default( IAmount );
             }
@@ -354,7 +354,7 @@ namespace BudgetExecution
         {
             try
             {
-                return AnnualOvertimePaid?.GetFunding() > -1.0
+                return AnnualOvertimePaid?.Funding > -1.0
                     ? AnnualOvertimePaid
                     : default( IAmount );
             }
@@ -374,7 +374,7 @@ namespace BudgetExecution
         {
             try
             {
-                return AllocationPercentage?.GetFunding() > -0.001
+                return AllocationPercentage?.Funding > -0.001
                     ? AllocationPercentage
                     : default( IAmount );
             }
@@ -394,7 +394,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Hours?.GetFunding() > -1.0
+                return Hours?.Funding > -1.0
                     ? Hours
                     : default( IAmount );
             }
@@ -414,7 +414,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Amount?.GetFunding() > -1
+                return Amount?.Funding > -1
                     ? Amount
                     : default( IAmount );
             }

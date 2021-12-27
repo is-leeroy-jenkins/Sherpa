@@ -7,29 +7,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IAccount
+    public interface IAccount : IProgramElement
     {
-        /// <summary>
-        /// Gets the account identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IKey GetId();
-
-        /// <summary>
-        /// Gets the account code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetCode();
-
-        /// <summary>
-        /// Gets the name of the account.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetName();
-
         /// <summary>
         /// Gets the account.
         /// </summary>

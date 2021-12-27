@@ -344,8 +344,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Rate.GetFunding() > -1.0
-                    ? Rate.GetFunding().ToString( "P" )
+                return Rate.Funding > -1.0
+                    ? Rate.Funding.ToString( "P" )
                     : string.Empty;
             }
             catch( Exception ex )

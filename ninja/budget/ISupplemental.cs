@@ -4,50 +4,14 @@
 
 namespace BudgetExecution
 {
-    // ******************************************************************************************************************************
-    // ******************************************************   ASSEMBLIES   ********************************************************
-    // ******************************************************************************************************************************
-
-    public interface ISupplemental
+    public interface ISupplemental : IProgramElement
     {
-        // ****************************************************************************************************************************
-        // ************************************************  METHODS   ****************************************************************
-        // ****************************************************************************************************************************
-
-        /// <summary>
-        /// Gets the supplemental identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IKey GetId();
-
-        /// <summary>
-        /// Gets the type of the supplemental.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetSupplementalType();
-
-        /// <summary>
-        /// Gets the name of the supplemental.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetName();
-
         /// <summary>
         /// Gets the fund code.
         /// </summary>
         /// <returns>
         /// </returns>
-        IElement GetFundCode();
-
-        /// <summary>
-        /// Gets the budget object class code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetBocCode();
+        IElement Type { get; set; }
 
         /// <summary>
         /// Converts to string.

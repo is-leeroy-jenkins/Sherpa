@@ -276,7 +276,7 @@ ServiceFabricBackup/
 FakesAssemblies/
 
 # GhostDoc plugin setting file
-*.GhostDoc.xml
+#*.GhostDoc.xml
 
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
@@ -347,4 +347,3 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
-#*.db

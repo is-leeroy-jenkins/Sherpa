@@ -296,16 +296,16 @@ namespace BudgetExecution
             {
                 var _dictionary = new Dictionary<Field, DateTime>();
                 var _factory = new HolidayFactory( Record );
-                _dictionary.Add( Field.NewYears, DateTime.Parse( _factory?.GetNewYearsDay()?.GetValue() ) );
-                _dictionary.Add( Field.MartinLutherKing, DateTime.Parse( _factory?.GetMartinLutherKingDay()?.GetValue() ) );
-                _dictionary.Add( Field.Memorial, DateTime.Parse( _factory?.GetMemorialDay()?.GetValue() ) );
-                _dictionary.Add( Field.Presidents, DateTime.Parse( _factory?.GetPresidentsDay()?.GetValue() ) );
-                _dictionary.Add( Field.Veterans, DateTime.Parse( _factory?.GetVeteransDay()?.GetValue() ) );
-                _dictionary.Add( Field.Labor, DateTime.Parse( _factory?.GetLaborDay()?.GetValue() ) );
-                _dictionary.Add( Field.Independence, DateTime.Parse( _factory?.GetIndependenceDay()?.GetValue() ) );
-                _dictionary.Add( Field.Columbus, DateTime.Parse( _factory?.GetColumbusDay()?.GetValue() ) );
-                _dictionary.Add( Field.Thanksgiving, DateTime.Parse( _factory?.GetThanksgivingDay()?.GetValue() ) );
-                _dictionary.Add( Field.Christmas, DateTime.Parse( _factory?.GetChristmasDay()?.GetValue() ) );
+                _dictionary.Add( Field.NewYears, DateTime.Parse( _factory?.GetNewYearsDay()?.Value?.ToString() ) );
+                _dictionary.Add( Field.MartinLutherKing, DateTime.Parse( _factory?.GetMartinLutherKingDay()?.Value?.ToString() ) );
+                _dictionary.Add( Field.Memorial, DateTime.Parse( _factory?.GetMemorialDay()?.Value?.ToString() ) );
+                _dictionary.Add( Field.Presidents, DateTime.Parse( _factory?.GetPresidentsDay()?.Value?.ToString() ) );
+                _dictionary.Add( Field.Veterans, DateTime.Parse( _factory?.GetVeteransDay()?.Value?.ToString() ) );
+                _dictionary.Add( Field.Labor, DateTime.Parse( _factory?.GetLaborDay()?.Value?.ToString() ) );
+                _dictionary.Add( Field.Independence, DateTime.Parse( _factory?.GetIndependenceDay()?.Value?.ToString() ) );
+                _dictionary.Add( Field.Columbus, DateTime.Parse( _factory?.GetColumbusDay()?.Value?.ToString() ) );
+                _dictionary.Add( Field.Thanksgiving, DateTime.Parse( _factory?.GetThanksgivingDay()?.Value?.ToString() ) );
+                _dictionary.Add( Field.Christmas, DateTime.Parse( _factory?.GetChristmasDay()?.Value?.ToString() ) );
 
                 return _dictionary?.Any() == true
                     ? _dictionary
@@ -329,8 +329,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( FirstYear?.GetValue() )
-                    ? FirstYear?.GetValue()
+                return Verify.IsInput( FirstYear?.Value?.ToString() )
+                    ? FirstYear?.Value?.ToString()
                     : default( string );
             }
             catch( Exception ex )

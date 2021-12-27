@@ -102,7 +102,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Amount.GetFunding() > -1.0
+                return Amount.Funding > -1.0
                     ? Amount
                     : default( IAmount );
             }

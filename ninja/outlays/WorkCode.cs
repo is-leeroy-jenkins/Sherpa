@@ -51,8 +51,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.WorkCodeId );
-            Code = new Element( Record, Field.Code );
-            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code ).Code;
+            Name = new Element( Record, Field.Name ).Name;
             ShortName = new Element( Record, Field.ShortName );
             Notification = new Element( Record, Field.Notifications );
             Status = new Element( Record, Field.Status );
@@ -80,8 +80,8 @@ namespace BudgetExecution
         {
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.WorkCodeId );
-            Code = new Element( Record, Field.Code );
-            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code ).Code;
+            Name = new Element( Record, Field.Name ).Name;
             ShortName = new Element( Record, Field.ShortName );
             Notification = new Element( Record, Field.Notifications );
             Status = new Element( Record, Field.Status );
@@ -109,8 +109,8 @@ namespace BudgetExecution
         {
             Record = data;
             ID = new Key( Record, PrimaryKey.WorkCodeId );
-            Code = new Element( Record, Field.Code );
-            Name = new Element( Record, Field.Name );
+            Code = new Element( Record, Field.Code ).Code;
+            Name = new Element( Record, Field.Name ).Name;
             ShortName = new Element( Record, Field.ShortName );
             Notification = new Element( Record, Field.Notifications );
             Status = new Element( Record, Field.Status );
@@ -136,11 +136,11 @@ namespace BudgetExecution
         /// </returns>
         public override string ToString()
         {
-            if( Verify.IsElement( Code ) )
+            if( Verify.IsInput( Code ) )
             {
                 try
                 {
-                    return Code.GetValue();
+                    return Code;
                 }
                 catch( Exception ex )
                 {
@@ -162,7 +162,7 @@ namespace BudgetExecution
             try
             {
                 return Verify.IsElement( BFY )
-                    ? new BudgetFiscalYear( BFY?.GetValue() )
+                    ? new BudgetFiscalYear( BFY?.Value?.ToString() )
                     : default( BudgetFiscalYear );
             }
             catch( Exception ex )
@@ -185,7 +185,7 @@ namespace BudgetExecution
                 {
                     var _dict = new Dictionary<string, object>
                     {
-                        [ $"{Field.FocCode}" ] = FocCode?.GetValue()
+                        [ $"{Field.FocCode}" ] = FocCode?.Value?.ToString()
                     };
 
                     var _builder = new ConnectionBuilder( Source.FinanceObjectClass );
@@ -213,7 +213,7 @@ namespace BudgetExecution
             try
             {
                 return Verify.IsElement( FundCode )
-                    ? new Fund( FundCode?.GetValue() )
+                    ? new Fund( FundCode?.Value?.ToString() )
                     : default( Fund );
             }
             catch( Exception ex )
@@ -236,7 +236,7 @@ namespace BudgetExecution
                 {
                     var _dictionary = new Dictionary<string, object>
                     {
-                        [ $"{Field.CostOrgCode}" ] = CostOrgCode?.GetValue()
+                        [ $"{Field.CostOrgCode}" ] = CostOrgCode?.Value?.ToString()
                     };
 
                     var _builder = new ConnectionBuilder( Source.Organizations );
@@ -267,7 +267,7 @@ namespace BudgetExecution
                 {
                     var _dictionary = new Dictionary<string, object>
                     {
-                        [ $"{Field.Code}" ] = AccountCode?.GetValue()
+                        [ $"{Field.Code}" ] = AccountCode?.Value?.ToString()
                     };
 
                     var _builder = new ConnectionBuilder( Source.Accounts );
@@ -298,7 +298,7 @@ namespace BudgetExecution
                 {
                     var _dictionary = new Dictionary<string, object>
                     {
-                        [ $"{Field.Code}" ] = RcCode?.GetValue()
+                        [ $"{Field.Code}" ] = RcCode?.Value?.ToString()
                     };
 
                     var _builder = new ConnectionBuilder( Source.ResponsibilityCenters );
@@ -385,66 +385,6 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return Source.NS;
-            }
-        }
-
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IKey GetId()
-        {
-            try
-            {
-                return Verify.IsKey( ID )
-                    ? ID
-                    : Key.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Key.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetCode()
-        {
-            try
-            {
-                return Verify.IsElement( Code )
-                    ? Code
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetName()
-        {
-            try
-            {
-                return Verify.IsElement( Name )
-                    ? Name
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
             }
         }
     }

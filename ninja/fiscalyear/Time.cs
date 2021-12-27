@@ -57,7 +57,6 @@ namespace BudgetExecution
             Name = GetDate( kvp.Key );
             Date = SetDate( kvp.Key );
             Day = SetDay( kvp.Value?.ToString() );
-            Data = Day.ToString();
         }
 
         /// <summary>
@@ -70,7 +69,6 @@ namespace BudgetExecution
             Name = GetDate( name );
             Date = SetDate( name );
             Day = SetDay( value );
-            Data = Day.ToString();
         }
 
         /// <summary>
@@ -83,7 +81,6 @@ namespace BudgetExecution
             Name = GetDate( date );
             Date = SetDate( date.ToString() );
             Day = SetDay( value );
-            Data = Day.ToString();
         }
 
         /// <summary>
@@ -96,7 +93,6 @@ namespace BudgetExecution
             Date = SetDate( dataRow, date );
             Name = GetDate( dataRow, date );
             Day = SetDay( dataRow, date );
-            Data = Day.ToString();
         }
 
         /// <summary>
@@ -109,7 +105,6 @@ namespace BudgetExecution
             Date = SetDate( dataRow, value );
             Name = GetDate( dataRow, value );
             Day = SetDay( dataRow, value );
-            Data = Day.ToString();
         }
 
         /// <summary>
@@ -122,7 +117,6 @@ namespace BudgetExecution
             Date = SetDate( dataRow, column.ColumnName );
             Name = GetDate( dataRow, column.ColumnName );
             Day = SetDay( dataRow, dataRow[ column ]?.ToString() );
-            Data = Day.ToString();
         }
         
         /// <summary>
@@ -237,15 +231,14 @@ namespace BudgetExecution
         /// </c>
         /// .
         /// </returns>
-        public bool IsEqual( ITime day )
+        public bool IsEqual( IUnit day )
         {
             if( day != null
                 && day != Default )
             {
                 try
                 {
-                    if( day?.GetValue()?.Equals( Day ) == true
-                        && day?.GetName() == Name )
+                    if( day?.Value?.ToString()?.Equals( Day ) == true )
                     {
                         return true;
                     }
@@ -284,8 +277,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( first?.GetValue()?.Equals( second?.GetValue() ) == true
-                        && first?.GetName() == second?.GetName() )
+                    if( first?.Value?.ToString()?.Equals( second?.Value?.ToString() ) == true )
                     {
                         return true;
                     }

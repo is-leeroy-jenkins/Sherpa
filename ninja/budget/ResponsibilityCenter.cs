@@ -16,7 +16,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class ResponsibilityCenter : IResponsibilityCenter, IProgramElement, ISource
+    public class ResponsibilityCenter : Unit, IResponsibilityCenter, ISource
     {
         /// <summary>The source</summary>
         public Source Source = Source.ResponsibilityCenters;
@@ -51,16 +51,8 @@ namespace BudgetExecution
         /// <value>
         /// The rc code.
         /// </value>
-        public IElement Code { get; set; } 
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public IElement Name { get; set; } 
-
+        public string Code { get; set; } 
+        
         /// <summary>
         /// Gets the rc.
         /// </summary>
@@ -87,10 +79,10 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.ResponsibilityCenterId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.RcCode );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.RcCode ).Code;
             Data = Record?.ToDictionary();
-            RC = (RC)Enum.Parse( typeof( RC ), Name.GetValue() );
+            RC = (RC)Enum.Parse( typeof( RC ), Name );
         }
 
         /// <summary>
@@ -102,10 +94,10 @@ namespace BudgetExecution
         {
             Record = builder?.GetRecord();
             ID = new Key( Record, PrimaryKey.ResponsibilityCenterId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.RcCode );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.RcCode ).Code;
             Data = Record?.ToDictionary();
-            RC = (RC)Enum.Parse( typeof( RC ), Name.GetValue() );
+            RC = (RC)Enum.Parse( typeof( RC ), Name );
         }
 
         /// <summary>
@@ -118,10 +110,10 @@ namespace BudgetExecution
         {
             Record = data;
             ID = new Key( Record, PrimaryKey.ResponsibilityCenterId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.RcCode );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.RcCode ).Code;
             Data = Record?.ToDictionary();
-            RC = (RC)Enum.Parse( typeof( RC ), Name.GetValue() );
+            RC = (RC)Enum.Parse( typeof( RC ), Name );
         }
 
         /// <summary>
@@ -133,10 +125,10 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, SetArgs( rcCode ) )?.GetRecord();
             ID = new Key( Record, PrimaryKey.ResponsibilityCenterId );
-            Name = new Element( Record, Field.Name );
-            Code = new Element( Record, Field.RcCode );
+            Name = new Element( Record, Field.Name ).Name;
+            Code = new Element( Record, Field.RcCode ).Code;
             Data = Record?.ToDictionary();
-            RC = (RC)Enum.Parse( typeof( RC ), Name.GetValue() );
+            RC = (RC)Enum.Parse( typeof( RC ), Name );
         }
 
         /// <summary>
@@ -178,8 +170,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsElement( Code )
-                    ? Code.GetValue()
+                return Verify.IsInput( Code )
+                    ? Code
                     : string.Empty;
             }
             catch( Exception ex )
@@ -209,66 +201,6 @@ namespace BudgetExecution
             }
         }
         
-        /// <summary>
-        /// Gets the responsibility center identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IKey GetId()
-        {
-            try
-            {
-                return Verify.IsKey( ID )
-                    ? ID
-                    : Key.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Key.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the responsibility center code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetCode()
-        {
-            try
-            {
-                return Verify.IsElement( Code )
-                    ? Code
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the responsibility center.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetName()
-        {
-            try
-            {
-                return Verify.IsElement( Name )
-                    ? Name
-                    : Element.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
         /// <summary>
         /// Gets the responsibility center.
         /// </summary>
@@ -305,17 +237,6 @@ namespace BudgetExecution
                 Fail( ex );
                 return Source.NS;
             }
-        }
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
         }
     }
 }

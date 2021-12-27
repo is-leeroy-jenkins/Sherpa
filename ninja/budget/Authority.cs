@@ -330,8 +330,8 @@ namespace BudgetExecution
                 {
                     try
                     {
-                        var _availability =
-                            (FundAvailability)Enum.Parse( typeof( FundAvailability ), _element?.GetValue() );
+                        var _value = _element?.Value?.ToString()?.ToString();
+                        var _availability = (FundAvailability)Enum.Parse( typeof( FundAvailability ), _value );
 
                         return Validate.Availability( _availability )
                             ? _availability
