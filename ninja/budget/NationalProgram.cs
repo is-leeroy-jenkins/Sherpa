@@ -18,7 +18,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class NationalProgram : Unit, INationalProgram, ISource
+    public class NationalProgram : DataUnit, INationalProgram, ISource
     {
         /// <summary>
         /// The source

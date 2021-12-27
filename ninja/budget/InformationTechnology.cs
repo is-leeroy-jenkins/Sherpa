@@ -19,7 +19,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class InformationTechnology : Unit, IInformationTechnology, ISource
+    public class InformationTechnology : DataUnit, IInformationTechnology, ISource
     {
         /// <summary>
         /// The source

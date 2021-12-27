@@ -16,7 +16,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class ResponsibilityCenter : Unit, IResponsibilityCenter, ISource
+    public class ResponsibilityCenter : DataUnit, IResponsibilityCenter, ISource
     {
         /// <summary>The source</summary>
         public Source Source = Source.ResponsibilityCenters;

@@ -46,7 +46,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Local" ) ]
-    public class AllowanceHolder : Unit, IAllowanceHolder, ISource
+    public class AllowanceHolder : DataUnit, IAllowanceHolder, ISource
     {
         /// <summary>
         /// The source

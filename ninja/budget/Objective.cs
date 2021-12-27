@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class Objective : Unit, IObjective, ISource
+    public class Objective : DataUnit, IObjective, ISource
     {
         /// <summary>
         /// The source

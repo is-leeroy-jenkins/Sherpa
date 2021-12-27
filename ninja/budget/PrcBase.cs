@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public abstract class PrcBase : Unit
+    public abstract class PrcBase : DataUnit
     {
         /// <summary>
         /// Gets or sets the dataRow.

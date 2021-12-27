@@ -16,7 +16,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
-    public class Fund : Unit, IFund, ISource
+    public class Fund : DataUnit, IFund, ISource
     {
         /// <summary>
         /// The source

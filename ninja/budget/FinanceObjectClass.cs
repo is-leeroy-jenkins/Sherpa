@@ -20,7 +20,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
     [ SuppressMessage( "ReSharper", "UnassignedReadonlyField" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class FinanceObjectClass : Unit, IFinanceObjectClass, ISource
+    public class FinanceObjectClass : DataUnit, IFinanceObjectClass, ISource
     {
         /// <summary>
         /// Gets the source.

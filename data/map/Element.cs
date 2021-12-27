@@ -15,7 +15,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="BudgetExecution.IElement" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Element : Unit
+    public class Element : DataUnit
     {
         /// <summary>
         /// Gets the identifier.

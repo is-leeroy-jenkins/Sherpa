@@ -19,7 +19,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class Goal : Unit, IGoal, ISource
+    public class Goal : DataUnit, IGoal, ISource
     {
         /// <summary>
         /// The source

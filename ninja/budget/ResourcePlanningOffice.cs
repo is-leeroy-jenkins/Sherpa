@@ -18,7 +18,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class ResourcePlanningOffice : Unit, IResourcePlanningOffice, ISource
+    public class ResourcePlanningOffice : DataUnit, IResourcePlanningOffice, ISource
     {
         /// <summary>
         /// The source

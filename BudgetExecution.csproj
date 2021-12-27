@@ -520,7 +520,7 @@
     <Compile Include="Data\Map\IUnit.cs" />
     <Compile Include="Data\Map\Key.cs" />
     <Compile Include="Data\Map\Map.cs" />
-    <Compile Include="Data\Map\Unit.cs" />
+    <Compile Include="Data\Map\DataUnit.cs" />
     <Compile Include="Data\Query\AccessQuery.cs" />
     <Compile Include="Data\Query\CsvQuery.cs" />
     <Compile Include="Data\Query\ExcelQuery.cs" />

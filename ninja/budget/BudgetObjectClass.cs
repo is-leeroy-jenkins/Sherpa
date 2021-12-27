@@ -25,7 +25,7 @@ namespace BudgetExecution
     /// <seealso cref = "IBudgetObjectClass"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class BudgetObjectClass : Unit, IBudgetObjectClass, ISource
+    public class BudgetObjectClass : DataUnit, IBudgetObjectClass, ISource
     {
         /// <summary>
         /// The codes

@@ -11,7 +11,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public abstract class ProgramBase : Unit, IProgramElement
+    public abstract class ProgramBase : DataUnit, IProgramElement
     {
         /// <summary>
         /// Gets the identifier.

@@ -12,9 +12,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.Unit" />
+    /// <seealso cref="DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
-    public abstract class TimeBase : Unit
+    public abstract class TimeBase : DataUnit
     {
         /// <summary>
         /// Gets the date.

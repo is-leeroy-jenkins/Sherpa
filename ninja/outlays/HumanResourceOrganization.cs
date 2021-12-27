@@ -19,7 +19,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MissingBlankLines" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class HumanResourceOrganization : Unit, IHumanResourceOrganization, ISource
+    public class HumanResourceOrganization : DataUnit, IHumanResourceOrganization, ISource
     {
         /// <summary>
         /// The source

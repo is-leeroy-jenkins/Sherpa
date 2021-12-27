@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
-    public abstract class AccountBase : Unit
+    public abstract class AccountBase : DataUnit
     {
         /// <summary>
         /// Gets the Data.

@@ -16,7 +16,7 @@ namespace BudgetExecution
     /// <seealso cref="BudgetExecution.IUnit" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class Unit : IElement
+    public abstract class DataUnit : IElement
     {
         /// <summary>
         /// The value
@@ -35,24 +35,6 @@ namespace BudgetExecution
         /// Gets the field.
         /// </summary>
         public Field Field { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Unit"/> class.
-        /// </summary>
-        public Unit()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Unit"/> class.
-        /// </summary>
-        /// <param name="kvp">The KVP.</param>
-        public Unit( KeyValuePair<string, object> kvp )
-        {
-            Field = (Field)Enum.Parse( typeof( Field ), kvp.Key );
-            Name = kvp.Key;
-            Value = kvp.Value.ToString();
-        }
         
         /// <summary>
         /// Determines whether the specified unit is match.

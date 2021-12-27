@@ -17,7 +17,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnassignedGetOnlyAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
-    public abstract class Arg : Unit
+    public abstract class Arg : DataUnit
     {
         /// <summary>
         /// The values

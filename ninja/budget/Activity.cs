@@ -33,7 +33,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Activity : Unit, IActivity, ISource
+    public class Activity : DataUnit, IActivity, ISource
     {
         /// <summary>
         /// Gets the source.

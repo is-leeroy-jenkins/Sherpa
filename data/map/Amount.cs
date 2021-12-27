@@ -17,7 +17,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
-    public class Amount : Unit, IAmount
+    public class Amount : DataUnit, IAmount
     {
         /// <summary>
         /// The default

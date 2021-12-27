@@ -15,7 +15,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class ProgramArea : Unit, IProgramArea, ISource
+    public class ProgramArea : DataUnit, IProgramArea, ISource
     {
         /// <summary>
         /// Gets the dataRow.
