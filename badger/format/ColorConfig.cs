@@ -35,7 +35,7 @@ namespace BudgetExecution
         /// <value>
         /// The border blue.
         /// </value>
-        public static Color BorderColorBlue { get; set; } = Color.FromArgb( 0, 120, 210 );
+        public static Color BorderColorBlue { get; set; } = Color.FromArgb( 70, 130, 180 );
 
         /// <summary>
         /// Gets or sets the border red.
@@ -51,7 +51,7 @@ namespace BudgetExecution
         /// <value>
         /// The color of the form dark back.
         /// </value>
-        public static Color FormBackColorDark { get; set; } = Color.FromArgb( 5, 5, 5 );
+        public static Color FormBackColorDark { get; set; } = Color.FromArgb( 10, 10, 10 );
 
         /// <summary>
         /// Gets or sets the fore red.
@@ -68,6 +68,14 @@ namespace BudgetExecution
         /// The fore gray.
         /// </value>
         public static Color ForeColorGray { get; set; } = Color.FromArgb( 141, 139, 138 );
+
+        /// <summary>
+        /// Gets or sets the fore color light gray.
+        /// </summary>
+        /// <value>
+        /// The fore color light gray.
+        /// </value>
+        public static Color ForeColorLightGray { get; set; } = Color.FromArgb( 211, 211, 211 );
 
         /// <summary>
         /// Gets or sets the fore white.

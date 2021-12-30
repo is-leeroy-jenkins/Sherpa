@@ -91,10 +91,10 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="DataGridPanel"/> class.
         /// </summary>
-        /// <param name="datagrid">The datagrid.</param>
+        /// <param name="dataGrid">The dataGrid.</param>
         [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
-        public DataGridPanel( DataGridView datagrid )
-            : this( datagrid.Size, datagrid.Location )
+        public DataGridPanel( DataGridView dataGrid )
+            : this( dataGrid.Size, dataGrid.Location )
         {
         }
 
