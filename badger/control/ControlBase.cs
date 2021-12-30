@@ -31,8 +31,8 @@ namespace BudgetExecution
         /// </summary>
         public ControlBase()
         {
-            BackColor = ColorConfig.FormDarkBackColor;
-            ForeColor = ColorConfig.ForeGray;
+            BackColor = ColorConfig.FormBackColorDark;
+            ForeColor = ColorConfig.ForeColorGray;
             BorderStyle = BorderStyle.FixedSingle;
             DoubleBuffered = true;
             AutoScaleMode = AutoScaleMode.Dpi;

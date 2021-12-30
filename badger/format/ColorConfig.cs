@@ -10,102 +10,133 @@ namespace BudgetExecution
     using OfficeOpenXml.Style;
     using Syncfusion.XlsIO;
 
-    /// <summary>
-    /// 
-    /// </summary>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class ColorConfig
     {
         /// <summary>
-        /// The orange border
+        /// Gets or sets the border yellow.
         /// </summary>
-        public static Color BorderYellow { get; set; } = Color.FromArgb( 128, 64, 0 );
+        /// <value>
+        /// The border yellow.
+        /// </value>
+        public static Color BorderColorYellow { get; set; } = Color.FromArgb( 128, 64, 0 );
 
         /// <summary>
-        /// The gray border
+        /// Gets or sets the border dark.
         /// </summary>
-        public static Color BorderDark { get; set; } = Color.FromArgb( 25, 18, 1 );
+        /// <value>
+        /// The border dark.
+        /// </value>
+        public static Color BorderColorDark { get; set; } = Color.FromArgb( 25, 18, 1 );
 
         /// <summary>
-        /// The border blue
+        /// Gets or sets the border blue.
         /// </summary>
-        public static Color BorderBlue { get; set; } = Color.FromArgb( 0, 120, 210 );
+        /// <value>
+        /// The border blue.
+        /// </value>
+        public static Color BorderColorBlue { get; set; } = Color.FromArgb( 0, 120, 210 );
 
         /// <summary>
-        /// The red border
+        /// Gets or sets the border red.
         /// </summary>
-        public static Color BorderRed { get; set; } = Color.FromArgb( 192, 0, 0 );
+        /// <value>
+        /// The border red.
+        /// </value>
+        public static Color BorderColorRed { get; set; } = Color.FromArgb( 192, 0, 0 );
 
         /// <summary>
-        /// The black background
+        /// Gets or sets the color of the form dark back.
         /// </summary>
-        public static Color FormDarkBackColor { get; set; } = Color.FromArgb( 5, 5, 5 );
+        /// <value>
+        /// The color of the form dark back.
+        /// </value>
+        public static Color FormBackColorDark { get; set; } = Color.FromArgb( 5, 5, 5 );
 
         /// <summary>
-        /// The hover color yellow
+        /// Gets or sets the fore red.
         /// </summary>
-        public static Color HoverYellow { get; set; } = Color.FromArgb( 24, 19, 1 );
+        /// <value>
+        /// The fore red.
+        /// </value>
+        public static Color ForeColorRed { get; set; } = Color.FromArgb( 192, 0, 0 );
 
         /// <summary>
-        /// The red foreground
+        /// Gets or sets the fore gray.
         /// </summary>
-        public static Color ForeRed { get; set; } = Color.FromArgb( 192, 0, 0 );
+        /// <value>
+        /// The fore gray.
+        /// </value>
+        public static Color ForeColorGray { get; set; } = Color.FromArgb( 141, 139, 138 );
 
         /// <summary>
-        /// The gray foreground
+        /// Gets or sets the fore white.
         /// </summary>
-        public static Color ForeGray { get; set; } = Color.FromArgb( 141, 139, 138 );
+        /// <value>
+        /// The fore white.
+        /// </value>
+        public static Color ForeColorWhite { get; set; } = Color.White;
 
         /// <summary>
-        /// The white foreground
+        /// Gets or sets the fore black.
         /// </summary>
-        public static Color ForeWhite { get; set; } = Color.White;
+        /// <value>
+        /// The fore black.
+        /// </value>
+        public static Color ForeColorBlack { get; set; } = Color.Black;
 
         /// <summary>
-        /// The black foreground
+        /// Gets or sets the color of the control dark back.
         /// </summary>
-        public static Color ForeBlack { get; set; } = Color.Black;
+        /// <value>
+        /// The color of the control dark back.
+        /// </value>
+        public static Color ControlBackColorDark { get; set; } = Color.FromArgb( 15, 15, 15 );
 
         /// <summary>
-        /// The control dark back color
+        /// Gets or sets the transparent.
         /// </summary>
-        public static Color ControlDarkBackColor { get; set; } = Color.FromArgb( 15, 15, 15 );
+        /// <value>
+        /// The transparent.
+        /// </value>
+        public static Color ColorTransparent { get; set; } = Color.Transparent;
 
         /// <summary>
-        /// The clear background
+        /// Gets or sets the control dark interior.
         /// </summary>
-        public static Color Transparent { get; set; } = Color.Transparent;
+        /// <value>
+        /// The control dark interior.
+        /// </value>
+        public static Color ControlInteriorColorDark { get; set; } = Color.FromArgb( 25, 25, 25 );
 
         /// <summary>
-        /// The dark background inside a control
+        /// Gets or sets the hover gray.
         /// </summary>
-        public static Color ControlDarkInterior { get; set; } = Color.FromArgb( 25, 25, 25 );
+        /// <value>
+        /// The hover gray.
+        /// </value>
+        public static Color HoverColorDark { get; set; } = Color.FromArgb( 40, 40, 40 );
 
         /// <summary>
-        /// The gray back hover
+        /// Gets or sets the hover blue.
         /// </summary>
-        public static Color HoverGray { get; set; } = Color.FromArgb( 38, 38, 39 );
+        /// <value>
+        /// The hover blue.
+        /// </value>
+        public static Color HoverColorBlue { get; set; } = Color.FromArgb( 50, 93, 129 );
 
         /// <summary>
-        /// The blue back hover
-        /// </summary>
-        public static Color HoverBlue { get; set; } = Color.FromArgb( 50, 93, 129 );
-        
-        /// <summary>
-        /// Initializes a new instance of the <see cref = "ColorConfig"/> class.
+        /// Initializes a new instance of the <see cref="ColorConfig"/> class.
         /// </summary>
         public ColorConfig()
         {
         }
-        
+
         /// <summary>
         /// Gets the color.
         /// </summary>
-        /// <param name = "color" >
-        /// The color.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="color">The color.</param>
+        /// <returns></returns>
         public static Color GetColor( Color color )
         {
             try
@@ -124,7 +155,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the excel fill style.
         /// </summary>
-        /// <param name="fillStyle">The fillStyle.</param>
+        /// <param name="fillStyle">The fill style.</param>
         /// <returns></returns>
         public static ExcelFillStyle GetExcelFillStyle( ExcelFillStyle fillStyle )
         {
@@ -164,7 +195,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the type of the spreadsheet fill.
         /// </summary>
-        /// <param name="fillType">The fillType.</param>
+        /// <param name="fillType">Type of the fill.</param>
         /// <returns></returns>
         public static ExcelFillType GetSpreadsheetFillType( ExcelFillType fillType )
         {
@@ -200,16 +231,12 @@ namespace BudgetExecution
                 return ExcelGradientStyle.Horizontal;
             }
         }
-        
+
         /// <summary>
         /// Called when [color changed].
         /// </summary>
-        /// <param name = "sender" >
-        /// The sender.
-        /// </param>
-        /// <param name = "e" >
-        /// The <see cref = "EventArgs"/> instance containing the event data.
-        /// </param>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public static void OnColorChanged( object sender, EventArgs e )
         {
             if( sender != null
@@ -228,7 +255,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )

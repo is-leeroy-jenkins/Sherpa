@@ -24,7 +24,7 @@ namespace BudgetExecution
             Margin = new Padding( 5, 5, 5, 5 );
             Padding = new Padding( 0 );
             Size = new Size( 150, 23 );
-            ForeColor = ColorConfig.ForeBlack;
+            ForeColor = ColorConfig.ForeColorBlack;
             Font = FontConfig.FontSizeSmall;
             Visible = true;
             Enabled = true;

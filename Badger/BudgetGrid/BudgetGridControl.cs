@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Drawing;
+
     /// <summary>
     /// 
     /// </summary>
@@ -11,11 +13,16 @@ namespace BudgetExecution
     public partial class BudgetGridControl : ControlBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetGridControl"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="BudgetGridControl"/> class.
         /// </summary>
         public BudgetGridControl()
         {
             InitializeComponent();
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            ForeColor = System.Drawing.Color.LightGray;
+            Name = "BudgetGridControl";
+            Size = new Size( 813, 405 );
         }
     }
 }

@@ -41,9 +41,9 @@ namespace BudgetExecution
         /// </summary>
         public ClockPanel()
         {
-            BackColor = ColorConfig.FormDarkBackColor;
+            BackColor = ColorConfig.FormBackColorDark;
             BorderColor = BackColor;
-            ForeColor = ColorConfig.ForeGray;
+            ForeColor = ColorConfig.ForeColorGray;
             Font = FontConfig.FontSizeSmall;
             Margin = ControlConfig.Margin;
             Padding = ControlConfig.Padding;
@@ -56,9 +56,9 @@ namespace BudgetExecution
             ShowHourDesignator = true;
             ShowMinute = true;
             ShowSecondHand = true;
-            HourHandColor = ColorConfig.ForeGray;
-            MinuteColor = ColorConfig.ForeGray;
-            SecondHandColor = ColorConfig.ForeGray;
+            HourHandColor = ColorConfig.ForeColorGray;
+            MinuteColor = ColorConfig.ForeColorGray;
+            SecondHandColor = ColorConfig.ForeColorGray;
             VisualStyle = ClockVisualStyle.None;
             Location = ControlConfig.GetLocation();
             Dock = ControlConfig.GetDockStyle();

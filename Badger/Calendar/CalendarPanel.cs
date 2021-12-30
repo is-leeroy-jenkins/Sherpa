@@ -39,8 +39,8 @@ namespace BudgetExecution
             Location = ControlConfig.GetLocation();
             Font = FontConfig.FontSizeSmall;
             Margin = ControlConfig.Margin;
-            ForeColor = ColorConfig.ForeGray;
-            BackColor = ColorConfig.FormDarkBackColor;
+            ForeColor = ColorConfig.ForeColorGray;
+            BackColor = ColorConfig.FormBackColorDark;
             Dock = ControlConfig.GetDockStyle();
             Anchor = ControlConfig.GetAnchorStyle();
             Visible = true;
@@ -52,10 +52,10 @@ namespace BudgetExecution
             BorderStyle = BorderStyle.FixedSingle;
             FirstDayOfWeek = Day.Monday;
             BottomHeight = 30;
-            DayNamesColor = ColorConfig.FormDarkBackColor;
+            DayNamesColor = ColorConfig.FormBackColorDark;
             DayNamesFont = new Font( "Roboto", 10, FontStyle.Bold );
             DaysFont = FontConfig.FontSizeMedium;
-            DaysColor = ColorConfig.FormDarkBackColor;
+            DaysColor = ColorConfig.FormBackColorDark;
             DaysHeaderInterior = new BrushInfo( SystemColors.ControlDark );
             HeadForeColor = Color.White;
             HeaderHeight = 40;

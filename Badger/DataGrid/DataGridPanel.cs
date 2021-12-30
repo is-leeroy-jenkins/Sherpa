@@ -36,7 +36,7 @@ namespace BudgetExecution
             SizeConfig.GetSize( 700, 400 );
             Anchor = ControlConfig.GetAnchorStyle();
             EnableHeadersVisualStyles = false;
-            BackColor = ColorConfig.FormDarkBackColor;
+            BackColor = ColorConfig.FormBackColorDark;
             BorderStyle = BorderStyle.FixedSingle;
             BackgroundColor = BackColor;
 
@@ -55,7 +55,7 @@ namespace BudgetExecution
 
             // Row Configuration
             RowHeadersWidth = 26;
-            RowHeadersDefaultCellStyle.BackColor = ColorConfig.ForeGray;
+            RowHeadersDefaultCellStyle.BackColor = ColorConfig.ForeColorGray;
             RowHeadersDefaultCellStyle.Font = new Font( "Roboto", 10, FontStyle.Bold );
             RowHeadersDefaultCellStyle.ForeColor = Color.Black;
             RowHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter;
@@ -145,7 +145,7 @@ namespace BudgetExecution
                     Alignment = DataGridViewContentAlignment.BottomCenter,
                     ForeColor = Color.Black,
                     Font = new Font( "Roboto", 10, FontStyle.Bold ),
-                    BackColor = ColorConfig.ForeGray
+                    BackColor = ColorConfig.ForeColorGray
                 };
 
                 RowsDefaultCellStyle = new DataGridViewCellStyle

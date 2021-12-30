@@ -168,10 +168,10 @@ namespace BudgetExecution
                 {
                     using var _title = new ChartTitle();
                     _title.Text = Main;
-                    _title.ForeColor = ColorConfig.ForeGray;
+                    _title.ForeColor = ColorConfig.ForeColorGray;
                     _title.Visible = true;
                     _title.Font = FontConfig.FontSizeSmall;
-                    _title.BackColor = ColorConfig.FormDarkBackColor;
+                    _title.BackColor = ColorConfig.FormBackColorDark;
                     return _title;
                 }
                 catch( Exception ex )
@@ -196,10 +196,10 @@ namespace BudgetExecution
                 {
                     using var _title = new ChartTitle();
                     _title.Text = Main;
-                    _title.ForeColor = ColorConfig.ForeGray;
+                    _title.ForeColor = ColorConfig.ForeColorGray;
                     _title.Visible = true;
                     _title.Font = FontConfig.FontSizeSmall;
-                    _title.BackColor = ColorConfig.FormDarkBackColor;
+                    _title.BackColor = ColorConfig.FormBackColorDark;
                     return _title;
                 }
                 catch( Exception ex )
@@ -230,7 +230,7 @@ namespace BudgetExecution
                     _title.Visible = true;
                     _title.Font = font;
                     _title.ForeColor = color;
-                    _title.BackColor = ColorConfig.FormDarkBackColor;
+                    _title.BackColor = ColorConfig.FormBackColorDark;
                     return _title;
                 }
                 catch( Exception ex )
@@ -261,7 +261,7 @@ namespace BudgetExecution
                     _title.Visible = true;
                     _title.Font = font;
                     _title.ForeColor = color;
-                    _title.BackColor = ColorConfig.FormDarkBackColor;
+                    _title.BackColor = ColorConfig.FormBackColorDark;
                     return _title;
                 }
                 catch( Exception ex )

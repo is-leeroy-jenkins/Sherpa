@@ -37,7 +37,7 @@ namespace BudgetExecution
         public ClosePanel()
         {
             // Prologue
-            ForeColor = ColorConfig.ForeGray;
+            ForeColor = ColorConfig.ForeColorGray;
             Font = FontConfig.FontSizeSmall;
             Margin = new Padding( 0 );
             Padding = new Padding( 0 );
@@ -47,13 +47,13 @@ namespace BudgetExecution
             Enabled = true;
             CloseHoverBackColor = Color.Red;
             CloseHoverForeColor = Color.White;
-            CloseNormalForeColor = ColorConfig.FormDarkBackColor;
+            CloseNormalForeColor = ColorConfig.FormBackColorDark;
             MaximizeHoverBackColor = Color.Blue;
             MaximizeHoverForeColor = Color.White;
-            MaximizeNormalForeColor = ColorConfig.FormDarkBackColor;
+            MaximizeNormalForeColor = ColorConfig.FormBackColorDark;
             MinimizeHoverBackColor = Color.Blue;
             MinimizeHoverForeColor = Color.White;
-            MinimizeNormalForeColor = ColorConfig.FormDarkBackColor;
+            MinimizeNormalForeColor = ColorConfig.FormBackColorDark;
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";

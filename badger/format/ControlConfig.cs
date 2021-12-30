@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <summary>
         /// The margin
         /// </summary>
-        public static Padding Margin { get; set; } = new Padding( 5 );
+        public static Padding Margin { get; set; } = new Padding( 3 );
 
         /// <summary>
         /// The padding
@@ -113,7 +113,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( AnchorStyles );
+                return AnchorStyles.None;
             }
         }
 
@@ -138,11 +138,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( DockStyle );
+                    return DockStyle.None;
                 }
             }
 
-            return default( DockStyle );
+            return DockStyle.None;
         }
 
         /// <summary>
@@ -159,9 +159,6 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Parent = control;
-                    Parent.Controls.Add( control );
-
                     return Parent.Controls.Contains( control )
                         ? Parent
                         : default( Control );

@@ -238,11 +238,11 @@ namespace BudgetExecution
         public void SetDataSource<T1>( IEnumerable<T1> data, object field = null )
             where T1 : IEnumerable<DataRow>
         {
-            if( Verify.IsInput( data ) )
+            if( Verify.IsRef( data ) )
             {
                 try
                 {
-                    if( Verify.IsInput( field?.ToString() ) )
+                    if( Verify.IsRef( field ) )
                     {
                         BindingSource.DataSource = data.ToList();
                         BindingSource.DataMember = field?.ToString();

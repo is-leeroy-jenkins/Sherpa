@@ -30,9 +30,9 @@ namespace BudgetExecution
         public ButtonPanel()
         {
             // Basic Configuration
-            ForeColor = ColorConfig.ForeGray;
+            ForeColor = ColorConfig.ForeColorGray;
             Font = FontConfig.FontSizeSmall;
-            ForeColor = ColorConfig.ForeGray;
+            ForeColor = ColorConfig.ForeColorGray;
             Margin = ControlConfig.Margin;
             Padding = ControlConfig.Padding;
             Size = SizeConfig.GetSize( 160, 80 );
@@ -44,15 +44,15 @@ namespace BudgetExecution
             Enabled = true;
 
             // BackColor Configuration
-            BackColor = ColorConfig.FormDarkBackColor;
-            BackColorState.Disabled = ColorConfig.FormDarkBackColor;
-            BackColorState.Enabled = ColorConfig.FormDarkBackColor;
-            BackColorState.Hover = ColorConfig.HoverGray;
-            BackColorState.Pressed = ColorConfig.BorderYellow;
+            BackColor = ColorConfig.FormBackColorDark;
+            BackColorState.Disabled = ColorConfig.FormBackColorDark;
+            BackColorState.Enabled = ColorConfig.FormBackColorDark;
+            BackColorState.Hover = ColorConfig.HoverColorDark;
+            BackColorState.Pressed = ColorConfig.BorderColorYellow;
 
             // BorderColor Configuration
-            Border.Color = ColorConfig.FormDarkBackColor;
-            Border.HoverColor = ColorConfig.HoverGray;
+            Border.Color = ColorConfig.FormBackColorDark;
+            Border.HoverColor = ColorConfig.HoverColorDark;
             Border.HoverVisible = true;
             Border.Type = ShapeTypes.Rounded;
             Border.Thickness = 1;
@@ -62,9 +62,9 @@ namespace BudgetExecution
 
             // Text Configuration
             TextStyle.Pressed = Color.White;
-            TextStyle.Disabled = ColorConfig.FormDarkBackColor;
-            TextStyle.Enabled = ColorConfig.ForeGray;
-            TextStyle.Hover = ColorConfig.ForeGray;
+            TextStyle.Disabled = ColorConfig.FormBackColorDark;
+            TextStyle.Enabled = ColorConfig.ForeColorGray;
+            TextStyle.Hover = ColorConfig.ForeColorGray;
             TextStyle.TextAlignment = AlignConfig.StringAlignCenter;
             TextStyle.TextLineAlignment = AlignConfig.StringAlignCenter;
             MouseHover += OnMouseOver;

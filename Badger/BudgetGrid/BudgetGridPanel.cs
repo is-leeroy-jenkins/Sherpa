@@ -32,7 +32,7 @@ namespace BudgetExecution
         {
             // Basic Properties
             ForeColor = Color.White;
-            BackColor = ColorConfig.FormDarkBackColor;
+            BackColor = ColorConfig.FormBackColorDark;
             Font = new Font( "Roboto", 8, FontStyle.Bold );
             Margin = new Padding( 0 );
             Padding = new Padding( 0 );
@@ -60,8 +60,8 @@ namespace BudgetExecution
             AllowResizeToFit = true;
             ExcelLikeSelectionFrame = true;
             ExcelLikeAlignment = true;
-            AlphaBlendSelectionColor = ColorConfig.BorderYellow;
-            Properties.BackgroundColor = ColorConfig.FormDarkBackColor;
+            AlphaBlendSelectionColor = ColorConfig.BorderColorYellow;
+            Properties.BackgroundColor = ColorConfig.FormBackColorDark;
             Properties.CenterHorizontal = true;
             Properties.CenterVertical = true;
             Properties.ColHeaders = true;
@@ -198,9 +198,9 @@ namespace BudgetExecution
                     };
 
                     _gridColumn.StyleInfo.Font.Bold = true;
-                    _gridColumn.StyleInfo.BackColor = ColorConfig.FormDarkBackColor;
+                    _gridColumn.StyleInfo.BackColor = ColorConfig.FormBackColorDark;
                     _gridColumn.StyleInfo.TextColor = Color.White;
-                    _gridColumn.BackColor = ColorConfig.FormDarkBackColor;
+                    _gridColumn.BackColor = ColorConfig.FormBackColorDark;
                     _gridColumn.MappingName = _column.ColumnName;
                     GridBoundColumns.Add( _gridColumn );
                 }
@@ -405,7 +405,7 @@ namespace BudgetExecution
                 var _location = new Point( Location.X - 6, Location.Y - 6 );
                 var _size = new Size( Size.Width + 3, Size.Height + 66 );
                 var _gridPanel = new GroupBoxPanel( _size, _location );
-                _gridPanel.Border.Color = ColorConfig.BorderYellow;
+                _gridPanel.Border.Color = ColorConfig.BorderColorYellow;
                 _gridPanel.Padding = new Padding( 3, 1, 3, 1 );
 
                 if( ToolBar != null )

@@ -55,15 +55,15 @@ namespace BudgetExecution
         {
             Size = SizeConfig.GetSize( 400, 400 );
             Location = ControlConfig.GetLocation();
-            BackColor = ColorConfig.FormDarkBackColor;
-            ForeColor = ColorConfig.ForeGray;
+            BackColor = ColorConfig.FormBackColorDark;
+            ForeColor = ColorConfig.ForeColorGray;
             Margin = ControlConfig.Margin;
             Padding = ControlConfig.Padding;
             Font = FontConfig.FontSizeMedium;
             Anchor = ControlConfig.GetAnchorStyle();
             Visible = true;
             Enabled = true;
-            MetroColor = ColorConfig.FormDarkBackColor;
+            MetroColor = ColorConfig.FormBackColorDark;
             LayoutType = CalculatorLayoutTypes.WindowsStandard;
             ShowDisplayArea = false;
             HorizontalSpacing = 5;

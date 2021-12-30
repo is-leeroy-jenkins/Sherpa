@@ -285,6 +285,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Badger\Calculator\CalculationControl.Designer.cs" />
+    <Compile Include="Badger\Calculator\CalculatorForm.Designer.cs" />
     <Compile Include="Badger\Chart\BudgetChartControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -400,7 +402,6 @@
     <Compile Include="Badger\Calculator\CalculationControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Badger\Calculator\CalculationControl.Designer.cs" />
     <Compile Include="Badger\Calculator\CalculationPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -410,7 +411,6 @@
     <Compile Include="Badger\Calculator\CalculatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Badger\Calculator\CalculatorForm.Designer.cs" />
     <Compile Include="Badger\Chart\SeriesModel\DataSeries.cs" />
     <Compile Include="Badger\BudgetGrid\BudgetGridControl.cs">
       <SubType>UserControl</SubType>
@@ -814,6 +814,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\SeriesModel\TitleInfo.cs" />
+    <EmbeddedResource Include="Badger\Calculator\CalculatorForm.resx">
+      <DependentUpon>CalculatorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Badger\Chart\BudgetChartControl.resx" />
     <EmbeddedResource Include="Badger\Dialog\Error\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>

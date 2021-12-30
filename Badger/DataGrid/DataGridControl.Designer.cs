@@ -4,10 +4,6 @@
 
 namespace BudgetExecution
 {
-    // ********************************************************************************************************************************
-        // *********************************************************  ASSEMBLIES   ********************************************************
-        // ********************************************************************************************************************************
-        
         using System;
         using System.ComponentModel;
         using System.Threading;
@@ -157,12 +153,31 @@ namespace BudgetExecution
 
             }
 
-            #endregion
+        #endregion
 
+        /// <summary>
+        /// The data grid
+        /// </summary>
         public DataGridPanel DataGrid;
+
+        /// <summary>
+        /// The back panel
+        /// </summary>
         private LayoutPanel BackPanel;
+
+        /// <summary>
+        /// The budget binding
+        /// </summary>
         public BudgetBinding BudgetBinding;
+
+        /// <summary>
+        /// The tool bar control
+        /// </summary>
         public ToolBarControl ToolBarControl;
+
+        /// <summary>
+        /// The components
+        /// </summary>
         private IContainer components;
     }
     
