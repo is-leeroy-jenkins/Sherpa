@@ -236,7 +236,6 @@ C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.D
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.GroupBox.GroupBoxControl.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Chart.BudgetChartControl.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Clock.ClockControl.resources
-C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Newtonsoft.Json.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\NLog.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Qlik.Engine.dll

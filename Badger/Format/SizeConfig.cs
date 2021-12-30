@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The size of the normal form.
         /// </value>
-        public static Size FormNormal { get; } = new Size( 1500, 820 );
+        public static Size FormSizeNormal { get; } = new Size( 1500, 820 );
 
         /// <summary>
         /// Gets the maximum size of the form.
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The maximum size of the form.
         /// </value>
-        public static Size FormMaximum { get; } = new Size( 1900, 1060 );
+        public static Size FormSizeMaximum { get; } = new Size( 1900, 1060 );
 
         /// <summary>
         /// Gets the minimum size of the form.
@@ -36,47 +36,47 @@ namespace BudgetExecution
         /// <value>
         /// The minimum size of the form.
         /// </value>
-        public static Size FormMinimum { get; } = new Size( 600, 400 );
+        public static Size FormSizeMinimum { get; } = new Size( 600, 400 );
 
         /// <summary>
         /// The dialog size normal
         /// </summary>
-        public static Size DialogNormal { get; } = new Size( 680, 530 );
+        public static Size DialogSizeNormal { get; } = new Size( 680, 530 );
 
         /// <summary>
         /// The form size maximum
         /// </summary>
-        public static Size DialogMinimum { get; } = new Size( 300, 300 );
+        public static Size DialogSizeMinimum { get; } = new Size( 300, 300 );
 
         /// <summary>
         /// The form size minimum
         /// </summary>
-        public static Size DialogMaximum { get; } = new Size( 800, 800 );
+        public static Size DialogSizeMaximum { get; } = new Size( 800, 800 );
 
         /// <summary>
         /// The column configuration size
         /// </summary>
-        public static Size ContextMenuNormal { get; } = new Size( 250, 350 );
+        public static Size ContextMenuSizeNormal { get; } = new Size( 250, 350 );
 
         /// <summary>
         /// The small
         /// </summary>
-        public static Size ImageSmall { get; } = new Size( 12, 12 );
+        public static Size ImageSizeSmall { get; } = new Size( 12, 12 );
 
         /// <summary>
         /// The medium
         /// </summary>
-        public static Size ImageMedium { get; } = new Size( 16, 16 );
+        public static Size ImageSizeIcon { get; } = new Size( 16, 16 );
 
         /// <summary>
         /// The large
         /// </summary>
-        public static Size ImageLarge { get; } = new Size( 20, 20 );
+        public static Size ImageSizeMedium { get; } = new Size( 20, 20 );
 
         /// <summary>
         /// The largest
         /// </summary>
-        public static Size ImageXtraLarge  { get; } = new Size( 250, 250 );
+        public static Size ImageSizeLarge  { get; } = new Size( 250, 250 );
         
         /// <summary>
         /// Sets the color.
@@ -143,10 +143,10 @@ namespace BudgetExecution
                 {
                     return size switch
                     {
-                        ImageSizer.Small => ImageSmall,
-                        ImageSizer.Medium => ImageMedium,
-                        ImageSizer.Large => ImageLarge,
-                        ImageSizer.Huge => ImageLarge,
+                        ImageSizer.Small => SizeConfig.ImageSizeSmall,
+                        ImageSizer.Medium => SizeConfig.ImageSizeIcon,
+                        ImageSizer.Large => SizeConfig.ImageSizeMedium,
+                        ImageSizer.Huge => SizeConfig.ImageSizeMedium,
                         _ => Size.Empty
                     };
                 }

@@ -243,9 +243,9 @@ namespace BudgetExecution
         public static Size GetSize( Size size )
         {
             if( size.Width > 0
-                && size.Width < SizeConfig.FormMaximum.Width
+                && size.Width < SizeConfig.FormSizeMaximum.Width
                 && size.Height > 0
-                && size.Height < SizeConfig.FormMaximum.Height )
+                && size.Height < SizeConfig.FormSizeMaximum.Height )
             {
                 try
                 {
@@ -275,9 +275,9 @@ namespace BudgetExecution
         public static Size GetSize( int width, int height )
         {
             if( width > 0
-                && width < SizeConfig.FormMaximum.Width
+                && width < SizeConfig.FormSizeMaximum.Width
                 && height > 0
-                && height < SizeConfig.FormMaximum.Height )
+                && height < SizeConfig.FormSizeMaximum.Height )
             {
                 try
                 {

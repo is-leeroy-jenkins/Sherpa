@@ -26,7 +26,7 @@ namespace BudgetExecution
         public ChartDataControl()
         {
             InitializeComponent();
-            MaximumSize = SizeConfig.FormMaximum;
+            MaximumSize = SizeConfig.FormSizeMaximum;
         }
         
         /// <summary>

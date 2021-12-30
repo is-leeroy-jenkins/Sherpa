@@ -75,7 +75,7 @@ namespace BudgetExecution
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MetroColor = System.Drawing.Color.Black;
             this.Name = "BadgerMain";
-            this.Text = "Budget Badger";
+            this.Text = "Budget Execution";
             ((System.ComponentModel.ISupportInitialize)(this.picturePanel1)).EndInit();
             this.ResumeLayout(false);
 

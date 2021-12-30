@@ -91,7 +91,7 @@ namespace BudgetExecution
             //Chart Legend Settings;
             ShowLegend = true;
             Legend.Font = FontConfig.FontSizeSmall;
-            Legend.ItemsSize = SizeConfig.ImageSmall;
+            Legend.ItemsSize = SizeConfig.ImageSizeSmall;
             Legend.VisibleCheckBox = true;
             Legend.BackInterior = new BrushInfo( ColorConfig.FormDarkBackColor );
             Legend.ItemsAlignment = AlignConfig.GetStringAlignment( StringAlignment.Center );
