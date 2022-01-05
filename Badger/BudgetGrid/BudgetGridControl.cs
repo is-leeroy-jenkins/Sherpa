@@ -20,7 +20,7 @@ namespace BudgetExecution
         {
             InitializeComponent();
             AutoScaleDimensions = new SizeF( 96F, 96F );
-            ForeColor = System.Drawing.Color.LightGray;
+            ForeColor = Color.LightGray;
             Name = "BudgetGridControl";
             Size = new Size( 813, 405 );
         }

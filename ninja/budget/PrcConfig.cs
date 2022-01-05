@@ -219,7 +219,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IBudgetObjectClass );
+                return default( BudgetObjectClass );
             }
         }
 
@@ -245,7 +245,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IResponsibilityCenter );
+                return default( ResponsibilityCenter );
             }
         }
     }
