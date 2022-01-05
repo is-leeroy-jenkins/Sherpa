@@ -15,13 +15,6 @@ namespace BudgetExecution
     public class ColorFormat
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ColorFormat"/> class.
-        /// </summary>
-        public ColorFormat()
-        {
-        }
-        
-        /// <summary>
         /// Gets or sets the font.
         /// </summary>
         /// <value>
@@ -156,5 +149,12 @@ namespace BudgetExecution
         /// The size.
         /// </value>
         public IEnumerable<Size> Size { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref = "ColorFormat"/> class.
+        /// </summary>
+        public ColorFormat()
+        {
+        }
     }
 }

@@ -232,6 +232,7 @@ namespace BudgetExecution
             try
             {
                 TextImageRelation = TextImageRelation.ImageBeforeText;
+
                 TextStyle = new TextStyle
                 {
                     TextLineAlignment = StringAlignment.Center,

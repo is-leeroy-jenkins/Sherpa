@@ -14,12 +14,6 @@ namespace BudgetExecution
     /// </summary>
     public class AlignFormat
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref = "AlignFormat"/> class.
-        /// </summary>
-        public AlignFormat()
-        {
-        }
         
         /// <summary>
         /// Gets or sets the text.
@@ -68,5 +62,12 @@ namespace BudgetExecution
         /// The excel horizontal.
         /// </value>
         public ExcelHorizontalAlignment ExcelHorizontal { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref = "AlignFormat"/> class.
+        /// </summary>
+        public AlignFormat()
+        {
+        }
     }
 }

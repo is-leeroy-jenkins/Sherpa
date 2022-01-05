@@ -46,7 +46,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Determines whether the specified sequence's element count is equal to or
-        /// greater than <paramref name = "mincount"/> .
+        /// greater than <paramref name = "minCount"/> .
         /// </summary>
         /// <typeparam name = "TSource" >
         /// The type of the elements of <paramref name = "source"/> .
@@ -54,7 +54,7 @@ namespace BudgetExecution
         /// <param name = "source" >
         /// The <see cref = "IEnumerable{TSource}"/> whose elements to count.
         /// </param>
-        /// <param name = "mincount" >
+        /// <param name = "minCount" >
         /// The minimum number of elements the specified sequence is expected to contain.
         /// </param>
         /// <returns>
@@ -62,20 +62,20 @@ namespace BudgetExecution
         /// true
         /// </c>
         /// if the element count of <paramref name = "source"/> is equal to or greater than
-        /// <paramref name = "mincount"/> ; otherwise,
+        /// <paramref name = "minCount"/> ; otherwise,
         /// <c>
         /// false
         /// </c>
         /// .
         /// </returns>
-        public static bool HasAtLeast<TSource>( this IEnumerable<TSource> source, int mincount )
+        public static bool HasAtLeast<TSource>( this IEnumerable<TSource> source, int minCount )
         {
-            return source.HasAtLeast( mincount, _ => true );
+            return source.HasAtLeast( minCount, _ => true );
         }
 
         /// <summary>
         /// Determines whether the specified sequence contains exactly
-        /// <paramref name = "mincount"/> or more elements satisfying a condition.
+        /// <paramref name = "minCount"/> or more elements satisfying a condition.
         /// </summary>
         /// <typeparam name = "TSource" >
         /// The type of the elements of <paramref name = "source"/> .
@@ -83,7 +83,7 @@ namespace BudgetExecution
         /// <param name = "source" >
         /// The <see cref = "IEnumerable{TSource}"/> whose elements to count.
         /// </param>
-        /// <param name = "mincount" >
+        /// <param name = "minCount" >
         /// The minimum number of elements satisfying the specified condition the specified
         /// sequence is expected to contain.
         /// </param>
@@ -95,22 +95,22 @@ namespace BudgetExecution
         /// true
         /// </c>
         /// if the element count of satisfying elements is equal to or greater than
-        /// <paramref name = "mincount"/> ; otherwise,
+        /// <paramref name = "minCount"/> ; otherwise,
         /// <c>
         /// false
         /// </c>
         /// .
         /// </returns>
-        public static bool HasAtLeast<TSource>( this IEnumerable<TSource> source, int mincount,
+        public static bool HasAtLeast<TSource>( this IEnumerable<TSource> source, int minCount,
             Func<TSource, bool> predicate )
         {
-            if( mincount == 0 )
+            if( minCount == 0 )
             {
                 return true;
             }
 
             if( source is ICollection _sequence
-                && _sequence.Count < mincount )
+                && _sequence.Count < minCount )
             {
                 return false;
             }
@@ -121,7 +121,7 @@ namespace BudgetExecution
             {
                 _matches++;
 
-                if( _matches >= mincount )
+                if( _matches >= minCount )
                 {
                     return true;
                 }
