@@ -9,13 +9,6 @@ namespace BudgetExecution
     public class FontFormat
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref = "FontFormat"/> class.
-        /// </summary>
-        public FontFormat()
-        {
-        }
-
-        /// <summary>
         /// Gets or sets the small.
         /// </summary>
         /// <value>
@@ -94,5 +87,12 @@ namespace BudgetExecution
         /// The total.
         /// </value>
         public Font Total { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref = "FontFormat"/> class.
+        /// </summary>
+        public FontFormat()
+        {
+        }
     }
 }

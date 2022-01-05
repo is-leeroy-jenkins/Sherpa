@@ -273,3 +273,4 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Too
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.CalculatorForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.CalculatorForm.resources

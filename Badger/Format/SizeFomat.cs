@@ -9,13 +9,6 @@ namespace BudgetExecution
     public class SizeFormat
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SizeFormat"/> class.
-        /// </summary>
-        public SizeFormat()
-        {
-        }
-        
-        /// <summary>
         /// Gets or sets the size of the client.
         /// </summary>
         /// <value>
@@ -142,5 +135,12 @@ namespace BudgetExecution
         /// The width.
         /// </value>
         public int Width { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SizeFormat"/> class.
+        /// </summary>
+        public SizeFormat()
+        {
+        }
     }
 }

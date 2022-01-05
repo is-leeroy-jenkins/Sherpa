@@ -13,13 +13,6 @@ namespace BudgetExecution
     public class BorderFormat
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref = "BorderFormat"/> class.
-        /// </summary>
-        public BorderFormat()
-        {
-        }
-        
-        /// <summary>
         /// Gets or sets the excel top border.
         /// </summary>
         /// <value>
@@ -74,5 +67,12 @@ namespace BudgetExecution
         /// The border style.
         /// </value>
         public BorderStyle BorderStyle { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref = "BorderFormat"/> class.
+        /// </summary>
+        public BorderFormat()
+        {
+        }
     }
 }

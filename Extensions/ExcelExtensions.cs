@@ -21,24 +21,24 @@ namespace BudgetExecution
     public static class ExcelExtensions
     {
         /// <summary>Converts to dataset.</summary>
-        /// <param name="package">The package.</param>
+        /// <param name="excelPackage">The excelPackage.</param>
         /// <param name="header">if set to <c>true</c> [header].</param>
         /// <returns></returns>
-        public static DataSet ToDataSet( this ExcelPackage package, bool header = false )
+        public static DataSet ToDataSet( this ExcelPackage excelPackage, bool header = false )
         {
             var _row = header
                 ? 1
                 : 0;
 
-            return ToDataSet( package, _row );
+            return ToDataSet( excelPackage, _row );
         }
 
         /// <summary>Converts to dataset.</summary>
-        /// <param name="package">The package.</param>
+        /// <param name="excelPackage">The excelPackage.</param>
         /// <param name="header">The header.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException">header - Must be 0 or greater.</exception>
-        public static DataSet ToDataSet( this ExcelPackage package, int header = 0 )
+        public static DataSet ToDataSet( this ExcelPackage excelPackage, int header = 0 )
         {
             if( header < 0 )
             {
@@ -47,11 +47,11 @@ namespace BudgetExecution
 
             var _result = new DataSet();
 
-            foreach( var sheet in package.Workbook.Worksheets )
+            foreach( var _worksheet in excelPackage.Workbook.Worksheets )
             {
                 var _table = new DataTable
                 {
-                    TableName = sheet.Name
+                    TableName = _worksheet?.Name
                 };
 
                 var _start = 1;
@@ -62,20 +62,20 @@ namespace BudgetExecution
                 }
 
                 var _columns =
-                    from cell in sheet.Cells[ _start, 1, _start,
-                        sheet.Dimension.End.Column ] select new DataColumn( header > 0
-                        ? cell.Value.ToString()
-                        : $"Column {cell.Start.Column}" );
+                    from _cell in _worksheet?.Cells[ _start, 1, _start, _worksheet.Dimension.End.Column ] 
+                    select new DataColumn( header > 0
+                        ? _cell?.Value?.ToString()
+                        : $"Column {_cell?.Start?.Column}" );
 
-                _table.Columns.AddRange( _columns.ToArray() );
+                _table.Columns.AddRange( _columns?.ToArray() );
 
                 var i = header > 0
                     ? _start + 1
                     : _start;
 
-                for( var index = i; index <= sheet.Dimension.End.Row; index++ )
+                for( var index = i; index <= _worksheet?.Dimension.End.Row; index++ )
                 {
-                    var _range = sheet.Cells[ index, 1, index, sheet.Dimension.End.Column ];
+                    var _range = _worksheet.Cells[ index, 1, index, _worksheet.Dimension.End.Column ];
                     var _row = _table.Rows.Add();
 
                     foreach( var cell in _range )
