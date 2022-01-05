@@ -98,7 +98,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.IsField( Field )
+                return Verify.IsField( Field )
                     ? Field
                     : default( Field );
             }

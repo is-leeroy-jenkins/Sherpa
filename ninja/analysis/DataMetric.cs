@@ -173,7 +173,7 @@ namespace BudgetExecution
             Numeric numeric = Numeric.Amount )
         {
             if( dataRow?.Any() == true
-                && Validate.IsField( field )
+                && Verify.IsField( field )
                 && Validate.Numeric( numeric ) )
 
             {
@@ -280,7 +280,7 @@ namespace BudgetExecution
             Numeric numeric = Numeric.Amount )
         {
             if( dataRow?.Any() == true
-                && Validate.IsField( field )
+                && Verify.IsField( field )
                 && Validate.Numeric( numeric ) )
             {
                 var _table = dataRow.CopyToDataTable();
@@ -366,7 +366,7 @@ namespace BudgetExecution
             Field field, Numeric numeric = Numeric.Amount )
         {
             if( dataRow?.Any() == true
-                && Validate.IsField( field )
+                && Verify.IsField( field )
                 && Validate.Numeric( numeric ) )
             {
                 try

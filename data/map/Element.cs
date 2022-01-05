@@ -235,11 +235,11 @@ namespace BudgetExecution
         /// <param name = "field" > </param>
         private protected virtual void SetName( Field field )
         {
-            if( Validate.IsField( field ) )
+            if( Verify.IsField( field ) )
             {
                 try
                 {
-                    Name = Validate.IsField( field )
+                    Name = Verify.IsField( field )
                         ? field.ToString()
                         : Field.NS.ToString();
                 }
@@ -258,7 +258,7 @@ namespace BudgetExecution
         private protected virtual void SetName( DataRow dataRow, Field field )
         {
             if( Verify.IsRow( dataRow )
-                && Validate.IsField( field ) )
+                && Verify.IsField( field ) )
             {
                 try
                 {
@@ -338,7 +338,7 @@ namespace BudgetExecution
         {
             try
             {
-                Field = Validate.IsField( field )
+                Field = Verify.IsField( field )
                     ? field
                     : Field.NS;
             }
@@ -356,7 +356,7 @@ namespace BudgetExecution
         private protected virtual void SetField( DataRow dataRow, Field field )
         {
             if( Verify.IsRow( dataRow )
-                && Validate.IsField( field ) )
+                && Verify.IsField( field ) )
             {
                 try
                 {
@@ -428,7 +428,7 @@ namespace BudgetExecution
         private protected virtual void SetValue( DataRow dataRow, Field field )
         {
             if( Verify.IsRow( dataRow )
-                && Validate.IsField( field ) )
+                && Verify.IsField( field ) )
             {
                 try
                 {

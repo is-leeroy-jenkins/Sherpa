@@ -289,7 +289,7 @@ namespace BudgetExecution
         /// </returns>
         public IEnumerable<DataRow> FilterData( Field field, string filter )
         {
-            if( Validate.IsField( field )
+            if( Verify.IsField( field )
                 && Verify.IsInput( filter ) )
             {
                 try
@@ -369,7 +369,7 @@ namespace BudgetExecution
             Numeric numeric = Numeric.Amount )
         {
             if( Verify.IsRows( dataRow )
-                && Validate.IsField( field )
+                && Verify.IsField( field )
                 && Validate.Numeric( numeric )
                 && dataRow.HasNumeric() )
             {

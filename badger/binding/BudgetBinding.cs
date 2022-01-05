@@ -57,7 +57,7 @@ namespace BudgetExecution
         /// <param name="filter">The filter.</param>
         public void SetDataFilter( Field field, string filter )
         {
-            if( Validate.IsField( field )
+            if( Verify.IsField( field )
                 && Verify.IsInput( filter ) )
             {
                 try

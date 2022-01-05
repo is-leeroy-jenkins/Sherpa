@@ -143,7 +143,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public static Field GetField( Field field )
         {
-            if( Validate.IsField( field ) )
+            if( Verify.IsField( field ) )
             {
                 try
                 {
