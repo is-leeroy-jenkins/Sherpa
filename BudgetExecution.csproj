@@ -991,8 +991,7 @@
     <None Include="Data\Database\sqlite\referencemodels\References.db" />
     <None Include="Lib\MetroSet UI.dll.config" />
     <None Include="Ninja\FiscalYear\Year" />
-    <None Include="Ninja\Template\Control.xlsx" />
-    <None Include="Ninja\Template\Report.xlsx" />
+    <None Include="Ninja\Template\Excel.xlsx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -99,7 +99,7 @@ namespace BudgetExecution
         /// <value>
         /// The color of the control dark back.
         /// </value>
-        public static Color ControlBackColorDark { get; set; } = Color.FromArgb( 15, 15, 15 );
+        public static Color ControlBackColorDark { get; set; } = Color.FromArgb( 20, 20, 20 );
 
         /// <summary>
         /// Gets or sets the transparent.
@@ -115,7 +115,7 @@ namespace BudgetExecution
         /// <value>
         /// The control dark interior.
         /// </value>
-        public static Color ControlInteriorColorDark { get; set; } = Color.FromArgb( 25, 25, 25 );
+        public static Color ControlInteriorColorDark { get; set; } = Color.FromArgb( 45, 45, 45 );
 
         /// <summary>
         /// Gets or sets the hover gray.

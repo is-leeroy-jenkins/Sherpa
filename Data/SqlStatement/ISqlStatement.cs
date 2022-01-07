@@ -4,7 +4,6 @@
 
 namespace BudgetExecution
 {
-
     /// <summary> </summary>
     public interface ISqlStatement
     {
