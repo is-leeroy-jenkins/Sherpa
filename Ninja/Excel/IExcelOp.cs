@@ -4,9 +4,6 @@
 
 namespace BudgetExecution
 {
-    // ******************************************************************************************************************************
-    // ******************************************************   ASSEMBLIES   ********************************************************
-    // ******************************************************************************************************************************
     using System.IO;
     using DocumentFormat.OpenXml.Spreadsheet;
     using OfficeOpenXml;
@@ -16,10 +13,6 @@ namespace BudgetExecution
     /// </summary>
     public interface IExcelOp
     {
-        // ***************************************************************************************************************************
-        // ************************************************  METHODS   ***************************************************************
-        // ***************************************************************************************************************************
-
         /// <summary>
         /// The ConnectionString
         /// </summary>
@@ -53,12 +46,12 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the file stream.
         /// </summary>
-        /// <param name = "filepath" >
-        /// The filepath.
+        /// <param name = "filePath" >
+        /// The filePath.
         /// </param>
         /// <returns>
         /// </returns>
-        FileInfo GetFileStream( string filepath );
+        FileInfo GetFileStream( string filePath );
 
         /// <summary>
         /// The GetApplication
@@ -72,8 +65,8 @@ namespace BudgetExecution
         /// </summary>
         /// <dict name = "excel" >
         /// </dict>
-        /// <dict name = "filepath" >
-        /// The filepath <see cref = "string"/>
+        /// <dict name = "filePath" >
+        /// The filePath <see cref = "string"/>
         /// </dict>
         /// <returns>
         /// The <see cref = "Workbook"/>
@@ -85,7 +78,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        ExcelWorksheet GetExcelWorksheet( FundCode fundcode );
+        ExcelWorksheet GetExcelWorksheet( FundCode fundCode );
 
         /// <summary>
         /// The SaveWorkBook
