@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public new Source Source { get; } =  Source.TravelObligations;
+        public new Source Source { get; } =  Source.TravelActivity;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "TravelObligation"/> class.

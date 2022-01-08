@@ -119,60 +119,12 @@ namespace BudgetExecution
         public static string ToolBarImages = Settings[ "ToolBarImages" ];
 
         /// <summary>
-        /// The division sources
-        /// </summary>
-        public static Source[ ] DivisionSources =
-        {
-            Source.EJ,
-            Source.ECAD,
-            Source.ORA,
-            Source.ORC,
-            Source.SEMD,
-            Source.MSD,
-            Source.WD,
-            Source.XA,
-            Source.ARD,
-            Source.WSA,
-            Source.MSR,
-            Source.WCF,
-            Source.LCARD,
-            Source.LSASD
-        };
-
-        /// <summary>
-        /// The appropriation sources
-        /// </summary>
-        public static Source[ ] AppropriationSources =
-        {
-            Source.EPM,
-            Source.SF6A,
-            Source.STAG,
-            Source.DeepWaterHorizon,
-            Source.CategoricalGrants,
-            Source.CleanWaterStateRevolvingFund,
-            Source.DrinkingWaterStateRevolvingFund,
-            Source.LUST,
-            Source.OilSpill,
-            Source.Superfund,
-            Source.SpecialAccounts,
-            Source.LustSupplemental,
-            Source.SuperfundSupplemental
-        };
-
-        /// <summary>
         /// The object class sources
         /// </summary>
         public static Source[ ] ObjectClassSources =
         {
-            Source.Contracts,
-            Source.FTE,
-            Source.Expenses,
-            Source.Grants,
-            Source.Payroll,
-            Source.WCF,
-            Source.Travel,
-            Source.SiteTravel,
-            Source.NonSiteTravel
+            Source.FullTimeEquivalents,
+            Source.PayrollAuthority
         };
 
         /// <summary>
@@ -186,13 +138,11 @@ namespace BudgetExecution
         public static Source[ ] ReferenceSources =
         {
             Source.Accounts,
-            Source.Activity,
+            Source.ActivityCodes,
             Source.AllowanceHolders,
             Source.Appropriations,
-            Source.ControlNumbers,
             Source.BudgetObjectClasses,
-            Source.Employees,
-            Source.FinanceObjectClass,
+            Source.FinanceObjectClasses,
             Source.Funds,
             Source.Goals,
             Source.HumanResourceOrganizations,
@@ -202,7 +152,7 @@ namespace BudgetExecution
             Source.ResourcePlanningOffices,
             Source.ProgramAreas,
             Source.ProgramProjects,
-            Source.Programs,
+            Source.ProgramDescriptions,
             Source.ResponsibilityCenters,
             Source.InformationTechnology,
             Source.WorkCodes,
@@ -215,50 +165,14 @@ namespace BudgetExecution
         /// </summary>
         public static Source[ ] AllocationSources =
         {
-            Source.PRC,
             Source.Allocations,
-            Source.DivisionAuthority,
-            Source.DivisionExecution,
             Source.RegionAuthority,
             Source.Transfers,
-            Source.ControlNumbers,
-            Source.InternalTransfers,
-            Source.ExternalTransfers,
-            Source.Contracts,
-            Source.FTE,
-            Source.Expenses,
-            Source.Grants,
-            Source.Payroll,
-            Source.Contracts,
-            Source.Travel,
-            Source.SiteTravel,
-            Source.EPM,
-            Source.SF6A,
-            Source.STAG,
-            Source.DeepWaterHorizon,
-            Source.LUST,
-            Source.OilSpill,
-            Source.Superfund,
-            Source.SpecialAccounts,
-            Source.SuperfundSupplemental,
-            Source.LustSupplemental,
-            Source.Awards,
-            Source.TimeOff,
-            Source.Overtime,
-            Source.EJ,
-            Source.ECAD,
-            Source.ORA,
-            Source.ORC,
-            Source.SEMD,
-            Source.MSD,
-            Source.WD,
-            Source.XA,
-            Source.ARD,
-            Source.WSA,
-            Source.MSR,
-            Source.WCF,
-            Source.LCARD,
-            Source.LSASD
+            Source.FullTimeEquivalents,
+            Source.HeadquartersAuthority,
+            Source.PayrollAuthority,
+            Source.SuperfundSites,
+            Source.SpecialAccounts
         };
 
         /// <summary>
@@ -266,36 +180,14 @@ namespace BudgetExecution
         /// </summary>
         public static readonly Source[ ] AuthoritySources =
         {
-            Source.PRC,
             Source.Allocations,
             Source.Transfers,
             Source.RegionAuthority,
-            Source.CleanWaterStateRevolvingFund,
-            Source.InternalTransfers,
-            Source.ExternalTransfers,
-            Source.Contracts,
-            Source.FTE,
-            Source.Expenses,
-            Source.Grants,
-            Source.Payroll,
-            Source.Contracts,
-            Source.Travel,
-            Source.SiteTravel,
-            Source.EPM,
-            Source.SF6A,
-            Source.STAG,
-            Source.DeepWaterHorizon,
-            Source.LUST,
-            Source.OilSpill,
-            Source.Superfund,
+            Source.FullTimeEquivalents,
+            Source.HeadquartersAuthority,
+            Source.PayrollAuthority,
+            Source.SuperfundSites,
             Source.SpecialAccounts,
-            Source.SuperfundSupplemental,
-            Source.LustSupplemental,
-            Source.Awards,
-            Source.TimeOff,
-            Source.Overtime,
-            Source.DrinkingWaterStateRevolvingFund,
-            Source.NonSiteTravel,
             Source.Reprogrammings,
             Source.Transfers
         };
@@ -305,10 +197,7 @@ namespace BudgetExecution
         /// </summary>
         public static readonly Source[ ] SupplementalSources =
         {
-            Source.Supplemental,
-            Source.Awards,
-            Source.Overtime,
-            Source.TimeOff
+            Source.Supplementals,
         };
 
         /// <summary>
@@ -316,23 +205,17 @@ namespace BudgetExecution
         /// </summary>
         public static Source[ ] OutlaySources =
         {
-            Source.Outlays,
-            Source.Payments,
             Source.Requisitions,
-            Source.Procurements,
-            Source.TravelObligations,
-            Source.PayrollHours,
-            Source.PayrollObligations,
-            Source.ULO,
+            Source.ProjectCostCodes,
+            Source.TravelActivity,
+            Source.PayrollCostCodes,
+            Source.PayrollActivity,
             Source.Obligations,
             Source.Deobligations,
-            Source.Commitments,
-            Source.OpenCommitments,
-            Source.Vendors,
-            Source.Sites,
-            Source.LeaveProjections,
-            Source.DivisionExecution,
-            Source.PurchaseActivity
+            Source.SiteActivity,
+            Source.DocumentControlNumbers,
+            Source.ProjectCostCodes,
+            Source.SiteProjectCodes
         };
 
         /// <summary>

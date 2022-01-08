@@ -25,7 +25,7 @@ namespace BudgetExecution
         /// <value>
         /// The full nae.
         /// </value>
-        public string FullNae { get; set; }
+        public string FullName { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the file.
@@ -106,7 +106,7 @@ namespace BudgetExecution
         public DataPath( string input )
         {
             Input = input;
-            FullNae = Path.GetFileNameWithoutExtension( Input );
+            FullName = Path.GetFileNameWithoutExtension( Input );
             FileName = Path.GetFileName( Input );
             FullPath = Path.GetFullPath( Input );
             FileExtension = Path.GetExtension( Input );
@@ -121,8 +121,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( FullNae )
-                    ? FullNae
+                return Verify.IsInput( FullName )
+                    ? FullName
                     : string.Empty;
             }
             catch( Exception ex )

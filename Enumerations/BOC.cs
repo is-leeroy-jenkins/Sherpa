@@ -59,7 +59,7 @@ namespace BudgetExecution
         WCF = 38,
 
         /// <summary>
-        /// Defines the Grants
+        /// Defines the HeadquartersAuthority
         /// </summary>
         Grants = 41
     }

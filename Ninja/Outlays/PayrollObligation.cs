@@ -18,7 +18,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public new Source Source { get; } =  Source.PayrollObligations;
+        public new Source Source { get; } =  Source.PayrollActivity;
 
         /// <summary>
         /// Gets the allocation percentage.

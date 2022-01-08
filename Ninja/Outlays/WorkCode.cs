@@ -188,7 +188,7 @@ namespace BudgetExecution
                         [ $"{Field.FocCode}" ] = FocCode?.Value?.ToString()
                     };
 
-                    var _builder = new ConnectionBuilder( Source.FinanceObjectClass );
+                    var _builder = new ConnectionBuilder( Source.FinanceObjectClasses );
                     var _statement = new SqlStatement( _builder, _dict, SQL.SELECT );
                     using var _query = new Query( _builder, _statement );
                     return new FinanceObjectClass( _query );

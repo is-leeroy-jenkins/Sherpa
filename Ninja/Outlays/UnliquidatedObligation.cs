@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public new Source Source { get; } = Source.ULO;
+        public new Source Source { get; } = Source.Obligations;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "UnliquidatedObligation"/> class.

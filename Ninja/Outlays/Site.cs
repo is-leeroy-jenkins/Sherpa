@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public new Source Source { get;  } = Source.Sites;
+        public new Source Source { get;  } = Source.SiteActivity;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Site"/> class.
@@ -144,7 +144,7 @@ namespace BudgetExecution
         }
         
         /// <summary>
-        /// Gets the Superfund identifier.
+        /// Gets the SuperfundSites identifier.
         /// </summary>
         /// <returns>
         /// </returns>

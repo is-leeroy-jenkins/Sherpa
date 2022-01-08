@@ -29,7 +29,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public new Source Source { get; } =  Source.Reimbursables;
+        public new Source Source { get; } =  Source.ReimbursableFunds;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Reimbursable"/> class.

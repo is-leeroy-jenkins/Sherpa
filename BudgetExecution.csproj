@@ -620,16 +620,13 @@
     <Compile Include="Ninja\Analysis\IDataMetric.cs" />
     <Compile Include="Ninja\Analysis\IMetric.cs" />
     <Compile Include="Ninja\Analysis\MetricBase.cs" />
-    <Compile Include="Ninja\Analysis\Utilization.cs" />
     <Compile Include="Ninja\Budget\Account.cs" />
     <Compile Include="Ninja\Budget\AccountBase.cs" />
     <Compile Include="Ninja\Budget\Activity.cs" />
     <Compile Include="Ninja\Budget\AllowanceHolder.cs" />
     <Compile Include="Ninja\Budget\Authority.cs" />
-    <Compile Include="Ninja\Budget\Awards.cs" />
     <Compile Include="Ninja\Budget\BudgetLevel.cs" />
     <Compile Include="Ninja\Budget\BudgetObjectClass.cs" />
-    <Compile Include="Ninja\Budget\DivisionAuthority.cs" />
     <Compile Include="Ninja\Budget\FinanceObjectClass.cs" />
     <Compile Include="Ninja\Budget\FullTimeEquivalent.cs" />
     <Compile Include="Ninja\Budget\Fund.cs" />
@@ -660,7 +657,6 @@
     <Compile Include="Ninja\Budget\NationalProgram.cs" />
     <Compile Include="Ninja\Budget\Objective.cs" />
     <Compile Include="Ninja\Budget\Organization.cs" />
-    <Compile Include="Ninja\Budget\Overtime.cs" />
     <Compile Include="Ninja\Budget\PrcBase.cs" />
     <Compile Include="Ninja\Budget\PrcConfig.cs" />
     <Compile Include="Ninja\Budget\ProgramArea.cs" />
@@ -704,11 +700,9 @@
     <Compile Include="Ninja\Outlays\Cost.cs" />
     <Compile Include="Ninja\Outlays\CostAccount.cs" />
     <Compile Include="Ninja\Outlays\Deobligation.cs" />
-    <Compile Include="Ninja\Outlays\Employee.cs" />
     <Compile Include="Ninja\Outlays\EmploymentBase.cs" />
     <Compile Include="Ninja\Outlays\Expenditure.cs" />
     <Compile Include="Ninja\Outlays\Expense.cs" />
-    <Compile Include="Ninja\Outlays\HumanResourceData.cs" />
     <Compile Include="Ninja\Outlays\HumanResourceOrganization.cs" />
     <Compile Include="Ninja\Outlays\ICommitment.cs" />
     <Compile Include="Ninja\Outlays\ICostAccount.cs" />
@@ -740,8 +734,6 @@
     <Compile Include="Ninja\Outlays\SiteData.cs" />
     <Compile Include="Ninja\Outlays\TravelData.cs" />
     <Compile Include="Ninja\Outlays\TravelObligation.cs" />
-    <Compile Include="Ninja\Outlays\UnliquidatedObligation.cs" />
-    <Compile Include="Ninja\Outlays\Vendor.cs" />
     <Compile Include="Ninja\Outlays\VendorData.cs" />
     <Compile Include="Ninja\Outlays\WorkCode.cs" />
     <Compile Include="Ninja\Outlays\PayrollCostCode.cs" />
@@ -752,6 +744,7 @@
     <Compile Include="Ninja\Transfer\FundTransfer.cs" />
     <Compile Include="Ninja\Transfer\IReprogramming.cs" />
     <Compile Include="Ninja\Transfer\Reprogramming.cs" />
+    <Compile Include="Ninja\Outlays\UnliquidatedObligation.cs" />
     <Compile Include="Ninja\Watcher\BudgetFileWatcher.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1004,6 +997,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
     <Content Include="Badger\Images\badger\ico\badger.ico" />
     <Content Include="Badger\Images\badger\ico\BadgerIcon.ico" />
@@ -1133,36 +1127,6 @@
     <Content Include="Badger\Images\dialog\png\DialogUpload.png" />
     <Content Include="Badger\Images\dialog\png\DialogVerify.png" />
     <Content Include="Badger\Images\dialog\png\DialogWarning.png" />
-    <Content Include="Badger\Images\division\ico\DivisionARD.ico" />
-    <Content Include="Badger\Images\division\ico\DivisionD6.ico" />
-    <Content Include="Badger\Images\division\ico\DivisionECAD.ico" />
-    <Content Include="Badger\Images\division\ico\DivisionEJ.ico" />
-    <Content Include="Badger\Images\division\ico\DivisionLCARD.ico" />
-    <Content Include="Badger\Images\division\ico\DivisionLSASD.ico" />
-    <Content Include="Badger\Images\division\ico\DivisionMSD.ico" />
-    <Content Include="Badger\Images\division\ico\DivisionMSR.ico" />
-    <Content Include="Badger\Images\division\ico\DivisionORA.ico" />
-    <Content Include="Badger\Images\division\ico\DivisionORC.ico" />
-    <Content Include="Badger\Images\division\ico\DivisionSEMD.ico" />
-    <Content Include="Badger\Images\division\ico\DivisionWCF.ico" />
-    <Content Include="Badger\Images\division\ico\DivisionWD.ico" />
-    <Content Include="Badger\Images\division\ico\DivisionWSA.ico" />
-    <Content Include="Badger\Images\division\ico\DivisionXA.ico" />
-    <Content Include="Badger\Images\division\png\DivisionARD.png" />
-    <Content Include="Badger\Images\division\png\DivisionD6.png" />
-    <Content Include="Badger\Images\division\png\DivisionECAD.png" />
-    <Content Include="Badger\Images\division\png\DivisionEJ.png" />
-    <Content Include="Badger\Images\division\png\DivisionLCARD.png" />
-    <Content Include="Badger\Images\division\png\DivisionLSASD.png" />
-    <Content Include="Badger\Images\division\png\DivisionMSD.png" />
-    <Content Include="Badger\Images\division\png\DivisionMSR.png" />
-    <Content Include="Badger\Images\division\png\DivisionORA.png" />
-    <Content Include="Badger\Images\division\png\DivisionORC.png" />
-    <Content Include="Badger\Images\division\png\DivisionSEMD.png" />
-    <Content Include="Badger\Images\division\png\DivisionWCF.png" />
-    <Content Include="Badger\Images\division\png\DivisionWD.png" />
-    <Content Include="Badger\Images\division\png\DivisionWSA.png" />
-    <Content Include="Badger\Images\division\png\DivisionXA.png" />
     <Content Include="Badger\Images\email\ico\DbEmail.ico" />
     <Content Include="Badger\Images\email\ico\EmailAdd.ico" />
     <Content Include="Badger\Images\email\ico\EmailBrowse.ico" />
@@ -1556,6 +1520,9 @@
     <Content Include="Badger\Images\interface\png\InterfaceVerify.png" />
     <Content Include="Badger\Images\interface\png\InterfaceWebSearch.png" />
     <Content Include="Badger\Images\interface\png\InterfaceWorkLocation.png" />
+    <Content Include="Badger\Images\Loader\Loader.gif" />
+    <Content Include="Badger\Images\Loader\Loading.gif" />
+    <Content Include="Badger\Images\Loader\Processing.gif" />
     <Content Include="Badger\Images\math\ico\MathAlpha.ico" />
     <Content Include="Badger\Images\math\ico\MathApproximate.ico" />
     <Content Include="Badger\Images\math\ico\MathAverage.ico" />

@@ -1,4 +1,4 @@
-﻿// <copyright file = "Supplemental.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "Supplementals.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -9,7 +9,7 @@ namespace BudgetExecution
 
     /// <summary>
     /// Budget authority provided in an appropriations act in addition to regular or
-    /// continuing appropriations already provided. Supplemental appropriations
+    /// continuing appropriations already provided. Supplementals appropriations
     /// generally are made to cover emergencies, such as disaster relief, or other
     /// needs deemed too urgent to be postponed until the enactment of next year's
     /// regular appropriations act.
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public new Source Source { get; } =  Source.Supplemental;
+        public new Source Source { get; } =  Source.Supplementals;
 
         /// <summary>
         /// Gets or sets the ProgramResultCodes identifier.

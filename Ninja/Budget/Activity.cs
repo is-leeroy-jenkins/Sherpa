@@ -1,4 +1,4 @@
-﻿// <copyright file = "Activity.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "ActivityCodes.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -18,7 +18,7 @@ namespace BudgetExecution
     /// within a budget account. For annually appropriated accounts, the Office of
     /// Management and Budget (OMB) and agencies identify PPAs by reference to
     /// committee reports and budget justifications; for permanent appropriations, OMB
-    /// and agencies identify an Activity by the program and financing schedules that
+    /// and agencies identify an ActivityCodes by the program and financing schedules that
     /// the President provides in the “Detailed Budget Estimates” in the budget
     /// submission for the relevant fiscal year. Program activity structures are
     /// intended to provide a meaningful representation of the operations financed by a
@@ -41,7 +41,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; } = Source.Activity;
+        public Source Source { get; } = Source.ActivityCodes;
 
         /// <summary>
         /// Gets the dataRow.
@@ -114,7 +114,7 @@ namespace BudgetExecution
 
         /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref = "T:BudgetExecution.Activity"/>
+        /// Initializes a new instance of the <see cref = "T:BudgetExecution.ActivityCodes"/>
         /// class.
         /// </summary>
         /// <param name = "dataRow" >

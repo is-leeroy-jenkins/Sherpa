@@ -144,7 +144,7 @@ namespace BudgetExecution
                         [ $"{Field.ActivityCode}" ] = ActivityCode.Value
                     };
 
-                    var _connection = new ConnectionBuilder( Source.Activity, Provider.SQLite );
+                    var _connection = new ConnectionBuilder( Source.ActivityCodes, Provider.SQLite );
                     var _statement = new SqlStatement( _connection, _dictionary, SQL.SELECT );
                     using var _query = new Query( _connection, _statement );
                     return new Activity( _query ) ?? default( Activity );

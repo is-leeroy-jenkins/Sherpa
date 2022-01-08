@@ -24,7 +24,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public new Source Source { get; } =  Source.FTE;
+        public new Source Source { get; } =  Source.FullTimeEquivalents;
 
         /// <summary>
         /// Initializes a new instance of the
