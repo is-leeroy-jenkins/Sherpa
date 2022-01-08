@@ -87,7 +87,7 @@ namespace BudgetExecution
         /// </param>
         private void OnTargetButtonClicked( object sender, EventArgs e )
         {
-            Info.Text = "Target Site: \n\n" + Target;
+            Info.Text = "Target SuperfundSite: \n\n" + Target;
         }
 
         /// <summary>

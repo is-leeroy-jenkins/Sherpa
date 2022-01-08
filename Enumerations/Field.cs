@@ -35,12 +35,7 @@ namespace BudgetExecution
         /// The security org
         /// </summary>
         SecurityOrg,
-
-        /// <summary>
-        /// The document control number
-        /// </summary>
-        DocumentControlNumber,
-
+        
         /// <summary>
         /// The description
         /// </summary>
@@ -52,7 +47,7 @@ namespace BudgetExecution
         RequestedBy,
 
         //************************************************************************************ */
-        //*******************              Requisitions             ************************** */
+        //*******************              ReferenceTables             ************************** */
         //************************************************************************************ */
 
         /// <summary>
@@ -81,40 +76,6 @@ namespace BudgetExecution
         RequestNumber,
 
         //************************************************************************************ */
-        //*******************              Paymentss              **************************** */
-        //************************************************************************************ */
-
-        /// <summary>
-        /// The contract number
-        /// </summary>
-        ContractNumber,
-
-        /// <summary>
-        /// The order number
-        /// </summary>
-        OrderNumber,
-
-        /// <summary>
-        /// The check date
-        /// </summary>
-        CheckDate,
-
-        /// <summary>
-        /// The modification number
-        /// </summary>
-        ModificationNumber,
-
-        /// <summary>
-        /// The invoice date
-        /// </summary>
-        InvoiceDate,
-
-        /// <summary>
-        /// The invoice number
-        /// </summary>
-        InvoiceNumber,
-
-        //************************************************************************************ */
         //*******************          Program Elements           **************************** */
         //************************************************************************************ */
 
@@ -141,22 +102,12 @@ namespace BudgetExecution
         /// The hr org code
         /// </summary>
         HrOrgCode,
-
-        /// <summary>
-        /// The human resource organization code
-        /// </summary>
-        HumanResourceOrganizationCode,
-
+        
         /// <summary>
         /// The hr org name
         /// </summary>
         HrOrgName,
-
-        /// <summary>
-        /// The human resource organization name
-        /// </summary>
-        HumanResourceOrganizationName,
-
+        
         //************************************************************************************ */
         //*******************          WorkCodes                  **************************** */
         //************************************************************************************ */
@@ -308,9 +259,9 @@ namespace BudgetExecution
         //*******************              PayPeriods              **************************** */
         //************************************************************************************ */
         /// <summary>
-        /// The DCN
+        /// The DocumentControlNumber
         /// </summary>
-        DCN,
+        DocumentControlNumber,
 
         /// <summary>
         /// The document type
@@ -554,37 +505,8 @@ namespace BudgetExecution
         /// <summary>
         /// The allocation identifier
         /// </summary>
-        AllocationId,
-
-        //************************************************************************************ */
-        //*******************        ControlNumbers               **************************** */
-        //************************************************************************************ */
-
-        /// <summary>
-        /// The region control number
-        /// </summary>
-        RegionControlNumber,
-
-        /// <summary>
-        /// The fund control number
-        /// </summary>
-        FundControlNumber,
-
-        /// <summary>
-        /// The budget control number
-        /// </summary>
-        BudgetControlNumber,
-
-        /// <summary>
-        /// The division control number
-        /// </summary>
-        DivisionControlNumber,
-
-        /// <summary>
-        /// The date issued
-        /// </summary>
-        DateIssued,
-
+        AllocationsId,
+        
         //************************************************************************************ */
         //*******************         ProgramProjects             **************************** */
         //************************************************************************************ */

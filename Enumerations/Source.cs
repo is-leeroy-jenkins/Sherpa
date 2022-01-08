@@ -15,7 +15,7 @@ namespace BudgetExecution
         /// The accounting events
         /// </summary>
         AccountingEvents,
-
+        
         /// <summary>
         /// The appropriations
         /// </summary>
@@ -292,6 +292,16 @@ namespace BudgetExecution
         ProgramDescriptions,
 
         /// <summary>
+        /// The projects
+        /// </summary>
+        Projects,
+
+        /// <summary>
+        /// The providers
+        /// </summary>
+        Providers,
+
+        /// <summary>
         /// The pay periods
         /// </summary>
         PayPeriods,
@@ -329,7 +339,7 @@ namespace BudgetExecution
         /// <summary>
         /// The requisitions
         /// </summary>
-        Requisitions,
+        ReferenceTables,
 
         /// <summary>
         /// The resource planning offices

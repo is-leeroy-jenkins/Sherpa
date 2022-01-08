@@ -155,7 +155,7 @@ namespace BudgetExecution
                     SetBackgroudColor( grid, PrimaryBackColor );
                     SetHorizontalAligment( grid, Left );
                     _worksheet.Cells[ _row, _column ].Value = "Account";
-                    _worksheet.Cells[ _row, _column + 1 ].Value = "Site";
+                    _worksheet.Cells[ _row, _column + 1 ].Value = "SuperfundSite";
                     _worksheet.Cells[ _row, _column + 2 ].Value = "Travel";
                     _worksheet.Cells[ _row, _column + 3 ].Value = "Expenses";
                     _worksheet.Cells[ _row, _column + 4 ].Value = "Contracts";

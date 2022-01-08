@@ -1,4 +1,4 @@
-﻿// <copyright file = "TravelObligation.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "TravelActivity.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// <seealso cref = "Obligation"/>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class TravelObligation : TravelData
+    public class TravelActivity : TravelData
     {
         /// <summary>
         /// Gets or sets the source.
@@ -22,22 +22,22 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public new Source Source { get; } =  Source.TravelActivity;
+        public override Source Source { get; set; } =  Source.TravelActivity;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "TravelObligation"/> class.
+        /// Initializes a new instance of the <see cref = "TravelActivity"/> class.
         /// </summary>
         /// <inheritdoc/>
-        public TravelObligation()
+        public TravelActivity()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "TravelObligation"/> class.
+        /// Initializes a new instance of the <see cref = "TravelActivity"/> class.
         /// </summary>
         /// <param name = "query" >
         /// </param>
-        public TravelObligation( IQuery query )
+        public TravelActivity( IQuery query )
             : base( query )
         {
             Record = new DataBuilder( query )?.GetRecord();
@@ -45,7 +45,7 @@ namespace BudgetExecution
             ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
             FocCode = new Element( Record, Field.FocCode );
             FocName = new Element( Record, Field.FocName );
-            DCN = new Element( Record, Field.DCN );
+            DCN = new Element( Record, Field.DocumentControlNumber );
             FirstName = new Element( Record, Field.FirstName );
             MiddleName = new Element( Record, Field.MiddleName );
             LastName = new Element( Record, Field.LastName );
@@ -59,12 +59,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "TravelObligation"/> class.
+        /// Initializes a new instance of the <see cref = "TravelActivity"/> class.
         /// </summary>
         /// <param name = "builder" >
         /// The builder.
         /// </param>
-        public TravelObligation( IBuilder builder )
+        public TravelActivity( IBuilder builder )
             : base( builder )
         {
             Record = builder?.GetRecord();
@@ -72,7 +72,7 @@ namespace BudgetExecution
             ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
             FocCode = new Element( Record, Field.FocCode );
             FocName = new Element( Record, Field.FocName );
-            DCN = new Element( Record, Field.DCN );
+            DCN = new Element( Record, Field.DocumentControlNumber );
             FirstName = new Element( Record, Field.FirstName );
             MiddleName = new Element( Record, Field.MiddleName );
             LastName = new Element( Record, Field.LastName );
@@ -86,19 +86,19 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "TravelObligation"/> class.
+        /// Initializes a new instance of the <see cref = "TravelActivity"/> class.
         /// </summary>
-        /// <param name = "datarow" >
+        /// <param name = "dataRow" >
         /// The dr.
         /// </param>
-        public TravelObligation( DataRow datarow )
+        public TravelActivity( DataRow dataRow )
         {
-            Record = datarow;
+            Record = dataRow;
             ID = new Key( Record, PrimaryKey.TravelObligationId );
             ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
             FocCode = new Element( Record, Field.FocCode );
             FocName = new Element( Record, Field.FocName );
-            DCN = new Element( Record, Field.DCN );
+            DCN = new Element( Record, Field.DocumentControlNumber );
             FirstName = new Element( Record, Field.FirstName );
             MiddleName = new Element( Record, Field.MiddleName );
             LastName = new Element( Record, Field.LastName );
@@ -150,147 +150,7 @@ namespace BudgetExecution
                 return Element.Default;
             }
         }
-
-        /// <summary>
-        /// Gets the destination.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetDestination()
-        {
-            try
-            {
-                return Verify.IsElement( Destination )
-                    ? Destination
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the first name.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetFirstName()
-        {
-            try
-            {
-                return Verify.IsElement( FirstName )
-                    ? FirstName
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the middle.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetMiddleName()
-        {
-            try
-            {
-                return Verify.IsInput( MiddleName.Value )
-                    ? MiddleName
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the last name.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetLastName()
-        {
-            try
-            {
-                return Verify.IsInput( LastName?.Value?.ToString() )
-                    ? LastName
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the email address.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetEmailAddress()
-        {
-            try
-            {
-                return Verify.IsInput( Email?.Value?.ToString() )
-                    ? Email
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the start date.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public ITime GetStartDate()
-        {
-            try
-            {
-                return Verify.IsInput( StartDate?.Value?.ToString() )
-                    ? StartDate
-                    : default( ITime );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( ITime );
-            }
-        }
-
-        /// <summary>
-        /// Gets the end date.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public ITime GetEndDate()
-        {
-            try
-            {
-                return Verify.IsInput( EndDate?.Value?.ToString() )
-                    ? EndDate
-                    : default( ITime );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( ITime );
-            }
-        }
-
+        
         /// <summary>
         /// Gets the travel obligation amount.
         /// </summary>

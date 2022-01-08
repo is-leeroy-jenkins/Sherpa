@@ -728,12 +728,12 @@
     <Compile Include="Ninja\Outlays\OpenCommitment.cs" />
     <Compile Include="Ninja\Outlays\Outlay.cs" />
     <Compile Include="Ninja\Outlays\PayrollBase.cs" />
-    <Compile Include="Ninja\Outlays\PayrollObligation.cs" />
+    <Compile Include="Ninja\Outlays\PayrollActivity.cs" />
     <Compile Include="Ninja\Outlays\Reimbursable.cs" />
-    <Compile Include="Ninja\Outlays\Site.cs" />
+    <Compile Include="Ninja\Outlays\SuperfundSite.cs" />
     <Compile Include="Ninja\Outlays\SiteData.cs" />
     <Compile Include="Ninja\Outlays\TravelData.cs" />
-    <Compile Include="Ninja\Outlays\TravelObligation.cs" />
+    <Compile Include="Ninja\Outlays\TravelActivity.cs" />
     <Compile Include="Ninja\Outlays\VendorData.cs" />
     <Compile Include="Ninja\Outlays\WorkCode.cs" />
     <Compile Include="Ninja\Outlays\PayrollCostCode.cs" />

@@ -14,40 +14,46 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="BudgetExecution.ImageConfig" />
     /// <seealso cref="BudgetExecution.IBudgetImage" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class BudgetImage : ImageConfig, IBudgetImage
     {
         /// <summary>
-        /// The builder
+        /// Gets or sets the builder.
         /// </summary>
-        public ImageBuilder Builder { get;  }
+        /// <value>
+        /// The builder.
+        /// </value>
+        public ImageBuilder Builder { get; set; }
 
         /// <summary>
-        /// The factory
+        /// Gets or sets the factory.
         /// </summary>
-        public ImageFactory Factory { get;  }
-        
+        /// <value>
+        /// The factory.
+        /// </value>
+        public ImageFactory Factory { get; set;  }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetImage"/> class.
+        /// Initializes a new instance of the <see cref="BudgetImage" /> class.
         /// </summary>
         public BudgetImage()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetImage"/> class.
+        /// Initializes a new instance of the <see cref="BudgetImage" /> class.
         /// </summary>
         /// <param name="path">The path.</param>
         public BudgetImage( string path )
         {
-            SetName( Path.GetFileNameWithoutExtension( path ) );
+            ImageName = Path.GetFileNameWithoutExtension( path );
             Builder = new ImageBuilder( Path.GetFullPath( path ) );
-            SetImageSize( Builder.GetSize() );
-            SetImageSource( Builder.GetImageSource() );
-            SetImageFormat( Builder.GetFormat() );
+            ImageSize = ImageSizeMedium;
+            Source = Builder.GetImageSource();
+            Format = Builder.Format;
             Factory = new ImageFactory( Builder );
-            Image = new Bitmap( Builder.GetFilePath() );
+            Image = new Bitmap( Builder.FullPath );
         }
 
         /// <summary>
@@ -57,26 +63,26 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         public BudgetImage( string path, ImageSource source = ImageSource.NS )
         {
-            SetName( Path.GetFileNameWithoutExtension( path ) );
+            ImageName = Path.GetFileNameWithoutExtension( path );
             Builder = new ImageBuilder( ImageName, source, ImageSizer.Medium );
-            SetImageSize( Builder.GetSize() );
-            SetImageSource( Builder.GetImageSource() );
-            SetImageFormat( Builder.GetFormat() );
+            ImageSize = SizeConfig.ImageSizeMedium;
+            Source = Builder.GetImageSource();
+            Format = Builder.Format;
             Factory = new ImageFactory( Builder );
-            Image = Factory.CreateImage();
+            Image = new Bitmap( Builder.FullPath );
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BudgetImage"/> class.
         /// </summary>
-        /// <param name="imagebuilder">The imagebuilder.</param>
-        public BudgetImage( ImageBuilder imagebuilder )
+        /// <param name="imageBuilder">The image builder.</param>
+        public BudgetImage( ImageBuilder imageBuilder )
         {
-            SetName( imagebuilder.GetImageName() );
-            SetImageSize( imagebuilder.GetSize() );
-            SetImageSource( imagebuilder.GetImageSource() );
-            SetImageFormat( imagebuilder.GetFormat() );
-            Builder = imagebuilder;
+            Builder = imageBuilder;
+            ImageName = Builder.ImageName;
+            ImageSize = Builder.ImageSize;
+            Source = Builder.Source;
+            Format = Builder.Format;
             Factory = new ImageFactory( Builder );
             Image = Factory.CreateImage();
         }
@@ -89,11 +95,11 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         public BudgetImage( string name, ImageSource resource, ImageSizer size = ImageSizer.Medium )
         {
-            SetName( name );
-            SetImageSize( size );
-            SetImageSource( resource );
             Builder = new ImageBuilder( name, resource, size );
-            SetImageFormat( Builder.GetFormat() );
+            ImageName = Builder.ImageName;
+            ImageSize = Builder.ImageSize;
+            Source = Builder.Source;
+            Format = Builder.Format;
             Factory = new ImageFactory( Builder );
             Image = Factory.CreateImage();
         }
@@ -106,51 +112,13 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         public BudgetImage( string name, ImageSource resource, Size size )
         {
-            SetName( name );
-            SetImageSize( size );
-            SetImageSource( resource );
             Builder = new ImageBuilder( name, resource, size );
-            SetImageFormat( Builder.GetFormat() );
+            ImageName = Builder.ImageName;
+            ImageSize = Builder.ImageSize;
+            Source = Builder.Source;
+            Format = Builder.Format;
             Factory = new ImageFactory( Builder );
             Image = Factory.CreateImage();
-        }
-        
-        /// <summary>
-        /// Gets the builder.
-        /// </summary>
-        /// <returns></returns>
-        public ImageBuilder GetBuilder()
-        {
-            try
-            {
-                return Verify.IsRef( Builder )
-                    ? Builder
-                    : default( ImageBuilder );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( ImageBuilder );
-            }
-        }
-
-        /// <summary>
-        /// Gets the factory.
-        /// </summary>
-        /// <returns></returns>
-        public ImageFactory GetFactory()
-        {
-            try
-            {
-                return Verify.IsRef( Factory )
-                    ? Factory
-                    : default( ImageFactory );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( ImageFactory );
-            }
         }
 
         /// <summary>
@@ -189,6 +157,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+                Image?.Dispose();
                 return default( Image );
             }
         }
@@ -196,7 +165,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the color.
         /// </summary>
-        /// <param name="newColor">The newColor.</param>
+        /// <param name="newColor">The new color.</param>
         /// <returns></returns>
         public Color GetColor( Color newColor )
         {
@@ -209,6 +178,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+                Image?.Dispose();
                 return default( Color );
             }
         }

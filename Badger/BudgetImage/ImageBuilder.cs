@@ -17,7 +17,7 @@ namespace BudgetExecution
         /// <summary>
         /// The file path
         /// </summary>
-        public string FullPath;
+        public string FullPath { get; set; }
         
         /// <summary>
         /// Initializes a new instance of the <see cref = "ImageBuilder"/> class.
@@ -32,13 +32,12 @@ namespace BudgetExecution
         /// <param name="fullPath">The fullPath.</param>
         public ImageBuilder( string fullPath )
         {
-            SetName( Path.GetFileNameWithoutExtension( fullPath ) );
+            FullPath = fullPath;
+            ImageName = Path.GetFileNameWithoutExtension( FullPath );
             Source = ImageSource.NS;
-            SetFileExtension( Path.GetExtension( fullPath ) );
-            SetImageFilePath( fullPath, Source );
-            SetImageFormat( FileExtension );
-            SetImageFilePath( ImageName, Source );
-            SetImageSize( Medium );
+            FileExtension = Path.GetExtension( FullPath );
+            Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
+            ImageSize = ImageSizeSmall;
         }
 
         /// <summary>
@@ -47,13 +46,13 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         public ImageBuilder( ImageSource source )
         {
-            SetName( source.ToString() );
-            SetImageSource( source );
-            SetFileExtension( ImageFormat.PNG.ToString() );
-            SetImageFormat( FileExtension );
-            SetImageFilePath( ImageName, Source );
-            SetImageFormat( Format );
-            SetImageSize( ImageSizer.Medium );
+            ImageName = source.ToString();
+            Source = source;
+            FileExtension = ImageFormat.PNG.ToString();
+            Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
+            FullPath = GetImageFilePath( ImageName, Source );
+            Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
+            ImageSize = ImageSizeSmall;
         }
 
         /// <summary>
@@ -70,13 +69,12 @@ namespace BudgetExecution
         /// </param>
         public ImageBuilder( string name, ImageSource source, ImageSizer size = ImageSizer.Medium )
         {
-            SetName( name );
-            SetImageSource( source );
-            SetFileExtension( ImageName, Source );
-            SetImageFormat( FileExtension );
-            SetImageFilePath( ImageName, Source );
-            SetImageFormat( FileExtension );
-            SetImageSize( ImageSizer.Medium );
+            ImageName = name;
+            Source = source;
+            FullPath = GetImageFilePath( ImageName, Source );
+            FileExtension = Path.GetExtension( name );
+            Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
+            ImageSize = ImageSizeSmall;
         }
 
         /// <summary>
@@ -97,13 +95,13 @@ namespace BudgetExecution
         public ImageBuilder( string name, ImageSource source, int width = 16,
             int height = 16 )
         {
-            SetName( name );
-            SetImageSource( source );
-            SetFileExtension( ImageName, Source );
-            SetImageFormat( FileExtension );
-            SetImageFilePath( ImageName, Source );
-            SetImageFormat( FileExtension );
-            SetImageSize( width, height );
+            ImageName = name;
+            Source = source;
+            FullPath = GetImageFilePath( ImageName, Source );
+            FileExtension = Path.GetExtension( FullPath );
+            Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
+            Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
+            ImageSize = new Size( width, height );
         }
 
         /// <summary>
@@ -120,13 +118,13 @@ namespace BudgetExecution
         /// </param>
         public ImageBuilder( string name, ImageSource source, Size size )
         {
-            SetName( name );
-            SetImageSource( source );
-            SetFileExtension( ImageName, Source );
-            SetImageFormat( FileExtension );
-            SetImageFilePath( ImageName, Source );
-            SetImageFormat( FileExtension );
-            SetImageSize( size );
+            ImageName = name;
+            Source = source;
+            FullPath = GetImageFilePath( ImageName, Source );
+            FileExtension = Path.GetExtension( FullPath );
+            Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
+            Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
+            ImageSize = size;
         }
         
         /// <summary>
@@ -139,33 +137,32 @@ namespace BudgetExecution
         /// </param>
         /// <returns>
         /// </returns>
-        private protected void SetImageFilePath( string filePath, ImageSource imageSource )
+        private protected string GetImageFilePath( string filePath, ImageSource imageSource )
         {
-            if( Validate.ImageResource( imageSource )
+            if( Verify.ImageResource( imageSource )
                 && Verify.IsInput( filePath )
+                && File.Exists( filePath )
                 && imageSource != ImageSource.NS )
             {
                 try
                 {
-                    var _files = Directory.GetFiles( Resource.Settings[ imageSource.ToString() ] );
-
-                    var _path = _files
+                    var _path = Resource.ImageResources
                         ?.Where( n => n.Contains( filePath ) )
                         ?.Select( n => n )
                         ?.FirstOrDefault();
 
-                    if( Verify.IsInput( _path ) )
-                    {
-                        FullPath = File.Exists( _path )
-                            ? _path
-                            : default( string );
-                    }
+                    return !string.IsNullOrEmpty( _path )
+                        ? _path
+                        : string.Empty;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
+                    return string.Empty;
                 }
             }
+
+            return string.Empty;
         }
 
         /// <summary>
@@ -173,106 +170,21 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="filePath">The filePath.</param>
         /// <returns></returns>
-        private protected void GetImageFilePath( string filePath )
-        {
-            if( Verify.IsInput( filePath ) )
-            {
-                try
-                {
-                    FullPath = File.Exists( filePath )
-                        ? Path.GetFullPath( filePath )
-                        : default( string );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets the resource path.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public string GetDirectoryPath()
+        private protected string GetImageFilePath( string filePath )
         {
             try
             {
-                return Validate.ImageResource( Source ) 
-                    && Verify.IsInput( Resource.Settings[ $"{Source}" ] )
-                        ? Resource.Settings[ $"{Source}" ]
-                        : default( string );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( string );
-            }
-        }
-
-        /// <summary>
-        /// Gets the path.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public string GetFilePath()
-        {
-            try
-            {
-                return Verify.IsInput( FullPath )
-                    ? FullPath
+                return File.Exists( filePath )
+                    ? Path.GetFullPath( filePath )
                     : default( string );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-            }
-
-            return default( string );
-        }
-
-        /// <summary>
-        /// Gets the size.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public Size GetSize()
-        {
-            try
-            {
-                return Verify.IsImageSize( ImageSize )
-                    ? ImageSize
-                    : default( Size );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-
-            return default( Size );
-        }
-
-        /// <summary>
-        /// Gets the name of the image.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public string GetImageName()
-        {
-            try
-            {
-                return Verify.IsInput( ImageName )
-                    ? ImageName
-                    : default( string );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( string );
+                return string.Empty;
             }
         }
-
+        
         /// <summary>
         /// Gets the extenstion.
         /// </summary>

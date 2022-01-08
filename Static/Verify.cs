@@ -140,14 +140,14 @@ namespace BudgetExecution
         /// <returns></returns>
         public static bool IsAmount( object data )
         {
-            if( data != null )
+            if( data is IAmount  )
             {
-                Fail( new ArgumentException( "Verify [ Amount data ] input argument!" ) );
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                Fail( new ArgumentException( "Verify [ IsElement data ] input argument!" ) );
+                return false;
             }
         }
 
@@ -156,16 +156,16 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="data">The object.</param>
         /// <returns></returns>
-        public static bool IsElement( object data )
+        public static bool IsElement( object data ) 
         {
-            if( data != null )
+            if( data is IElement  )
             {
-                Fail( new ArgumentException( "Verify [ IsElement data ] input argument!" ) );
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                Fail( new ArgumentException( "Verify [ IsElement data ] input argument!" ) );
+                return false;
             }
         }
 
@@ -178,14 +178,14 @@ namespace BudgetExecution
         public static bool IsMap<T>( T data )
             where T : IDictionary<string, object>
         {
-            if( !data?.Any() == true )
+            if( data?.Any() == true )
             {
-                Fail( new ArgumentException( "Verify [ IDictionary<string, object> data ] input argument!" ) );
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                Fail( new ArgumentException( "Verify [ IsElement data ] input argument!" ) );
+                return false;
             }
         }
 
@@ -200,14 +200,15 @@ namespace BudgetExecution
         public static bool IsBindable<T>( T data )
             where T : IBindingList
         {
-            if( data?.Count > 0 == false )
+            if( data is IBindingList _list 
+               && _list?.Count > 0 )
             {
-                Fail( new ArgumentException( "Verify [ IBindingList data ] input argument!" ) );
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                Fail( new ArgumentException( "Verify [ IsElement data ] input argument!" ) );
+                return false;
             }
         }
 
@@ -312,29 +313,6 @@ namespace BudgetExecution
             else
             {
                 return true;
-            }
-        }
-
-        /// <summary>
-        /// Determines whether the specified source is supplemental.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="source">The source.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified source is supplemental; otherwise, <c>false</c>.
-        /// </returns>
-        public static bool IsSupplemental<T>( T source )
-            where T : struct
-        {
-            if( Enum.IsDefined( typeof( Source ), source ) )
-            {
-                var _source = (Source)Enum.Parse( typeof( Source ), source.ToString() );
-                return Resource.SupplementalSources.Contains( _source );
-            }
-            else
-            {
-                Fail( new ArgumentException( "Verify [ enum Source ] input argument!" ) );
-                return false;
             }
         }
 

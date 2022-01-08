@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <summary>
         /// 
         /// </summary>
-        public Source Source { get; } = Source.Obligations;
+        public virtual Source Source { get; set;  } = Source.Obligations;
 
         /// <inheritdoc/>
         /// <summary>
@@ -58,7 +58,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Obligation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Obligation"/> class.
         /// </summary>
         /// <param name = "builder" >
         /// The builder.
@@ -74,7 +75,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "T:BudgetExecution.Obligation"/>
+        /// Initializes a new instance of the
+        /// <see cref = "T:BudgetExecution.Obligation"/>
         /// class.
         /// </summary>
         /// <param name = "dataRow" >
@@ -90,26 +92,6 @@ namespace BudgetExecution
             Type = OutlayType.Obligation;
         }
         
-        /// <summary>
-        /// Gets the outlay identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public override IKey GetId()
-        {
-            try
-            {
-                return Verify.IsKey( ID )
-                    ? ID
-                    : Key.Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Key.Default;
-            }
-        }
-
         /// <summary>
         /// Converts to dictionary.
         /// </summary>
