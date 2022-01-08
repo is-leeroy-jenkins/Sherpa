@@ -9,6 +9,25 @@ namespace BudgetExecution
 
     public partial class Message : MetroForm
     {
+        /// <summary>
+        /// Gets the stack.
+        /// </summary>
+        /// <value>
+        /// The stack.
+        /// </value>
+        public string Stack { get; set; }
+
+        /// <summary>
+        /// Gets the target.
+        /// </summary>
+        /// <value>
+        /// The target.
+        /// </value>
+        public string Target { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Message"/> class.
+        /// </summary>
         public Message()
         {
             InitializeComponent();
@@ -26,22 +45,6 @@ namespace BudgetExecution
             TextBox.Text = message;
             Info.Text = "Message";
         }
-
-        /// <summary>
-        /// Gets the stack.
-        /// </summary>
-        /// <value>
-        /// The stack.
-        /// </value>
-        private string Stack { get; set; }
-
-        /// <summary>
-        /// Gets the target.
-        /// </summary>
-        /// <value>
-        /// The target.
-        /// </value>
-        private string Target { get; set; }
 
         /// <summary>
         /// Called when [ok button clicked].
