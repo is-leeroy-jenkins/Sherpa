@@ -308,7 +308,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filePath = GetConnectionBuilder()?.GetFilePath();
+                var _filePath = GetConnectionBuilder().ProviderPath[ Provider.ToString() ];
                 var _application = new App();
                 var _workbook = _application.Workbooks.Open( _filePath );
                 Worksheet worksheet = _workbook.Sheets[ 1 ];

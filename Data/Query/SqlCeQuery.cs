@@ -173,7 +173,7 @@ namespace BudgetExecution
                 {
                     using var _dataSet = new DataSet();
                     using var _dataTable = new DataTable();
-                    var _fileName = GetConnectionBuilder().GetFileName();
+                    var _fileName = GetConnectionBuilder().FileName;
                     _dataSet.DataSetName = _fileName;
                     _dataTable.TableName = sheetName;
                     _dataSet.Tables.Add( _dataTable );

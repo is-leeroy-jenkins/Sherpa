@@ -22,28 +22,43 @@ namespace BudgetExecution
     public class AdapterFactory : IDisposable
     {
         /// <summary>
-        /// The Data connection
+        /// Gets or sets the connection.
         /// </summary>
+        /// <value>
+        /// The connection.
+        /// </value>
         public DbConnection Connection { get; set; }
 
         /// <summary>
-        /// The SQL statement
+        /// Gets or sets the SQL statement.
         /// </summary>
+        /// <value>
+        /// The SQL statement.
+        /// </value>
         public ISqlStatement SqlStatement { get; set; }
 
         /// <summary>
-        /// The command builder
+        /// Gets or sets the command builder.
         /// </summary>
+        /// <value>
+        /// The command builder.
+        /// </value>
         public ICommandBuilder CommandBuilder { get; set; }
 
         /// <summary>
-        /// The connection builder
+        /// Gets or sets the connection builder.
         /// </summary>
+        /// <value>
+        /// The connection builder.
+        /// </value>
         public IConnectionBuilder ConnectionBuilder { get; set; }
 
         /// <summary>
-        /// The adapter builder
+        /// Gets or sets the adapter builder.
         /// </summary>
+        /// <value>
+        /// The adapter builder.
+        /// </value>
         public AdapterBuilder AdapterBuilder { get; set; }
 
         /// <summary>
@@ -93,12 +108,12 @@ namespace BudgetExecution
         /// <returns></returns>
         public DbDataAdapter GetAdapter()
         {
-            if( Verify.IsInput( ConnectionBuilder.GetConnectionString() )
+            if( Verify.IsInput( ConnectionBuilder.ConnectionString )
                 && Verify.IsInput( SqlStatement.GetSelectStatement() ) )
             {
                 try
                 {
-                    var _provider = ConnectionBuilder.GetProvider();
+                    var _provider = ConnectionBuilder.Provider;
 
                     if( Verify.IsProvider( _provider ) )
                     {
@@ -139,7 +154,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the OLE database Data adapter.
+        /// Gets the OLE database data adapter.
         /// </summary>
         /// <returns></returns>
         private OleDbDataAdapter GetOleDbDataAdapter()
@@ -148,7 +163,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _connectionString = ConnectionBuilder?.GetConnectionString();
+                    var _connectionString = ConnectionBuilder?.ConnectionString;
 
                     return Verify.IsInput( _connectionString )
                         ? new OleDbDataAdapter( SqlStatement.GetSelectStatement(), _connectionString )
@@ -174,7 +189,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _connectionString = ConnectionBuilder?.GetConnectionString();
+                    var _connectionString = ConnectionBuilder?.ConnectionString;
 
                     return Verify.IsInput( _connectionString )
                         ? new SqlDataAdapter( SqlStatement.GetSelectStatement(), _connectionString )
@@ -244,12 +259,7 @@ namespace BudgetExecution
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
-        /// <param name="disposing">
-        /// <c>true</c>
-        /// to release both managed and unmanaged resources;
-        /// <c>false</c>
-        /// to release only unmanaged resources.
-        /// </param>
+        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
         private protected virtual void Dispose( bool disposing )
         {
             if( disposing )

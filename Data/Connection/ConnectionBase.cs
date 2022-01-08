@@ -10,6 +10,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
+    using static System.Configuration.ConfigurationManager;
 
     /// <summary>
     /// 
@@ -21,13 +22,12 @@ namespace BudgetExecution
         /// <summary>
         /// The connector
         /// </summary>
-        public readonly ConnectionStringSettingsCollection Connectors =
-            ConfigurationManager.ConnectionStrings;
+        public ConnectionStringSettingsCollection Connectors { get; set; } = ConnectionStrings;
 
         /// <summary>
         /// The provider path
         /// </summary>
-        public readonly NameValueCollection ProviderPath = ConfigurationManager.AppSettings;
+        public NameValueCollection ProviderPath { get; set; } = AppSettings;
 
         /// <summary>
         /// The source
@@ -175,7 +175,7 @@ namespace BudgetExecution
         /// Sets the file path.
         /// </summary>
         /// <param name="provider">The provider.</param>
-        private protected void SetFilePath( Provider provider )
+        private protected string GetFilePath( Provider provider )
         {
             if( Verify.IsProvider( provider ) )
             {
@@ -193,23 +193,29 @@ namespace BudgetExecution
                         Provider.NS => ProviderPath[ "Excel" ],
                         _ => ProviderPath[ "SQLite" ]
                     };
+
+                    return !string.IsNullOrEmpty( FilePath )
+                        ? FilePath
+                        : string.Empty;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
                 }
             }
+
+            return string.Empty;
         }
 
         /// <summary>
         /// Sets the file path.
         /// </summary>
         /// <param name="filePath">The filePath.</param>
-        private protected void SetFilePath( string filePath )
+        private protected string GetFilePath( string filePath )
         {
             try
             {
-                FilePath = Verify.IsInput( filePath ) 
+                return Verify.IsInput( filePath ) 
                     && File.Exists( filePath )
                         ? Path.GetFullPath( filePath )
                         : default( string );
@@ -217,6 +223,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+                return string.Empty;
             }
         }
 
@@ -224,7 +231,7 @@ namespace BudgetExecution
         /// Sets the file extension.
         /// </summary>
         /// <param name="filePath">The filePath.</param>
-        private protected void SetFileExtension( string filePath )
+        private protected string GetFileExtension( string filePath )
         {
             if( Verify.IsInput( filePath ) )
             {
@@ -243,13 +250,15 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+
+            return string.Empty;
         }
 
         /// <summary>
         /// Sets the name of the file.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        private protected void SetFileName( string filePath )
+        private protected string GetFileName( string filePath )
         {
             if( Verify.IsInput( filePath ) )
             {
@@ -257,22 +266,25 @@ namespace BudgetExecution
                 {
                     var _filename = Path.GetFileNameWithoutExtension( filePath );
 
-                    FileName = Verify.IsInput( filePath )
+                    return !string.IsNullOrEmpty( _filename )
                         ? _filename
                         : string.Empty;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
+                    return string.Empty;
                 }
             }
+
+            return string.Empty;
         }
 
         /// <summary>
         /// Sets the provider path.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        private protected void SetProviderPath( string filePath )
+        private protected string GetProviderPath( string filePath )
         {
             if( Verify.IsInput( filePath )
                 && File.Exists( filePath )
@@ -280,25 +292,21 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _extension =
-                        (EXT)Enum.Parse( typeof( EXT ), Path.GetExtension( filePath ) );
+                    var _extension = Path.GetExtension( filePath );
+                    var _provider =  (EXT)Enum.Parse( typeof( EXT ), _extension );
 
-                    FilePath = _extension switch
+                    return _provider switch
                     {
-                        EXT.MDB => ConfigurationManager.AppSettings[ "OleDbFilePath" ],
-                        EXT.ACCDB => ConfigurationManager.AppSettings[ "AccessFilePath" ],
-                        EXT.DB => ConfigurationManager.AppSettings[ "SQLiteFilePath" ],
-                        EXT.SDF => ConfigurationManager.AppSettings[ "SqlCeFilePath" ],
-                        EXT.MDF => ConfigurationManager.AppSettings[ "SqlServerFilePath" ],
-                        EXT.XLS => ConfigurationManager.AppSettings[ "ExcelFilePath" ]
-                                                       .Replace( "{FilePath}", filePath ),
-                        EXT.XLSX => ConfigurationManager.AppSettings[ "ExcelFilePath" ]
-                                                        .Replace( "{FilePath}", filePath ),
-                        EXT.CSV => ConfigurationManager.AppSettings[ "CsvFilePath" ]
-                                                       .Replace( "{FilePath}", filePath ),
-                        EXT.TXT => ConfigurationManager.AppSettings[ "CsvFilePath" ]
-                                                       .Replace( "{FilePath}", filePath ),
-                        _ => ConfigurationManager.AppSettings[ "SQLiteFilePath" ]
+                        EXT.MDB => AppSettings[ "OleDbFilePath" ],
+                        EXT.ACCDB => AppSettings[ "AccessFilePath" ],
+                        EXT.DB => AppSettings[ "SQLiteFilePath" ],
+                        EXT.SDF => AppSettings[ "SqlCeFilePath" ],
+                        EXT.MDF => AppSettings[ "SqlServerFilePath" ],
+                        EXT.XLS => AppSettings[ "ExcelFilePath" ].Replace( "{FilePath}", filePath ),
+                        EXT.XLSX => AppSettings[ "ExcelFilePath" ].Replace( "{FilePath}", filePath ),
+                        EXT.CSV => AppSettings[ "CsvFilePath" ].Replace( "{FilePath}", filePath ),
+                        EXT.TXT => AppSettings[ "CsvFilePath" ].Replace( "{FilePath}", filePath ),
+                        _ => AppSettings[ "SQLiteFilePath" ]
                     };
                 }
                 catch( Exception ex )
@@ -306,13 +314,15 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+
+            return string.Empty;
         }
 
         /// <summary>
         /// Sets the connection string.
         /// </summary>
         /// <param name="provider">The provider.</param>
-        private protected void SetConnectionString( Provider provider )
+        private protected string GetConnectionString( Provider provider )
         {
             if( Verify.IsProvider( provider ) )
             {
@@ -324,15 +334,11 @@ namespace BudgetExecution
                         case Provider.Excel:
                         case Provider.CSV:
                         {
-                            var _connection = ConfigurationManager
-                                              .ConnectionStrings[ provider.ToString() ]
-                                              ?.ConnectionString;
+                            var _connection = ConnectionStrings[ provider.ToString() ]?.ConnectionString;
 
-                            ConnectionString = Verify.IsInput( _connection )
+                            return Verify.IsInput( _connection )
                                 ? _connection?.Replace( "{FilePath}", FilePath )
                                 : string.Empty;
-
-                            break;
                         }
 
                         case Provider.SQLite:
@@ -340,15 +346,12 @@ namespace BudgetExecution
                         case Provider.SqlCe:
                         case Provider.SqlServer:
                         {
-                            var _connection = ConfigurationManager
-                                              .ConnectionStrings[ provider.ToString() ]
+                            var _connection = ConnectionStrings[ provider.ToString() ]
                                               ?.ConnectionString;
 
-                            ConnectionString = Verify.IsInput( _connection )
+                            return Verify.IsInput( _connection )
                                 ? _connection
                                 : string.Empty;
-
-                            break;
                         }
                     }
                 }
@@ -357,6 +360,8 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+
+            return string.Empty;
         }
 
         /// <summary>

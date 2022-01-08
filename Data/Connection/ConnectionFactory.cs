@@ -129,7 +129,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _provider = connectionBuilder.GetProvider();
+                    var _provider = connectionBuilder.Provider;
 
                     if( Verify.IsProvider( _provider ) )
                     {
@@ -221,7 +221,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _connectionString = ConnectionBuilder?.GetConnectionString();
+                var _connectionString = ConnectionBuilder?.ConnectionString;
 
                 return Verify.IsInput( _connectionString )
                     ? _connectionString
@@ -243,7 +243,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _provider = ConnectionBuilder.GetProvider();
+                var _provider = ConnectionBuilder.Provider;
 
                 return Verify.IsProvider( _provider )
                     ? _provider
@@ -265,7 +265,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _source = ConnectionBuilder.GetSource();
+                var _source = ConnectionBuilder.Source;
 
                 return Verify.IsSource( _source )
                     ? _source

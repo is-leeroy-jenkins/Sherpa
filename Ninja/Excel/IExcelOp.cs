@@ -21,7 +21,7 @@ namespace BudgetExecution
         // ***************************************************************************************************************************
 
         /// <summary>
-        /// The GetConnectionString
+        /// The ConnectionString
         /// </summary>
         /// <returns>
         /// The <see cref = "string"/>

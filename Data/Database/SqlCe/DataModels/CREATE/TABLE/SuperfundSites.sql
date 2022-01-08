@@ -1,7 +1,8 @@
-﻿CREATE TABLE [Sites]
+﻿CREATE TABLE [SuperfundSites]
 (
-   [SiteId] INT NOT NULL IDENTITY (1,1),
+   [SuperfundSitesId] INT NOT NULL IDENTITY (1,1),
    [RpioCode] NVARCHAR(255) DEFAULT ('NS'),
+   [RpioName] NVARCHAR(255) DEFAULT ('NS'),
    [BFY] NVARCHAR(255) DEFAULT ('NS'),
    [FundCode] NVARCHAR(255) DEFAULT ('NS'),
    [AhCode] NVARCHAR(255) DEFAULT ('NS'),
@@ -33,5 +34,7 @@
    [Obligations] FLOAT DEFAULT ('0.0'),
    [ULO] FLOAT DEFAULT ('0.0'),
    [Deobligations] FLOAT DEFAULT ('0.0'),
-   [Expenditures] FLOAT DEFAULT ('0.0')
+   [Expenditures] FLOAT DEFAULT ('0.0'),
+      CONSTRAINT PK_SuperfundSites
+      PRIMARY KEY (SuperfundSitesId)
 );

@@ -96,8 +96,8 @@ namespace BudgetExecution
         public Builder( IQuery query )
         {
             Query = query;
-            Source = ConnectionBuilder.GetSource();
-            Provider = ConnectionBuilder.GetProvider();
+            Source = ConnectionBuilder.Source;
+            Provider = ConnectionBuilder.Provider;
             ConnectionBuilder = Query.GetConnectionBuilder();
             SqlStatement = Query.GetSqlStatement();
             ProgramElements = GetSeries( GetDataTable() );

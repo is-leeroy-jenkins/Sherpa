@@ -161,7 +161,7 @@ namespace BudgetExecution
             if( Verify.IsInput( viewName )
                 && dataColumns?.Any() == true
                 && ConnectionBuilder != null
-                && ConnectionBuilder.GetProvider() != Provider.SqlCe )
+                && ConnectionBuilder.Provider != Provider.SqlCe )
             {
                 try
                 {

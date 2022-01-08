@@ -102,7 +102,7 @@ namespace BudgetExecution
         {
             try
             {
-                return ConnectionBuilder?.GetSource() ?? default( Source );
+                return ConnectionBuilder?.Source ?? default( Source );
             }
             catch( Exception ex )
             {
@@ -120,7 +120,7 @@ namespace BudgetExecution
         {
             try
             {
-                return ConnectionBuilder?.GetProvider() ?? Provider.SQLite;
+                return ConnectionBuilder?.Provider ?? Provider.SQLite;
             }
             catch( Exception ex )
             {
