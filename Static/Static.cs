@@ -120,15 +120,15 @@ namespace BudgetExecution
 
                 if( ex != null )
                 {
-                    var orgex = ex;
+                    var _orgex = ex;
                     _stringBuilder.Append( "Exception:" );
                     _stringBuilder.Append( Environment.NewLine );
 
-                    while( orgex != null )
+                    while( _orgex != null )
                     {
-                        _stringBuilder.Append( orgex.Message );
+                        _stringBuilder.Append( _orgex.Message );
                         _stringBuilder.Append( Environment.NewLine );
-                        orgex = orgex.InnerException;
+                        _orgex = _orgex.InnerException;
                     }
 
                     if( ex.Data != null )
