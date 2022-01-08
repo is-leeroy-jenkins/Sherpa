@@ -80,14 +80,14 @@ namespace BudgetExecution
         /// </summary>
         /// <typeparam name="T1">
         /// </typeparam>
-        /// <param name="bindinglist">
+        /// <param name="bindingList">
         /// The bindingsource.
         /// </param>
-        public void SetDataSource<T1>( T1 bindinglist ) where T1 : IBindingList
+        public void SetDataSource<T1>( T1 bindingList ) where T1 : IBindingList
         {
             try
             {
-                if( bindinglist is BindingSource _binder
+                if( bindingList is BindingSource _binder
                     && _binder?.DataSource != null )
                 {
                     try

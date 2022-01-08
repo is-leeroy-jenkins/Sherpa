@@ -60,7 +60,7 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>BlueNinja.ico</ApplicationIcon>
+    <ApplicationIcon>epa.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BaseConnectionLibrary, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
@@ -982,6 +982,22 @@
     <None Include="Data\Database\sqlite\ui\Data\settings\SQLiteDatabaseBrowserPortableSettings.ini" />
     <None Include="Data\Database\sqlite\ui\Other\Source\AppNamePortable.ini" />
     <None Include="Data\Database\sqlite\referencemodels\References.db" />
+    <None Include="etc\doc\RMDS\CFR31.pdf" />
+    <None Include="etc\doc\RMDS\FundsControlManual.pdf" />
+    <None Include="etc\doc\RMDS\ObjectClassManual.pdf" />
+    <None Include="etc\doc\RMDS\OfficialTravel.pdf" />
+    <None Include="etc\doc\SF\BudgetAndResourceManagement.docx" />
+    <None Include="etc\doc\SF\Contracts.docx" />
+    <None Include="etc\doc\SF\CostRecoveryProcess.docx" />
+    <None Include="etc\doc\SF\DirectChargingOfSuperfundCosts.docx" />
+    <None Include="etc\doc\SF\GeneralInformation.docx" />
+    <None Include="etc\doc\SF\InterAgencyAgreements.docx" />
+    <None Include="etc\doc\SF\Introduction.docx" />
+    <None Include="etc\doc\SF\PersonnelAndSupportCostAllocation.docx" />
+    <None Include="etc\doc\SF\SiteSpecificCostAccounting.docx" />
+    <None Include="etc\doc\SF\SpecialAccounts.docx" />
+    <None Include="etc\doc\SF\StateContractsAndCooperativeAgreements.docx" />
+    <None Include="etc\doc\SF\StateCostShareProvisions.docx" />
     <None Include="Lib\MetroSet UI.dll.config" />
     <None Include="Ninja\FiscalYear\Year" />
     <None Include="Ninja\Template\Excel.xlsx" />
@@ -2813,6 +2829,12 @@
     <Content Include="Data\Database\sqlite\referencemodels\CREATE\TABLE\ResponsibilityCenters.sql" />
     <Content Include="Data\Database\sqlite\referencemodels\References.sql" />
     <Content Include="Data\Database\sqlite\ui\SQLiteDatabaseBrowserPortable.exe" />
+    <Content Include="epa.ico" />
+    <Content Include="etc\BlueNinja.ico" />
+    <Content Include="etc\BudgetClamp.ico" />
+    <Content Include="etc\BudgetExecutionLogo.ico" />
+    <Content Include="etc\epa.ico" />
+    <Content Include="etc\EpaHorizontal.ico" />
     <Content Include="Lib\CharmNotification.dll" />
     <Content Include="Lib\DataGridViewExtension.dll" />
     <Content Include="Lib\EPPlus.dll" />

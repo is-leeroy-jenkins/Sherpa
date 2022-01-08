@@ -49,11 +49,11 @@ namespace BudgetExecution
             this.picturePanel1.HoverText = null;
             this.picturePanel1.Image = ((System.Drawing.Image)(resources.GetObject("picturePanel1.Image")));
             this.picturePanel1.ImageList = null;
-            this.picturePanel1.Location = new System.Drawing.Point(346, 121);
+            this.picturePanel1.Location = new System.Drawing.Point(360, 119);
             this.picturePanel1.Margin = new System.Windows.Forms.Padding(5);
             this.picturePanel1.Name = "picturePanel1";
             this.picturePanel1.Padding = new System.Windows.Forms.Padding(1);
-            this.picturePanel1.Size = new System.Drawing.Size(490, 322);
+            this.picturePanel1.Size = new System.Drawing.Size(410, 300);
             this.picturePanel1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picturePanel1.TabIndex = 0;
             this.picturePanel1.TabStop = false;
@@ -65,6 +65,7 @@ namespace BudgetExecution
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BorderColor = System.Drawing.Color.SteelBlue;
+            this.CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.CaptionBarColor = System.Drawing.Color.Black;
             this.CaptionFont = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CaptionForeColor = System.Drawing.Color.LightGray;
@@ -75,6 +76,7 @@ namespace BudgetExecution
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MetroColor = System.Drawing.Color.Black;
             this.Name = "BadgerMain";
+            this.ShowIcon = false;
             this.Text = "Budget Execution";
             ((System.ComponentModel.ISupportInitialize)(this.picturePanel1)).EndInit();
             this.ResumeLayout(false);
