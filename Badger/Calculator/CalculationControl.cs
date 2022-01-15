@@ -7,13 +7,12 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System;
-    using System.Windows.Forms;
-    using Syncfusion.WinForms.Controls;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.ControlBase" />
+    /// <seealso cref="BudgetExecution.ICalculator" />
     public partial class CalculationControl : ControlBase, ICalculator
     {
         /// <summary>
@@ -25,10 +24,11 @@ namespace BudgetExecution
             Label.Text = Calculator.DoubleValue.ToString( "C" );
             Calculator.ValueCalculated += OnCalculate;
         }
-        
+
         /// <summary>
         /// Sets the binding source.
         /// </summary>
+        /// <typeparam name="T1"></typeparam>
         /// <param name="data">The data.</param>
         public new void SetDataSource<T1>( IEnumerable<T1> data ) where T1 : IEnumerable<DataRow>
         {
@@ -77,9 +77,10 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the bindings.
         /// </summary>
+        /// <typeparam name="T1">The type of the 1.</typeparam>
+        /// <typeparam name="T2">The type of the 2.</typeparam>
         /// <param name="data">The data.</param>
-        /// <param>The numeric.</param>
-        /// <param name = "dict" > </param>
+        /// <param name="dict">The dictionary.</param>
         public new void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
             where T1 : IEnumerable<DataRow> where T2 : IDictionary<string, object>
         {
@@ -89,6 +90,8 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the binding source.
         /// </summary>
+        /// <typeparam name="T1">The type of the 1.</typeparam>
+        /// <typeparam name="T2">The type of the 2.</typeparam>
         /// <param name="data">The data.</param>
         /// <param name="field">The field.</param>
         /// <param name="filter">The filter.</param>
@@ -97,7 +100,7 @@ namespace BudgetExecution
         {
             ( (ICalculator)Calculator ).SetDataSource( data, field, filter );
         }
-        
+
         /// <summary>
         /// Called when [calculate].
         /// </summary>
