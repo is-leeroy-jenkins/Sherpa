@@ -174,10 +174,12 @@ C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Calculate.Windo
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Chart.Base.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Chart.Windows.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Compression.Base.dll
+C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Core.WinForms.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Data.WinForms.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.DataSource.WinForms.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Grid.Base.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Grid.Windows.dll
+C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Licensing.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Office2016Theme.WinForms.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Office2019Theme.WinForms.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Pdf.Base.dll
@@ -227,6 +229,7 @@ C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Calculate.Windo
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Chart.Base.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Chart.Windows.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Compression.Base.xml
+C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Core.WinForms.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Data.WinForms.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.DataSource.WinForms.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Grid.Base.xml
@@ -267,6 +270,7 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Cha
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.DataGrid.DataGridControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.GroupBox.GroupBoxControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Clock.ClockControl.resources
+C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.FormBase.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Properties.Resources.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Toolbar.ToolBarControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.GenerateResource.cache
