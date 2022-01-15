@@ -6,12 +6,15 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Drawing;
 
     public partial class BadgerMain : FormBase
     {
         public BadgerMain()
         {
             InitializeComponent();
+            Size = SizeConfig.FormSizeNormal;
+            BorderColor = ColorConfig.BorderColorBlue;
         }
     }
 }

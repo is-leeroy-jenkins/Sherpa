@@ -45,7 +45,7 @@ namespace BudgetExecution
             this.BackPanel.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.BackPanel.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.BackPanel.BindingSource = null;
-            this.BackPanel.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.BackPanel.Border.Color = System.Drawing.Color.Transparent;
             this.BackPanel.Border.HoverColor = System.Drawing.Color.SteelBlue;
             this.BackPanel.Border.HoverVisible = false;
             this.BackPanel.Border.Rounding = 6;
@@ -61,7 +61,7 @@ namespace BudgetExecution
             this.BackPanel.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.BackPanel.Name = "BackPanel";
             this.BackPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.BackPanel.Size = new System.Drawing.Size(1296, 655);
+            this.BackPanel.Size = new System.Drawing.Size(1388, 762);
             this.BackPanel.TabIndex = 0;
             this.BackPanel.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             this.BackPanel.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -83,7 +83,7 @@ namespace BudgetExecution
             this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CaptionForeColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(1296, 655);
+            this.ClientSize = new System.Drawing.Size(1388, 762);
             this.Controls.Add(this.BackPanel);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.LightGray;
@@ -98,6 +98,6 @@ namespace BudgetExecution
 
         #endregion
 
-        private LayoutPanel BackPanel;
+        public LayoutPanel BackPanel;
     }
 }
