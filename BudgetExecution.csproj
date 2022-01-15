@@ -621,10 +621,10 @@
     <Compile Include="Badger\GroupBox\GroupBoxPanel.cs" />
     <Compile Include="Badger\GroupBox\IGroupBox.cs" />
     <Compile Include="Badger\Clock\IClock.cs" />
-    <Compile Include="FormBase.cs">
+    <Compile Include="Badger\Form\FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBase.Designer.cs">
+    <Compile Include="Badger\Form\FormBase.Designer.cs">
       <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Ninja\Analysis\Computation.cs" />
@@ -842,7 +842,7 @@
     <EmbeddedResource Include="Badger\DataGrid\DataGridControl.resx" />
     <EmbeddedResource Include="Badger\GroupBox\GroupBoxControl.resx" />
     <EmbeddedResource Include="Badger\Clock\ClockControl.resx" />
-    <EmbeddedResource Include="FormBase.resx">
+    <EmbeddedResource Include="Badger\Form\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -2915,9 +2915,7 @@
     <Content Include="Lib\VisualPlus.dll" />
     <Content Include="readme.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Badger\Form\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
