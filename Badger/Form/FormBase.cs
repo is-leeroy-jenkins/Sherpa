@@ -19,6 +19,7 @@ namespace BudgetExecution
             InitializeComponent();
             Size = SizeConfig.FormSizeNormal;
             BorderColor = ColorConfig.BorderColorBlue;
+            Text = string.Empty;
         }
     }
 }

@@ -35,10 +35,10 @@ namespace BudgetExecution
         /// <summary> Sets the legend configuration. </summary>
         /// <param name = "font" > The font. </param>
         /// <param name = "size" > The size. </param>
-        /// <param name = "backcolor" > The backcolor. </param>
-        public void SetLegend( Font font, Size size, Color backcolor )
+        /// <param name = "backColor" > The back color. </param>
+        public void SetLegend( Font font, Size size, Color backColor )
         {
-            ( (IBudgetChart)Chart ).SetLegend( font, size, backcolor );
+            ( (IBudgetChart)Chart ).SetLegend( font, size, backColor );
         }
 
         /// <summary> Gets the style configuration. </summary>

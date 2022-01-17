@@ -13,8 +13,28 @@ namespace BudgetExecution
         public BadgerMain()
         {
             InitializeComponent();
-            Size = SizeConfig.FormSizeNormal;
+
+            // Form Property Values
+            BackColor = ColorConfig.FormBackColorDark;
+            BorderThickness = BorderConfig.Thin;
             BorderColor = ColorConfig.BorderColorBlue;
+            Size = SizeConfig.FormSizeNormal;
+            Font = FontConfig.FontSizeSmall;
+            CaptionBarColor = ColorConfig.FormBackColorDark;
+            CaptionBarHeight = SizeConfig.CaptionSizeNormal;
+            CaptionButtonColor = ColorConfig.CaptionButtonDefaultColor;
+            CaptionButtonHoverColor = ColorConfig.CaptionButtonHoverColor;
+            CaptionAlign = AlignConfig.HorizontalLeft;
+            CaptionFont = FontConfig.FontSizeMedium;
+            MetroColor = ColorConfig.FormBackColorDark;
+            FormBorderStyle = BorderConfig.Sizeable;
+            Icon = new Icon( @"C:\Users\terry\source\repos\BudgetExecution\Etc\epa.ico", 33, 32 );
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            Padding = FormConfig.Padding;
+            Text = string.Empty;
+            MinimumSize = SizeConfig.FormSizeMinimum;
+            MaximumSize = SizeConfig.FormSizeMaximum;
         }
     }
 }

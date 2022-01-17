@@ -12,37 +12,55 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="System.IDisposable" />
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class FontConfig : IDisposable
     {
         /// <summary>
-        /// The font style regular
+        /// Gets or sets the font style regular.
         /// </summary>
+        /// <value>
+        /// The font style regular.
+        /// </value>
         public static FontStyle FontStyleRegular { get; set; } = FontStyle.Regular;
 
         /// <summary>
-        /// The font style bold
+        /// Gets or sets the font style bold.
         /// </summary>
+        /// <value>
+        /// The font style bold.
+        /// </value>
         public static FontStyle FontStyleBold { get; set; } = FontStyle.Bold;
 
         /// <summary>
-        /// The font style italic
+        /// Gets or sets the font style italic.
         /// </summary>
+        /// <value>
+        /// The font style italic.
+        /// </value>
         public static FontStyle FontStyleItalic { get; set; } = FontStyle.Italic;
 
         /// <summary>
-        /// The font size small
+        /// Gets or sets the font size small.
         /// </summary>
+        /// <value>
+        /// The font size small.
+        /// </value>
         public static Font FontSizeSmall { get; set; } = new Font( "Roboto", 8 );
 
         /// <summary>
-        /// The font size medium
+        /// Gets or sets the font size medium.
         /// </summary>
+        /// <value>
+        /// The font size medium.
+        /// </value>
         public static Font FontSizeMedium { get; set; } = new Font( "Roboto", 10 );
 
         /// <summary>
-        /// The font size large
+        /// Gets or sets the font size large.
         /// </summary>
+        /// <value>
+        /// The font size large.
+        /// </value>
         public static Font FontSizeLarge { get; set; } = new Font( "Roboto", 12 );
 
         /// <summary>
@@ -146,12 +164,7 @@ namespace BudgetExecution
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
-        /// <param name="disposing">
-        /// <c>true</c> to release both managed
-        /// and unmanaged resources;
-        /// <c>false</c>
-        /// to release only unmanaged resources.
-        /// </param>
+        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
         private void Dispose( bool disposing )
         {
             if( disposing )
@@ -170,8 +183,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Performs application-defined tasks associated with freeing,
-        /// releasing, or resetting unmanaged resources.
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
         public void Dispose()
         {

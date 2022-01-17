@@ -11,84 +11,119 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class SizeConfig
     {
         /// <summary>
-        /// Gets the size of the normal form.
+        /// Gets the form size normal.
         /// </summary>
         /// <value>
-        /// The size of the normal form.
+        /// The form size normal.
         /// </value>
         public static Size FormSizeNormal { get; } = new Size( 1500, 820 );
 
         /// <summary>
-        /// Gets the maximum size of the form.
+        /// Gets the form size maximum.
         /// </summary>
         /// <value>
-        /// The maximum size of the form.
+        /// The form size maximum.
         /// </value>
         public static Size FormSizeMaximum { get; } = new Size( 1900, 1060 );
 
         /// <summary>
-        /// Gets the minimum size of the form.
+        /// Gets the form size minimum.
         /// </summary>
         /// <value>
-        /// The minimum size of the form.
+        /// The form size minimum.
         /// </value>
         public static Size FormSizeMinimum { get; } = new Size( 600, 400 );
 
         /// <summary>
-        /// The dialog size normal
+        /// Gets the dialog size normal.
         /// </summary>
+        /// <value>
+        /// The dialog size normal.
+        /// </value>
         public static Size DialogSizeNormal { get; } = new Size( 680, 530 );
 
         /// <summary>
-        /// The form size maximum
+        /// Gets the caption size normal.
         /// </summary>
+        /// <value>
+        /// The caption size normal.
+        /// </value>
+        public static int CaptionSizeNormal { get; } = 26;
+
+        /// <summary>
+        /// Gets the chart size normal.
+        /// </summary>
+        /// <value>
+        /// The chart size normal.
+        /// </value>
+        public static Size ChartSizeNormal { get; } = new Size( 900, 400 );
+
+        /// <summary>
+        /// Gets the dialog size minimum.
+        /// </summary>
+        /// <value>
+        /// The dialog size minimum.
+        /// </value>
         public static Size DialogSizeMinimum { get; } = new Size( 300, 300 );
 
         /// <summary>
-        /// The form size minimum
+        /// Gets the dialog size maximum.
         /// </summary>
+        /// <value>
+        /// The dialog size maximum.
+        /// </value>
         public static Size DialogSizeMaximum { get; } = new Size( 800, 800 );
 
         /// <summary>
-        /// The column configuration size
+        /// Gets the context menu size normal.
         /// </summary>
+        /// <value>
+        /// The context menu size normal.
+        /// </value>
         public static Size ContextMenuSizeNormal { get; } = new Size( 250, 350 );
 
         /// <summary>
-        /// The small
+        /// Gets the image size small.
         /// </summary>
+        /// <value>
+        /// The image size small.
+        /// </value>
         public static Size ImageSizeSmall { get; } = new Size( 12, 12 );
 
         /// <summary>
-        /// The medium
+        /// Gets the image size icon.
         /// </summary>
+        /// <value>
+        /// The image size icon.
+        /// </value>
         public static Size ImageSizeIcon { get; } = new Size( 16, 16 );
 
         /// <summary>
-        /// The large
+        /// Gets the image size medium.
         /// </summary>
+        /// <value>
+        /// The image size medium.
+        /// </value>
         public static Size ImageSizeMedium { get; } = new Size( 20, 20 );
 
         /// <summary>
-        /// The largest
+        /// Gets the image size large.
         /// </summary>
+        /// <value>
+        /// The image size large.
+        /// </value>
         public static Size ImageSizeLarge  { get; } = new Size( 250, 250 );
-        
+
         /// <summary>
-        /// Sets the color.
+        /// Gets the size.
         /// </summary>
-        /// <param name = "width" >
-        /// The width.
-        /// </param>
-        /// <param name = "height" >
-        /// The height.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        /// <returns></returns>
         public static Size GetSize( int width = 1, int height = 1 )
         {
             try
@@ -105,13 +140,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the size.
+        /// Gets the size.
         /// </summary>
-        /// <param name = "size" >
-        /// The size.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="size">The size.</param>
+        /// <returns></returns>
         public static Size GetSize( Size size )
         {
             if( size.Width > -1
@@ -131,10 +163,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the size.
+        /// Gets the size.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <param name="size">The size.</param>
+        /// <returns></returns>
         public static Size GetSize( ImageSizer size )
         {
             if( Verify.IsImageSize( size ) )
@@ -158,16 +190,12 @@ namespace BudgetExecution
 
             return Size.Empty;
         }
-        
+
         /// <summary>
         /// Called when [size changed].
         /// </summary>
-        /// <param name = "sender" >
-        /// The sender.
-        /// </param>
-        /// <param name = "e" >
-        /// The <see cref = "EventArgs"/> instance containing the event data.
-        /// </param>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public static void OnSizeChanged( object sender, EventArgs e )
         {
             if( sender != null
@@ -186,7 +214,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )

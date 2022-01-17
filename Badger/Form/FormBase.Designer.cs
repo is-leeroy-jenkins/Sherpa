@@ -91,7 +91,6 @@ namespace BudgetExecution
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.Name = "FormBase";
             this.ShowIcon = false;
-            this.Text = "Budget Execution";
             this.ResumeLayout(false);
 
         }

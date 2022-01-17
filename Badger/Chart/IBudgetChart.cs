@@ -53,8 +53,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="font">The font.</param>
         /// <param name="size">The size.</param>
-        /// <param name="backcolor">The backcolor.</param>
-        void SetLegend( Font font, Size size, Color backcolor );
+        /// <param name="backColor">The backColor.</param>
+        void SetLegend( Font font, Size size, Color backColor );
 
         /// <summary>
         /// Gets the style configuration.
