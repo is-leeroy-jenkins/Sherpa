@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <summary>
         /// Pascalizes the headers.
         /// </summary>
-        /// <param name="dataRows">The data.</param>
+        /// <param name="dataRows">The data rows.</param>
         /// <param name="gridColumns">The grid columns.</param>
         void PascalizeHeaders( IEnumerable<DataRow> dataRows, GridBoundColumnsCollection gridColumns );
 
@@ -90,7 +90,8 @@ namespace BudgetExecution
         /// Models the on selection changed.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="GridSelectionChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="GridSelectionChangedEventArgs"/>
+        /// instance containing the event data.</param>
         void ModelOnSelectionChanged( object sender, GridSelectionChangedEventArgs e );
 
         /// <summary>

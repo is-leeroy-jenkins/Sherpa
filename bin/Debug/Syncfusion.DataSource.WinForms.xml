@@ -3289,7 +3289,7 @@
         </member>
         <member name="M:Syncfusion.DataSource.DataSource.RefreshFilter">
             <summary>
-            Refresh the <see cref="T:Syncfusion.DataSource.DataSource"/>. Raises the <see cref="E:Syncfusion.DataSource.DataSource.FilterChanged"/> Event 
+            Refresh the <see cref="T:Syncfusion.DataSource.DataSource"/>. Raises the <see cref="!:Syncfusion.Data.DataSource.SfDataSource.FilterChanged"/> Event 
             </summary>
         </member>
         <member name="M:Syncfusion.DataSource.DataSource.Refresh">

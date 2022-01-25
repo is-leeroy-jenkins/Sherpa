@@ -37,7 +37,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; } = Source.Allocations;
+        public virtual Source Source { get; set; } = Source.Allocations;
 
         /// <summary>
         /// Gets the amount.

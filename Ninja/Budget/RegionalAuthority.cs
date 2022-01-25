@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public new Source Source { get; } = Source.RegionAuthority;
+        public override Source Source { get; set; } = Source.RegionalAuthority;
 
         /// <summary>
         /// Initializes a new instance of the <see/> class.

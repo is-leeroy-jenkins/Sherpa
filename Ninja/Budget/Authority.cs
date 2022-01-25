@@ -43,7 +43,7 @@ namespace BudgetExecution
         /// <value>
         /// The rpio.
         /// </value>
-        public IResourcePlanningOffice RPIO { get; } 
+        public IResourcePlanningOffice RPIO { get; set; } 
 
         /// <summary>
         /// Gets the fiscal year.
@@ -59,15 +59,15 @@ namespace BudgetExecution
         /// <value>
         /// The fund.
         /// </value>
-        public IFund Fund { get; } 
-        
+        public IFund Fund { get; set; }
+
         /// <summary>
         /// Gets or sets the allowance holder.
         /// </summary>
         /// <value>
         /// The allowance holder.
         /// </value>
-        public IAllowanceHolder AllowanceHolder { get; } 
+        public IAllowanceHolder AllowanceHolder { get; set; }
 
         /// <summary>
         /// Gets or sets the organization.
@@ -75,7 +75,7 @@ namespace BudgetExecution
         /// <value>
         /// The organization.
         /// </value>
-        public IOrganization Organization { get; } 
+        public IOrganization Organization { get; set; }
 
         /// <summary>
         /// Gets or sets the account.
@@ -83,7 +83,7 @@ namespace BudgetExecution
         /// <value>
         /// The account.
         /// </value>
-        public IAccount Account { get; } 
+        public IAccount Account { get; set; }
 
         /// <summary>
         /// Gets or sets the responsibility center.
@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// <value>
         /// The responsibility center.
         /// </value>
-        public IResponsibilityCenter ResponsibilityCenter { get; } 
+        public IResponsibilityCenter ResponsibilityCenter { get; set; }
 
         /// <summary>
         /// Gets the activity.
@@ -99,12 +99,12 @@ namespace BudgetExecution
         /// <value>
         /// The activity.
         /// </value>
-        public IActivity Activity { get; }
+        public IActivity Activity { get; set; }
 
         /// <summary>
         /// The source
         /// </summary>
-        public new Source Source { get; } = Source.Allocations;
+        public virtual Source Source { get; set; } = Source.Allocations;
 
         /// <summary>
         /// Initializes a new instance of the <see/> class.

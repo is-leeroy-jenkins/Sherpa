@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public new Source Source { get; } =  Source.Supplementals;
+        public override Source Source { get; set; } =  Source.StatusOfSupplementalFuning;
 
         /// <summary>
         /// Gets or sets the ProgramResultCodes identifier.

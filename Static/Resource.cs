@@ -173,7 +173,7 @@ namespace BudgetExecution
             Source.FullTimeEquivalents,
             Source.HeadquartersAuthority,
             Source.PayrollAuthority,
-            Source.RegionAuthority,
+            Source.RegionalAuthority,
             Source.Reprogrammings,
             Source.ReimbursableAgreements,
             Source.ReimbursableFunds,
