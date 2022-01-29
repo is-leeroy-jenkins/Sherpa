@@ -100,12 +100,7 @@ namespace BudgetExecution
         /// The activity.
         /// </value>
         public IActivity Activity { get; set; }
-
-        /// <summary>
-        /// The source
-        /// </summary>
-        public virtual Source Source { get; set; } = Source.Allocations;
-
+        
         /// <summary>
         /// Initializes a new instance of the <see/> class.
         /// </summary>

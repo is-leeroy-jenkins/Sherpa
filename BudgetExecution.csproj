@@ -459,10 +459,10 @@
     <Compile Include="Badger\Clock\ClockPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChartForm.cs">
+    <Compile Include="Badger\Chart\ChartForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChartForm.Designer.cs">
+    <Compile Include="Badger\Chart\ChartForm.Designer.cs">
       <DependentUpon>ChartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
@@ -844,7 +844,7 @@
     <EmbeddedResource Include="Badger\Form\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChartForm.resx">
+    <EmbeddedResource Include="Badger\Chart\ChartForm.resx">
       <DependentUpon>ChartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
