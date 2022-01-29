@@ -257,7 +257,7 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         public void SetField( Field field )
         {
-            if( Verify.IsField( field ) )
+            if( Validate.IsField( field ) )
             {
                 try
                 {

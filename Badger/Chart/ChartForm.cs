@@ -34,7 +34,7 @@ namespace BudgetExecution
             Icon = new Icon(@"C:\Users\terry\source\repos\BudgetExecution\Etc\epa.ico", 33, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            Padding = FormConfig.Padding;
+            Padding = ControlConfig.Padding;
             Text = string.Empty;
             MinimumSize = SizeConfig.FormSizeMinimum;
             MaximumSize = SizeConfig.FormSizeMaximum;

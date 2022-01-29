@@ -5,58 +5,42 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
     [ SuppressMessage( "ReSharper", "UnusedMemberInSuper.Global" ) ]
     public interface ICalendarYear
     {
         /// <summary>
-        /// Gets the work days.
+        /// Gets or sets the Data.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetWorkDays();
+        /// <value>
+        /// The Data.
+        /// </value>
+        DataRow Record { get; set; }
 
         /// <summary>
-        /// Gets the week days.
+        /// Gets or sets the work days.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetWeekDays();
+        /// <value>
+        /// The work days.
+        /// </value>
+        IElement WorkDays { get; set; }
 
         /// <summary>
-        /// Gets the week ends.
+        /// Gets or sets the week days.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetWeekEnds();
+        /// <value>
+        /// The week days.
+        /// </value>
+        IElement WeekDays { get; set; }
 
         /// <summary>
-        /// Gets the current date.
+        /// Gets or sets the week ends.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        DateTime GetCurrentDate();
-
-        /// <summary>
-        /// Gets the current month.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        int GetCurrentMonth();
-
-        /// <summary>
-        /// Gets the current year.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        int GetCurrentYear();
-
-        /// <summary>
-        /// Gets the current day.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        int GetCurrentDay();
+        /// <value>
+        /// The week ends.
+        /// </value>
+        IElement WeekEnds { get; set; }
     }
 }

@@ -175,10 +175,10 @@ namespace BudgetExecution
                 {
                     return size switch
                     {
-                        ImageSizer.Small => SizeConfig.ImageSizeSmall,
-                        ImageSizer.Medium => SizeConfig.ImageSizeIcon,
-                        ImageSizer.Large => SizeConfig.ImageSizeMedium,
-                        ImageSizer.Huge => SizeConfig.ImageSizeMedium,
+                        ImageSizer.Small => ImageSizeSmall,
+                        ImageSizer.Medium => ImageSizeIcon,
+                        ImageSizer.Large => ImageSizeMedium,
+                        ImageSizer.Huge => ImageSizeMedium,
                         _ => Size.Empty
                     };
                 }

@@ -125,7 +125,7 @@ namespace BudgetExecution
         public string GetField( DataRow dataRow, Field field )
         {
             if( Verify.IsRow( dataRow ) 
-                && Verify.IsField( field ) )
+                && Validate.IsField( field ) )
             {
                 try
                 {

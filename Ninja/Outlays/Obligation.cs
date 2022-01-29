@@ -141,7 +141,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsSource( Source )
+                return Validate.IsSource( Source )
                     ? new Builder( Source, Data )
                     : default( Builder );
             }

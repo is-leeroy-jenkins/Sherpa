@@ -6,50 +6,97 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
 
     public interface IBudgetFiscalYear
     {
         /// <summary>
-        /// Gets the first year.
+        /// Gets or sets the bfy.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetFirstYear();
+        /// <value>
+        /// The bfy.
+        /// </value>
+        BFY BFY { get; set; }
 
         /// <summary>
-        /// Gets the last year.
+        /// Gets or sets the fiscal year identifier.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetLastYear();
+        /// <value>
+        /// The fiscal year identifier.
+        /// </value>
+        IKey FiscalYearId { get; set; }
 
         /// <summary>
-        /// Gets the budget fiscal year.
+        /// Gets or sets the bbfy.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        IBudgetFiscalYear GetBudgetFiscalYear();
+        /// <value>
+        /// The bbfy.
+        /// </value>
+        IElement FirstYear { get; set; }
 
         /// <summary>
-        /// Gets the availability.
+        /// Gets or sets the ebfy.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        IElement GetAvailability();
+        /// <value>
+        /// The ebfy.
+        /// </value>
+        IElement LastYear { get; set; }
 
         /// <summary>
-        /// Gets the fiscal year identifier.
+        /// Gets or sets the expiring year.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        IKey GetFiscalYearId();
+        /// <value>
+        /// The expiring year.
+        /// </value>
+        IElement ExpiringYear { get; set; }
 
         /// <summary>
-        /// Gets the bfy.
+        /// Gets or sets the input year.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        BFY GetBFY();
+        /// <value>
+        /// The input year.
+        /// </value>
+        IElement InputYear { get; set; }
+
+        /// <summary>
+        /// Gets or sets the start date.
+        /// </summary>
+        /// <value>
+        /// The start date.
+        /// </value>
+        IElement StartDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the end date.
+        /// </summary>
+        /// <value>
+        /// The end date.
+        /// </value>
+        IElement EndDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the cancellation date.
+        /// </summary>
+        /// <value>
+        /// The cancellation date.
+        /// </value>
+        IElement CancellationDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the availability.
+        /// </summary>
+        /// <value>
+        /// The availability.
+        /// </value>
+        IElement Availability { get; set; }
+
+        /// <summary>
+        /// Gets or sets the arguments.
+        /// </summary>
+        /// <value>
+        /// The arguments.
+        /// </value>
+        DataRow Record { get; set; }
 
         /// <summary>
         /// Determines whether this instance is current.

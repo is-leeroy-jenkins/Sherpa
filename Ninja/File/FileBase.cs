@@ -100,33 +100,7 @@ namespace BudgetExecution
         /// The security.
         /// </value>
         public FileSecurity FileSecurity { get; set; }
-        
-        /// <summary>
-        /// Gets the input.
-        /// </summary>
-        /// <returns></returns>
-        public string GetInput()
-        {
-            var _input = Path?.GetFullPath();
-
-            if( Verify.IsInput( _input ) )
-            {
-                try
-                {
-                    return File.Exists( _input )
-                        ? _input
-                        : string.Empty;
-                }
-                catch( IOException ex )
-                {
-                    Fail( ex );
-                    return string.Empty;
-                }
-            }
-
-            return string.Empty;
-        }
-
+     
         /// <summary>
         /// Gets the root.
         /// </summary>
@@ -139,27 +113,6 @@ namespace BudgetExecution
 
                 return Verify.IsInput( _root )
                     ? _root
-                    : string.Empty;
-            }
-            catch( IOException ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the file.
-        /// </summary>
-        /// <returns></returns>
-        public string GetFileName()
-        {
-            try
-            {
-                var name = Path?.GetFileName();
-
-                return Verify.IsInput( name )
-                    ? name
                     : string.Empty;
             }
             catch( IOException ex )
@@ -189,26 +142,7 @@ namespace BudgetExecution
                 return EXT.NS;
             }
         }
-
-        /// <summary>
-        /// Gets the length of the file.
-        /// </summary>
-        /// <returns></returns>
-        public long GetLength()
-        {
-            try
-            {
-                return FileInfo.Length > 0
-                    ? FileInfo.Length
-                    : 0;
-            }
-            catch( IOException ex )
-            {
-                Fail( ex );
-                return 0;
-            }
-        }
-
+        
         /// <summary>
         /// Moves the specified destination.
         /// </summary>
@@ -325,64 +259,7 @@ namespace BudgetExecution
                 return default( FileSecurity );
             }
         }
-
-        /// <summary>
-        /// Gets the file attributes.
-        /// </summary>
-        /// <returns></returns>
-        public FileAttributes GetFileAttributes()
-        {
-            try
-            {
-                return Verify.IsElement( Attributes )
-                    ? Attributes
-                    : default( FileAttributes );
-            }
-            catch( IOException ex )
-            {
-                Fail( ex );
-                return default( FileAttributes );
-            }
-        }
-
-        /// <summary>
-        /// Gets the creation date.
-        /// </summary>
-        /// <returns></returns>
-        public DateTime GetCreationDate()
-        {
-            try
-            {
-                return Verify.IsDateTime( CreationDate )
-                    ? CreationDate
-                    : default( DateTime );
-            }
-            catch( IOException ex )
-            {
-                Fail( ex );
-                return default( DateTime );
-            }
-        }
-
-        /// <summary>
-        /// Gets the changed date.
-        /// </summary>
-        /// <returns></returns>
-        public DateTime GetChangedDate()
-        {
-            try
-            {
-                return Verify.IsDateTime( ChangeDate )
-                    ? ChangeDate
-                    : default( DateTime );
-            }
-            catch( IOException ex )
-            {
-                Fail( ex );
-                return default( DateTime );
-            }
-        }
-
+        
         /// <summary>
         /// Gets the base stream.
         /// </summary>

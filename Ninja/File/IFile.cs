@@ -1,6 +1,6 @@
-﻿// <copyright file = "IFile.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
-// </copyright>
+﻿// // <copyright file = "IFile.cs" company = "Terry D. Eppler">
+// // Copyright (c) Terry D. Eppler. All rights reserved.
+// // </copyright>
 
 namespace BudgetExecution
 {
@@ -11,6 +11,90 @@ namespace BudgetExecution
 
     public interface IFile
     {
+        /// <summary>
+        /// The path
+        /// </summary>
+        IPath Path { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
+        string FileName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the full name.
+        /// </summary>
+        /// <value>
+        /// The full name.
+        /// </value>
+        string FullName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the changed date.
+        /// </summary>
+        /// <value>
+        /// The changed date.
+        /// </value>
+        DateTime ChangeDate { get; set; }
+
+        /// <summary>
+        /// Gets the information.
+        /// </summary>
+        /// <value>
+        /// The information.
+        /// </value>
+        FileInfo FileInfo { get; set; }
+
+        /// <summary>
+        /// Gets or sets the extension.
+        /// </summary>
+        /// <value>
+        /// The extension.
+        /// </value>
+        string Extension { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance has parent.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance has parent { get; set; } otherwise, <c>false</c>.
+        /// </value>
+        bool HasParent { get; set; }
+
+        /// <summary>
+        /// Gets or sets the creation date.
+        /// </summary>
+        /// <value>
+        /// The creation date.p/// </value>
+        DateTime CreationDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the length.
+        /// </summary>
+        /// <value>
+        /// The length.
+        /// </value>
+        long Length { get; set; }
+
+        /// <summary>
+        /// Gets or sets the attributes.
+        /// </summary>
+        /// <value>
+        /// The attributes.
+        /// </value>
+        FileAttributes Attributes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the security.
+        /// </summary>
+        /// <value>
+        /// The security.
+        /// </value>
+        FileSecurity FileSecurity { get; set; }
+
         /// <summary>
         /// Transfers the specified folder.
         /// </summary>
@@ -54,48 +138,6 @@ namespace BudgetExecution
         IPath GetDataPath();
 
         /// <summary>
-        /// Gets the extension.
-        /// </summary>
-        /// <returns></returns>
-        string GetFileExtension();
-
-        /// <summary>
-        /// Gets the full path.
-        /// </summary>
-        /// <returns></returns>
-        string GetFilePath();
-
-        /// <summary>
-        /// Gets the input.
-        /// </summary>
-        /// <returns></returns>
-        string GetInput();
-
-        /// <summary>
-        /// Gets the root.
-        /// </summary>
-        /// <returns></returns>
-        string GetPathRoot();
-
-        /// <summary>
-        /// Gets the name of the file.
-        /// </summary>
-        /// <returns></returns>
-        string GetFileName();
-
-        /// <summary>
-        /// Gets the extension.
-        /// </summary>
-        /// <returns></returns>
-        EXT GetExtension();
-
-        /// <summary>
-        /// Gets the length of the file.
-        /// </summary>
-        /// <returns></returns>
-        long GetLength();
-
-        /// <summary>
         /// Moves the specified destination.
         /// </summary>
         /// <param name="filepath">The destination.</param>
@@ -123,31 +165,13 @@ namespace BudgetExecution
         /// </summary>
         /// <returns></returns>
         IFolder GetParentFolder();
-
+        
         /// <summary>
-        /// Gets the file security.
+        /// Gets the extension.
         /// </summary>
         /// <returns></returns>
-        FileSecurity GetFileSecurity();
-
-        /// <summary>
-        /// Gets the file attributes.
-        /// </summary>
-        /// <returns></returns>
-        FileAttributes GetFileAttributes();
-
-        /// <summary>
-        /// Gets the creation date.
-        /// </summary>
-        /// <returns></returns>
-        DateTime GetCreationDate();
-
-        /// <summary>
-        /// Gets the changed date.
-        /// </summary>
-        /// <returns></returns>
-        DateTime GetChangedDate();
-
+        EXT GetExtension();
+        
         /// <summary>
         /// Gets the base stream.
         /// </summary>

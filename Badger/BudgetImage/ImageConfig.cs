@@ -101,7 +101,7 @@ namespace BudgetExecution
         {
             try
             {
-                Source = Verify.ImageResource( source )
+                Source = Validate.ImageResource( source )
                     ? source
                     : ImageSource.NS;
             }
@@ -176,7 +176,7 @@ namespace BudgetExecution
         {
             try
             {
-                FileExtension = Verify.ImageResource( resource )
+                FileExtension = Validate.ImageResource( resource )
                     && Verify.IsInput( filePath )
                     && File.Exists( filePath )
                     && resource != ImageSource.NS

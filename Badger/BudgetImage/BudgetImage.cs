@@ -65,7 +65,7 @@ namespace BudgetExecution
         {
             ImageName = Path.GetFileNameWithoutExtension( path );
             Builder = new ImageBuilder( ImageName, source, ImageSizer.Medium );
-            ImageSize = SizeConfig.ImageSizeMedium;
+            ImageSize = ImageSizeMedium;
             Source = Builder.GetImageSource();
             Format = Builder.Format;
             Factory = new ImageFactory( Builder );

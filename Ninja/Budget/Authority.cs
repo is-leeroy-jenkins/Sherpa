@@ -222,7 +222,7 @@ namespace BudgetExecution
         /// </returns>
         public IBuilder GetBuilder()
         {
-            if( Verify.IsSource( Source )
+            if( Validate.IsSource( Source )
                 && Verify.IsMap( Data ) )
             {
                 try
@@ -250,7 +250,7 @@ namespace BudgetExecution
         /// </returns>
         public IEnumerable<DataRow> GetData()
         {
-            if( Verify.IsSource( Source )
+            if( Validate.IsSource( Source )
                 && Verify.IsMap( Data ) )
             {
                 try
@@ -284,7 +284,7 @@ namespace BudgetExecution
         /// </returns>
         public IEnumerable<DataRow> FilterData( Field field, string filter )
         {
-            if( Verify.IsField( field )
+            if( Validate.IsField( field )
                 && Verify.IsInput( filter ) )
             {
                 try
@@ -318,8 +318,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _element = BudgetFiscalYear
-                    ?.GetAvailability();
+                var _element = BudgetFiscalYear.Availability;
 
                 if( Verify.IsElement( _element ) )
                 {
@@ -328,7 +327,7 @@ namespace BudgetExecution
                         var _value = _element?.Value?.ToString();
                         var _availability = (FundAvailability)Enum.Parse( typeof( FundAvailability ), _value );
 
-                        return Verify.Availability( _availability )
+                        return Validate.Availability( _availability )
                             ? _availability
                             : default( FundAvailability );
                     }
@@ -364,7 +363,7 @@ namespace BudgetExecution
             Numeric numeric = Numeric.Amount )
         {
             if( Verify.IsRows( dataRow )
-                && Verify.IsField( field )
+                && Validate.IsField( field )
                 && Validate.Numeric( numeric )
                 && dataRow.HasNumeric() )
             {

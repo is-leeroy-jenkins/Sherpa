@@ -78,7 +78,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsSource( Source )
+                return Validate.IsSource( Source )
                     ? Source
                     : default( Source );
             }
@@ -98,7 +98,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsField( Field )
+                return Validate.IsField( Field )
                     ? Field
                     : default( Field );
             }

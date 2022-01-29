@@ -1,6 +1,6 @@
-﻿// <copyright file = "HolidayFactory.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
-// </copyright>
+﻿// // <copyright file = "HolidayFactory.cs" company = "Terry D. Eppler">
+// // Copyright (c) Terry D. Eppler. All rights reserved.
+// // </copyright>
 
 namespace BudgetExecution
 {
@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// <value>
         /// The Data.
         /// </value>
-        private protected readonly DataRow _record;
+        public DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -30,7 +30,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        private protected readonly IDictionary<string, object> _args;
+        public IDictionary<string, object> Args { get; set; }
 
         /// <summary>
         /// Creates new years.
@@ -38,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The new years.
         /// </value>
-        private protected readonly IElement _newYears;
+        public IElement NewYears { get; set; }
 
         /// <summary>
         /// Gets the martin luther king.
@@ -46,7 +46,7 @@ namespace BudgetExecution
         /// <value>
         /// The martin luther king.
         /// </value>
-        private protected readonly IElement _martinLutherKing;
+        public IElement MartinLutherKing { get; set; }
 
         /// <summary>
         /// Gets the presidents.
@@ -54,7 +54,7 @@ namespace BudgetExecution
         /// <value>
         /// The presidents.
         /// </value>
-        private protected readonly IElement _presidents;
+        public IElement Presidents { get; set; }
 
         /// <summary>
         /// Gets the memorial.
@@ -62,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The memorial.
         /// </value>
-        private protected readonly IElement _memorial;
+        public IElement Memorial { get; set; }
 
         /// <summary>
         /// Gets the veterans.
@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// <value>
         /// The veterans.
         /// </value>
-        private protected readonly IElement _veterans;
+        public IElement Veterans { get; set; }
 
         /// <summary>
         /// Gets the labor.
@@ -78,7 +78,7 @@ namespace BudgetExecution
         /// <value>
         /// The labor.
         /// </value>
-        private protected readonly IElement _labor;
+        public  IElement Labor { get; set; }
 
         /// <summary>
         /// Gets the independence.
@@ -86,7 +86,7 @@ namespace BudgetExecution
         /// <value>
         /// The independence.
         /// </value>
-        private protected readonly IElement _independence;
+        public  IElement Independence { get; set; }
 
         /// <summary>
         /// Gets the columbus.
@@ -94,7 +94,7 @@ namespace BudgetExecution
         /// <value>
         /// The columbus.
         /// </value>
-        private protected readonly IElement _columbus;
+        public IElement Columbus { get; set; }
 
         /// <summary>
         /// Gets the thanksgiving.
@@ -102,7 +102,7 @@ namespace BudgetExecution
         /// <value>
         /// The thanksgiving.
         /// </value>
-        private protected readonly IElement _thanksgiving;
+        public IElement Thanksgiving { get; set; }
 
         /// <summary>
         /// Gets the christmas.
@@ -110,8 +110,8 @@ namespace BudgetExecution
         /// <value>
         /// The christmas.
         /// </value>
-        private protected readonly IElement _christmas;
-        
+        public IElement Christmas { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -125,218 +125,18 @@ namespace BudgetExecution
         /// <param name="dataRow"></param>
         public HolidayFactory( DataRow dataRow )
         {
-            _record = dataRow;
-            _newYears = new Element( _record, Field.NewYears );
-            _martinLutherKing = new Element( _record, Field.MartinLutherKing );
-            _presidents = new Element( _record, Field.Presidents );
-            _memorial = new Element( _record, Field.Memorial );
-            _veterans = new Element( _record, Field.Veterans );
-            _labor = new Element( _record, Field.Labor );
-            _independence = new Element( _record, Field.Independence );
-            _columbus = new Element( _record, Field.Columbus );
-            _thanksgiving = new Element( _record, Field.Thanksgiving );
-            _christmas = new Element( _record, Field.Christmas );
-            _args = _record?.ToDictionary();
-        }
-
-        /// <summary>
-        /// Gets the new years day.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetNewYearsDay()
-        {
-            try
-            {
-                return Verify.IsElement( _newYears )
-                    ? _newYears
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the martin luther king day.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetMartinLutherKingDay()
-        {
-            try
-            {
-                return Verify.IsElement( _martinLutherKing )
-                    ? _martinLutherKing
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the presidents day.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetPresidentsDay()
-        {
-            try
-            {
-                return Verify.IsElement( _presidents )
-                    ? _presidents
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the memorial day.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetMemorialDay()
-        {
-            try
-            {
-                return Verify.IsElement( _memorial )
-                    ? _memorial
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the veterans day.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetVeteransDay()
-        {
-            try
-            {
-                return Verify.IsElement( _veterans )
-                    ? _veterans
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the labor day.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetLaborDay()
-        {
-            try
-            {
-                return Verify.IsElement( _labor )
-                    ? _labor
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the independence day.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetIndependenceDay()
-        {
-            try
-            {
-                return Verify.IsElement( _independence )
-                    ? _independence
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the columbus day.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetColumbusDay()
-        {
-            try
-            {
-                return Verify.IsElement( _columbus )
-                    ? _columbus
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the thanksgiving day.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetThanksgivingDay()
-        {
-            try
-            {
-                return Verify.IsElement( _thanksgiving )
-                    ? _thanksgiving
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the christmas day.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetChristmasDay()
-        {
-            try
-            {
-                return Verify.IsElement( _christmas )
-                    ? _christmas
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
+            Record = dataRow;
+            NewYears = new Element( Record, Field.NewYears );
+            MartinLutherKing = new Element( Record, Field.MartinLutherKing );
+            Presidents = new Element( Record, Field.Presidents );
+            Memorial = new Element( Record, Field.Memorial );
+            Veterans = new Element( Record, Field.Veterans );
+            Labor = new Element( Record, Field.Labor );
+            Independence = new Element( Record, Field.Independence );
+            Columbus = new Element( Record, Field.Columbus );
+            Thanksgiving = new Element( Record, Field.Thanksgiving );
+            Christmas = new Element( Record, Field.Christmas );
+            Args = Record?.ToDictionary();
         }
 
         /// <summary>
@@ -408,8 +208,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsMap( _args )
-                    ? _args
+                return Verify.IsMap( Args )
+                    ? Args
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )

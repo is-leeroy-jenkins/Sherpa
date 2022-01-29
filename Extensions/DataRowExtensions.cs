@@ -16,25 +16,25 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class DataRowExtensions
     {
-        /// <summary> Converts to DataRow into Database Parameters. </summary>
-        /// <param name = "dataRow" > The dataRow. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Converts to sqldbparameters.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="provider">The provider.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ComponentModel.InvalidEnumArgumentException">
+        /// provider</exception>
         public static IEnumerable<DbParameter> ToSqlDbParameters( this DataRow dataRow, Provider provider )
         {
-            if( !Enum.IsDefined( typeof( Provider ), provider ) )
-            {
-                throw new InvalidEnumArgumentException( nameof( provider ), (int)provider,
-                    typeof( Provider ) );
-            }
-
-            if( dataRow?.ItemArray?.Length > 0
-                && Enum.IsDefined( typeof( Provider ), provider ) )
+            if( Verify.IsRow( dataRow )
+               && Enum.IsDefined( typeof( Provider ), provider ) )
             {
                 try
                 {
@@ -141,9 +141,11 @@ namespace BudgetExecution
             return default( IEnumerable<DbParameter> );
         }
 
-        /// <summary> Converts DataRow to Dictionary. </summary>
-        /// <param name = "dataRow" > The DataRow. </param>
-        /// <returns> Dictionary </returns>
+        /// <summary>
+        /// Converts to dictionary.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <returns></returns>
         public static IDictionary<string, object> ToDictionary( this DataRow dataRow )
         {
             try
@@ -180,7 +182,7 @@ namespace BudgetExecution
         /// <summary>
         /// Converts to sortedlist.
         /// </summary>
-        /// <param name="dataRow">The dataRow.</param>
+        /// <param name="dataRow">The data row.</param>
         /// <returns></returns>
         public static SortedList<string, object> ToSortedList( this DataRow dataRow )
         {
@@ -215,10 +217,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the record str casted as byte array. </summary>
-        /// <param name = "dataRow" > The data dataRow. </param>
-        /// <param name = "field" > The name of the record field. </param>
-        /// <returns> The record str </returns>
+        /// <summary>
+        /// Gets the bytes.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="field">The field.</param>
+        /// <returns></returns>
         public static IEnumerable<byte> GetBytes( this DataRow dataRow, string field )
         {
             try
@@ -232,23 +236,25 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the field. </summary>
-        /// <param name = "datarow" > The dataRow. </param>
-        /// <param name = "field" > The field. </param>
-        /// <returns> </returns>
-        public static string GetField( this DataRow datarow, Field field )
+        /// <summary>
+        /// Gets the field.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="field">The field.</param>
+        /// <returns></returns>
+        public static string GetField( this DataRow dataRow, Field field )
         {
-            if( datarow != null
+            if( Verify.IsRow( dataRow )
                 && Enum.IsDefined( typeof( Field ), field ) )
             {
-                var _columns = datarow.Table?.GetColumnNames();
+                var _columns = dataRow.Table?.GetColumnNames();
 
                 if( _columns?.Any() == true
                     && _columns.Contains( $"{field}" ) )
                 {
                     try
                     {
-                        return datarow[ $"{field}" ].ToString();
+                        return dataRow[ $"{field}" ].ToString();
                     }
                     catch( Exception ex )
                     {
@@ -261,13 +267,15 @@ namespace BudgetExecution
             return default( string );
         }
 
-        /// <summary> Gets the numeric. </summary>
-        /// <param name = "dataRow" > The dataRow. </param>
-        /// <param name = "numeric" > The numeric. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the numeric.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="numeric">The numeric.</param>
+        /// <returns></returns>
         public static double GetNumeric( this DataRow dataRow, Numeric numeric )
         {
-            if( dataRow != null & Enum.IsDefined( typeof( Numeric ), numeric ) )
+            if( Verify.IsRow( dataRow ) & Enum.IsDefined( typeof( Numeric ), numeric ) )
             {
                 var _columns = dataRow.Table?.GetColumnNames();
 
@@ -289,13 +297,15 @@ namespace BudgetExecution
             return 0.0;
         }
 
-        /// <summary> Gets the date. </summary>
-        /// <param name = "dataRow" > The dataRow. </param>
-        /// <param name = "field" > The field. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the date.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="field">The field.</param>
+        /// <returns></returns>
         public static DateTime GetDate( this DataRow dataRow, Field field )
         {
-            if( dataRow != null & Enum.IsDefined( typeof( Field ), field ) )
+            if( Verify.IsRow( dataRow ) & Enum.IsDefined( typeof( Field ), field ) )
             {
                 var _columns = dataRow.Table?.GetColumnNames();
 
@@ -317,17 +327,16 @@ namespace BudgetExecution
             return default( DateTime );
         }
 
-        /// <summary> Determines whether this instance has numeric. </summary>
-        /// <param name = "dataRow" > The dataRow. </param>
+        /// <summary>
+        /// Determines whether this instance has numeric.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
         /// <returns>
-        /// <c> true </c>
-        /// if the specified dataRow has numeric; otherwise,
-        /// <c> false </c>
-        /// .
+        ///   <c>true</c> if the specified data row has numeric; otherwise, <c>false</c>.
         /// </returns>
         public static bool HasNumeric( this DataRow dataRow )
         {
-            if( dataRow != null )
+            if( Verify.IsRow( dataRow ) )
             {
                 try
                 {
@@ -357,13 +366,12 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary> Determines whether [has a primary key]. </summary>
-        /// <param name = "row" > The dataRow. </param>
+        /// <summary>
+        /// Determines whether [has primary key].
+        /// </summary>
+        /// <param name="row">The row.</param>
         /// <returns>
-        /// <c> true </c>
-        /// if [has primary key] [the specified dataRow]; otherwise,
-        /// <c> false </c>
-        /// .
+        ///   <c>true</c> if [has primary key] [the specified row]; otherwise, <c>false</c>.
         /// </returns>
         public static bool HasPrimaryKey( this DataRow row )
         {
@@ -398,9 +406,11 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary> Gets the key. </summary>
-        /// <param name = "row" > The dataRow. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the primary key.
+        /// </summary>
+        /// <param name="row">The row.</param>
+        /// <returns></returns>
         public static IDictionary<string, object> GetPrimaryKey( this DataRow row )
         {
             if( row?.ItemArray?.Length > 0 )
@@ -440,7 +450,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private static void Fail( Exception ex )

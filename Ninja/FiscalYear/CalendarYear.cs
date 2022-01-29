@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// <value>
         /// The Data.
         /// </value>
-        public DataRow Record { get; set; } 
+        public virtual DataRow Record { get; set; } 
 
         /// <summary>
         /// Gets or sets the work days.
@@ -30,7 +30,7 @@ namespace BudgetExecution
         /// <value>
         /// The work days.
         /// </value>
-        public IElement WorkDays { get; set; } 
+        public virtual IElement WorkDays { get; set; } 
 
         /// <summary>
         /// Gets or sets the week days.
@@ -38,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The week days.
         /// </value>
-        public IElement WeekDays { get; set; } 
+        public virtual IElement WeekDays { get; set; } 
 
         /// <summary>
         /// Gets or sets the week ends.
@@ -46,7 +46,7 @@ namespace BudgetExecution
         /// <value>
         /// The week ends.
         /// </value>
-        public IElement WeekEnds { get; set; } 
+        public virtual IElement WeekEnds { get; set; } 
 
         /// <summary>
         /// Gets the current date.
@@ -80,132 +80,6 @@ namespace BudgetExecution
         /// </value>
         public readonly int CurrentYear = DateTime.Now.Year;
         
-        /// <summary>
-        /// Gets the current date.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public DateTime GetCurrentDate()
-        {
-            try
-            {
-                return CurrentDate;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( DateTime );
-            }
-        }
-
-        /// <summary>
-        /// Gets the current month.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public int GetCurrentMonth()
-        {
-            try
-            {
-                return CurrentMonth;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
-            }
-        }
-
-        /// <summary>
-        /// Gets the current year.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public int GetCurrentYear()
-        {
-            try
-            {
-                return CurrentYear;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
-            }
-        }
-
-        /// <summary>
-        /// Gets the current day.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public int GetCurrentDay()
-        {
-            try
-            {
-                return CurrentDay;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
-            }
-        }
-
-        /// <summary>
-        /// Gets the work days.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetWorkDays()
-        {
-            try
-            {
-                return new Element( Record, Field.WorkDays );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the week days.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetWeekDays()
-        {
-            try
-            {
-                return new Element( Record, Field.WeekDays );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the week ends.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetWeekEnds()
-        {
-            try
-            {
-                return new Element( Record, Field.WeekEnds );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

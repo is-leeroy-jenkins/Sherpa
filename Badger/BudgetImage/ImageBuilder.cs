@@ -139,7 +139,7 @@ namespace BudgetExecution
         /// </returns>
         private protected string GetImageFilePath( string filePath, ImageSource imageSource )
         {
-            if( Verify.ImageResource( imageSource )
+            if( Validate.ImageResource( imageSource )
                 && Verify.IsInput( filePath )
                 && File.Exists( filePath )
                 && imageSource != ImageSource.NS )

@@ -115,7 +115,7 @@ namespace BudgetExecution
                 {
                     var _provider = ConnectionBuilder.Provider;
 
-                    if( Verify.IsProvider( _provider ) )
+                    if( Validate.IsProvider( _provider ) )
                     {
                         switch( _provider )
                         {

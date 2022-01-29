@@ -119,11 +119,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _input = Path?.GetFullPath();
-
-                if( Verify.IsInput( _input )
-                    && File.Exists( _input ) )
+                if( Verify.IsInput( search )
+                   && File.Exists( search ) )
                 {
+                    var _input = Path?.GetFullPath();
                     using var _reader = new StreamReader( _input );
                     var _text = _reader?.ReadLine();
                     var _result = false;

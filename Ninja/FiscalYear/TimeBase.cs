@@ -50,13 +50,14 @@ namespace BudgetExecution
         /// <returns></returns>
         public string GetDate( DataRow dataRow, string name )
         {
-            if( dataRow != null
+            if( Verify.IsRow( dataRow )
                 && Verify.IsInput( name )
                 && Enum.GetNames( typeof( EventDate ) )?.Contains( name ) == true )
             {
                 try
                 {
-                    var _columns = dataRow.Table?.GetColumnNames();
+                    var _columns = dataRow.Table
+                        ?.GetColumnNames();
 
                     return _columns?.Contains( name ) == true
                         ? name
@@ -105,7 +106,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _names = dataRow.Table?.GetColumnNames();
+                    var _names = dataRow.Table
+                        ?.GetColumnNames();
 
                     return _names?.Contains( date.ToString() ) == true
                         ? date.ToString()
@@ -157,13 +159,15 @@ namespace BudgetExecution
         /// <returns></returns>
         public EventDate SetDate( DataRow dataRow, string name )
         {
-            if( dataRow != null
+            if( Verify.IsRow( dataRow )
                 && Verify.IsInput( name ) )
             {
                 try
                 {
                     var _date = (EventDate)Enum.Parse( typeof( EventDate ), name );
-                    var _columns = dataRow.Table?.GetColumnNames();
+
+                    var _columns = dataRow.Table
+                        ?.GetColumnNames();
 
                     if( _columns?.Any() == true
                         && _columns?.Contains( $"{_date}" ) == true )
@@ -191,12 +195,13 @@ namespace BudgetExecution
         /// <returns></returns>
         public  EventDate SetDate( DataRow dataRow, EventDate date )
         {
-            if( dataRow != null
+            if( Verify.IsRow( dataRow )
                 && Verify.IsEventDate( date ) )
             {
                 try
                 {
-                    var _names = dataRow.Table?.GetColumnNames();
+                    var _names = dataRow.Table
+                        ?.GetColumnNames();
 
                     if( _names?.Any() == true )
                     {
@@ -243,13 +248,14 @@ namespace BudgetExecution
         /// <returns></returns>
         public DateTime SetDay( DataRow dataRow, string column )
         {
-            if( dataRow != null
+            if( Verify.IsRow( dataRow )
                 && Verify.IsInput( column )
                 && Enum.GetNames( typeof( EventDate ) )?.Contains( column ) == true )
             {
                 try
                 {
-                    var _names = dataRow.Table?.GetColumnNames();
+                    var _names = dataRow.Table
+                        ?.GetColumnNames();
 
                     var _timeString = dataRow[ column ]?.ToString();
 
@@ -275,7 +281,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public DateTime SetDay( DataRow dataRow, EventDate date )
         {
-            if( dataRow != null
+            if( Verify.IsRow( dataRow )
                 && Verify.IsEventDate( date ) )
             {
                 try
@@ -324,7 +330,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public string SetValue( DataRow dataRow, string column )
         {
-            if( dataRow != null
+            if( Verify.IsRow( dataRow )
                 && Verify.IsInput( column )
                 && Enum.GetNames( typeof( EventDate ) )?.Contains( column ) == true )
             {
@@ -355,7 +361,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public string SetValue( DataRow dataRow, EventDate date )
         {
-            if( dataRow != null
+            if( Verify.IsRow( dataRow )
                 && Verify.IsEventDate( date ) )
             {
                 try

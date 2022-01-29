@@ -131,7 +131,7 @@ namespace BudgetExecution
                 {
                     var _provider = connectionBuilder.Provider;
 
-                    if( Verify.IsProvider( _provider ) )
+                    if( Validate.IsProvider( _provider ) )
                     {
                         switch( _provider )
                         {
@@ -245,7 +245,7 @@ namespace BudgetExecution
             {
                 var _provider = ConnectionBuilder.Provider;
 
-                return Verify.IsProvider( _provider )
+                return Validate.IsProvider( _provider )
                     ? _provider
                     : Provider.NS;
             }
@@ -267,7 +267,7 @@ namespace BudgetExecution
             {
                 var _source = ConnectionBuilder.Source;
 
-                return Verify.IsSource( _source )
+                return Validate.IsSource( _source )
                     ? _source
                     : Source.NS;
             }

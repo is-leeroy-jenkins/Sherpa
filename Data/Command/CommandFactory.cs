@@ -102,7 +102,7 @@ namespace BudgetExecution
                 {
                     var _sql = $"CREATE TABLE {tableName}";
 
-                    if( Verify.IsProvider( Provider )
+                    if( Validate.IsProvider( Provider )
                         && Verify.IsInput( _sql ) )
                     {
                         switch( Provider )

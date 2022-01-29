@@ -16,22 +16,32 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class FileWriter
+    [ SuppressMessage( "ReSharper", "MustUseReturnValue" ) ]
+    public class FileWriter  
     {
         /// <summary>
-        /// The file
+        /// Gets or sets the data file.
         /// </summary>
-        private protected readonly IFile _dataFile;
-        
-        /// <summary>
-        /// Gets or sets the Data.
-        /// </summary>
-        private protected readonly FileStream _fileStream;
+        /// <value>
+        /// The data file.
+        /// </value>
+        public IFile DataFile { get; set; }
 
         /// <summary>
-        /// The file information
+        /// Gets or sets the file stream.
         /// </summary>
-        private protected readonly FileInfo _fileInfo;
+        /// <value>
+        /// The file stream.
+        /// </value>
+        public FileStream FileStream { get; set; }
+
+        /// <summary>
+        /// Gets or sets the file information.
+        /// </summary>
+        /// <value>
+        /// The file information.
+        /// </value>
+        public FileInfo FileInfo { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FileWriter"/> class.
@@ -41,33 +51,30 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the 
-        /// <see cref="FileWriter" /> class.
+        /// Initializes a new instance of the <see cref="FileWriter"/> class.
         /// </summary>
-        /// <param name="file">
-        /// The file.
-        /// </param>
+        /// <param name="file">The file.</param>
         public FileWriter( IFile file )
         {
-            _dataFile = file;
-            _fileStream = _dataFile.GetBaseStream();
-            _fileInfo = _dataFile.GetFileInfo();
+            DataFile = file;
+            FileStream = DataFile.GetBaseStream();
+            FileInfo = DataFile.GetFileInfo();
         }
 
         /// <summary>
-        /// Reads all text.
+        /// Writes all text.
         /// </summary>
         public void WriteAllText()
         {
-            if( File.Exists( _fileInfo.FullName ) )
+            if( File.Exists( FileInfo.FullName ) )
             {
                 try
                 {
-                    var _writer = File.ReadAllText( _fileInfo.FullName );
+                    var _writer = File.ReadAllText( FileInfo.FullName );
 
                     if( Verify.IsInput( _writer ) )
                     {
-                        File.WriteAllText( _fileInfo.FullName, _writer );
+                        File.WriteAllText( FileInfo.FullName, _writer );
                     }
                 }
                 catch( IOException ex )
@@ -78,13 +85,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Reads all lines.
+        /// Writes all lines.
         /// </summary>
         public void WriteAllLines()
         {
             try
             {
-                var _file = _fileInfo?.FullName;
+                var _file = FileInfo?.FullName;
 
                 if( File.Exists( _file ) )
                 {
@@ -103,13 +110,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Reads all bytes.
+        /// Writes all bytes.
         /// </summary>
         public void WriteAllBytes()
         {
             try
             {
-                var _path = _fileInfo?.FullName;
+                var _path = FileInfo?.FullName;
 
                 if( File.Exists( _path ) )
                 {
@@ -154,14 +161,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Writes the binary.
+        /// Writes the data.
         /// </summary>
-        /// <param name="data">The Data.</param>
+        /// <param name="data">The data.</param>
         public void WriteData( ref byte[ ] data )
         {
             try
             {
-                using var _stream = _fileInfo?.Create();
+                using var _stream = FileInfo?.Create();
                 _stream?.Write( data, 0, data.Length );
             }
             catch( IOException ex )
@@ -180,7 +187,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _writer = _fileInfo?.AppendText();
+                    using var _writer = FileInfo?.AppendText();
                     _writer?.Write( text );
                 }
                 catch( IOException ex )
@@ -197,12 +204,12 @@ namespace BudgetExecution
         {
             try
             {
-                var _bytes = File.ReadAllBytes( _fileInfo.FullName );
+                var _bytes = File.ReadAllBytes( FileInfo.FullName );
 
                 if( _bytes?.Any() == true )
                 {
                     var _length = _bytes.Length;
-                    using var _stream = new GZipStream( _fileStream, CompressionMode.Compress );
+                    using var _stream = new GZipStream( FileStream, CompressionMode.Compress );
                     _stream?.Write( _bytes, 0, _length );
                 }
             }
@@ -213,19 +220,18 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the memory stream.
+        /// Writes to memory.
         /// </summary>
-        /// <returns></returns>
         public void WriteToMemory()
         {
             try
             {
-                var _bytes = File.ReadAllBytes( _dataFile.GetFilePath() );
+                var _bytes = File.ReadAllBytes( DataFile?.Path?.GetFullPath() );
 
                 if( _bytes?.Any() == true )
                 {
                     var _stream = new MemoryStream( _bytes );
-                    _stream?.Read( _bytes, 0, _bytes.Length );
+                    _stream.Read( _bytes, 0, _bytes.Length );
                 }
             }
             catch( IOException ex )

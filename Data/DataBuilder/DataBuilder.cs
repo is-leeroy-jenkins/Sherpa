@@ -89,7 +89,7 @@ namespace BudgetExecution
         public DateTime GetDate( Field field )
         {
             if( Verify.IsRow( Record )
-                && Verify.IsField( field ) )
+                && Validate.IsField( field ) )
             {
                 try
                 {
@@ -126,7 +126,7 @@ namespace BudgetExecution
         /// <returns> </returns>
         public IEnumerable<DataRow> FilterData( Field field, string filter )
         {
-            if( Verify.IsField( field )
+            if( Validate.IsField( field )
                 && Verify.IsInput( filter ) )
             {
                 try

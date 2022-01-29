@@ -73,7 +73,7 @@ namespace BudgetExecution
         {
             try
             {
-                Source = Verify.IsSource( source )
+                Source = Validate.IsSource( source )
                     ? source
                     : Source.NS;
             }
@@ -130,7 +130,7 @@ namespace BudgetExecution
         {
             try
             {
-                Provider = Verify.IsProvider( provider )
+                Provider = Validate.IsProvider( provider )
                     && Resource.Providers?.Contains( provider.ToString() ) == true
                         ? (Provider)Enum.Parse( typeof( Provider ), $"{provider}" )
                         : Provider.NS;
@@ -177,7 +177,7 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         private protected string GetFilePath( Provider provider )
         {
-            if( Verify.IsProvider( provider ) )
+            if( Validate.IsProvider( provider ) )
             {
                 try
                 {
@@ -324,7 +324,7 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         private protected string GetConnectionString( Provider provider )
         {
-            if( Verify.IsProvider( provider ) )
+            if( Validate.IsProvider( provider ) )
             {
                 try
                 {
