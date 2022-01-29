@@ -44,7 +44,7 @@ namespace BudgetExecution
             // 
             // BackPanel
             // 
-            this.BackPanel.BackColor = System.Drawing.Color.Transparent;
+            this.BackPanel.BackColor = System.Drawing.Color.Black;
             this.BackPanel.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.BackPanel.BackColorState.Enabled = System.Drawing.Color.Transparent;
             this.BackPanel.Border.Color = System.Drawing.Color.Transparent;
@@ -87,17 +87,17 @@ namespace BudgetExecution
             // LoadingPanel
             // 
             this.LoadingPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LoadingPanel.BackColor = System.Drawing.Color.Transparent;
+            this.LoadingPanel.BackColor = System.Drawing.Color.Black;
             this.LoadingPanel.BindingSource = null;
             this.LoadingPanel.DataFilter = null;
             this.LoadingPanel.Field = BudgetExecution.Field.NS;
             this.LoadingPanel.HoverText = null;
             this.LoadingPanel.Image = ((System.Drawing.Image)(resources.GetObject("LoadingPanel.Image")));
             this.LoadingPanel.ImageList = null;
-            this.LoadingPanel.Location = new System.Drawing.Point(332, 109);
+            this.LoadingPanel.Location = new System.Drawing.Point(400, 115);
             this.LoadingPanel.Name = "LoadingPanel";
             this.LoadingPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.LoadingPanel.Size = new System.Drawing.Size(553, 352);
+            this.LoadingPanel.Size = new System.Drawing.Size(410, 304);
             this.LoadingPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.LoadingPanel.TabIndex = 0;
             this.LoadingPanel.TabStop = false;

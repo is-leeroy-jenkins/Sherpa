@@ -51,7 +51,7 @@ namespace BudgetExecution
         /// <value>
         /// The color of the form dark back.
         /// </value>
-        public static Color FormBackColorDark { get; set; } = Color.FromArgb( 10, 10, 10 );
+        public static Color FormBackColorDark { get; set; } = Color.FromArgb( 0, 0, 0 );
 
         /// <summary>
         /// Gets the default color of the caption button.
@@ -68,6 +68,14 @@ namespace BudgetExecution
         /// The color of the caption button hover.
         /// </value>
         public static Color CaptionButtonHoverColor { get; } = Color.White;
+
+        /// <summary>
+        /// Gets the caption bar black.
+        /// </summary>
+        /// <value>
+        /// The caption bar black.
+        /// </value>
+        public static Color CaptionBarBlack { get; } = Color.Black;
 
         /// <summary>
         /// Gets or sets the fore red.
