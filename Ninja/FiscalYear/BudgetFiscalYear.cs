@@ -16,7 +16,7 @@ namespace BudgetExecution
     /// <seealso cref="BudgetExecution.FiscalYear" />
     /// <seealso cref="BudgetExecution.IBudgetFiscalYear" />
     /// <seealso cref="BudgetExecution.ISource" />
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     public class BudgetFiscalYear : FiscalYear, IBudgetFiscalYear, ISource
@@ -177,16 +177,16 @@ namespace BudgetExecution
             {
                 var _dictionary = new Dictionary<Field, DateTime>();
                 var _factory = new HolidayFactory( Record );
-                _dictionary.Add( Field.NewYears, DateTime.Parse( _factory?.NewYears?.Value?.ToString() ) );
-                _dictionary.Add( Field.MartinLutherKing, DateTime.Parse( _factory?.MartinLutherKing?.Value?.ToString() ) );
-                _dictionary.Add( Field.Memorial, DateTime.Parse( _factory?.Memorial?.Value?.ToString() ) );
-                _dictionary.Add( Field.Presidents, DateTime.Parse( _factory?.Presidents?.Value?.ToString() ) );
-                _dictionary.Add( Field.Veterans, DateTime.Parse( _factory?.Veterans?.Value?.ToString() ) );
-                _dictionary.Add( Field.Labor, DateTime.Parse( _factory?.Labor?.Value?.ToString() ) );
-                _dictionary.Add( Field.Independence, DateTime.Parse( _factory?.Independence?.Value?.ToString() ) );
-                _dictionary.Add( Field.Columbus, DateTime.Parse( _factory?.Columbus?.Value?.ToString() ) );
-                _dictionary.Add( Field.Thanksgiving, DateTime.Parse( _factory?.Thanksgiving?.Value?.ToString() ) );
-                _dictionary.Add( Field.Christmas, DateTime.Parse( _factory?.Christmas?.Value?.ToString() ) );
+                _dictionary.Add( Field.NewYears, DateTime.Parse( _factory?.NewYearsDay?.Value?.ToString() ) );
+                _dictionary.Add( Field.MartinLutherKing, DateTime.Parse( _factory?.MartinLutherKingDay?.Value?.ToString() ) );
+                _dictionary.Add( Field.Memorial, DateTime.Parse( _factory?.MemorialDay?.Value?.ToString() ) );
+                _dictionary.Add( Field.Presidents, DateTime.Parse( _factory?.PresidentsDay?.Value?.ToString() ) );
+                _dictionary.Add( Field.Veterans, DateTime.Parse( _factory?.VeteransDay?.Value?.ToString() ) );
+                _dictionary.Add( Field.Labor, DateTime.Parse( _factory?.LaborDay?.Value?.ToString() ) );
+                _dictionary.Add( Field.Independence, DateTime.Parse( _factory?.IndependenceDay?.Value?.ToString() ) );
+                _dictionary.Add( Field.Columbus, DateTime.Parse( _factory?.ColumbusDay?.Value?.ToString() ) );
+                _dictionary.Add( Field.Thanksgiving, DateTime.Parse( _factory?.ThanksgivingDay?.Value?.ToString() ) );
+                _dictionary.Add( Field.Christmas, DateTime.Parse( _factory?.ChristmasDay?.Value?.ToString() ) );
 
                 return _dictionary?.Any() == true
                     ? _dictionary

@@ -193,7 +193,7 @@ namespace BudgetExecution
         /// <param name="dataRow">The Data row.</param>
         /// <param name="date">The date.</param>
         /// <returns></returns>
-        public  EventDate SetDate( DataRow dataRow, EventDate date )
+        public EventDate SetDate( DataRow dataRow, EventDate date )
         {
             if( Verify.IsRow( dataRow )
                 && Verify.IsEventDate( date ) )

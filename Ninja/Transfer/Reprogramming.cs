@@ -48,7 +48,7 @@ namespace BudgetExecution
         /// <value>
         /// The date.
         /// </value>
-        public  DateTime ProcessedDate { get;  }
+        public DateTime ProcessedDate { get;  }
 
         /// <summary>
         /// Gets the type of the document.
@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the document.
         /// </value>
-        public  IElement DocPrefix { get;  }
+        public IElement DocPrefix { get;  }
 
         /// <summary>
         /// Gets from to.
@@ -64,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         /// From to.
         /// </value>
-        public  IElement FromTo { get;  }
+        public IElement FromTo { get;  }
 
         /// <summary>
         /// Gets the document number.
@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The document number.
         /// </value>
-        public  IElement DocumentNumber { get;  }
+        public IElement DocumentNumber { get;  }
 
         /// <summary>
         /// Gets the purpose.
@@ -80,7 +80,7 @@ namespace BudgetExecution
         /// <value>
         /// The purpose.
         /// </value>
-        public  IElement Purpose { get;  }
+        public IElement Purpose { get;  }
 
         /// <summary>
         /// Initializes a new instance of the

@@ -7,7 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
 
-    [SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" )]
+    [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" )]
     public static class DateTimeExtensions
     {
         /// <summary>
@@ -359,7 +359,7 @@ namespace BudgetExecution
         public static bool IsFederalHoliday( this DateTime dateTime )
         {
             // to ease typing
-            var _nthweekday = (int)Math.Ceiling( dateTime.Day / 7.0d );
+            var _nthDay = (int)Math.Ceiling( dateTime.Day / 7.0d );
             var _date = dateTime.DayOfWeek;
             var _thursday = _date == DayOfWeek.Thursday;
             var _friday = _date == DayOfWeek.Friday;
@@ -374,34 +374,34 @@ namespace BudgetExecution
                 case 1 when dateTime.Day == 2 && _monday:
 
                 // MLK day (3rd monday in January)
-                case 1 when _monday && _nthweekday == 3:
+                case 1 when _monday && _nthDay == 3:
 
                 // President’s Day (3rd Monday in February)
-                case 2 when _monday && _nthweekday == 3:
+                case 2 when _monday && _nthDay == 3:
 
-                // Memorial Day (Last Monday in May)
+                // MemorialDay Day (Last Monday in May)
                 case 5 when _monday && dateTime.AddDays( 7 ).Month == 6:
 
-                // Independence Day (July 4, or preceding Friday/following Monday if weekend)
+                // IndependenceDay Day (July 4, or preceding Friday/following Monday if weekend)
                 case 7 when dateTime.Day == 3 && _friday:
                 case 7 when dateTime.Day == 4 && !_weekend:
                 case 7 when dateTime.Day == 5 && _monday:
 
-                // Labor Day (1st Monday in September)
-                case 9 when _monday && _nthweekday == 1:
+                // LaborDay Day (1st Monday in September)
+                case 9 when _monday && _nthDay == 1:
 
-                // Columbus Day (2nd Monday in October)
-                case 10 when _monday && _nthweekday == 2:
+                // ColumbusDay Day (2nd Monday in October)
+                case 10 when _monday && _nthDay == 2:
 
                 // Veteran’s Day (November 11, or preceding Friday/following Monday if weekend))
                 case 11 when dateTime.Day == 10 && _friday:
                 case 11 when dateTime.Day == 11 && !_weekend:
                 case 11 when dateTime.Day == 12 && _monday:
 
-                // Thanksgiving Day (4th Thursday in November)
-                case 11 when _thursday && _nthweekday == 4:
+                // ThanksgivingDay Day (4th Thursday in November)
+                case 11 when _thursday && _nthDay == 4:
 
-                // Christmas Day (December 25, or preceding Friday/following Monday if weekend))
+                // ChristmasDay Day (December 25, or preceding Friday/following Monday if weekend))
                 case 12 when dateTime.Day == 24 && _friday:
                 case 12 when dateTime.Day == 25 && !_weekend:
                 case 12 when dateTime.Day == 26 && _monday:

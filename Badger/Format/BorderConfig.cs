@@ -21,7 +21,7 @@ namespace BudgetExecution
         /// <summary>
         /// The fixed
         /// </summary>
-        public  FormBorderStyle Fixed { get; set; } = FormBorderStyle.FixedSingle;
+        public FormBorderStyle Fixed { get; set; } = FormBorderStyle.FixedSingle;
 
         /// <summary>
         /// The none

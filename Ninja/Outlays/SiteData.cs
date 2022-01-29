@@ -107,7 +107,7 @@ namespace BudgetExecution
         /// <value>
         /// The last action date.
         /// </value>
-        public  ITime LastActionDate { get; set; }
+        public ITime LastActionDate { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the

@@ -38,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The new years.
         /// </value>
-        public IElement NewYears { get; set; }
+        public IElement NewYearsDay { get; set; }
 
         /// <summary>
         /// Gets the martin luther king.
@@ -46,7 +46,7 @@ namespace BudgetExecution
         /// <value>
         /// The martin luther king.
         /// </value>
-        public IElement MartinLutherKing { get; set; }
+        public IElement MartinLutherKingDay { get; set; }
 
         /// <summary>
         /// Gets the presidents.
@@ -54,7 +54,7 @@ namespace BudgetExecution
         /// <value>
         /// The presidents.
         /// </value>
-        public IElement Presidents { get; set; }
+        public IElement PresidentsDay { get; set; }
 
         /// <summary>
         /// Gets the memorial.
@@ -62,7 +62,15 @@ namespace BudgetExecution
         /// <value>
         /// The memorial.
         /// </value>
-        public IElement Memorial { get; set; }
+        public IElement MemorialDay { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Juneteenth day.
+        /// </summary>
+        /// <value>
+        /// The Juneteenth day.
+        /// </value>
+        public IElement JuneteenthDay { get; set; }
 
         /// <summary>
         /// Gets the veterans.
@@ -70,7 +78,7 @@ namespace BudgetExecution
         /// <value>
         /// The veterans.
         /// </value>
-        public IElement Veterans { get; set; }
+        public IElement VeteransDay { get; set; }
 
         /// <summary>
         /// Gets the labor.
@@ -78,7 +86,7 @@ namespace BudgetExecution
         /// <value>
         /// The labor.
         /// </value>
-        public  IElement Labor { get; set; }
+        public IElement LaborDay { get; set; }
 
         /// <summary>
         /// Gets the independence.
@@ -86,7 +94,7 @@ namespace BudgetExecution
         /// <value>
         /// The independence.
         /// </value>
-        public  IElement Independence { get; set; }
+        public IElement IndependenceDay { get; set; }
 
         /// <summary>
         /// Gets the columbus.
@@ -94,7 +102,7 @@ namespace BudgetExecution
         /// <value>
         /// The columbus.
         /// </value>
-        public IElement Columbus { get; set; }
+        public IElement ColumbusDay { get; set; }
 
         /// <summary>
         /// Gets the thanksgiving.
@@ -102,7 +110,7 @@ namespace BudgetExecution
         /// <value>
         /// The thanksgiving.
         /// </value>
-        public IElement Thanksgiving { get; set; }
+        public IElement ThanksgivingDay { get; set; }
 
         /// <summary>
         /// Gets the christmas.
@@ -110,7 +118,7 @@ namespace BudgetExecution
         /// <value>
         /// The christmas.
         /// </value>
-        public IElement Christmas { get; set; }
+        public IElement ChristmasDay { get; set; }
 
         /// <summary>
         /// 
@@ -126,16 +134,16 @@ namespace BudgetExecution
         public HolidayFactory( DataRow dataRow )
         {
             Record = dataRow;
-            NewYears = new Element( Record, Field.NewYears );
-            MartinLutherKing = new Element( Record, Field.MartinLutherKing );
-            Presidents = new Element( Record, Field.Presidents );
-            Memorial = new Element( Record, Field.Memorial );
-            Veterans = new Element( Record, Field.Veterans );
-            Labor = new Element( Record, Field.Labor );
-            Independence = new Element( Record, Field.Independence );
-            Columbus = new Element( Record, Field.Columbus );
-            Thanksgiving = new Element( Record, Field.Thanksgiving );
-            Christmas = new Element( Record, Field.Christmas );
+            NewYearsDay = new Element( Record, Field.NewYears );
+            MartinLutherKingDay = new Element( Record, Field.MartinLutherKing );
+            PresidentsDay = new Element( Record, Field.Presidents );
+            MemorialDay = new Element( Record, Field.Memorial );
+            VeteransDay = new Element( Record, Field.Veterans );
+            LaborDay = new Element( Record, Field.Labor );
+            IndependenceDay = new Element( Record, Field.Independence );
+            ColumbusDay = new Element( Record, Field.Columbus );
+            ThanksgivingDay = new Element( Record, Field.Thanksgiving );
+            ChristmasDay = new Element( Record, Field.Christmas );
             Args = Record?.ToDictionary();
         }
 
