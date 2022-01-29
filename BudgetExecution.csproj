@@ -757,7 +757,7 @@
     <Compile Include="Ninja\Transfer\IReprogramming.cs" />
     <Compile Include="Ninja\Transfer\Reprogramming.cs" />
     <Compile Include="Ninja\Outlays\UnliquidatedObligation.cs" />
-    <Compile Include="Ninja\Watcher\BudgetFileWatcher.cs">
+    <Compile Include="Ninja\Watcher\FileWatcher.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Ninja\Writer\FileWriter.cs" />

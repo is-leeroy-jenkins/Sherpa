@@ -10,34 +10,52 @@ namespace BudgetExecution
     public interface IPath
     {
         /// <summary>
-        /// Gets the name.
+        /// Gets or sets the full nae.
         /// </summary>
-        /// <returns></returns>
-        string GetFullName();
+        /// <value>
+        /// The full nae.
+        /// </value>
+        string FullName { get; set; }
 
         /// <summary>
-        /// Gets the name of the file.
+        /// Gets or sets the name of the file.
         /// </summary>
-        /// <returns></returns>
-        string GetFileName();
+        /// <value>
+        /// The name of the file.
+        /// </value>
+        string FileName { get; set; }
 
         /// <summary>
-        /// Gets the extension.
+        /// Gets or sets the full path.
         /// </summary>
-        /// <returns></returns>
-        string GetFileExtension();
+        /// <value>
+        /// The full path.
+        /// </value>
+        string FullPath { get; set; }
 
         /// <summary>
-        /// Gets the root.
+        /// Gets or sets the file extension.
         /// </summary>
-        /// <returns></returns>
-        string GetPathRoot();
+        /// <value>
+        /// The file extension.
+        /// </value>
+        string FileExtension { get; set; }
 
         /// <summary>
-        /// Gets the full path.
+        /// Gets or sets the path root.
         /// </summary>
-        /// <returns></returns>
-        string GetFullPath();
+        /// <value>
+        /// The path root.
+        /// </value>
+        string PathRoot { get; set; }
+
+        /// <summary>
+        /// Gets or sets the input.
+        /// </summary>
+        /// <value>
+        /// The input.
+        /// </value>
+        string Input { get; set; }
 
         /// <summary>Returns a string that
         /// represents the current object.

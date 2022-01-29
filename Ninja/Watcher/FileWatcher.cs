@@ -1,4 +1,4 @@
-﻿// <copyright file = "BudgetFileWatcher.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "FileWatcher.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -13,36 +13,15 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="FileSystemWatcher" />
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    public class BudgetFileWatcher : FileSystemWatcher
+    public class FileWatcher : FileSystemWatcher
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetFileWatcher"/> class.
-        /// </summary>
-        public BudgetFileWatcher()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetFileWatcher"/> class.
-        /// </summary>
-        /// <param name="filepath">The filepath.</param>
-        public BudgetFileWatcher( string filepath )
-        {
-            _filePath = new DataPath( filepath );
-            _fileName = _filePath.GetFileName();
-        }
-
-        // **************************************************************************************************************************
-        // ********************************************      PROPERTIES    **********************************************************
-        // **************************************************************************************************************************
-
         /// <summary>
         /// Gets the name.
         /// </summary>
         /// <value>
         /// The name.
         /// </value>
-        private readonly string _fileName;
+        public string FileName { get;  }
 
         /// <summary>
         /// Gets the Data path.
@@ -50,44 +29,23 @@ namespace BudgetExecution
         /// <value>
         /// The Data path.
         /// </value>
-        private readonly IPath _filePath;
-        
+        public IPath FilePath { get;  }
+
         /// <summary>
-        /// Gets the name of the file.
+        /// Initializes a new instance of the <see cref="FileWatcher"/> class.
         /// </summary>
-        /// <returns></returns>
-        public string GetFileName()
+        public FileWatcher()
         {
-            try
-            {
-                return Verify.IsInput( _fileName )
-                    ? _fileName
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( string );
-            }
         }
 
         /// <summary>
-        /// Gets the full path.
+        /// Initializes a new instance of the <see cref="FileWatcher"/> class.
         /// </summary>
-        /// <returns></returns>
-        public string GetFullPath()
+        /// <param name="filePath">The filePath.</param>
+        public FileWatcher( string filePath )
         {
-            try
-            {
-                return Verify.IsInput( _filePath?.GetFullPath() )
-                    ? _filePath?.GetFullPath()
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( string );
-            }
+            FilePath = new DataPath( filePath );
+            FileName = FilePath.FileName;
         }
 
         /// <summary>
@@ -98,8 +56,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _filePath?.GetFileExtension() )
-                    ? _filePath?.GetFileExtension()
+                return Verify.IsInput( FilePath?.FileExtension )
+                    ? FilePath?.FileExtension
                     : string.Empty;
             }
             catch( Exception ex )
@@ -109,17 +67,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
-        }
-        
         /// <summary>
         /// Called when [file changed].
         /// </summary>
@@ -208,6 +155,17 @@ namespace BudgetExecution
             {
                 Fail( ex );
             }
+        }
+
+        /// <summary>
+        /// Get Error Dialog.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

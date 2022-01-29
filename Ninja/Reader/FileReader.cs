@@ -47,7 +47,7 @@ namespace BudgetExecution
         public FileReader( IFile file )
         {
             DataFile = file;
-            FileInfo = DataFile.GetFileInfo();
+            FileInfo = DataFile.FileInfo;
         }
 
         /// <summary>

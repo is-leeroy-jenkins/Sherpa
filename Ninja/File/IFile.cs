@@ -126,12 +126,6 @@ namespace BudgetExecution
         string ToString();
 
         /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <returns></returns>
-        string GetFullName();
-
-        /// <summary>
         /// Gets the Data path.
         /// </summary>
         /// <returns></returns>
@@ -153,24 +147,12 @@ namespace BudgetExecution
         /// Deletes this instance.
         /// </summary>
         void Delete();
-
-        /// <summary>
-        /// Gets the file information.
-        /// </summary>
-        /// <returns></returns>
-        FileInfo GetFileInfo();
-
+        
         /// <summary>
         /// Gets the parent.
         /// </summary>
         /// <returns></returns>
         IFolder GetParentFolder();
-        
-        /// <summary>
-        /// Gets the extension.
-        /// </summary>
-        /// <returns></returns>
-        EXT GetExtension();
         
         /// <summary>
         /// Gets the base stream.

@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <summary>
         /// The path
         /// </summary>
-        public IPath Path { get; set; }
+        public virtual IPath Path { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the file.
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the file.
         /// </value>
-        public string FileName { get; set; }
+        public virtual string FileName { get; set; }
 
         /// <summary>
         /// Gets or sets the full name.
@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// <value>
         /// The full name.
         /// </value>
-        public string FullName { get; set; }
+        public virtual string FullName { get; set; }
 
         /// <summary>
         /// Gets or sets the changed date.
@@ -44,7 +44,7 @@ namespace BudgetExecution
         /// <value>
         /// The changed date.
         /// </value>
-        public DateTime ChangeDate { get; set; }
+        public virtual DateTime ChangeDate { get; set; }
 
         /// <summary>
         /// Gets the information.
@@ -52,7 +52,7 @@ namespace BudgetExecution
         /// <value>
         /// The information.
         /// </value>
-        public FileInfo FileInfo { get; set; }
+        public virtual FileInfo FileInfo { get; set; }
 
         /// <summary>
         /// Gets or sets the extension.
@@ -60,7 +60,7 @@ namespace BudgetExecution
         /// <value>
         /// The extension.
         /// </value>
-        public string Extension { get; set; }
+        public virtual string Extension { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance has parent.
@@ -68,14 +68,14 @@ namespace BudgetExecution
         /// <value>
         ///   <c>true</c> if this instance has parent { get; set; } otherwise, <c>false</c>.
         /// </value>
-        public bool HasParent { get; set; }
+        public virtual bool HasParent { get; set; }
 
         /// <summary>
         /// Gets or sets the creation date.
         /// </summary>
         /// <value>
         /// The creation date.p/// </value>
-        public DateTime CreationDate { get; set; }
+        public virtual DateTime CreationDate { get; set; }
 
         /// <summary>
         /// Gets or sets the lengeth.
@@ -83,7 +83,7 @@ namespace BudgetExecution
         /// <value>
         /// The lengeth.
         /// </value>
-        public long Length { get; set; }
+        public virtual long Length { get; set; }
 
         /// <summary>
         /// Gets or sets the attributes.
@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// <value>
         /// The attributes.
         /// </value>
-        public FileAttributes Attributes { get; set; }
+        public virtual FileAttributes Attributes { get; set; }
 
         /// <summary>
         /// Gets or sets the security.
@@ -99,55 +99,13 @@ namespace BudgetExecution
         /// <value>
         /// The security.
         /// </value>
-        public FileSecurity FileSecurity { get; set; }
-     
-        /// <summary>
-        /// Gets the root.
-        /// </summary>
-        /// <returns></returns>
-        public string GetPathRoot()
-        {
-            try
-            {
-                var _root = Path?.GetPathRoot();
-
-                return Verify.IsInput( _root )
-                    ? _root
-                    : string.Empty;
-            }
-            catch( IOException ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
-        }
-
-        /// <summary>
-        /// Gets the extension.
-        /// </summary>
-        /// <returns></returns>
-        public EXT GetExtension()
-        {
-            try
-            {
-                var _extension = Path?.GetFileExtension();
-
-                return Verify.IsInput( _extension )
-                    ? (EXT)Enum.Parse( typeof( EXT ), _extension )
-                    : default( EXT );
-            }
-            catch( IOException ex )
-            {
-                Fail( ex );
-                return EXT.NS;
-            }
-        }
+        public virtual FileSecurity FileSecurity { get; set; }
         
         /// <summary>
         /// Moves the specified destination.
         /// </summary>
         /// <param name="filePath">The destination.</param>
-        public void Move( string filePath )
+        public virtual void Move( string filePath )
         {
             if( Verify.IsInput( filePath ) )
             {
@@ -166,7 +124,7 @@ namespace BudgetExecution
         /// Copies the specified filePath.
         /// </summary>
         /// <param name="filePath">The filePath.</param>
-        public void Copy( string filePath )
+        public virtual void Copy( string filePath )
         {
             try
             {
@@ -185,11 +143,11 @@ namespace BudgetExecution
         /// <summary>
         /// Deletes this instance.
         /// </summary>
-        public void Delete()
+        public virtual void Delete()
         {
             try
             {
-                var _file = Path?.GetFullName();
+                var _file = Path?.FullPath;
 
                 if( Verify.IsInput( _file )
                     && File.Exists( _file ) )
@@ -203,26 +161,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the file information.
-        /// </summary>
-        /// <returns></returns>
-        public FileInfo GetFileInfo()
-        {
-            try
-            {
-                return Verify.IsInput( FileInfo?.Name ) 
-                    && File.Exists( FileInfo?.FullName )
-                        ? FileInfo
-                        : default( FileInfo );
-            }
-            catch( IOException ex )
-            {
-                Fail( ex );
-                return default( FileInfo );
-            }
-        }
-        
         /// <summary>
         /// Determines whether [has parent folder].
         /// </summary>
@@ -268,11 +206,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _file = Path?.GetFullPath();
-
-                return Verify.IsInput( _file ) 
-                    && File.Exists( _file )
-                        ? new FileInfo( _file )?.Create()
+                return Verify.IsInput( Path?.FullPath ) 
+                    && File.Exists( Path?.FullPath )
+                        ? new FileInfo( Path?.FullPath )?.Create()
                         : default( FileStream );
             }
             catch( Exception ex )

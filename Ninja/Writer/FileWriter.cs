@@ -58,7 +58,7 @@ namespace BudgetExecution
         {
             DataFile = file;
             FileStream = DataFile.GetBaseStream();
-            FileInfo = DataFile.GetFileInfo();
+            FileInfo = DataFile.FileInfo;
         }
 
         /// <summary>
@@ -226,7 +226,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _bytes = File.ReadAllBytes( DataFile?.Path?.GetFullPath() );
+                var _bytes = File.ReadAllBytes( DataFile?.Path?.FullPath );
 
                 if( _bytes?.Any() == true )
                 {

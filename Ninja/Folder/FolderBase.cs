@@ -134,7 +134,7 @@ namespace BudgetExecution
             try
             {
                 var _file = DataFile
-                    ?.GetFileInfo()
+                    ?.FileInfo
                     ?.Directory;
 
                 return Verify.IsInput( _file?.FullName )

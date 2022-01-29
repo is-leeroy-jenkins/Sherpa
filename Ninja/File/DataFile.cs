@@ -34,7 +34,7 @@ namespace BudgetExecution
         public DataFile( string input )
         {
             Path = new DataPath( input );
-            FileInfo = new FileInfo( Path.GetFullPath() );
+            FileInfo = new FileInfo( Path.FullPath );
             FullName = FileInfo.FullName;
             HasParent = CheckParent();
             Length = FileInfo.Length;
@@ -51,7 +51,7 @@ namespace BudgetExecution
         public DataFile( IPath path )
         {
             Path = path;
-            FileInfo = new FileInfo( Path.GetFullPath() );
+            FileInfo = new FileInfo( Path.FullPath );
             FullName = FileInfo.FullName;
             HasParent = CheckParent();
             Length = FileInfo.Length;
@@ -122,7 +122,7 @@ namespace BudgetExecution
                 if( Verify.IsInput( search )
                    && File.Exists( search ) )
                 {
-                    var _input = Path?.GetFullPath();
+                    var _input = Path?.FullPath;
                     using var _reader = new StreamReader( _input );
                     var _text = _reader?.ReadLine();
                     var _result = false;
@@ -161,7 +161,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _input = Path?.GetFullPath();
+                    var _input = Path?.FullPath;
 
                     if( Verify.IsInput( _input )
                         && File.Exists( _input ) )
@@ -237,7 +237,7 @@ namespace BudgetExecution
         {
             try
             {
-                return File.Exists( Path?.GetFullPath() )
+                return File.Exists( Path?.FullPath )
                     ? Path
                     : default( IPath );
             }
@@ -256,7 +256,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _extension = Path?.GetFileExtension();
+                var _extension = Path?.FileExtension;
 
                 return Verify.IsInput( _extension )
                     ? _extension
@@ -277,7 +277,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _input = Path?.GetFullPath();
+                var _input = Path?.FullPath;
 
                 return Verify.IsInput( _input )
                     ? _input
