@@ -5,6 +5,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Drawing;
     using Syncfusion.Windows.Forms;
 
     public partial class Message : MetroForm
@@ -31,6 +32,26 @@ namespace BudgetExecution
         public Message()
         {
             InitializeComponent();
+
+            // Form Property Values
+            BackColor = ColorConfig.FormBackColorDark;
+            BorderThickness = BorderConfig.Thin;
+            BorderColor = ColorConfig.BorderColorBlue;
+            Size = SizeConfig.FormSizeNormal;
+            Font = FontConfig.FontSizeSmall;
+            CaptionBarColor = ColorConfig.FormBackColorDark;
+            CaptionBarHeight = SizeConfig.CaptionSizeNormal;
+            CaptionButtonColor = ColorConfig.CaptionButtonDefaultColor;
+            CaptionButtonHoverColor = ColorConfig.CaptionButtonHoverColor;
+            CaptionAlign = AlignConfig.HorizontalLeft;
+            CaptionFont = FontConfig.FontSizeMedium;
+            MetroColor = ColorConfig.FormBackColorDark;
+            FormBorderStyle = BorderConfig.Sizeable;
+            Icon = new Icon( @"C:\Users\terry\source\repos\BudgetExecution\Etc\epa.ico", 33, 32 );
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            Padding = ControlConfig.Padding;
+            Text = string.Empty;
         }
 
         /// <summary>
