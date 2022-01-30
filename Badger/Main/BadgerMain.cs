@@ -15,12 +15,12 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form Property Values
-            BackColor = Color.Black;
+            BackColor = ColorConfig.FormBackColorDark;
             BorderThickness = BorderConfig.Thin;
             BorderColor = ColorConfig.BorderColorBlue;
             Size = SizeConfig.FormSizeNormal;
             Font = FontConfig.FontSizeSmall;
-            CaptionBarColor = Color.Black;
+            CaptionBarColor = ColorConfig.FormBackColorDark;
             CaptionBarHeight = SizeConfig.CaptionSizeNormal;
             CaptionButtonColor = ColorConfig.CaptionButtonDefaultColor;
             CaptionButtonHoverColor = ColorConfig.CaptionButtonHoverColor;
