@@ -254,7 +254,6 @@ C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.XlsIO.Base.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.Data.SQLite.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.IO.Packaging.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.ValueTuple.xml
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.CalculatorForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Chart.BudgetChartControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Error.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Control.ControlBase.resources
@@ -264,14 +263,15 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.But
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BadgerMain.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.PictureBox.PictureControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Calculator.CalculationControl.resources
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.BudgetGrid.BudgetGridControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Calendar.CalendarControl.resources
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.ChartGrid.ChartDataControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.DataGrid.DataGridControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.GroupBox.GroupBoxControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Clock.ClockControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.FormBase.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.ChartForm.resources
+C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.CalendarForm.resources
+C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.CalculatorForm.resources
+C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetDataForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Properties.Resources.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Toolbar.ToolBarControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.GenerateResource.cache
@@ -279,5 +279,3 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.Cor
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.CopyComplete
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.CalendarForm.resources
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
