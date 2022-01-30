@@ -321,12 +321,6 @@
     <Compile Include="Badger\Dialog\Column\ColumnConfiguration.Designer.cs">
       <DependentUpon>ColumnConfiguration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Dialog\Error\Error.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Badger\Dialog\Error\Error.Designer.cs">
-      <DependentUpon>Error.cs</DependentUpon>
-    </Compile>
     <Compile Include="Badger\Dialog\Message\Message.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -451,11 +445,17 @@
     <Compile Include="Badger\Calculator\CalculatorForm.Designer.cs">
       <DependentUpon>CalculatorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BudgetDataForm.cs">
+    <Compile Include="Badger\DataGrid\BudgetDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BudgetDataForm.Designer.cs">
+    <Compile Include="Badger\DataGrid\BudgetDataForm.Designer.cs">
       <DependentUpon>BudgetDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Badger\Dialog\Error.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Badger\Dialog\Error.Designer.cs">
+      <DependentUpon>Error.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
@@ -811,9 +811,6 @@
     </Compile>
     <Compile Include="Badger\Chart\SeriesModel\TitleInfo.cs" />
     <EmbeddedResource Include="Badger\Chart\BudgetChartControl.resx" />
-    <EmbeddedResource Include="Badger\Dialog\Error\Error.resx">
-      <DependentUpon>Error.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Badger\Control\ControlBase.resx" />
     <EmbeddedResource Include="Badger\Control\ControlData.resx" />
     <EmbeddedResource Include="Badger\Label\LabelControl.resx" />
@@ -839,7 +836,7 @@
     <EmbeddedResource Include="Badger\Calculator\CalculatorForm.resx">
       <DependentUpon>CalculatorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BudgetDataForm.resx">
+    <EmbeddedResource Include="Badger\DataGrid\BudgetDataForm.resx">
       <DependentUpon>BudgetDataForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -2912,7 +2909,9 @@
     <Content Include="Lib\VisualPlus.dll" />
     <Content Include="readme.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Badger\Dialog\Error\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
