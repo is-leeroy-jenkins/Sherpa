@@ -10,7 +10,7 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
 
-    public class BindingBase : BindingSource
+    public abstract class BindingBase : BindingSource
     {
         /// <summary>
         /// Gets the data set.
@@ -161,7 +161,7 @@ namespace BudgetExecution
             {
                 var _dataRows = DataTable?.AsEnumerable();
 
-                return Verify.IsInput( _dataRows )
+                return Verify.IsRows( _dataRows )
                     ? _dataRows
                     : default( EnumerableRowCollection<DataRow> );
             }

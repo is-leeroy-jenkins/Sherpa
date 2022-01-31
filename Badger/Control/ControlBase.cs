@@ -16,7 +16,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public partial class ControlBase : ControlData, IDataControl
+    public abstract partial class ControlBase : ControlData, IDataControl
     {
         /// <summary>
         /// Gets or sets the hover text.
@@ -24,10 +24,11 @@ namespace BudgetExecution
         /// <value>
         /// The hover text.
         /// </value>
-        public string HoverText { get; set; }
+        public virtual string HoverText { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ControlBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ControlBase"/> class.
         /// </summary>
         public ControlBase()
         {
@@ -45,7 +46,7 @@ namespace BudgetExecution
         /// Sets the parent.
         /// </summary>
         /// <param name="control">The control.</param>
-        public void SetParent( Control control )
+        public virtual void SetParent( Control control )
         {
             try
             {
@@ -62,7 +63,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public void SetSize( int width, int height )
+        public virtual void SetSize( int width, int height )
         {
             try
             {
@@ -79,7 +80,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
-        public void SetLocation( int x = 1, int y = 1 )
+        public virtual void SetLocation( int x = 1, int y = 1 )
         {
             try
             {
@@ -97,7 +98,7 @@ namespace BudgetExecution
         /// <param name="family">The family.</param>
         /// <param name="size">The size.</param>
         /// <param name="style">The style.</param>
-        public void SetFont( string family = "Roboto", int size = 8, FontStyle style = FontStyle.Regular )
+        public virtual void SetFont( string family = "Roboto", int size = 8, FontStyle style = FontStyle.Regular )
         {
             try
             {
@@ -113,7 +114,7 @@ namespace BudgetExecution
         /// Sets the color of the back.
         /// </summary>
         /// <param name="color">The color.</param>
-        public void SetBackColor( Color color )
+        public virtual void SetBackColor( Color color )
         {
             try
             {
@@ -129,7 +130,7 @@ namespace BudgetExecution
         /// Sets the color of the fore.
         /// </summary>
         /// <param name="color">The color.</param>
-        public void SetForeColor( Color color )
+        public virtual void SetForeColor( Color color )
         {
             try
             {
@@ -145,7 +146,7 @@ namespace BudgetExecution
         /// Sets the text.
         /// </summary>
         /// <param name="text">The text.</param>
-        public void SetText( string text )
+        public virtual void SetText( string text )
         {
             if( Verify.IsInput( text ) )
             {
@@ -164,7 +165,7 @@ namespace BudgetExecution
         /// Sets the anchor style.
         /// </summary>
         /// <param name="anchor">The anchor.</param>
-        public void SetAnchorStyle( AnchorStyles anchor )
+        public virtual void SetAnchorStyle( AnchorStyles anchor )
         {
             try
             {
@@ -180,7 +181,7 @@ namespace BudgetExecution
         /// Sets the dock style.
         /// </summary>
         /// <param name="dock">The dock.</param>
-        public void SetDockStyle( DockStyle dock )
+        public virtual void SetDockStyle( DockStyle dock )
         {
             try
             {
@@ -196,7 +197,7 @@ namespace BudgetExecution
         /// Sets the tag.
         /// </summary>
         /// <param name="tag">The tag.</param>
-        public void SetTag( object tag )
+        public virtual void SetTag( object tag )
         {
             try
             {
@@ -212,7 +213,7 @@ namespace BudgetExecution
         /// Sets the hover text.
         /// </summary>
         /// <param name="text">The text.</param>
-        public void SetHoverText( string text )
+        public virtual void SetHoverText( string text )
         {
             try
             {
@@ -229,7 +230,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="System.EventArgs" /> instance containing the event data.</param>
-        public void OnMouseOver( object sender, EventArgs e )
+        public virtual void OnMouseOver( object sender, EventArgs e )
         {
             if( sender is Control control
                 && Verify.IsInput( control?.Tag?.ToString() ) )

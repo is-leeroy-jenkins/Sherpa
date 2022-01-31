@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.Tools.CalculatorControl" />
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    public class CalculationPanel : CalculatorData, ICalculator
+    public class CalculationPanel : CalculatorBase, ICalculator
     {
         /// <summary>
         /// Gets the value.
@@ -63,16 +63,6 @@ namespace BudgetExecution
             Anchor = ControlConfig.GetAnchorStyle();
             Visible = true;
             Enabled = true;
-            MetroColor = ColorConfig.FormBackColorDark;
-            LayoutType = CalculatorLayoutTypes.WindowsStandard;
-            ShowDisplayArea = false;
-            HorizontalSpacing = 5;
-            VerticalSpacing = 5;
-            UseVerticalAndHorizontalSpacing = true;
-            BackgroundColor = new BrushInfo( BackColor );
-            UseVisualStyle = true;
-            BorderStyle = Border3DStyle.Flat;
-            ButtonStyle = ButtonAppearance.Metro;
         }
 
         /// <summary>
@@ -110,8 +100,6 @@ namespace BudgetExecution
         {
             try
             {
-                var _result = DoubleValue;
-                Label.Text = _result.ToString( "c" );
             }
             catch( Exception ex )
             {

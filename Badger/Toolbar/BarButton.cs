@@ -270,8 +270,6 @@ namespace BudgetExecution
 
                         case Tool.CalculatorButton:
                         {
-                            using var _message = new CalculatorForm();
-                            _message?.ShowDialog();
                             break;
                         }
 
