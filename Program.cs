@@ -16,7 +16,7 @@ namespace BudgetExecution
         {
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault( false );
-            System.Windows.Forms.Application.Run( new Error() );
+            System.Windows.Forms.Application.Run( new BadgerMain() );
         }
     }
 }

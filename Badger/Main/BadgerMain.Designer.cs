@@ -87,7 +87,7 @@ namespace BudgetExecution
             // LoadingPanel
             // 
             this.LoadingPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LoadingPanel.BackColor = System.Drawing.Color.Black;
+            this.LoadingPanel.BackColor = System.Drawing.Color.Transparent;
             this.LoadingPanel.BindingSource = null;
             this.LoadingPanel.DataFilter = null;
             this.LoadingPanel.Field = BudgetExecution.Field.NS;

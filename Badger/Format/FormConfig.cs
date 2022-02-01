@@ -121,6 +121,15 @@ namespace BudgetExecution
         public virtual bool IsEnabled { get; set; } = true;
 
         /// <summary>
+        /// Gets the budget execution icon.
+        /// </summary>
+        /// <value>
+        /// The budget execution icon.
+        /// </value>
+        public static string BudgetExecutionIcon { get; } = 
+            @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\EPA\ico\USEPA.ico";
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="FormConfig"/> class.
         /// </summary>
         public FormConfig()
