@@ -18,9 +18,10 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class ChartPanel : ChartBase, IBudgetChart
     {
-        // Sets Starting Properties
+        // Initializes Properties
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartPanel"/> class.
+        /// Initializes a new instance
+        /// of the <see cref="ChartPanel"/> class.
         /// </summary>
         public ChartPanel()
         {
@@ -345,6 +346,15 @@ namespace BudgetExecution
                 Fail( ex );
                 return default( IChartConfig );
             }
+        }
+
+        /// <summary>
+        /// Gets the source model.
+        /// </summary>
+        /// <returns></returns>
+        public new ISourceModel GetSourceModel()
+        {
+            return new SourceModel();
         }
     }
 }

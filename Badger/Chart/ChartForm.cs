@@ -5,14 +5,24 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Specialized;
     using System.Drawing;
     using System.Windows.Forms;
+    using System.Configuration;
     using DocumentFormat.OpenXml.Spreadsheet;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
 
     public partial class ChartForm : MetroForm
     {
+        /// <summary>
+        /// Gets or sets the bud ex configuration.
+        /// </summary>
+        /// <value>
+        /// The bud ex configuration.
+        /// </value>
+        public NameValueCollection BudExConfig { get; set; }  = ConfigurationManager.AppSettings;
+
         public ChartForm()
         {
             InitializeComponent();
@@ -31,7 +41,7 @@ namespace BudgetExecution
             CaptionFont = FontConfig.FontSizeMedium;
             MetroColor = ColorConfig.FormBackColorDark;
             FormBorderStyle = BorderConfig.Sizeable;
-            Icon = new Icon(@"C:\Users\terry\source\repos\BudgetExecution\Etc\epa.ico", 33, 32 );
+            Icon = new Icon( BudExConfig[ "BudgetExecutionIcon" ], 32, 30 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = ControlConfig.Padding;

@@ -449,6 +449,12 @@
     <Compile Include="Badger\Calculator\CalculatorBase.Designer.cs">
       <DependentUpon>CalculatorBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Chart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Chart.Designer.cs">
+      <DependentUpon>Chart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />

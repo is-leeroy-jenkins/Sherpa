@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// <summary>
         /// The style
         /// </summary>
-        public IChartConfig Style { get; set; } = new ChartConfig();
+        public IChartConfig Style { get; set; }
 
         /// <summary>
         /// Gets or sets the source.

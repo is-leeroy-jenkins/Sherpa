@@ -6,10 +6,20 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Specialized;
+    using System.Configuration;
     using System.Drawing;
 
     public partial class BadgerMain : FormBase
     {
+        /// <summary>
+        /// Gets or sets the bud ex configuration.
+        /// </summary>
+        /// <value>
+        /// The bud ex configuration.
+        /// </value>
+        public NameValueCollection BudExConfig { get; set; }  = ConfigurationManager.AppSettings;
+
         public BadgerMain()
         {
             InitializeComponent();
@@ -28,7 +38,7 @@ namespace BudgetExecution
             CaptionFont = FontConfig.FontSizeMedium;
             MetroColor = ColorConfig.FormBackColorDark;
             FormBorderStyle = BorderConfig.Sizeable;
-            Icon = new Icon( @"C:\Users\terry\source\repos\BudgetExecution\Etc\epa.ico", 33, 32 );
+            Icon = new Icon( BudExConfig[ "BudgetExecutionIcon" ], 33, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = ControlConfig.Padding;
