@@ -40,7 +40,7 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             Padding = ControlConfig.Padding;
             Text = string.Empty;
-            Size = new Size( DataGrid.Size.Width, DataGrid.Size.Height);
+            Size = new Size( DataGrid.Size.Width - 1, DataGrid.Size.Height - 1 );
             DataGrid.Dock = DockStyle.Fill;
             Controls.Add( DataGrid );
         }

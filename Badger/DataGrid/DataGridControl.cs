@@ -11,7 +11,16 @@ namespace BudgetExecution
     public partial class DataGridControl : ControlBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataGridControl"/> class.
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public override string HoverText { get; set; }
+
+        /// <summary>
+        /// Initializes a new
+        /// instance of the <see cref="DataGridControl"/> class.
         /// </summary>
         public DataGridControl()
         {

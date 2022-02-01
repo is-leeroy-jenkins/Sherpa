@@ -276,3 +276,5 @@ C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\System.ValueTuple.xml
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.CopyComplete
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe.config

@@ -15,7 +15,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="System.Windows.Forms.UserControl" />
-    public class ControlData : UserControl
+    public abstract class ControlData : UserControl
     {
         /// <summary>
         /// Gets or sets the binding source.
@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// <value>
         /// The binding source.
         /// </value>
-        public BudgetBinding BindingSource { get; set; }
+        public virtual BudgetBinding BindingSource { get; set; }
 
         /// <summary>
         /// Gets or sets the field.
@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <value>
         /// The field.
         /// </value>
-        public Field Field { get; set; }
+        public virtual Field Field { get; set; }
 
         /// <summary>
         /// Gets or sets the numeric.
@@ -39,7 +39,7 @@ namespace BudgetExecution
         /// <value>
         /// The numeric.
         /// </value>
-        public Numeric Numeric { get; set; }
+        public virtual Numeric Numeric { get; set; }
 
         /// <summary>
         /// Gets or sets the filter.
@@ -47,15 +47,7 @@ namespace BudgetExecution
         /// <value>
         /// The filter.
         /// </value>
-        public IDictionary<string, object> DataFilter { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ControlData" /> class.
-        /// </summary>
-        public ControlData()
-        {
-        }
+        public virtual IDictionary<string, object> DataFilter { get; set; }
         
         /// <summary>
         /// Sets the field.
@@ -63,7 +55,7 @@ namespace BudgetExecution
         /// <param name="field">
         /// The field.
         /// </param>
-        public void SetField( Field field )
+        public virtual void SetField( Field field )
         {
             try
             {
@@ -83,7 +75,8 @@ namespace BudgetExecution
         /// <param name="bindingList">
         /// The bindingsource.
         /// </param>
-        public void SetDataSource<T1>( T1 bindingList ) where T1 : IBindingList
+        public virtual void SetDataSource<T1>( T1 bindingList ) 
+            where T1 : IBindingList
         {
             try
             {
@@ -120,7 +113,7 @@ namespace BudgetExecution
         /// <param name="dict">
         /// The dictionary.
         /// </param>
-        public void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
+        public virtual void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
             where T1 : IBindingList where T2 : IDictionary<string, object>
         {
             try
@@ -166,7 +159,7 @@ namespace BudgetExecution
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <param name="data">The data.</param>
-        public void SetDataSource<T1>( IEnumerable<T1> data ) where T1 : IEnumerable<T1>
+        public virtual void SetDataSource<T1>( IEnumerable<T1> data ) where T1 : IEnumerable<T1>
         {
             if( Verify.IsSequence( data ) )
             {
@@ -187,7 +180,7 @@ namespace BudgetExecution
         /// <typeparam name="T1">The type of the 1.</typeparam>
         /// <param name="data">The data.</param>
         /// <param name="dict">The dictionary.</param>
-        public void SetDataSource<T1>( IEnumerable<T1> data, IDictionary<string, object> dict )
+        public virtual void SetDataSource<T1>( IEnumerable<T1> data, IDictionary<string, object> dict )
             where T1 : IEnumerable<T1>
         {
             if( Verify.IsSequence( data ) )
@@ -224,7 +217,7 @@ namespace BudgetExecution
         /// <param name="data">The data.</param>
         /// <param name="field">The field.</param>
         /// <param name="filter">The dictionary.</param>
-        public void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
+        public virtual void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
             where T1 : IEnumerable<T1> where T2 : struct
         {
             if( Verify.IsSequence( data )
@@ -257,7 +250,7 @@ namespace BudgetExecution
         /// <typeparam name="T1">The type of the 1.</typeparam>
         /// <param name="data">The data.</param>
         /// <param name="field">The field.</param>
-        public void SetDataSource<T1>( IEnumerable<T1> data, object field = null ) where T1 : IEnumerable<T1>
+        public virtual void SetDataSource<T1>( IEnumerable<T1> data, object field = null ) where T1 : IEnumerable<T1>
         {
             if( Verify.IsInput( data ) )
             {
@@ -287,8 +280,9 @@ namespace BudgetExecution
         /// <typeparam name="T2">The type of the 2.</typeparam>
         /// <param name="data">The data.</param>
         /// <param name="dict">The dictionary.</param>
-        public void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
-            where T1 : IEnumerable<T1> where T2 : IDictionary<string, object>
+        public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
+            where T1 : IEnumerable<T1> 
+            where T2 : IDictionary<string, object>
         {
             if( Verify.IsSequence( data )
                 && Verify.IsMap( dict ) )
@@ -324,8 +318,9 @@ namespace BudgetExecution
         /// <param name="data">The data.</param>
         /// <param name="field">The field.</param>
         /// <param name="filter">The filter.</param>
-        public void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field, object filter = null )
-            where T1 : IEnumerable<T1> where T2 : struct
+        public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field, object filter = null )
+            where T1 : IEnumerable<T1> 
+            where T2 : struct
         {
             if( Verify.IsSequence( data )
                 && BudgetExecution.Validate.IsField( field ) )
