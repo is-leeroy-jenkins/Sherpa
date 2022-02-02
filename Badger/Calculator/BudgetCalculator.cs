@@ -1,4 +1,4 @@
-﻿// <copyright file = "CalculationPanel.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "BudgetCalculator.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -8,8 +8,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
-    using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
     /// <summary>
@@ -17,7 +15,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.Tools.CalculatorControl" />
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    public class CalculationPanel : CalculatorBase, ICalculator
+    public class BudgetCalculator : CalculatorBase, ICalculator
     {
         /// <summary>
         /// Gets the value.
@@ -48,10 +46,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CalculationPanel" />
+        /// <see cref="BudgetCalculator" />
         /// class.
         /// </summary>
-        public CalculationPanel()
+        public BudgetCalculator()
         {
             Size = SizeConfig.GetSize( 400, 400 );
             Location = ControlConfig.GetLocation();
@@ -61,16 +59,18 @@ namespace BudgetExecution
             Padding = ControlConfig.Padding;
             Font = FontConfig.FontSizeMedium;
             Anchor = ControlConfig.GetAnchorStyle();
+            Size = new Size( 450, 450 );
+            Dock = DockStyle.Fill;
             Visible = true;
             Enabled = true;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CalculationPanel"/> class.
+        /// Initializes a new instance of the <see cref="BudgetCalculator"/> class.
         /// </summary>
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
-        public CalculationPanel( Size size, Point location )
+        public BudgetCalculator( Size size, Point location )
             : this()
         {
             Size = SizeConfig.GetSize( size );
@@ -79,11 +79,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CalculationPanel" />
+        /// <see cref="BudgetCalculator" />
         /// class.
         /// </summary>
         /// <param name="value">The value.</param>
-        public CalculationPanel( string value )
+        public BudgetCalculator( string value )
             : this()
         {
             Result.SetValue( value );

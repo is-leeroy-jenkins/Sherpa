@@ -390,11 +390,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\BudgetImage\BudgetImage.cs" />
-    <Compile Include="Badger\Calculator\CalculationPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Badger\Calculator\CalculatorData.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Badger\Calculator\BudgetCalculator.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\SeriesModel\DataSeries.cs" />
     <Compile Include="Badger\Calendar\CalendarBase.cs">

@@ -9,30 +9,15 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
+    using Syncfusion.Windows.Forms.Tools;
 
-    public partial class CalculatorBase : UserControl
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    public abstract partial class CalculatorBase : CalculatorControl
     {
-        public CalculationPanel Calculator { get; set; } = new CalculationPanel();
-
-        public CalculatorBase()
-        {
-            InitializeComponent();
-
-            // Form Property Values
-            BackColor = ColorConfig.FormBackColorDark;
-            Padding = ControlConfig.Padding;
-            Text = string.Empty;
-            MinimumSize = SizeConfig.DialogSizeMinimum;
-            MaximumSize = SizeConfig.DialogSizeMaximum;
-            Size = new Size( 500, 500 );
-            Calculator.Size = new Size( 450, 450 );
-            Calculator.Dock = DockStyle.Fill;
-            Controls.Add( Calculator );
-        }
-
         /// <summary>
         /// Gets or sets the binding source.
         /// </summary>
@@ -64,7 +49,20 @@ namespace BudgetExecution
         /// The filter.
         /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
-        
+
+        public CalculatorBase()
+        {
+            InitializeComponent();
+
+            // Form Property Values
+            BackColor = ColorConfig.FormBackColorDark;
+            Padding = ControlConfig.Padding;
+            Text = string.Empty;
+            MinimumSize = SizeConfig.DialogSizeMinimum;
+            MaximumSize = SizeConfig.DialogSizeMaximum;
+            Size = new Size( 500, 500 );
+        }
+
         /// <summary>
         /// Sets the field.
         /// </summary>
