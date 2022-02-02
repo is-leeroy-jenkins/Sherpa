@@ -34,35 +34,14 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BadgerMain));
             this.picturePanel1 = new BudgetExecution.PicturePanel();
+            this.TestButton = new BudgetExecution.BudgetButton();
             this.LoadingPanel = new BudgetExecution.PicturePanel();
-            this.BackPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturePanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoadingPanel)).BeginInit();
             this.SuspendLayout();
-            // 
-            // BackPanel
-            // 
-            this.BackPanel.BackColor = System.Drawing.Color.Black;
-            this.BackPanel.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.BackPanel.BackColorState.Enabled = System.Drawing.Color.Transparent;
-            this.BackPanel.Border.Color = System.Drawing.Color.Transparent;
-            this.BackPanel.Border.HoverColor = System.Drawing.Color.SteelBlue;
-            this.BackPanel.Border.HoverVisible = false;
-            this.BackPanel.Border.Rounding = 6;
-            this.BackPanel.Border.Thickness = 1;
-            this.BackPanel.Border.Type = VisualPlus.Enumerators.ShapeTypes.Rounded;
-            this.BackPanel.Border.Visible = true;
-            this.BackPanel.Controls.Add(this.LoadingPanel);
-            this.BackPanel.Size = new System.Drawing.Size(1166, 595);
-            this.BackPanel.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            this.BackPanel.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BackPanel.TextStyle.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BackPanel.TextStyle.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BackPanel.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.BackPanel.TextStyle.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            this.BackPanel.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // picturePanel1
             // 
@@ -83,6 +62,46 @@ namespace BudgetExecution
             this.picturePanel1.TabIndex = 0;
             this.picturePanel1.TabStop = false;
             this.picturePanel1.ToolTip = null;
+            // 
+            // TestButton
+            // 
+            this.TestButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TestButton.BackColor = System.Drawing.Color.Transparent;
+            this.TestButton.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TestButton.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TestButton.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.TestButton.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.TestButton.BindingSource = null;
+            this.TestButton.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TestButton.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.TestButton.Border.HoverVisible = true;
+            this.TestButton.Border.Rounding = 6;
+            this.TestButton.Border.Thickness = 1;
+            this.TestButton.Border.Type = VisualPlus.Enumerators.ShapeTypes.Rounded;
+            this.TestButton.Border.Visible = true;
+            this.TestButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.TestButton.Field = BudgetExecution.Field.NS;
+            this.TestButton.Font = new System.Drawing.Font("Roboto", 8F);
+            this.TestButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
+            this.TestButton.HoverText = null;
+            this.TestButton.Image = null;
+            this.TestButton.Images = null;
+            this.TestButton.Location = new System.Drawing.Point(1047, 544);
+            this.TestButton.Margin = new System.Windows.Forms.Padding(0);
+            this.TestButton.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.TestButton.Name = "TestButton";
+            this.TestButton.Size = new System.Drawing.Size(119, 51);
+            this.TestButton.TabIndex = 1;
+            this.TestButton.Text = "Test";
+            this.TestButton.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.TestButton.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TestButton.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
+            this.TestButton.TextStyle.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
+            this.TestButton.TextStyle.Pressed = System.Drawing.Color.White;
+            this.TestButton.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.TestButton.TextStyle.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            this.TestButton.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.TestButton.ToolTip = null;
             // 
             // LoadingPanel
             // 
@@ -117,8 +136,6 @@ namespace BudgetExecution
             this.MetroColor = System.Drawing.Color.Black;
             this.Name = "BadgerMain";
             this.Controls.SetChildIndex(this.picturePanel1, 0);
-            this.Controls.SetChildIndex(this.BackPanel, 0);
-            this.BackPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picturePanel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoadingPanel)).EndInit();
             this.ResumeLayout(false);
@@ -128,6 +145,7 @@ namespace BudgetExecution
         #endregion
 
         private PicturePanel picturePanel1;
+        private BudgetButton TestButton;
         public PicturePanel LoadingPanel;
     }
 }

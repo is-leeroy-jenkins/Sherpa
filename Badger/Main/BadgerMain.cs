@@ -37,6 +37,7 @@ namespace BudgetExecution
             Text = string.Empty;
             MinimumSize = SizeConfig.FormSizeMinimum;
             MaximumSize = SizeConfig.FormSizeMaximum;
+            TestButton.BackColor = ColorConfig.ForeColorBlack;
         }
     }
 }

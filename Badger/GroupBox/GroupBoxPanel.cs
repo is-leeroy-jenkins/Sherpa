@@ -70,7 +70,7 @@ namespace BudgetExecution
             Border.Type = ShapeTypes.Rounded;
             Border.Color = ColorConfig.BorderColorDark;
             Border.Thickness = BorderConfig.Thin;
-            Border.HoverColor = ColorConfig.BorderColorYellow;
+            Border.HoverColor = ColorConfig.BorderColorDark;
             Border.HoverVisible = true;
 
             // BackColor Configuration.
@@ -221,7 +221,7 @@ namespace BudgetExecution
                     {
                         Border.Color = Color.FromArgb( 64, 64, 64 );
                         Border.Thickness = BorderConfig.Thin;
-                        Border.HoverColor = ColorConfig.BorderColorYellow;
+                        Border.HoverColor = ColorConfig.BorderColorDark;
                         Border.HoverVisible = true;
                         SeparatorColor = Color.FromArgb( 64, 64, 64 );
                         Separate = true;

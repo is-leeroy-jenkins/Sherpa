@@ -14,14 +14,6 @@ namespace BudgetExecution
     public class ColorConfig
     {
         /// <summary>
-        /// Gets or sets the border yellow.
-        /// </summary>
-        /// <value>
-        /// The border yellow.
-        /// </value>
-        public static Color BorderColorYellow { get; set; } = Color.FromArgb( 128, 64, 0 );
-
-        /// <summary>
         /// Gets or sets the border dark.
         /// </summary>
         /// <value>
@@ -35,7 +27,7 @@ namespace BudgetExecution
         /// <value>
         /// The border blue.
         /// </value>
-        public static Color BorderColorBlue { get; set; } = Color.FromArgb( 70, 130, 180 );
+        public static Color BorderColorBlue { get; set; } = Color.SteelBlue;
 
         /// <summary>
         /// Gets or sets the border red.
@@ -51,7 +43,7 @@ namespace BudgetExecution
         /// <value>
         /// The color of the form dark back.
         /// </value>
-        public static Color FormBackColorDark { get; set; } = Color.FromArgb( 0, 0, 0 );
+        public static Color FormBackColorDark { get; set; } = Color.FromArgb( 10, 10, 10 );
 
         /// <summary>
         /// Gets the default color of the caption button.
@@ -75,7 +67,7 @@ namespace BudgetExecution
         /// <value>
         /// The caption bar black.
         /// </value>
-        public static Color CaptionBarBlack { get; } = Color.Black;
+        public static Color CaptionBarBlack { get; } = Color.FromArgb( 10, 10, 10 );
 
         /// <summary>
         /// Gets or sets the fore red.
@@ -155,7 +147,7 @@ namespace BudgetExecution
         /// <value>
         /// The hover blue.
         /// </value>
-        public static Color HoverColorBlue { get; set; } = Color.FromArgb( 50, 93, 129 );
+        public static Color HoverColorBlue { get; set; } = Color.SteelBlue;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ColorConfig"/> class.

@@ -61,7 +61,7 @@ namespace BudgetExecution
             this.visualCheckBox3 = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.visualCheckBox1 = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.CsvCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
-            this.SideLabel = new BudgetExecution.LabelPanel();
+            this.SideLabel = new BudgetExecution.BudgetLabel();
             this.XlsxCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.XlsCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.Header = new System.Windows.Forms.TableLayoutPanel();
@@ -914,7 +914,7 @@ namespace BudgetExecution
         private VisualSeparator visualSeparator2;
         public PicturePanel PictureBox;
         public ClosePanel closePanel1;
-        public LabelPanel SideLabel;
+        public BudgetLabel SideLabel;
         public TableLayoutPanel Header;
     }
     

@@ -31,7 +31,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ButtonPanel" />
+        /// <see cref="BudgetButton" />
         /// class.
         /// </summary>
         public ClosePanel()
@@ -61,7 +61,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ButtonPanel" />
+        /// <see cref="BudgetButton" />
         /// class.
         /// </summary>
         /// <param name="size">The size.</param>
@@ -75,7 +75,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ButtonPanel" />
+        /// <see cref="BudgetButton" />
         /// class.
         /// </summary>
         /// <param name="location">The location.</param>
@@ -87,7 +87,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ButtonPanel" />
+        /// <see cref="BudgetButton" />
         /// class.
         /// </summary>
         /// <param name="size">The size.</param>
@@ -102,7 +102,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ButtonPanel" />
+        /// <see cref="BudgetButton" />
         /// class.
         /// </summary>
         /// <param name="parent">The parent.</param>

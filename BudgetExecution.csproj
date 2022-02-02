@@ -359,9 +359,13 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Button\ButtonBase.cs" />
-    <Compile Include="Badger\Button\ButtonPanel.cs" />
+    <Compile Include="Badger\Button\BudgetButton.cs" />
     <Compile Include="Badger\Chart\BindingModel\SeriesConfig.cs" />
     <Compile Include="Badger\Chart\BindingModel\SeriesModel.cs" />
+    <Compile Include="Badger\Test\TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Badger\Test\TestForm.Designer.cs" />
     <Compile Include="Badger\Toolbar\BarButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -574,8 +578,8 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Badger\Label\LabelControl.Designer.cs" />
-    <Compile Include="Badger\Label\LabelData.cs" />
-    <Compile Include="Badger\Label\LabelPanel.cs" />
+    <Compile Include="Badger\Label\LabelBase.cs" />
+    <Compile Include="Badger\Label\BudgetLabel.cs" />
     <Compile Include="Badger\BudgetImage\IBudgetImage.cs" />
     <Compile Include="Badger\BudgetImage\ImageBuilder.cs" />
     <Compile Include="Badger\BudgetImage\ImageConfig.cs" />
@@ -808,6 +812,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\SeriesModel\TitleInfo.cs" />
+    <Compile Include="Badger\Form\BudgetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Badger\Form\BudgetForm.Designer.cs">
+      <DependentUpon>BudgetForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Badger\Chart\BudgetChartControl.resx" />
     <EmbeddedResource Include="Badger\Control\ControlBase.resx" />
     <EmbeddedResource Include="Badger\Control\ControlData.resx" />
@@ -838,6 +848,7 @@
     <EmbeddedResource Include="Badger\Calculator\CalculatorBase.resx">
       <DependentUpon>CalculatorBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Badger\Test\TestForm.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -849,6 +860,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Badger\Toolbar\ToolBarControl.resx" />
+    <EmbeddedResource Include="Badger\Form\BudgetForm.resx">
+      <DependentUpon>BudgetForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include=".editorconfig" />
     <None Include="App.config" />
     <None Include="Data\Database\sqlce\ui\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />

@@ -47,7 +47,7 @@ namespace BudgetExecution
             this.Ribbon = new BudgetExecution.RibbonPanel();
             this.Table = new System.Windows.Forms.TableLayoutPanel();
             this.CloseBox = new BudgetExecution.ClosePanel();
-            this.Label = new BudgetExecution.LabelPanel();
+            this.Label = new BudgetExecution.BudgetLabel();
             this.PictureBox = new BudgetExecution.PicturePanel();
             this.BackPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BudgetBinding)).BeginInit();
@@ -356,7 +356,7 @@ namespace BudgetExecution
         /// <summary>
         /// The label
         /// </summary>
-        public LabelPanel Label;
+        public BudgetLabel Label;
 
         /// <summary>
         /// The PictureBox

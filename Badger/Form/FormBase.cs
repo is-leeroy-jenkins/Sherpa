@@ -20,6 +20,7 @@ namespace BudgetExecution
             Size = SizeConfig.FormSizeNormal;
             BorderColor = ColorConfig.BorderColorBlue;
             Text = string.Empty;
+            BackColor = ColorConfig.FormBackColorDark;
         }
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.Label = new BudgetExecution.LabelPanel();
+            this.Label = new BudgetExecution.BudgetLabel();
             this.BudgetBinding = new BudgetExecution.BudgetBinding();
             this.ToolTip = new BudgetExecution.ToolTip();
             this.BackPanel = new BudgetExecution.LayoutPanel();
@@ -148,7 +148,7 @@
 
         #endregion
 
-        public LabelPanel Label;
+        public BudgetLabel Label;
         public BudgetBinding BudgetBinding;
         public ToolTip ToolTip;
         public LayoutPanel BackPanel;

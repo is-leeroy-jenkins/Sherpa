@@ -70,7 +70,7 @@ namespace BudgetExecution
             ThemeName = "Budget Execution";
             Style = Style.Custom;
             BackColor = ColorConfig.FormBackColorDark;
-            BorderColor = ColorConfig.BorderColorYellow;
+            BorderColor = ColorConfig.BorderColorBlue;
             ForeColor = ColorConfig.ForeColorGray;
             UseAnimation = true;
             UseFading = true;

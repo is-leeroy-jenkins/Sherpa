@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// <value>
         /// The calculator text.
         /// </value>
-        public LabelPanel Label { get; set; }
+        public BudgetLabel Label { get; set; }
 
         /// <summary>
         /// Gets or sets the tool tip.

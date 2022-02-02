@@ -90,7 +90,7 @@ namespace BudgetExecution
             // Border Configuration
             Border.Color = ColorConfig.FormBackColorDark;
             Border.Thickness = BorderConfig.Thin;
-            Border.HoverColor = ColorConfig.BorderColorYellow;
+            Border.HoverColor = ColorConfig.BorderColorBlue;
             Border.HoverVisible = false;
         }
 
