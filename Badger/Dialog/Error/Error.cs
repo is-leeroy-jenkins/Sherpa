@@ -9,14 +9,13 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Configuration;
     using System.Windows.Forms;
-    using DocumentFormat.OpenXml.Presentation;
-    using DocumentFormat.OpenXml.Wordprocessing;
-    using Syncfusion.Windows.Forms;
-    using VisualPlus.Toolkit.Controls.Editors;
 
-    public partial class Error : MetroForm
+    public partial class Error : ErrorBase
     {
-        public NameValueCollection AppSetting = ConfigurationManager.AppSettings;
+        /// <summary>
+        /// The application setting
+        /// </summary>
+        public override NameValueCollection AppSetting { get; set; } = ConfigurationManager.AppSettings;
 
         /// <summary>
         /// Gets or sets the exception.
@@ -24,10 +23,11 @@ namespace BudgetExecution
         /// <value>
         /// The exception.
         /// </value>
-        public Exception Exception { get; set; }
+        public override Exception Exception { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Error"/> class.
+        /// Initializes a new instance of
+        /// the <see cref="Error"/> class.
         /// </summary>
         public Error()
         {
@@ -75,7 +75,7 @@ namespace BudgetExecution
         {
             InitializeComponent();
             Exception = ext;
-            Text = "Error!";
+            Text = ext.ToLogString( "" );
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the text.
         /// </summary>
-        public void SetText()
+        public override void SetText()
         {
             var _logString = Exception.ToLogString( "" );
             TextBox.Text = _logString;
@@ -100,7 +100,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the text.
         /// </summary>
-        public void SetText( Exception ex )
+        public override void SetText( Exception ex )
         {
             var _logString = ex.ToLogString( "" );
             TextBox.Text = _logString;
@@ -109,7 +109,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the text.
         /// </summary>
-        public void SetText( string msg = "" )
+        public override void SetText( string msg = "" )
         {
             TextBox.Text = msg;
         }

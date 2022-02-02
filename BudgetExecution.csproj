@@ -443,6 +443,9 @@
     <Compile Include="Badger\Clock\BudgetClock.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Badger\Dialog\Error\ErrorBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />
