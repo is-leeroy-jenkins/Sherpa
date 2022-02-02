@@ -5,7 +5,9 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Specialized;
     using System.Drawing;
+    using System.Configuration;
     using System.Windows.Forms;
     using DocumentFormat.OpenXml.Presentation;
     using DocumentFormat.OpenXml.Wordprocessing;
@@ -14,6 +16,8 @@ namespace BudgetExecution
 
     public partial class Error : MetroForm
     {
+        public NameValueCollection AppSetting = ConfigurationManager.AppSettings;
+
         /// <summary>
         /// Gets or sets the exception.
         /// </summary>
@@ -43,7 +47,7 @@ namespace BudgetExecution
             CaptionFont = FontConfig.FontSizeMedium;
             MetroColor = ColorConfig.FormBackColorDark;
             FormBorderStyle = BorderConfig.Sizeable;
-            Icon = new Icon( @"C:\Users\terry\source\repos\BudgetExecution\Etc\epa.ico", 33, 32 );
+            Icon = new Icon( AppSetting[ "BudgetExecutionIcon" ], 33, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = ControlConfig.Padding;
