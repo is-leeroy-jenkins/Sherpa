@@ -294,7 +294,8 @@ namespace BudgetExecution
                 {
                     if( Verify.IsInput( Tag?.ToString() ) )
                     {
-                        var _ = new ToolTip( _button, Tag?.ToString()?.SplitPascal() );
+                        var _text = Tag?.ToString()?.SplitPascal();
+                        var _ = new ToolTip( _button, _text );
                     }
                 }
             }
@@ -313,17 +314,6 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         public void OnClick( object sender, EventArgs e )
         {
-            if( sender is BudgetButton _button )
-            {
-                try
-                {
-                    _button.Text = "";
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
         }
     }
 }

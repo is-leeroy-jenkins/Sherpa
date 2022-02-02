@@ -3,9 +3,8 @@
 // </copyright>
 //
 
-namespace BudgetExecution 
+namespace BudgetExecution
 {
-    using System;
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
@@ -13,6 +12,10 @@ namespace BudgetExecution
 
     public class BudgetCalendar : CalendarBase
     {
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="BudgetCalendar"/> class.
+        /// </summary>
         public BudgetCalendar()
         {
             Size = SizeConfig.GetSize( 530, 375 );
