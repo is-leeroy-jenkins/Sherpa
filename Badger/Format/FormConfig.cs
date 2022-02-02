@@ -127,7 +127,7 @@ namespace BudgetExecution
         /// The budget execution icon.
         /// </value>
         public static string BudgetExecutionIcon { get; } = 
-            @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\EPA\ico\USEPA.ico";
+            @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\Badger\ico\DbNinja.ico";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FormConfig"/> class.

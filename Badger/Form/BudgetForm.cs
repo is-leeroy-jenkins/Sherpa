@@ -30,14 +30,13 @@ namespace BudgetExecution
             CaptionFont = FontConfig.FontSizeMedium;
             MetroColor = ColorConfig.FormBackColorDark;
             FormBorderStyle = BorderConfig.Sizeable;
-            Icon = new Icon( FormConfig.BudgetExecutionIcon, 32, 33 );
-            ShowIcon = false;
+            Icon = new Icon( FormConfig.BudgetExecutionIcon, 16, 16 );
+            ShowIcon = true;
             ShowInTaskbar = true;
             Padding = ControlConfig.Padding;
             Text = string.Empty;
             MinimumSize = SizeConfig.FormSizeMinimum;
             MaximumSize = SizeConfig.FormSizeMaximum;
-            TestButton.HoverText = "WHOOP WHOOP!";
         }
     }
 }

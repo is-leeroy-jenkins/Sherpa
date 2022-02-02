@@ -362,10 +362,6 @@
     <Compile Include="Badger\Button\BudgetButton.cs" />
     <Compile Include="Badger\Chart\BindingModel\SeriesConfig.cs" />
     <Compile Include="Badger\Chart\BindingModel\SeriesModel.cs" />
-    <Compile Include="Badger\Test\TestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Badger\Test\TestForm.Designer.cs" />
     <Compile Include="Badger\Toolbar\BarButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -818,6 +814,9 @@
     <Compile Include="Badger\Form\BudgetForm.Designer.cs">
       <DependentUpon>BudgetForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Badger\Test\TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="Badger\Chart\BudgetChartControl.resx" />
     <EmbeddedResource Include="Badger\Control\ControlBase.resx" />
     <EmbeddedResource Include="Badger\Control\ControlData.resx" />
@@ -848,7 +847,6 @@
     <EmbeddedResource Include="Badger\Calculator\CalculatorBase.resx">
       <DependentUpon>CalculatorBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Badger\Test\TestForm.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
