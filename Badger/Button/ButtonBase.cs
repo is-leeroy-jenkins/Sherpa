@@ -6,6 +6,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
     using VisualPlus.Toolkit.Controls.Interactivity;
@@ -14,7 +15,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="VisualPlus.Toolkit.Controls.Interactivity.VisualButton" />
-    public class ButtonBase : VisualButton
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    public abstract class ButtonBase : VisualButton
     {
         /// <summary>
         /// Gets or sets the binding source.
@@ -22,7 +24,7 @@ namespace BudgetExecution
         /// <value>
         /// The binding source.
         /// </value>
-        public BindingSource BindingSource { get; set; }
+        public virtual BindingSource BindingSource { get; set; }
 
         /// <summary>
         /// Gets or sets the images.
@@ -30,7 +32,7 @@ namespace BudgetExecution
         /// <value>
         /// The images.
         /// </value>
-        public IEnumerable<Image> Images { get; set; }
+        public virtual IEnumerable<Image> Images { get; set; }
 
         /// <summary>
         /// Gets or sets the tool tip.
@@ -38,7 +40,7 @@ namespace BudgetExecution
         /// <value>
         /// The tool tip.
         /// </value>
-        public ToolTip ToolTip { get; set; }
+        public virtual ToolTip ToolTip { get; set; }
 
         /// <summary>
         /// Gets or sets the field.
@@ -46,7 +48,7 @@ namespace BudgetExecution
         /// <value>
         /// The field.
         /// </value>
-        public Field Field { get; set; }
+        public virtual Field Field { get; set; }
 
         /// <summary>
         /// Gets or sets the hover text.
@@ -54,13 +56,13 @@ namespace BudgetExecution
         /// <value>
         /// The hover text.
         /// </value>
-        public string HoverText { get; set; }
+        public virtual string HoverText { get; set; }
 
         /// <summary>
         /// Sets the size.
         /// </summary>
         /// <param name="size">The size.</param>
-        public void SetSize( Size size )
+        public virtual void SetSize( Size size )
         {
             try
             {
@@ -77,7 +79,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public void SetSize( int width, int height )
+        public virtual void SetSize( int width, int height )
         {
             try
             {
@@ -93,7 +95,7 @@ namespace BudgetExecution
         /// Sets the text.
         /// </summary>
         /// <param name="text">The text.</param>
-        public void SetText( string text )
+        public virtual void SetText( string text )
         {
             try
             {
@@ -109,7 +111,7 @@ namespace BudgetExecution
         /// Sets the location.
         /// </summary>
         /// <param name="point">The point.</param>
-        public void SetLocation( Point point )
+        public virtual void SetLocation( Point point )
         {
             try
             {
@@ -126,7 +128,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
-        public void SetLocation( int x, int y )
+        public virtual void SetLocation( int x, int y )
         {
             try
             {
@@ -142,7 +144,7 @@ namespace BudgetExecution
         /// Sets the color of the back.
         /// </summary>
         /// <param name="color">The color.</param>
-        public void SetBackColor( Color color )
+        public virtual void SetBackColor( Color color )
         {
             try
             {
@@ -158,7 +160,7 @@ namespace BudgetExecution
         /// Sets the anchor style.
         /// </summary>
         /// <param name="anchor">The anchor.</param>
-        public void SetAnchorStyle( AnchorStyles anchor )
+        public virtual void SetAnchorStyle( AnchorStyles anchor )
         {
             try
             {
@@ -174,7 +176,7 @@ namespace BudgetExecution
         /// Sets the dock style.
         /// </summary>
         /// <param name="dock">The dock.</param>
-        public void SetDockStyle( DockStyle dock )
+        public virtual void SetDockStyle( DockStyle dock )
         {
             try
             {
@@ -190,7 +192,7 @@ namespace BudgetExecution
         /// Sets the field.
         /// </summary>
         /// <param name="field">The field.</param>
-        public void SetField( Field field )
+        public virtual void SetField( Field field )
         {
             try
             {
@@ -206,7 +208,7 @@ namespace BudgetExecution
         /// Sets the tag.
         /// </summary>
         /// <param name="tag">The tag.</param>
-        public void SetTag( object tag )
+        public virtual void SetTag( object tag )
         {
             try
             {
@@ -222,7 +224,7 @@ namespace BudgetExecution
         /// Sets the tool tip.
         /// </summary>
         /// <param name="tip">The tip.</param>
-        public void SetToolTip( string tip )
+        public virtual void SetToolTip( string tip )
         {
             try
             {
@@ -231,6 +233,25 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+        
+        /// <summary>
+        /// Sets the image.
+        /// </summary>
+        /// <param name="image">The image.</param>
+        public virtual void SetImage( Image image )
+        {
+            if( image != null )
+            {
+                try
+                {
+                    Image = image;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
@@ -250,7 +271,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnMouseLeave( object sender, EventArgs e )
+        public virtual void OnMouseLeave( object sender, EventArgs e )
         {
             try
             {

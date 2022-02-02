@@ -23,6 +23,14 @@ namespace BudgetExecution
     public class BudgetButton : ButtonBase, IButton
     {
         /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public override string HoverText { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="BudgetButton" />
         /// class.
@@ -249,7 +257,7 @@ namespace BudgetExecution
         /// Sets the image.
         /// </summary>
         /// <param name="image">The image.</param>
-        public void SetImage( Image image )
+        public override void SetImage( Image image )
         {
             if( image != null )
             {

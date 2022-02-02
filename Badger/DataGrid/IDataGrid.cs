@@ -31,15 +31,15 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the binding source.
         /// </summary>
-        /// <param name="bindingsource">The bindingsource.</param>
+        /// <param name="bindingSource">The bindingSource.</param>
         /// <param name="dict">The dictionary.</param>
-        void SetBindingSource( BindingSource bindingsource, IDictionary<string, object> dict );
+        void SetBindingSource( BindingSource bindingSource, IDictionary<string, object> dict );
 
         /// <summary>
         /// Pascalizes the headers.
         /// </summary>
-        /// <param name="data">The data.</param>
-        void PascalizeHeaders( IEnumerable<DataRow> data );
+        /// <param name="dataRows">The data.</param>
+        void PascalizeHeaders( IEnumerable<DataRow> dataRows );
 
         /// <summary>
         /// Gets the filter values.
@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the binding source.
         /// </summary>
-        /// <param name="bindingsource">The bindingsource.</param>
+        /// <param name="bindingsource">The bindingSource.</param>
         void SetDataSource<T1>( T1 bindingsource ) where T1 : IBindingList;
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace BudgetExecution
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2">The type of the 2.</typeparam>
-        /// <param name="bindinglist">The bindingsource.</param>
+        /// <param name="bindinglist">The bindingSource.</param>
         /// <param name="dict">The dictionary.</param>
         void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
             where T1 : IBindingList where T2 : IDictionary<string, object>;

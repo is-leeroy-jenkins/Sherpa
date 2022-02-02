@@ -289,6 +289,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Badger\Calendar\BudgetCalendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Badger\Chart\BudgetChartControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -394,29 +397,13 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Badger\Chart\SeriesModel\DataSeries.cs" />
-    <Compile Include="Badger\Calendar\CalendarControl.cs">
+    <Compile Include="Badger\Calendar\CalendarBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Badger\Calendar\CalendarControl.Designer.cs" />
-    <Compile Include="Badger\Calendar\CalendarData.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Badger\Calendar\CalendarPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Badger\DataGrid\DataGridControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Badger\DataGrid\DataGridControl.Designer.cs" />
-    <Compile Include="Badger\DataGrid\DataGridPanel.cs">
+    <Compile Include="Badger\DataGrid\DataGrid.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\DataGrid\DataGridPanel.Designer.cs" />
-    <Compile Include="Badger\Clock\ClockControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Badger\Clock\ClockControl.Designer.cs" />
-    <Compile Include="Badger\Clock\ClockPanel.cs">
+    <Compile Include="Badger\Clock\ClockBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\ChartForm.cs">
@@ -431,11 +418,11 @@
     <Compile Include="Badger\Calendar\CalendarForm.Designer.cs">
       <DependentUpon>CalendarForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\DataGrid\BudgetDataForm.cs">
+    <Compile Include="Badger\DataGrid\DataGridForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Badger\DataGrid\BudgetDataForm.Designer.cs">
-      <DependentUpon>BudgetDataForm.cs</DependentUpon>
+    <Compile Include="Badger\DataGrid\DataGridForm.Designer.cs">
+      <DependentUpon>DataGridForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Badger\Dialog\Error\Error.cs">
       <SubType>Form</SubType>
@@ -454,6 +441,10 @@
     </Compile>
     <Compile Include="Badger\Chart\Chart.Designer.cs">
       <DependentUpon>Chart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Badger\Layout\BudgetLayout.cs" />
+    <Compile Include="Badger\Clock\BudgetClock.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
@@ -570,10 +561,6 @@
     <Compile Include="Badger\Toolbar\IBarTextBox.cs" />
     <Compile Include="Badger\Toolbar\IToolBar.cs" />
     <Compile Include="Badger\PictureBox\IPictureBox.cs" />
-    <Compile Include="Badger\Label\LabelControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Badger\Label\LabelControl.Designer.cs" />
     <Compile Include="Badger\Label\LabelBase.cs" />
     <Compile Include="Badger\Label\BudgetLabel.cs" />
     <Compile Include="Badger\BudgetImage\IBudgetImage.cs" />
@@ -585,7 +572,7 @@
     </Compile>
     <Compile Include="Badger\Calculator\ICalculator.cs" />
     <Compile Include="Badger\Layout\ILayout.cs" />
-    <Compile Include="Badger\Layout\LayoutPanel.cs" />
+    <Compile Include="Badger\Layout\LayoutBase.cs" />
     <Compile Include="Badger\Dialog\Browser\FileBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -601,12 +588,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\DataGrid\IDataGrid.cs" />
-    <Compile Include="Badger\GroupBox\GroupBoxControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Badger\GroupBox\GroupBoxControl.Designer.cs" />
-    <Compile Include="Badger\GroupBox\GroupBoxData.cs" />
-    <Compile Include="Badger\GroupBox\GroupBoxPanel.cs" />
+    <Compile Include="Badger\GroupBox\GroupBoxBase.cs" />
+    <Compile Include="Badger\GroupBox\BudgetGroupBox.cs" />
     <Compile Include="Badger\GroupBox\IGroupBox.cs" />
     <Compile Include="Badger\Clock\IClock.cs" />
     <Compile Include="Badger\Form\FormBase.cs">
@@ -817,21 +800,19 @@
     <Compile Include="Badger\Test\TestForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Badger\Test\TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Badger\Chart\BudgetChartControl.resx" />
     <EmbeddedResource Include="Badger\Control\ControlBase.resx" />
     <EmbeddedResource Include="Badger\Control\ControlData.resx" />
     <EmbeddedResource Include="Badger\Dialog\Error\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Badger\Label\LabelControl.resx" />
     <EmbeddedResource Include="Badger\Main\BadgerMain.resx">
       <DependentUpon>BadgerMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\PictureBox\PictureControl.resx" />
-    <EmbeddedResource Include="Badger\Calendar\CalendarControl.resx" />
-    <EmbeddedResource Include="Badger\DataGrid\DataGridControl.resx" />
-    <EmbeddedResource Include="Badger\GroupBox\GroupBoxControl.resx" />
-    <EmbeddedResource Include="Badger\Clock\ClockControl.resx" />
     <EmbeddedResource Include="Badger\Form\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -841,11 +822,14 @@
     <EmbeddedResource Include="Badger\Calendar\CalendarForm.resx">
       <DependentUpon>CalendarForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Badger\DataGrid\BudgetDataForm.resx">
-      <DependentUpon>BudgetDataForm.cs</DependentUpon>
+    <EmbeddedResource Include="Badger\DataGrid\DataGridForm.resx">
+      <DependentUpon>DataGridForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\Calculator\CalculatorBase.resx">
       <DependentUpon>CalculatorBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Badger\Test\TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

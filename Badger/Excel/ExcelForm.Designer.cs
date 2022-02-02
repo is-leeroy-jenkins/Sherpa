@@ -41,7 +41,7 @@ namespace BudgetExecution
             Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController formulaRangeSelectionController1 = new Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController();
             Syncfusion.Windows.Forms.Tools.Office2016ColorTable office2016ColorTable1 = new Syncfusion.Windows.Forms.Tools.Office2016ColorTable();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExcelForm));
-            this.BackPanel = new BudgetExecution.LayoutPanel();
+            this._backBase = new BudgetExecution.BudgetLayout();
             this.Sheet = new BudgetExecution.SheetPanel();
             this.BudgetBinding = new BudgetExecution.BudgetBinding();
             this.Ribbon = new BudgetExecution.RibbonPanel();
@@ -49,7 +49,7 @@ namespace BudgetExecution
             this.CloseBox = new BudgetExecution.ClosePanel();
             this.Label = new BudgetExecution.BudgetLabel();
             this.PictureBox = new BudgetExecution.PicturePanel();
-            this.BackPanel.SuspendLayout();
+            this._backBase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BudgetBinding)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ribbon)).BeginInit();
             this.Table.SuspendLayout();
@@ -58,39 +58,39 @@ namespace BudgetExecution
             // 
             // BackPanel
             // 
-            this.BackPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.BackPanel.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.BackPanel.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.BackPanel.BindingSource = null;
-            this.BackPanel.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.BackPanel.Border.HoverColor = System.Drawing.SystemColors.HotTrack;
-            this.BackPanel.Border.HoverVisible = false;
-            this.BackPanel.Border.Rounding = 6;
-            this.BackPanel.Border.Thickness = 1;
-            this.BackPanel.Border.Type = VisualPlus.Enumerators.ShapeTypes.Rounded;
-            this.BackPanel.Border.Visible = true;
-            this.BackPanel.Children = null;
-            this.BackPanel.Controls.Add(this.Sheet);
-            this.BackPanel.Controls.Add(this.Ribbon);
-            this.BackPanel.DataFilter = null;
-            this.BackPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BackPanel.Field = BudgetExecution.Field.NS;
-            this.BackPanel.ForeColor = System.Drawing.Color.LightGray;
-            this.BackPanel.Location = new System.Drawing.Point(1, 27);
-            this.BackPanel.MouseState = VisualPlus.Enumerators.MouseStates.Hover;
-            this.BackPanel.Name = "BackPanel";
-            this.BackPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.BackPanel.Size = new System.Drawing.Size(1114, 856);
-            this.BackPanel.TabIndex = 0;
-            this.BackPanel.Text = "layoutPanel1";
-            this.BackPanel.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            this.BackPanel.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BackPanel.TextStyle.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BackPanel.TextStyle.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BackPanel.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.BackPanel.TextStyle.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            this.BackPanel.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.BackPanel.ToolTip = null;
+            this._backBase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this._backBase.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this._backBase.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this._backBase.BindingSource = null;
+            this._backBase.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this._backBase.Border.HoverColor = System.Drawing.SystemColors.HotTrack;
+            this._backBase.Border.HoverVisible = false;
+            this._backBase.Border.Rounding = 6;
+            this._backBase.Border.Thickness = 1;
+            this._backBase.Border.Type = VisualPlus.Enumerators.ShapeTypes.Rounded;
+            this._backBase.Border.Visible = true;
+            this._backBase.Children = null;
+            this._backBase.Controls.Add(this.Sheet);
+            this._backBase.Controls.Add(this.Ribbon);
+            this._backBase.DataFilter = null;
+            this._backBase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._backBase.Field = BudgetExecution.Field.NS;
+            this._backBase.ForeColor = System.Drawing.Color.LightGray;
+            this._backBase.Location = new System.Drawing.Point(1, 27);
+            this._backBase.MouseState = VisualPlus.Enumerators.MouseStates.Hover;
+            this._backBase.Name = "_backBase";
+            this._backBase.Padding = new System.Windows.Forms.Padding(1);
+            this._backBase.Size = new System.Drawing.Size(1114, 856);
+            this._backBase.TabIndex = 0;
+            this._backBase.Text = "layoutPanel1";
+            this._backBase.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            this._backBase.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._backBase.TextStyle.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._backBase.TextStyle.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._backBase.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
+            this._backBase.TextStyle.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            this._backBase.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this._backBase.ToolTip = null;
             // 
             // Sheet
             // 
@@ -307,7 +307,7 @@ namespace BudgetExecution
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
             this.ClientSize = new System.Drawing.Size(1116, 884);
             this.ControlBox = false;
-            this.Controls.Add(this.BackPanel);
+            this.Controls.Add(this._backBase);
             this.Controls.Add(this.Table);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -322,7 +322,7 @@ namespace BudgetExecution
             this.ShowMaximizeBox = false;
             this.ShowMinimizeBox = false;
             this.ShowMouseOver = true;
-            this.BackPanel.ResumeLayout(false);
+            this._backBase.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BudgetBinding)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ribbon)).EndInit();
             this.Table.ResumeLayout(false);
@@ -365,7 +365,7 @@ namespace BudgetExecution
         /// <summary>
         /// The back panel
         /// </summary>
-        private LayoutPanel BackPanel;
+        private LayoutBase _backBase;
         /// <summary>
         /// The budget binding
         /// </summary>

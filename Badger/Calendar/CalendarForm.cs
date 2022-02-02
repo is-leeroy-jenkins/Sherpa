@@ -18,7 +18,7 @@ namespace BudgetExecution
         /// <value>
         /// The calendar.
         /// </value>
-        public CalendarPanel Calendar { get; } = new CalendarPanel();
+        public CalendarBase Calendar { get; } = new BudgetCalendar();
 
         public CalendarForm()
         {

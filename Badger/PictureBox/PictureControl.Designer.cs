@@ -33,10 +33,10 @@
             this.BudgetBinding = new BudgetExecution.BudgetBinding();
             this.ImageList = new BudgetExecution.ImageList();
             this.ToolTip = new BudgetExecution.ToolTip();
-            this.BackPanel = new BudgetExecution.LayoutPanel();
+            this.BackBase = new BudgetExecution.BudgetLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BudgetBinding)).BeginInit();
-            this.BackPanel.SuspendLayout();
+            this.BackBase.SuspendLayout();
             this.SuspendLayout();
             // 
             // PictureBox
@@ -90,46 +90,46 @@
             // 
             // BackPanel
             // 
-            this.BackPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
-            this.BackPanel.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
-            this.BackPanel.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
-            this.BackPanel.BindingSource = null;
-            this.BackPanel.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
-            this.BackPanel.Border.HoverColor = System.Drawing.Color.SteelBlue;
-            this.BackPanel.Border.HoverVisible = false;
-            this.BackPanel.Border.Rounding = 6;
-            this.BackPanel.Border.Thickness = 1;
-            this.BackPanel.Border.Type = VisualPlus.Enumerators.ShapeTypes.Rounded;
-            this.BackPanel.Border.Visible = true;
-            this.BackPanel.Children = null;
-            this.BackPanel.Controls.Add(this.PictureBox);
-            this.BackPanel.DataFilter = null;
-            this.BackPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BackPanel.Field = BudgetExecution.Field.NS;
-            this.BackPanel.ForeColor = System.Drawing.Color.LightGray;
-            this.BackPanel.Location = new System.Drawing.Point(0, 0);
-            this.BackPanel.Margin = new System.Windows.Forms.Padding(5);
-            this.BackPanel.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
-            this.BackPanel.Name = "BackPanel";
-            this.BackPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.BackPanel.Size = new System.Drawing.Size(101, 62);
-            this.BackPanel.TabIndex = 1;
-            this.BackPanel.Text = "layoutPanel1";
-            this.BackPanel.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            this.BackPanel.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BackPanel.TextStyle.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BackPanel.TextStyle.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BackPanel.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.BackPanel.TextStyle.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            this.BackPanel.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.BackPanel.ToolTip = null;
+            this.BackBase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
+            this.BackBase.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
+            this.BackBase.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
+            this.BackBase.BindingSource = null;
+            this.BackBase.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
+            this.BackBase.Border.HoverColor = System.Drawing.Color.SteelBlue;
+            this.BackBase.Border.HoverVisible = false;
+            this.BackBase.Border.Rounding = 6;
+            this.BackBase.Border.Thickness = 1;
+            this.BackBase.Border.Type = VisualPlus.Enumerators.ShapeTypes.Rounded;
+            this.BackBase.Border.Visible = true;
+            this.BackBase.Children = null;
+            this.BackBase.Controls.Add(this.PictureBox);
+            this.BackBase.DataFilter = null;
+            this.BackBase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BackBase.Field = BudgetExecution.Field.NS;
+            this.BackBase.ForeColor = System.Drawing.Color.LightGray;
+            this.BackBase.Location = new System.Drawing.Point(0, 0);
+            this.BackBase.Margin = new System.Windows.Forms.Padding(5);
+            this.BackBase.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.BackBase.Name = "BackBase";
+            this.BackBase.Padding = new System.Windows.Forms.Padding(1);
+            this.BackBase.Size = new System.Drawing.Size(101, 62);
+            this.BackBase.TabIndex = 1;
+            this.BackBase.Text = "layoutPanel1";
+            this.BackBase.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            this.BackBase.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BackBase.TextStyle.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BackBase.TextStyle.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BackBase.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BackBase.TextStyle.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            this.BackBase.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BackBase.ToolTip = null;
             // 
             // PictureControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
-            this.Controls.Add(this.BackPanel);
+            this.Controls.Add(this.BackBase);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.LightGray;
             this.Margin = new System.Windows.Forms.Padding(0);
@@ -137,13 +137,13 @@
             this.Size = new System.Drawing.Size(101, 62);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BudgetBinding)).EndInit();
-            this.BackPanel.ResumeLayout(false);
+            this.BackBase.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        public LayoutPanel BackPanel;
+        public LayoutBase BackBase;
         public BudgetBinding BudgetBinding;
         private ImageList ImageList;
         public ToolTip ToolTip;
