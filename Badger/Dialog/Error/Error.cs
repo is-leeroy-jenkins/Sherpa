@@ -5,25 +5,37 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Specialized;
     using System.Drawing;
+    using System.Configuration;
     using System.Windows.Forms;
-    using DocumentFormat.OpenXml.Presentation;
-    using DocumentFormat.OpenXml.Wordprocessing;
-    using Syncfusion.Windows.Forms;
-    using VisualPlus.Toolkit.Controls.Editors;
 
-    public partial class Error : MetroForm
+    public partial class Error : ErrorBase
     {
+        /// <summary>
+        /// The application setting
+        /// </summary>
+        public override NameValueCollection AppSetting { get; set; } = ConfigurationManager.AppSettings;
+
         /// <summary>
         /// Gets or sets the exception.
         /// </summary>
         /// <value>
         /// The exception.
         /// </value>
-        public Exception Exception { get; set; }
+        public override Exception Exception { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Error"/> class.
+        /// Gets or sets the icon path.
+        /// </summary>
+        /// <value>
+        /// The icon path.
+        /// </value>
+        public override string IconPath { get; set; } 
+
+        /// <summary>
+        /// Initializes a new instance of
+        /// the <see cref="Error"/> class.
         /// </summary>
         public Error()
         {
@@ -43,7 +55,7 @@ namespace BudgetExecution
             CaptionFont = FontConfig.FontSizeMedium;
             MetroColor = ColorConfig.FormBackColorDark;
             FormBorderStyle = BorderConfig.Sizeable;
-            Icon = new Icon( @"C:\Users\terry\source\repos\BudgetExecution\Etc\epa.ico", 33, 32 );
+            Icon = new Icon( IconPath, 33, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = ControlConfig.Padding;
@@ -71,7 +83,7 @@ namespace BudgetExecution
         {
             InitializeComponent();
             Exception = ext;
-            Text = "Error!";
+            Text = ext.ToLogString( "" );
         }
 
         /// <summary>
@@ -87,7 +99,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the text.
         /// </summary>
-        public void SetText()
+        public override void SetText()
         {
             var _logString = Exception.ToLogString( "" );
             TextBox.Text = _logString;
@@ -96,7 +108,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the text.
         /// </summary>
-        public void SetText( Exception ex )
+        public override void SetText( Exception ex )
         {
             var _logString = ex.ToLogString( "" );
             TextBox.Text = _logString;
@@ -105,7 +117,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the text.
         /// </summary>
-        public void SetText( string msg = "" )
+        public override void SetText( string msg = "" )
         {
             TextBox.Text = msg;
         }

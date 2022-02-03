@@ -5,8 +5,10 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Threading;
+    using System.Windows.Forms;
 
-    public static partial class Program
+    public static  class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -14,9 +16,9 @@ namespace BudgetExecution
         [ STAThread ]
         public static void Main()
         {
-            System.Windows.Forms.Application.EnableVisualStyles();
-            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault( false );
-            System.Windows.Forms.Application.Run( new TestForm() );
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault( false );
+            Application.Run( new Error() );
         }
     }
 }
