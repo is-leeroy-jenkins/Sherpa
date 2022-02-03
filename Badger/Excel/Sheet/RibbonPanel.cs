@@ -26,11 +26,11 @@ namespace BudgetExecution
         {
             Size = new Size( 1098, 162 );
             Dock = DockStyleEx.Top;
-            Margin = ControlConfig.Margin;
-            Padding = ControlConfig.Padding;
-            Font = FontConfig.FontSizeSmall;
-            ForeColor = ColorConfig.ForeColorGray;
-            BackColor = ColorConfig.FormBackColorDark;
+            Margin = BudgetControl.Margin;
+            Padding = BudgetControl.Padding;
+            Font = BudgetFont.FontSizeSmall;
+            ForeColor = BudgetColor.ForeColorGray;
+            BackColor = BudgetColor.FormBackColorDark;
             Ribbon.BackColor = BackColor;
             Ribbon.CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             Ribbon.TitleColor = Color.White;

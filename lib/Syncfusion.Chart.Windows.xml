@@ -658,30 +658,30 @@
             <param name="g">Instance of the <see cref="T:System.Drawing.Graphics"/>.</param>
             <param name="sz">The size of rectangle within which to paint.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.Draw(System.Drawing.Image)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.Draw(System.Drawing.BudgetImage)">
             <summary>
             Paints the chart to image.
             </summary>
-            <param name="img">Instance of the <see cref="T:System.Drawing.Image"/>.</param>
+            <param name="img">Instance of the <see cref="T:System.Drawing.BudgetImage"/>.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.Draw(System.Drawing.Image,System.Drawing.Size)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.Draw(System.Drawing.BudgetImage,System.Drawing.Size)">
             <summary>
             Paints the chart to image.
             </summary>
-            <param name="img">Instance of the <see cref="T:System.Drawing.Image"/>.</param>
+            <param name="img">Instance of the <see cref="T:System.Drawing.BudgetImage"/>.</param>
             <param name="sz">The size of rectangle within which to paint.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.DrawThumbnail(System.Drawing.Image)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.DrawThumbnail(System.Drawing.BudgetImage)">
             <summary>
             Paints the thumbnail of chart to image.
             </summary>
-            <param name="img">Instance of the <see cref="T:System.Drawing.Image"/>.</param>
+            <param name="img">Instance of the <see cref="T:System.Drawing.BudgetImage"/>.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.DrawThumbnail(System.Drawing.Image,System.Drawing.Rectangle)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.DrawThumbnail(System.Drawing.BudgetImage,System.Drawing.Rectangle)">
             <summary>
             Paints the thumbnail of chart to image.
             </summary>
-            <param name="img">Instance of the <see cref="T:System.Drawing.Image"/>.</param>
+            <param name="img">Instance of the <see cref="T:System.Drawing.BudgetImage"/>.</param>
             <param name="r">The rectangle within which to paint.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.GetChartAreaBounds">
@@ -3965,14 +3965,14 @@
             </remarks>
             <seealso cref="T:Syncfusion.Windows.Forms.Chart.ChartToolBarCommandItem"/>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartCommand.#ctor(System.String,System.Drawing.Image)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartCommand.#ctor(System.String,System.Drawing.BudgetImage)">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Chart.ChartCommand"/> class.
             </summary>
             <param name="name">The name.</param>
             <param name="icon">The icon.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartCommand.#ctor(System.String,System.String,System.Drawing.Image)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartCommand.#ctor(System.String,System.String,System.Drawing.BudgetImage)">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Chart.ChartCommand"/> class.
             </summary>
@@ -4003,7 +4003,7 @@
             </summary>
             <value>The name.</value>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Chart.ChartCommand.Image">
+        <member name="P:Syncfusion.Windows.Forms.Chart.ChartCommand.BudgetImage">
             <summary>
             Gets the image of icon.
             </summary>
@@ -4015,7 +4015,7 @@
             </summary>
             <value>The text.</value>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartCommands.ChartCommandInternal.#ctor(System.String,System.String,System.Drawing.Image)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartCommands.ChartCommandInternal.#ctor(System.String,System.String,System.Drawing.BudgetImage)">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Chart.ChartCommands.ChartCommandInternal"/> class.
             </summary>
@@ -4023,7 +4023,7 @@
             <param name="title">The title.</param>
             <param name="icon">The icon.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartCommands.ChartCommandInternal.#ctor(System.String,System.Drawing.Image)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartCommands.ChartCommandInternal.#ctor(System.String,System.Drawing.BudgetImage)">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Chart.ChartCommands.ChartCommandInternal"/> class.
             </summary>
@@ -4420,7 +4420,7 @@
             Gets the object that contains dataRows about the item. 
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Chart.TagMenuItem.Image">
+        <member name="P:Syncfusion.Windows.Forms.Chart.TagMenuItem.BudgetImage">
             <summary>
             Gets or sets the image.
             </summary>
@@ -6629,12 +6629,12 @@
             </summary>
             <value>The normal image.</value>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Chart.HighlightImageLabel.Image">
+        <member name="P:Syncfusion.Windows.Forms.Chart.HighlightImageLabel.BudgetImage">
             <summary>
             Gets or sets the image that is displayed on a <see cref="T:System.Windows.Forms.Label"></see>.
             </summary>
             <value></value>
-            <returns>An <see cref="T:System.Drawing.Image"></see> displayed on the <see cref="T:System.Windows.Forms.Label"></see>. The default is null.</returns>
+            <returns>An <see cref="T:System.Drawing.BudgetImage"></see> displayed on the <see cref="T:System.Windows.Forms.Label"></see>. The default is null.</returns>
             <PermissionSet><IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence"/><IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/></PermissionSet>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.LocalizationBase.#ctor(System.String,System.String,System.Globalization.CultureInfo)">
@@ -7434,7 +7434,7 @@
             	<c>true</c> if this instance is checkable; otherwise, <c>false</c>.
             </value>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Chart.ChartToolBarItem.Image">
+        <member name="P:Syncfusion.Windows.Forms.Chart.ChartToolBarItem.BudgetImage">
             <summary>
             Gets or sets the image.
             </summary>
@@ -8359,7 +8359,7 @@
             </summary>
             <value>The parameter.</value>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Chart.ChartToolBarCommandItem.Image">
+        <member name="P:Syncfusion.Windows.Forms.Chart.ChartToolBarCommandItem.BudgetImage">
             <summary>
             Gets or sets the image.
             </summary>
@@ -9063,7 +9063,7 @@
             Makes snapshot from control and saves it to image.
             </summary>
             <param name="control">Control to be printed.</param>
-            <returns>Image with snapshot of control.</returns>
+            <returns>BudgetImage with snapshot of control.</returns>
         </member>
     </members>
 </doc>

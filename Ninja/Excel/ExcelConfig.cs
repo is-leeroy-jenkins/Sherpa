@@ -66,7 +66,7 @@ namespace BudgetExecution
         /// <value>
         /// The header image.
         /// </value>
-        private protected Image HeaderImage { get; set; }
+        private protected System.Drawing.Image HeaderImage { get; set; }
 
         /// <summary>
         /// Gets or sets the footer image.
@@ -74,7 +74,7 @@ namespace BudgetExecution
         /// <value>
         /// The footer image.
         /// </value>
-        private protected Image FooterImage { get; set; }
+        private protected System.Drawing.Image FooterImage { get; set; }
         
         /// <summary>
         /// Sets the table format.

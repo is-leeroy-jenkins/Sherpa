@@ -1974,7 +1974,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.Chart.ChartImageCollection">
             <summary>
-            Collection of Image instances.
+            Collection of BudgetImage instances.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.#ctor">
@@ -1995,11 +1995,11 @@
             </summary>
             <param name="color">Color to make transparent.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.Add(System.Drawing.Image)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.Add(System.Drawing.BudgetImage)">
             <summary>
             Add image to collection.
             </summary>
-            <param name="image">Image to add.</param>
+            <param name="image">BudgetImage to add.</param>
             <returns>Index of added image.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.AddFromList(System.Collections.IList)">
@@ -2008,39 +2008,39 @@
             </summary>
             <param name="list">The list.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.AddRange(System.Drawing.Image[])">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.AddRange(System.Drawing.BudgetImage[])">
             <summary>
             Adds an array of images to this collection.
             </summary>        
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.Remove(System.Drawing.Image)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.Remove(System.Drawing.BudgetImage)">
             <summary>
             Removes the image from the list.
             </summary>
-            <param name="image">Image to remove.</param>
+            <param name="image">BudgetImage to remove.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.Contains(System.Drawing.Image)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.Contains(System.Drawing.BudgetImage)">
             <summary>
             Check collection to constrains image.
             </summary>
-            <param name="image">Image to check.</param>
+            <param name="image">BudgetImage to check.</param>
             <returns>True if collection constrains image, otherwise false.</returns>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.IndexOf(System.Drawing.Image)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.IndexOf(System.Drawing.BudgetImage)">
             <summary>
             Returns the index of the specified image.
             </summary>
-            <param name="image">Image to get index.</param>
+            <param name="image">BudgetImage to get index.</param>
             <returns>Index of given image. If collection doesn't constrains image return -1.</returns>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.Insert(System.Int32,System.Drawing.Image)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.Insert(System.Int32,System.Drawing.BudgetImage)">
             <summary>
             Inserts the image at the specified index.
             </summary>
             <param name="index">Index to insert image.</param>
-            <param name="image">Image to insert.</param>
+            <param name="image">BudgetImage to insert.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.CopyTo(System.Drawing.Image[],System.Int32)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartImageCollection.CopyTo(System.Drawing.BudgetImage[],System.Int32)">
             <summary>
             Copies the images to a one dimensional array starting at the specified index of the target array.
             </summary>
@@ -2324,7 +2324,7 @@
               Square shaped bubbles are rendered with Bubble charts.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Forms.Chart.ChartBubbleType.Image">
+        <member name="F:Syncfusion.Windows.Forms.Chart.ChartBubbleType.BudgetImage">
             <summary>
               Images are rendered as bubbles with Bubble charts.
             </summary>
@@ -5184,7 +5184,7 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Chart.ChartBorderInfo"/> class.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.Draw(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.Draw(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the specified Border.
             </summary>
@@ -5205,7 +5205,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawNoneBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawNoneBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the none border.
             </summary>
@@ -5215,7 +5215,7 @@
             <param name="backgroundImage">The background image.</param>
             <param name="imageLayout">The image layout.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawEmbossBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawEmbossBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the emboss border.
             </summary>
@@ -5225,7 +5225,7 @@
             <param name="backgroundImage">The background image.</param>
             <param name="imageLayout">The image layout.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawBevelBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawBevelBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the bevel border.
             </summary>
@@ -5235,7 +5235,7 @@
             <param name="backgroundImage">The background image.</param>
             <param name="imageLayout">The image layout.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawEmbedBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawEmbedBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the emboss border.
             </summary>
@@ -5245,7 +5245,7 @@
             <param name="backgroundImage">The background image.</param>
             <param name="imageLayout">The image layout.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawFrameBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawFrameBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the emboss border.
             </summary>
@@ -5255,7 +5255,7 @@
             <param name="backgroundImage">The background image.</param>
             <param name="imageLayout">The image layout.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawPinnedBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawPinnedBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the pinned border.
             </summary>
@@ -5265,7 +5265,7 @@
             <param name="backgroundImage">The background image.</param>
             <param name="imageLayout">The image layout.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawOpenBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawOpenBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the emboss border.
             </summary>
@@ -5275,7 +5275,7 @@
             <param name="backgroundImage">The background image.</param>
             <param name="imageLayout">The image layout.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawRoundedDiagonalBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawRoundedDiagonalBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the rounded diagonal border.
             </summary>
@@ -5285,7 +5285,7 @@
             <param name="backgroundImage">The background image.</param>
             <param name="imageLayout">The image layout.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawSliceBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawSliceBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the slice border.
             </summary>
@@ -5295,7 +5295,7 @@
             <param name="backgroundImage">The background image.</param>
             <param name="imageLayout">The image layout.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawProjectorBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawProjectorBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the projector border.
             </summary>
@@ -5305,7 +5305,7 @@
             <param name="backgroundImage">The background image.</param>
             <param name="imageLayout">The image layout.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawGelBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawGelBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the gel border.
             </summary>
@@ -5315,7 +5315,7 @@
             <param name="backgroundImage">The background image.</param>
             <param name="imageLayout">The image layout.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawSunkenBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawSunkenBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the sunken border.
             </summary>
@@ -5325,7 +5325,7 @@
             <param name="backgroundImage">The background image.</param>
             <param name="imageLayout">The image layout.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawEtchedBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawEtchedBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the etched border.
             </summary>
@@ -5335,7 +5335,7 @@
             <param name="backgroundImage">The background image.</param>
             <param name="imageLayout">The image layout.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawRaisedBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawRaisedBorder(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the raised border.
             </summary>
@@ -5407,7 +5407,7 @@
             <param name="g">The g.</param>
             <param name="center">The center.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawBackground(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.Image,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartBorderInfo.DrawBackground(System.Drawing.Graphics,System.Drawing.RectangleF,Syncfusion.Drawing.BrushInfo,System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.ChartImageLayout)">
             <summary>
             Draws the background.
             </summary>
@@ -5710,7 +5710,7 @@
             </summary>
             <value>The color of the text.</value>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Chart.ChartWatermark.Image">
+        <member name="P:Syncfusion.Windows.Forms.Chart.ChartWatermark.BudgetImage">
             <summary>
             Gets or sets the image.
             </summary>
@@ -8498,7 +8498,7 @@
              Argument that is to be used with chart area image drawing events.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartAreaImageEventArgs.#ctor(System.Drawing.Image)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartAreaImageEventArgs.#ctor(System.Drawing.BudgetImage)">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Chart.ChartAreaImageEventArgs"/> class.
             </summary>
@@ -8802,7 +8802,7 @@
             </summary>
             <param name="update"></param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.IChartAreaHost.Draw(System.Drawing.Image)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.IChartAreaHost.Draw(System.Drawing.BudgetImage)">
             <summary>
             
             </summary>
@@ -8815,7 +8815,7 @@
             <param name="g"></param>
             <param name="sz"></param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.IChartAreaHost.Draw(System.Drawing.Image,System.Drawing.Size)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.IChartAreaHost.Draw(System.Drawing.BudgetImage,System.Drawing.Size)">
             <summary>
             
             </summary>
@@ -13494,7 +13494,7 @@
             <param name="pen">The <see cref="T:System.Drawing.Pen"/>.</param>
             <param name="path">The <see cref="T:System.Drawing.Drawing2D.GraphicsPath"/>.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartGraph.DrawImage(System.Drawing.Image,System.Drawing.RectangleF)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartGraph.DrawImage(System.Drawing.BudgetImage,System.Drawing.RectangleF)">
             <summary>
             Draws the image.
             </summary>
@@ -13541,11 +13541,11 @@
             <param name="x2">The x2.</param>
             <param name="y2">The y2.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartGraph.DrawImage(System.Drawing.Image,System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartGraph.DrawImage(System.Drawing.BudgetImage,System.Single,System.Single,System.Single,System.Single)">
             <summary>
             Draws the image.
             </summary>
-            <param name="image">The <see cref="T:System.Drawing.Image"/>.</param>
+            <param name="image">The <see cref="T:System.Drawing.BudgetImage"/>.</param>
             <param name="x">The x.</param>
             <param name="y">The y.</param>
             <param name="width">The width.</param>
@@ -13729,7 +13729,7 @@
             <param name="x2">The x2.</param>
             <param name="y2">The y2.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.ChartGDIGraph.DrawImage(System.Drawing.Image,System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.ChartGDIGraph.DrawImage(System.Drawing.BudgetImage,System.Single,System.Single,System.Single,System.Single)">
             <summary>
             Draws the image.
             </summary>
@@ -14196,7 +14196,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.Chart.Image3D">
             <summary>
-            Represents the <see cref="T:System.Drawing.Image"/> in the 3D.
+            Represents the <see cref="T:System.Drawing.BudgetImage"/> in the 3D.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Chart.Polygon">
@@ -14563,7 +14563,7 @@
             </summary>
             <value>The region dataRows.</value>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.Image3D.#ctor(Syncfusion.Windows.Forms.Chart.Vector3D[],System.Drawing.Image)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.Image3D.#ctor(Syncfusion.Windows.Forms.Chart.Vector3D[],System.Drawing.BudgetImage)">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Chart.Image3D"/> class.
             </summary>
@@ -14577,7 +14577,7 @@
             <param name="g3d">The g3d.</param>
             <returns>Returns ChartRegion.</returns>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.Image3D.FromImage(System.Drawing.Image,System.Drawing.RectangleF,System.Single)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.Image3D.FromImage(System.Drawing.BudgetImage,System.Drawing.RectangleF,System.Single)">
             <summary>
             Create the new instance from the specified image.
             </summary>
@@ -16289,7 +16289,7 @@
             Gets the rendering bounds of the <see cref="T:Syncfusion.Windows.Forms.Chart.ChartLegendItem"/>.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Chart.ChartLegendItem.Image">
+        <member name="P:Syncfusion.Windows.Forms.Chart.ChartLegendItem.BudgetImage">
             <summary>
             Gets or sets the icon image.
             </summary>
@@ -29648,9 +29648,9 @@
             Star is displayed.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Forms.Chart.ChartSymbolShape.Image">
+        <member name="F:Syncfusion.Windows.Forms.Chart.ChartSymbolShape.BudgetImage">
             <summary>
-            Image specified in ImageIndex is displayed.
+            BudgetImage specified in ImageIndex is displayed.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Chart.ChartCustomShape.Circle">
@@ -30624,9 +30624,9 @@
             <param name="proxy">The proxy.</param>
             <returns>Returns Graphics object.</returns>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.GraphProxy.Create(System.Drawing.Image,Syncfusion.Windows.Forms.Chart.GraphProxy@)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.GraphProxy.Create(System.Drawing.BudgetImage,Syncfusion.Windows.Forms.Chart.GraphProxy@)">
             <summary>
-            Creates GraphProxy instance by the specified <see cref="T:System.Drawing.Image"/>.
+            Creates GraphProxy instance by the specified <see cref="T:System.Drawing.BudgetImage"/>.
             </summary>
             <param name="img">The img.</param>
             <param name="proxy">The proxy.</param>
@@ -33844,11 +33844,11 @@
             </summary>
             <param name="node">The <see cref="T:System.Xml.XmlNode"/>.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.SvgBase.ImageElement.FromImage(System.Drawing.Image,System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.SvgBase.ImageElement.FromImage(System.Drawing.BudgetImage,System.Single,System.Single,System.Single,System.Single)">
             <summary>
-            Creates the <see cref="T:Syncfusion.Windows.Forms.Chart.SvgBase.ImageElement"/> instance by the specified <see cref="T:System.Drawing.Image"/>.
+            Creates the <see cref="T:Syncfusion.Windows.Forms.Chart.SvgBase.ImageElement"/> instance by the specified <see cref="T:System.Drawing.BudgetImage"/>.
             </summary>
-            <param name="img">The <see cref="T:System.Drawing.Image"/>.</param>
+            <param name="img">The <see cref="T:System.Drawing.BudgetImage"/>.</param>
             <param name="x">The x-location of the element.</param>
             <param name="y">The y-location of the element.</param>
             <param name="width">The width of the element.</param>
@@ -34763,11 +34763,11 @@
             <param name="pen">The <see cref="T:System.Drawing.Pen"/>.</param>
             <param name="points">The array of <see cref="T:System.Drawing.PointF"/>.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.SvgBase.SvgGraph.DrawImage(System.Drawing.Image,System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.SvgBase.SvgGraph.DrawImage(System.Drawing.BudgetImage,System.Single,System.Single,System.Single,System.Single)">
             <summary>
             Draws the image.
             </summary>
-            <param name="img">The <see cref="T:System.Drawing.Image"/>.</param>
+            <param name="img">The <see cref="T:System.Drawing.BudgetImage"/>.</param>
             <param name="x">The x coordinare of image.</param>
             <param name="y">The y coordinare of image.</param>
             <param name="width">The width of image.</param>
@@ -35816,7 +35816,7 @@
             Gets or Sets the symbol associated with the FancyToolTip. Default is Circle.
             </summary>
             <remarks>
-            <b>Image</b> symbol isn't work for FancyToolTip.
+            <b>BudgetImage</b> symbol isn't work for FancyToolTip.
             </remarks>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Chart.ChartFancyToolTipController">
@@ -37257,7 +37257,7 @@
              Visual representation is a pie slice.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Forms.Chart.ChartLegendItemType.Image">
+        <member name="F:Syncfusion.Windows.Forms.Chart.ChartLegendItemType.BudgetImage">
             <summary>
              Visual representation is an image.
             </summary>
@@ -38422,7 +38422,7 @@
             Gets the icon image by the specified <see cref="T:Syncfusion.Windows.Forms.Chart.ChartSeriesType"/>.
             </summary>
             <param name="type">The <see cref="T:Syncfusion.Windows.Forms.Chart.ChartSeriesType"/>.</param>
-            <returns>Returns Image.</returns>
+            <returns>Returns BudgetImage.</returns>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Chart.Utils.NamespaceDoc">
             <summary>
@@ -39517,9 +39517,9 @@
             <param name="point">The point.</param>
             <param name="drawMarker">if set to <c>true</c> marker will be drawn.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Chart.RenderingHelper.DrawImage(System.Drawing.Graphics,System.Drawing.RectangleF,System.Drawing.Image)">
+        <member name="M:Syncfusion.Windows.Forms.Chart.RenderingHelper.DrawImage(System.Drawing.Graphics,System.Drawing.RectangleF,System.Drawing.BudgetImage)">
             <summary>
-            Draw Image symbol.
+            Draw BudgetImage symbol.
             </summary>
             <param name="g">The grapics.</param>
             <param name="bounds">Rectangle bound of the Symbol.</param>        

@@ -13,7 +13,7 @@ namespace BudgetExecution
     using System.Threading.Tasks;
     using System.Windows.Forms;
 
-    public class BudgetPicture : PictureBoxBase
+    public class BudgetPicture : PictureBase
     {
         /// <summary>
         /// Gets or sets the tool tip.
@@ -78,11 +78,11 @@ namespace BudgetExecution
         /// </summary>
         public BudgetPicture()
         {
-            Anchor = ControlConfig.GetAnchorStyle( AnchorStyles.Left & AnchorStyles.Top );
-            Location = ControlConfig.GetLocation();
+            Anchor = BudgetControl.GetAnchorStyle( AnchorStyles.Left & AnchorStyles.Top );
+            Location = BudgetControl.GetLocation();
             BackColor = Color.Transparent;
-            Margin = ControlConfig.Margin;
-            Padding = ControlConfig.Padding;
+            Margin = BudgetControl.Margin;
+            Padding = BudgetControl.Padding;
             SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
@@ -96,7 +96,7 @@ namespace BudgetExecution
         public BudgetPicture( Size size, Point location )
             : this()
         {
-            Size = SizeConfig.GetSize( size );
+            Size = BudgetSize.GetSize( size );
             Location = location;
         }
 
@@ -109,7 +109,7 @@ namespace BudgetExecution
         public BudgetPicture( ImageBuilder imageBuilder )
             : this()
         {
-            BudgetImage = new BudgetImage( imageBuilder );
+            BudgetImage = new ExecutionImage( imageBuilder );
             InitialImage = BudgetImage.GetBitmap();
         }
 

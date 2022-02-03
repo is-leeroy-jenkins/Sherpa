@@ -17,41 +17,41 @@ namespace BudgetExecution
         /// <value>
         /// The chart control.
         /// </value>
-        public BudgetChart ChartControl { get; set; }
+        public BudgetExecutionChart ExecutionChartControl { get; set; }
         
         public ChartForm()
         {
             InitializeComponent();
 
             // Form Property Values
-            BackColor = ColorConfig.FormBackColorDark;
-            BorderThickness = BorderConfig.Thin;
-            BorderColor = ColorConfig.BorderColorBlue;
-            Size = SizeConfig.FormSizeNormal;
-            Font = FontConfig.FontSizeSmall;
-            CaptionBarColor = ColorConfig.FormBackColorDark;
-            CaptionBarHeight = SizeConfig.CaptionSizeNormal;
-            CaptionButtonColor = ColorConfig.CaptionButtonDefaultColor;
-            CaptionButtonHoverColor = ColorConfig.CaptionButtonHoverColor;
-            CaptionAlign = AlignConfig.HorizontalLeft;
-            CaptionFont = FontConfig.FontSizeMedium;
-            MetroColor = ColorConfig.FormBackColorDark;
-            FormBorderStyle = BorderConfig.Sizeable;
-            Icon = new Icon( ChartControl.AppSetting[ "BudgetExecutionIcon" ], 32, 30 );
+            BackColor = BudgetColor.FormBackColorDark;
+            BorderThickness = BudgetBorder.Thin;
+            BorderColor = BudgetColor.BorderColorBlue;
+            Size = BudgetSize.FormSizeNormal;
+            Font = BudgetFont.FontSizeSmall;
+            CaptionBarColor = BudgetColor.FormBackColorDark;
+            CaptionBarHeight = BudgetSize.CaptionSizeNormal;
+            CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
+            CaptionButtonHoverColor = BudgetColor.CaptionButtonHoverColor;
+            CaptionAlign = BudgetAlign.HorizontalLeft;
+            CaptionFont = BudgetFont.FontSizeMedium;
+            MetroColor = BudgetColor.FormBackColorDark;
+            FormBorderStyle = BudgetBorder.Sizeable;
+            Icon = new Icon( ExecutionChartControl.AppSetting[ "BudgetExecutionIcon" ], 32, 30 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            Padding = ControlConfig.Padding;
+            Padding = BudgetControl.Padding;
             Text = string.Empty;
-            MinimumSize = SizeConfig.FormSizeMinimum;
-            MaximumSize = SizeConfig.FormSizeMaximum;
+            MinimumSize = BudgetSize.FormSizeMinimum;
+            MaximumSize = BudgetSize.FormSizeMaximum;
 
             // Chart Property Values
-            Chart.Size = SizeConfig.ChartSizeNormal;
+            Chart.Size = BudgetSize.ChartSizeNormal;
             Chart.Name = "Chart";
-            Chart.BackColor = ColorConfig.FormBackColorDark;
-            Chart.ForeColor = ColorConfig.ForeColorLightGray;
-            Chart.Font = FontConfig.FontSizeSmall;
-            Chart.BorderAppearance.BaseColor = ColorConfig.ColorTransparent;
+            Chart.BackColor = BudgetColor.FormBackColorDark;
+            Chart.ForeColor = BudgetColor.ForeColorLightGray;
+            Chart.Font = BudgetFont.FontSizeSmall;
+            Chart.BorderAppearance.BaseColor = BudgetColor.ColorTransparent;
             Chart.RealMode3D = true;
             Chart.Series3D = true;
             Chart.Depth = 100;

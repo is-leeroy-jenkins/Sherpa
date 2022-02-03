@@ -86,7 +86,7 @@ namespace BudgetExecution
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
             captionImage1.BackColor = System.Drawing.Color.Transparent;
             captionImage1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            captionImage1.Image = ((System.Drawing.Image)(resources.GetObject("captionImage1.Image")));
+            captionImage1.Image = ((System.Drawing.Image)(resources.GetObject("captionImage1.BudgetImage")));
             captionImage1.Location = new System.Drawing.Point(10, 5);
             captionImage1.Name = "Image";
             captionImage1.Size = new System.Drawing.Size(16, 16);

@@ -26,8 +26,8 @@ namespace BudgetExecution
             EnableStyles = true;
             OptimizePiePointPositions = true;
             LegendItemUseSeriesStyle = true;
-            SmartLabelsBorderColor = ColorConfig.BorderColorBlue;
-            SmartLabelsBorderWidth = BorderConfig.Thin;
+            SmartLabelsBorderColor = BudgetColor.BorderColorBlue;
+            SmartLabelsBorderWidth = BudgetBorder.Thin;
         }
 
         /// <summary>
@@ -74,9 +74,9 @@ namespace BudgetExecution
                 Style.Callout.Enable = true;
                 Style.Callout.Position = LabelPosition.Top;
                 Style.Callout.DisplayTextAndFormat = "{0} : {2}";
-                Style.Callout.Border.Color = ColorConfig.BorderColorBlue;
-                Style.Callout.Color = ColorConfig.FormBackColorDark;
-                Style.Callout.Font = ChartConfig.SetFont( "Roboto", 8, FontStyle.Regular );
+                Style.Callout.Border.Color = BudgetColor.BorderColorBlue;
+                Style.Callout.Color = BudgetColor.FormBackColorDark;
+                Style.Callout.Font = BudgetChart.SetFont( "Roboto", 8, FontStyle.Regular );
                 Style.DisplayText = true;
             }
             catch( Exception ex )

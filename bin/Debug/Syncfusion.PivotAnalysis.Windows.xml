@@ -3873,7 +3873,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.BusyAnimationIcon">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.Image"/> value that needs to be displayed while Asynchronous process takes place.
+            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> value that needs to be displayed while Asynchronous process takes place.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.ShowCalculationsAsColumns">
@@ -4231,7 +4231,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.ContextThemeRenderer.OnRenderImageMargin(System.Windows.Forms.ToolStripRenderEventArgs)">
             <summary>
-            Overrides and renders the Image margin.
+            Overrides and renders the BudgetImage margin.
             </summary>
             <param name="e">THe <see cref="T:System.Windows.Forms.ToolStripRenderEventArgs"/> that contains the event dataRows.</param>
         </member>
@@ -5068,17 +5068,17 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDownStyleInfo.SearchIcon">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.Image"/> for filter drop down.
+            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for filter drop down.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDownStyleInfo.AscendingIcon">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.Image"/> for filter drop down.
+            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for filter drop down.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDownStyleInfo.DescendingIcon">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.Image"/> for filter drop down.
+            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for filter drop down.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDownStyleInfo.ForeColor">
@@ -5342,52 +5342,52 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.RowLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.ColumnLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.ValueLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.FilterLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.DisabledValueLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.DisabledFilterLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.DisabledColumnLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.DisabledRowLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.RemoveLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.VerticalPinImage">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfoStore">
@@ -8069,7 +8069,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.ContextRenderer.OnRenderImageMargin(System.Windows.Forms.ToolStripRenderEventArgs)">
             <summary>
-            Overrides and renders the Image margin.
+            Overrides and renders the BudgetImage margin.
             </summary>
             <param name="e">THe <see cref="T:System.Windows.Forms.ToolStripRenderEventArgs"/> that contains the event dataRows.</param>
         </member>
@@ -10217,7 +10217,7 @@
             Gets or sets the Value4.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.NewRuleConditionalFormat.Image">
+        <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.NewRuleConditionalFormat.BudgetImage">
             <summary>
             Gets or sets the name of the image.
             </summary>
@@ -10306,8 +10306,8 @@
             <summary>
             Creates an image list based on the category.
             </summary>
-            <param name="IconImageCategory">Image category.</param>
-            <param name="ImageName">Image name.</param>
+            <param name="IconImageCategory">BudgetImage category.</param>
+            <param name="ImageName">BudgetImage name.</param>
             <returns>An ImageList.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridNewRuleConditionalFormat.InitImageListFromDirectory(System.Int32,System.Windows.Forms.ImageList,System.String)">
@@ -10316,22 +10316,22 @@
             </summary>
             <param name="num">Number of image.</param>
             <param name="ImageList">ImageList.</param>
-            <param name="ImageName">Image name.</param>
+            <param name="ImageName">BudgetImage name.</param>
             <returns>ImageList.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridNewRuleConditionalFormat.GetImageCount(System.String)">
             <summary>
             Gets the image count.
             </summary>
-            <param name="imageName"> Image name.</param>
-            <returns>Image category value.</returns>
+            <param name="imageName"> BudgetImage name.</param>
+            <returns>BudgetImage category value.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridNewRuleConditionalFormat.GetImageName(Syncfusion.Windows.Forms.PivotAnalysis.BitMapImageName)">
             <summary>
             Gets the image name.
             </summary>
-            <param name="imageName">BitMap Image Name.</param>
-            <returns>Image name.</returns>
+            <param name="imageName">BitMap BudgetImage Name.</param>
+            <returns>BudgetImage name.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridNewRuleConditionalFormat.ApplyStyle(Syncfusion.Windows.Forms.Grid.GridStyleInfo,System.Int32,System.Int32,Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase,Syncfusion.PivotAnalysis.Base.PivotCellInfo)">
             <summary>
@@ -10407,8 +10407,8 @@
             <summary>
             Gets the image category.
             </summary>
-            <param name="count">Image list count.</param>
-            <returns>Image category count.</returns>
+            <param name="count">BudgetImage list count.</param>
+            <returns>BudgetImage category count.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridNewRuleConditionalFormat.GetAssociatedMeasure(Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase,System.Int32)">
             <summary>

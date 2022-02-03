@@ -16,32 +16,32 @@ namespace BudgetExecution
         /// Sets the color of the fore. Required Attributes: ForeColor
         /// </summary>
         /// <param name="format">The format.</param>
-        void SetForeColor( ColorFormat format );
+        void SetForeColor( Color format );
 
         /// <summary>
         /// Sets the state of the back color.
         /// </summary>
         /// <param name="format">The format.</param>
-        void SetBackColorStyle( ColorFormat format );
+        void SetBackColorStyle( Color format );
 
         /// <summary>
         /// Sets the border configuration. Required Attributes: BorderColor, and HoverColor
         /// </summary>
         /// <param name="format">The format.</param>
-        void SetBorderStyle( ColorFormat format );
+        void SetBorderStyle( Color format );
 
         /// <summary>
         /// Sets the text style configuration. Required Attributes: PressedColor, DisabledColor,
         /// EnabledColor, and HoverColor
         /// </summary>
         /// <param name="format">The format.</param>
-        void SetTextStyle( ColorFormat format );
+        void SetTextStyle( Color format );
 
         /// <summary>
         /// Sets the image.
         /// </summary>
         /// <param name="image">The image.</param>
-        void SetImage( Image image );
+        void SetImage( System.Drawing.Image image );
 
         /// <summary>
         /// Called when [mouse over].

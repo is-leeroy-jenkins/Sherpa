@@ -13,23 +13,23 @@ namespace BudgetExecution
         public CloseBox()
         {
             // Prologue
-            ForeColor = ColorConfig.ForeColorGray;
-            Font = FontConfig.FontSizeSmall;
+            ForeColor = BudgetColor.ForeColorGray;
+            Font = BudgetFont.FontSizeSmall;
             Margin = new Padding( 0 );
             Padding = new Padding( 0 );
-            Size = SizeConfig.GetSize( 300, 25 );
+            Size = BudgetSize.GetSize( 300, 25 );
             Anchor = AnchorStyles.Top & AnchorStyles.Right;
             Visible = true;
             Enabled = true;
             CloseHoverBackColor = Color.Red;
             CloseHoverForeColor = Color.White;
-            CloseNormalForeColor = ColorConfig.FormBackColorDark;
+            CloseNormalForeColor = BudgetColor.FormBackColorDark;
             MaximizeHoverBackColor = Color.Blue;
             MaximizeHoverForeColor = Color.White;
-            MaximizeNormalForeColor = ColorConfig.FormBackColorDark;
+            MaximizeNormalForeColor = BudgetColor.FormBackColorDark;
             MinimizeHoverBackColor = Color.Blue;
             MinimizeHoverForeColor = Color.White;
-            MinimizeNormalForeColor = ColorConfig.FormBackColorDark;
+            MinimizeNormalForeColor = BudgetColor.FormBackColorDark;
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";
         }
@@ -44,8 +44,8 @@ namespace BudgetExecution
         public CloseBox( Size size, Point location )
             : this()
         {
-            Size = SizeConfig.GetSize( size.Width, size.Height );
-            Location = ControlConfig.GetLocation( location.X, location.Y );
+            Size = BudgetSize.GetSize( size.Width, size.Height );
+            Location = BudgetControl.GetLocation( location.X, location.Y );
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace BudgetExecution
         public CloseBox( Point location )
             : this()
         {
-            Location = ControlConfig.GetLocation( location.X, location.Y );
+            Location = BudgetControl.GetLocation( location.X, location.Y );
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace BudgetExecution
         public CloseBox( Size size, Point location, Control parent )
             : this( size, location )
         {
-            Parent = ControlConfig.GetParent( parent );
+            Parent = BudgetControl.GetParent( parent );
             Parent.Controls.Add( this );
         }
 
@@ -84,7 +84,7 @@ namespace BudgetExecution
         public CloseBox( Control parent )
             : this()
         {
-            Parent = ControlConfig.GetParent( parent );
+            Parent = BudgetControl.GetParent( parent );
             Parent.Controls.Add( this );
         }
     }

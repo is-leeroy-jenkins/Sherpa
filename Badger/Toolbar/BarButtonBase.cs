@@ -64,7 +64,7 @@ namespace BudgetExecution
         {
             try
             {
-                Field = FormConfig.GetField( field );
+                Field = BudgetForm.GetField( field );
             }
             catch( Exception ex )
             {
@@ -80,7 +80,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tag = ControlConfig.GetTag( tag );
+                Tag = BudgetControl.GetTag( tag );
             }
             catch( Exception ex )
             {
@@ -98,7 +98,7 @@ namespace BudgetExecution
 
             try
             {
-                HoverText = ControlConfig.GetText( _text );
+                HoverText = BudgetControl.GetText( _text );
             }
             catch( Exception ex )
             {
@@ -114,7 +114,7 @@ namespace BudgetExecution
         {
             try
             {
-                HoverText = ControlConfig.GetText( text );
+                HoverText = BudgetControl.GetText( text );
             }
             catch( Exception ex )
             {

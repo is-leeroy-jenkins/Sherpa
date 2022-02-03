@@ -171,7 +171,7 @@
             this.FirstButton.Font = new System.Drawing.Font("Roboto", 8F);
             this.FirstButton.ForeColor = System.Drawing.Color.LightGray;
             this.FirstButton.HoverText = "First Record";
-            this.FirstButton.Image = ((System.Drawing.Image)(resources.GetObject("FirstButton.Image")));
+            this.FirstButton.Image = ((System.Drawing.Image)(resources.GetObject("FirstButton.BudgetImage")));
             this.FirstButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.FirstButton.Margin = new System.Windows.Forms.Padding(5);
             this.FirstButton.Name = "FirstButton";
@@ -198,7 +198,7 @@
             this.PreviousButton.Font = new System.Drawing.Font("Roboto", 8F);
             this.PreviousButton.ForeColor = System.Drawing.Color.LightGray;
             this.PreviousButton.HoverText = "Previous Record";
-            this.PreviousButton.Image = ((System.Drawing.Image)(resources.GetObject("PreviousButton.Image")));
+            this.PreviousButton.Image = ((System.Drawing.Image)(resources.GetObject("PreviousButton.BudgetImage")));
             this.PreviousButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.PreviousButton.Margin = new System.Windows.Forms.Padding(5);
             this.PreviousButton.Name = "PreviousButton";
@@ -248,7 +248,7 @@
             this.NextButton.Font = new System.Drawing.Font("Roboto", 8F);
             this.NextButton.ForeColor = System.Drawing.Color.LightGray;
             this.NextButton.HoverText = "Next Record";
-            this.NextButton.Image = ((System.Drawing.Image)(resources.GetObject("NextButton.Image")));
+            this.NextButton.Image = ((System.Drawing.Image)(resources.GetObject("NextButton.BudgetImage")));
             this.NextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.NextButton.Margin = new System.Windows.Forms.Padding(5);
             this.NextButton.Name = "NextButton";
@@ -276,7 +276,7 @@
             this.LastButton.Font = new System.Drawing.Font("Roboto", 8F);
             this.LastButton.ForeColor = System.Drawing.Color.LightGray;
             this.LastButton.HoverText = "Last Record";
-            this.LastButton.Image = ((System.Drawing.Image)(resources.GetObject("LastButton.Image")));
+            this.LastButton.Image = ((System.Drawing.Image)(resources.GetObject("LastButton.BudgetImage")));
             this.LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.LastButton.Margin = new System.Windows.Forms.Padding(5);
             this.LastButton.Name = "LastButton";
@@ -305,7 +305,7 @@
             this.AddButton.Font = new System.Drawing.Font("Roboto", 8F);
             this.AddButton.ForeColor = System.Drawing.Color.LightGray;
             this.AddButton.HoverText = "Add Record";
-            this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
+            this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.BudgetImage")));
             this.AddButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.AddButton.Margin = new System.Windows.Forms.Padding(5);
             this.AddButton.Name = "AddButton";
@@ -333,7 +333,7 @@
             this.DeleteButton.Font = new System.Drawing.Font("Roboto", 8F);
             this.DeleteButton.ForeColor = System.Drawing.Color.LightGray;
             this.DeleteButton.HoverText = null;
-            this.DeleteButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButton.Image")));
+            this.DeleteButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButton.BudgetImage")));
             this.DeleteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(5);
             this.DeleteButton.Name = "DeleteButton";
@@ -361,7 +361,7 @@
             this.UndoButton.Font = new System.Drawing.Font("Roboto", 8F);
             this.UndoButton.ForeColor = System.Drawing.Color.LightGray;
             this.UndoButton.HoverText = "Undo Changes";
-            this.UndoButton.Image = ((System.Drawing.Image)(resources.GetObject("UndoButton.Image")));
+            this.UndoButton.Image = ((System.Drawing.Image)(resources.GetObject("UndoButton.BudgetImage")));
             this.UndoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.UndoButton.Margin = new System.Windows.Forms.Padding(5);
             this.UndoButton.Name = "UndoButton";
@@ -389,7 +389,7 @@
             this.SaveButton.Font = new System.Drawing.Font("Roboto", 8F);
             this.SaveButton.ForeColor = System.Drawing.Color.LightGray;
             this.SaveButton.HoverText = "Save Changes";
-            this.SaveButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveButton.Image")));
+            this.SaveButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveButton.BudgetImage")));
             this.SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SaveButton.Margin = new System.Windows.Forms.Padding(5);
             this.SaveButton.Name = "SaveButton";
@@ -417,7 +417,7 @@
             this.RefreshButton.Font = new System.Drawing.Font("Roboto", 8F);
             this.RefreshButton.ForeColor = System.Drawing.Color.LightGray;
             this.RefreshButton.HoverText = "Refresh Data";
-            this.RefreshButton.Image = ((System.Drawing.Image)(resources.GetObject("RefreshButton.Image")));
+            this.RefreshButton.Image = ((System.Drawing.Image)(resources.GetObject("RefreshButton.BudgetImage")));
             this.RefreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RefreshButton.Margin = new System.Windows.Forms.Padding(5);
             this.RefreshButton.Name = "RefreshButton";
@@ -446,7 +446,7 @@
             this.UpdateButton.Font = new System.Drawing.Font("Roboto", 8F);
             this.UpdateButton.ForeColor = System.Drawing.Color.LightGray;
             this.UpdateButton.HoverText = "Update Data";
-            this.UpdateButton.Image = ((System.Drawing.Image)(resources.GetObject("UpdateButton.Image")));
+            this.UpdateButton.Image = ((System.Drawing.Image)(resources.GetObject("UpdateButton.BudgetImage")));
             this.UpdateButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.UpdateButton.Margin = new System.Windows.Forms.Padding(5);
             this.UpdateButton.Name = "UpdateButton";
@@ -474,7 +474,7 @@
             this.CalculatorButton.Font = new System.Drawing.Font("Roboto", 8F);
             this.CalculatorButton.ForeColor = System.Drawing.Color.LightGray;
             this.CalculatorButton.HoverText = "Calculator";
-            this.CalculatorButton.Image = ((System.Drawing.Image)(resources.GetObject("CalculatorButton.Image")));
+            this.CalculatorButton.Image = ((System.Drawing.Image)(resources.GetObject("CalculatorButton.BudgetImage")));
             this.CalculatorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.CalculatorButton.Margin = new System.Windows.Forms.Padding(5);
             this.CalculatorButton.Name = "CalculatorButton";
@@ -503,7 +503,7 @@
             this.ExcelButton.Font = new System.Drawing.Font("Roboto", 8F);
             this.ExcelButton.ForeColor = System.Drawing.Color.LightGray;
             this.ExcelButton.HoverText = "Browse Excel File";
-            this.ExcelButton.Image = ((System.Drawing.Image)(resources.GetObject("ExcelButton.Image")));
+            this.ExcelButton.Image = ((System.Drawing.Image)(resources.GetObject("ExcelButton.BudgetImage")));
             this.ExcelButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ExcelButton.Margin = new System.Windows.Forms.Padding(5);
             this.ExcelButton.Name = "ExcelButton";
@@ -532,7 +532,7 @@
             this.BrowseButton.Font = new System.Drawing.Font("Roboto", 8F);
             this.BrowseButton.ForeColor = System.Drawing.Color.LightGray;
             this.BrowseButton.HoverText = "Browse File";
-            this.BrowseButton.Image = ((System.Drawing.Image)(resources.GetObject("BrowseButton.Image")));
+            this.BrowseButton.Image = ((System.Drawing.Image)(resources.GetObject("BrowseButton.BudgetImage")));
             this.BrowseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BrowseButton.Margin = new System.Windows.Forms.Padding(5);
             this.BrowseButton.Name = "BrowseButton";

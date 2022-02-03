@@ -5836,15 +5836,15 @@
             An image object
             </summary>
         </member>
-        <member name="P:OfficeOpenXml.Drawing.ExcelPicture.Image">
+        <member name="P:OfficeOpenXml.Drawing.ExcelPicture.BudgetImage">
             <summary>
-            The Image
+            The BudgetImage
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Drawing.ExcelPicture.ImageFormat">
             <summary>
-            Image format
-            If the picture is created from an Image this type is always Jpeg
+            BudgetImage format
+            If the picture is created from an BudgetImage this type is always Jpeg
             </summary>
         </member>
         <member name="M:OfficeOpenXml.Drawing.ExcelPicture.SetSize(System.Int32)">
@@ -5923,7 +5923,7 @@
             The Title of the image
             </summary>
         </member>
-        <member name="P:OfficeOpenXml.Drawing.Vml.ExcelVmlDrawingPicture.Image">
+        <member name="P:OfficeOpenXml.Drawing.Vml.ExcelVmlDrawingPicture.BudgetImage">
             <summary>
             The image
             </summary>
@@ -6139,7 +6139,7 @@
             <param name="ChartType">Type of chart</param>
             <returns>The chart</returns>
         </member>
-        <member name="M:OfficeOpenXml.Drawing.ExcelDrawings.AddPicture(System.String,System.Drawing.Image)">
+        <member name="M:OfficeOpenXml.Drawing.ExcelDrawings.AddPicture(System.String,System.Drawing.BudgetImage)">
             <summary>
             Add a picure to the worksheet
             </summary>
@@ -6147,7 +6147,7 @@
             <param name="image">An image. Allways saved in then JPeg format</param>
             <returns></returns>
         </member>
-        <member name="M:OfficeOpenXml.Drawing.ExcelDrawings.AddPicture(System.String,System.Drawing.Image,System.Uri)">
+        <member name="M:OfficeOpenXml.Drawing.ExcelDrawings.AddPicture(System.String,System.Drawing.BudgetImage,System.Uri)">
             <summary>
             Add a picure to the worksheet
             </summary>
@@ -7606,7 +7606,7 @@
             <param name="topNode">The topnode of the worksheet</param>
             <param name="workSheet">Worksheet reference</param>
         </member>
-        <member name="P:OfficeOpenXml.ExcelBackgroundImage.Image">
+        <member name="P:OfficeOpenXml.ExcelBackgroundImage.BudgetImage">
             <summary>
             The background image of the worksheet. 
             The image will be saved internally as a jpg.
@@ -7952,7 +7952,7 @@
             Get/set the text to appear on the right hand side of the header (or footer) on the worksheet.
             </summary>
         </member>
-        <member name="M:OfficeOpenXml.ExcelHeaderFooterText.InsertPicture(System.Drawing.Image,OfficeOpenXml.PictureAlignment)">
+        <member name="M:OfficeOpenXml.ExcelHeaderFooterText.InsertPicture(System.Drawing.BudgetImage,OfficeOpenXml.PictureAlignment)">
             <summary>
             Inserts a picture at the end of the text in the header or footer
             </summary>
@@ -8013,7 +8013,7 @@
             The code for "time"
             </summary>
         </member>
-        <member name="F:OfficeOpenXml.ExcelHeaderFooter.Image">
+        <member name="F:OfficeOpenXml.ExcelHeaderFooter.BudgetImage">
             <summary>
             The code for "picture as background"
             </summary>

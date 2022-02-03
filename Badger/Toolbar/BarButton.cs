@@ -23,9 +23,9 @@ namespace BudgetExecution
             Margin = new Padding( 5, 5, 5, 5 );
             Padding = new Padding( 0 );
             DisplayStyle = ToolStripItemDisplayStyle.Image;
-            BackColor = ColorConfig.FormBackColorDark;
-            ForeColor = ColorConfig.ForeColorGray;
-            Font = FontConfig.FontSizeSmall;
+            BackColor = BudgetColor.FormBackColorDark;
+            ForeColor = BudgetColor.ForeColorGray;
+            Font = BudgetFont.FontSizeSmall;
             HoverText = Tag?.ToString();
             Text = string.Empty;
             Visible = true;
@@ -42,7 +42,7 @@ namespace BudgetExecution
         public BarButton( Tool tool )
             : this()
         {
-            Image = new BudgetImage( tool.ToString(), ImageSource.ToolBarImages )?.GetBitmap();
+            Image = new ExecutionImage( tool.ToString(), ImageSource.ToolBarImages )?.GetBitmap();
             Bar = tool;
         }
 
@@ -83,7 +83,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _image = new BudgetImage( tool.ToString(), ImageSource.ToolBarImages );
+                    var _image = new ExecutionImage( tool.ToString(), ImageSource.ToolBarImages );
                     Image = _image?.GetBitmap();
                 }
                 catch( Exception ex )

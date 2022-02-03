@@ -12,7 +12,7 @@ namespace BudgetExecution
         /// Gets the bitmap.
         /// </summary>
         /// <returns></returns>
-        Image GetBitmap();
+        System.Drawing.Image GetBitmap();
 
         /// <summary>
         /// Gets the image source.

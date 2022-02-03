@@ -16566,7 +16566,7 @@
         </member>
         <member name="F:Syncfusion.Windows.Forms.PdfViewer.ThemedButtonBase.m_image">
             <summary>
-            Image for draw foreground.
+            BudgetImage for draw foreground.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.PdfViewer.ThemedButtonBase.m_stretchImage">
@@ -16618,7 +16618,7 @@
             <param name="buttonState">The button state.</param>
             <param name="checkState">The checked state.</param>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PdfViewer.ThemedButtonBase.Image">
+        <member name="P:Syncfusion.Windows.Forms.PdfViewer.ThemedButtonBase.BudgetImage">
             <summary>
             Gets or sets image for draw foreground.
             </summary>
@@ -16636,7 +16636,7 @@
         </member>
         <member name="E:Syncfusion.Windows.Forms.PdfViewer.ThemedButtonBase.ImageChanged">
             <summary>
-            Occurs when <see cref="P:Syncfusion.Windows.Forms.PdfViewer.ThemedButtonBase.Image"/> is changed.
+            Occurs when <see cref="P:Syncfusion.Windows.Forms.PdfViewer.ThemedButtonBase.BudgetImage"/> is changed.
             </summary>
         </member>
         <member name="E:Syncfusion.Windows.Forms.PdfViewer.ThemedButtonBase.StretchImageChanged">
@@ -16757,7 +16757,7 @@
             <param name="color1"/>
             <param name="color2"/>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.PdfViewer.ControlDrawing.DrawImage(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Image,System.Boolean)">
+        <member name="M:Syncfusion.Windows.Forms.PdfViewer.ControlDrawing.DrawImage(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.BudgetImage,System.Boolean)">
             <summary></summary>
             <param name="g"/>
             <param name="rc"/>
@@ -16850,14 +16850,14 @@
             <param name="m">The WM_NCPAINT message.</param>
             <returns></returns>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.PdfViewer.DrawingUtils.DrawShadow(System.Drawing.Graphics,System.Drawing.Image,System.Int32,System.Int32)">
+        <member name="M:Syncfusion.Windows.Forms.PdfViewer.DrawingUtils.DrawShadow(System.Drawing.Graphics,System.Drawing.BudgetImage,System.Int32,System.Int32)">
             <summary></summary>
             <param name="g"/>
             <param name="iconImage"/>
             <param name="left"/>
             <param name="top"/>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.PdfViewer.DrawingUtils.DrawGrayedImage(System.Drawing.Graphics,System.Drawing.Image,System.Int32,System.Int32,System.Single)">
+        <member name="M:Syncfusion.Windows.Forms.PdfViewer.DrawingUtils.DrawGrayedImage(System.Drawing.Graphics,System.Drawing.BudgetImage,System.Int32,System.Int32,System.Single)">
             <summary></summary>
             <param name="g"/>
             <param name="image"/>
@@ -16865,14 +16865,14 @@
             <param name="top"/>
             <param name="transparency"/>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.PdfViewer.DrawingUtils.DrawGrayedImage(System.Drawing.Graphics,System.Drawing.Image,System.Drawing.Rectangle,System.Drawing.RectangleF)">
+        <member name="M:Syncfusion.Windows.Forms.PdfViewer.DrawingUtils.DrawGrayedImage(System.Drawing.Graphics,System.Drawing.BudgetImage,System.Drawing.Rectangle,System.Drawing.RectangleF)">
             <summary></summary>
             <param name="g"/>
             <param name="image"/>
             <param name="destRect"/>
             <param name="srcRect"/>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.PdfViewer.DrawingUtils.DrawGrayedImage(System.Drawing.Graphics,System.Drawing.Image,System.Drawing.Rectangle,System.Drawing.RectangleF,System.Single)">
+        <member name="M:Syncfusion.Windows.Forms.PdfViewer.DrawingUtils.DrawGrayedImage(System.Drawing.Graphics,System.Drawing.BudgetImage,System.Drawing.Rectangle,System.Drawing.RectangleF,System.Single)">
             <summary></summary>
             <param name="g"/>
             <param name="image"/>
@@ -16880,7 +16880,7 @@
             <param name="srcRect"/>
             <param name="transparency"/>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.PdfViewer.DrawingUtils.DrawTransparentImage(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Image,System.Single)">
+        <member name="M:Syncfusion.Windows.Forms.PdfViewer.DrawingUtils.DrawTransparentImage(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.BudgetImage,System.Single)">
             <summary></summary>
             <param name="g"/>
             <param name="rect"/>
@@ -16917,14 +16917,14 @@
             drawn clipped (in that case just use ImageList.Draw).
             </p></remarks>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.PdfViewer.DrawingUtils.DrawImage(System.Drawing.Graphics,System.Drawing.Image,System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:Syncfusion.Windows.Forms.PdfViewer.DrawingUtils.DrawImage(System.Drawing.Graphics,System.Drawing.BudgetImage,System.Single,System.Single,System.Single,System.Single)">
             <summary>
             Draws specified image to graphics context.
             If image size is less than maxWidth, maxHeight parameters, it will be drawn
             without any changes, otherwise - it will be scaled proportionally to those values.
             </summary>
             <param name="g">Graphics context.</param>
-            <param name="image">Image object which must be drawing.</param>
+            <param name="image">BudgetImage object which must be drawing.</param>
             <param name="x">X coordinate of the destination location.</param>
             <param name="y">Y coordinate of the destination location.</param>
             <param name="maxWidth">Maximum width of the image.</param>
@@ -18190,23 +18190,23 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.PdfViewer.PdfDocumentView.ExportAsImage(System.Int32)">
             <summary>
-            Exports the specified page as Image
+            Exports the specified page as BudgetImage
             </summary>
             <param name="pageIndex">The page index to be converted into image</param>
-            <returns>Returns the specified page as Image</returns>
+            <returns>Returns the specified page as BudgetImage</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PdfViewer.PdfDocumentView.ExportAsImage(System.Int32,System.Single,System.Single)">
             <summary>
-            Exports the specified page as Image
+            Exports the specified page as BudgetImage
             </summary>
             <param name="pageIndex">The page index to be converted into image</param>
             <param name="dpiX">The horizontal DPI of the resultant image.</param>
             <param name="dpiY">The vertical DPI of the resultant image.</param>
-            <returns>Returns the specified page as Image  with custom resolution</returns>
+            <returns>Returns the specified page as BudgetImage  with custom resolution</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PdfViewer.PdfDocumentView.ExportAsImage(System.Int32,System.Drawing.SizeF,System.Boolean)">
             <summary>
-            Exports the specified page as Image
+            Exports the specified page as BudgetImage
             </summary>
             <param name="pageIndex">The page index to be converted into image</param>
             <param name="customSize">The custom size of the converted image</param>
@@ -18215,7 +18215,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.PdfViewer.PdfDocumentView.ExportAsImage(System.Int32,System.Drawing.SizeF,System.Single,System.Single,System.Boolean)">
             <summary>
-            Exports the specified page as Image
+            Exports the specified page as BudgetImage
             </summary>
             <param name="pageIndex">The page index to be converted into image</param>
             <param name="customSize">The custom size of the converted image</param>
@@ -18989,10 +18989,10 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl.ExportAsImage(System.Int32)">
             <summary>
-            Exports the specified page as Image
+            Exports the specified page as BudgetImage
             </summary>
             <param name="pageIndex">The page index to be converted into image</param>
-            <returns>Returns the specified page as Image</returns>
+            <returns>Returns the specified page as BudgetImage</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl.FindText(System.String,System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.List{System.Drawing.RectangleF}}@)">
             <summary>
@@ -19021,12 +19021,12 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl.ExportAsImage(System.Int32,System.Single,System.Single)">
             <summary>
-            Exports the specified page as Image with respect to dpi specified.
+            Exports the specified page as BudgetImage with respect to dpi specified.
             </summary>
             <param name="pageIndex">The page index to be converted into image</param>
             <param name="dpiX">The horizontal DPI of the resultant image.</param>
             <param name="dpiY">The vertical DPI of the resultant image.</param>
-            <returns>Returns the specified page as Image  with custom resolution</returns>
+            <returns>Returns the specified page as BudgetImage  with custom resolution</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl.ExportAsImage(System.Int32,System.Int32,System.Single,System.Single)">
             <summary>
@@ -19085,7 +19085,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl.ExportAsImage(System.Int32,System.Drawing.SizeF,System.Boolean)">
             <summary>
-            Exports the specified page as Image
+            Exports the specified page as BudgetImage
             </summary>
             <param name="pageIndex">The page index to be converted into image</param>
             <param name="customSize">The custom size of the converted image</param>
@@ -19094,7 +19094,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl.ExportAsImage(System.Int32,System.Drawing.SizeF,System.Single,System.Single,System.Boolean)">
             <summary>
-            Exports the specified page as Image
+            Exports the specified page as BudgetImage
             </summary>
             <param name="pageIndex">The page index to be converted into image</param>
             <param name="customSize">The custom size of the converted image</param>

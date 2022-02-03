@@ -21,33 +21,33 @@ namespace BudgetExecution
         public BudgetLayout()
         {
             // Basic Properties
-            Size = SizeConfig.GetSize( 700, 428 );
-            Location = ControlConfig.GetLocation();
-            Anchor = ControlConfig.GetAnchorStyle();
-            Dock = ControlConfig.GetDockStyle();
-            Margin = ControlConfig.Margin;
-            Padding = ControlConfig.Padding;
+            Size = BudgetSize.GetSize( 700, 428 );
+            Location = BudgetControl.GetLocation();
+            Anchor = BudgetControl.GetAnchorStyle();
+            Dock = BudgetControl.GetDockStyle();
+            Margin = BudgetControl.Margin;
+            Padding = BudgetControl.Padding;
             Enabled = true;
             Visible = true;
 
             // Backcolor Configuration
-            BackColor = ColorConfig.FormBackColorDark;
-            ForeColor = ColorConfig.ForeColorGray;
-            BackColorState.Disabled = ColorConfig.FormBackColorDark;
-            BackColorState.Enabled = ColorConfig.FormBackColorDark;
+            BackColor = BudgetColor.FormBackColorDark;
+            ForeColor = BudgetColor.ForeColorGray;
+            BackColorState.Disabled = BudgetColor.FormBackColorDark;
+            BackColorState.Enabled = BudgetColor.FormBackColorDark;
 
             // Border Configuration
-            Border.Color = ColorConfig.FormBackColorDark;
-            Border.Thickness = BorderConfig.Thin;
-            Border.HoverColor = ColorConfig.BorderColorBlue;
+            Border.Color = BudgetColor.FormBackColorDark;
+            Border.Thickness = BudgetBorder.Thin;
+            Border.HoverColor = BudgetColor.BorderColorBlue;
             Border.HoverVisible = false;
         }
         
         public BudgetLayout( Size size, Point location ) 
             : this()
         {
-            Size = SizeConfig.GetSize( size );
-            Location = ControlConfig.GetLocation( location.X, location.Y );
+            Size = BudgetSize.GetSize( size );
+            Location = BudgetControl.GetLocation( location.X, location.Y );
         }
 
         /// <summary>
@@ -61,9 +61,9 @@ namespace BudgetExecution
         public BudgetLayout( Size size, Point location, Control parent )
             : this()
         {
-            Size = SizeConfig.GetSize( size.Width, size.Height );
-            Location = ControlConfig.GetLocation( location.X, location.Y );
-            Parent = ControlConfig.GetParent( parent );
+            Size = BudgetSize.GetSize( size.Width, size.Height );
+            Location = BudgetControl.GetLocation( location.X, location.Y );
+            Parent = BudgetControl.GetParent( parent );
             Parent.Controls.Add( this );
         }
 
@@ -76,7 +76,7 @@ namespace BudgetExecution
         public BudgetLayout( Control parent )
             : this()
         {
-            Parent = ControlConfig.GetParent( parent );
+            Parent = BudgetControl.GetParent( parent );
             Parent.Controls.Add( this );
         }
     }

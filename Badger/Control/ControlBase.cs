@@ -32,14 +32,14 @@ namespace BudgetExecution
         /// </summary>
         public ControlBase()
         {
-            BackColor = ColorConfig.FormBackColorDark;
-            ForeColor = ColorConfig.ForeColorGray;
+            BackColor = BudgetColor.FormBackColorDark;
+            ForeColor = BudgetColor.ForeColorGray;
             BorderStyle = BorderStyle.FixedSingle;
             DoubleBuffered = true;
             AutoScaleMode = AutoScaleMode.Dpi;
-            Padding = ControlConfig.Padding;
-            Margin = ControlConfig.Margin;
-            Font = FontConfig.FontSizeSmall;
+            Padding = BudgetControl.Padding;
+            Margin = BudgetControl.Margin;
+            Font = BudgetFont.FontSizeSmall;
         }
         
         /// <summary>
@@ -50,7 +50,7 @@ namespace BudgetExecution
         {
             try
             {
-                Parent = ControlConfig.GetParent( control );
+                Parent = BudgetControl.GetParent( control );
             }
             catch( Exception ex )
             {
@@ -67,7 +67,7 @@ namespace BudgetExecution
         {
             try
             {
-                Size = ControlConfig.GetSize( width, height );
+                Size = BudgetControl.GetSize( width, height );
             }
             catch( Exception ex )
             {
@@ -84,7 +84,7 @@ namespace BudgetExecution
         {
             try
             {
-                Location = ControlConfig.GetLocation( x, y );
+                Location = BudgetControl.GetLocation( x, y );
             }
             catch( Exception ex )
             {
@@ -102,7 +102,7 @@ namespace BudgetExecution
         {
             try
             {
-                Font = FontConfig.GetFont( family, size, style );
+                Font = BudgetFont.GetFont( family, size, style );
             }
             catch( Exception ex )
             {
@@ -118,7 +118,7 @@ namespace BudgetExecution
         {
             try
             {
-                BackColor = ColorConfig.GetColor( color );
+                BackColor = BudgetColor.GetColor( color );
             }
             catch( Exception ex )
             {
@@ -134,7 +134,7 @@ namespace BudgetExecution
         {
             try
             {
-                ForeColor = ColorConfig.GetColor( color );
+                ForeColor = BudgetColor.GetColor( color );
             }
             catch( Exception ex )
             {
@@ -152,7 +152,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Text = ControlConfig.GetText( text );
+                    Text = BudgetControl.GetText( text );
                 }
                 catch( Exception ex )
                 {
@@ -169,7 +169,7 @@ namespace BudgetExecution
         {
             try
             {
-                Anchor = ControlConfig.GetAnchorStyle( anchor );
+                Anchor = BudgetControl.GetAnchorStyle( anchor );
             }
             catch( Exception ex )
             {
@@ -185,7 +185,7 @@ namespace BudgetExecution
         {
             try
             {
-                Dock = ControlConfig.GetDockStyle( dock );
+                Dock = BudgetControl.GetDockStyle( dock );
             }
             catch( Exception ex )
             {
@@ -201,7 +201,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tag = ControlConfig.GetTag( tag );
+                Tag = BudgetControl.GetTag( tag );
             }
             catch( Exception ex )
             {
@@ -217,7 +217,7 @@ namespace BudgetExecution
         {
             try
             {
-                HoverText = ControlConfig.GetText( text );
+                HoverText = BudgetControl.GetText( text );
             }
             catch( Exception ex )
             {
@@ -237,7 +237,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _ = ControlConfig.GetToolTip( control, control?.Tag?.ToString() );
+                    var _ = BudgetControl.GetToolTip( control, control?.Tag?.ToString() );
                 }
                 catch( Exception ex )
                 {
@@ -248,7 +248,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _ = ControlConfig.GetToolTip( this, HoverText );
+                    var _ = BudgetControl.GetToolTip( this, HoverText );
                 }
                 catch( Exception ex )
                 {

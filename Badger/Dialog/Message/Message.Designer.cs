@@ -184,7 +184,7 @@ namespace BudgetExecution
             this.CaptionFont = new System.Drawing.Font("Roboto", 8.25F);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
             captionImage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            captionImage1.Image = ((System.Drawing.Image)(resources.GetObject("captionImage1.Image")));
+            captionImage1.Image = ((System.Drawing.Image)(resources.GetObject("captionImage1.BudgetImage")));
             captionImage1.Location = new System.Drawing.Point(20, 10);
             captionImage1.Name = "CaptionImage1";
             captionImage1.Size = new System.Drawing.Size(15, 15);

@@ -55,11 +55,11 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form Property Values
-            BackColor = ColorConfig.FormBackColorDark;
-            Padding = ControlConfig.Padding;
+            BackColor = BudgetColor.FormBackColorDark;
+            Padding = BudgetControl.Padding;
             Text = string.Empty;
-            MinimumSize = SizeConfig.DialogSizeMinimum;
-            MaximumSize = SizeConfig.DialogSizeMaximum;
+            MinimumSize = BudgetSize.DialogSizeMinimum;
+            MaximumSize = BudgetSize.DialogSizeMaximum;
             Size = new Size( 500, 500 );
         }
 
@@ -71,7 +71,7 @@ namespace BudgetExecution
         {
             try
             {
-                Field = FormConfig.GetField( field );
+                Field = BudgetForm.GetField( field );
             }
             catch( Exception ex )
             {

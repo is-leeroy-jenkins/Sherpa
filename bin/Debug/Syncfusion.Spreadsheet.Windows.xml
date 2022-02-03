@@ -22313,22 +22313,22 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicImageCellRenderer">
             <summary>
-            Custom GraphicCellRenderer for <see cref="T:System.Drawing.Image"/> celltype.
+            Custom GraphicCellRenderer for <see cref="T:System.Drawing.BudgetImage"/> celltype.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicImageCellRenderer.OnCreateElement(Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicObject)">
             <summary>
-            Creates a new <see cref="T:System.Drawing.Image"/>.
+            Creates a new <see cref="T:System.Drawing.BudgetImage"/>.
             </summary>
             <param name="graphicObject"><see cref="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicObject"/></param>
-            <returns><see cref="T:System.Drawing.Image"/></returns>
+            <returns><see cref="T:System.Drawing.BudgetImage"/></returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicImageCellRenderer.OnInitializeElement(Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl,System.Windows.Forms.PictureBox,Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicObject)">
             <summary>
             Initialize or update the properties of <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl"/> and its content.
             </summary>
             <param name="container"><see cref="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl"/></param>
-            <param name="element"><see cref="T:System.Drawing.Image"/></param>
+            <param name="element"><see cref="T:System.Drawing.BudgetImage"/></param>
             <param name="graphicObject"><see cref="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicObject"/></param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicImageCellRenderer.HandlePointerOperations(Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl,Syncfusion.Windows.Forms.CellGrid.GridPointerEventArgs)">
@@ -22585,7 +22585,7 @@
             about implementation of Shapes.
             </summary>
             <remarks>
-            Contents like TextBox, Image,..
+            Contents like TextBox, BudgetImage,..
             </remarks>
             <value>
             Content of the <see cref="T:Syncfusion.XlsIO.Implementation.Shapes.ShapeImpl"/>
@@ -39539,7 +39539,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.BusyIndicator.BusyImage">
             <summary>
-            Gets or sets the Busy Image which will be shown when doing some processing (For example, loading a workbook)
+            Gets or sets the Busy BudgetImage which will be shown when doing some processing (For example, loading a workbook)
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.ContextMenuStyleInfo">

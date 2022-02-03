@@ -297,7 +297,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\ChartData.cs" />
-    <Compile Include="Badger\Chart\BudgetChart.cs">
+    <Compile Include="Badger\Chart\BudgetExecutionChart.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\IBudgetChart.cs" />
@@ -311,8 +311,7 @@
     <Compile Include="Badger\Chart\BindingModel\ChartBinding.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Format\AlignConfig.cs" />
-    <Compile Include="Badger\Format\AlignFormat.cs" />
+    <Compile Include="Badger\ConfigFormat\BudgetAlign.cs" />
     <Compile Include="Badger\Dialog\Column\ColumnConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,12 +324,10 @@
     <Compile Include="Badger\Dialog\Message\Message.Designer.cs">
       <DependentUpon>Message.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Format\BorderConfig.cs" />
-    <Compile Include="Badger\Format\BorderFormat.cs" />
-    <Compile Include="Badger\Format\ChartConfig.cs" />
-    <Compile Include="Badger\Format\ColorConfig.cs" />
-    <Compile Include="Badger\Format\ColorForrmat.cs" />
-    <Compile Include="Badger\Format\ControlConfig.cs" />
+    <Compile Include="Badger\ConfigFormat\BudgetBorder.cs" />
+    <Compile Include="Badger\ConfigFormat\BudgetChart.cs" />
+    <Compile Include="Badger\ConfigFormat\BudgetColor.cs" />
+    <Compile Include="Badger\ConfigFormat\BudgetControl.cs" />
     <Compile Include="Badger\Excel\ExcelData.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -385,7 +382,7 @@
     <Compile Include="Badger\Toolbar\BarTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\BudgetImage\BudgetImage.cs" />
+    <Compile Include="Badger\BudgetImage\ExecutionImage.cs" />
     <Compile Include="Badger\Calculator\BudgetCalculator.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -410,12 +407,6 @@
     </Compile>
     <Compile Include="Badger\Calendar\CalendarForm.Designer.cs">
       <DependentUpon>CalendarForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Badger\DataGrid\DataGridForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Badger\DataGrid\DataGridForm.Designer.cs">
-      <DependentUpon>DataGridForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Badger\Dialog\Error\Error.cs">
       <SubType>Form</SubType>
@@ -542,10 +533,9 @@
     <Compile Include="Extensions\FileStreamExtensions.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Badger\Excel\sheet\ISpreadsheet.cs" />
-    <Compile Include="Badger\Format\FontConfig.cs" />
-    <Compile Include="Badger\Format\FontFormat.cs" />
-    <Compile Include="Badger\Format\FormConfig.cs" />
-    <Compile Include="Badger\Format\IChartConfig.cs" />
+    <Compile Include="Badger\ConfigFormat\BudgetFont.cs" />
+    <Compile Include="Badger\ConfigFormat\BudgetForm.cs" />
+    <Compile Include="Badger\ConfigFormat\IChartConfig.cs" />
     <Compile Include="Badger\Control\IDataControl.cs" />
     <Compile Include="Badger\Binding\IBindingSource.cs" />
     <Compile Include="Badger\Binding\IDataSource.cs" />
@@ -561,7 +551,7 @@
     <Compile Include="Badger\Label\BudgetLabel.cs" />
     <Compile Include="Badger\BudgetImage\IBudgetImage.cs" />
     <Compile Include="Badger\BudgetImage\ImageBuilder.cs" />
-    <Compile Include="Badger\BudgetImage\ImageConfig.cs" />
+    <Compile Include="Badger\BudgetImage\BudgetImage.cs" />
     <Compile Include="Badger\BudgetImage\ImageFactory.cs" />
     <Compile Include="Badger\BudgetImage\ImageList.cs">
       <SubType>Component</SubType>
@@ -733,7 +723,7 @@
     <Compile Include="Enumerations\Numeric.cs" />
     <Compile Include="Enumerations\OutlayType.cs" />
     <Compile Include="Enumerations\PrimaryKey.cs" />
-    <Compile Include="Badger\PictureBox\PictureBoxBase.cs">
+    <Compile Include="Badger\PictureBox\PictureBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
@@ -750,8 +740,7 @@
     <Compile Include="Badger\Excel\sheet\SheetPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Format\SizeConfig.cs" />
-    <Compile Include="Badger\Format\SizeFomat.cs" />
+    <Compile Include="Badger\ConfigFormat\BudgetSize.cs" />
     <Compile Include="Badger\Chart\SeriesModel\SourceModel.cs" />
     <Compile Include="Static\Resource.cs" />
     <Compile Include="Static\Static.cs" />
@@ -783,11 +772,11 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\SeriesModel\TitleInfo.cs" />
-    <Compile Include="Badger\Form\BudgetForm.cs">
+    <Compile Include="Badger\Form\ExecutionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Badger\Form\BudgetForm.Designer.cs">
-      <DependentUpon>BudgetForm.cs</DependentUpon>
+    <Compile Include="Badger\Form\ExecutionForm.Designer.cs">
+      <DependentUpon>ExecutionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Badger\Test\TestForm.cs">
       <SubType>Form</SubType>
@@ -812,9 +801,6 @@
     <EmbeddedResource Include="Badger\Calendar\CalendarForm.resx">
       <DependentUpon>CalendarForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Badger\DataGrid\DataGridForm.resx">
-      <DependentUpon>DataGridForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Badger\Calculator\CalculatorBase.resx">
       <DependentUpon>CalculatorBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -832,8 +818,8 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Badger\Toolbar\ToolBarControl.resx" />
-    <EmbeddedResource Include="Badger\Form\BudgetForm.resx">
-      <DependentUpon>BudgetForm.cs</DependentUpon>
+    <EmbeddedResource Include="Badger\Form\ExecutionForm.resx">
+      <DependentUpon>ExecutionForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".editorconfig" />
     <None Include="App.config" />

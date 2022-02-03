@@ -61,7 +61,7 @@ namespace BudgetExecution
         /// <value>
         /// The header image.
         /// </value>
-        public Image HeaderImage { get; set; }
+        public System.Drawing.Image HeaderImage { get; set; }
 
         /// <summary>
         /// Gets or sets the footer image.
@@ -69,7 +69,7 @@ namespace BudgetExecution
         /// <value>
         /// The footer image.
         /// </value>
-        public Image FooterImage { get; set; }
+        public System.Drawing.Image FooterImage { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "ReportFormat"/> class.

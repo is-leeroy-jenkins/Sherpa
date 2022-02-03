@@ -149,7 +149,7 @@ namespace BudgetExecution
                 Legend.ItemsSize = size;
                 Legend.VisibleCheckBox = true;
                 Legend.BackInterior = new BrushInfo( backColor );
-                Legend.ItemsAlignment = AlignConfig.GetStringAlignment( StringAlignment.Center );
+                Legend.ItemsAlignment = BudgetAlign.GetStringAlignment( StringAlignment.Center );
                 Legend.ItemsTextAligment = VerticalAlignment.Center;
                 Legend.Orientation = ChartOrientation.Vertical;
                 Legend.FloatingAutoSize = true;

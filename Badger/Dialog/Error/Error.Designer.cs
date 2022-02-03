@@ -107,7 +107,8 @@
 
         #endregion
 
-        private VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox TextBox;
-        private VisualPlus.Toolkit.Controls.Layout.VisualPanel Panel;
+        public VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox TextBox;
+
+        public VisualPlus.Toolkit.Controls.Layout.VisualPanel Panel;
     }
 }

@@ -35,8 +35,8 @@ namespace BudgetExecution
             InitializeComponent();
             Margin = new Padding( 5, 5, 5, 0 );
             Padding = new Padding( 1, 1, 1, 0 );
-            Dock = ControlConfig.GetDockStyle( DockStyle.Bottom );
-            Anchor = ControlConfig.GetAnchorStyle();
+            Dock = BudgetControl.GetDockStyle( DockStyle.Bottom );
+            Anchor = BudgetControl.GetAnchorStyle();
             BorderStyle = BorderStyle.None;
             AutoScaleMode = AutoScaleMode.Dpi;
             DoubleBuffered = true;

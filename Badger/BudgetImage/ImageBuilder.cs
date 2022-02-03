@@ -10,17 +10,24 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.BudgetImage" />
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class ImageBuilder : ImageConfig
-    {
+    public class ImageBuilder : BudgetImage
+    { 
         /// <summary>
-        /// The file path
+        /// Gets or sets the full path.
         /// </summary>
+        /// <value>
+        /// The full path.
+        /// </value>
         public string FullPath { get; set; }
-        
+
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ImageBuilder"/> class.
+        /// Initializes a new instance of the <see cref="ImageBuilder"/> class.
         /// </summary>
         public ImageBuilder()
         {
@@ -29,7 +36,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageBuilder"/> class.
         /// </summary>
-        /// <param name="fullPath">The fullPath.</param>
+        /// <param name="fullPath">The full path.</param>
         public ImageBuilder( string fullPath )
         {
             FullPath = fullPath;
@@ -56,17 +63,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ImageBuilder"/> class.
+        /// Initializes a new instance of the <see cref="ImageBuilder"/> class.
         /// </summary>
-        /// <param name = "name" >
-        /// The name.
-        /// </param>
-        /// <param name = "source" >
-        /// The resource.
-        /// </param>
-        /// <param name = "size" >
-        /// The size.
-        /// </param>
+        /// <param name="name">The name.</param>
+        /// <param name="source">The source.</param>
+        /// <param name="size">The size.</param>
         public ImageBuilder( string name, ImageSource source, ImageSizer size = ImageSizer.Medium )
         {
             ImageName = name;
@@ -78,20 +79,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ImageBuilder"/> class.
+        /// Initializes a new instance of the <see cref="ImageBuilder"/> class.
         /// </summary>
-        /// <param name = "name" >
-        /// The name.
-        /// </param>
-        /// <param name = "source" >
-        /// The resource.
-        /// </param>
-        /// <param name = "width" >
-        /// The width.
-        /// </param>
-        /// <param name = "height" >
-        /// The height.
-        /// </param>
+        /// <param name="name">The name.</param>
+        /// <param name="source">The source.</param>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
         public ImageBuilder( string name, ImageSource source, int width = 16,
             int height = 16 )
         {
@@ -105,17 +98,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ImageBuilder"/> class.
+        /// Initializes a new instance of the <see cref="ImageBuilder"/> class.
         /// </summary>
-        /// <param name = "name" >
-        /// The name.
-        /// </param>
-        /// <param name = "source" >
-        /// The resource.
-        /// </param>
-        /// <param name = "size" >
-        /// The size.
-        /// </param>
+        /// <param name="name">The name.</param>
+        /// <param name="source">The source.</param>
+        /// <param name="size">The size.</param>
         public ImageBuilder( string name, ImageSource source, Size size )
         {
             ImageName = name;
@@ -126,17 +113,13 @@ namespace BudgetExecution
             Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
             ImageSize = size;
         }
-        
+
         /// <summary>
-        /// Sets the file path.
+        /// Gets the image file path.
         /// </summary>
-        /// <param name = "imageSource" >
-        /// The imageSource.
-        /// </param>
-        /// <param name = "filePath" >
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="filePath">The file path.</param>
+        /// <param name="imageSource">The image source.</param>
+        /// <returns></returns>
         private protected string GetImageFilePath( string filePath, ImageSource imageSource )
         {
             if( Validate.ImageResource( imageSource )
@@ -168,7 +151,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the image file path.
         /// </summary>
-        /// <param name="filePath">The filePath.</param>
+        /// <param name="filePath">The file path.</param>
         /// <returns></returns>
         private protected string GetImageFilePath( string filePath )
         {
@@ -184,12 +167,11 @@ namespace BudgetExecution
                 return string.Empty;
             }
         }
-        
+
         /// <summary>
         /// Gets the extenstion.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public ImageFormat GetExtenstion()
         {
             try
@@ -206,10 +188,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the resource manager.
+        /// Gets the file stream.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public FileStream GetFileStream()
         {
             try

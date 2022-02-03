@@ -24,8 +24,8 @@ namespace BudgetExecution
             Margin = new Padding( 5, 5, 5, 5 );
             Padding = new Padding( 0 );
             Size = new Size( 150, 23 );
-            ForeColor = ColorConfig.ForeColorBlack;
-            Font = FontConfig.FontSizeSmall;
+            ForeColor = BudgetColor.ForeColorBlack;
+            Font = BudgetFont.FontSizeSmall;
             Visible = true;
             Enabled = true;
             Name = "Label";
@@ -39,7 +39,7 @@ namespace BudgetExecution
         public BarLabel( string text )
             : this()
         {
-            Text = ControlConfig.GetText( text );
+            Text = BudgetControl.GetText( text );
             MouseHover += OnMouseHover;
         }
         
@@ -66,8 +66,8 @@ namespace BudgetExecution
         {
             try
             {
-                ForeColor = ColorConfig.GetColor( color );
-                Text = ControlConfig.GetText( text );
+                ForeColor = BudgetColor.GetColor( color );
+                Text = BudgetControl.GetText( text );
             }
             catch( Exception ex )
             {
@@ -83,9 +83,9 @@ namespace BudgetExecution
         {
             try
             {
-                Font = FontConfig.GetFont( font );
-                ForeColor = ColorConfig.GetColor( color );
-                Text = ControlConfig.GetText( text );
+                Font = BudgetFont.GetFont( font );
+                ForeColor = BudgetColor.GetColor( color );
+                Text = BudgetControl.GetText( text );
             }
             catch( Exception ex )
             {

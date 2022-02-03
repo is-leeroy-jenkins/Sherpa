@@ -54,37 +54,37 @@ namespace BudgetExecution
         public BudgetGroupBox()
         {
             // Basic Property Configuration.
-            Size = SizeConfig.GetSize( 700, 431 );
-            Location = ControlConfig.GetLocation();
-            Anchor = ControlConfig.GetAnchorStyle();
-            Dock = ControlConfig.GetDockStyle();
+            Size = BudgetSize.GetSize( 700, 431 );
+            Location = BudgetControl.GetLocation();
+            Anchor = BudgetControl.GetAnchorStyle();
+            Dock = BudgetControl.GetDockStyle();
             Visible = true;
             Enabled = true;
-            BackColor = ColorConfig.ControlInteriorColorDark;
-            ForeColor = ColorConfig.ForeColorGray;
-            Font = FontConfig.FontSizeSmall;
-            Margin = ControlConfig.Margin;
-            Padding = ControlConfig.Padding;
+            BackColor = BudgetColor.ControlInteriorColorDark;
+            ForeColor = BudgetColor.ForeColorGray;
+            Font = BudgetFont.FontSizeSmall;
+            Margin = BudgetControl.Margin;
+            Padding = BudgetControl.Padding;
 
             // Border Configuration.
             Border.Type = ShapeTypes.Rounded;
-            Border.Color = ColorConfig.BorderColorDark;
-            Border.Thickness = BorderConfig.Thin;
-            Border.HoverColor = ColorConfig.BorderColorDark;
+            Border.Color = BudgetColor.BorderColorDark;
+            Border.Thickness = BudgetBorder.Thin;
+            Border.HoverColor = BudgetColor.BorderColorDark;
             Border.HoverVisible = true;
 
             // BackColor Configuration.
-            BackColorState.Disabled = ColorConfig.FormBackColorDark;
-            BackColorState.Enabled = ColorConfig.ControlInteriorColorDark;
+            BackColorState.Disabled = BudgetColor.FormBackColorDark;
+            BackColorState.Enabled = BudgetColor.ControlInteriorColorDark;
 
             // Text Configuration.
-            TextAlignment = AlignConfig.StringAlignCenter;
-            TextLineAlignment = AlignConfig.StringAlignCenter;
+            TextAlignment = BudgetAlign.StringAlignCenter;
+            TextLineAlignment = BudgetAlign.StringAlignCenter;
             TitleBoxHeight = 30;
 
             // Style Configuration.
             BoxStyle = GroupBoxStyle.Default;
-            SeparatorColor = ColorConfig.BorderColorDark;
+            SeparatorColor = BudgetColor.BorderColorDark;
             Separate = true;
         }
 
@@ -98,8 +98,8 @@ namespace BudgetExecution
         public BudgetGroupBox( Size size, Point location )
             : this()
         {
-            Size = SizeConfig.GetSize( size );
-            Location = ControlConfig.GetLocation( location );
+            Size = BudgetSize.GetSize( size );
+            Location = BudgetControl.GetLocation( location );
         }
 
         /// <summary>
@@ -112,11 +112,11 @@ namespace BudgetExecution
         public BudgetGroupBox( Point location, Control parent = null )
             : this()
         {
-            Location = ControlConfig.GetLocation( location );
+            Location = BudgetControl.GetLocation( location );
 
             if( parent != null )
             {
-                Parent = ControlConfig.GetParent( parent );
+                Parent = BudgetControl.GetParent( parent );
                 Parent.Controls.Add( this );
             }
         }
@@ -131,11 +131,11 @@ namespace BudgetExecution
         public BudgetGroupBox( Size size, Control parent = null )
             : this()
         {
-            Size = SizeConfig.GetSize( size );
+            Size = BudgetSize.GetSize( size );
 
             if( parent != null )
             {
-                Parent = ControlConfig.GetParent( parent );
+                Parent = BudgetControl.GetParent( parent );
                 Parent.Controls.Add( this );
             }
         }
@@ -151,9 +151,9 @@ namespace BudgetExecution
         public BudgetGroupBox( Size size, Point location, Control parent )
             : this()
         {
-            Size = SizeConfig.GetSize( size );
-            Location = ControlConfig.GetLocation( location );
-            Parent = ControlConfig.GetParent( parent );
+            Size = BudgetSize.GetSize( size );
+            Location = BudgetControl.GetLocation( location );
+            Parent = BudgetControl.GetParent( parent );
             Parent.Controls.Add( this );
         }
 
@@ -220,8 +220,8 @@ namespace BudgetExecution
                     case true:
                     {
                         Border.Color = Color.FromArgb( 64, 64, 64 );
-                        Border.Thickness = BorderConfig.Thin;
-                        Border.HoverColor = ColorConfig.BorderColorDark;
+                        Border.Thickness = BudgetBorder.Thin;
+                        Border.HoverColor = BudgetColor.BorderColorDark;
                         Border.HoverVisible = true;
                         SeparatorColor = Color.FromArgb( 64, 64, 64 );
                         Separate = true;
@@ -231,11 +231,11 @@ namespace BudgetExecution
 
                     case false:
                     {
-                        Border.Color = ColorConfig.FormBackColorDark;
-                        Border.Thickness = BorderConfig.Thin;
-                        Border.HoverColor = ColorConfig.FormBackColorDark;
+                        Border.Color = BudgetColor.FormBackColorDark;
+                        Border.Thickness = BudgetBorder.Thin;
+                        Border.HoverColor = BudgetColor.FormBackColorDark;
                         Border.HoverVisible = false;
-                        SeparatorColor = ColorConfig.FormBackColorDark;
+                        SeparatorColor = BudgetColor.FormBackColorDark;
                         Separate = false;
                         Border.Type = ShapeTypes.Rounded;
                         break;

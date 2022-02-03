@@ -15,7 +15,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "NotAccessedField.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
-    public class ImageFactory : ImageConfig
+    public class ImageFactory : BudgetImage
     {
         /// <summary>
         /// The builder

@@ -49,7 +49,7 @@ namespace BudgetExecution
         DateTime,
 
         /// <summary>
-        /// Defines the Image
+        /// Defines the BudgetImage
         /// </summary>
         Image,
 

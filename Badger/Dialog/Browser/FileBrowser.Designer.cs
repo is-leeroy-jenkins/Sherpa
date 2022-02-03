@@ -65,7 +65,7 @@ namespace BudgetExecution
             this.XlsxCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.XlsCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.Header = new System.Windows.Forms.TableLayoutPanel();
-            this.PictureBox = new BudgetExecution.BudgetPicture();
+            this.Picture = new BudgetExecution.BudgetPicture();
             this.CloseBoxPanel1 = new BudgetExecution.CloseBox();
             this.Dialog = new System.Windows.Forms.OpenFileDialog();
             this.visualSeparator1 = new VisualPlus.Toolkit.Controls.Layout.VisualSeparator();
@@ -74,7 +74,7 @@ namespace BudgetExecution
             this.Table.SuspendLayout();
             this.Table3.SuspendLayout();
             this.Header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
             this.SuspendLayout();
             // 
             // visualLabel1
@@ -300,7 +300,7 @@ namespace BudgetExecution
             this.visualCheckBox6.CheckStyle.Character = '✔';
             this.visualCheckBox6.CheckStyle.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(136)))), ((int)(((byte)(45)))));
             this.visualCheckBox6.CheckStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visualCheckBox6.CheckStyle.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.visualCheckBox6.CheckStyle.Image = ((System.Drawing.Image)(resources.GetObject("resource.BudgetImage")));
             this.visualCheckBox6.CheckStyle.ShapeRounding = 3;
             this.visualCheckBox6.CheckStyle.ShapeType = VisualPlus.Enumerators.ShapeTypes.Rounded;
             this.visualCheckBox6.CheckStyle.Style = VisualPlus.Models.CheckStyle.CheckType.Checkmark;
@@ -731,7 +731,7 @@ namespace BudgetExecution
             this.Header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.13187F));
             this.Header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.86813F));
             this.Header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.Header.Controls.Add(this.PictureBox, 0, 0);
+            this.Header.Controls.Add(this.Picture, 0, 0);
             this.Header.Controls.Add(this.CloseBoxPanel1, 2, 0);
             this.Header.Controls.Add(this.visualLabel1, 1, 0);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
@@ -744,24 +744,24 @@ namespace BudgetExecution
             this.Header.Size = new System.Drawing.Size(668, 26);
             this.Header.TabIndex = 1;
             // 
-            // PictureBox
+            // Picture
             // 
-            this.PictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBox.BindingSource = null;
-            this.PictureBox.DataFilter = null;
-            this.PictureBox.Field = BudgetExecution.Field.NS;
-            this.PictureBox.HoverText = null;
-            this.PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox.Image")));
-            this.PictureBox.ImageList = null;
-            this.PictureBox.Location = new System.Drawing.Point(0, 0);
-            this.PictureBox.Margin = new System.Windows.Forms.Padding(0);
-            this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Padding = new System.Windows.Forms.Padding(1);
-            this.PictureBox.Size = new System.Drawing.Size(26, 16);
-            this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBox.TabIndex = 2;
-            this.PictureBox.TabStop = false;
-            this.PictureBox.ToolTip = null;
+            this.Picture.BackColor = System.Drawing.Color.Transparent;
+            this.Picture.BindingSource = null;
+            this.Picture.DataFilter = null;
+            this.Picture.Field = BudgetExecution.Field.NS;
+            this.Picture.HoverText = null;
+            this.Picture.Image = ((System.Drawing.Image)(resources.GetObject("Picture.BudgetImage")));
+            this.Picture.ImageList = null;
+            this.Picture.Location = new System.Drawing.Point(0, 0);
+            this.Picture.Margin = new System.Windows.Forms.Padding(0);
+            this.Picture.Name = "Picture";
+            this.Picture.Padding = new System.Windows.Forms.Padding(1);
+            this.Picture.Size = new System.Drawing.Size(26, 16);
+            this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Picture.TabIndex = 2;
+            this.Picture.TabStop = false;
+            this.Picture.ToolTip = null;
             // 
             // closePanel1
             // 
@@ -853,7 +853,7 @@ namespace BudgetExecution
             this.CaptionFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
             captionImage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            captionImage1.Image = ((System.Drawing.Image)(resources.GetObject("captionImage1.Image")));
+            captionImage1.Image = ((System.Drawing.Image)(resources.GetObject("captionImage1.BudgetImage")));
             captionImage1.Location = new System.Drawing.Point(20, 10);
             captionImage1.Name = "PdfImage";
             captionImage1.Size = new System.Drawing.Size(25, 20);
@@ -882,7 +882,7 @@ namespace BudgetExecution
             this.Table.ResumeLayout(false);
             this.Table3.ResumeLayout(false);
             this.Header.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
             this.ResumeLayout(false);
 
             }
@@ -912,7 +912,7 @@ namespace BudgetExecution
         public VisualCheckBox visualCheckBox5;
         public VisualSeparator visualSeparator1;
         private VisualSeparator visualSeparator2;
-        public PictureBoxBase PictureBox;
+        public PictureBase Picture;
         public CloseBoxBase CloseBoxPanel1;
         public BudgetLabel SideLabel;
         public TableLayoutPanel Header;

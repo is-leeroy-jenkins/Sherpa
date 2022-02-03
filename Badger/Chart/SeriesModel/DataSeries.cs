@@ -98,8 +98,8 @@ namespace BudgetExecution
             EnableStyles = Config.EnableStyles;
             OptimizePiePointPositions = Config.OptimizePiePointPositions;
             LegendItemUseSeriesStyle = Config.LegendItemUseSeriesStyle;
-            SmartLabelsBorderColor = ColorConfig.BorderColorBlue;
-            SmartLabelsBorderWidth = BorderConfig.Thin;
+            SmartLabelsBorderColor = BudgetColor.BorderColorBlue;
+            SmartLabelsBorderWidth = BudgetBorder.Thin;
         }
 
         /// <summary>
@@ -112,9 +112,9 @@ namespace BudgetExecution
                 Style.Callout.Enable = true;
                 Style.Callout.Position = LabelPosition.Top;
                 Style.Callout.DisplayTextAndFormat = "{0} : {2}";
-                Style.Callout.Border.Color = ColorConfig.BorderColorBlue;
-                Style.Callout.Color = ColorConfig.FormBackColorDark;
-                Style.Callout.Font = ChartConfig.SetFont( FontConfig.FontSizeSmall );
+                Style.Callout.Border.Color = BudgetColor.BorderColorBlue;
+                Style.Callout.Color = BudgetColor.FormBackColorDark;
+                Style.Callout.Font = BudgetChart.SetFont( BudgetFont.FontSizeSmall );
                 Style.DisplayText = true;
             }
             catch( Exception ex )

@@ -46,7 +46,7 @@ namespace BudgetExecution
         {
             try
             {
-                Font = FontConfig.GetFont( font );
+                Font = BudgetFont.GetFont( font );
             }
             catch( Exception ex )
             {
@@ -62,7 +62,7 @@ namespace BudgetExecution
         {
             try
             {
-                ForeColor = ColorConfig.GetColor( color );
+                ForeColor = BudgetColor.GetColor( color );
             }
             catch( Exception ex )
             {
@@ -78,7 +78,7 @@ namespace BudgetExecution
         {
             try
             {
-                BackColor = ColorConfig.GetColor( color );
+                BackColor = BudgetColor.GetColor( color );
             }
             catch( Exception ex )
             {
@@ -94,7 +94,7 @@ namespace BudgetExecution
         {
             try
             {
-                Field = FormConfig.GetField( field );
+                Field = BudgetForm.GetField( field );
             }
             catch( Exception ex )
             {
@@ -110,7 +110,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tag = ControlConfig.GetTag( tag );
+                Tag = BudgetControl.GetTag( tag );
             }
             catch( Exception ex )
             {
@@ -128,7 +128,7 @@ namespace BudgetExecution
 
             try
             {
-                HoverText = ControlConfig.GetText( _text );
+                HoverText = BudgetControl.GetText( _text );
             }
             catch( Exception ex )
             {
@@ -144,7 +144,7 @@ namespace BudgetExecution
         {
             try
             {
-                HoverText = ControlConfig.GetText( text );
+                HoverText = BudgetControl.GetText( text );
             }
             catch( Exception ex )
             {

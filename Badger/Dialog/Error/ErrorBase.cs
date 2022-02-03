@@ -9,10 +9,12 @@ namespace BudgetExecution
     using System.Collections.Specialized;
     using System.Drawing;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using VisualPlus.Toolkit.Controls.Editors;
 
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
-    public abstract partial class ErrorBase : MetroForm
+    public partial class ErrorBase : MetroForm
     {
         /// <summary>
         /// The application setting
@@ -42,22 +44,22 @@ namespace BudgetExecution
         public ErrorBase()
         {
             // Form Property Values
-            BackColor = ColorConfig.FormBackColorDark;
-            BorderThickness = BorderConfig.Thin;
-            BorderColor = ColorConfig.BorderColorRed;
-            Size = SizeConfig.FormSizeNormal;
-            Font = FontConfig.FontSizeSmall;
-            CaptionBarColor = ColorConfig.FormBackColorDark;
-            CaptionBarHeight = SizeConfig.CaptionSizeNormal;
-            CaptionButtonColor = ColorConfig.CaptionButtonDefaultColor;
-            CaptionButtonHoverColor = ColorConfig.CaptionButtonHoverColor;
-            CaptionAlign = AlignConfig.HorizontalLeft;
-            CaptionFont = FontConfig.FontSizeMedium;
-            MetroColor = ColorConfig.FormBackColorDark;
-            FormBorderStyle = BorderConfig.Sizeable;
+            BackColor = BudgetColor.FormBackColorDark;
+            BorderThickness = BudgetBorder.Thin;
+            BorderColor = BudgetColor.BorderColorRed;
+            Size = BudgetSize.FormSizeNormal;
+            Font = BudgetFont.FontSizeSmall;
+            CaptionBarColor = BudgetColor.FormBackColorDark;
+            CaptionBarHeight = BudgetSize.CaptionSizeNormal;
+            CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
+            CaptionButtonHoverColor = BudgetColor.CaptionButtonHoverColor;
+            CaptionAlign = BudgetAlign.HorizontalLeft;
+            CaptionFont = BudgetFont.FontSizeMedium;
+            MetroColor = BudgetColor.FormBackColorDark;
+            FormBorderStyle = BudgetBorder.Sizeable;
             ShowIcon = false;
             ShowInTaskbar = true;
-            Padding = ControlConfig.Padding;
+            Padding = BudgetControl.Padding;
             Text = string.Empty;
             IconPath = AppSetting[ "BudgetExecutionIcon" ];
             Size = new Size( 812, 486 );
@@ -73,30 +75,31 @@ namespace BudgetExecution
             Exception = ext;
             Text = "Error!";
         }
-
+        
         /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="Error"/> class.
+        /// Sets the text.
         /// </summary>
-        /// <param name="message">The message.</param>
-        public ErrorBase( string message )
+        public virtual void SetText()
         {
-            Text = message;
+            var _logString = Exception.ToLogString( "" );
+            Text = _logString;
         }
 
         /// <summary>
         /// Sets the text.
         /// </summary>
-        public abstract void SetText();
+        public virtual void SetText( Exception ex )
+        {
+            var _logString = ex.ToLogString( "" );
+            Text = _logString;
+        }
 
         /// <summary>
         /// Sets the text.
         /// </summary>
-        public abstract void SetText( Exception ex );
-
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
-        public abstract void SetText( string msg = "" );
+        public virtual void SetText( string msg = "" )
+        {
+            Text = msg;
+        }
     }
 }

@@ -51,14 +51,14 @@ namespace BudgetExecution
         /// </summary>
         public BudgetCalculator()
         {
-            Size = SizeConfig.GetSize( 400, 400 );
-            Location = ControlConfig.GetLocation();
-            BackColor = ColorConfig.FormBackColorDark;
-            ForeColor = ColorConfig.ForeColorGray;
-            Margin = ControlConfig.Margin;
-            Padding = ControlConfig.Padding;
-            Font = FontConfig.FontSizeMedium;
-            Anchor = ControlConfig.GetAnchorStyle();
+            Size = BudgetSize.GetSize( 400, 400 );
+            Location = BudgetControl.GetLocation();
+            BackColor = BudgetColor.FormBackColorDark;
+            ForeColor = BudgetColor.ForeColorGray;
+            Margin = BudgetControl.Margin;
+            Padding = BudgetControl.Padding;
+            Font = BudgetFont.FontSizeMedium;
+            Anchor = BudgetControl.GetAnchorStyle();
             Size = new Size( 450, 450 );
             Dock = DockStyle.Fill;
             Visible = true;
@@ -73,8 +73,8 @@ namespace BudgetExecution
         public BudgetCalculator( Size size, Point location )
             : this()
         {
-            Size = SizeConfig.GetSize( size );
-            Location = ControlConfig.GetLocation( location );
+            Size = BudgetSize.GetSize( size );
+            Location = BudgetControl.GetLocation( location );
         }
 
         /// <summary>

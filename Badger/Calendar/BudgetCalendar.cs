@@ -18,14 +18,14 @@ namespace BudgetExecution
         /// </summary>
         public BudgetCalendar()
         {
-            Size = SizeConfig.GetSize( 530, 375 );
-            Location = ControlConfig.GetLocation();
-            Font = FontConfig.FontSizeSmall;
-            Margin = ControlConfig.Margin;
-            ForeColor = ColorConfig.ForeColorGray;
-            BackColor = ColorConfig.FormBackColorDark;
-            Dock = ControlConfig.GetDockStyle();
-            Anchor = ControlConfig.GetAnchorStyle();
+            Size = BudgetSize.GetSize( 530, 375 );
+            Location = BudgetControl.GetLocation();
+            Font = BudgetFont.FontSizeSmall;
+            Margin = BudgetControl.Margin;
+            ForeColor = BudgetColor.ForeColorGray;
+            BackColor = BudgetColor.FormBackColorDark;
+            Dock = BudgetControl.GetDockStyle();
+            Anchor = BudgetControl.GetAnchorStyle();
             Visible = true;
             Enabled = true;
             Style = VisualStyle.Office2010;
@@ -35,10 +35,10 @@ namespace BudgetExecution
             BorderStyle = BorderStyle.FixedSingle;
             FirstDayOfWeek = Day.Monday;
             BottomHeight = 30;
-            DayNamesColor = ColorConfig.FormBackColorDark;
+            DayNamesColor = BudgetColor.FormBackColorDark;
             DayNamesFont = new Font( "Roboto", 10, FontStyle.Bold );
-            DaysFont = FontConfig.FontSizeMedium;
-            DaysColor = ColorConfig.FormBackColorDark;
+            DaysFont = BudgetFont.FontSizeMedium;
+            DaysColor = BudgetColor.FormBackColorDark;
             DaysHeaderInterior = new BrushInfo( SystemColors.ControlDark );
             HeadForeColor = Color.White;
             HeaderHeight = 40;

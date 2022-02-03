@@ -35,20 +35,20 @@ namespace BudgetExecution
         /// </summary>
         public BudgetLabel()
         {
-            Size = SizeConfig.GetSize( 165, 23 );
-            Location = ControlConfig.GetLocation();
-            BackColor = ColorConfig.FormBackColorDark;
-            ForeColor = ColorConfig.ForeColorGray;
-            Font = FontConfig.FontSizeSmall;
-            Margin = ControlConfig.Margin;
-            Padding = ControlConfig.Padding;
-            Anchor = ControlConfig.GetAnchorStyle();
-            Dock = ControlConfig.GetDockStyle();
+            Size = BudgetSize.GetSize( 165, 23 );
+            Location = BudgetControl.GetLocation();
+            BackColor = BudgetColor.FormBackColorDark;
+            ForeColor = BudgetColor.ForeColorGray;
+            Font = BudgetFont.FontSizeSmall;
+            Margin = BudgetControl.Margin;
+            Padding = BudgetControl.Padding;
+            Anchor = BudgetControl.GetAnchorStyle();
+            Dock = BudgetControl.GetDockStyle();
             Enabled = true;
             Visible = true;
-            TextAlignment = AlignConfig.StringAlignCenter;
-            TextLineAlignment = AlignConfig.StringAlignCenter;
-            OutlineColor = ColorConfig.FormBackColorDark;
+            TextAlignment = BudgetAlign.StringAlignCenter;
+            TextLineAlignment = BudgetAlign.StringAlignCenter;
+            OutlineColor = BudgetColor.FormBackColorDark;
         }
 
         /// <summary>
@@ -61,8 +61,8 @@ namespace BudgetExecution
         public BudgetLabel( Size size, Point location )
             : this()
         {
-            Size = SizeConfig.GetSize( size );
-            Location = ControlConfig.GetLocation( location );
+            Size = BudgetSize.GetSize( size );
+            Location = BudgetControl.GetLocation( location );
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace BudgetExecution
         public BudgetLabel( Size size, Point location, Control parent )
             : this( size, location )
         {
-            Parent = ControlConfig.GetParent( parent );
+            Parent = BudgetControl.GetParent( parent );
             Parent.Controls.Add( this );
         }
 

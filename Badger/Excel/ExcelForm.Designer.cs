@@ -48,12 +48,12 @@ namespace BudgetExecution
             this.Table = new System.Windows.Forms.TableLayoutPanel();
             this.CloseBoxBox = new BudgetExecution.CloseBox();
             this.Label = new BudgetExecution.BudgetLabel();
-            this.PictureBox = new BudgetExecution.BudgetPicture();
+            this.Picture = new BudgetExecution.BudgetPicture();
             this._backBase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BudgetBinding)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ribbon)).BeginInit();
             this.Table.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
             this.SuspendLayout();
             // 
             // BackPanel
@@ -197,7 +197,7 @@ namespace BudgetExecution
             this.Table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
             this.Table.Controls.Add(this.CloseBoxBox, 2, 0);
             this.Table.Controls.Add(this.Label, 1, 0);
-            this.Table.Controls.Add(this.PictureBox, 0, 0);
+            this.Table.Controls.Add(this.Picture, 0, 0);
             this.Table.Dock = System.Windows.Forms.DockStyle.Top;
             this.Table.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Table.Location = new System.Drawing.Point(1, 1);
@@ -274,24 +274,24 @@ namespace BudgetExecution
             this.Label.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.Label.ToolTip = null;
             // 
-            // PictureBox
+            // Picture
             // 
-            this.PictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBox.BindingSource = null;
-            this.PictureBox.DataFilter = null;
-            this.PictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PictureBox.Field = BudgetExecution.Field.NS;
-            this.PictureBox.HoverText = null;
-            this.PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox.Image")));
-            this.PictureBox.ImageList = null;
-            this.PictureBox.Location = new System.Drawing.Point(3, 3);
-            this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Padding = new System.Windows.Forms.Padding(1);
-            this.PictureBox.Size = new System.Drawing.Size(63, 20);
-            this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBox.TabIndex = 2;
-            this.PictureBox.TabStop = false;
-            this.PictureBox.ToolTip = null;
+            this.Picture.BackColor = System.Drawing.Color.Transparent;
+            this.Picture.BindingSource = null;
+            this.Picture.DataFilter = null;
+            this.Picture.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Picture.Field = BudgetExecution.Field.NS;
+            this.Picture.HoverText = null;
+            this.Picture.Image = ((System.Drawing.Image)(resources.GetObject("Picture.BudgetImage")));
+            this.Picture.ImageList = null;
+            this.Picture.Location = new System.Drawing.Point(3, 3);
+            this.Picture.Name = "Picture";
+            this.Picture.Padding = new System.Windows.Forms.Padding(1);
+            this.Picture.Size = new System.Drawing.Size(63, 20);
+            this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Picture.TabIndex = 2;
+            this.Picture.TabStop = false;
+            this.Picture.ToolTip = null;
             // 
             // ExcelForm
             // 
@@ -326,7 +326,7 @@ namespace BudgetExecution
             ((System.ComponentModel.ISupportInitialize)(this.BudgetBinding)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ribbon)).EndInit();
             this.Table.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -359,9 +359,9 @@ namespace BudgetExecution
         public BudgetLabel Label;
 
         /// <summary>
-        /// The PictureBox
+        /// The Picture
         /// </summary>
-        public PictureBoxBase PictureBox;
+        public PictureBase Picture;
         /// <summary>
         /// The back panel
         /// </summary>

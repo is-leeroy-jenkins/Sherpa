@@ -7600,7 +7600,7 @@
             <param name="valueAsString"></param>
             <param name="returnValue"></param>
             <param name="allowConvertFromBase64">Indicates whether TypeConverter should be checked whether the type to be
-            parsed supports conversion to/from byte array (e.g. an Image)</param>
+            parsed supports conversion to/from byte array (e.g. an BudgetImage)</param>
             <returns></returns>
         </member>
         <member name="M:Syncfusion.Data.Helper.ValueConvert.FormatValueWithTypeInformation(System.Object)">
@@ -7616,7 +7616,7 @@
             </summary>
             <param name="value"></param>
             <param name="allowConvertToBase64">Indicates whether TypeConverter should be checked whether the type to be
-            parsed supports conversion to/from byte array (e.g. an Image)</param>
+            parsed supports conversion to/from byte array (e.g. an BudgetImage)</param>
             <returns></returns>
         </member>
         <member name="M:Syncfusion.Data.Helper.ValueConvert.GetTypeName(System.Type)">

@@ -34,23 +34,23 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form Property Values
-            BackColor = ColorConfig.FormBackColorDark;
-            BorderThickness = BorderConfig.Thin;
-            BorderColor = ColorConfig.BorderColorBlue;
-            Size = SizeConfig.FormSizeNormal;
-            Font = FontConfig.FontSizeSmall;
-            CaptionBarColor = ColorConfig.FormBackColorDark;
-            CaptionBarHeight = SizeConfig.CaptionSizeNormal;
-            CaptionButtonColor = ColorConfig.CaptionButtonDefaultColor;
-            CaptionButtonHoverColor = ColorConfig.CaptionButtonHoverColor;
-            CaptionAlign = AlignConfig.HorizontalLeft;
-            CaptionFont = FontConfig.FontSizeMedium;
-            MetroColor = ColorConfig.FormBackColorDark;
-            FormBorderStyle = BorderConfig.Sizeable;
+            BackColor = BudgetColor.FormBackColorDark;
+            BorderThickness = BudgetBorder.Thin;
+            BorderColor = BudgetColor.BorderColorBlue;
+            Size = BudgetSize.FormSizeNormal;
+            Font = BudgetFont.FontSizeSmall;
+            CaptionBarColor = BudgetColor.FormBackColorDark;
+            CaptionBarHeight = BudgetSize.CaptionSizeNormal;
+            CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
+            CaptionButtonHoverColor = BudgetColor.CaptionButtonHoverColor;
+            CaptionAlign = BudgetAlign.HorizontalLeft;
+            CaptionFont = BudgetFont.FontSizeMedium;
+            MetroColor = BudgetColor.FormBackColorDark;
+            FormBorderStyle = BudgetBorder.Sizeable;
             Icon = new Icon( @"C:\Users\terry\source\repos\BudgetExecution\Etc\epa.ico", 33, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            Padding = ControlConfig.Padding;
+            Padding = BudgetControl.Padding;
             Text = string.Empty;
         }
 

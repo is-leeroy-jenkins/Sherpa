@@ -1101,7 +1101,7 @@
             <param name="valueAsString">Represents the string value.</param>
             <param name="returnValue">Represents the return value.</param>
             <param name="allowConvertFromBase64">Indicates whether TypeConverter should be checked whether the type to be
-            parsed supports conversion to/from byte array (e.g. an Image)</param>
+            parsed supports conversion to/from byte array (e.g. an BudgetImage)</param>
             <returns>Returns the boolean value.</returns>
         </member>
         <member name="M:Syncfusion.DataSource.Extensions.ValueConvert.FormatValueWithTypeInformation(System.Object,System.Boolean)">
@@ -1110,7 +1110,7 @@
             </summary>
             <param name="value">Represents the string value.</param>
             <param name="allowConvertToBase64">Indicates whether TypeConverter should be checked whether the type to be
-            parsed supports conversion to/from byte array (e.g. an Image)</param>
+            parsed supports conversion to/from byte array (e.g. an BudgetImage)</param>
             <returns>Returns the string value.</returns>
         </member>
         <member name="M:Syncfusion.DataSource.Extensions.ValueConvert.GetTypeName(System.Type)">

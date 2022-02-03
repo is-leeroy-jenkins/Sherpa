@@ -83,8 +83,8 @@ namespace BudgetExecution
         public LayoutBase( Size size, Point location )
             : this()
         {
-            Size = SizeConfig.GetSize( size );
-            Location = ControlConfig.GetLocation( location.X, location.Y );
+            Size = BudgetSize.GetSize( size );
+            Location = BudgetControl.GetLocation( location.X, location.Y );
         }
 
         /// <summary>
@@ -98,9 +98,9 @@ namespace BudgetExecution
         public LayoutBase( Size size, Point location, Control parent )
             : this()
         {
-            Size = SizeConfig.GetSize( size.Width, size.Height );
-            Location = ControlConfig.GetLocation( location.X, location.Y );
-            Parent = ControlConfig.GetParent( parent );
+            Size = BudgetSize.GetSize( size.Width, size.Height );
+            Location = BudgetControl.GetLocation( location.X, location.Y );
+            Parent = BudgetControl.GetParent( parent );
             Parent.Controls.Add( this );
         }
 
@@ -113,7 +113,7 @@ namespace BudgetExecution
         public LayoutBase( Control parent )
             : this()
         {
-            Parent = ControlConfig.GetParent( parent );
+            Parent = BudgetControl.GetParent( parent );
             Parent.Controls.Add( this );
         }
 
@@ -132,9 +132,9 @@ namespace BudgetExecution
             bool hover )
             : this()
         {
-            Size = SizeConfig.GetSize( size );
-            Location = ControlConfig.GetLocation( location );
-            Parent = ControlConfig.GetParent( parent );
+            Size = BudgetSize.GetSize( size );
+            Location = BudgetControl.GetLocation( location );
+            Parent = BudgetControl.GetParent( parent );
             Parent.Controls.Add( this );
             Border.HoverVisible = hover;
         }

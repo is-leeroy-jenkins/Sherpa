@@ -25,7 +25,7 @@ namespace BudgetExecution
             Size = new Size( 100, 33 );
             ForeColor = SystemColors.Highlight;
             BackColor = SystemColors.Control;
-            Font = FontConfig.FontSizeSmall;
+            Font = BudgetFont.FontSizeSmall;
             Style = ProgressBarStyle.Blocks;
             Visible = true;
             Enabled = true;
@@ -76,7 +76,7 @@ namespace BudgetExecution
         {
             try
             {
-                Field = FormConfig.GetField( field );
+                Field = BudgetForm.GetField( field );
             }
             catch( Exception ex )
             {
@@ -92,7 +92,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tag = ControlConfig.GetTag( tag );
+                Tag = BudgetControl.GetTag( tag );
             }
             catch( Exception ex )
             {
@@ -108,7 +108,7 @@ namespace BudgetExecution
         {
             try
             {
-                HoverText = ControlConfig.GetText( text );
+                HoverText = BudgetControl.GetText( text );
             }
             catch( Exception ex )
             {

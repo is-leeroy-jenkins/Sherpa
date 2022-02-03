@@ -32,7 +32,7 @@ namespace BudgetExecution
         /// <value>
         /// The images.
         /// </value>
-        public virtual IEnumerable<Image> Images { get; set; }
+        public virtual IEnumerable<System.Drawing.Image> Images { get; set; }
 
         /// <summary>
         /// Gets or sets the tool tip.
@@ -66,7 +66,7 @@ namespace BudgetExecution
         {
             try
             {
-                Size = ControlConfig.GetSize( size );
+                Size = BudgetControl.GetSize( size );
             }
             catch( Exception ex )
             {
@@ -83,7 +83,7 @@ namespace BudgetExecution
         {
             try
             {
-                Size = ControlConfig.GetSize( width, height );
+                Size = BudgetControl.GetSize( width, height );
             }
             catch( Exception ex )
             {
@@ -99,7 +99,7 @@ namespace BudgetExecution
         {
             try
             {
-                Text = ControlConfig.GetText( text );
+                Text = BudgetControl.GetText( text );
             }
             catch( Exception ex )
             {
@@ -115,7 +115,7 @@ namespace BudgetExecution
         {
             try
             {
-                Location = ControlConfig.GetLocation( point );
+                Location = BudgetControl.GetLocation( point );
             }
             catch( Exception ex )
             {
@@ -132,7 +132,7 @@ namespace BudgetExecution
         {
             try
             {
-                Location = ControlConfig.GetLocation( x, y );
+                Location = BudgetControl.GetLocation( x, y );
             }
             catch( Exception ex )
             {
@@ -148,7 +148,7 @@ namespace BudgetExecution
         {
             try
             {
-                BackColor = ColorConfig.GetColor( color );
+                BackColor = BudgetColor.GetColor( color );
             }
             catch( Exception ex )
             {
@@ -164,7 +164,7 @@ namespace BudgetExecution
         {
             try
             {
-                Anchor = ControlConfig.GetAnchorStyle( anchor );
+                Anchor = BudgetControl.GetAnchorStyle( anchor );
             }
             catch( Exception ex )
             {
@@ -180,7 +180,7 @@ namespace BudgetExecution
         {
             try
             {
-                Dock = ControlConfig.GetDockStyle( dock );
+                Dock = BudgetControl.GetDockStyle( dock );
             }
             catch( Exception ex )
             {
@@ -196,7 +196,7 @@ namespace BudgetExecution
         {
             try
             {
-                Field = FormConfig.GetField( field );
+                Field = BudgetForm.GetField( field );
             }
             catch( Exception ex )
             {
@@ -212,7 +212,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tag = ControlConfig.GetTag( tag );
+                Tag = BudgetControl.GetTag( tag );
             }
             catch( Exception ex )
             {
@@ -228,7 +228,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tag = ControlConfig.GetToolTip( this, tip );
+                Tag = BudgetControl.GetToolTip( this, tip );
             }
             catch( Exception ex )
             {
@@ -240,7 +240,7 @@ namespace BudgetExecution
         /// Sets the image.
         /// </summary>
         /// <param name="image">The image.</param>
-        public virtual void SetImage( Image image )
+        public virtual void SetImage( System.Drawing.Image image )
         {
             if( image != null )
             {

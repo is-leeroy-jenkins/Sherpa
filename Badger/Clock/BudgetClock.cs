@@ -18,12 +18,12 @@ namespace BudgetExecution
         /// </summary>
         public BudgetClock()
         {
-            BackColor = ColorConfig.FormBackColorDark;
+            BackColor = BudgetColor.FormBackColorDark;
             BorderColor = BackColor;
-            ForeColor = ColorConfig.ForeColorGray;
-            Font = FontConfig.FontSizeSmall;
-            Margin = ControlConfig.Margin;
-            Padding = ControlConfig.Padding;
+            ForeColor = BudgetColor.ForeColorGray;
+            Font = BudgetFont.FontSizeSmall;
+            Margin = BudgetControl.Margin;
+            Padding = BudgetControl.Padding;
             ClockShape = ClockShapes.Rectangle;
             ClockType = ClockTypes.Digital;
             DisplayDates = true;
@@ -33,13 +33,13 @@ namespace BudgetExecution
             ShowHourDesignator = true;
             ShowMinute = true;
             ShowSecondHand = true;
-            HourHandColor = ColorConfig.ForeColorGray;
-            MinuteColor = ColorConfig.ForeColorGray;
-            SecondHandColor = ColorConfig.ForeColorGray;
+            HourHandColor = BudgetColor.ForeColorGray;
+            MinuteColor = BudgetColor.ForeColorGray;
+            SecondHandColor = BudgetColor.ForeColorGray;
             VisualStyle = ClockVisualStyle.None;
-            Location = ControlConfig.GetLocation();
-            Dock = ControlConfig.GetDockStyle();
-            Anchor = ControlConfig.GetAnchorStyle();
+            Location = BudgetControl.GetLocation();
+            Dock = BudgetControl.GetDockStyle();
+            Anchor = BudgetControl.GetAnchorStyle();
             Visible = true;
             Enabled = true;
         }
@@ -54,8 +54,8 @@ namespace BudgetExecution
         public BudgetClock( Size size, Point location )
             : this()
         {
-            Size = SizeConfig.GetSize( size.Width, size.Height );
-            Location = ControlConfig.GetLocation( location.X, location.Y );
+            Size = BudgetSize.GetSize( size.Width, size.Height );
+            Location = BudgetControl.GetLocation( location.X, location.Y );
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace BudgetExecution
         public BudgetClock( Point location, Size size, Control parent )
             : this( size, location )
         {
-            Parent = ControlConfig.GetParent( parent );
+            Parent = BudgetControl.GetParent( parent );
         }
 
     }

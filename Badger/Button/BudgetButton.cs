@@ -38,43 +38,43 @@ namespace BudgetExecution
         public BudgetButton()
         {
             // Basic Configuration
-            ForeColor = ColorConfig.ForeColorGray;
-            Font = FontConfig.FontSizeSmall;
-            ForeColor = ColorConfig.ForeColorGray;
-            Margin = ControlConfig.Margin;
-            Padding = ControlConfig.Padding;
-            Size = SizeConfig.GetSize( 160, 80 );
-            Location = ControlConfig.GetLocation();
-            Dock = ControlConfig.GetDockStyle();
-            Anchor = ControlConfig.GetAnchorStyle();
+            ForeColor = BudgetColor.ForeColorGray;
+            Font = BudgetFont.FontSizeSmall;
+            ForeColor = BudgetColor.ForeColorGray;
+            Margin = BudgetControl.Margin;
+            Padding = BudgetControl.Padding;
+            Size = BudgetSize.GetSize( 160, 80 );
+            Location = BudgetControl.GetLocation();
+            Dock = BudgetControl.GetDockStyle();
+            Anchor = BudgetControl.GetAnchorStyle();
             Animation = true;
             Visible = true;
             Enabled = true;
 
             // BackColor Configuration
-            BackColor = ColorConfig.FormBackColorDark;
-            BackColorState.Disabled = ColorConfig.FormBackColorDark;
-            BackColorState.Enabled = ColorConfig.FormBackColorDark;
-            BackColorState.Hover = ColorConfig.HoverColorDark;
-            BackColorState.Pressed = ColorConfig.HoverColorBlue;
+            BackColor = BudgetColor.FormBackColorDark;
+            BackColorState.Disabled = BudgetColor.FormBackColorDark;
+            BackColorState.Enabled = BudgetColor.FormBackColorDark;
+            BackColorState.Hover = BudgetColor.HoverColorDark;
+            BackColorState.Pressed = BudgetColor.HoverColorBlue;
 
             // BorderColor Configuration
-            Border.Color = ColorConfig.FormBackColorDark;
-            Border.HoverColor = ColorConfig.BorderColorBlue;
+            Border.Color = BudgetColor.FormBackColorDark;
+            Border.HoverColor = BudgetColor.BorderColorBlue;
             Border.HoverVisible = true;
             Border.Type = ShapeTypes.Rounded;
             Border.Thickness = 1;
 
-            // Image Configuration
+            // BudgetImage Configuration
             TextImageRelation = TextImageRelation.Overlay;
 
             // Text Configuration
             TextStyle.Pressed = Color.White;
-            TextStyle.Disabled = ColorConfig.FormBackColorDark;
-            TextStyle.Enabled = ColorConfig.ForeColorGray;
-            TextStyle.Hover = ColorConfig.ForeColorGray;
-            TextStyle.TextAlignment = AlignConfig.StringAlignCenter;
-            TextStyle.TextLineAlignment = AlignConfig.StringAlignCenter;
+            TextStyle.Disabled = BudgetColor.FormBackColorDark;
+            TextStyle.Enabled = BudgetColor.ForeColorGray;
+            TextStyle.Hover = BudgetColor.ForeColorGray;
+            TextStyle.TextAlignment = BudgetAlign.StringAlignCenter;
+            TextStyle.TextLineAlignment = BudgetAlign.StringAlignCenter;
             MouseHover += OnMouseOver;
             MouseLeave += OnMouseLeave;
         }
@@ -89,8 +89,8 @@ namespace BudgetExecution
         public BudgetButton( Size size, Point location )
             : this()
         {
-            Size = SizeConfig.GetSize( size.Width, size.Height );
-            Location = ControlConfig.GetLocation( location.X, location.Y );
+            Size = BudgetSize.GetSize( size.Width, size.Height );
+            Location = BudgetControl.GetLocation( location.X, location.Y );
             Field = Field.NS;
         }
 
@@ -105,7 +105,7 @@ namespace BudgetExecution
         public BudgetButton( Size size, Point location, Control parent )
             : this( size, location )
         {
-            Parent = ControlConfig.GetParent( parent );
+            Parent = BudgetControl.GetParent( parent );
             Field = Field.NS;
         }
 
@@ -136,7 +136,7 @@ namespace BudgetExecution
         public BudgetButton( Control parent, string text )
             : this()
         {
-            Parent = ControlConfig.GetParent( parent );
+            Parent = BudgetControl.GetParent( parent );
             Text = text;
             Field = Field.NS;
         }
@@ -150,7 +150,7 @@ namespace BudgetExecution
         public BudgetButton( Control parent )
             : this()
         {
-            Parent = ControlConfig.GetParent( parent );
+            Parent = BudgetControl.GetParent( parent );
             Field = Field.NS;
         }
 
@@ -164,7 +164,7 @@ namespace BudgetExecution
         public BudgetButton( Control parent, Field field )
             : this()
         {
-            Parent = ControlConfig.GetParent( parent );
+            Parent = BudgetControl.GetParent( parent );
             Field = field;
             Tag = Field;
         }
@@ -173,11 +173,11 @@ namespace BudgetExecution
         /// Sets the color of the fore. Required Attributes: ForeColor
         /// </summary>
         /// <param name="format">The format.</param>
-        public void SetForeColor( ColorFormat format )
+        public void SetForeColor( Color format )
         {
             try
             {
-                ForeColor = ColorConfig.GetColor( format.ForeColor );
+                ForeColor = format;
             }
             catch( Exception ex )
             {
@@ -190,15 +190,15 @@ namespace BudgetExecution
         /// EnabledColor, HoverColor, and PressedColor
         /// </summary>
         /// <param name="format">The format.</param>
-        public void SetBackColorStyle( ColorFormat format )
+        public void SetBackColorStyle( Color format )
         {
             try
             {
-                BackColor = ColorConfig.GetColor( format.BackColor );
-                BackColorState.Disabled = ColorConfig.GetColor( format.DisabledColor );
-                BackColorState.Enabled = ColorConfig.GetColor( format.EnabledColor );
-                BackColorState.Hover = ColorConfig.GetColor( format.HoverColor );
-                BackColorState.Pressed = ColorConfig.GetColor( format.PressedColor );
+                BackColor = BudgetColor.GetColor( format  );
+                BackColorState.Disabled = BudgetColor.GetColor( format );
+                BackColorState.Enabled = BudgetColor.GetColor( format );
+                BackColorState.Hover = BudgetColor.GetColor( format );
+                BackColorState.Pressed = BudgetColor.GetColor( format  );
             }
             catch( Exception ex )
             {
@@ -210,12 +210,12 @@ namespace BudgetExecution
         /// Sets the border configuration. Required Attributes: BorderColor, and HoverColor
         /// </summary>
         /// <param name="format">The format.</param>
-        public void SetBorderStyle( ColorFormat format )
+        public void SetBorderStyle( Color format )
         {
             try
             {
-                Border.Color = ColorConfig.GetColor( format.BorderColor );
-                Border.HoverColor = ColorConfig.GetColor( format.HoverColor );
+                Border.Color = BudgetColor.GetColor( format );
+                Border.HoverColor = BudgetColor.GetColor( format );
                 Border.HoverVisible = true;
                 Border.Type = ShapeTypes.Rounded;
                 Border.Thickness = 1;
@@ -231,7 +231,7 @@ namespace BudgetExecution
         /// DisabledColor, EnabledColor, and HoverColor
         /// </summary>
         /// <param name="format">The format.</param>
-        public void SetTextStyle( ColorFormat format )
+        public void SetTextStyle( Color format )
         {
             try
             {
@@ -241,10 +241,10 @@ namespace BudgetExecution
                 {
                     TextLineAlignment = StringAlignment.Center,
                     TextAlignment = StringAlignment.Center,
-                    Hover = ColorConfig.GetColor( format.HoverColor ),
-                    Enabled = ColorConfig.GetColor( format.EnabledColor ),
-                    Disabled = ColorConfig.GetColor( format.DisabledColor ),
-                    Pressed = ColorConfig.GetColor( format.PressedColor )
+                    Hover = BudgetColor.GetColor( format ),
+                    Enabled = BudgetColor.GetColor( format ),
+                    Disabled = BudgetColor.GetColor( format ),
+                    Pressed = BudgetColor.GetColor( format )
                 };
             }
             catch( Exception ex )
@@ -257,7 +257,7 @@ namespace BudgetExecution
         /// Sets the image.
         /// </summary>
         /// <param name="image">The image.</param>
-        public override void SetImage( Image image )
+        public override void SetImage( System.Drawing.Image image )
         {
             if( image != null )
             {

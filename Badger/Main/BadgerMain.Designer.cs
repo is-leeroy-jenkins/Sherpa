@@ -38,9 +38,9 @@ namespace BudgetExecution
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BadgerMain));
             this.picturePanel1 = new BudgetExecution.BudgetPicture();
             this.TestButton = new BudgetExecution.BudgetButton();
-            this.LoadingBoxBase = new BudgetExecution.BudgetPicture();
+            this.LoadingBase = new BudgetExecution.BudgetPicture();
             ((System.ComponentModel.ISupportInitialize)(this.picturePanel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LoadingBoxBase)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoadingBase)).BeginInit();
             this.SuspendLayout();
             // 
             // picturePanel1
@@ -51,7 +51,7 @@ namespace BudgetExecution
             this.picturePanel1.DataFilter = null;
             this.picturePanel1.Field = BudgetExecution.Field.NS;
             this.picturePanel1.HoverText = null;
-            this.picturePanel1.Image = ((System.Drawing.Image)(resources.GetObject("picturePanel1.Image")));
+            this.picturePanel1.Image = ((System.Drawing.Image)(resources.GetObject("picturePanel1.BudgetImage")));
             this.picturePanel1.ImageList = null;
             this.picturePanel1.Location = new System.Drawing.Point(360, 119);
             this.picturePanel1.Margin = new System.Windows.Forms.Padding(5);
@@ -105,22 +105,22 @@ namespace BudgetExecution
             // 
             // LoadingPanel
             // 
-            this.LoadingBoxBase.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LoadingBoxBase.BackColor = System.Drawing.Color.Transparent;
-            this.LoadingBoxBase.BindingSource = null;
-            this.LoadingBoxBase.DataFilter = null;
-            this.LoadingBoxBase.Field = BudgetExecution.Field.NS;
-            this.LoadingBoxBase.HoverText = null;
-            this.LoadingBoxBase.Image = ((System.Drawing.Image)(resources.GetObject("LoadingPanel.Image")));
-            this.LoadingBoxBase.ImageList = null;
-            this.LoadingBoxBase.Location = new System.Drawing.Point(400, 115);
-            this.LoadingBoxBase.Name = "LoadingBoxBase";
-            this.LoadingBoxBase.Padding = new System.Windows.Forms.Padding(1);
-            this.LoadingBoxBase.Size = new System.Drawing.Size(410, 304);
-            this.LoadingBoxBase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.LoadingBoxBase.TabIndex = 0;
-            this.LoadingBoxBase.TabStop = false;
-            this.LoadingBoxBase.ToolTip = null;
+            this.LoadingBase.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LoadingBase.BackColor = System.Drawing.Color.Transparent;
+            this.LoadingBase.BindingSource = null;
+            this.LoadingBase.DataFilter = null;
+            this.LoadingBase.Field = BudgetExecution.Field.NS;
+            this.LoadingBase.HoverText = null;
+            this.LoadingBase.Image = ((System.Drawing.Image)(resources.GetObject("LoadingPanel.BudgetImage")));
+            this.LoadingBase.ImageList = null;
+            this.LoadingBase.Location = new System.Drawing.Point(400, 115);
+            this.LoadingBase.Name = "LoadingBase";
+            this.LoadingBase.Padding = new System.Windows.Forms.Padding(1);
+            this.LoadingBase.Size = new System.Drawing.Size(410, 304);
+            this.LoadingBase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LoadingBase.TabIndex = 0;
+            this.LoadingBase.TabStop = false;
+            this.LoadingBase.ToolTip = null;
             // 
             // BadgerMain
             // 
@@ -137,15 +137,15 @@ namespace BudgetExecution
             this.Name = "BadgerMain";
             this.Controls.SetChildIndex(this.picturePanel1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.picturePanel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LoadingBoxBase)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoadingBase)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private PictureBoxBase picturePanel1;
+        private PictureBase picturePanel1;
         private BudgetButton TestButton;
-        public PictureBoxBase LoadingBoxBase;
+        public PictureBase LoadingBase;
     }
 }
