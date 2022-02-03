@@ -354,7 +354,7 @@
     <Compile Include="Badger\Binding\BudgetBinding.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Closebox\ClosePanel.cs">
+    <Compile Include="Badger\Closebox\CloseBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Button\ButtonBase.cs" />
@@ -393,7 +393,7 @@
     <Compile Include="Badger\Calendar\CalendarBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Badger\DataGrid\DataGrid.cs">
+    <Compile Include="Badger\DataGrid\BudgetDataGrid.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Clock\ClockBase.cs">
@@ -435,6 +435,12 @@
     </Compile>
     <Compile Include="Badger\Dialog\Error\ErrorBase.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Badger\Closebox\CloseBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\PictureBox\BudgetPicture.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
@@ -574,7 +580,7 @@
     <Compile Include="Badger\Chart\SeriesModel\IDataSeries.cs" />
     <Compile Include="Badger\Chart\SeriesModel\ISeriesModel.cs" />
     <Compile Include="Badger\Chart\SeriesModel\ITitleInfo.cs" />
-    <Compile Include="Badger\DataGrid\GridData.cs">
+    <Compile Include="Badger\DataGrid\GridBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\DataGrid\IDataGrid.cs" />
@@ -727,11 +733,7 @@
     <Compile Include="Enumerations\Numeric.cs" />
     <Compile Include="Enumerations\OutlayType.cs" />
     <Compile Include="Enumerations\PrimaryKey.cs" />
-    <Compile Include="Badger\PictureBox\PictureControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Badger\PictureBox\PictureControl.Designer.cs" />
-    <Compile Include="Badger\PictureBox\PicturePanel.cs">
+    <Compile Include="Badger\PictureBox\PictureBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
@@ -801,7 +803,6 @@
     <EmbeddedResource Include="Badger\Main\BadgerMain.resx">
       <DependentUpon>BadgerMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Badger\PictureBox\PictureControl.resx" />
     <EmbeddedResource Include="Badger\Form\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>

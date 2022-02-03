@@ -6,6 +6,8 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Specialized;
+    using System.Configuration;
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
@@ -18,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The data grid.
         /// </value>
-        public DataGrid DataGrid { get; } = new DataGrid();
+        public BudgetDataGrid BudgetDataGrid { get; } = new BudgetDataGrid();
         
         public DataGridForm()
         {
@@ -35,14 +37,14 @@ namespace BudgetExecution
             CaptionFont = FontConfig.FontSizeMedium;
             MetroColor = ColorConfig.FormBackColorDark;
             FormBorderStyle = BorderConfig.Sizeable;
-            Icon = new Icon( @"C:\Users\terry\source\repos\BudgetExecution\Etc\epa.ico", 33, 32 );
+            Icon = new Icon( BudgetDataGrid.AppSetting[ "BudgetExecutionIcon" ], 33, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = ControlConfig.Padding;
             Text = string.Empty;
-            Size = new Size( DataGrid.Size.Width - 1, DataGrid.Size.Height - 1 );
-            DataGrid.Dock = DockStyle.Fill;
-            Controls.Add( DataGrid );
+            Size = new Size( BudgetDataGrid.Size.Width - 1, BudgetDataGrid.Size.Height - 1 );
+            BudgetDataGrid.Dock = DockStyle.Fill;
+            Controls.Add( BudgetDataGrid );
         }
     }
 }

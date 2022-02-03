@@ -65,8 +65,8 @@ namespace BudgetExecution
             this.XlsxCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.XlsCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.Header = new System.Windows.Forms.TableLayoutPanel();
-            this.PictureBox = new BudgetExecution.PicturePanel();
-            this.closePanel1 = new BudgetExecution.ClosePanel();
+            this.PictureBox = new BudgetExecution.BudgetPicture();
+            this.CloseBoxPanel1 = new BudgetExecution.CloseBox();
             this.Dialog = new System.Windows.Forms.OpenFileDialog();
             this.visualSeparator1 = new VisualPlus.Toolkit.Controls.Layout.VisualSeparator();
             this.visualSeparator2 = new VisualPlus.Toolkit.Controls.Layout.VisualSeparator();
@@ -732,7 +732,7 @@ namespace BudgetExecution
             this.Header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.86813F));
             this.Header.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.Header.Controls.Add(this.PictureBox, 0, 0);
-            this.Header.Controls.Add(this.closePanel1, 2, 0);
+            this.Header.Controls.Add(this.CloseBoxPanel1, 2, 0);
             this.Header.Controls.Add(this.visualLabel1, 1, 0);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
@@ -765,32 +765,32 @@ namespace BudgetExecution
             // 
             // closePanel1
             // 
-            this.closePanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closePanel1.CloseHoverBackColor = System.Drawing.Color.Red;
-            this.closePanel1.CloseHoverForeColor = System.Drawing.Color.White;
-            this.closePanel1.CloseNormalForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.closePanel1.DisabledForeColor = System.Drawing.Color.DimGray;
-            this.closePanel1.Font = new System.Drawing.Font("Roboto", 8F);
-            this.closePanel1.ForeColor = System.Drawing.Color.LightGray;
-            this.closePanel1.Location = new System.Drawing.Point(568, 0);
-            this.closePanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.closePanel1.MaximizeBox = true;
-            this.closePanel1.MaximizeHoverBackColor = System.Drawing.Color.Blue;
-            this.closePanel1.MaximizeHoverForeColor = System.Drawing.Color.White;
-            this.closePanel1.MaximizeNormalForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.closePanel1.MinimizeBox = true;
-            this.closePanel1.MinimizeHoverBackColor = System.Drawing.Color.Blue;
-            this.closePanel1.MinimizeHoverForeColor = System.Drawing.Color.White;
-            this.closePanel1.MinimizeNormalForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.closePanel1.Name = "closePanel1";
-            this.closePanel1.Size = new System.Drawing.Size(100, 25);
-            this.closePanel1.Style = MetroSet_UI.Design.Style.Custom;
-            this.closePanel1.StyleManager = null;
-            this.closePanel1.TabIndex = 1;
-            this.closePanel1.Text = "closePanel1";
-            this.closePanel1.ThemeAuthor = "Terry D. Eppler";
-            this.closePanel1.ThemeName = "Budget Execution";
-            this.closePanel1.ToolTip = null;
+            this.CloseBoxPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseBoxPanel1.CloseHoverBackColor = System.Drawing.Color.Red;
+            this.CloseBoxPanel1.CloseHoverForeColor = System.Drawing.Color.White;
+            this.CloseBoxPanel1.CloseNormalForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.CloseBoxPanel1.DisabledForeColor = System.Drawing.Color.DimGray;
+            this.CloseBoxPanel1.Font = new System.Drawing.Font("Roboto", 8F);
+            this.CloseBoxPanel1.ForeColor = System.Drawing.Color.LightGray;
+            this.CloseBoxPanel1.Location = new System.Drawing.Point(568, 0);
+            this.CloseBoxPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.CloseBoxPanel1.MaximizeBox = true;
+            this.CloseBoxPanel1.MaximizeHoverBackColor = System.Drawing.Color.Blue;
+            this.CloseBoxPanel1.MaximizeHoverForeColor = System.Drawing.Color.White;
+            this.CloseBoxPanel1.MaximizeNormalForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.CloseBoxPanel1.MinimizeBox = true;
+            this.CloseBoxPanel1.MinimizeHoverBackColor = System.Drawing.Color.Blue;
+            this.CloseBoxPanel1.MinimizeHoverForeColor = System.Drawing.Color.White;
+            this.CloseBoxPanel1.MinimizeNormalForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.CloseBoxPanel1.Name = "CloseBoxPanel1";
+            this.CloseBoxPanel1.Size = new System.Drawing.Size(100, 25);
+            this.CloseBoxPanel1.Style = MetroSet_UI.Design.Style.Custom;
+            this.CloseBoxPanel1.StyleManager = null;
+            this.CloseBoxPanel1.TabIndex = 1;
+            this.CloseBoxPanel1.Text = "closePanel1";
+            this.CloseBoxPanel1.ThemeAuthor = "Terry D. Eppler";
+            this.CloseBoxPanel1.ThemeName = "Budget Execution";
+            this.CloseBoxPanel1.ToolTip = null;
             // 
             // Dialog
             // 
@@ -912,8 +912,8 @@ namespace BudgetExecution
         public VisualCheckBox visualCheckBox5;
         public VisualSeparator visualSeparator1;
         private VisualSeparator visualSeparator2;
-        public PicturePanel PictureBox;
-        public ClosePanel closePanel1;
+        public PictureBoxBase PictureBox;
+        public CloseBoxBase CloseBoxPanel1;
         public BudgetLabel SideLabel;
         public TableLayoutPanel Header;
     }

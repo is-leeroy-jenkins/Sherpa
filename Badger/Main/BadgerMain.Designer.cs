@@ -36,11 +36,11 @@ namespace BudgetExecution
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BadgerMain));
-            this.picturePanel1 = new BudgetExecution.PicturePanel();
+            this.picturePanel1 = new BudgetExecution.BudgetPicture();
             this.TestButton = new BudgetExecution.BudgetButton();
-            this.LoadingPanel = new BudgetExecution.PicturePanel();
+            this.LoadingBoxBase = new BudgetExecution.BudgetPicture();
             ((System.ComponentModel.ISupportInitialize)(this.picturePanel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LoadingPanel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoadingBoxBase)).BeginInit();
             this.SuspendLayout();
             // 
             // picturePanel1
@@ -105,22 +105,22 @@ namespace BudgetExecution
             // 
             // LoadingPanel
             // 
-            this.LoadingPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LoadingPanel.BackColor = System.Drawing.Color.Transparent;
-            this.LoadingPanel.BindingSource = null;
-            this.LoadingPanel.DataFilter = null;
-            this.LoadingPanel.Field = BudgetExecution.Field.NS;
-            this.LoadingPanel.HoverText = null;
-            this.LoadingPanel.Image = ((System.Drawing.Image)(resources.GetObject("LoadingPanel.Image")));
-            this.LoadingPanel.ImageList = null;
-            this.LoadingPanel.Location = new System.Drawing.Point(400, 115);
-            this.LoadingPanel.Name = "LoadingPanel";
-            this.LoadingPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.LoadingPanel.Size = new System.Drawing.Size(410, 304);
-            this.LoadingPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.LoadingPanel.TabIndex = 0;
-            this.LoadingPanel.TabStop = false;
-            this.LoadingPanel.ToolTip = null;
+            this.LoadingBoxBase.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LoadingBoxBase.BackColor = System.Drawing.Color.Transparent;
+            this.LoadingBoxBase.BindingSource = null;
+            this.LoadingBoxBase.DataFilter = null;
+            this.LoadingBoxBase.Field = BudgetExecution.Field.NS;
+            this.LoadingBoxBase.HoverText = null;
+            this.LoadingBoxBase.Image = ((System.Drawing.Image)(resources.GetObject("LoadingPanel.Image")));
+            this.LoadingBoxBase.ImageList = null;
+            this.LoadingBoxBase.Location = new System.Drawing.Point(400, 115);
+            this.LoadingBoxBase.Name = "LoadingBoxBase";
+            this.LoadingBoxBase.Padding = new System.Windows.Forms.Padding(1);
+            this.LoadingBoxBase.Size = new System.Drawing.Size(410, 304);
+            this.LoadingBoxBase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LoadingBoxBase.TabIndex = 0;
+            this.LoadingBoxBase.TabStop = false;
+            this.LoadingBoxBase.ToolTip = null;
             // 
             // BadgerMain
             // 
@@ -137,15 +137,15 @@ namespace BudgetExecution
             this.Name = "BadgerMain";
             this.Controls.SetChildIndex(this.picturePanel1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.picturePanel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LoadingPanel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoadingBoxBase)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private PicturePanel picturePanel1;
+        private PictureBoxBase picturePanel1;
         private BudgetButton TestButton;
-        public PicturePanel LoadingPanel;
+        public PictureBoxBase LoadingBoxBase;
     }
 }

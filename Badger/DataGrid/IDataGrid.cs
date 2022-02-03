@@ -24,9 +24,9 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the binding source.
         /// </summary>
-        /// <param name="data">The data.</param>
+        /// <param name="dataRows">The data.</param>
         /// <param name="dict">The dictionary.</param>
-        void SetBindingSource( IEnumerable<DataRow> data, IDictionary<string, object> dict );
+        void SetBindingSource( IEnumerable<DataRow> dataRows, IDictionary<string, object> dict );
 
         /// <summary>
         /// Sets the binding source.

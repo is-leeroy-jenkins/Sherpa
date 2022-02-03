@@ -46,9 +46,9 @@ namespace BudgetExecution
             this.BudgetBinding = new BudgetExecution.BudgetBinding();
             this.Ribbon = new BudgetExecution.RibbonPanel();
             this.Table = new System.Windows.Forms.TableLayoutPanel();
-            this.CloseBox = new BudgetExecution.ClosePanel();
+            this.CloseBoxBox = new BudgetExecution.CloseBox();
             this.Label = new BudgetExecution.BudgetLabel();
-            this.PictureBox = new BudgetExecution.PicturePanel();
+            this.PictureBox = new BudgetExecution.BudgetPicture();
             this._backBase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BudgetBinding)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ribbon)).BeginInit();
@@ -195,7 +195,7 @@ namespace BudgetExecution
             this.Table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.210032F));
             this.Table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 92.78997F));
             this.Table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
-            this.Table.Controls.Add(this.CloseBox, 2, 0);
+            this.Table.Controls.Add(this.CloseBoxBox, 2, 0);
             this.Table.Controls.Add(this.Label, 1, 0);
             this.Table.Controls.Add(this.PictureBox, 0, 0);
             this.Table.Dock = System.Windows.Forms.DockStyle.Top;
@@ -210,32 +210,32 @@ namespace BudgetExecution
             // 
             // CloseBox
             // 
-            this.CloseBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseBox.CloseHoverBackColor = System.Drawing.Color.Red;
-            this.CloseBox.CloseHoverForeColor = System.Drawing.Color.White;
-            this.CloseBox.CloseNormalForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.CloseBox.DisabledForeColor = System.Drawing.Color.DimGray;
-            this.CloseBox.Font = new System.Drawing.Font("Roboto", 8F);
-            this.CloseBox.ForeColor = System.Drawing.Color.LightGray;
-            this.CloseBox.Location = new System.Drawing.Point(1014, 0);
-            this.CloseBox.Margin = new System.Windows.Forms.Padding(0);
-            this.CloseBox.MaximizeBox = true;
-            this.CloseBox.MaximizeHoverBackColor = System.Drawing.Color.Blue;
-            this.CloseBox.MaximizeHoverForeColor = System.Drawing.Color.White;
-            this.CloseBox.MaximizeNormalForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.CloseBox.MinimizeBox = true;
-            this.CloseBox.MinimizeHoverBackColor = System.Drawing.Color.Blue;
-            this.CloseBox.MinimizeHoverForeColor = System.Drawing.Color.White;
-            this.CloseBox.MinimizeNormalForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.CloseBox.Name = "CloseBox";
-            this.CloseBox.Size = new System.Drawing.Size(100, 25);
-            this.CloseBox.Style = MetroSet_UI.Design.Style.Custom;
-            this.CloseBox.StyleManager = null;
-            this.CloseBox.TabIndex = 0;
-            this.CloseBox.Text = "closePanel1";
-            this.CloseBox.ThemeAuthor = "Terry D. Eppler";
-            this.CloseBox.ThemeName = "Budget Execution";
-            this.CloseBox.ToolTip = null;
+            this.CloseBoxBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseBoxBox.CloseHoverBackColor = System.Drawing.Color.Red;
+            this.CloseBoxBox.CloseHoverForeColor = System.Drawing.Color.White;
+            this.CloseBoxBox.CloseNormalForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.CloseBoxBox.DisabledForeColor = System.Drawing.Color.DimGray;
+            this.CloseBoxBox.Font = new System.Drawing.Font("Roboto", 8F);
+            this.CloseBoxBox.ForeColor = System.Drawing.Color.LightGray;
+            this.CloseBoxBox.Location = new System.Drawing.Point(1014, 0);
+            this.CloseBoxBox.Margin = new System.Windows.Forms.Padding(0);
+            this.CloseBoxBox.MaximizeBox = true;
+            this.CloseBoxBox.MaximizeHoverBackColor = System.Drawing.Color.Blue;
+            this.CloseBoxBox.MaximizeHoverForeColor = System.Drawing.Color.White;
+            this.CloseBoxBox.MaximizeNormalForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.CloseBoxBox.MinimizeBox = true;
+            this.CloseBoxBox.MinimizeHoverBackColor = System.Drawing.Color.Blue;
+            this.CloseBoxBox.MinimizeHoverForeColor = System.Drawing.Color.White;
+            this.CloseBoxBox.MinimizeNormalForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.CloseBoxBox.Name = "CloseBoxBox";
+            this.CloseBoxBox.Size = new System.Drawing.Size(100, 25);
+            this.CloseBoxBox.Style = MetroSet_UI.Design.Style.Custom;
+            this.CloseBoxBox.StyleManager = null;
+            this.CloseBoxBox.TabIndex = 0;
+            this.CloseBoxBox.Text = "closePanel1";
+            this.CloseBoxBox.ThemeAuthor = "Terry D. Eppler";
+            this.CloseBoxBox.ThemeName = "Budget Execution";
+            this.CloseBoxBox.ToolTip = null;
             // 
             // Label
             // 
@@ -351,7 +351,7 @@ namespace BudgetExecution
         /// <summary>
         /// The close box
         /// </summary>
-        public ClosePanel CloseBox;
+        public CloseBoxBase CloseBoxBox;
 
         /// <summary>
         /// The label
@@ -361,7 +361,7 @@ namespace BudgetExecution
         /// <summary>
         /// The PictureBox
         /// </summary>
-        public PicturePanel PictureBox;
+        public PictureBoxBase PictureBox;
         /// <summary>
         /// The back panel
         /// </summary>

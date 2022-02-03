@@ -37,7 +37,7 @@ namespace BudgetExecution
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this._dataGridPanel1 = new BudgetExecution.DataGrid();
+            this._dataGridPanel1 = new BudgetExecution.BudgetDataGrid();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridPanel1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,6 +106,6 @@ namespace BudgetExecution
 
         #endregion
 
-        private DataGrid _dataGridPanel1;
+        private BudgetDataGrid _dataGridPanel1;
     }
 }
