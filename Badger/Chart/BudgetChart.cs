@@ -1,4 +1,4 @@
-﻿// <copyright file = "ChartPanel.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "BudgetChart.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -16,14 +16,14 @@ namespace BudgetExecution
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class ChartPanel : ChartBase, IBudgetChart
+    public class BudgetChart : ChartBase, IBudgetChart
     {
         // Initializes Properties
         /// <summary>
         /// Initializes a new instance
-        /// of the <see cref="ChartPanel"/> class.
+        /// of the <see cref="BudgetChart"/> class.
         /// </summary>
-        public ChartPanel()
+        public BudgetChart()
         {
             //Basic Control Properties
             Size = SizeConfig.GetSize( 600, 400 );
@@ -106,16 +106,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartPanel" /> class.
+        /// Initializes a new instance of the <see cref="BudgetChart" /> class.
         /// </summary>
         /// <param name="table">The table.</param>
-        /// <param name="seriesconfig">The seriesconfig.</param>
-        public ChartPanel( DataTable table, ISeriesConfig seriesconfig )
+        /// <param name="seriesConfig">The seriesConfig.</param>
+        public BudgetChart( DataTable table, ISeriesConfig seriesConfig )
             : this()
         {
-            SourceModel = new SourceModel( table, seriesconfig );
+            SourceModel = new SourceModel( table, seriesConfig );
             Configuration = SourceModel.GetSeriesConfiguration();
-            ChartData = new SeriesModel( table, seriesconfig );
+            ChartData = new SeriesModel( table, seriesConfig );
             DataMetric = SourceModel.GetMetric();
             TitleInfo = new TitleInfo( DataMetric.Data?.CopyToDataTable()?.TableName );
             DataSeries = new DataSeries( ChartData );
@@ -124,35 +124,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartPanel" /> class.
+        /// Initializes a new instance of the <see cref="BudgetChart" /> class.
         /// </summary>
-        /// <param name="data">The data.</param>
-        /// <param name="seriesconfig">The seriesconfig.</param>
-        public ChartPanel( IEnumerable<DataRow> data, ISeriesConfig seriesconfig )
+        /// <param name="dataRows">The data.</param>
+        /// <param name="seriesConfig">The seriesConfig.</param>
+        public BudgetChart( IEnumerable<DataRow> dataRows, ISeriesConfig seriesConfig )
             : this()
         {
-            SourceModel = new SourceModel( data, seriesconfig );
+            SourceModel = new SourceModel( dataRows, seriesConfig );
             Configuration = SourceModel.GetSeriesConfiguration();
-            ChartData = new SeriesModel( data, seriesconfig );
-            DataMetric = SourceModel.GetMetric();
-            TitleInfo = new TitleInfo( DataMetric.Data?.CopyToDataTable()?.TableName );
-            DataSeries = new DataSeries( ChartData );
-            Series.Add( DataSeries );
-            Titles.Add( TitleInfo.GetChartMainTitle() );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ChartPanel" />
-        /// class.
-        /// </summary>
-        /// <param name="sourcebinding">The sourcebinding.</param>
-        public ChartPanel( IChartBinding sourcebinding )
-            : this()
-        {
-            SourceModel = new SourceModel( sourcebinding );
-            Configuration = SourceModel.GetSeriesConfiguration();
-            ChartData = new SeriesModel( sourcebinding );
+            ChartData = new SeriesModel( dataRows, seriesConfig );
             DataMetric = SourceModel.GetMetric();
             TitleInfo = new TitleInfo( DataMetric.Data?.CopyToDataTable()?.TableName );
             DataSeries = new DataSeries( ChartData );
@@ -162,14 +143,33 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ChartPanel" />
+        /// <see cref="BudgetChart" />
         /// class.
         /// </summary>
-        /// <param name="model">The model.</param>
-        public ChartPanel( ISourceModel model )
+        /// <param name="sourceBinding">The sourceBinding.</param>
+        public BudgetChart( IChartBinding sourceBinding )
             : this()
         {
-            SourceModel = model;
+            SourceModel = new SourceModel( sourceBinding );
+            Configuration = SourceModel.GetSeriesConfiguration();
+            ChartData = new SeriesModel( sourceBinding );
+            DataMetric = SourceModel.GetMetric();
+            TitleInfo = new TitleInfo( DataMetric.Data?.CopyToDataTable()?.TableName );
+            DataSeries = new DataSeries( ChartData );
+            Series.Add( DataSeries );
+            Titles.Add( TitleInfo.GetChartMainTitle() );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="BudgetChart" />
+        /// class.
+        /// </summary>
+        /// <param name="sourceModel">The sourceModel.</param>
+        public BudgetChart( ISourceModel sourceModel )
+            : this()
+        {
+            SourceModel = sourceModel;
             Configuration = SourceModel.GetSeriesConfiguration();
             ChartData = new SeriesModel( SourceModel.GetSourceBinding() );
             TitleInfo = new TitleInfo( Configuration.Name );
@@ -181,17 +181,17 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ChartPanel" />
+        /// <see cref="BudgetChart" />
         /// class.
         /// </summary>
-        /// <param name="model">The model.</param>
-        /// <param name="title">The title.</param>
-        public ChartPanel( ISourceModel model, ITitleInfo title )
+        /// <param name="sourceModel">The sourceModel.</param>
+        /// <param name="titleInfo">The titleInfo.</param>
+        public BudgetChart( ISourceModel sourceModel, ITitleInfo titleInfo )
             : this()
         {
-            SourceModel = model;
+            SourceModel = sourceModel;
             Configuration = SourceModel.GetSeriesConfiguration();
-            TitleInfo = title;
+            TitleInfo = titleInfo;
             DataMetric = SourceModel.GetMetric();
             ChartData = new SeriesModel( SourceModel.GetSourceBinding() );
             DataSeries = new DataSeries( ChartData );
@@ -201,18 +201,18 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ChartPanel" />
+        /// <see cref="BudgetChart" />
         /// class.
         /// </summary>
-        /// <param name="chartdata">The chartdata.</param>
-        /// <param name="title">The title.</param>
-        public ChartPanel( ISeriesModel chartdata, ITitleInfo title )
+        /// <param name="chartData">The chartData.</param>
+        /// <param name="titleInfo">The titleInfo.</param>
+        public BudgetChart( ISeriesModel chartData, ITitleInfo titleInfo )
             : this()
         {
-            ChartData = chartdata;
+            ChartData = chartData;
             Configuration = ChartData.GetSeriesConfiguration();
             SourceModel = ChartData.GetSourceModel();
-            TitleInfo = title;
+            TitleInfo = titleInfo;
             DataMetric = ChartData.GetSeriesMetric();
             DataSeries = new DataSeries( ChartData );
             Series.Add( DataSeries );
@@ -281,9 +281,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the primary axis title.
+        /// Sets the primary axis titleInfo.
         /// </summary>
-        /// <param name="text">The title.</param>
+        /// <param name="text">The titleInfo.</param>
         /// <param name="font"></param>
         /// <param name="color">The color.</param>
         public void SetPrimaryAxisTitle( string text, Font font, Color color )
@@ -301,7 +301,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the main title.
+        /// Sets the main titleInfo.
         /// </summary>
         /// <param name="text">The t.</param>
         /// <param name="font"></param>
@@ -327,34 +327,6 @@ namespace BudgetExecution
             {
                 Fail( ex );
             }
-        }
-
-        /// <summary>
-        /// Gets the style configuration.
-        /// </summary>
-        /// <returns></returns>
-        public IChartConfig GetStyleConfiguration()
-        {
-            try
-            {
-                return Style.DisplayText
-                    ? Style
-                    : default( IChartConfig );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IChartConfig );
-            }
-        }
-
-        /// <summary>
-        /// Gets the source model.
-        /// </summary>
-        /// <returns></returns>
-        public new ISourceModel GetSourceModel()
-        {
-            return new SourceModel();
         }
     }
 }

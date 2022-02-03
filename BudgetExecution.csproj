@@ -292,16 +292,12 @@
     <Compile Include="Badger\Calendar\BudgetCalendar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Badger\Chart\BudgetChartControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Badger\Chart\BudgetChartControl.Designer.cs" />
     <Compile Include="Badger\Chart\CallOut.cs" />
     <Compile Include="Badger\Chart\ChartBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\ChartData.cs" />
-    <Compile Include="Badger\Chart\ChartPanel.cs">
+    <Compile Include="Badger\Chart\BudgetChart.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\IBudgetChart.cs" />
@@ -432,12 +428,6 @@
     </Compile>
     <Compile Include="Badger\Calculator\CalculatorBase.Designer.cs">
       <DependentUpon>CalculatorBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Badger\Chart\Chart.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Chart\Chart.Designer.cs">
-      <DependentUpon>Chart.cs</DependentUpon>
     </Compile>
     <Compile Include="Badger\Layout\BudgetLayout.cs" />
     <Compile Include="Badger\Clock\BudgetClock.cs">
@@ -800,7 +790,6 @@
     <Compile Include="Badger\Test\TestForm.Designer.cs">
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Badger\Chart\BudgetChartControl.resx" />
     <EmbeddedResource Include="Badger\Control\ControlBase.resx" />
     <EmbeddedResource Include="Badger\Control\ControlData.resx" />
     <EmbeddedResource Include="Badger\Dialog\Error\Error.resx">

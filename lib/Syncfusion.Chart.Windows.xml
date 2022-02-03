@@ -32,7 +32,7 @@
             for a <see cref="E:System.AppDomain.AssemblyResolve"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The event data with information about the type.</param>
+            <param name="e">The event dataRows with information about the type.</param>
             <returns>A reference to the assembly where the type is located.</returns>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Chart.CalloutBox.components">
@@ -80,14 +80,14 @@
             Handles the Click event of the bttnOK control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartCalloutPropertiesDialog.bttnApply_Click(System.Object,System.EventArgs)">
             <summary>
             Handles the Click event of the bttnApply control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Chart.ChartCalloutPropertiesDialog.CalloutProperties">
             <summary>
@@ -377,7 +377,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.Chart.ZoomType">
             <summary>
-            Indicates the  various methods to zoom the data .
+            Indicates the  various methods to zoom the dataRows .
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Chart.ZoomType.Selection">
@@ -403,7 +403,7 @@
             <para>The ChartControl lets you create enterprise level charts with support for numerous chart types (see <see cref="P:Syncfusion.Windows.Forms.Chart.ChartSeries.Type"/>).
             A <see cref="T:Syncfusion.Windows.Forms.Chart.ChartSeries"/> containing pints of X and Y values can be added to the <see cref="P:Syncfusion.Windows.Forms.Chart.ChartControl.Series"/> collection to get a chart
             rendered. The chart control has a built in "nice range calculation" engine which will automatically determine the appropriate
-            ranges for the axes based on the series data. Chart readily supports rendering multiple series.</para>
+            ranges for the axes based on the series dataRows. Chart readily supports rendering multiple series.</para>
             <para>
             There is also support for multiple axes, in case you want to render multiple series with each series rendered against a unique axes.
             Use the <see cref="P:Syncfusion.Windows.Forms.Chart.ChartControl.Axes"/> collection to add one or more custom axis to the default set of <see cref="P:Syncfusion.Windows.Forms.Chart.ChartControl.PrimaryXAxis"/> and <see cref="P:Syncfusion.Windows.Forms.Chart.ChartControl.PrimaryYAxis"/>,
@@ -420,7 +420,7 @@
             </para>
             <para>The look and feel of the plot can also be customized through the <see cref="P:Syncfusion.Windows.Forms.Chart.ChartControl.ChartArea"/> property.</para>
             <para>
-            There is also built in support for applying some statistical formulas and functions to the series data. Take a look
+            There is also built in support for applying some statistical formulas and functions to the series dataRows. Take a look
             at the <see cref="T:Syncfusion.Windows.Forms.Chart.Statistics.BasicStatisticalFormulas"/> type and the <see cref="T:Syncfusion.Windows.Forms.Chart.Statistics.UtilityFunctions"/> type.4
             </para>
             </remarks>
@@ -511,7 +511,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Chart.ChartControl"/> class. For internal use. Do not use this constructor directly.
             </summary>
-            <param name="addRandomData">if set to <c>true</c> [add random data].</param>
+            <param name="addRandomData">if set to <c>true</c> [add random dataRows].</param>
             <param name="isWindowLess">if set to <c>true</c> [is window less].</param>
             <internalonly/>
         </member>
@@ -551,7 +551,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Chart.ChartControl"/> class.
             </summary>
-            <param name="addRandomData">if set to <c>true</c> random data will be added.</param>
+            <param name="addRandomData">if set to <c>true</c> random dataRows will be added.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.GetGraphics">
             <summary>
@@ -707,7 +707,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.GetChartAreaCoordinates(System.Double,System.Double,Syncfusion.Windows.Forms.Chart.ChartAxis,Syncfusion.Windows.Forms.Chart.ChartAxis)">
             <summary>
-            Returns the client coordinates on ChartArea for the specified data points in the specified axes.
+            Returns the client coordinates on ChartArea for the specified dataRows points in the specified axes.
             </summary>
             <param name="xValue">An X value.</param>
             <param name="yValue">An Y value.</param>
@@ -725,7 +725,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.GetChartAreaCoordinates(System.Double,System.DateTime,Syncfusion.Windows.Forms.Chart.ChartAxis,Syncfusion.Windows.Forms.Chart.ChartAxis)">
             <summary>
-            Returns the client coordinates on ChartArea for the specified data points in the specified axes.
+            Returns the client coordinates on ChartArea for the specified dataRows points in the specified axes.
             </summary>
             <param name="xValue">An X value.</param>
             <param name="yValue">An Y <see cref="T:System.DateTime"/> value.</param>
@@ -743,7 +743,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.GetChartAreaCoordinates(System.DateTime,System.Double,Syncfusion.Windows.Forms.Chart.ChartAxis,Syncfusion.Windows.Forms.Chart.ChartAxis)">
             <summary>
-            Returns the client coordinates on ChartArea for the specified data points in the specified axes.
+            Returns the client coordinates on ChartArea for the specified dataRows points in the specified axes.
             </summary>
             <param name="xValue">An X <see cref="T:System.DateTime"/> value.</param>
             <param name="yValue">An Y value.</param>
@@ -761,7 +761,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.GetChartAreaCoordinates(System.DateTime,System.DateTime,Syncfusion.Windows.Forms.Chart.ChartAxis,Syncfusion.Windows.Forms.Chart.ChartAxis)">
             <summary>
-            Returns the client coordinates on ChartArea for the specified data points in the specified axes.
+            Returns the client coordinates on ChartArea for the specified dataRows points in the specified axes.
             </summary>
             <param name="xValue">An X <see cref="T:System.DateTime"/> value.</param>
             <param name="yValue">An Y <see cref="T:System.DateTime"/> value.</param>
@@ -902,21 +902,21 @@
             <summary>
             Method is called for drawing of area. Calling in the method _Paint.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event dataRows.</param>
             <exclude/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnPreChartAreaPaint(System.Windows.Forms.PaintEventArgs)">
             <summary>
             Method is called for drawing of area. Calling in the method _Paint.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event dataRows.</param>
             <exclude/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnChartAreaImage(Syncfusion.Windows.Forms.Chart.ChartAreaImageEventArgs)">
             <summary>
             Raises the <see cref="E:ChartAreaImage"/> event.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Chart.ChartAreaImageEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Chart.ChartAreaImageEventArgs"/> instance containing the event dataRows.</param>
             <exclude/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnChartRegionClick(Syncfusion.Windows.Forms.Chart.ChartRegionMouseEventArgs)">
@@ -1000,7 +1000,7 @@
             Method is called when the visible range is changed during zooming.
             <seealso cref="E:Syncfusion.Windows.Forms.Chart.ChartControl.VisibleRangeChanged"/>
             </summary>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
             <exclude/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.ExecuteCommand(Syncfusion.Windows.Forms.Chart.ChartCommand,System.String)">
@@ -1184,7 +1184,7 @@
             <summary>
             Change callout shape on mouse drag and drop.
             </summary>
-            <param name="calloutData">The information of callout data label.</param>
+            <param name="calloutData">The information of callout dataRows label.</param>
             <param name="mousePoint">The ended position of the mouse point.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.ZoomNeededAxes(System.Drawing.PointF,System.Drawing.PointF,Syncfusion.Windows.Forms.Chart.ChartOrientation)">
@@ -1275,14 +1275,14 @@
             Raises the LayoutCompleted event.
             </summary>
             <param name="sender">The sender of the event.</param>
-            <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnSeriesIncompatible(System.Object,System.EventArgs)">
             <summary>
             Raises the SeriesIncompatible event.
             </summary>
             <param name="sender">The sender of the event.</param>
-            <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.SeriesChanged(System.Object,Syncfusion.Windows.Forms.Chart.ChartSeriesCollectionChangedEventArgs)">
             <summary>
@@ -1339,7 +1339,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.ChangeRandomDataSeries">
             <summary>
-            Change the type of series of random data on designTimeSeriesType.
+            Change the type of series of random dataRows on designTimeSeriesType.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.ResetRandomData">
@@ -1349,32 +1349,32 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.CheckRandomData">
             <summary>
-            Checks the random data.
+            Checks the random dataRows.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnDoubleClick(System.EventArgs)">
             <summary>
             This member overrides <see cref="M:System.Windows.Forms.Control.OnDoubleClick(System.EventArgs)"/>.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnClick(System.EventArgs)">
             <summary>
             This member overrides <see cref="M:System.Windows.Forms.Control.OnClick(System.EventArgs)"/>.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
             <summary>
             This member overrides <see cref="M:System.Windows.Forms.Control.OnMouseDown(System.Windows.Forms.MouseEventArgs)"/>.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
             <summary>
             This member overrides <see cref="M:System.Windows.Forms.Control.OnMouseMove(System.Windows.Forms.MouseEventArgs)"/>.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.GetRealPoint(System.Double,System.Double)">
             <summary>
@@ -1387,55 +1387,55 @@
             <summary>
             This member overrides <see cref="M:System.Windows.Forms.Control.OnMouseUp(System.Windows.Forms.MouseEventArgs)"/>.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnLostFocus(System.EventArgs)">
             <summary>
             This member overrides <see cref="M:System.Windows.Forms.Control.OnLostFocus(System.EventArgs)"/>.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnMouseLeave(System.EventArgs)">
             <summary>
             This member overrides <see cref="M:System.Windows.Forms.Control.OnMouseLeave(System.EventArgs)"/>.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
             <summary>
             This member overrides <see cref="M:System.Windows.Forms.Control.OnMouseWheel(System.Windows.Forms.MouseEventArgs)"/>.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnTextChanged(System.EventArgs)">
             <summary>
             This member overrides <see cref="M:System.Windows.Forms.Control.OnTextChanged(System.EventArgs)"/>.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnFontChanged(System.EventArgs)">
             <summary>
             This member overrides <see cref="M:System.Windows.Forms.Control.OnFontChanged(System.EventArgs)"/>.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnBackColorChanged(System.EventArgs)">
             <summary>
             This member overrides <see cref="M:System.Windows.Forms.Control.OnBackColorChanged(System.EventArgs)"/>.
             </summary>
-            <param name="e">An EventArgs that contains the event data.</param>
+            <param name="e">An EventArgs that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnForeColorChanged(System.EventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.ForeColorChanged"></see> event.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"></see> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"></see> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnPaint(System.Windows.Forms.PaintEventArgs)">
             <summary>
             Overrides the <see cref="E:System.Windows.Forms.Control.Paint"/> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event dataRows.</param>
             <exclude/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
@@ -1467,7 +1467,7 @@
             Called when [border appearance changed].
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.CheckSeriesCompatibility">
             <summary>
@@ -1515,7 +1515,7 @@
             Called when axis is zoomed.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="args">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="args">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartControl.OnSeriesAppearanceChanged(System.Object,System.EventArgs)">
             <summary>
@@ -1608,7 +1608,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartControl.DataSourceName">
             <summary>
-            Gets or sets the name of data source bound with chart control in ChartWizard
+            Gets or sets the name of dataRows source bound with chart control in ChartWizard
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartControl.DataSourceType">
@@ -1776,7 +1776,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartControl.RoundingPlaces">
             <summary>
-             Gets or sets the number of places to round data to for display (by default).
+             Gets or sets the number of places to round dataRows to for display (by default).
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartControl.SizeMargins">
@@ -2040,8 +2040,8 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartControl.Model">
             <summary>
-            The model contains all the data that is associated with a chart. Models can be shared between charts. Each model can
-            be seen as a collection of a series. Each of these series contains data points and associated style information.
+            The model contains all the dataRows that is associated with a chart. Models can be shared between charts. Each model can
+            be seen as a collection of a series. Each of these series contains dataRows points and associated style information.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartControl.CompatibleSeries">
@@ -2065,7 +2065,7 @@
             <summary>
             Specifies if this chart is to be rendered in indexed mode. By default, chart points have X and Y values, both of
             which are taken into account for plotting. In indexed mode, the X values are ignored. The X axis purely represents
-            the position of the points and not their X value. This mode is useful when representing data that has no real X axis value
+            the position of the points and not their X value. This mode is useful when representing dataRows that has no real X axis value
             except position. For example, sales of two months side-by-side.
             </summary>
         </member>
@@ -2365,9 +2365,9 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartControl.RandomDataPresent">
             <summary>
-            Gets a value indicating whether [random data present].
+            Gets a value indicating whether [random dataRows present].
             </summary>
-            <value><c>true</c> if [random data present]; otherwise, <c>false</c>.</value>
+            <value><c>true</c> if [random dataRows present]; otherwise, <c>false</c>.</value>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartControl.MinPointsDelta">
             <summary>
@@ -2549,19 +2549,19 @@
             <summary>
             Raises the <see cref="E:System.Drawing.Printing.PrintDocument.BeginPrint"/> event. It is called after the <see cref="M:System.Drawing.Printing.PrintDocument.Print"/> method is called and before the first page of the document prints.
             </summary>
-            <param name="e">A <see cref="T:System.Drawing.Printing.PrintEventArgs"/> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Drawing.Printing.PrintEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartPrintDocument.OnPrintPage(System.Drawing.Printing.PrintPageEventArgs)">
             <summary>
             Raises the <see cref="E:System.Drawing.Printing.PrintDocument.PrintPage"/> event. It is called before a page prints.
             </summary>
-            <param name="e">A <see cref="T:System.Drawing.Printing.PrintPageEventArgs"/> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Drawing.Printing.PrintPageEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartPrintDocument.OnEndPrint(System.Drawing.Printing.PrintEventArgs)">
             <summary>
             Raises the <see cref="E:System.Drawing.Printing.PrintDocument.EndPrint"/> event. It is called when the last page of the document has printed.
             </summary>
-            <param name="e">A <see cref="T:System.Drawing.Printing.PrintEventArgs"/> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Drawing.Printing.PrintEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartPrintDocument.Dispose(System.Boolean)">
             <summary>
@@ -2745,7 +2745,7 @@
             <summary>
             Draws the legend by the specified <see cref="T:System.Windows.Forms.PaintEventArgs"/>.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartLegend.MeasureItems(System.Drawing.Graphics,System.Drawing.Size)">
             <summary>
@@ -2760,7 +2760,7 @@
             Override on the standard method of class control.
             Event handler to event Paint.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event dataRows.</param>
             <internalonly/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartLegend.GetAllItems">
@@ -2828,21 +2828,21 @@
             This method is the calling method of OnDrawItem event.
             It is called in the method ChartLegend.GetMinSize().
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Chart.ChartLegendDrawItemEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Chart.ChartLegendDrawItemEventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartLegend.RaiseFilterItems(Syncfusion.Windows.Forms.Chart.ChartLegendFilterItemsEventArgs)">
             <summary>
             This method is the calling method of OnFilterItems event.
             It is called in the method ChartLegend.GetMinSize().
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Chart.ChartLegendFilterItemsEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Chart.ChartLegendFilterItemsEventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartLegend.RaiseMinSize(Syncfusion.Windows.Forms.Chart.ChartLegendMinSizeEventArgs)">
             <summary>
             This method is the calling method of OnMinSize event.
             It is called in the method ChartLegend.GetMinSize().
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Chart.ChartLegendMinSizeEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Chart.ChartLegendMinSizeEventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartLegend.OnLegentSizeChange">
             <summary>
@@ -2859,7 +2859,7 @@
             This methods is called when settings of border was changed.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartLegend.OnSeriesItemDoubleClick">
             <summary>
@@ -2881,14 +2881,14 @@
             Called when user click on the checkbox.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartLegend.SeriesChanged(System.Object,Syncfusion.Windows.Forms.Chart.ChartSeriesCollectionChangedEventArgs)">
             <summary>
             Called when collection of series was changed.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Chart.ChartSeriesCollectionChangedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Chart.ChartSeriesCollectionChangedEventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartLegend.WireSeriesCollection">
             <summary>
@@ -3284,31 +3284,31 @@
             This method called when settings of border was changed.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:Syncfusion.Styles.StyleChangedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:Syncfusion.Styles.StyleChangedEventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartTitle.OnPaint(System.Windows.Forms.PaintEventArgs)">
             <summary>
             This method override <see cref="M:System.Windows.Forms.Control.OnPaint(System.Windows.Forms.PaintEventArgs)"/> method.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartTitle.OnFontChanged(System.EventArgs)">
             <summary>
             This method override <see cref="M:System.Windows.Forms.Control.OnFontChanged(System.EventArgs)"/> method.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartTitle.OnTextChanged(System.EventArgs)">
             <summary>
             This method override <see cref="M:System.Windows.Forms.Control.OnTextChanged(System.EventArgs)"/> method.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartTitle.OnDoubleClick(System.EventArgs)">
             <summary>
             This method override <see cref="M:System.Windows.Forms.Control.OnDoubleClick(System.EventArgs)"/> method.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartTitle.ReCalcSize">
             <summary>
@@ -3530,14 +3530,14 @@
             Handles the Click event of the bttnOK control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartLegendPropertiesDialog.bttnApply_Click(System.Object,System.EventArgs)">
             <summary>
             Handles the Click event of the bttnApply control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Chart.ChartLegendPropertiesDialog.LegendProperties">
             <summary>
@@ -3793,56 +3793,56 @@
             Method is called when the Save button is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBarController.ButtonCopyClick(System.Object,System.EventArgs)">
             <summary>
             Method is called when the Copy button is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBarController.ButtonEditStyleClick(System.Object,System.EventArgs)">
             <summary>
             Method is called when the Edit button is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBarController.ButtonPrintClick(System.Object,System.EventArgs)">
             <summary>
             Method is called when the Print button is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBarController.ButtonSelectPaletteClick(System.Object,System.EventArgs)">
             <summary>
             Method is called when the Palettes button is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBarController.ButtonSelectSeriesTypeClick(System.Object,System.EventArgs)">
             <summary>
             Method is called when the Series types button is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBarController.OnMenuClick(System.Object,System.EventArgs)">
             <summary>
             Method is called when the series menu is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBarController.OnPaletteMenuClick(System.Object,System.EventArgs)">
             <summary>
             Method is called when the palettes menu is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBarController.OnEditPaletteMenuClick(System.Object,System.EventArgs)">
             <summary>
@@ -3856,7 +3856,7 @@
             Method is called when the palettes menu is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBarController.Dispose">
             <summary>
@@ -4275,14 +4275,14 @@
             Called when the Type item of the Series item is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>    
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>    
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartContextMenu.OnEditStyleClick(System.Object,System.EventArgs)">
             <summary>
             Called when the Edit style item of the Series item item is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartContextMenu.Show(System.Windows.Forms.Control,System.Drawing.Point,Syncfusion.Windows.Forms.Chart.ChartControl)">
             <summary>
@@ -4297,42 +4297,42 @@
             Handles the Click event of the Palettes control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartContextMenu.Mode2D_Click(System.Object,System.EventArgs)">
             <summary>
             Handles the Click event of the Mode2D control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartContextMenu.Mode3D_Click(System.Object,System.EventArgs)">
             <summary>
             Handles the Click event of the Mode3D control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartContextMenu.ModeReal3D_Click(System.Object,System.EventArgs)">
             <summary>
             Handles the Click event of the ModeReal3D control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartContextMenu.EnableXZoomItem_Click(System.Object,System.EventArgs)">
             <summary>
             Handles the Click event of the EnableXZoomItem control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartContextMenu.EnableYZoomItem_Click(System.Object,System.EventArgs)">
             <summary>
             Handles the Click event of the EnableYZoomItem control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartContextMenu.ResetZoomItem_Click(System.Object,System.EventArgs)">
             <summary>
@@ -4407,17 +4407,17 @@
             <summary>
             Raises the <see cref="E:System.Windows.Forms.MenuItem.MeasureItem"></see> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MeasureItemEventArgs"></see> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MeasureItemEventArgs"></see> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.TagMenuItem.OnDrawItem(System.Windows.Forms.DrawItemEventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.MenuItem.DrawItem"/> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.DrawItemEventArgs"/> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.DrawItemEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.TagMenuItem.Tag">
             <summary>
-            Gets the object that contains data about the item. 
+            Gets the object that contains dataRows about the item. 
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.TagMenuItem.Image">
@@ -4453,7 +4453,7 @@
             <summary>
             Raises the <see cref="E:System.Windows.Forms.MenuItem.Click"></see> event.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"></see> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"></see> that contains the event dataRows.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartCommandMenuItem.Command">
             <summary>
@@ -4848,35 +4848,35 @@
             Called when the Save Template verb is selected.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.Design.ChartControlDesigner.HandleLoadTemplate(System.Object,System.EventArgs)">
             <summary>
             Called when the Load Template verb is selected.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.Design.ChartControlDesigner.HandleResetTemplate(System.Object,System.EventArgs)">
             <summary>
             Called when the reset Template verb is selected.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.Design.ChartControlDesigner.HandleApplyClassicStyle(System.Object,System.EventArgs)">
             <summary>
             Handles the apply classic style.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.Design.ChartControlDesigner.HandleRevertDefaultStyle(System.Object,System.EventArgs)">
             <summary>
             Handles the revert default style.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.Design.ChartControlDesigner.HandleChartWizard(System.Object,System.EventArgs)">
             <summary>
@@ -4967,28 +4967,28 @@
             Handles the Load event of the ChartTemplateWizard control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartTemplateWizard.bttnBrowse_Click(System.Object,System.EventArgs)">
             <summary>
             Called when the Browse button is cliked. This method displays the <see cref="T:Syncfusion.Windows.Forms.FolderBrowser"/> dialog.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartTemplateWizard.lsbxTemplates_SelectedIndexChanged(System.Object,System.EventArgs)">
             <summary>
             Called when the template is selected from the list.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartTemplateWizard.edFolder_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
             <summary>
             Called when a key is pressed while the control has focus. 
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.KeyEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.KeyEventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartTemplateWizard.ProcessKeyPreview(System.Windows.Forms.Message@)">
             <summary>
@@ -5050,7 +5050,7 @@
             Handles the CheckedChanged event of the checkAutoRun control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartWizardForm.lsvwSeriesTypes_SelectedIndexChanged(System.Object,System.EventArgs)">
             <summary>
@@ -5113,7 +5113,7 @@
             Handles the Click event of the bttnCancel control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartWizardForm.tbcrAppearance_VisibleChanged(System.Object,System.EventArgs)">
             <summary>
@@ -5148,7 +5148,7 @@
             Tabs the buttons click.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartWizardForm.bttnEditPoints_Click(System.Object,System.EventArgs)">
             <summary>
@@ -5582,19 +5582,19 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartWizardForm.FindDataMembers(System.Windows.Forms.BindingContext,System.Object,System.String)">
             <summary>
-            Search's all members in the data source.
+            Search's all members in the dataRows source.
             </summary>
             <param name="context">Instance of the BindingContext.</param>
             <param name="source">Data source.</param>
-            <param name="dataMember">Member of the data source.</param>
-            <returns>The array of members from the data source.</returns>
+            <param name="dataMember">Member of the dataRows source.</param>
+            <returns>The array of members from the dataRows source.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartWizardForm.GetPropertiesList(System.ComponentModel.PropertyDescriptorCollection,System.String,System.Int32,System.Int32)">
             <summary>
-            Get all property names of data source.
+            Get all property names of dataRows source.
             </summary>
-            <param name="collection">Property descriptor collection for data source object</param>
-            <param name="parent">Parent property name of data source instance </param>
+            <param name="collection">Property descriptor collection for dataRows source object</param>
+            <param name="parent">Parent property name of dataRows source instance </param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartWizardForm.SetChart(Syncfusion.Windows.Forms.Chart.ChartControl)">
             <summary>
@@ -5651,13 +5651,13 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartWizardForm.UpdateDataSources(Syncfusion.Windows.Forms.Chart.ChartControl)">
             <summary>
-            Updates the data sources.
+            Updates the dataRows sources.
             </summary>
             <param name="chart">The chart.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartWizardForm.UpdateDataMembers(System.String)">
             <summary>
-            Updates the data members.
+            Updates the dataRows members.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartWizardForm.UpdateSeriesCollection(Syncfusion.Windows.Forms.Chart.ChartControl)">
@@ -5668,7 +5668,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartWizardForm.EnsureDataBindModelPresent(Syncfusion.Windows.Forms.Chart.ChartSeries)">
             <summary>
-            Ensures the data bind model present.
+            Ensures the dataRows bind model present.
             </summary>
             <param name="series">The series.</param>
             <returns></returns>
@@ -5729,13 +5729,13 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartWizardForm.CreateNewOleDataAdapter(Syncfusion.Windows.Forms.Chart.ChartControl)">
             <summary>
-            Creates the new OLEDB data adapter.
+            Creates the new OLEDB dataRows adapter.
             </summary>
             <param name="chart">The chart.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartWizardForm.CreateNewSqlDataAdapter(Syncfusion.Windows.Forms.Chart.ChartControl)">
             <summary>
-            Creates the new SQL data adapter.
+            Creates the new SQL dataRows adapter.
             </summary>
             <param name="chart">The chart.</param>
         </member>
@@ -6057,7 +6057,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartWizardResources.DataSourceTitle">
             <summary>
-            Gets text of the wizard title when the data source is setting.
+            Gets text of the wizard title when the dataRows source is setting.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartWizardResources.PaletteTitle">
@@ -6211,31 +6211,31 @@
             <summary>
             Overrides <see cref="M:System.Windows.Forms.Control.OnPaint(System.Windows.Forms.PaintEventArgs)"/> method.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"></see> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"></see> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ImageButton.OnMouseEnter(System.EventArgs)">
             <summary>
             Raises the <see cref="E:MouseEnter"/> event.
             </summary>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ImageButton.OnMouseLeave(System.EventArgs)">
             <summary>
             Raises the <see cref="E:MouseLeave"/> event.
             </summary>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ImageButton.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.MouseDown"></see> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"></see> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"></see> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ImageButton.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.MouseUp"></see> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"></see> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"></see> that contains the event dataRows.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ImageButton.BorderColor">
             <summary>
@@ -6339,7 +6339,7 @@
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.Paint"></see> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"></see> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"></see> that contains the event dataRows.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartTabControl.NoneImage">
             <summary>
@@ -6386,7 +6386,7 @@
             <summary>
             Raises the <see cref="E:Paint"/> event.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartGroupBox.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
             <summary>
@@ -6422,7 +6422,7 @@
             <summary>
             Raises the <see cref="E:System.Windows.Forms.ComboBox.DrawItem"></see> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.DrawItemEventArgs"></see> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.DrawItemEventArgs"></see> that contains the event dataRows.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartComboBox.ImageList">
             <summary>
@@ -6454,14 +6454,14 @@
             Called when edit button is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.BrushInfoBox.OnPreviewPanelPaint(System.Object,System.Windows.Forms.PaintEventArgs)">
             <summary>
             Called when preview panel is painted.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.BrushInfoBox.BrushInfo">
             <summary>
@@ -6495,14 +6495,14 @@
             Called when preview panel is painted.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ColorBox.OnColorSelected(System.Object,System.EventArgs)">
             <summary>
             Called when color is selected.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="E:Syncfusion.Windows.Forms.Chart.ColorBox.ColorChanged">
             <summary>
@@ -6530,13 +6530,13 @@
             Called when orientation button is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartTextOrientationBox.OnSizeChanged(System.EventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.SizeChanged"></see> event.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"></see> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"></see> that contains the event dataRows.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartTextOrientationBox.Orientation">
             <summary>
@@ -6559,7 +6559,7 @@
             Called when edit button is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="E:Syncfusion.Windows.Forms.Chart.FontBox.SelectedFontChanged">
             <summary>
@@ -6587,7 +6587,7 @@
             Called when radio button checked is changed.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="E:Syncfusion.Windows.Forms.Chart.StringAlignmentBox.StringAlignmentChanged">
             <summary>
@@ -6609,13 +6609,13 @@
             <summary>
             Raises the <see cref="E:MouseEnter"/> event.
             </summary>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.HighlightImageLabel.OnMouseLeave(System.EventArgs)">
             <summary>
             Raises the <see cref="E:MouseLeave"/> event.
             </summary>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.HighlightImageLabel.HighlightImage">
             <summary>
@@ -6877,7 +6877,7 @@
         </member>
         <member name="F:Syncfusion.Windows.Forms.Chart.SparkLineType.Line">
             <summary>
-            LineSparkline is used for identifying patterns and trends in the data such as seasonal effects, large changes and turning points over a period of time.
+            LineSparkline is used for identifying patterns and trends in the dataRows such as seasonal effects, large changes and turning points over a period of time.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Chart.SparkLineType.Column">
@@ -6905,13 +6905,13 @@
             Event that is raised when the source list changed.
             </summary>
             <param name="sender"></param>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.SparkLine.OnPaint(System.Windows.Forms.PaintEventArgs)">
             <summary>
             Overrides the <see cref="E:System.Windows.Forms.Control.Paint"/> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.SparkLine.Draw(System.Windows.Forms.PaintEventArgs)">
             <summary>
@@ -6937,7 +6937,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.SparkLine.Source">
             <summary>
-            Gets or sets the data source of the Sparkline control.
+            Gets or sets the dataRows source of the Sparkline control.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.SparkLine.ControlWidth">
@@ -7039,49 +7039,49 @@
             <summary>
             Method is called when the Paint event is raised.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBar.OnSizeChanged(System.EventArgs)">
             <summary>
             Method is called when the SizeChanged event is raised.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBar.OnDoubleClick(System.EventArgs)">
             <summary>
             Method is called when the DoubleClick event is raised.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBar.OnClick(System.EventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.Click"/> event.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBar.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.MouseMove"></see> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"></see> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"></see> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBar.OnMouseLeave(System.EventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.MouseLeave"></see> event.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"></see> that contains the event data.</param>
+            <param name="e">An <see cref="T:System.EventArgs"></see> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBar.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.MouseDown"></see> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"></see> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"></see> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBar.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.MouseUp"></see> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"></see> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"></see> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBar.RaiseItemClick(Syncfusion.Windows.Forms.Chart.ChartToolBarItemBase)">
             <summary>
@@ -7099,7 +7099,7 @@
             Handles the SettingsChanged event of the Border control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBar.OnItemsChanged(Syncfusion.Windows.Forms.Chart.ChartBaseList,Syncfusion.Windows.Forms.Chart.ChartListChangeArgs)">
             <summary>
@@ -7767,7 +7767,7 @@
             Method is called when the palettes menu is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBarPaletteItem.OnEditPaletteMenuClick(System.Object,System.EventArgs)">
             <summary>
@@ -7839,7 +7839,7 @@
             Method is called when the series menu is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartToolBarStyleItem.DefaultImage">
             <summary>
@@ -7904,7 +7904,7 @@
             Method is called when the palettes menu is clicked.
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartToolBarTypeItem.DefaultImage">
             <summary>
@@ -8397,18 +8397,18 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBarItemCollectionEditor.CreateNewItemTypes">
             <summary>
-            Gets the data types that this collection editor can contain.
+            Gets the dataRows types that this collection editor can contain.
             </summary>
             <returns>
-            An array of data types that this collection can contain.
+            An array of dataRows types that this collection can contain.
             </returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartToolBarItemCollectionEditor.CreateCollectionItemType">
             <summary>
-            Gets the data type that this collection contains.
+            Gets the dataRows type that this collection contains.
             </summary>
             <returns>
-            The data type of the items in the collection, or an <see cref="T:System.Object"></see> if no Item property can be located on the collection.
+            The dataRows type of the items in the collection, or an <see cref="T:System.Object"></see> if no Item property can be located on the collection.
             </returns>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Chart.ChartToolBarItemCollection">
@@ -8579,21 +8579,21 @@
             Handles the Click event of the bttnOK control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ToolBarPropertyForm.bttnCancel_Click(System.Object,System.EventArgs)">
             <summary>
             Handles the Click event of the bttnCancel control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ToolBarPropertyForm.bttnApply_Click(System.Object,System.EventArgs)">
             <summary>
             Handles the Click event of the bttnApply control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event dataRows.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Chart.ToolBarPropertyForm.ToolBarProperty">
             <summary>
@@ -8785,7 +8785,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartTrackball.Symbol">
             <summary>
-            Gets or sets the Symbol options used to highlight the data point. You can customize the shape, interior and border color of the symbol to be highlighted using this instance.
+            Gets or sets the Symbol options used to highlight the dataRows point. You can customize the shape, interior and border color of the symbol to be highlighted using this instance.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.AxisTooltipEventArgs.#ctor(System.Int32)">
@@ -8852,12 +8852,12 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.TrackballTooltipEventArgs.SeriesIndex">
             <summary>
-            Gets the series index of data point.
+            Gets the series index of dataRows point.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.TrackballTooltipEventArgs.pointIndex">
             <summary>
-            Gets the index of data point in series.
+            Gets the index of dataRows point in series.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Chart.TrackballTooltip">
@@ -8912,12 +8912,12 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.TrackballTooltip.XValueFormat">
             <summary>
-            Gets or sets the format for X value of data point in trackball tooltip.
+            Gets or sets the format for X value of dataRows point in trackball tooltip.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.TrackballTooltip.YValueFormat">
             <summary>
-            Gets or sets the format for Y value of data point in trackball tooltip.
+            Gets or sets the format for Y value of dataRows point in trackball tooltip.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.TrackballTooltip.TextFormat">
@@ -8937,7 +8937,7 @@
         </member>
         <member name="F:Syncfusion.Windows.Forms.Chart.TrackballTooltipDisplayMode.Float">
             <summary>
-            Trackball tooltip will be displayed individualy for closest data point in each series.
+            Trackball tooltip will be displayed individualy for closest dataRows point in each series.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Chart.Native.PRF_CHECKVISIBLE">

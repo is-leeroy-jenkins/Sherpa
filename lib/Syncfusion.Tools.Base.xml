@@ -32,7 +32,7 @@
             for a <see cref="E:System.AppDomain.AssemblyResolve"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The event data with information about the type.</param>
+            <param name="e">The event dataRows with information about the type.</param>
             <returns>A reference to the assembly where the type is located.</returns>
             <remarks>
             <para>If the requested assembly is either Tools, Grid, or Shared, this method returns the reference

@@ -6,6 +6,11 @@ namespace BudgetExecution
 {
     using System.Diagnostics.CodeAnalysis;
     using System;
+    using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.ComponentModel;
+    using System.Configuration;
+    using System.Data;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
@@ -17,12 +22,22 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.Chart.ChartControl" />
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class ChartBase : ChartControl
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
+    public abstract class ChartBase : ChartControl
     {
+        /// <summary>
+        /// Gets or sets the bud ex configuration.
+        /// </summary>
+        /// <value>
+        /// The bud ex configuration.
+        /// </value>
+        public virtual NameValueCollection AppSetting { get; set; }  = ConfigurationManager.AppSettings;
+
         /// <summary>
         /// The style
         /// </summary>
-        public IChartConfig Style { get; set; }
+        public virtual IChartConfig Style { get; set; }
 
         /// <summary>
         /// Gets or sets the source.
@@ -30,7 +45,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public virtual Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the data model.
@@ -38,7 +53,7 @@ namespace BudgetExecution
         /// <value>
         /// The data model.
         /// </value>
-        public ISourceModel SourceModel { get; set; }
+        public virtual ISourceModel SourceModel { get; set; }
 
         /// <summary>
         /// Gets the configuration.
@@ -46,7 +61,7 @@ namespace BudgetExecution
         /// <value>
         /// The configuration.
         /// </value>
-        public ISeriesConfig Configuration { get; set; }
+        public virtual ISeriesConfig Configuration { get; set; }
 
         /// <summary>
         /// Gets or sets the metric.
@@ -54,7 +69,7 @@ namespace BudgetExecution
         /// <value>
         /// The metric.
         /// </value>
-        public IDataMetric DataMetric { get; set; }
+        public virtual IDataMetric DataMetric { get; set; }
 
         /// <summary>
         /// Gets or sets the data.
@@ -62,7 +77,7 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public ISeriesModel ChartData { get; set; }
+        public virtual ISeriesModel ChartData { get; set; }
 
         /// <summary>
         /// Gets the data series.
@@ -70,7 +85,7 @@ namespace BudgetExecution
         /// <value>
         /// The data series.
         /// </value>
-        public DataSeries DataSeries { get; set; }
+        public virtual DataSeries DataSeries { get; set; }
 
         /// <summary>
         /// Gets the default title.
@@ -78,7 +93,7 @@ namespace BudgetExecution
         /// <value>
         /// The title information.
         /// </value>
-        public ITitleInfo TitleInfo { get; set; }
+        public virtual ITitleInfo TitleInfo { get; set; }
 
         /// <summary>
         /// Gets or sets the binding source.
@@ -86,7 +101,31 @@ namespace BudgetExecution
         /// <value>
         /// The binding source.
         /// </value>
-        public BindingSource BindingSource { get; set; }
+        public virtual BindingSource BindingSource { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
+        public virtual Field Field { get; set; }
+
+        /// <summary>
+        /// Gets or sets the numeric.
+        /// </summary>
+        /// <value>
+        /// The numeric.
+        /// </value>
+        public virtual Numeric Numeric { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public virtual IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ChartBase"/> class.
@@ -101,7 +140,7 @@ namespace BudgetExecution
         /// <param name="font">The font.</param>
         /// <param name="size">The size.</param>
         /// <param name="backColor">The backcolor.</param>
-        public void SetLegend( Font font, Size size, Color backColor )
+        public virtual void SetLegend( Font font, Size size, Color backColor )
         {
             try
             {
@@ -124,120 +163,272 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
+        
         /// <summary>
-        /// Gets the source model.
+        /// Sets the binding source.
         /// </summary>
-        /// <returns></returns>
-        public ISourceModel GetSourceModel()
+        /// <param name="bindingsource">The bindingsource.</param>
+        public virtual void SetDataSource<T1>( T1 bindingsource ) 
+            where T1 : IBindingList
         {
             try
             {
-                return SourceModel?.GetData()?.Any() == true
-                    ? SourceModel
-                    : default( ISourceModel );
+                if( bindingsource is BindingSource binder
+                    && binder?.DataSource != null )
+                {
+                    try
+                    {
+                        BindingSource.DataSource = binder.DataSource;
+                    }
+                    catch( Exception ex )
+                    {
+                        Fail( ex );
+                    }
+                }
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( ISourceModel );
             }
         }
 
         /// <summary>
-        /// Gets the series configuration.
+        /// Sets the binding source.
         /// </summary>
-        /// <returns></returns>
-        public ISeriesConfig GetSeriesConfiguration()
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2">The type of the 2.</typeparam>
+        /// <param name="bindinglist">The bindingsource.</param>
+        /// <param name="dict">The dictionary.</param>
+        public virtual void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
+            where T1 : IBindingList 
+            where T2 : IDictionary<string, object>
         {
             try
             {
-                var _type = Configuration?.GetSeriesType();
+                if( Verify.IsBindable( bindinglist )
+                    && Verify.IsMap( dict ) )
+                {
+                    try
+                    {
+                        var _list = bindinglist as BindingSource;
+                        var _filter = string.Empty;
 
-                return _type != null && Enum.IsDefined( typeof( ChartType ), _type )
-                    ? Configuration
-                    : default( ISeriesConfig );
+                        foreach( var _kvp in dict )
+                        {
+                            if( Verify.IsInput( _kvp.Key )
+                                && Verify.IsRef( _kvp.Value ) )
+                            {
+                                _filter += $"{_kvp.Key} = {_kvp.Value} AND";
+                            }
+                        }
+
+                        if( _filter?.Length > 0
+                            && _list?.DataSource != null )
+                        {
+                            BindingSource.DataSource = _list?.DataSource;
+                            BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray() );
+                        }
+                    }
+                    catch( Exception ex )
+                    {
+                        Fail( ex );
+                    }
+                }
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( ISeriesConfig );
             }
         }
 
         /// <summary>
-        /// Gets the data metric.
+        /// Sets the binding source.
         /// </summary>
-        /// <returns></returns>
-        public IDataMetric GetDataMetric()
+        /// <param name="data">The data.</param>
+        public virtual void SetDataSource<T1>( IEnumerable<T1> data ) 
+            where T1 : IEnumerable<DataRow>
         {
-            try
+            if( Verify.IsSequence( data ) )
             {
-                return ( DataMetric?.Data?.Any() == true )
-                    ? DataMetric
-                    : default( IDataMetric );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDataMetric );
+                try
+                {
+                    BindingSource.DataSource = data?.ToList();
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
         /// <summary>
-        /// Gets the chart data.
+        /// Sets the binding source.
         /// </summary>
-        /// <returns></returns>
-        public ISeriesModel GetChartData()
+        /// <typeparam name="T1">The type of the 1.</typeparam>
+        /// <param name="data">The data.</param>
+        /// <param name="dict">The dictionary.</param>
+        public virtual void SetDataSource<T1>( IEnumerable<T1> data, IDictionary<string, object> dict )
+            where T1 : IEnumerable<DataRow>
         {
-            try
+            if( Verify.IsSequence( data ) )
             {
-                return ( ChartData?.GetSeriesValues()?.Any() == true )
-                    ? ChartData
-                    : default( ISeriesModel );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( ISeriesModel );
+                try
+                {
+                    var _filter = string.Empty;
+
+                    foreach( var _kvp in dict )
+                    {
+                        if( Verify.IsInput( _kvp.Key )
+                            && _kvp.Value != null )
+                        {
+                            _filter += $"{_kvp.Key} = {_kvp.Value} AND";
+                        }
+                    }
+
+                    BindingSource.DataSource = data?.ToList();
+                    BindingSource.Filter = _filter.TrimEnd( " AND".ToCharArray() );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
         /// <summary>
-        /// Gets the data series.
+        /// Sets the binding source.
         /// </summary>
-        /// <returns></returns>
-        public IDataSeries GetDataSeries()
+        /// <typeparam name="T1">The type of the 1.</typeparam>
+        /// <typeparam name="T2">The type of the 2.</typeparam>
+        /// <typeparam name="T3">The type of the 3.</typeparam>
+        /// <param name="data">The data.</param>
+        /// <param name="field">The field.</param>
+        /// <param name="filter">The dictionary.</param>
+        public virtual void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
+            where T1 : IEnumerable<DataRow> 
+            where T2 : struct
         {
-            try
+            if( Verify.IsSequence( data )
+                && Validate.IsField( field ) )
             {
-                return ( DataSeries?.Points?.Count > 0 )
-                    ? DataSeries
-                    : default( DataSeries );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDataSeries );
+                try
+                {
+                    if( Verify.IsInput( filter?.ToString() ) )
+                    {
+                        BindingSource.DataSource = data.ToList();
+                        BindingSource.DataMember = field.ToString();
+                        BindingSource.Filter = $"{field} = {filter}";
+                    }
+                    else
+                    {
+                        BindingSource.DataSource = data.ToList();
+                        BindingSource.DataMember = field.ToString();
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
         /// <summary>
-        /// Gets the tile information.
+        /// Sets the binding source.
         /// </summary>
-        /// <returns></returns>
-        public ITitleInfo GetTileInfo()
+        /// <typeparam name="T1">The type of the 1.</typeparam>
+        /// <param name="data">The data.</param>
+        /// <param name="field">The field.</param>
+        public virtual void SetDataSource<T1>( IEnumerable<T1> data, object field = null )
+            where T1 : IEnumerable<DataRow>
         {
-            try
+            if( Verify.IsInput( data ) )
             {
-                return Verify.IsInput( TitleInfo?.GetAxisText() )
-                    ? TitleInfo
-                    : default( ITitleInfo );
+                try
+                {
+                    if( Verify.IsInput( field?.ToString() ) )
+                    {
+                        BindingSource.DataSource = data.ToList();
+                        BindingSource.DataMember = field?.ToString();
+                    }
+                    else
+                    {
+                        BindingSource.DataSource = data.ToList();
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
-            catch( Exception ex )
+        }
+
+        /// <summary>
+        /// Sets the bindings.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        /// <param>The numeric.</param>
+        /// <param name = "dict" > </param>
+        public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
+            where T1 : IEnumerable<DataRow> 
+            where T2 : IDictionary<string, object>
+        {
+            if( Verify.IsSequence( data )
+                && Verify.IsMap( dict ) )
             {
-                Fail( ex );
-                return default( ITitleInfo );
+                try
+                {
+                    var _filter = string.Empty;
+
+                    foreach( var _kvp in dict )
+                    {
+                        if( Verify.IsInput( _kvp.Key )
+                            && _kvp.Value != null )
+                        {
+                            _filter += $"{_kvp.Key} = {_kvp.Value} AND";
+                        }
+                    }
+
+                    BindingSource.DataSource = data?.ToList();
+                    BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray() );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the binding source.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        /// <param name="field">The field.</param>
+        /// <param name="filter">The filter.</param>
+        public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field, object filter = null )
+            where T1 : IEnumerable<DataRow> 
+            where T2 : struct
+        {
+            if( Verify.IsSequence( data )
+                && Validate.IsField( field ) )
+            {
+                try
+                {
+                    if( Verify.IsInput( filter?.ToString() ) )
+                    {
+                        BindingSource.DataSource = data.ToList();
+                        BindingSource.DataMember = field.ToString();
+                        BindingSource.Filter = $"{field} = {filter}";
+                    }
+                    else
+                    {
+                        BindingSource.DataSource = data.ToList();
+                        BindingSource.DataMember = field.ToString();
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 

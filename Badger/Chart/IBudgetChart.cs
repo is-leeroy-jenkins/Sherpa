@@ -1,15 +1,14 @@
-﻿// <copyright file = "IBudgetChart.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
-// </copyright>
+﻿// // <copyright file = "IBudgetChart.cs" company = "Terry D. Eppler">
+// // Copyright (c) Terry D. Eppler. All rights reserved.
+// // </copyright>
 
 namespace BudgetExecution
 {
+    using System.Collections.Generic;
+    using System.Collections.Specialized;
     using System.Drawing;
     using System.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
     public interface IBudgetChart
     {
         /// <summary>
@@ -35,67 +34,102 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the primary axis title.
         /// </summary>
-        /// <param name="text">The text.</param>
-        /// <param name="font">The font.</param>
+        /// <param name="text">The title.</param>
+        /// <param name="font"></param>
         /// <param name="color">The color.</param>
         void SetPrimaryAxisTitle( string text, Font font, Color color );
 
         /// <summary>
-        /// Sets the main title.
+        /// Gets or sets the bud ex configuration.
         /// </summary>
-        /// <param name="text">The text.</param>
-        /// <param name="font">The font.</param>
-        /// <param name="color">The color.</param>
-        void SetMainTitle( string text, Font font, Color color );
+        /// <value>
+        /// The bud ex configuration.
+        /// </value>
+        NameValueCollection AppSetting { get; set; }
 
         /// <summary>
-        /// Sets the legend.
+        /// The style
         /// </summary>
-        /// <param name="font">The font.</param>
-        /// <param name="size">The size.</param>
-        /// <param name="backColor">The backColor.</param>
-        void SetLegend( Font font, Size size, Color backColor );
+        IChartConfig Style { get; set; }
 
         /// <summary>
-        /// Gets the style configuration.
+        /// Gets or sets the source.
         /// </summary>
-        /// <returns></returns>
-        IChartConfig GetStyleConfiguration();
+        /// <value>
+        /// The source.
+        /// </value>
+        Source Source { get; set; }
 
         /// <summary>
-        /// Gets the source model.
+        /// Gets or sets the data model.
         /// </summary>
-        /// <returns></returns>
-        ISourceModel GetSourceModel();
+        /// <value>
+        /// The data model.
+        /// </value>
+        ISourceModel SourceModel { get; set; }
 
         /// <summary>
-        /// Gets the series configuration.
+        /// Gets the configuration.
         /// </summary>
-        /// <returns></returns>
-        ISeriesConfig GetSeriesConfiguration();
+        /// <value>
+        /// The configuration.
+        /// </value>
+        ISeriesConfig Configuration { get; set; }
 
         /// <summary>
-        /// Gets the data metric.
+        /// Gets or sets the data.
         /// </summary>
-        /// <returns></returns>
-        IDataMetric GetDataMetric();
-
-        /// <summary>
-        /// Gets the chart data.
-        /// </summary>
-        /// <returns></returns>
-        ISeriesModel GetChartData();
+        /// <value>
+        /// The data.
+        /// </value>
+        ISeriesModel ChartData { get; set; }
 
         /// <summary>
         /// Gets the data series.
         /// </summary>
-        /// <returns></returns>
-        IDataSeries GetDataSeries();
+        /// <value>
+        /// The data series.
+        /// </value>
+        DataSeries DataSeries { get; set; }
 
         /// <summary>
-        /// Gets the tile information.
+        /// Gets the default title.
         /// </summary>
-        /// <returns></returns>
-        ITitleInfo GetTileInfo();
+        /// <value>
+        /// The title information.
+        /// </value>
+        ITitleInfo TitleInfo { get; set; }
+
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
+        Field Field { get; set; }
+
+        /// <summary>
+        /// Gets or sets the numeric.
+        /// </summary>
+        /// <value>
+        /// The numeric.
+        /// </value>
+        Numeric Numeric { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        IDictionary<string, object> DataFilter { get; set; }
     }
 }

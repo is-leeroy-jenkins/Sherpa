@@ -152,7 +152,7 @@
         <member name="M:SQLite.Designer.SQLiteCommandHandler.ExecuteCommand(System.Int32,Microsoft.VisualStudio.Data.OleCommand,Microsoft.VisualStudio.Data.OleCommandExecutionOption,System.Object)">
             <summary>
             This method executes a specified command, potentially based
-            on parameters passed in from the data view support XML.
+            on parameters passed in from the dataRows view support XML.
             </summary>
         </member>
         <member name="T:SQLite.Designer.SQLiteConnectionProperties">
@@ -196,7 +196,7 @@
             <summary>
             Provides a toolboxitem for a SQLiteDataAdapter.  This is required in order for us to 
             pop up the connection wizard when you drop the tool on a form, and to create the hidden commands
-            that are assigned to the data adapter and keep them hidden.  The hiding at runtime of the controls
+            that are assigned to the dataRows adapter and keep them hidden.  The hiding at runtime of the controls
             is accomplished both here during the creation of the components and in the SQLiteCommandDesigner
             which provides properties to hide the objects when they're supposed to be hidden.
             
@@ -205,7 +205,7 @@
         </member>
         <member name="M:SQLite.Designer.SQLiteDataAdapterToolboxItem.CreateComponentsCore(System.ComponentModel.Design.IDesignerHost)">
             <summary>
-            Creates the necessary components associated with this data adapter instance
+            Creates the necessary components associated with this dataRows adapter instance
             </summary>
             <param name="host">The designer host</param>
             <returns>The components created by this toolbox item</returns>

@@ -1636,7 +1636,7 @@
         </member>
         <member name="F:OfficeOpenXml.ConditionalFormatting.eExcelConditionalFormattingRuleType.DataBar">
             <summary>
-            This conditional formatting rule displays a gradated data bar in the range of cells.
+            This conditional formatting rule displays a gradated dataRows bar in the range of cells.
             </summary>
             <remarks>DataBar Excel CF Rule Type</remarks>
         </member>
@@ -4294,22 +4294,22 @@
         </member>
         <member name="P:OfficeOpenXml.Drawing.Chart.ExcelChartDataTable.ShowHorizontalBorder">
             <summary>
-            The horizontal borders shall be shown in the data table
+            The horizontal borders shall be shown in the dataRows table
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Drawing.Chart.ExcelChartDataTable.ShowVerticalBorder">
             <summary>
-            The vertical borders shall be shown in the data table
+            The vertical borders shall be shown in the dataRows table
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Drawing.Chart.ExcelChartDataTable.ShowOutline">
             <summary>
-            The outline shall be shown on the data table
+            The outline shall be shown on the dataRows table
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Drawing.Chart.ExcelChartDataTable.ShowKeys">
             <summary>
-            The legend keys shall be shown in the data table
+            The legend keys shall be shown in the dataRows table
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Drawing.Chart.ExcelChartDataTable.Fill">
@@ -4678,7 +4678,7 @@
         </member>
         <member name="P:OfficeOpenXml.Drawing.Chart.ExcelChart.ShowHiddenData">
             <summary>
-            Show data in hidden rows and columns
+            Show dataRows in hidden rows and columns
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Drawing.Chart.ExcelChart.DisplayBlanksAs">
@@ -4688,7 +4688,7 @@
         </member>
         <member name="P:OfficeOpenXml.Drawing.Chart.ExcelChart.ShowDataLabelsOverMaximum">
             <summary>
-            Specifies data labels over the maximum of the chart shall be shown
+            Specifies dataRows labels over the maximum of the chart shall be shown
             </summary>
         </member>
         <member name="M:OfficeOpenXml.Drawing.Chart.ExcelChart.CheckRemoveAxis(OfficeOpenXml.Drawing.Chart.ExcelChartAxis)">
@@ -4954,19 +4954,19 @@
         </member>
         <member name="M:OfficeOpenXml.Drawing.Chart.ExcelChartPlotArea.CreateDataTable">
             <summary>
-            Creates a data table in the plotarea
+            Creates a dataRows table in the plotarea
             The dataTable can also be accessed via the Table propery
             <see cref="P:OfficeOpenXml.Drawing.Chart.ExcelChartPlotArea.Table"/>
             </summary>
         </member>
         <member name="M:OfficeOpenXml.Drawing.Chart.ExcelChartPlotArea.RemoveDataTable">
             <summary>
-            Remove the data table if it's created in the plotarea
+            Remove the dataRows table if it's created in the plotarea
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Drawing.Chart.ExcelChartPlotArea.Table">
             <summary>
-            The data table object.
+            The dataRows table object.
             Use the CreateDataTable method to create a dataTable if it does not exist.
             <see cref="M:OfficeOpenXml.Drawing.Chart.ExcelChartPlotArea.CreateDataTable"/>
             <see cref="M:OfficeOpenXml.Drawing.Chart.ExcelChartPlotArea.RemoveDataTable"/>
@@ -5248,7 +5248,7 @@
         </member>
         <member name="F:OfficeOpenXml.Drawing.Chart.eCrossBetween.Between">
             <summary>
-            Specifies the value axis shall cross the category axis between data markers
+            Specifies the value axis shall cross the category axis between dataRows markers
             </summary>
         </member>
         <member name="F:OfficeOpenXml.Drawing.Chart.eCrossBetween.MidCat">
@@ -6369,12 +6369,12 @@
         </member>
         <member name="T:OfficeOpenXml.DataValidation.Contracts.IExcelDataValidation">
             <summary>
-            Interface for data validation
+            Interface for dataRows validation
             </summary>
         </member>
         <member name="P:OfficeOpenXml.DataValidation.Contracts.IExcelDataValidation.Address">
             <summary>
-            Address of data validation
+            Address of dataRows validation
             </summary>
         </member>
         <member name="P:OfficeOpenXml.DataValidation.Contracts.IExcelDataValidation.ValidationType">
@@ -6459,7 +6459,7 @@
         </member>
         <member name="T:OfficeOpenXml.DataValidation.Contracts.IExcelDataValidationWithFormula2`1">
             <summary>
-            Interface for a data validation with two formulas
+            Interface for a dataRows validation with two formulas
             </summary>
             <typeparam name="T"></typeparam>
         </member>
@@ -6647,7 +6647,7 @@
             <param name="worksheet">Worksheet that owns the validation</param>
             <param name="itemElementNode">Xml top node (dataValidations)</param>
             <param name="validationType">Data validation type</param>
-            <param name="address">address for data validation</param>
+            <param name="address">address for dataRows validation</param>
         </member>
         <member name="M:OfficeOpenXml.DataValidation.ExcelDataValidationWithFormula`1.#ctor(OfficeOpenXml.ExcelWorksheet,System.String,OfficeOpenXml.DataValidation.ExcelDataValidationType,System.Xml.XmlNode,System.Xml.XmlNamespaceManager)">
             <summary>
@@ -6656,7 +6656,7 @@
             <param name="worksheet">Worksheet that owns the validation</param>
             <param name="itemElementNode">Xml top node (dataValidations)</param>
             <param name="validationType">Data validation type</param>
-            <param name="address">address for data validation</param>
+            <param name="address">address for dataRows validation</param>
             <param name="namespaceManager">for test purposes</param>
         </member>
         <member name="P:OfficeOpenXml.DataValidation.ExcelDataValidationWithFormula`1.Formula">
@@ -6679,7 +6679,7 @@
             <param name="worksheet">Worksheet that owns the validation</param>
             <param name="itemElementNode">Xml top node (dataValidations)</param>
             <param name="validationType">Data validation type</param>
-            <param name="address">address for data validation</param>
+            <param name="address">address for dataRows validation</param>
         </member>
         <member name="M:OfficeOpenXml.DataValidation.ExcelDataValidationWithFormula2`1.#ctor(OfficeOpenXml.ExcelWorksheet,System.String,OfficeOpenXml.DataValidation.ExcelDataValidationType,System.Xml.XmlNode,System.Xml.XmlNamespaceManager)">
             <summary>
@@ -6688,7 +6688,7 @@
             <param name="worksheet">Worksheet that owns the validation</param>
             <param name="itemElementNode">Xml top node (dataValidations)</param>
             <param name="validationType">Data validation type</param>
-            <param name="address">address for data validation</param>
+            <param name="address">address for dataRows validation</param>
             <param name="namespaceManager">for test purposes</param>
         </member>
         <member name="P:OfficeOpenXml.DataValidation.ExcelDataValidationWithFormula2`1.Formula2">
@@ -6752,7 +6752,7 @@
         </member>
         <member name="T:OfficeOpenXml.DataValidation.Formulas.Contracts.IExcelDataValidationFormula">
             <summary>
-            Interface for a data validation formula
+            Interface for a dataRows validation formula
             </summary>
         </member>
         <member name="P:OfficeOpenXml.DataValidation.Formulas.Contracts.IExcelDataValidationFormula.ExcelFormula">
@@ -6767,7 +6767,7 @@
         </member>
         <member name="T:OfficeOpenXml.DataValidation.Formulas.Contracts.IExcelDataValidationFormulaList">
             <summary>
-            Interface for a data validation of list type
+            Interface for a dataRows validation of list type
             </summary>
         </member>
         <member name="P:OfficeOpenXml.DataValidation.Formulas.Contracts.IExcelDataValidationFormulaList.Values">
@@ -6788,12 +6788,12 @@
         </member>
         <member name="T:OfficeOpenXml.DataValidation.Formulas.Contracts.IExcelDataValidationFormulaDecimal">
             <summary>
-            Interface for a data validation formula of <see cref="T:System.Single">float</see> value
+            Interface for a dataRows validation formula of <see cref="T:System.Single">float</see> value
             </summary>
         </member>
         <member name="T:OfficeOpenXml.DataValidation.Formulas.Contracts.IExcelDataValidationFormulaInt">
             <summary>
-            Interface for a data validation formula of <see cref="T:System.Int32"/> value
+            Interface for a dataRows validation formula of <see cref="T:System.Int32"/> value
             </summary>
         </member>
         <member name="T:OfficeOpenXml.DataValidation.Formulas.FormulaState">
@@ -6938,7 +6938,7 @@
         </member>
         <member name="T:OfficeOpenXml.DataValidation.ExcelDataValidationList">
             <summary>
-            This class represents an List data validation.
+            This class represents an List dataRows validation.
             </summary>
         </member>
         <member name="M:OfficeOpenXml.DataValidation.ExcelDataValidationList.#ctor(OfficeOpenXml.ExcelWorksheet,System.String,OfficeOpenXml.DataValidation.ExcelDataValidationType)">
@@ -7016,25 +7016,25 @@
             <summary>
             Adds a <see cref="T:OfficeOpenXml.DataValidation.Contracts.IExcelDataValidationInt"/> to the range
             </summary>
-            <returns>A <see cref="T:OfficeOpenXml.DataValidation.ExcelDataValidationInt"/> that can be configured for integer data validation</returns>
+            <returns>A <see cref="T:OfficeOpenXml.DataValidation.ExcelDataValidationInt"/> that can be configured for integer dataRows validation</returns>
         </member>
         <member name="M:OfficeOpenXml.DataValidation.IRangeDataValidation.AddDecimalDataValidation">
             <summary>
             Adds a <see cref="T:OfficeOpenXml.DataValidation.ExcelDataValidationDecimal"/> to the range
             </summary>
-            <returns>A <see cref="T:OfficeOpenXml.DataValidation.ExcelDataValidationDecimal"/> that can be configured for decimal data validation</returns>
+            <returns>A <see cref="T:OfficeOpenXml.DataValidation.ExcelDataValidationDecimal"/> that can be configured for decimal dataRows validation</returns>
         </member>
         <member name="M:OfficeOpenXml.DataValidation.IRangeDataValidation.AddDateTimeDataValidation">
             <summary>
             Adds a <see cref="T:OfficeOpenXml.DataValidation.ExcelDataValidationDateTime"/> to the range
             </summary>
-            <returns>A <see cref="T:OfficeOpenXml.DataValidation.ExcelDataValidationDecimal"/> that can be configured for datetime data validation</returns>
+            <returns>A <see cref="T:OfficeOpenXml.DataValidation.ExcelDataValidationDecimal"/> that can be configured for datetime dataRows validation</returns>
         </member>
         <member name="M:OfficeOpenXml.DataValidation.IRangeDataValidation.AddListDataValidation">
             <summary>
             Adds a <see cref="T:OfficeOpenXml.DataValidation.Contracts.IExcelDataValidationList"/> to the range
             </summary>
-            <returns>A <see cref="T:OfficeOpenXml.DataValidation.ExcelDataValidationList"/> that can be configured for datetime data validation</returns>
+            <returns>A <see cref="T:OfficeOpenXml.DataValidation.ExcelDataValidationList"/> that can be configured for datetime dataRows validation</returns>
         </member>
         <member name="M:OfficeOpenXml.DataValidation.IRangeDataValidation.AddTextLengthDataValidation">
             <summary>
@@ -7046,7 +7046,7 @@
             <summary>
             Adds a <see cref="T:OfficeOpenXml.DataValidation.Contracts.IExcelDataValidationTime"/> to the range.
             </summary>
-            <returns>A <see cref="T:OfficeOpenXml.DataValidation.Contracts.IExcelDataValidationTime"/> that can be configured for time data validation</returns>
+            <returns>A <see cref="T:OfficeOpenXml.DataValidation.Contracts.IExcelDataValidationTime"/> that can be configured for time dataRows validation</returns>
         </member>
         <member name="M:OfficeOpenXml.DataValidation.IRangeDataValidation.AddCustomDataValidation">
             <summary>
@@ -7066,7 +7066,7 @@
             <param name="worksheet">worksheet that owns the validation</param>
             <param name="itemElementNode">Xml top node (dataValidations)</param>
             <param name="validationType">Data validation type</param>
-            <param name="address">address for data validation</param>
+            <param name="address">address for dataRows validation</param>
         </member>
         <member name="M:OfficeOpenXml.DataValidation.ExcelDataValidation.#ctor(OfficeOpenXml.ExcelWorksheet,System.String,OfficeOpenXml.DataValidation.ExcelDataValidationType,System.Xml.XmlNode,System.Xml.XmlNamespaceManager)">
             <summary>
@@ -7075,7 +7075,7 @@
             <param name="worksheet">worksheet that owns the validation</param>
             <param name="itemElementNode">Xml top node (dataValidations) when importing xml</param>
             <param name="validationType">Data validation type</param>
-            <param name="address">address for data validation</param>
+            <param name="address">address for dataRows validation</param>
             <param name="namespaceManager">Xml Namespace manager</param>
         </member>
         <member name="M:OfficeOpenXml.DataValidation.ExcelDataValidation.Validate">
@@ -7091,7 +7091,7 @@
         </member>
         <member name="P:OfficeOpenXml.DataValidation.ExcelDataValidation.Address">
             <summary>
-            Address of data validation
+            Address of dataRows validation
             </summary>
         </member>
         <member name="P:OfficeOpenXml.DataValidation.ExcelDataValidation.ValidationType">
@@ -7147,7 +7147,7 @@
         <member name="T:OfficeOpenXml.DataValidation.ExcelDataValidationCollection">
             <summary>
             <para>
-            Collection of <see cref="T:OfficeOpenXml.DataValidation.ExcelDataValidation"/>. This class is providing the API for EPPlus data validation.
+            Collection of <see cref="T:OfficeOpenXml.DataValidation.ExcelDataValidation"/>. This class is providing the API for EPPlus dataRows validation.
             </para>
             <para>
             The public methods of this class (Add[...]Validation) will create a datavalidation entry in the worksheet. When this
@@ -7185,7 +7185,7 @@
         </member>
         <member name="M:OfficeOpenXml.DataValidation.ExcelDataValidationCollection.ValidateAll">
             <summary>
-            Validates all data validations.
+            Validates all dataRows validations.
             </summary>
         </member>
         <member name="M:OfficeOpenXml.DataValidation.ExcelDataValidationCollection.AddAnyValidation(System.String)">
@@ -7254,7 +7254,7 @@
         </member>
         <member name="P:OfficeOpenXml.DataValidation.ExcelDataValidationCollection.InternalValidationEnabled">
             <summary>
-            Epplus validates that all data validations are consistend and valid
+            Epplus validates that all dataRows validations are consistend and valid
             when they are added and when a workbook is saved. Since this takes some
             resources, it can be disabled for improve performance. 
             </summary>
@@ -7268,7 +7268,7 @@
         </member>
         <member name="P:OfficeOpenXml.DataValidation.ExcelDataValidationCollection.Item(System.String)">
             <summary>
-            Index operator, returns a data validation which address partly or exactly matches the searched address.
+            Index operator, returns a dataRows validation which address partly or exactly matches the searched address.
             </summary>
             <param name="address">A cell address or range</param>
             <returns>A <see cref="T:OfficeOpenXml.DataValidation.ExcelDataValidation"/> or null if no match</returns>
@@ -7300,7 +7300,7 @@
         </member>
         <member name="T:OfficeOpenXml.DataValidation.eDataValidationType">
             <summary>
-            Enum for available data validation types
+            Enum for available dataRows validation types
             </summary>
         </member>
         <member name="F:OfficeOpenXml.DataValidation.eDataValidationType.Any">
@@ -7435,7 +7435,7 @@
             <summary>
             Decrypt a document
             </summary>
-            <param name="data">The Encrypted data</param>
+            <param name="dataRows">The Encrypted dataRows</param>
             <param name="encryptionInfo">Encryption Info object</param>
             <param name="password">The password</param>
             <returns></returns>
@@ -8493,13 +8493,13 @@
         </member>
         <member name="M:OfficeOpenXml.ExcelPackage.Load(System.IO.Stream)">
             <summary>
-            Loads the specified package data from a stream.
+            Loads the specified package dataRows from a stream.
             </summary>
             <param name="input">The input.</param>
         </member>
         <member name="M:OfficeOpenXml.ExcelPackage.Load(System.IO.Stream,System.String)">
             <summary>
-            Loads the specified package data from a stream.
+            Loads the specified package dataRows from a stream.
             </summary>
             <param name="input">The input.</param>
             <param name="Password">The password to decrypt the document</param>
@@ -8832,7 +8832,7 @@
         </member>
         <member name="T:OfficeOpenXml.FormulaParsing.ExcelDataProvider">
             <summary>
-            This class should be implemented to be able to deliver excel data
+            This class should be implemented to be able to deliver excel dataRows
             to the formula parser.
             </summary>
         </member>
@@ -8899,12 +8899,12 @@
         </member>
         <member name="P:OfficeOpenXml.FormulaParsing.ExcelDataProvider.ExcelMaxColumns">
             <summary>
-            Max number of columns in a worksheet that the Excel data provider can handle.
+            Max number of columns in a worksheet that the Excel dataRows provider can handle.
             </summary>
         </member>
         <member name="P:OfficeOpenXml.FormulaParsing.ExcelDataProvider.ExcelMaxRows">
             <summary>
-            Max number of rows in a worksheet that the Excel data provider can handle
+            Max number of rows in a worksheet that the Excel dataRows provider can handle
             </summary>
         </member>
         <member name="T:OfficeOpenXml.FormulaParsing.ExcelUtilities.AddressTranslator">
@@ -8995,7 +8995,7 @@
             
             </summary>
             <param name="arguments">Arguments to the function, each argument can contain primitive types, lists or <see cref="T:OfficeOpenXml.FormulaParsing.ExcelDataProvider.IRangeInfo">Excel ranges</see></param>
-            <param name="context">The <see cref="T:OfficeOpenXml.FormulaParsing.ParsingContext"/> contains various data that can be useful in functions.</param>
+            <param name="context">The <see cref="T:OfficeOpenXml.FormulaParsing.ParsingContext"/> contains various dataRows that can be useful in functions.</param>
             <returns>A <see cref="T:OfficeOpenXml.FormulaParsing.ExpressionGraph.CompileResult"/> containing the calculated value</returns>
         </member>
         <member name="M:OfficeOpenXml.FormulaParsing.Excel.Functions.ExcelFunction.BeforeInvoke(OfficeOpenXml.FormulaParsing.ParsingContext)">
@@ -9762,7 +9762,7 @@
              <para>
                A word about password strength and length: The AES encryption technology is
                very good, but any system is only as secure as the weakest link.  If you want
-               to secure your data, be sure to use a password that is hard to guess.  To make
+               to secure your dataRows, be sure to use a password that is hard to guess.  To make
                it harder to guess (increase its "entropy"), you should make it longer.  If
                you use normal characters from an ASCII keyboard, a password of length 20 will
                be strong enough that it will be impossible to guess.  For more information on
@@ -9799,12 +9799,12 @@
              </summary>
             
              <param name="entryName">The name of the entry that must be written.</param>
-             <param name="stream">The stream to which the entry data should be written.</param>
+             <param name="stream">The stream to which the entry dataRows should be written.</param>
             
              <remarks>
                When you add an entry and specify a <c>WriteDelegate</c>, via <see
                cref="M:OfficeOpenXml.Packaging.Ionic.Zip.ZipFile.AddEntry(System.String,OfficeOpenXml.Packaging.Ionic.Zip.WriteDelegate)"/>, the application
-               code provides the logic that writes the entry data directly into the zip file.
+               code provides the logic that writes the entry dataRows directly into the zip file.
              </remarks>
             
              <example>
@@ -10186,7 +10186,7 @@
         </member>
         <member name="T:OfficeOpenXml.Packaging.Ionic.Zip.BadReadException">
             <summary>
-            Indicates that a read was attempted on a stream, and bad or incomplete data was
+            Indicates that a read was attempted on a stream, and bad or incomplete dataRows was
             received.
             </summary>
         </member>
@@ -10425,7 +10425,7 @@
                 into it, and then call <c>ZipFile.Save()</c>, specifying the same
                 FileStream. <c>ZipFile.Save()</c> does the right thing for the zipentry
                 offsets, by inquiring the Position of the <c>FileStream</c> before writing
-                any data, and then adding that initial offset into any ZipEntry
+                any dataRows, and then adding that initial offset into any ZipEntry
                 offsets in the zip directory. Everything works fine.
               </para>
               <para>
@@ -10474,7 +10474,7 @@
              <remarks>
                <para>
                  Subtract delta from the count of bytes written to the stream.
-                 This is necessary when seeking back, and writing additional data,
+                 This is necessary when seeking back, and writing additional dataRows,
                  as happens in some cases when saving Zip files.
                </para>
              </remarks>
@@ -10483,17 +10483,17 @@
             <summary>
               The read method.
             </summary>
-            <param name="buffer">The buffer to hold the data read from the stream.</param>
+            <param name="buffer">The buffer to hold the dataRows read from the stream.</param>
             <param name="offset">the offset within the buffer to copy the first byte read.</param>
             <param name="count">the number of bytes to read.</param>
             <returns>the number of bytes read, after decryption and decompression.</returns>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zip.CountingStream.Write(System.Byte[],System.Int32,System.Int32)">
             <summary>
-              Write data into the stream.
+              Write dataRows into the stream.
             </summary>
-            <param name="buffer">The buffer holding data to write to the stream.</param>
-            <param name="offset">the offset within that data array to find the first byte to write.</param>
+            <param name="buffer">The buffer holding dataRows to write to the stream.</param>
+            <param name="offset">the offset within that dataRows array to find the first byte to write.</param>
             <param name="count">the number of bytes to write.</param>
         </member>
         <member name="P:OfficeOpenXml.Packaging.Ionic.Zip.CountingStream.CanRead">
@@ -10683,8 +10683,8 @@
         </member>
         <member name="T:OfficeOpenXml.Packaging.Ionic.Zip.ZipCipherStream">
             <summary>
-              A Stream for reading and concurrently decrypting data from a zip file,
-              or for writing and concurrently encrypting data to a zip file.
+              A Stream for reading and concurrently decrypting dataRows from a zip file,
+              or for writing and concurrently encrypting dataRows to a zip file.
             </summary>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zip.ZipCipherStream.#ctor(System.IO.Stream,OfficeOpenXml.Packaging.Ionic.Zip.ZipCrypto,OfficeOpenXml.Packaging.Ionic.Zip.CryptoMode)">
@@ -10993,7 +10993,7 @@
              <para>
                When creating zip files with this library, by default the extended time
                properties (<c>ModifiedTime</c>, <c>AccessedTime</c>, and
-               <c>CreationTime</c>) are set on the ZipEntry instance, and these data are
+               <c>CreationTime</c>) are set on the ZipEntry instance, and these dataRows are
                stored in the zip archive for each entry, in NTFS format. If you add an
                entry from an actual filesystem file, then the entry gets the actual file
                times for that file, to NTFS-level precision.  If you add an entry from a
@@ -11295,7 +11295,7 @@
             
              <para>
                When reading a <c>ZipEntry</c> from a <c>ZipFile</c>, the attributes are
-               set according to the data stored in the <c>ZipFile</c>. If you extract the
+               set according to the dataRows stored in the <c>ZipFile</c>. If you extract the
                entry from the archive to a filesystem file, DotNetZip will set the
                attributes on the resulting file accordingly.
              </para>
@@ -11497,7 +11497,7 @@
                the stream parameter.  By doing so, the application indicates to the
                library that it will provide a stream for the entry on a just-in-time
                basis, at the time one of the <c>ZipFile.Save()</c> methods is called and
-               the data for the various entries are being compressed and written out.
+               the dataRows for the various entries are being compressed and written out.
              </para>
             
              <para>
@@ -11737,7 +11737,7 @@
             
              <item>
              <term>5</term>
-             <description>set to indicate the zip is compressed patched data.  This library doesn't do that.</description>
+             <description>set to indicate the zip is compressed patched dataRows.  This library doesn't do that.</description>
              </item>
             
              <item>
@@ -11784,7 +11784,7 @@
              <item>
              <term>13</term>
              <description>
-               Used when encrypting the Central Directory to indicate selected data
+               Used when encrypting the Central Directory to indicate selected dataRows
                values in the Local Header are masked to hide their actual values.  See
                the section in <a
                href="http://www.pkware.com/documents/casestudies/APPNOTE.TXT">the Zip
@@ -11831,7 +11831,7 @@
             
              <para>
                You may wish to set <c>CompressionMethod</c> to <c>CompressionMethod.None</c> (0)
-               when zipping already-compressed data like a jpg, png, or mp3 file.
+               when zipping already-compressed dataRows like a jpg, png, or mp3 file.
                This can save time and cpu cycles.
              </para>
             
@@ -11886,7 +11886,7 @@
               <para>
                 When using the DEFLATE compression method, Varying the compression
                 level used on entries can affect the size-vs-speed tradeoff when
-                compression and decompressing data streams or files.
+                compression and decompressing dataRows streams or files.
               </para>
             
               <para>
@@ -11895,7 +11895,7 @@
                 compression speed.  In some tests, using <c>BestCompression</c> can
                 double the time it takes to compress, while delivering just a small
                 increase in compression efficiency.  This behavior will vary with the
-                type of data you compress.  If you are in doubt, just leave this setting
+                type of dataRows you compress.  If you are in doubt, just leave this setting
                 alone, and accept the default.
               </para>
             
@@ -11960,8 +11960,8 @@
                This is a ratio of the compressed size to the uncompressed size of the
                entry, expressed as a double in the range of 0 to 100+. A value of 100
                indicates no compression at all.  It could be higher than 100 when the
-               compression algorithm actually inflates the data, as may occur for small
-               files, or uncompressible data that is encrypted.
+               compression algorithm actually inflates the dataRows, as may occur for small
+               files, or uncompressible dataRows that is encrypted.
              </para>
             
              <para>
@@ -12015,7 +12015,7 @@
              <remarks>
              <para>
                This is a readonly property on the entry.  When reading a zip file,
-               the value for the <c>ZipEntry</c> is determined by the data read
+               the value for the <c>ZipEntry</c> is determined by the dataRows read
                from the zip file.  After saving a ZipFile, the value of this
                property for each <c>ZipEntry</c> indicates whether encryption was
                actually used (which will have been true if the <see
@@ -12038,7 +12038,7 @@
                cref="P:OfficeOpenXml.Packaging.Ionic.Zip.ZipEntry.Password"/> on the entry.  If you set a value other than <see
                cref="F:OfficeOpenXml.Packaging.Ionic.Zip.EncryptionAlgorithm.None"/> on this property and do not set a
                <c>Password</c> then the entry will not be encrypted. The <c>ZipEntry</c>
-               data is encrypted as the <c>ZipFile</c> is saved, when you call <see
+               dataRows is encrypted as the <c>ZipFile</c> is saved, when you call <see
                cref="M:OfficeOpenXml.Packaging.Ionic.Zip.ZipFile.Save"/> or one of its cousins on the containing
                <c>ZipFile</c> instance. You do not need to specify the <c>Encryption</c>
                when extracting entries from an archive.
@@ -12046,11 +12046,11 @@
             
              <para>
                The Zip specification from PKWare defines a set of encryption algorithms,
-               and the data formats for the zip archive that support them, and PKWare
+               and the dataRows formats for the zip archive that support them, and PKWare
                supports those algorithms in the tools it produces. Other vendors of tools
                and libraries, such as WinZip or Xceed, typically support <em>a
                subset</em> of the algorithms specified by PKWare. These tools can
-               sometimes support additional different encryption algorithms and data
+               sometimes support additional different encryption algorithms and dataRows
                formats, not specified by PKWare. The AES Encryption specified and
                supported by WinZip is the most popular example. This library supports a
                subset of the complete set of algorithms specified by PKWare and other
@@ -12989,7 +12989,7 @@
                cref="T:OfficeOpenXml.Packaging.Ionic.Crc.CrcCalculatorStream"/>.  Use it as you would any
                stream for reading.  When an application calls <see
                cref="M:System.IO.Stream.Read(System.Byte[],System.Int32,System.Int32)"/> on that stream, it will
-               receive data from the zip entry that is decrypted and decompressed
+               receive dataRows from the zip entry that is decrypted and decompressed
                as necessary.
              </para>
             
@@ -13017,7 +13017,7 @@
              </para>
             
              <para>
-               If you want to extract entry data into a write-able stream that is
+               If you want to extract entry dataRows into a write-able stream that is
                already opened, like a <see cref="T:System.IO.FileStream"/>, do not
                use this method. Instead, use <see cref="M:OfficeOpenXml.Packaging.Ionic.Zip.ZipEntry.Extract(System.IO.Stream)"/>.
              </para>
@@ -13174,7 +13174,7 @@
                encryption header.  So, we need to be able to seek backward in the source
                when saving the ZipEntry. This method is called from the place that
                calculates the CRC, and also from the method that does the encryption of
-               the file data.
+               the file dataRows.
              </para>
             
              <para>
@@ -13462,7 +13462,7 @@
                timestamps on the zip entry. All of these things are done automatically by a
                call to <see cref="M:OfficeOpenXml.Packaging.Ionic.Zip.ZipFile.AddFile(System.String,System.String)">ZipFile.AddFile()</see>.
                For this reason, the <c>ZipOutputStream</c> is generally recommended for use
-               only when your application emits arbitrary data, not necessarily data from a
+               only when your application emits arbitrary dataRows, not necessarily dataRows from a
                filesystem file, directly into a zip file, and does so using a <c>Stream</c>
                metaphor.
              </para>
@@ -13572,7 +13572,7 @@
              </para>
             
              <para>
-               Encryption will be used on the file data if the <c>Password</c> has
+               Encryption will be used on the file dataRows if the <c>Password</c> has
                been set on the <c>ZipFile</c> object, prior to calling this method.
              </para>
             
@@ -14585,7 +14585,7 @@
             
              <remarks>
              <para>
-               When the application needs to write the zip entry data, use this
+               When the application needs to write the zip entry dataRows, use this
                method to add the ZipEntry. For example, in the case that the
                application wishes to write the XML representation of a DataSet into
                a ZipEntry, the application can use this method to do so.
@@ -14625,10 +14625,10 @@
                WriteDelegate, the WriteDelegate CAN BE called twice: once to compute
                the CRC, and the second time to potentially compress and
                encrypt. Surprising, but true. This is because PKWARE specified that
-               the encryption initialization data depends on the CRC.
+               the encryption initialization dataRows depends on the CRC.
                If this happens, for each call of the delegate, your
-               application must stream the same entry data in its entirety. If your
-               application writes different data during the second call, it will
+               application must stream the same entry dataRows in its entirety. If your
+               application writes different dataRows during the second call, it will
                result in a corrupt zip file.
              </para>
             
@@ -14698,7 +14698,7 @@
              <example>
             
              This example uses an anonymous method in C# as the WriteDelegate to provide
-             the data for the ZipEntry. The example is a bit contrived - the
+             the dataRows for the ZipEntry. The example is a bit contrived - the
              <c>AddFile()</c> method is a simpler way to insert the contents of a file
              into an entry in a zip file. On the other hand, if there is some sort of
              processing or transformation of the file contents required before writing,
@@ -14715,7 +14715,7 @@
                              int n;
                              while ((n = input.Read(buffer, 0, buffer.Length)) != 0)
                              {
-                                 // could transform the data here...
+                                 // could transform the dataRows here...
                                  output.Write(buffer, 0, n);
                                  // could update a progress bar here
                              }
@@ -14729,14 +14729,14 @@
             
              <example>
             
-             This example uses a named delegate in VB to write data for the given
+             This example uses a named delegate in VB to write dataRows for the given
              ZipEntry (VB9 does not have anonymous delegates). The example here is a bit
              contrived - a simpler way to add the contents of a file to a ZipEntry is to
              simply use the appropriate <c>AddFile()</c> method.  The key scenario for
              which the <c>WriteDelegate</c> makes sense is saving a DataSet, in XML
              format, to the zip file. The DataSet can write XML to a stream, and the
              WriteDelegate is the perfect place to write into the zip file.  There may be
-             other data structures that can write to a stream, but cannot be read as a
+             other dataRows structures that can write to a stream, but cannot be read as a
              stream.  The <c>WriteDelegate</c> would be appropriate for those cases as
              well.
             
@@ -14764,7 +14764,7 @@
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zip.ZipFile.AddEntry(System.String,OfficeOpenXml.Packaging.Ionic.Zip.OpenDelegate,OfficeOpenXml.Packaging.Ionic.Zip.CloseDelegate)">
              <summary>
                Add an entry, for which the application will provide a stream
-               containing the entry data, on a just-in-time basis.
+               containing the entry dataRows, on a just-in-time basis.
              </summary>
             
              <remarks>
@@ -14857,7 +14857,7 @@
              <param name="opener">
               the delegate that will be invoked by ZipFile.Save() to get the
               readable stream for the given entry. ZipFile.Save() will call
-              read on this stream to obtain the data for the entry. This data
+              read on this stream to obtain the dataRows for the entry. This dataRows
               will then be compressed and written to the newly created zip
               file.
              </param>
@@ -15017,7 +15017,7 @@
                The name, including any path, to use within the archive for the entry.
              </param>
             
-             <param name="stream">The input stream from which to read file data.</param>
+             <param name="stream">The input stream from which to read file dataRows.</param>
              <returns>The <c>ZipEntry</c> added.</returns>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zip.ZipFile.AddEntry(System.String,System.Byte[])">
@@ -15027,7 +15027,7 @@
                file. No file is created in the filesystem.
              </summary>
             
-             <param name="byteContent">The data to use for the entry.</param>
+             <param name="byteContent">The dataRows to use for the entry.</param>
             
              <param name="entryName">
                The name, including any path, to use within the archive for the entry.
@@ -15205,7 +15205,7 @@
              <remarks>
             
              <para>
-               In cases of data error, the directory within a zip file can get out
+               In cases of dataRows error, the directory within a zip file can get out
                of synch with the entries in the zip file.  This method checks the
                given zip file and returns true if this has occurred.
              </para>
@@ -15241,7 +15241,7 @@
              <remarks>
             
              <para>
-               In cases of data error, the directory within a zip file can get out of
+               In cases of dataRows error, the directory within a zip file can get out of
                synch with the entries in the zip file.  This method checks the given
                zip file, and returns true if this has occurred. It also optionally
                fixes the zipfile, saving the fixed copy in <em>Name</em>_Fixed.zip.
@@ -15282,7 +15282,7 @@
              <remarks>
             
              <para>
-               In cases of data error, the directory in a zip file can get out of
+               In cases of dataRows error, the directory in a zip file can get out of
                synch with the entries in the zip file.  This method attempts to fix
                the zip file if this has occurred.
              </para>
@@ -15485,7 +15485,7 @@
                property affects the size of the buffer that is used for I/O for each
                entry contained in the zip file. When a file is read in to be compressed,
                it uses a buffer given by the size here.  When you update a zip file, the
-               data for unmodified entries is copied from the first zip file to the
+               dataRows for unmodified entries is copied from the first zip file to the
                other, through a buffer given by the size here.
              </para>
             
@@ -15535,7 +15535,7 @@
                  When doing ZLIB or Deflate compression, the library fills a buffer,
                  then passes it to the compressor for compression. Then the library
                  reads out the compressed bytes. This happens repeatedly until there
-                 is no more uncompressed data to compress. This property sets the
+                 is no more uncompressed dataRows to compress. This property sets the
                  size of the buffer that will be used for chunk-wise compression. In
                  order for the setting to take effect, your application needs to set
                  this property before calling one of the <c>ZipFile.Save()</c>
@@ -15589,7 +15589,7 @@
              <remarks>
                Set the Strategy used by the ZLIB-compatible compressor, when
                compressing entries using the DEFLATE method. Different compression
-               strategies work better on different sorts of data. The strategy
+               strategies work better on different sorts of dataRows. The strategy
                parameter can affect the compression ratio and the speed of
                compression but not the correctness of the compresssion.  For more
                information see <see
@@ -15631,7 +15631,7 @@
              <remarks>
               <para>
                 Varying the compression level used on entries can affect the
-                size-vs-speed tradeoff when compression and decompressing data streams
+                size-vs-speed tradeoff when compression and decompressing dataRows streams
                 or files.
               </para>
             
@@ -15652,7 +15652,7 @@
                 compression speed.  In some tests, using <c>BestCompression</c> can
                 double the time it takes to compress, while delivering just a small
                 increase in compression efficiency.  This behavior will vary with the
-                type of data you compress.  If you are in doubt, just leave this setting
+                type of dataRows you compress.  If you are in doubt, just leave this setting
                 alone, and accept the default.
               </para>
              </remarks>
@@ -16227,7 +16227,7 @@
                cref="P:OfficeOpenXml.Packaging.Ionic.Zip.ZipEntry.Comment"/> for each <c>ZipEntry</c> in the zip file, for
                values that cannot be encoded with the default codepage for zip files,
                IBM437.  This is why this property is "provisional".  In all cases, IBM437
-               is used where possible, in other words, where no loss of data would
+               is used where possible, in other words, where no loss of dataRows would
                result. It is possible, therefore, to have a given entry with a
                <c>Comment</c> encoded in IBM437 and a <c>FileName</c> encoded with the
                specified "provisional" codepage.
@@ -16895,7 +16895,7 @@
                This callback allows the application to defer the decision on the
                <c>CompressionLevel</c> to use, until the time of the call to
                <c>ZipFile.Save()</c>. The callback is invoked once per <c>ZipEntry</c>,
-               at the time the data for the entry is being written out as part of a
+               at the time the dataRows for the entry is being written out as part of a
                <c>Save()</c> operation. The application can use whatever criteria it
                likes in determining the level to return.  For example, an application may
                wish that no .mp3 files should be compressed, because they are already
@@ -16949,7 +16949,7 @@
             
                <para>
                  The size of each split output file will be as large as possible, up to
-                 the maximum size set here. The zip specification requires that some data
+                 the maximum size set here. The zip specification requires that some dataRows
                  fields in a zip archive may not span a split boundary, and an output
                  segment may be smaller than the maximum if necessary to avoid that
                  problem. Also, obviously the final segment of the archive may be smaller
@@ -17047,7 +17047,7 @@
                <para>
                  Parallel deflate tends to yield slightly less compression when
                  compared to as single-threaded deflate; this is because the original
-                 data stream is split into multiple independent buffers, each of which
+                 dataRows stream is split into multiple independent buffers, each of which
                  is compressed in parallel.  But because they are treated
                  independently, there is no opportunity to share compression
                  dictionaries.  For that reason, a deflated stream may be slightly
@@ -17402,7 +17402,7 @@
              </para>
             
              <para>
-               To encrypt the data for the files added to the <c>ZipFile</c> instance,
+               To encrypt the dataRows for the files added to the <c>ZipFile</c> instance,
                set the Password property after creating the <c>ZipFile</c> instance.
              </para>
             
@@ -17482,7 +17482,7 @@
              </para>
             
              <para>
-               To encrypt the data for the files added to the <c>ZipFile</c> instance,
+               To encrypt the dataRows for the files added to the <c>ZipFile</c> instance,
                set the <c>Password</c> property after creating the <c>ZipFile</c>
                instance.
              </para>
@@ -18016,7 +18016,7 @@
              <item>
              <term>ZipProgressEventType.Saving_BeforeSaveEntry</term>
              <description>
-               Fired within ZipFile.Save(), just before writing data for each
+               Fired within ZipFile.Save(), just before writing dataRows for each
                particular entry.
              </description>
              </item>
@@ -18024,7 +18024,7 @@
              <item>
              <term>ZipProgressEventType.Saving_AfterSaveEntry</term>
              <description>
-               Fired within ZipFile.Save(), just after having finished writing data
+               Fired within ZipFile.Save(), just after having finished writing dataRows
                for each particular entry.
              </description>
              </item>
@@ -18577,7 +18577,7 @@
              <item>
              <term>ZipProgressEventType.Extracting_EntryBytesWritten</term>
              <description>
-               Set within a call to Extract() on an entry in the ZipFile, as data
+               Set within a call to Extract() on an entry in the ZipFile, as dataRows
                is extracted for the entry.  Properties that are meaningful:
                ArchiveName, CurrentEntry, BytesTransferred, TotalBytesToTransfer.
              </description>
@@ -19309,8 +19309,8 @@
              <para>
                Reading of zip content begins at the current position in the
                stream.  This means if you have a stream that concatenates
-               regular data and zip data, if you position the open, readable
-               stream at the start of the zip data, you will be able to read
+               regular dataRows and zip dataRows, if you position the open, readable
+               stream at the start of the zip dataRows, you will be able to read
                the zip archive using this constructor, or any of the ZipFile
                constructors that accept a <see cref="T:System.IO.Stream" /> as
                input. Some examples of where this might be useful: the zip
@@ -19319,7 +19319,7 @@
                by DotNetZip do not work this way; they can be read as normal
                ZIP files). Another example might be a stream being read from
                a database, where the zip content is embedded within an
-               aggregate stream of data.
+               aggregate stream of dataRows.
              </para>
             
              </remarks>
@@ -19348,7 +19348,7 @@
              </code>
              </example>
             
-             <param name="zipStream">the stream containing the zip data.</param>
+             <param name="zipStream">the stream containing the zip dataRows.</param>
             
              <returns>The ZipFile instance read from the stream</returns>
             
@@ -19373,8 +19373,8 @@
              <para>
                Reading of zip content begins at the current position in the
                stream.  This means if you have a stream that concatenates
-               regular data and zip data, if you position the open, readable
-               stream at the start of the zip data, you will be able to read
+               regular dataRows and zip dataRows, if you position the open, readable
+               stream at the start of the zip dataRows, you will be able to read
                the zip archive using this constructor, or any of the ZipFile
                constructors that accept a <see cref="T:System.IO.Stream" /> as
                input. Some examples of where this might be useful: the zip
@@ -19383,11 +19383,11 @@
                by DotNetZip do not work this way; they can be read as normal
                ZIP files). Another example might be a stream being read from
                a database, where the zip content is embedded within an
-               aggregate stream of data.
+               aggregate stream of dataRows.
              </para>
              </remarks>
             
-             <param name="zipStream">the stream containing the zip data.</param>
+             <param name="zipStream">the stream containing the zip dataRows.</param>
             
              <param name="options">
                The set of options to use when reading the zip file.
@@ -19412,19 +19412,19 @@
              <remarks>
              <para>
              Reading of zip content begins at the current position in the stream.  This
-             means if you have a stream that concatenates regular data and zip data, if
-             you position the open, readable stream at the start of the zip data, you
+             means if you have a stream that concatenates regular dataRows and zip dataRows, if
+             you position the open, readable stream at the start of the zip dataRows, you
              will be able to read the zip archive using this constructor, or any of the
              ZipFile constructors that accept a <see cref="T:System.IO.Stream" /> as
              input. Some examples of where this might be useful: the zip content is
              concatenated at the end of a regular EXE file, as some self-extracting
              archives do.  (Note: SFX files produced by DotNetZip do not work this
              way). Another example might be a stream being read from a database, where
-             the zip content is embedded within an aggregate stream of data.
+             the zip content is embedded within an aggregate stream of dataRows.
              </para>
              </remarks>
             
-             <param name="zipStream">the stream containing the zip data.</param>
+             <param name="zipStream">the stream containing the zip dataRows.</param>
             
              <param name="statusMessageWriter">
              The <c>System.IO.TextWriter</c> to which verbose status messages are written
@@ -19485,7 +19485,7 @@
                If <paramref name="testExtract"/> is true, as part of its check, this
                method reads in the content for each entry, expands it, and checks CRCs.
                This provides an additional check beyond verifying the zip header and
-               directory data.
+               directory dataRows.
              </para>
             
              <para>
@@ -19523,7 +19523,7 @@
              <para>
              If <c>testExtract</c> is true, this method reads in the content for each
              entry, expands it, and checks CRCs.  This provides an additional check
-             beyond verifying the zip header data.
+             beyond verifying the zip header dataRows.
              </para>
             
              <para>
@@ -21077,7 +21077,7 @@
                timestamps on the zip entry. All of these things are done automatically by a
                call to <see cref="M:OfficeOpenXml.Packaging.Ionic.Zip.ZipFile.AddFile(System.String,System.String)">ZipFile.AddFile()</see>.
                For this reason, the <c>ZipOutputStream</c> is generally recommended for use
-               only when your application emits arbitrary data, not necessarily data from a
+               only when your application emits arbitrary dataRows, not necessarily dataRows from a
                filesystem file, directly into a zip file, and does so using a <c>Stream</c>
                metaphor.
              </para>
@@ -21120,7 +21120,7 @@
                compression is almost exactly the same size).  But, the multi-threaded
                approach incurs a performance hit on smaller files. There's no way for the
                ZipOutputStream to know whether parallel compression will be beneficial,
-               because the ZipOutputStream does not know how much data you will write
+               because the ZipOutputStream does not know how much dataRows you will write
                through the stream.  You may wish to set the <see
                cref="P:OfficeOpenXml.Packaging.Ionic.Zip.ZipOutputStream.ParallelDeflateThreshold"/> property to zero, if you are compressing
                large files through <c>ZipOutputStream</c>.  This will cause parallel
@@ -21421,8 +21421,8 @@
             
              <remarks>
                Set the Strategy used by the ZLIB-compatible compressor, when compressing
-               data for the entries in the zip archive. Different compression strategies
-               work better on different sorts of data. The strategy parameter can affect
+               dataRows for the entries in the zip archive. Different compression strategies
+               work better on different sorts of dataRows. The strategy parameter can affect
                the compression ratio and the speed of compression but not the correctness
                of the compresssion.  For more information see <see
                cref="T:OfficeOpenXml.Packaging.Ionic.Zlib.CompressionStrategy"/>.
@@ -21447,7 +21447,7 @@
              <remarks>
               <para>
                 Varying the compression level used on entries can affect the
-                size-vs-speed tradeoff when compression and decompressing data streams
+                size-vs-speed tradeoff when compression and decompressing dataRows streams
                 or files.
               </para>
             
@@ -21466,7 +21466,7 @@
                 compression speed.  In some tests, using <c>BestCompression</c> can
                 double the time it takes to compress, while delivering just a small
                 increase in compression efficiency.  This behavior will vary with the
-                type of data you compress.  If you are in doubt, just leave this setting
+                type of dataRows you compress.  If you are in doubt, just leave this setting
                 alone, and accept the default.
               </para>
              </remarks>
@@ -21709,7 +21709,7 @@
                cref="P:OfficeOpenXml.Packaging.Ionic.Zip.ZipEntry.Comment"/> for each <c>ZipEntry</c> in the zip file, for
                values that cannot be encoded with the default codepage for zip files,
                IBM437.  This is why this property is "provisional".  In all cases, IBM437
-               is used where possible, in other words, where no loss of data would
+               is used where possible, in other words, where no loss of dataRows would
                result. It is possible, therefore, to have a given entry with a
                <c>Comment</c> encoded in IBM437 and a <c>FileName</c> encoded with the
                specified "provisional" codepage.
@@ -21825,7 +21825,7 @@
             
                <para>
                  Parallel deflate tends to not be as effective as single-threaded deflate
-                 because the original data stream is split into multiple independent
+                 because the original dataRows stream is split into multiple independent
                  buffers, each of which is compressed in parallel.  But because they are
                  treated independently, there is no opportunity to share compression
                  dictionaries, and additional framing bytes must be added to the output
@@ -21947,18 +21947,18 @@
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zip.ZipOutputStream.Write(System.Byte[],System.Int32,System.Int32)">
              <summary>
-               Write the data from the buffer to the stream.
+               Write the dataRows from the buffer to the stream.
              </summary>
             
              <remarks>
-               As the application writes data into this stream, the data may be
+               As the application writes dataRows into this stream, the dataRows may be
                compressed and encrypted before being written out to the underlying
                stream, depending on the settings of the <see cref="P:OfficeOpenXml.Packaging.Ionic.Zip.ZipOutputStream.CompressionLevel"/>
                and the <see cref="P:OfficeOpenXml.Packaging.Ionic.Zip.ZipOutputStream.Encryption"/> properties.
              </remarks>
             
-             <param name="buffer">The buffer holding data to write to the stream.</param>
-             <param name="offset">the offset within that data array to find the first byte to write.</param>
+             <param name="buffer">The buffer holding dataRows to write to the stream.</param>
+             <param name="offset">the offset within that dataRows array to find the first byte to write.</param>
              <param name="count">the number of bytes to write.</param>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zip.ZipOutputStream.PutNextEntry(System.String)">
@@ -21978,7 +21978,7 @@
              <para>
                If the <paramref name="entryName"/> used in <c>PutNextEntry()</c> ends in
                a slash, then the entry added is marked as a directory. Because directory
-               entries do not contain data, a call to <c>Write()</c>, before an
+               entries do not contain dataRows, a call to <c>Write()</c>, before an
                intervening additional call to <c>PutNextEntry()</c>, will throw an
                exception.
              </para>
@@ -22252,11 +22252,11 @@
             <remarks>
               This is useful when using a divide-and-conquer approach to
               calculating a CRC.  Multiple threads can each calculate a
-              CRC32 on a segment of the data, and then combine the
+              CRC32 on a segment of the dataRows, and then combine the
               individual CRC32 values at the end.
             </remarks>
             <param name="crc">the crc value to be combined with this one</param>
-            <param name="length">the length of data the CRC value was calculated on</param>
+            <param name="length">the length of dataRows the CRC value was calculated on</param>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Crc.CRC32.#ctor">
             <summary>
@@ -22267,10 +22267,10 @@
         <member name="M:OfficeOpenXml.Packaging.Ionic.Crc.CRC32.#ctor(System.Boolean)">
             <summary>
               Create an instance of the CRC32 class, specifying whether to reverse
-              data bits or not.
+              dataRows bits or not.
             </summary>
             <param name='reverseBits'>
-              specify true if the instance should reverse data bits.
+              specify true if the instance should reverse dataRows bits.
             </param>
             <remarks>
               <para>
@@ -22285,7 +22285,7 @@
         <member name="M:OfficeOpenXml.Packaging.Ionic.Crc.CRC32.#ctor(System.Int32,System.Boolean)">
              <summary>
                Create an instance of the CRC32 class, specifying the polynomial and
-               whether to reverse data bits or not.
+               whether to reverse dataRows bits or not.
              </summary>
              <param name='polynomial'>
                The polynomial to use for the CRC, expressed in the reversed (LSB)
@@ -22295,7 +22295,7 @@
                polynomial for the CRC-32C used in IEEE 802.3, is 0xEDB88320.
              </param>
              <param name='reverseBits'>
-               specify true if the instance should reverse data bits.
+               specify true if the instance should reverse dataRows bits.
              </param>
             
              <remarks>
@@ -22316,7 +22316,7 @@
             <remarks>
               <para>
                 Use this when employing a single instance of this class to compute
-                multiple, distinct CRCs on multiple, distinct data blocks.
+                multiple, distinct CRCs on multiple, distinct dataRows blocks.
               </para>
             </remarks>
         </member>
@@ -22438,7 +22438,7 @@
             </summary>
             <remarks>
               <para>
-                The running total of the CRC is kept as data is written or read
+                The running total of the CRC is kept as dataRows is written or read
                 through the stream.  read this property after all reads or writes to
                 get an accurate CRC for the entire stream.
               </para>
@@ -22990,7 +22990,7 @@
              </para>
             
              <para>
-               Using this stream, applications can compress or decompress data via stream
+               Using this stream, applications can compress or decompress dataRows via stream
                <c>Read</c> and <c>Write</c> operations.  Either compresssion or decompression
                can occur through either reading or writing. The compression format used is
                DEFLATE, which is documented in <see
@@ -23023,8 +23023,8 @@
              </remarks>
             
              <example>
-             This example uses a DeflateStream to compress data from a file, and writes
-             the compressed data to another file.
+             This example uses a DeflateStream to compress dataRows from a file, and writes
+             the compressed dataRows to another file.
              <code>
              using (System.IO.Stream input = System.IO.File.OpenRead(fileToCompress))
              {
@@ -23080,8 +23080,8 @@
             
              <example>
             
-               This example uses a DeflateStream to compress data from a file, and writes
-               the compressed data to another file.
+               This example uses a DeflateStream to compress dataRows from a file, and writes
+               the compressed dataRows to another file.
             
              <code>
              using (System.IO.Stream input = System.IO.File.OpenRead(fileToCompress))
@@ -23192,8 +23192,8 @@
             
              <example>
             
-               This example shows how to use a <c>DeflateStream</c> to compress data from
-               a file, and store the compressed data into another file.
+               This example shows how to use a <c>DeflateStream</c> to compress dataRows from
+               a file, and store the compressed dataRows into another file.
             
              <code>
              using (var output = System.IO.File.Create(fileToCompress + ".deflated"))
@@ -23212,7 +23212,7 @@
                          }
                      }
                  }
-                 // can write additional data to the output stream here
+                 // can write additional dataRows to the output stream here
              }
              </code>
             
@@ -23230,7 +23230,7 @@
                          Loop
                      End Using
                  End Using
-                 ' can write additional data to the output stream here.
+                 ' can write additional dataRows to the output stream here.
              End Using
              </code>
              </example>
@@ -23272,7 +23272,7 @@
             
              <remarks>
                By tweaking this parameter, you may be able to optimize the compression for
-               data with particular characteristics.
+               dataRows with particular characteristics.
              </remarks>
         </member>
         <member name="P:OfficeOpenXml.Packaging.Ionic.Zlib.DeflateStream.TotalIn">
@@ -23356,19 +23356,19 @@
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.DeflateStream.Read(System.Byte[],System.Int32,System.Int32)">
              <summary>
-             Read data from the stream.
+             Read dataRows from the stream.
              </summary>
              <remarks>
             
              <para>
-               If you wish to use the <c>DeflateStream</c> to compress data while
+               If you wish to use the <c>DeflateStream</c> to compress dataRows while
                reading, you can create a <c>DeflateStream</c> with
-               <c>CompressionMode.Compress</c>, providing an uncompressed data stream.
-               Then call Read() on that <c>DeflateStream</c>, and the data read will be
+               <c>CompressionMode.Compress</c>, providing an uncompressed dataRows stream.
+               Then call Read() on that <c>DeflateStream</c>, and the dataRows read will be
                compressed as you read.  If you wish to use the <c>DeflateStream</c> to
-               decompress data while reading, you can create a <c>DeflateStream</c> with
-               <c>CompressionMode.Decompress</c>, providing a readable compressed data
-               stream.  Then call Read() on that <c>DeflateStream</c>, and the data read
+               decompress dataRows while reading, you can create a <c>DeflateStream</c> with
+               <c>CompressionMode.Decompress</c>, providing a readable compressed dataRows
+               stream.  Then call Read() on that <c>DeflateStream</c>, and the dataRows read
                will be decompressed as you read.
              </para>
             
@@ -23377,8 +23377,8 @@
              </para>
             
              </remarks>
-             <param name="buffer">The buffer into which the read data should be placed.</param>
-             <param name="offset">the offset within that data array to put the first byte read.</param>
+             <param name="buffer">The buffer into which the read dataRows should be placed.</param>
+             <param name="offset">the offset within that dataRows array to put the first byte read.</param>
              <param name="count">the number of bytes to read.</param>
              <returns>the number of bytes actually read</returns>
         </member>
@@ -23398,22 +23398,22 @@
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.DeflateStream.Write(System.Byte[],System.Int32,System.Int32)">
              <summary>
-               Write data to the stream.
+               Write dataRows to the stream.
              </summary>
              <remarks>
             
              <para>
-               If you wish to use the <c>DeflateStream</c> to compress data while
+               If you wish to use the <c>DeflateStream</c> to compress dataRows while
                writing, you can create a <c>DeflateStream</c> with
                <c>CompressionMode.Compress</c>, and a writable output stream.  Then call
-               <c>Write()</c> on that <c>DeflateStream</c>, providing uncompressed data
-               as input.  The data sent to the output stream will be the compressed form
-               of the data written.  If you wish to use the <c>DeflateStream</c> to
-               decompress data while writing, you can create a <c>DeflateStream</c> with
+               <c>Write()</c> on that <c>DeflateStream</c>, providing uncompressed dataRows
+               as input.  The dataRows sent to the output stream will be the compressed form
+               of the dataRows written.  If you wish to use the <c>DeflateStream</c> to
+               decompress dataRows while writing, you can create a <c>DeflateStream</c> with
                <c>CompressionMode.Decompress</c>, and a writable output stream.  Then
                call <c>Write()</c> on that stream, providing previously compressed
-               data. The data sent to the output stream will be the decompressed form of
-               the data written.
+               dataRows. The dataRows sent to the output stream will be the decompressed form of
+               the dataRows written.
              </para>
             
              <para>
@@ -23423,8 +23423,8 @@
             
              </remarks>
             
-             <param name="buffer">The buffer holding data to write to the stream.</param>
-             <param name="offset">the offset within that data array to find the first byte to write.</param>
+             <param name="buffer">The buffer holding dataRows to write to the stream.</param>
+             <param name="offset">the offset within that dataRows array to find the first byte to write.</param>
              <param name="count">the number of bytes to write.</param>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.DeflateStream.CompressString(System.String)">
@@ -23466,7 +23466,7 @@
                A buffer to compress.
              </param>
             
-             <returns>The data in compressed form</returns>
+             <returns>The dataRows in compressed form</returns>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.DeflateStream.UncompressString(System.Byte[])">
              <summary>
@@ -23479,7 +23479,7 @@
              <seealso cref="M:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibStream.UncompressString(System.Byte[])">ZlibStream.UncompressString(byte[])</seealso>
             
              <param name="compressed">
-               A buffer containing DEFLATE-compressed data.
+               A buffer containing DEFLATE-compressed dataRows.
              </param>
             
              <returns>The uncompressed string</returns>
@@ -23495,10 +23495,10 @@
              <seealso cref="M:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibStream.UncompressBuffer(System.Byte[])">ZlibStream.UncompressBuffer(byte[])</seealso>
             
              <param name="compressed">
-               A buffer containing data that has been compressed with DEFLATE.
+               A buffer containing dataRows that has been compressed with DEFLATE.
              </param>
             
-             <returns>The data in uncompressed form</returns>
+             <returns>The dataRows in uncompressed form</returns>
         </member>
         <member name="T:OfficeOpenXml.Packaging.Ionic.Zlib.GZipStream">
              <summary>
@@ -23521,21 +23521,21 @@
                1952</see>, "GZIP file format specification version 4.3".</para>
             
              <para>
-               A <c>GZipStream</c> can be used to decompress data (through <c>Read()</c>) or
-               to compress data (through <c>Write()</c>), but not both.
+               A <c>GZipStream</c> can be used to decompress dataRows (through <c>Read()</c>) or
+               to compress dataRows (through <c>Write()</c>), but not both.
              </para>
             
              <para>
-               If you wish to use the <c>GZipStream</c> to compress data, you must wrap it
+               If you wish to use the <c>GZipStream</c> to compress dataRows, you must wrap it
                around a write-able stream. As you call <c>Write()</c> on the <c>GZipStream</c>, the
-               data will be compressed into the GZIP format.  If you want to decompress data,
+               dataRows will be compressed into the GZIP format.  If you want to decompress dataRows,
                you must wrap the <c>GZipStream</c> around a readable stream that contains an
-               IETF RFC 1952-compliant stream.  The data will be decompressed as you call
+               IETF RFC 1952-compliant stream.  The dataRows will be decompressed as you call
                <c>Read()</c> on the <c>GZipStream</c>.
              </para>
             
              <para>
-               Though the GZIP format allows data from multiple files to be concatenated
+               Though the GZIP format allows dataRows from multiple files to be concatenated
                together, this stream handles only a single segment of GZIP format, typically
                representing a single file.
              </para>
@@ -23582,7 +23582,7 @@
             
              <para>
                The GZIP format optionally allows each file to have an associated
-               filename.  When compressing data (through <c>Write()</c>), set this
+               filename.  When compressing dataRows (through <c>Write()</c>), set this
                FileName before calling <c>Write()</c> the first time on the <c>GZipStream</c>.
                The actual filename is encoded into the GZIP bytestream with the
                ISO-8859-1 code page, according to RFC 1952. It is the application's
@@ -23605,7 +23605,7 @@
             
              <remarks>
                GZIP allows the storage of a last modified time with each GZIP entry.
-               When compressing data, you can set this before the first call to
+               When compressing dataRows, you can set this before the first call to
                <c>Write()</c>.  When decompressing, you can retrieve this value any time
                after the first call to <c>Read()</c>.
              </remarks>
@@ -23640,7 +23640,7 @@
              </remarks>
             
              <example>
-               This example shows how to use a GZipStream to compress data.
+               This example shows how to use a GZipStream to compress dataRows.
              <code>
              using (System.IO.Stream input = System.IO.File.OpenRead(fileToCompress))
              {
@@ -23809,7 +23809,7 @@
                remain open after the deflation or inflation occurs.  By default, after
                <c>Close()</c> is called on the stream, the captive stream is also
                closed. In some cases this is not desired, for example if the stream is a
-               memory stream that will be re-read after compressed data has been written
+               memory stream that will be re-read after compressed dataRows has been written
                to it.  Specify true for the <paramref name="leaveOpen"/> parameter to leave
                the stream open.
              </para>
@@ -23859,7 +23859,7 @@
                remain open after the deflation or inflation occurs.  By default, after
                <c>Close()</c> is called on the stream, the captive stream is also
                closed. In some cases this is not desired, for example if the stream is a
-               memory stream that will be re-read after compressed data has been written
+               memory stream that will be re-read after compressed dataRows has been written
                to it.  Specify true for the <paramref name="leaveOpen"/> parameter to
                leave the stream open.
              </para>
@@ -23875,7 +23875,7 @@
              </remarks>
             
              <example>
-               This example shows how to use a <c>GZipStream</c> to compress data.
+               This example shows how to use a <c>GZipStream</c> to compress dataRows.
              <code>
              using (System.IO.Stream input = System.IO.File.OpenRead(fileToCompress))
              {
@@ -24020,7 +24020,7 @@
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.GZipStream.Read(System.Byte[],System.Int32,System.Int32)">
              <summary>
-               Read and decompress data from the source stream.
+               Read and decompress dataRows from the source stream.
              </summary>
             
              <remarks>
@@ -24046,8 +24046,8 @@
              }
              </code>
              </example>
-             <param name="buffer">The buffer into which the decompressed data should be placed.</param>
-             <param name="offset">the offset within that data array to put the first byte read.</param>
+             <param name="buffer">The buffer into which the decompressed dataRows should be placed.</param>
+             <param name="offset">the offset within that dataRows array to put the first byte read.</param>
              <param name="count">the number of bytes to read.</param>
              <returns>the number of bytes actually read</returns>
         </member>
@@ -24067,16 +24067,16 @@
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.GZipStream.Write(System.Byte[],System.Int32,System.Int32)">
              <summary>
-               Write data to the stream.
+               Write dataRows to the stream.
              </summary>
             
              <remarks>
              <para>
-               If you wish to use the <c>GZipStream</c> to compress data while writing,
+               If you wish to use the <c>GZipStream</c> to compress dataRows while writing,
                you can create a <c>GZipStream</c> with <c>CompressionMode.Compress</c>, and a
                writable output stream.  Then call <c>Write()</c> on that <c>GZipStream</c>,
-               providing uncompressed data as input.  The data sent to the output stream
-               will be the compressed form of the data written.
+               providing uncompressed dataRows as input.  The dataRows sent to the output stream
+               will be the compressed form of the dataRows written.
              </para>
             
              <para>
@@ -24085,8 +24085,8 @@
              </para>
             
              </remarks>
-             <param name="buffer">The buffer holding data to write to the stream.</param>
-             <param name="offset">the offset within that data array to find the first byte to write.</param>
+             <param name="buffer">The buffer holding dataRows to write to the stream.</param>
+             <param name="offset">the offset within that dataRows array to find the first byte to write.</param>
              <param name="count">the number of bytes to write.</param>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.GZipStream.CompressString(System.String)">
@@ -24124,7 +24124,7 @@
                A buffer to compress.
              </param>
             
-             <returns>The data in compressed form</returns>
+             <returns>The dataRows in compressed form</returns>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.GZipStream.UncompressString(System.Byte[])">
              <summary>
@@ -24135,7 +24135,7 @@
              <seealso cref="M:OfficeOpenXml.Packaging.Ionic.Zlib.GZipStream.UncompressBuffer(System.Byte[])"/>
             
              <param name="compressed">
-               A buffer containing GZIP-compressed data.
+               A buffer containing GZIP-compressed dataRows.
              </param>
             
              <returns>The uncompressed string</returns>
@@ -24149,10 +24149,10 @@
              <seealso cref="M:OfficeOpenXml.Packaging.Ionic.Zlib.GZipStream.UncompressString(System.Byte[])"/>
             
              <param name="compressed">
-               A buffer containing data that has been compressed with GZip.
+               A buffer containing dataRows that has been compressed with GZip.
              </param>
             
-             <returns>The data in uncompressed form</returns>
+             <returns>The dataRows in uncompressed form</returns>
         </member>
         <member name="T:OfficeOpenXml.Packaging.Ionic.Zlib.ParallelDeflateOutputStream">
              <summary>
@@ -24180,8 +24180,8 @@
              <para>
                The tradeoff is that this class uses more memory and more CPU than the
                vanilla DeflateStream, and also is less efficient as a compressor. For
-               large files the size of the compressed data stream can be less than 1%
-               larger than the size of a compressed data stream from the vanialla
+               large files the size of the compressed dataRows stream can be less than 1%
+               larger than the size of a compressed dataRows stream from the vanialla
                DeflateStream.  For smaller files the difference can be larger.  The
                difference will also be larger if you set the BufferSize to be lower than
                the default value.  Your mileage may vary. Finally, for small files, the
@@ -24200,7 +24200,7 @@
              <remarks>
             
              <para>
-               This stream compresses data written into it via the DEFLATE
+               This stream compresses dataRows written into it via the DEFLATE
                algorithm (see RFC 1951), and writes out the compressed byte stream.
              </para>
             
@@ -24225,7 +24225,7 @@
              <example>
             
              This example shows how to use a ParallelDeflateOutputStream to compress
-             data.  It reads a file, compresses it, and writes the compressed data to
+             dataRows.  It reads a file, compresses it, and writes the compressed dataRows to
              a second, output file.
             
              <code>
@@ -24264,7 +24264,7 @@
              End Using
              </code>
              </example>
-             <param name="stream">The stream to which compressed data will be written.</param>
+             <param name="stream">The stream to which compressed dataRows will be written.</param>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.ParallelDeflateOutputStream.#ctor(System.IO.Stream,OfficeOpenXml.Packaging.Ionic.Zlib.CompressionLevel)">
             <summary>
@@ -24274,7 +24274,7 @@
               See the <see cref="M:OfficeOpenXml.Packaging.Ionic.Zlib.ParallelDeflateOutputStream.#ctor(System.IO.Stream)"/>
               constructor for example code.
             </remarks>
-            <param name="stream">The stream to which compressed data will be written.</param>
+            <param name="stream">The stream to which compressed dataRows will be written.</param>
             <param name="level">A tuning knob to trade speed for effectiveness.</param>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.ParallelDeflateOutputStream.#ctor(System.IO.Stream,System.Boolean)">
@@ -24286,7 +24286,7 @@
               See the <see cref="M:OfficeOpenXml.Packaging.Ionic.Zlib.ParallelDeflateOutputStream.#ctor(System.IO.Stream)"/>
               constructor for example code.
             </remarks>
-            <param name="stream">The stream to which compressed data will be written.</param>
+            <param name="stream">The stream to which compressed dataRows will be written.</param>
             <param name="leaveOpen">
                true if the application would like the stream to remain open after inflation/deflation.
             </param>
@@ -24300,7 +24300,7 @@
               See the <see cref="M:OfficeOpenXml.Packaging.Ionic.Zlib.ParallelDeflateOutputStream.#ctor(System.IO.Stream)"/>
               constructor for example code.
             </remarks>
-            <param name="stream">The stream to which compressed data will be written.</param>
+            <param name="stream">The stream to which compressed dataRows will be written.</param>
             <param name="level">A tuning knob to trade speed for effectiveness.</param>
             <param name="leaveOpen">
                true if the application would like the stream to remain open after inflation/deflation.
@@ -24317,11 +24317,11 @@
               See the <see cref="M:OfficeOpenXml.Packaging.Ionic.Zlib.ParallelDeflateOutputStream.#ctor(System.IO.Stream)"/>
               constructor for example code.
             </remarks>
-            <param name="stream">The stream to which compressed data will be written.</param>
+            <param name="stream">The stream to which compressed dataRows will be written.</param>
             <param name="level">A tuning knob to trade speed for effectiveness.</param>
             <param name="strategy">
               By tweaking this parameter, you may be able to optimize the compression for
-              data with particular characteristics.
+              dataRows with particular characteristics.
             </param>
             <param name="leaveOpen">
                true if the application would like the stream to remain open after inflation/deflation.
@@ -24424,7 +24424,7 @@
                using the default buffer size of 128k, the compression delivered is
                within 1% of the compression delivered by the single-threaded <see
                cref="T:OfficeOpenXml.Packaging.Ionic.Zlib.DeflateStream"/>.  On the other hand, using a
-               BufferSize of 8k can result in a compressed data stream that is 5%
+               BufferSize of 8k can result in a compressed dataRows stream that is 5%
                larger than that delivered by the single-threaded
                <c>DeflateStream</c>.  Excessively small buffer sizes can also cause
                the speed of the ParallelDeflateOutputStream to drop, because of
@@ -24450,7 +24450,7 @@
         </member>
         <member name="P:OfficeOpenXml.Packaging.Ionic.Zlib.ParallelDeflateOutputStream.Crc32">
             <summary>
-            The CRC32 for the data that was written out, prior to compression.
+            The CRC32 for the dataRows that was written out, prior to compression.
             </summary>
             <remarks>
             This value is meaningful only after a call to Close().
@@ -24466,27 +24466,27 @@
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.ParallelDeflateOutputStream.Write(System.Byte[],System.Int32,System.Int32)">
              <summary>
-               Write data to the stream.
+               Write dataRows to the stream.
              </summary>
             
              <remarks>
             
              <para>
-               To use the ParallelDeflateOutputStream to compress data, create a
+               To use the ParallelDeflateOutputStream to compress dataRows, create a
                ParallelDeflateOutputStream with CompressionMode.Compress, passing a
                writable output stream.  Then call Write() on that
-               ParallelDeflateOutputStream, providing uncompressed data as input.  The
-               data sent to the output stream will be the compressed form of the data
+               ParallelDeflateOutputStream, providing uncompressed dataRows as input.  The
+               dataRows sent to the output stream will be the compressed form of the dataRows
                written.
              </para>
             
              <para>
-               To decompress data, use the <see cref="T:OfficeOpenXml.Packaging.Ionic.Zlib.DeflateStream"/> class.
+               To decompress dataRows, use the <see cref="T:OfficeOpenXml.Packaging.Ionic.Zlib.DeflateStream"/> class.
              </para>
             
              </remarks>
-             <param name="buffer">The buffer holding data to write to the stream.</param>
-             <param name="offset">the offset within that data array to find the first byte to write.</param>
+             <param name="buffer">The buffer holding dataRows to write to the stream.</param>
+             <param name="offset">the offset within that dataRows array to find the first byte to write.</param>
              <param name="count">the number of bytes to write.</param>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.ParallelDeflateOutputStream.Flush">
@@ -24499,8 +24499,8 @@
             Close the stream.
             </summary>
             <remarks>
-            You must call Close on the stream to guarantee that all of the data written in has
-            been compressed, and the compressed data has been written out.
+            You must call Close on the stream to guarantee that all of the dataRows written in has
+            been compressed, and the compressed dataRows has been written out.
             </remarks>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.ParallelDeflateOutputStream.Dispose">
@@ -24610,12 +24610,12 @@
             This method always throws a NotSupportedException.
             </summary>
             <param name="buffer">
-              The buffer into which data would be read, IF THIS METHOD
+              The buffer into which dataRows would be read, IF THIS METHOD
               ACTUALLY DID ANYTHING.
             </param>
             <param name="offset">
-              The offset within that data array at which to insert the
-              data that is read, IF THIS METHOD ACTUALLY DID
+              The offset within that dataRows array at which to insert the
+              dataRows that is read, IF THIS METHOD ACTUALLY DID
               ANYTHING.
             </param>
             <param name="count">
@@ -24678,7 +24678,7 @@
             Use this during compression to specify that all pending output should be
             flushed to the output buffer and the output should be aligned on a byte
             boundary.  You might use this in a streaming communication scenario, so that
-            the decompressor can get all input data available so far.  When using this
+            the decompressor can get all input dataRows available so far.  When using this
             with a ZlibCodec, <c>AvailableBytesIn</c> will be zero after the call if
             enough output space has been provided before the call.  Flushing will
             degrade compression and so it should be used only when necessary.
@@ -24689,7 +24689,7 @@
             Use this during compression to specify that all output should be flushed, as
             with <c>FlushType.Sync</c>, but also, the compression state should be reset
             so that decompression can restart from this point if previous compressed
-            data has been damaged or if random access is desired.  Using
+            dataRows has been damaged or if random access is desired.  Using
             <c>FlushType.Full</c> too often can significantly degrade the compression.
             </summary>
         </member>
@@ -24703,7 +24703,7 @@
         </member>
         <member name="F:OfficeOpenXml.Packaging.Ionic.Zlib.CompressionLevel.None">
             <summary>
-            None means that the data will be simply stored, with no change at all.
+            None means that the dataRows will be simply stored, with no change at all.
             If you are producing ZIPs for use on Mac OSX, be aware that archives produced with CompressionLevel.None
             cannot be opened with the default zip reader. Use a different CompressionLevel.
             </summary>
@@ -24765,7 +24765,7 @@
         </member>
         <member name="F:OfficeOpenXml.Packaging.Ionic.Zlib.CompressionLevel.BestCompression">
             <summary>
-            The "best" compression, where best means greatest reduction in size of the input data stream.
+            The "best" compression, where best means greatest reduction in size of the input dataRows stream.
             This is also the slowest compression.
             </summary>
         </member>
@@ -24777,19 +24777,19 @@
         <member name="T:OfficeOpenXml.Packaging.Ionic.Zlib.CompressionStrategy">
             <summary>
             Describes options for how the compression algorithm is executed.  Different strategies
-            work better on different sorts of data.  The strategy parameter can affect the compression
+            work better on different sorts of dataRows.  The strategy parameter can affect the compression
             ratio and the speed of compression but not the correctness of the compresssion.
             </summary>
         </member>
         <member name="F:OfficeOpenXml.Packaging.Ionic.Zlib.CompressionStrategy.Default">
             <summary>
-            The default strategy is probably the best for normal data.
+            The default strategy is probably the best for normal dataRows.
             </summary>
         </member>
         <member name="F:OfficeOpenXml.Packaging.Ionic.Zlib.CompressionStrategy.Filtered">
             <summary>
-            The <c>Filtered</c> strategy is intended to be used most effectively with data produced by a
-            filter or predictor.  By this definition, filtered data consists mostly of small
+            The <c>Filtered</c> strategy is intended to be used most effectively with dataRows produced by a
+            filter or predictor.  By this definition, filtered dataRows consists mostly of small
             values with a somewhat random distribution.  In this case, the compression algorithm
             is tuned to compress them better.  The effect of <c>Filtered</c> is to force more Huffman
             coding and less string matching; it is a half-step between <c>Default</c> and <c>HuffmanOnly</c>.
@@ -24808,12 +24808,12 @@
         </member>
         <member name="F:OfficeOpenXml.Packaging.Ionic.Zlib.CompressionMode.Compress">
             <summary>
-            Used to specify that the stream should compress the data.
+            Used to specify that the stream should compress the dataRows.
             </summary>
         </member>
         <member name="F:OfficeOpenXml.Packaging.Ionic.Zlib.CompressionMode.Decompress">
             <summary>
-            Used to specify that the stream should decompress the data.
+            Used to specify that the stream should decompress the dataRows.
             </summary>
         </member>
         <member name="T:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibException">
@@ -24844,7 +24844,7 @@
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.SharedUtils.ReadInput(System.IO.TextReader,System.Byte[],System.Int32,System.Int32)">
              <summary>
                Reads a number of characters from the current source TextReader and writes
-               the data to the target array at the specified index.
+               the dataRows to the target array at the specified index.
              </summary>
             
              <param name="sourceTextReader">The source TextReader to read from</param>
@@ -24854,7 +24854,7 @@
             
              <returns>
                The number of characters read. The number will be less than or equal to
-               count depending on the data available in the source TextReader. Returns -1
+               count depending on the dataRows available in the source TextReader. Returns -1
                if the end of the stream is reached.
              </returns>
         </member>
@@ -24894,7 +24894,7 @@
              </summary>
             
              <remarks>
-             This class compresses and decompresses data according to the Deflate algorithm
+             This class compresses and decompresses dataRows according to the Deflate algorithm
              and optionally, the ZLIB format, as documented in <see
              href="http://www.ietf.org/rfc/rfc1950.txt">RFC 1950 - ZLIB</see> and <see
              href="http://www.ietf.org/rfc/rfc1951.txt">RFC 1951 - DEFLATE</see>.
@@ -24902,7 +24902,7 @@
         </member>
         <member name="F:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibCodec.InputBuffer">
             <summary>
-            The buffer from which data is taken.
+            The buffer from which dataRows is taken.
             </summary>
         </member>
         <member name="F:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibCodec.NextIn">
@@ -24926,7 +24926,7 @@
         </member>
         <member name="F:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibCodec.OutputBuffer">
             <summary>
-            Buffer to store output data.
+            Buffer to store output dataRows.
             </summary>
         </member>
         <member name="F:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibCodec.NextOut">
@@ -24976,7 +24976,7 @@
             <remarks>
             This is only effective in compression.  The theory offered by ZLIB is that different
             strategies could potentially produce significant differences in compression behavior
-            for different data sets.  Unfortunately I don't have any good recommendations for how
+            for different dataRows sets.  Unfortunately I don't have any good recommendations for how
             to set it differently.  When I tested changing the strategy I got minimally different
             compression performance. It's best to leave this property alone if you don't have a
             good feel for it.  Or, you may want to produce a test harness that runs through the
@@ -24986,7 +24986,7 @@
         </member>
         <member name="P:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibCodec.Adler32">
             <summary>
-            The Adler32 checksum on the data transferred through the codec so far. You probably don't need to look at this.
+            The Adler32 checksum on the dataRows transferred through the codec so far. You probably don't need to look at this.
             </summary>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibCodec.#ctor">
@@ -25012,7 +25012,7 @@
             Initialize the inflation state. 
             </summary>
             <remarks>
-            It is not necessary to call this before using the ZlibCodec to inflate data; 
+            It is not necessary to call this before using the ZlibCodec to inflate dataRows; 
             It is implicitly called when you call the constructor.
             </remarks>
             <returns>Z_OK if everything goes well.</returns>
@@ -25033,7 +25033,7 @@
              </remarks>
             
              <param name="expectRfc1950Header">whether to expect an RFC1950 header byte
-             pair when reading the stream of data to be inflated.</param>
+             pair when reading the stream of dataRows to be inflated.</param>
             
              <returns>Z_OK if everything goes well.</returns>
         </member>
@@ -25061,14 +25061,14 @@
              </remarks>
             
              <param name="expectRfc1950Header">whether to expect an RFC1950 header byte pair when reading 
-             the stream of data to be inflated.</param>
+             the stream of dataRows to be inflated.</param>
              <param name="windowBits">The number of window bits to use. If you need to ask what that is, 
              then you shouldn't be calling this initializer.</param>
              <returns>Z_OK if everything goes well.</returns>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibCodec.Inflate(OfficeOpenXml.Packaging.Ionic.Zlib.FlushType)">
              <summary>
-             Inflate the data in the InputBuffer, placing the result in the OutputBuffer.
+             Inflate the dataRows in the InputBuffer, placing the result in the OutputBuffer.
              </summary>
              <remarks>
              You must have set InputBuffer and OutputBuffer, NextIn and NextOut, and AvailableBytesIn and 
@@ -25243,7 +25243,7 @@
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibCodec.Deflate(OfficeOpenXml.Packaging.Ionic.Zlib.FlushType)">
             <summary>
-            Deflate one batch of data.
+            Deflate one batch of dataRows.
             </summary>
             <remarks>
             You must have set InputBuffer and OutputBuffer before calling this method.
@@ -25305,7 +25305,7 @@
             }
             </code>
             </example>
-            <param name="flush">whether to flush all data as you deflate. Generally you will want to 
+            <param name="flush">whether to flush all dataRows as you deflate. Generally you will want to 
             use Z_NO_FLUSH here, in a series of calls to Deflate(), and then call EndDeflate() to 
             flush everything. 
             </param>
@@ -25378,12 +25378,12 @@
         </member>
         <member name="F:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibConstants.Z_STREAM_ERROR">
             <summary>
-            There was an error with the stream - not enough data, not open and readable, etc.
+            There was an error with the stream - not enough dataRows, not open and readable, etc.
             </summary>
         </member>
         <member name="F:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibConstants.Z_DATA_ERROR">
             <summary>
-            There was an error with the data - not enough data, bad data, etc.
+            There was an error with the dataRows - not enough dataRows, bad dataRows, etc.
             </summary>
         </member>
         <member name="F:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibConstants.Z_BUF_ERROR">
@@ -25414,7 +25414,7 @@
              stream.
              </para>
             
-             <para> Using this stream, applications can compress or decompress data via
+             <para> Using this stream, applications can compress or decompress dataRows via
              stream <c>Read()</c> and <c>Write()</c> operations.  Either compresssion or
              decompression can occur through either reading or writing. The compression
              format used is ZLIB, which is documented in <see
@@ -25456,7 +25456,7 @@
             
              <example>
              This example uses a <c>ZlibStream</c> to compress a file, and writes the
-             compressed data to another file.
+             compressed dataRows to another file.
              <code>
              using (System.IO.Stream input = System.IO.File.OpenRead(fileToCompress))
              {
@@ -25511,8 +25511,8 @@
              </remarks>
             
              <example>
-               This example uses a <c>ZlibStream</c> to compress data from a file, and writes the
-               compressed data to another file.
+               This example uses a <c>ZlibStream</c> to compress dataRows from a file, and writes the
+               compressed dataRows to another file.
             
              <code>
              using (System.IO.Stream input = System.IO.File.OpenRead(fileToCompress))
@@ -25620,9 +25620,9 @@
             
              <example>
             
-             This example shows how to use a ZlibStream to compress the data from a file,
+             This example shows how to use a ZlibStream to compress the dataRows from a file,
              and store the result into another file. The filestream remains open to allow
-             additional data to be written to it.
+             additional dataRows to be written to it.
             
              <code>
              using (var output = System.IO.File.Create(fileToCompress + ".zlib"))
@@ -25639,7 +25639,7 @@
                          }
                      }
                  }
-                 // can write additional data to the output stream here
+                 // can write additional dataRows to the output stream here
              }
              </code>
              <code lang="VB">
@@ -25656,7 +25656,7 @@
                          Loop
                      End Using
                  End Using
-                 ' can write additional data to the output stream here.
+                 ' can write additional dataRows to the output stream here.
              End Using
              </code>
              </example>
@@ -25780,20 +25780,20 @@
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibStream.Read(System.Byte[],System.Int32,System.Int32)">
              <summary>
-             Read data from the stream.
+             Read dataRows from the stream.
              </summary>
             
              <remarks>
             
              <para>
-               If you wish to use the <c>ZlibStream</c> to compress data while reading,
+               If you wish to use the <c>ZlibStream</c> to compress dataRows while reading,
                you can create a <c>ZlibStream</c> with <c>CompressionMode.Compress</c>,
-               providing an uncompressed data stream.  Then call <c>Read()</c> on that
-               <c>ZlibStream</c>, and the data read will be compressed.  If you wish to
-               use the <c>ZlibStream</c> to decompress data while reading, you can create
+               providing an uncompressed dataRows stream.  Then call <c>Read()</c> on that
+               <c>ZlibStream</c>, and the dataRows read will be compressed.  If you wish to
+               use the <c>ZlibStream</c> to decompress dataRows while reading, you can create
                a <c>ZlibStream</c> with <c>CompressionMode.Decompress</c>, providing a
-               readable compressed data stream.  Then call <c>Read()</c> on that
-               <c>ZlibStream</c>, and the data will be decompressed as it is read.
+               readable compressed dataRows stream.  Then call <c>Read()</c> on that
+               <c>ZlibStream</c>, and the dataRows will be decompressed as it is read.
              </para>
             
              <para>
@@ -25804,10 +25804,10 @@
              </remarks>
             
              <param name="buffer">
-             The buffer into which the read data should be placed.</param>
+             The buffer into which the read dataRows should be placed.</param>
             
              <param name="offset">
-             the offset within that data array to put the first byte read.</param>
+             the offset within that dataRows array to put the first byte read.</param>
             
              <param name="count">the number of bytes to read.</param>
             
@@ -25839,30 +25839,30 @@
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibStream.Write(System.Byte[],System.Int32,System.Int32)">
              <summary>
-             Write data to the stream.
+             Write dataRows to the stream.
              </summary>
             
              <remarks>
             
              <para>
-               If you wish to use the <c>ZlibStream</c> to compress data while writing,
+               If you wish to use the <c>ZlibStream</c> to compress dataRows while writing,
                you can create a <c>ZlibStream</c> with <c>CompressionMode.Compress</c>,
                and a writable output stream.  Then call <c>Write()</c> on that
-               <c>ZlibStream</c>, providing uncompressed data as input.  The data sent to
-               the output stream will be the compressed form of the data written.  If you
-               wish to use the <c>ZlibStream</c> to decompress data while writing, you
+               <c>ZlibStream</c>, providing uncompressed dataRows as input.  The dataRows sent to
+               the output stream will be the compressed form of the dataRows written.  If you
+               wish to use the <c>ZlibStream</c> to decompress dataRows while writing, you
                can create a <c>ZlibStream</c> with <c>CompressionMode.Decompress</c>, and a
                writable output stream.  Then call <c>Write()</c> on that stream,
-               providing previously compressed data. The data sent to the output stream
-               will be the decompressed form of the data written.
+               providing previously compressed dataRows. The dataRows sent to the output stream
+               will be the decompressed form of the dataRows written.
              </para>
             
              <para>
                A <c>ZlibStream</c> can be used for <c>Read()</c> or <c>Write()</c>, but not both.
              </para>
              </remarks>
-             <param name="buffer">The buffer holding data to write to the stream.</param>
-             <param name="offset">the offset within that data array to find the first byte to write.</param>
+             <param name="buffer">The buffer holding dataRows to write to the stream.</param>
+             <param name="offset">the offset within that dataRows array to find the first byte to write.</param>
              <param name="count">the number of bytes to write.</param>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibStream.CompressString(System.String)">
@@ -25901,7 +25901,7 @@
              A buffer to compress.
              </param>
             
-             <returns>The data in compressed form</returns>
+             <returns>The dataRows in compressed form</returns>
         </member>
         <member name="M:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibStream.UncompressString(System.Byte[])">
              <summary>
@@ -25912,7 +25912,7 @@
              <seealso cref="M:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibStream.UncompressBuffer(System.Byte[])"/>
             
              <param name="compressed">
-               A buffer containing ZLIB-compressed data.
+               A buffer containing ZLIB-compressed dataRows.
              </param>
             
              <returns>The uncompressed string</returns>
@@ -25926,10 +25926,10 @@
              <seealso cref="M:OfficeOpenXml.Packaging.Ionic.Zlib.ZlibStream.UncompressString(System.Byte[])"/>
             
              <param name="compressed">
-               A buffer containing ZLIB-compressed data.
+               A buffer containing ZLIB-compressed dataRows.
              </param>
             
-             <returns>The data in uncompressed form</returns>
+             <returns>The dataRows in uncompressed form</returns>
         </member>
         <member name="T:OfficeOpenXml.Packaging.TargetMode">
             <summary>
@@ -26131,7 +26131,7 @@
         </member>
         <member name="P:OfficeOpenXml.Sparkline.ExcelSparklineGroup.DataRange">
             <summary>
-            The range containing the data from the sparklines
+            The range containing the dataRows from the sparklines
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Sparkline.ExcelSparklineGroup.LocationRange">
@@ -26152,27 +26152,27 @@
         </member>
         <member name="P:OfficeOpenXml.Sparkline.ExcelSparklineGroup.High">
             <summary>
-            Highlight the highest point of data in the sparkline group
+            Highlight the highest point of dataRows in the sparkline group
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Sparkline.ExcelSparklineGroup.Low">
             <summary>
-            Highlight the lowest point of data in the sparkline group
+            Highlight the lowest point of dataRows in the sparkline group
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Sparkline.ExcelSparklineGroup.First">
             <summary>
-            Highlight the first point of data in the sparkline group
+            Highlight the first point of dataRows in the sparkline group
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Sparkline.ExcelSparklineGroup.Last">
             <summary>
-            Highlight the last point of data in the sparkline group
+            Highlight the last point of dataRows in the sparkline group
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Sparkline.ExcelSparklineGroup.Negative">
             <summary>
-            Highlight negative points of data in the sparkline group with a different color or marker
+            Highlight negative points of dataRows in the sparkline group with a different color or marker
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Sparkline.ExcelSparklineGroup.Type">
@@ -26233,7 +26233,7 @@
             </summary>
             <param name="type">Type of sparkline</param>
             <param name="locationRange">The location of the sparkline group. The range must have one row or column and must match the number of rows/columns in the datarange</param>
-            <param name="dataRange">The data for the sparkline group</param>
+            <param name="dataRange">The dataRows for the sparkline group</param>
             <returns></returns>
         </member>
         <member name="P:OfficeOpenXml.Sparkline.ExcelSparklineGroupCollection.Item(System.Int32)">
@@ -28156,7 +28156,7 @@
         </member>
         <member name="T:OfficeOpenXml.Table.PivotTable.ExcelPivotTableDataField">
             <summary>
-            A pivo table data field
+            A pivo table dataRows field
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotTableDataField.Field">
@@ -28191,7 +28191,7 @@
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotTableDataField.Format">
             <summary>
-            Number format for the data column
+            Number format for the dataRows column
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotTableDataField.Function">
@@ -28259,7 +28259,7 @@
         </member>
         <member name="T:OfficeOpenXml.Table.PivotTable.ExcelPivotTableDataFieldCollection">
             <summary>
-            Collection class for data fields in a Pivottable 
+            Collection class for dataRows fields in a Pivottable 
             </summary>
         </member>
         <member name="M:OfficeOpenXml.Table.PivotTable.ExcelPivotTableDataFieldCollection.Add(OfficeOpenXml.Table.PivotTable.ExcelPivotTableField)">
@@ -28277,12 +28277,12 @@
         </member>
         <member name="F:OfficeOpenXml.Table.PivotTable.eSourceType.Consolidation">
             <summary>
-            Indicates that the cache contains data that consolidates ranges.
+            Indicates that the cache contains dataRows that consolidates ranges.
             </summary>
         </member>
         <member name="F:OfficeOpenXml.Table.PivotTable.eSourceType.External">
             <summary>
-            Indicates that the cache contains data from an external data source.
+            Indicates that the cache contains dataRows from an external dataRows source.
             </summary>
         </member>
         <member name="F:OfficeOpenXml.Table.PivotTable.eSourceType.Scenario">
@@ -28292,12 +28292,12 @@
         </member>
         <member name="F:OfficeOpenXml.Table.PivotTable.eSourceType.Worksheet">
             <summary>
-            Indicates that the cache contains worksheet data
+            Indicates that the cache contains worksheet dataRows
             </summary>
         </member>
         <member name="T:OfficeOpenXml.Table.PivotTable.ExcelPivotCacheDefinition">
             <summary>
-            Cache definition. This class defines the source data. Note that one cache definition can be shared between many pivot tables.
+            Cache definition. This class defines the source dataRows. Note that one cache definition can be shared between many pivot tables.
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotCacheDefinition.Part">
@@ -28307,7 +28307,7 @@
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotCacheDefinition.CacheDefinitionXml">
             <summary>
-            Provides access to the XML data representing the cache definition in the package.
+            Provides access to the XML dataRows representing the cache definition in the package.
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotCacheDefinition.CacheDefinitionUri">
@@ -28322,14 +28322,14 @@
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotCacheDefinition.SourceRange">
             <summary>
-            The source data range when the pivottable has a worksheet datasource. 
+            The source dataRows range when the pivottable has a worksheet datasource. 
             The number of columns in the range must be intact if this property is changed.
             The range must be in the same workbook as the pivottable.
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotCacheDefinition.CacheSource">
             <summary>
-            Type of source data
+            Type of source dataRows
             </summary>
         </member>
         <member name="T:OfficeOpenXml.Table.PivotTable.ePivotFieldAxis">
@@ -28370,7 +28370,7 @@
         </member>
         <member name="T:OfficeOpenXml.Table.PivotTable.eShowDataAs">
             <summary>
-            Defines the data formats for a field in the PivotTable
+            Defines the dataRows formats for a field in the PivotTable
             </summary>
         </member>
         <member name="F:OfficeOpenXml.Table.PivotTable.eShowDataAs.Difference">
@@ -28584,7 +28584,7 @@
             Create a pivottable on the supplied range
             </summary>
             <param name="Range">The range address including header and total row</param>
-            <param name="Source">The Source data range address</param>
+            <param name="Source">The Source dataRows range address</param>
             <param name="Name">The name of the table. Must be unique </param>
             <returns>The pivottable object</returns>
         </member>
@@ -28613,13 +28613,13 @@
             </summary>
             <param name="sheet">The worksheet</param>
             <param name="address">the address of the pivottable</param>
-            <param name="sourceAddress">The address of the Source data</param>
+            <param name="sourceAddress">The address of the Source dataRows</param>
             <param name="name"></param>
             <param name="tblId"></param>
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotTable.PivotTableXml">
             <summary>
-            Provides access to the XML data representing the pivottable in the package.
+            Provides access to the XML dataRows representing the pivottable in the package.
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotTable.PivotTableUri">
@@ -28699,7 +28699,7 @@
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotTable.ShowDataTips">
             <summary>
-            If the tooltips should be displayed for PivotTable data cells.
+            If the tooltips should be displayed for PivotTable dataRows cells.
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotTable.FieldPrintTitles">
@@ -28775,7 +28775,7 @@
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotTable.OutlineData">
             <summary>
-            A boolean that indicates whether data fields in the PivotTable should be displayed in outline form
+            A boolean that indicates whether dataRows fields in the PivotTable should be displayed in outline form
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotTable.Outline">
@@ -28795,7 +28795,7 @@
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotTable.CompactData">
             <summary>
-            A boolean that indicates whether the field next to the data field in the PivotTable should be displayed in the same column of the spreadSheet
+            A boolean that indicates whether the field next to the dataRows field in the PivotTable should be displayed in the same column of the spreadSheet
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotTable.GrandTotalCaption">
@@ -28825,12 +28825,12 @@
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotTable.FirstDataRow">
             <summary>
-            Specifies the first column of the PivotTable data, relative to the top left cell in the ref value
+            Specifies the first column of the PivotTable dataRows, relative to the top left cell in the ref value
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotTable.FirstDataCol">
             <summary>
-            Specifies the first column of the PivotTable data, relative to the top left cell in the ref value
+            Specifies the first column of the PivotTable dataRows, relative to the top left cell in the ref value
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Table.PivotTable.ExcelPivotTable.Fields">
@@ -28909,7 +28909,7 @@
         </member>
         <member name="P:OfficeOpenXml.Table.ExcelTable.TableXml">
             <summary>
-            Provides access to the XML data representing the table in the package.
+            Provides access to the XML dataRows representing the table in the package.
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Table.ExcelTable.TableUri">
@@ -28989,7 +28989,7 @@
         </member>
         <member name="P:OfficeOpenXml.Table.ExcelTable.DataCellStyleName">
             <summary>
-            Named style used for the data cells
+            Named style used for the dataRows cells
             </summary>
         </member>
         <member name="P:OfficeOpenXml.Table.ExcelTable.HeaderRowCellStyle">
@@ -29359,7 +29359,7 @@
         </member>
         <member name="P:OfficeOpenXml.ExcelWorkbook.WorkbookXml">
             <summary>
-            Provides access to the XML data representing the workbook in the package.
+            Provides access to the XML dataRows representing the workbook in the package.
             </summary>
         </member>
         <member name="P:OfficeOpenXml.ExcelWorkbook.Date1904">
@@ -29376,12 +29376,12 @@
         </member>
         <member name="P:OfficeOpenXml.ExcelWorkbook.StylesXml">
             <summary>
-            Provides access to the XML data representing the styles in the package. 
+            Provides access to the XML dataRows representing the styles in the package. 
             </summary>
         </member>
         <member name="P:OfficeOpenXml.ExcelWorkbook.Styles">
             <summary>
-            Package styles collection. Used internally to access style data.
+            Package styles collection. Used internally to access style dataRows.
             </summary>
         </member>
         <member name="P:OfficeOpenXml.ExcelWorkbook.Properties">
@@ -29562,8 +29562,8 @@
         </member>
         <member name="P:OfficeOpenXml.ExcelWorksheet.WorksheetXml">
             <summary>
-            The XML document holding the worksheet data.
-            All column, row, cell, pagebreak, merged cell and hyperlink-data are loaded into memory and removed from the document when loading the document.        
+            The XML document holding the worksheet dataRows.
+            All column, row, cell, pagebreak, merged cell and hyperlink-dataRows are loaded into memory and removed from the document when loading the document.        
             </summary>
         </member>
         <member name="P:OfficeOpenXml.ExcelWorksheet.VmlDrawingsComments">
@@ -29586,8 +29586,8 @@
         </member>
         <member name="M:OfficeOpenXml.ExcelWorksheet.GetWorkSheetXml(System.IO.Stream,System.Int64,System.Int64,System.Text.Encoding@)">
             <summary>
-            Extracts the workbook XML without the sheetData-element (containing all cell data).
-            Xml-Cell data can be extreemly large (GB), so we find the sheetdata element in the streem (position start) and 
+            Extracts the workbook XML without the sheetData-element (containing all cell dataRows).
+            Xml-Cell dataRows can be extreemly large (GB), so we find the sheetdata element in the streem (position start) and 
             then tries to find the &lt;/sheetData&gt; element from the end-parameter.
             This approach is to avoid out of memory exceptions reading large packages
             </summary>
@@ -29860,7 +29860,7 @@
         </member>
         <member name="M:OfficeOpenXml.ExcelWorksheet.SaveTables">
             <summary>
-            Save all table data
+            Save all table dataRows
             </summary>
         </member>
         <member name="M:OfficeOpenXml.ExcelWorksheet.UpdateColumnData(System.IO.StreamWriter)">
@@ -31795,17 +31795,17 @@
         </member>
         <member name="M:OfficeOpenXml.ExcelRangeBase.LoadFromDataReader(System.Data.IDataReader,System.Boolean,System.String,OfficeOpenXml.Table.TableStyles)">
             <summary>
-            Load the data from the datareader starting from the top left cell of the range
+            Load the dataRows from the datareader starting from the top left cell of the range
             </summary>
             <param name="Reader">The datareader to loadfrom</param>
             <param name="PrintHeaders">Print the column caption property (if set) or the columnname property if not, on first row</param>
             <param name="TableName">The name of the table</param>
-            <param name="TableStyle">The table style to apply to the data</param>
+            <param name="TableStyle">The table style to apply to the dataRows</param>
             <returns>The filled range</returns>
         </member>
         <member name="M:OfficeOpenXml.ExcelRangeBase.LoadFromDataReader(System.Data.IDataReader,System.Boolean)">
             <summary>
-            Load the data from the datareader starting from the top left cell of the range
+            Load the dataRows from the datareader starting from the top left cell of the range
             </summary>
             <param name="Reader">The datareader to load from</param>
             <param name="PrintHeaders">Print the caption property (if set) or the columnname property if not, on first row</param>
@@ -31813,16 +31813,16 @@
         </member>
         <member name="M:OfficeOpenXml.ExcelRangeBase.LoadFromDataTable(System.Data.Table,System.Boolean,OfficeOpenXml.Table.TableStyles)">
             <summary>
-            Load the data from the dataTable starting from the top left cell of the range
+            Load the dataRows from the dataTable starting from the top left cell of the range
             </summary>
             <param name="Table">The dataTable to load</param>
             <param name="PrintHeaders">Print the column caption property (if set) or the columnname property if not, on first row</param>
-            <param name="TableStyle">The table style to apply to the data</param>
+            <param name="TableStyle">The table style to apply to the dataRows</param>
             <returns>The filled range</returns>
         </member>
         <member name="M:OfficeOpenXml.ExcelRangeBase.LoadFromDataTable(System.Data.Table,System.Boolean)">
             <summary>
-            Load the data from the dataTable starting from the top left cell of the range
+            Load the dataRows from the dataTable starting from the top left cell of the range
             </summary>
             <param name="Table">The dataTable to load</param>
             <param name="PrintHeaders">Print the caption property (if set) or the columnname property if not, on first row</param>
@@ -31830,10 +31830,10 @@
         </member>
         <member name="M:OfficeOpenXml.ExcelRangeBase.LoadFromArrays(System.Collections.Generic.IEnumerable{System.Object[]})">
             <summary>
-            Loads data from the collection of arrays of objects into the range, starting from
+            Loads dataRows from the collection of arrays of objects into the range, starting from
             the top-left cell.
             </summary>
-            <param name="Data">The data.</param>
+            <param name="Data">The dataRows.</param>
         </member>
         <member name="M:OfficeOpenXml.ExcelRangeBase.LoadFromCollection``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
@@ -31882,7 +31882,7 @@
             Default settings is Comma separation
             </summary>
             <param name="Text">The Text</param>
-            <returns>The range containing the data</returns>
+            <returns>The range containing the dataRows</returns>
         </member>
         <member name="M:OfficeOpenXml.ExcelRangeBase.LoadFromText(System.String,OfficeOpenXml.ExcelTextFormat)">
             <summary>
@@ -31890,7 +31890,7 @@
             </summary>
             <param name="Text">The Text</param>
             <param name="Format">Information how to load the text</param>
-            <returns>The range containing the data</returns>
+            <returns>The range containing the dataRows</returns>
         </member>
         <member name="M:OfficeOpenXml.ExcelRangeBase.LoadFromText(System.String,OfficeOpenXml.ExcelTextFormat,OfficeOpenXml.Table.TableStyles,System.Boolean)">
             <summary>
@@ -32147,7 +32147,7 @@
                file. All of these things are done automatically by a call to <see
                cref="M:OfficeOpenXml.Packaging.Ionic.Zip.ZipEntry.Extract">ZipEntry.Extract()</see>.  For this reason, the
                <c>ZipInputStream</c> is generally recommended for when your application wants
-               to extract the data, without storing that data into a file.
+               to extract the dataRows, without storing that dataRows into a file.
              </para>
             
              <para>
@@ -32210,7 +32210,7 @@
                file. All of these things are done automatically by a call to <see
                cref="M:OfficeOpenXml.Packaging.Ionic.Zip.ZipEntry.Extract">ZipEntry.Extract()</see>.  For this reason, the
                <c>ZipInputStream</c> is generally recommended for when your application wants
-               to extract the data, without storing that data into a file.
+               to extract the dataRows, without storing that dataRows into a file.
              </para>
             
              <para>
@@ -32446,7 +32446,7 @@
              <para>
                This property is "provisional". When the entry in the zip archive is not
                explicitly marked as using UTF-8, then IBM437 is used to decode filenames
-               and comments. If a loss of data would result from using IBM436 -
+               and comments. If a loss of dataRows would result from using IBM436 -
                specifically when encoding and decoding is not reflexive - the codepage
                specified here is used. It is possible, therefore, to have a given entry
                with a <c>Comment</c> encoded in IBM437 and a <c>FileName</c> encoded with
@@ -32540,12 +32540,12 @@
         </member>
         <member name="M:Ionic.Zip.ZipInputStream.Read(System.Byte[],System.Int32,System.Int32)">
              <summary>
-               Read the data from the stream into the buffer.
+               Read the dataRows from the stream into the buffer.
              </summary>
             
              <remarks>
              <para>
-               The data for the zipentry will be decrypted and uncompressed, as
+               The dataRows for the zipentry will be decrypted and uncompressed, as
                necessary, before being copied into the buffer.
              </para>
             
@@ -32557,7 +32557,7 @@
              </para>
              </remarks>
             
-             <param name="buffer">The buffer to hold the data read from the stream.</param>
+             <param name="buffer">The buffer to hold the dataRows read from the stream.</param>
              <param name="offset">the offset within the buffer to copy the first byte read.</param>
              <param name="count">the number of bytes to read.</param>
              <returns>the number of bytes read, after decryption and decompression.</returns>
@@ -32572,7 +32572,7 @@
                Call this method just before calling <see cref="M:Ionic.Zip.ZipInputStream.Read(System.Byte[],System.Int32,System.Int32)"/>,
                to position the pointer in the zip file to the next entry that can be
                read.  Subsequent calls to <c>Read()</c>, will decrypt and decompress the
-               data in the zip file, until <c>Read()</c> returns 0.
+               dataRows in the zip file, until <c>Read()</c> returns 0.
              </para>
             
              <para>

@@ -32,7 +32,7 @@
             <param name="checksum">Current checksum.</param>
             <param name="buffer">Data byte array.</param>
             <param name="offset">Offset in the buffer.</param>
-            <param name="length">Length of data to be used from the stream.</param>
+            <param name="length">Length of dataRows to be used from the stream.</param>
         </member>
         <member name="M:Syncfusion.Compression.ChecksumCalculator.ChecksumGenerate(System.Byte[],System.Int32,System.Int32)">
             <summary>
@@ -41,11 +41,11 @@
             </summary>
             <param name="buffer">Data byte array.</param>
             <param name="offset">Offset in the buffer.</param>
-            <param name="length">Length of data to be used from the stream.</param>
+            <param name="length">Length of dataRows to be used from the stream.</param>
         </member>
         <member name="T:Syncfusion.Compression.CompressedStreamReader">
             <summary>
-            Reader, that reads stream with compressed data
+            Reader, that reads stream with compressed dataRows
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamReader.DEF_HEADER_METHOD_MASK">
@@ -75,7 +75,7 @@
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamReader.DEF_MAX_WINDOW_SIZE">
             <summary>
-            Maximum size of the data window.
+            Maximum size of the dataRows window.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamReader.DEF_HUFFMAN_REPEATE_MAX">
@@ -161,7 +161,7 @@
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamReader.m_Block_Buffer">
             <summary>
-            32k buffer for unpacked data.
+            32k buffer for unpacked dataRows.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamReader.m_bNoWrap">
@@ -188,12 +188,12 @@
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamReader.m_bReadingUncompressed">
             <summary>
-            Sign of uncompressed data reading.
+            Sign of uncompressed dataRows reading.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamReader.m_UncompressedDataLength">
             <summary>
-            Size of the block with uncompressed data.
+            Size of the block with uncompressed dataRows.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamReader.m_bCanReadNextBlock">
@@ -204,7 +204,7 @@
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamReader.m_bCanReadMoreData">
             <summary>
-            Specifies wheather user can read more data from stream.
+            Specifies wheather user can read more dataRows from stream.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamReader.m_CurrentLengthTree">
@@ -230,7 +230,7 @@
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamReader.#ctor(System.IO.Stream,System.Boolean)">
             <summary>
-            Creates new reader for streams with compressed data.
+            Creates new reader for streams with compressed dataRows.
             </summary>
             <param name="stream"></param>
             <param name="bNoWrap"></param>
@@ -247,7 +247,7 @@
             </summary>
             <param name="buffer">Data byte array.</param>
             <param name="offset">Offset in the buffer.</param>
-            <param name="length">Length of data to be used from the stream.</param>
+            <param name="length">Length of dataRows to be used from the stream.</param>
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamReader.SkipToBoundary">
             <summary>
@@ -260,7 +260,7 @@
             </summary>
             <param name="buffer">Output buffer.</param>
             <param name="offset">Offset in output buffer.</param>
-            <param name="length">Length of the data to be read.</param>
+            <param name="length">Length of the dataRows to be read.</param>
             <returns>Count of bytes actually read to the buffer.</returns>
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamReader.FillBuffer">
@@ -338,23 +338,23 @@
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamReader.DecodeBlockHeader">
             <summary>
-            Reads and decodes block of data.
+            Reads and decodes block of dataRows.
             </summary>
-            <returns>True if buffer was empty and new data was read, otherwise - False.</returns>
+            <returns>True if buffer was empty and new dataRows was read, otherwise - False.</returns>
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamReader.ReadHuffman">
             <summary>
             Decodes huffman codes.
             </summary>
-            <returns>True if some data was read.</returns>
+            <returns>True if some dataRows was read.</returns>
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamReader.Read(System.Byte[],System.Int32,System.Int32)">
             <summary>
-            Reads data to buffer.
+            Reads dataRows to buffer.
             </summary>
-            <param name="buffer">Output buffer for data.</param>
-            <param name="offset">Offset in output data.</param>
-            <param name="length">Length of the data to be read.</param>
+            <param name="buffer">Output buffer for dataRows.</param>
+            <param name="offset">Offset in output dataRows.</param>
+            <param name="length">Length of the dataRows to be read.</param>
             <returns>Count of bytes actually read.</returns>
         </member>
         <member name="P:Syncfusion.Compression.CompressedStreamReader.AvailableBits">
@@ -379,7 +379,7 @@
         </member>
         <member name="F:Syncfusion.Compression.CompressionLevel.BestSpeed">
             <summary>
-            Use high speed compression, reduce of data size is low
+            Use high speed compression, reduce of dataRows size is low
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.CompressionLevel.BelowNormal">
@@ -539,7 +539,7 @@
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamWriter.m_PendingBufferLength">
             <summary>
-            Length of the unflushed data.
+            Length of the unflushed dataRows.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamWriter.m_PendingBufferBitsCache">
@@ -659,12 +659,12 @@
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamWriter.m_BlockStart">
             <summary>
-            Start of the data window.
+            Start of the dataRows window.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamWriter.m_StringStart">
             <summary>
-            String start in data window.
+            String start in dataRows window.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamWriter.m_LookAhead">
@@ -704,7 +704,7 @@
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamWriter.m_InputBuffer">
             <summary>
-            Current block of the data to be compressed.
+            Current block of the dataRows to be compressed.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.CompressedStreamWriter.m_TotalBytesIn">
@@ -729,7 +729,7 @@
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamWriter.#cctor">
             <summary>
-            Initializes statical data for huffman compression.
+            Initializes statical dataRows for huffman compression.
             </summary>
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamWriter.#ctor(System.IO.Stream,System.Boolean,Syncfusion.Compression.CompressionLevel,System.Boolean)">
@@ -767,11 +767,11 @@
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamWriter.Write(System.Byte[],System.Int32,System.Int32,System.Boolean)">
             <summary>
-            Compresses data and writes it to the stream.
+            Compresses dataRows and writes it to the stream.
             </summary>
-            <param name="data">Data to compress</param>
-            <param name="offset">offset in data array</param>
-            <param name="length">length of data to compress</param>
+            <param name="dataRows">Data to compress</param>
+            <param name="offset">offset in dataRows array</param>
+            <param name="length">length of dataRows to compress</param>
             <param name="bCloseAfterWrite">True - write last compress block in stream, 
             otherwise False</param>
         </member>
@@ -787,7 +787,7 @@
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamWriter.SlideWindow">
             <summary>
-            Slides current window, and data, associated with it.
+            Slides current window, and dataRows, associated with it.
             </summary>
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamWriter.UpdateHash">
@@ -810,7 +810,7 @@
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamWriter.SaveStored(System.Boolean,System.Boolean)">
             <summary>
-            Store data without compression.
+            Store dataRows without compression.
             </summary>
             <param name="flush"></param>
             <param name="finish"></param>
@@ -834,7 +834,7 @@
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamWriter.CompressData(System.Boolean)">
             <summary>
-            CompressData drives actual compression of data
+            CompressData drives actual compression of dataRows
             </summary>
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamWriter.HuffmanReset">
@@ -863,7 +863,7 @@
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamWriter.HuffmanCompressBlock">
             <summary>
-            Compress current buffer writing data to pending buffer
+            Compress current buffer writing dataRows to pending buffer
             </summary>
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamWriter.HuffmanFlushStoredBlock(System.Byte[],System.Int32,System.Int32,System.Boolean)">
@@ -923,9 +923,9 @@
         </member>
         <member name="M:Syncfusion.Compression.CompressedStreamWriter.PendingBufferWriteByteBlock(System.Byte[],System.Int32,System.Int32)">
             <summary>
-            Write a block of data to buffer
+            Write a block of dataRows to buffer
             </summary>
-            <param name="data">data to write</param>
+            <param name="dataRows">dataRows to write</param>
             <param name="offset">offset of first byte to write</param>
             <param name="length">number of bytes to write</param>
         </member>
@@ -970,7 +970,7 @@
         </member>
         <member name="P:Syncfusion.Compression.CompressedStreamWriter.TotalIn">
             <summary>
-            Total data processed.
+            Total dataRows processed.
             </summary>		
         </member>
         <member name="P:Syncfusion.Compression.CompressedStreamWriter.NeedsInput">
@@ -1071,7 +1071,7 @@
         </member>
         <member name="M:Syncfusion.Compression.CompressorHuffmanTree.Reset">
             <summary>
-            Resets all code data in tree.
+            Resets all code dataRows in tree.
             </summary>
         </member>
         <member name="M:Syncfusion.Compression.CompressorHuffmanTree.WriteCodeToStream(System.Int32)">
@@ -1111,9 +1111,9 @@
         </member>
         <member name="M:Syncfusion.Compression.CompressorHuffmanTree.GetEncodedLength">
             <summary>
-            Calculates length of the compressed data.
+            Calculates length of the compressed dataRows.
             </summary>
-            <returns>Count of bits, the data will occupy.</returns>
+            <returns>Count of bits, the dataRows will occupy.</returns>
         </member>
         <member name="M:Syncfusion.Compression.CompressorHuffmanTree.CalcBLFreq(Syncfusion.Compression.CompressorHuffmanTree)">
             <summary>
@@ -1180,7 +1180,7 @@
         </member>
         <member name="M:Syncfusion.Compression.DecompressorHuffmanTree.PrepareData(System.Int32[],System.Int32[],System.Byte[],System.Int32@)">
             <summary>
-            Prepares data for generating huffman tree.
+            Prepares dataRows for generating huffman tree.
             </summary>
             <param name="blCount">Array of counts of each code length.</param>
             <param name="nextCode">Numerical values of the smallest code for each code length.</param>
@@ -7870,7 +7870,7 @@
         </member>
         <member name="F:Syncfusion.Office.MetaPropertyType.Number">
             <summary>
-            Represents a generic number data type.
+            Represents a generic number dataRows type.
             </summary>
         </member>
         <member name="F:Syncfusion.Office.MetaPropertyType.Text">
@@ -8074,7 +8074,7 @@
         </member>
         <member name="M:Syncfusion.Office.MetaProperty.MapContentTypeProperties(System.String,System.String,System.String,System.String,System.String,System.Object,Syncfusion.Office.MetaProperty)">
             <summary>
-            Map the content type meta data properties.
+            Map the content type meta dataRows properties.
             </summary>
             <param name="id"></param>
             <param name="nillable"></param>
@@ -8086,7 +8086,7 @@
         </member>
         <member name="M:Syncfusion.Office.MetaProperty.ParseMetaProperty(System.Xml.XmlNodeList,System.String,System.Object,Syncfusion.Office.MetaProperty)">
             <summary>
-            Parse the meta data property value.
+            Parse the meta dataRows property value.
             </summary>
             <param name="nodes"></param>
             <param name="id"></param>
@@ -8109,7 +8109,7 @@
         </member>
         <member name="M:Syncfusion.Office.MetaProperty.GetValueAsPerMetaPropertyType(Syncfusion.Office.MetaPropertyType,System.Object)">
             <summary>
-            Gets the proper value based on the metaproperty data type. 
+            Gets the proper value based on the metaproperty dataRows type. 
             </summary>
             <param name="type"></param>
             <param name="value"></param>
@@ -8117,7 +8117,7 @@
         </member>
         <member name="M:Syncfusion.Office.MetaProperty.SetValueInXmlDocument">
             <summary>
-            Set value to the XmlDocument element after changing of the MetaProperty data.  
+            Set value to the XmlDocument element after changing of the MetaProperty dataRows.  
             </summary>
         </member>
         <member name="M:Syncfusion.Office.MetaProperty.ValidateBooleanMetaType(System.Object@)">
@@ -8191,7 +8191,7 @@
         </member>
         <member name="P:Syncfusion.Office.MetaProperty.Type">
             <summary>
-            Gets the data type of the MetaProperty object. 
+            Gets the dataRows type of the MetaProperty object. 
             </summary>
         </member>
         <member name="P:Syncfusion.Office.MetaProperty.Value">
@@ -8634,36 +8634,36 @@
         </member>
         <member name="T:Syncfusion.Office.VbaDataProcess">
             <summary>
-            Vba data process
+            Vba dataRows process
             </summary>
         </member>
         <member name="M:Syncfusion.Office.VbaDataProcess.Compress(System.IO.Stream)">
             <summary>
-            Compression a data using Vba Compression algorithm
+            Compression a dataRows using Vba Compression algorithm
             </summary>
-            <param name="compressed">DeCompressed data</param>
-            <returns>Compressed data</returns>
+            <param name="compressed">DeCompressed dataRows</param>
+            <returns>Compressed dataRows</returns>
         </member>
         <member name="M:Syncfusion.Office.VbaDataProcess.Decompress(System.IO.Stream)">
             <summary>
-            Decompression a data using Vba decompression algorithm
+            Decompression a dataRows using Vba decompression algorithm
             </summary>
-            <param name="compressed">Compressed data</param>
-            <returns>Decompressed data</returns>
+            <param name="compressed">Compressed dataRows</param>
+            <returns>Decompressed dataRows</returns>
         </member>
         <member name="M:Syncfusion.Office.VbaDataProcess.Decrypt(System.Byte[])">
             <summary>
-            Decrypting a data using Vba decryption
+            Decrypting a dataRows using Vba decryption
             </summary>
-            <param name="data">Encrypted data</param>
-            <returns>Decrypted data</returns>
+            <param name="dataRows">Encrypted dataRows</param>
+            <returns>Decrypted dataRows</returns>
         </member>
         <member name="M:Syncfusion.Office.VbaDataProcess.Encrypt(System.Byte[],System.String)">
             <summary>
-            Erypting a data using Vba Encryption
+            Erypting a dataRows using Vba Encryption
             </summary>
-            <param name="data">Decrypted data</param>
-            <returns>Encrypted data</returns>
+            <param name="dataRows">Decrypted dataRows</param>
+            <returns>Encrypted dataRows</returns>
         </member>
         <member name="T:Syncfusion.Office.VbaModule">
             <summary>
@@ -8793,7 +8793,7 @@
         </member>
         <member name="P:Syncfusion.Office.VbaModule.ModuleOffSet">
             <summary>
-            Indicates the starting position of the data in the module stream
+            Indicates the starting position of the dataRows in the module stream
             </summary>
         </member>
         <member name="P:Syncfusion.Office.VbaModule.Attributes">
@@ -9083,21 +9083,21 @@
             <summary>
             Extracts UInt32 value from the stream.
             </summary>
-            <param name="stream">Stream to read data from.</param>
+            <param name="stream">Stream to read dataRows from.</param>
             <returns>Extracted value.</returns>
         </member>
         <member name="M:Syncfusion.Office.VbaProject.ReadInt16(System.IO.Stream)">
             <summary>
             Extracts UInt16 value from the stream.
             </summary>
-            <param name="stream">Stream to read data from.</param>
+            <param name="stream">Stream to read dataRows from.</param>
             <returns>Extracted value.</returns>
         </member>
         <member name="M:Syncfusion.Office.VbaProject.ReadUInt16(System.IO.Stream)">
             <summary>
             Extracts unsigned UInt16 value from the stream.
             </summary>
-            <param name="stream">Stream to read data from.</param>
+            <param name="stream">Stream to read dataRows from.</param>
             <returns>Extracted value.</returns>
         </member>
         <member name="M:Syncfusion.Office.VbaProject.Dispose">
@@ -9401,7 +9401,7 @@
             <summary>
             If this bit is set, the fields crc-32, compressed size and uncompressed
             size are set to zero in the local header.  The correct values are put
-            in the data descriptor immediately following the compressed data.
+            in the dataRows descriptor immediately following the compressed dataRows.
             (Note: PKZIP version 2.04g for DOS only recognizes this bit for method 8
             compression, newer versions of PKZIP recognize this bit for any compression method.)
             </summary>
@@ -9641,7 +9641,7 @@
             <summary>
             Generates Message Authentication Code
             </summary>
-            <param name="data">data used for MAC</param>
+            <param name="dataRows">dataRows used for MAC</param>
         </member>
         <member name="M:Syncfusion.Compression.Zip.Aes.Compare(System.Byte[],System.Byte[])">
             <summary>
@@ -9660,22 +9660,22 @@
             <summary>
              Decrypt the cipherData
             </summary>
-            <param name="cipherData">Encrypted data</param>
+            <param name="cipherData">Encrypted dataRows</param>
             <returns>Decrypted</returns>
         </member>
         <member name="M:Syncfusion.Compression.Zip.Aes.Encrypt(System.Byte[])">
             <summary>
-            Encrypt the plain data
+            Encrypt the plain dataRows
             </summary>
             <param name="plainData">Data needs to be encrypted</param>
-            <returns>Encrypted data</returns>
+            <returns>Encrypted dataRows</returns>
         </member>
         <member name="M:Syncfusion.Compression.Zip.Aes.AesEncryptDecrypt(System.Byte[],System.Byte[])">
             <summary>
             Counter Mode Encryption
             </summary>
-            <param name="input">Encrypted data</param>
-            <param name="output">Decrypted data to get </param>
+            <param name="input">Encrypted dataRows</param>
+            <param name="output">Decrypted dataRows to get </param>
             <param name="aesKey">AES encryption Key</param>
             <returns></returns>
         </member>
@@ -9848,14 +9848,14 @@
         </member>
         <member name="M:Syncfusion.Compression.Zip.RFC2898Key.ComputeHash(System.Byte[])">
             <summary>
-            Computes hash code for the given data
+            Computes hash code for the given dataRows
             </summary>
-            <param name="data">input data</param>
+            <param name="dataRows">input dataRows</param>
             <returns>return hash in bytes</returns>
         </member>
         <member name="M:Syncfusion.Compression.Zip.RFC2898Key.UpdateBlock(System.Byte[],System.Int32,System.Int32,System.Byte[],System.Int32)">
             <summary>
-            Computes hash for the specified region from input for the given offset and copies the data to the output from the given offset
+            Computes hash for the specified region from input for the given offset and copies the dataRows to the output from the given offset
             </summary>
             <param name="input">Input array</param>
             <param name="inputOff">input Offset</param>
@@ -9884,7 +9884,7 @@
         </member>
         <member name="M:Syncfusion.Compression.Zip.RFC2898Key.UpdateHashData(System.Byte[],System.Int32,System.Int32)">
             <summary>
-            Computes hash for the given input data from the specified offset and Length
+            Computes hash for the given input dataRows from the specified offset and Length
             </summary>
             <param name="inputData">Input</param>
             <param name="startOffSet">start from the input array</param>
@@ -9895,7 +9895,7 @@
             <summary>
             Computes the final hash code
             </summary>
-            <returns>hash data</returns>
+            <returns>hash dataRows</returns>
         </member>
         <member name="M:Syncfusion.Compression.Zip.RFC2898Key.SHAModify(System.UInt32[],System.UInt32[],System.Byte[])">
             <summary>
@@ -10064,29 +10064,29 @@
             <summary>
              Data Encryption
             </summary>
-            <param name="plainData">Plain data</param>
-            <returns>Cipher data</returns>
+            <param name="plainData">Plain dataRows</param>
+            <returns>Cipher dataRows</returns>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipCrypto.DecryptMessage(System.Byte[])">
             <summary>
             Data Decryption
             </summary>
-            <param name="cipherData">Cipher data</param>
-            <returns>Plain data</returns>
+            <param name="cipherData">Cipher dataRows</param>
+            <returns>Plain dataRows</returns>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipCrypto.Decrypt(System.Byte[])">
             <summary>
-            Decrypt the data using ZipCrypto
+            Decrypt the dataRows using ZipCrypto
             </summary>
-            <param name="data">Cipher data</param>
-            <returns>Plain data</returns>
+            <param name="dataRows">Cipher dataRows</param>
+            <returns>Plain dataRows</returns>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipCrypto.Encrypt(System.Byte[])">
             <summary>
-            Encrypt the data using ZipCrypto
+            Encrypt the dataRows using ZipCrypto
             </summary>
-            <param name="data">Plain data</param>
-            <returns> Cipher data</returns>
+            <param name="dataRows">Plain dataRows</param>
+            <returns> Cipher dataRows</returns>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipCrypto.GetCryptoByte">
             <summary>
@@ -10149,8 +10149,8 @@
         </member>
         <member name="F:Syncfusion.Compression.Zip.ZipArchive.m_bCheckCrc">
             <summary>
-            Indicates whether we should check Crc value when reading item's data. Check
-            is performed when user gets access to decompressed data for the first time.
+            Indicates whether we should check Crc value when reading item's dataRows. Check
+            is performed when user gets access to decompressed dataRows for the first time.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.Zip.ZipArchive.m_defaultLevel">
@@ -10191,28 +10191,28 @@
             <summary>
             Extracts Int32 value from the stream.
             </summary>
-            <param name="stream">Stream to read data from.</param>
+            <param name="stream">Stream to read dataRows from.</param>
             <returns>Extracted value.</returns>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchive.ReadInt16(System.IO.Stream)">
             <summary>
             Extracts Int16 value from the stream.
             </summary>
-            <param name="stream">Stream to read data from.</param>
+            <param name="stream">Stream to read dataRows from.</param>
             <returns>Extracted value.</returns>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchive.ReadUInt16(System.IO.Stream)">
             <summary>
             Extracts unsigned Int16 value from the stream.
             </summary>
-            <param name="stream">Stream to read data from.</param>
+            <param name="stream">Stream to read dataRows from.</param>
             <returns>Extracted value.</returns>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchive.ReadUInt32(System.IO.Stream)">
             <summary>
             Extracts UInt32 value from the stream.
             </summary>
-            <param name="stream">Stream to read data from.</param>
+            <param name="stream">Stream to read dataRows from.</param>
             <returns>Extracted value.</returns>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchive.AddDirectory(System.String)">
@@ -10234,7 +10234,7 @@
             Adds new item to the archive
             </summary>
             <param name="itemName">Item name to add.</param>
-            <param name="data">Items data stream (can be null for empty files or folders).</param>
+            <param name="dataRows">Items dataRows stream (can be null for empty files or folders).</param>
             <param name="bControlStream">Indicates whether ZipArchive is responsible for stream closing.</param>
             <param name="attributes">File attributes.</param>
             <returns>Item that has been added.</returns>
@@ -10244,7 +10244,7 @@
             Adds new item to the archive
             </summary>
             <param name="itemName">Item name to add.</param>
-            <param name="data">Items data stream (can be null for empty files or folders).</param>
+            <param name="dataRows">Items dataRows stream (can be null for empty files or folders).</param>
             <param name="bControlStream">Indicates whether ZipArchive is responsible for stream closing.</param>
             <param name="attributes">File attributes.</param>
             <returns>Item that has been added.</returns>
@@ -10279,7 +10279,7 @@
             Updates item inside existing archive.
             </summary>
             <param name="itemName">Item name to update.</param>
-            <param name="newDataStream">New data for the item.</param>
+            <param name="newDataStream">New dataRows for the item.</param>
             <param name="controlStream">Indicates whether item should control its stream after update.</param>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchive.UpdateItem(System.String,System.IO.Stream,System.Boolean,System.IO.FileAttributes)">
@@ -10287,7 +10287,7 @@
             Updates existing item or creates new one.
             </summary>
             <param name="itemName">Item to update or create.</param>
-            <param name="newDataStream">New data for the item.</param>
+            <param name="newDataStream">New dataRows for the item.</param>
             <param name="controlStream">Indicates whether item should control its stream after update.</param>
             <param name="attributes">File attributes for the item. This argument is only used if item is created.</param>
         </member>
@@ -10296,7 +10296,7 @@
             Updates item inside existing archive.
             </summary>
             <param name="itemName">Item name to update.</param>
-            <param name="newData">New data for the item.</param>
+            <param name="newData">New dataRows for the item.</param>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchive.Save(System.String)">
             <summary>
@@ -10320,21 +10320,21 @@
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchive.Open(System.String)">
             <summary>
-            Reads archive data from the file.
+            Reads archive dataRows from the file.
             </summary>
             <param name="inputFileName">Filename to read.</param>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchive.Open(System.IO.Stream,System.Boolean)">
             <summary>
-            Reads archive data from the stream. In the current implementation
-            stream must be seekable and readable to extract data.
+            Reads archive dataRows from the stream. In the current implementation
+            stream must be seekable and readable to extract dataRows.
             </summary>
-            <param name="stream">Stream to read data from.</param>
+            <param name="stream">Stream to read dataRows from.</param>
             <param name="closeStream">Indicates whether method should close stream after reading.</param>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchive.Close">
             <summary>
-            Clears all internal data.
+            Clears all internal dataRows.
             </summary>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchive.Find(System.String)">
@@ -10355,13 +10355,13 @@
             <summary>
             Writes central directory to the stream.
             </summary>
-            <param name="stream">Stream to write data into.</param>
+            <param name="stream">Stream to write dataRows into.</param>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchive.WriteCentralDirectoryEnd(System.IO.Stream,System.Int64)">
             <summary>
             Writes End of central directory record into stream.
             </summary>
-            <param name="stream">Stream to write data into.</param>
+            <param name="stream">Stream to write dataRows into.</param>
             <param name="directoryStart">Offset to the central directory start.</param>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchive.ReadCentralDirectoryData(System.IO.Stream)">
@@ -10372,9 +10372,9 @@
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchive.ExtractItems(System.IO.Stream)">
             <summary>
-            Extracts items' data from the stream.
+            Extracts items' dataRows from the stream.
             </summary>
-            <param name="stream">Stream to read data from.</param>
+            <param name="stream">Stream to read dataRows from.</param>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchive.Clone">
             <summary>
@@ -10403,10 +10403,10 @@
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchive.Open(System.IO.Stream,System.Boolean,System.String)">
             <summary>
-            Reads archive data from the stream. In the current implementation
-            stream must be seekable and readable to extract data.
+            Reads archive dataRows from the stream. In the current implementation
+            stream must be seekable and readable to extract dataRows.
             </summary>
-            <param name="stream">Stream to read data from.</param>
+            <param name="stream">Stream to read dataRows from.</param>
             <param name="closeStream">Indicates whether method should close stream after reading.</param>
             <param name="password">Password for the file to open.</param>
         </member>
@@ -10456,8 +10456,8 @@
         </member>
         <member name="P:Syncfusion.Compression.Zip.ZipArchive.CheckCrc">
             <summary>
-            Indicates whether we should check Crc value when reading item's data. Check
-            is performed when user gets access to item's decompressed data for the first time.
+            Indicates whether we should check Crc value when reading item's dataRows. Check
+            is performed when user gets access to item's decompressed dataRows for the first time.
             </summary>
         </member>
         <member name="P:Syncfusion.Compression.Zip.ZipArchive.UseNetCompression">
@@ -10502,27 +10502,27 @@
         </member>
         <member name="F:Syncfusion.Compression.Zip.ZipArchiveItem.m_streamData">
             <summary>
-            Stream with item's data.
+            Stream with item's dataRows.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.Zip.ZipArchiveItem.m_lCompressedSize">
             <summary>
-            Compressed data size.
+            Compressed dataRows size.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.Zip.ZipArchiveItem.m_lOriginalSize">
             <summary>
-            Original (not compressed) data size.
+            Original (not compressed) dataRows size.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.Zip.ZipArchiveItem.m_bControlStream">
             <summary>
-            Indicates whether this item controls it's data stream.
+            Indicates whether this item controls it's dataRows stream.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.Zip.ZipArchiveItem.m_bCompressed">
             <summary>
-            Indicates whether internal stream contains compressed data.
+            Indicates whether internal stream contains compressed dataRows.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.Zip.ZipArchiveItem.m_lCrcPosition">
@@ -10547,7 +10547,7 @@
         </member>
         <member name="F:Syncfusion.Compression.Zip.ZipArchiveItem.m_bCheckCrc">
             <summary>
-            Indicates whether we should check crc value after decompressing item's data.
+            Indicates whether we should check crc value after decompressing item's dataRows.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.Zip.ZipArchiveItem.m_bOptimizedDecompress">
@@ -10575,7 +10575,7 @@
             Creates new instance of the zip item.
             </summary>
             <param name="itemName">Name of the item (can be relative or absolute path).</param>
-            <param name="streamData">Stream data.</param>
+            <param name="streamData">Stream dataRows.</param>
             <param name="controlStream">
             Indicates whether item controls stream and must close it when item finish its work.
             </param>
@@ -10589,7 +10589,7 @@
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchiveItem.Update(System.IO.Stream,System.Boolean)">
             <summary>
-            Updates internal data stream.
+            Updates internal dataRows stream.
             </summary>
             <param name="newDataStream">New stream to set.</param>
             <param name="controlStream">Indicates whether item should conrol new stream.</param>
@@ -10614,7 +10614,7 @@
             <summary>
             This method writes file header into Central directory record.
             </summary>
-            <param name="stream">Stream to write data into.</param>
+            <param name="stream">Stream to write dataRows into.</param>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchiveItem.ConvertDateTime(System.DateTime)">
             <summary>
@@ -10633,32 +10633,32 @@
         <!-- Badly formed XML comment ignored for member "M:Syncfusion.Compression.Zip.ZipArchiveItem.CheckValidDate(System.UInt16,System.UInt16,System.UInt16)" -->
         <member name="M:Syncfusion.Compression.Zip.ZipArchiveItem.ReadCentralDirectoryData(System.IO.Stream)">
             <summary>
-            Read data from the stream based on the central directory.
+            Read dataRows from the stream based on the central directory.
             </summary>
-            <param name="stream">Stream to read data from, stream.Position must point at just after correct file header.</param>
+            <param name="stream">Stream to read dataRows from, stream.Position must point at just after correct file header.</param>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchiveItem.ReadData(System.IO.Stream,System.Boolean)">
             <summary>
-            Reads zipped data from the stream.
+            Reads zipped dataRows from the stream.
             </summary>
-            <param name="stream">Stream to read data from.</param>
-            <param name="checkCrc">Indicates whether we should check crc value after data decompression.</param>
+            <param name="stream">Stream to read dataRows from.</param>
+            <param name="checkCrc">Indicates whether we should check crc value after dataRows decompression.</param>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchiveItem.ReadCompressedData(System.IO.Stream)">
             <summary>
-            Extracts compressed data from the stream.
+            Extracts compressed dataRows from the stream.
             </summary>
-            <param name="stream">Stream to read data from.</param>
+            <param name="stream">Stream to read dataRows from.</param>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchiveItem.ReadLocalHeader(System.IO.Stream)">
             <summary>
             Extracts local header from the stream.
             </summary>
-            <param name="stream">Stream to read data from.</param>
+            <param name="stream">Stream to read dataRows from.</param>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchiveItem.DecompressData">
             <summary>
-            Decompressed internal data if necessary.
+            Decompressed internal dataRows if necessary.
             </summary>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchiveItem.WriteHeader(System.IO.Stream)">
@@ -10681,7 +10681,7 @@
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchiveItem.CheckCrc">
             <summary>
-            Checks whether Crc field and stream data corresponds each other.
+            Checks whether Crc field and stream dataRows corresponds each other.
             </summary>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchiveItem.CloneStream(System.IO.Stream)">
@@ -10712,21 +10712,21 @@
             <summary>
              Writes the header to Indicate the zip the file is encrypted.
             </summary>
-            <param name="stream">The data to write</param>
+            <param name="stream">The dataRows to write</param>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchiveItem.Encrypt(System.Byte[])">
             <summary>
             Data Encryption
             </summary>
             <param name="plainData">Data to be Encrypted</param>
-            <returns>Encrypted data</returns>
+            <returns>Encrypted dataRows</returns>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchiveItem.Decrypt(System.Byte[])">
             <summary>
             Data Decryption
             </summary>
             <param name="cipherData">Data needs to be decrypted</param>
-            <returns>Decrypted data</returns>
+            <returns>Decrypted dataRows</returns>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZipArchiveItem.IsIBM437Encoding(System.String)">
             <summary>
@@ -10764,27 +10764,27 @@
         </member>
         <member name="P:Syncfusion.Compression.Zip.ZipArchiveItem.DataStream">
             <summary>
-            Stream with item's data.
+            Stream with item's dataRows.
             </summary>
         </member>
         <member name="P:Syncfusion.Compression.Zip.ZipArchiveItem.CompressedSize">
             <summary>
-            Compressed data size.
+            Compressed dataRows size.
             </summary>
         </member>
         <member name="P:Syncfusion.Compression.Zip.ZipArchiveItem.OriginalSize">
             <summary>
-            Original (not compressed) data size.
+            Original (not compressed) dataRows size.
             </summary>
         </member>
         <member name="P:Syncfusion.Compression.Zip.ZipArchiveItem.ControlStream">
             <summary>
-            Indicates whether this item controls it's data stream.
+            Indicates whether this item controls it's dataRows stream.
             </summary>
         </member>
         <member name="P:Syncfusion.Compression.Zip.ZipArchiveItem.Compressed">
             <summary>
-            Indicates whether internal stream contains compressed data.
+            Indicates whether internal stream contains compressed dataRows.
             </summary>
         </member>
         <member name="P:Syncfusion.Compression.Zip.ZipArchiveItem.ExternalAttributes">
@@ -10804,7 +10804,7 @@
         </member>
         <member name="T:Syncfusion.Compression.Zip.ZipCrc32">
             <summary>
-            Crc32 implementation used in zip archive to verify data correctness.
+            Crc32 implementation used in zip archive to verify dataRows correctness.
             </summary>
         </member>
         <member name="F:Syncfusion.Compression.Zip.ZipCrc32.s_crcTable">
@@ -10817,7 +10817,7 @@
         <member name="M:Syncfusion.Compression.Zip.ZipCrc32.ComputeCrc(System.Byte[],System.Int32,System.Int32,System.UInt32)">
             <summary>Computes crc-32 value for the buffer.</summary>
             <param name="buffer">Buffer to compute crc-32 for.</param>
-            <param name="offset">Offset to the data start.</param>
+            <param name="offset">Offset to the dataRows start.</param>
             <param name="length">Data length in bytes.</param>
             <param name="startCrc">Initial crc-32 value.</param>
             <returns>Updated crc-32 value.</returns>
@@ -10887,7 +10887,7 @@
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZippedContentStream.Flush">
             <summary>
-            Clears all buffers for this stream and causes any buffered data to be written to the underlying device.
+            Clears all buffers for this stream and causes any buffered dataRows to be written to the underlying device.
             </summary>
         </member>
         <member name="M:Syncfusion.Compression.Zip.ZippedContentStream.Read(System.Byte[],System.Int32,System.Int32)">
@@ -10899,7 +10899,7 @@
             contains the specified byte array with the values between offset and
             (offset + count - 1) replaced by the bytes read from the current source.</param>
             <param name="offset">The zero-based byte offset in buffer at which to begin
-            storing the data read from the current stream.</param>
+            storing the dataRows read from the current stream.</param>
             <param name="count">The maximum number of bytes to be read from the current stream.</param>
             <returns>The total number of bytes read into the buffer. This can be less
             than the number of bytes requested if that many bytes are not currently
@@ -10969,7 +10969,7 @@
         </member>
         <member name="P:Syncfusion.Compression.Zip.ZippedContentStream.UnzippedSize">
             <summary>
-            Returns size of the unzipped data. Read-only.
+            Returns size of the unzipped dataRows. Read-only.
             </summary>
         </member>
     </members>

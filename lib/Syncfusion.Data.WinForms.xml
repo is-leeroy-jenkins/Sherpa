@@ -53,13 +53,13 @@
         </member>
         <member name="M:Syncfusion.Data.ISupportInitialize.BeginInit(System.Boolean)">
             <summary>
-            Signals the object that initialization is starting and so suspends all the data operations in view. 
+            Signals the object that initialization is starting and so suspends all the dataRows operations in view. 
             </summary>
             <param name="isProgrammatic">The flag IsProgrammatic helps to resume the UI update while IsInDeferRefresh is true.</param>
         </member>
         <member name="M:Syncfusion.Data.ISupportInitialize.EndInit">
             <summary>
-            Signals the object that initialization is complete and hence resumes the data operations and reinitialize the view.   
+            Signals the object that initialization is complete and hence resumes the dataRows operations and reinitialize the view.   
             </summary>
         </member>
         <member name="T:Syncfusion.Data.IPropertyChangedEventHandler">
@@ -72,7 +72,7 @@
             Handles the PropertyChanged event.
             </summary>
             <param name="sender">The original sender.</param>
-            <param name="e">A <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> that contains the event data.</param>
+            <param name="e">A <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="T:Syncfusion.Data.IEditableCollectionView">
             <summary>
@@ -168,11 +168,11 @@
         </member>
         <member name="M:Syncfusion.Data.ICollectionViewAdv.CreateRecordEntry(System.Object)">
             <summary>
-            Creates the <see cref="T:Syncfusion.Data.RecordEntry"/> for associated data object.
+            Creates the <see cref="T:Syncfusion.Data.RecordEntry"/> for associated dataRows object.
             </summary>
-            <param name="data">The data object to create <see cref="T:Syncfusion.Data.RecordEntry"/>.</param>
+            <param name="dataRows">The dataRows object to create <see cref="T:Syncfusion.Data.RecordEntry"/>.</param>
             <returns>
-            The <see cref="T:Syncfusion.Data.RecordEntry"/> for the specified data object.
+            The <see cref="T:Syncfusion.Data.RecordEntry"/> for the specified dataRows object.
             </returns>
         </member>
         <member name="M:Syncfusion.Data.ICollectionViewAdv.GetPropertyAccessProvider">
@@ -218,7 +218,7 @@
             Method that handles the <see cref="E:Syncfusion.Data.CollectionViewAdv.CollectionChanged"/> event with the provided arguments.
             </summary>
             <param name="args">
-            A <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.
+            A <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.
             </param>
         </member>
         <member name="M:Syncfusion.Data.ICollectionViewAdv.GetSelectedRecords">
@@ -229,7 +229,7 @@
         </member>
         <member name="M:Syncfusion.Data.ICollectionViewAdv.DeferRefresh">
             <summary>
-            Get a disposable DeferHelper to suspends the all data operations in View. 
+            Get a disposable DeferHelper to suspends the all dataRows operations in View. 
             </summary>
             <returns>Returns disposable DeferHelper to do the bulk changes</returns>
         </member>
@@ -240,10 +240,10 @@
         </member>
         <member name="P:Syncfusion.Data.ICollectionViewAdv.IsDynamicBound">
             <summary>
-            Gets or sets the value that indicates whether the data object is <see cref="N:System.Dynamic"> dynamic</see>. 
+            Gets or sets the value that indicates whether the dataRows object is <see cref="N:System.Dynamic"> dynamic</see>. 
             </summary>
             <value>
-            <b>True</b> if the data object is dynamic, otherwise <b>false</b>.
+            <b>True</b> if the dataRows object is dynamic, otherwise <b>false</b>.
             </value>
         </member>
         <member name="P:Syncfusion.Data.ICollectionViewAdv.Records">
@@ -297,7 +297,7 @@
         </member>
         <member name="P:Syncfusion.Data.ICollectionViewAdv.SortComparers">
             <summary>
-            Gets the <see cref="T:Syncfusion.Data.SortComparers">SortComparers</see> to sort the data using custom logic.
+            Gets the <see cref="T:Syncfusion.Data.SortComparers">SortComparers</see> to sort the dataRows using custom logic.
             </summary>
             <value>
             The <see cref="T:Syncfusion.Data.SortComparers">SortComparers</see> which contains the custom logic for sorting.
@@ -305,10 +305,10 @@
         </member>
         <member name="E:Syncfusion.Data.ICollectionViewAdv.RecordPropertyChanged">
             <summary>
-            Occurs when the property is changed for the data objects on the collection. 
+            Occurs when the property is changed for the dataRows objects on the collection. 
             </summary>
             <remarks>
-            The data object should implement the <see cref="T:System.ComponentModel.INotifyPropertyChanged"/> interface.
+            The dataRows object should implement the <see cref="T:System.ComponentModel.INotifyPropertyChanged"/> interface.
             </remarks>
         </member>
         <member name="E:Syncfusion.Data.ICollectionViewAdv.SourceCollectionChanged">
@@ -316,15 +316,15 @@
             Occurs when the underlying source collection is changed.
             </summary>
             <remarks>
-            The data object should implement the <see cref="T:System.Collections.Specialized.INotifyCollectionChanged"/> interface.
+            The dataRows object should implement the <see cref="T:System.Collections.Specialized.INotifyCollectionChanged"/> interface.
             </remarks>
         </member>
         <member name="P:Syncfusion.Data.ICollectionViewAdv.IsLegacyDataTable">
             <summary>
-            Gets a value that indicates whether the underlying data object is <see cref="T:System.Data.DataTable"/>.
+            Gets a value that indicates whether the underlying dataRows object is <see cref="T:System.Data.DataTable"/>.
             </summary>
             <value>
-            <b>True</b> if the underlying data object is DataTable, otherwise <b>false</b>.
+            <b>True</b> if the underlying dataRows object is DataTable, otherwise <b>false</b>.
             </value>
         </member>
         <member name="P:Syncfusion.Data.ICollectionViewAdv.FilterPredicates">
@@ -337,10 +337,10 @@
         </member>
         <member name="P:Syncfusion.Data.ICollectionViewAdv.LiveDataUpdateMode">
             <summary>
-            Gets or sets the <see cref="T:Syncfusion.Data.LiveDataUpdateMode"/> to control data manipulation operations during data updates.
+            Gets or sets the <see cref="T:Syncfusion.Data.LiveDataUpdateMode"/> to control dataRows manipulation operations during dataRows updates.
             </summary>
             <value>
-            One of the <see cref="T:Syncfusion.Data.LiveDataUpdateMode"/> that indicates how data manipulation operations are handled during data updates. 
+            One of the <see cref="T:Syncfusion.Data.LiveDataUpdateMode"/> that indicates how dataRows manipulation operations are handled during dataRows updates. 
             The default value is <see cref="!:LiveDataUpdateMode.Default"/>.
             </value>
         </member>
@@ -436,7 +436,7 @@
             <summary>
             Get the custom expression function to enable runtime customized objects into LINQ queries.
             </summary>
-            <param name="operation">The data operation.</param>
+            <param name="operation">The dataRows operation.</param>
             <param name="propertyName">The property name.</param>
             <param name="reflectionMode">The reflection mode.</param>
             <remarks>The custom expression function to enable runtime customized objects into LINQ queries.</remarks>
@@ -464,7 +464,7 @@
         </member>
         <member name="F:Syncfusion.Data.CollectionViewAdv.dataTable">
             <summary>
-            Backing field that contains the old data table for runtime source collection changes.
+            Backing field that contains the old dataRows table for runtime source collection changes.
             </summary>
         </member>
         <member name="F:Syncfusion.Data.CollectionViewAdv.currentItem">
@@ -495,7 +495,7 @@
         </member>
         <member name="F:Syncfusion.Data.CollectionViewAdv.IsInGroup">
             <summary>
-            Gets a value indicating whether the data in the underlying collection view is grouped.
+            Gets a value indicating whether the dataRows in the underlying collection view is grouped.
             </summary>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.#ctor(System.Collections.IEnumerable)">
@@ -520,11 +520,11 @@
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.CreateRecordEntry(System.Object)">
             <summary>
-            Creates the <see cref="T:Syncfusion.Data.RecordEntry"/> for associated data object.
+            Creates the <see cref="T:Syncfusion.Data.RecordEntry"/> for associated dataRows object.
             </summary>
-            <param name="data">The data object to create <see cref="T:Syncfusion.Data.RecordEntry"/>.</param>
+            <param name="dataRows">The dataRows object to create <see cref="T:Syncfusion.Data.RecordEntry"/>.</param>
             <returns>
-            The <see cref="T:Syncfusion.Data.RecordEntry"/> for the specified data object.
+            The <see cref="T:Syncfusion.Data.RecordEntry"/> for the specified dataRows object.
             </returns>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.SetSourceType(System.Type)">
@@ -576,7 +576,7 @@
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.GetInternalSource">
             <summary>
-            Gets the list which internally stores the data in on-demand.
+            Gets the list which internally stores the dataRows in on-demand.
             </summary>
             <returns>Returns the list of records in view.</returns>
         </member>
@@ -594,15 +594,15 @@
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.DeferRefresh">
             <summary>
-            Gets a disposable defer helper to suspends the all data operations in view. 
+            Gets a disposable defer helper to suspends the all dataRows operations in view. 
             </summary>
             <returns>Returns disposable defer helper to do the bulk changes.</returns>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.DeferRefresh(System.Boolean)">
             <summary>
-            Gets a disposable defer helper to suspends the all data operations in view. 
+            Gets a disposable defer helper to suspends the all dataRows operations in view. 
             </summary>
-            <param name="isProgrammatic">True to handle the UI update when do data operation programmtically.</param>
+            <param name="isProgrammatic">True to handle the UI update when do dataRows operation programmtically.</param>
             <returns>Returns disposable defer helper to do the bulk changes.</returns>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.Refresh">
@@ -614,7 +614,7 @@
             <summary>
             Refreshes the view.
             </summary>
-            <param name="isProgrammatic">True to handle the UI update when do data operation programmtically.</param>
+            <param name="isProgrammatic">True to handle the UI update when do dataRows operation programmtically.</param>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.Contains(System.Object)">
             <summary>
@@ -630,32 +630,32 @@
             This method fires when the underlying collection is changed.
             </summary>
             <param name="args">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> containing the 
-            data for the event.</param>
+            dataRows for the event.</param>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.RefreshView(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
             Refreshes the view when the underlying collection is changed.
             </summary>
             <param name="args">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the 
-            event data.</param>
+            event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.RaiseExceptionThrownEvent(System.Exception)">
             <summary>
             Raises the exception thrown event.
             </summary>
-            <param name="exception">The data for the event which contains the exception details.</param>
+            <param name="exception">The dataRows for the event which contains the exception details.</param>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.RaiseCollectionChangedEvent(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
             Raises the <see cref="E:Syncfusion.Data.CollectionViewAdv.CollectionChanged"/> event of the collection view.
             </summary>
-            <param name="args">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> data for the event</param>
+            <param name="args">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> dataRows for the event</param>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.RaiseSourceCollectionChangedEvent(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
             Raises the source collection changed event.
             </summary>
-            <param name="args">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
+            <param name="args">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="F:Syncfusion.Data.CollectionViewAdv.summaryCalculationUnit">
             <summary>
@@ -785,13 +785,13 @@
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.BeginInit(System.Boolean)">
             <summary>
-            Signals the object that initialization is starting and so suspends all the data operations in view. 
+            Signals the object that initialization is starting and so suspends all the dataRows operations in view. 
             </summary>
             <param name="IsProgrammatic">The flag IsProgrammatic helps to resume the UI update while IsInDeferRefresh is true.</param>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.EndInit">
             <summary>
-            Signals the object that initialization is complete and hence resumes the data operations and reinitialize the view.   
+            Signals the object that initialization is complete and hence resumes the dataRows operations and reinitialize the view.   
             </summary>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.EnsureView">
@@ -862,7 +862,7 @@
             <summary>
             This method fires when the sort description is changed.
             </summary>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="F:Syncfusion.Data.CollectionViewAdv.IsInSourceCollectionChange">
             <summary>
@@ -874,7 +874,7 @@
             Handles the <see cref="E:System.ComponentModel.IBindingList.ListChanged"/> event.
             </summary>
             <param name="sender">The original sender of the event.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.ListChangedEventArgs"/> that contains the event data.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.ListChangedEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.OnRecordCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
@@ -882,7 +882,7 @@
             </summary>
             <param name="sender">The sender of the event.</param>
             <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the 
-            event data.</param>
+            event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.UpdateCollectionView(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
@@ -890,7 +890,7 @@
             </summary>
             <param name="sender">The sender of the event.</param>
             <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the 
-            event data.</param>
+            event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.GetAdjustedIndexWithSourceCollection(System.Object,System.Int32)">
             <summary>
@@ -929,20 +929,20 @@
             <summary>
             Raises the <see cref="E:Syncfusion.Data.CollectionViewAdv.TopLevelGroupCollectionChanged"/> event.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Data.NotifyGroupsChangedEventArgs"/> representing the data for the event.</param>
+            <param name="e">The <see cref="T:Syncfusion.Data.NotifyGroupsChangedEventArgs"/> representing the dataRows for the event.</param>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.OnTopLevelGroupCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
             This method fires when the top-level group collection is changed.
             </summary>
             <param name="sender">The sender of the event.</param>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.FilterRecord(System.Object)">
             <summary>
             Filters the record for the specified record condition.
             </summary>
-            <param name="record">The record to filter the data.</param>
+            <param name="record">The record to filter the dataRows.</param>
             <returns>
             <b>True</b> if the filter condition is satisfied, otherwise <b>false</b>.
             </returns>
@@ -958,14 +958,14 @@
             This method fires when the property is changed.
             </summary>
             <param name="sender">The original sender of the event.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> representing the data for the event.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> representing the dataRows for the event.</param>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.NotifyPropertyChangedHandler(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
             <summary>
             This method fires when the property is changed.
             </summary>
             <param name="sender">The sender of the event.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> that contains the event for the data.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> that contains the event for the dataRows.</param>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.CanUpdateSummary(Syncfusion.Data.ISummaryRow,System.String)">
             <summary>
@@ -980,7 +980,7 @@
             This method fires when the record property is changed.
             </summary>
             <param name="sender">The original sender of the event.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/>that contains the event data.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/>that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.RemoveRecord(System.Object)">
             <summary>
@@ -1145,21 +1145,21 @@
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.GetFunc(System.String,Syncfusion.Data.DataOperation,Syncfusion.Data.DataReflectionMode)">
             <summary>
-            Returns The func for corresponding property name, data operation and the reflection mode.
+            Returns The func for corresponding property name, dataRows operation and the reflection mode.
             </summary>
             <param name="propertyName">The property name.</param>
-            <param name="operation">The data operation.</param>
-            <param name="reflectionMode">The data reflection mode.</param>
-            <returns>The func for corresponding property name, data operation and the reflection mode.</returns>
+            <param name="operation">The dataRows operation.</param>
+            <param name="reflectionMode">The dataRows reflection mode.</param>
+            <returns>The func for corresponding property name, dataRows operation and the reflection mode.</returns>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.GetExpressionFunc(System.String,Syncfusion.Data.DataOperation,Syncfusion.Data.DataReflectionMode)">
             <summary>
-            Returns the expression func for corresponding property name, data operation and reflection mode.
+            Returns the expression func for corresponding property name, dataRows operation and reflection mode.
             </summary>
             <param name="propertyName">The property name.</param>
-            <param name="operation">The data operation.</param>
-            <param name="reflectionMode">The data reflection mode.</param>
-            <returns>The expression func for corresponding property name, data operation and reflection mode.</returns>
+            <param name="operation">The dataRows operation.</param>
+            <param name="reflectionMode">The dataRows reflection mode.</param>
+            <returns>The expression func for corresponding property name, dataRows operation and reflection mode.</returns>
         </member>
         <member name="M:Syncfusion.Data.CollectionViewAdv.RaisePropertyChanged(System.String)">
             <summary>
@@ -1267,10 +1267,10 @@
         </member>
         <member name="P:Syncfusion.Data.CollectionViewAdv.IsDynamicBound">
             <summary>
-            Gets or sets the value that indicates whether the data object is <see cref="N:System.Dynamic"> dynamic</see>. 
+            Gets or sets the value that indicates whether the dataRows object is <see cref="N:System.Dynamic"> dynamic</see>. 
             </summary>
             <value>
-            <b>True</b> if the data object is dynamic, otherwise <b>false</b>.
+            <b>True</b> if the dataRows object is dynamic, otherwise <b>false</b>.
             </value>
         </member>
         <member name="P:Syncfusion.Data.CollectionViewAdv.Records">
@@ -1294,7 +1294,7 @@
             A boolean value that indicates whether to enable optimistic summary calculation on real time updates.
             </value>
             <remarks>
-            The <see cref="P:Syncfusion.Data.CollectionViewAdv.EnableSummaryOptimization"/> calculates the summary optimistically when the data objects implement the <see cref="T:Syncfusion.Data.INotifyPropertyChanging"/> and <see cref="T:System.ComponentModel.INotifyPropertyChanged"/>.
+            The <see cref="P:Syncfusion.Data.CollectionViewAdv.EnableSummaryOptimization"/> calculates the summary optimistically when the dataRows objects implement the <see cref="T:Syncfusion.Data.INotifyPropertyChanging"/> and <see cref="T:System.ComponentModel.INotifyPropertyChanged"/>.
             </remarks>
         </member>
         <member name="P:Syncfusion.Data.CollectionViewAdv.IsInDeferRefresh">
@@ -1355,7 +1355,7 @@
         </member>
         <member name="P:Syncfusion.Data.CollectionViewAdv.SortComparers">
             <summary>
-            Gets the <see cref="T:Syncfusion.Data.SortComparers">SortComparers</see> to sort the data using custom logic.
+            Gets the <see cref="T:Syncfusion.Data.SortComparers">SortComparers</see> to sort the dataRows using custom logic.
             </summary>
             <value>
             The <see cref="T:Syncfusion.Data.SortComparers">SortComparers</see> which contains the custom logic for sorting.
@@ -1374,10 +1374,10 @@
         </member>
         <member name="P:Syncfusion.Data.CollectionViewAdv.IsLegacyDataTable">
             <summary>
-            Gets a value that indicates whether the underlying data object is <see cref="T:System.Data.DataTable"/>.
+            Gets a value that indicates whether the underlying dataRows object is <see cref="T:System.Data.DataTable"/>.
             </summary>
             <value>
-            <b>True</b> if the underlying data object is DataTable, otherwise <b>false</b>.
+            <b>True</b> if the underlying dataRows object is DataTable, otherwise <b>false</b>.
             </value>
         </member>
         <member name="P:Syncfusion.Data.CollectionViewAdv.ItemProperties">
@@ -1445,10 +1445,10 @@
         </member>
         <member name="P:Syncfusion.Data.CollectionViewAdv.LiveDataUpdateMode">
             <summary>
-            Gets or sets the <see cref="T:Syncfusion.Data.LiveDataUpdateMode"/> to control data manipulation operations during data updates.
+            Gets or sets the <see cref="T:Syncfusion.Data.LiveDataUpdateMode"/> to control dataRows manipulation operations during dataRows updates.
             </summary>
             <value>
-            One of the <see cref="T:Syncfusion.Data.LiveDataUpdateMode"/> that indicates how data manipulation operations are handled during data updates. 
+            One of the <see cref="T:Syncfusion.Data.LiveDataUpdateMode"/> that indicates how dataRows manipulation operations are handled during dataRows updates. 
             The default value is <see cref="!:LiveDataUpdateMode.Default"/>.
             </value>
         </member>
@@ -1771,12 +1771,12 @@
         </member>
         <member name="T:Syncfusion.Data.DataOperation">
             <summary>
-            Defines the constants for specifying different data operations performed in the collection view.
+            Defines the constants for specifying different dataRows operations performed in the collection view.
             </summary>
         </member>
         <member name="F:Syncfusion.Data.DataOperation.Default">
             <summary>
-            Denotes the data operation other than sorting, grouping, filtering and summary calculation.
+            Denotes the dataRows operation other than sorting, grouping, filtering and summary calculation.
             </summary>
         </member>
         <member name="F:Syncfusion.Data.DataOperation.Sorting">
@@ -1801,7 +1801,7 @@
         </member>
         <member name="T:Syncfusion.Data.DataReflectionMode">
             <summary>
-            Defines the constants for specifying different data mode performed in view.
+            Defines the constants for specifying different dataRows mode performed in view.
             </summary>
         </member>
         <member name="F:Syncfusion.Data.DataReflectionMode.Default">
@@ -1821,7 +1821,7 @@
         </member>
         <member name="T:Syncfusion.Data.NotificationSubscriptionMode">
             <summary>
-            Defines the constants that specify whether need to listen the <see cref="E:System.ComponentModel.INotifyPropertyChanging.PropertyChanging"/> and <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/> events of data object and <see cref="E:System.Collections.Specialized.INotifyCollectionChanged.CollectionChanged"/> 
+            Defines the constants that specify whether need to listen the <see cref="E:System.ComponentModel.INotifyPropertyChanging.PropertyChanging"/> and <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/> events of dataRows object and <see cref="E:System.Collections.Specialized.INotifyCollectionChanged.CollectionChanged"/> 
             event of source collection.
             </summary> 
         </member>
@@ -1837,13 +1837,13 @@
         </member>
         <member name="F:Syncfusion.Data.NotificationSubscriptionMode.PropertyChange">
             <summary>
-            Denotes view listens the <see cref="E:System.ComponentModel.INotifyPropertyChanging.PropertyChanging"/> and <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/> events of data object.
+            Denotes view listens the <see cref="E:System.ComponentModel.INotifyPropertyChanging.PropertyChanging"/> and <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/> events of dataRows object.
             </summary>
         </member>
         <member name="T:Syncfusion.Data.DataTableCollectionView">
             <summary>
-            Represents the class that maintains the collection view of type data table collection view, 
-            when the SfDataGrid is bind to the data table collection view.   
+            Represents the class that maintains the collection view of type dataRows table collection view, 
+            when the SfDataGrid is bind to the dataRows table collection view.   
             </summary>
         </member>
         <member name="M:Syncfusion.Data.DataTableCollectionView.#ctor">
@@ -1880,13 +1880,13 @@
             <summary>
             This method fires when the sort description is changed.
             </summary>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
         </member>
         <member name="M:Syncfusion.Data.DataTableCollectionView.FilterRecord(System.Object)">
             <summary>
             Filters the record for the specified record condition.
             </summary>
-            <param name="record">The record to filter the data.</param>
+            <param name="record">The record to filter the dataRows.</param>
             <returns>
             <b>True</b> if the filter condition is satisfied, otherwise <b>false</b>.
             </returns>
@@ -1967,7 +1967,7 @@
         </member>
         <member name="T:Syncfusion.Data.DataTableCollectionViewExt">
             <summary>
-            Class that defines the extension methods for the data table collection view.
+            Class that defines the extension methods for the dataRows table collection view.
             </summary>
         </member>
         <member name="M:Syncfusion.Data.DataTableCollectionViewExt.GetFilterString(Syncfusion.Data.CollectionViewAdv)">
@@ -2278,7 +2278,7 @@
         </member>
         <member name="T:Syncfusion.Data.NamespaceDoc">
             <summary>
-            Provides classes and interface to process the data related operation like sorting,
+            Provides classes and interface to process the dataRows related operation like sorting,
             grouping and filtering for different IEnumerable collections.
             </summary>
             <exclude/>
@@ -2296,7 +2296,7 @@
         </member>
         <member name="T:Syncfusion.Data.NodeEntry">
             <summary>
-            NodeEntry is the base class for the Grouping data structure used by <see cref="T:Syncfusion.Data.ICollectionViewAdv"/> interface. It exposes some base level
+            NodeEntry is the base class for the Grouping dataRows structure used by <see cref="T:Syncfusion.Data.ICollectionViewAdv"/> interface. It exposes some base level
             details for the derived constructs to use.
             </summary>	
         </member>
@@ -2396,7 +2396,7 @@
         </member>
         <member name="M:Syncfusion.Data.Group.Populate(System.Collections.Generic.IEnumerable{Syncfusion.Data.Extensions.GroupResult})">
             <summary>
-            Populates the given groups to the current group in the data grid.
+            Populates the given groups to the current group in the dataRows grid.
             </summary>
             <param name="groupsToPopulate">The enumerable collection of groups to be populated.</param>
             <returns>Returns the total number of entries in top-Level group, which contains the 
@@ -2404,7 +2404,7 @@
         </member>
         <member name="M:Syncfusion.Data.Group.Populate(System.Collections.Generic.IEnumerable{Syncfusion.Data.Extensions.GroupResult},System.Collections.Generic.List{Syncfusion.Data.Group},Syncfusion.Data.Group,System.Int32)">
             <summary>
-            Populates the given groups to the current group in the data grid.
+            Populates the given groups to the current group in the dataRows grid.
             </summary>
             <param name="groupsToPopulate">The enumerable collection of groups to be populated.</param>
             <param name="groups">The list of groups in the current group.</param>
@@ -2982,10 +2982,10 @@
         </member>
         <member name="M:Syncfusion.Data.GroupRecordEntry.CreateRecord(System.Object)">
             <summary>
-            Creates the new record entry for the given data.
+            Creates the new record entry for the given dataRows.
             </summary>
-            <param name="data">The data for the new record entry created.</param>
-            <returns>Returns the record entry created for the given data.</returns>
+            <param name="dataRows">The dataRows for the new record entry created.</param>
+            <returns>Returns the record entry created for the given dataRows.</returns>
         </member>
         <member name="M:Syncfusion.Data.GroupRecordEntry.GetRecordsCount">
             <summary>
@@ -3041,7 +3041,7 @@
             </summary>
             <param name="parent">The parent node of the of the record entry.</param>
             <param name="level">The level of the record initialized.</param>
-            <param name="data">The data for the record entry initialized.</param>
+            <param name="dataRows">The dataRows for the record entry initialized.</param>
         </member>
         <member name="M:Syncfusion.Data.RecordEntry.Dispose(System.Boolean)">
             <summary>
@@ -3080,10 +3080,10 @@
         </member>
         <member name="M:Syncfusion.Data.RecordEntry.ToString">
             <summary>
-            Returns a <see cref="T:System.String"/> that represents the data objects in the record entry.
+            Returns a <see cref="T:System.String"/> that represents the dataRows objects in the record entry.
             </summary>
             <returns>
-            A <see cref="T:System.String"/> that represents the data objects in the record entry.
+            A <see cref="T:System.String"/> that represents the dataRows objects in the record entry.
             </returns>
         </member>
         <member name="M:Syncfusion.Data.RecordEntry.CompareTo(Syncfusion.Data.RecordEntry)">
@@ -3095,9 +3095,9 @@
         </member>
         <member name="P:Syncfusion.Data.RecordEntry.Data">
             <summary>
-            Gets or sets the data of the record entry.
+            Gets or sets the dataRows of the record entry.
             </summary>
-            <value>The data of the record entry.</value>
+            <value>The dataRows of the record entry.</value>
         </member>
         <member name="P:Syncfusion.Data.RecordEntry.IsExpanded">
             <summary>
@@ -3175,22 +3175,22 @@
         </member>
         <member name="M:Syncfusion.Data.IRecordsEntryList.SuspendUpdates">
             <summary>
-            Suspends the view updates. When the view is suspended, the change in the underlying data 
+            Suspends the view updates. When the view is suspended, the change in the underlying dataRows 
             will not be updated in the view.
             </summary>
         </member>
         <member name="M:Syncfusion.Data.IRecordsEntryList.ResumeUpdates">
             <summary>
             Resumes the view updates. When the view is resumed, the view will be refreshed by which the 
-            change in the underlying data will be updated in the view.
+            change in the underlying dataRows will be updated in the view.
             </summary>
         </member>
         <member name="M:Syncfusion.Data.IRecordsEntryList.IndexOfRecord(System.Object)">
             <summary>
-            Returns the index of the given data in the underlying collection.
+            Returns the index of the given dataRows in the underlying collection.
             </summary>
-            <param name="data">The data whose index is to be obtained.</param>
-            <returns>Returns the index of the given data in the underlying collection.</returns>
+            <param name="dataRows">The dataRows whose index is to be obtained.</param>
+            <returns>Returns the index of the given dataRows in the underlying collection.</returns>
         </member>
         <member name="M:Syncfusion.Data.IRecordsEntryList.GetSource">
             <summary>
@@ -3200,20 +3200,20 @@
         </member>
         <member name="M:Syncfusion.Data.IRecordsEntryList.GetRecordEntry(System.Int32,System.Object)">
             <summary>
-            Returns the object of RecordEntry for the specified record index and data in the underlying 
+            Returns the object of RecordEntry for the specified record index and dataRows in the underlying 
             collection.
             </summary>
-            <param name="data">The data whose record entry is to be obtained.</param>
+            <param name="dataRows">The dataRows whose record entry is to be obtained.</param>
             <param name="recordIndex">The index of the record whose record entry instance is to be obtained.</param>
-            <returns>Returns the object of RecordEntry for the specified record index and data in the underlying 
+            <returns>Returns the object of RecordEntry for the specified record index and dataRows in the underlying 
             collection.</returns>
         </member>
         <member name="M:Syncfusion.Data.IRecordsEntryList.GetRecord(System.Object)">
             <summary>
-            Returns the object of RecordEntry for the specified data in the underlying collection.
+            Returns the object of RecordEntry for the specified dataRows in the underlying collection.
             </summary>
-            <param name="data">The data whose record entry is to be obtained.</param>
-            <returns>Returns the RecordEntry based on data.</returns>
+            <param name="dataRows">The dataRows whose record entry is to be obtained.</param>
+            <returns>Returns the RecordEntry based on dataRows.</returns>
         </member>
         <member name="P:Syncfusion.Data.IRecordsEntryList.IsInSuspend">
             <summary>
@@ -3248,14 +3248,14 @@
         </member>
         <member name="M:Syncfusion.Data.ListIndexer`1.Suspend">
             <summary>
-            Suspends the view updates. When the view is suspended, the change in the underlying data 
+            Suspends the view updates. When the view is suspended, the change in the underlying dataRows 
             will not be updated in the view.
             </summary>
         </member>
         <member name="M:Syncfusion.Data.ListIndexer`1.Resume">
             <summary>
             Resumes the view updates. When the view is resumed, the view will be refreshed by which the 
-            change in the underlying data will be updated in the view.
+            change in the underlying dataRows will be updated in the view.
             </summary>
         </member>
         <member name="M:Syncfusion.Data.ListIndexer`1.Find(System.Object)">
@@ -3267,10 +3267,10 @@
         </member>
         <member name="M:Syncfusion.Data.ListIndexer`1.GetRecordEntry(System.Object)">
             <summary>
-            Returns the object of RecordEntry for the specified data in the underlying collection.
+            Returns the object of RecordEntry for the specified dataRows in the underlying collection.
             </summary>
-            <param name="item">The data whose record entry is to be obtained.</param>
-            <returns>Returns the RecordEntry based on data.</returns>
+            <param name="item">The dataRows whose record entry is to be obtained.</param>
+            <returns>Returns the RecordEntry based on dataRows.</returns>
         </member>
         <member name="M:Syncfusion.Data.ListIndexer`1.Find(`0)">
             <summary>
@@ -3374,31 +3374,31 @@
         </member>
         <member name="M:Syncfusion.Data.RecordsListBase.GetRecord(System.Object)">
             <summary>
-            Returns the object of RecordEntry for the specified data in the underlying 
+            Returns the object of RecordEntry for the specified dataRows in the underlying 
             collection.
             </summary>
-            <param name="data">The data whose record entry is to be obtained.</param>
-            <returns>Returns the object of RecordEntry for the specified data in the underlying 
+            <param name="dataRows">The dataRows whose record entry is to be obtained.</param>
+            <returns>Returns the object of RecordEntry for the specified dataRows in the underlying 
             collection.</returns>
         </member>
         <member name="M:Syncfusion.Data.RecordsListBase.SuspendUpdates">
             <summary>
-            Suspends the view updates. When the view is suspended, the change in the underlying data 
+            Suspends the view updates. When the view is suspended, the change in the underlying dataRows 
             will not be updated in the view.
             </summary>
         </member>
         <member name="M:Syncfusion.Data.RecordsListBase.ResumeUpdates">
             <summary>
             Resumes the view updates. When the view is resumed, the view will be refreshed by which the 
-            change in the underlying data will be updated in the view.
+            change in the underlying dataRows will be updated in the view.
             </summary>
         </member>
         <member name="M:Syncfusion.Data.RecordsListBase.IndexOfRecord(System.Object)">
             <summary>
-            Returns the index of the given data in the underlying collection.
+            Returns the index of the given dataRows in the underlying collection.
             </summary>
-            <param name="data">The data whose index is to be obtained.</param>
-            <returns>Returns the index of the given data in the underlying collection.</returns>
+            <param name="dataRows">The dataRows whose index is to be obtained.</param>
+            <returns>Returns the index of the given dataRows in the underlying collection.</returns>
         </member>
         <member name="M:Syncfusion.Data.RecordsListBase.GetSource">
             <summary>
@@ -3408,12 +3408,12 @@
         </member>
         <member name="M:Syncfusion.Data.RecordsListBase.GetRecordEntry(System.Int32,System.Object)">
             <summary>
-            Returns the object of RecordEntry for the specified record index and data in the underlying 
+            Returns the object of RecordEntry for the specified record index and dataRows in the underlying 
             collection.
             </summary>
-            <param name="data">The data whose record entry is to be obtained.</param>
+            <param name="dataRows">The dataRows whose record entry is to be obtained.</param>
             <param name="recordIndex">The index of the record whose record entry instance is to be obtained.</param>
-            <returns>Returns the object of RecordEntry for the specified record index and data in the underlying 
+            <returns>Returns the object of RecordEntry for the specified record index and dataRows in the underlying 
             collection.</returns>
         </member>
         <member name="M:Syncfusion.Data.RecordsListBase.IndexOf(Syncfusion.Data.RecordEntry)">
@@ -3459,9 +3459,9 @@
         </member>
         <member name="M:Syncfusion.Data.RecordsListBase.Add(System.Object)">
             <summary>
-            Adds the specified data to the record collection.
+            Adds the specified dataRows to the record collection.
             </summary>
-            <param name="item">The data to be added to the record collection.</param>
+            <param name="item">The dataRows to be added to the record collection.</param>
         </member>
         <member name="M:Syncfusion.Data.RecordsListBase.Clear">
             <summary>
@@ -3534,7 +3534,7 @@
             </summary>
             <param name="sender">The sender of the event.</param>
             <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains 
-            the data for the event.</param>
+            the dataRows for the event.</param>
         </member>
         <member name="P:Syncfusion.Data.RecordsListBase.IsInSuspend">
             <summary>
@@ -3560,10 +3560,10 @@
         </member>
         <member name="P:Syncfusion.Data.RecordsListBase.Item(System.Int32)">
             <summary>
-            Gets the record entry object for the data in the given index.
+            Gets the record entry object for the dataRows in the given index.
             </summary>
             <param name="index">The index at which the record entry is to be obtained.</param>
-            <returns>The record entry object for the data in the given index.</returns>
+            <returns>The record entry object for the dataRows in the given index.</returns>
         </member>
         <member name="E:Syncfusion.Data.RecordsListBase.CollectionChanged">
             <summary>
@@ -3605,7 +3605,7 @@
         </member>
         <member name="T:Syncfusion.Data.ISummaryAdjustable">
             <summary>
-            Defines method to calculate the summary in optimized way during data updates.
+            Defines method to calculate the summary in optimized way during dataRows updates.
             </summary>
         </member>
         <member name="M:Syncfusion.Data.ISummaryAdjustable.AdjustSummaryCalculation(System.Object,System.Object,System.Object,System.Collections.Specialized.NotifyCollectionChangedAction,System.String,System.Int32)">
@@ -3850,24 +3850,24 @@
             <summary>
             Initializes a new instance of the DataTableAggregator class.
             </summary>
-            <param name="table">The reference of the data table which is bind as the items source 
+            <param name="table">The reference of the dataRows table which is bind as the items source 
             of SfDataGrid.</param>
         </member>
         <member name="M:Syncfusion.Data.DataTableAggregator.GetClonedTable(System.Collections.IEnumerable,System.Data.DataTable)">
             <summary>
-            Create DataTable by cloning the given data table and populating it with the given 
+            Create DataTable by cloning the given dataRows table and populating it with the given 
             IEnumerable items. 
             </summary>
-            <param name="items">The IEnumerable items to be populated in the data table created.</param>
-            <param name="dataTable">The data table from which the new data table is to be cloned.</param>
-            <returns>The DataTable created by cloning the given data table and populating it with the given 
+            <param name="items">The IEnumerable items to be populated in the dataRows table created.</param>
+            <param name="dataTable">The dataRows table from which the new dataRows table is to be cloned.</param>
+            <returns>The DataTable created by cloning the given dataRows table and populating it with the given 
             IEnumerable items.</returns>
         </member>
         <member name="P:Syncfusion.Data.DataTableAggregator.Table">
             <summary>
-            Gets the reference of the data table in the datagrid.
+            Gets the reference of the dataRows table in the datagrid.
             </summary>
-            <value>The reference of the data table in the datagrid.</value>
+            <value>The reference of the dataRows table in the datagrid.</value>
         </member>
         <member name="P:Syncfusion.Data.DataTableAggregator.ClonedDataTable">
             <summary>
@@ -3878,7 +3878,7 @@
             <summary>
             Initializes a new instance of the DataTableCountAggregate class.
             </summary>
-            <param name="table">The reference of the data table which is bind as the items source 
+            <param name="table">The reference of the dataRows table which is bind as the items source 
             of SfDataGrid.</param>
         </member>
         <member name="M:Syncfusion.Data.DataTableCountAggregate.CalculateAggregateFunc">
@@ -3915,7 +3915,7 @@
             <summary>
             Initializes a new instance of the DataTableInt32Aggregate class.
             </summary>
-            <param name="table">The reference of the data table which is bind as the items source 
+            <param name="table">The reference of the dataRows table which is bind as the items source 
             of SfDataGrid.</param>
         </member>
         <member name="M:Syncfusion.Data.DataTableInt32Aggregate.CalculateAggregateFunc">
@@ -3976,7 +3976,7 @@
             <summary>
             Initializes a new instance of the DataTableDoubleAggregate class.
             </summary>
-            <param name="table">The reference of the data table which is bind as the items source 
+            <param name="table">The reference of the dataRows table which is bind as the items source 
             of SfDataGrid.</param>
         </member>
         <member name="M:Syncfusion.Data.DataTableDoubleAggregate.CalculateAggregateFunc">
@@ -4383,7 +4383,7 @@
         </member>
         <member name="T:Syncfusion.Data.TopLevelGroup">
             <summary>
-            TopLevelGroup is the first-level of the Groups present in <see cref="T:Syncfusion.Data.ICollectionViewAdv"/>. It maintains the data structure for Grouping with <see cref="T:Syncfusion.Data.ICollectionViewAdv"/>. Iterate the DisplayElements property to get one-to-one mapping of the index with the TopLevelGroup items. Access all the Bottom-level and other nested level groups with the Groups property.
+            TopLevelGroup is the first-level of the Groups present in <see cref="T:Syncfusion.Data.ICollectionViewAdv"/>. It maintains the dataRows structure for Grouping with <see cref="T:Syncfusion.Data.ICollectionViewAdv"/>. Iterate the DisplayElements property to get one-to-one mapping of the index with the TopLevelGroup items. Access all the Bottom-level and other nested level groups with the Groups property.
             </summary>
         </member>
         <member name="T:Syncfusion.Data.IGroupRefresh">
@@ -4403,7 +4403,7 @@
         </member>
         <member name="M:Syncfusion.Data.IGroupRefresh.DeferRefresh">
             <summary>
-            Gets a disposable defer helper to suspends the all data operations in view. 
+            Gets a disposable defer helper to suspends the all dataRows operations in view. 
             </summary>
             <returns>Returns disposable defer helper to do the bulk changes.</returns>
         </member>
@@ -4458,13 +4458,13 @@
         </member>
         <member name="M:Syncfusion.Data.TopLevelGroup.Syncfusion#Data#IGroupRefresh#DeferRefresh">
             <summary>
-            Gets a disposable defer helper to suspends the all data operations in view. 
+            Gets a disposable defer helper to suspends the all dataRows operations in view. 
             </summary>
             <returns>Returns disposable defer helper to do the bulk changes.</returns>
         </member>
         <member name="M:Syncfusion.Data.TopLevelGroup.DeferRefresh">
             <summary>
-            Gets a disposable defer helper to suspends the all data operations in view. 
+            Gets a disposable defer helper to suspends the all dataRows operations in view. 
             </summary>
             <returns>Returns disposable defer helper to do the bulk changes.</returns>
         </member>
@@ -4678,7 +4678,7 @@
             The <see cref="T:Syncfusion.Data.GroupDisplayElements"/> which contains the group and record information of the top level group.
             </value>
             <remarks>
-            The group and record can accessed from display elements when the data is grouped.
+            The group and record can accessed from display elements when the dataRows is grouped.
             </remarks>
         </member>
         <member name="T:Syncfusion.Data.TopLevelGroup.DeferHelper">
@@ -4733,7 +4733,7 @@
         </member>
         <member name="T:Syncfusion.Data.PropertyChangingEventArgs">
             <summary>
-            Provides data for the <see cref="E:System.ComponentModel.INotifyPropertyChanging.PropertyChanging"/> event.
+            Provides dataRows for the <see cref="E:System.ComponentModel.INotifyPropertyChanging.PropertyChanging"/> event.
             </summary>
         </member>
         <member name="M:Syncfusion.Data.PropertyChangingEventArgs.#ctor(System.String)">
@@ -4754,7 +4754,7 @@
             event of an <see cref="T:Syncfusion.Data.INotifyPropertyChanging"/> interface.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">An <see cref="T:Syncfusion.Data.PropertyChangingEventArgs">PropertyChangingEventArgs</see> that contains the event data.</param>
+            <param name="e">An <see cref="T:Syncfusion.Data.PropertyChangingEventArgs">PropertyChangingEventArgs</see> that contains the event dataRows.</param>
         </member>
         <member name="T:Syncfusion.Data.INotifyPropertyChanging">
             <summary>
@@ -5062,11 +5062,11 @@
         </member>
         <member name="M:Syncfusion.Data.ItemPropertiesProvider.GetDataTableValue(System.Object,System.String)">
             <summary>
-            Gets the data table value for the given record and the property name.
+            Gets the dataRows table value for the given record and the property name.
             </summary>
-            <param name="record">The record for which the data table value is to be obtained.</param>
+            <param name="record">The record for which the dataRows table value is to be obtained.</param>
             <param name="propertyName">The name of the property.</param>
-            <returns>The data table value for the given record and the property name.</returns>
+            <returns>The dataRows table value for the given record and the property name.</returns>
         </member>
         <member name="M:Syncfusion.Data.ItemPropertiesProvider.GetFormattedValue(System.Object,System.String)">
             <summary>
@@ -5182,7 +5182,7 @@
             <summary>
             This method fires when the sort description collection is changed.
             </summary>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> representing the data for the event.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> representing the dataRows for the event.</param>
         </member>
         <member name="M:Syncfusion.Data.QueryableCollectionView.CanExecuteParallel(Syncfusion.Data.DataOperation)">
             <summary>
@@ -5206,11 +5206,11 @@
         </member>
         <member name="M:Syncfusion.Data.QueryableCollectionView.FilterRecord(System.Object)">
             <summary>
-            Returns a boolean value indicating whether to filter underlying data from adding it to 
+            Returns a boolean value indicating whether to filter underlying dataRows from adding it to 
             View.Records collection.
             </summary>
             <param name="record">The record to filter.</param>
-            <returns>A boolean value indicating whether to filter underlying data from adding it to 
+            <returns>A boolean value indicating whether to filter underlying dataRows from adding it to 
             View.Records collection.</returns>
         </member>
         <member name="M:Syncfusion.Data.QueryableCollectionView.RefreshFilter(System.Boolean)">
@@ -5374,7 +5374,7 @@
             This method fires when the property is changed.
             </summary>
             <param name="sender">The sender of the event.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> that contains the event for the data.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> that contains the event for the dataRows.</param>
         </member>
         <member name="M:Syncfusion.Data.PagedCollectionView.GetComparerIndex(System.Object,System.Int32)">
             <summary>
@@ -5511,7 +5511,7 @@
             A boolean value that indicates whether to enable optimistic summary calculation on real time updates.
             </value>
             <remarks>
-            The <see cref="!:Data.EnableSummaryOptimization"/> calculates the summary optimistically when the data objects implement the <see cref="T:System.ComponentModel.INotifyPropertyChanging"/> and <see cref="T:System.ComponentModel.INotifyPropertyChanged"/>.
+            The <see cref="!:Data.EnableSummaryOptimization"/> calculates the summary optimistically when the dataRows objects implement the <see cref="T:System.ComponentModel.INotifyPropertyChanging"/> and <see cref="T:System.ComponentModel.INotifyPropertyChanged"/>.
             </remarks>
         </member>
         <member name="E:Syncfusion.Data.PagedCollectionView.OnDemandItemsLoading">
@@ -5551,7 +5551,7 @@
         </member>
         <member name="T:Syncfusion.Data.OnDemandItemsLoadingEventArgs">
             <summary>
-            Provides data for the <see cref="E:Syncfusion.Data.PagedCollectionView.OnDemandItemsLoading"/> event.
+            Provides dataRows for the <see cref="E:Syncfusion.Data.PagedCollectionView.OnDemandItemsLoading"/> event.
             </summary>
         </member>
         <member name="P:Syncfusion.Data.OnDemandItemsLoadingEventArgs.StartIndex">
@@ -5568,7 +5568,7 @@
         </member>
         <member name="T:Syncfusion.Data.PageChangingEventArgs">
             <summary>
-            Provides data for the <see cref="E:Syncfusion.Data.PagedCollectionView.PageChanging"/> event.
+            Provides dataRows for the <see cref="E:Syncfusion.Data.PagedCollectionView.PageChanging"/> event.
             </summary>
         </member>
         <member name="P:Syncfusion.Data.PageChangingEventArgs.NewPageIndex">
@@ -5579,7 +5579,7 @@
         </member>
         <member name="T:Syncfusion.Data.PageChangedEventArgs">
             <summary>
-            Provides data for the <see cref="E:Syncfusion.Data.PagedCollectionView.PageChanged"/> event.
+            Provides dataRows for the <see cref="E:Syncfusion.Data.PagedCollectionView.PageChanged"/> event.
             </summary>
         </member>
         <member name="P:Syncfusion.Data.PageChangedEventArgs.NewPageIndex">
@@ -5593,21 +5593,21 @@
             Delegate for <see cref="E:Syncfusion.Data.PagedCollectionView.OnDemandItemsLoading"/> event.
             </summary>
             <param name="sender">The original sender of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Data.OnDemandItemsLoadingEventArgs"/> representing the data for the event.</param>
+            <param name="e">The <see cref="T:Syncfusion.Data.OnDemandItemsLoadingEventArgs"/> representing the dataRows for the event.</param>
         </member>
         <member name="T:Syncfusion.Data.PageChangingEventHandler">
             <summary>
             Delegate for <see cref="E:Syncfusion.Data.PagedCollectionView.OnDemandItemsLoading"/> event.
             </summary>
             <param name="sender">The original sender of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Data.PageChangingEventArgs"/> representing the data for the event.</param>
+            <param name="e">The <see cref="T:Syncfusion.Data.PageChangingEventArgs"/> representing the dataRows for the event.</param>
         </member>
         <member name="T:Syncfusion.Data.PageChangedEventHandler">
             <summary>
             Delegate for <see cref="E:Syncfusion.Data.PagedCollectionView.OnDemandItemsLoading"/> event.
             </summary>
             <param name="sender">The original sender of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Data.PageChangedEventArgs"/> representing the data for the event.</param>
+            <param name="e">The <see cref="T:Syncfusion.Data.PageChangedEventArgs"/> representing the dataRows for the event.</param>
         </member>
         <member name="M:Syncfusion.Data.PageListOrdinalComparer.Compare(System.Object,System.Object)">
             <summary>
@@ -5674,7 +5674,7 @@
             <summary>
             Creates the <see cref="T:Syncfusion.Data.RecordEntry"/> for the business object.
             </summary>
-            <param name="data">The data for which the record entry is to be created.</param>
+            <param name="dataRows">The dataRows for which the record entry is to be created.</param>
             <returns>Returns the RecordEntry for the specified object.</returns>
         </member>
         <member name="M:Syncfusion.Data.IRecordsList.RemoveAll">
@@ -5690,7 +5690,7 @@
         </member>
         <member name="T:Syncfusion.Data.DataTableRecordsList">
             <summary>
-            Represents the class that maintains the records list when binding data table as source 
+            Represents the class that maintains the records list when binding dataRows table as source 
             to the SfDataGrid.
             </summary>
         </member>
@@ -5756,10 +5756,10 @@
         </member>
         <member name="M:Syncfusion.Data.RecordsList.CreateRecord(System.Object)">
             <summary>
-            Creates the record entry for the given data object.
+            Creates the record entry for the given dataRows object.
             </summary>
-            <param name="data">The data for which the RecordEntry is to be created.</param>
-            <returns>Returns the RecordEntry created for the specified data.</returns>
+            <param name="dataRows">The dataRows for which the RecordEntry is to be created.</param>
+            <returns>Returns the RecordEntry created for the specified dataRows.</returns>
         </member>
         <member name="M:Syncfusion.Data.RecordsList.RemoveAll">
             <summary>
@@ -5775,9 +5775,9 @@
         </member>
         <member name="M:Syncfusion.Data.RecordsList.Add(System.Object)">
             <summary>
-            Adds the specified data to the records list.
+            Adds the specified dataRows to the records list.
             </summary>
-            <param name="data">The data for which the record is created and added to the records list.</param>
+            <param name="dataRows">The dataRows for which the record is created and added to the records list.</param>
         </member>
         <member name="M:Syncfusion.Data.RecordsList.Dispose(System.Boolean)">
             <summary>
@@ -5808,7 +5808,7 @@
             Initializes a new instance of the DataTableRecordsList class.
             </summary>
             <param name="source">The IEnumerable source of the SfDataGrid.</param>
-            <param name="view">The data table collection view.</param>
+            <param name="view">The dataRows table collection view.</param>
         </member>
         <member name="T:Syncfusion.Data.PagedCollectionRecordsList">
             <summary>
@@ -5901,22 +5901,22 @@
         </member>
         <member name="T:Syncfusion.Data.LiveDataUpdateMode">
             <summary>    
-            Defines the constants that specifies how to update the data during data manipulation operation like add, remove and property change.
+            Defines the constants that specifies how to update the dataRows during dataRows manipulation operation like add, remove and property change.
             </summary>      
         </member>
         <member name="F:Syncfusion.Data.LiveDataUpdateMode.Default">
             <summary>
-            Specifies that data operations are not updated during data manipulation. 
+            Specifies that dataRows operations are not updated during dataRows manipulation. 
             </summary>
         </member>
         <member name="F:Syncfusion.Data.LiveDataUpdateMode.AllowSummaryUpdate">
             <summary>
-            Specifies that summaries are updated based on data manipulation changes.
+            Specifies that summaries are updated based on dataRows manipulation changes.
             </summary>
         </member>
         <member name="F:Syncfusion.Data.LiveDataUpdateMode.AllowDataShaping">
             <summary>
-            Specifies that data operations sorting, grouping, filtering and summaries are updated based on data manipulation changes.
+            Specifies that dataRows operations sorting, grouping, filtering and summaries are updated based on dataRows manipulation changes.
             </summary>
         </member>
         <member name="F:Syncfusion.Data.LiveDataUpdateMode.AllowChildViewUpdate">
@@ -6010,7 +6010,7 @@
         </member>
         <member name="T:Syncfusion.Data.SortComparer">
             <summary>
-            Represents the properties to sort the data based on custom logic.
+            Represents the properties to sort the dataRows based on custom logic.
             </summary>
         </member>
         <member name="M:Syncfusion.Data.SortComparer.#ctor">
@@ -6096,8 +6096,8 @@
             Creates the record.
             </summary>
             <param name="parent">The Group</param>
-            <param name="data">The data to create the RecordEntry.</param>
-            <returns>Returns the RecordEntry for parent with specified data.</returns>
+            <param name="dataRows">The dataRows to create the RecordEntry.</param>
+            <returns>Returns the RecordEntry for parent with specified dataRows.</returns>
         </member>
         <member name="T:Syncfusion.Data.VirtualGroupRecordEntry">
             <exclude/>
@@ -6154,11 +6154,11 @@
         </member>
         <member name="M:Syncfusion.Data.VirtualRecordEntryList.GetRecordEntry(System.Int32,System.Object)">
             <summary>
-            Gets the Object of <see cref="T:Syncfusion.Data.RecordEntry"/> for the specified record index and underlying data in the collection.
+            Gets the Object of <see cref="T:Syncfusion.Data.RecordEntry"/> for the specified record index and underlying dataRows in the collection.
             </summary>
             <param name="recordIndex"></param>
-            <param name="data"></param>
-            <returns>Object of <see cref="T:Syncfusion.Data.RecordEntry"/> for the specified record index and underlying data in the collection.</returns>.
+            <param name="dataRows"></param>
+            <returns>Object of <see cref="T:Syncfusion.Data.RecordEntry"/> for the specified record index and underlying dataRows in the collection.</returns>.
         </member>
         <member name="M:Syncfusion.Data.VirtualRecordEntryList.GetRecord(System.Int32)">
             <summary>
@@ -6171,8 +6171,8 @@
             <summary>
             Returns the index of record.
             </summary>
-            <param name="data"></param>
-            <returns>Returns from SourceList when the data not a record entry.</returns>
+            <param name="dataRows"></param>
+            <returns>Returns from SourceList when the dataRows not a record entry.</returns>
         </member>
         <member name="M:Syncfusion.Data.VirtualRecordEntryList.RemoveAt(System.Int32)">
             <summary>
@@ -6339,21 +6339,21 @@
             <summary>
             Override to populate and return the RecordEntry.
             </summary>
-            <param name="data">The data to get the RecordEntry.</param>
-            <returns>Returns the RecordEntry based on data.</returns>        
+            <param name="dataRows">The dataRows to get the RecordEntry.</param>
+            <returns>Returns the RecordEntry based on dataRows.</returns>        
         </member>
         <member name="M:Syncfusion.Data.VirtualRecordsList.IndexOfRecord(System.Object)">
             <summary>
             Returns the index of record.
             </summary>
-            <param name="data"></param>
-            <returns>Returns from SourceList when the data not a record entry.</returns>
+            <param name="dataRows"></param>
+            <returns>Returns from SourceList when the dataRows not a record entry.</returns>
         </member>
         <member name="M:Syncfusion.Data.VirtualRecordsList.RemoveAt(System.Int32)">
             <summary>
             Override to remove the record from SourceList at specified index.
             </summary>
-            <param name="index">The index to remove the data and RecordEntry.</param>
+            <param name="index">The index to remove the dataRows and RecordEntry.</param>
         </member>
         <member name="M:Syncfusion.Data.VirtualRecordsList.Remove(Syncfusion.Data.RecordEntry)">
             <summary>
@@ -6373,9 +6373,9 @@
         </member>
         <member name="M:Syncfusion.Data.VirtualRecordsList.Add(System.Object)">
             <summary>
-            Override to add the data to SourceList.
+            Override to add the dataRows to SourceList.
             </summary>
-            <param name="data"></param>
+            <param name="dataRows"></param>
         </member>
         <member name="M:Syncfusion.Data.VirtualRecordsList.Add(Syncfusion.Data.RecordEntry)">
             <summary>
@@ -6393,10 +6393,10 @@
         </member>
         <member name="M:Syncfusion.Data.VirtualRecordsList.GetSource">
             <summary>
-            Returns the list of data from RecordEntry collection.
+            Returns the list of dataRows from RecordEntry collection.
             </summary>
             <remarks>
-            Returns the list of data from SourceList<see cref="F:Syncfusion.Data.VirtualRecordsList.SourceList"/>.
+            Returns the list of dataRows from SourceList<see cref="F:Syncfusion.Data.VirtualRecordsList.SourceList"/>.
             </remarks>  
         </member>
         <member name="M:Syncfusion.Data.VirtualRecordsList.Clear">
@@ -6419,8 +6419,8 @@
             Method that populates internalList and return the RecordEntry with specified index.
             </summary>
             <param name="recordIndex">The recordIndex  to get the RecordEntry.</param>
-            <param name="data"></param>
-            <returns>Returns the RecordEntry at specified recordIndex or based on data.</returns>                
+            <param name="dataRows"></param>
+            <returns>Returns the RecordEntry at specified recordIndex or based on dataRows.</returns>                
         </member>
         <member name="P:Syncfusion.Data.VirtualRecordsList.IsInSuspend">
             <summary>

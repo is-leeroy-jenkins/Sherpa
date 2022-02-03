@@ -106,7 +106,7 @@
             Converts the calculation type of PivotGrid into respective PivotFieldDataFormat type supported by XlsIO.
             </summary>
             <param name="calculationType">calculationType of pivot grid.</param>
-            <returns>pivot field data format types supported by XlsIO.</returns>
+            <returns>pivot field dataRows format types supported by XlsIO.</returns>
         </member>
         <member name="M:Syncfusion.PivotConverter.ExcelExport.GetSubTotalType(Syncfusion.PivotAnalysis.Base.SummaryType)">
             <summary>
