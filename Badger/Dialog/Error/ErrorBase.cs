@@ -28,6 +28,14 @@ namespace BudgetExecution
         public virtual Exception Exception { get; set; }
 
         /// <summary>
+        /// Gets or sets the icon path.
+        /// </summary>
+        /// <value>
+        /// The icon path.
+        /// </value>
+        public virtual string IconPath { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of
         /// the <see cref="Error"/> class.
         /// </summary>
@@ -47,11 +55,11 @@ namespace BudgetExecution
             CaptionFont = FontConfig.FontSizeMedium;
             MetroColor = ColorConfig.FormBackColorDark;
             FormBorderStyle = BorderConfig.Sizeable;
-            Icon = new Icon( AppSetting[ "BudgetExecutionIcon" ], 33, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = ControlConfig.Padding;
             Text = string.Empty;
+            IconPath = AppSetting[ "BudgetExecutionIcon" ];
             Size = new Size( 812, 486 );
         }
 
@@ -89,6 +97,6 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the text.
         /// </summary>
-        public abstract  void SetText( string msg = "" );
+        public abstract void SetText( string msg = "" );
     }
 }

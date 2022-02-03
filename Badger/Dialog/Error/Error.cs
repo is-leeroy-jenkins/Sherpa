@@ -26,6 +26,14 @@ namespace BudgetExecution
         public override Exception Exception { get; set; }
 
         /// <summary>
+        /// Gets or sets the icon path.
+        /// </summary>
+        /// <value>
+        /// The icon path.
+        /// </value>
+        public override string IconPath { get; set; } 
+
+        /// <summary>
         /// Initializes a new instance of
         /// the <see cref="Error"/> class.
         /// </summary>
@@ -47,7 +55,7 @@ namespace BudgetExecution
             CaptionFont = FontConfig.FontSizeMedium;
             MetroColor = ColorConfig.FormBackColorDark;
             FormBorderStyle = BorderConfig.Sizeable;
-            Icon = new Icon( AppSetting[ "BudgetExecutionIcon" ], 33, 32 );
+            Icon = new Icon( IconPath, 33, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = ControlConfig.Padding;
