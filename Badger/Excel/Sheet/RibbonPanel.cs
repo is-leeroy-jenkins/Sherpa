@@ -30,7 +30,7 @@ namespace BudgetExecution
             Padding = BudgetControl.Padding;
             Font = BudgetFont.FontSizeSmall;
             ForeColor = BudgetColor.ForeColorGray;
-            BackColor = BudgetColor.FormBackColorDark;
+            BackColor = BudgetColor.FormDark;
             Ribbon.BackColor = BackColor;
             Ribbon.CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             Ribbon.TitleColor = Color.White;

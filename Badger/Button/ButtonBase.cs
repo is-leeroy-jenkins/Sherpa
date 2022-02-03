@@ -32,7 +32,7 @@ namespace BudgetExecution
         /// <value>
         /// The images.
         /// </value>
-        public virtual IEnumerable<System.Drawing.Image> Images { get; set; }
+        public virtual IEnumerable<Image> Images { get; set; }
 
         /// <summary>
         /// Gets or sets the tool tip.
@@ -240,7 +240,7 @@ namespace BudgetExecution
         /// Sets the image.
         /// </summary>
         /// <param name="image">The image.</param>
-        public virtual void SetImage( System.Drawing.Image image )
+        public virtual void SetImage( Image image )
         {
             if( image != null )
             {

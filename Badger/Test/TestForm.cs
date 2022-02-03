@@ -11,6 +11,7 @@ namespace BudgetExecution
     using System.Drawing;
     using Syncfusion.CompoundFile.XlsIO.Net;
     using Syncfusion.Windows.Forms;
+    using VisualPlus.Attributes;
 
     public partial class TestForm : MetroForm
     {
@@ -20,7 +21,7 @@ namespace BudgetExecution
         /// <value>
         /// The settings.
         /// </value>
-        public NameValueCollection Settings { get;  set; } = ConfigurationManager.AppSettings;
+        public NameValueCollection Setting { get;  set; } = ConfigurationManager.AppSettings;
 
         /// <summary>
         /// Gets the current directory.
@@ -35,20 +36,20 @@ namespace BudgetExecution
             InitializeComponent();
             
             // Form Property Values
-            BackColor = BudgetColor.FormBackColorDark;
+            BackColor = BudgetColor.FormDark;
             BorderThickness = BudgetBorder.Thin;
-            BorderColor = BudgetColor.BorderColorBlue;
+            BorderColor = BudgetColor.BorderBlue;
             Size = BudgetSize.FormSizeNormal;
             Font = BudgetFont.FontSizeSmall;
-            CaptionBarColor = BudgetColor.FormBackColorDark;
+            CaptionBarColor = BudgetColor.FormDark;
             CaptionBarHeight = BudgetSize.CaptionSizeNormal;
             CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
-            CaptionButtonHoverColor = BudgetColor.CaptionButtonHoverColor;
+            CaptionButtonHoverColor = BudgetColor.FormWhite;
             CaptionAlign = BudgetAlign.HorizontalLeft;
             CaptionFont = BudgetFont.FontSizeMedium;
-            MetroColor = BudgetColor.FormBackColorDark;
+            MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
-            Icon = new Icon( BudgetForm.BudgetExecutionIcon, 16, 16 );
+            Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 16, 16 );
             ShowIcon = true;
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
@@ -65,8 +66,13 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void SetLabelText( object sender, EventArgs e )
         {
-            TestLabel.Text = CurrentDirectory + @"\" + Settings[ "BudgetExecutionIcon" ];
-            TestLabel.SetOutlineColor( Color.SteelBlue );
+            if( sender is BudgetButton _button )
+            {
+                _button.ForeColor = BudgetColor.FormWhite;
+            }
+
+            TestLabel.ForeColor = BudgetColor.FormWhite;
+            TestLabel.Text = Setting[ "BudgetExecutionIcon" ];
         }
 
         /// <summary>

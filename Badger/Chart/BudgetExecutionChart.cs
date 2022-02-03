@@ -39,20 +39,20 @@ namespace BudgetExecution
             AllowGradientPalette = true;
             AllowUserEditStyles = true;
             PrintColorMode = ChartPrintColorMode.CheckPrinter;
-            BackInterior = new BrushInfo( BudgetColor.FormBackColorDark );
-            BackColor = BudgetColor.FormBackColorDark;
+            BackInterior = new BrushInfo( BudgetColor.FormDark );
+            BackColor = BudgetColor.FormDark;
 
             ChartInterior = new BrushInfo( GradientStyle.PathRectangle, Color.LightGray,
-                BudgetColor.FormBackColorDark );
+                BudgetColor.FormDark );
 
             CalcRegions = true;
 
             //ChartArea Properties
             ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
             ChartArea.AutoScale = true;
-            ChartArea.BackInterior = new BrushInfo( BudgetColor.FormBackColorDark );
+            ChartArea.BackInterior = new BrushInfo( BudgetColor.FormDark );
             ChartArea.BorderWidth = BudgetBorder.Thin;
-            ChartArea.BorderColor = BudgetColor.ColorTransparent;
+            ChartArea.BorderColor = BudgetColor.Transparent;
             ChartArea.BorderStyle = BorderStyle.FixedSingle;
             ChartAreaMargins = new ChartMargins( 3, 3, 3, 3 );
 
@@ -64,7 +64,7 @@ namespace BudgetExecution
             SeriesHighlightIndex = -1;
             ShadowWidth = 5;
 
-            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, BudgetColor.FormBackColorDark,
+            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, BudgetColor.FormDark,
                 Color.Silver );
 
             Depth = 250;
@@ -72,7 +72,7 @@ namespace BudgetExecution
             ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
             ColumnFixedWidth = 20;
 
-            //Chart Appearance Settings
+            //Chart Appearance Setting
             Palette = ChartColorPalette.Metro;
             Skins = Skins.None;
             RealMode3D = true;
@@ -89,12 +89,12 @@ namespace BudgetExecution
             ScrollPrecision = 100;
             RadarStyle = ChartRadarAxisStyle.Polygon;
 
-            //Chart Legend Settings;
+            //Chart Legend Setting;
             ShowLegend = true;
             Legend.Font = BudgetFont.FontSizeSmall;
             Legend.ItemsSize = BudgetSize.ImageSizeSmall;
             Legend.VisibleCheckBox = true;
-            Legend.BackInterior = new BrushInfo( BudgetColor.FormBackColorDark );
+            Legend.BackInterior = new BrushInfo( BudgetColor.FormDark );
             Legend.ItemsAlignment = BudgetAlign.GetStringAlignment( StringAlignment.Center );
             Legend.ItemsTextAligment = VerticalAlignment.Center;
             Legend.Orientation = ChartOrientation.Vertical;
@@ -318,7 +318,7 @@ namespace BudgetExecution
                 using var title = new ChartTitle();
                 title.Visible = true;
                 title.Font = font;
-                title.BackColor = BudgetColor.FormBackColorDark;
+                title.BackColor = BudgetColor.FormDark;
                 title.ForeColor = color;
                 title.Text = text;
                 Titles?.Add( title );

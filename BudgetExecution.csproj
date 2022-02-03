@@ -311,7 +311,7 @@
     <Compile Include="Badger\Chart\BindingModel\ChartBinding.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\ConfigFormat\BudgetAlign.cs" />
+    <Compile Include="Badger\Config\BudgetAlign.cs" />
     <Compile Include="Badger\Dialog\Column\ColumnConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,10 +324,10 @@
     <Compile Include="Badger\Dialog\Message\Message.Designer.cs">
       <DependentUpon>Message.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\ConfigFormat\BudgetBorder.cs" />
-    <Compile Include="Badger\ConfigFormat\BudgetChart.cs" />
-    <Compile Include="Badger\ConfigFormat\BudgetColor.cs" />
-    <Compile Include="Badger\ConfigFormat\BudgetControl.cs" />
+    <Compile Include="Badger\Config\BudgetBorder.cs" />
+    <Compile Include="Badger\Config\BudgetChart.cs" />
+    <Compile Include="Badger\Config\BudgetColor.cs" />
+    <Compile Include="Badger\Config\BudgetControl.cs" />
     <Compile Include="Badger\Excel\ExcelData.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -533,9 +533,9 @@
     <Compile Include="Extensions\FileStreamExtensions.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Badger\Excel\sheet\ISpreadsheet.cs" />
-    <Compile Include="Badger\ConfigFormat\BudgetFont.cs" />
-    <Compile Include="Badger\ConfigFormat\BudgetForm.cs" />
-    <Compile Include="Badger\ConfigFormat\IChartConfig.cs" />
+    <Compile Include="Badger\Config\BudgetFont.cs" />
+    <Compile Include="Badger\Config\BudgetForm.cs" />
+    <Compile Include="Badger\Config\IChartConfig.cs" />
     <Compile Include="Badger\Control\IDataControl.cs" />
     <Compile Include="Badger\Binding\IBindingSource.cs" />
     <Compile Include="Badger\Binding\IDataSource.cs" />
@@ -740,7 +740,7 @@
     <Compile Include="Badger\Excel\sheet\SheetPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\ConfigFormat\BudgetSize.cs" />
+    <Compile Include="Badger\Config\BudgetSize.cs" />
     <Compile Include="Badger\Chart\SeriesModel\SourceModel.cs" />
     <Compile Include="Static\Resource.cs" />
     <Compile Include="Static\Static.cs" />

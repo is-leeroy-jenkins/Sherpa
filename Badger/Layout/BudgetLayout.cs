@@ -31,15 +31,15 @@ namespace BudgetExecution
             Visible = true;
 
             // Backcolor Configuration
-            BackColor = BudgetColor.FormBackColorDark;
+            BackColor = BudgetColor.FormDark;
             ForeColor = BudgetColor.ForeColorGray;
-            BackColorState.Disabled = BudgetColor.FormBackColorDark;
-            BackColorState.Enabled = BudgetColor.FormBackColorDark;
+            BackColorState.Disabled = BudgetColor.FormDark;
+            BackColorState.Enabled = BudgetColor.FormDark;
 
             // Border Configuration
-            Border.Color = BudgetColor.FormBackColorDark;
+            Border.Color = BudgetColor.FormDark;
             Border.Thickness = BudgetBorder.Thin;
-            Border.HoverColor = BudgetColor.BorderColorBlue;
+            Border.HoverColor = BudgetColor.BorderBlue;
             Border.HoverVisible = false;
         }
         

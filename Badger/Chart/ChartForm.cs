@@ -24,18 +24,18 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form Property Values
-            BackColor = BudgetColor.FormBackColorDark;
+            BackColor = BudgetColor.FormDark;
             BorderThickness = BudgetBorder.Thin;
-            BorderColor = BudgetColor.BorderColorBlue;
+            BorderColor = BudgetColor.BorderBlue;
             Size = BudgetSize.FormSizeNormal;
             Font = BudgetFont.FontSizeSmall;
-            CaptionBarColor = BudgetColor.FormBackColorDark;
+            CaptionBarColor = BudgetColor.FormDark;
             CaptionBarHeight = BudgetSize.CaptionSizeNormal;
             CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
-            CaptionButtonHoverColor = BudgetColor.CaptionButtonHoverColor;
+            CaptionButtonHoverColor = BudgetColor.FormWhite;
             CaptionAlign = BudgetAlign.HorizontalLeft;
             CaptionFont = BudgetFont.FontSizeMedium;
-            MetroColor = BudgetColor.FormBackColorDark;
+            MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
             Icon = new Icon( ExecutionChartControl.AppSetting[ "BudgetExecutionIcon" ], 32, 30 );
             ShowIcon = false;
@@ -48,10 +48,10 @@ namespace BudgetExecution
             // Chart Property Values
             Chart.Size = BudgetSize.ChartSizeNormal;
             Chart.Name = "Chart";
-            Chart.BackColor = BudgetColor.FormBackColorDark;
-            Chart.ForeColor = BudgetColor.ForeColorLightGray;
+            Chart.BackColor = BudgetColor.FormDark;
+            Chart.ForeColor = BudgetColor.TextLightGray;
             Chart.Font = BudgetFont.FontSizeSmall;
-            Chart.BorderAppearance.BaseColor = BudgetColor.ColorTransparent;
+            Chart.BorderAppearance.BaseColor = BudgetColor.Transparent;
             Chart.RealMode3D = true;
             Chart.Series3D = true;
             Chart.Depth = 100;

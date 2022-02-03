@@ -249,7 +249,6 @@ C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\Syncfusion.XlsIO.Base.xm
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\System.Data.SQLite.xml
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\System.IO.Packaging.xml
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\System.ValueTuple.xml
-C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe.config
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Control.ControlBase.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Control.ControlData.resources

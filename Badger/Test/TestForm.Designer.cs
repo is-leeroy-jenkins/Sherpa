@@ -81,11 +81,11 @@ namespace BudgetExecution
             this.TestButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.TestButton.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.TestButton.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.TestButton.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.TestButton.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(74)))));
             this.TestButton.BackColorState.Pressed = System.Drawing.Color.SteelBlue;
             this.TestButton.BindingSource = null;
             this.TestButton.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.TestButton.Border.HoverColor = System.Drawing.Color.SteelBlue;
+            this.TestButton.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(74)))));
             this.TestButton.Border.HoverVisible = true;
             this.TestButton.Border.Rounding = 6;
             this.TestButton.Border.Thickness = 1;
@@ -94,21 +94,21 @@ namespace BudgetExecution
             this.TestButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.TestButton.Field = BudgetExecution.Field.NS;
             this.TestButton.Font = new System.Drawing.Font("Roboto", 8F);
-            this.TestButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
+            this.TestButton.ForeColor = System.Drawing.Color.LightGray;
             this.TestButton.HoverText = null;
             this.TestButton.Image = null;
             this.TestButton.Images = null;
-            this.TestButton.Location = new System.Drawing.Point(668, 416);
+            this.TestButton.Location = new System.Drawing.Point(619, 375);
             this.TestButton.Margin = new System.Windows.Forms.Padding(0);
             this.TestButton.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.TestButton.Name = "TestButton";
-            this.TestButton.Size = new System.Drawing.Size(120, 49);
-            this.TestButton.TabIndex = 0;
-            this.TestButton.Text = "Test";
+            this.TestButton.Size = new System.Drawing.Size(160, 80);
+            this.TestButton.TabIndex = 2;
+            this.TestButton.Text = "budgetButton1";
             this.TestButton.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.TestButton.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.TestButton.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
-            this.TestButton.TextStyle.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
+            this.TestButton.TextStyle.Enabled = System.Drawing.Color.LightGray;
+            this.TestButton.TextStyle.Hover = System.Drawing.Color.White;
             this.TestButton.TextStyle.Pressed = System.Drawing.Color.White;
             this.TestButton.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
             this.TestButton.TextStyle.TextLineAlignment = System.Drawing.StringAlignment.Center;
@@ -120,8 +120,8 @@ namespace BudgetExecution
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(788, 464);
-            this.Controls.Add(this.TestLabel);
             this.Controls.Add(this.TestButton);
+            this.Controls.Add(this.TestLabel);
             this.Name = "TestForm";
             this.Text = "TestForm";
             this.ResumeLayout(false);
@@ -129,8 +129,7 @@ namespace BudgetExecution
         }
 
         #endregion
-
-        private BudgetButton TestButton;
         private BudgetLabel TestLabel;
+        private BudgetButton TestButton;
     }
 }

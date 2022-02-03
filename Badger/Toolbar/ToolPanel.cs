@@ -35,7 +35,7 @@ namespace BudgetExecution
         {
             Margin = new Padding( 5, 5, 5, 0 );
             Padding = new Padding( 1, 1, 1, 0 );
-            BackColor = BudgetColor.FormBackColorDark;
+            BackColor = BudgetColor.FormDark;
             ForeColor = Color.White;
             Font = BudgetFont.FontSizeSmall;
             OfficeColorScheme = ColorScheme.Black;

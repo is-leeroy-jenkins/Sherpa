@@ -18,7 +18,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetClock()
         {
-            BackColor = BudgetColor.FormBackColorDark;
+            BackColor = BudgetColor.FormDark;
             BorderColor = BackColor;
             ForeColor = BudgetColor.ForeColorGray;
             Font = BudgetFont.FontSizeSmall;

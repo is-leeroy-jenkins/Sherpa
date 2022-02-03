@@ -53,7 +53,7 @@ namespace BudgetExecution
         {
             Size = BudgetSize.GetSize( 400, 400 );
             Location = BudgetControl.GetLocation();
-            BackColor = BudgetColor.FormBackColorDark;
+            BackColor = BudgetColor.FormDark;
             ForeColor = BudgetColor.ForeColorGray;
             Margin = BudgetControl.Margin;
             Padding = BudgetControl.Padding;

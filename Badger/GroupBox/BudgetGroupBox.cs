@@ -68,13 +68,13 @@ namespace BudgetExecution
 
             // Border Configuration.
             Border.Type = ShapeTypes.Rounded;
-            Border.Color = BudgetColor.BorderColorDark;
+            Border.Color = BudgetColor.BorderDark;
             Border.Thickness = BudgetBorder.Thin;
-            Border.HoverColor = BudgetColor.BorderColorDark;
+            Border.HoverColor = BudgetColor.BorderDark;
             Border.HoverVisible = true;
 
             // BackColor Configuration.
-            BackColorState.Disabled = BudgetColor.FormBackColorDark;
+            BackColorState.Disabled = BudgetColor.FormDark;
             BackColorState.Enabled = BudgetColor.ControlInteriorColorDark;
 
             // Text Configuration.
@@ -84,7 +84,7 @@ namespace BudgetExecution
 
             // Style Configuration.
             BoxStyle = GroupBoxStyle.Default;
-            SeparatorColor = BudgetColor.BorderColorDark;
+            SeparatorColor = BudgetColor.BorderDark;
             Separate = true;
         }
 
@@ -221,7 +221,7 @@ namespace BudgetExecution
                     {
                         Border.Color = Color.FromArgb( 64, 64, 64 );
                         Border.Thickness = BudgetBorder.Thin;
-                        Border.HoverColor = BudgetColor.BorderColorDark;
+                        Border.HoverColor = BudgetColor.BorderDark;
                         Border.HoverVisible = true;
                         SeparatorColor = Color.FromArgb( 64, 64, 64 );
                         Separate = true;
@@ -231,11 +231,11 @@ namespace BudgetExecution
 
                     case false:
                     {
-                        Border.Color = BudgetColor.FormBackColorDark;
+                        Border.Color = BudgetColor.FormDark;
                         Border.Thickness = BudgetBorder.Thin;
-                        Border.HoverColor = BudgetColor.FormBackColorDark;
+                        Border.HoverColor = BudgetColor.FormDark;
                         Border.HoverVisible = false;
-                        SeparatorColor = BudgetColor.FormBackColorDark;
+                        SeparatorColor = BudgetColor.FormDark;
                         Separate = false;
                         Border.Type = ShapeTypes.Rounded;
                         break;

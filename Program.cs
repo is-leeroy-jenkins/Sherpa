@@ -18,7 +18,7 @@ namespace BudgetExecution
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault( false );
-            Application.Run( new Error() );
+            Application.Run( new TestForm() );
         }
     }
 }

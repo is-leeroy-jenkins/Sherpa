@@ -38,9 +38,8 @@ namespace BudgetExecution
         public BudgetButton()
         {
             // Basic Configuration
-            ForeColor = BudgetColor.ForeColorGray;
             Font = BudgetFont.FontSizeSmall;
-            ForeColor = BudgetColor.ForeColorGray;
+            ForeColor = BudgetColor.TextLightGray;
             Margin = BudgetControl.Margin;
             Padding = BudgetControl.Padding;
             Size = BudgetSize.GetSize( 160, 80 );
@@ -50,17 +49,18 @@ namespace BudgetExecution
             Animation = true;
             Visible = true;
             Enabled = true;
+            Text = string.Empty;
 
             // BackColor Configuration
-            BackColor = BudgetColor.FormBackColorDark;
-            BackColorState.Disabled = BudgetColor.FormBackColorDark;
-            BackColorState.Enabled = BudgetColor.FormBackColorDark;
-            BackColorState.Hover = BudgetColor.HoverColorDark;
-            BackColorState.Pressed = BudgetColor.HoverColorBlue;
+            BackColor = BudgetColor.FormDark;
+            BackColorState.Disabled = BudgetColor.FormDark;
+            BackColorState.Enabled = BudgetColor.FormDark;
+            BackColorState.Hover = BudgetColor.HoverBlue;
+            BackColorState.Pressed = BudgetColor.BorderBlue;
 
             // BorderColor Configuration
-            Border.Color = BudgetColor.FormBackColorDark;
-            Border.HoverColor = BudgetColor.BorderColorBlue;
+            Border.Color = BudgetColor.FormDark;
+            Border.HoverColor = BudgetColor.HoverBlue;
             Border.HoverVisible = true;
             Border.Type = ShapeTypes.Rounded;
             Border.Thickness = 1;
@@ -69,10 +69,10 @@ namespace BudgetExecution
             TextImageRelation = TextImageRelation.Overlay;
 
             // Text Configuration
-            TextStyle.Pressed = Color.White;
-            TextStyle.Disabled = BudgetColor.FormBackColorDark;
-            TextStyle.Enabled = BudgetColor.ForeColorGray;
-            TextStyle.Hover = BudgetColor.ForeColorGray;
+            TextStyle.Pressed = BudgetColor.FormWhite;
+            TextStyle.Disabled = BudgetColor.FormDark;
+            TextStyle.Enabled = BudgetColor.TextLightGray;
+            TextStyle.Hover = BudgetColor.FormWhite;
             TextStyle.TextAlignment = BudgetAlign.StringAlignCenter;
             TextStyle.TextLineAlignment = BudgetAlign.StringAlignCenter;
             MouseHover += OnMouseOver;
@@ -285,18 +285,38 @@ namespace BudgetExecution
 
             try
             {
-                if( Verify.IsInput( HoverText ) )
+                if( _button != null 
+                    && !string.IsNullOrEmpty( HoverText ) )
                 {
-                    var _hoverText = _button?.HoverText;
-                    var _ = new ToolTip( _button, _hoverText );
-                }
-                else
-                {
-                    if( Verify.IsInput( Tag?.ToString() ) )
+                    if( Verify.IsInput( HoverText ) )
                     {
-                        var _text = Tag?.ToString()?.SplitPascal();
-                        var _ = new ToolTip( _button, _text );
+                        var _hoverText = _button?.HoverText;
+                        var _ = new ToolTip( _button, _hoverText );
                     }
+                    else
+                    {
+                        if( Verify.IsInput( Tag?.ToString() ) )
+                        {
+                            var _text = Tag?.ToString()?.SplitPascal();
+                            var _ = new ToolTip( _button, _text );
+                        }
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        public override void OnMouseLeave( object sender, EventArgs e )
+        {
+            var _button = sender as BudgetButton;
+
+            try
+            {
+                if( _button != null  )
+                {
                 }
             }
             catch( Exception ex )

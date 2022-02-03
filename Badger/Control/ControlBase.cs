@@ -32,7 +32,7 @@ namespace BudgetExecution
         /// </summary>
         public ControlBase()
         {
-            BackColor = BudgetColor.FormBackColorDark;
+            BackColor = BudgetColor.FormDark;
             ForeColor = BudgetColor.ForeColorGray;
             BorderStyle = BorderStyle.FixedSingle;
             DoubleBuffered = true;

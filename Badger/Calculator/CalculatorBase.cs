@@ -55,7 +55,7 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form Property Values
-            BackColor = BudgetColor.FormBackColorDark;
+            BackColor = BudgetColor.FormDark;
             Padding = BudgetControl.Padding;
             Text = string.Empty;
             MinimumSize = BudgetSize.DialogSizeMinimum;

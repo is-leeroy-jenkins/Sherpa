@@ -80,7 +80,7 @@ namespace BudgetExecution
             Size = BudgetSize.GetSize( 1400, 800 );
             Anchor = BudgetControl.GetAnchorStyle();
             EnableHeadersVisualStyles = false;
-            BackColor = BudgetColor.FormBackColorDark;
+            BackColor = BudgetColor.FormDark;
             BorderStyle = BorderStyle.FixedSingle;
             BackgroundColor = BackColor;
 

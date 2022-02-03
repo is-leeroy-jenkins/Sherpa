@@ -48,13 +48,13 @@ namespace BudgetExecution
             Enabled = true;
             CloseHoverBackColor = Color.Red;
             CloseHoverForeColor = Color.White;
-            CloseNormalForeColor = BudgetColor.FormBackColorDark;
+            CloseNormalForeColor = BudgetColor.FormDark;
             MaximizeHoverBackColor = Color.Blue;
             MaximizeHoverForeColor = Color.White;
-            MaximizeNormalForeColor = BudgetColor.FormBackColorDark;
+            MaximizeNormalForeColor = BudgetColor.FormDark;
             MinimizeHoverBackColor = Color.Blue;
             MinimizeHoverForeColor = Color.White;
-            MinimizeNormalForeColor = BudgetColor.FormBackColorDark;
+            MinimizeNormalForeColor = BudgetColor.FormDark;
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";

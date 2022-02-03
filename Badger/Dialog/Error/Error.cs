@@ -43,18 +43,18 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form Property Values
-            BackColor = BudgetColor.FormBackColorDark;
+            BackColor = BudgetColor.FormDark;
             BorderThickness = BudgetBorder.Thin;
-            BorderColor = BudgetColor.BorderColorRed;
+            BorderColor = BudgetColor.BorderRed;
             Size = BudgetSize.FormSizeNormal;
             Font = BudgetFont.FontSizeSmall;
-            CaptionBarColor = BudgetColor.FormBackColorDark;
+            CaptionBarColor = BudgetColor.FormDark;
             CaptionBarHeight = BudgetSize.CaptionSizeNormal;
             CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
-            CaptionButtonHoverColor = BudgetColor.CaptionButtonHoverColor;
+            CaptionButtonHoverColor = BudgetColor.FormWhite;
             CaptionAlign = BudgetAlign.HorizontalLeft;
             CaptionFont = BudgetFont.FontSizeMedium;
-            MetroColor = BudgetColor.FormBackColorDark;
+            MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
             Icon = new Icon( IconPath, 33, 32 );
             ShowIcon = false;
@@ -64,18 +64,18 @@ namespace BudgetExecution
             Size = new Size( 812, 486 );
 
             // TextBox Properties
-            TextBox.BackColor =  BudgetColor.FormBackColorDark;
-            TextBox.BackColorState.Enabled = BudgetColor.FormBackColorDark;
+            TextBox.BackColor =  BudgetColor.FormDark;
+            TextBox.BackColorState.Enabled = BudgetColor.FormDark;
             TextBox.Border.Type = ShapeTypes.Rounded;
-            TextBox.Border.Color = BudgetColor.BorderColorDark;
-            TextBox.Border.HoverColor = BudgetColor.BorderColorRed;
+            TextBox.Border.Color = BudgetColor.BorderDark;
+            TextBox.Border.HoverColor = BudgetColor.BorderRed;
             TextBox.Parent = Panel;
             TextBox.Dock = DockStyle.Fill;
 
-            Panel.BackColor = BudgetColor.FormBackColorDark;
-            Panel.BackColorState.Enabled = BudgetColor.FormBackColorDark;
-            Panel.Border.Color = BudgetColor.BorderColorDark;
-            Panel.Border.HoverColor = BudgetColor.BorderColorRed;
+            Panel.BackColor = BudgetColor.FormDark;
+            Panel.BackColorState.Enabled = BudgetColor.FormDark;
+            Panel.Border.Color = BudgetColor.BorderDark;
+            Panel.Border.HoverColor = BudgetColor.BorderRed;
             Panel.Parent = this;
             Panel.Location = new Point( 61, 48 );
             Panel.Controls.Add( TextBox );
