@@ -114,21 +114,17 @@ C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.Data.SQLite.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.IO.Packaging.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.ValueTuple.xml
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe.config
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Chart.BudgetChartControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Control.ControlBase.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Control.ControlData.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Error.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BadgerMain.resources
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.PictureBox.PictureControl.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.FormBase.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.ChartForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.CalendarForm.resources
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.DataGridForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.CalculatorBase.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.TestForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Properties.Resources.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Badger.Toolbar.ToolBarControl.resources
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.GenerateResource.cache
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.CoreCompileInputs.cache
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.CopyComplete
@@ -267,3 +263,5 @@ C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.C
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.CopyComplete
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
+C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
+C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.ExecutionForm.resources
