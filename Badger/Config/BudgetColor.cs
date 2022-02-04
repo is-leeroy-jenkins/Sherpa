@@ -19,7 +19,7 @@ namespace BudgetExecution
         /// <value>
         /// The border dark.
         /// </value>
-        public static Color BorderDark { get; set; } = Color.FromArgb( 25, 18, 1 );
+        public static Color BorderDark { get; set; } = Color.FromArgb( 64, 64, 64 );
 
         /// <summary>
         /// Gets or sets the border blue.
@@ -27,7 +27,7 @@ namespace BudgetExecution
         /// <value>
         /// The border blue.
         /// </value>
-        public static Color BorderBlue { get; set; } = Color.SteelBlue;
+        public static Color SteelBlue { get; set; } = Color.SteelBlue;
 
         /// <summary>
         /// Gets or sets the border red.
@@ -59,7 +59,7 @@ namespace BudgetExecution
         /// <value>
         /// The color of the caption button hover.
         /// </value>
-        public static Color FormWhite { get; } = Color.White;
+        public static Color White { get; } = Color.White;
         
         /// <summary>
         /// Gets the caption bar black.
@@ -67,7 +67,7 @@ namespace BudgetExecution
         /// <value>
         /// The caption bar black.
         /// </value>
-        public static Color FormBlack { get; } = Color.Black;
+        public static Color Black { get; } = Color.Black;
 
         /// <summary>
         /// Gets or sets the fore red.
@@ -75,7 +75,7 @@ namespace BudgetExecution
         /// <value>
         /// The fore red.
         /// </value>
-        public static Color TextRed { get; set; } = Color.FromArgb( 192, 0, 0 );
+        public static Color Red { get; set; } = Color.FromArgb( 192, 0, 0 );
 
         /// <summary>
         /// Gets or sets the fore gray.
@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// <value>
         /// The fore color light gray.
         /// </value>
-        public static Color TextLightGray { get; set; } = Color.LightGray;
+        public static Color LightGray { get; set; } = Color.LightGray;
 
         /// <summary>
         /// Gets or sets the fore black.
@@ -100,14 +100,6 @@ namespace BudgetExecution
         /// The fore black.
         /// </value>
         public static Color ForeColorBlack { get; set; } = Color.Black;
-
-        /// <summary>
-        /// Gets or sets the color of the control dark back.
-        /// </summary>
-        /// <value>
-        /// The color of the control dark back.
-        /// </value>
-        public static Color ControlDarkBackground { get; set; } = Color.FromArgb( 20, 20, 20 );
 
         /// <summary>
         /// Gets or sets the transparent.
@@ -123,7 +115,7 @@ namespace BudgetExecution
         /// <value>
         /// The control dark interior.
         /// </value>
-        public static Color ControlInteriorColorDark { get; set; } = Color.FromArgb( 45, 45, 45 );
+        public static Color ControlInteriorDark { get; set; } = Color.FromArgb( 45, 45, 45 );
 
         /// <summary>
         /// Gets or sets the hover gray.

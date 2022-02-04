@@ -36,13 +36,13 @@ namespace BudgetExecution
             // Form Property Values
             BackColor = BudgetColor.FormDark;
             BorderThickness = BudgetBorder.Thin;
-            BorderColor = BudgetColor.BorderBlue;
+            BorderColor = BudgetColor.SteelBlue;
             Size = BudgetSize.FormSizeNormal;
             Font = BudgetFont.FontSizeSmall;
             CaptionBarColor = BudgetColor.FormDark;
             CaptionBarHeight = BudgetSize.CaptionSizeNormal;
             CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
-            CaptionButtonHoverColor = BudgetColor.FormWhite;
+            CaptionButtonHoverColor = BudgetColor.White;
             CaptionAlign = BudgetAlign.HorizontalLeft;
             CaptionFont = BudgetFont.FontSizeMedium;
             MetroColor = BudgetColor.FormDark;

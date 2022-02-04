@@ -60,7 +60,7 @@ namespace BudgetExecution
             Dock = BudgetControl.GetDockStyle();
             Visible = true;
             Enabled = true;
-            BackColor = BudgetColor.ControlInteriorColorDark;
+            BackColor = BudgetColor.ControlInteriorDark;
             ForeColor = BudgetColor.ForeColorGray;
             Font = BudgetFont.FontSizeSmall;
             Margin = BudgetControl.Margin;
@@ -75,7 +75,7 @@ namespace BudgetExecution
 
             // BackColor Configuration.
             BackColorState.Disabled = BudgetColor.FormDark;
-            BackColorState.Enabled = BudgetColor.ControlInteriorColorDark;
+            BackColorState.Enabled = BudgetColor.ControlInteriorDark;
 
             // Text Configuration.
             TextAlignment = BudgetAlign.StringAlignCenter;

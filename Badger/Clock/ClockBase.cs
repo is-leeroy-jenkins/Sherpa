@@ -33,7 +33,7 @@ namespace BudgetExecution
         /// <value>
         /// The tool tip.
         /// </value>
-        public virtual ToolTip ToolTip { get; set; }
+        public virtual ToolBase ToolTip { get; set; }
         
         /// <summary>
         /// Sets the color of the hour.

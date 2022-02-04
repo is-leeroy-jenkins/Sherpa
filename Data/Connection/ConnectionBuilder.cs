@@ -26,7 +26,7 @@ namespace BudgetExecution
         /// <summary>
         /// The provider path
         /// </summary>
-        public new NameValueCollection ProviderPath { get; set; }
+        public NameValueCollection ProviderPath { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the

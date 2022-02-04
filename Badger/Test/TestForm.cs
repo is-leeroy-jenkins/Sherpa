@@ -9,9 +9,7 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Collections.Specialized;
     using System.Drawing;
-    using Syncfusion.CompoundFile.XlsIO.Net;
     using Syncfusion.Windows.Forms;
-    using VisualPlus.Attributes;
 
     public partial class TestForm : MetroForm
     {
@@ -38,19 +36,19 @@ namespace BudgetExecution
             // Form Property Values
             BackColor = BudgetColor.FormDark;
             BorderThickness = BudgetBorder.Thin;
-            BorderColor = BudgetColor.BorderBlue;
+            BorderColor = BudgetColor.SteelBlue;
             Size = BudgetSize.FormSizeNormal;
             Font = BudgetFont.FontSizeSmall;
             CaptionBarColor = BudgetColor.FormDark;
             CaptionBarHeight = BudgetSize.CaptionSizeNormal;
             CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
-            CaptionButtonHoverColor = BudgetColor.FormWhite;
+            CaptionButtonHoverColor = BudgetColor.White;
             CaptionAlign = BudgetAlign.HorizontalLeft;
             CaptionFont = BudgetFont.FontSizeMedium;
             MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
             Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 16, 16 );
-            ShowIcon = true;
+            ShowIcon = false;
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
             Text = string.Empty;
@@ -68,10 +66,10 @@ namespace BudgetExecution
         {
             if( sender is BudgetButton _button )
             {
-                _button.ForeColor = BudgetColor.FormWhite;
+                _button.ForeColor = BudgetColor.White;
             }
 
-            TestLabel.ForeColor = BudgetColor.FormWhite;
+            TestLabel.ForeColor = BudgetColor.White;
             TestLabel.Text = Setting[ "BudgetExecutionIcon" ];
         }
 

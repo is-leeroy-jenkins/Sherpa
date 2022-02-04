@@ -81,7 +81,7 @@ namespace BudgetExecution
             this.TestButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.TestButton.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.TestButton.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.TestButton.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(74)))));
+            this.TestButton.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.TestButton.BackColorState.Pressed = System.Drawing.Color.SteelBlue;
             this.TestButton.BindingSource = null;
             this.TestButton.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
@@ -98,7 +98,7 @@ namespace BudgetExecution
             this.TestButton.HoverText = null;
             this.TestButton.Image = null;
             this.TestButton.Images = null;
-            this.TestButton.Location = new System.Drawing.Point(619, 375);
+            this.TestButton.Location = new System.Drawing.Point(628, 386);
             this.TestButton.Margin = new System.Windows.Forms.Padding(0);
             this.TestButton.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.TestButton.Name = "TestButton";

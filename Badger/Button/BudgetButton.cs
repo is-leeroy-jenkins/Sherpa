@@ -39,7 +39,7 @@ namespace BudgetExecution
         {
             // Basic Configuration
             Font = BudgetFont.FontSizeSmall;
-            ForeColor = BudgetColor.TextLightGray;
+            ForeColor = BudgetColor.LightGray;
             Margin = BudgetControl.Margin;
             Padding = BudgetControl.Padding;
             Size = BudgetSize.GetSize( 160, 80 );
@@ -55,8 +55,8 @@ namespace BudgetExecution
             BackColor = BudgetColor.FormDark;
             BackColorState.Disabled = BudgetColor.FormDark;
             BackColorState.Enabled = BudgetColor.FormDark;
-            BackColorState.Hover = BudgetColor.HoverBlue;
-            BackColorState.Pressed = BudgetColor.BorderBlue;
+            BackColorState.Hover = BudgetColor.HoverDark;
+            BackColorState.Pressed = BudgetColor.SteelBlue;
 
             // BorderColor Configuration
             Border.Color = BudgetColor.FormDark;
@@ -69,10 +69,10 @@ namespace BudgetExecution
             TextImageRelation = TextImageRelation.Overlay;
 
             // Text Configuration
-            TextStyle.Pressed = BudgetColor.FormWhite;
+            TextStyle.Pressed = BudgetColor.White;
             TextStyle.Disabled = BudgetColor.FormDark;
-            TextStyle.Enabled = BudgetColor.TextLightGray;
-            TextStyle.Hover = BudgetColor.FormWhite;
+            TextStyle.Enabled = BudgetColor.LightGray;
+            TextStyle.Hover = BudgetColor.White;
             TextStyle.TextAlignment = BudgetAlign.StringAlignCenter;
             TextStyle.TextLineAlignment = BudgetAlign.StringAlignCenter;
             MouseHover += OnMouseOver;
@@ -257,7 +257,7 @@ namespace BudgetExecution
         /// Sets the image.
         /// </summary>
         /// <param name="image">The image.</param>
-        public override void SetImage( System.Drawing.Image image )
+        public override void SetImage( Image image )
         {
             if( image != null )
             {
