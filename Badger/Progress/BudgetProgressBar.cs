@@ -9,8 +9,16 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.ProgressBarBase" />
     public class BudgetProgressBar : ProgressBarBase
     {
+        /// <summary>
+        /// Initializes a new instance of
+        /// the <see cref="BudgetProgressBar"/> class.
+        /// </summary>
         public BudgetProgressBar()
         {
             // Basic Properties
