@@ -433,6 +433,18 @@
     <Compile Include="Badger\PictureBox\BudgetPicture.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Badger\ComboBox\BudgetComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\ListBox\BudgetListBox.cs" />
+    <Compile Include="Badger\ListView\BudgetListView.cs" />
+    <Compile Include="Badger\Progress\BudgetProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\TextBox\BudgetTextBox.cs" />
+    <Compile Include="Badger\ComboBox\ComboBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />
@@ -584,6 +596,8 @@
     <Compile Include="Badger\Form\FormBase.Designer.cs">
       <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Badger\ListBox\ListBoxBase.cs" />
+    <Compile Include="Badger\ListView\ListViewBase.cs" />
     <Compile Include="Ninja\Analysis\Computation.cs" />
     <Compile Include="Ninja\Analysis\DataMetric.cs" />
     <Compile Include="Ninja\Analysis\IDataFilter.cs" />
@@ -727,6 +741,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Badger\Progress\ProgressBarBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enumerations\Provider.cs" />
     <Compile Include="Enumerations\RC.cs" />
@@ -742,6 +759,7 @@
     </Compile>
     <Compile Include="Badger\Config\BudgetSize.cs" />
     <Compile Include="Badger\Chart\SeriesModel\SourceModel.cs" />
+    <Compile Include="Badger\TextBox\RichTextBase.cs" />
     <Compile Include="Static\Resource.cs" />
     <Compile Include="Static\Static.cs" />
     <Compile Include="Static\Validate.cs" />
@@ -784,7 +802,7 @@
     <Compile Include="Badger\Test\TestForm.Designer.cs">
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToolTip.cs">
+    <Compile Include="Badger\ToolTip\ToolTip.cs">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Badger\Control\ControlBase.resx" />
@@ -2883,7 +2901,9 @@
     <Content Include="Lib\VisualPlus.dll" />
     <Content Include="readme.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Badger\Tile\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>

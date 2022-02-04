@@ -8,10 +8,12 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Windows.Forms;
     using VisualPlus.Toolkit.Controls.Layout;
 
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class GroupBoxBase : VisualGroupBox
     {
         /// <summary>
@@ -45,14 +47,6 @@ namespace BudgetExecution
         /// The filter.
         /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="GroupBoxBase"/> class.
-        /// </summary>
-        public GroupBoxBase()
-        {
-        }
         
         /// <summary>
         /// Sets the field.

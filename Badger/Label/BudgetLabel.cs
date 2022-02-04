@@ -26,7 +26,7 @@ namespace BudgetExecution
         /// <value>
         /// The tip.
         /// </value>
-        public ToolBase ToolTip { get; set; }
+        public ToolTip ToolTip { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the

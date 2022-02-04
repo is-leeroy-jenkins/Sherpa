@@ -54,7 +54,7 @@ namespace BudgetExecution
         public BudgetGroupBox()
         {
             // Basic Property Configuration.
-            Size = BudgetSize.GetSize( 700, 431 );
+            Size = BudgetSize.GetSize( 250, 150 );
             Location = BudgetControl.GetLocation();
             Anchor = BudgetControl.GetAnchorStyle();
             Dock = BudgetControl.GetDockStyle();
@@ -355,18 +355,18 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var children = new List<Control>();
+                    var _children = new List<Control>();
 
-                    foreach( Control item in Controls )
+                    foreach( Control _item in Controls )
                     {
-                        if( item != null )
+                        if( _item != null )
                         {
-                            children.Add( item );
+                            _children.Add( _item );
                         }
                     }
 
-                    return children.Any()
-                        ? children
+                    return _children.Any()
+                        ? _children
                         : default( List<Control> );
                 }
                 catch( Exception ex )
@@ -390,6 +390,44 @@ namespace BudgetExecution
                 try
                 {
                     var _ = new ToolTip( this, text );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the tag.
+        /// </summary>
+        /// <param name="tag">The tag.</param>
+        public void SetTag( object tag )
+        {
+            if( tag != null )
+            {
+                try
+                {
+                    Tag = tag;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the numeric.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        public void SetNumeric( Numeric numeric )
+        {
+            if( Enum.IsDefined( typeof( Numeric ), numeric ) )
+            {
+                try
+                {
+                    Numeric = numeric;
                 }
                 catch( Exception ex )
                 {

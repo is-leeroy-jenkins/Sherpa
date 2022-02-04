@@ -7,10 +7,12 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System;
     using System.ComponentModel;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Windows.Forms;
     using VisualPlus.Toolkit.Controls.Interactivity;
 
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class LabelBase : VisualLabel
     {
         /// <summary>
@@ -45,13 +47,6 @@ namespace BudgetExecution
         /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LabelBase"/> class.
-        /// </summary>
-        public LabelBase()
-        {
-        }
-        
         /// <summary>
         /// Sets the field.
         /// </summary>
