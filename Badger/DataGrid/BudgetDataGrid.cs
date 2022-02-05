@@ -77,7 +77,7 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 8, FontStyle.Bold );
             Margin = BudgetControl.Margin;
             Padding = BudgetControl.Padding;
-            Size = BudgetSize.GetSize( 1400, 800 );
+            Size = BudgetSize.GetSize( 240, 150 );
             Anchor = BudgetControl.GetAnchorStyle();
             EnableHeadersVisualStyles = false;
             BackColor = BudgetColor.FormDark;

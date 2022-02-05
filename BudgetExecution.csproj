@@ -323,6 +323,7 @@
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.SfInput.WinForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Syncfusion.SfListView.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.SfSmithChart.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.SfSmithChart.WinForms.dll</HintPath>
       <Private>True</Private>
@@ -548,7 +549,7 @@
     <Compile Include="Badger\Closebox\CloseBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\PictureBox\BudgetPicture.cs">
+    <Compile Include="Badger\PictureBox\BudgetPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\ComboBox\BudgetComboBox.cs">

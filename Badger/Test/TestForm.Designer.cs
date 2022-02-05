@@ -35,9 +35,50 @@ namespace BudgetExecution
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.budgetButton1 = new BudgetExecution.BudgetButton();
             this.TestButton = new BudgetExecution.BudgetButton();
             this.TestLabel = new BudgetExecution.BudgetLabel();
             this.SuspendLayout();
+            // 
+            // budgetButton1
+            // 
+            this.budgetButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.budgetButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.budgetButton1.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.budgetButton1.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.budgetButton1.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.budgetButton1.BackColorState.Pressed = System.Drawing.Color.SteelBlue;
+            this.budgetButton1.BindingSource = null;
+            this.budgetButton1.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.budgetButton1.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(74)))));
+            this.budgetButton1.Border.HoverVisible = true;
+            this.budgetButton1.Border.Rounding = 6;
+            this.budgetButton1.Border.Thickness = 1;
+            this.budgetButton1.Border.Type = VisualPlus.Enumerators.ShapeTypes.Rounded;
+            this.budgetButton1.Border.Visible = true;
+            this.budgetButton1.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.budgetButton1.Field = BudgetExecution.Field.NS;
+            this.budgetButton1.Font = new System.Drawing.Font("Roboto", 8F);
+            this.budgetButton1.ForeColor = System.Drawing.Color.LightGray;
+            this.budgetButton1.HoverText = null;
+            this.budgetButton1.Image = null;
+            this.budgetButton1.Images = null;
+            this.budgetButton1.Location = new System.Drawing.Point(1412, 782);
+            this.budgetButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.budgetButton1.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.budgetButton1.Name = "budgetButton1";
+            this.budgetButton1.Size = new System.Drawing.Size(187, 37);
+            this.budgetButton1.TabIndex = 4;
+            this.budgetButton1.Text = "budgetButton1";
+            this.budgetButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.budgetButton1.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.budgetButton1.TextStyle.Enabled = System.Drawing.Color.LightGray;
+            this.budgetButton1.TextStyle.Hover = System.Drawing.Color.White;
+            this.budgetButton1.TextStyle.Pressed = System.Drawing.Color.White;
+            this.budgetButton1.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.budgetButton1.TextStyle.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            this.budgetButton1.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.budgetButton1.ToolTip = null;
             // 
             // TestButton
             // 
@@ -62,11 +103,11 @@ namespace BudgetExecution
             this.TestButton.HoverText = null;
             this.TestButton.Image = null;
             this.TestButton.Images = null;
-            this.TestButton.Location = new System.Drawing.Point(1070, 735);
+            this.TestButton.Location = new System.Drawing.Point(1427, 905);
             this.TestButton.Margin = new System.Windows.Forms.Padding(0);
             this.TestButton.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.TestButton.Name = "TestButton";
-            this.TestButton.Size = new System.Drawing.Size(140, 30);
+            this.TestButton.Size = new System.Drawing.Size(187, 37);
             this.TestButton.TabIndex = 2;
             this.TestButton.Text = "budgetButton1";
             this.TestButton.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
@@ -88,7 +129,8 @@ namespace BudgetExecution
             this.TestLabel.Field = BudgetExecution.Field.NS;
             this.TestLabel.Font = new System.Drawing.Font("Roboto", 8F);
             this.TestLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
-            this.TestLabel.Location = new System.Drawing.Point(279, 211);
+            this.TestLabel.Location = new System.Drawing.Point(168, 116);
+            this.TestLabel.Margin = new System.Windows.Forms.Padding(4);
             this.TestLabel.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.TestLabel.Name = "TestLabel";
             this.TestLabel.Numeric = BudgetExecution.Numeric.NS;
@@ -102,7 +144,7 @@ namespace BudgetExecution
             this.TestLabel.ShadowDirection = 315;
             this.TestLabel.ShadowLocation = new System.Drawing.Point(0, 0);
             this.TestLabel.ShadowOpacity = 100;
-            this.TestLabel.Size = new System.Drawing.Size(639, 23);
+            this.TestLabel.Size = new System.Drawing.Size(852, 28);
             this.TestLabel.TabIndex = 1;
             this.TestLabel.TextAlignment = System.Drawing.StringAlignment.Center;
             this.TestLabel.TextLineAlignment = System.Drawing.StringAlignment.Center;
@@ -117,11 +159,15 @@ namespace BudgetExecution
             // 
             // TestForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1208, 764);
+            this.ClientSize = new System.Drawing.Size(1608, 884);
+            this.Controls.Add(this.budgetButton1);
             this.Controls.Add(this.TestButton);
             this.Controls.Add(this.TestLabel);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.LightGray;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "TestForm";
             this.Text = "TestForm";
             this.ResumeLayout(false);
@@ -131,5 +177,6 @@ namespace BudgetExecution
         #endregion
         private BudgetLabel TestLabel;
         private BudgetButton TestButton;
+        private BudgetButton budgetButton1;
     }
 }

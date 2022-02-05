@@ -24,7 +24,7 @@ namespace BudgetExecution
         public BudgetListBox()
         {
             // Basic Properties
-            Size = BudgetSize.GetSize( 250, 150 );
+            Size = BudgetSize.GetSize( 200, 100 );
             Location = BudgetControl.GetLocation();
             Anchor = BudgetControl.GetAnchorStyle();
             Dock = BudgetControl.GetDockStyle();

@@ -1,4 +1,4 @@
-﻿// <copyright file = "BudgetPicture.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "BudgetPictureBox.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 //
@@ -8,12 +8,9 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
 
-    public class BudgetPicture : PictureBase
+    public class BudgetPictureBox : PictureBase
     {
         /// <summary>
         /// Gets or sets the tool tip.
@@ -73,10 +70,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetPicture" />
+        /// <see cref="BudgetPictureBox" />
         /// class.
         /// </summary>
-        public BudgetPicture()
+        public BudgetPictureBox()
         {
             Anchor = BudgetControl.GetAnchorStyle( AnchorStyles.Left & AnchorStyles.Top );
             Location = BudgetControl.GetLocation();
@@ -88,12 +85,12 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetPicture" />
+        /// <see cref="BudgetPictureBox" />
         /// class.
         /// </summary>
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
-        public BudgetPicture( Size size, Point location )
+        public BudgetPictureBox( Size size, Point location )
             : this()
         {
             Size = BudgetSize.GetSize( size );
@@ -102,11 +99,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetPicture" />
+        /// <see cref="BudgetPictureBox" />
         /// class.
         /// </summary>
         /// <param name="imageBuilder">The imagebuilder.</param>
-        public BudgetPicture( ImageBuilder imageBuilder )
+        public BudgetPictureBox( ImageBuilder imageBuilder )
             : this()
         {
             BudgetImage = new ExecutionImage( imageBuilder );
@@ -115,11 +112,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetPicture" />
+        /// <see cref="BudgetPictureBox" />
         /// class.
         /// </summary>
         /// <param name="image">The image.</param>
-        public BudgetPicture( IBudgetImage image )
+        public BudgetPictureBox( IBudgetImage image )
             : this()
         {
             BudgetImage = image;

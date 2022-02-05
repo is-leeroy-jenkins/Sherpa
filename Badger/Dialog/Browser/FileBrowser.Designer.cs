@@ -1,12 +1,6 @@
 ﻿
 namespace BudgetExecution
 {
-    
-    
-        // ********************************************************************************************************************************
-        // *********************************************************  ASSEMBLIES   ********************************************************
-        // ********************************************************************************************************************************
-        
         using System;
         using System.ComponentModel;
         using System.Threading;
@@ -65,7 +59,7 @@ namespace BudgetExecution
             this.XlsxCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.XlsCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.Header = new System.Windows.Forms.TableLayoutPanel();
-            this.Picture = new BudgetExecution.BudgetPicture();
+            this.Picture = new BudgetExecution.BudgetPictureBox();
             this.CloseBoxPanel1 = new BudgetExecution.CloseBox();
             this.Dialog = new System.Windows.Forms.OpenFileDialog();
             this.visualSeparator1 = new VisualPlus.Toolkit.Controls.Layout.VisualSeparator();
@@ -898,24 +892,24 @@ namespace BudgetExecution
             public TableLayoutPanel Table;
 
             public VisualRichTextBox visualRichTextBox1;
-        private TableLayoutPanel tableLayoutPanel2;
-        public TableLayoutPanel Table3;
-        public VisualCheckBox CsvCheckBox;
-        public VisualCheckBox XlsxCheckBox;
-        public VisualCheckBox XlsCheckBox;
-        public OpenFileDialog Dialog;
-        public VisualCheckBox visualCheckBox4;
-        public VisualCheckBox visualCheckBox2;
-        public VisualCheckBox visualCheckBox3;
-        public VisualCheckBox visualCheckBox1;
-        public VisualCheckBox visualCheckBox6;
-        public VisualCheckBox visualCheckBox5;
-        public VisualSeparator visualSeparator1;
-        private VisualSeparator visualSeparator2;
-        public PictureBase Picture;
-        public CloseBoxBase CloseBoxPanel1;
-        public BudgetLabel SideLabel;
-        public TableLayoutPanel Header;
+            private TableLayoutPanel tableLayoutPanel2;
+            public TableLayoutPanel Table3;
+            public VisualCheckBox CsvCheckBox;
+            public VisualCheckBox XlsxCheckBox;
+            public VisualCheckBox XlsCheckBox;
+            public OpenFileDialog Dialog;
+            public VisualCheckBox visualCheckBox4;
+            public VisualCheckBox visualCheckBox2;
+            public VisualCheckBox visualCheckBox3;
+            public VisualCheckBox visualCheckBox1;
+            public VisualCheckBox visualCheckBox6;
+            public VisualCheckBox visualCheckBox5;
+            public VisualSeparator visualSeparator1;
+            private VisualSeparator visualSeparator2;
+            public PictureBase Picture;
+            public CloseBoxBase CloseBoxPanel1;
+            public BudgetLabel SideLabel;
+            public TableLayoutPanel Header;
     }
     
 }

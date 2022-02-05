@@ -38,6 +38,20 @@ namespace BudgetExecution
             Enabled = true;
             Visible = true;
             Selectable = true;
+            ControlStyle = LVControlStyles.SuperFlat;
+            GridLines = GridLines.Horizontal;
+            GridColor = BudgetColor.WindowFrame;
+            GridLineStyle = GridLineStyle.Dashed;
+            DisplayTextFont = new Font( "Roboto", 10 );
+            DisplayTextOnEmpty = false;
+            DisplayTextColor = BudgetColor.LightGray;
+            FullRowSelect = true;
+            AllowColumnResize = true;
+            AlternatingColors = false;
+            HoverColumnTracking = true;
+            HeaderVisible = false;
+            ItemSelectedColor = BudgetColor.SteelBlue;
+            ItemSelectedTextColor = BudgetColor.White;
 
             // Backcolor Configuration
             BackColor = BudgetColor.FormDark;
@@ -46,7 +60,7 @@ namespace BudgetExecution
             BackColorState.Enabled = BudgetColor.FormDark;
 
             // Border Configuration
-            Border.Color = BudgetColor.FormDark;
+            Border.Color = BudgetColor.WindowFrame;
             Border.Thickness = BudgetBorder.Thin;
             Border.HoverColor = BudgetColor.SteelBlue;
             Border.HoverVisible = false;
@@ -120,12 +134,12 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
-        /// <param name="bindingsource">The bindingsource.</param>
+        /// <param name="bindingSource">The binding source.</param>
         public BudgetListView( Size size, Point location, Control parent,
-            BudgetBinding bindingsource )
+            BudgetBinding bindingSource )
             : this( size, location, parent )
         {
-            BindingSource = bindingsource;
+            BindingSource = bindingSource;
         }
         
         /// <summary>
@@ -169,18 +183,18 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the color of the border.
         /// </summary>
-        /// <param name="hovercolor">if set to <c>true</c> [hovercolor].</param>
-        public void SetBorderConfiguration( bool hovercolor )
+        /// <param name="hoverColor">if set to <c>true</c> [hover color].</param>
+        public void SetBorderConfiguration( bool hoverColor )
         {
             try
             {
-                switch( hovercolor )
+                switch( hoverColor )
                 {
                     case true:
                     {
                         Border.Color = Color.FromArgb( 64, 64, 64 );
                         Border.Thickness = BudgetBorder.Thin;
-                        Border.HoverColor = BudgetColor.BorderDark;
+                        Border.HoverColor = BudgetColor.WindowFrame;
                         Border.HoverVisible = true;
                         Border.Type = ShapeTypes.Rounded;
                         break;
@@ -190,7 +204,7 @@ namespace BudgetExecution
                     {
                         Border.Color = BudgetColor.FormDark;
                         Border.Thickness = BudgetBorder.Thin;
-                        Border.HoverColor = BudgetColor.FormDark;
+                        Border.HoverColor = BudgetColor.SteelBlue;
                         Border.HoverVisible = false;
                         Border.Type = ShapeTypes.Rounded;
                         break;
@@ -324,6 +338,72 @@ namespace BudgetExecution
                 try
                 {
                     Numeric = numeric;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adds the item.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        public void AddItem( string item )
+        {
+            if( Verify.IsInput( item ) )
+            {
+                try
+                {
+                    Items.Add( item );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adds the items.
+        /// </summary>
+        /// <param name="items">The items.</param>
+        public void AddItems( IEnumerable<string> items )
+        {
+            if( items?.Count() > 0 )
+            {
+                try
+                {
+                    foreach( var _item in items )
+                    {
+                        Items.Add( _item );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adds the item.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        public void RemoveItem( string item )
+        {
+            if( Verify.IsInput( item ) )
+            {
+                try
+                {
+                    foreach ( var _listItem in Items )
+                    {
+                        if( _listItem.Equals( item ) )
+                        {
+                            Items.RemoveByKey( item );
+                        }
+                    }
                 }
                 catch( Exception ex )
                 {

@@ -36,9 +36,9 @@ namespace BudgetExecution
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BadgerMain));
-            this.picturePanel1 = new BudgetExecution.BudgetPicture();
+            this.picturePanel1 = new BudgetExecution.BudgetPictureBox();
             this.TestButton = new BudgetExecution.BudgetButton();
-            this.LoadingBase = new BudgetExecution.BudgetPicture();
+            this.LoadingBase = new BudgetExecution.BudgetPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picturePanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoadingBase)).BeginInit();
             this.SuspendLayout();
