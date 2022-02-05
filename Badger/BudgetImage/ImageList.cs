@@ -25,15 +25,15 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref = "ImageList"/> class.
         /// </summary>
-        /// <param name = "imagesource" >
-        /// The imagesource.
+        /// <param name = "imageSource" >
+        /// The image source.
         /// </param>
         /// <param name = "size" >
         /// The size.
         /// </param>
-        public ImageList( ImageSource imagesource, Size size )
+        public ImageList( ImageSource imageSource, Size size )
         {
-            Source = imagesource;
+            Source = imageSource;
             ImageSize = size;
             Builder = new ImageBuilder( Source );
             Factory = new ImageFactory( Builder );
@@ -73,12 +73,12 @@ namespace BudgetExecution
         public ImageSource Source { get; set; }
 
         /// <summary>
-        /// Gets or sets the binding souce.
+        /// Gets or sets the binding source.
         /// </summary>
         /// <value>
         /// The binding souce.
         /// </value>
-        public BindingSource BindingSouce { get; set; }
+        public BindingSource BindingSource { get; set; }
 
         /// <summary>
         /// Gets or sets the image.

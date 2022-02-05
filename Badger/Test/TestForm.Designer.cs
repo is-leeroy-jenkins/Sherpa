@@ -35,10 +35,6 @@ namespace BudgetExecution
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.Tools.TextItem textItem1 = new Syncfusion.Windows.Forms.Tools.TextItem();
-            Syncfusion.Windows.Forms.Tools.TextItem textItem2 = new Syncfusion.Windows.Forms.Tools.TextItem();
-            Syncfusion.Windows.Forms.Tools.TextItem textItem3 = new Syncfusion.Windows.Forms.Tools.TextItem();
-            Syncfusion.Windows.Forms.Tools.TextItem textItem4 = new Syncfusion.Windows.Forms.Tools.TextItem();
             this.TestButton = new BudgetExecution.BudgetButton();
             this.TestLabel = new BudgetExecution.BudgetLabel();
             this.SuspendLayout();
@@ -66,7 +62,7 @@ namespace BudgetExecution
             this.TestButton.HoverText = null;
             this.TestButton.Image = null;
             this.TestButton.Images = null;
-            this.TestButton.Location = new System.Drawing.Point(639, 425);
+            this.TestButton.Location = new System.Drawing.Point(1070, 735);
             this.TestButton.Margin = new System.Windows.Forms.Padding(0);
             this.TestButton.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.TestButton.Name = "TestButton";
@@ -92,7 +88,7 @@ namespace BudgetExecution
             this.TestLabel.Field = BudgetExecution.Field.NS;
             this.TestLabel.Font = new System.Drawing.Font("Roboto", 8F);
             this.TestLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
-            this.TestLabel.Location = new System.Drawing.Point(69, 61);
+            this.TestLabel.Location = new System.Drawing.Point(279, 211);
             this.TestLabel.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.TestLabel.Name = "TestLabel";
             this.TestLabel.Numeric = BudgetExecution.Numeric.NS;
@@ -123,7 +119,7 @@ namespace BudgetExecution
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 464);
+            this.ClientSize = new System.Drawing.Size(1208, 764);
             this.Controls.Add(this.TestButton);
             this.Controls.Add(this.TestLabel);
             this.Name = "TestForm";

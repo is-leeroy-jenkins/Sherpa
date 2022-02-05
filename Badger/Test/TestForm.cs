@@ -37,7 +37,7 @@ namespace BudgetExecution
             BackColor = BudgetColor.FormDark;
             BorderThickness = BudgetBorder.Thin;
             BorderColor = BudgetColor.SteelBlue;
-            Size = BudgetSize.FormSizeNormal;
+            Size = new Size( 1220, 800 );
             Font = BudgetFont.FontSizeSmall;
             CaptionBarColor = BudgetColor.FormDark;
             CaptionBarHeight = BudgetSize.CaptionSizeNormal;
