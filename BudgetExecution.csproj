@@ -570,7 +570,9 @@
     <Compile Include="Badger\Excel\ExcelForm.Designer.cs">
       <DependentUpon>ExcelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BudgetTile.cs" />
+    <Compile Include="Badger\Tile\BudgetTile.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />
@@ -926,6 +928,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Excel\BudgetWorkbook.cs" />
+    <Compile Include="Badger\Tile\TileBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Badger\Dialog\Error\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
     </EmbeddedResource>
@@ -3019,9 +3024,7 @@
     <Content Include="Lib\VisualPlus.dll" />
     <Content Include="readme.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Badger\Tile\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
