@@ -1,4 +1,4 @@
-﻿// <copyright file = "ExcelForm.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "ExcelBase.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -6,56 +6,25 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Data.OleDb;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
     using System.IO;
-    using System.Linq;
-    using System.Windows.Forms;
     using OfficeOpenXml;
-    using Syncfusion.Windows.Forms.Spreadsheet;
-    using Syncfusion.XlsIO;
-    using Color = System.Drawing.Color;
-    using DataTable = System.Data.DataTable;
+    using OfficeOpenXml.Style;
 
     /// <summary>
     /// 
     /// </summary>
-    public abstract class SpreadsheetBase
+    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToConstant.Global" ) ]
+    public abstract class ExcelBase : ExcelSettings, IBudgetWorkbook
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ExcelForm"/> class.
-        /// </summary>
-        /// <summary>
-        /// Gets or sets the file path.
-        /// </summary>
-        /// <value>
-        /// The file path.
-        /// </value>
-        public virtual string FilePath { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the file.
-        /// </summary>
-        /// <value>
-        /// The name of the file.
-        /// </value>
-        public virtual string FileName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the connection string.
-        /// </summary>
-        /// <value>
-        /// The connection string.
-        /// </value>
-        public virtual string ConnectionString { get; set; }
-
-        /// <summary>
-        /// Gets the file information.
-        /// </summary>
-        /// <value>
-        /// The file information.
-        /// </value>
-        public virtual FileInfo FileInfo { get; set; }
-
         /// <summary>
         /// Gets or sets the data connection.
         /// </summary>
@@ -97,205 +66,71 @@ namespace BudgetExecution
         public virtual EXT Ext { get; set; }
 
         /// <summary>
-        /// Sets the file path.
+        /// Gets or sets the file information.
         /// </summary>
-        /// <param name="filePath">The filePath.</param>
-        public virtual void SetFilePath( string filePath )
-        {
-            if( Verify.IsInput( filePath )
-                && File.Exists( filePath ) )
-            {
-                try
-                {
-                    FilePath = Path.GetFileName( filePath );
-                }
-                catch( Exception e )
-                {
-                    Console.WriteLine( e );
-                    throw;
-                }
-            }
-        }
+        /// <value>
+        /// The file information.
+        /// </value>
+        public virtual FileInfo FileInfo { get; set; }
 
         /// <summary>
-        /// Sets the name of the file.
+        /// Gets or sets the excel.
         /// </summary>
-        /// <param name="filePath">The filePath.</param>
-        public virtual void SetFileName( string filePath )
-        {
-            if( Verify.IsInput( filePath )
-                && File.Exists( filePath ) )
-            {
-                try
-                {
-                    FilePath = Path.GetFileNameWithoutExtension( filePath );
-                }
-                catch( Exception e )
-                {
-                    Console.WriteLine( e );
-                    throw;
-                }
-            }
-        }
+        /// <value>
+        /// The excel.
+        /// </value>
+        public virtual ExcelPackage Excel { get; set; }
 
         /// <summary>
-        /// Gets the file extension.
+        /// Gets or sets the workbook.
         /// </summary>
-        /// <param name="filePath">The filePath.</param>
-        /// <returns></returns>
-        public virtual EXT GetFileExtension( string filePath )
-        {
-            try
-            {
-                var _path = Path.GetExtension( filePath );
-
-                if( _path != null )
-                {
-                    var _extension = (EXT)Enum.Parse( typeof( EXT ), _path );
-
-                    return Enum.IsDefined( typeof( EXT ), _extension )
-                        ? _extension
-                        : default( EXT );
-                }
-
-                return default( EXT );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( EXT );
-            }
-        }
+        /// <value>
+        /// The workbook.
+        /// </value>
+        public virtual ExcelWorkbook Workbook { get; set; }
 
         /// <summary>
-        /// Gets the connection string.
+        /// Gets or sets the workSheet.
         /// </summary>
-        /// <param name="extension">The extension.</param>
-        /// <param name="filePath">The filePath.</param>
-        /// <returns></returns>
-        public virtual string GetConnectionString( string extension, string filePath )
-        {
-            if( Verify.IsInput( extension )
-                && Verify.IsInput( filePath ) )
-            {
-                try
-                {
-                    ConnectionString = extension?.ToUpper() switch
-                    {
-                        ".XLS" => @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source="
-                            + filePath
-                            + ";Extended Properties=\"Excel 8.0;HDR=YES;\"",
-                        ".Report" => @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="
-                            + filePath
-                            + ";Extended Properties=\"Excel 12.0;HDR=YES;\"",
-                        _ => ConnectionString
-                    };
-
-                    return Verify.IsInput( ConnectionString )
-                        ? ConnectionString
-                        : string.Empty;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return string.Empty;
-                }
-            }
-
-            return string.Empty;
-        }
+        /// <value>
+        /// The workSheet.
+        /// </value>
+        public virtual ExcelWorksheet Worksheet { get; set; }
 
         /// <summary>
-        /// Sets the excel form.
+        /// Gets or sets the comment.
         /// </summary>
-        /// <param name="spreadSheet">The spreadSheet.</param>
-        /// <param name="dataTable">The dataTable.</param>
-        public virtual void SetExcelForm( Spreadsheet spreadSheet, DataTable dataTable )
-        {
-            if( spreadSheet != null
-                && dataTable?.Rows?.Count > 0 )
-            {
-                try
-                {
-                    spreadSheet.Workbook.ActiveSheet.ListObjects.Clear();
-                    spreadSheet.Workbook.ActiveSheet.UsedRange.Clear( true );
-                    spreadSheet.Workbook.ActiveSheet.StandardWidth = 12.5f;
-                    var name = spreadSheet.Workbook.Worksheets[ 0 ].Name;
-                    var sheet = spreadSheet.Workbook.ActiveSheet;
-                    spreadSheet.ActiveSheet.ImportDataTable( dataTable, true, 1, 1 );
-                    var range = sheet.UsedRange;
-                    var table = sheet.ListObjects.Create( name, range );
-                    table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium2;
-                    spreadSheet.ActiveGrid.InvalidateCells();
-                    spreadSheet.SetZoomFactor( "Sheet1", 110 );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
+        /// <value>
+        /// The comment.
+        /// </value>
+        public virtual IEnumerable<ExcelComment> Comment { get; set; }
 
         /// <summary>
-        /// Sets the excel form.
+        /// Gets or sets the Data.
         /// </summary>
-        /// <param name="spreadSheet">The spreadSheet.</param>
-        /// <param name="dataGrid">The dataGrid.</param>
-        public virtual void SetExcelForm( Spreadsheet spreadSheet, DataGridView dataGrid )
-        {
-            if( spreadSheet != null
-                && dataGrid?.DataSource != null )
-            {
-                try
-                {
-                    spreadSheet.Workbook.ActiveSheet.ListObjects.Clear();
-                    spreadSheet.Workbook.ActiveSheet.StandardWidth = 12.5f;
-                    var name = spreadSheet.Workbook.Worksheets[ 0 ].Name;
-                    var sheet = spreadSheet.Workbook.ActiveSheet;
-
-                    spreadSheet.ActiveSheet.ImportDataGridView( dataGrid, 1, 1, true,
-                        false );
-
-                    var range = sheet.UsedRange;
-                    var table = sheet.ListObjects.Create( name, range );
-                    table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium2;
-                    spreadSheet.ActiveGrid.InvalidateCells();
-                    spreadSheet.SetZoomFactor( "Sheet1", 110 );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
+        /// <value>
+        /// The Data.
+        /// </value>
+        public virtual IEnumerable<DataRow> Data { get; set; }
         
         /// <summary>
-        /// Adds the comment.
+        /// Sets the width of the column.
         /// </summary>
-        /// <param name="grid">The grid.</param>
-        /// <param name="text">The text.</param>
-        public void AddComment( Grid grid, string text )
+        /// <param name = "grid" >
+        /// The grid.
+        /// </param>
+        /// <param name = "width" >
+        /// The width.
+        /// </param>
+        public virtual void SetColumnWidth( Grid grid, double width )
         {
-            if( Validate.Grid( grid )
-                && Verify.IsInput( text ) )
+            if( grid?.GetWorksheet() != null
+                && width > 0d )
             {
                 try
                 {
-                    using var _range = grid?.GetRange();
-                    var _excelComment = _range?.AddComment( text, "Budget" );
-
-                    if( _excelComment != null )
-                    {
-                        _excelComment.From.Row = _range.Start.Row;
-                        _excelComment.From.Column = _range.Start.Column;
-                        _excelComment.To.Row = _range.End.Row;
-                        _excelComment.To.Column = _range.End.Column;
-                        _excelComment.BackgroundColor = BudgetColor.FormDark;
-                        _excelComment.Font.FontName = "Consolas";
-                        _excelComment.Font.Size = 8;
-                        _excelComment.Font.Color = Color.Black;
-                        _excelComment.Text = text;
-                    }
+                    using var _range = grid.GetRange();
+                    _range.AutoFitColumns( width );
                 }
                 catch( Exception ex )
                 {
@@ -305,25 +140,26 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the caption text.
+        /// Sets the color of the backgroud.
         /// </summary>
-        /// <param name="grid">The grid.</param>
-        public void SetCaptionText( Grid grid )
+        /// <param name = "grid" >
+        /// The grid.
+        /// </param>
+        /// <param name = "color" >
+        /// The color.
+        /// </param>
+        public virtual void SetBackgroundColor( Grid grid, Color color )
         {
-            if( Validate.Grid( grid ) )
+            if( grid?.GetWorksheet() != null
+                && grid?.GetRange() != null
+                && color != Color.Empty )
             {
                 try
                 {
-                    using var _sheet = grid.GetWorksheet();
-                    var _row = grid.GetRange().Start.Row;
-                    var _column = grid.GetRange().Start.Column;
-                    _sheet.Cells[ _row, _column ].Value = "Account";
-                    _sheet.Cells[ _row, _column + 1 ].Value = "SuperfundSite";
-                    _sheet.Cells[ _row, _column + 2 ].Value = "Travel";
-                    _sheet.Cells[ _row, _column  + 3 ].Value = "Expenses";
-                    _sheet.Cells[ _row, _column  + 4 ].Value = "Contracts";
-                    _sheet.Cells[ _row, _column  + 5 ].Value = "Grants";
-                    _sheet.Cells[ _row, _column  + 6 ].Value = "Total";
+                    using var _range = grid.GetRange();
+                    _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    _range.Style.Fill.BackgroundColor.SetColor( color );
+                    _range.Style.HorizontalAlignment = Left;
                 }
                 catch( Exception ex )
                 {
@@ -333,27 +169,113 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the text.
+        /// Sets the range font.
         /// </summary>
-        /// <param name="grid">The grid.</param>
-        /// <param name="text">The text.</param>
-        public void SetText( Grid grid, IEnumerable<string> text )
+        /// <param name = "grid" >
+        /// The grid.
+        /// </param>
+        /// <param name = "font" >
+        /// The font.
+        /// </param>
+        public virtual void SetRangeFont( Grid grid, Font font )
         {
-            if( Validate.Grid( grid )
-                && text?.Any() == true 
-                && grid.GetRange().Any() )
+            if( grid?.GetWorksheet() != null
+                && grid?.GetRange() != null
+                && font != null )
             {
                 try
                 {
-                    foreach( var cell in grid.GetRange() )
+                    using var _range = grid.GetRange();
+                    _range.Style.Font.SetFromFont( font );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the color of the font.
+        /// </summary>
+        /// <param name = "grid" >
+        /// The grid.
+        /// </param>
+        /// <param name = "color" >
+        /// The color.
+        /// </param>
+        public virtual void SetFontColor( Grid grid, Color color )
+        {
+            if( grid?.GetWorksheet() != null
+                && grid?.GetRange() != null
+                && color != Color.Empty )
+            {
+                try
+                {
+                    using var _range = grid.GetRange();
+                    _range.Style.Font.Color.SetColor( color );
+                    _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the border style.
+        /// </summary>
+        /// <param name = "grid" >
+        /// The grid.
+        /// </param>
+        /// <param name = "side" >
+        /// The side.
+        /// </param>
+        /// <param name = "style" >
+        /// The style.
+        /// </param>
+        public virtual void SetBorderStyle( Grid grid, BorderSide side, ExcelBorderStyle style )
+        {
+            if( grid?.GetWorksheet() != null
+                && grid?.GetRange() != null
+                && Enum.IsDefined( typeof( ExcelBorderStyle ), style )
+                && Enum.IsDefined( typeof( BorderSide ), side ) )
+            {
+                try
+                {
+                    using var _range = grid.GetRange();
+
+                    switch( side )
                     {
-                        foreach( var caption in text )
+                        case BorderSide.Top:
                         {
-                            if( cell != null
-                                && Verify.IsInput( caption ) )
-                            {
-                                cell.Value = caption;
-                            }
+                            _range.Style.Border.Top.Style = style;
+                            break;
+                        }
+
+                        case BorderSide.Bottom:
+                        {
+                            _range.Style.Border.Bottom.Style = style;
+                            break;
+                        }
+
+                        case BorderSide.Right:
+                        {
+                            _range.Style.Border.Right.Style = style;
+                            break;
+                        }
+
+                        case BorderSide.Left:
+                        {
+                            _range.Style.Border.Left.Style = style;
+                            break;
+                        }
+
+                        default:
+                        {
+                            _range.Style.Border.BorderAround( ExcelBorderStyle.None );
+                            break;
                         }
                     }
                 }
@@ -365,14 +287,79 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Sets the horizontal aligment.
         /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
+        /// <param name = "grid" >
+        /// The grid.
+        /// </param>
+        /// <param name = "align" >
+        /// The align.
+        /// </param>
+        public virtual void SetHorizontalAlignment( Grid grid, ExcelHorizontalAlignment align )
         {
-            using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            if( grid?.GetWorksheet() != null
+                && grid?.GetRange() != null
+                && Enum.IsDefined( typeof( ExcelHorizontalAlignment ), align ) )
+            {
+                try
+                {
+                    using var _range = grid.GetRange();
+                    _range.Style.HorizontalAlignment = align;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the vertical aligment.
+        /// </summary>
+        /// <param name = "grid" >
+        /// The grid.
+        /// </param>
+        /// <param name = "align" >
+        /// The align.
+        /// </param>
+        public virtual void SetVerticalAligment( Grid grid, ExcelVerticalAlignment align )
+        {
+            if( grid?.GetWorksheet() != null
+                && Enum.IsDefined( typeof( ExcelVerticalAlignment ), align ) )
+            {
+                try
+                {
+                    using var _range = grid.GetRange();
+                    _range.Style.VerticalAlignment = align;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Merges the cells.
+        /// </summary>
+        /// <param name = "grid" >
+        /// The grid.
+        /// </param>
+        public virtual void MergeCells( Grid grid )
+        {
+            if( grid?.GetWorksheet() != null
+                && grid?.GetRange() != null )
+            {
+                try
+                {
+                    using var _range = grid.GetRange();
+                    _range.Merge = true;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
         }
     }
 }

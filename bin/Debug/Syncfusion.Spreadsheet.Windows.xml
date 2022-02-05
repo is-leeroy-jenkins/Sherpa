@@ -340,7 +340,7 @@
         </member>
         <member name="F:Syncfusion.Windows.Forms.CellGrid.FormulaEngine.TABLE_DATA">
             <summary>
-            used to calculate the dataRows in Table
+            used to calculate the data in Table
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.CellGrid.FormulaEngine.TABLE_ALL">
@@ -532,9 +532,9 @@
             	myCalcEngine.RegisterGridAsSheet("income", calcData2, sheetfamilyID);
             	myCalcEngine.RegisterGridAsSheet("expenses", calcData3, sheetfamilyID);
             	....
-            	//Sample formula usage for cells in calcData1, the 'summary' dataRows source.
-            	//This code sums ups some cells from calcData3, the 'expenses' dataRows source
-            	//and calcData2, the 'income' dataRows source.
+            	//Sample formula usage for cells in calcData1, the 'summary' data source.
+            	//This code sums ups some cells from calcData3, the 'expenses' data source
+            	//and calcData2, the 'income' data source.
             	//Sum the range B2:B8 from expenses:
             	string sumExpenses = "= Sum(expenses!B2:expenses!B8)";
             	//Sum the range B2:B4 from income:
@@ -547,9 +547,9 @@
             	myCalcEngine.RegisterGridAsSheet("income", calcData2, sheetfamilyID)
             	myCalcEngine.RegisterGridAsSheet("expenses", calcData3, sheetfamilyID)
             	....
-            	'Sample formula usage for cells in calcData1, the 'summary' dataRows source.
-            	'This code sums ups some cells from calcData3, the 'expenses' dataRows source
-            	'and calcData2, the 'income' dataRows source.
+            	'Sample formula usage for cells in calcData1, the 'summary' data source.
+            	'This code sums ups some cells from calcData3, the 'expenses' data source
+            	'and calcData2, the 'income' data source.
             	'Sum the range B2:B8 from expenses:
             	Dim sumExpenses As String = "= Sum(expenses!B2:expenses!B8)"
             	'Sum the range B2:B4 from income:
@@ -1096,7 +1096,7 @@
             <param name="argList">Data to be converted.</param>
             <param name="from">Base of the Given Data</param>
             <param name="to">Base to be obtained.</param>
-            <returns>The dataRows concerning to the base in 'to' parameter</returns>
+            <returns>The data concerning to the base in 'to' parameter</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.FormulaEngine.ComputeDec2Bin(System.String)">
             <summary>
@@ -1109,7 +1109,7 @@
             <summary>
             Computes the Octal value for the given Decimal Number.
             </summary>
-            <param name="argList">dataRows to be converted.</param>
+            <param name="argList">data to be converted.</param>
             <returns>Returns the calculated Octal value.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.FormulaEngine.ComputeDec2Hex(System.String)">
@@ -3044,13 +3044,13 @@
             <summary>
             Returns the mean of an array.
             </summary>
-            <param name="array">Array of dataRows for which we are calculating the mean.</param>
+            <param name="array">Array of data for which we are calculating the mean.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.FormulaEngine.Mean(System.Double[],System.Double)">
             <summary>
             Returns the mean of an array.
             </summary>
-            <param name="array">Array of dataRows for which we are calculating the mean.  For time series, the last element (index = n-1), is the most recent.</param>
+            <param name="array">Array of data for which we are calculating the mean.  For time series, the last element (index = n-1), is the most recent.</param>
             <param name="decayFactor">In most applications, the decay factor is between 0 and 1.  Weigth on the last element in array is 1.0, the 2nd to last element d, 3rd to last d^2, ...</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.FormulaEngine.InverseSumOfGeometricSeries(System.Double,System.Int32)">
@@ -3147,7 +3147,7 @@
             Calculates the statistics for a straight line that explains the relationship between the independent variable and one or more dependent variables
             </summary>
             <param name="range">Parsed range.</param>
-            <returns>an array describing the line. The function uses the least squares method to find the best fit for your dataRows.</returns>
+            <returns>an array describing the line. The function uses the least squares method to find the best fit for your data.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.FormulaEngine.ComputeChiinv(System.String)">
             <summary>
@@ -3358,7 +3358,7 @@
             cell references,
             formulas, or numbers.
             </param>
-            <returns>The kurtosis of the dataRows.</returns>
+            <returns>The kurtosis of the data.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.FormulaEngine.ComputeLarge(System.String)">
             <summary>
@@ -3781,14 +3781,14 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.FormulaEngine.ComputeCovarianceP(System.String)">
             <summary>
-            Returns population covariance, the average of the products of deviations for each dataRows point pair in two dataRows sets. 
+            Returns population covariance, the average of the products of deviations for each data point pair in two data sets. 
             </summary>
             <param name="range">range1, range2.</param>
             <returns>The covarianceP</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.FormulaEngine.ComputeCovarianceS(System.String)">
             <summary>
-            Returns the sample covariance, the average of the products of deviations for each dataRows point pair in two dataRows sets.
+            Returns the sample covariance, the average of the products of deviations for each data point pair in two data sets.
             </summary>
             <param name="range">range1, range2.</param>
             <returns>The covariances</returns>
@@ -4427,7 +4427,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.FormulaEngine.ComputeModeOMult(System.String)">
             <summary>
-            Returns a vertical array of the most frequently occurring, or repetitive values in an array or range of dataRows. 
+            Returns a vertical array of the most frequently occurring, or repetitive values in an array or range of data. 
             </summary>
             <param name="range">A string holding a list (separated by commas) of
             cell references,
@@ -4644,7 +4644,7 @@
             Return the XML content of the given document
             </summary>
             <param name="argList">web link</param>
-            <returns>XML dataRows</returns>
+            <returns>XML data</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.FormulaEngine.ComputeEncodeURL(System.String)">
             <summary>
@@ -5196,7 +5196,7 @@
             Represents the method that will handle FormulaComputed event.
             </summary>
             <param name="sender">Source of this event.</param>
-            <param name="e">An instance of <see cref="T:Syncfusion.Windows.Forms.CellGrid.FormulaComputedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">An instance of <see cref="T:Syncfusion.Windows.Forms.CellGrid.FormulaComputedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.FormulaComputedEventArgs">
             <summary>
@@ -5245,11 +5245,11 @@
             event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.ValueChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.ValueChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.ValueChangedEventArgs">
             <summary>
-            A class containing dataRows for the ICalcData.ValueChanged event.
+            A class containing data for the ICalcData.ValueChanged event.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.ValueChangedEventArgs.#ctor(System.Int32,System.Int32,System.String)">
@@ -5380,7 +5380,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.ICalcData">
             <summary>
-            ICalcData defines the minimal interface that a dataRows object must support in order to use
+            ICalcData defines the minimal interface that a data object must support in order to use
             this formula engine.
             </summary>
         </member>
@@ -5399,16 +5399,16 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.ICalcData.GetValueRowCol(System.Int32,System.Int32)">
             <summary>
-            A method that gets the dataRows value from the specified row and column.
+            A method that gets the data value from the specified row and column.
             </summary>
             <param name="row">1-based index specifying the row index of the requested value.
             </param>
-            <param name="col">1-based index specifying the column index of the requested dataRows.</param>
-            <returns>The dataRows value at the given row and column index.</returns>
+            <param name="col">1-based index specifying the column index of the requested data.</param>
+            <returns>The data value at the given row and column index.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.ICalcData.SetValueRowCol(System.Object,System.Int32,System.Int32)">
             <summary>
-            A method that sets the dataRows value to the specified row and column.
+            A method that sets the data value to the specified row and column.
             </summary>
             <param name="value">The value.</param>
             <param name="row">One-based index specifying the row index of the value.</param>
@@ -5536,7 +5536,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.SfCellGrid">
             <summary>
-            Represents the <see cref="T:Syncfusion.Windows.Forms.CellGrid.SfCellGrid"/> control in which dataRows will be displayed in the form of rows and columns.
+            Represents the <see cref="T:Syncfusion.Windows.Forms.CellGrid.SfCellGrid"/> control in which data will be displayed in the form of rows and columns.
             </summary>
             <remarks> This class offers events associated with selection, editing and resizing operations in grid.</remarks>
         </member>
@@ -5610,21 +5610,21 @@
             <summary>
             Occurs when key down on <see cref="P:Syncfusion.Windows.Forms.CellGrid.SfCellGrid.VisualContainer"/>.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event data.</param>
             <returns>True or False.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.SfCellGrid.OnCellRequestNavigateEvent(Syncfusion.Windows.Forms.CellGrid.Helpers.CellRequestNavigateEventArgs)">
             <summary>
             Helper method to raise Hyperlink Requset Navigate event.
             </summary>
-            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CellRequestNavigateEventArgs">CellRequestNavigateEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CellRequestNavigateEventArgs">CellRequestNavigateEventArgs</see> that contains the event data.</param>
             <returns>True or False.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.SfCellGrid.OnCurrentCellEndEdit(Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellEndEditEventArgs)">
             <summary>
             Helper method to raise Current Cell Begin Edit Event.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event data.</param>
             <returns>True or False.</returns>s
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.SfCellGrid.DeleteValuesFromSelectedRanges">
@@ -6247,7 +6247,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.CellGrid.SfCellGrid.AllowFloatingCell">
             <summary>
-            Gets or sets the value which indicates whether to float the cells or not while displaying the dataRows.
+            Gets or sets the value which indicates whether to float the cells or not while displaying the data.
             </summary>
             <value>True or False.</value>
         </member>
@@ -7491,11 +7491,11 @@
             marked as handled.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name=" e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.GridQueryCoveredRangeEventArgs"/> that contains the event dataRows.</param>
+            <param name=" e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.GridQueryCoveredRangeEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridHandledEventArgs">
             <summary>
-            Provides dataRows for a event that can be handled by a subscriber and overrides the event's default behavior.
+            Provides data for a event that can be handled by a subscriber and overrides the event's default behavior.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridEventArgs">
@@ -8355,7 +8355,7 @@
             Represents a method that will handle the CurrentCell BeginEdit Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellBeginEditEventArgs">CurrentCellBeginEditEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellBeginEditEventArgs">CurrentCellBeginEditEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellBeginEditEventArgs">
             <summary>
@@ -8364,7 +8364,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridCancelEventArgs">
             <summary>
-            Provides dataRows for a cancellable event. 
+            Provides data for a cancellable event. 
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.Helpers.GridCancelEventArgs.#ctor">
@@ -8399,7 +8399,7 @@
             Represents a method that will handle the CurrentCell EndEdit event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellEndEditEventArgs">CurrentCellEndEditEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellEndEditEventArgs">CurrentCellEndEditEventArgs</see> that contains the event data.</param>
             <remarks></remarks>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellEndEditEventArgs">
@@ -8423,7 +8423,7 @@
             Represents a method that will handle the CurrentCell Validating event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellValidatingEventArgs">CurrentCellValidatingEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellValidatingEventArgs">CurrentCellValidatingEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellValidatingEventArgs">
             <summary>
@@ -8469,7 +8469,7 @@
             Represents a method that will handle the CurrentCell Validated event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellValidatedEventArgs">CurrentCellValidatedEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellValidatedEventArgs">CurrentCellValidatedEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellValidatedEventArgs">
             <summary>
@@ -8504,7 +8504,7 @@
             Represents a method that will handle the currentcell value changed event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellValueChangedEventArgs">CurrentCellValueChangedEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellValueChangedEventArgs">CurrentCellValueChangedEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellValueChangedEventArgs">
             <summary>
@@ -8533,7 +8533,7 @@
             Represents a method that will handle the CurrentCell Activating Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellActivatingEventArgs">CurrentCellActivatingEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellActivatingEventArgs">CurrentCellActivatingEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellActivatingEventArgs">
             <summary>
@@ -8563,7 +8563,7 @@
             Represents a method that will handle the CurrentCell Activated Event
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellActivatedEventArgs">CurrentCellActivatedEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellActivatedEventArgs">CurrentCellActivatedEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellActivatedEventArgs">
             <summary>
@@ -8593,7 +8593,7 @@
             Represents a method that will handle the CellRequest Navigate Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CellRequestNavigateEventArgs">CellRequestNavigateEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CellRequestNavigateEventArgs">CellRequestNavigateEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CellRequestNavigateEventArgs">
             <summary>
@@ -8870,7 +8870,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridValueEventArgs`1">
             <summary>
-            Provides a generic handler for holding simple dataRows.
+            Provides a generic handler for holding simple data.
             </summary>
             <typeparam name="T">A Specific Type</typeparam>
         </member>
@@ -8896,7 +8896,7 @@
             Represents a method that will handlw the Grid RoutedEvent.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRoutedEventArgs">GridRoutedEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRoutedEventArgs">GridRoutedEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRoutedEventArgs">
             <summary>
@@ -8926,7 +8926,7 @@
             Represents a method that will handle the Grid CancelRouted Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridCancelRoutedEventArgs">GridCancelRoutedEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridCancelRoutedEventArgs">GridCancelRoutedEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridCancelRoutedEventArgs">
             <summary>
@@ -8955,7 +8955,7 @@
             Represents a method that will handle the Grid CancelEvent.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridCancelEventArgs">GridCancelEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridCancelEventArgs">GridCancelEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CellContextMenuOpeningEventArgs">
             <summary>
@@ -9006,18 +9006,18 @@
             Represents the method that handles the <see cref="!:GridModel.RowsInserted"/> and <see cref="!:GridModel.ColumnsInserted"/> events.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeInsertedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeInsertedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeInsertedEventArgs">
             <summary>
-            Provides dataRows about the <see cref="!:GridModel.RowsInserted"/> and <see cref="!:GridModel.ColumnsInserted"/> events.
+            Provides data about the <see cref="!:GridModel.RowsInserted"/> and <see cref="!:GridModel.ColumnsInserted"/> events.
             </summary>
             <remarks>
             GridRangeInsertedEventArgs is a custom event argument class used by the
             <see cref="!:GridModel.RowsInserted"/> and <see cref="!:GridModel.ColumnsInserted"/> events.
             <para/>
             This event is raised by the model to notify all associated views that it has inserted the specified number of rows
-            or column into its dataRows store and all associated views should redraw affected display contents.
+            or column into its data store and all associated views should redraw affected display contents.
             <para/>
             The <see cref="P:Syncfusion.Windows.Forms.CellGrid.Collections.ComponentModel.SyncfusionHandledEventArgs.Handled"/> property indicates if all changes were successfully made to the model. If it is
             False, the operation was aborted. However, the view contents need to be redrawn no matter if the operation was successful or not.
@@ -9048,18 +9048,18 @@
             Represents the method that handles <see cref="!:GridModel.RowsRemoved"/> and <see cref="!:GridModel.ColumnsRemoved"/> events.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeRemovedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeRemovedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeRemovedEventArgs">
             <summary>
-            Provides dataRows about the <see cref="!:GridModel.RowsRemoved"/> and <see cref="!:GridModel.ColumnsRemoved"/> events.
+            Provides data about the <see cref="!:GridModel.RowsRemoved"/> and <see cref="!:GridModel.ColumnsRemoved"/> events.
             </summary>
             <remarks>
             GridRangeRemovedEventArgs is a custom event argument class used by the
             <see cref="!:GridModel.RowsRemoved"/> and <see cref="!:GridModel.ColumnsRemoved"/> events.
             <para/>
             This event is raised by the model to notify all associated views that it has 
-            rearranged the specified rows or columns in its dataRows store and all associated views
+            rearranged the specified rows or columns in its data store and all associated views
             should redraw affected display contents.
             <para/>
             The <see cref="P:Syncfusion.Windows.Forms.CellGrid.Collections.ComponentModel.SyncfusionHandledEventArgs.Handled"/> property indicates if all changes
@@ -9095,11 +9095,11 @@
             events.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridCutPasteEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridCutPasteEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridCutPasteEventArgs">
             <summary>
-            Provides dataRows about the <see cref="!:GridModel.CutPaste"/>: 
+            Provides data about the <see cref="!:GridModel.CutPaste"/>: 
             <see cref="M:Syncfusion.Windows.Forms.CellGrid.GridCopyPaste.Paste"/>
             <see cref="M:Syncfusion.Windows.Forms.CellGrid.GridCopyPaste.Cut"/>
             <see cref="M:Syncfusion.Windows.Forms.CellGrid.GridCopyPaste.Copy"/>
@@ -9135,7 +9135,7 @@
             Represents a method that will handle the Resizing column Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.ResizingColumnsEventArgs">ResizingColumnsEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.ResizingColumnsEventArgs">ResizingColumnsEventArgs</see> that contains the event data.</param>
             <remarks></remarks>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.ResizingColumnsEventArgs">
@@ -9172,7 +9172,7 @@
             Represents a method that will handle the Resizing row Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.ResizingRowsEventArgs">ResizingRowsEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.ResizingRowsEventArgs">ResizingRowsEventArgs</see> that contains the event data.</param>
             <remarks></remarks>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.ResizingRowsEventArgs">
@@ -9209,7 +9209,7 @@
             Represents a method that will handle the cell comment opening event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CellCommentOpeningEventArgs">CellCommentOpeningEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CellCommentOpeningEventArgs">CellCommentOpeningEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CellCommentOpeningEventArgs">
             <summary>
@@ -9257,7 +9257,7 @@
             Represents a method that will handle the cell Tooltip opening event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CellTooltipOpeningEventArgs">CellTooltipOpeningEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CellTooltipOpeningEventArgs">CellTooltipOpeningEventArgs</see> that contains the event data.</param>
             <remarks></remarks>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CellTooltipOpeningEventArgs">
@@ -9279,7 +9279,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.CellGrid.Helpers.CellTooltipOpeningEventArgs.DataValidationTooltip">
             <summary>
-            Gets or sets the cell dataRows validaion tooltip message.
+            Gets or sets the cell data validaion tooltip message.
             </summary>
             <value>Tooltip message.</value>
         </member>
@@ -9288,7 +9288,7 @@
             Represents a method that will handle the Selection changing event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.SelectionChangingEventArgs">SelectionChangingEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.SelectionChangingEventArgs">SelectionChangingEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.SelectionChangingEventArgs">
             <summary>
@@ -9324,7 +9324,7 @@
             Represents a method that will handle the Selection Changed Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.SelectionChangedEventArgs">SelectionChangedEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.SelectionChangedEventArgs">SelectionChangedEventArgs</see> that contains the event data.</param>
             <remarks></remarks>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.SelectionChangedEventArgs">
@@ -9361,7 +9361,7 @@
             Represents a method that will handle the Grid CellClick Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridCellClickEventArgs">GridCellClickEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridCellClickEventArgs">GridCellClickEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridCellClickEventArgs">
             <summary>
@@ -9724,25 +9724,25 @@
             <summary>
             Occurs when the pointer moves in SfCellGrid.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.MouseEventArgs">MouseEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.MouseEventArgs">MouseEventArgs</see> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.ColumnResizingController.OnPointerPressed(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Occurs when the pointer is pressed in SfCellGrid.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.ColumnResizingController.OnPointerReleased(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Occurs when the pointer is released in SfCellGrid.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.ColumnResizingController.DoubleTapped(System.Windows.Forms.MouseEventArgs)">
             <summary>
              Occurs when the pointer double tapped in the cell.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.ColumnResizingController.SetDragLine(Syncfusion.Windows.Forms.CellGrid.ScrollAxis.VisibleLineInfo)">
             <summary>
@@ -9828,25 +9828,25 @@
             <summary>
             Occurs when the pointer moves in SfCellGrid.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.MouseEventArgs">MouseEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.MouseEventArgs">MouseEventArgs</see> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.RowResizingController.OnPointerPressed(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Occurs when the pointer is pressed in SfCellGrid.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.RowResizingController.OnPointerReleased(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Occurs when the pointer is released in SfCellGrid.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.RowResizingController.DoubleTapped(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Occurs when the mouse pointer is double tapped on the cell.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.RowResizingController.SetDragLine(Syncfusion.Windows.Forms.CellGrid.ScrollAxis.VisibleLineInfo)">
             <summary>
@@ -10404,7 +10404,7 @@
             <param name="type">condition value type</param>
             <param name="grid"></param>
             <param name="conditionalformat"></param>
-            <param name="dataRows"></param>
+            <param name="data"></param>
             <param name="formatflag"></param>
             <returns></returns>
         </member>
@@ -10481,7 +10481,7 @@
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.CellGrid.GridAutoScroller.AutoScrollingChanged"/> event.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.GridAutoScroller.HandlePointerOperations(Syncfusion.Windows.Forms.CellGrid.GridPointerEventArgs)">
             <summary>
@@ -10572,11 +10572,11 @@
             Represents a method that will handle the AutoScroller Valuechanged Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.AutoScrollerValueChangedEventArgs">AutoScrollerValueChangedEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.AutoScrollerValueChangedEventArgs">AutoScrollerValueChangedEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.AutoScrollerValueChangedEventArgs">
              <summary>
-            Provides dataRows for the AutoScrollerValueChangedEventHandler event.
+            Provides data for the AutoScrollerValueChangedEventHandler event.
              </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.AutoScrollerValueChangedEventArgs.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex)">
@@ -11153,7 +11153,7 @@
             <summary>
             Handles the KeyDown operations in SfCellGrid.
             </summary>
-            <param name="args">An instance of <see cref="T:System.Windows.Forms.KeyEventArgs"/> that contains dataRows.</param>
+            <param name="args">An instance of <see cref="T:System.Windows.Forms.KeyEventArgs"/> that contains data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.SelectionController.AddSelection(Syncfusion.Windows.Forms.CellGrid.GridRangeInfo)">
             <summary>
@@ -11170,13 +11170,13 @@
              <summary>
             Used to process the key navigation in SfCellGrid.
              </summary>
-             <param name="args">An instance of <see cref="T:System.Windows.Forms.KeyEventArgs"/> that contains dataRows.</param>
+             <param name="args">An instance of <see cref="T:System.Windows.Forms.KeyEventArgs"/> that contains data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.SelectionController.ProcessShiftKeyNavigation(System.Windows.Forms.KeyEventArgs)">
             <summary>
             Used to process the key navigation when shift key is pressed.
             </summary>
-            <param name="args">An instance of <see cref="T:System.Windows.Forms.KeyEventArgs"/> that contains dataRows.</param>
+            <param name="args">An instance of <see cref="T:System.Windows.Forms.KeyEventArgs"/> that contains data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.SelectionController.ProcessShiftSelection(Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex)">
             <summary>
@@ -11188,14 +11188,14 @@
             <summary>
             Used to process the pointer/touch selection on Header(whole row/column).
             </summary>
-            <param name="e">An instance of <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains dataRows.</param>
+            <param name="e">An instance of <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains data.</param>
             <param name="rowcolIndex">An instance of <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex"/>.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.SelectionController.ProcessPointerSelection(System.Windows.Forms.MouseEventArgs,Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex)">
             <summary>
             Used to process the pointer/touch normal selection.
             </summary>
-            <param name="e">An instance of <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains dataRows.</param>
+            <param name="e">An instance of <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains data.</param>
             <param name="rowcolIndex">An instance of <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex"/>.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.SelectionController.ProcessHeaderDragSelection(Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex)">
@@ -11214,35 +11214,35 @@
             <summary>
             Occurs when the pointer is pressed in SfCellGrid.
             </summary>
-            <param name="e">An instance of <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains dataRows.</param>
+            <param name="e">An instance of <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains data.</param>
             <param name="rowcolIndex">An instance of <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex"/>.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.SelectionController.OnPointerMoved(System.Windows.Forms.MouseEventArgs,Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex)">
             <summary>
             Occurs when the pointer moves.
             </summary>
-            <param name="e">An instance of <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains dataRows.</param>
+            <param name="e">An instance of <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains data.</param>
             <param name="rowcolIndex">An instance of <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex"/>.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.SelectionController.OnPointerReleased(System.Windows.Forms.MouseEventArgs,Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex)">
             <summary>
             Occurs when the pointer released.
             </summary>
-            <param name="e">An instance of <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains dataRows.</param>
+            <param name="e">An instance of <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains data.</param>
             <param name="rowcolIndex">An instance of <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex"/>.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.SelectionController.OnTapped(System.Windows.Forms.MouseEventArgs,Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex)">
             <summary>
             Occurs when the pointer tapped in the cell.
             </summary>
-            <param name="e">An instance of <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains dataRows.</param>
+            <param name="e">An instance of <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains data.</param>
             <param name="rowcolIndex">An instance of <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex"/>.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.SelectionController.OnDoubleTapped(System.Windows.Forms.MouseEventArgs,Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex)">
             <summary>
             Occurs when the pointer double tapped in the cell.
             </summary>
-            <param name="e">An instance of <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains dataRows.</param>
+            <param name="e">An instance of <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains data.</param>
             <param name="rowcolIndex">An instance of <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex"/>.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.SelectionController.ShowCurrentCell">
@@ -11441,7 +11441,7 @@
             <summary>
             Method which returns the mouse position in SfCellGrid.
             </summary>
-            <param name="args">An <see cref="T:System.Windows.Input.MouseEventArgs">MouseEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:System.Windows.Input.MouseEventArgs">MouseEventArgs</see> that contains the event data.</param>
             <param name="relativeTo">UIElement.</param>
             <returns>Position of the pointer.</returns>
         </member>
@@ -12020,7 +12020,7 @@
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.CellGrid.Collections.ComponentModel.DisposableWithEvent.Disposed"/> event.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.CellGrid.Collections.ComponentModel.DisposableWithEvent.IsDisposed">
             <summary>
@@ -13035,7 +13035,7 @@
             Returns an enumerator for the entire collection.
             </summary>
             <returns>An Enumerator for the entire collection.</returns>
-            <remarks>Enumerators only allow reading the dataRows in the collection. 
+            <remarks>Enumerators only allow reading the data in the collection. 
             Enumerators cannot be used to modify the underlying collection.</remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Collections.Generic.GenericBinaryTreeWithCounterCollection`2.InvalidateSummariesTopDown(System.Boolean)">
@@ -13357,7 +13357,7 @@
             Returns an enumerator for the entire collection.
             </summary>
             <returns>An Enumerator for the entire collection.</returns>
-            <remarks>Enumerators only allow reading the dataRows in the collection. 
+            <remarks>Enumerators only allow reading the data in the collection. 
             Enumerators cannot be used to modify the underlying collection.</remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Collections.Generic.GenericBinaryTreeWithSummaryCollection`1.InvalidateSummariesTopDown(System.Boolean)">
@@ -16215,6 +16215,18 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.ScrollAxisBase.GetVisibleLinesAtNonRTL">
+            <summary>
+            Get the VisibleLines when RTL is False
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.ScrollAxisBase.GetVisibleLinesAtRTL">
+            <summary>
+            Get the VisibleLines when RTL is True
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.ScrollAxisBase.ResetVisibleLines">
             <summary>
             Resets the visible lines collection.
@@ -16245,12 +16257,14 @@
             It is used to calculate the scroll columns based on the right to left mode.</param>
             <returns>Returns the visible line.</returns>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.ScrollAxisBase.GetVisibleLineAtPoint(System.Double,System.Boolean)">
+        <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.ScrollAxisBase.GetVisibleLineAtPoint(System.Double,System.Boolean,System.Boolean)">
             <summary>
-            Gets the visibles line for a point in the display.
+            Gets the visible line for a point in the display.
             </summary>
-            <param name="point">The point.</param>
-            <returns></returns>
+            <param name="point">The point in the display for which the visible line is to be obtained.</param>
+            <param name="allowOutSideLines">boolean value</param>
+            <param name="isRightToLeft">The boolean value used to calculate visible columns in right to left mode.</param>
+            <returns>The visible line for a point in the display.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.ScrollAxisBase.GetVisibleLineAtLineIndex(System.Int32)">
             <summary>
@@ -16402,10 +16416,11 @@
             <param name="lastIndex">The last index.</param>
             <returns></returns>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.ScrollAxisBase.GetClipPoints(Syncfusion.Windows.Forms.CellGrid.ScrollAxis.ScrollAxisRegion)">
+        <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.ScrollAxisBase.GetClipPoints(Syncfusion.Windows.Forms.CellGrid.ScrollAxis.ScrollAxisRegion,System.Boolean)">
             <summary>
             Gets the clip points for a region.
             </summary>
+            <param name="isRightToLeft">The boolean value used to calculate visible columns in right to left mode.</param>
             <param name="region">The region.</param>
             <returns></returns>
         </member>
@@ -16637,6 +16652,7 @@
             </summary>
             <param name="scrollLindeIndex">Index of the scroll linde.</param>
             <param name="scrollLineDelta">The scroll line delta.</param>
+            <param name="isRightToLeft">The boolean value used to calculate visible columns in right to left mode.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.LineScrollAxis.SetScrollLineIndex(System.Int32,System.Double)">
             <summary>
@@ -17140,7 +17156,7 @@
             <summary>
             Gets the index of the scroll line.
             </summary>
-            <param name="scrollLindeIndex">Index of the scroll linde.</param>
+            <param name="scrollLineIndex">Index of the scroll linde.</param>
             <param name="scrollLineDelta">The scroll line offset.</param>
             <param name="isRightToLeft">The boolean value indicates the right to left mode.
             And this boolean value considered only for the visible columns calculations.</param>
@@ -17149,14 +17165,28 @@
             <summary>
             Gets the index of the scroll line.
             </summary>
-            <param name="scrollLindeIndex">Index of the scroll linde.</param>
+            <param name="scrollLineIndex">Index of the scroll linde.</param>
+            <param name="scrollLineDelta">The scroll line delta.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.PixelScrollAxis.GetScrollLineIndexAtNonRTL(System.Int32@,System.Double@)">
+            <summary>
+            Gets the index of the scroll line when RTL is False
+            </summary>
+            <param name="scrollLineIndex">Index of the scroll linde.</param>
+            <param name="scrollLineDelta">The scroll line delta.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.PixelScrollAxis.GetScrollLineIndexAtRTL(System.Int32@,System.Double@)">
+            <summary>
+            Gets the index of the scroll line when RTL is True
+            </summary>
+            <param name="scrollLineIndex">Index of the scroll linde.</param>
             <param name="scrollLineDelta">The scroll line delta.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.PixelScrollAxis.SetScrollLineIndex(System.Int32,System.Double)">
             <summary>
             Sets the index of the scroll line.
             </summary>
-            <param name="scrollLindeIndex">Index of the scroll linde.</param>
+            <param name="scrollLineIndex">Index of the scroll linde.</param>
             <param name="scrollLineDelta">The scroll line delta.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.PixelScrollAxis.GetPreviousScrollLineIndex(System.Int32)">
@@ -17339,7 +17369,7 @@
             Handles events with <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RangeChangedEventArgs"/>.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RangeChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RangeChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RangeChangedEventArgs">
             <summary>
@@ -17370,7 +17400,7 @@
             Handles events with <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.LinesRemovedEventArgs"/>.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.LinesRemovedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.LinesRemovedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.LinesRemovedEventArgs">
             <summary>
@@ -17401,7 +17431,7 @@
             Handles events with <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.LinesInsertedEventArgs"/>.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.LinesInsertedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.LinesInsertedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.LinesInsertedEventArgs">
             <summary>
@@ -17432,7 +17462,7 @@
             Handles events with <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.HiddenRangeChangedEventArgs"/>.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.HiddenRangeChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.HiddenRangeChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.HiddenRangeChangedEventArgs">
             <summary>
@@ -17463,6 +17493,9 @@
             <summary>
             Holds the coordinates for a cell. 
             </summary>
+            <remarks>
+            Maintains zero-based index of the rows and columns.
+            </remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.RowColumnIndex.#ctor(System.Int32,System.Int32)">
             <summary>
@@ -17681,7 +17714,7 @@
             Handles events with <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.ValueChangingEventArgs"/>.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.ValueChangingEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.ValueChangingEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.ValueChangingEventArgs">
             <summary>
@@ -17790,6 +17823,11 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.SortedRangeValueList`1"/> class.
             </summary>
             <param name="defaultValue">The default value used for filling gaps.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.SortedRangeValueList`1.Clear">
+            <summary>
+            Clears the stored ranges.
+            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.CellGrid.ScrollAxis.SortedRangeValueList`1.GetRange(System.Int32,System.Int32@)">
             <summary>
@@ -18433,6 +18471,11 @@
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Commands.Commands.DecreaseIndent">
             <summary>
             Command used for Decreasing indent for the cells
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Commands.Commands.Orientation">
+            <summary>
+            Gets or sets a value that indicates the command to rotate the text for the cells.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Commands.Commands.GrowFontSize">
@@ -19534,7 +19577,7 @@
         </member>
         <member name="F:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste.isCopiedRangeRowCol">
             <summary>
-            Determines whether to extend the pasted range based on copied dataRows. 
+            Determines whether to extend the pasted range based on copied data. 
             This flag will be True, if the copied range is rows/columns/Table. 
             </summary>
         </member>
@@ -19697,28 +19740,28 @@
             <summary>
             Invoked while copying the content from  <see cref="!:SfSpreadsheet"/>.
             </summary>
-            <param name="args">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetCopyingEventArgs"/> that contains the event dataRows.</param>
+            <param name="args">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetCopyingEventArgs"/> that contains the event data.</param>
             <remarks>This method raises the <see cref="E:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste.Copying"/> event.</remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste.OnCopied(Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetCopiedEventArgs)">
             <summary>
             Invoked after copied the content from  <see cref="!:SfSpreadsheet"/>.
             </summary>
-            <param name="args">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetCopiedEventArgs"/> that contains the event dataRows.</param>
+            <param name="args">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetCopiedEventArgs"/> that contains the event data.</param>
             <remarks>This method raises the <see cref="E:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste.Copied"/> event.</remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste.OnPasting(Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPastingEventArgs)">
             <summary>
             Invoked while pasting the content in  <see cref="!:SfSpreadsheet"/>.
             </summary>
-            <param name="args">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPastingEventArgs"/> that contains the event dataRows.</param>
+            <param name="args">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPastingEventArgs"/> that contains the event data.</param>
             <remarks>This method raises the <see cref="E:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste.Pasting"/> event.</remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste.OnPasted(Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPastedEventArgs)">
             <summary>
             Invoked after pasted the content in <see cref="!:SfSpreadsheet"/>.
             </summary>
-            <param name="args">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPastedEventArgs"/> that contains the event dataRows.</param>
+            <param name="args">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPastedEventArgs"/> that contains the event data.</param>
             <remarks>This method raises the <see cref="E:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste.Pasted"/> event.</remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste.CopyToClipboard(Syncfusion.Windows.Forms.CellGrid.GridRangeInfo)">
@@ -19932,7 +19975,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.FillSeriesController">
             <summary>
-            Represents the class that provides support for extending the selection and auto fill the cells with dataRows that completes a pattern in the Selected region.
+            Represents the class that provides support for extending the selection and auto fill the cells with data that completes a pattern in the Selected region.
             </summary>
             <remarks>
             Fills the selected range of cells in the spreadsheet with a series of numbers, characters, or dates. The content of the first cell in the selected range is used as the starting value for the series.
@@ -20047,7 +20090,7 @@
             <summary>
             Determines the pressed position of pointer of the FillSeriesController
             </summary>
-            <param name="e">The <see cref="!:System.Windows.Input.MouseEventArgs"/> that contains the event dataRows</param>
+            <param name="e">The <see cref="!:System.Windows.Input.MouseEventArgs"/> that contains the event data</param>
             <returns>True or False</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.FillSeriesController.IsPasswordProtected(Syncfusion.XlsIO.IRange)">
@@ -20061,7 +20104,7 @@
             <summary>
             Determines the released position of pointer of the FillSeriesController
             </summary>
-            <param name="e">The <see cref="!:System.Windows.Input.MouseEventArgs"/> that contains the event dataRows</param>
+            <param name="e">The <see cref="!:System.Windows.Input.MouseEventArgs"/> that contains the event data</param>
             <returns>True or False</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.FillSeriesController.ShowFillOptionPopup(System.Double,System.Double)">
@@ -20150,7 +20193,7 @@
             <summary>
             Determines the state of the mouse position and the selected range of the FillSeries
             </summary>
-            <param name="e">The <see cref="!:System.Windows.Input.MouseEventArgs"/> that contains the event dataRows</param>
+            <param name="e">The <see cref="!:System.Windows.Input.MouseEventArgs"/> that contains the event data</param>
             <returns>True or False</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.FillSeriesController.FillOptionChanged(System.String)">
@@ -20240,7 +20283,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.FillSeriesController.OriginalRange">
             <summary>
-            OriginalRange is the range which is obtained before filling the dataRows.
+            OriginalRange is the range which is obtained before filling the data.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.FillSeriesController.AllowFillSeries">
@@ -20548,7 +20591,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetFilterControl">
             <summary>
-            Represents a control that contains filter popup to filter the dataRows in SpreadsheetFilterControl
+            Represents a control that contains filter popup to filter the data in SpreadsheetFilterControl
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase">
@@ -20558,7 +20601,7 @@
         </member>
         <member name="F:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.dataSource">
             <summary>
-            Holds the dataRows source of the filter control.
+            Holds the data source of the filter control.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.sortDescending">
@@ -20667,11 +20710,11 @@
             Occurs when the search text box text is changed.
             </summary>
             <param name="sender">The search text box of the check box filter panel.</param>
-            <param name="e">The <see cref="T:System.EvenArgs"/> that contains event dataRows.</param>
+            <param name="e">The <see cref="T:System.EvenArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.ResetDataSource">
             <summary>
-            Reset the dataRows source for the checked list box.
+            Reset the data source for the checked list box.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.OnFilterPopupOpening(System.Object,System.ComponentModel.CancelEventArgs)">
@@ -20679,14 +20722,14 @@
             Occurs when the filter pop up is showing.
             </summary>
             <param name="sender">The object of the sender.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs"/> that contains event dataRows.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.OnFilterPopupClosing(System.Object,System.Windows.Forms.ToolStripDropDownClosingEventArgs)">
             <summary>
             Occurs while closing the filter pop up.
             </summary>
             <param name="sender">The object of the sender.</param>
-            <param name="e">An <see cref="T:System.Windows.Forms.ToolStripDropDownClosingEventArgs"/> that contains event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Forms.ToolStripDropDownClosingEventArgs"/> that contains event data.</param>
             <remarks>This is used to restrict the closing of filter pop up while selecting the drop down values outside the filter pop up.</remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.OnFilterPopupClosed(System.Object,System.Windows.Forms.ToolStripDropDownClosedEventArgs)">
@@ -20694,21 +20737,21 @@
             Occurs when the filter pop up is closed.
             </summary>
             <param name="sender">The object of the sender.</param>
-            <param name="e">An <see cref="T:System.Windows.Forms.ToolStripDropDownClosedEventArgs"/> that contains event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Forms.ToolStripDropDownClosedEventArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.OnSortDescendingButtonClicked(System.Object,System.EventArgs)">
             <summary>
             Occurs while clicking the SortDescending button.
             </summary>
             <param name="sender">The object of the sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.OnSortAscendingButtonClicked(System.Object,System.EventArgs)">
             <summary>
             Occurs while clicking the SortAscending button.
             </summary>
             <param name="sender">The object of the sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.SetOKButton(System.Windows.Forms.Control,System.Drawing.Point,System.Drawing.Size)">
             <summary>
@@ -20739,14 +20782,14 @@
             Occurs while checked list box item is checked.
             </summary>
             <param name="sender">The object of the sender.</param>
-            <param name="e">An ItemCheckingEventArgs that contains event dataRows.</param>
+            <param name="e">An ItemCheckingEventArgs that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.CheckListBox_ListViewItemChecked(System.Object,Syncfusion.WinForms.ListView.Events.ItemCheckedEventArgs)">
             <summary>
             Occurs while checked list box item is checked.
             </summary>
             <param name="sender">The object of the sender.</param>
-            <param name="e">An ItemCheckingEventArgs that contains event dataRows.</param>
+            <param name="e">An ItemCheckingEventArgs that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.SetNoMatchLabel(System.Windows.Forms.Control,System.Drawing.Point)">
             <summary>
@@ -20757,7 +20800,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.SetNoItemsLabel(System.Windows.Forms.Control,System.Drawing.Point)">
             <summary>
-            Sets the No Items label to display the filter popup with empty dataRows source.
+            Sets the No Items label to display the filter popup with empty data source.
             </summary>
             <param name="control">The label control.</param>
             <param name="location">The location of the checked list box.</param>
@@ -20775,7 +20818,7 @@
             Occurs when the SearchTextBox label is clicked on the CheckBoxFilterPanel.
             </summary>
             <param name="sender">The object of the sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.SetDesendingSortButton(System.Windows.Forms.Control,System.Drawing.Point,System.Drawing.Size)">
             <summary>
@@ -20813,7 +20856,7 @@
             Occurs when the clear filter button is clicked.
             </summary>
             <param name="sender">The object of the sender.</param>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains event dataRows.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.GetBitmap(System.String)">
             <summary>
@@ -20827,18 +20870,18 @@
             Occurs when the OK button is clicked on the FilterControl.
             </summary>
             <param name="sender">The object of the sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.OnCancelButtonClicked(System.Object,System.EventArgs)">
             <summary>
             Occurs when the cancel button is clicked on the FilterControl.
             </summary>
             <param name="sender">The object of the sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.SetDataSource(System.Object)">
             <summary>
-            Sets the dataRows source for the checked list box of the FilterControl.
+            Sets the data source for the checked list box of the FilterControl.
             </summary>
             <param name="source">The <see cref="T:System.Collections.Generic.IEnumerable"/> source that needs to be assigned to the checked list box. </param>
         </member>
@@ -20881,7 +20924,7 @@
             Raises the <see cref="E:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.ThemeNameChanged"/> event when theme name changed.
             </summary>
             <param name="sender">The sender value.</param>
-            <param name="args">A <see cref="!:Syncfusion.WinForms.Core.ThemeChangedEventArgs"/> contains the event dataRows.</param>
+            <param name="args">A <see cref="!:Syncfusion.WinForms.Core.ThemeChangedEventArgs"/> contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.SetTheme(System.Windows.Forms.Control,System.String)">
             <summary>
@@ -20895,7 +20938,7 @@
             Occurs when the user control is loaded.
             </summary>
             <param name="sender">The object of the sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.UnWireEvents">
             <summary>
@@ -20935,7 +20978,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.DataSource">
             <summary>
-            Gets or sets the dataRows source for the FilterControl.
+            Gets or sets the data source for the FilterControl.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlBase.SearchedItems">
@@ -21101,7 +21144,7 @@
         </member>
         <member name="F:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetFilterControl.previousDataSource">
             <summary>
-            Holds the previous dataRows source of the check box filter.
+            Holds the previous data source of the check box filter.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetFilterControl.isWired">
@@ -21164,7 +21207,7 @@
             Overridden to clear the filter predicates applied for the corresponding column.
             </summary>
             <param name="sender">The object of the sender.</param>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains event dataRows.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetFilterControl.ClearAllFilters(Syncfusion.XlsIO.IRange)">
             <summary>
@@ -21175,7 +21218,7 @@
         <!-- Badly formed XML comment ignored for member "M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetFilterControl.OnSortDescendingButtonClicked(System.Object,System.EventArgs)" -->
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetFilterControl.ApplySorting(Syncfusion.XlsIO.OrderBy)">
             <summary>
-            Sort the column dataRows based on the given sorting order.
+            Sort the column data based on the given sorting order.
             </summary>
             <param name="sortingOrder">Ascending or Descending</param>
         </member>
@@ -21191,14 +21234,14 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetFilterControl.OnOKButtonClicked(System.Object,System.EventArgs)">
             <summary>
-            Overridden to apply the filters on the dataRows .
+            Overridden to apply the filters on the data .
             </summary>
             <param name="sender">The object of the sender.</param>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains event dataRows.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetFilterControl.ResetDataSource">
             <summary>
-            Overridden to update the previous dataRows source of the check box filter.
+            Overridden to update the previous data source of the check box filter.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetFilterControl.Show(System.Windows.Forms.Control,System.Drawing.Point)">
@@ -21218,11 +21261,11 @@
             Overridden to update the selected items based on the PART_SearchTextBox text.
             </summary>
             <param name="sender">The object of the sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetFilterControl.SetDataSource(System.Object)">
             <summary>
-            Overridden to set the dataRows source for the checked list box control.
+            Overridden to set the data source for the checked list box control.
             </summary>
             <param name="source">The source that needs to set for the checked list box.</param>
         </member>
@@ -21386,7 +21429,7 @@
             <summary>
             Invoked when the pointer is pressed on <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCell"/> and performs the operations.
             </summary>
-            <param name="args">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event data.</param>
             <param name="cell">An instance of <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCell"/></param>      
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicSelectionController.MoveSelectionToGrid">
@@ -21445,7 +21488,7 @@
             <summary>
             Used to select the GraphicCells when pointer pressed [WPF and WF] or released[UWP].
             </summary>
-            <param name="args">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:System.Windows.Input.MouseButtonEventArgs">MouseButtonEventArgs</see> that contains the event data.</param>
             <param name="cell">An instance of <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCell"/></param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicSelectionController.Dispose">
@@ -21515,14 +21558,14 @@
             <summary>
              Move the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl"/> when appropriate key is pressed
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event data.</param>
             <param name="graphicCellControl">An instance of <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl"/></param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.MoveResizeController.ResizeUsingKey(System.Windows.Forms.PreviewKeyDownEventArgs,Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl)">
             <summary>
             Used to resize the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl"/> when appropriate key is pressed
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event data.</param>
             <param name="graphicCellControl">An instance of <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl"/></param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.MoveResizeController.Resize(System.Int32,System.Int32,Syncfusion.XlsIO.Implementation.Shapes.ShapeImpl)">
@@ -21770,7 +21813,7 @@
              </summary>
              <remarks>Occurs when a pointer pressed within this element</remarks>
              <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs"/>
-             that contains the event dataRows. The event dataRows reports that one or more mouse
+             that contains the event data. The event data reports that one or more mouse
              buttons were pressed.</param>
             <param name="sender"/>
         </member>
@@ -21781,7 +21824,7 @@
             </summary>
             <remarks>Occurs when the mouse moves while the pointer remains within the hit test area of this element.</remarks>
             <param name="e">The <see cref="T:System.Windows.Input.MouseEventArgs"/> that
-            contains the event dataRows.</param>
+            contains the event data.</param>
             <param name="sender"></param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
@@ -21791,7 +21834,7 @@
             </summary>
             <remarks>Occurs when a pointer released after press action within this element.</remarks>
             <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs"/>
-            that contains the event dataRows. The event dataRows reports that the mouse button was
+            that contains the event data. The event data reports that the mouse button was
             released.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl.OnMouseLeave(System.EventArgs)">
@@ -21803,7 +21846,7 @@
             Occurs when a pointer leaves the hit test area of this element.
             </remarks>
             <param name="e">The <see cref="T:System.Windows.Input.MouseEventArgs"/> that
-            contains the event dataRows.</param>
+            contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl.Control_PreviewKeyDown(System.Object,System.Windows.Forms.PreviewKeyDownEventArgs)">
             <summary>
@@ -21811,7 +21854,7 @@
             Implement this method to add class handling for this event.         
             </summary>
             <remarks>Occurs when a key pressed within the element from this class</remarks>
-            <param name="e">The <see cref="!:System.Windows.Input.KeyEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.Input.KeyEventArgs"/> that contains the event data.</param>
             <param name="sender"></param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl.Dispose">
@@ -22313,22 +22356,22 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicImageCellRenderer">
             <summary>
-            Custom GraphicCellRenderer for <see cref="T:System.Drawing.BudgetImage"/> celltype.
+            Custom GraphicCellRenderer for <see cref="T:System.Drawing.Image"/> celltype.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicImageCellRenderer.OnCreateElement(Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicObject)">
             <summary>
-            Creates a new <see cref="T:System.Drawing.BudgetImage"/>.
+            Creates a new <see cref="T:System.Drawing.Image"/>.
             </summary>
             <param name="graphicObject"><see cref="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicObject"/></param>
-            <returns><see cref="T:System.Drawing.BudgetImage"/></returns>
+            <returns><see cref="T:System.Drawing.Image"/></returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicImageCellRenderer.OnInitializeElement(Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl,System.Windows.Forms.PictureBox,Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicObject)">
             <summary>
             Initialize or update the properties of <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl"/> and its content.
             </summary>
             <param name="container"><see cref="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl"/></param>
-            <param name="element"><see cref="T:System.Drawing.BudgetImage"/></param>
+            <param name="element"><see cref="T:System.Drawing.Image"/></param>
             <param name="graphicObject"><see cref="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicObject"/></param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicImageCellRenderer.HandlePointerOperations(Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicCellControl,Syncfusion.Windows.Forms.CellGrid.GridPointerEventArgs)">
@@ -22500,7 +22543,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicModel.SpreadsheetGrid">
             <summary>
-            Gets the instance of <see cref="P:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicModel.SpreadsheetGrid"/> which displays the dataRows in SfSpreadsheet.
+            Gets the instance of <see cref="P:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicModel.SpreadsheetGrid"/> which displays the data in SfSpreadsheet.
             </summary>
             <value>An instance of <see cref="P:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicModel.SpreadsheetGrid"/></value>       
         </member>
@@ -22585,7 +22628,7 @@
             about implementation of Shapes.
             </summary>
             <remarks>
-            Contents like TextBox, BudgetImage,..
+            Contents like TextBox, Image,..
             </remarks>
             <value>
             Content of the <see cref="T:Syncfusion.XlsIO.Implementation.Shapes.ShapeImpl"/>
@@ -22607,7 +22650,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicSelectionChangingEventArgs">
             <summary>
-            Provides dataRows for the <see cref="!:GraphicSelectionChanging"/> event
+            Provides data for the <see cref="!:GraphicSelectionChanging"/> event
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicSelectionChangingEventArgs.OldSelectedShapes">
@@ -22637,7 +22680,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicSelectionChangedEventArgs">
             <summary>
-            Provides dataRows for the <see cref="!:GraphicSelectionChanged"/> event.
+            Provides data for the <see cref="!:GraphicSelectionChanged"/> event.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.GraphicCells.GraphicSelectionChangedEventArgs.OldSelectedShapes">
@@ -22979,7 +23022,7 @@
             </summary>
             <param name="dataBarFormats">collection of databars formats</param>
             <param name="address">databar format ranges</param>
-            <param name="dataBar">dataRows bar object</param>
+            <param name="dataBar">data bar object</param>
             <param name="dataBarRange">databar range</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Helpers.ConditionalFormatHelper.GetIconSets(System.Collections.Generic.IEnumerable{Syncfusion.XlsIO.IConditionalFormat},System.String,Syncfusion.XlsIO.IIconSet@,System.String@)">
@@ -23075,7 +23118,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Helpers.ConditionalFormatHelper.EvaluateDataBarLength(Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetColumn,Syncfusion.XlsIO.IDataBar,System.Double,System.Drawing.Rectangle,System.String,System.Double@,System.Boolean@)">
             <summary>
-            Evaluate the dataRows bar length based on min and max value by format types
+            Evaluate the data bar length based on min and max value by format types
             </summary>
             <param name="dataBar"></param>
             <param name="value">Its denote cell value.</param>
@@ -23526,7 +23569,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Helpers.GridExcelHelper.InvalidateCellRange(Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid)">
             <summary>
-            This method invalidates/refreshes the total used cell ranges, imported from dataRows table in grid.
+            This method invalidates/refreshes the total used cell ranges, imported from data table in grid.
             </summary>
             <param name="grid">An instance of <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid"/>. </param>
         </member>
@@ -23577,7 +23620,7 @@
             This method is used to open the hyperlink contained in the text or image in the cell.
             </summary>
             <param name="hyperlink">An instance of<see cref="T:Syncfusion.XlsIO.IHyperLink"/>represent a hyperlink </param>
-            <param name="Grid">An instance of<see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid"/>used for displaying dataRows </param>
+            <param name="Grid">An instance of<see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid"/>used for displaying data </param>
             <param name="address">An instance of<see cref="T:System.String"/>represents url of the hyperlink</param>
             <returns>Return true,if the hyperlink is opened, else false.</returns>
         </member>
@@ -23720,7 +23763,7 @@
             <summary>
             Return true when graphic objects are contains hyperlink on shape or image
             </summary>
-            <param name="grid">An instance of<see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid"/> used for displaying dataRows</param>
+            <param name="grid">An instance of<see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid"/> used for displaying data</param>
             <returns></returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Helpers.GridExcelHelper.CanModifyArrayFormula(Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid,System.Boolean,System.Boolean)">
@@ -23764,7 +23807,7 @@
             Represents the method that will handle the QueryRange event. 
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name=" e">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetQueryRangeEventArgs"/> that contains the event dataRows.</param>
+            <param name=" e">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetQueryRangeEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetQueryRangeEventArgs">
             <summary>
@@ -23823,7 +23866,7 @@
             Represents the method that will handle the Copying event. 
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name=" e">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetCopyingEventArgs"/> that contains the event dataRows.</param>
+            <param name=" e">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetCopyingEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetCopyingEventArgs">
             <summary>
@@ -23861,7 +23904,7 @@
             Represents the method that will handle the Copied event. 
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name=" e">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetCopiedEventArgs"/> that contains the event dataRows.</param>
+            <param name=" e">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetCopiedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetCopiedEventArgs">
             <summary>
@@ -23899,7 +23942,7 @@
             Represents the method that will handle the Pasting event. 
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name=" e">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPastingEventArgs"/> that contains the event dataRows.</param>    
+            <param name=" e">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPastingEventArgs"/> that contains the event data.</param>    
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPastingEventArgs">
             <summary>
@@ -23951,7 +23994,7 @@
             Represents the method that will handle the Pasted event. 
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name=" e">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPastedEventArgs"/> that contains the event dataRows.</param>
+            <param name=" e">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPastedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPastedEventArgs">
             <summary>
@@ -24003,7 +24046,7 @@
             Represents a method that will handle the WorkbookCreating Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorkbookCreatingEventArgs">WorkbookCreatingEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorkbookCreatingEventArgs">WorkbookCreatingEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorkbookCreatingEventArgs">
             <summary>
@@ -24026,7 +24069,7 @@
             Represents the method that will handle the WorksheetRemoving Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorksheetRemovingEventArgs">WorksheetRemovingEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorksheetRemovingEventArgs">WorksheetRemovingEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorksheetRemovingEventArgs">
             <summary>
@@ -24055,7 +24098,7 @@
             Represents a method that will handle the WorksheetRemoved Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorksheetRemovedEventArgs">WorksheetRemovedEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorksheetRemovedEventArgs">WorksheetRemovedEventArgs</see> that contains the event data.</param>
             <remarks></remarks>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorksheetRemovedEventArgs">
@@ -24079,7 +24122,7 @@
             Represents a method that will handle the WorksheetAdding Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorksheetAddingEventArgs">WorksheetAddingEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorksheetAddingEventArgs">WorksheetAddingEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorksheetAddingEventArgs">
             <summary>
@@ -24108,7 +24151,7 @@
             Represents a method that will handle the WorksheetAdded Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorksheetAddedEventArgs">WorksheetAddedEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorksheetAddedEventArgs">WorksheetAddedEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorksheetAddedEventArgs">
             <summary>
@@ -24131,7 +24174,7 @@
             Represents a method that will handle the WorkbookLoaded Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorkbookLoadedEventArgs">WorkbookLoadedEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorkbookLoadedEventArgs">WorkbookLoadedEventArgs</see> that contains the event data.</param>
             <remarks></remarks>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorkbookLoadedEventArgs">
@@ -24168,7 +24211,7 @@
             Represents a method that will handle the WorkbookUnloaded event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorkbookUnloadedEventArgs">WorkbookUnloadedEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorkbookUnloadedEventArgs">WorkbookUnloadedEventArgs</see> that contains the event data.</param>
             <remarks></remarks>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorkbookUnloadedEventArgs">
@@ -24225,7 +24268,7 @@
             Represents a method that will handle the ZoomFactorChanging Event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.ZoomFactorChangingEventArgs">ZoomFactorChangingEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.ZoomFactorChangingEventArgs">ZoomFactorChangingEventArgs</see> that contains the event data.</param>
             <remarks></remarks>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.ZoomFactorChangingEventArgs">
@@ -24264,7 +24307,7 @@
             Represents the method that will handle the ZoomFactorChanged event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.ZoomFactorChangedEventArgs">ZoomFactorChangedEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.ZoomFactorChangedEventArgs">ZoomFactorChangedEventArgs</see> that contains the event data.</param>
             <remarks></remarks>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.ZoomFactorChangedEventArgs">
@@ -24300,7 +24343,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.CommandExecutionEventArgs">
             <summary>
-            Represents the class which provides dataRows for the <see cref="!:CommandExecuted"/> and <see cref="!:CommandExecuting"/> events.
+            Represents the class which provides data for the <see cref="!:CommandExecuted"/> and <see cref="!:CommandExecuting"/> events.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Helpers.CommandExecutionEventArgs.#ctor(System.String)">
@@ -24320,11 +24363,11 @@
             Represents the method that will handle the <see cref="!:CommandExecuted"/> and <see cref="!:CommandExecuting"/> events. 
             </summary>
             <param name="sender">The source of the event</param>
-            <param name="args">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.CommandExecutionEventArgs"/> that contains the event dataRows.</param>
+            <param name="args">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.CommandExecutionEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.CommandExecutingEventArgs">
             <summary>
-            Represents the class which provides dataRows for the <see cref="!:Syncfusion.UI.Xaml.Spreadsheet.Commands.Commands.CommandExecuting"/> events. 
+            Represents the class which provides data for the <see cref="!:Syncfusion.UI.Xaml.Spreadsheet.Commands.Commands.CommandExecuting"/> events. 
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Helpers.CommandExecutingEventArgs.#ctor(System.String)">
@@ -24344,7 +24387,7 @@
             Represents the method that will handle the <see cref="!:Syncfusion.UI.Xaml.Spreadsheet.Commands.Commands.CommandExecuting"/> events. 
             </summary>
             <param name="sender">The source of the event</param>
-            <param name="args">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.CommandExecutionEventArgs"/> that contains the event dataRows.</param>
+            <param name="args">A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.CommandExecutionEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.TableFormatHelper">
             <summary>
@@ -25707,6 +25750,29 @@
             Holds the number format for memory transaction
             </summary>
         </member>
+        <member name="T:Syncfusion.Windows.Forms.Spreadsheet.History.HistoryOrientationCommand">
+            <summary>
+             Represents a class that holds the memory transaction history of orientation changes.
+             </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Spreadsheet.History.HistoryOrientationCommand.#ctor(Syncfusion.XlsIO.IRange,Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Spreadsheet.History.HistoryOrientationCommand">HistoryOrientationCommand</see> class. 
+            </summary>
+            <param name="range">Specified excel range.</param>
+            <param name="sfSpreadsheet">An instance of spreadhsheet control.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Spreadsheet.History.HistoryOrientationCommand.Execute(Syncfusion.Windows.Forms.Spreadsheet.History.CommandMode)">
+            <summary>
+             Executes the transaction command in <see cref="!: Syncfusion.UI.Xaml.Spreadsheet.SfSpreadsheet"/>.
+            </summary>
+            <param name="mode">Holds the current process in SfSpreadsheet(either undo or redo).</param>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Spreadsheet.History.HistoryOrientationCommand.RotationAngle">
+            <summary>
+            Holds the angle of the rotation for memory transaction.
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.History.HistoryOutlinesCommand">
             <summary>
             Class which holds the memory transaction history of Outlines command.
@@ -26021,7 +26087,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Resources.GridResourceWrapper">
             <summary>
-            Represents a class which is used to maintain all the culture-specific dataRows related with ribbon menu items and dialog boxes.
+            Represents a class which is used to maintain all the culture-specific data related with ribbon menu items and dialog boxes.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Resources.GridResourceWrapper.SetResources(System.Reflection.Assembly)">
@@ -26355,7 +26421,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetColumn.ApplyDataBars(Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPaint,System.Drawing.Rectangle,Syncfusion.XlsIO.IDataBar,System.String,System.String)">
             <summary>
-            Apply the dataRows bars for DataBar Conditional Formatting.
+            Apply the data bars for DataBar Conditional Formatting.
             </summary>
             <param name="drawingContext">Drawing context</param>
             <param name="cellRect">Indicates the cell rect</param>
@@ -26571,7 +26637,7 @@
             <summary>
             Handles the key down events that occurs when a key is pressed while the current cell has its focus.
             </summary>
-            <param name="args">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event data.</param>
             <returns>True or False.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCurrentCell.ResetCurrentCellState">
@@ -26639,25 +26705,25 @@
             <summary>
             Invoked after a range of columns in SfSpreadsheet is removed.
             </summary>
-            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeRemovedEventArgs">GridRangeRemovedEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeRemovedEventArgs">GridRangeRemovedEventArgs</see> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGridModel.OnColumnsInserted(Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeInsertedEventArgs)">
             <summary>
             Invoked after a range of columns in SfSpreadsheet is inserted.
             </summary>
-            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeInsertedEventArgs">GridRangeInsertedEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeInsertedEventArgs">GridRangeInsertedEventArgs</see> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGridModel.OnRowsRemoved(Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeRemovedEventArgs)">
             <summary>
             Invoked after a range of rows in SfSpreadsheet is removed.
             </summary>
-            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeRemovedEventArgs">GridRangeRemovedEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeRemovedEventArgs">GridRangeRemovedEventArgs</see> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGridModel.OnRowsInserted(Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeInsertedEventArgs)">
             <summary>
              Invoked after a range of rows in SfSpreadsheet is inserted.
             </summary>
-            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeInsertedEventArgs">GridRangeInsertedEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.GridRangeInsertedEventArgs">GridRangeInsertedEventArgs</see> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGridModel.RemoveColumns(System.Int32,System.Int32)">
             <summary>
@@ -26819,10 +26885,10 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid">
             <summary>
-            Represents a class which is used for displaying the dataRows of <see cref="T:Syncfusion.XlsIO.IWorksheet"/>. 
+            Represents a class which is used for displaying the data of <see cref="T:Syncfusion.XlsIO.IWorksheet"/>. 
             </summary>
-            <remarks>The dataRows will be displayed in the form of rows and columns. This class also includes the selection and editing operations
-            in grid that allow the users to easily manage the dataRows.</remarks>
+            <remarks>The data will be displayed in the form of rows and columns. This class also includes the selection and editing operations
+            in grid that allow the users to easily manage the data.</remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid.#ctor">
             <summary>
@@ -26962,7 +27028,7 @@
             <summary>
             Commits and ends the edit operation on the current cell in <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet"/>.
             </summary>
-            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellEndEditEventArgs">CurrentCellEndEditEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellEndEditEventArgs">CurrentCellEndEditEventArgs</see> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid.ShowHidePopup(System.Boolean)">
             <summary>
@@ -27074,7 +27140,7 @@
             <summary>
             Occurs before the KeyDown event when a key is pressed while focus is on this control.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid.OnKeyUp(System.Windows.Forms.KeyEventArgs)">
             <summary>
@@ -27082,7 +27148,7 @@
             class. Implement this method to add class handling for this event. 
             </summary>
             <param name="e">The <see cref="T:System.Windows.Input.KeyEventArgs"/> that
-            contains the event dataRows.</param>
+            contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid.CanPerformAutoScroll">
             <summary>
@@ -27183,7 +27249,7 @@
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid.FillSeriesController">
             <summary>
             Gets or sets the value indicating the instance of <see cref="P:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid.FillSeriesController"/>
-            which provides support to autofill the dataRows.
+            which provides support to autofill the data.
             </summary>
             <value>An instance of <see cref="P:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid.FillSeriesController"/>.</value>
         </member>
@@ -27322,7 +27388,7 @@
             <summary>
             Handles the mouse pointer operations in SfSpreadsheet
             </summary>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.GridPointerEventArgs">GridPointerEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.CellGrid.GridPointerEventArgs">GridPointerEventArgs</see> that contains the event data.</param>
             <param name="rowcolIndex">The row and column index where the pointer is positioned</param>
             <returns>True or False</returns>
             <remarks>Based on the one of the enumeration <see cref="T:Syncfusion.Windows.Forms.CellGrid.PointerOperation"/> values, corresponding pointer operation is performed in SfSpreadsheet</remarks>
@@ -27401,7 +27467,7 @@
             <summary>
             Handles the key down operations in SfSpreadsheet.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event data.</param>
             <returns>True or False.</returns>
             <remarks>Invoked when the key is pressed while the <see cref="!:SfSpreadsheet"/> has its focus and handles the key navigations/operations for the selected formula ranges.</remarks>
         </member>
@@ -27409,7 +27475,7 @@
             <summary>
             Invoked when the mouse pointer is pressed while the <see cref="!:SfSpreadsheet"/> has its focus.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.MouseEventArgs">MouseEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.MouseEventArgs">MouseEventArgs</see> that contains the event data.</param>
             <param name="rowColIndex">The row and column index where the mouse pointer is pressed.</param>
             <returns>True or False.</returns>
             <remarks>The mouse interactions are received, processed, and managed as pointer input in SfSpreadsheet.Clicking on any of the mouse buttons(left,wheel,right) invokes this function which
@@ -27419,7 +27485,7 @@
             <summary>
             Invoked when the mouse pointer is moved while the <see cref="!:SfSpreadsheet"/> has its focus.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.MouseEventArgs">MouseEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.MouseEventArgs">MouseEventArgs</see> that contains the event data.</param>
             <param name="rowColIndex">The row and column index where the mouse pointer is positioned.</param>
             <returns>True or False.</returns>
             <remarks>The mouse interactions are received, processed, and managed as pointer input in SfSpreadsheet. Hence whenever the mouse moves over an element's bounds, even if no mouse button is pressed at the time also invokes this function which
@@ -27430,7 +27496,7 @@
             <summary>
             Invoked when the mouse pointer is released while the <see cref="!:SfSpreadsheet"/> has its focus.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.MouseEventArgs">MouseEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.MouseEventArgs">MouseEventArgs</see> that contains the event data.</param>
             <param name="rowColIndex">The row and column index where the mouse pointer is positioned.</param>
             <returns>True or False</returns>
             <remarks>The mouse interactions are received, processed, and managed as pointer input in SfSpreadsheet.
@@ -27447,14 +27513,14 @@
             <summary>
             Process and selects the formula ranges when any arrow key is pressed along with Shift key.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event data.</param>
             <remarks>Invoked by ProcessKeyNavigation method and maintains the last selected row and column index of the formula range.</remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController.ProcessKeyNavigation(System.Windows.Forms.KeyEventArgs)">
             <summary>
             Process and selects the formula ranges when any arrow key is pressed.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Input.KeyEventArgs">KeyEventArgs</see> that contains the event data.</param>
             <remarks>To customize the Keyboard interactions in <see cref="!:SfSpreadsheet"/>.</remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController.ParseRendererText(System.String)">
@@ -27733,7 +27799,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.OutlinesPanel.ActiveGrid">
             <summary>
-            Gets or sets the instance of the active <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid"/> which displays the dataRows in SfSpreadsheet.
+            Gets or sets the instance of the active <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid"/> which displays the data in SfSpreadsheet.
             </summary>
             <value>An instance of <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetGrid"/>.</value>
         </member>
@@ -27798,12 +27864,12 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.DataValidation">
             <summary>
-            Represents the class which holds all the dataRows validation operations in <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet"/>.
+            Represents the class which holds all the data validation operations in <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet"/>.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.DataValidation.Validate(Syncfusion.XlsIO.IWorksheet,Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellValidatingEventArgs,Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCurrentCell,Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet)">
             <summary>
-            Validating current cell dataRows
+            Validating current cell data
             </summary>
             <param name="worksheet">Worksheet</param>
             <param name="currentCell">currentCell</param>
@@ -27843,7 +27909,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.DataValidation.DisplayErrorMessage(Syncfusion.XlsIO.IDataValidation,Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCurrentCell,Syncfusion.XlsIO.IWorksheet,Syncfusion.Windows.Forms.CellGrid.Helpers.CurrentCellValidatingEventArgs,Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet)">
             <summary>
-            DisplayErrorMessage while get invalid dataRows
+            DisplayErrorMessage while get invalid data
             </summary>
             <param name="validation">IDataValidation rule</param>
             <param name="currentCell">Current Cell</param>
@@ -27902,10 +27968,10 @@
             Class which holds the properties and operations related with controls such as NameBox, FormulaTextBox, EndEdit button and CancelEdit button in <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet"/>.
             </summary>
             <remarks>
-            <para>The Formula Bar is located above the worksheet area of the spreadsheet. The formula bar displays the dataRows or formula stored in the active cell.</para>
+            <para>The Formula Bar is located above the worksheet area of the spreadsheet. The formula bar displays the data or formula stored in the active cell.</para>
             <para>The Name Box is located next to the formula bar above the worksheet area. The Name Box normally displays the cell reference of the active cell.</para>
-            <para>The EndEdit Button is used to save the entered the dataRows and end edit the cell.</para>
-            <para>The CancelEdit Button is used to revert the newly entered dataRows and end edit the cell.</para>
+            <para>The EndEdit Button is used to save the entered the data and end edit the cell.</para>
+            <para>The CancelEdit Button is used to revert the newly entered data and end edit the cell.</para>
             </remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.FormulaBar.GetPreferredHeight">
@@ -28074,7 +28140,7 @@
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Commands.SearchManager">
             <summary>
             Class which provides support to find or replace the text in the document with advanced search options. 
-            And also provides support to select all cells with formulas, conditional formatting, constants, dataRows validation, etc.
+            And also provides support to select all cells with formulas, conditional formatting, constants, data validation, etc.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Spreadsheet.Commands.SearchManager.spreadsheet">
@@ -28328,7 +28394,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.SearchManager.FindDataValidation(Syncfusion.XlsIO.IWorksheet)">
             <summary>
-            Returns ranges which have dataRows validation within the specified worksheet..
+            Returns ranges which have data validation within the specified worksheet..
             </summary>
             <param name="worksheet">Need to specify the worksheet to find the datavalidation applied range.</param>
             <returns>Returns array ranges</returns>
@@ -28359,7 +28425,7 @@
             <summary>
             SfSpreadsheet is a control for viewing, editing and creating Excel files.
             </summary>
-            <remarks>SfSpreadsheet is an Excel inspired control which represents the dataRows as cells organized in the form of rows and columns 
+            <remarks>SfSpreadsheet is an Excel inspired control which represents the data as cells organized in the form of rows and columns 
             It is built on XlsIO which features a full-fledged object model similar to the Microsoft Office Automation libraries.</remarks>
             <example>
             	<code lang="XAML">
@@ -28456,7 +28522,7 @@
             <summary>
             Raises the SizeChanged event. When the size is changed this event made to fire.
             </summary>
-            <param name="e">An EventArgs that contains the event dataRows.</param>
+            <param name="e">An EventArgs that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet.ImportNamedRanges">
             <summary>
@@ -28794,7 +28860,7 @@
              Removes the specified sheet from the Workbook.
              </summary>
              <param name="name">Name of the sheet to be removed.</param>
-            <remarks>If the total sheet count is 1 or if the sheet contains some dataRows, then a warning message is shown. </remarks>
+            <remarks>If the total sheet count is 1 or if the sheet contains some data, then a warning message is shown. </remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet.HideSheet(System.String)">
             <summary>
@@ -28842,7 +28908,7 @@
             <summary>
             Save the workbook as stream.
             </summary>
-            <param name="stream">Stream that will receive workbook dataRows</param>
+            <param name="stream">Stream that will receive workbook data</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet.Save">
             <summary>
@@ -29092,7 +29158,7 @@
             <summary>
             Invoked when a new worksheet is going to be added in <see cref="!:SfSpreadsheet"/>.
             </summary>
-            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorksheetAddingEventArgs">WorksheetAddingEventArgs</see> that contains the event dataRows.</param>
+            <param name="args">An <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Helpers.WorksheetAddingEventArgs">WorksheetAddingEventArgs</see> that contains the event data.</param>
             <returns>True or False.</returns>
             <remarks>This method raises the <see cref="E:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet.WorksheetAdding"/> event.</remarks>
         </member>
@@ -29179,7 +29245,7 @@
             Raises the <see cref="E:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet.ThemeNameChanged"/> event when theme name changed.
             </summary>
             <param name="sender">The sender value.</param>
-            <param name="args">A <see cref="T:Syncfusion.Windows.Forms.Events.ThemeChangedEventArgs"/> contains the event dataRows.</param>
+            <param name="args">A <see cref="T:Syncfusion.Windows.Forms.Events.ThemeChangedEventArgs"/> contains the event data.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet.SelectedTabItem">
             <summary>
@@ -29249,9 +29315,9 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet.AllowFiltering">
             <summary>
-            Gets or sets a value indicating whether the spreadsheet allows to filter the dataRows or not.
+            Gets or sets a value indicating whether the spreadsheet allows to filter the data or not.
             </summary>
-            <value><see langword="true"/> if the user wants to filter the dataRows in the spreadsheet; otherwise, <see langword="false"/>.</value>
+            <value><see langword="true"/> if the user wants to filter the data in the spreadsheet; otherwise, <see langword="false"/>.</value>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet.Commands">
             <summary>
@@ -29733,15 +29799,15 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.CommandExtensions.ApplyDataValidation(Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet,Syncfusion.XlsIO.IWorksheet,Syncfusion.XlsIO.IRange,Syncfusion.XlsIO.ExcelDataType,Syncfusion.XlsIO.ExcelDataValidationComparisonOperator,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
-            Apply the dataRows validation for the selected range of cells with the specified criterias
+            Apply the data validation for the selected range of cells with the specified criterias
             </summary> 
             <param name="spreadsheet">An instance of <see cref="!:Syncfusion.UI.Xaml.Spreadsheet.SfSpreadsheet"/></param>
             <param name="worksheet">Current worksheet</param>
-            <param name="validationRange">Range where the dataRows validation applied</param>
+            <param name="validationRange">Range where the data validation applied</param>
             <param name="allowType">Type of Validation test to be performed</param>
-            <param name="ComparisonOperator">The comparison Operation for the dataRows validation</param>
-            <param name="conditionvalue1">Condition set for the first part of dataRows validation</param>
-            <param name="conditionvalue2">Condition set for the second part of dataRows validation</param>
+            <param name="ComparisonOperator">The comparison Operation for the data validation</param>
+            <param name="conditionvalue1">Condition set for the first part of data validation</param>
+            <param name="conditionvalue2">Condition set for the second part of data validation</param>
             <param name="PromptBoxTitle">Title of the PromptBox</param>
             <param name="PromptBoxText">Text in the PromptBox</param>
             <param name="ErrorBoxTitle">Title in the ErrorBox</param>
@@ -29754,7 +29820,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Commands.DV_ExcelDataTypeInfo">
             <summary>
-            Represents a class that is to maintain the information about different dataRows types for DataValidation
+            Represents a class that is to maintain the information about different data types for DataValidation
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.DV_ExcelDataTypeInfo.#ctor">
@@ -29764,12 +29830,12 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Commands.DV_ExcelDataTypeInfo.DV_ExcelDataTypeName">
             <summary>
-            Gets or sets the name of the dataRows types in DataValidation 
+            Gets or sets the name of the data types in DataValidation 
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Commands.DV_ExcelDataTypeInfo.DV_ExcelDataType">
             <summary>
-            Gets or sets the type of the dataRows in DataValidation
+            Gets or sets the type of the data in DataValidation
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Commands.DV_ComparisionOperatorInfo">
@@ -30338,7 +30404,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Commands.ConditionalFormattingDataBarsCommand">
             <summary>
-            Set the conditional formatting of dataRows bars for ranges.
+            Set the conditional formatting of data bars for ranges.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.ConditionalFormattingDataBarsCommand.#ctor(Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet,System.String)">
@@ -30359,7 +30425,7 @@
             <summary>
             Used to excute the DataBars command.
             </summary>
-            <param name="parameter">Colors for dataRows bar either Gradient or Solid</param>
+            <param name="parameter">Colors for data bar either Gradient or Solid</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Commands.ConditionalFormattingIconSetsCommand">
             <summary>
@@ -31273,6 +31339,31 @@
             used to Execute the Command AutoFit RowHeight/ AutoFit ColumnWidth
             </summary>
             <param name="parameter"></param>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Commands.OrientationCommand">
+            <summary>
+            Represents a class that defines the command to change the orientation for the text in the cells.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.OrientationCommand.#ctor(Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet,System.String)">
+            <summary>
+            Initializes a instance of the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Commands.OrientationCommand"/> class.
+            </summary>
+            <param name="spreadsheetControl">The Spreadsheet Control</param>
+            <param name="commandName">The command name</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.OrientationCommand.OnCanExecute(System.Object)">
+            <summary>
+            returns true if Orientation command can be executed else false
+            </summary>
+            <param name="parameter">true or false</param>
+            <returns>returns true or false</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.OrientationCommand.OnExecute(System.Object)">
+            <summary>
+            Used to execute the Orientation Command
+            </summary>
+            <param name="parameter">true if change the orientation else false not</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.InsertCutCopiedCellsCommand.OnCanExecute(System.Object)">
             <summary>
@@ -32359,14 +32450,14 @@
             Event raised when ok button is clicked
             </summary>
             <param name="sender">The Source</param>
-            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.GetPasswordForm.cancel_Click(System.Object,System.EventArgs)">
             <summary>
             Event raised when Cancel button is clicked
             </summary>
             <param name="sender">The Source</param>
-            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.GetPasswordForm.WireEvents">
             <summary>
@@ -32616,7 +32707,7 @@
             Event raised when the cancel Button is Clicked
             </summary>
             <param name="sender">The Source.</param>
-            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.ProtectWorkbookForm.WireEvents">
             <summary>
@@ -32745,7 +32836,7 @@
             Event raised when the ListBoxItem is double clicked
             </summary>
             <param name="sender">The Source of the Event.</param>
-            <param name="e">The <see cref="!:System.Windows.Input.MouseButtonEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.Input.MouseButtonEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.UnHideForm.OnApplySettings">
             <summary>
@@ -33071,39 +33162,39 @@
             Event Raised when the CancelEdit Button is Clicked
             </summary>
             <param name="sender">The Soruce.</param>
-            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.EndEditButton_Click(System.Object,System.EventArgs)">
             <summary>
             Event Raised When the EndEdit Button is Clicked
             </summary>
             <param name="sender">The Source.</param>
-            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.CloseButton_Click(System.Object,System.EventArgs)">
             <summary>
             Event Raised when the Close Button is Clicked
             </summary>
             <param name="sender">The Source.</param>
-            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.Editor_PreviewKeyDown(System.Object,System.Windows.Forms.PreviewKeyDownEventArgs)">
             <summary>
             Event Raised When the Key is Pressed when the Editor TextBox in Focus
             </summary>
             <param name="sender">The Source.</param>
-            <param name="e">The <see cref="!:System.Windows.Input.KeyEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.Input.KeyEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.NameRanges_SelectionChanged(System.Object,System.EventArgs)">
             <summary>
             Event raised when the Selection is changed in the DataGrid
             </summary>
             <param name="sender">The Source.</param>
-            <param name="e">The <see cref="!:System.Windows.Controls.SelectionChangedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.Controls.SelectionChangedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.UpdateRefersToTextBox">
             <summary>
-            Update the refers to text box based on the selected row in dataRows grid.
+            Update the refers to text box based on the selected row in data grid.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.NameRanges_MouseDoubleClick(System.Object,System.Windows.Forms.MouseEventArgs)">
@@ -33111,70 +33202,70 @@
             Event Raised when the Double click operation is performed on the DataGrid
             </summary>
             <param name="sender">The Source.</param>
-            <param name="e">The <see cref="!:System.Windows.Input.MouseButtonEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.Input.MouseButtonEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.NameRanges_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
             <summary>
             Event Raised when the DataGrid is clicked
             </summary>
             <param name="sender">The Source.</param>
-            <param name="e">The <see cref="!:System.Windows.Input.MouseButtonEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.Input.MouseButtonEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.NameswithoutErrors_Click(System.Object,System.EventArgs)">
             <summary>
             Event Raised when the NamesWithOutErrors Menu Item is Clicked
             </summary>
             <param name="sender">The Source.</param>
-            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.NameswithErrors_Click(System.Object,System.EventArgs)">
             <summary>
             Event Raised When the NamesWithErrors MenuItem is Clicked
             </summary>
             <param name="sender">The Source.</param>
-            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.ScopedtoWorksheet_Click(System.Object,System.EventArgs)">
             <summary>
             Event Raised when ScopedtoWorksheet MenuItem is Clicked
             </summary>
             <param name="sender">The Source.</param>
-            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.ScopedtoWorkbook_Click(System.Object,System.EventArgs)">
             <summary>
             Event Raised when the ScopedtoWorkbook Menu Item is Clicked
             </summary>
             <param name="sender">The Source.</param>
-            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.ClearFilter_Click(System.Object,System.EventArgs)">
             <summary>
             Event Raised When the ClearFilter MenuItem is Clicked
             </summary>
             <param name="sender">The Source.</param>
-            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.FilterButton_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
             <summary>
             Event Raised When the Filter Button is clicked
             </summary>
             <param name="sender">The Source.</param>
-            <param name="e">The <see cref="!:System.Windows.Input.MouseButtonEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.Input.MouseButtonEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.DeleteButton_Click(System.Object,System.EventArgs)">
             <summary>
             Event Raised When the Delete Button is clicked
             </summary>
             <param name="sender">The Source.</param>
-            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.EditButton_Click(System.Object,System.EventArgs)">
             <summary>
             Event Raised when the Edit Button is Clicked
             </summary>
             <param name="sender">The Source.</param>
-            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="!:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Commands.NameManagerForm.NewButton_Click(System.Object,System.EventArgs)">
             <summary>
@@ -33720,6 +33811,15 @@
             <param name="clipRect">Clipped rectangle area</param>
             <param name="column"><see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetColumn"/></param>
         </member>
+        <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPaint.DrawText(System.Drawing.Rectangle,System.Drawing.Rectangle,Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetColumn,Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPaint)">
+            <summary>
+            Draw the Rotated text.
+            </summary>
+            <param name="rect">Rectangle area</param>
+            <param name="clipRect">Clipped rectangle area</param>
+            <param name="column"><see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetColumn"/></param>
+            <param name="paint">drawingcontext</param>
+        </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Helpers.SpreadsheetPaint.DrawRichText(System.Drawing.Rectangle,System.Drawing.Rectangle,Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetColumn)">
             <summary>
             Draw the RichText
@@ -33859,14 +33959,14 @@
             <summary>
             Overridden to update the focus rectangle visibility.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains event dataRows.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.SortButton.OnSortButtonThemeChanged(System.Object,Syncfusion.Windows.Forms.Events.ThemeChangedEventArgs)">
             <summary>
             Occurs when the theme name of the Button is changed
             </summary>
             <param name="sender">The sender value.</param>
-            <param name="e">A <see cref="!:Syncfusion.WinForms.Core.ThemeChangedEventArgs"/> contains the event dataRows.</param>
+            <param name="e">A <see cref="!:Syncfusion.WinForms.Core.ThemeChangedEventArgs"/> contains the event data.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Filtering.SortButton.ShowFocusCues">
             <summary>
@@ -33937,7 +34037,7 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlVisualStyle"/> class. 
             </summary>
             <param name="style">
-            The style object that contains the original dataRows.
+            The style object that contains the original data.
             </param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlVisualStyle.#ctor(Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlVisualStyleInfoStore)">
@@ -33945,7 +34045,7 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlVisualStyle"/> class. 
             </summary>
             <param name="store">
-            A <see cref="!:FilterControlStyleInfoStore"/> that holds dataRows for this
+            A <see cref="!:FilterControlStyleInfoStore"/> that holds data for this
                 <see cref="!:FilterControlStyleInfo"/>.
                 All changes in this style object will be saved in the
                 <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlVisualStyleInfoStore"/> object.
@@ -33969,7 +34069,7 @@
                 <see cref="!:FilterControlStyleInfo"/>.
             </param>
             <param name="store">
-            A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlVisualStyleInfoStore"/> that holds dataRows for this
+            A <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlVisualStyleInfoStore"/> that holds data for this
                 <see cref="!:.FilterControlStyleInfo"/>.
                 All changes in this style object will be saved in the
                 <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlVisualStyleInfoStore"/> object.
@@ -34122,13 +34222,13 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlVisualStyle.Store">
             <summary>
-                Gets the object that holds all the dataRows for
+                Gets the object that holds all the data for
                 this style object.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlVisualStyleInfoStore">
             <summary>
-                Represents the class holds the plain dataRows for a style object excluding identity information.
+                Represents the class holds the plain data for a style object excluding identity information.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlVisualStyleInfoStore.BackColorProperty">
@@ -34238,7 +34338,7 @@
         </member>
         <member name="F:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlVisualStyleInfoStore.sd">
             <summary>
-                Maintains the static dataRows.
+                Maintains the static data.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlVisualStyleInfoStore.#ctor">
@@ -34267,7 +34367,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterControlVisualStyleInfoStore.StaticDataStore">
             <summary>
-                Overridden to get the static dataRows source.
+                Overridden to get the static data source.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterPopup.#ctor(System.Windows.Forms.Control,System.Drawing.Size)">
@@ -34288,19 +34388,19 @@
             <summary>
             Raises the <see cref="E:System.Windows.Forms.ToolStripDropDown.Opening" /> event.
             </summary>
-            <param name="e">A <see cref="T:System.ComponentModel.CancelEventArgs" /> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.ComponentModel.CancelEventArgs" /> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterPopup.OnClosing(System.Windows.Forms.ToolStripDropDownClosingEventArgs)">
             <summary>
             Overridden to unhook the paint event.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripDropDownClosingEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripDropDownClosingEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterPopup.OnSizeChanged(System.EventArgs)">
             <summary>
             Overridden to set the resize the content control.
             </summary>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterPopup.ProcessDialogKey(System.Windows.Forms.Keys)">
             <summary>
@@ -34320,13 +34420,13 @@
             Used to paint the content.
             </summary>
             <param name="sender">The source control.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterPopup.DrawResizeGrip(System.Windows.Forms.PaintEventArgs)">
             <summary>
             Draws the resize gripper for the control.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.Filtering.FilterPopup.InternalProcessResizing(System.Windows.Forms.Message@,System.Boolean)">
             <summary>
@@ -35446,7 +35546,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Resources.Syncfusion_Spreadsheet_Windows.ErrorAlertDescription">
             <summary>
-              Looks up a localized string similar to When user enters invalid dataRows, show this error alert:.
+              Looks up a localized string similar to When user enters invalid data, show this error alert:.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Resources.Syncfusion_Spreadsheet_Windows.ErrorMessage">
@@ -35562,7 +35662,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Resources.Syncfusion_Spreadsheet_Windows.FormatAsTableDescription">
             <summary>
-              Looks up a localized string similar to Where is the dataRows for your table?.
+              Looks up a localized string similar to Where is the data for your table?.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Resources.Syncfusion_Spreadsheet_Windows.FormatAsTableWindowTitle">
@@ -37180,7 +37280,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Resources.Syncfusion_Spreadsheet_Windows.ShowErrorMessage">
             <summary>
-              Looks up a localized string similar to Show error alert after invalid dataRows is entered.
+              Looks up a localized string similar to Show error alert after invalid data is entered.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Resources.Syncfusion_Spreadsheet_Windows.ShowFewerProperties">
@@ -37320,7 +37420,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Resources.Syncfusion_Spreadsheet_Windows.TableFormatTextBlockText">
             <summary>
-              Looks up a localized string similar to Where is the dataRows for your table?.
+              Looks up a localized string similar to Where is the data for your table?.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Resources.Syncfusion_Spreadsheet_Windows.TableNames">
@@ -37526,7 +37626,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Resources.Syncfusion_Spreadsheet_Windows.ValidationMessage_ClipboardPaste">
             <summary>
-              Looks up a localized string similar to The dataRows you&apos;re pasting isn&apos;t the same size as your selection, Do you want to paste anyway?.
+              Looks up a localized string similar to The data you&apos;re pasting isn&apos;t the same size as your selection, Do you want to paste anyway?.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Resources.Syncfusion_Spreadsheet_Windows.ValidationMessage_ContainsMutidatavalidation1">
@@ -37556,7 +37656,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Resources.Syncfusion_Spreadsheet_Windows.ValidationMessage_DeleteSheet">
             <summary>
-              Looks up a localized string similar to You can&apos;t undo deleting sheets, and you might be removing some dataRows. If you don&apos;t need it, click OK..
+              Looks up a localized string similar to You can&apos;t undo deleting sheets, and you might be removing some data. If you don&apos;t need it, click OK..
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.Resources.Syncfusion_Spreadsheet_Windows.ValidationMessage_EnteredInvalidData">
@@ -39329,7 +39429,7 @@
             <summary>
             Overrides the onpaint method
             </summary>
-            <param name="e">paint event dataRows</param>
+            <param name="e">paint event data</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.ToolStripDropDownExt.IsGalleryItem">
             <summary>
@@ -39457,7 +39557,7 @@
             <summary>
             Overrides the onpaint method
             </summary>
-            <param name="e">paint event dataRows</param>
+            <param name="e">paint event data</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.MaskedEditBoxExt">
             <summary>
@@ -39539,7 +39639,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.BusyIndicator.BusyImage">
             <summary>
-            Gets or sets the Busy BudgetImage which will be shown when doing some processing (For example, loading a workbook)
+            Gets or sets the Busy Image which will be shown when doing some processing (For example, loading a workbook)
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.ContextMenuStyleInfo">
@@ -39679,7 +39779,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.ContextMenuStyleInfoStore"/> class from a serialization stream.
             </summary>
-            <param name="info">An object that holds all the dataRows needed to serialize or deserialize this instance.</param>
+            <param name="info">An object that holds all the data needed to serialize or deserialize this instance.</param>
             <param name="context">Describes the source and destination of the serialized stream specified by info. </param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.ContextMenuStyleInfoStore.GetStaticData">
@@ -39690,7 +39790,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.ContextMenuStyleInfoStore.StaticDataStore">
             <summary>
-            Gets the static dataRows value of the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.ContextMenuStyleInfoStore"/> class.
+            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.ContextMenuStyleInfoStore"/> class.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.FormulaBarStyleInfo">
@@ -39898,7 +39998,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.FormulaBarStyleInfoStore"/> class from a serialization stream.
             </summary>
-            <param name="info">An object that holds all the dataRows needed to serialize or deserialize this instance.</param>
+            <param name="info">An object that holds all the data needed to serialize or deserialize this instance.</param>
             <param name="context">Describes the source and destination of the serialized stream specified by info. </param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.FormulaBarStyleInfoStore.GetStaticData">
@@ -39909,7 +40009,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.FormulaBarStyleInfoStore.StaticDataStore">
             <summary>
-            Gets the static dataRows value of the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.FormulaBarStyleInfoStore"/> class.
+            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.FormulaBarStyleInfoStore"/> class.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetHeaderStyleInfo">
@@ -40065,7 +40165,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetHeaderStyleInfoStore"/> class from a serialization stream.
             </summary>
-            <param name="info">An object that holds all the dataRows needed to serialize or deserialize this instance.</param>
+            <param name="info">An object that holds all the data needed to serialize or deserialize this instance.</param>
             <param name="context">Describes the source and destination of the serialized stream specified by info. </param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetHeaderStyleInfoStore.GetStaticData">
@@ -40076,7 +40176,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetHeaderStyleInfoStore.StaticDataStore">
             <summary>
-            Gets the static dataRows value of the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetHeaderStyleInfoStore"/> class.
+            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetHeaderStyleInfoStore"/> class.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetVisualStyle">
@@ -40261,7 +40361,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetVisualStyleInfoStore"/> class from a serialization stream.
             </summary>
-            <param name="info">An object that holds all the dataRows needed to serialize or deserialize this instance.</param>
+            <param name="info">An object that holds all the data needed to serialize or deserialize this instance.</param>
             <param name="context">Describes the source and destination of the serialized stream specified by info. </param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetVisualStyleInfoStore.GetStaticData">
@@ -40272,7 +40372,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetVisualStyleInfoStore.StaticDataStore">
             <summary>
-            Gets the static dataRows value of the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetVisualStyleInfoStore"/> class.
+            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetVisualStyleInfoStore"/> class.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetInfoSubObjectIdentity">

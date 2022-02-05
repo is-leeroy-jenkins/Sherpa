@@ -11,7 +11,7 @@
         </member>
         <member name="F:Syncfusion.Windows.Forms.SpreadsheetHelper.Graphic3DChartCellRenderer.ChartConverter">
             <summary>
-            Converter used to convert the XlsIO chart into the SfChart or BudgetImage.
+            Converter used to convert the XlsIO chart into the SfChart or Image.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.SpreadsheetHelper.Graphic3DChartCellRenderer.#ctor">
@@ -46,7 +46,7 @@
         </member>
         <member name="F:Syncfusion.Windows.Forms.SpreadsheetHelper.GraphicChartCellRenderer.ChartConverter">
             <summary>
-            Converter used to convert the XlsIO chart into the SfChart or BudgetImage.
+            Converter used to convert the XlsIO chart into the SfChart or Image.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.SpreadsheetHelper.GraphicChartCellRenderer.#ctor">

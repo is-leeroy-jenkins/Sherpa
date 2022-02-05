@@ -51,12 +51,12 @@
         </member>
         <member name="P:Syncfusion.PivotAnalysis.Base.IPivotControl.PivotEngine">
             <summary>
-            It is used to hold and populate the Pivoted dataRows.
+            It is used to hold and populate the Pivoted data.
             </summary>
         </member>
         <member name="P:Syncfusion.PivotAnalysis.Base.IPivotControl.ItemSource">
             <summary>
-            Gets or sets the dataRows source for the Pivot control. The dataRows source should be either an IEnumerable List or a DataTable.
+            Gets or sets the data source for the Pivot control. The data source should be either an IEnumerable List or a DataTable.
             </summary>
         </member>
         <member name="T:Syncfusion.PivotAnalysis.Base.ExpressionError">
@@ -492,22 +492,22 @@
         </member>
         <member name="F:Syncfusion.PivotAnalysis.Base.SummaryType.StdDev">
             <summary>
-            Computes the standard deviation of values if dataRows set contains a sample of the population.
+            Computes the standard deviation of values if data set contains a sample of the population.
             </summary>
         </member>
         <member name="F:Syncfusion.PivotAnalysis.Base.SummaryType.StdDevP">
             <summary>
-            Computes the standard deviation of values if dataRows set contains a complete population.
+            Computes the standard deviation of values if data set contains a complete population.
             </summary>
         </member>
         <member name="F:Syncfusion.PivotAnalysis.Base.SummaryType.Var">
             <summary>
-            Computes the variance of values if dataRows set contains a sample of the population.
+            Computes the variance of values if data set contains a sample of the population.
             </summary>
         </member>
         <member name="F:Syncfusion.PivotAnalysis.Base.SummaryType.VarP">
             <summary>
-            Computes the variance of values if dataRows set contains a complete population.
+            Computes the variance of values if data set contains a complete population.
             </summary>
         </member>
         <member name="T:Syncfusion.PivotAnalysis.Base.CalculationType">
@@ -660,7 +660,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.PivotComputationInfo.#ctor">
             <summary>
-            Performs certain manipulations with dataRows using summary type.
+            Performs certain manipulations with data using summary type.
             </summary>
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.PivotComputationInfo.GetSummaryInstance(Syncfusion.PivotAnalysis.Base.SummaryType)">
@@ -848,7 +848,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.SummaryBase.Combine(System.Object)">
             <summary>
-            Use this method to combine a value from an object in the Pivot control dataRows source with the accumulation values held in this instance.
+            Use this method to combine a value from an object in the Pivot control data source with the accumulation values held in this instance.
             </summary>
             <param name="other">The value to be included in the computation.</param>
         </member>
@@ -887,7 +887,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.CountSummary.ToString">
             <summary>
-            Converts dataRows to string.
+            Converts data to string.
             </summary>
             <returns>string</returns>
         </member>
@@ -1012,7 +1012,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.DoubleStDevSummary.ToString">
             <summary>
-            Converts dataRows to string.
+            Converts data to string.
             </summary>
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.DoubleStDevSummary.Combine(System.Object)">
@@ -1047,7 +1047,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.DoubleVarianceSummary.ToString">
             <summary>
-            Converts dataRows to string.
+            Converts data to string.
             </summary>
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.DoubleVarianceSummary.Combine(System.Object)">
@@ -1082,7 +1082,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.DoubleAverageSummary.ToString">
             <summary>
-            Converts dataRows to string.
+            Converts data to string.
             </summary>
             <returns></returns>
         </member>
@@ -1134,7 +1134,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.DoubleTotalSummary.ToString">
             <summary>
-            Returns the string for the concerned dataRows.
+            Returns the string for the concerned data.
             </summary>
             <returns>string</returns>
         </member>
@@ -1238,7 +1238,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.DecimalTotalSummary.ToString">
             <summary>
-            Converts the dataRows to string.
+            Converts the data to string.
             </summary>
             <returns></returns>
         </member>
@@ -1375,7 +1375,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.Average.ToString">
             <summary>
-            Converts the dataRows to string type
+            Converts the data to string type
             </summary>
             <returns></returns>
         </member>
@@ -1487,7 +1487,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.Variance.ToString">
             <summary>
-            Converts dataRows to string.
+            Converts data to string.
             </summary>
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.Variance.Combine(System.Object)">
@@ -1522,7 +1522,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.VarianceP.ToString">
             <summary>
-            Converts dataRows to string.
+            Converts data to string.
             </summary>
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.VarianceP.Combine(System.Object)">
@@ -1557,7 +1557,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.StdDev.ToString">
             <summary>
-            Converts dataRows to string.
+            Converts data to string.
             </summary>
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.StdDev.Combine(System.Object)">
@@ -1592,7 +1592,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.StdDevP.ToString">
             <summary>
-            Converts dataRows to string.
+            Converts data to string.
             </summary>
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.StdDevP.Combine(System.Object)">
@@ -2295,10 +2295,10 @@
         </member>
         <member name="P:Syncfusion.PivotAnalysis.Base.PivotEngine.EnableDataOptimization">
             <summary>
-            Gets or sets a value to indicate whether the dataRows should be loaded in an optimized way to render huge dataRows with less time consumption.
+            Gets or sets a value to indicate whether the data should be loaded in an optimized way to render huge data with less time consumption.
             </summary>
             <remarks>
-            Setting this property indicates that the PivotEngine should populate the dataRows based on combining the population logics used in both PivotEngine and IndexEngine.
+            Setting this property indicates that the PivotEngine should populate the data based on combining the population logics used in both PivotEngine and IndexEngine.
             There is no need to set the properties "UseIndexedEngine" and "EnableOnDemandCalculations" is true when using the property "EnableDataOptimization".
             This feature will work significantly with less time consumption to populate and the render the values even using large pivots.		
             </remarks>
@@ -2306,7 +2306,7 @@
         <member name="P:Syncfusion.PivotAnalysis.Base.PivotEngine.UseIndexedEngine">
             <summary>
             Gets or sets whether an optimized algorithm that relies on indexing the raw
-            dataRows used to compute the Pivot information.
+            data used to compute the Pivot information.
             </summary>
             Setting this property indicates that the PivotEngine should use a newer way of computing
             the Pivot information. This technique requires more memory but will work significantly quicker 
@@ -2482,7 +2482,7 @@
         </member>
         <member name="P:Syncfusion.PivotAnalysis.Base.PivotEngine.EmptyPivot">
             <summary>
-            If you apply a filter which filters out all items in the underlying dataRows source, then this
+            If you apply a filter which filters out all items in the underlying data source, then this
             "EmptyPivot" property will be set true. The RowCount and ColumnCount will
             be set to one, and the Engine[0, 0] will hold the value.
             </summary>
@@ -2515,7 +2515,7 @@
         <member name="P:Syncfusion.PivotAnalysis.Base.PivotEngine.CacheRawValues">
             <summary>
             Gets or sets whether underlying raw values are cached as the Pivot is being built. If these values are cached,
-            then GetRawItemsFor method calls do not require traversing the underlying dataRows to complete.
+            then GetRawItemsFor method calls do not require traversing the underlying data to complete.
             </summary>
         </member>
         <member name="P:Syncfusion.PivotAnalysis.Base.PivotEngine.ShowCalculationsAsColumns">
@@ -2531,13 +2531,13 @@
         </member>
         <member name="P:Syncfusion.PivotAnalysis.Base.PivotEngine.DataSource">
             <summary>
-            Gets or sets dataRows source for this PivotTable. This object should be either 
+            Gets or sets data source for this PivotTable. This object should be either 
             an IEnumerable List or a DataTable.
             </summary>
         </member>
         <member name="P:Syncfusion.PivotAnalysis.Base.PivotEngine.DataSourceList">
             <summary>
-            Used internally. Gets or sets an IEnumerable List that is used as the dataRows source for the
+            Used internally. Gets or sets an IEnumerable List that is used as the data source for the
             PivotTable. The default behavior is to initialize this list from DataSource.
             </summary>
         </member>
@@ -2554,10 +2554,10 @@
         <member name="P:Syncfusion.PivotAnalysis.Base.PivotEngine.AllowedFields">
             <summary>
             Gets a collection of FieldInfo objects that hold the field names that you want to make visible in the engine. 
-            The names can be either public property names of the underlying dataRows objects or they can be expression field.
+            The names can be either public property names of the underlying data objects or they can be expression field.
             </summary>
             <remarks>
-            If your dataRows contains fields that you do not want exposed to the pivoting process,
+            If your data contains fields that you do not want exposed to the pivoting process,
             then add the names of the properties you want to include to this list. All other
             fields will be excluded. 
             
@@ -2714,7 +2714,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.FilterItemElement.ToString">
             <summary>
-            Converts the dataRows to string datatype.
+            Converts the data to string datatype.
             </summary>
         </member>
         <member name="E:Syncfusion.PivotAnalysis.Base.FilterItemElement.PropertyChanged">
@@ -2877,8 +2877,8 @@
             Enacapulates the information needed to define a PivotItem, for either a row/column Pivot.
             </summary>
             <remarks>
-            A PivotItem is a property in the underlying dataRows objects 
-            that is used to group the dataRows in a PivotTable. You can add PivotItems to both the 
+            A PivotItem is a property in the underlying data objects 
+            that is used to group the data in a PivotTable. You can add PivotItems to both the 
             PivotColumns and PivotRows collection in a mutually exclusive manner.</remarks>
         </member>
         <member name="E:Syncfusion.PivotAnalysis.Base.PivotItem.PropertyChanged">
@@ -3316,7 +3316,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.ExpressionPropertyDescriptor.GetValue(System.Object)">
             <summary>
-            Gets the value of the concerned dataRows and returns the values based on the format associated with it.
+            Gets the value of the concerned data and returns the values based on the format associated with it.
             </summary>
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.ExpressionPropertyDescriptor.ResetValue(System.Object)">
@@ -3357,7 +3357,7 @@
         </member>
         <member name="P:Syncfusion.PivotAnalysis.Base.ExpressionPropertyDescriptor.IsReadOnly">
             <summary>
-            Checks whether the dataRows is read-only.
+            Checks whether the data is read-only.
             </summary>
         </member>
         <member name="P:Syncfusion.PivotAnalysis.Base.ExpressionPropertyDescriptor.PropertyType">
@@ -3447,11 +3447,11 @@
         </member>
         <member name="T:Syncfusion.PivotAnalysis.Base.PivotEngineUpdatingManager">
             <summary>
-            This class allows a PivotEngine to automatically respond to changes in the underlying dataRows
-            provided that dataRows supports appropriate events. 
+            This class allows a PivotEngine to automatically respond to changes in the underlying data
+            provided that data supports appropriate events. 
             </summary>
             <remarks>
-            In order for the PivotEngine to automatically respond to the changes in the underlying dataRows, the underlying dataRows must be either:
+            In order for the PivotEngine to automatically respond to the changes in the underlying data, the underlying data must be either:
                 A) a DataTable or DataView
             or
                 B) an IList&lt;T&gt; where T implements both INotifyPropertyChanging and INotifyPropertyChanged. Additionally, the IList must also
@@ -3496,21 +3496,21 @@
             This method is the default handler for the object's PropertyChanging event.
             </summary>
             <param name="sender">The object that is changing.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/>contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/>contains the event data.</param>
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.PivotEngineUpdatingManager.UpdateRefreshHelper_ListChanged(System.Object,System.ComponentModel.ListChangedEventArgs)">
             <summary>
             Override this method to control the response to a list changed event for a list that implements <see cref="T:System.ComponentModel.IBindingList"/>.
             </summary>
             <param name="sender">The IBindingList.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.ListChangedEventArgs"/>contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.ListChangedEventArgs"/>contains the event data.</param>
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.PivotEngineUpdatingManager.UpdateRefreshHelper_CollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
             Override this method to control the response to a collection changed event for a list that implements the ICollectionChanged.
             </summary>
             <param name="sender">The ICollectionChanged collection.</param>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/>contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/>contains the event data.</param>
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.PivotEngineUpdatingManager.Item_PropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
             <summary>
@@ -3519,7 +3519,7 @@
             calls the ChangeValue method to respond to the changed value.
             </summary>
             <param name="sender">The object that is changing.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/>contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/>contains the event data.</param>
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.PivotEngineUpdatingManager.ChangeValue(System.Object,System.Object,System.Object,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean)">
             <summary>
@@ -3556,14 +3556,14 @@
             Occurs when a row is deleted from the table.
             </summary>
             <param name="sender">The Control</param>
-            <param name="e">The <see cref="T:System.Data.DataRowChangeEventArgs"/>contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Data.DataRowChangeEventArgs"/>contains the event data.</param>
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.PivotEngineUpdatingManager.Table_TableClearing(System.Object,System.Data.DataTableClearEventArgs)">
             <summary>
             Occurs when reset the table
             </summary>
             <param name="sender">The Control</param>
-            <param name="e">The <see cref="T:System.Data.DataTableClearEventArgs"/>contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Data.DataTableClearEventArgs"/>contains the event data.</param>
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.PivotEngineUpdatingManager.ChangeRowColumnPivotValue(System.Object,System.Object,System.Object,System.String)">
             <summary>
@@ -3646,7 +3646,7 @@
             Occurs when a value in column is changed.
             </summary>
             <param name="sender">The Control</param>
-            <param name="e">The <see cref="T:System.Data.DataColumnChangeEventArgs"/>contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Data.DataColumnChangeEventArgs"/>contains the event data.</param>
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.PivotEngineUpdatingManager.AddChangingColumnIndexes(System.Int32,System.Int32,Syncfusion.PivotAnalysis.Base.BinaryList)">
             <summary>
@@ -3731,9 +3731,9 @@
         </member>
         <member name="T:Syncfusion.PivotAnalysis.Base.IndexEngine">
             <summary>
-            Index Engine is used to load the collection of dataRows faster than the PivotEngine. 
+            Index Engine is used to load the collection of data faster than the PivotEngine. 
             It makes use of the "EnableOnDemandCalculations" property. 
-            Unlike the PivotEngine, it loads the entire collection of dataRows by including all the values in the list irrespective of Row and Column headers.
+            Unlike the PivotEngine, it loads the entire collection of data by including all the values in the list irrespective of Row and Column headers.
             </summary>
         </member>
         <member name="F:Syncfusion.PivotAnalysis.Base.IndexEngine.allIndexesRowFirst">
@@ -3874,7 +3874,7 @@
         </member>
         <member name="P:Syncfusion.PivotAnalysis.Base.IndexEngine.DataSource">
             <summary>
-            Gets or sets dataRows source for this PivotTable. This object should be either 
+            Gets or sets data source for this PivotTable. This object should be either 
             an IEnumerable List, or a DataTable.
             </summary>
         </member>
@@ -3980,7 +3980,7 @@
         </member>
         <member name="M:Syncfusion.PivotAnalysis.Base.ListIndexInfo.ToString">
             <summary>
-            Converts the dataRows to string type.
+            Converts the data to string type.
             </summary>
             <returns>Combined String</returns>
         </member>

@@ -11,7 +11,6 @@ namespace BudgetExecution
     using System.Data.OleDb;
     using System.IO;
     using System.Windows.Forms;
-    using OfficeOpenXml;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.XlsIO;
@@ -83,20 +82,20 @@ namespace BudgetExecution
         public OleDbDataAdapter DataAdapter { get; set; }
 
         /// <summary>
-        /// Gets the excel package.
-        /// </summary>
-        /// <value>
-        /// The excel package.
-        /// </value>
-        public ExcelPackage ExcelPackage { get; set; }
-
-        /// <summary>
         /// Gets or sets the ext.
         /// </summary>
         /// <value>
         /// The ext.
         /// </value>
         public EXT Ext { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sheet.
+        /// </summary>
+        /// <value>
+        /// The sheet.
+        /// </value>
+        public Spreadsheet Sheet { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelForm"/> class.

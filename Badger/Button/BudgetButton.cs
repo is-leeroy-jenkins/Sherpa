@@ -42,7 +42,7 @@ namespace BudgetExecution
             ForeColor = BudgetColor.LightGray;
             Margin = BudgetControl.Margin;
             Padding = BudgetControl.Padding;
-            Size = BudgetSize.GetSize( 160, 80 );
+            Size = BudgetSize.GetSize( 140, 30 );
             Location = BudgetControl.GetLocation();
             Dock = BudgetControl.GetDockStyle();
             Anchor = BudgetControl.GetAnchorStyle();
