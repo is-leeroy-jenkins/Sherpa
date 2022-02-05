@@ -110,28 +110,28 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelForm"/> class.
         /// </summary>
-        /// <param name="filepath">The filepath.</param>
-        public ExcelForm( string filepath )
+        /// <param name="filePath">The filePath.</param>
+        public ExcelForm( string filePath )
         {
             InitializeComponent();
             Size = new Size( 1073, 900 );
-            FilePath = Path.GetFullPath( filepath );
+            FilePath = Path.GetFullPath( filePath );
             FileName = Path.GetFileNameWithoutExtension( FilePath );
-            Sheet.Open( filepath );
+            Sheet.Open( filePath );
         }
         
         /// <summary>
         /// Sets the file path.
         /// </summary>
-        /// <param name="filepath">The filepath.</param>
-        public void SetFilePath( string filepath )
+        /// <param name="filePath">The filePath.</param>
+        public void SetFilePath( string filePath )
         {
-            if( Verify.IsInput( filepath )
-                && File.Exists( filepath ) )
+            if( Verify.IsInput( filePath )
+                && File.Exists( filePath ) )
             {
                 try
                 {
-                    FilePath = Path.GetFileName( filepath );
+                    FilePath = Path.GetFileName( filePath );
                 }
                 catch( Exception e )
                 {
@@ -144,15 +144,15 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the name of the file.
         /// </summary>
-        /// <param name="filepath">The filepath.</param>
-        public void SetFileName( string filepath )
+        /// <param name="filePath">The filePath.</param>
+        public void SetFileName( string filePath )
         {
-            if( Verify.IsInput( filepath )
-                && File.Exists( filepath ) )
+            if( Verify.IsInput( filePath )
+                && File.Exists( filePath ) )
             {
                 try
                 {
-                    FilePath = Path.GetFileNameWithoutExtension( filepath );
+                    FilePath = Path.GetFileNameWithoutExtension( filePath );
                 }
                 catch( Exception e )
                 {
@@ -165,13 +165,13 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the file extension.
         /// </summary>
-        /// <param name="filepath">The filepath.</param>
+        /// <param name="filePath">The filePath.</param>
         /// <returns></returns>
-        public virtual EXT GetFileExtension( string filepath )
+        public virtual EXT GetFileExtension( string filePath )
         {
             try
             {
-                var _path = Path.GetExtension( filepath );
+                var _path = Path.GetExtension( filePath );
 
                 if( _path != null )
                 {
@@ -195,22 +195,22 @@ namespace BudgetExecution
         /// Gets the connection string.
         /// </summary>
         /// <param name="extension">The extension.</param>
-        /// <param name="filepath">The filepath.</param>
+        /// <param name="filePath">The filePath.</param>
         /// <returns></returns>
-        public virtual string GetConnectionString( string extension, string filepath )
+        public virtual string GetConnectionString( string extension, string filePath )
         {
             if( Verify.IsInput( extension )
-                && Verify.IsInput( filepath ) )
+                && Verify.IsInput( filePath ) )
             {
                 try
                 {
                     ConnectionString = extension?.ToUpper() switch
                     {
                         ".XLS" => @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source="
-                            + filepath
+                            + filePath
                             + ";Extended Properties=\"Excel 8.0;HDR=YES;\"",
                         ".Report" => @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="
-                            + filepath
+                            + filePath
                             + ";Extended Properties=\"Excel 12.0;HDR=YES;\"",
                         _ => ConnectionString
                     };

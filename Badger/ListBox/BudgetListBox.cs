@@ -210,18 +210,21 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Adds the control item.
         /// </summary>
-        /// <param name="item">The item.</param>
-        public void AddControl( Control item )
+        /// <param name = "items" > </param>
+        public void AddItems( IEnumerable<object> items )
         {
-            if( item != null )
+            if( items?.Count() > -1 )
             {
                 try
                 {
-                    Controls?.Add( item );
+                    foreach( var _item in items )
+                    {
+                        Items.Add( _item );
+                    }
                 }
                 catch( Exception ex )
                 {
@@ -234,34 +237,19 @@ namespace BudgetExecution
         /// Adds the control item.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Control> GetChildren()
+        public void AddItem( object item )
         {
-            if( Controls?.Count > 0 )
+            if( Verify.IsInput( item ) )
             {
                 try
                 {
-                    var _children = new List<Control>();
-
-                    foreach( Control _item in Controls )
-                    {
-                        if( _item != null )
-                        {
-                            _children.Add( _item );
-                        }
-                    }
-
-                    return _children.Any()
-                        ? _children
-                        : default( List<Control> );
+                    Items.Add( item );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( IEnumerable<Control> );
                 }
             }
-
-            return default( IEnumerable<Control> );
         }
 
         /// <summary>
@@ -294,44 +282,6 @@ namespace BudgetExecution
                 try
                 {
                     Text = text;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the tag.
-        /// </summary>
-        /// <param name="tag">The tag.</param>
-        public void SetTag( object tag )
-        {
-            if( tag != null )
-            {
-                try
-                {
-                    Tag = tag;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the numeric.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        public void SetNumeric( Numeric numeric )
-        {
-            if( Enum.IsDefined( typeof( Numeric ), numeric ) )
-            {
-                try
-                {
-                    Numeric = numeric;
                 }
                 catch( Exception ex )
                 {

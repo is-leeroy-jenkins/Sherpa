@@ -96,7 +96,7 @@ namespace BudgetExecution
             this.budgetTextBox1.ReadOnly = false;
             this.budgetTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Both;
             this.budgetTextBox1.ShowSelectionMargin = false;
-            this.budgetTextBox1.Size = new System.Drawing.Size(140, 30);
+            this.budgetTextBox1.Size = new System.Drawing.Size(140, 25);
             this.budgetTextBox1.TabIndex = 5;
             this.budgetTextBox1.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             this.budgetTextBox1.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));

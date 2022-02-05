@@ -273,11 +273,11 @@ namespace BudgetExecution
 
                     if( _worksheet?.Cells != null )
                     {
-                        foreach( var firstrowcell in _worksheet?.Cells[ 1, 1, 1, _worksheet.Dimension.End.Column ] )
+                        foreach( var _firstRowCell in _worksheet?.Cells[ 1, 1, 1, _worksheet.Dimension.End.Column ] )
                         {
                             _table?.Columns?.Add( header
-                                ? firstrowcell.Text
-                                : $"Column {firstrowcell.Start.Column}" );
+                                ? _firstRowCell.Text
+                                : $"Column {_firstRowCell.Start.Column}" );
                         }
 
                         var _start = header
@@ -317,7 +317,8 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The filter.</param>
         /// <returns></returns>
-        public static IDictionary<string, IEnumerable<string>> GetSeries( IEnumerable<DataRow> dataRows, Field field, string filter )
+        public static IDictionary<string, IEnumerable<string>> GetSeries( IEnumerable<DataRow> dataRows, 
+            Field field, string filter )
         {
             if( Verify.IsInput( dataRows )
                 && Validate.IsField( field )

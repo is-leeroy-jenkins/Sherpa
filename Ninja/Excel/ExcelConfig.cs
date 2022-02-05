@@ -23,42 +23,42 @@ namespace BudgetExecution
         /// <summary>
         /// The font color
         /// </summary>
-        private protected Color _fontColor { get; set; } = Color.Black;
+        private protected Color FontColor { get; set; } = Color.Black;
 
         /// <summary>
         /// The Data font
         /// </summary>
-        public Font DataFont { get; set; } = new Font( "Consolas", 8, FontStyle.Regular );
+        public virtual Font DataFont { get; set; } = new Font( "Roboto", 8, FontStyle.Regular );
 
         /// <summary>
         /// The header font
         /// </summary>
-        public Font HeaderFont { get; set; } = new Font( "Consolas", 10, FontStyle.Bold );
+        public virtual Font HeaderFont { get; set; } = new Font( "Roboto", 10, FontStyle.Bold );
 
         /// <summary>
         /// The title font
         /// </summary>
-        public Font TitleFont { get; set; } = new Font( "Consolas", 12, FontStyle.Bold );
+        public virtual Font TitleFont { get; set; } = new Font( "Roboto", 12, FontStyle.Bold );
 
         /// <summary>
         /// The header image width
         /// </summary>
-        public double HeaderImageWidth { get; set; } = 1.75;
+        public virtual double HeaderImageWidth { get; set; } = 1.75;
 
         /// <summary>
         /// The header image height
         /// </summary>
-        public double HeaderImageHeight { get; set; } = 0.85;
+        public virtual double HeaderImageHeight { get; set; } = 0.85;
 
         /// <summary>
         /// The footer image width
         /// </summary>
-        public double FooterImageWidth { get; set; } = 2.04;
+        public virtual double FooterImageWidth { get; set; } = 2.04;
 
         /// <summary>
         /// The footer image height
         /// </summary>
-        public double FooterImageHeight { get; set; } = 0.70;
+        public virtual double FooterImageHeight { get; set; } = 0.70;
         
         /// <summary>
         /// Gets or sets the header image.
@@ -66,7 +66,7 @@ namespace BudgetExecution
         /// <value>
         /// The header image.
         /// </value>
-        private protected System.Drawing.Image HeaderImage { get; set; }
+        public virtual Image HeaderImage { get; set; }
 
         /// <summary>
         /// Gets or sets the footer image.
@@ -74,7 +74,7 @@ namespace BudgetExecution
         /// <value>
         /// The footer image.
         /// </value>
-        private protected System.Drawing.Image FooterImage { get; set; }
+        public virtual Image FooterImage { get; set; }
         
         /// <summary>
         /// Sets the table format.
@@ -82,14 +82,14 @@ namespace BudgetExecution
         /// <param name = "grid" >
         /// The grid.
         /// </param>
-        public void SetTableFormat( Grid grid )
+        public virtual void SetTableFormat( Grid grid )
         {
-            if( Validate.Grid( grid ) )
+            if( Verify.Grid( grid ) )
             {
                 try
                 {
                     using var _font = DataFont;
-                    SetFontColor( grid, _fontColor );
+                    SetFontColor( grid, FontColor );
                     SetBackgroudColor( grid, PrimaryBackColor );
                     SetHorizontalAligment( grid, Left );
                 }
@@ -106,13 +106,13 @@ namespace BudgetExecution
         /// <param name = "grid" >
         /// The grid.
         /// </param>
-        public void SetCaptionFormat( Grid grid )
+        public virtual void SetCaptionFormat( Grid grid )
         {
-            if( Validate.Grid( grid ) )
+            if( Verify.Grid( grid ) )
             {
                 try
                 {
-                    SetFontColor( grid, _fontColor );
+                    SetFontColor( grid, FontColor );
                     SetBackgroudColor( grid, PrimaryBackColor );
                     SetHorizontalAligment( grid, Left );
                 }
@@ -129,9 +129,9 @@ namespace BudgetExecution
         /// <param name = "grid" >
         /// The grid.
         /// </param>
-        public void SetDarkRowFormat( Grid grid )
+        public virtual void SetDarkRowFormat( Grid grid )
         {
-            if( Validate.Grid( grid ) )
+            if( Verify.Grid( grid ) )
             {
                 try
                 {
@@ -157,14 +157,14 @@ namespace BudgetExecution
         /// <param name = "grid" >
         /// The grid.
         /// </param>
-        public void SetLightRowFormat( Grid grid )
+        public virtual void SetLightRowFormat( Grid grid )
         {
-            if( Validate.Grid( grid ) )
+            if( Verify.Grid( grid ) )
             {
                 try
                 {
                     using var _range = grid.GetRange();
-                    _range.Style.Font.Color.SetColor( _fontColor );
+                    _range.Style.Font.Color.SetColor( FontColor );
                     using var _font = DataFont;
                     _range.Style.Font.SetFromFont( DataFont );
                     _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
@@ -185,9 +185,9 @@ namespace BudgetExecution
         /// <param name = "grid" >
         /// The grid.
         /// </param>
-        public void SetAlternatingColorFormat( Grid grid )
+        public virtual void SetAlternatingColorFormat( Grid grid )
         {
-            if( Validate.Grid( grid ) )
+            if( Verify.Grid( grid ) )
             {
                 try
                 {
@@ -222,9 +222,9 @@ namespace BudgetExecution
         /// <param name = "grid" >
         /// The grid.
         /// </param>
-        public void SetNumericRowFormat( Grid grid )
+        public virtual void SetNumericRowFormat( Grid grid )
         {
-            if( Validate.Grid( grid ) )
+            if( Verify.Grid( grid ) )
             {
                 try
                 {
@@ -248,13 +248,13 @@ namespace BudgetExecution
         /// <param name = "font" >
         /// The font.
         /// </param>
-        /// <param name = "borderstyle" >
-        /// The borderstyle.
+        /// <param name = "borderStyle" >
+        /// The borderStyle.
         /// </param>
-        public void SetTableFormat( Grid grid, Font font,
-            ExcelBorderStyle borderstyle = ExcelBorderStyle.Thin )
+        public virtual void SetTableFormat( Grid grid, Font font,
+            ExcelBorderStyle borderStyle = ExcelBorderStyle.Thin )
         {
-            if( Validate.Grid( grid ) )
+            if( Verify.Grid( grid ) )
             {
                 try
                 {
@@ -262,7 +262,7 @@ namespace BudgetExecution
                     SetCaptionFormat( grid );
                     using var _font = HeaderFont;
                     _range.Style.Font.SetFromFont( font );
-                    _range.Style.Border.BorderAround( borderstyle );
+                    _range.Style.Border.BorderAround( borderStyle );
                     _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     _range.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
                     _range.Style.HorizontalAlignment = Center;
@@ -280,9 +280,9 @@ namespace BudgetExecution
         /// <param name = "grid" >
         /// The grid.
         /// </param>
-        public void SetTotalRowFormat( Grid grid )
+        public virtual void SetTotalRowFormat( Grid grid )
         {
-            if( Validate.Grid( grid ) )
+            if( Verify.Grid( grid ) )
             {
                 try
                 {
@@ -299,6 +299,41 @@ namespace BudgetExecution
                         _range.Start.Column + 6 ];
 
                     data.Style.Border.Bottom.Style = ExcelBorderStyle.Double;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adds the comment.
+        /// </summary>
+        /// <param name="grid">The grid.</param>
+        /// <param name="text">The text.</param>
+        public virtual void AddComment( Grid grid, string text )
+        {
+            if( Verify.Grid( grid )
+                && Verify.IsInput( text ) )
+            {
+                try
+                {
+                    using var _range = grid?.GetRange();
+                    var _excelComment = _range?.AddComment( text, "Budget" );
+
+                    if( _excelComment != null )
+                    {
+                        _excelComment.From.Row = _range.Start.Row;
+                        _excelComment.From.Column = _range.Start.Column;
+                        _excelComment.To.Row = _range.End.Row;
+                        _excelComment.To.Column = _range.End.Column;
+                        _excelComment.BackgroundColor = PrimaryBackColor;
+                        _excelComment.Font.FontName = "Consolas";
+                        _excelComment.Font.Size = 8;
+                        _excelComment.Font.Color = Color.Black;
+                        _excelComment.Text = text;
+                    }
                 }
                 catch( Exception ex )
                 {

@@ -43,6 +43,7 @@ namespace BudgetExecution
             TextStyle = ProgressBarTextStyles.Percentage;
             ThemeName = "Metro";
             Text = string.Empty;
+            Value = 0;
         }
 
         /// <summary>
@@ -64,8 +65,24 @@ namespace BudgetExecution
         /// <see cref="BudgetProgressBar" />
         /// class.
         /// </summary>
+        /// <param name="size">The size.</param>
+        /// <param name="location">The location.</param>
+        /// <param name = "start" > </param>
+        public BudgetProgressBar( Size size, Point location, int start )
+            : this( size, location )
+        {
+            Size = BudgetSize.GetSize( size );
+            Location = BudgetControl.GetLocation( location );
+            Value = start;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="BudgetProgressBar" />
+        /// class.
+        /// </summary>
         /// <param name="progressBar">The progressBar.</param>
-        [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
+        [SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
         public BudgetProgressBar( BudgetProgressBar progressBar )
             : this( progressBar.Size, progressBar.Location )
         {
@@ -138,65 +155,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the text.
+        /// Shows the percentage.
         /// </summary>
-        /// <param name="text">The text.</param>
-        public void SetText( string text )
+        /// <param name="value">The value.</param>
+        public void UpdateValue( int value )
         {
-            if( Verify.IsInput( text ) )
-            {
-                try
-                {
-                    Text = text;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the tag.
-        /// </summary>
-        /// <param name="tag">The tag.</param>
-        public void SetTag( object tag )
-        {
-            if( tag != null )
-            {
-                try
-                {
-                    Tag = tag;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the numeric.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        public void SetNumeric( Numeric numeric )
-        {
-            if( Enum.IsDefined( typeof( Numeric ), numeric ) )
-            {
-                try
-                {
-                    Numeric = numeric;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        public void ShowPercentage( int value )
-        {
-            if( value > 0 )
+            if( value > 0 
+               && value < 100 )
             {
                 try
                 {

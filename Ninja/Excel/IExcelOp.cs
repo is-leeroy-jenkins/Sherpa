@@ -69,7 +69,7 @@ namespace BudgetExecution
         /// The filePath <see cref = "string"/>
         /// </dict>
         /// <returns>
-        /// The <see cref = "Workbook"/>
+        /// The <see cref = "BudgetWorkbook"/>
         /// </returns>
         ExcelWorkbook GetWorkbook();
 
@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// The SaveWorkBook
         /// </summary>
         /// <dict name = "wb" >
-        /// The wb <see cref = "Workbook"/>
+        /// The wb <see cref = "BudgetWorkbook"/>
         /// </dict>
         void SaveWorkBook();
     }
