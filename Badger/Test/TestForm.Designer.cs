@@ -39,32 +39,9 @@ namespace BudgetExecution
             Syncfusion.Windows.Forms.Tools.TextItem textItem2 = new Syncfusion.Windows.Forms.Tools.TextItem();
             Syncfusion.Windows.Forms.Tools.TextItem textItem3 = new Syncfusion.Windows.Forms.Tools.TextItem();
             Syncfusion.Windows.Forms.Tools.TextItem textItem4 = new Syncfusion.Windows.Forms.Tools.TextItem();
-            this.hubTile1 = new Syncfusion.Windows.Forms.Tools.HubTile();
             this.TestButton = new BudgetExecution.BudgetButton();
             this.TestLabel = new BudgetExecution.BudgetLabel();
             this.SuspendLayout();
-            // 
-            // hubTile1
-            // 
-            textItem1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, ((byte)(0)));
-            textItem1.HubTile = this.hubTile1;
-            this.hubTile1.Banner = textItem1;
-            textItem2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, ((byte)(0)));
-            textItem2.HubTile = this.hubTile1;
-            this.hubTile1.Body = textItem2;
-            this.hubTile1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, ((byte)(0)));
-            textItem3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, ((byte)(0)));
-            textItem3.HubTile = this.hubTile1;
-            this.hubTile1.Footer = textItem3;
-            this.hubTile1.Location = new System.Drawing.Point(69, 170);
-            this.hubTile1.Margin = new System.Windows.Forms.Padding(1);
-            this.hubTile1.MinimumSize = new System.Drawing.Size(100, 100);
-            this.hubTile1.Name = "hubTile1";
-            this.hubTile1.Size = new System.Drawing.Size(140, 140);
-            this.hubTile1.TabIndex = 3;
-            textItem4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, ((byte)(0)));
-            textItem4.HubTile = this.hubTile1;
-            this.hubTile1.Title = textItem4;
             // 
             // TestButton
             // 
@@ -147,7 +124,6 @@ namespace BudgetExecution
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(788, 464);
-            this.Controls.Add(this.hubTile1);
             this.Controls.Add(this.TestButton);
             this.Controls.Add(this.TestLabel);
             this.Name = "TestForm";
@@ -159,6 +135,5 @@ namespace BudgetExecution
         #endregion
         private BudgetLabel TestLabel;
         private BudgetButton TestButton;
-        private Syncfusion.Windows.Forms.Tools.HubTile hubTile1;
     }
 }

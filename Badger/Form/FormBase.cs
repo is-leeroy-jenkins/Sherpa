@@ -52,7 +52,7 @@ namespace BudgetExecution
             MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
             Icon = new Icon( Settings[ "BudgetExecutionIcon" ], 16, 16 );
-            ShowIcon = true;
+            ShowIcon = false;
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
             Text = string.Empty;
