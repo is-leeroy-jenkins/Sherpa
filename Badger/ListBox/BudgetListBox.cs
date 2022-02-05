@@ -177,12 +177,12 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the color of the border.
         /// </summary>
-        /// <param name="hovercolor">if set to <c>true</c> [hovercolor].</param>
-        public void SetBorderConfiguration( bool hovercolor )
+        /// <param name="hoverColor">if set to <c>true</c> [hoverColor].</param>
+        public void SetBorderConfiguration( bool hoverColor )
         {
             try
             {
-                switch( hovercolor )
+                switch( hoverColor )
                 {
                     case true:
                     {

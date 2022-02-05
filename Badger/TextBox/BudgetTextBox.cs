@@ -25,9 +25,8 @@ namespace BudgetExecution
             Enabled = true;
             Visible = true;
 
-            // Backcolor Configuration
+            // BackColor Configuration
             BackColor = BudgetColor.FormDark;
-            ForeColor = BudgetColor.LightGray;
             BackColorState.Disabled = BudgetColor.FormDark;
             BackColorState.Enabled = BudgetColor.FormDark;
 
@@ -119,6 +118,71 @@ namespace BudgetExecution
             : this()
         {
             Text = title;
+        }
+
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
+        /// <param name="text">
+        /// The text.</param>
+        public void SetText( string text )
+        {
+            if( Verify.IsInput( text ) )
+            {
+                try
+                {
+                    Text = text;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the font style.
+        /// </summary>
+        /// <param name="fontFamily">
+        /// The font family.</param>
+        /// <param name="color">
+        /// The color.</param>
+        /// <param name="fontSize">
+        /// Size of the font.</param>
+        public void SetFontStyle( string fontFamily, Color color, int fontSize = 10 )
+        {
+            if( Verify.IsInput( fontFamily ) )
+            {
+                try
+                {
+                    Font = new Font( fontFamily, fontSize );
+                    ForeColor = color;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the color of the back.
+        /// </summary>
+        /// <param name="color">
+        /// The color.</param>
+        public void SetBackColor( Color color )
+        {
+            if( color != Color.Empty )
+            {
+                try
+                {
+                    BackColorState.Enabled = color;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
         }
     }
 }

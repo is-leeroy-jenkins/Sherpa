@@ -116,12 +116,12 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
-        /// <param name="bindingsource">The bindingsource.</param>
+        /// <param name="bindingSource">The bindingSource.</param>
         public BudgetLabel( Size size, Point location, Control parent,
-            BudgetBinding bindingsource )
+            BudgetBinding bindingSource )
             : this( size, location, parent )
         {
-            BindingSource = bindingsource;
+            BindingSource = bindingSource;
         }
         
         /// <summary>

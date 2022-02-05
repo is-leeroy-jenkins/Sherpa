@@ -35,11 +35,76 @@ namespace BudgetExecution
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.progressBarAdv1 = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
+            this.budgetTextBox1 = new BudgetExecution.BudgetTextBox();
             this.TestButton = new BudgetExecution.BudgetButton();
             this.TestLabel = new BudgetExecution.BudgetLabel();
-            this.progressBarAdv1 = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // progressBarAdv1
+            // 
+            this.progressBarAdv1.BackgroundFallbackStyle = Syncfusion.Windows.Forms.Tools.ProgressBarBackgroundStyles.Office2016Black;
+            this.progressBarAdv1.BackgroundStyle = Syncfusion.Windows.Forms.Tools.ProgressBarBackgroundStyles.Gradient;
+            this.progressBarAdv1.BackMultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdv1.BackSegments = false;
+            this.progressBarAdv1.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
+            this.progressBarAdv1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(149)))), ((int)(((byte)(152)))));
+            this.progressBarAdv1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.progressBarAdv1.CanOverrideStyle = true;
+            this.progressBarAdv1.CustomText = null;
+            this.progressBarAdv1.CustomWaitingRender = false;
+            this.progressBarAdv1.ForegroundImage = null;
+            this.progressBarAdv1.GradientEndColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
+            this.progressBarAdv1.GradientStartColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
+            this.progressBarAdv1.Location = new System.Drawing.Point(160, 119);
+            this.progressBarAdv1.MultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdv1.Name = "progressBarAdv1";
+            this.progressBarAdv1.ProgressFallbackStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.Metro;
+            this.progressBarAdv1.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.Metro;
+            this.progressBarAdv1.SegmentWidth = 12;
+            this.progressBarAdv1.Size = new System.Drawing.Size(400, 23);
+            this.progressBarAdv1.TabIndex = 4;
+            this.progressBarAdv1.ThemeName = "Metro";
+            this.progressBarAdv1.WaitingGradientWidth = 400;
+            // 
+            // budgetTextBox1
+            // 
+            this.budgetTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.budgetTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.budgetTextBox1.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.budgetTextBox1.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.budgetTextBox1.BindingSource = null;
+            this.budgetTextBox1.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.budgetTextBox1.Border.HoverColor = System.Drawing.Color.SteelBlue;
+            this.budgetTextBox1.Border.HoverVisible = false;
+            this.budgetTextBox1.Border.Rounding = 6;
+            this.budgetTextBox1.Border.Thickness = 1;
+            this.budgetTextBox1.Border.Type = VisualPlus.Enumerators.ShapeTypes.Rounded;
+            this.budgetTextBox1.Border.Visible = true;
+            this.budgetTextBox1.DataFilter = null;
+            this.budgetTextBox1.Field = BudgetExecution.Field.NS;
+            this.budgetTextBox1.Font = new System.Drawing.Font("Roboto", 10F);
+            this.budgetTextBox1.ForeColor = System.Drawing.Color.LightGray;
+            this.budgetTextBox1.Location = new System.Drawing.Point(110, 237);
+            this.budgetTextBox1.MaxLength = 2147483647;
+            this.budgetTextBox1.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.budgetTextBox1.Name = "budgetTextBox1";
+            this.budgetTextBox1.Numeric = BudgetExecution.Numeric.NS;
+            this.budgetTextBox1.ReadOnly = false;
+            this.budgetTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Both;
+            this.budgetTextBox1.ShowSelectionMargin = false;
+            this.budgetTextBox1.Size = new System.Drawing.Size(140, 30);
+            this.budgetTextBox1.TabIndex = 5;
+            this.budgetTextBox1.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            this.budgetTextBox1.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.budgetTextBox1.TextStyle.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.budgetTextBox1.TextStyle.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.budgetTextBox1.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.budgetTextBox1.TextStyle.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            this.budgetTextBox1.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // TestButton
             // 
@@ -117,39 +182,12 @@ namespace BudgetExecution
             this.TestLabel.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.TestLabel.ToolTip = null;
             // 
-            // progressBarAdv1
-            // 
-            this.progressBarAdv1.BackgroundFallbackStyle = Syncfusion.Windows.Forms.Tools.ProgressBarBackgroundStyles.Office2016Black;
-            this.progressBarAdv1.BackgroundStyle = Syncfusion.Windows.Forms.Tools.ProgressBarBackgroundStyles.Gradient;
-            this.progressBarAdv1.BackMultipleColors = new System.Drawing.Color[] {
-        System.Drawing.Color.Empty};
-            this.progressBarAdv1.BackSegments = false;
-            this.progressBarAdv1.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
-            this.progressBarAdv1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(149)))), ((int)(((byte)(152)))));
-            this.progressBarAdv1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.progressBarAdv1.CanOverrideStyle = true;
-            this.progressBarAdv1.CustomText = null;
-            this.progressBarAdv1.CustomWaitingRender = false;
-            this.progressBarAdv1.ForegroundImage = null;
-            this.progressBarAdv1.GradientEndColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
-            this.progressBarAdv1.GradientStartColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
-            this.progressBarAdv1.Location = new System.Drawing.Point(160, 119);
-            this.progressBarAdv1.MultipleColors = new System.Drawing.Color[] {
-        System.Drawing.Color.Empty};
-            this.progressBarAdv1.Name = "progressBarAdv1";
-            this.progressBarAdv1.ProgressFallbackStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.Metro;
-            this.progressBarAdv1.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.Metro;
-            this.progressBarAdv1.SegmentWidth = 12;
-            this.progressBarAdv1.Size = new System.Drawing.Size(400, 23);
-            this.progressBarAdv1.TabIndex = 4;
-            this.progressBarAdv1.ThemeName = "Metro";
-            this.progressBarAdv1.WaitingGradientWidth = 400;
-            // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(788, 464);
+            this.Controls.Add(this.budgetTextBox1);
             this.Controls.Add(this.progressBarAdv1);
             this.Controls.Add(this.TestButton);
             this.Controls.Add(this.TestLabel);
@@ -164,5 +202,6 @@ namespace BudgetExecution
         private BudgetLabel TestLabel;
         private BudgetButton TestButton;
         private Syncfusion.Windows.Forms.Tools.ProgressBarAdv progressBarAdv1;
+        private BudgetTextBox budgetTextBox1;
     }
 }
