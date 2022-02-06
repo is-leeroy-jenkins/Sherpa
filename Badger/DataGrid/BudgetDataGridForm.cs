@@ -112,8 +112,9 @@ namespace BudgetExecution
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
 
+            DataGrid.Size = new Size( Size.Width - 400, Size.Height - 200 );
+            DataGrid.Location = new Point( Size.Width / 10, Size.Height / 10 );
             Controls.Add( DataGrid );
-            DataGrid.Dock = DockStyle.Fill;
         }
     }
 }

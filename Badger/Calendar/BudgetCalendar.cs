@@ -55,7 +55,7 @@ namespace BudgetExecution
             //TrailingCell Properties
             Style.Cell.TrailingCellFont = new Font( "Roboto", 9, FontStyle.Regular );
             Style.Cell.TrailingCellBackColor = BudgetColor.FormDark;
-            Style.Cell.TrailingCellForeColor = BudgetColor.WindowFrame;
+            Style.Cell.TrailingCellForeColor = BudgetColor.FormDark;
 
             // TodayCell Properties
             Style.Cell.TodayFont = new Font( "Roboto", 10, FontStyle.Bold );

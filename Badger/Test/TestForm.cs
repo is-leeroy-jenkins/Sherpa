@@ -81,12 +81,8 @@ namespace BudgetExecution
                 CaptionForeColor = BudgetColor.White;
                 Text = Setting[ "BudgetExecutionIcon" ];
 
-                var _calculator = new BudgetChartForm
-                {
-                    Size = BudgetSize.FormSizeNormal
-                };
-
-                _calculator.ShowDialog();
+                var _form = new BudgetCalendarForm();
+                _form.ShowDialog();
             }
         }
 

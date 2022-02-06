@@ -73,7 +73,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetDataGrid()
         {
-            ForeColor = Color.Black;
+            ForeColor = BudgetColor.Black;
             Font = BudgetFont.FontSizeSmall;
             Margin = BudgetControl.Margin;
             Padding = BudgetControl.Padding;
@@ -82,7 +82,7 @@ namespace BudgetExecution
             EnableHeadersVisualStyles = false;
             BackColor = BudgetColor.FormDark;
             BorderStyle = BorderStyle.None;
-            BackgroundColor = BackColor;
+            BackgroundColor = BudgetColor.FormDark;
             GridColor = BudgetColor.WindowFrame;
 
             // Column Configuration
@@ -91,8 +91,8 @@ namespace BudgetExecution
             AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             ColumnHeadersHeight = 35;
             ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
-            ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            ColumnHeadersDefaultCellStyle.BackColor = BudgetColor.SteelBlue;
+            ColumnHeadersDefaultCellStyle.ForeColor = BudgetColor.Black;
             ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ColumnHeadersDefaultCellStyle.Font = BudgetFont.FontSizeMedium;
             RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -102,7 +102,7 @@ namespace BudgetExecution
             RowHeadersWidth = 26;
             RowHeadersDefaultCellStyle.BackColor = BudgetColor.ForeColorGray;
             RowHeadersDefaultCellStyle.Font = BudgetFont.FontSizeMedium;
-            RowHeadersDefaultCellStyle.ForeColor = Color.Black;
+            RowHeadersDefaultCellStyle.ForeColor = BudgetColor.Black;
             RowHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter;
             CellBorderStyle = DataGridViewCellBorderStyle.None;
             AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
