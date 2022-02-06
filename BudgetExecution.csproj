@@ -430,7 +430,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\ChartData.cs" />
-    <Compile Include="Badger\Chart\BudgetExecutionChart.cs">
+    <Compile Include="Badger\Chart\BudgetChart.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\IBudgetChart.cs" />
@@ -458,7 +458,7 @@
       <DependentUpon>Message.cs</DependentUpon>
     </Compile>
     <Compile Include="Badger\Design\BudgetBorder.cs" />
-    <Compile Include="Badger\Design\BudgetChart.cs" />
+    <Compile Include="Badger\Design\ChartConfig.cs" />
     <Compile Include="Badger\Design\BudgetColor.cs" />
     <Compile Include="Badger\Design\BudgetControl.cs" />
     <Compile Include="Badger\Binding\BindingBase.cs">

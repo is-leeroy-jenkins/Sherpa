@@ -5,20 +5,76 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Configuration;
     using System.Drawing;
+    using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
 
     public partial class ChartForm : MetroForm
     {
         /// <summary>
-        /// Gets or sets the chart control.
+        /// Gets or sets the binding source.
         /// </summary>
         /// <value>
-        /// The chart control.
+        /// The binding source.
         /// </value>
-        public BudgetExecutionChart ExecutionChartControl { get; set; }
-        
+        public virtual BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the images.
+        /// </summary>
+        /// <value>
+        /// The images.
+        /// </value>
+        public virtual IEnumerable<Image> Images { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public virtual ToolTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
+        public virtual Field Field { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public virtual IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public virtual string HoverText { get; set; }
+
+        /// <summary>
+        /// Gets or sets the settings.
+        /// </summary>
+        /// <value>
+        /// The settings.
+        /// </value>
+        public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
+
+        /// <summary>
+        /// Initializes a new instance of
+        /// the <see cref="ChartForm"/> class.
+        /// </summary>
         public ChartForm()
         {
             InitializeComponent();
@@ -37,7 +93,7 @@ namespace BudgetExecution
             CaptionFont = BudgetFont.FontSizeMedium;
             MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
-            Icon = new Icon( ExecutionChartControl.AppSetting[ "BudgetExecutionIcon" ], 32, 30 );
+            Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 32, 30 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;

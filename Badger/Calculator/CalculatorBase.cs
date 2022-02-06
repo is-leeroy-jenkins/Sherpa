@@ -10,7 +10,6 @@ namespace BudgetExecution
     using System.ComponentModel;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
@@ -49,20 +48,7 @@ namespace BudgetExecution
         /// The filter.
         /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
-
-        public CalculatorBase()
-        {
-            InitializeComponent();
-
-            // Form Property Values
-            BackColor = BudgetColor.FormDark;
-            Padding = BudgetControl.Padding;
-            Text = string.Empty;
-            MinimumSize = BudgetSize.DialogSizeMinimum;
-            MaximumSize = BudgetSize.DialogSizeMaximum;
-            Size = new Size( 500, 500 );
-        }
-
+        
         /// <summary>
         /// Sets the field.
         /// </summary>

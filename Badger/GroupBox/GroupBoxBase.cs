@@ -6,7 +6,9 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
     using System.ComponentModel;
+    using System.Configuration;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -23,6 +25,22 @@ namespace BudgetExecution
         /// The binding source.
         /// </value>
         public virtual BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public virtual ToolTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public virtual string HoverText { get; set; }
 
         /// <summary>
         /// Gets or sets the field.
@@ -47,7 +65,15 @@ namespace BudgetExecution
         /// The filter.
         /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
-        
+
+        /// <summary>
+        /// Gets or sets the bud ex configuration.
+        /// </summary>
+        /// <value>
+        /// The bud ex configuration.
+        /// </value>
+        public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
+
         /// <summary>
         /// Sets the field.
         /// </summary>
@@ -67,17 +93,17 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the binding source.
         /// </summary>
-        /// <param name="bindingsource">The bindingsource.</param>
-        public virtual void SetDataSource<T1>( T1 bindingsource ) where T1 : IBindingList
+        /// <param name="bindingSource">The Binding Source.</param>
+        public virtual void SetDataSource<T1>( T1 bindingSource ) where T1 : IBindingList
         {
             try
             {
-                if( bindingsource is BindingSource binder
-                    && binder?.DataSource != null )
+                if( bindingSource is BindingSource _bindingSource
+                    && _bindingSource?.DataSource != null )
                 {
                     try
                     {
-                        BindingSource.DataSource = binder.DataSource;
+                        BindingSource.DataSource = _bindingSource.DataSource;
                     }
                     catch( Exception ex )
                     {
@@ -96,7 +122,7 @@ namespace BudgetExecution
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2">The type of the 2.</typeparam>
-        /// <param name="bindinglist">The bindingsource.</param>
+        /// <param name="bindinglist">The bindingSource.</param>
         /// <param name="dict">The dictionary.</param>
         public virtual void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
             where T1 : IBindingList where T2 : IDictionary<string, object>

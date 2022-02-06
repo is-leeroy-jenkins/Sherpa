@@ -9,6 +9,7 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Collections.Specialized;
     using System.Drawing;
+    using DocumentFormat.OpenXml.Wordprocessing;
     using Syncfusion.Windows.Forms;
 
     public partial class TestForm : MetroForm
@@ -37,7 +38,7 @@ namespace BudgetExecution
             BackColor = BudgetColor.FormDark;
             BorderThickness = BudgetBorder.Thin;
             BorderColor = BudgetColor.SteelBlue;
-            Size = new Size( 1220, 800 );
+            Size = BudgetSize.FormSizeNormal;
             Font = BudgetFont.FontSizeSmall;
             CaptionBarColor = BudgetColor.FormDark;
             CaptionBarHeight = BudgetSize.CaptionSizeNormal;
@@ -51,10 +52,9 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
-            Text = string.Empty;
-            TestButton.HoverText = "WHOOP WHOOP";
-            TestButton.Click += SetLabelText;
-            TestButton.MouseLeave += ClearLabelText;
+            Button.HoverText = Setting[ "BudgetExecutionIcon" ];
+            Button.Click += SetLabelText;
+            Button.MouseLeave += ClearLabelText;
         }
 
         /// <summary>
@@ -66,11 +66,11 @@ namespace BudgetExecution
         {
             if( sender is BudgetButton _button )
             {
-                _button.ForeColor = BudgetColor.White;
+                Button = _button;
+                Button.ForeColor = BudgetColor.White;
+                CaptionForeColor = BudgetColor.White;
+                Text = Setting[ "BudgetExecutionIcon" ];
             }
-
-            TestLabel.ForeColor = BudgetColor.White;
-            TestLabel.Text = Setting[ "BudgetExecutionIcon" ];
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         public void ClearLabelText( object sender, EventArgs e )
         {
-            TestLabel.Text = "";
+            Text = "";
         }
     }
 }

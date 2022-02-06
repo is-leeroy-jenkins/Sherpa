@@ -5,6 +5,9 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
@@ -23,6 +26,14 @@ namespace BudgetExecution
     public class BudgetButton : ButtonBase, IButton
     {
         /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public override ToolTip ToolTip { get; set; }
+
+        /// <summary>
         /// Gets or sets the hover text.
         /// </summary>
         /// <value>
@@ -30,6 +41,38 @@ namespace BudgetExecution
         /// </value>
         public override string HoverText { get; set; }
 
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public override BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
+        public override Field Field { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public override IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the settings.
+        /// </summary>
+        /// <value>
+        /// The settings.
+        /// </value>
+        public override NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
+        
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="BudgetButton" />
@@ -42,7 +85,7 @@ namespace BudgetExecution
             ForeColor = BudgetColor.LightGray;
             Margin = BudgetControl.Margin;
             Padding = BudgetControl.Padding;
-            Size = BudgetSize.GetSize( 140, 30 );
+            Size = BudgetSize.ButtonControl;
             Location = BudgetControl.GetLocation();
             Dock = BudgetControl.GetDockStyle();
             Anchor = BudgetControl.GetAnchorStyle();
@@ -60,7 +103,7 @@ namespace BudgetExecution
 
             // BorderColor Configuration
             Border.Color = BudgetColor.FormDark;
-            Border.HoverColor = BudgetColor.HoverBlue;
+            Border.HoverColor = BudgetColor.SteelBlue;
             Border.HoverVisible = true;
             Border.Type = ShapeTypes.Rounded;
             Border.Thickness = 1;
@@ -89,8 +132,8 @@ namespace BudgetExecution
         public BudgetButton( Size size, Point location )
             : this()
         {
-            Size = BudgetSize.GetSize( size.Width, size.Height );
-            Location = BudgetControl.GetLocation( location.X, location.Y );
+            Size = size;
+            Location = location;
             Field = Field.NS;
         }
 

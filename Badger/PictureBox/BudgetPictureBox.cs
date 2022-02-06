@@ -75,6 +75,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetPictureBox()
         {
+            Size = BudgetSize.PictureControl;
             Anchor = BudgetControl.GetAnchorStyle( AnchorStyles.Left & AnchorStyles.Top );
             Location = BudgetControl.GetLocation();
             BackColor = Color.Transparent;

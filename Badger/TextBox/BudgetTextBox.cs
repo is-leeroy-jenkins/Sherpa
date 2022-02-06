@@ -14,13 +14,13 @@ namespace BudgetExecution
         public BudgetTextBox()
         {
             // Basic Properties
-            Size = new Size( 140, 30 );
+            Size = BudgetSize.TextBoxControl;
             Location = BudgetControl.GetLocation();
             Anchor = BudgetControl.GetAnchorStyle();
             Dock = BudgetControl.GetDockStyle();
             Margin = BudgetControl.Margin;
             Padding = BudgetControl.Padding;
-            Font = new Font( "Roboto", 10  );
+            Font = BudgetFont.FontSizeSmall;
             ForeColor = BudgetColor.LightGray;
             Enabled = true;
             Visible = true;

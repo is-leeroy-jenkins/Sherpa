@@ -6,22 +6,72 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Configuration;
     using System.Collections.Specialized;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public partial class FormBase : MetroForm
     {
         /// <summary>
-        /// Gets or sets the settings.
+        /// Gets or sets the binding source.
         /// </summary>
         /// <value>
-        /// The settings.
+        /// The binding source.
         /// </value>
-        public virtual NameValueCollection Settings { get;  set; } = ConfigurationManager.AppSettings;
+        public virtual BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public virtual ToolTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public virtual string HoverText { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
+        public virtual Field Field { get; set; }
+
+        /// <summary>
+        /// Gets or sets the numeric.
+        /// </summary>
+        /// <value>
+        /// The numeric.
+        /// </value>
+        public virtual Numeric Numeric { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public virtual IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bud ex configuration.
+        /// </summary>
+        /// <value>
+        /// The bud ex configuration.
+        /// </value>
+        public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
 
         /// <summary>
         /// Gets the current directory.
@@ -51,7 +101,7 @@ namespace BudgetExecution
             CaptionFont = BudgetFont.FontSizeMedium;
             MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
-            Icon = new Icon( Settings[ "BudgetExecutionIcon" ], 16, 16 );
+            Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 16, 16 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;

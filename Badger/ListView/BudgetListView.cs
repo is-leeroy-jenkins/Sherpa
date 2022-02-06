@@ -27,13 +27,13 @@ namespace BudgetExecution
         public BudgetListView()
         {
             // Basic Properties
-            Size = BudgetSize.GetSize( 250, 150 );
+            Size = BudgetSize.CollectionControl;
             Location = BudgetControl.GetLocation();
             Anchor = BudgetControl.GetAnchorStyle();
             Dock = BudgetControl.GetDockStyle();
             Margin = BudgetControl.Margin;
             Padding = BudgetControl.Padding;
-            Font = new Font( "Roboto", 10  );
+            Font = BudgetFont.FontSizeSmall;
             ForeColor = BudgetColor.LightGray;
             Enabled = true;
             Visible = true;
@@ -42,7 +42,7 @@ namespace BudgetExecution
             GridLines = GridLines.Horizontal;
             GridColor = BudgetColor.WindowFrame;
             GridLineStyle = GridLineStyle.Dashed;
-            DisplayTextFont = new Font( "Roboto", 10 );
+            DisplayTextFont = BudgetFont.FontSizeSmall;
             DisplayTextOnEmpty = false;
             DisplayTextColor = BudgetColor.LightGray;
             FullRowSelect = true;

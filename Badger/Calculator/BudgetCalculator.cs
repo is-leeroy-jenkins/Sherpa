@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
+    using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
     /// <summary>
@@ -54,13 +55,13 @@ namespace BudgetExecution
             Size = BudgetSize.GetSize( 400, 400 );
             Location = BudgetControl.GetLocation();
             BackColor = BudgetColor.FormDark;
-            ForeColor = BudgetColor.ForeColorGray;
+            ForeColor = BudgetColor.White;
             Margin = BudgetControl.Margin;
             Padding = BudgetControl.Padding;
-            Font = BudgetFont.FontSizeMedium;
+            Font = BudgetFont.FontSizeSmall;
             Anchor = BudgetControl.GetAnchorStyle();
-            Size = new Size( 450, 450 );
-            Dock = DockStyle.Fill;
+            Dock = DockStyle.None;
+            ButtonStyle = ButtonAppearance.Metro;
             Visible = true;
             Enabled = true;
         }

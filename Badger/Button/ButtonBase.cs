@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
@@ -40,7 +42,7 @@ namespace BudgetExecution
         /// <value>
         /// The tool tip.
         /// </value>
-        public virtual ToolBase ToolTip { get; set; }
+        public virtual ToolTip ToolTip { get; set; }
 
         /// <summary>
         /// Gets or sets the field.
@@ -51,12 +53,28 @@ namespace BudgetExecution
         public virtual Field Field { get; set; }
 
         /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public virtual IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
         /// Gets or sets the hover text.
         /// </summary>
         /// <value>
         /// The hover text.
         /// </value>
         public virtual string HoverText { get; set; }
+
+        /// <summary>
+        /// Gets or sets the settings.
+        /// </summary>
+        /// <value>
+        /// The settings.
+        /// </value>
+        public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
 
         /// <summary>
         /// Sets the size.

@@ -6,6 +6,8 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Specialized;
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
@@ -18,13 +20,21 @@ namespace BudgetExecution
     public class BudgetProgressBar : ProgressBarBase
     {
         /// <summary>
+        /// Gets or sets the settings.
+        /// </summary>
+        /// <value>
+        /// The settings.
+        /// </value>
+        public NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
+
+        /// <summary>
         /// Initializes a new instance of
         /// the <see cref="BudgetProgressBar"/> class.
         /// </summary>
         public BudgetProgressBar()
         {
             // Basic Properties
-            Size = BudgetSize.GetSize( 400, 23 );
+            Size = BudgetSize.LabelControl;
             ProgressStyle = ProgressBarStyles.Metro;
             Font = new Font( "Robot", 10  );
             Maximum = 100;
@@ -82,7 +92,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="progressBar">The progressBar.</param>
-        [SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
+        [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
         public BudgetProgressBar( BudgetProgressBar progressBar )
             : this( progressBar.Size, progressBar.Location )
         {

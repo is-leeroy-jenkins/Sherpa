@@ -7,8 +7,11 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
     /// <summary>
@@ -24,7 +27,23 @@ namespace BudgetExecution
         /// <value>
         /// The binding source.
         /// </value>
-        public virtual BudgetBinding BindingSource { get; set; }
+        public virtual BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public virtual ToolTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public virtual string HoverText { get; set; }
 
         /// <summary>
         /// Gets or sets the field.
@@ -43,12 +62,20 @@ namespace BudgetExecution
         public virtual Numeric Numeric { get; set; }
 
         /// <summary>
-        /// Gets or sets the data filter.
+        /// Gets or sets the filter.
         /// </summary>
         /// <value>
-        /// The data filter.
+        /// The filter.
         /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bud ex configuration.
+        /// </summary>
+        /// <value>
+        /// The bud ex configuration.
+        /// </value>
+        public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
 
         /// <summary>
         /// Gets/Sets HubTile Font

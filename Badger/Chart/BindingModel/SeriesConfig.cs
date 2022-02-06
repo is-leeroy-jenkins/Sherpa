@@ -76,7 +76,7 @@ namespace BudgetExecution
                 Style.Callout.DisplayTextAndFormat = "{0} : {2}";
                 Style.Callout.Border.Color = BudgetColor.SteelBlue;
                 Style.Callout.Color = BudgetColor.FormDark;
-                Style.Callout.Font = BudgetChart.SetFont( "Roboto", 8, FontStyle.Regular );
+                Style.Callout.Font = ChartConfig.SetFont( "Roboto", 8, FontStyle.Regular );
                 Style.DisplayText = true;
             }
             catch( Exception ex )

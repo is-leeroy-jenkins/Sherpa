@@ -27,12 +27,60 @@ namespace BudgetExecution
     public abstract class ChartBase : ChartControl
     {
         /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public virtual BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public virtual ToolTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public virtual string HoverText { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
+        public virtual Field Field { get; set; }
+
+        /// <summary>
+        /// Gets or sets the numeric.
+        /// </summary>
+        /// <value>
+        /// The numeric.
+        /// </value>
+        public virtual Numeric Numeric { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public virtual IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
         /// Gets or sets the bud ex configuration.
         /// </summary>
         /// <value>
         /// The bud ex configuration.
         /// </value>
-        public virtual NameValueCollection AppSetting { get; set; }  = ConfigurationManager.AppSettings;
+        public virtual NameValueCollection Setting { get; set; }  = ConfigurationManager.AppSettings;
 
         /// <summary>
         /// The style
@@ -96,38 +144,6 @@ namespace BudgetExecution
         public virtual ITitleInfo TitleInfo { get; set; }
 
         /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
-        public virtual BindingSource BindingSource { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the field.
-        /// </summary>
-        /// <value>
-        /// The field.
-        /// </value>
-        public virtual Field Field { get; set; }
-
-        /// <summary>
-        /// Gets or sets the numeric.
-        /// </summary>
-        /// <value>
-        /// The numeric.
-        /// </value>
-        public virtual Numeric Numeric { get; set; }
-
-        /// <summary>
-        /// Gets or sets the filter.
-        /// </summary>
-        /// <value>
-        /// The filter.
-        /// </value>
-        public virtual IDictionary<string, object> DataFilter { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="ChartBase"/> class.
         /// </summary>
         public ChartBase()
@@ -139,7 +155,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="font">The font.</param>
         /// <param name="size">The size.</param>
-        /// <param name="backColor">The backcolor.</param>
+        /// <param name="backColor">The back color.</param>
         public virtual void SetLegend( Font font, Size size, Color backColor )
         {
             try
@@ -167,18 +183,18 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the binding source.
         /// </summary>
-        /// <param name="bindingsource">The bindingsource.</param>
-        public virtual void SetDataSource<T1>( T1 bindingsource ) 
+        /// <param name="bindingSource">The binding source.</param>
+        public virtual void SetDataSource<T1>( T1 bindingSource ) 
             where T1 : IBindingList
         {
             try
             {
-                if( bindingsource is BindingSource binder
-                    && binder?.DataSource != null )
+                if( bindingSource is BindingSource _bindingSource
+                    && _bindingSource?.DataSource != null )
                 {
                     try
                     {
-                        BindingSource.DataSource = binder.DataSource;
+                        BindingSource.DataSource = _bindingSource.DataSource;
                     }
                     catch( Exception ex )
                     {
@@ -197,20 +213,20 @@ namespace BudgetExecution
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2">The type of the 2.</typeparam>
-        /// <param name="bindinglist">The bindingsource.</param>
+        /// <param name="bindingList">The bindingSource.</param>
         /// <param name="dict">The dictionary.</param>
-        public virtual void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
+        public virtual void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
             where T1 : IBindingList 
             where T2 : IDictionary<string, object>
         {
             try
             {
-                if( Verify.IsBindable( bindinglist )
+                if( Verify.IsBindable( bindingList )
                     && Verify.IsMap( dict ) )
                 {
                     try
                     {
-                        var _list = bindinglist as BindingSource;
+                        var _list = bindingList as BindingSource;
                         var _filter = string.Empty;
 
                         foreach( var _kvp in dict )

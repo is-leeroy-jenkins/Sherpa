@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetComboBox()
         {
-            Size = new Size( 140, 30 );
+            Size = BudgetSize.ComboBoxControl;
             Location = BudgetControl.GetLocation();
             Anchor = BudgetControl.GetAnchorStyle();
             Dock = BudgetControl.GetDockStyle();

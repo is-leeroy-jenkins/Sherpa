@@ -103,9 +103,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the callout.
+        /// Sets the call out.
         /// </summary>
-        public void SetCallout()
+        public void SetCallOut()
         {
             try
             {
@@ -114,7 +114,7 @@ namespace BudgetExecution
                 Style.Callout.DisplayTextAndFormat = "{0} : {2}";
                 Style.Callout.Border.Color = BudgetColor.SteelBlue;
                 Style.Callout.Color = BudgetColor.FormDark;
-                Style.Callout.Font = BudgetChart.SetFont( BudgetFont.FontSizeSmall );
+                Style.Callout.Font = ChartConfig.SetFont(  );
                 Style.DisplayText = true;
             }
             catch( Exception ex )
@@ -150,7 +150,7 @@ namespace BudgetExecution
         /// <param name="stat">The value.</param>
         public void SetPointConfiguration( STAT stat = STAT.Total )
         {
-            if( Validate.STAT( stat ) )
+            if( Verify.STAT( stat ) )
             {
                 try
                 {

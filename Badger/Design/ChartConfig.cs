@@ -13,35 +13,33 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Chart;
 
     /// <summary>
-    /// This provides the basic application form settings.
+    /// 
     /// </summary>
-    /// <seealso cref = "IDisposable"/>
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    /// <seealso cref="Syncfusion.Windows.Forms.Chart.ChartStyleInfo" />
+    /// <seealso cref="BudgetExecution.IChartConfig" />
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberInitializerValueIgnored" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    public class BudgetChart : ChartStyleInfo, IChartConfig
+    public class ChartConfig : ChartStyleInfo, IChartConfig
     {
         /// <summary>
-        /// Initializes a new instance of the <see/> class.
+        /// Initializes a new instance of the <see cref="ChartConfig"/> class.
         /// </summary>
-        public BudgetChart()
+        public ChartConfig()
         {
             DisplayText = true;
             TextColor = BudgetColor.ForeColorGray;
             Interior = new BrushInfo( Color.FromArgb( 5, 5, 5 ) );
             Border = SetBorderStyle( BudgetColor.FormDark, BudgetBorder.Thin );
         }
-        
+
         /// <summary>
         /// Sets the font.
         /// </summary>
-        /// <param name = "font" >
-        /// The font.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="font">The font.</param>
+        /// <returns></returns>
         public static ChartFontInfo SetFont( Font font )
         {
             if( font != null )
@@ -69,17 +67,10 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the font.
         /// </summary>
-        /// <param name = "family" >
-        /// The family.
-        /// </param>
-        /// <param name = "size" >
-        /// The size.
-        /// </param>
-        /// <param name = "style" >
-        /// The style.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="family">The family.</param>
+        /// <param name="size">The size.</param>
+        /// <param name="style">The style.</param>
+        /// <returns></returns>
         public static ChartFontInfo SetFont( string family = "Roboto", int size = 8,
             FontStyle style = FontStyle.Regular )
         {
@@ -108,11 +99,8 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the anchor.
         /// </summary>
-        /// <param name = "anchor" >
-        /// The anchor.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="anchor">The anchor.</param>
+        /// <returns></returns>
         public AnchorStyles SetAnchor( AnchorStyles anchor = AnchorStyles.Left & AnchorStyles.Top )
         {
             try
@@ -129,14 +117,9 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the border style.
         /// </summary>
-        /// <param name = "color" >
-        /// The color.
-        /// </param>
-        /// <param name = "width" >
-        /// The width.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="color">The color.</param>
+        /// <param name="width">The width.</param>
+        /// <returns></returns>
         public static ChartLineInfo SetBorderStyle( Color color, int width = 1 )
         {
             try
@@ -158,7 +141,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )

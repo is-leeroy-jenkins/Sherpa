@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <value>
         /// The font size small.
         /// </value>
-        public static Font FontSizeSmall { get; set; } = new Font( "Roboto", 8 );
+        public static Font FontSizeSmall { get; set; } = new Font( "Roboto", 10 );
 
         /// <summary>
         /// Gets or sets the font size medium.
@@ -53,7 +53,7 @@ namespace BudgetExecution
         /// <value>
         /// The font size medium.
         /// </value>
-        public static Font FontSizeMedium { get; set; } = new Font( "Roboto", 10 );
+        public static Font FontSizeMedium { get; set; } = new Font( "Roboto", 11 );
 
         /// <summary>
         /// Gets or sets the font size large.
@@ -61,7 +61,7 @@ namespace BudgetExecution
         /// <value>
         /// The font size large.
         /// </value>
-        public static Font FontSizeLarge { get; set; } = new Font( "Roboto", 12 );
+        public static Font FontSizeLarge { get; set; } = new Font( "Roboto", 14 );
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is disposed.

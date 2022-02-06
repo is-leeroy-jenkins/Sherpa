@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The form size normal.
         /// </value>
-        public static Size FormSizeNormal { get; } = new Size( 1220, 800 );
+        public static Size FormSizeNormal { get; } = new Size( 1400, 800 );
 
         /// <summary>
         /// Gets the form size maximum.
@@ -85,6 +85,78 @@ namespace BudgetExecution
         /// The context menu size normal.
         /// </value>
         public static Size ContextMenuSizeNormal { get; } = new Size( 250, 350 );
+
+        /// <summary>
+        /// Gets or sets the button control.
+        /// </summary>
+        /// <value>
+        /// The button control.
+        /// </value>
+        public static Size ButtonControl { get; set; } = new Size( 140, 40 );
+
+        /// <summary>
+        /// Gets or sets the ComboBox control.
+        /// </summary>
+        /// <value>
+        /// The ComboBox control.
+        /// </value>
+        public static Size ComboBoxControl { get; set; } = new Size( 200, 36 );
+
+        /// <summary>
+        /// Gets or sets the collection control.
+        /// </summary>
+        /// <value>
+        /// The collection control.
+        /// </value>
+        public static Size CollectionControl { get; set; } = new Size( 250, 150 );
+
+        /// <summary>
+        /// Gets or sets the label control.
+        /// </summary>
+        /// <value>
+        /// The label control.
+        /// </value>
+        public static Size LabelControl { get; set; } = new Size( 200, 20 );
+
+        /// <summary>
+        /// Gets or sets the tile control.
+        /// </summary>
+        /// <value>
+        /// The tile control.
+        /// </value>
+        public static Size TileControl { get; set; } = new Size( 140, 140 );
+
+        /// <summary>
+        /// Gets or sets the text box control.
+        /// </summary>
+        /// <value>
+        /// The text box control.
+        /// </value>
+        public static Size TextBoxControl { get; set; } = new Size( 140, 30 );
+
+        /// <summary>
+        /// Gets or sets the data grid control.
+        /// </summary>
+        /// <value>
+        /// The data grid control.
+        /// </value>
+        public static Size DataGridControl { get; set; } = new Size( 240, 150 );
+
+        /// <summary>
+        /// Gets or sets the chart control.
+        /// </summary>
+        /// <value>
+        /// The chart control.
+        /// </value>
+        public static Size ChartControl { get; set; } = new Size( 600, 400 );
+
+        /// <summary>
+        /// Gets or sets the picture control.
+        /// </summary>
+        /// <value>
+        /// The picture control.
+        /// </value>
+        public static Size PictureControl { get; set; } = new Size( 60, 40 );
 
         /// <summary>
         /// Gets the image size small.

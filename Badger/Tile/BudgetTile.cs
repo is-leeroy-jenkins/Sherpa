@@ -7,6 +7,8 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Configuration;
     using System.Linq;
     using System.Text;
     using System.Drawing;
@@ -16,11 +18,19 @@ namespace BudgetExecution
 
     public class BudgetTile  : TileBase
     {
+        /// <summary>
+        /// Gets or sets the settings.
+        /// </summary>
+        /// <value>
+        /// The settings.
+        /// </value>
+        public NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
+
         public BudgetTile()
         {
             BackColor = BudgetColor.FormDark;
             ForeColor = BudgetColor.LightGray;
-            Size = new Size( 140, 140 );
+            Size = BudgetSize.TileControl;
             Font = BudgetFont.FontSizeSmall;
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
             Dock = DockStyle.None;

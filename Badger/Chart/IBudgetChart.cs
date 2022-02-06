@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <value>
         /// The bud ex configuration.
         /// </value>
-        NameValueCollection AppSetting { get; set; }
+        NameValueCollection Setting { get; set; }
 
         /// <summary>
         /// The style

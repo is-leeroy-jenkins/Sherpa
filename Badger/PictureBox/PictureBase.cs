@@ -6,8 +6,9 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
     using System.Windows.Forms;
 
     /// <summary>
@@ -18,16 +19,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class PictureBase : PictureBox 
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    public abstract class PictureBase : PictureBox
     {
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
-        public virtual ToolTip ToolTip { get; set; }
-
         /// <summary>
         /// Gets or sets the binding source.
         /// </summary>
@@ -37,12 +31,12 @@ namespace BudgetExecution
         public virtual BindingSource BindingSource { get; set; }
 
         /// <summary>
-        /// Gets or sets the field.
+        /// Gets or sets the tool tip.
         /// </summary>
         /// <value>
-        /// The field.
+        /// The tool tip.
         /// </value>
-        public virtual Field Field { get; set; }
+        public virtual ToolTip ToolTip { get; set; }
 
         /// <summary>
         /// Gets or sets the hover text.
@@ -53,12 +47,36 @@ namespace BudgetExecution
         public virtual string HoverText { get; set; }
 
         /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
+        public virtual Field Field { get; set; }
+
+        /// <summary>
+        /// Gets or sets the numeric.
+        /// </summary>
+        /// <value>
+        /// The numeric.
+        /// </value>
+        public virtual Numeric Numeric { get; set; }
+
+        /// <summary>
         /// Gets or sets the filter.
         /// </summary>
         /// <value>
         /// The filter.
         /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bud ex configuration.
+        /// </summary>
+        /// <value>
+        /// The bud ex configuration.
+        /// </value>
+        public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
 
         /// <summary>
         /// Gets or sets the image list.
@@ -80,7 +98,7 @@ namespace BudgetExecution
         /// Sets the tag.
         /// </summary>
         /// <param name="tag">The tag.</param>
-        public void SetTag( object tag )
+        public virtual void SetTag( object tag )
         {
             try
             {
@@ -102,7 +120,7 @@ namespace BudgetExecution
         /// <see cref="EventArgs" />
         /// instance containing the event data.</param>
         [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
-        public void OnMouseHover( object sender, EventArgs e )
+        public virtual void OnMouseHover( object sender, EventArgs e )
         {
             try
             {

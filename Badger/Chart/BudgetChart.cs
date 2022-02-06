@@ -1,4 +1,4 @@
-﻿// <copyright file = "BudgetExecutionChart.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "BudgetChart.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Configuration;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
@@ -16,17 +18,65 @@ namespace BudgetExecution
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class BudgetExecutionChart : ChartBase, IBudgetChart
+    public class BudgetChart : ChartBase, IBudgetChart
     {
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public override ToolTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public override string HoverText { get; set; }
+
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public override BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
+        public override Field Field { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public override IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the settings.
+        /// </summary>
+        /// <value>
+        /// The settings.
+        /// </value>
+        public override NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
+
         // Initializes Properties
         /// <summary>
         /// Initializes a new instance
-        /// of the <see cref="BudgetExecutionChart"/> class.
+        /// of the <see cref="BudgetExecution.BudgetChart"/> class.
         /// </summary>
-        public BudgetExecutionChart()
+        public BudgetChart()
         {
             //Basic Control Properties
-            Size = BudgetSize.GetSize( 600, 400 );
+            Size = BudgetSize.ChartControl;
             Location = BudgetControl.GetLocation( 1, 1 );
             ShowLegend = false;
             ShowToolbar = false;
@@ -106,11 +156,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetExecutionChart" /> class.
+        /// Initializes a new instance of the <see cref="BudgetExecution.BudgetChart" /> class.
         /// </summary>
         /// <param name="table">The table.</param>
         /// <param name="seriesConfig">The seriesConfig.</param>
-        public BudgetExecutionChart( DataTable table, ISeriesConfig seriesConfig )
+        public BudgetChart( DataTable table, ISeriesConfig seriesConfig )
             : this()
         {
             SourceModel = new SourceModel( table, seriesConfig );
@@ -124,11 +174,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetExecutionChart" /> class.
+        /// Initializes a new instance of the <see cref="BudgetExecution.BudgetChart" /> class.
         /// </summary>
         /// <param name="dataRows">The data.</param>
         /// <param name="seriesConfig">The seriesConfig.</param>
-        public BudgetExecutionChart( IEnumerable<DataRow> dataRows, ISeriesConfig seriesConfig )
+        public BudgetChart( IEnumerable<DataRow> dataRows, ISeriesConfig seriesConfig )
             : this()
         {
             SourceModel = new SourceModel( dataRows, seriesConfig );
@@ -143,11 +193,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetExecutionChart" />
+        /// <see cref="BudgetExecution.BudgetChart" />
         /// class.
         /// </summary>
         /// <param name="sourceBinding">The sourceBinding.</param>
-        public BudgetExecutionChart( IChartBinding sourceBinding )
+        public BudgetChart( IChartBinding sourceBinding )
             : this()
         {
             SourceModel = new SourceModel( sourceBinding );
@@ -162,11 +212,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetExecutionChart" />
+        /// <see cref="BudgetExecution.BudgetChart" />
         /// class.
         /// </summary>
         /// <param name="sourceModel">The sourceModel.</param>
-        public BudgetExecutionChart( ISourceModel sourceModel )
+        public BudgetChart( ISourceModel sourceModel )
             : this()
         {
             SourceModel = sourceModel;
@@ -181,12 +231,12 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetExecutionChart" />
+        /// <see cref="BudgetExecution.BudgetChart" />
         /// class.
         /// </summary>
         /// <param name="sourceModel">The sourceModel.</param>
         /// <param name="titleInfo">The titleInfo.</param>
-        public BudgetExecutionChart( ISourceModel sourceModel, ITitleInfo titleInfo )
+        public BudgetChart( ISourceModel sourceModel, ITitleInfo titleInfo )
             : this()
         {
             SourceModel = sourceModel;
@@ -201,12 +251,12 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetExecutionChart" />
+        /// <see cref="BudgetExecution.BudgetChart" />
         /// class.
         /// </summary>
         /// <param name="chartData">The chartData.</param>
         /// <param name="titleInfo">The titleInfo.</param>
-        public BudgetExecutionChart( ISeriesModel chartData, ITitleInfo titleInfo )
+        public BudgetChart( ISeriesModel chartData, ITitleInfo titleInfo )
             : this()
         {
             ChartData = chartData;
