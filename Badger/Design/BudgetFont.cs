@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <value>
         /// The font size small.
         /// </value>
-        public static Font FontSizeSmall { get; set; } = new Font( "Roboto", 10 );
+        public static Font FontSizeSmall { get; set; } = new Font( "Roboto", 9 );
 
         /// <summary>
         /// Gets or sets the font size medium.

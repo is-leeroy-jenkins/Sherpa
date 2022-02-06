@@ -11,9 +11,10 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
+    using Syncfusion.WinForms.Input;
 
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class CalendarBase : MonthCalendarAdv
+    public abstract class CalendarBase : SfCalendar
     {
         /// <summary>
         /// Gets or sets the binding source.
@@ -79,7 +80,7 @@ namespace BudgetExecution
         /// <typeparam name="T1">
         /// </typeparam>
         /// <param name="bindingList">
-        /// The bindingsource.
+        /// The binding source.
         /// </param>
         public virtual void SetDataSource<T1>( T1 bindingList ) 
             where T1 : IBindingList
@@ -113,23 +114,23 @@ namespace BudgetExecution
         /// <typeparam name="T2">
         /// The type of the 2.
         /// </typeparam>
-        /// <param name="bindinglist">
-        /// The bindingsource.
+        /// <param name="bindingList">
+        /// The binding source.
         /// </param>
         /// <param name="dict">
         /// The dictionary.
         /// </param>
-        public virtual void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
+        public virtual void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
             where T1 : IBindingList where T2 : IDictionary<string, object>
         {
             try
             {
-                if( Verify.IsBindable( bindinglist )
+                if( Verify.IsBindable( bindingList )
                     && Verify.IsMap( dict ) )
                 {
                     try
                     {
-                        var _list = bindinglist as BindingSource;
+                        var _list = bindingList as BindingSource;
                         var _filter = string.Empty;
 
                         foreach( var _kvp in dict )
@@ -227,7 +228,7 @@ namespace BudgetExecution
             where T1 : IEnumerable<T1> where T2 : struct
         {
             if( Verify.IsSequence( data )
-                && BudgetExecution.Validate.IsField( field ) )
+                && Verify.IsField( field ) )
             {
                 try
                 {

@@ -5,6 +5,7 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
@@ -18,33 +19,67 @@ namespace BudgetExecution
         /// </summary>
         public BudgetCalendar()
         {
-            Size = BudgetSize.GetSize( 530, 375 );
+            Size = BudgetSize.GetSize( 497, 350 );
             Location = BudgetControl.GetLocation();
             Font = BudgetFont.FontSizeSmall;
             Margin = BudgetControl.Margin;
-            ForeColor = BudgetColor.ForeColorGray;
-            BackColor = BudgetColor.FormDark;
-            Dock = BudgetControl.GetDockStyle();
+            ForeColor = BudgetColor.LightGray;
             Anchor = BudgetControl.GetAnchorStyle();
+            HighlightTodayCell = true;
+            NumberOfWeeksInView = 5;
+            FirstDayOfWeek = DayOfWeek.Sunday;
+            ShowWeekNumbers = false;
+            ShowToday = true;
+            Style.BorderColor = BudgetColor.FormDark;
+            Style.Cell.BlackoutDatesForeColor = BudgetColor.FormDark;
+            ShowFooter = false;
+
+            // Basic Cell Properties
+            Style.Cell.CellFont = BudgetFont.FontSizeSmall;
+            Style.Cell.CellBackColor = BudgetColor.FormDark;
+            Style.Cell.CellForeColor = BudgetColor.SteelBlue;
+            Style.Cell.CellHoverBorderColor = BudgetColor.SteelBlue;
+
+            // SelectedCell Properties
+            Style.Cell.SelectedCellFont = new Font( "Roboto", 9, FontStyle.Bold  );
+            Style.Cell.SelectedCellBackColor = BudgetColor.SteelBlue;
+            Style.Cell.SelectedCellForeColor = BudgetColor.White;
+            Style.Cell.SelectedCellHoverBorderColor = BudgetColor.SteelBlue;
+
+            // TodayCell Properties
+            Style.Cell.SelectedCellFont = new Font( "Roboto", 9, FontStyle.Bold );
+            Style.Cell.SelectedCellBackColor = BudgetColor.SteelBlue;
+            Style.Cell.SelectedCellForeColor = BudgetColor.White;
+            Style.Cell.SelectedCellHoverBorderColor = BudgetColor.SteelBlue;
+
+            //TrailingCell Properties
+            Style.Cell.TrailingCellFont = new Font( "Roboto", 9, FontStyle.Regular );
+            Style.Cell.TrailingCellBackColor = BudgetColor.FormDark;
+            Style.Cell.TrailingCellForeColor = BudgetColor.WindowFrame;
+
+            // TodayCell Properties
+            Style.Cell.TodayFont = new Font( "Roboto", 10, FontStyle.Bold );
+            Style.Cell.TodayBackColor = BudgetColor.SteelBlue;
+            Style.Cell.TodayForeColor = BudgetColor.White;
+            Style.Cell.TodayHoverBorderColor = BudgetColor.SteelBlue;
+
+            // Header Properties
+            Style.Header.BackColor = BudgetColor.FormDark;
+            Style.Header.ForeColor = BudgetColor.SteelBlue;
+            Style.Header.Font = new Font( "Roboto", 14, FontStyle.Bold );
+            Style.Header.DayNamesBackColor = BudgetColor.FormDark;
+            Style.Header.DayNamesFont = new Font( "Roboto", 10, FontStyle.Bold );
+            Style.Header.DayNamesForeColor = BudgetColor.SteelBlue;
+            Style.Header.HoverForeColor = BudgetColor.White;
+            Style.Header.NavigationButtonDisabledForeColor = BudgetColor.FormDark;
+            Style.Header.NavigationButtonHoverForeColor = BudgetColor.White;
+            Style.Header.NavigationButtonForeColor = BudgetColor.SteelBlue;
+            Style.HorizontalSplitterColor = BudgetColor.WindowFrame;
+            Style.VerticalSplitterColor = BudgetColor.WindowFrame;
+            
+
             Visible = true;
             Enabled = true;
-            Style = VisualStyle.Office2010;
-            Office2010Theme = Office2010Theme.Blue;
-            Border3DStyle = Border3DStyle.Flat;
-            BorderColor = Color.Transparent;
-            BorderStyle = BorderStyle.FixedSingle;
-            FirstDayOfWeek = Day.Monday;
-            BottomHeight = 30;
-            DayNamesColor = BudgetColor.FormDark;
-            DayNamesFont = new Font( "Roboto", 10, FontStyle.Bold );
-            DaysFont = BudgetFont.FontSizeMedium;
-            DaysColor = BudgetColor.FormDark;
-            DaysHeaderInterior = new BrushInfo( SystemColors.ControlDark );
-            HeadForeColor = Color.White;
-            HeaderHeight = 40;
-            HeadGradient = false;
-            HeaderFont = new Font( "Roboto", 12, FontStyle.Bold );
-            HeaderStartColor = Color.FromArgb( 70, 70, 70 );
         }
     }
 }

@@ -55,6 +55,14 @@ namespace BudgetExecution
         public static int CaptionSizeNormal { get; } = 26;
 
         /// <summary>
+        /// Gets the caption size normal.
+        /// </summary>
+        /// <value>
+        /// The caption size normal.
+        /// </value>
+        public static int CaptionSizeNone { get; } = 26;
+
+        /// <summary>
         /// Gets the chart size normal.
         /// </summary>
         /// <value>

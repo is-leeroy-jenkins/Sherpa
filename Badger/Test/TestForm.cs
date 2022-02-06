@@ -9,7 +9,6 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Collections.Specialized;
     using System.Drawing;
-    using DocumentFormat.OpenXml.Wordprocessing;
     using Syncfusion.Windows.Forms;
 
     public partial class TestForm : MetroForm
@@ -70,6 +69,8 @@ namespace BudgetExecution
                 Button.ForeColor = BudgetColor.White;
                 CaptionForeColor = BudgetColor.White;
                 Text = Setting[ "BudgetExecutionIcon" ];
+                var _calculator = new CalculatorForm();
+                _calculator.ShowDialog();
             }
         }
 
@@ -81,7 +82,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         public void ClearLabelText( object sender, EventArgs e )
         {
-            Text = "";
+            Text = string.Empty;
         }
     }
 }

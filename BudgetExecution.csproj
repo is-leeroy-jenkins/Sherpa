@@ -423,7 +423,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Badger\Calendar\BudgetCalendar.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\CallOut.cs" />
     <Compile Include="Badger\Chart\ChartBase.cs">
@@ -435,6 +435,12 @@
     </Compile>
     <Compile Include="Badger\Chart\IBudgetChart.cs" />
     <Compile Include="Badger\Chart\LegendItem.cs" />
+    <Compile Include="Badger\DataGrid\BudgetDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Badger\DataGrid\BudgetDataForm.Designer.cs">
+      <DependentUpon>BudgetDataForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Badger\Main\BadgerMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -507,7 +513,7 @@
     </Compile>
     <Compile Include="Badger\Chart\SeriesModel\DataSeries.cs" />
     <Compile Include="Badger\Calendar\CalendarBase.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\DataGrid\BudgetDataGrid.cs">
       <SubType>Component</SubType>
@@ -597,6 +603,12 @@
     </Compile>
     <Compile Include="Badger\Navigation\BudgetNavigation.Designer.cs">
       <DependentUpon>BudgetNavigation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Badger\Calculator\CalculatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Badger\Calculator\CalculatorForm.Designer.cs">
+      <DependentUpon>CalculatorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
@@ -956,6 +968,9 @@
     <Compile Include="Badger\Tile\TileBase.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="Badger\DataGrid\BudgetDataForm.resx">
+      <DependentUpon>BudgetDataForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Badger\Dialog\Error\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
     </EmbeddedResource>
@@ -988,6 +1003,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\Navigation\BudgetNavigation.resx">
       <DependentUpon>BudgetNavigation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Badger\Calculator\CalculatorForm.resx">
+      <DependentUpon>CalculatorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

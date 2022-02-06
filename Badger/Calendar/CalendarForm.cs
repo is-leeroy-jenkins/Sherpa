@@ -6,12 +6,71 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Configuration;
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
     public partial class CalendarForm : MetroForm
     {
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public virtual BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public virtual ToolTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public virtual string HoverText { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
+        public virtual Field Field { get; set; }
+
+        /// <summary>
+        /// Gets or sets the numeric.
+        /// </summary>
+        /// <value>
+        /// The numeric.
+        /// </value>
+        public virtual Numeric Numeric { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public virtual IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bud ex configuration.
+        /// </summary>
+        /// <value>
+        /// The bud ex configuration.
+        /// </value>
+        public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
+
         /// <summary>
         /// Gets the calendar.
         /// </summary>
@@ -37,7 +96,7 @@ namespace BudgetExecution
             CaptionFont = BudgetFont.FontSizeMedium;
             MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
-            Icon = new Icon( @"C:\Users\terry\source\repos\BudgetExecution\Etc\epa.ico", 33, 32 );
+            Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 16, 16 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
