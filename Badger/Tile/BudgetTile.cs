@@ -83,14 +83,18 @@ namespace BudgetExecution
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
             Dock = DockStyle.None;
             TileType = HubTileType.DefaultTile;
+            Title.Font = new Font( "Roboto", 8, FontStyle.Regular );
             Title.TextColor = BudgetColor.LightGray;
-            Title.Font = BudgetFont.FontSizeSmall;
+            Body.TextColor = BudgetColor.LightGray;
+            Body.Font = BudgetFont.FontSizeMedium;
             SlideTransition = TransitionDirection.RightToLeft;
             ShowBanner = false;
             HoveredBorderColor = BudgetColor.SteelBlue;
             HoverBorderLength = 1;
             EnableHoverColor = true;
             EnableSelectionMarker = false;
+            Visible = true;
+            Enabled = true;
         }
 
         public BudgetTile( string name ) 

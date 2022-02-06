@@ -23,7 +23,7 @@ namespace BudgetExecution
             Size = BudgetSize.FormSizeNormal;
             Font = BudgetFont.FontSizeSmall;
             CaptionBarColor = BudgetColor.FormDark;
-            CaptionBarHeight = BudgetSize.CaptionSizeNormal;
+            CaptionBarHeight = BudgetSize.CaptionSize;
             CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
             CaptionButtonHoverColor = BudgetColor.White;
             CaptionAlign = BudgetAlign.HorizontalLeft;

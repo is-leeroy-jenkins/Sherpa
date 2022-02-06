@@ -77,14 +77,19 @@ namespace BudgetExecution
         {
             //Basic Control Properties
             Size = BudgetSize.ChartControl;
-            Location = BudgetControl.GetLocation( 1, 1 );
+            Location = BudgetControl.GetLocation( );
             ShowLegend = false;
-            ShowToolbar = false;
+            ShowToolbar = true;
+            ToolBar.Orientation = ChartOrientation.Horizontal;
+            ToolBar.ButtonBackColor = BudgetColor.FormDark;
+            ToolBar.Position = ChartDock.Bottom;
+            ToolBar.ShowGrip = false;
+            ToolBar.ShowBorder = false;
             ShowScrollBars = false;
             EnableMouseRotation = true;
             Padding = BudgetControl.Padding;
             Margin = BudgetControl.Margin;
-            Anchor = BudgetControl.GetAnchorStyle();
+            Anchor = AnchorStyles.Top & AnchorStyles.Left;
             AllowGapForEmptyPoints = true;
             AllowGradientPalette = true;
             AllowUserEditStyles = true;

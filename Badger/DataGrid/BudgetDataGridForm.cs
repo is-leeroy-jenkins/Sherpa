@@ -8,13 +8,8 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Collections.Specialized;
-    using System.ComponentModel;
     using System.Configuration;
-    using System.Data;
     using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
@@ -76,22 +71,35 @@ namespace BudgetExecution
         /// </value>
         public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
 
+        /// <summary>
+        /// Gets or sets the data grid.
+        /// </summary>
+        /// <value>
+        /// The data grid.
+        /// </value>
         public BudgetDataGrid DataGrid { get; set; } = new BudgetDataGrid();
 
+        /// <summary>
+        /// Initializes a new instance of
+        /// the <see cref="BudgetDataGridForm"/> class.
+        /// </summary>
         public BudgetDataGridForm()
         {
             InitializeComponent();
+
+            // Form Properties
+            Size = BudgetSize.FormSizeNormal;
             BackColor = BudgetColor.FormDark;
             BorderThickness = BudgetBorder.Thin;
             BorderColor = BudgetColor.SteelBlue;
-            Size = BudgetSize.FormSizeNormal;
             Font = BudgetFont.FontSizeSmall;
             CaptionBarColor = BudgetColor.FormDark;
-            CaptionBarHeight = BudgetSize.CaptionSizeNone;
+            CaptionBarHeight = BudgetSize.CaptionSize;
             CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
             CaptionButtonHoverColor = BudgetColor.White;
             CaptionAlign = BudgetAlign.HorizontalLeft;
             CaptionFont = BudgetFont.FontSizeMedium;
+            CaptionBarHeight = BudgetSize.CaptionSize;
             MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
             Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 16, 16 );
@@ -99,6 +107,10 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
             Text = string.Empty;
+            MinimumSize = BudgetSize.FormSizeMinimum;
+            MaximumSize = BudgetSize.FormSizeMaximum;
+            WindowState = FormWindowState.Normal;
+            StartPosition = FormStartPosition.CenterScreen;
 
             Controls.Add( DataGrid );
             DataGrid.Dock = DockStyle.Fill;

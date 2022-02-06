@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The form size maximum.
         /// </value>
-        public static Size FormSizeMaximum { get; } = new Size( 1900, 1060 );
+        public static Size FormSizeMaximum { get; } = new Size( 1600, 1060 );
 
         /// <summary>
         /// Gets the form size minimum.
@@ -52,15 +52,7 @@ namespace BudgetExecution
         /// <value>
         /// The caption size normal.
         /// </value>
-        public static int CaptionSizeNormal { get; } = 26;
-
-        /// <summary>
-        /// Gets the caption size normal.
-        /// </summary>
-        /// <value>
-        /// The caption size normal.
-        /// </value>
-        public static int CaptionSizeNone { get; } = 26;
+        public static int CaptionSize { get; } = 26;
 
         /// <summary>
         /// Gets the chart size normal.

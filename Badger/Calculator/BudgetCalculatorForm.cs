@@ -70,6 +70,12 @@ namespace BudgetExecution
         /// </value>
         public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
 
+        /// <summary>
+        /// Gets the calculator.
+        /// </summary>
+        /// <value>
+        /// The calculator.
+        /// </value>
         public BudgetCalculator Calculator { get; } = new BudgetCalculator();
 
         /// <summary>
@@ -78,26 +84,32 @@ namespace BudgetExecution
         public BudgetCalculatorForm()
         {
             InitializeComponent();
+
+            // Form Properties
+            Size = BudgetSize.GetSize( 400, 400 );
             BackColor = BudgetColor.FormDark;
             BorderThickness = BudgetBorder.Thin;
             BorderColor = BudgetColor.SteelBlue;
-            Size = BudgetSize.GetSize( 400, 400 );
             Font = BudgetFont.FontSizeSmall;
             CaptionBarColor = BudgetColor.FormDark;
-            CaptionBarHeight = BudgetSize.CaptionSizeNormal;
+            CaptionBarHeight = BudgetSize.CaptionSize;
             CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
             CaptionButtonHoverColor = BudgetColor.White;
             CaptionAlign = BudgetAlign.HorizontalLeft;
             CaptionFont = BudgetFont.FontSizeMedium;
+            CaptionBarHeight = BudgetSize.CaptionSize;
             MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
-            MetroColor = BudgetColor.FormDark;
             Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 16, 16 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
             Text = string.Empty;
-            Calculator.Parent = this;
+            MinimumSize = BudgetSize.FormSizeMinimum;
+            MaximumSize = BudgetSize.FormSizeMaximum;
+            WindowState = FormWindowState.Normal;
+            StartPosition = FormStartPosition.CenterScreen;
+
             Controls.Add( Calculator );
             Calculator.Dock = DockStyle.Fill;
         }

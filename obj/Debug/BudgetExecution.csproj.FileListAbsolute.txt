@@ -322,13 +322,11 @@ C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.ExcelChartToIma
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.SfChart.WPF.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Grid.Grouping.Windows.XmlSerializers.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.Grid.Windows.XmlSerializers.dll
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe.config
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetDataGridForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Error.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BadgerMain.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.FormBase.resources
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.ChartForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetCalendarForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.CalculatorBase.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.TestForm.resources
@@ -344,3 +342,4 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.Cor
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.CopyComplete
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
+C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetChartForm.resources

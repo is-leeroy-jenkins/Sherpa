@@ -84,16 +84,18 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form properties
+            Size = new Size( Calendar.Size.Width + 5, Calendar.Size.Height + 5 );
             BackColor = BudgetColor.FormDark;
             BorderThickness = BudgetBorder.Thin;
             BorderColor = BudgetColor.SteelBlue;
             Font = BudgetFont.FontSizeSmall;
             CaptionBarColor = BudgetColor.FormDark;
-            CaptionBarHeight = BudgetSize.CaptionSizeNormal;
+            CaptionBarHeight = BudgetSize.CaptionSize;
             CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
             CaptionButtonHoverColor = BudgetColor.White;
             CaptionAlign = BudgetAlign.HorizontalLeft;
             CaptionFont = BudgetFont.FontSizeMedium;
+            CaptionBarHeight = BudgetSize.CaptionSize;
             MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
             Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 16, 16 );
@@ -103,8 +105,10 @@ namespace BudgetExecution
             Text = string.Empty;
             MinimumSize = BudgetSize.FormSizeMinimum;
             MaximumSize = BudgetSize.FormSizeMaximum;
+            WindowState = FormWindowState.Normal;
+            StartPosition = FormStartPosition.CenterScreen;
+
             Calendar.Dock = DockStyle.Fill;
-            Size = new Size( Calendar.Size.Width + 5, Calendar.Size.Height + 5 );
             Controls.Add( Calendar );
         }
     }

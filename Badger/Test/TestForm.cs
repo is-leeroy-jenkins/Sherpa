@@ -9,6 +9,7 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Collections.Specialized;
     using System.Drawing;
+    using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
     public partial class TestForm : MetroForm
@@ -20,6 +21,8 @@ namespace BudgetExecution
         /// The settings.
         /// </value>
         public NameValueCollection Setting { get;  set; } = ConfigurationManager.AppSettings;
+
+        public BudgetButton BudgetButton { get; set; } = new BudgetButton();
 
         /// <summary>
         /// Gets the current directory.
@@ -40,7 +43,7 @@ namespace BudgetExecution
             Size = BudgetSize.FormSizeNormal;
             Font = BudgetFont.FontSizeSmall;
             CaptionBarColor = BudgetColor.FormDark;
-            CaptionBarHeight = BudgetSize.CaptionSizeNormal;
+            CaptionBarHeight = BudgetSize.CaptionSize;
             CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
             CaptionButtonHoverColor = BudgetColor.White;
             CaptionAlign = BudgetAlign.HorizontalLeft;
@@ -51,9 +54,17 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
-            Button.HoverText = Setting[ "BudgetExecutionIcon" ];
-            Button.Click += SetLabelText;
-            Button.MouseLeave += ClearLabelText;
+            WindowState = FormWindowState.Normal;
+            StartPosition = FormStartPosition.CenterScreen;
+
+            // Test Button Properties
+            BudgetButton.Text = "Test";
+            BudgetButton.Location = new Point( 500, 500 );
+            BudgetButton.HoverText = Setting[ "BudgetExecutionIcon" ];
+            BudgetButton.Click += SetLabelText;
+            BudgetButton.MouseLeave += ClearLabelText;
+
+            Controls.Add( BudgetButton );
         }
 
         /// <summary>
@@ -65,11 +76,16 @@ namespace BudgetExecution
         {
             if( sender is BudgetButton _button )
             {
-                Button = _button;
-                Button.ForeColor = BudgetColor.White;
+                BudgetButton = _button;
+                BudgetButton.ForeColor = BudgetColor.White;
                 CaptionForeColor = BudgetColor.White;
                 Text = Setting[ "BudgetExecutionIcon" ];
-                var _calculator = new BudgetCalculatorForm();
+
+                var _calculator = new BudgetChartForm
+                {
+                    Size = BudgetSize.FormSizeNormal
+                };
+
                 _calculator.ShowDialog();
             }
         }

@@ -72,6 +72,14 @@ namespace BudgetExecution
         public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
 
         /// <summary>
+        /// Gets or sets the chart.
+        /// </summary>
+        /// <value>
+        /// The chart.
+        /// </value>
+        public BudgetChart Chart { get; set; } = new BudgetChart();
+
+        /// <summary>
         /// Initializes a new instance of
         /// the <see cref="BudgetChartForm"/> class.
         /// </summary>
@@ -80,30 +88,35 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form Property Values
+            Size = BudgetSize.FormSizeNormal;
             BackColor = BudgetColor.FormDark;
             BorderThickness = BudgetBorder.Thin;
             BorderColor = BudgetColor.SteelBlue;
-            Size = BudgetSize.FormSizeNormal;
             Font = BudgetFont.FontSizeSmall;
             CaptionBarColor = BudgetColor.FormDark;
-            CaptionBarHeight = BudgetSize.CaptionSizeNormal;
+            CaptionBarHeight = BudgetSize.CaptionSize;
             CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
             CaptionButtonHoverColor = BudgetColor.White;
             CaptionAlign = BudgetAlign.HorizontalLeft;
             CaptionFont = BudgetFont.FontSizeMedium;
+            CaptionBarHeight = BudgetSize.CaptionSize;
             MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
-            Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 32, 30 );
+            Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 16, 16 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
             Text = string.Empty;
             MinimumSize = BudgetSize.FormSizeMinimum;
             MaximumSize = BudgetSize.FormSizeMaximum;
+            WindowState = FormWindowState.Normal;
+            StartPosition = FormStartPosition.CenterScreen;
 
             // Chart Property Values
-            Chart.Size = BudgetSize.ChartSizeNormal;
-            Chart.Name = "Chart";
+            Chart.Size = new Size( Size.Width - 400, Size.Height - 200 );
+
+            Chart.Location = new Point( Size.Width / 10, Size.Height / 10 );
+            Chart.Name = "Budget Execution Chart";
             Chart.BackColor = BudgetColor.FormDark;
             Chart.ForeColor = BudgetColor.LightGray;
             Chart.Font = BudgetFont.FontSizeSmall;
@@ -115,6 +128,8 @@ namespace BudgetExecution
             Chart.Rotation = 10;
             Chart.Tilt = 5;
             Chart.Palette = ChartColorPalette.Metro;
+            Chart.Dock = DockStyle.None;
+            Controls.Add( Chart );
         }
     }
 }
