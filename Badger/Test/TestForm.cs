@@ -69,7 +69,7 @@ namespace BudgetExecution
                 Button.ForeColor = BudgetColor.White;
                 CaptionForeColor = BudgetColor.White;
                 Text = Setting[ "BudgetExecutionIcon" ];
-                var _calculator = new CalculatorForm();
+                var _calculator = new BudgetCalculatorForm();
                 _calculator.ShowDialog();
             }
         }

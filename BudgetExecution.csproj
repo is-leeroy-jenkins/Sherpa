@@ -435,11 +435,11 @@
     </Compile>
     <Compile Include="Badger\Chart\IBudgetChart.cs" />
     <Compile Include="Badger\Chart\LegendItem.cs" />
-    <Compile Include="Badger\DataGrid\BudgetDataForm.cs">
+    <Compile Include="Badger\DataGrid\BudgetDataGridForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Badger\DataGrid\BudgetDataForm.Designer.cs">
-      <DependentUpon>BudgetDataForm.cs</DependentUpon>
+    <Compile Include="Badger\DataGrid\BudgetDataGridForm.Designer.cs">
+      <DependentUpon>BudgetDataGridForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Badger\Main\BadgerMain.cs">
       <SubType>Form</SubType>
@@ -527,11 +527,11 @@
     <Compile Include="Badger\Chart\ChartForm.Designer.cs">
       <DependentUpon>ChartForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Calendar\CalendarForm.cs">
+    <Compile Include="Badger\Calendar\BudgetCalendarForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Badger\Calendar\CalendarForm.Designer.cs">
-      <DependentUpon>CalendarForm.cs</DependentUpon>
+    <Compile Include="Badger\Calendar\BudgetCalendarForm.Designer.cs">
+      <DependentUpon>BudgetCalendarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Badger\Dialog\Error\Error.cs">
       <SubType>Form</SubType>
@@ -580,17 +580,17 @@
     <Compile Include="Badger\Tile\BudgetTile.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Excel\BudgetExcelViewer.cs">
+    <Compile Include="Badger\Excel\BudgetExcelForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Badger\Excel\BudgetExcelViewer.Designer.cs">
-      <DependentUpon>BudgetExcelViewer.cs</DependentUpon>
+    <Compile Include="Badger\Excel\BudgetExcelForm.Designer.cs">
+      <DependentUpon>BudgetExcelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\PDF\BudgetPdfViewer.cs">
+    <Compile Include="Badger\PDF\BudgetPdfForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Badger\PDF\BudgetPdfViewer.Designer.cs">
-      <DependentUpon>BudgetPdfViewer.cs</DependentUpon>
+    <Compile Include="Badger\PDF\BudgetPdfForm.Designer.cs">
+      <DependentUpon>BudgetPdfForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Badger\Web\BudgetWebBrowser.cs">
       <SubType>Form</SubType>
@@ -604,11 +604,11 @@
     <Compile Include="Badger\Navigation\BudgetNavigation.Designer.cs">
       <DependentUpon>BudgetNavigation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Calculator\CalculatorForm.cs">
+    <Compile Include="Badger\Calculator\BudgetCalculatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Badger\Calculator\CalculatorForm.Designer.cs">
-      <DependentUpon>CalculatorForm.cs</DependentUpon>
+    <Compile Include="Badger\Calculator\BudgetCalculatorForm.Designer.cs">
+      <DependentUpon>BudgetCalculatorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
@@ -968,8 +968,8 @@
     <Compile Include="Badger\Tile\TileBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="Badger\DataGrid\BudgetDataForm.resx">
-      <DependentUpon>BudgetDataForm.cs</DependentUpon>
+    <EmbeddedResource Include="Badger\DataGrid\BudgetDataGridForm.resx">
+      <DependentUpon>BudgetDataGridForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\Dialog\Error\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
@@ -983,8 +983,8 @@
     <EmbeddedResource Include="Badger\Chart\ChartForm.resx">
       <DependentUpon>ChartForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Badger\Calendar\CalendarForm.resx">
-      <DependentUpon>CalendarForm.cs</DependentUpon>
+    <EmbeddedResource Include="Badger\Calendar\BudgetCalendarForm.resx">
+      <DependentUpon>BudgetCalendarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\Calculator\CalculatorBase.resx">
       <DependentUpon>CalculatorBase.cs</DependentUpon>
@@ -992,11 +992,11 @@
     <EmbeddedResource Include="Badger\Test\TestForm.resx">
       <DependentUpon>TestForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Badger\Excel\BudgetExcelViewer.resx">
-      <DependentUpon>BudgetExcelViewer.cs</DependentUpon>
+    <EmbeddedResource Include="Badger\Excel\BudgetExcelForm.resx">
+      <DependentUpon>BudgetExcelForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Badger\PDF\BudgetPdfViewer.resx">
-      <DependentUpon>BudgetPdfViewer.cs</DependentUpon>
+    <EmbeddedResource Include="Badger\PDF\BudgetPdfForm.resx">
+      <DependentUpon>BudgetPdfForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\Web\BudgetWebBrowser.resx">
       <DependentUpon>BudgetWebBrowser.cs</DependentUpon>
@@ -1004,8 +1004,8 @@
     <EmbeddedResource Include="Badger\Navigation\BudgetNavigation.resx">
       <DependentUpon>BudgetNavigation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Badger\Calculator\CalculatorForm.resx">
-      <DependentUpon>CalculatorForm.cs</DependentUpon>
+    <EmbeddedResource Include="Badger\Calculator\BudgetCalculatorForm.resx">
+      <DependentUpon>BudgetCalculatorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
