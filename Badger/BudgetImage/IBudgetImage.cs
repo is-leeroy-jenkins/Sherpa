@@ -9,51 +9,29 @@ namespace BudgetExecution
     public interface IBudgetImage
     {
         /// <summary>
+        /// Gets or sets the name of the image.
+        /// </summary>
+        /// <value>
+        /// The name of the image.
+        /// </value>
+        string Name { get; set; }
+
+        /// <summary>
         /// Gets the bitmap.
         /// </summary>
         /// <returns></returns>
-        System.Drawing.Image GetBitmap();
-
-        /// <summary>
-        /// Gets the image source.
-        /// </summary>
-        /// <returns></returns>
-        ImageSource GetImageSource();
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <returns></returns>
-        string GetName();
-
-        /// <summary>
-        /// Gets the extension.
-        /// </summary>
-        /// <returns></returns>
-        string GetExtension();
-
-        /// <summary>
-        /// Gets the format.
-        /// </summary>
-        /// <returns></returns>
-        ImageFormat GetFormat();
-
-        /// <summary>
-        /// Gets the size of the image.
-        /// </summary>
-        /// <returns></returns>
-        Size GetImageSize();
-
+        Image GetBitmap();
+        
         /// <summary>
         /// Res the color.
         /// </summary>
-        /// <param name="newcolor">The newcolor.</param>
-        void ReColor( Color newcolor );
+        /// <param name="newColor">The new color.</param>
+        void ReColor( Color newColor );
 
         /// <summary>
         /// Sets the color of the back ground.
         /// </summary>
-        /// <param name="newcolor">The newcolor.</param>
-        void SetBackGroundColor( Color newcolor );
+        /// <param name="newColor">The new color.</param>
+        void SetBackGroundColor( Color newColor );
     }
 }

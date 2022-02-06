@@ -62,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The budget images.
         /// </value>
-        public IEnumerable<ExecutionImage> BudgetImages { get; set; }
+        public IEnumerable<BudgetImage> BudgetImages { get; set; }
 
         /// <summary>
         /// Gets or sets the image source.
@@ -86,6 +86,6 @@ namespace BudgetExecution
         /// <value>
         /// The image.
         /// </value>
-        public ExecutionImage ExecutionImage { get; set; }
+        public BudgetImage BudgetImage { get; set; }
     }
 }

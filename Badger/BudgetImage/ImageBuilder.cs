@@ -13,8 +13,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.BudgetImage" />
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    /// <seealso cref="ImageBase" />
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ImageBuilder : BudgetImage
     { 
@@ -40,11 +40,11 @@ namespace BudgetExecution
         public ImageBuilder( string fullPath )
         {
             FullPath = fullPath;
-            ImageName = Path.GetFileNameWithoutExtension( FullPath );
+            Name = Path.GetFileNameWithoutExtension( FullPath );
             Source = ImageSource.NS;
             FileExtension = Path.GetExtension( FullPath );
             Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
-            ImageSize = ImageSizeSmall;
+            Size = ImageSizeSmall;
         }
 
         /// <summary>
@@ -53,13 +53,13 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         public ImageBuilder( ImageSource source )
         {
-            ImageName = source.ToString();
+            Name = source.ToString();
             Source = source;
             FileExtension = ImageFormat.PNG.ToString();
             Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
-            FullPath = GetImageFilePath( ImageName, Source );
+            FullPath = GetImageFilePath( Name, Source );
             Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
-            ImageSize = ImageSizeSmall;
+            Size = ImageSizeSmall;
         }
 
         /// <summary>
@@ -70,12 +70,12 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         public ImageBuilder( string name, ImageSource source, ImageSizer size = ImageSizer.Medium )
         {
-            ImageName = name;
+            Name = name;
             Source = source;
-            FullPath = GetImageFilePath( ImageName, Source );
+            FullPath = GetImageFilePath( Name, Source );
             FileExtension = Path.GetExtension( name );
             Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
-            ImageSize = ImageSizeSmall;
+            Size = ImageSizeSmall;
         }
 
         /// <summary>
@@ -88,13 +88,13 @@ namespace BudgetExecution
         public ImageBuilder( string name, ImageSource source, int width = 16,
             int height = 16 )
         {
-            ImageName = name;
+            Name = name;
             Source = source;
-            FullPath = GetImageFilePath( ImageName, Source );
+            FullPath = GetImageFilePath( Name, Source );
             FileExtension = Path.GetExtension( FullPath );
             Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
             Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
-            ImageSize = new Size( width, height );
+            Size = new Size( width, height );
         }
 
         /// <summary>
@@ -105,13 +105,13 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         public ImageBuilder( string name, ImageSource source, Size size )
         {
-            ImageName = name;
+            Name = name;
             Source = source;
-            FullPath = GetImageFilePath( ImageName, Source );
+            FullPath = GetImageFilePath( Name, Source );
             FileExtension = Path.GetExtension( FullPath );
             Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
             Format = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
-            ImageSize = size;
+            Size = size;
         }
 
         /// <summary>

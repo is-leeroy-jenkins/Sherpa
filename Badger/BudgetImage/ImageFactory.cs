@@ -18,11 +18,6 @@ namespace BudgetExecution
     public class ImageFactory : BudgetImage
     {
         /// <summary>
-        /// The builder
-        /// </summary>
-        public ImageBuilder Builder { get; set; }
-
-        /// <summary>
         /// The stream data
         /// </summary>
         public IDictionary<string, FileInfo> FileStream { get; set; }
@@ -46,7 +41,7 @@ namespace BudgetExecution
         public ImageFactory( ImageBuilder imageBuilder )
         {
             Builder = imageBuilder;
-            Source = Builder.GetImageSource();
+            Source = Builder.Source;
             Format = Builder.GetExtenstion();
             Paths = Resource.ImageResources;
             Names = Paths.Select( n => Path.GetFileNameWithoutExtension( n ) );
@@ -62,7 +57,7 @@ namespace BudgetExecution
         public ImageFactory( ImageSource imageSource )
         {
             Builder = new ImageBuilder( imageSource );
-            Source = Builder.GetImageSource();
+            Source = Builder.Source;
             Format = Builder.GetExtenstion();
             Paths = Resource.ImageResources;
             Names = Paths.Select( n => Path.GetFileNameWithoutExtension( n ) );
@@ -154,14 +149,14 @@ namespace BudgetExecution
         /// </returns>
         public Icon CreateIcon()
         {
-            if( !Builder.ImageSize.IsEmpty )
+            if( !Builder.Size.IsEmpty )
             {
                 try
                 {
                     using var _fileStream = Builder.GetFileStream();
 
                     return _fileStream != null
-                        ? new Icon( _fileStream, Builder.ImageSize )
+                        ? new Icon( _fileStream, Builder.Size )
                         : default( Icon );
                 }
                 catch( Exception ex )

@@ -107,7 +107,7 @@ namespace BudgetExecution
         public BudgetPictureBox( ImageBuilder imageBuilder )
             : this()
         {
-            BudgetImage = new ExecutionImage( imageBuilder );
+            BudgetImage = new BudgetImage( imageBuilder );
             InitialImage = BudgetImage.GetBitmap();
         }
 
@@ -123,5 +123,13 @@ namespace BudgetExecution
             BudgetImage = image;
             InitialImage = BudgetImage.GetBitmap();
         }
+
+        public BudgetPictureBox( string path )
+            : this()
+        {
+            BudgetImage = new BudgetImage( path );
+            InitialImage = BudgetImage.GetBitmap();
+        }
     }
 }
+

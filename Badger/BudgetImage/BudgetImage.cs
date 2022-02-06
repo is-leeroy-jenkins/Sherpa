@@ -8,382 +8,178 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
-    using System.Linq;
 
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <seealso cref="ImageBase" />
+    /// <seealso cref="BudgetExecution.IBudgetImage" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public abstract class BudgetImage : BudgetSize 
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class BudgetImage : ImageBase, IBudgetImage
     {
         /// <summary>
-        /// The image
-        /// </summary>
-        public Bitmap Image { get; set; }
-
-        /// <summary>
-        /// The source
-        /// </summary>
-        public ImageSource Source { get; set; }
-
-        /// <summary>
-        /// The format
-        /// </summary>
-        public ImageFormat Format { get; set; }
-
-        /// <summary>
-        /// The small
-        /// </summary>
-        public static Size Small { get; } = new Size( 12, 12 );
-
-        /// <summary>
-        /// The medium
-        /// </summary>
-        public static Size Medium { get; } = new Size( 16, 16 );
-
-        /// <summary>
-        /// The large
-        /// </summary>
-        public static Size Large { get; } = new Size( 20, 20 );
-
-        /// <summary>
-        /// The huge
-        /// </summary>
-        public static Size XtraLarge { get; } = new Size( 250, 250 );
-        
-        /// <summary>
-        /// Gets or sets the color of the back ground.
+        /// Gets or sets the builder.
         /// </summary>
         /// <value>
-        /// The color of the back ground.
+        /// The builder.
         /// </value>
-        public Color BackGroundColor  = Color.Transparent;
+        public ImageBuilder Builder { get; set; }
 
         /// <summary>
-        /// Gets or sets the color.
+        /// Gets or sets the factory.
         /// </summary>
         /// <value>
-        /// The color.
+        /// The factory.
         /// </value>
-        public Color Color { get; set; }
+        public ImageFactory Factory { get; set;  }
 
         /// <summary>
-        /// Gets or sets the size of the image.
+        /// Initializes a new instance of the <see cref="BudgetImage" /> class.
         /// </summary>
-        /// <value>
-        /// The size of the image.
-        /// </value>
-        public Size ImageSize { get; set; }
+        public BudgetImage()
+        {
+        }
 
         /// <summary>
-        /// Gets or sets the name of the image.
+        /// Initializes a new instance of the <see cref="BudgetImage" /> class.
         /// </summary>
-        /// <value>
-        /// The name of the image.
-        /// </value>
-        public string ImageName { get; set; }
+        /// <param name="path">The path.</param>
+        public BudgetImage( string path )
+        {
+            Name = Path.GetFileNameWithoutExtension( path );
+            Builder = new ImageBuilder( Path.GetFullPath( path ) );
+            Size = ImageSizeMedium;
+            Source = Builder.Source;
+            Format = Builder.Format;
+            Factory = new ImageFactory( Builder );
+            Image = new Bitmap( Builder.FullPath );
+        }
 
         /// <summary>
-        /// Gets or sets the file extension.
+        /// Initializes a new instance of the <see cref="BudgetImage"/> class.
         /// </summary>
-        /// <value>
-        /// The file extension.
-        /// </value>
-        public string FileExtension { get; set; }
-        
-        /// <summary>
-        /// Sets the image source.
-        /// </summary>
+        /// <param name="path">The path.</param>
         /// <param name="source">The source.</param>
-        public void SetImageSource( ImageSource source )
+        public BudgetImage( string path, ImageSource source = ImageSource.NS )
         {
-            try
-            {
-                Source = Validate.ImageResource( source )
-                    ? source
-                    : ImageSource.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
+            Name = Path.GetFileNameWithoutExtension( path );
+            Builder = new ImageBuilder( Name, source, ImageSizer.Medium );
+            Size = ImageSizeMedium;
+            Source = Builder.Source;
+            Format = Builder.Format;
+            Factory = new ImageFactory( Builder );
+            Image = new Bitmap( Builder.FullPath );
         }
 
         /// <summary>
-        /// Gets the image source.
+        /// Initializes a new instance of the <see cref="BudgetImage"/> class.
         /// </summary>
-        /// <returns></returns>
-        public ImageSource GetImageSource()
+        /// <param name="imageBuilder">The image builder.</param>
+        public BudgetImage( ImageBuilder imageBuilder )
         {
-            try
-            {
-                return Enum.IsDefined( typeof( ImageSource ), Source )
-                    ? Source
-                    : ImageSource.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return ImageSource.NS;
-            }
+            Builder = imageBuilder;
+            Name = Builder.Name;
+            Size = Builder.Size;
+            Source = Builder.Source;
+            Format = Builder.Format;
+            Factory = new ImageFactory( Builder );
+            Image = Factory.CreateImage();
         }
 
         /// <summary>
-        /// Sets the name.
+        /// Initializes a new instance of the <see cref="BudgetImage"/> class.
         /// </summary>
         /// <param name="name">The name.</param>
-        public void SetName( string name )
-        {
-            try
-            {
-                ImageName = Verify.IsInput( name )
-                    ? name
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <returns></returns>
-        public string GetName()
-        {
-            try
-            {
-                return Verify.IsInput( ImageName )
-                    ? ImageName
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( string );
-            }
-        }
-
-        /// <summary>
-        /// Sets the file extension.
-        /// </summary>
-        /// <param name="filePath">The filePath.</param>
         /// <param name="resource">The resource.</param>
-        public void SetFileExtension( string filePath, ImageSource resource = ImageSource.NS )
-        {
-            try
-            {
-                FileExtension = Validate.ImageResource( resource )
-                    && Verify.IsInput( filePath )
-                    && File.Exists( filePath )
-                    && resource != ImageSource.NS
-                        ? filePath
-                        : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Gets the extension.
-        /// </summary>
-        /// <returns></returns>
-        public string GetExtension()
-        {
-            try
-            {
-                return Verify.IsInput( FileExtension )
-                    ? FileExtension
-                    : ImageFormat.PNG.ToString();
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( string );
-            }
-        }
-
-        /// <summary>
-        /// Sets the image format.
-        /// </summary>
-        /// <param name="format">The format.</param>
-        public void SetImageFormat( ImageFormat format )
-        {
-            try
-            {
-                Format = Enum.IsDefined( typeof( ImageFormat ), format )
-                    ? format
-                    : ImageFormat.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the image format.
-        /// </summary>
-        /// <param name="extension">The extension.</param>
-        public void SetImageFormat( string extension )
-        {
-            try
-            {
-                var _names = Enum.GetNames( typeof( ImageFormat ) );
-
-                Format = _names.Contains( extension )
-                    ? (ImageFormat)Enum.Parse( typeof( ImageFormat ), extension )
-                    : ImageFormat.PNG;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Gets the format.
-        /// </summary>
-        /// <returns></returns>
-        public ImageFormat GetFormat()
-        {
-            try
-            {
-                return Enum.IsDefined( typeof( ImageFormat ), Format )
-                    ? Format
-                    : ImageFormat.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return ImageFormat.NS;
-            }
-        }
-
-        /// <summary>
-        /// Sets the size of the image.
-        /// </summary>
         /// <param name="size">The size.</param>
-        public void SetImageSize( Size size )
+        public BudgetImage( string name, ImageSource resource, ImageSizer size = ImageSizer.Medium )
         {
-            try
-            {
-                ImageSize = size != Size.Empty
-                    ? GetSize( size )
-                    : Size.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
+            Builder = new ImageBuilder( name, resource, size );
+            Name = Builder.Name;
+            Size = Builder.Size;
+            Source = Builder.Source;
+            Format = Builder.Format;
+            Factory = new ImageFactory( Builder );
+            Image = Factory.CreateImage();
         }
 
         /// <summary>
-        /// Sets the size of the image.
+        /// Initializes a new instance of the <see cref="BudgetImage"/> class.
         /// </summary>
-        /// <param name="width">The width.</param>
-        /// <param name="height">The height.</param>
-        public void SetImageSize( int width, int height )
+        /// <param name="name">The name.</param>
+        /// <param name="resource">The resource.</param>
+        /// <param name="size">The size.</param>
+        public BudgetImage( string name, ImageSource resource, Size size )
         {
-            try
-            {
-                ImageSize = width > -1 && height > -1
-                    ? GetSize( width, height )
-                    : Size.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
+            Builder = new ImageBuilder( name, resource, size );
+            Name = Builder.Name;
+            Size = Builder.Size;
+            Source = Builder.Source;
+            Format = Builder.Format;
+            Factory = new ImageFactory( Builder );
+            Image = Factory.CreateImage();
         }
 
         /// <summary>
-        /// Sets the size of the image.
+        /// Sets the tag.
         /// </summary>
-        /// <param name="sizer">The sizer.</param>
-        public void SetImageSize( ImageSizer sizer )
+        /// <param name="tag">The tag.</param>
+        public void SetTag( object tag )
         {
-            try
+            if( Verify.IsRef( Image )
+                && Verify.IsRef( tag ) )
             {
-                ImageSize = Enum.IsDefined( typeof( ImageSizer ), sizer )
-                    ? GetSize( sizer )
-                    : Size.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
+                try
+                {
+                    Image.Tag = tag;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    Image?.Dispose();
+                }
             }
         }
 
         /// <summary>
-        /// Gets the size of the image.
+        /// Gets the bitmap.
         /// </summary>
         /// <returns></returns>
-        public Size GetImageSize()
+        public Image GetBitmap()
         {
             try
             {
-                return ImageSize != Size.Empty
-                    ? ImageSize
-                    : Size.Empty;
+                return Verify.IsRef( Image )
+                    ? Image
+                    : default( Bitmap );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Size.Empty;
+                Image?.Dispose();
+                return default( Image );
             }
         }
 
         /// <summary>
-        /// Res the color.
+        /// Gets the color.
         /// </summary>
-        /// <param name="newColor">The newColor.</param>
-        public void ReColor( Color newColor )
+        /// <param name="newColor">The new color.</param>
+        /// <returns></returns>
+        public Color GetColor( Color newColor )
         {
-            if( newColor != Color.Empty )
+            try
             {
-                try
-                {
-                    for( var i = 0; i < Image.Width; i++ )
-                    {
-                        for( var j = 0; j < Image.Height; j++ )
-                        {
-                            if( Image.GetPixel( i, j ) != Color.Transparent )
-                            {
-                                Image.SetPixel( i, j, newColor );
-                            }
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    Image.Dispose();
-                }
+                return newColor != Color.Empty
+                    ? BudgetColor.GetColor( newColor )
+                    : Color.Empty;
             }
-        }
-
-        /// <summary>
-        /// Sets the color of the back ground.
-        /// </summary>
-        /// <param name="newColor">The newColor.</param>
-        public void SetBackGroundColor( Color newColor )
-        {
-            if( newColor != Color.Empty )
+            catch( Exception ex )
             {
-                try
-                {
-                    BackGroundColor = newColor;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
+                Fail( ex );
+                Image?.Dispose();
+                return default( Color );
             }
         }
     }

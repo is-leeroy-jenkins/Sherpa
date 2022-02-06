@@ -507,7 +507,7 @@
     <Compile Include="Badger\Toolbar\BarTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\BudgetImage\ExecutionImage.cs" />
+    <Compile Include="Badger\BudgetImage\BudgetImage.cs" />
     <Compile Include="Badger\Calculator\BudgetCalculator.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -521,11 +521,11 @@
     <Compile Include="Badger\Clock\ClockBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Chart\ChartForm.cs">
+    <Compile Include="Badger\Chart\BudgetChartForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Badger\Chart\ChartForm.Designer.cs">
-      <DependentUpon>ChartForm.cs</DependentUpon>
+    <Compile Include="Badger\Chart\BudgetChartForm.Designer.cs">
+      <DependentUpon>BudgetChartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Badger\Calendar\BudgetCalendarForm.cs">
       <SubType>Form</SubType>
@@ -728,7 +728,7 @@
     <Compile Include="Badger\Label\BudgetLabel.cs" />
     <Compile Include="Badger\BudgetImage\IBudgetImage.cs" />
     <Compile Include="Badger\BudgetImage\ImageBuilder.cs" />
-    <Compile Include="Badger\BudgetImage\BudgetImage.cs" />
+    <Compile Include="Badger\BudgetImage\ImageBase.cs" />
     <Compile Include="Badger\BudgetImage\ImageFactory.cs" />
     <Compile Include="Badger\BudgetImage\ImageList.cs">
       <SubType>Component</SubType>
@@ -980,8 +980,8 @@
     <EmbeddedResource Include="Badger\Form\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Badger\Chart\ChartForm.resx">
-      <DependentUpon>ChartForm.cs</DependentUpon>
+    <EmbeddedResource Include="Badger\Chart\BudgetChartForm.resx">
+      <DependentUpon>BudgetChartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\Calendar\BudgetCalendarForm.resx">
       <DependentUpon>BudgetCalendarForm.cs</DependentUpon>

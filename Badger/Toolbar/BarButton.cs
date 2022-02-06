@@ -42,7 +42,7 @@ namespace BudgetExecution
         public BarButton( Tool tool )
             : this()
         {
-            Image = new ExecutionImage( tool.ToString(), ImageSource.ToolBarImages )?.GetBitmap();
+            Image = new BudgetImage( tool.ToString(), ImageSource.ToolBarImages )?.GetBitmap();
             Bar = tool;
         }
 
@@ -54,7 +54,7 @@ namespace BudgetExecution
             : this()
         {
             Image = image.GetBitmap();
-            Bar = (Tool)Enum.Parse( typeof( Tool ), image.GetName() );
+            Bar = (Tool)Enum.Parse( typeof( Tool ), image.Name );
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _image = new ExecutionImage( tool.ToString(), ImageSource.ToolBarImages );
+                    var _image = new BudgetImage( tool.ToString(), ImageSource.ToolBarImages );
                     Image = _image?.GetBitmap();
                 }
                 catch( Exception ex )
