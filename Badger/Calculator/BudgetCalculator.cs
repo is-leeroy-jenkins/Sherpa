@@ -5,6 +5,9 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
@@ -18,6 +21,62 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class BudgetCalculator : CalculatorBase, ICalculator
     {
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public override BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public override ToolTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public override string HoverText { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
+        public override Field Field { get; set; }
+
+        /// <summary>
+        /// Gets or sets the numeric.
+        /// </summary>
+        /// <value>
+        /// The numeric.
+        /// </value>
+        public override Numeric Numeric { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public override IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bud ex configuration.
+        /// </summary>
+        /// <value>
+        /// The bud ex configuration.
+        /// </value>
+        public override NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
+
         /// <summary>
         /// Gets the value.
         /// </summary>
@@ -36,14 +95,6 @@ namespace BudgetExecution
         /// The calculator text.
         /// </value>
         public BudgetLabel Label { get; set; }
-
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
-        public ToolBase ToolTip { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the

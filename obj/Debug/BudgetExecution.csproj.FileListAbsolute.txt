@@ -341,3 +341,4 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.Cop
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetNavigation.resources
+C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache

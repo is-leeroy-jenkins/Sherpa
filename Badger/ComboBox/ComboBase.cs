@@ -7,7 +7,9 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
     using System.ComponentModel;
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Windows.Forms;
@@ -22,7 +24,23 @@ namespace BudgetExecution
         /// <value>
         /// The binding source.
         /// </value>
-        public virtual BudgetBinding BindingSource { get; set; }
+        public virtual BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public virtual ToolTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public virtual string HoverText { get; set; }
 
         /// <summary>
         /// Gets or sets the field.
@@ -49,6 +67,14 @@ namespace BudgetExecution
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
+        /// Gets or sets the bud ex configuration.
+        /// </summary>
+        /// <value>
+        /// The bud ex configuration.
+        /// </value>
+        public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
+
+        /// <summary>
         /// Sets the field.
         /// </summary>
         /// <param name="field">The field.</param>
@@ -67,7 +93,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the binding source.
         /// </summary>
-        /// <param name="bindingList">The bindingsource.</param>
+        /// <param name="bindingList">The binding source.</param>
         public virtual void SetDataSource<T1>( T1 bindingList ) 
             where T1 : IBindingList
         {

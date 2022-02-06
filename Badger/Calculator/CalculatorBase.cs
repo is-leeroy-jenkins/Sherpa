@@ -7,7 +7,9 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
     using System.ComponentModel;
+    using System.Configuration;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -24,6 +26,22 @@ namespace BudgetExecution
         /// The binding source.
         /// </value>
         public virtual BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public virtual ToolTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public virtual string HoverText { get; set; }
 
         /// <summary>
         /// Gets or sets the field.
@@ -48,7 +66,15 @@ namespace BudgetExecution
         /// The filter.
         /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
-        
+
+        /// <summary>
+        /// Gets or sets the bud ex configuration.
+        /// </summary>
+        /// <value>
+        /// The bud ex configuration.
+        /// </value>
+        public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
+
         /// <summary>
         /// Sets the field.
         /// </summary>
