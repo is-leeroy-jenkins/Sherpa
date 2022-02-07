@@ -11,7 +11,12 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using System.Drawing;
     using System.Windows.Forms;
+    using System.IO;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     public partial class BudgetPdfForm : MetroForm
     {
         /// <summary>
@@ -79,7 +84,7 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form Properties
-            Size = BudgetSize.FormSizeNormal;
+            Size = new Size( 1047, 800 );
             BackColor = BudgetColor.FormDark;
             BorderThickness = BudgetBorder.Thin;
             BorderColor = BudgetColor.SteelBlue;
@@ -90,7 +95,6 @@ namespace BudgetExecution
             CaptionButtonHoverColor = BudgetColor.White;
             CaptionAlign = BudgetAlign.HorizontalLeft;
             CaptionFont = BudgetFont.FontSizeMedium;
-            CaptionBarHeight = BudgetSize.CaptionSize;
             MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
             Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 16, 16 );
@@ -98,10 +102,26 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
             Text = string.Empty;
-            MinimumSize = BudgetSize.FormSizeMinimum;
-            MaximumSize = BudgetSize.FormSizeMaximum;
-            WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
+            Load += OpenFundsControlManual;
+        }
+
+        /// <summary>
+        /// Opens the funds control manual.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OpenFundsControlManual( object sender, EventArgs e )
+        {
+            var _path = @"C:\Users\terry\source\repos\BudgetExecution\"
+                + @"Etc\doc\RMDS\FundsControlManual.pdf";
+
+            if( File.Exists( _path ) 
+               && System.IO.Path.GetExtension( _path ).Contains( ".pdf" )  )
+            {
+                DocumentViewer.Load( _path );
+            }
         }
     }
 }

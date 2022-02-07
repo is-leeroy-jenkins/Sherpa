@@ -81,7 +81,7 @@ namespace BudgetExecution
                 CaptionForeColor = BudgetColor.White;
                 Text = Setting[ "BudgetExecutionIcon" ];
 
-                var _form = new BudgetCalendarForm();
+                var _form = new BudgetPdfForm();
                 _form.ShowDialog();
             }
         }
