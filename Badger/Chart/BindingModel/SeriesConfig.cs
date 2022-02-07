@@ -66,7 +66,7 @@ namespace BudgetExecution
         /// <value> The numeric. </value>
         public Numeric Numeric { get; }
         
-        /// <summary> Sets the callout. </summary>
+        /// <summary> Sets the call out. </summary>
         public void SetCallout()
         {
             try

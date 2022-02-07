@@ -10,7 +10,7 @@ namespace BudgetExecution
     using System.Drawing.Drawing2D;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
-    using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Chart;
 
     /// <summary>
     /// 

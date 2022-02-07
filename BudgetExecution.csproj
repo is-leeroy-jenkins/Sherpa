@@ -156,7 +156,7 @@
       <HintPath>lib\Syncfusion.Compression.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Core.WinForms, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.Core.WinForms.19.4.0.48\lib\net46\Syncfusion.Core.WinForms.dll</HintPath>
+      <HintPath>Lib\Syncfusion.Core.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Data.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Data.WinForms.dll</HintPath>
@@ -235,7 +235,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Syncfusion.Licensing, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.Licensing.19.4.0.48\lib\net46\Syncfusion.Licensing.dll</HintPath>
+      <HintPath>Lib\Syncfusion.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Linq.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Linq.Base.dll</HintPath>
@@ -327,7 +327,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Syncfusion.Shared.Base, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.Shared.Base.19.4.0.48\lib\net46\Syncfusion.Shared.Base.dll</HintPath>
+      <HintPath>Lib\Syncfusion.Shared.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Shared.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Shared.Windows.dll</HintPath>

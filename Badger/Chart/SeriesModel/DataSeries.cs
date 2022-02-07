@@ -114,7 +114,7 @@ namespace BudgetExecution
                 Style.Callout.DisplayTextAndFormat = "{0} : {2}";
                 Style.Callout.Border.Color = BudgetColor.SteelBlue;
                 Style.Callout.Color = BudgetColor.FormDark;
-                Style.Callout.Font = ChartConfig.SetFont(  );
+                Style.Callout.Font = ChartConfig.SetFont();
                 Style.DisplayText = true;
             }
             catch( Exception ex )
@@ -132,7 +132,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.ChartType( type )
+                return Verify.ChartType( type )
                     ? (ChartSeriesType)Enum.Parse( typeof( ChartSeriesType ), type.ToString() )
                     : ChartSeriesType.Column;
             }
