@@ -343,3 +343,12 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.Cop
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetChartForm.resources
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetDataGridForm.resources
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetChartForm.resources
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetCalendarForm.resources
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetExcelForm.resources
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetPdfForm.resources
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetWebBrowser.resources
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetNavigation.resources
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetCalculatorForm.resources

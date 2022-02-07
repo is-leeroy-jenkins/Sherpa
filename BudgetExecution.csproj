@@ -155,9 +155,8 @@
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Compression.Base.dll</HintPath>
       <HintPath>lib\Syncfusion.Compression.Base.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Core.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Core.WinForms.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Syncfusion.Core.WinForms, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Core.WinForms.19.4.0.48\lib\net46\Syncfusion.Core.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Data.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Data.WinForms.dll</HintPath>
@@ -235,9 +234,8 @@
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.HTMLUI.Windows.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Syncfusion.Licensing, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Licensing.dll</HintPath>
-      <HintPath>lib\Syncfusion.Licensing.dll</HintPath>
+    <Reference Include="Syncfusion.Licensing, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Licensing.19.4.0.48\lib\net46\Syncfusion.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Linq.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Linq.Base.dll</HintPath>
@@ -328,9 +326,8 @@
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.SfSmithChart.WinForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Syncfusion.Shared.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Shared.Base.dll</HintPath>
-      <HintPath>lib\Syncfusion.Shared.Base.dll</HintPath>
+    <Reference Include="Syncfusion.Shared.Base, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Shared.Base.19.4.0.48\lib\net46\Syncfusion.Shared.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Shared.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Shared.Windows.dll</HintPath>
@@ -426,13 +423,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\CallOut.cs" />
-    <Compile Include="Badger\Chart\ChartBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Chart\ChartBase.cs" />
     <Compile Include="Badger\Chart\ChartData.cs" />
-    <Compile Include="Badger\Chart\BudgetChart.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Chart\BudgetChart.cs" />
     <Compile Include="Badger\Chart\IBudgetChart.cs" />
     <Compile Include="Badger\Chart\LegendItem.cs" />
     <Compile Include="Badger\DataGrid\BudgetDataGridForm.cs">
@@ -508,9 +501,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\BudgetImage\BudgetImage.cs" />
-    <Compile Include="Badger\Calculator\BudgetCalculator.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Calculator\BudgetCalculator.cs" />
     <Compile Include="Badger\Chart\SeriesModel\DataSeries.cs" />
     <Compile Include="Badger\Calendar\CalendarBase.cs">
       <SubType>Component</SubType>
@@ -518,9 +509,7 @@
     <Compile Include="Badger\DataGrid\BudgetDataGrid.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Clock\ClockBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Clock\ClockBase.cs" />
     <Compile Include="Badger\Chart\BudgetChartForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -539,16 +528,12 @@
     <Compile Include="Badger\Dialog\Error\Error.Designer.cs">
       <DependentUpon>Error.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Calculator\CalculatorBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Calculator\CalculatorBase.cs" />
     <Compile Include="Badger\Calculator\CalculatorBase.Designer.cs">
       <DependentUpon>CalculatorBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Badger\Layout\BudgetLayout.cs" />
-    <Compile Include="Badger\Clock\BudgetClock.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Clock\BudgetClock.cs" />
     <Compile Include="Badger\Dialog\Error\ErrorBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -577,9 +562,7 @@
     <Compile Include="Badger\Excel\ExcelForm.Designer.cs">
       <DependentUpon>ExcelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Tile\BudgetTile.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Tile\BudgetTile.cs" />
     <Compile Include="Badger\Excel\BudgetExcelForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -914,12 +897,8 @@
     <Compile Include="Enumerations\Source.cs" />
     <Compile Include="Enumerations\SQL.cs" />
     <Compile Include="Enumerations\STAT.cs" />
-    <Compile Include="Badger\Excel\sheet\RibbonPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Excel\sheet\SheetPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Excel\sheet\RibbonPanel.cs" />
+    <Compile Include="Badger\Excel\sheet\SheetPanel.cs" />
     <Compile Include="Badger\Design\BudgetSize.cs" />
     <Compile Include="Badger\Chart\SeriesModel\SourceModel.cs" />
     <Compile Include="Badger\TextBox\RichTextBase.cs" />
@@ -936,15 +915,9 @@
     <Compile Include="Badger\ToolTip\ToolBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\ToolPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Toolbar\ToolPanelBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Toolbar\ToolPanelData.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Toolbar\ToolPanel.cs" />
+    <Compile Include="Badger\Toolbar\ToolPanelBase.cs" />
+    <Compile Include="Badger\Toolbar\ToolPanelData.cs" />
     <Compile Include="Badger\Toolbar\ToolSeparator.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -965,9 +938,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Excel\BudgetWorkbook.cs" />
-    <Compile Include="Badger\Tile\TileBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Tile\TileBase.cs" />
     <EmbeddedResource Include="Badger\DataGrid\BudgetDataGridForm.resx">
       <DependentUpon>BudgetDataGridForm.cs</DependentUpon>
     </EmbeddedResource>
