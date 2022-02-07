@@ -423,9 +423,13 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\CallOut.cs" />
-    <Compile Include="Badger\Chart\ChartBase.cs" />
+    <Compile Include="Badger\Chart\ChartBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Badger\Chart\ChartData.cs" />
-    <Compile Include="Badger\Chart\BudgetChart.cs" />
+    <Compile Include="Badger\Chart\BudgetChart.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Badger\Chart\IBudgetChart.cs" />
     <Compile Include="Badger\Chart\LegendItem.cs" />
     <Compile Include="Badger\DataGrid\BudgetDataGridForm.cs">
@@ -501,7 +505,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\BudgetImage\BudgetImage.cs" />
-    <Compile Include="Badger\Calculator\BudgetCalculator.cs" />
+    <Compile Include="Badger\Calculator\BudgetCalculator.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Badger\Chart\SeriesModel\DataSeries.cs" />
     <Compile Include="Badger\Calendar\CalendarBase.cs">
       <SubType>Component</SubType>
@@ -509,7 +515,9 @@
     <Compile Include="Badger\DataGrid\BudgetDataGrid.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Clock\ClockBase.cs" />
+    <Compile Include="Badger\Clock\ClockBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Badger\Chart\BudgetChartForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -528,12 +536,16 @@
     <Compile Include="Badger\Dialog\Error\Error.Designer.cs">
       <DependentUpon>Error.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Calculator\CalculatorBase.cs" />
+    <Compile Include="Badger\Calculator\CalculatorBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Badger\Calculator\CalculatorBase.Designer.cs">
       <DependentUpon>CalculatorBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Badger\Layout\BudgetLayout.cs" />
-    <Compile Include="Badger\Clock\BudgetClock.cs" />
+    <Compile Include="Badger\Clock\BudgetClock.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Badger\Dialog\Error\ErrorBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -562,7 +574,9 @@
     <Compile Include="Badger\Excel\ExcelForm.Designer.cs">
       <DependentUpon>ExcelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Tile\BudgetTile.cs" />
+    <Compile Include="Badger\Tile\BudgetTile.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Badger\Excel\BudgetExcelForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -897,8 +911,12 @@
     <Compile Include="Enumerations\Source.cs" />
     <Compile Include="Enumerations\SQL.cs" />
     <Compile Include="Enumerations\STAT.cs" />
-    <Compile Include="Badger\Excel\sheet\RibbonPanel.cs" />
-    <Compile Include="Badger\Excel\sheet\SheetPanel.cs" />
+    <Compile Include="Badger\Excel\sheet\RibbonPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\Excel\sheet\SheetPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Badger\Design\BudgetSize.cs" />
     <Compile Include="Badger\Chart\SeriesModel\SourceModel.cs" />
     <Compile Include="Badger\TextBox\RichTextBase.cs" />
@@ -915,9 +933,15 @@
     <Compile Include="Badger\ToolTip\ToolBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\ToolPanel.cs" />
-    <Compile Include="Badger\Toolbar\ToolPanelBase.cs" />
-    <Compile Include="Badger\Toolbar\ToolPanelData.cs" />
+    <Compile Include="Badger\Toolbar\ToolPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\Toolbar\ToolPanelBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\Toolbar\ToolPanelData.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Badger\Toolbar\ToolSeparator.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -938,7 +962,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Excel\BudgetWorkbook.cs" />
-    <Compile Include="Badger\Tile\TileBase.cs" />
+    <Compile Include="Badger\Tile\TileBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Badger\DataGrid\BudgetDataGridForm.resx">
       <DependentUpon>BudgetDataGridForm.cs</DependentUpon>
     </EmbeddedResource>
