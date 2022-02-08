@@ -16,37 +16,12 @@ namespace BudgetExecution
     public class ImageList : ImageListAdv
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ImageList"/> class.
-        /// </summary>
-        public ImageList()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref = "ImageList"/> class.
-        /// </summary>
-        /// <param name = "imageSource" >
-        /// The image source.
-        /// </param>
-        /// <param name = "size" >
-        /// The size.
-        /// </param>
-        public ImageList( ImageSource imageSource, Size size )
-        {
-            Source = imageSource;
-            ImageSize = size;
-            Builder = new ImageBuilder( Source );
-            Factory = new ImageFactory( Builder );
-            UseImageSize = true;
-        }
-        
-        /// <summary>
         /// Gets or sets the image builder.
         /// </summary>
         /// <value>
         /// The image builder.
         /// </value>
-        public ImageBuilder Builder { get;  set; }
+        public ImageBuilder Builder { get; set; }
 
         /// <summary>
         /// Gets or sets the image factory.
@@ -87,5 +62,31 @@ namespace BudgetExecution
         /// The image.
         /// </value>
         public BudgetImage BudgetImage { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref = "ImageList"/> class.
+        /// </summary>
+        public ImageList()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref = "ImageList"/> class.
+        /// </summary>
+        /// <param name = "imageSource" >
+        /// The image source.
+        /// </param>
+        /// <param name = "size" >
+        /// The size.
+        /// </param>
+        public ImageList( ImageSource imageSource, Size size )
+        {
+            Source = imageSource;
+            ImageSize = size;
+            Builder = new ImageBuilder( Source );
+            Factory = new ImageFactory( Builder );
+            UseImageSize = true;
+        }
+        
     }
 }
