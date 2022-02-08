@@ -107,19 +107,19 @@ namespace BudgetExecution
             ItemSelectedColor = BudgetColor.SteelBlue;
             ItemSelectedTextColor = BudgetColor.White;
 
-            // Backcolor Configuration
+            // Backcolor SeriesConfiguration
             BackColor = BudgetColor.FormDark;
             ForeColor = BudgetColor.LightGray;
             BackColorState.Disabled = BudgetColor.FormDark;
             BackColorState.Enabled = BudgetColor.FormDark;
 
-            // Border Configuration
+            // Border SeriesConfiguration
             Border.Color = BudgetColor.WindowFrame;
             Border.Thickness = BudgetBorder.Thin;
             Border.HoverColor = BudgetColor.SteelBlue;
             Border.HoverVisible = false;
 
-            // Item Configuration
+            // Item SeriesConfiguration
             ItemHeight = 30;
         }
         

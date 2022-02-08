@@ -103,7 +103,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetGroupBox()
         {
-            // Basic Property Configuration.
+            // Basic Property SeriesConfiguration.
             Size = BudgetSize.CollectionControl;
             Location = BudgetControl.GetLocation();
             Anchor = BudgetControl.GetAnchorStyle();
@@ -116,23 +116,23 @@ namespace BudgetExecution
             Margin = BudgetControl.Margin;
             Padding = BudgetControl.Padding;
 
-            // Border Configuration.
+            // Border SeriesConfiguration.
             Border.Type = ShapeTypes.Rounded;
             Border.Color = BudgetColor.BorderDark;
             Border.Thickness = BudgetBorder.Thin;
             Border.HoverColor = BudgetColor.BorderDark;
             Border.HoverVisible = true;
 
-            // BackColor Configuration.
+            // BackColor SeriesConfiguration.
             BackColorState.Disabled = BudgetColor.FormDark;
             BackColorState.Enabled = BudgetColor.ControlInteriorDark;
 
-            // Text Configuration.
+            // Text SeriesConfiguration.
             TextAlignment = BudgetAlign.StringAlignCenter;
             TextLineAlignment = BudgetAlign.StringAlignCenter;
             TitleBoxHeight = 30;
 
-            // Style Configuration.
+            // Style SeriesConfiguration.
             BoxStyle = GroupBoxStyle.Default;
             SeparatorColor = BudgetColor.BorderDark;
             Separate = true;

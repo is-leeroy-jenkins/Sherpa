@@ -11,10 +11,42 @@ namespace BudgetExecution
     using System.Linq;
     using Syncfusion.Windows.Forms.Chart;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.Chart.ChartSeries" />
+    /// <seealso cref="BudgetExecution.ISeriesConfig" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class SeriesConfig : ChartSeries, ISeriesConfig
     {
+        /// <summary>
+        /// Gets the field.
+        /// </summary>
+        public Field Field { get; set; }
+
+        /// <summary>
+        /// Gets the statistic.
+        /// </summary>
+        public STAT Stat { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of the chart.
+        /// </summary>
+        /// <value>
+        /// The type of the chart.
+        /// </value>
+        public ChartType ChartType { get; set; }
+
+        /// <summary>
+        /// Gets the numeric.
+        /// </summary>
+        public Numeric Numeric { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="SeriesConfig"/> class.
+        /// </summary>
         public SeriesConfig()
         {
             // Basic Properties
@@ -31,14 +63,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SeriesConfig"/>
-        /// struct.
+        /// Initializes a new instance of the <see cref="SeriesConfig"/> class.
         /// </summary>
-        /// <param name = "field" > The field. </param>
-        /// <param name = "stat" > The metric. </param>
-        /// <param name = "type" > The type. </param>
-        /// <param name = "numeric" > The numeric. </param>
+        /// <param name="field">The field.</param>
+        /// <param name="stat">The stat.</param>
+        /// <param name="type">The type.</param>
+        /// <param name="numeric">The numeric.</param>
         public SeriesConfig( Field field, STAT stat = STAT.Total, ChartType type = ChartType.Column,
             Numeric numeric = Numeric.Amount )
             : this()
@@ -49,25 +79,11 @@ namespace BudgetExecution
             ChartType = type;
             Numeric = numeric;
         }
-        
-        /// <summary> Gets the field. </summary>
-        /// <value> The field. </value>
-        private Field Field { get; }
 
-        /// <summary> Gets the stat. </summary>
-        /// <value> The stat. </value>
-        private STAT Stat { get; }
-
-        /// <summary> Gets the type. </summary>
-        /// <value> The type. </value>
-        public ChartType ChartType { get; }
-
-        /// <summary> Gets the numeric. </summary>
-        /// <value> The numeric. </value>
-        public Numeric Numeric { get; }
-        
-        /// <summary> Sets the call out. </summary>
-        public void SetCallout()
+        /// <summary>
+        /// Sets the call out.
+        /// </summary>
+        public void SetCallOut()
         {
             try
             {
@@ -85,60 +101,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the field. </summary>
-        /// <returns> </returns>
-        public Field GetField()
-        {
-            try
-            {
-                return Enum.IsDefined( typeof( Field ), Field )
-                    ? Field
-                    : Field.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Field.NS;
-            }
-        }
-
-        /// <summary> Gets the statistic. </summary>
-        /// <returns> </returns>
-        public STAT GetStatistic()
-        {
-            try
-            {
-                return Enum.IsDefined( typeof( STAT ), Stat )
-                    ? Stat
-                    : STAT.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return STAT.NS;
-            }
-        }
-
-        /// <summary> Gets the numeric. </summary>
-        /// <returns> </returns>
-        public Numeric GetNumeric()
-        {
-            try
-            {
-                return Enum.IsDefined( typeof( Numeric ), Numeric )
-                    ? Numeric
-                    : Numeric.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Numeric.NS;
-            }
-        }
-
-        /// <summary> Gets the type of the series. </summary>
-        /// <param name = "type" > The type. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the type of the series.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
         public ChartType GetSeriesType( ChartType type = ChartType.Column )
         {
             try
@@ -154,8 +121,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the point configuration. </summary>
-        /// <param name = "stat" > The value. </param>
+        /// <summary>
+        /// Sets the point configuration.
+        /// </summary>
+        /// <param name="stat">The stat.</param>
         public void SetPointConfiguration( STAT stat = STAT.Total )
         {
             if( Validate.STAT( stat ) )
@@ -224,10 +193,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the points. </summary>
-        /// <param name = "data" > The data. </param>
-        /// <param name = "type" > The type. </param>
-        /// <param name = "stat" > The value. </param>
+        /// <summary>
+        /// Sets the points.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        /// <param name="type">The type.</param>
+        /// <param name="stat">The stat.</param>
         public void SetPoints( IDictionary<string, double> data, ChartType type = ChartType.Column,
             STAT stat = STAT.Total )
         {
@@ -275,9 +246,9 @@ namespace BudgetExecution
                         case ChartType.Tornado:
                         case ChartType.StackingColumn:
                         {
-                            foreach( var kvp in data )
+                            foreach( var _kvp in data )
                             {
-                                Points.Add( kvp.Key, kvp.Value );
+                                Points.Add( _kvp.Key, _kvp.Value );
                             }
 
                             break;
@@ -287,24 +258,24 @@ namespace BudgetExecution
                         case ChartType.Funnel:
                         case ChartType.Pie:
                         {
-                            foreach( var kvp in data )
+                            foreach( var _kvp in data )
                             {
-                                Points.Add( kvp.Key, kvp.Value );
-                                var keys = data.Keys.Select( k => k.ToString() ).ToArray();
-                                var vals = data.Values.Select( v => v ).ToArray();
+                                Points.Add( _kvp.Key, _kvp.Value );
+                                var _keys = data.Keys.Select( k => k.ToString() ).ToArray();
+                                var _vals = data.Values.Select( v => v ).ToArray();
 
                                 if( stat != STAT.Percentage )
                                 {
                                     for( var i = 0; i < data.Keys.Count; i++ )
                                     {
-                                        Styles[ i ].TextFormat = $"{keys[ i ]} \n {vals[ i ]:N1}";
+                                        Styles[ i ].TextFormat = $"{_keys[ i ]} \n {_vals[ i ]:N1}";
                                     }
                                 }
                                 else if( stat == STAT.Percentage )
                                 {
                                     for( var i = 0; i < data.Keys.Count; i++ )
                                     {
-                                        Styles[ i ].TextFormat = $"{keys[ i ]} \n {vals[ i ]:P}";
+                                        Styles[ i ].TextFormat = $"{_keys[ i ]} \n {_vals[ i ]:P}";
                                     }
                                 }
                             }
@@ -321,7 +292,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )

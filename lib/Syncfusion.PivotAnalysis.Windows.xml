@@ -38,7 +38,7 @@
             for a <see cref="T:System.AppDomain.AssemblyResolve"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The event dataRows with information about the type.</param>
+            <param name="e">The event data with information about the type.</param>
             <returns>A reference to the assembly where the type is located.</returns>
             <remarks>
             Use this handler when reading back types from a serialization stream
@@ -69,18 +69,18 @@
         </member>
         <member name="T:Syncfusion.NamespaceDoc">
             <summary>
-            The Syncfusion namespace contains classes that define value dataRows types, reference dataRows types, events, event handlers, interfaces and attributes.
+            The Syncfusion namespace contains classes that define value data types, reference data types, events, event handlers, interfaces and attributes.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase">
             <summary>
-            Represents the functionality of a pivot table, which is a dataRows summarization tool
-            that automatically sorts, count and total the table dataRows and represents in cross tabular format.
+            Represents the functionality of a pivot table, which is a data summarization tool
+            that automatically sorts, count and total the table data and represents in cross tabular format.
             </summary>
             <remarks>
             To use this control, you must assign some IList object to the <see cref="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.ItemSource"/> property.
             The IList object must have public properties, which you want to use it in the pivot table.
-            To represent the dataRows in cross tabular format, you need to specify the pivot information in  
+            To represent the data in cross tabular format, you need to specify the pivot information in  
             <see cref="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.PivotRows"/>, <see cref="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.PivotColumns"/> and <see cref="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.PivotCalculations"/> properties.
             </remarks>
         </member>
@@ -146,9 +146,9 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.ResetPivotData">
             <summary>
-            Resets the pivot dataRows (resets the pivot engine, pivot rows, pivot columns, pivot fields, pivot calculations and items source).
+            Resets the pivot data (resets the pivot engine, pivot rows, pivot columns, pivot fields, pivot calculations and items source).
             </summary>
-            <example>This example shows how to reset the dataRows displayed in the pivot grid table.
+            <example>This example shows how to reset the data displayed in the pivot grid table.
             <code lang="C#">
             <![CDATA[
             ' Resets the data displayed in the pivot grid.
@@ -486,28 +486,28 @@
             <summary>
             To synchronize the column or row items with the pivot grid control.
             </summary>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
             <param name="isRow">Represents the boolean value.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.SynchronizeCalculations(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
             To synchronize the calculation items with the pivot grid control.
             </summary>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
         </member>
         <!-- Badly formed XML comment ignored for member "M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.SynchronizeFilters(System.Collections.Specialized.NotifyCollectionChangedEventArgs)" -->
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.RaiseOnExpanding(Syncfusion.Windows.Forms.PivotAnalysis.ExpandingEventArgs,Syncfusion.PivotAnalysis.Base.PivotCellInfo)">
             <summary>
             Raises the OnExpanding event.
             </summary>
-            <param name="expandingEventArgs">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ExpandingEventArgs"/> instance containing the event dataRows.</param>
+            <param name="expandingEventArgs">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ExpandingEventArgs"/> instance containing the event data.</param>
             <param name="OriginalCell">Information about specific cell.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.RaiseOnCollapsing(Syncfusion.Windows.Forms.PivotAnalysis.CollapsingEventArgs,Syncfusion.Windows.Forms.Grid.GridStyleInfo)">
             <summary>
             Raises the OnCollapsing Event.
             </summary>
-            <param name="collapsingEventArgs">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.CollapsingEventArgs"/> instance containing the event dataRows.</param>
+            <param name="collapsingEventArgs">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.CollapsingEventArgs"/> instance containing the event data.</param>
             <param name="styleInfo">Stores the information about cell.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.CellStyle_PropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
@@ -515,7 +515,7 @@
             Handles the PropertyChanged event of the CellStyle control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.GetColumnList(System.Int32)">
             <summary>
@@ -535,7 +535,7 @@
             <summary>
             Synchronizes the Picot grid.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.PivotAnalysis.Base.PivotSchemaChangedArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.PivotAnalysis.Base.PivotSchemaChangedArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.SetExpandCollapse(System.Int32,System.Int32)">
             <summary>
@@ -582,37 +582,37 @@
             <summary>
             Raises the Grid Selection event.
             </summary>
-            <param name="SelectionChangingEventArgs">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridSelectionChangedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="SelectionChangingEventArgs">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridSelectionChangedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.RaiseOnCollapsed(Syncfusion.Windows.Forms.PivotAnalysis.CollapsedEventArgs)">
             <summary>
             Raises the OnCollapsed Event.
             </summary>
-            <param name="collapsedEventArgs">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.CollapsedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="collapsedEventArgs">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.CollapsedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.RaiseHyperlinkCellClick(Syncfusion.Windows.Forms.PivotAnalysis.HyperlinkCellClickEventArgs)">
             <summary>
             Raises the hyper-link cell click.
             </summary>
-            <param name="hyperlinkCellClickEventArgs">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.HyperlinkCellClickEventArgs"/> instance containing the event dataRows.</param>
+            <param name="hyperlinkCellClickEventArgs">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.HyperlinkCellClickEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.RaiseDataRefreshing(Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshingEventArgs)">
             <summary>
             Raises the Data refreshing event.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshingEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshingEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.RaiseDataRefreshed(Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshedEventArgs)">
             <summary>
-            Triggered when the dataRows gets refreshed.
+            Triggered when the data gets refreshed.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshingEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshingEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.RaiseOnExpanded(Syncfusion.Windows.Forms.PivotAnalysis.ExpandedEventArgs)">
             <summary>
             Raises the on OnExpanded Event.
             </summary>
-            <param name="expandedEventArgs">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ExpandedEventArgs"/> instance containing the event dataRows.</param>
+            <param name="expandedEventArgs">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ExpandedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.EnableBusyAnimationIcon">
             <summary>
@@ -634,7 +634,7 @@
             Occurs before the current cell switches into edit mode.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The<see cref="T:System.ComponentModel.CancelEventArgs "/> that contains the event dataRows.</param>
+            <param name="e">The<see cref="T:System.ComponentModel.CancelEventArgs "/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.OnCreateControl">
             <summary>
@@ -645,13 +645,13 @@
             <summary>
             Overridden to raises the cell drawn event.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridDrawCellEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridDrawCellEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.OnRightToLeftChanged(System.EventArgs)">
             <summary>
             Overridden to handle the PivotGridControl changed to RTL mode.
             </summary>
-            <param name="e">The<see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The<see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.OnTouchPanBegin(System.Drawing.Point)">
             <summary>
@@ -681,14 +681,14 @@
             Occurs when the  OnShowDisabledGroupBackground property gets changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.Model_SelectionChanging(System.Object,Syncfusion.Windows.Forms.Grid.GridSelectionChangingEventArgs)">
             <summary>
             Occurs before selecting a range of cells.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridSelectionChangingEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridSelectionChangingEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.SynchronizeEngine">
             <summary>
@@ -700,7 +700,7 @@
             Triggered when the pivot schema gets changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.PivotAnalysis.Base.PivotSchemaChangedArgs"/> contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.PivotAnalysis.Base.PivotSchemaChangedArgs"/> contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.RaiseExpandEvents(Syncfusion.PivotAnalysis.Base.PivotCellInfo,System.Int32,System.Int32)">
             <summary>
@@ -726,7 +726,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.BackgroundApplyRowCols">
             <summary>
-            This method is used for Asynchronous dataRows processing using Background Worker.
+            This method is used for Asynchronous data processing using Background Worker.
             This has been implemented for .Net Framework version below 4.0.
             </summary>
         </member>
@@ -751,7 +751,7 @@
             Triggered if the Expand or Collapse button is clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellButtonClickedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellButtonClickedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.GetCellHashKey(System.Int32,System.Int32)">
             <summary>
@@ -861,7 +861,7 @@
             Triggered and provides info regarding the GridModel.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.ApplyScrollBarStyle(System.String)">
             <summary>
@@ -914,56 +914,56 @@
             Triggered if current cell in the grid gets activated.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The event <see cref="T:Syncfusion.Windows.Forms.Grid.GridCurrentCellActivatingEventArgs"/>dataRows</param>
+            <param name="e">The event <see cref="T:Syncfusion.Windows.Forms.Grid.GridCurrentCellActivatingEventArgs"/>data</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.item_PropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
             <summary>
             Triggered when the pivot item show subtotals property gets changed.
             </summary>
             <param name="sender">The Control.</param>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.FilterItems_CollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
             Triggered when the filter items collection gets changed.
             </summary>
             <param name="sender">The Control.</param>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.OnPivotRowsCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
             Triggered when the Pivot rows collection changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.OnPivotColumnsCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
             Triggered when the Pivot columns collection gets changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.OnCalculationsCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
             Triggered when the calculations collection gets changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.OnFiltersCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
             Triggered when the filters collection gets changed .
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.OnItemSourceChanged(System.Object,Syncfusion.Windows.Forms.PivotAnalysis.ItemSourceChangedEventArgs)">
             <summary>
             Triggered when the Item source gets changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ItemSourceChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ItemSourceChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.ItemSourceChanged">
             <summary>
@@ -1012,7 +1012,7 @@
         </member>
         <member name="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.ShowDisabledGroupBackgroundPropertyChanged">
             <summary>
-            Used to handle the event that has no event dataRows.
+            Used to handle the event that has no event data.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.MetroStyle">
@@ -1028,7 +1028,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.ItemSource">
             <summary>
-            Gets or sets source of dataRows for this pivot table. This object should be either 
+            Gets or sets source of data for this pivot table. This object should be either 
             an IEnumerable list, or a DataTable.
             </summary>
             <example>This example shows how to use the ItemSource property.
@@ -1197,9 +1197,9 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.IsDynamicData">
             <summary>
-            Gets or sets a value indicating whether the supplied dataRows is dynamic or not.
+            Gets or sets a value indicating whether the supplied data is dynamic or not.
             </summary>
-            <value><b>true</b> if dynamic dataRows is set; otherwise, <b>false</b>. The default value is<b>false</b>.</value>
+            <value><b>true</b> if dynamic data is set; otherwise, <b>false</b>. The default value is<b>false</b>.</value>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.ShowSubTotals">
             <summary>
@@ -1242,8 +1242,8 @@
             hold field names which are visible in the engine.
             </summary>
             <remarks>
-            The names can be either public property names of the underlying dataRows objects, or they can be expression field.
-            If your dataRows contains fields that you do not want exposed to the pivoting
+            The names can be either public property names of the underlying data objects, or they can be expression field.
+            If your data contains fields that you do not want exposed to the pivoting
             process, then add the names of the properties you want to include to this
             list. All other fields will be excluded. If you leave this collection empty,
             the default behavior will be to make all public properties available for
@@ -1388,7 +1388,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.RowPivotsOnly">
             <summary>
-            Gets or sets a value indicating whether the PivotGridControl is used to analyze dataRows only with rows, or with both rows and columns.
+            Gets or sets a value indicating whether the PivotGridControl is used to analyze data only with rows, or with both rows and columns.
             </summary>
             <value>If<b>True</b>Sets only the rows;Otherwise<b>False</b>and sets both rows and columns.The default value is<b>False</b>.</value>
         </member>
@@ -1416,7 +1416,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDown">
             <summary>
-            Represents a control that allows the user to filter required dataRows.
+            Represents a control that allows the user to filter required data.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDown.#ctor(Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl)">
@@ -1429,7 +1429,7 @@
             <summary>
             Raises the Paint event.
             </summary>
-            <param name="e">The PaintEventArgs that contains the event dataRows.</param>
+            <param name="e">The PaintEventArgs that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDown.setItems">
             <summary>
@@ -1452,28 +1452,28 @@
             Triggered when the selected nodes collection is changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.CollectionChangeEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.CollectionChangeEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDown.BtnOk_Click(System.Object,System.EventArgs)">
             <summary>
             Triggered when the OK-button of the filter drop down is clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The<see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The<see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDown.BtnCancel_Click(System.Object,System.EventArgs)">
             <summary>
             Triggered when the CANCEl- button of the filter drop down is clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:System.EventArgs"/> contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.EventArgs"/> contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDown.FilterDropDown_CheckStateChanged(System.Object,System.EventArgs)">
             <summary>
             Triggered when the check state of the items modified in the Filter drop down.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="F:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDown.components">
             <summary> 
@@ -1699,31 +1699,31 @@
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.Grid.GridControl.QueryCellInfo"/> event.
             </summary>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.FilterBar.OnQueryRowHeight(Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs)">
             <summary>
             Overrides and triggered when the row height is changed.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.FilterBar.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.MouseDown"/> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.FilterBar.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.MouseMove"/> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.FilterBar.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.MouseUp"/> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.FilterBar.CreateRedArrowIndicatorBitmap">
             <summary>
@@ -1745,7 +1745,7 @@
             Triggered when the FilterBar button is clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellButtonClickedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellButtonClickedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.FilterBar.ResetCoveredCells">
             <summary>
@@ -1762,14 +1762,14 @@
             Triggered when the pop-up container is closed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.PopupClosedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.PopupClosedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.FilterBar.Filters_CollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
             Triggered when the Filter's collection gets changed. 
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The<see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The<see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.FilterBar.GridControl">
             <summary>
@@ -1859,58 +1859,58 @@
             <summary>
             Overrides and triggered when the mouse down event is done.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GroupBar.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Overrides and triggered when the mouse move event in the grid is performed.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GroupBar.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Overrides and triggered when the mouse up event is performed in the grid.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GroupBar.OnQueryRowHeight(Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs)">
             <summary>
             Overrides and triggered when the row height is changed.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GroupBar.OnDrawCellDisplayText(Syncfusion.Windows.Forms.Grid.GridDrawCellDisplayTextEventArgs)">
             <summary>
             Overrides and triggered when the cell is drawn to display the text.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridDrawCellDisplayTextEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridDrawCellDisplayTextEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GroupBar.OnQueryCellInfo(Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs)">
             <summary>
             Overrides and triggered when the changes occurred in formating.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GroupBar.GroupBar_CellButtonClicked(System.Object,Syncfusion.Windows.Forms.Grid.GridCellButtonClickedEventArgs)">
             <summary>
             Triggered when the group bar's cell button is clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellButtonClickedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellButtonClickedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GroupBar.popupControlContainer1_CloseUp(System.Object,Syncfusion.Windows.Forms.PopupClosedEventArgs)">
             <summary>
             Triggered when the pop-up container is closed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.PopupClosedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.PopupClosedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GroupBar.GroupBar_CellClick(System.Object,Syncfusion.Windows.Forms.Grid.GridCellClickEventArgs)">
             <summary>
             Triggered when sorting is to be performed on the group-bar cell is clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellClickEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellClickEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GroupBar.Sort(System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -1940,7 +1940,7 @@
             Triggered when the pivot calculations are changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GroupBar.WireGrid">
             <summary>
@@ -1973,7 +1973,7 @@
             <internalonly/>
             <summary>Drags the group to the specified point.</summary>
             <param name="p">The specified point.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.DragDropEffects"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.DragDropEffects"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GroupDragHelper.CancelDrag">
             <internalonly/>
@@ -2088,7 +2088,7 @@
             Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotEditingManager.PivotValueEdited"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotValueEditedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotValueEditedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotEditingManager">
             <summary>
@@ -2187,21 +2187,21 @@
             Triggered when the Key down is pressed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The<see cref="T:System.Windows.Forms.KeyEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The<see cref="T:System.Windows.Forms.KeyEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotEditingManager.TableControl_LostFocus(System.Object,System.EventArgs)">
             <summary>
             Triggered when the control lost the Focus.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The<see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The<see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotEditingManager.Model_SaveCellInfo(System.Object,Syncfusion.Windows.Forms.Grid.GridSaveCellInfoEventArgs)">
             <summary>
             Triggered when the cell needs to save the information.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridSaveCellInfoEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridSaveCellInfoEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotEditingManager.tableControl_CurrentCellAcceptedChanges(System.Object,System.ComponentModel.CancelEventArgs)">
             <summary>
@@ -2227,7 +2227,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotValueEditedEventArgs">
             <summary>
-            Provides dataRows for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotEditingManager.PivotValueEdited"/> event.
+            Provides data for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotEditingManager.PivotValueEdited"/> event.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotValueEditedEventArgs.Handled">
@@ -2345,11 +2345,11 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotUpdatingManager">
             <summary>
-            Represents the class that allows the PivotGrid control to automatically respond to the changes happened in the underlying dataRows.
+            Represents the class that allows the PivotGrid control to automatically respond to the changes happened in the underlying data.
             To enable this support, <see cref="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.EnableUpdating"/> property must be set to true.
             </summary>
             <remarks>
-            In order to automatically respond to the changes happened in the underlying dataRows, PivotGrid's dataRows must be either:
+            In order to automatically respond to the changes happened in the underlying data, PivotGrid's data must be either:
             a DataTable or
             a DataView or 
             an IList&lt;T&gt; where T implements both INotifyPropertyChanging and INotifyPropertyChanged interfaces.<br/> 
@@ -2360,7 +2360,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotUpdatingManager"/> class with the specified <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase"/>.
             </summary>
-            <param name="grid">The pivot grid control that responds to updates in the underlying dataRows.</param>
+            <param name="grid">The pivot grid control that responds to updates in the underlying data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotUpdatingManager.InitializeUpdatingManager(Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase)">
             <summary>
@@ -2403,7 +2403,7 @@
             Occurs when the timer tick changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/>class contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/>class contains the event data.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotUpdatingManager.ThrottleUpdateRate">
             <summary>
@@ -2535,7 +2535,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.ItemSourceChangedEventArgs">
             <summary>
-            Provides dataRows for the <see cref="!:PivotGridControlBase.ItemSourceChangedEventHandler"/> event.
+            Provides data for the <see cref="!:PivotGridControlBase.ItemSourceChangedEventHandler"/> event.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.ItemSourceChangedEventArgs.#ctor">
@@ -2555,7 +2555,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshingEventArgs">
             <summary>
-            Provides dataRows for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.DataRefreshing"/> event.
+            Provides data for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.DataRefreshing"/> event.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshingEventArgs.#ctor">
@@ -2565,7 +2565,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshedEventArgs">
             <summary>
-            Provides dataRows for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.DataRefreshed"/> event.
+            Provides data for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.DataRefreshed"/> event.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshedEventArgs.#ctor">
@@ -2575,7 +2575,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridSelectionChangedEventArgs">
             <summary>
-            Provides dataRows for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.SelectionChanged"/> event.
+            Provides data for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.SelectionChanged"/> event.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridSelectionChangedEventArgs.#ctor(Syncfusion.Windows.Forms.Grid.GridRangeInfo,Syncfusion.Windows.Forms.PivotAnalysis.SelectedItems,Syncfusion.Windows.Forms.Grid.GridSelectionReason)">
@@ -2612,7 +2612,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.ExpandingEventArgs">
             <summary>
-            Provides dataRows for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.Expanding"/> event.
+            Provides data for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.Expanding"/> event.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.ExpandingEventArgs.#ctor(Syncfusion.PivotAnalysis.Base.PivotCellInfo)">
@@ -2627,7 +2627,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.ExpandedEventArgs">
             <summary>
-            Provides dataRows for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.Expanded"/> event.
+            Provides data for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.Expanded"/> event.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.ExpandedEventArgs.#ctor(Syncfusion.PivotAnalysis.Base.PivotCellInfo)">
@@ -2643,7 +2643,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.CollapsingEventArgs">
             <summary>
-            Provides dataRows for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.Collapsing"/> event.
+            Provides data for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.Collapsing"/> event.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.CollapsingEventArgs.#ctor(Syncfusion.PivotAnalysis.Base.PivotCellInfo)">
@@ -2659,7 +2659,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.CollapsedEventArgs">
             <summary>
-            Provides dataRows for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.Collapsed"/> event.
+            Provides data for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.Collapsed"/> event.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.CollapsedEventArgs.#ctor(Syncfusion.PivotAnalysis.Base.PivotCellInfo)">
@@ -2675,7 +2675,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.HyperlinkCellClickEventArgs">
             <summary>
-            Provides dataRows for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.HyperlinkCellClick"/> event.
+            Provides data for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.HyperlinkCellClick"/> event.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.HyperlinkCellClickEventArgs.#ctor(Syncfusion.PivotAnalysis.Base.PivotCellInfo)">
@@ -2694,63 +2694,63 @@
             Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.ItemSourceChanged"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ItemSourceChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ItemSourceChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.SelectionChanged">
             <summary>
              Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.SelectionChanged"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridSelectionChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridSelectionChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.Expanding">
             <summary>
              Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.Expanding"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ExpandingEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ExpandingEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.Expanded">
             <summary>
              Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.Expanded"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ExpandedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ExpandedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.Collapsing">
             <summary>
              Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.Collapsing"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridSelectionChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridSelectionChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.Collapsed">
             <summary>
              Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.Collapsed"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.CollapsedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.CollapsedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.HyperlinkCellClick">
             <summary>
              Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.HyperlinkCellClick"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.HyperlinkCellClickEventArgs"/> contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.HyperlinkCellClickEventArgs"/> contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshing">
             <summary>
              Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.DataRefreshing"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshingEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshingEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshed">
             <summary>
              Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase.DataRefreshed"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.DataRefreshedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.GroupingBarLoaded">
             <exclude/>
@@ -2758,14 +2758,14 @@
              Represents the method that will handle the grouping bar's loaded event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.AsyncStartingEventHandler">
             <summary>
             Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.AsyncLoadStarted"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:System.ComponentModel.CancelEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.ComponentModel.CancelEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.HiddenGroup">
             <summary>
@@ -3205,13 +3205,13 @@
             <summary>
             Serializes the PivotGrid as stream and saves it in the default location.
             </summary>
-            <param name="stream">The stream dataRows.</param>
+            <param name="stream">The stream data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.Serialize(System.IO.Stream,Syncfusion.Windows.Forms.PivotAnalysis.Serialization.SerializationOptions)">
             <summary>
             Serializes the PivotGrid as stream with specific serialization options.
             </summary>
-            <param name="stream">The stream dataRows.</param>
+            <param name="stream">The stream data.</param>
             <param name="options">The options to include/exclude the pivot grid properties during serialization.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.SerializeToXml">
@@ -3242,13 +3242,13 @@
             <summary>
             Deserializes the PivotGrid from the specified file stream.
             </summary>
-            <param name="stream">The stream dataRows.</param>
+            <param name="stream">The stream data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.Deserialize(System.IO.Stream,Syncfusion.Windows.Forms.PivotAnalysis.Serialization.DeserializationOptions)">
             <summary>
             Deserializes the PivotGrid from the specified file stream with specific deserialization options.
             </summary>
-            <param name="stream">The stream dataRows.</param>
+            <param name="stream">The stream data.</param>
             <param name="options">The options to include/exclude the pivot grid properties during deserialization.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.DeserializeFromXml(System.String)">
@@ -3446,7 +3446,7 @@
             Raises the filter action completed event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.HideAllEmptyGroups">
             <summary>
@@ -3493,7 +3493,7 @@
             <summary>
             Overrides and handles the Right-to-Left changed event.
             </summary>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.OnShowDisabledGroupBackgroundPropertyChanged(System.Object,System.EventArgs)">
             <exclude/>
@@ -3501,7 +3501,7 @@
             Raises the ShowDisabledGroupbackground property changed event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.Dispose(System.Boolean)">
             <summary>
@@ -3574,14 +3574,14 @@
             Triggers and gets the Paint attributes in the label.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.collapseLbl_Click(System.Object,System.EventArgs)">
             <summary>
             Triggers and expands the Schema in the PivotGrid control.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.AsyncLoadComplete(System.ComponentModel.AsyncCompletedEventArgs)">
             <summary>
@@ -3600,98 +3600,98 @@
             Triggered when the InternalGrid's ItemSource list changed event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ItemSourceChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ItemSourceChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.closeImgLbl_MouseLeave(System.Object,System.EventArgs)">
             <summary>
             Triggered when the close label's mouse leave event is done.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.closeImgLbl_MouseHover(System.Object,System.EventArgs)">
             <summary>
             Triggered when the close label's mouse hover event is done.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.closeImgLbl_Click(System.Object,System.EventArgs)">
             <summary>
             Triggered and closes the pop-up window.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.PivotValueChooserHeaderPanel_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
             <summary>
             Triggered when the panel1 is painted. 
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.TableControl_MouseClick(System.Object,System.Windows.Forms.MouseEventArgs)">
             <summary>
             Customizes the display of pivot value chooser in header.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.contextMenu_Click(System.Object,System.EventArgs)">
             <summary>
             Triggered and hides or shows the selected column name in pivot value chooser.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.TableModel_QueryColWidth(System.Object,Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs)">
             <summary>
             Triggered and gets the column width.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.checkedListBox1_ItemCheck(System.Object,System.Windows.Forms.ItemCheckEventArgs)">
             <summary>
             Triggered and checks the checked list box items's check state.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.ItemCheckEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ItemCheckEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.TableControl_MouseUp(System.Object,System.Windows.Forms.MouseEventArgs)">
             <summary>
             Triggered when the mouse up event is done.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.TableControl_MouseMove(System.Object,System.Windows.Forms.MouseEventArgs)">
             <summary>
             Triggered when the mouse move event is done.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.TableControl_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
             <summary>
             Triggered when the mouse down event is done.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.TableControl_CellButtonClicked(System.Object,Syncfusion.Windows.Forms.Grid.GridCellButtonClickedEventArgs)">
             <summary>
             Triggered when the Table control cell button is clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellButtonClickedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellButtonClickedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.TableControl_CellClick(System.Object,Syncfusion.Windows.Forms.Grid.GridCellClickEventArgs)">
             <summary>
             Triggered when the table control's cell is clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellClickEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellClickEventArgs"/> that contains the event data.</param>
         </member>
         <member name="F:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.themeStyle">
             <summary>
@@ -3873,7 +3873,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.BusyAnimationIcon">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> value that needs to be displayed while Asynchronous process takes place.
+            Gets or sets the <see cref="T:System.Drawing.Image"/> value that needs to be displayed while Asynchronous process takes place.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.ShowCalculationsAsColumns">
@@ -3937,7 +3937,7 @@
             <see cref="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotEditingManager.HideExpanders"/> that control whether you can edit Total cells and whether the expander glyphs
             are visible.
             
-            The EditManager has public method <see cref="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotEditingManager.GetRowColumnPivotValuesAt(System.Int32,System.Int32,System.String@)"/> that return lists of pivot values and raw dataRows items for a specified row and column.
+            The EditManager has public method <see cref="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotEditingManager.GetRowColumnPivotValuesAt(System.Int32,System.Int32,System.String@)"/> that return lists of pivot values and raw data items for a specified row and column.
             </remarks>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.EnableUpdating">
@@ -3952,7 +3952,7 @@
             </summary>
             <remarks>
             This property is used only when the <see cref="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.EnableUpdating"/> is set to true.
-            In order for the PivotGridControl to automatically respond to the changes in the underlying dataRows, the underlying dataRows must be either:
+            In order for the PivotGridControl to automatically respond to the changes in the underlying data, the underlying data must be either:
                 A) a DataTable or DataView
             or
                 B) an IList; where T implements both INotifyPropertyChanging and INotifyPropertyChanged. Additionally, the IList must also
@@ -4014,7 +4014,7 @@
             </summary>
             <value><b>true</b> if the pivot rows alone is set; otherwise, <b> false</b> and sets both rows and columns. The default value is <b>false</b>.</value>
             <remarks>
-            Specifies whether the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/> instance is used to analyze dataRows only with rows, or with both rows and columns.
+            Specifies whether the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/> instance is used to analyze data only with rows, or with both rows and columns.
             Setting this property to true will produce the following changes:
             1) ShowGroupBar property will be automatically set to false.
             2) The TopLeft covered cell that normally appears in a PivotGrid is replaced with individual header cells that have the same appearance as that of Calculation header cells.
@@ -4038,7 +4038,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.TableModel">
             <summary>
-            Gets the value of <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> instance that holds all dataRows information about the grid.
+            Gets the value of <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> instance that holds all data information about the grid.
             </summary>
             <example>This example shows how to use the TableModel property.
             <code lang="C#">
@@ -4108,7 +4108,7 @@
             Handles the filter operation.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl.PopupWindow">
             <summary>
@@ -4227,25 +4227,25 @@
             <summary>
             Overrides and renders the item text.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripItemTextRenderEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripItemTextRenderEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.ContextThemeRenderer.OnRenderImageMargin(System.Windows.Forms.ToolStripRenderEventArgs)">
             <summary>
-            Overrides and renders the BudgetImage margin.
+            Overrides and renders the Image margin.
             </summary>
-            <param name="e">THe <see cref="T:System.Windows.Forms.ToolStripRenderEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">THe <see cref="T:System.Windows.Forms.ToolStripRenderEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.ContextThemeRenderer.OnRenderSeparator(System.Windows.Forms.ToolStripSeparatorRenderEventArgs)">
             <summary>
             Overrides and sets the separator back-color.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripSeparatorRenderEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripSeparatorRenderEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.ContextThemeRenderer.OnRenderSplitButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs)">
             <summary>
             Overrides and renders the split button.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripItemRenderEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripItemRenderEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.ContextMenuThemeRenderer">
             <summary>
@@ -4262,14 +4262,14 @@
             <summary>
             Raises the <see cref="E:System.Windows.Forms.ToolStripRenderer.RenderItemImage"/> event.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripItemImageRenderEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripItemImageRenderEventArgs"/> that contains the event data.</param>
             <override/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.ContextMenuThemeRenderer.OnRenderImageMargin(System.Windows.Forms.ToolStripRenderEventArgs)">
             <summary>
             Draws the item background.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripRenderEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripRenderEventArgs"/> that contains the event data.</param>
             <override/>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotValueChooser">
@@ -4287,21 +4287,21 @@
             Triggered and checks the checked list box items's check state.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.ItemCheckEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ItemCheckEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotValueChooser.closeImgLbl_Click(System.Object,System.EventArgs)">
             <summary>
             Triggered and closes the pop-up window.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotValueChooser.PivotValueChooserHeaderPanel_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
             <summary>
             Triggered when the panel1 is painted. 
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridThemedHeaderCellRenderer">
             <summary>
@@ -4319,7 +4319,7 @@
             <summary>
             Raises when the <see cref="E:Syncfusion.Windows.Forms.Grid.GridControlBase.PrepareViewStyleInfo"/> event occurs.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs"/> that contains the event data.</param>
             <override/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridThemedHeaderCellRenderer.OnGetCursor(System.Int32,System.Int32)">
@@ -4347,7 +4347,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridThemedHeaderCellRenderer.OnMouseUp(System.Int32,System.Int32,System.Windows.Forms.MouseEventArgs)">
             <summary>
@@ -4355,7 +4355,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridThemedHeaderCellRenderer.OnDrawCellButton(Syncfusion.Windows.Forms.Grid.GridCellButton,System.Drawing.Graphics,System.Int32,System.Int32,System.Boolean,Syncfusion.Windows.Forms.Grid.GridStyleInfo)">
             <summary>
@@ -4384,7 +4384,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridThemedHeaderCellRenderer.OnMouseHoverLeave(System.Int32,System.Int32,System.EventArgs)">
             <summary>
@@ -4392,7 +4392,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridThemedHeaderCellRenderer.GetFilterIconSize">
             <summary>
@@ -4459,7 +4459,7 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaItemRenderer"/> class with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/> and <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellModelBase"/>.
             </summary>
             <param name="gridControl">The grid control that holds the top left cell.</param>
-            <param name="cellModel">The dataRows or model part of a cell type.</param>
+            <param name="cellModel">The data or model part of a cell type.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.SchemaItemRenderer.OnDraw(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Int32,Syncfusion.Windows.Forms.Grid.GridStyleInfo)">
             <summary>
@@ -4486,7 +4486,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell..</param>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
             <override/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.SchemaItemRenderer.OnMouseHoverLeave(System.Int32,System.Int32,System.EventArgs)">
@@ -4495,7 +4495,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell..</param>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
             <override/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.SchemaItemRenderer.OnDrawCellButton(Syncfusion.Windows.Forms.Grid.GridCellButton,System.Drawing.Graphics,System.Int32,System.Int32,System.Boolean,Syncfusion.Windows.Forms.Grid.GridStyleInfo)">
@@ -4613,7 +4613,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ExpanderStyleInfoStore"/> class from a serialization stream.
             </summary>
-            <param name="info">An object that holds all the dataRows needed to serialize or deserialize this instance.</param>
+            <param name="info">An object that holds all the data needed to serialize or deserialize this instance.</param>
             <param name="context">Describes the source and destination of the serialized stream specified by info. </param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.ExpanderStyleInfoStore.GetStaticData">
@@ -4624,7 +4624,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.ExpanderStyleInfoStore.StaticDataStore">
             <summary>
-            Gets the static dataRows value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ExpanderStyleInfoStore"/> class.
+            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.ExpanderStyleInfoStore"/> class.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.ExpanderStyleInfoIdentity">
@@ -4755,7 +4755,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.EditMenuStyleInfoStore"/> class from a serialization stream.
             </summary>
-            <param name="info">An object that holds all the dataRows needed to serialize or deserialize this instance.</param>
+            <param name="info">An object that holds all the data needed to serialize or deserialize this instance.</param>
             <param name="context">Describes the source and destination of the serialized stream specified by info. </param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.EditMenuStyleInfoStore.GetStaticData">
@@ -4766,7 +4766,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.EditMenuStyleInfoStore.StaticDataStore">
             <summary>
-            Gets the static dataRows value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.EditMenuStyleInfoStore"/> class.
+            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.EditMenuStyleInfoStore"/> class.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.EditMenuStyleInfoIdentity">
@@ -4926,7 +4926,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotValueChooserStyleInfoStore"/> class from a serialization stream.
             </summary>
-            <param name="info">An object that holds all the dataRows needed to serialize or deserialize this instance.</param>
+            <param name="info">An object that holds all the data needed to serialize or deserialize this instance.</param>
             <param name="context">Describes the source and destination of the serialized stream specified by info. </param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotValueChooserStyleInfoStore.GetStaticData">
@@ -4937,7 +4937,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotValueChooserStyleInfoStore.StaticDataStore">
             <summary>
-            Gets the static dataRows value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotValueChooserStyleInfoStore"/> class.
+            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotValueChooserStyleInfoStore"/> class.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotValueChooserStyleInfoIdentity">
@@ -5068,17 +5068,17 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDownStyleInfo.SearchIcon">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for filter drop down.
+            Gets or sets the <see cref="T:System.Drawing.Image"/> for filter drop down.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDownStyleInfo.AscendingIcon">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for filter drop down.
+            Gets or sets the <see cref="T:System.Drawing.Image"/> for filter drop down.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDownStyleInfo.DescendingIcon">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for filter drop down.
+            Gets or sets the <see cref="T:System.Drawing.Image"/> for filter drop down.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDownStyleInfo.ForeColor">
@@ -5145,7 +5145,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDownStyleInfoStore"/> class from a serialization stream.
             </summary>
-            <param name="info">An object that holds all the dataRows needed to serialize or deserialize this instance.</param>
+            <param name="info">An object that holds all the data needed to serialize or deserialize this instance.</param>
             <param name="context">Describes the source and destination of the serialized stream specified by info. </param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDownStyleInfoStore.GetStaticData">
@@ -5156,7 +5156,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDownStyleInfoStore.StaticDataStore">
             <summary>
-            Gets the static dataRows value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDownStyleInfoStore"/> class.
+            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDownStyleInfoStore"/> class.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.FilterDropDownStyleInfoIdentity">
@@ -5342,52 +5342,52 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.RowLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.ColumnLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.ValueLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.FilterLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.DisabledValueLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.DisabledFilterLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.DisabledColumnLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.DisabledRowLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.RemoveLabel">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfo.VerticalPinImage">
             <summary>
-            Gets or sets the <see cref="T:System.Drawing.BudgetImage"/> for schema designer fields.
+            Gets or sets the <see cref="T:System.Drawing.Image"/> for schema designer fields.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfoStore">
@@ -5484,7 +5484,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfoStore"/> class from a serialization stream.
             </summary>
-            <param name="info">An object that holds all the dataRows needed to serialize or deserialize this instance.</param>
+            <param name="info">An object that holds all the data needed to serialize or deserialize this instance.</param>
             <param name="context">Describes the source and destination of the serialized stream specified by info. </param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfoStore.GetStaticData">
@@ -5495,7 +5495,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfoStore.StaticDataStore">
             <summary>
-            Gets the static dataRows value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfoStore"/> class.
+            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfoStore"/> class.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerStyleInfoIdentity">
@@ -5615,7 +5615,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.GroupBarStyleInfoStore"/> class from a serialization stream.
             </summary>
-            <param name="info">An object that holds all the dataRows needed to serialize or deserialize this instance.</param>
+            <param name="info">An object that holds all the data needed to serialize or deserialize this instance.</param>
             <param name="context">Describes the source and destination of the serialized stream specified by info. </param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GroupBarStyleInfoStore.GetStaticData">
@@ -5626,7 +5626,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.GroupBarStyleInfoStore.StaticDataStore">
             <summary>
-            Gets the static dataRows value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.GroupBarStyleInfoStore"/> class.
+            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.GroupBarStyleInfoStore"/> class.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.GroupBarStyleInfoIdentity">
@@ -5762,7 +5762,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerItemStyleInfoStore"/> class from a serialization stream.
             </summary>
-            <param name="info">An object that holds all the dataRows needed to serialize or deserialize this instance.</param>
+            <param name="info">An object that holds all the data needed to serialize or deserialize this instance.</param>
             <param name="context">Describes the source and destination of the serialized stream specified by info. </param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerItemStyleInfoStore.GetStaticData">
@@ -5773,7 +5773,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerItemStyleInfoStore.StaticDataStore">
             <summary>
-            Gets the static dataRows value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerItemStyleInfoStore"/> class.
+            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerItemStyleInfoStore"/> class.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaDesignerItemStyleInfoIdentity">
@@ -5941,7 +5941,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.GroupBarItemStyleInfoStore"/> class from a serialization stream.
             </summary>
-            <param name="info">An object that holds all the dataRows needed to serialize or deserialize this instance.</param>
+            <param name="info">An object that holds all the data needed to serialize or deserialize this instance.</param>
             <param name="context">Describes the source and destination of the serialized stream specified by info. </param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GroupBarItemStyleInfoStore.GetStaticData">
@@ -5952,7 +5952,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.GroupBarItemStyleInfoStore.StaticDataStore">
             <summary>
-            Gets the static dataRows value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.GroupBarItemStyleInfoStore"/> class.
+            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.GroupBarItemStyleInfoStore"/> class.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.GroupBarItemStyleInfoIdentity">
@@ -6233,7 +6233,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlStyleInfoStore"/> class from a serialization stream.
             </summary>
-            <param name="info">An object that holds all the dataRows needed to serialize or deserialize this instance.</param>
+            <param name="info">An object that holds all the data needed to serialize or deserialize this instance.</param>
             <param name="context">Describes the source and destination of the serialized stream specified by info. </param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlStyleInfoStore.GetStaticData">
@@ -6244,7 +6244,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlStyleInfoStore.StaticDataStore">
             <summary>
-            Gets the static dataRows value of the <see cref="!:RadialMenuStyleInfoStore"/> class.
+            Gets the static data value of the <see cref="!:RadialMenuStyleInfoStore"/> class.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlStyleInfoIdentity">
@@ -6302,7 +6302,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridColumnHeaderCellModel">
             <summary>
-            Implements the dataRows or model part for the column header cell with sort indicator in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
+            Implements the data or model part for the column header cell with sort indicator in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
             </summary>
             <remarks>
             See <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridColumnHeaderCellRenderer"/> for more detailed information about this cell type.
@@ -6312,7 +6312,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridColumnHeaderCellModel"/> class with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
             </summary>
-            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all dataRows information about a grid.</param>
+            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all data information about a grid.</param>
             <remarks>
             You can typically access the cell models through the <see cref="P:Syncfusion.Windows.Forms.Grid.GridModel.CellModels"/>
             property of the <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
@@ -6370,13 +6370,13 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridHeaderCellRenderer"/> class with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/> and <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellModelBase"/>.
             </summary>
             <param name="grid">The instance of <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/> class that display this cell renderer.</param>
-            <param name="cellModel">The instance of <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellModelBase"/> class that holds dataRows for this cell renderer that should be shared among views.</param>
+            <param name="cellModel">The instance of <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellModelBase"/> class that holds data for this cell renderer that should be shared among views.</param>
             <remarks>References to <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/> and <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellModelBase"/> instances will be saved.</remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridHeaderCellRenderer.OnPrepareViewStyleInfo(Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs)">
             <override/>
             <summary>Raises the <see cref="E:Syncfusion.Windows.Forms.Grid.GridControlBase.PrepareViewStyleInfo"/> event for custom formatting of a cell by changing its style object.</summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs"/> instance that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs"/> instance that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridHeaderCellRenderer.WireGrid">
             <summary>
@@ -6409,7 +6409,7 @@
             <summary>
             Triggered when the cell back ground is drawn.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridDrawCellBackgroundEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridDrawCellBackgroundEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridHeaderCellRenderer.OnDrawDisplayText(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Int32,Syncfusion.Windows.Forms.Grid.GridStyleInfo)">
             <summary>
@@ -6445,7 +6445,7 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridColumnHeaderCellRenderer"/> class with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellModelBase"/> and <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/>.
             </summary>
             <param name="grid">The instance of <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/> class that displays this cell renderer.</param>
-            <param name="cellModel">The instance of <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellModelBase"/> class that holds dataRows for this cell renderer that should be shared among views.</param>
+            <param name="cellModel">The instance of <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellModelBase"/> class that holds data for this cell renderer that should be shared among views.</param>
             <remarks>References to the <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/> and <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellModelBase"/> instances will be saved.</remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridColumnHeaderCellRenderer.OnDrawDisplayText(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Int32,Syncfusion.Windows.Forms.Grid.GridStyleInfo)">
@@ -6466,11 +6466,11 @@
             </summary>
             <param name="rowIndex">The row index.</param>
             <param name="colIndex">The column index.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridExpandCellCellModel">
             <summary>
-            Implements the dataRows or model part for the expandable column header cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
+            Implements the data or model part for the expandable column header cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
             The expandable row header cell will display '+' symbol for expanded rows and '-' symbol for collapsed rows similar to a TreeView control.
             </summary>
             <remarks>
@@ -6481,7 +6481,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridExpandCellCellModel"/> class with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
             </summary>
-            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all dataRows information about a grid.</param>
+            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all data information about a grid.</param>
             <remarks>
             You can typically access the cell models through the <see cref="P:Syncfusion.Windows.Forms.Grid.GridModel.CellModels"/>
             property of the <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
@@ -6569,7 +6569,7 @@
             <summary>
             Triggered when the background of the cell is drawn.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridDrawCellBackgroundEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridDrawCellBackgroundEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridExpandCellCellRenderer.OnDrawCellButtonBackground(Syncfusion.Windows.Forms.Grid.GridCellButton,System.Drawing.Graphics,System.Drawing.Rectangle,System.Windows.Forms.ButtonState,Syncfusion.Windows.Forms.Grid.GridStyleInfo)">
             <summary>
@@ -6620,7 +6620,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridHeaderCellModel">
             <summary>
-            Implements the dataRows or model part for the header cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
+            Implements the data or model part for the header cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
             </summary>
             <remarks>
             See <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridHeaderCellRenderer"/> for more detailed information about this cell type.
@@ -6631,7 +6631,7 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridHeaderCellModel"/> class.
             with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that stores the information of rendered cells.
             </summary>
-            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all dataRows information about a grid.</param>
+            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all data information about a grid.</param>
             <remarks>
             You can typically access the cell models through the <see cref="P:Syncfusion.Windows.Forms.Grid.GridModel.CellModels"/>
             property of the <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
@@ -6666,7 +6666,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridHyperlinkCellModel">
             <summary>
-            Implements the dataRows or model part for the hyperlink cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
+            Implements the data or model part for the hyperlink cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
             </summary>
             <remarks>
             See <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridHyperlinkCellRenderer"/> for more detailed information about this cell type.
@@ -6676,7 +6676,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridHyperlinkCellModel"/> class with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
             </summary>
-            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all dataRows information about a grid.</param>
+            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all data information about a grid.</param>
             <remarks>
             You can typically access the cell models through the <see cref="P:Syncfusion.Windows.Forms.Grid.GridModel.CellModels"/>
             property of the <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
@@ -6721,7 +6721,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridHyperlinkCellRenderer.OnMouseUp(System.Int32,System.Int32,System.Windows.Forms.MouseEventArgs)">
             <summary>
@@ -6729,7 +6729,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridHyperlinkCellRenderer.OnCancelMode(System.Int32,System.Int32)">
             <summary>
@@ -6752,7 +6752,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell.</param>
-            <param name="e">event dataRows</param>
+            <param name="e">event data</param>
             <param name="controller">used to define the interface for mouse controllers.</param>
             <returns>Returns 0 if the message is forwarded; Otherwise returns 1 for higher priority controls.</returns>
         </member>
@@ -6779,7 +6779,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridHyperlinkCellRenderer.DrawLink(System.Boolean,System.Int32,System.Int32)">
             <summary>
@@ -6806,7 +6806,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridTemplateCellModel">
             <summary>
-            Implements the dataRows or model part for the template cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
+            Implements the data or model part for the template cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
             </summary>
             <remarks>
             See <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridTemplateCellRenderer"/> for more detailed information about this cell type.
@@ -6816,7 +6816,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridTemplateCellModel"/> class with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
             </summary>
-            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all dataRows information about a grid.</param>
+            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all data information about a grid.</param>
             <remarks>
             You can typically access the cell models through the <see cref="P:Syncfusion.Windows.Forms.Grid.GridModel.CellModels"/>
             property of the <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
@@ -6861,14 +6861,14 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.TopLeftCellModel">
             <summary>
-            Implements the dataRows or model part for the top left cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
+            Implements the data or model part for the top left cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.TopLeftCellModel.#ctor(Syncfusion.Windows.Forms.Grid.GridModel)">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.TopLeftCellModel"/> class with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
             </summary>
-            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all dataRows information about a grid.</param>
+            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all data information about a grid.</param>
             <remarks>
             You can typically access the cell models through the <see cref="P:Syncfusion.Windows.Forms.Grid.GridModel.CellModels"/>
             property of the <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
@@ -6899,7 +6899,7 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.TopLeftCellRenderer"/> class with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/> and <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellModelBase"/>.
             </summary>
             <param name="gridControl">The grid control that holds the top left cell.</param>
-            <param name="cellModel">The dataRows or model part of a cell type.</param>
+            <param name="cellModel">The data or model part of a cell type.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.TopLeftCellRenderer.OnDraw(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Int32,Syncfusion.Windows.Forms.Grid.GridStyleInfo)">
             <summary>
@@ -6929,14 +6929,14 @@
             </summary>
             <param name="rowIndex">The row index.</param>
             <param name="colIndex">The column index.</param>
-            <param name="args">A <see cref="T:System.Windows.Forms.MouseEventArgs" /> that contains the event dataRows.</param>
+            <param name="args">A <see cref="T:System.Windows.Forms.MouseEventArgs" /> that contains the event data.</param>
             <override/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.TopLeftCellRenderer.ProcessKeyEventArgs(System.Windows.Forms.Message@)">
             <summary>
             Allows to process keyboard events before the <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/> gets the actual KeyDown / KeyUp event.
             </summary>
-            <param name="message">The <see cref="T:System.Windows.Forms.Message"/> containing the dataRows of the keyboard event.</param>
+            <param name="message">The <see cref="T:System.Windows.Forms.Message"/> containing the data of the keyboard event.</param>
             <returns><b>true</b> if the key is handled; otherwise, <b>false</b>.</returns>
             <override/>
         </member>
@@ -7028,49 +7028,49 @@
             <summary>
             Invoked when the user moves the mouse.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Form.MouseEventArgs" /> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Form.MouseEventArgs" /> that contains the event data.</param>
             <override />
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.RowGroupBar.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Invoked when the user releases the mouse click.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Form.MouseEventArgs" /> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Form.MouseEventArgs" /> that contains the event data.</param>
             <override />
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.RowGroupBar.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Invoked when the user performs the mouse click.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Form.MouseEventArgs" /> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Form.MouseEventArgs" /> that contains the event data.</param>
             <override />
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.RowGroupBar.OnQueryRowHeight(Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs)">
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.Grid.GridControl.QueryRowHeight" /> event.
             </summary>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs" /> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs" /> that contains the event data.</param>
             <override />
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.RowGroupBar.OnDrawCellDisplayText(Syncfusion.Windows.Forms.Grid.GridDrawCellDisplayTextEventArgs)">
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.Grid.GridControlBase.DrawCellDisplayText" /> event.
             </summary>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridDrawCellDisplayTextEventArgs" /> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridDrawCellDisplayTextEventArgs" /> that contains the event data.</param>
             <override />
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.RowGroupBar.OnQueryCellInfo(Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs)">
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.Grid.GridControl.QueryCellInfo" /> event.
             </summary>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs" /> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs" /> that contains the event data.</param>
             <override />
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.RowGroupBar.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
             <summary>
             Raises the <see cref="T:System.Windows.Forms.Control.KeyDown" /> event.
             </summary>
-            <param name="e">An <see cref="T:System.Windows.Forms.KeyEventArgs" /> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.Windows.Forms.KeyEventArgs" /> that contains the event data.</param>
             <override />
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.RowGroupBar.RowGroupBar_CellButtonClicked(System.Object,Syncfusion.Windows.Forms.Grid.GridCellButtonClickedEventArgs)">
@@ -7078,21 +7078,21 @@
             Triggered when the cell button of the row bar is clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The<see cref="T:Syncfusion.Windows.Forms.Grid.GridCellButtonClickedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The<see cref="T:Syncfusion.Windows.Forms.Grid.GridCellButtonClickedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.RowGroupBar.popupControlContainer1_CloseUp(System.Object,Syncfusion.Windows.Forms.PopupClosedEventArgs)">
             <summary>
             Triggered when the pop-up container is closed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.PopupClosedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.PopupClosedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.RowGroupBar.RowGroupBar_CellClick(System.Object,Syncfusion.Windows.Forms.Grid.GridCellClickEventArgs)">
             <summary>
             Triggered when sorting is performed in row group bar's cell clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellClickEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellClickEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.RowGroupBar.Sort(System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -7122,7 +7122,7 @@
             Triggered when the pivot calculation's collection is changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.RowGroupBar.WireGrid">
             <summary>
@@ -7136,7 +7136,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridTotalCellModel">
             <summary>
-            Implements the dataRows or model part for the total cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
+            Implements the data or model part for the total cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
             </summary>
             <remarks>
             See <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridTotalCellRenderer"/> for more detailed information about this cell type.
@@ -7146,7 +7146,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridTotalCellModel"/> class with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
             </summary>
-            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all dataRows information about a grid.</param>
+            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all data information about a grid.</param>
             <remarks>
             You can typically access the cell models through the <see cref="P:Syncfusion.Windows.Forms.Grid.GridModel.CellModels"/>
             property of the <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
@@ -7192,13 +7192,13 @@
             </summary>
             <param name="rowIndex">Row index.</param>
             <param name="colIndex">Column index.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridTotalCellRenderer.OnDrawCellBackground(Syncfusion.Windows.Forms.Grid.GridDrawCellBackgroundEventArgs)">
             <summary>
             Triggered when the cell background is drawn.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridDrawCellBackgroundEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridDrawCellBackgroundEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridTotalCellRenderer.OnDraw(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Int32,Syncfusion.Windows.Forms.Grid.GridStyleInfo)">
             <summary>
@@ -7212,14 +7212,14 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridTotalValueCellModel">
             <summary>
-            Implements the dataRows or model part for the total value cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
+            Implements the data or model part for the total value cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridTotalValueCellModel.#ctor(Syncfusion.Windows.Forms.Grid.GridModel)">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridTotalValueCellModel"/> class with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
             </summary>
-            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all dataRows information about a grid.</param>
+            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all data information about a grid.</param>
             <remarks>
             You can typically access the cell models through the <see cref="P:Syncfusion.Windows.Forms.Grid.GridModel.CellModels"/>
             property of the <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
@@ -7268,13 +7268,13 @@
             </summary>
             <param name="rowIndex">Row index.</param>
             <param name="colIndex">Column index.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridTotalValueCellRenderer.OnDrawCellBackground(Syncfusion.Windows.Forms.Grid.GridDrawCellBackgroundEventArgs)">
             <summary>
             Triggered when the background of the cell is drawn.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridDrawCellBackgroundEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridDrawCellBackgroundEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridTotalValueCellRenderer.DrawBackground(System.Drawing.Graphics,System.Drawing.Rectangle,Syncfusion.Windows.Forms.Grid.GridStyleInfo,System.Boolean)">
             <summary>
@@ -7309,7 +7309,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotRowExpandCellModel">
             <summary>
-            Implements the dataRows or model part for the expandable row header cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
+            Implements the data or model part for the expandable row header cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
             The expandable row header cell will display '+' symbol for expanded rows and '-' symbol for collapsed rows similar to a TreeView control.
             </summary>
             <remarks>
@@ -7320,7 +7320,7 @@
             <summary>
             Initializes a new instances of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotRowExpandCellModel"/> class with the specified instances of the <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> class.
             </summary>
-            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all dataRows information about a grid.</param>
+            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all data information about a grid.</param>
             <remarks>
             You can typically access the cell models through the <see cref="P:Syncfusion.Windows.Forms.Grid.GridModel.CellModels"/>
             property of the <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
@@ -7364,7 +7364,7 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotRowExpandCellRenderer"/> class with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/> and <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellModelBase"/>.
             </summary>
             <param name="grid">The instance of <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/> class that displays this cell renderer.</param>
-            <param name="cellModel">The instance of <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellModelBase"/> class that holds dataRows for this cell renderer that should be shared among views.</param>
+            <param name="cellModel">The instance of <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellModelBase"/> class that holds data for this cell renderer that should be shared among views.</param>
             <remarks>References to <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/> and <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/> will be saved.</remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotRowExpandCellRenderer.OnPrepareViewStyleInfo(Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs)">
@@ -7372,7 +7372,7 @@
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.Grid.GridControlBase.PrepareViewStyleInfo"/> event.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs"/> instance holds the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs"/> instance holds the event data.</param>
             <remarks>
             <see cref="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotRowExpandCellRenderer.OnPrepareViewStyleInfo(Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs)"/> is called from <see cref="E:Syncfusion.Windows.Forms.Grid.GridControlBase.PrepareViewStyleInfo"/>
             in order to allow custom formatting of a cell by changing its style object.
@@ -7407,7 +7407,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotRowHeaderCellModel">
             <summary>
-            Implements the dataRows or model part for the header cell with sort indicator in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
+            Implements the data or model part for the header cell with sort indicator in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
             </summary>
             <remarks>
             See <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotRowHeaderCellRenderer"/> for more detailed information about this cell type.
@@ -7417,7 +7417,7 @@
             <summary>
             Initializes a new instance <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotRowHeaderCellModel"/> with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
             </summary>
-            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all dataRows information about a grid.</param>
+            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all data information about a grid.</param>
             <remarks>
             You can typically access the cell models through the <see cref="P:Syncfusion.Windows.Forms.Grid.GridModel.CellModels"/>
             property of the <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
@@ -7476,7 +7476,7 @@
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.Grid.GridControlBase.PrepareViewStyleInfo"/> event.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs"/> contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs"/> contains the event data.</param>
             <override/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotRowHeaderCellRenderer.OnDraw(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Int32,Syncfusion.Windows.Forms.Grid.GridStyleInfo)">
@@ -7513,7 +7513,7 @@
             </summary>
             <param name="rowIndex">Row index of this cell in grid.</param>
             <param name="colIndex">Column index of this cell in grid.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotRowHeaderCellRenderer.OnMouseUp(System.Int32,System.Int32,System.Windows.Forms.MouseEventArgs)">
             <summary>
@@ -7521,7 +7521,7 @@
             </summary>
             <param name="rowIndex">Row index of this cell in grid.</param>
             <param name="colIndex">Column index of this cell in grid.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotRowHeaderCellRenderer.OnClick(System.Int32,System.Int32,System.Windows.Forms.MouseEventArgs)">
             <summary>
@@ -7529,7 +7529,7 @@
             </summary>
             <param name="rowIndex">Row index of this cell in grid.</param>
             <param name="colIndex">Column index of this cell in grid.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotRowHeaderCellRenderer.OnDrawCellButton(Syncfusion.Windows.Forms.Grid.GridCellButton,System.Drawing.Graphics,System.Int32,System.Int32,System.Boolean,Syncfusion.Windows.Forms.Grid.GridStyleInfo)">
             <summary>
@@ -7548,7 +7548,7 @@
             </summary>
             <param name="rowIndex">Row index of this cell in grid.</param>
             <param name="colIndex">Column index of this cell in grid.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotRowHeaderCellRenderer.OnMouseHoverLeave(System.Int32,System.Int32,System.EventArgs)">
             <summary>
@@ -7556,7 +7556,7 @@
             </summary>
             <param name="rowIndex">Row index of this cell in grid.</param>
             <param name="colIndex">Column index of this cell in grid.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotRowHeaderCellRenderer.OnLayout(System.Int32,System.Int32,Syncfusion.Windows.Forms.Grid.GridStyleInfo,System.Drawing.Rectangle,System.Drawing.Rectangle[])">
             <summary>
@@ -7693,7 +7693,7 @@
             <summary>
             Paints the sizing grip.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs" /> instance containing the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotFilterPopup.ProcessDialogKey(System.Windows.Forms.Keys)">
             <summary>
@@ -7714,37 +7714,37 @@
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.SizeChanged" /> event.
             </summary>
-            <param name="e">The <see cref="T:System.EventArgs" /> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs" /> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotFilterPopup.OnLayout(System.Windows.Forms.LayoutEventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.Layout" /> event.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.LayoutEventArgs" /> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.LayoutEventArgs" /> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotFilterPopup.OnOpening(System.ComponentModel.CancelEventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.ToolStripDropDown.Opening" /> event.
             </summary>
-            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs" /> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs" /> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotFilterPopup.OnOpened(System.EventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.ToolStripDropDown.Opened" /> event.
             </summary>
-            <param name="e">The <see cref="T:System.EventArgs" /> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs" /> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotFilterPopup.OnClosed(System.Windows.Forms.ToolStripDropDownClosedEventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.ToolStripDropDown.Closed"/> event.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripDropDownClosedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripDropDownClosedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotFilterPopup.OnClosing(System.Windows.Forms.ToolStripDropDownClosingEventArgs)">
             <summary>
             Overrides and triggered when the closing event is called.
             </summary>
-            <param name="e">event dataRows</param>
+            <param name="e">event data</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotFilterPopup.WndProc(System.Windows.Forms.Message@)">
             <summary>
@@ -7771,21 +7771,21 @@
             Triggered when the control is painted.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotFilterPopup.content_RegionChanged(System.Object,System.EventArgs)">
             <summary>
             Triggered when the control's region gets changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotFilterPopup.content_Disposed(System.Object,System.EventArgs)">
             <summary>
             Triggered when the control is undergone GarbageCollection()
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="F:Syncfusion.Windows.Forms.PivotAnalysis.PivotFilterPopup.components">
             <summary>
@@ -7933,21 +7933,21 @@
             Triggered when the click on Search image is clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.pivotCalcContextStrip_Opening(System.Object,System.ComponentModel.CancelEventArgs)">
             <summary>
             Triggered when the Context strip is opening.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.searchTextBox_TextChanged(System.Object,System.EventArgs)">
             <summary>
             Triggered when the text in the search text box gets changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.checkedListBoxClear">
             <summary>
@@ -7964,49 +7964,49 @@
             Triggered when the OK button is Mouse down.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.pivotCalcContextStrip_Closing(System.Object,System.Windows.Forms.ToolStripDropDownClosingEventArgs)">
             <summary>
             Triggered while adding the filtered items to the checkedListBox when the filter pop-up is closed unanimously.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripDropDownClosingEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripDropDownClosingEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.searchImage_MouseHover(System.Object,System.EventArgs)">
             <summary>
             Triggered when the mouse hover is event is done.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.searchImage_MouseLeave(System.Object,System.EventArgs)">
             <summary>
             Triggered when the mouse hover leave event is done.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.cancelButton_Click(System.Object,System.EventArgs)">
             <summary>
             Triggered when the CANCEL button is clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.searchPanel_Resize(System.Object,System.EventArgs)">
             <summary>
             Triggered when the search panel is re-sized and to redraw custom border drawn in paint event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.searchPanel_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
             <summary>
             Triggered when the search panel is painted and draw the custom border color for the search panel.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event dataRows."/</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data."/</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.SetLocalizedContextMenuItems">
             <summary>
@@ -8023,21 +8023,21 @@
             Performs filtering based on the checked items in the CheckedListBox.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.okButton_Click(System.Object,System.EventArgs)">
             <summary>
             Triggered when the OK-button is clicked in the custom dialog window.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.TableModel_QueryRowHeight(System.Object,Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs)">
             <summary>
             Triggered and gets info regarding the row height of filtered rows for PivotCalculation.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.checkedListBox1_ItemCheck(System.Object,System.Windows.Forms.ItemCheckEventArgs)">
             <summary>
@@ -8065,31 +8065,31 @@
             <summary>
             Overrides and renders the item text.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripItemTextRenderEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripItemTextRenderEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.ContextRenderer.OnRenderImageMargin(System.Windows.Forms.ToolStripRenderEventArgs)">
             <summary>
-            Overrides and renders the BudgetImage margin.
+            Overrides and renders the Image margin.
             </summary>
-            <param name="e">THe <see cref="T:System.Windows.Forms.ToolStripRenderEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">THe <see cref="T:System.Windows.Forms.ToolStripRenderEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.ContextRenderer.OnRenderArrow(System.Windows.Forms.ToolStripArrowRenderEventArgs)">
             <summary>
             Overrides and renders the arrow.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripArrowRenderEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripArrowRenderEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.ContextRenderer.OnRenderSeparator(System.Windows.Forms.ToolStripSeparatorRenderEventArgs)">
             <summary>
             Overrides and sets the separator back-color.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripSeparatorRenderEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripSeparatorRenderEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.ContextRenderer.OnRenderSplitButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs)">
             <summary>
             Overrides and renders the split button.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripItemRenderEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripItemRenderEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotCalculationFilterHelper.ContextMenuStripper">
             <summary>
@@ -8454,7 +8454,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.DragDropHelper.RemoveRowPivotFiltering">
             <summary>
-            WF-19699 - Removes the row pivot filtering while interchanging the dataRows between pivot rows and pivot calculations.
+            WF-19699 - Removes the row pivot filtering while interchanging the data between pivot rows and pivot calculations.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.DragDropHelper.IsPivotRowsExist(System.String)">
@@ -8543,41 +8543,41 @@
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.MouseEnter"/> event.
             </summary>
-            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
             <override/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GridList.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.MouseUp"/> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
             <override/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GridList.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.MouseMove"/> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
             <override/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GridList.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
             <summary>
             Raises the <see cref="E:System.Windows.Forms.Control.MouseDown"/> event.
             </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
             <override/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GridList.OnQueryColWidth(Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs)">
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.Grid.GridControl.QueryColWidth" /> event.
             </summary>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs" /> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs" /> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GridList.OnCellDoubleClick(Syncfusion.Windows.Forms.Grid.GridCellClickEventArgs)">
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.Grid.GridControlBase.CellClick"/> event.
             </summary>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellClickEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellClickEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GridList.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
             <summary>Processes a command key.</summary>
@@ -8589,7 +8589,7 @@
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.Grid.GridControlBase.PrepareViewStyleInfo"/> event.
             </summary>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GridList.GetSelectionColor">
             <summary>
@@ -8630,14 +8630,14 @@
             Triggered when the GridList cell button is clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellButtonClickedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellButtonClickedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.GridList.cMenu_ItemClicked(System.Object,System.Windows.Forms.ToolStripItemClickedEventArgs)">
             <summary>
             Triggered when the shortcut menu item is clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripItemClickedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripItemClickedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.GridList.SelectionColor">
             <summary>
@@ -8684,14 +8684,14 @@
             <summary>
             Raises the <see cref="E:System.Windows.Forms.ToolStripRenderer.RenderItemImage"/> event.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripItemImageRenderEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripItemImageRenderEventArgs"/> that contains the event data.</param>
             <override/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.ContextMenuRenderer.OnRenderImageMargin(System.Windows.Forms.ToolStripRenderEventArgs)">
             <summary>
             Draws the item background.
             </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripRenderEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.ToolStripRenderEventArgs"/> that contains the event data.</param>
             <override/>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotCompInfo">
@@ -8773,49 +8773,49 @@
             Triggered when the PivotComputational info form gets loaded.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCompInfo.text_TextChanged(System.Object,System.EventArgs)">
             <summary>
             Triggered when the text gets changed in the FieldHeader text or Formatted text or Description text.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCompInfo.comboBox_SelectedIndexChanged(System.Object,System.EventArgs)">
             <summary>
             Triggered when the combo box selected index gets changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCompInfo.cmbCalculationType_SelectedValueChanged(System.Object,System.EventArgs)">
             <summary>
             Triggered when the combo box selected value gets changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCompInfo.cmbBaseField_SelectedValueChanged(System.Object,System.EventArgs)">
             <summary>
             Triggered when the combo box selected value gets changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCompInfo.okbtn_Click(System.Object,System.EventArgs)">
             <summary>
             Triggered when the OK button is clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotCompInfo.cancelbtn_Click(System.Object,System.EventArgs)">
             <summary>
             Triggered when the CANCEL button is clicked.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.PivotCompInfo.ScaleFactor">
             <summary>
@@ -8827,14 +8827,14 @@
             Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.SchemaChanged"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaChangingEventHandler">
             <summary>
             Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.SchemaChanging"/> event.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaChangingEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaChangingEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaAction">
             <summary>
@@ -8991,14 +8991,14 @@
             Triggered when the split container's splitter is moving.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:System.Windows.Forms.SplitterCancelEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.SplitterCancelEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.splitcontainer_SplitterMoved(System.Object,System.Windows.Forms.SplitterEventArgs)">
             <summary>
             Triggered when the split container's splitter gets moved.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:System.Windows.Forms.SplitterEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.SplitterEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.CanResize(System.Int32)">
             <summary>
@@ -9011,7 +9011,7 @@
             Triggered when the table field list's cell click is done.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.ScrollerVisualStyle">
             <summary>
@@ -9038,14 +9038,14 @@
             Triggered when the Panel2 is resized.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.Model_QueryCellInfo(System.Object,Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs)">
             <summary>
             Triggered and gets the cell information.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.PopulateList">
             <summary>
@@ -9068,14 +9068,14 @@
             Triggered when the filter's collection gets changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.FilterItems_CollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
             Triggered when the filter items collection gets changed.
             </summary>
             <param name="sender">The Control.</param>
-            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.GetBackColors">
             <summary>
@@ -9120,35 +9120,35 @@
             Triggered when the check state of the ShowCalculationsAsColumnn check-box is changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.layoutUpdate_CheckStateChanged(System.Object,System.EventArgs)">
             <summary>
             Triggered when the check state of the LayoutUpdate check-box is changed. 
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.updateBtn_Click(System.Object,System.EventArgs)">
             <summary>
             Triggered and updates the Grid.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.gridColumnList_CheckBoxClick(System.Object,Syncfusion.Windows.Forms.Grid.GridCellClickEventArgs)">
             <summary>
             Triggered when the grid column list is changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellClickEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellClickEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.PivotSchemaDesigner_SizeChanged(System.Object,System.EventArgs)">
             <summary>
             Triggered when the PivotSchema designer's size gets changed.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.SchemaChanged">
             <summary>
@@ -9189,7 +9189,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaChangedEventArgs">
             <summary>
-            Provides dataRows for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.SchemaChanged"/> event.
+            Provides data for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.SchemaChanged"/> event.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.SchemaChangedEventArgs.#ctor">
@@ -9210,7 +9210,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaChangingEventArgs">
             <summary>
-            Provides dataRows for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.SchemaChanging"/> event.
+            Provides data for the <see cref="E:Syncfusion.Windows.Forms.PivotAnalysis.PivotSchemaDesigner.SchemaChanging"/> event.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.SchemaChangingEventArgs.#ctor">
@@ -9270,13 +9270,13 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaItemCellRenderer"/> class with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/> and <see cref="T:Syncfusion.Windows.Forms.Grid.GridCellModelBase"/>.
             </summary>
             <param name="gridControl">The grid control that holds the top left cell.</param>
-            <param name="cellModel">The dataRows or model part of a cell type.</param>
+            <param name="cellModel">The data or model part of a cell type.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.SchemaItemCellRenderer.OnPrepareViewStyleInfo(Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs)">
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.Grid.GridControlBase.PrepareViewStyleInfo"/> event.
             </summary>
-            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs"/> that contains the event data.</param>
             <override/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.SchemaItemCellRenderer.OnDraw(System.Drawing.Graphics,System.Drawing.Rectangle,System.Int32,System.Int32,Syncfusion.Windows.Forms.Grid.GridStyleInfo)">
@@ -9304,7 +9304,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell..</param>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
             <override/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.SchemaItemCellRenderer.OnMouseHoverLeave(System.Int32,System.Int32,System.EventArgs)">
@@ -9313,7 +9313,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell..</param>
-            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
             <override/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.SchemaItemCellRenderer.OnDrawCellButton(Syncfusion.Windows.Forms.Grid.GridCellButton,System.Drawing.Graphics,System.Int32,System.Int32,System.Boolean,Syncfusion.Windows.Forms.Grid.GridStyleInfo)">
@@ -9371,7 +9371,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaItemCellModel">
             <summary>
-            Implements the dataRows or model part for the schema item cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
+            Implements the data or model part for the schema item cell in the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>.
             </summary>
             <remarks>
             See <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaItemCellRenderer"/> for more detailed information about this cell type.
@@ -9381,7 +9381,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaItemCellModel"/> class with the specified <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
             </summary>
-            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all dataRows information about a grid.</param>
+            <param name="gridModel">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/> that holds all data information about a grid.</param>
             <remarks>
             You can typically access the cell models through the <see cref="P:Syncfusion.Windows.Forms.Grid.GridModel.CellModels"/>
             property of the <see cref="T:Syncfusion.Windows.Forms.Grid.GridModel"/>.
@@ -9391,7 +9391,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.PivotAnalysis.SchemaItemCellModel"/> class with the specified serialization information and streaming context.
             </summary>
-            <param name="serializationInfo">Holds all the dataRows needed to serialize or deserialize this model.</param>
+            <param name="serializationInfo">Holds all the data needed to serialize or deserialize this model.</param>
             <param name="streamingContext">Describes the source and destination of the serialized stream specified by the information.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.SchemaItemCellModel.GetFormattedText(Syncfusion.Windows.Forms.Grid.GridStyleInfo,System.Object,System.Int32)">
@@ -9778,7 +9778,7 @@
             Returns the predicate based on type of condition and expression of the parameter.
             </summary>
             <param name="paramExp">An instance of the <see cref="T:System.Linq.Expressions.ParameterExpression"/> class.</param>
-            <param name="pivotGridDataConditionType">Type of the pivot grid dataRows condition.</param>
+            <param name="pivotGridDataConditionType">Type of the pivot grid data condition.</param>
             <param name="Condition">The value for condition.</param>
             <returns>An instance of the <see cref="T:System.Linq.Expressions.Expression"/> class that holds the information regarding the predicate.</returns>
         </member>
@@ -10217,7 +10217,7 @@
             Gets or sets the Value4.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.NewRuleConditionalFormat.BudgetImage">
+        <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.NewRuleConditionalFormat.Image">
             <summary>
             Gets or sets the name of the image.
             </summary>
@@ -10306,8 +10306,8 @@
             <summary>
             Creates an image list based on the category.
             </summary>
-            <param name="IconImageCategory">BudgetImage category.</param>
-            <param name="ImageName">BudgetImage name.</param>
+            <param name="IconImageCategory">Image category.</param>
+            <param name="ImageName">Image name.</param>
             <returns>An ImageList.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridNewRuleConditionalFormat.InitImageListFromDirectory(System.Int32,System.Windows.Forms.ImageList,System.String)">
@@ -10316,22 +10316,22 @@
             </summary>
             <param name="num">Number of image.</param>
             <param name="ImageList">ImageList.</param>
-            <param name="ImageName">BudgetImage name.</param>
+            <param name="ImageName">Image name.</param>
             <returns>ImageList.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridNewRuleConditionalFormat.GetImageCount(System.String)">
             <summary>
             Gets the image count.
             </summary>
-            <param name="imageName"> BudgetImage name.</param>
-            <returns>BudgetImage category value.</returns>
+            <param name="imageName"> Image name.</param>
+            <returns>Image category value.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridNewRuleConditionalFormat.GetImageName(Syncfusion.Windows.Forms.PivotAnalysis.BitMapImageName)">
             <summary>
             Gets the image name.
             </summary>
-            <param name="imageName">BitMap BudgetImage Name.</param>
-            <returns>BudgetImage name.</returns>
+            <param name="imageName">BitMap Image Name.</param>
+            <returns>Image name.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridNewRuleConditionalFormat.ApplyStyle(Syncfusion.Windows.Forms.Grid.GridStyleInfo,System.Int32,System.Int32,Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase,Syncfusion.PivotAnalysis.Base.PivotCellInfo)">
             <summary>
@@ -10407,8 +10407,8 @@
             <summary>
             Gets the image category.
             </summary>
-            <param name="count">BudgetImage list count.</param>
-            <returns>BudgetImage category count.</returns>
+            <param name="count">Image list count.</param>
+            <returns>Image category count.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridNewRuleConditionalFormat.GetAssociatedMeasure(Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControlBase,System.Int32)">
             <summary>
@@ -10454,7 +10454,7 @@
             Returns the predicate based on type of condition and expression of the parameter.
             </summary>
             <param name="paramExp">An instance of the <see cref="T:System.Linq.Expressions.ParameterExpression"/> class.</param>
-            <param name="pivotGridDataConditionType">Type of the pivot grid dataRows condition.</param>
+            <param name="pivotGridDataConditionType">Type of the pivot grid data condition.</param>
             <param name="Condition">The value.</param>
             <returns>An instance of the <see cref="T:System.Linq.Expressions.Expression"/> class, that holds the information regarding the predicate.</returns>
         </member>
@@ -10634,21 +10634,21 @@
             <summary>
             Overrides and raises the paint event.
             </summary>
-            <param name="pe">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event dataRows.</param>
+            <param name="pe">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.Splitter.Splitter_KeyPress(System.Object,System.Windows.Forms.KeyPressEventArgs)">
             <summary>
             Triggered with the key-press event is done with the splitter.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.KeyPressEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.KeyPressEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.Splitter.Splitter_KeyUp(System.Object,System.Windows.Forms.KeyEventArgs)">
             <summary>
             Triggered with the key-up event in the splitter.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.KeyPressEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.KeyPressEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.SelectedItem">
             <summary>
@@ -10916,7 +10916,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.Serialization.SerializablePivotGrid.RowPivotsOnly">
             <summary>
-            Gets or sets a value indicating whether the PivotGrid control is used to analyze dataRows with only rows or with rows and columns.
+            Gets or sets a value indicating whether the PivotGrid control is used to analyze data with only rows or with rows and columns.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PivotAnalysis.Serialization.SerializablePivotGrid.ShowGroupBar">
@@ -11199,7 +11199,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridSortColumnHeaderCellModel">
             <summary>
-            Implements the class for the dataRows or model part of a column header with sort indicator.
+            Implements the class for the data or model part of a column header with sort indicator.
             </summary>
             <remarks>
             You typically access cell models through the <see cref="P:Syncfusion.Windows.Forms.Grid.GridModel.CellModels"/>
@@ -11271,7 +11271,7 @@
             <summary>
             Raises when the <see cref="E:Syncfusion.Windows.Forms.Grid.GridControlBase.PrepareViewStyleInfo"/> event occurs.
             </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridPrepareViewStyleInfoEventArgs"/> that contains the event data.</param>
             <override/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridSortColumnHeaderCellRenderer.OnGetCursor(System.Int32,System.Int32)">
@@ -11299,7 +11299,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridSortColumnHeaderCellRenderer.OnMouseUp(System.Int32,System.Int32,System.Windows.Forms.MouseEventArgs)">
             <summary>
@@ -11307,7 +11307,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridSortColumnHeaderCellRenderer.OnClick(System.Int32,System.Int32,System.Windows.Forms.MouseEventArgs)">
             <override/>
@@ -11316,7 +11316,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridSortColumnHeaderCellRenderer.OnDrawCellButton(Syncfusion.Windows.Forms.Grid.GridCellButton,System.Drawing.Graphics,System.Int32,System.Int32,System.Boolean,Syncfusion.Windows.Forms.Grid.GridStyleInfo)">
             <summary>
@@ -11345,7 +11345,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridSortColumnHeaderCellRenderer.OnMouseHoverLeave(System.Int32,System.Int32,System.EventArgs)">
             <summary>
@@ -11353,7 +11353,7 @@
             </summary>
             <param name="rowIndex">The row index of the current cell.</param>
             <param name="colIndex">The column index of the current cell.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridSortColumnHeaderCellRenderer.OnLayout(System.Int32,System.Int32,Syncfusion.Windows.Forms.Grid.GridStyleInfo,System.Drawing.Rectangle,System.Drawing.Rectangle[])">
             <summary>

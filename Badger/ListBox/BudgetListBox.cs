@@ -90,19 +90,19 @@ namespace BudgetExecution
             Visible = true;
             AlternateColors = false;
 
-            // Backcolor Configuration
+            // Backcolor SeriesConfiguration
             BackColor = BudgetColor.FormDark;
             ForeColor = BudgetColor.LightGray;
             BackColorState.Disabled = BudgetColor.FormDark;
             BackColorState.Enabled = BudgetColor.FormDark;
 
-            // Border Configuration
+            // Border SeriesConfiguration
             Border.Color = BudgetColor.FormDark;
             Border.Thickness = BudgetBorder.Thin;
             Border.HoverColor = BudgetColor.SteelBlue;
             Border.HoverVisible = false;
 
-            // Item Configuration
+            // Item SeriesConfiguration
             ItemHeight = 30;
             ItemLineAlignment = BudgetAlign.StringAlignCenter;
             ItemNormal = BudgetColor.FormDark;

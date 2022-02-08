@@ -25,12 +25,12 @@ namespace BudgetExecution
             Enabled = true;
             Visible = true;
 
-            // BackColor Configuration
+            // BackColor SeriesConfiguration
             BackColor = BudgetColor.FormDark;
             BackColorState.Disabled = BudgetColor.FormDark;
             BackColorState.Enabled = BudgetColor.FormDark;
 
-            // Border Configuration
+            // Border SeriesConfiguration
             Border.Color = BudgetColor.FormDark;
             Border.Thickness = BudgetBorder.Thin;
             Border.HoverColor = BudgetColor.SteelBlue;

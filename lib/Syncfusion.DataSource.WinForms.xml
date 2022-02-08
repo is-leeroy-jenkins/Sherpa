@@ -186,7 +186,7 @@
         </member>
         <member name="E:Syncfusion.DataSource.DisplayItems.PropertyChanged">
             <summary>
-            Occurs when the property is changed for the dataRows objects on the collection. 
+            Occurs when the property is changed for the data objects on the collection. 
             </summary>
         </member>
         <member name="E:Syncfusion.DataSource.DisplayItems.CollectionChanged">
@@ -244,7 +244,7 @@
         </member>
         <member name="M:Syncfusion.DataSource.Extensions.DynamicHelper.ValidateProperty(System.Dynamic.IDynamicMetaObjectProvider,System.String)">
             <summary>
-            Determines whether the meta dataRows contains the specified property name.
+            Determines whether the meta data contains the specified property name.
             </summary>
             <param name="dynamicMetaObjectProvider">Represents the <see cref="T:System.Dynamic.IDynamicMetaObjectProvider"/> object.</param>
             <param name="propName">Represents the property name.</param>
@@ -1101,7 +1101,7 @@
             <param name="valueAsString">Represents the string value.</param>
             <param name="returnValue">Represents the return value.</param>
             <param name="allowConvertFromBase64">Indicates whether TypeConverter should be checked whether the type to be
-            parsed supports conversion to/from byte array (e.g. an BudgetImage)</param>
+            parsed supports conversion to/from byte array (e.g. an Image)</param>
             <returns>Returns the boolean value.</returns>
         </member>
         <member name="M:Syncfusion.DataSource.Extensions.ValueConvert.FormatValueWithTypeInformation(System.Object,System.Boolean)">
@@ -1110,7 +1110,7 @@
             </summary>
             <param name="value">Represents the string value.</param>
             <param name="allowConvertToBase64">Indicates whether TypeConverter should be checked whether the type to be
-            parsed supports conversion to/from byte array (e.g. an BudgetImage)</param>
+            parsed supports conversion to/from byte array (e.g. an Image)</param>
             <returns>Returns the string value.</returns>
         </member>
         <member name="M:Syncfusion.DataSource.Extensions.ValueConvert.GetTypeName(System.Type)">
@@ -2586,7 +2586,7 @@
         </member>
         <member name="E:Syncfusion.DataSource.Extensions.GroupResult.PropertyChanged">
             <summary>
-            Occurs when the property is changed for the dataRows objects on the collection. 
+            Occurs when the property is changed for the data objects on the collection. 
             </summary>
         </member>
         <member name="P:Syncfusion.DataSource.Extensions.GroupResult.Key">
@@ -2829,7 +2829,7 @@
         </member>
         <member name="T:Syncfusion.DataSource.LiveDataUpdateMode">
             <summary>
-            Defines the options to refresh the collection when modify dataRows at runtime.
+            Defines the options to refresh the collection when modify data at runtime.
             </summary>
         </member>
         <member name="F:Syncfusion.DataSource.LiveDataUpdateMode.Default">
@@ -3011,7 +3011,7 @@
         </member>
         <member name="T:Syncfusion.DataSource.GroupDescription">
             <summary>
-            Represents a class that defines the basic methods and properties for grouping the dataRows in the 
+            Represents a class that defines the basic methods and properties for grouping the data in the 
             collection view.
             </summary>
         </member>
@@ -3028,12 +3028,12 @@
         </member>
         <member name="E:Syncfusion.DataSource.GroupDescription.PropertyChanged">
             <summary>
-            Occurs when the property is changed for the dataRows objects on the collection. 
+            Occurs when the property is changed for the data objects on the collection. 
             </summary>
         </member>
         <member name="E:Syncfusion.DataSource.GroupDescription.System#ComponentModel#INotifyPropertyChanged#PropertyChanged">
             <summary>
-            Occurs when the property is changed for the dataRows objects on the collection. 
+            Occurs when the property is changed for the data objects on the collection. 
             </summary>
         </member>
         <member name="P:Syncfusion.DataSource.GroupDescription.GroupNames">
@@ -3082,7 +3082,7 @@
             event of an INotifyPropertyChanging interface.
             </summary>
             <param name="sender">The source of the event.</param>
-            <param name="e">An <see cref="T:Syncfusion.Data.Portable.PropertyChangingEventArgs">PropertyChangingEventArgs</see> that contains the event dataRows.</param>
+            <param name="e">An <see cref="T:Syncfusion.Data.Portable.PropertyChangingEventArgs">PropertyChangingEventArgs</see> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.DataSource.INotifyPropertyChanging">
             <summary>
@@ -3227,7 +3227,7 @@
         </member>
         <member name="E:Syncfusion.DataSource.SortDescriptor.PropertyChanged">
             <summary>
-            Occurs when the property is changed for the dataRows objects on the collection. 
+            Occurs when the property is changed for the data objects on the collection. 
             </summary>
         </member>
         <member name="P:Syncfusion.DataSource.SortDescriptor.Direction">
@@ -3250,7 +3250,7 @@
         </member>
         <member name="T:Syncfusion.DataSource.DataSource">
             <summary>
-            DataSource is a non UI component that consumes raw dataRows and processes dataRows operations such as sorting, filtering and grouping. This can be applied to any dataRows bound control to perform the dataRows processing and dataRows operations which saving developers time and effort in building the functionality themselves.
+            DataSource is a non UI component that consumes raw data and processes data operations such as sorting, filtering and grouping. This can be applied to any data bound control to perform the data processing and data operations which saving developers time and effort in building the functionality themselves.
             </summary>
         </member>
         <member name="F:Syncfusion.DataSource.DataSource.isInEndeferal">
@@ -3289,7 +3289,7 @@
         </member>
         <member name="M:Syncfusion.DataSource.DataSource.RefreshFilter">
             <summary>
-            Refresh the <see cref="T:Syncfusion.DataSource.DataSource"/>. Raises the <see cref="!:Syncfusion.Data.DataSource.SfDataSource.FilterChanged"/> Event 
+            Refresh the <see cref="T:Syncfusion.DataSource.DataSource"/>. Raises the <see cref="E:Syncfusion.DataSource.DataSource.FilterChanged"/> Event 
             </summary>
         </member>
         <member name="M:Syncfusion.DataSource.DataSource.Refresh">
@@ -3425,7 +3425,7 @@
             Handles the <see cref="E:System.ComponentModel.IBindingList.ListChanged"/> event.
             </summary>
             <param name="sender">The original sender of the event.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.ListChangedEventArgs"/> that contains the event dataRows.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.ListChangedEventArgs"/> that contains the event data.</param>
         </member>
         <member name="E:Syncfusion.DataSource.DataSource.SourcePropertyChanged">
             <summary>
@@ -3526,15 +3526,15 @@
         </member>
         <member name="P:Syncfusion.DataSource.DataSource.Items">
             <summary>
-            Gets the list of items. Contains filtered dataRows 
+            Gets the list of items. Contains filtered data 
             </summary>
             <value>The List of items.</value>
         </member>
         <member name="P:Syncfusion.DataSource.DataSource.LiveDataUpdateMode">
             <summary>
-            Gets or sets the live dataRows update mode of the <see cref="T:Syncfusion.DataSource.DataSource"/>.
+            Gets or sets the live data update mode of the <see cref="T:Syncfusion.DataSource.DataSource"/>.
             </summary>
-            <value>The live dataRows update mode.</value>
+            <value>The live data update mode.</value>
         </member>
         <member name="P:Syncfusion.DataSource.DataSource.SortDescriptors">
             <summary>
@@ -3572,10 +3572,10 @@
         </member>
         <member name="P:Syncfusion.DataSource.DataSource.IsLegacyDataTable">
             <summary>
-            Gets a value indicating whether the underlying dataRows object is <see cref="T:System.Data.DataTable"/>.
+            Gets a value indicating whether the underlying data object is <see cref="T:System.Data.DataTable"/>.
             </summary>
             <value>
-            <b>True</b> if the underlying dataRows object is DataTable, otherwise <b>false</b>.
+            <b>True</b> if the underlying data object is DataTable, otherwise <b>false</b>.
             </value>
         </member>
         <member name="M:Syncfusion.DataSource.DataSource.DeferHelper.#ctor(Syncfusion.DataSource.DataSource)">
@@ -3586,13 +3586,13 @@
         </member>
         <member name="T:Syncfusion.DataSource.NamespaceDoc">
             <summary>
-            Provides classes, enumerators and interfaces to processes the dataRows operations such as sorting, filtering, and grouping, saving developers time and effort in building the functionality themselves.
+            Provides classes, enumerators and interfaces to processes the data operations such as sorting, filtering, and grouping, saving developers time and effort in building the functionality themselves.
             </summary>
         </member>
         <member name="T:Syncfusion.DataSource.DataTableDataSource">
             <summary>
-            DataTableDataSource is a non UI component that consumes DataTable type dataRows and processes dataRows operations such as sorting, filtering and grouping. 
-            This can be applied to any dataRows bound control to perform the dataRows processing and dataRows operations which saving developers time 
+            DataTableDataSource is a non UI component that consumes DataTable type data and processes data operations such as sorting, filtering and grouping. 
+            This can be applied to any data bound control to perform the data processing and data operations which saving developers time 
             and effort in building the functionality themselves.
             </summary>
         </member>
@@ -3648,7 +3648,7 @@
             <summary>
             Filters the record for the specified record condition.
             </summary>
-            <param name="record">The record to filter the dataRows.</param>
+            <param name="record">The record to filter the data.</param>
             <returns>
             By default return true, since DataTable not support the filter record support.
             </returns>
@@ -3666,10 +3666,10 @@
         </member>
         <member name="M:Syncfusion.DataSource.DataTableDataSource.GetGroupExpressionFunc(System.String)">
             <summary>
-            Returns the expression function for corresponding property name, dataRows operation and reflection mode.
+            Returns the expression function for corresponding property name, data operation and reflection mode.
             </summary>
             <param name="propertyName">The property name.</param>        
-            <returns>The expression function for corresponding property name, dataRows operation and reflection mode.</returns>
+            <returns>The expression function for corresponding property name, data operation and reflection mode.</returns>
         </member>
         <member name="M:Syncfusion.DataSource.DataTableDataSource.GetGroupFunc(System.String)">
             <summary>
@@ -3694,7 +3694,7 @@
         </member>
         <member name="T:Syncfusion.DataSource.Extensions.DataSetExtensions">
             <summary>
-            Extension class that helps for sorting, grouping and filter operations of the dataRows table.
+            Extension class that helps for sorting, grouping and filter operations of the data table.
             </summary>
         </member>
         <member name="F:Syncfusion.DataSource.Extensions.DataSetExtensions.pattern">

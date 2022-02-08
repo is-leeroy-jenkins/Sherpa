@@ -85,7 +85,7 @@ namespace BudgetExecution
             BackgroundColor = BudgetColor.FormDark;
             GridColor = BudgetColor.WindowFrame;
 
-            // Column Configuration
+            // Column SeriesConfiguration
             AllowUserToOrderColumns = true;
             ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
@@ -98,7 +98,7 @@ namespace BudgetExecution
             RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            // Row Configuration
+            // Row SeriesConfiguration
             RowHeadersWidth = 26;
             RowHeadersDefaultCellStyle.BackColor = BudgetColor.ForeColorGray;
             RowHeadersDefaultCellStyle.Font = BudgetFont.FontSizeMedium;

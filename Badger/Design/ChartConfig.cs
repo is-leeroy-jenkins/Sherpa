@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.Chart.ChartStyleInfo" />
     /// <seealso cref="BudgetExecution.IChartConfig" />
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberInitializerValueIgnored" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -31,7 +31,7 @@ namespace BudgetExecution
         {
             DisplayText = true;
             TextColor = BudgetColor.ForeColorGray;
-            Interior = new BrushInfo( Color.FromArgb( 5, 5, 5 ) );
+            Interior = new BrushInfo( BudgetColor.FormDark );
             Border = SetBorderStyle( BudgetColor.FormDark, BudgetBorder.Thin );
         }
 

@@ -20,8 +20,48 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class SeriesModel : SourceModel, ISeriesModel
+    public class SeriesModel : SourceModel , ISeriesModel
     {
+        /// <summary>
+        /// Gets or sets the series configuration.
+        /// </summary>
+        /// <value>
+        /// The series configuration.
+        /// </value>
+        public ISeriesConfig SeriesConfiguration { get; set; }
+
+        /// <summary>
+        /// Gets or sets the series metric.
+        /// </summary>
+        /// <value>
+        /// The series metric.
+        /// </value>
+        public IDataMetric DataMetric { get; set; }
+
+        /// <summary>
+        /// Gets or sets the series values.
+        /// </summary>
+        /// <value>
+        /// The series values.
+        /// </value>
+        public IEnumerable<double> Values { get; set; }
+
+        /// <summary>
+        /// Gets or sets the series categories.
+        /// </summary>
+        /// <value>
+        /// The series categories.
+        /// </value>
+        public IEnumerable<string> Categories { get; set; }
+
+        /// <summary>
+        /// Gets or sets the source model.
+        /// </summary>
+        /// <value>
+        /// The source model.
+        /// </value>
+        public ISourceModel SourceModel { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SeriesModel" />
@@ -41,12 +81,13 @@ namespace BudgetExecution
             : base( bindingSource )
         {
             SourceBinding = bindingSource;
+            SourceModel = new SourceModel( bindingSource );
             BindingModel = new ChartDataBindModel( SourceBinding );
-            Data = SourceBinding.GetData();
-            Configuration = SourceBinding.GetSeriesConfig();
-            Stat = Configuration.GetStatistic();
-            Metric = SourceBinding.GetDataMetric();
-            SeriesData = Metric.CalculateStatistics();
+            SourceData = SourceBinding.GetData();
+            SeriesConfiguration = SourceBinding.GetSeriesConfig();
+            Stat = SeriesConfiguration.Stat;
+            DataMetric = SourceBinding.GetDataMetric();
+            SeriesData = DataMetric.CalculateStatistics();
             BindingModel.Changed += OnChanged;
         }
 
@@ -60,11 +101,11 @@ namespace BudgetExecution
         {
             SourceBinding = new ChartBinding( table, seriesConfig );
             BindingModel = new ChartDataBindModel( SourceBinding );
-            Data = SourceBinding.GetData();
-            Configuration = SourceBinding.GetSeriesConfig();
-            Stat = Configuration.GetStatistic();
-            Metric = SourceBinding.GetDataMetric();
-            SeriesData = Metric.CalculateStatistics();
+            SourceData = SourceBinding.GetData();
+            SeriesConfiguration = SourceBinding.GetSeriesConfig();
+            Stat = SeriesConfiguration.Stat;
+            DataMetric = SourceBinding.GetDataMetric();
+            SeriesData = DataMetric.CalculateStatistics();
             BindingModel.Changed += OnChanged;
         }
 
@@ -78,11 +119,11 @@ namespace BudgetExecution
         {
             SourceBinding = new ChartBinding( data, seriesConfig );
             BindingModel = new ChartDataBindModel( SourceBinding );
-            Data = SourceBinding.GetData();
-            Configuration = SourceBinding.GetSeriesConfig();
-            Stat = Configuration.GetStatistic();
-            Metric = SourceBinding.GetDataMetric();
-            SeriesData = Metric.CalculateStatistics();
+            SourceData = SourceBinding.GetData();
+            SeriesConfiguration = SourceBinding.GetSeriesConfig();
+            Stat = SeriesConfiguration.Stat;
+            DataMetric = SourceBinding.GetDataMetric();
+            SeriesData = DataMetric.CalculateStatistics();
             BindingModel.Changed += OnChanged;
         }
         
@@ -94,7 +135,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Metric;
+                return base.Metric;
             }
             catch( Exception ex )
             {
@@ -134,8 +175,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _data = GetSeriesData();
-                var _values = _data.Keys;
+                var _values = SeriesData.Keys;
 
                 return _values?.Any() == true
                     ? _values.ToArray()

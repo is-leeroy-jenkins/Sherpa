@@ -9,24 +9,36 @@ namespace BudgetExecution
 
     public interface ISourceModel
     {
-        /// <summary> Gets the data. </summary>
-        /// <returns> </returns>
-        IEnumerable<DataRow> GetData();
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
+        IEnumerable<DataRow> SourceData { get; set; }
 
-        /// <summary> Gets the source binding. </summary>
-        /// <returns> </returns>
-        IChartBinding GetSourceBinding();
+        /// <summary>
+        /// Gets or sets the source binding.
+        /// </summary>
+        /// <value>
+        /// The source binding.
+        /// </value>
+        IChartBinding SourceBinding { get; set; }
 
-        /// <summary> Gets the data. </summary>
-        /// <returns> </returns>
-        IDictionary<string, IEnumerable<double>> GetSeriesData();
+        /// <summary>
+        /// Gets or sets the series data.
+        /// </summary>
+        /// <value>
+        /// The series data.
+        /// </value>
+        IDictionary<string, IEnumerable<double>> SeriesData { get; set; }
 
-        /// <summary> Gets the metric. </summary>
-        /// <returns> </returns>
-        IDataMetric GetMetric();
-
-        /// <summary> Gets the series configurations. </summary>
-        /// <returns> </returns>
-        ISeriesConfig GetSeriesConfiguration();
+        /// <summary>
+        /// Gets or sets the metric.
+        /// </summary>
+        /// <value>
+        /// The metric.
+        /// </value>
+        IDataMetric Metric { get; set; }
     }
 }

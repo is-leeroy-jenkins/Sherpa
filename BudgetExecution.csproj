@@ -132,238 +132,264 @@
       <HintPath>lib\SQLite.Designer.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.BulletGraph.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.BulletGraph.Windows.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.BulletGraph.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Calculate.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Calculate.Base.dll</HintPath>
-      <HintPath>lib\Syncfusion.Calculate.Base.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Calculate.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Calculate.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Calculate.Windows.dll</HintPath>
-      <HintPath>lib\Syncfusion.Calculate.Windows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Calculate.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Chart.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Chart.Base.dll</HintPath>
-      <HintPath>lib\Syncfusion.Chart.Base.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Chart.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Chart.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Chart.Windows.dll</HintPath>
-      <HintPath>lib\Syncfusion.Chart.Windows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Chart.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Compression.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Compression.Base.dll</HintPath>
-      <HintPath>lib\Syncfusion.Compression.Base.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Compression.Base.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Core.WinForms, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.Core.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\Syncfusion.Core.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Data.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Data.WinForms.dll</HintPath>
-      <HintPath>lib\Syncfusion.Data.WinForms.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Data.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.DataSource.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.DataSource.WinForms.dll</HintPath>
-      <HintPath>lib\Syncfusion.DataSource.WinForms.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.DataSource.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Diagram.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Diagram.Base.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Diagram.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Diagram.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Diagram.Windows.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Diagram.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.DocIO.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.DocIO.Base.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.DocIO.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.DocIO.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.DocIO.Windows.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.DocIO.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Edit.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Edit.Windows.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Edit.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.ExcelChartToImageConverter.Wpf, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.ExcelChartToImageConverter.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Gauge.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Gauge.Windows.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Gauge.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grid.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Grid.Base.dll</HintPath>
-      <HintPath>lib\Syncfusion.Grid.Base.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Grid.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grid.Grouping.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Grid.Grouping.Base.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Grid.Grouping.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grid.Grouping.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Grid.Grouping.Windows.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Grid.Grouping.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Grouping.Windows.XmlSerializers, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Grid.Grouping.Windows.XmlSerializers.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grid.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Grid.Windows.dll</HintPath>
-      <HintPath>lib\Syncfusion.Grid.Windows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Grid.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Windows.XmlSerializers, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Grid.Windows.XmlSerializers.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.GridCommon.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.GridCommon.WinForms.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.GridCommon.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.GridConverter.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.GridConverter.Windows.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.GridConverter.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.GridHelperClasses.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.GridHelperClasses.Windows.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.GridHelperClasses.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grouping.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Grouping.Base.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Grouping.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grouping.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Grouping.Windows.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Grouping.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.HTMLUI.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.HTMLUI.Base.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.HTMLUI.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.HTMLUI.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.HTMLUI.Windows.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.HTMLUI.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Licensing, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.Licensing, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\Syncfusion.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Linq.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Linq.Base.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Linq.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Maps.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Maps.Windows.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Maps.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.MIME.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.MIME.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Office2016Theme.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Office2016Theme.WinForms.dll</HintPath>
-      <HintPath>lib\Syncfusion.Office2016Theme.WinForms.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Office2016Theme.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Office2019Theme.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Office2019Theme.WinForms.dll</HintPath>
-      <HintPath>lib\Syncfusion.Office2019Theme.WinForms.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Office2019Theme.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.OfficeChart.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.OfficeChart.Base.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.OfficeChart.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Pdf.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Pdf.Base.dll</HintPath>
-      <HintPath>lib\Syncfusion.Pdf.Base.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Pdf.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Pdf.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Pdf.Windows.dll</HintPath>
-      <HintPath>lib\Syncfusion.Pdf.Windows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Pdf.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.PdfViewer.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.PdfViewer.Windows.dll</HintPath>
-      <HintPath>lib\Syncfusion.PdfViewer.Windows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.PdfViewer.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.PivotAnalysis.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.PivotAnalysis.Base.dll</HintPath>
-      <HintPath>lib\Syncfusion.PivotAnalysis.Base.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.PivotAnalysis.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.PivotAnalysis.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
-      <HintPath>lib\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.PivotChart.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.PivotChart.Windows.dll</HintPath>
-      <HintPath>lib\Syncfusion.PivotChart.Windows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.PivotChart.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.PivotConverter.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.PivotConverter.Windows.dll</HintPath>
-      <HintPath>lib\Syncfusion.PivotConverter.Windows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.PivotConverter.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Presentation.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Presentation.Base.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Presentation.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.ProjIO.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.ProjIO.Base.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.ProjIO.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Schedule.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Schedule.Base.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Schedule.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Schedule.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Schedule.Windows.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Schedule.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Scripting.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Scripting.Base.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Scripting.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfBarcode.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.SfBarcode.Windows.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.SfBarcode.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfChart.WPF, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.SfChart.WPF.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfDataGrid.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.SfDataGrid.WinForms.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.SfDataGrid.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfDataGridConverter.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.SfDataGridConverter.WinForms.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.SfDataGridConverter.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfInput.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.SfInput.WinForms.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.SfInput.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.SfListView.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.SfListView.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.SfListView.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.SfSmithChart.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.SfSmithChart.WinForms.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.SfSmithChart.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Shared.Base, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.Shared.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\Syncfusion.Shared.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Shared.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Shared.Windows.dll</HintPath>
-      <HintPath>lib\Syncfusion.Shared.Windows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Shared.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SpellChecker.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.SpellChecker.Base.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.SpellChecker.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Spreadsheet.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Spreadsheet.Windows.dll</HintPath>
-      <HintPath>lib\Syncfusion.Spreadsheet.Windows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Spreadsheet.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SpreadsheetHelper.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.SpreadsheetHelper.Windows.dll</HintPath>
-      <HintPath>lib\Syncfusion.SpreadsheetHelper.Windows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.SpreadsheetHelper.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Tools.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Tools.Base.dll</HintPath>
-      <HintPath>lib\Syncfusion.Tools.Base.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Tools.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Tools.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.Tools.Windows.dll</HintPath>
-      <HintPath>lib\Syncfusion.Tools.Windows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.Tools.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.TreeMap.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.TreeMap.Windows.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.TreeMap.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.XlsIO.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.XlsIO.Base.dll</HintPath>
-      <HintPath>lib\Syncfusion.XlsIO.Base.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.XlsIO.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.XlsIO.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\19.4.0.38\precompiledassemblies\4.6\Syncfusion.XlsIO.Windows.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Syncfusion.XlsIO.Windows.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
@@ -419,44 +445,28 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Badger\Calendar\BudgetCalendar.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Calendar\BudgetCalendar.cs" />
     <Compile Include="Badger\Chart\CallOut.cs" />
-    <Compile Include="Badger\Chart\ChartBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Chart\ChartBase.cs" />
     <Compile Include="Badger\Chart\ChartData.cs" />
-    <Compile Include="Badger\Chart\BudgetChart.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Chart\BudgetChart.cs" />
     <Compile Include="Badger\Chart\IBudgetChart.cs" />
     <Compile Include="Badger\Chart\LegendItem.cs" />
-    <Compile Include="Badger\DataGrid\BudgetDataGridForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\DataGrid\BudgetDataGridForm.cs" />
     <Compile Include="Badger\DataGrid\BudgetDataGridForm.Designer.cs">
       <DependentUpon>BudgetDataGridForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Main\BadgerMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\Main\BadgerMain.cs" />
     <Compile Include="Badger\Main\BadgerMain.Designer.cs">
       <DependentUpon>BadgerMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Chart\BindingModel\ChartBinding.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Chart\BindingModel\ChartBinding.cs" />
     <Compile Include="Badger\Design\BudgetAlign.cs" />
-    <Compile Include="Badger\Dialog\Column\ColumnConfiguration.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\Dialog\Column\ColumnConfiguration.cs" />
     <Compile Include="Badger\Dialog\Column\ColumnConfiguration.Designer.cs">
       <DependentUpon>ColumnConfiguration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Dialog\Message\Message.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\Dialog\Message\Message.cs" />
     <Compile Include="Badger\Dialog\Message\Message.Designer.cs">
       <DependentUpon>Message.cs</DependentUpon>
     </Compile>
@@ -464,146 +474,78 @@
     <Compile Include="Badger\Design\ChartConfig.cs" />
     <Compile Include="Badger\Design\BudgetColor.cs" />
     <Compile Include="Badger\Design\BudgetControl.cs" />
-    <Compile Include="Badger\Binding\BindingBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Binding\BindingData.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Binding\BudgetBinding.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Closebox\CloseBoxBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Binding\BindingBase.cs" />
+    <Compile Include="Badger\Binding\BindingData.cs" />
+    <Compile Include="Badger\Binding\BudgetBinding.cs" />
+    <Compile Include="Badger\Closebox\CloseBoxBase.cs" />
     <Compile Include="Badger\Button\ButtonBase.cs" />
     <Compile Include="Badger\Button\BudgetButton.cs" />
     <Compile Include="Badger\Chart\BindingModel\SeriesConfig.cs" />
     <Compile Include="Badger\Chart\BindingModel\SeriesModel.cs" />
-    <Compile Include="Badger\Toolbar\BarButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Toolbar\BarButtonBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Toolbar\BarComboBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Toolbar\BarComboBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Toolbar\BarLabel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Toolbar\BarLabelBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Toolbar\BarProgress.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Toolbar\BarTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Toolbar\BarButton.cs" />
+    <Compile Include="Badger\Toolbar\BarButtonBase.cs" />
+    <Compile Include="Badger\Toolbar\BarComboBase.cs" />
+    <Compile Include="Badger\Toolbar\BarComboBox.cs" />
+    <Compile Include="Badger\Toolbar\BarLabel.cs" />
+    <Compile Include="Badger\Toolbar\BarLabelBase.cs" />
+    <Compile Include="Badger\Toolbar\BarProgress.cs" />
+    <Compile Include="Badger\Toolbar\BarTextBox.cs" />
     <Compile Include="Badger\BudgetImage\BudgetImage.cs" />
-    <Compile Include="Badger\Calculator\BudgetCalculator.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Calculator\BudgetCalculator.cs" />
     <Compile Include="Badger\Chart\SeriesModel\DataSeries.cs" />
-    <Compile Include="Badger\Calendar\CalendarBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\DataGrid\BudgetDataGrid.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Clock\ClockBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Chart\BudgetChartForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\Calendar\CalendarBase.cs" />
+    <Compile Include="Badger\DataGrid\BudgetDataGrid.cs" />
+    <Compile Include="Badger\Clock\ClockBase.cs" />
+    <Compile Include="Badger\Chart\BudgetChartForm.cs" />
     <Compile Include="Badger\Chart\BudgetChartForm.Designer.cs">
       <DependentUpon>BudgetChartForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Calendar\BudgetCalendarForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\Calendar\BudgetCalendarForm.cs" />
     <Compile Include="Badger\Calendar\BudgetCalendarForm.Designer.cs">
       <DependentUpon>BudgetCalendarForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Dialog\Error\Error.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\Dialog\Error\Error.cs" />
     <Compile Include="Badger\Dialog\Error\Error.Designer.cs">
       <DependentUpon>Error.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Calculator\CalculatorBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Calculator\CalculatorBase.cs" />
     <Compile Include="Badger\Calculator\CalculatorBase.Designer.cs">
       <DependentUpon>CalculatorBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Badger\Layout\BudgetLayout.cs" />
-    <Compile Include="Badger\Clock\BudgetClock.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Dialog\Error\ErrorBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Badger\Closebox\CloseBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\PictureBox\BudgetPictureBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\ComboBox\BudgetComboBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Clock\BudgetClock.cs" />
+    <Compile Include="Badger\Dialog\Error\ErrorBase.cs" />
+    <Compile Include="Badger\Closebox\CloseBox.cs" />
+    <Compile Include="Badger\PictureBox\BudgetPictureBox.cs" />
+    <Compile Include="Badger\ComboBox\BudgetComboBox.cs" />
     <Compile Include="Badger\ListBox\BudgetListBox.cs" />
     <Compile Include="Badger\ListView\BudgetListView.cs" />
-    <Compile Include="Badger\Progress\BudgetProgressBar.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Progress\BudgetProgressBar.cs" />
     <Compile Include="Badger\TextBox\BudgetTextBox.cs" />
-    <Compile Include="Badger\ComboBox\ComboBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\ComboBox\ComboBase.cs" />
     <Compile Include="Badger\Control\ControlData.cs" />
-    <Compile Include="Badger\Excel\ExcelForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\Excel\ExcelForm.cs" />
     <Compile Include="Badger\Excel\ExcelForm.Designer.cs">
       <DependentUpon>ExcelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Tile\BudgetTile.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Excel\BudgetExcelForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\Tile\BudgetTile.cs" />
+    <Compile Include="Badger\Excel\BudgetExcelForm.cs" />
     <Compile Include="Badger\Excel\BudgetExcelForm.Designer.cs">
       <DependentUpon>BudgetExcelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\PDF\BudgetPdfForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\PDF\BudgetPdfForm.cs" />
     <Compile Include="Badger\PDF\BudgetPdfForm.Designer.cs">
       <DependentUpon>BudgetPdfForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Web\BudgetWebBrowser.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\Web\BudgetWebBrowser.cs" />
     <Compile Include="Badger\Web\BudgetWebBrowser.Designer.cs">
       <DependentUpon>BudgetWebBrowser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Navigation\BudgetNavigation.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\Navigation\BudgetNavigation.cs" />
     <Compile Include="Badger\Navigation\BudgetNavigation.Designer.cs">
       <DependentUpon>BudgetNavigation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Calculator\BudgetCalculatorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\Calculator\BudgetCalculatorForm.cs" />
     <Compile Include="Badger\Calculator\BudgetCalculatorForm.Designer.cs">
       <DependentUpon>BudgetCalculatorForm.cs</DependentUpon>
     </Compile>
@@ -619,9 +561,7 @@
     <Compile Include="Enumerations\BOC.cs" />
     <Compile Include="Enumerations\ChartType.cs" />
     <Compile Include="Enumerations\DataType.cs" />
-    <Compile Include="Data\Adapter\AdapterBuilder.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Data\Adapter\AdapterBuilder.cs" />
     <Compile Include="Data\Adapter\AdapterFactory.cs" />
     <Compile Include="Data\Adapter\IAdapter.cs" />
     <Compile Include="Data\Command\CommandBuilder.cs" />
@@ -684,9 +624,7 @@
     <Compile Include="Data\SqlStatement\SqlConfig.cs" />
     <Compile Include="Data\SqlStatement\SqlFactory.cs" />
     <Compile Include="Data\SqlStatement\SqlStatement.cs" />
-    <Compile Include="Data\Worker\DataWorker.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Data\Worker\DataWorker.cs" />
     <Compile Include="Enumerations\Document.cs" />
     <Compile Include="Enumerations\EventDate.cs" />
     <Compile Include="Enumerations\EXT.cs" />
@@ -727,15 +665,11 @@
     <Compile Include="Badger\BudgetImage\ImageBuilder.cs" />
     <Compile Include="Badger\BudgetImage\ImageBase.cs" />
     <Compile Include="Badger\BudgetImage\ImageFactory.cs" />
-    <Compile Include="Badger\BudgetImage\ImageList.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\BudgetImage\ImageList.cs" />
     <Compile Include="Badger\Calculator\ICalculator.cs" />
     <Compile Include="Badger\Layout\ILayout.cs" />
     <Compile Include="Badger\Layout\LayoutBase.cs" />
-    <Compile Include="Badger\Dialog\Browser\FileBrowser.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\Dialog\Browser\FileBrowser.cs" />
     <Compile Include="Badger\Dialog\Browser\FileBrowser.Designer.cs" />
     <Compile Include="Badger\Chart\BindingModel\IChartBinding.cs" />
     <Compile Include="Badger\Chart\BindingModel\IChartSeriesModel.cs" />
@@ -744,17 +678,13 @@
     <Compile Include="Badger\Chart\SeriesModel\IDataSeries.cs" />
     <Compile Include="Badger\Chart\SeriesModel\ISeriesModel.cs" />
     <Compile Include="Badger\Chart\SeriesModel\ITitleInfo.cs" />
-    <Compile Include="Badger\DataGrid\GridBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\DataGrid\GridBase.cs" />
     <Compile Include="Badger\DataGrid\IDataGrid.cs" />
     <Compile Include="Badger\GroupBox\GroupBoxBase.cs" />
     <Compile Include="Badger\GroupBox\BudgetGroupBox.cs" />
     <Compile Include="Badger\GroupBox\IGroupBox.cs" />
     <Compile Include="Badger\Clock\IClock.cs" />
-    <Compile Include="Badger\Form\FormBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\Form\FormBase.cs" />
     <Compile Include="Badger\Form\FormBase.Designer.cs">
       <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
@@ -889,21 +819,15 @@
     <Compile Include="Ninja\Transfer\IReprogramming.cs" />
     <Compile Include="Ninja\Transfer\Reprogramming.cs" />
     <Compile Include="Ninja\Outlays\UnliquidatedObligation.cs" />
-    <Compile Include="Ninja\Watcher\FileWatcher.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Ninja\Watcher\FileWatcher.cs" />
     <Compile Include="Ninja\Writer\FileWriter.cs" />
     <Compile Include="Enumerations\NPM.cs" />
     <Compile Include="Enumerations\Numeric.cs" />
     <Compile Include="Enumerations\OutlayType.cs" />
     <Compile Include="Enumerations\PrimaryKey.cs" />
-    <Compile Include="Badger\PictureBox\PictureBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\PictureBox\PictureBase.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Badger\Progress\ProgressBarBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Progress\ProgressBarBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enumerations\Provider.cs" />
     <Compile Include="Enumerations\RC.cs" />
@@ -911,12 +835,8 @@
     <Compile Include="Enumerations\Source.cs" />
     <Compile Include="Enumerations\SQL.cs" />
     <Compile Include="Enumerations\STAT.cs" />
-    <Compile Include="Badger\Excel\sheet\RibbonPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Excel\sheet\SheetPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Excel\sheet\RibbonPanel.cs" />
+    <Compile Include="Badger\Excel\sheet\SheetPanel.cs" />
     <Compile Include="Badger\Design\BudgetSize.cs" />
     <Compile Include="Badger\Chart\SeriesModel\SourceModel.cs" />
     <Compile Include="Badger\TextBox\RichTextBase.cs" />
@@ -930,41 +850,23 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TimeSpanExtensions.cs" />
     <Compile Include="Extensions\TypeObject.cs" />
-    <Compile Include="Badger\ToolTip\ToolBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Toolbar\ToolPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Toolbar\ToolPanelBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Toolbar\ToolPanelData.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Badger\Toolbar\ToolSeparator.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\ToolTip\ToolBase.cs" />
+    <Compile Include="Badger\Toolbar\ToolPanel.cs" />
+    <Compile Include="Badger\Toolbar\ToolPanelBase.cs" />
+    <Compile Include="Badger\Toolbar\ToolPanelData.cs" />
+    <Compile Include="Badger\Toolbar\ToolSeparator.cs" />
     <Compile Include="Badger\Chart\SeriesModel\TitleInfo.cs" />
-    <Compile Include="Badger\Form\ExecutionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\Form\ExecutionForm.cs" />
     <Compile Include="Badger\Form\ExecutionForm.Designer.cs">
       <DependentUpon>ExecutionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Test\TestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Badger\Test\TestForm.cs" />
     <Compile Include="Badger\Test\TestForm.Designer.cs">
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\ToolTip\ToolTip.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\ToolTip\ToolTip.cs" />
     <Compile Include="Badger\Excel\BudgetWorkbook.cs" />
-    <Compile Include="Badger\Tile\TileBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Badger\Tile\TileBase.cs" />
     <EmbeddedResource Include="Badger\DataGrid\BudgetDataGridForm.resx">
       <DependentUpon>BudgetDataGridForm.cs</DependentUpon>
     </EmbeddedResource>

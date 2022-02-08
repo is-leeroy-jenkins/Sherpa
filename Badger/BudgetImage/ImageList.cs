@@ -46,7 +46,7 @@ namespace BudgetExecution
         /// <value>
         /// The image builder.
         /// </value>
-        private ImageBuilder Builder { get; }
+        public ImageBuilder Builder { get;  set; }
 
         /// <summary>
         /// Gets or sets the image factory.
@@ -54,7 +54,7 @@ namespace BudgetExecution
         /// <value>
         /// The image factory.
         /// </value>
-        private ImageFactory Factory { get; }
+        public ImageFactory Factory { get; set; }
 
         /// <summary>
         /// Gets or sets the budget images.

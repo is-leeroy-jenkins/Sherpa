@@ -80,7 +80,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetButton()
         {
-            // Basic Configuration
+            // Basic SeriesConfiguration
             Font = BudgetFont.FontSizeSmall;
             ForeColor = BudgetColor.LightGray;
             Margin = BudgetControl.Margin;
@@ -94,24 +94,24 @@ namespace BudgetExecution
             Enabled = true;
             Text = string.Empty;
 
-            // BackColor Configuration
+            // BackColor SeriesConfiguration
             BackColor = BudgetColor.FormDark;
             BackColorState.Disabled = BudgetColor.FormDark;
             BackColorState.Enabled = BudgetColor.FormDark;
             BackColorState.Hover = BudgetColor.HoverDark;
             BackColorState.Pressed = BudgetColor.SteelBlue;
 
-            // BorderColor Configuration
+            // BorderColor SeriesConfiguration
             Border.Color = BudgetColor.FormDark;
             Border.HoverColor = BudgetColor.SteelBlue;
             Border.HoverVisible = true;
             Border.Type = ShapeTypes.Rounded;
             Border.Thickness = 1;
 
-            // BudgetImage Configuration
+            // BudgetImage SeriesConfiguration
             TextImageRelation = TextImageRelation.Overlay;
 
-            // Text Configuration
+            // Text SeriesConfiguration
             TextStyle.Pressed = BudgetColor.White;
             TextStyle.Disabled = BudgetColor.FormDark;
             TextStyle.Enabled = BudgetColor.LightGray;

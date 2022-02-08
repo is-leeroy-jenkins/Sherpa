@@ -177,7 +177,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _numeric = SeriesConfiguration?.GetNumeric();
+                var _numeric = SeriesConfiguration?.Numeric;
                 return double.Parse( Record[ $"{_numeric}" ].ToString() ) > 0;
             }
             catch( Exception ex )
@@ -196,7 +196,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _numeric = SeriesConfiguration?.GetNumeric();
+                var _numeric = SeriesConfiguration?.Numeric;
 
                 return !GetEmpty( xIndex )
                     ? double.Parse( Record[ $"{_numeric}" ].ToString() )
@@ -218,7 +218,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _numeric = SeriesConfiguration?.GetNumeric();
+                var _numeric = SeriesConfiguration?.Numeric;
 
                 return !GetEmpty( xIndex )
                     ? double.Parse( Record[ $@"{_numeric}" ].ToString() )

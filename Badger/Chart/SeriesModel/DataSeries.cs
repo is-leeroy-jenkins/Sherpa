@@ -26,7 +26,7 @@ namespace BudgetExecution
         /// <value>
         /// The configuration.
         /// </value>
-        public ISeriesConfig Config { get; }
+        public ISeriesConfig Config { get; set; }
 
         /// <summary>
         /// Gets the metric.
@@ -34,7 +34,7 @@ namespace BudgetExecution
         /// <value>
         /// The metric.
         /// </value>
-        public STAT Metric { get; }
+        public STAT Metric { get; set; }
 
         /// <summary>
         /// Gets the source model.
@@ -42,7 +42,7 @@ namespace BudgetExecution
         /// <value>
         /// The source model.
         /// </value>
-        public ISourceModel SourceModel { get; }
+        public ISourceModel SourceModel { get; set; }
 
         /// <summary>
         /// Gets the series data.
@@ -50,7 +50,7 @@ namespace BudgetExecution
         /// <value>
         /// The series data.
         /// </value>
-        public IDictionary<string, IEnumerable<double>> SeriesData { get; }
+        public IDictionary<string, IEnumerable<double>> SeriesData { get; set; }
 
         /// <summary>
         /// Gets the series categories.
@@ -58,7 +58,7 @@ namespace BudgetExecution
         /// <value>
         /// The series categories.
         /// </value>
-        public IEnumerable<string> SeriesCategories { get; }
+        public IEnumerable<string> SeriesCategories { get; set; }
 
         /// <summary>
         /// Gets the series values.
@@ -66,7 +66,7 @@ namespace BudgetExecution
         /// <value>
         /// The series values.
         /// </value>
-        public IEnumerable<double> SeriesValues { get; }
+        public IEnumerable<double> SeriesValues { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataSeries"/> class.
@@ -82,14 +82,14 @@ namespace BudgetExecution
         public DataSeries( ISeriesModel chartData )
             : this()
         {
-            Config = chartData.GetSeriesConfiguration();
+            Config = chartData.SeriesConfiguration;
             Name = Config.Name;
             Type = GetSeriesType( Config.GetSeriesType() );
-            Metric = Config.GetStatistic();
-            SourceModel = chartData?.GetSourceModel();
-            SeriesData = SourceModel.GetSeriesData();
-            SeriesValues = chartData?.GetSeriesValues();
-            SeriesCategories = chartData?.GetSeriesCategories();
+            Metric = Config.Stat;
+            SourceModel = chartData?.SourceModel;
+            SeriesData = SourceModel?.SeriesData;
+            SeriesValues = chartData?.Values;
+            SeriesCategories = chartData?.Categories;
             SmartLabels = Config.SmartLabels;
             Visible = Config.Visible;
             ShowTicks = Config.ShowTicks;
