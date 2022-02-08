@@ -151,7 +151,7 @@ namespace BudgetExecution
 
                     if( ex.Source != null )
                     {
-                        _stringBuilder.Append( "Source:" );
+                        _stringBuilder.Append( "ImageSource:" );
                         _stringBuilder.Append( Environment.NewLine );
                         _stringBuilder.Append( ex.Source );
                         _stringBuilder.Append( Environment.NewLine );

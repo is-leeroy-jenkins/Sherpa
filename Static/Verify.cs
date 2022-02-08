@@ -282,7 +282,7 @@ namespace BudgetExecution
         {
             if( !Enum.IsDefined( typeof( TransferType ), transfer ) )
             {
-                Fail( new ArgumentException( "Verify [ enum Source ] input argument!" ) );
+                Fail( new ArgumentException( "Verify [ enum ImageSource ] input argument!" ) );
                 return false;
             }
             else
@@ -307,7 +307,7 @@ namespace BudgetExecution
             if( !Enum.IsDefined( typeof( Source ), source )
                 || !Resource.AuthoritySources.Contains( _source ) )
             {
-                Fail( new ArgumentException( "Verify [ enum Source ] input argument!" ) );
+                Fail( new ArgumentException( "Verify [ enum ImageSource ] input argument!" ) );
                 return false;
             }
             else
@@ -329,7 +329,7 @@ namespace BudgetExecution
         {
             if( !Enum.IsDefined( typeof( Source ), source ) )
             {
-                Fail( new ArgumentException( "Verify [ enum Source ] input argument!" ) );
+                Fail( new ArgumentException( "Verify [ enum ImageSource ] input argument!" ) );
                 return false;
             }
             else

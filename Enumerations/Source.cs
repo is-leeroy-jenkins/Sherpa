@@ -1,4 +1,4 @@
-﻿// <copyright file = "Source.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "ImageSource.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 

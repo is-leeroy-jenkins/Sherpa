@@ -44,7 +44,7 @@ namespace BudgetExecution
         {
             if( !Enum.IsDefined( typeof( Source ), source ) )
             {
-                Fail( new ArgumentException( "Verify [ enum Source ] input argument!" ) );
+                Fail( new ArgumentException( "Verify [ enum ImageSource ] input argument!" ) );
                 return false;
             }
             else

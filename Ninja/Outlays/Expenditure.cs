@@ -19,7 +19,7 @@ namespace BudgetExecution
     public class Expenditure : Obligation
     {
         /// <summary>
-        /// Gets or sets the Source.
+        /// Gets or sets the ImageSource.
         /// </summary>
         /// <value>
         /// The source.

@@ -21,7 +21,7 @@ namespace BudgetExecution
         /// <value>
         /// The image builder.
         /// </value>
-        public ImageBuilder Builder { get; set; }
+        public ImageBuilder ImageBuilder { get; set; }
 
         /// <summary>
         /// Gets or sets the image factory.
@@ -29,7 +29,7 @@ namespace BudgetExecution
         /// <value>
         /// The image factory.
         /// </value>
-        public ImageFactory Factory { get; set; }
+        public ImageFactory ImageFactory { get; set; }
 
         /// <summary>
         /// Gets or sets the budget images.
@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <value>
         /// The image source.
         /// </value>
-        public ImageSource Source { get; set; }
+        public ImageSource ImageSource { get; set; }
 
         /// <summary>
         /// Gets or sets the binding source.
@@ -73,20 +73,19 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref = "ImageList"/> class.
         /// </summary>
-        /// <param name = "imageSource" >
+        /// <param name = "imageImageSource" >
         /// The image source.
         /// </param>
         /// <param name = "size" >
         /// The size.
         /// </param>
-        public ImageList( ImageSource imageSource, Size size )
+        public ImageList( ImageSource imageImageSource, Size size )
         {
-            Source = imageSource;
+            ImageSource = imageImageSource;
             ImageSize = size;
-            Builder = new ImageBuilder( Source );
-            Factory = new ImageFactory( Builder );
+            ImageBuilder = new ImageBuilder( ImageSource );
+            ImageFactory = new ImageFactory( ImageBuilder );
             UseImageSize = true;
         }
-        
     }
 }
