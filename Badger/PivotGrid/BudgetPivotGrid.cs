@@ -53,12 +53,24 @@ namespace BudgetExecution
             // Expander Style Properties
 
             // Filter DropDown Style Properties
+            ThemeStyle.FilterDropDownStyle.ForeColor = BudgetColor.LightGray;
+            ThemeStyle.FilterDropDownStyle.BackColor = BudgetColor.FormDark;
+            ThemeStyle.FilterDropDownStyle.BorderColor = BudgetColor.WindowFrame;
 
             // Group Bar Item Style Properties
+            ThemeStyle.GroupBarItemStyle.ForeColor = BudgetColor.LightGray;
+            ThemeStyle.GroupBarItemStyle.BackColor = BudgetColor.FormDark;
+            ThemeStyle.GroupBarItemStyle.Font = BudgetFont.FontSizeSmall;
+            ThemeStyle.GroupBarItemStyle.SortIconColor = BudgetColor.SteelBlue;
 
             // Group Bar Style Properties
+            ThemeStyle.GroupBarStyle.FilterAreaBackColor = BudgetColor.ControlInteriorDark;
+            ThemeStyle.GroupBarStyle.BackColor = BudgetColor.FormDark;
 
             // PivotValueChoserStyle Properties
+            ThemeStyle.PivotValueChooserStyle.ForeColor = BudgetColor.LightGray;
+            ThemeStyle.PivotValueChooserStyle.BackColor = BudgetColor.FormDark;
+            ThemeStyle.PivotValueChooserStyle.BorderColor = BudgetColor.WindowFrame;
         }
     }
 }

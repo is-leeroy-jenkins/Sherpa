@@ -84,11 +84,13 @@ namespace BudgetExecution
             Dock = BudgetControl.GetDockStyle();
             Margin = BudgetControl.Margin;
             Padding = BudgetControl.Padding;
-            Font = new Font( "Roboto", 10  );
+            Font = BudgetFont.FontSizeSmall;
             ForeColor = BudgetColor.LightGray;
             Enabled = true;
             Visible = true;
             AlternateColors = false;
+            Text = string.Empty;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
 
             // Backcolor SeriesConfiguration
             BackColor = BudgetColor.FormDark;
@@ -100,11 +102,12 @@ namespace BudgetExecution
             Border.Color = BudgetColor.FormDark;
             Border.Thickness = BudgetBorder.Thin;
             Border.HoverColor = BudgetColor.SteelBlue;
-            Border.HoverVisible = false;
+            Border.HoverVisible = true;
 
             // Item SeriesConfiguration
             ItemHeight = 30;
             ItemLineAlignment = BudgetAlign.StringAlignCenter;
+            ItemAlternate = BudgetColor.FormDark;
             ItemNormal = BudgetColor.FormDark;
             ItemSelected = BudgetColor.SteelBlue;
         }

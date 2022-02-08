@@ -585,11 +585,11 @@
     <Compile Include="Badger\Web\BudgetWebBrowser.Designer.cs">
       <DependentUpon>BudgetWebBrowser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Navigation\BudgetNavigation.cs">
+    <Compile Include="Badger\Navigation\BudgetNavigationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Badger\Navigation\BudgetNavigation.Designer.cs">
-      <DependentUpon>BudgetNavigation.cs</DependentUpon>
+    <Compile Include="Badger\Navigation\BudgetNavigationForm.Designer.cs">
+      <DependentUpon>BudgetNavigationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Badger\Calculator\BudgetCalculatorForm.cs">
       <SubType>Form</SubType>
@@ -601,6 +601,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\PivotChart\BudgetPivotChart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\Navigation\BudgetNavigationMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BudgetNotification.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
@@ -750,7 +756,7 @@
     </Compile>
     <Compile Include="Badger\ListBox\ListBoxBase.cs" />
     <Compile Include="Badger\ListView\ListViewBase.cs" />
-    <Compile Include="Badger\Navigation\NavigatorBase.cs">
+    <Compile Include="Badger\Navigation\NavigatorMenuBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Ninja\Analysis\Computation.cs" />
@@ -987,8 +993,8 @@
     <EmbeddedResource Include="Badger\Web\BudgetWebBrowser.resx">
       <DependentUpon>BudgetWebBrowser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Badger\Navigation\BudgetNavigation.resx">
-      <DependentUpon>BudgetNavigation.cs</DependentUpon>
+    <EmbeddedResource Include="Badger\Navigation\BudgetNavigationForm.resx">
+      <DependentUpon>BudgetNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\Calculator\BudgetCalculatorForm.resx">
       <DependentUpon>BudgetCalculatorForm.cs</DependentUpon>
@@ -3065,7 +3071,9 @@
     <Content Include="Lib\VisualPlus.dll" />
     <Content Include="readme.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Badger\Notification\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>

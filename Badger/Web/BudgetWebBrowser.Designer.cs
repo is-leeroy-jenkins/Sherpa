@@ -48,12 +48,11 @@ namespace BudgetExecution
             this.WebBrowser.DefaultFormat.Bottom.Color = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.WebBrowser.DefaultFormat.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WebBrowser.DefaultFormat.ForeColor = System.Drawing.Color.LightGray;
-            this.WebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.WebBrowser.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WebBrowser.Location = new System.Drawing.Point(0, 0);
+            this.WebBrowser.Location = new System.Drawing.Point(92, 43);
             this.WebBrowser.Name = "WebBrowser";
             this.WebBrowser.ShowTitle = false;
-            this.WebBrowser.Size = new System.Drawing.Size(1208, 764);
+            this.WebBrowser.Size = new System.Drawing.Size(1033, 588);
             this.WebBrowser.TabIndex = 0;
             this.WebBrowser.Text = "<html/>";
             // 
@@ -67,7 +66,7 @@ namespace BudgetExecution
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CaptionForeColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(1208, 764);
+            this.ClientSize = new System.Drawing.Size(1208, 704);
             this.Controls.Add(this.WebBrowser);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.LightGray;

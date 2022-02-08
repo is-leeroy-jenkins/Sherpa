@@ -412,7 +412,6 @@ C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.TestForm
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetExcelForm.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetPdfForm.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetWebBrowser.resources
-C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetNavigation.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetCalculatorForm.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Properties.Resources.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.ExecutionForm.resources
@@ -421,3 +420,5 @@ C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.C
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.CopyComplete
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetNavigationForm.resources
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
