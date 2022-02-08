@@ -600,6 +600,9 @@
     <Compile Include="Badger\PivotGrid\BudgetPivotGrid.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Badger\PivotChart\BudgetPivotChart.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />
@@ -747,6 +750,9 @@
     </Compile>
     <Compile Include="Badger\ListBox\ListBoxBase.cs" />
     <Compile Include="Badger\ListView\ListViewBase.cs" />
+    <Compile Include="Badger\Navigation\NavigatorBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Ninja\Analysis\Computation.cs" />
     <Compile Include="Ninja\Analysis\DataMetric.cs" />
     <Compile Include="Ninja\Analysis\IDataFilter.cs" />
@@ -884,6 +890,9 @@
     <Compile Include="Enumerations\PrimaryKey.cs" />
     <Compile Include="Badger\PictureBox\PictureBase.cs" />
     <Compile Include="Badger\PivotGrid\PivotGridBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\PivotChart\PivotChartBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />

@@ -20,7 +20,7 @@ namespace BudgetExecution
             GridVisualStyles = GridVisualStyles.Office2016Black;
             Font = BudgetFont.FontSizeSmall;
             ForeColor = BudgetColor.LightGray;
-            Size = BudgetSize.GetSize( 580, 250 );
+            Size = BudgetSize.GetSize( 400, 300 );
             ShowCalculationsAsColumns = true;
             ShowSubTotals = true;
 

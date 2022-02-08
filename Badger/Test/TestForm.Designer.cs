@@ -34,6 +34,8 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.folderBrowser1 = new Syncfusion.Windows.Forms.FolderBrowser(this.components);
             this.SuspendLayout();
             // 
             // TestForm
@@ -57,5 +59,7 @@ namespace BudgetExecution
         }
 
         #endregion
+
+        private Syncfusion.Windows.Forms.FolderBrowser folderBrowser1;
     }
 }
