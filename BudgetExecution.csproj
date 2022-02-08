@@ -597,6 +597,9 @@
     <Compile Include="Badger\Calculator\BudgetCalculatorForm.Designer.cs">
       <DependentUpon>BudgetCalculatorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Badger\PivotGrid\BudgetPivotGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />
@@ -880,6 +883,9 @@
     <Compile Include="Enumerations\OutlayType.cs" />
     <Compile Include="Enumerations\PrimaryKey.cs" />
     <Compile Include="Badger\PictureBox\PictureBase.cs" />
+    <Compile Include="Badger\PivotGrid\PivotGridBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Badger\Progress\ProgressBarBase.cs">
       <SubType>Component</SubType>

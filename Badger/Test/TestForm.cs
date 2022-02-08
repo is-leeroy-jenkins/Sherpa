@@ -22,6 +22,12 @@ namespace BudgetExecution
         /// </value>
         public NameValueCollection Setting { get;  set; } = ConfigurationManager.AppSettings;
 
+        /// <summary>
+        /// Gets or sets the budget button.
+        /// </summary>
+        /// <value>
+        /// The budget button.
+        /// </value>
         public BudgetButton BudgetButton { get; set; } = new BudgetButton();
 
         /// <summary>
@@ -50,7 +56,7 @@ namespace BudgetExecution
             CaptionFont = BudgetFont.FontSizeMedium;
             MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
-            Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 16, 16 );
+            Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 32, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
