@@ -145,18 +145,19 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="fontFamily">
         /// The font family.</param>
-        /// <param name="color">
-        /// The color.</param>
+        /// <param name="fontColor">
+        /// The backColor.</param>
         /// <param name="fontSize">
         /// Size of the font.</param>
-        public void SetFontStyle( string fontFamily, Color color, int fontSize = 10 )
+        public void SetFontStyle( string fontFamily, Color fontColor, int fontSize = 10 )
         {
-            if( Verify.IsInput( fontFamily ) )
+            if( Verify.IsInput( fontFamily ) 
+               && fontColor != Color.Empty )
             {
                 try
                 {
                     Font = new Font( fontFamily, fontSize );
-                    ForeColor = color;
+                    ForeColor = fontColor;
                 }
                 catch( Exception ex )
                 {
@@ -166,17 +167,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the color of the back.
+        /// Sets the backColor of the back.
         /// </summary>
-        /// <param name="color">
-        /// The color.</param>
-        public void SetBackColor( Color color )
+        /// <param name="backColor">
+        /// The backColor.</param>
+        public void SetBackColor( Color backColor )
         {
-            if( color != Color.Empty )
+            if( backColor != Color.Empty )
             {
                 try
                 {
-                    BackColorState.Enabled = color;
+                    BackColorState.Enabled = backColor;
                 }
                 catch( Exception ex )
                 {
