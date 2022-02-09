@@ -110,6 +110,12 @@ namespace BudgetExecution
             ItemAlternate = BudgetColor.FormDark;
             ItemNormal = BudgetColor.FormDark;
             ItemSelected = BudgetColor.SteelBlue;
+
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
         
         /// <summary>

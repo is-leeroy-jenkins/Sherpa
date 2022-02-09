@@ -41,6 +41,12 @@ namespace BudgetExecution
             Border.Thickness = BudgetBorder.Thin;
             Border.HoverColor = BudgetColor.SteelBlue;
             Border.HoverVisible = false;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
         
         public BudgetLayout( Size size, Point location ) 

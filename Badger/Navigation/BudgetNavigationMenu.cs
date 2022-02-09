@@ -7,7 +7,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Drawing;
-    using OfficeOpenXml.FormulaParsing.Excel.Functions.Information;
+    using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
     public class BudgetNavigationMenu : NavigatorMenuBase
@@ -62,6 +62,12 @@ namespace BudgetExecution
             // Navigation Panel Properties
             ThemeStyle.PanelBackColor = BudgetColor.FormDark;
             ThemeStyle.DisabledPanelBackColor = BudgetColor.FormDark;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
     }
 }

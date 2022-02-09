@@ -52,7 +52,7 @@ namespace BudgetExecution
             this.carousel1.RotateAlways = false;
             this.carousel1.ShowImagePreview = true;
             this.carousel1.ShowImageShadow = true;
-            this.carousel1.Size = new System.Drawing.Size(300, 150);
+            this.carousel1.Size = new System.Drawing.Size(313, 150);
             this.carousel1.TabIndex = 1;
             this.carousel1.Text = "carousel1";
             this.carousel1.ThemeName = "Metro";

@@ -107,9 +107,14 @@ namespace BudgetExecution
             MaximumSize = BudgetSize.FormSizeMaximum;
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
-
             Calendar.Dock = DockStyle.Fill;
             Controls.Add( Calendar );
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
     }
 }

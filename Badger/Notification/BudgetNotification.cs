@@ -48,6 +48,12 @@ namespace BudgetExecution
             MarqueeDirection = SplashPanelMarqueeDirection.RightToLeft;
             SlideStyle = SlideStyle.FadeIn;
             Text = string.Empty;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
     }
 }

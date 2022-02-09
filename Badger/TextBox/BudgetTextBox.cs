@@ -24,6 +24,7 @@ namespace BudgetExecution
             ForeColor = BudgetColor.LightGray;
             Enabled = true;
             Visible = true;
+            Text = string.Empty;
 
             // BackColor SeriesConfiguration
             BackColor = BudgetColor.FormDark;
@@ -35,8 +36,12 @@ namespace BudgetExecution
             Border.Thickness = BudgetBorder.Thin;
             Border.HoverColor = BudgetColor.SteelBlue;
             Border.HoverVisible = false;
-
-            Text = string.Empty;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
         
         /// <summary>

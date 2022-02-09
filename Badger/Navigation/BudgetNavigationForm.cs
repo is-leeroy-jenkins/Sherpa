@@ -12,7 +12,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.Tools;
 
     public partial class BudgetNavigationForm : MetroForm
     {
@@ -101,6 +100,12 @@ namespace BudgetExecution
             Text = string.Empty;
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
     }
 }

@@ -98,6 +98,12 @@ namespace BudgetExecution
             MaximumSize = BudgetSize.FormSizeMaximum;
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
     }
 }

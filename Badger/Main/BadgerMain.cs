@@ -9,6 +9,7 @@ namespace BudgetExecution
     using System.Collections.Specialized;
     using System.Configuration;
     using System.Drawing;
+    using System.Windows.Forms;
 
     public partial class BadgerMain : FormBase
     {
@@ -37,6 +38,12 @@ namespace BudgetExecution
             MinimumSize = BudgetSize.FormSizeMinimum;
             MaximumSize = BudgetSize.FormSizeMaximum;
             TestButton.BackColor = BudgetColor.ForeColorBlack;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
     }
 }

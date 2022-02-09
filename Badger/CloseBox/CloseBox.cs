@@ -32,6 +32,12 @@ namespace BudgetExecution
             MinimizeNormalForeColor = BudgetColor.FormDark;
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
         
         /// <summary>

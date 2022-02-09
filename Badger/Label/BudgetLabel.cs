@@ -86,6 +86,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetLabel()
         {
+            // Basic Properties
             Size = BudgetSize.GetSize( 165, 23 );
             Location = BudgetControl.GetLocation();
             BackColor = BudgetColor.FormDark;
@@ -100,6 +101,12 @@ namespace BudgetExecution
             TextAlignment = BudgetAlign.StringAlignCenter;
             TextLineAlignment = BudgetAlign.StringAlignCenter;
             OutlineColor = BudgetColor.FormDark;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         /// <summary>

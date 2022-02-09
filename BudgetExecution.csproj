@@ -609,10 +609,10 @@
     <Compile Include="Badger\Notification\BudgetNotification.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BudgetCarousel.cs">
+    <Compile Include="Badger\Carousel\BudgetCarousel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CarouselBase.cs">
+    <Compile Include="Badger\Carousel\CarouselBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
@@ -3080,9 +3080,7 @@
     <Content Include="Lib\VisualPlus.dll" />
     <Content Include="readme.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Badger\Carousel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>

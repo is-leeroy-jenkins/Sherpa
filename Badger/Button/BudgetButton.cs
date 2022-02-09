@@ -118,6 +118,14 @@ namespace BudgetExecution
             TextStyle.Hover = BudgetColor.White;
             TextStyle.TextAlignment = BudgetAlign.StringAlignCenter;
             TextStyle.TextLineAlignment = BudgetAlign.StringAlignCenter;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
+
+            // Event-Wiring
             MouseHover += OnMouseOver;
             MouseLeave += OnMouseLeave;
         }

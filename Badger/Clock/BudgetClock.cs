@@ -77,6 +77,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetClock()
         {
+            // Basic Properties
             BackColor = BudgetColor.FormDark;
             BorderColor = BackColor;
             ForeColor = BudgetColor.ForeColorGray;
@@ -101,6 +102,12 @@ namespace BudgetExecution
             Anchor = BudgetControl.GetAnchorStyle();
             Visible = true;
             Enabled = true;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         /// <summary>

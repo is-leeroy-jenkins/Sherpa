@@ -117,6 +117,12 @@ namespace BudgetExecution
             Visible = true;
             Enabled = true;
             ColumnHeaderMouseClick += OnRightClick;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         /// <summary>

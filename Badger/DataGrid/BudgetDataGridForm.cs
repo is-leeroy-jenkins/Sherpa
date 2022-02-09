@@ -111,10 +111,15 @@ namespace BudgetExecution
             MaximumSize = BudgetSize.FormSizeMaximum;
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
-
             DataGrid.Size = new Size( Size.Width - 400, Size.Height - 200 );
             DataGrid.Location = new Point( Size.Width / 10, Size.Height / 10 );
             Controls.Add( DataGrid );
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
     }
 }

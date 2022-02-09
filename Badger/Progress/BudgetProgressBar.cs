@@ -102,6 +102,12 @@ namespace BudgetExecution
             ThemeName = "Metro";
             Text = string.Empty;
             Value = 0;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         /// <summary>

@@ -94,7 +94,8 @@ namespace BudgetExecution
         /// Sets the binding source.
         /// </summary>
         /// <param name="bindingSource">The Binding Source.</param>
-        public virtual void SetDataSource<T1>( T1 bindingSource ) where T1 : IBindingList
+        public virtual void SetDataSource<T1>( T1 bindingSource ) 
+            where T1 : IBindingList
         {
             try
             {
@@ -125,7 +126,8 @@ namespace BudgetExecution
         /// <param name="bindinglist">The bindingSource.</param>
         /// <param name="dict">The dictionary.</param>
         public virtual void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
-            where T1 : IBindingList where T2 : IDictionary<string, object>
+            where T1 : IBindingList 
+            where T2 : IDictionary<string, object>
         {
             try
             {

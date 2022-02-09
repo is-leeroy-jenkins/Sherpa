@@ -158,6 +158,12 @@ namespace BudgetExecution
             Legend.ShowItemsShadow = true;
             Legend.ShowBorder = false;
             Legend.Visible = true;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         /// <summary>

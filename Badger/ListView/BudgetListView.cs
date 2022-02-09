@@ -121,6 +121,12 @@ namespace BudgetExecution
 
             // Item SeriesConfiguration
             ItemHeight = 30;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
         
         /// <summary>

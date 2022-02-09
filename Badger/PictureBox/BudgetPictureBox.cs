@@ -82,6 +82,12 @@ namespace BudgetExecution
             Margin = BudgetControl.Margin;
             Padding = BudgetControl.Padding;
             SizeMode = PictureBoxSizeMode.StretchImage;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         /// <summary>

@@ -6,11 +6,8 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
     public class BudgetPivotGrid : PivotGridBase
@@ -71,6 +68,12 @@ namespace BudgetExecution
             ThemeStyle.PivotValueChooserStyle.ForeColor = BudgetColor.LightGray;
             ThemeStyle.PivotValueChooserStyle.BackColor = BudgetColor.FormDark;
             ThemeStyle.PivotValueChooserStyle.BorderColor = BudgetColor.WindowFrame;
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
     }
 }
