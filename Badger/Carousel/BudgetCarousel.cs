@@ -1,11 +1,9 @@
 ﻿// <copyright file = "BudgetCarousel.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
-//
 
 namespace BudgetExecution
 {
-    using System;
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
@@ -19,6 +17,8 @@ namespace BudgetExecution
             ForeColor = BudgetColor.LightGray;
             Font = BudgetFont.FontSizeSmall;
             Size = new Size( 300, 150 );
+            Dock = DockStyle.None;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
             CarouselPath = CarouselPath.Linear;
             ImageSlides = true;
             Padding = new Padding( 0, 0, 0, 0 );
@@ -30,6 +30,9 @@ namespace BudgetExecution
             ShowImageShadow = true;
             TransitionSpeed = 2;
             UseOriginalImageinPreview = false;
+            UseCustomBounds = false;
+            CanOverrideStyle = true;
+            VisualStyle = CarouselVisualStyle.Metro;
 
             // ThemeStyle Properties
             ThemeStyle.BackColor = BudgetColor.Transparent;

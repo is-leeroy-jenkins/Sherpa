@@ -30,6 +30,14 @@ namespace BudgetExecution
         public static Color SteelBlue { get; set; } = Color.SteelBlue;
 
         /// <summary>
+        /// Gets or sets the light blue.
+        /// </summary>
+        /// <value>
+        /// The light blue.
+        /// </value>
+        public static Color LightBlue { get; set; } = Color.LightSteelBlue;
+
+        /// <summary>
         /// Gets or sets the window frame.
         /// </summary>
         /// <value>

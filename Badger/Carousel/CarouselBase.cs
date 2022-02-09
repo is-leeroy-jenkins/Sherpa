@@ -8,10 +8,12 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Collections.Specialized;
     using System.Configuration;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class CarouselBase : Carousel
     {
         /// <summary>
