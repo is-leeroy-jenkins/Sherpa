@@ -42,6 +42,7 @@ namespace BudgetExecution
             // 
             this.splashPanel1.BackgroundColor = new Syncfusion.Drawing.BrushInfo(Syncfusion.Drawing.GradientStyle.Vertical, System.Drawing.SystemColors.Highlight, System.Drawing.SystemColors.HighlightText);
             this.splashPanel1.BeforeTouchSize = new System.Drawing.Size(300, 150);
+            this.splashPanel1.BorderStyle = System.Windows.Forms.Border3DStyle.Flat;
             this.splashPanel1.DiscreetLocation = new System.Drawing.Point(0, 0);
             this.splashPanel1.Location = new System.Drawing.Point(100, 173);
             this.splashPanel1.Name = "splashPanel1";

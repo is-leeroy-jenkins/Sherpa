@@ -606,7 +606,7 @@
     <Compile Include="Badger\Navigation\BudgetNavigationMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BudgetNotification.cs">
+    <Compile Include="Badger\Notification\BudgetNotification.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
@@ -3071,9 +3071,7 @@
     <Content Include="Lib\VisualPlus.dll" />
     <Content Include="readme.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Badger\Notification\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>

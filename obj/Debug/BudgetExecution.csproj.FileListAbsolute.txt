@@ -189,7 +189,6 @@ C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Syncfusion.XlsIO.Windows.x
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.Data.SQLite.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.IO.Packaging.xml
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.ValueTuple.xml
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetDataGridForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Error.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BadgerMain.resources
@@ -201,7 +200,6 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.TestForm.r
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetExcelForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetPdfForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetWebBrowser.resources
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetNavigation.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetCalculatorForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Properties.Resources.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.ExecutionForm.resources
@@ -422,3 +420,4 @@ C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetNavigationForm.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
+C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetNavigationForm.resources
