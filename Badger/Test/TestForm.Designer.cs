@@ -34,21 +34,8 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeComponent()
         {
-            this.splashPanel1 = new Syncfusion.Windows.Forms.Tools.SplashPanel();
             this.carousel1 = new Syncfusion.Windows.Forms.Tools.Carousel();
             this.SuspendLayout();
-            // 
-            // splashPanel1
-            // 
-            this.splashPanel1.BackgroundColor = new Syncfusion.Drawing.BrushInfo(Syncfusion.Drawing.GradientStyle.Vertical, System.Drawing.SystemColors.Highlight, System.Drawing.SystemColors.HighlightText);
-            this.splashPanel1.BeforeTouchSize = new System.Drawing.Size(300, 150);
-            this.splashPanel1.BorderStyle = System.Windows.Forms.Border3DStyle.Flat;
-            this.splashPanel1.DiscreetLocation = new System.Drawing.Point(0, 0);
-            this.splashPanel1.Location = new System.Drawing.Point(100, 173);
-            this.splashPanel1.Name = "splashPanel1";
-            this.splashPanel1.Size = new System.Drawing.Size(300, 150);
-            this.splashPanel1.TabIndex = 0;
-            this.splashPanel1.Text = "splashPanel1";
             // 
             // carousel1
             // 
@@ -85,7 +72,6 @@ namespace BudgetExecution
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.ClientSize = new System.Drawing.Size(1058, 616);
             this.Controls.Add(this.carousel1);
-            this.Controls.Add(this.splashPanel1);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.LightGray;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -100,8 +86,6 @@ namespace BudgetExecution
         }
 
         #endregion
-
-        private Syncfusion.Windows.Forms.Tools.SplashPanel splashPanel1;
         private Syncfusion.Windows.Forms.Tools.Carousel carousel1;
     }
 }

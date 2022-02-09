@@ -609,6 +609,12 @@
     <Compile Include="Badger\Notification\BudgetNotification.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="BudgetCarousel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CarouselBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />
@@ -899,6 +905,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\PivotChart\PivotChartBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\Notification\NotificationBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
@@ -3071,7 +3080,9 @@
     <Content Include="Lib\VisualPlus.dll" />
     <Content Include="readme.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Badger\Carousel\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
