@@ -68,7 +68,7 @@ namespace BudgetExecution
         public AdapterFactory( AdapterBuilder adapterBuilder )
         {
             AdapterBuilder = adapterBuilder;
-            ConnectionBuilder = AdapterBuilder.GetConnectionBuilder();
+            ConnectionBuilder = AdapterBuilder.ConnectionBuilder;
             Connection = new ConnectionFactory( ConnectionBuilder )?.GetConnection();
             SqlStatement = new SqlStatement( ConnectionBuilder );
             CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
