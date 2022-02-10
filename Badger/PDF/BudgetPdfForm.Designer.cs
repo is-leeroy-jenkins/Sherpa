@@ -34,10 +34,10 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings messageBoxSettings1 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings();
-            Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings1 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
+            Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings messageBoxSettings2 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings();
+            Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings2 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BudgetPdfForm));
-            Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings1 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
+            Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings2 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
             this.DocumentViewer = new Syncfusion.Windows.Forms.PdfViewer.PdfDocumentView();
             this.SuspendLayout();
             // 
@@ -52,28 +52,28 @@ namespace BudgetExecution
             this.DocumentViewer.HorizontalScrollOffset = 0;
             this.DocumentViewer.IsTextSearchEnabled = true;
             this.DocumentViewer.IsTextSelectionEnabled = true;
-            this.DocumentViewer.Location = new System.Drawing.Point(63, 28);
-            messageBoxSettings1.EnableNotification = true;
-            this.DocumentViewer.MessageBoxSettings = messageBoxSettings1;
+            this.DocumentViewer.Location = new System.Drawing.Point(63, 70);
+            messageBoxSettings2.EnableNotification = true;
+            this.DocumentViewer.MessageBoxSettings = messageBoxSettings2;
             this.DocumentViewer.MinimumZoomPercentage = 50;
             this.DocumentViewer.Name = "DocumentViewer";
             this.DocumentViewer.PageBorderThickness = 2;
-            pdfViewerPrinterSettings1.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
-            pdfViewerPrinterSettings1.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
-            pdfViewerPrinterSettings1.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings1.PrintLocation")));
-            pdfViewerPrinterSettings1.ShowPrintStatusDialog = true;
-            this.DocumentViewer.PrinterSettings = pdfViewerPrinterSettings1;
+            pdfViewerPrinterSettings2.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
+            pdfViewerPrinterSettings2.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
+            pdfViewerPrinterSettings2.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings2.PrintLocation")));
+            pdfViewerPrinterSettings2.ShowPrintStatusDialog = true;
+            this.DocumentViewer.PrinterSettings = pdfViewerPrinterSettings2;
             this.DocumentViewer.ReferencePath = "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Etc\\doc\\RMDS\\";
             this.DocumentViewer.ScrollDisplacementValue = 0;
             this.DocumentViewer.ShowHorizontalScrollBar = true;
             this.DocumentViewer.ShowVerticalScrollBar = true;
-            this.DocumentViewer.Size = new System.Drawing.Size(799, 603);
+            this.DocumentViewer.Size = new System.Drawing.Size(799, 465);
             this.DocumentViewer.SpaceBetweenPages = 8;
             this.DocumentViewer.TabIndex = 0;
-            textSearchSettings1.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
-            textSearchSettings1.HighlightAllInstance = true;
-            textSearchSettings1.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            this.DocumentViewer.TextSearchSettings = textSearchSettings1;
+            textSearchSettings2.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
+            textSearchSettings2.HighlightAllInstance = true;
+            textSearchSettings2.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            this.DocumentViewer.TextSearchSettings = textSearchSettings2;
             this.DocumentViewer.ThemeName = "Office2016Black";
             this.DocumentViewer.VerticalScrollOffset = 0;
             this.DocumentViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Office2016Black;
@@ -98,6 +98,7 @@ namespace BudgetExecution
             this.ShowIcon = false;
             this.Text = "Budget Execution";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

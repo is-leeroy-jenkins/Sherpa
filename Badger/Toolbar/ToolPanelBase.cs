@@ -10,7 +10,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     /// <seealso cref = "Syncfusion.Windows.Forms.Tools.ToolStripEx"/>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public class ToolPanelBase : ToolPanelData
+    public class ToolPanelBase : ToolBarBase
     {
         /// <summary>
         /// The image path
@@ -43,18 +43,18 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the button.
         /// </summary>
-        /// <param name = "imagename" >
+        /// <param name = "imageName" >
         /// The name.
         /// </param>
         /// <returns>
         /// </returns>
-        public BarButton CreateButton( string imagename )
+        public BarButton CreateButton( string imageName )
         {
-            if( Verify.IsInput( imagename ) )
+            if( Verify.IsInput( imageName ) )
             {
                 try
                 {
-                    var _image = new BudgetImage( imagename, ImageSource.ToolBarImages, ImageSizer.Small );
+                    var _image = new BudgetImage( imageName, ImageSource.ToolBarImages, ImageSizer.Small );
                     var _button = new BarButton( _image );
                     Items?.Add( _button );
 
@@ -84,7 +84,7 @@ namespace BudgetExecution
                 var _label = new BarLabel();
                 Items?.Add( _label );
 
-                return _label?.BindingSource != null && Items?.Count > 0
+                return ( _label?.BindingSource != null && Items?.Count > 0 )
                     ? _label
                     : default( BarLabel );
             }
@@ -107,7 +107,7 @@ namespace BudgetExecution
                 var _comboBox = new BarComboBox();
                 Items?.Add( _comboBox );
 
-                return Items?.Count > 0
+                return ( Items?.Count > 0 )
                     ? _comboBox
                     : default( BarComboBox );
             }
@@ -130,7 +130,7 @@ namespace BudgetExecution
                 var _textBox = new BarTextBox();
                 Items?.Add( _textBox );
 
-                return Items?.Count > 0
+                return ( Items?.Count > 0 )
                     ? _textBox
                     : default( BarTextBox );
             }

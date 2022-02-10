@@ -14,6 +14,10 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using VisualPlus.Enumerators;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.ComboBase" />
     public class BudgetComboBox : ComboBase
     {
         /// <summary>

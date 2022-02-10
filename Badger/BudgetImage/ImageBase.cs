@@ -13,6 +13,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    /// <seealso cref="BudgetExecution.BudgetSize" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -20,20 +21,29 @@ namespace BudgetExecution
     public abstract class ImageBase : BudgetSize 
     {
         /// <summary>
-        /// The image
+        /// Gets or sets the image.
         /// </summary>
-        public virtual Bitmap Image { get; set; }
+        /// <value>
+        /// The image.
+        /// </value>
+        public virtual Bitmap ImageFile { get; set; }
 
         /// <summary>
-        /// The source
+        /// Gets or sets the source.
         /// </summary>
-        public virtual ImageSource Source { get; set; }
+        /// <value>
+        /// The source.
+        /// </value>
+        public virtual ImageSource ImageSource { get; set; }
 
         /// <summary>
-        /// The format
+        /// Gets or sets the format.
         /// </summary>
-        public virtual ImageFormat Format { get; set; }
-        
+        /// <value>
+        /// The format.
+        /// </value>
+        public virtual ImageFormat ImageFormat { get; set; }
+
         /// <summary>
         /// Gets or sets the color of the back ground.
         /// </summary>
@@ -51,18 +61,18 @@ namespace BudgetExecution
         public virtual Color Color { get; set; }
 
         /// <summary>
-        /// Gets or sets the size of the image.
+        /// Gets or sets the size.
         /// </summary>
         /// <value>
-        /// The size of the image.
+        /// The size.
         /// </value>
         public virtual Size Size { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the image.
+        /// Gets or sets the name.
         /// </summary>
         /// <value>
-        /// The name of the image.
+        /// The name.
         /// </value>
         public virtual string Name { get; set; }
 
@@ -73,35 +83,38 @@ namespace BudgetExecution
         /// The file extension.
         /// </value>
         public virtual string FileExtension { get; set; }
-        
+
         /// <summary>
-        /// Sets the image source.
+        /// Gets the image source.
         /// </summary>
         /// <param name="source">The source.</param>
-        public virtual void SetImageSource( ImageSource source )
+        /// <returns></returns>
+        public virtual ImageSource GetImageSource( ImageSource source )
         {
             try
             {
-                Source = Validate.ImageResource( source )
+                return Verify.ImageResource( source )
                     ? source
                     : ImageSource.NS;
             }
             catch( Exception ex )
             {
                 Fail( ex );
+                return ImageSource.NS;
             }
         }
-        
+
         /// <summary>
-        /// Sets the file extension.
+        /// Gets the file extension.
         /// </summary>
-        /// <param name="filePath">The filePath.</param>
+        /// <param name="filePath">The file path.</param>
         /// <param name="resource">The resource.</param>
-        public virtual void SetFileExtension( string filePath, ImageSource resource = ImageSource.NS )
+        /// <returns></returns>
+        public virtual string GetFileExtension( string filePath, ImageSource resource = ImageSource.NS )
         {
             try
             {
-                FileExtension = Validate.ImageResource( resource )
+                return Verify.ImageResource( resource )
                     && Verify.IsInput( filePath )
                     && File.Exists( filePath )
                     && resource != ImageSource.NS
@@ -111,135 +124,117 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+                return string.Empty;
             }
         }
-        
+
         /// <summary>
-        /// Sets the image format.
+        /// Gets the image format.
         /// </summary>
         /// <param name="format">The format.</param>
-        public virtual void SetImageFormat( ImageFormat format )
+        /// <returns></returns>
+        public virtual ImageFormat GetImageFormat( ImageFormat format )
         {
             try
             {
-                Format = Enum.IsDefined( typeof( ImageFormat ), format )
+                return Enum.IsDefined( typeof( ImageFormat ), format )
                     ? format
                     : ImageFormat.NS;
             }
             catch( Exception ex )
             {
                 Fail( ex );
+                return ImageFormat.NS;
             }
         }
 
         /// <summary>
-        /// Sets the image format.
+        /// Gets the image format.
         /// </summary>
         /// <param name="extension">The extension.</param>
-        public virtual void SetImageFormat( string extension )
+        /// <returns></returns>
+        public virtual ImageFormat GetImageFormat( string extension )
         {
             try
             {
                 var _names = Enum.GetNames( typeof( ImageFormat ) );
 
-                Format = _names.Contains( extension )
+                return _names.Contains( extension )
                     ? (ImageFormat)Enum.Parse( typeof( ImageFormat ), extension )
                     : ImageFormat.PNG;
             }
             catch( Exception ex )
             {
                 Fail( ex );
+                return ImageFormat.NS;
             }
         }
-        
+
         /// <summary>
-        /// Sets the size of the image.
+        /// Gets the size of the image.
         /// </summary>
         /// <param name="size">The size.</param>
-        public virtual void SetImageSize( Size size )
+        /// <returns></returns>
+        public virtual Size GetImageSize( Size size )
         {
             try
             {
-                Size = size != Size.Empty
+                return size != Size.Empty
                     ? GetSize( size )
                     : Size.Empty;
             }
             catch( Exception ex )
             {
                 Fail( ex );
+                return Size.Empty;
             }
         }
 
         /// <summary>
-        /// Sets the size of the image.
+        /// Gets the size of the image.
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public virtual void SetImageSize( int width, int height )
+        /// <returns></returns>
+        public virtual Size GetImageSize( int width, int height )
         {
             try
             {
-                Size = width > -1 && height > -1
+                return width > -1 && height > -1
                     ? GetSize( width, height )
                     : Size.Empty;
             }
             catch( Exception ex )
             {
                 Fail( ex );
+                return Size.Empty;
             }
         }
 
         /// <summary>
-        /// Sets the size of the image.
+        /// Gets the size of the image.
         /// </summary>
         /// <param name="sizer">The sizer.</param>
-        public virtual void SetImageSize( ImageSizer sizer )
+        /// <returns></returns>
+        public virtual Size GetImageSize( ImageSizer sizer )
         {
             try
             {
-                Size = Enum.IsDefined( typeof( ImageSizer ), sizer )
+                return Enum.IsDefined( typeof( ImageSizer ), sizer )
                     ? GetSize( sizer )
                     : Size.Empty;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-            }
-        }
-        
-        /// <summary>
-        /// Res the color.
-        /// </summary>
-        /// <param name="newColor">The newColor.</param>
-        public virtual void ReColor( Color newColor )
-        {
-            if( newColor != Color.Empty )
-            {
-                try
-                {
-                    for( var i = 0; i < Image.Width; i++ )
-                    {
-                        for( var j = 0; j < Image.Height; j++ )
-                        {
-                            if( Image.GetPixel( i, j ) != Color.Transparent )
-                            {
-                                Image.SetPixel( i, j, newColor );
-                            }
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    Image.Dispose();
-                }
+                return Size.Empty;
             }
         }
 
         /// <summary>
         /// Sets the color of the back ground.
         /// </summary>
-        /// <param name="newColor">The newColor.</param>
+        /// <param name="newColor">The new color.</param>
         public virtual void SetBackGroundColor( Color newColor )
         {
             if( newColor != Color.Empty )

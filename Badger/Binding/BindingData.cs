@@ -368,7 +368,7 @@ namespace BudgetExecution
         /// Gets the source.
         /// </summary>
         /// <returns>
-        /// Returns the Source Enumeration
+        /// Returns the ImageSource Enumeration
         /// </returns>
         public override Source GetSource()
         {

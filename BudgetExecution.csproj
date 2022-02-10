@@ -589,7 +589,7 @@
     <Compile Include="Badger\Progress\BudgetProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\TextBox\BudgetTextBox.cs" />
+    <Compile Include="Badger\RichTextBox\BudgetRichTextBox.cs" />
     <Compile Include="Badger\ComboBox\ComboBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -651,10 +651,10 @@
     <Compile Include="Badger\Carousel\CarouselBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BudgetCurrencyBox.cs">
+    <Compile Include="Badger\CurrencyTextBox\BudgetCurrencyTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CurrencyBoxBase.cs">
+    <Compile Include="Badger\CurrencyTextBox\CurrencyBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
@@ -811,6 +811,9 @@
     <Compile Include="Badger\ListBox\ListBoxBase.cs" />
     <Compile Include="Badger\ListView\ListViewBase.cs" />
     <Compile Include="Badger\Navigation\NavigatorMenuBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImageListBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Ninja\Analysis\Computation.cs" />
@@ -981,7 +984,7 @@
     </Compile>
     <Compile Include="Badger\Design\BudgetSize.cs" />
     <Compile Include="Badger\Chart\SeriesModel\SourceModel.cs" />
-    <Compile Include="Badger\TextBox\RichTextBase.cs" />
+    <Compile Include="Badger\RichTextBox\RichTextBase.cs" />
     <Compile Include="Static\Resource.cs" />
     <Compile Include="Static\Static.cs" />
     <Compile Include="Static\Validate.cs" />
@@ -995,13 +998,13 @@
     <Compile Include="Badger\ToolTip\ToolBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\ToolPanel.cs">
+    <Compile Include="Badger\Toolbar\ToolBarControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Toolbar\ToolPanelBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\ToolPanelData.cs">
+    <Compile Include="Badger\Toolbar\ToolBarBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Toolbar\ToolSeparator.cs">

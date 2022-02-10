@@ -40,9 +40,9 @@ namespace BudgetExecution
         /// </param>
         public ImageFactory( ImageBuilder imageBuilder )
         {
-            Builder = imageBuilder;
-            Source = Builder.Source;
-            Format = Builder.GetExtenstion();
+            ImageBuilder = imageBuilder;
+            ImageSource = ImageBuilder.ImageSource;
+            ImageFormat = ImageBuilder.GetExtenstion();
             Paths = Resource.ImageResources;
             Names = Paths.Select( n => Path.GetFileNameWithoutExtension( n ) );
             FileStream = GetFileStreams();
@@ -56,9 +56,9 @@ namespace BudgetExecution
         /// </param>
         public ImageFactory( ImageSource imageSource )
         {
-            Builder = new ImageBuilder( imageSource );
-            Source = Builder.Source;
-            Format = Builder.GetExtenstion();
+            ImageBuilder = new ImageBuilder( imageSource );
+            ImageSource = ImageBuilder.ImageSource;
+            ImageFormat = ImageBuilder.GetExtenstion();
             Paths = Resource.ImageResources;
             Names = Paths.Select( n => Path.GetFileNameWithoutExtension( n ) );
             FileStream = GetFileStreams( );
@@ -122,11 +122,11 @@ namespace BudgetExecution
         /// </returns>
         public Bitmap CreateImage()
         {
-            if( Builder?.GetFileStream() != null )
+            if( ImageBuilder?.GetFileStream() != null )
             {
                 try
                 {
-                    using var _stream = Builder?.GetFileStream();
+                    using var _stream = ImageBuilder?.GetFileStream();
 
                     return _stream != null
                         ? new Bitmap( _stream )
@@ -149,14 +149,14 @@ namespace BudgetExecution
         /// </returns>
         public Icon CreateIcon()
         {
-            if( !Builder.Size.IsEmpty )
+            if( !ImageBuilder.Size.IsEmpty )
             {
                 try
                 {
-                    using var _fileStream = Builder.GetFileStream();
+                    using var _fileStream = ImageBuilder.GetFileStream();
 
                     return _fileStream != null
-                        ? new Icon( _fileStream, Builder.Size )
+                        ? new Icon( _fileStream, ImageBuilder.Size )
                         : default( Icon );
                 }
                 catch( Exception ex )
