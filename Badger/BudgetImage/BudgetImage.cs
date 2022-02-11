@@ -49,7 +49,42 @@ namespace BudgetExecution
         {
             Name = Path.GetFileNameWithoutExtension( path );
             ImageBuilder = new ImageBuilder( Path.GetFullPath( path ) );
-            Size = BudgetSize.ImageSizeMedium;
+            Size = ImageSizeMedium;
+            ImageSource = ImageBuilder.ImageSource;
+            ImageFormat = ImageBuilder.ImageFormat;
+            ImageFactory = new ImageFactory( ImageBuilder );
+            ImageFile = new Bitmap( ImageBuilder.FullPath );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BudgetImage" /> class.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name = "size" > </param>
+        public BudgetImage( string path, Size size )
+            : this( path )
+        {
+            Name = Path.GetFileNameWithoutExtension( path );
+            ImageBuilder = new ImageBuilder( Path.GetFullPath( path ) );
+            Size = size;
+            ImageSource = ImageBuilder.ImageSource;
+            ImageFormat = ImageBuilder.ImageFormat;
+            ImageFactory = new ImageFactory( ImageBuilder );
+            ImageFile = new Bitmap( ImageBuilder.FullPath );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BudgetImage" /> class.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name = "width" > </param>
+        /// <param name = "height" > </param>
+        public BudgetImage( string path, int width, int height )
+            : this( path )
+        {
+            Name = Path.GetFileNameWithoutExtension( path );
+            ImageBuilder = new ImageBuilder( Path.GetFullPath( path ) );
+            Size = new Size( width, height );
             ImageSource = ImageBuilder.ImageSource;
             ImageFormat = ImageBuilder.ImageFormat;
             ImageFactory = new ImageFactory( ImageBuilder );
@@ -79,10 +114,10 @@ namespace BudgetExecution
         public BudgetImage( ImageBuilder imageBuilder )
         {
             ImageBuilder = imageBuilder;
-            Name = ImageBuilder.Name;
-            Size = ImageBuilder.Size;
-            ImageSource = ImageBuilder.ImageSource;
-            ImageFormat = ImageBuilder.ImageFormat;
+            Name = imageBuilder.Name;
+            Size = imageBuilder.Size;
+            ImageSource = imageBuilder.ImageSource;
+            ImageFormat = imageBuilder.ImageFormat;
             ImageFactory = new ImageFactory( ImageBuilder );
             ImageFile = ImageFactory.CreateImage();
         }

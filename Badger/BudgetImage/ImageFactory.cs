@@ -42,7 +42,7 @@ namespace BudgetExecution
         {
             ImageBuilder = imageBuilder;
             ImageSource = ImageBuilder.ImageSource;
-            ImageFormat = ImageBuilder.GetExtenstion();
+            ImageFormat = ImageBuilder.GetExtension();
             Paths = Resource.ImageResources;
             Names = Paths.Select( n => Path.GetFileNameWithoutExtension( n ) );
             FileStream = GetFileStreams();
@@ -58,7 +58,7 @@ namespace BudgetExecution
         {
             ImageBuilder = new ImageBuilder( imageSource );
             ImageSource = ImageBuilder.ImageSource;
-            ImageFormat = ImageBuilder.GetExtenstion();
+            ImageFormat = ImageBuilder.GetExtension();
             Paths = Resource.ImageResources;
             Names = Paths.Select( n => Path.GetFileNameWithoutExtension( n ) );
             FileStream = GetFileStreams( );

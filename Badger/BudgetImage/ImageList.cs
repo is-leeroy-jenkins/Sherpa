@@ -4,16 +4,22 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.IO;
+    using System.Linq;
+    using System.Net;
     using System.Windows.Forms;
+    using DocumentFormat.OpenXml.Wordprocessing;
+    using Syncfusion.Data.Extensions;
     using Syncfusion.Windows.Forms.Tools;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class ImageList : ImageListAdv
+    public class ImageList : ImageListBase
     {
         /// <summary>
         /// Gets or sets the image builder.
@@ -48,20 +54,28 @@ namespace BudgetExecution
         public ImageSource ImageSource { get; set; }
 
         /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding souce.
-        /// </value>
-        public BindingSource BindingSource { get; set; }
-
-        /// <summary>
         /// Gets or sets the image.
         /// </summary>
         /// <value>
         /// The image.
         /// </value>
         public BudgetImage BudgetImage { get; set; }
+
+        /// <summary>
+        /// Gets or sets the file names.
+        /// </summary>
+        /// <value>
+        /// The file names.
+        /// </value>
+        public IEnumerable<string> FileNames { get; set; }
+
+        /// <summary>
+        /// Gets or sets the file names.
+        /// </summary>
+        /// <value>
+        /// The file names.
+        /// </value>
+        public IEnumerable<string> FilePaths { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "ImageList"/> class.
@@ -85,7 +99,124 @@ namespace BudgetExecution
             ImageSize = size;
             ImageBuilder = new ImageBuilder( ImageSource );
             ImageFactory = new ImageFactory( ImageBuilder );
-            UseImageSize = true;
+            FilePaths = ImageFactory.Paths;
+            FileNames = ImageFactory.Names;;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref = "ImageList"/> class.
+        /// </summary>
+        /// <param name = "path" >
+        /// The image source.
+        /// </param>
+        /// <param name = "size" >
+        /// The size.
+        /// </param>
+        public ImageList( string path, Size size )
+        {
+            ImageSource = ImageSource.NS;
+            ImageSize = size;
+            ImageBuilder = new ImageBuilder( path );
+            ImageFactory = new ImageFactory( ImageBuilder );
+            FilePaths = ImageFactory.Paths;
+            FileNames = ImageFactory.Names;
+            Images.Add( new Bitmap( path )  );
+        }
+
+        /// <summary>
+        /// Adds the specified image.
+        /// </summary>
+        /// <param name="image">The image.</param>
+        public void Add( Image image )
+        {
+            if( image != null )
+            {
+                try
+                {
+                    Images.Add( image );
+                }
+                catch ( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adds the specified path.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        public void Add( string path )
+        {
+            if( Verify.IsInput( path )
+               && File.Exists( path ) )
+            {
+                try
+                {
+                    var _name = Path.GetFileName( path );
+                    var _image = new Bitmap( path );
+
+                    if( _image != null )
+                    {
+                        Images.Add( _name, _image );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adds the specified paths.
+        /// </summary>
+        /// <param name="paths">The paths.</param>
+        public void Add( string[ ] paths )
+        {
+            if( Verify.IsSequence( paths ) )
+            {
+                try
+                {
+                    foreach( var _file in paths )
+                    {
+                        if( File.Exists( _file ) )
+                        {
+                            var _name = Path.GetFileName( _file );
+                            var _image = new Bitmap( _file );
+
+                            if( _image != null )
+                            {
+                                Images.Add( _name, _image );
+                            }
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adds the specified paths.
+        /// </summary>
+        /// <param name="image">The paths.</param>
+        public void Remove( Image image )
+        {
+            if( image != null
+               && Images?.Contains( image ) == true )
+            {
+                try
+                {
+                    Images.Remove( image );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
         }
     }
 }

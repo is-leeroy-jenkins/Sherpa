@@ -44,7 +44,7 @@ namespace BudgetExecution
         /// <param name="filePath">The filePath.</param>
         public FileWatcher( string filePath )
         {
-            FilePath = new DataPath( filePath );
+            FilePath = new BudgetPath( filePath );
             FileName = FilePath.FileName;
         }
 

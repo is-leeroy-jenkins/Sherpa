@@ -172,7 +172,7 @@ namespace BudgetExecution
         /// Gets the extenstion.
         /// </summary>
         /// <returns></returns>
-        public ImageFormat GetExtenstion()
+        public ImageFormat GetExtension()
         {
             try
             {

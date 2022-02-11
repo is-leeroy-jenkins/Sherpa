@@ -34,7 +34,7 @@ namespace BudgetExecution
         /// <value>
         /// The XLS.
         /// </value>
-        public string XLS { get; } = DataPath.ConnectionString[ "OleDb" ].ToString();
+        public string XLS { get; } = BudgetPath.ConnectionString[ "OleDb" ].ToString();
 
         /// <summary>
         /// Gets the XLSX.
@@ -42,7 +42,7 @@ namespace BudgetExecution
         /// <value>
         /// The XLSX.
         /// </value>
-        public string XLSX { get; } = DataPath.ConnectionString[ "Excel" ].ToString();
+        public string XLSX { get; } = BudgetPath.ConnectionString[ "Excel" ].ToString();
 
         /// <summary>
         /// Gets the CSV.
@@ -50,7 +50,7 @@ namespace BudgetExecution
         /// <value>
         /// The CSV.
         /// </value>
-        public string CSV { get; } = DataPath.ConnectionString[ "CSV" ].ToString();
+        public string CSV { get; } = BudgetPath.ConnectionString[ "CSV" ].ToString();
 
         /// <summary>
         /// Gets the accdb.
@@ -58,7 +58,7 @@ namespace BudgetExecution
         /// <value>
         /// The accdb.
         /// </value>
-        public string ACCDB { get; } = DataPath.ConnectionString[ "Access" ].ToString();
+        public string ACCDB { get; } = BudgetPath.ConnectionString[ "Access" ].ToString();
 
         /// <summary>
         /// Gets the MDB.
@@ -66,7 +66,7 @@ namespace BudgetExecution
         /// <value>
         /// The MDB.
         /// </value>
-        public string MDB { get; } = DataPath.ConnectionString[ "OleDb" ].ToString();
+        public string MDB { get; } = BudgetPath.ConnectionString[ "OleDb" ].ToString();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelReader"/> class.

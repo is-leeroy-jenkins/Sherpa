@@ -657,7 +657,6 @@
     <Compile Include="Badger\CurrencyTextBox\CurrencyBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BudgetControlBox.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />
@@ -814,7 +813,7 @@
     <Compile Include="Badger\Navigation\NavigatorMenuBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ImageListBase.cs">
+    <Compile Include="Badger\BudgetImage\ImageListBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Ninja\Analysis\Computation.cs" />
@@ -880,7 +879,7 @@
     <Compile Include="Badger\Excel\IExcelOp.cs" />
     <Compile Include="Badger\Excel\IGrid.cs" />
     <Compile Include="Badger\Excel\Section.cs" />
-    <Compile Include="Ninja\File\DataFile.cs" />
+    <Compile Include="Ninja\File\BudgetFile.cs" />
     <Compile Include="Ninja\File\FileBase.cs" />
     <Compile Include="Ninja\File\IFile.cs" />
     <Compile Include="Ninja\FiscalYear\BudgetFiscalYear.cs" />
@@ -938,7 +937,7 @@
     <Compile Include="Ninja\Outlays\VendorData.cs" />
     <Compile Include="Ninja\Outlays\WorkCode.cs" />
     <Compile Include="Ninja\Outlays\PayrollCostCode.cs" />
-    <Compile Include="Ninja\Path\DataPath.cs" />
+    <Compile Include="Ninja\Path\BudgetPath.cs" />
     <Compile Include="Ninja\Path\IPath.cs" />
     <Compile Include="Ninja\Reader\ExcelReader.cs" />
     <Compile Include="Ninja\Reader\FileReader.cs" />
