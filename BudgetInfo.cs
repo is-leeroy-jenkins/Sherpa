@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System;
     using System.Drawing;
     using System.Drawing.Text;
+    using System.Windows.Forms;
     using VisualPlus.Enumerators;
     using VisualPlus.Models;
 
@@ -37,7 +38,10 @@ namespace BudgetExecution
             TipType = TipInfo.ToolTipType.Text;
             TextRendering = TextRenderingHint.ClearTypeGridFit;
             TitleFont = new Font( "Roboto", 10, FontStyle.Bold  );
-            TitleColor = BudgetColor.SteelBlue;
+            TitleColor = BudgetColor.White;
+            TipIcon = ToolTipIcon.None;
+            Text = string.Empty;
+            TipTitle = string.Empty;
 
             // Border Properties
             Border.HoverColor = BudgetColor.LightBlue;
