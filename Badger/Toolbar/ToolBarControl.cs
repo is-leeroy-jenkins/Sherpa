@@ -13,13 +13,13 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.ToolPanelBase" />
+    /// <seealso cref="BudgetExecution.ToolBarBase" />
     /// <seealso cref="BudgetExecution.IToolBar" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
-    public class ToolBarControl : ToolPanelBase, IToolBar
+    public class ToolBarControl : ToolBarBase, IToolBar
     {
         /// <summary>
         /// Gets the buttons.

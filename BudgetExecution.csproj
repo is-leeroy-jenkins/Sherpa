@@ -1007,9 +1007,6 @@
     <Compile Include="Badger\Toolbar\ToolBarControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\ToolPanelBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Badger\Toolbar\ToolBarBase.cs">
       <SubType>Component</SubType>
     </Compile>

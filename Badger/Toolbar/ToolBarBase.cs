@@ -58,6 +58,11 @@ namespace BudgetExecution
         public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
         
         /// <summary>
+        /// The image path
+        /// </summary>
+        public string ImagePath { get; set; } 
+
+        /// <summary>
         /// Sets the binding source.
         /// </summary>
         /// <param name="bindingSource">The bindingSource.</param>
