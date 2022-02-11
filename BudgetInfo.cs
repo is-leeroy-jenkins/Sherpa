@@ -40,8 +40,6 @@ namespace BudgetExecution
             TitleFont = new Font( "Roboto", 10, FontStyle.Bold  );
             TitleColor = BudgetColor.White;
             TipIcon = ToolTipIcon.None;
-            Text = string.Empty;
-            TipTitle = string.Empty;
 
             // Border Properties
             Border.HoverColor = BudgetColor.LightBlue;
@@ -51,6 +49,32 @@ namespace BudgetExecution
             Border.Thickness = 1;
             Border.Type = ShapeTypes.Rounded;
             Border.Visible = true;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BudgetInfo"/> class.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <param name="title">The title.</param>
+        public BudgetInfo( string text, string title ) 
+            : this()
+        {
+            // Basic Properties
+            Text = text;
+            TipTitle = title;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BudgetInfo"/> class.
+        /// </summary>
+        /// <param name = "control" > </param>
+        /// <param name="text">The text.</param>
+        public BudgetInfo( Control control, string text ) 
+            : this()
+        {
+            // Basic Properties
+            Text = text;
+            TipTitle = control.Tag.ToString();
         }
     }
 }
