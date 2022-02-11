@@ -657,7 +657,7 @@
     <Compile Include="Badger\CurrencyTextBox\CurrencyBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BudgetInfo.cs">
+    <Compile Include="Badger\TipInfo\BudgetInfo.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
@@ -819,7 +819,7 @@
     <Compile Include="Badger\BudgetImage\ImageListBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="InfoBase.cs">
+    <Compile Include="Badger\TipInfo\InfoBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Ninja\Analysis\Computation.cs" />
@@ -1001,7 +1001,7 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TimeSpanExtensions.cs" />
     <Compile Include="Extensions\TypeObject.cs" />
-    <Compile Include="Badger\ToolTip\ToolBase.cs">
+    <Compile Include="Badger\TipInfo\ToolBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Toolbar\ToolBarControl.cs">
@@ -1029,7 +1029,7 @@
     <Compile Include="Badger\Test\TestForm.Designer.cs">
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\ToolTip\ToolTip.cs">
+    <Compile Include="Badger\TipInfo\ToolTip.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Excel\BudgetWorkbook.cs" />
