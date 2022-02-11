@@ -3078,10 +3078,6 @@
     <Content Include="etc\epa.ico" />
     <Content Include="etc\EpaHorizontal.ico" />
     <Content Include="Lib\CharmNotification.dll" />
-    <Content Include="Lib\classic\Syncfusion.Tools.Base.dll" />
-    <Content Include="Lib\classic\Syncfusion.Tools.Base.xml" />
-    <Content Include="Lib\classic\Syncfusion.Tools.Windows.dll" />
-    <Content Include="Lib\classic\Syncfusion.Tools.Windows.xml" />
     <Content Include="Lib\DataGridViewExtension.dll" />
     <Content Include="Lib\EPPlus.dll" />
     <Content Include="Lib\EPPlus.XML" />
