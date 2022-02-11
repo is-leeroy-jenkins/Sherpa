@@ -657,6 +657,9 @@
     <Compile Include="Badger\CurrencyTextBox\CurrencyBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="BudgetInfo.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />
@@ -814,6 +817,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\BudgetImage\ImageListBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InfoBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Ninja\Analysis\Computation.cs" />

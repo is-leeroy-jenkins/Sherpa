@@ -45,6 +45,12 @@ namespace BudgetExecution
         /// </value>
         public static Color WindowFrame { get; set; } = SystemColors.WindowFrame;
 
+        /// <summary>
+        /// Gets or sets the dark gray.
+        /// </summary>
+        /// <value>
+        /// The dark gray.
+        /// </value>
         public static Color DarkGray { get; set; } = Color.FromArgb( 64, 64, 64 );
 
         /// <summary>
