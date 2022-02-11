@@ -45,6 +45,8 @@ namespace BudgetExecution
         /// </value>
         public static Color WindowFrame { get; set; } = SystemColors.WindowFrame;
 
+        public static Color DarkGray { get; set; } = Color.FromArgb( 64, 64, 64 );
+
         /// <summary>
         /// Gets or sets the border red.
         /// </summary>
@@ -67,7 +69,7 @@ namespace BudgetExecution
         /// <value>
         /// The default color of the caption button.
         /// </value>
-        public static Color CaptionButtonDefaultColor { get; } = Color.FromArgb( 51, 51, 51 );
+        public static Color CaptionButtonDefaultColor { get; } = Color.FromArgb( 80, 80, 80 );
 
         /// <summary>
         /// Gets the color of the caption button hover.
@@ -84,6 +86,14 @@ namespace BudgetExecution
         /// The caption bar black.
         /// </value>
         public static Color Black { get; } = Color.Black;
+
+        /// <summary>
+        /// Gets or sets the maroon.
+        /// </summary>
+        /// <value>
+        /// The maroon.
+        /// </value>
+        public static Color Maroon { get; set; } = Color.Maroon;
 
         /// <summary>
         /// Gets or sets the fore red.
