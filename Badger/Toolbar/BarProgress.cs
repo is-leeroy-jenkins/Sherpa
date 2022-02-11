@@ -15,28 +15,6 @@ namespace BudgetExecution
     public class BarProgress : ToolStripProgressBar
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "BarLabel"/>
-        /// class.
-        /// </summary>
-        public BarProgress()
-        {
-            Margin = new Padding( 10, 5, 10, 0 );
-            Size = new Size( 100, 33 );
-            ForeColor = SystemColors.Highlight;
-            BackColor = SystemColors.Control;
-            Font = BudgetFont.FontSizeSmall;
-            Style = ProgressBarStyle.Blocks;
-            Visible = true;
-            Enabled = true;
-            Name = "Progress";
-            Tag = Name;
-            ToolTipText = Tag.ToString();
-            HoverText = ToolTipText;
-            MouseHover += OnMouseHover;
-        }
-        
-        /// <summary>
         /// Gets or sets the field.
         /// </summary>
         /// <value>
@@ -67,6 +45,28 @@ namespace BudgetExecution
         /// The hover text.
         /// </value>
         public string HoverText { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref = "BarLabel"/>
+        /// class.
+        /// </summary>
+        public BarProgress()
+        {
+            Margin = new Padding( 10, 5, 10, 0 );
+            Size = new Size( 100, 33 );
+            ForeColor = SystemColors.Highlight;
+            BackColor = SystemColors.Control;
+            Font = BudgetFont.FontSizeSmall;
+            Style = ProgressBarStyle.Blocks;
+            Visible = true;
+            Enabled = true;
+            Name = "Progress";
+            Tag = Name;
+            ToolTipText = Tag.ToString();
+            HoverText = ToolTipText;
+            MouseHover += OnMouseHover;
+        }
         
         /// <summary>
         /// Sets the field.

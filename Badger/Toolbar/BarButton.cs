@@ -16,6 +16,22 @@ namespace BudgetExecution
     public class BarButton : BarButtonBase, IBarButton
     {
         /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public ToolTip ToolTip { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="BarButton"/> class.
         /// </summary>
         public BarButton()
@@ -56,22 +72,6 @@ namespace BudgetExecution
             Image = image.GetBitmap();
             Bar = (Tool)Enum.Parse( typeof( Tool ), image.Name );
         }
-        
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
-        public BindingSource BindingSource { get; set; }
-
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
-        public ToolTip ToolTip { get; set; }
         
         /// <summary>
         /// Sets the image.

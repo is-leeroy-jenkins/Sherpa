@@ -55,6 +55,12 @@ namespace BudgetExecution
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
             BorderStyle = ToolStripBorderStyle.StaticEdge;
             Buttons = GetButtons();
+            
+            // Control Style Settings
+            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
+            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
+            SetStyle( ControlStyles.UserPaint, true );
+            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         /// <summary>

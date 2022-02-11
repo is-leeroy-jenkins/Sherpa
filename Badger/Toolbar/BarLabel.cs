@@ -35,7 +35,8 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="BarLabel"/> class.
         /// </summary>
-        /// <param name="text">The text to display on the <see cref="T:System.Windows.Forms.ToolStripLabel" />.</param>
+        /// <param name="text">The text to display
+        /// on the <see cref="T:System.Windows.Forms.ToolStripLabel" />.</param>
         public BarLabel( string text )
             : this()
         {
@@ -97,7 +98,9 @@ namespace BudgetExecution
         /// Called when [mouse hover].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.EventArgs" /> instance containing the event data.</param>
+        /// <param name="e">The
+        /// <see cref="System.EventArgs" /> instance
+        /// containing the event data.</param>
         public void OnMouseHover( object sender, EventArgs e )
         {
             if( sender is BarLabel _label
