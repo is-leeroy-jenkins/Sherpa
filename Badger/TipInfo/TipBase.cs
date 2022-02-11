@@ -20,7 +20,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "IsExpressionAlwaysTrue" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class ToolBase : MetroSetToolTip
+    public abstract class TipBase : MetroSetToolTip
     {
         /// <summary>
         /// Gets or sets the tip icon.

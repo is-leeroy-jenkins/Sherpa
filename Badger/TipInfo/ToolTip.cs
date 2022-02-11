@@ -6,17 +6,16 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Drawing;
     using System.Windows.Forms;
     using MetroSet_UI.Design;
 
-    public class ToolTip : ToolBase
+    public class ToolTip : TipBase
     {
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="ToolTip"/> class.
+        /// </summary>
         public ToolTip()
         {
             ThemeAuthor = "Terry D. Eppler";

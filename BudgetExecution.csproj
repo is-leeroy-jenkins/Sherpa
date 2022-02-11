@@ -155,9 +155,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.Compression.Base.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Core.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\Syncfusion.Core.WinForms.dll</HintPath>
+    <Reference Include="Syncfusion.Core.WinForms, Version=19.4460.0.50, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Core.WinForms.19.4.0.50\lib\net46\Syncfusion.Core.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Data.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -247,9 +246,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.HTMLUI.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Licensing, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\Syncfusion.Licensing.dll</HintPath>
+    <Reference Include="Syncfusion.Licensing, Version=19.4460.0.50, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Licensing.19.4.0.50\lib\net46\Syncfusion.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Linq.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -351,9 +349,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Syncfusion.SfSmithChart.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Shared.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\Syncfusion.Shared.Base.dll</HintPath>
+    <Reference Include="Syncfusion.Shared.Base, Version=19.4460.0.50, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Shared.Base.19.4.0.50\lib\net46\Syncfusion.Shared.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Shared.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -1001,7 +998,7 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TimeSpanExtensions.cs" />
     <Compile Include="Extensions\TypeObject.cs" />
-    <Compile Include="Badger\TipInfo\ToolBase.cs">
+    <Compile Include="Badger\TipInfo\TipBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Toolbar\ToolBarControl.cs">

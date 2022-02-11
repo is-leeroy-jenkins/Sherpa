@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The tip.
         /// </value>
-        public virtual ToolBase ToolTip { get; set; }
+        public virtual TipBase ToolTip { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
