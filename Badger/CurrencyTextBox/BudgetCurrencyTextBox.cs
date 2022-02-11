@@ -11,6 +11,19 @@ namespace BudgetExecution
 
     public class BudgetCurrencyTextBox : CurrencyBoxBase
     {
+        /// <summary>
+        /// Initializes a new instance of
+        /// the <see cref="BudgetCurrencyTextBox"/> class.
+        /// </summary>
+        /// <remarks>
+        /// The CurrencyEdit class also creates
+        /// the controls that it hosts such
+        /// as the
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.CurrencyTextBox" />
+        /// control and the
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.PopupCalculator" />
+        /// control.
+        /// </remarks>
         public BudgetCurrencyTextBox()
         {
             // Basic Properties
