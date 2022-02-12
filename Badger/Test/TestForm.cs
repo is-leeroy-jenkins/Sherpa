@@ -65,6 +65,7 @@ namespace BudgetExecution
 
             // Test Button Properties
             BudgetButton.Text = "Test";
+            BudgetButton.Tag = "THIS IS A TEST";
             BudgetButton.Location = new Point( 500, 500 );
             BudgetButton.HoverText = Setting[ "BudgetExecutionIcon" ];
             BudgetButton.Click += SetLabelText;
@@ -88,8 +89,8 @@ namespace BudgetExecution
                     BudgetButton.ForeColor = BudgetColor.White;
                     CaptionForeColor = BudgetColor.White;
                     Text = Setting[ "BudgetExecutionIcon" ];
-                    using var _notify = new BudgetNotify( "Hello World!");
-                    _notify.ShowNotification();
+                    using var _calculator = new BudgetCalculatorForm();
+                    _calculator.ShowDialog( this );
                 }
                 catch( Exception ex )
                 {

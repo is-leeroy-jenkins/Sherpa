@@ -654,9 +654,6 @@
     <Compile Include="Badger\CurrencyTextBox\CurrencyBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\TipInfo\BudgetInfo.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />
@@ -816,9 +813,6 @@
     <Compile Include="Badger\BudgetImage\ImageListBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\TipInfo\InfoBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Ninja\Analysis\Computation.cs" />
     <Compile Include="Ninja\Analysis\DataMetric.cs" />
     <Compile Include="Ninja\Analysis\IDataFilter.cs" />
@@ -968,7 +962,7 @@
     <Compile Include="Badger\Splash\SplashBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BudgetNotify.cs">
+    <Compile Include="Badger\Notification\BudgetNotify.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
@@ -1001,7 +995,7 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TimeSpanExtensions.cs" />
     <Compile Include="Extensions\TypeObject.cs" />
-    <Compile Include="Badger\TipInfo\TipBase.cs">
+    <Compile Include="Badger\ToolTip\TipBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Toolbar\ToolBarControl.cs">
@@ -1026,7 +1020,7 @@
     <Compile Include="Badger\Test\TestForm.Designer.cs">
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\TipInfo\ToolTip.cs">
+    <Compile Include="Badger\ToolTip\ToolTip.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Excel\BudgetWorkbook.cs" />
@@ -3143,9 +3137,7 @@
     <Content Include="Lib\VisualPlus.dll" />
     <Content Include="readme.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Badger\Notification\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>

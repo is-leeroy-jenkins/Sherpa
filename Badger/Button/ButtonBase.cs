@@ -43,7 +43,7 @@ namespace BudgetExecution
         /// The tool tip.
         /// </value>
         public virtual ToolTip ToolTip { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the field.
         /// </summary>

@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// <param name="text">The text.</param>
         public BudgetNotify( string text )
         {
-            Title = "BUDGET EXECUTION";
+            Title = "Budget Execution";
             Text = text;
         }
     }
