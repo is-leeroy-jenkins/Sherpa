@@ -6,17 +6,18 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Specialized;
-    using System.Drawing;
     using System.Configuration;
+    using System.Drawing;
     using System.Windows.Forms;
+    using Syncfusion.Windows.Forms;
     using VisualPlus.Enumerators;
 
-    public partial class Error : ErrorBase
+    public partial class Error : MetroForm
     {
         /// <summary>
         /// The application setting
         /// </summary>
-        public override NameValueCollection AppSetting { get; set; } = ConfigurationManager.AppSettings;
+        public virtual NameValueCollection AppSetting { get; set; } = ConfigurationManager.AppSettings;
 
         /// <summary>
         /// Gets or sets the exception.
@@ -24,7 +25,7 @@ namespace BudgetExecution
         /// <value>
         /// The exception.
         /// </value>
-        public override Exception Exception { get; set; }
+        public virtual Exception Exception { get; set; }
 
         /// <summary>
         /// Gets or sets the icon path.
@@ -32,7 +33,7 @@ namespace BudgetExecution
         /// <value>
         /// The icon path.
         /// </value>
-        public override string IconPath { get; set; } 
+        public virtual string IconPath { get; set; }
 
         /// <summary>
         /// Initializes a new instance of
@@ -46,7 +47,7 @@ namespace BudgetExecution
             BackColor = BudgetColor.FormDark;
             BorderThickness = BudgetBorder.Thin;
             BorderColor = BudgetColor.BorderRed;
-            Size = BudgetSize.FormSizeNormal;
+            Size = BudgetSize.DialogSizeNormal;
             Font = BudgetFont.FontSizeSmall;
             CaptionBarColor = BudgetColor.FormDark;
             CaptionBarHeight = BudgetSize.CaptionSize;
@@ -66,14 +67,16 @@ namespace BudgetExecution
             // TextBox Properties
             TextBox.BackColor =  BudgetColor.FormDark;
             TextBox.BackColorState.Enabled = BudgetColor.FormDark;
+            TextBox.BackColorState.Disabled = BudgetColor.FormDark;
             TextBox.Border.Type = ShapeTypes.Rounded;
             TextBox.Border.Color = BudgetColor.BorderDark;
-            TextBox.Border.HoverColor = BudgetColor.BorderRed;
+            TextBox.Border.HoverColor = BudgetColor.Maroon;
             TextBox.Parent = Panel;
             TextBox.Dock = DockStyle.Fill;
 
             Panel.BackColor = BudgetColor.FormDark;
             Panel.BackColorState.Enabled = BudgetColor.FormDark;
+            Panel.BackColorState.Disabled = BudgetColor.FormDark;
             Panel.Border.Color = BudgetColor.BorderDark;
             Panel.Border.HoverColor = BudgetColor.BorderRed;
             Panel.Parent = this;
@@ -107,7 +110,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the text.
         /// </summary>
-        public override void SetText()
+        public void SetText()
         {
             var _logString = Exception.ToLogString( "" );
             TextBox.Text = _logString;
@@ -116,7 +119,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the text.
         /// </summary>
-        public override void SetText( Exception ex )
+        public void SetText( Exception ex )
         {
             var _logString = ex.ToLogString( "" );
             TextBox.Text = _logString;
@@ -125,7 +128,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the text.
         /// </summary>
-        public override void SetText( string msg = "" )
+        public void SetText( string msg = "" )
         {
             TextBox.Text = msg;
         }

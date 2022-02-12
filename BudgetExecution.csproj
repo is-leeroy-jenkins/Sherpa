@@ -572,9 +572,6 @@
     <Compile Include="Badger\Clock\BudgetClock.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Dialog\Error\ErrorBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Badger\Closebox\CloseBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -633,16 +630,16 @@
     <Compile Include="Badger\Calculator\BudgetCalculatorForm.Designer.cs">
       <DependentUpon>BudgetCalculatorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\PivotGrid\BudgetPivotGrid.cs">
+    <Compile Include="Badger\PivotGrid\BudgetPivotGridControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\PivotChart\BudgetPivotChart.cs">
+    <Compile Include="Badger\PivotChart\BudgetPivotChartControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Navigation\BudgetNavigationMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Notification\BudgetNotification.cs">
+    <Compile Include="Badger\Splash\BudgetSplash.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Carousel\BudgetCarousel.cs">
@@ -968,7 +965,10 @@
     <Compile Include="Badger\PivotChart\PivotChartBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Notification\NotificationBase.cs">
+    <Compile Include="Badger\Splash\SplashBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BudgetNotify.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
@@ -982,10 +982,10 @@
     <Compile Include="Enumerations\Source.cs" />
     <Compile Include="Enumerations\SQL.cs" />
     <Compile Include="Enumerations\STAT.cs" />
-    <Compile Include="Badger\Excel\sheet\RibbonPanel.cs">
+    <Compile Include="Badger\Excel\sheet\RibbonBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Excel\sheet\SheetPanel.cs">
+    <Compile Include="Badger\Excel\sheet\SpreadsheetBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Design\BudgetSize.cs" />
@@ -3143,7 +3143,9 @@
     <Content Include="Lib\VisualPlus.dll" />
     <Content Include="readme.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Badger\Notification\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>

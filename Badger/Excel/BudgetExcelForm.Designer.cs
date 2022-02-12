@@ -37,48 +37,46 @@ namespace BudgetExecution
             this.components = new System.ComponentModel.Container();
             Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste spreadsheetCopyPaste1 = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste();
             Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController formulaRangeSelectionController1 = new Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController();
-            this.sRibbon = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetRibbon();
+            this.Ribbon = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetRibbon();
             this.Spreadsheet = new Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet();
-            ((System.ComponentModel.ISupportInitialize)(this.sRibbon)).BeginInit();
-            this.sRibbon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Ribbon)).BeginInit();
             this.SuspendLayout();
             // 
-            // sRibbon
+            // Ribbon
             // 
-            this.sRibbon.BorderStyle = Syncfusion.Windows.Forms.Tools.ToolStripBorderStyle.StaticEdge;
-            this.sRibbon.CaptionFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sRibbon.Dock = Syncfusion.Windows.Forms.Tools.DockStyleEx.Top;
-            this.sRibbon.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sRibbon.HideMenuButtonToolTip = true;
-            this.sRibbon.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Metro;
-            this.sRibbon.Location = new System.Drawing.Point(0, 0);
-            this.sRibbon.MenuButtonFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sRibbon.MenuButtonText = "FILE";
-            this.sRibbon.MenuButtonWidth = 56;
-            this.sRibbon.MenuColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.sRibbon.Name = "sRibbon";
-            this.sRibbon.Office2016ColorScheme = Syncfusion.Windows.Forms.Tools.Office2016ColorScheme.DarkGray;
-            this.sRibbon.OfficeColorScheme = Syncfusion.Windows.Forms.Tools.ToolStripEx.ColorScheme.Black;
+            this.Ribbon.CaptionFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ribbon.Dock = Syncfusion.Windows.Forms.Tools.DockStyleEx.Top;
+            this.Ribbon.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.Ribbon.HideMenuButtonToolTip = true;
+            this.Ribbon.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Metro;
+            this.Ribbon.Location = new System.Drawing.Point(0, 0);
+            this.Ribbon.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.Ribbon.MenuButtonFont = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ribbon.MenuButtonText = "FILE";
+            this.Ribbon.MenuButtonWidth = 56;
+            this.Ribbon.MenuColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            this.Ribbon.Name = "Ribbon";
+            this.Ribbon.OfficeColorScheme = Syncfusion.Windows.Forms.Tools.ToolStripEx.ColorScheme.Black;
             // 
-            // sRibbon.OfficeMenu
+            // Ribbon.OfficeMenu
             // 
-            this.sRibbon.OfficeMenu.Name = "OfficeMenu";
-            this.sRibbon.OfficeMenu.ShowItemToolTips = true;
-            this.sRibbon.OfficeMenu.Size = new System.Drawing.Size(12, 65);
-            this.sRibbon.QuickPanelImageLayout = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.sRibbon.RibbonHeaderImage = Syncfusion.Windows.Forms.Tools.RibbonHeaderImage.None;
-            this.sRibbon.RibbonStyle = Syncfusion.Windows.Forms.Tools.RibbonStyle.Office2016;
-            this.sRibbon.ShowQuickItemsDropDownButton = false;
-            this.sRibbon.ShowRibbonDisplayOptionButton = false;
-            this.sRibbon.Size = new System.Drawing.Size(1208, 155);
-            this.sRibbon.Spreadsheet = null;
-            this.sRibbon.SystemText.QuickAccessDialogDropDownName = "Start menu";
-            this.sRibbon.SystemText.RenameDisplayLabelText = "&Display Name:";
-            this.sRibbon.TabIndex = 0;
-            this.sRibbon.Text = "spreadsheetRibbon1";
-            this.sRibbon.ThemeName = "Default";
-            this.sRibbon.TitleColor = System.Drawing.Color.White;
-            this.sRibbon.TitleFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ribbon.OfficeMenu.Name = "OfficeMenu";
+            this.Ribbon.OfficeMenu.ShowItemToolTips = true;
+            this.Ribbon.OfficeMenu.Size = new System.Drawing.Size(12, 65);
+            this.Ribbon.QuickPanelImageLayout = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Ribbon.RibbonHeaderImage = Syncfusion.Windows.Forms.Tools.RibbonHeaderImage.None;
+            this.Ribbon.RibbonStyle = Syncfusion.Windows.Forms.Tools.RibbonStyle.Office2010;
+            this.Ribbon.ShowQuickItemsDropDownButton = false;
+            this.Ribbon.ShowRibbonDisplayOptionButton = false;
+            this.Ribbon.Size = new System.Drawing.Size(1188, 155);
+            this.Ribbon.Spreadsheet = null;
+            this.Ribbon.SystemText.QuickAccessDialogDropDownName = "Start menu";
+            this.Ribbon.SystemText.RenameDisplayLabelText = "&Display Name:";
+            this.Ribbon.TabIndex = 0;
+            this.Ribbon.Text = "spreadsheetRibbon1";
+            this.Ribbon.ThemeName = "Default";
+            this.Ribbon.TitleColor = System.Drawing.Color.White;
+            this.Ribbon.TitleFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // Spreadsheet
             // 
@@ -92,11 +90,11 @@ namespace BudgetExecution
             spreadsheetCopyPaste1.AllowPasteOptionPopup = true;
             spreadsheetCopyPaste1.DefaultPasteOption = Syncfusion.Windows.Forms.Spreadsheet.PasteOptions.Paste;
             this.Spreadsheet.CopyPaste = spreadsheetCopyPaste1;
-            this.Spreadsheet.DefaultColumnCount = 101;
-            this.Spreadsheet.DefaultRowCount = 101;
+            this.Spreadsheet.DefaultColumnCount = 26;
+            this.Spreadsheet.DefaultRowCount = 56;
             this.Spreadsheet.DisplayAlerts = true;
             this.Spreadsheet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Spreadsheet.FileName = "Book2";
+            this.Spreadsheet.FileName = "Book11";
             this.Spreadsheet.FormulaBarVisibility = true;
             formulaRangeSelectionController1.AllowMouseSelection = true;
             formulaRangeSelectionController1.AllowSelectionOnEditing = true;
@@ -107,42 +105,44 @@ namespace BudgetExecution
             this.Spreadsheet.SelectedTabIndex = 0;
             this.Spreadsheet.SelectedTabItem = null;
             this.Spreadsheet.ShowBusyIndicator = true;
-            this.Spreadsheet.Size = new System.Drawing.Size(1208, 609);
+            this.Spreadsheet.Size = new System.Drawing.Size(1188, 518);
             this.Spreadsheet.TabIndex = 1;
             this.Spreadsheet.TabItemContextMenu = null;
-            this.Spreadsheet.Text = "spreadsheet1";
             this.Spreadsheet.ThemeName = "Default";
             // 
             // BudgetExcelForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.BorderColor = System.Drawing.Color.SteelBlue;
             this.CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.CaptionBarHeight = 30;
+            this.CaptionBarHeightMode = Syncfusion.Windows.Forms.Enums.CaptionBarHeightMode.SameAlwaysOnMaximize;
+            this.CaptionButtonColor = System.Drawing.Color.DimGray;
+            this.CaptionButtonHoverColor = System.Drawing.Color.White;
             this.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CaptionForeColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(1208, 764);
+            this.CaptionForeColor = System.Drawing.Color.White;
+            this.CaptionVerticalAlignment = Syncfusion.Windows.Forms.VerticalAlignment.Bottom;
+            this.ClientSize = new System.Drawing.Size(1188, 673);
             this.Controls.Add(this.Spreadsheet);
-            this.Controls.Add(this.sRibbon);
-            this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Controls.Add(this.Ribbon);
+            this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.LightGray;
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.Name = "BudgetExcelForm";
             this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Budget Execution";
-            ((System.ComponentModel.ISupportInitialize)(this.sRibbon)).EndInit();
-            this.sRibbon.ResumeLayout(false);
-            this.sRibbon.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Ribbon)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetRibbon sRibbon;
+        public Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetRibbon Ribbon;
         public Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet Spreadsheet;
     }
 }

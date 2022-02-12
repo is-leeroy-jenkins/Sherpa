@@ -155,7 +155,7 @@ namespace BudgetExecution
         /// <value>
         /// The hover gray.
         /// </value>
-        public static Color HoverDark { get; set; } = Color.FromArgb( 40, 40, 40 );
+        public static Color HoverDark { get; set; } = Color.FromArgb( 45, 45, 45 );
 
         /// <summary>
         /// Gets or sets the hover blue.

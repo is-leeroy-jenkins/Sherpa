@@ -11,6 +11,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using System.Drawing;
     using System.Windows.Forms;
+    using Syncfusion.Windows.Forms.Tools;
 
     public partial class BudgetExcelForm : MetroForm
     {
@@ -69,16 +70,19 @@ namespace BudgetExecution
         /// The bud ex configuration.
         /// </value>
         public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
-
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BudgetExcelForm"/> class.
+        /// </summary>
         public BudgetExcelForm()
         {
             InitializeComponent();
 
-            // Form Properties
-            Size = BudgetSize.FormSizeNormal;
+            // Form Property Values
             BackColor = BudgetColor.FormDark;
             BorderThickness = BudgetBorder.Thin;
             BorderColor = BudgetColor.SteelBlue;
+            Size = BudgetSize.FormSizeNormal;
             Font = BudgetFont.FontSizeSmall;
             CaptionBarColor = BudgetColor.FormDark;
             CaptionBarHeight = BudgetSize.CaptionSize;
@@ -86,24 +90,14 @@ namespace BudgetExecution
             CaptionButtonHoverColor = BudgetColor.White;
             CaptionAlign = BudgetAlign.HorizontalLeft;
             CaptionFont = BudgetFont.FontSizeMedium;
-            CaptionBarHeight = BudgetSize.CaptionSize;
             MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
-            Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 16, 16 );
+            Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 32, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
-            Text = string.Empty;
-            MinimumSize = BudgetSize.FormSizeMinimum;
-            MaximumSize = BudgetSize.FormSizeMaximum;
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
     }
 }
