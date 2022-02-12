@@ -111,8 +111,7 @@ namespace BudgetExecution
             Margin = BudgetControl.Margin;
             Padding = BudgetControl.Padding;
             Font = BudgetFont.FontSizeSmall;
-            Anchor = BudgetControl.GetAnchorStyle();
-            Dock = DockStyle.None;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
             ButtonStyle = ButtonAppearance.Office2010;
             FlatStyle = FlatStyle.System;
             Value = new CalculatorValue( 0.0 );

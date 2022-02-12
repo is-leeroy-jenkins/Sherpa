@@ -62,7 +62,7 @@ namespace BudgetExecution
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
+        public static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
             _error?.SetText( ex );

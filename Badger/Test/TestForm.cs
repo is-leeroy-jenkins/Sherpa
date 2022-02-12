@@ -82,13 +82,19 @@ namespace BudgetExecution
         {
             if( sender is BudgetButton _button )
             {
-                BudgetButton = _button;
-                BudgetButton.ForeColor = BudgetColor.White;
-                CaptionForeColor = BudgetColor.White;
-                Text = Setting[ "BudgetExecutionIcon" ];
-
-                var _form = new BudgetPdfForm();
-                _form.ShowDialog();
+                try
+                {
+                    BudgetButton = _button;
+                    BudgetButton.ForeColor = BudgetColor.White;
+                    CaptionForeColor = BudgetColor.White;
+                    Text = Setting[ "BudgetExecutionIcon" ];
+                    using var _form = new BudgetCalculatorForm();
+                    _form?.ShowDialog();
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
@@ -101,6 +107,17 @@ namespace BudgetExecution
         public void ClearLabelText( object sender, EventArgs e )
         {
             Text = string.Empty;
+        }
+
+        /// <summary>
+        /// Get Error Dialog.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

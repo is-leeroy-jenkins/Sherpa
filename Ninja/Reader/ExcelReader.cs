@@ -224,7 +224,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _dataset = new DataSet();
+                    using var _dataSet = new DataSet();
                     using var _connection = new OleDbConnection( XLSX );
                     _connection?.Open();
                     var _sql = "SELECT * FROM [" + sheetName + "]";
@@ -243,8 +243,8 @@ namespace BudgetExecution
                     }
 
                     using var _adapter = new OleDbDataAdapter( _sql, _connection );
-                    _adapter?.Fill( _dataset );
-                    return _dataset?.Tables[ 0 ];
+                    _adapter?.Fill( _dataSet );
+                    return _dataSet?.Tables[ 0 ];
                 }
                 catch( Exception ex )
                 {
