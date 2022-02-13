@@ -31,7 +31,13 @@ namespace BudgetExecution
         /// The hover text.
         /// </value>
         public override string HoverText { get; set; }
-        
+
+        /// <summary>
+        /// Gets or sets the application setting.
+        /// </summary>
+        /// <value>
+        /// The application setting.
+        /// </value>
         public override NameValueCollection AppSetting { get; set; } = ConfigurationManager.AppSettings;
 
         /// <summary>

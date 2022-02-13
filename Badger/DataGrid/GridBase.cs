@@ -16,6 +16,12 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class GridBase : DataGridView
     {
+        /// <summary>
+        /// Gets or sets the application setting.
+        /// </summary>
+        /// <value>
+        /// The application setting.
+        /// </value>
         public virtual NameValueCollection AppSetting { get; set; }
 
         /// <summary>

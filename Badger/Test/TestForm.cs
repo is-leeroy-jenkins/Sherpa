@@ -56,7 +56,7 @@ namespace BudgetExecution
             CaptionFont = BudgetFont.FontSizeMedium;
             MetroColor = BudgetColor.FormDark;
             FormBorderStyle = BudgetBorder.Sizeable;
-            Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 32, 32 );
+            Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 62, 16 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
@@ -67,7 +67,7 @@ namespace BudgetExecution
             BudgetButton.Text = "Test";
             BudgetButton.Tag = "THIS IS A TEST";
             BudgetButton.Location = new Point( 500, 500 );
-            BudgetButton.HoverText = Setting[ "BudgetExecutionIcon" ];
+            BudgetButton.HoverText = System.IO.Path.GetFileNameWithoutExtension( Setting[ "BudgetExecutionIcon" ] );
             BudgetButton.Click += SetLabelText;
             BudgetButton.MouseLeave += ClearLabelText;
 
@@ -89,8 +89,8 @@ namespace BudgetExecution
                     BudgetButton.ForeColor = BudgetColor.White;
                     CaptionForeColor = BudgetColor.White;
                     Text = Setting[ "BudgetExecutionIcon" ];
-                    using var _calculator = new BudgetCalculatorForm();
-                    _calculator.ShowDialog( this );
+                    using var _form = new BudgetDataGridForm();
+                    _form.ShowDialog( this );
                 }
                 catch( Exception ex )
                 {

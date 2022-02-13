@@ -5,6 +5,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
 
@@ -12,7 +13,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="System.Windows.Forms.ToolStripComboBox" />
-    public class BarComboBase : ToolStripComboBox
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    public abstract class BarComboBase : ToolStripComboBox
     {
         /// <summary>
         /// Gets or sets the hover text.
@@ -20,7 +22,7 @@ namespace BudgetExecution
         /// <value>
         /// The hover text.
         /// </value>
-        public string HoverText { get; set; }
+        public virtual string HoverText { get; set; }
 
         /// <summary>
         /// Gets or sets the field.
@@ -28,7 +30,7 @@ namespace BudgetExecution
         /// <value>
         /// The field.
         /// </value>
-        public Field Field { get; set; }
+        public virtual Field Field { get; set; }
 
         /// <summary>
         /// Gets or sets the binding source.
@@ -36,13 +38,21 @@ namespace BudgetExecution
         /// <value>
         /// The binding source.
         /// </value>
-        public BindingSource BindingSource { get; set; }
-        
+        public virtual BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="BarComboBase"/> class.
+        /// </summary>
+        public BarComboBase()
+        {
+        }
+
         /// <summary>
         /// Sets the font.
         /// </summary>
         /// <param name="font">The font.</param>
-        public void SetFont( Font font )
+        public virtual void SetFont( Font font )
         {
             try
             {
@@ -58,7 +68,7 @@ namespace BudgetExecution
         /// Sets the color of the fore.
         /// </summary>
         /// <param name="color">The color.</param>
-        public void SetForeColor( Color color )
+        public virtual void SetForeColor( Color color )
         {
             try
             {
@@ -74,7 +84,7 @@ namespace BudgetExecution
         /// Sets the color of the back.
         /// </summary>
         /// <param name="color">The color.</param>
-        public void SetBackColor( Color color )
+        public virtual void SetBackColor( Color color )
         {
             try
             {
@@ -90,7 +100,7 @@ namespace BudgetExecution
         /// Sets the field.
         /// </summary>
         /// <param name="field">The field.</param>
-        public void SetField( Field field )
+        public virtual void SetField( Field field )
         {
             try
             {
@@ -106,7 +116,7 @@ namespace BudgetExecution
         /// Sets the tag.
         /// </summary>
         /// <param name="tag">The tag.</param>
-        public void SetTag( object tag )
+        public virtual void SetTag( object tag )
         {
             try
             {
@@ -122,7 +132,7 @@ namespace BudgetExecution
         /// Sets the hover text.
         /// </summary>
         /// <param name="item">The item.</param>
-        public void SetHoverText( ToolStripItem item )
+        public virtual void SetHoverText( ToolStripItem item )
         {
             var _text = item?.Tag?.ToString();
 
@@ -140,7 +150,7 @@ namespace BudgetExecution
         /// Sets the hover text.
         /// </summary>
         /// <param name="text">The text.</param>
-        public void SetHoverText( string text )
+        public virtual void SetHoverText( string text )
         {
             try
             {

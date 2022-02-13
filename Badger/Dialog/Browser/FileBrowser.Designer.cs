@@ -778,7 +778,7 @@ namespace BudgetExecution
             this.CloseBoxPanel1.MinimizeNormalForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
             this.CloseBoxPanel1.Name = "CloseBoxPanel1";
             this.CloseBoxPanel1.Size = new System.Drawing.Size(100, 25);
-            this.CloseBoxPanel1.Style = MetroSet_UI.Design.Style.Custom;
+            this.CloseBoxPanel1.Style = MetroSet_UI.Enums.Style.Custom;
             this.CloseBoxPanel1.StyleManager = null;
             this.CloseBoxPanel1.TabIndex = 1;
             this.CloseBoxPanel1.Text = "closePanel1";

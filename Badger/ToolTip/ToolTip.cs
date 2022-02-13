@@ -9,6 +9,7 @@ namespace BudgetExecution
     using System.ComponentModel;
     using System.Windows.Forms;
     using MetroSet_UI.Design;
+    using MetroSet_UI.Enums;
 
     public class ToolTip : TipBase
     {
@@ -23,13 +24,14 @@ namespace BudgetExecution
             Style = Style.Custom;
             BackColor = BudgetColor.FormDark;
             BorderColor = BudgetColor.SteelBlue;
-            ForeColor = BudgetColor.White;
+            ForeColor = BudgetColor.LightBlue;
             UseAnimation = true;
             UseFading = true;
             AutomaticDelay = 500;
             InitialDelay = 500;
             AutoPopDelay = 5000;
             ReshowDelay = 100;
+            TipTitle = "Budget Execution";
         }
 
         /// <summary>

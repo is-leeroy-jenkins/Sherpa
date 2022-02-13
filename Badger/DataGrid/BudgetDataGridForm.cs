@@ -70,15 +70,7 @@ namespace BudgetExecution
         /// The bud ex configuration.
         /// </value>
         public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
-
-        /// <summary>
-        /// Gets or sets the data grid.
-        /// </summary>
-        /// <value>
-        /// The data grid.
-        /// </value>
-        public BudgetDataGrid DataGrid { get; set; } = new BudgetDataGrid();
-
+        
         /// <summary>
         /// Initializes a new instance of
         /// the <see cref="BudgetDataGridForm"/> class.
@@ -111,9 +103,6 @@ namespace BudgetExecution
             MaximumSize = BudgetSize.FormSizeMaximum;
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
-            DataGrid.Size = new Size( Size.Width - 400, Size.Height - 200 );
-            DataGrid.Location = new Point( Size.Width / 10, Size.Height / 10 );
-            Controls.Add( DataGrid );
             
             // Control Style Settings
             SetStyle( ControlStyles.OptimizedDoubleBuffer, true );

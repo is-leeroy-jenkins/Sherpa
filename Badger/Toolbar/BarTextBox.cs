@@ -14,44 +14,13 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="System.Windows.Forms.ToolStripTextBox" />
     /// <seealso cref="BudgetExecution.IBarTextBox" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    public class BarTextBox : ToolStripTextBox, IBarTextBox
+    public class BarTextBox : BarTextBoxBase, IBarTextBox
     {
         /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
-        public BindingSource BindingSource { get; set; }
-
-        /// <summary>
-        /// Gets or sets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
-        public string HoverText { get; set; }
-
-        /// <summary>
-        /// Gets or sets the field.
-        /// </summary>
-        /// <value>
-        /// The field.
-        /// </value>
-        public Field Field { get; set; }
-
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
-        public ToolTip ToolTip { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BarTextBox"/> class.
+        /// Initializes a new instance
+        /// of the <see cref="BarTextBox"/> class.
         /// </summary>
         public BarTextBox()
         {
@@ -203,17 +172,6 @@ namespace BudgetExecution
             {
                 Fail( ex );
             }
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
         }
     }
 }

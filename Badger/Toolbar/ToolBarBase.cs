@@ -15,7 +15,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
     
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class ToolBarBase : ToolStripEx
+    public abstract class ToolbarBase : ToolStripEx
     {
         /// <summary>
         /// Gets or sets the binding source.

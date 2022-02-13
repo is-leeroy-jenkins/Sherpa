@@ -54,12 +54,12 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="BarButton"/> class.
         /// </summary>
-        /// <param name="tool">The tool.</param>
-        public BarButton( Tool tool )
+        /// <param name="toolType">The tool.</param>
+        public BarButton( ToolType toolType )
             : this()
         {
-            Image = new BudgetImage( tool.ToString(), ImageSource.ToolBarImages )?.GetBitmap();
-            Bar = tool;
+            Image = new BudgetImage( toolType.ToString(), ImageSource.ToolBarImages )?.GetBitmap();
+            Bar = toolType;
         }
 
         /// <summary>
@@ -70,20 +70,20 @@ namespace BudgetExecution
             : this()
         {
             Image = image.GetBitmap();
-            Bar = (Tool)Enum.Parse( typeof( Tool ), image.Name );
+            Bar = (ToolType)Enum.Parse( typeof( ToolType ), image.Name );
         }
         
         /// <summary>
         /// Sets the image.
         /// </summary>
-        /// <param name="tool"></param>
-        public void SetImage( Tool tool )
+        /// <param name="toolType"></param>
+        public void SetImage( ToolType toolType )
         {
-            if( Enum.IsDefined( typeof( Tool ), tool ) )
+            if( Enum.IsDefined( typeof( ToolType ), toolType ) )
             {
                 try
                 {
-                    var _image = new BudgetImage( tool.ToString(), ImageSource.ToolBarImages );
+                    var _image = new BudgetImage( toolType.ToString(), ImageSource.ToolBarImages );
                     Image = _image?.GetBitmap();
                 }
                 catch( Exception ex )
@@ -163,117 +163,117 @@ namespace BudgetExecution
                 {
                     switch( _button.Bar )
                     {
-                        case Tool.FirstButton:
+                        case ToolType.FirstButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message?.ShowDialog();
                             break;
                         }
 
-                        case Tool.PreviousButton:
+                        case ToolType.PreviousButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message?.ShowDialog();
                             break;
                         }
 
-                        case Tool.NextButton:
+                        case ToolType.NextButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message?.ShowDialog();
                             break;
                         }
 
-                        case Tool.LastButton:
+                        case ToolType.LastButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message?.ShowDialog();
                             break;
                         }
 
-                        case Tool.ExcelButton:
+                        case ToolType.ExcelButton:
                         {
                             using var _message = new ExcelForm();
                             _message?.ShowDialog();
                             break;
                         }
 
-                        case Tool.PdfButton:
+                        case ToolType.PdfButton:
                         {
                             using var _message = new FileBrowser();
                             _message?.ShowDialog();
                             break;
                         }
 
-                        case Tool.AddButton:
+                        case ToolType.AddButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message?.ShowDialog();
                             break;
                         }
 
-                        case Tool.DeleteButton:
+                        case ToolType.DeleteButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message?.ShowDialog();
                             break;
                         }
 
-                        case Tool.RefreshButton:
+                        case ToolType.RefreshButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message?.ShowDialog();
                             break;
                         }
 
-                        case Tool.EditButton:
+                        case ToolType.EditButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message?.ShowDialog();
                             break;
                         }
 
-                        case Tool.ExitButton:
+                        case ToolType.ExitButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message?.ShowDialog();
                             break;
                         }
 
-                        case Tool.ExportButton:
+                        case ToolType.ExportButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message?.ShowDialog();
                             break;
                         }
 
-                        case Tool.ImportButton:
+                        case ToolType.ImportButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message?.ShowDialog();
                             break;
                         }
 
-                        case Tool.UpdateButton:
+                        case ToolType.UpdateButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message?.ShowDialog();
                             break;
                         }
 
-                        case Tool.InsertButton:
+                        case ToolType.InsertButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message?.ShowDialog();
                             break;
                         }
 
-                        case Tool.CalculatorButton:
+                        case ToolType.CalculatorButton:
                         {
                             break;
                         }
 
-                        case Tool.BrowseButton:
+                        case ToolType.BrowseButton:
                         {
                             using var _message = new FileBrowser();
                             _message?.ShowDialog();

@@ -11,9 +11,9 @@ namespace BudgetExecution
     {
         /// <summary> Sets the image.
         /// </summary>
-        /// <param name = "tool" > 
+        /// <param name = "toolType" > 
         /// </param>
-        void SetImage( Tool tool );
+        void SetImage( ToolType toolType );
 
         /// <summary>
         /// Called when [mouse over].

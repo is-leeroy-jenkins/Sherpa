@@ -247,6 +247,6 @@ namespace BudgetExecution
         /// <summary>
         /// The tools
         /// </summary>
-        public static readonly string[ ] Tools = Enum.GetNames( typeof( Tool ) );
+        public static readonly string[ ] Tools = Enum.GetNames( typeof( ToolType ) );
     }
 }

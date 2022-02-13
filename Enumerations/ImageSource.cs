@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// <summary>
         /// The close box images
         /// </summary>
-        CloseBoxImages,
+        CloseboxImages,
 
         /// <summary>
         /// The data images
@@ -58,6 +58,11 @@ namespace BudgetExecution
         /// The epa images
         /// </summary>
         EpaImages,
+
+        /// <summary>
+        /// The extension images
+        /// </summary>
+        ExtensionImages,
 
         /// <summary>
         /// The file images
@@ -133,11 +138,6 @@ namespace BudgetExecution
         /// The provider images
         /// </summary>
         ProviderImages,
-
-        /// <summary>
-        /// The summary images
-        /// </summary>
-        SummaryImages,
 
         /// <summary>
         /// The tool bar images

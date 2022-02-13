@@ -97,9 +97,9 @@
     <Reference Include="log4net, Version=2.0.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>packages\log4net.2.0.13\lib\net45\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="MetroSet UI, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="MetroSet UI, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\MetroSet UI.dll</HintPath>
+      <HintPath>Lib\MetroSet UI.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -654,6 +654,24 @@
     <Compile Include="Badger\CurrencyTextBox\CurrencyBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Badger\DataView\BudgetDataView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\DataView\DataViewBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\DataView\BudgetDataViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Badger\DataView\BudgetDataViewForm.Designer.cs">
+      <DependentUpon>BudgetDataViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Badger\Toolbar\BarProgressBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\Toolbar\BarTextBoxBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />
@@ -989,7 +1007,7 @@
     <Compile Include="Static\Static.cs" />
     <Compile Include="Static\Validate.cs" />
     <Compile Include="Static\Verify.cs" />
-    <Compile Include="Enumerations\Tool.cs" />
+    <Compile Include="Enumerations\ToolType.cs" />
     <Compile Include="Enumerations\TransferType.cs" />
     <Compile Include="Enumerations\UI.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
@@ -998,10 +1016,10 @@
     <Compile Include="Badger\ToolTip\TipBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\ToolBarControl.cs">
+    <Compile Include="Badger\Toolbar\BudgetToolbar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\ToolBarBase.cs">
+    <Compile Include="Badger\Toolbar\ToolbarBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Toolbar\ToolSeparator.cs">
@@ -1065,6 +1083,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\Calculator\BudgetCalculatorForm.resx">
       <DependentUpon>BudgetCalculatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Badger\DataView\BudgetDataViewForm.resx">
+      <DependentUpon>BudgetDataViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -1237,7 +1258,6 @@
     <None Include="etc\doc\SF\SpecialAccounts.docx" />
     <None Include="etc\doc\SF\StateContractsAndCooperativeAgreements.docx" />
     <None Include="etc\doc\SF\StateCostShareProvisions.docx" />
-    <None Include="Lib\MetroSet UI.dll.config" />
     <None Include="Ninja\FiscalYear\Year" />
     <None Include="Ninja\Template\Excel.xlsx" />
     <None Include="Properties\Settings.settings">
@@ -2451,11 +2471,8 @@
     <Content Include="Data\Database\mssql\datamodels\CREATE\VIEW\dbo.WQ.View.sql" />
     <Content Include="Data\Database\mssql\datamodels\CREATE\VIEW\dbo.WSA.View.sql" />
     <Content Include="Data\Database\mssql\datamodels\CREATE\VIEW\dbo.XA.View.sql" />
-    <Content Include="Data\Database\mssql\datamodels\Data.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Data\Database\mssql\datamodels\Data.mdf" />
     <Content Include="Data\Database\mssql\datamodels\Data_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Data.mdf</DependentUpon>
     </Content>
     <Content Include="Data\Database\mssql\datamodels\INSERT\InsertAgencyTransferUpdates.sql" />
@@ -2523,11 +2540,8 @@
     <Content Include="Data\Database\mssql\datamodels\INSERT\Param-InsertAllocationFormData.sql" />
     <Content Include="Data\Database\mssql\datamodels\INSERT\ParamInsertChangeUpdate.sql" />
     <Content Include="Data\Database\mssql\datamodels\INSERT\ParamInsertFormAllocationUpdates.sql" />
-    <Content Include="Data\Database\mssql\referencemodels\References.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Data\Database\mssql\referencemodels\References.mdf" />
     <Content Include="Data\Database\mssql\referencemodels\References_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>References.mdf</DependentUpon>
     </Content>
     <Content Include="Data\Database\sqlce\ui\amd64\Microsoft.VC90.CRT\msvcr90.dll" />

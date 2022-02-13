@@ -35,7 +35,7 @@ namespace BudgetExecution
         /// <value>
         /// The bar.
         /// </value>
-        public Tool Bar { get; set; }
+        public ToolType Bar { get; set; }
         
         /// <summary>
         /// Gets the name.

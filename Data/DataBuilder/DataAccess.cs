@@ -77,7 +77,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    DataSet = new DataSet( $"{Source}" )
+                    DataSet = new DataSet
                     {
                         DataSetName = $"{Source}"
                     };
@@ -116,7 +116,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    DataSet = new DataSet( "DataSet" )
+                    DataSet = new DataSet
                     {
                         DataSetName = "DataSet"
                     };
@@ -246,7 +246,7 @@ namespace BudgetExecution
                 var _table = GetDataTable();
                 SetColumnCaptions( _table );
 
-                DataSet = new DataSet( $"{ Source }" )
+                DataSet = new DataSet
                 {
                     DataSetName = $"{Source}"
                 };

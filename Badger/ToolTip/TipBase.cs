@@ -9,18 +9,17 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
     using MetroSet_UI.Components;
-    using MetroSet_UI.Design;
 
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="MetroSet_UI.Components.MetroSetToolTip" />
+    /// <seealso cref="MetroSet_UI.Components.MetroSetSetToolTip" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "IsExpressionAlwaysTrue" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class TipBase : MetroSetToolTip
+    public abstract class TipBase : MetroSetSetToolTip
     {
         /// <summary>
         /// Gets or sets the tip icon.
@@ -36,7 +35,7 @@ namespace BudgetExecution
         /// <value>
         /// The tip title.
         /// </value>
-        public virtual string TipTitle { get; set; } = string.Empty;
+        public virtual string TipTitle { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -204,8 +203,8 @@ namespace BudgetExecution
                 try
                 {
                     RemoveAll();
-                    var caption = control.Tag.ToString();
-                    SetToolTip( control, caption );
+                    var _caption = control.Tag.ToString();
+                    SetToolTip( control, _caption );
                 }
                 catch( Exception ex )
                 {
@@ -243,7 +242,7 @@ namespace BudgetExecution
         public virtual void SetToolTipText( ToolStripItem item )
         {
             if( item.GetCurrentParent() != null
-                && item is Component )
+                && item is not null )
             {
                 try
                 {
