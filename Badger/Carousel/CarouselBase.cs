@@ -72,6 +72,10 @@ namespace BudgetExecution
         /// </value>
         public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
 
+        public CarouselBase()
+        {
+        }
+
         /// <summary>
         /// Sets the size.
         /// </summary>

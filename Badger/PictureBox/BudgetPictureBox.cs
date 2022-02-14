@@ -58,7 +58,7 @@ namespace BudgetExecution
         /// <value>
         /// The image list.
         /// </value>
-        public override ImageList ImageList { get; set; }
+        public override BudgetImageList BudgetImageList { get; set; }
 
         /// <summary>
         /// Gets or sets the budget image.

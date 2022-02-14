@@ -89,7 +89,7 @@ namespace BudgetExecution
                     BudgetButton.ForeColor = BudgetColor.White;
                     CaptionForeColor = BudgetColor.White;
                     Text = Setting[ "BudgetExecutionIcon" ];
-                    using var _form = new BudgetDataGridForm();
+                    using var _form = new BudgetSelectionForm();
                     _form.ShowDialog( this );
                 }
                 catch( Exception ex )

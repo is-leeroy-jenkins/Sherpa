@@ -792,7 +792,7 @@
     <Compile Include="Badger\BudgetImage\ImageBuilder.cs" />
     <Compile Include="Badger\BudgetImage\ImageBase.cs" />
     <Compile Include="Badger\BudgetImage\ImageFactory.cs" />
-    <Compile Include="Badger\BudgetImage\ImageList.cs">
+    <Compile Include="Badger\BudgetImage\BudgetImageList.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Calculator\ICalculator.cs" />
@@ -1003,6 +1003,12 @@
     <Compile Include="Badger\Design\BudgetSize.cs" />
     <Compile Include="Badger\Chart\SeriesModel\SourceModel.cs" />
     <Compile Include="Badger\RichTextBox\RichTextBase.cs" />
+    <Compile Include="BudgetSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BudgetSelectionForm.Designer.cs">
+      <DependentUpon>BudgetSelectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Static\Resource.cs" />
     <Compile Include="Static\Static.cs" />
     <Compile Include="Static\Validate.cs" />
@@ -1099,6 +1105,9 @@
     </Compile>
     <EmbeddedResource Include="Badger\Form\ExecutionForm.resx">
       <DependentUpon>ExecutionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BudgetSelectionForm.resx">
+      <DependentUpon>BudgetSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".editorconfig" />
     <None Include="App.config" />

@@ -746,7 +746,7 @@ namespace BudgetExecution
             this.Picture.Field = BudgetExecution.Field.NS;
             this.Picture.HoverText = null;
             this.Picture.Image = ((System.Drawing.Image)(resources.GetObject("Picture.BudgetImage")));
-            this.Picture.ImageList = null;
+            this.Picture.BudgetImageList = null;
             this.Picture.Location = new System.Drawing.Point(0, 0);
             this.Picture.Margin = new System.Windows.Forms.Padding(0);
             this.Picture.Name = "Picture";

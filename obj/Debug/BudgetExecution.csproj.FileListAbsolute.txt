@@ -1,9 +1,12 @@
+C:\Users\terry\source\repos\BudgetExecution\bin\Debug\VisualPlus.dll
+C:\Users\terry\source\repos\BudgetExecution\bin\Debug\BudgetExecution.exe
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Data\Database\access\datamodels\Data.accdb
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Data\Database\access\referencemodels\References.accdb
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Data\Database\access\referencemodels\References.mdf
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Data\Database\access\referencemodels\References_log.ldf
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Data\Database\sqlce\datamodels\Data.sdf
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Data\Database\sqlce\referencemodels\References.sdf
+C:\Users\terry\source\repos\BudgetExecution\bin\Debug\BudgetExecution.exe.config
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\BaseConnectionLibrary.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\CharmNotification.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\DataGridViewExtension.dll
@@ -96,7 +99,6 @@ C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.Data.SQLite.Linq.dl
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.Data.SqlServerCe.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.IO.Packaging.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\System.ValueTuple.dll
-C:\Users\terry\source\repos\BudgetExecution\bin\Debug\VisualPlus.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\EnvDTE.dll
@@ -198,12 +200,11 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetCalc
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetDataViewForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Properties.Resources.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.ExecutionForm.resources
+C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetSelectionForm.resources
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.GenerateResource.cache
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.CoreCompileInputs.cache
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.CopyComplete
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
-C:\Users\terry\source\repos\BudgetExecution\bin\Debug\BudgetExecution.exe.config
-C:\Users\terry\source\repos\BudgetExecution\bin\Debug\BudgetExecution.exe
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\BudgetExecution.pdb
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache

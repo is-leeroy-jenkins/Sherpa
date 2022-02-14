@@ -52,7 +52,7 @@ namespace BudgetExecution
             this.picturePanel1.Field = BudgetExecution.Field.NS;
             this.picturePanel1.HoverText = null;
             this.picturePanel1.Image = ((System.Drawing.Image)(resources.GetObject("picturePanel1.BudgetImage")));
-            this.picturePanel1.ImageList = null;
+            this.picturePanel1.BudgetImageList = null;
             this.picturePanel1.Location = new System.Drawing.Point(360, 119);
             this.picturePanel1.Margin = new System.Windows.Forms.Padding(5);
             this.picturePanel1.Name = "picturePanel1";
@@ -112,7 +112,7 @@ namespace BudgetExecution
             this.LoadingBase.Field = BudgetExecution.Field.NS;
             this.LoadingBase.HoverText = null;
             this.LoadingBase.Image = ((System.Drawing.Image)(resources.GetObject("LoadingPanel.BudgetImage")));
-            this.LoadingBase.ImageList = null;
+            this.LoadingBase.BudgetImageList = null;
             this.LoadingBase.Location = new System.Drawing.Point(400, 115);
             this.LoadingBase.Name = "LoadingBase";
             this.LoadingBase.Padding = new System.Windows.Forms.Padding(1);

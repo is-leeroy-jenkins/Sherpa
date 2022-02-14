@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// <value>
         /// The image list.
         /// </value>
-        public virtual ImageList ImageList { get; set; }
+        public virtual BudgetImageList BudgetImageList { get; set; }
 
         /// <summary>
         /// Gets or sets the budget image.
