@@ -133,263 +133,263 @@
     </Reference>
     <Reference Include="Syncfusion.BulletGraph.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.BulletGraph.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.BulletGraph.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Calculate.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Calculate.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.Calculate.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Calculate.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Calculate.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.Calculate.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Chart.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Chart.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.Chart.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Chart.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Chart.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.Chart.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Compression.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Compression.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.Compression.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Core.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Core.WinForms.dll</HintPath>
+      <HintPath>lib\Syncfusion.Core.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Data.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Data.WinForms.dll</HintPath>
+      <HintPath>lib\Syncfusion.Data.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.DataSource.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.DataSource.WinForms.dll</HintPath>
+      <HintPath>lib\Syncfusion.DataSource.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Diagram.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Diagram.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.Diagram.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Diagram.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Diagram.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.Diagram.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.DocIO.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.DocIO.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.DocIO.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.DocIO.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.DocIO.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.DocIO.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Edit.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Edit.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.Edit.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.ExcelChartToImageConverter.Wpf, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.ExcelChartToImageConverter.Wpf.dll</HintPath>
+      <HintPath>lib\Syncfusion.ExcelChartToImageConverter.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Gauge.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Gauge.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.Gauge.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grid.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Grid.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.Grid.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grid.Grouping.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Grid.Grouping.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.Grid.Grouping.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grid.Grouping.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Grid.Grouping.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.Grid.Grouping.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grid.Grouping.Windows.XmlSerializers, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Grid.Grouping.Windows.XmlSerializers.dll</HintPath>
+      <HintPath>lib\Syncfusion.Grid.Grouping.Windows.XmlSerializers.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grid.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Grid.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.Grid.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grid.Windows.XmlSerializers, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Grid.Windows.XmlSerializers.dll</HintPath>
+      <HintPath>lib\Syncfusion.Grid.Windows.XmlSerializers.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.GridCommon.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.GridCommon.WinForms.dll</HintPath>
+      <HintPath>lib\Syncfusion.GridCommon.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.GridConverter.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.GridConverter.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.GridConverter.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.GridHelperClasses.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.GridHelperClasses.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.GridHelperClasses.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grouping.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Grouping.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.Grouping.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grouping.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Grouping.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.Grouping.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.HTMLUI.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.HTMLUI.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.HTMLUI.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.HTMLUI.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.HTMLUI.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.HTMLUI.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Licensing, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Licensing.dll</HintPath>
+      <HintPath>lib\Syncfusion.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Linq.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Linq.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.Linq.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Maps.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Maps.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.Maps.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.MIME.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.MIME.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.MIME.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Office2016Theme.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Office2016Theme.WinForms.dll</HintPath>
+      <HintPath>lib\Syncfusion.Office2016Theme.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Office2019Theme.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Office2019Theme.WinForms.dll</HintPath>
+      <HintPath>lib\Syncfusion.Office2019Theme.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.OfficeChart.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.OfficeChart.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.OfficeChart.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Pdf.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Pdf.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.Pdf.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Pdf.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Pdf.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.Pdf.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.PdfViewer.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.PdfViewer.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.PdfViewer.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.PivotAnalysis.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.PivotAnalysis.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.PivotAnalysis.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.PivotAnalysis.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.PivotChart.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.PivotChart.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.PivotChart.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.PivotConverter.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.PivotConverter.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.PivotConverter.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Presentation.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Presentation.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.Presentation.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.ProjIO.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.ProjIO.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.ProjIO.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Schedule.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Schedule.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.Schedule.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Schedule.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Schedule.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.Schedule.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Scripting.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Scripting.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.Scripting.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfBarcode.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.SfBarcode.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.SfBarcode.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfChart.WPF, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.SfChart.WPF.dll</HintPath>
+      <HintPath>lib\Syncfusion.SfChart.WPF.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfDataGrid.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.SfDataGrid.WinForms.dll</HintPath>
+      <HintPath>lib\Syncfusion.SfDataGrid.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfDataGridConverter.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.SfDataGridConverter.WinForms.dll</HintPath>
+      <HintPath>lib\Syncfusion.SfDataGridConverter.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfInput.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.SfInput.WinForms.dll</HintPath>
+      <HintPath>lib\Syncfusion.SfInput.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfListView.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.SfListView.WinForms.dll</HintPath>
+      <HintPath>lib\Syncfusion.SfListView.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfSmithChart.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.SfSmithChart.WinForms.dll</HintPath>
+      <HintPath>lib\Syncfusion.SfSmithChart.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Shared.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Shared.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.Shared.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Shared.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Shared.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.Shared.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SpellChecker.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.SpellChecker.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.SpellChecker.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Spreadsheet.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Spreadsheet.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.Spreadsheet.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SpreadsheetHelper.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.SpreadsheetHelper.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.SpreadsheetHelper.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Tools.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Tools.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.Tools.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Tools.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.Tools.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.Tools.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.TreeMap.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.TreeMap.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.TreeMap.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.XlsIO.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.XlsIO.Base.dll</HintPath>
+      <HintPath>lib\Syncfusion.XlsIO.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.XlsIO.Windows, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Syncfusion.XlsIO.Windows.dll</HintPath>
+      <HintPath>lib\Syncfusion.XlsIO.Windows.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
@@ -1003,10 +1003,10 @@
     <Compile Include="Badger\Design\BudgetSize.cs" />
     <Compile Include="Badger\Chart\SeriesModel\SourceModel.cs" />
     <Compile Include="Badger\RichTextBox\RichTextBase.cs" />
-    <Compile Include="BudgetSelectionForm.cs">
+    <Compile Include="Badger\Carousel\BudgetSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BudgetSelectionForm.Designer.cs">
+    <Compile Include="Badger\Carousel\BudgetSelectionForm.Designer.cs">
       <DependentUpon>BudgetSelectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Static\Resource.cs" />
@@ -1106,7 +1106,7 @@
     <EmbeddedResource Include="Badger\Form\ExecutionForm.resx">
       <DependentUpon>ExecutionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BudgetSelectionForm.resx">
+    <EmbeddedResource Include="Badger\Carousel\BudgetSelectionForm.resx">
       <DependentUpon>BudgetSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".editorconfig" />
