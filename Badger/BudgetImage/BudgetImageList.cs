@@ -10,11 +10,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Net;
-    using System.Windows.Forms;
-    using DocumentFormat.OpenXml.Wordprocessing;
-    using Syncfusion.Data.Extensions;
-    using Syncfusion.Windows.Forms.Tools;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
@@ -100,7 +95,7 @@ namespace BudgetExecution
             ImageBuilder = new ImageBuilder( ImageSource );
             ImageFactory = new ImageFactory( ImageBuilder );
             FilePaths = ImageFactory.Paths;
-            FileNames = ImageFactory.Names;;
+            FileNames = ImageFactory.Names;
         }
 
         /// <summary>
@@ -217,6 +212,63 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Creates the images.
+        /// </summary>
+        /// <param name="srcDir">The source dir.</param>
+        /// <returns></returns>
+        public IEnumerable<Image> CreateImages( string srcDir )
+        {
+            if( Directory.Exists( srcDir ) )
+            {
+                var _files = Directory.EnumerateFiles( srcDir );
+                var _list = new List<Image>();
+
+                if( _files?.Count() > 0 )
+                {
+                    foreach( var _file in _files )
+                    {
+                        using var _stream = File.Open( _file, FileMode.Open );
+                        using var _img = new Bitmap( _stream );
+                        _list.Add( _img );
+                    }
+                }
+
+                return _list?.Any() == true
+                    ? _list
+                    : default( IEnumerable<Image> );
+            }
+
+            return default( IEnumerable<Image> );
+        }
+
+        /// <summary>
+        /// Gets the images.
+        /// </summary>
+        /// <param name="paths">The source path.</param>
+        /// <returns></returns>
+        public IEnumerable<Image> CreateImages( IEnumerable<string> paths )
+        {
+            if( paths?.Count() > 0 )
+            {
+                var _files = paths.ToList();
+                var _list = new List<Image>();
+
+                for( var i = 0; i < _files.Count; i++ )
+                {
+                    using var _stream = File.Open( _files[ i ], FileMode.Open );
+                    using var _img = new Bitmap( _stream );
+                    _list.Add( _img );
+                }
+
+                return _list.Count > 0
+                    ? _list
+                    : default( IEnumerable<Image> );
+            }
+
+            return default( IEnumerable<Image> );
         }
     }
 }

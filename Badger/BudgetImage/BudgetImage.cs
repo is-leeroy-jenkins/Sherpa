@@ -5,9 +5,12 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
+    using System.Collections.Specialized;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
+    using System.Linq;
 
     /// <summary>
     /// 
@@ -245,6 +248,56 @@ namespace BudgetExecution
                     ImageFile.Dispose();
                 }
             }
+        }
+
+        /// <summary>
+        /// Gets the file paths.
+        /// </summary>
+        /// <param name="items">The items.</param>
+        /// <returns></returns>
+        public IEnumerable<string> GetFilePaths( NameValueCollection items )
+        {
+            if( items?.Count > 0 )
+            {
+                var _list = new List<string>();
+
+                for( var i = 0; i < items.Count; i++ )
+                {
+                    _list.Add( items[ i ] );
+                }
+
+                return _list?.Any() == true
+                    ? _list
+                    : default( IEnumerable<string> );
+            }
+
+            return default( IEnumerable<string> );
+        }
+
+        /// <summary>
+        /// Gets the file paths.
+        /// </summary>
+        /// <param name="srcDir">The source dir.</param>
+        /// <returns></returns>
+        public IEnumerable<string> GetFilePaths( string srcDir )
+        {
+            if( Directory.Exists( srcDir ) )
+            {
+                var _files = Directory.EnumerateFiles( srcDir );
+                var _paths = _files.ToList();
+                var _list = new List<string>();
+
+                for( var i = 0; i < _paths.Count(); i++ )
+                {
+                    _list.Add( _paths[ i ] );
+                }
+
+                return _list.Count > 0
+                    ? _list
+                    : default( IEnumerable<string> );
+            }
+
+            return default( IEnumerable<string> );
         }
     }
 }

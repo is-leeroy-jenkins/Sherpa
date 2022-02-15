@@ -62,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The carousel.
         /// </value>
-        public virtual BudgetCarousel Carousel { get; set; } 
+        public virtual BudgetCarousel Carousel { get;  } = new BudgetCarousel();
 
         /// <summary>
         /// Initializes a new instance
@@ -95,7 +95,6 @@ namespace BudgetExecution
             MinimumSize = BudgetSize.FormSizeMinimum;
             MaximumSize = BudgetSize.FormSizeMaximum;
             WindowState = FormWindowState.Normal;
-            Carousel = new BudgetCarousel();
             Carousel.Location = new Point( 155, 100 );
             Carousel.Size = new Size( 1051, 617 );
             Controls.Add( Carousel );
@@ -108,13 +107,6 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
-            var _files = Carousel.GetFilePaths( Setting[ "CarouselRpioImages" ] );
-
-            foreach( var _carouselImage in Carousel.CreateCarouselItems( _files ) )
-            {
-                Carousel.ImageList.Images.Add( _carouselImage.ItemImage );
-                Carousel.ImageListCollection.Add( _carouselImage );
-            }
         }
     }
 }

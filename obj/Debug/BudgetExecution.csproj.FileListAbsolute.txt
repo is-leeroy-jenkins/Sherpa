@@ -207,7 +207,6 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.Cop
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\BudgetExecution.pdb
-C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\Data\Database\access\datamodels\Data.accdb
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\Data\Database\access\referencemodels\References.accdb
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\Data\Database\access\referencemodels\References.mdf
@@ -418,3 +417,4 @@ C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.C
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.CopyComplete
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
+C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache

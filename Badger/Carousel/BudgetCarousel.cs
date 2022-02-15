@@ -15,6 +15,43 @@ namespace BudgetExecution
 
     public class BudgetCarousel : CarouselBase
     {
+        /// <summary>
+        /// Gets or sets the rpio path.
+        /// </summary>
+        /// <value>
+        /// The rpio path.
+        /// </value>
+        public string RegionPath { get; set; } = ConfigurationManager.AppSettings[ "CarouselRegionImages" ];
+        
+        /// <summary>
+        /// Gets or sets the rpio path.
+        /// </summary>
+        /// <value>
+        /// The rpio path.
+        /// </value>
+        public string NpmPath { get; set; } = ConfigurationManager.AppSettings[ "CarouselNpmImages" ];
+
+        /// <summary>
+        /// Gets or sets the provider path.
+        /// </summary>
+        /// <value>
+        /// The provider path.
+        /// </value>
+        public string ProviderPath { get; set; } =
+            ConfigurationManager.AppSettings[ "CarouselProviderPath" ];
+
+        /// <summary>
+        /// Gets or sets the fund path.
+        /// </summary>
+        /// <value>
+        /// The fund path.
+        /// </value>
+        public string FundPath { get; set; } =  ConfigurationManager.AppSettings[ "CarouselFundImages" ];
+
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="BudgetCarousel"/> class.
+        /// </summary>
         public BudgetCarousel()
         {
             // Basic Carousel Properties
@@ -23,7 +60,7 @@ namespace BudgetExecution
             Font = BudgetFont.FontSizeSmall;
             CarouselPath = CarouselPath.Default;
             ImageSlides = true;
-            Padding = new Padding( 0, 0, 0, 0 );
+            Padding = new Padding( 0, 10, 0, 10 );
             PadX = 0;
             PadY = 0;
             Perspective = 6;
@@ -31,70 +68,20 @@ namespace BudgetExecution
             ShowImagePreview = true;
             ShowImageShadow = true;
             TransitionSpeed = 2;
-            UseOriginalImageinPreview = false;
+            UseOriginalImageinPreview = true;
             UseCustomBounds = false;
             CanOverrideStyle = true;
             VisualStyle = CarouselVisualStyle.Metro;
-            FilePath = ConfigurationManager.AppSettings[ "CarouselProviderImages" ];
+            FilePath = NpmPath;
             HighlightColor = BudgetColor.SteelBlue;
 
             // ThemeStyle Properties
-            ThemeStyle.BackColor = BudgetColor.Transparent;
+            ThemeStyle.BackColor = BudgetColor.FormDark;
             ThemeStyle.Font = BudgetFont.FontSizeSmall;
             ThemeStyle.ForeColor = BudgetColor.LightGray;
             ThemeStyle.HoverImageBorderColor = BudgetColor.SteelBlue;
             ThemeStyle.HoverImageBorderThickness = 2;
-            ThemeStyle.ImageShadeColor = Color.DarkBlue;
-        }
-
-        /// <summary>
-        /// Gets the file paths.
-        /// </summary>
-        /// <param name="items">The items.</param>
-        /// <returns></returns>
-        public IEnumerable<string> GetFilePaths( NameValueCollection items )
-        {
-            if( items?.Count > 0 )
-            {
-                var _list = new List<string>();
-
-                for( var i = 0; i < items.Count; i++ )
-                {
-                    _list.Add( items[ i ] );
-                }
-
-                return _list?.Any() == true
-                    ? _list
-                    : default( IEnumerable<string> );
-            }
-
-            return default( IEnumerable<string> );
-        }
-
-        /// <summary>
-        /// Gets the file paths.
-        /// </summary>
-        /// <param name="srcDir">The source dir.</param>
-        /// <returns></returns>
-        public IEnumerable<string> GetFilePaths( string srcDir )
-        {
-            if( Directory.Exists( srcDir ) )
-            {
-                var _files = Directory.EnumerateFiles( srcDir );
-                var _paths = _files.ToList();
-                var _list = new List<string>();
-
-                for( var i = 0; i < _paths.Count(); i++ )
-                {
-                    _list.Add( _paths[ i ] );
-                }
-
-                return _list.Count > 0
-                    ? _list
-                    : default( IEnumerable<string> );
-            }
-
-            return default( IEnumerable<string> );
+            ThemeStyle.ImageShadeColor = BudgetColor.FormDark;
         }
 
         /// <summary>
@@ -125,63 +112,6 @@ namespace BudgetExecution
             }
 
             return default( ImageList );
-        }
-
-        /// <summary>
-        /// Creates the images.
-        /// </summary>
-        /// <param name="srcDir">The source dir.</param>
-        /// <returns></returns>
-        public IEnumerable<Image> CreateImages( string srcDir )
-        {
-            if( Directory.Exists( srcDir ) )
-            {
-                var _files = Directory.EnumerateFiles( srcDir );
-                var _list = new List<Image>();
-
-                if( _files?.Count() > 0 )
-                {
-                    foreach( var _file in _files )
-                    {
-                        using var _stream = File.Open( _file, FileMode.Open );
-                        using var _img = new Bitmap( _stream );
-                        _list.Add( _img );
-                    }
-                }
-
-                return _list?.Any() == true
-                    ? _list
-                    : default( IEnumerable<Image> );
-            }
-
-            return default( IEnumerable<Image> );
-        }
-
-        /// <summary>
-        /// Gets the images.
-        /// </summary>
-        /// <param name="paths">The source path.</param>
-        /// <returns></returns>
-        public IEnumerable<Image> CreateImages( IEnumerable<string> paths )
-        {
-            if( paths?.Count() > 0 )
-            {
-                var _files = paths.ToList();
-                var _list = new List<Image>();
-                
-                for( var i = 0; i < _files.Count; i++ )
-                {
-                    using var _stream = File.Open( _files[ i ], FileMode.Open );
-                    using var _img = new Bitmap( _stream );
-                    _list.Add( _img );
-                }
-
-                return _list.Count > 0 
-                    ? _list
-                    : default( IEnumerable<Image> );
-            }
-
-            return default( IEnumerable<Image> );
         }
 
         /// <summary>
