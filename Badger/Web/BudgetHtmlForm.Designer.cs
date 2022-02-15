@@ -6,7 +6,7 @@
 namespace BudgetExecution
 {
 
-    partial class BudgetWebBrowser
+    partial class BudgetHtmlForm
     {
         /// <summary>
         /// Required designer variable.
@@ -71,7 +71,7 @@ namespace BudgetExecution
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.LightGray;
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.Name = "BudgetWebBrowser";
+            this.Name = "BudgetHtmlForm";
             this.ShowIcon = false;
             this.Text = "Budget Execution";
             ((System.ComponentModel.ISupportInitialize)(this.WebBrowser)).EndInit();

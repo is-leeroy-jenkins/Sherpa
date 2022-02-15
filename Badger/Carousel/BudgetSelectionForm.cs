@@ -92,11 +92,10 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
             Text = string.Empty;
-            MinimumSize = BudgetSize.FormSizeMinimum;
-            MaximumSize = BudgetSize.FormSizeMaximum;
             WindowState = FormWindowState.Normal;
-            Carousel.Location = new Point( 155, 100 );
-            Carousel.Size = new Size( 1051, 617 );
+            StartPosition = FormStartPosition.CenterScreen;
+            Carousel.Location = new Point( 105, 100 );
+            Carousel.Size = new Size( 1051, 517 );
             Controls.Add( Carousel );
         }
 

@@ -612,11 +612,11 @@
     <Compile Include="Badger\PDF\BudgetPdfForm.Designer.cs">
       <DependentUpon>BudgetPdfForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Web\BudgetWebBrowser.cs">
+    <Compile Include="Badger\Web\BudgetHtmlForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Badger\Web\BudgetWebBrowser.Designer.cs">
-      <DependentUpon>BudgetWebBrowser.cs</DependentUpon>
+    <Compile Include="Badger\Web\BudgetHtmlForm.Designer.cs">
+      <DependentUpon>BudgetHtmlForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Badger\Navigation\BudgetNavigationForm.cs">
       <SubType>Form</SubType>
@@ -648,10 +648,10 @@
     <Compile Include="Badger\Carousel\CarouselBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\CurrencyTextBox\BudgetCurrencyTextBox.cs">
+    <Compile Include="Badger\Currency\BudgetCurrencyTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\CurrencyTextBox\CurrencyBoxBase.cs">
+    <Compile Include="Badger\Currency\CurrencyBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\DataView\BudgetDataView.cs">
@@ -1081,8 +1081,8 @@
     <EmbeddedResource Include="Badger\PDF\BudgetPdfForm.resx">
       <DependentUpon>BudgetPdfForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Badger\Web\BudgetWebBrowser.resx">
-      <DependentUpon>BudgetWebBrowser.cs</DependentUpon>
+    <EmbeddedResource Include="Badger\Web\BudgetHtmlForm.resx">
+      <DependentUpon>BudgetHtmlForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\Navigation\BudgetNavigationForm.resx">
       <DependentUpon>BudgetNavigationForm.cs</DependentUpon>

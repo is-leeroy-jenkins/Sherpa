@@ -103,8 +103,6 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
             Text = string.Empty;
-            MinimumSize = BudgetSize.FormSizeMinimum;
-            MaximumSize = BudgetSize.FormSizeMaximum;
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
             Calendar.Dock = DockStyle.Fill;

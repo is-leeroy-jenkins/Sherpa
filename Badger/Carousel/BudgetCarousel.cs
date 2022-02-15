@@ -63,7 +63,7 @@ namespace BudgetExecution
             Padding = new Padding( 0, 10, 0, 10 );
             PadX = 0;
             PadY = 0;
-            Perspective = 6;
+            Perspective = 4;
             RotateAlways = false;
             ShowImagePreview = true;
             ShowImageShadow = true;

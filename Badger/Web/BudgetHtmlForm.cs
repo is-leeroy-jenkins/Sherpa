@@ -12,7 +12,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
-    public partial class BudgetWebBrowser : MetroForm
+    public partial class BudgetHtmlForm : MetroForm
     {
         /// <summary>
         /// Gets or sets the binding source.
@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// </value>
         public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
 
-        public BudgetWebBrowser()
+        public BudgetHtmlForm()
         {
             InitializeComponent();
 
@@ -94,16 +94,8 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
             Text = string.Empty;
-            MinimumSize = BudgetSize.FormSizeMinimum;
-            MaximumSize = BudgetSize.FormSizeMaximum;
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
     }
 }

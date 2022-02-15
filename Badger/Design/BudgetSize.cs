@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The form size normal.
         /// </value>
-        public static Size FormSizeNormal { get; } = new Size( 1400, 800 );
+        public static Size FormSizeNormal { get; } = new Size( 1200, 700 );
 
         /// <summary>
         /// Gets the form size maximum.
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The form size maximum.
         /// </value>
-        public static Size FormSizeMaximum { get; } = new Size( 1600, 1060 );
+        public static Size FormSizeMaximum { get; } = new Size( 1400, 800 );
 
         /// <summary>
         /// Gets the form size minimum.

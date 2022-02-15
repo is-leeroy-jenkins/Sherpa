@@ -96,7 +96,6 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = BudgetControl.Padding;
-            MaximumSize = BudgetSize.FormSizeMaximum;
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
             Controls.Add( Calculator );
