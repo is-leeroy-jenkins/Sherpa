@@ -980,7 +980,7 @@
     <Compile Include="Badger\Splash\SplashBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Notification\BudgetNotify.cs">
+    <Compile Include="Badger\Notification\BudgetNotification.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />

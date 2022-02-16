@@ -5,7 +5,6 @@
 namespace BudgetExecution
 {
     using System.Collections.Generic;
-    using System.Collections.Specialized;
     using System.Configuration;
     using System.Drawing;
     using System.Windows.Forms;
@@ -76,7 +75,7 @@ namespace BudgetExecution
             HighlightColor = BudgetColor.SteelBlue;
 
             // ThemeStyle Properties
-            ThemeStyle.BackColor = BudgetColor.FormDark;
+            ThemeStyle.BackColor = BudgetColor.Transparent;
             ThemeStyle.Font = BudgetFont.FontSizeSmall;
             ThemeStyle.ForeColor = BudgetColor.LightGray;
             ThemeStyle.HoverImageBorderColor = BudgetColor.SteelBlue;
@@ -89,7 +88,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="srcDir">The source dir.</param>
         /// <returns></returns>
-        private protected ImageList CreateImageList( string srcDir )
+        public ImageList CreateImageList( string srcDir )
         {
             if( Directory.Exists( srcDir ) )
             {
@@ -97,13 +96,54 @@ namespace BudgetExecution
                 var _paths = _files?.ToList();
                 var _list = new ImageList();
 
-                for( var i = 0; i < _paths.Count(); i++ )
+                for( var i = 0; i < _paths.Count; i++ )
                 {
-                    using var _stream = File.Open( _paths[ i ], FileMode.Open );
-                    using var _img = new Bitmap( _stream );
-                    var _carImg = new CarouselImage();
-                    _carImg.ItemImage = _img;
-                    _list?.Images?.Add( _img );
+                    if ( !string.IsNullOrEmpty( _paths[ i ] ) 
+                        && File.Exists( _paths[ i ] ) )
+                    {
+                        var _name = Path.GetFileNameWithoutExtension( _paths[ i ] );
+                        using var _stream = File.Open( _paths[ i ], FileMode.Open );
+                        var _img = new Bitmap( _stream );
+                        _img.Tag = _name;
+                        _list.ImageSize = new Size( 250, 250 );
+                        _list?.Images?.Add( _img );
+                    }
+                }
+
+                return _list?.Images?.Count > 0
+                    ? _list
+                    : default( ImageList );
+            }
+
+            return default( ImageList );
+        }
+
+        /// <summary>
+        /// Creates the image list.
+        /// </summary>
+        /// <param name="srcDir">The source dir.</param>
+        /// <param name = "size" > </param>
+        /// <returns></returns>
+        public ImageList CreateImageList( string srcDir, Size size )
+        {
+            if( Directory.Exists( srcDir ) )
+            {
+                var _files = Directory.EnumerateFiles( srcDir );
+                var _paths = _files?.ToList();
+                var _list = new ImageList();
+
+                for( var i = 0; i < _paths.Count; i++ )
+                {
+                    if ( !string.IsNullOrEmpty( _paths[ i ] ) 
+                        && File.Exists( _paths[ i ] ) )
+                    {
+                        var _name = Path.GetFileNameWithoutExtension( _paths[ i ] );
+                        using var _stream = File.Open( _paths[ i ], FileMode.Open );
+                        var _img = new Bitmap( _stream );
+                        _img.Tag = _name;
+                        _list.ImageSize = size;
+                        _list?.Images?.Add( _img );
+                    }
                 }
 
                 return _list?.Images?.Count > 0
@@ -174,24 +214,28 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the carousel items.
         /// </summary>
-        /// <param name="srcPath">The source path.</param>
+        /// <param name="srcDir">The source path.</param>
         /// <returns></returns>
-        public IEnumerable<CarouselImage> CreateCarouselItems( string srcPath )
+        public IEnumerable<CarouselImage> CreateCarouselItems( string srcDir )
         {
-            if( !string.IsNullOrEmpty( srcPath )
-               && File.Exists( srcPath ) )
+            if( !string.IsNullOrEmpty( srcDir )
+               && Directory.Exists( srcDir ) )
             {
-                var _files = Directory.EnumerateFiles( srcPath );
+                var _files = Directory.EnumerateFiles( srcDir );
                 var _list = _files?.ToList();
                 var _carouselImages = new List<CarouselImage>();
 
-                for( var i = 0; i < _list?.Count(); i++ )
+                for( var i = 0; i < _list?.Count; i++ )
                 {
-                    using var _stream = File.Open( _list[ i ], FileMode.Open );
-                    using var _image = new Bitmap( _stream );
-                    var _carouselImage = new CarouselImage();
-                    _carouselImage.ItemImage = _image;
-                    _carouselImages.Add( _carouselImage );
+                    if ( !string.IsNullOrEmpty( _list[ i ] ) 
+                        && File.Exists( _list[ i ] ) )
+                    {
+                        using var _stream = File.Open( _list[ i ], FileMode.Open );
+                        using var _image = new Bitmap( _stream );
+                        var _carouselImage = new CarouselImage();
+                        _carouselImage.ItemImage = _image;
+                        _carouselImages.Add( _carouselImage );
+                    }
                 }
 
                 return _carouselImages?.Any() == true
