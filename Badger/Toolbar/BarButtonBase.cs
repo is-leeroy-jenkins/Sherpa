@@ -80,7 +80,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tag = BudgetControl.GetTag( tag );
+                Tag = BudgetSetting.GetTag( tag );
             }
             catch( Exception ex )
             {
@@ -98,7 +98,7 @@ namespace BudgetExecution
 
             try
             {
-                HoverText = BudgetControl.GetText( _text );
+                HoverText = BudgetSetting.GetText( _text );
             }
             catch( Exception ex )
             {
@@ -114,7 +114,7 @@ namespace BudgetExecution
         {
             try
             {
-                HoverText = BudgetControl.GetText( text );
+                HoverText = BudgetSetting.GetText( text );
             }
             catch( Exception ex )
             {

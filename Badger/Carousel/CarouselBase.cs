@@ -10,6 +10,8 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.IO;
+    using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
@@ -84,7 +86,7 @@ namespace BudgetExecution
         {
             try
             {
-                Size = BudgetControl.GetSize( size );
+                Size = BudgetSetting.GetSize( size );
             }
             catch( Exception ex )
             {
@@ -101,7 +103,7 @@ namespace BudgetExecution
         {
             try
             {
-                Size = BudgetControl.GetSize( width, height );
+                Size = BudgetSetting.GetSize( width, height );
             }
             catch( Exception ex )
             {
@@ -117,7 +119,7 @@ namespace BudgetExecution
         {
             try
             {
-                Text = BudgetControl.GetText( text );
+                Text = BudgetSetting.GetText( text );
             }
             catch( Exception ex )
             {
@@ -133,7 +135,7 @@ namespace BudgetExecution
         {
             try
             {
-                Location = BudgetControl.GetLocation( point );
+                Location = BudgetSetting.GetLocation( point );
             }
             catch( Exception ex )
             {
@@ -150,7 +152,7 @@ namespace BudgetExecution
         {
             try
             {
-                Location = BudgetControl.GetLocation( x, y );
+                Location = BudgetSetting.GetLocation( x, y );
             }
             catch( Exception ex )
             {
@@ -182,7 +184,7 @@ namespace BudgetExecution
         {
             try
             {
-                Anchor = BudgetControl.GetAnchorStyle( anchor );
+                Anchor = BudgetSetting.GetAnchorStyle( anchor );
             }
             catch( Exception ex )
             {
@@ -198,7 +200,7 @@ namespace BudgetExecution
         {
             try
             {
-                Dock = BudgetControl.GetDockStyle( dock );
+                Dock = BudgetSetting.GetDockStyle( dock );
             }
             catch( Exception ex )
             {
@@ -230,7 +232,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tag = BudgetControl.GetTag( tag );
+                Tag = BudgetSetting.GetTag( tag );
             }
             catch( Exception ex )
             {
@@ -246,7 +248,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tag = BudgetControl.GetToolTip( this, tip );
+                Tag = BudgetSetting.GetToolTip( this, tip );
             }
             catch( Exception ex )
             {
@@ -271,6 +273,72 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Creates the image list.
+        /// </summary>
+        /// <param name="srcDir">The source dir.</param>
+        /// <returns></returns>
+        private protected ImageList CreateImageList( string srcDir )
+        {
+            if( Directory.Exists( srcDir ) )
+            {
+                var _files = Directory.EnumerateFiles( srcDir );
+                var _paths = _files?.ToList();
+                var _list = new ImageList();
+
+                for( var i = 0; i < _paths.Count(); i++ )
+                {
+                    if ( !string.IsNullOrEmpty( _paths[ i ] ) 
+                        && File.Exists( _paths[ i ] ) )
+                    {
+                        using var _stream = File.Open( _paths[ i ], FileMode.Open );
+                        using var _img = new Bitmap( _stream );
+                        var _carImg = new CarouselImage();
+                        _carImg.ItemImage = _img;
+                        _list?.Images?.Add( _img );
+                    }
+                }
+
+                return _list?.Images?.Count > 0
+                    ? _list
+                    : default( ImageList );
+            }
+
+            return default( ImageList );
+        }
+
+        /// <summary>
+        /// Creates the carousel items.
+        /// </summary>
+        /// <param name="paths">The images.</param>
+        /// <returns></returns>
+        public IEnumerable<CarouselImage> CreateCarouselItems( IEnumerable<string> paths )
+        {
+            if( paths?.Any() == true )
+            {
+                var _list = paths.ToList();
+                var _carouselImages = new List<CarouselImage>();
+
+                for( var i = 0; i < _list?.Count; i++ )
+                {
+                    if ( !string.IsNullOrEmpty( _list[ i ] ) )
+                    {
+                        using var _stream = File.Open( _list[ i ], FileMode.Open );
+                        using var _img = new Bitmap( _stream );
+                        var _carouselImage = new CarouselImage();
+                        _carouselImage.ItemImage = _img;
+                        _carouselImages.Add( _carouselImage );
+                    }
+                }
+
+                return _carouselImages.Any()
+                    ? _carouselImages
+                    : default( IEnumerable<CarouselImage> );
+            }
+
+            return default( IEnumerable<CarouselImage> );
         }
 
         /// <summary>

@@ -81,10 +81,10 @@ namespace BudgetExecution
         {
             ForeColor = BudgetColor.Black;
             Font = BudgetFont.FontSizeSmall;
-            Margin = BudgetControl.Margin;
-            Padding = BudgetControl.Padding;
+            Margin = BudgetSetting.Margin;
+            Padding = BudgetSetting.Padding;
             Size = BudgetSize.DataGridControl;
-            Anchor = BudgetControl.GetAnchorStyle();
+            Anchor = BudgetSetting.GetAnchorStyle();
             EnableHeadersVisualStyles = false;
             BackColor = BudgetColor.FormDark;
             BorderStyle = BorderStyle.None;

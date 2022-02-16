@@ -105,16 +105,16 @@ namespace BudgetExecution
         {
             // Basic Property SeriesConfiguration.
             Size = BudgetSize.CollectionControl;
-            Location = BudgetControl.GetLocation();
-            Anchor = BudgetControl.GetAnchorStyle();
-            Dock = BudgetControl.GetDockStyle();
+            Location = BudgetSetting.GetLocation();
+            Anchor = BudgetSetting.GetAnchorStyle();
+            Dock = BudgetSetting.GetDockStyle();
             Visible = true;
             Enabled = true;
             BackColor = BudgetColor.ControlInteriorDark;
             ForeColor = BudgetColor.ForeColorGray;
             Font = BudgetFont.FontSizeSmall;
-            Margin = BudgetControl.Margin;
-            Padding = BudgetControl.Padding;
+            Margin = BudgetSetting.Margin;
+            Padding = BudgetSetting.Padding;
 
             // Border SeriesConfiguration.
             Border.Type = ShapeTypes.Rounded;
@@ -155,7 +155,7 @@ namespace BudgetExecution
             : this()
         {
             Size = BudgetSize.GetSize( size );
-            Location = BudgetControl.GetLocation( location );
+            Location = BudgetSetting.GetLocation( location );
         }
 
         /// <summary>
@@ -168,11 +168,11 @@ namespace BudgetExecution
         public BudgetGroupBox( Point location, Control parent = null )
             : this()
         {
-            Location = BudgetControl.GetLocation( location );
+            Location = BudgetSetting.GetLocation( location );
 
             if( parent != null )
             {
-                Parent = BudgetControl.GetParent( parent );
+                Parent = BudgetSetting.GetParent( parent );
                 Parent.Controls.Add( this );
             }
         }
@@ -191,7 +191,7 @@ namespace BudgetExecution
 
             if( parent != null )
             {
-                Parent = BudgetControl.GetParent( parent );
+                Parent = BudgetSetting.GetParent( parent );
                 Parent.Controls.Add( this );
             }
         }
@@ -208,8 +208,8 @@ namespace BudgetExecution
             : this()
         {
             Size = BudgetSize.GetSize( size );
-            Location = BudgetControl.GetLocation( location );
-            Parent = BudgetControl.GetParent( parent );
+            Location = BudgetSetting.GetLocation( location );
+            Parent = BudgetSetting.GetParent( parent );
             Parent.Controls.Add( this );
         }
 

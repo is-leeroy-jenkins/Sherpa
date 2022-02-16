@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
+    using DocumentFormat.OpenXml.Bibliography;
 
     /// <summary>
     /// 
@@ -15,7 +16,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class BudgetControl
+    public class BudgetSetting
     {
         /// <summary>
         /// Gets or sets the margin.
@@ -42,9 +43,9 @@ namespace BudgetExecution
         public static Control Parent { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetControl"/> class.
+        /// Initializes a new instance of the <see cref="BudgetSetting"/> class.
         /// </summary>
-        public BudgetControl()
+        public BudgetSetting()
         {
         }
 
@@ -102,8 +103,7 @@ namespace BudgetExecution
         /// <param name="anchor">The anchor.</param>
         /// <returns></returns>
         public static AnchorStyles GetAnchorStyle( AnchorStyles anchor = AnchorStyles.Left 
-            & AnchorStyles.Top 
-            & AnchorStyles.Right )
+            | AnchorStyles.Top )
         {
             try
             {

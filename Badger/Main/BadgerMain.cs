@@ -33,7 +33,7 @@ namespace BudgetExecution
             FormBorderStyle = BudgetBorder.Sizeable;
             ShowIcon = false;
             ShowInTaskbar = true;
-            Padding = BudgetControl.Padding;
+            Padding = BudgetSetting.Padding;
             Text = string.Empty;
             MinimumSize = BudgetSize.FormSizeMinimum;
             MaximumSize = BudgetSize.FormSizeMaximum;

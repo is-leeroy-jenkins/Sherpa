@@ -50,8 +50,8 @@ namespace BudgetExecution
         {
             CanApplyTheme = true;
             CanOverrideStyle = true;
-            Margin = BudgetControl.Margin;
-            Padding = BudgetControl.Padding;
+            Margin = BudgetSetting.Margin;
+            Padding = BudgetSetting.Padding;
             BackColor = BudgetColor.FormDark;
             ForeColor = BudgetColor.Black;
             Font = new Font( "Roboto", 9, FontStyle.Regular );

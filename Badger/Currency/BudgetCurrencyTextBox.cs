@@ -28,11 +28,11 @@ namespace BudgetExecution
         {
             // Basic Properties
             Size = BudgetSize.TextBoxControl;
-            Location = BudgetControl.GetLocation();
-            Anchor = BudgetControl.GetAnchorStyle();
+            Location = BudgetSetting.GetLocation();
+            Anchor = BudgetSetting.GetAnchorStyle();
             Dock = DockStyle.None;
-            Margin = BudgetControl.Margin;
-            Padding = BudgetControl.Padding;
+            Margin = BudgetSetting.Margin;
+            Padding = BudgetSetting.Padding;
             Font = BudgetFont.FontSizeSmall;
             ForeColor = BudgetColor.LightGray;
             Enabled = true;
@@ -67,12 +67,6 @@ namespace BudgetExecution
             ThemeStyle.HoverBorderColor = BudgetColor.SteelBlue;
             ThemeStyle.FocusedBorderColor = BudgetColor.SteelBlue;
             ThemeStyle.PressedBorderColor = BudgetColor.SteelBlue;
-
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
     }
 }

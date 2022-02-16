@@ -121,7 +121,7 @@ namespace BudgetExecution
             : this()
         {
             Size = BudgetSize.GetSize( size );
-            Location = BudgetControl.GetLocation( location );
+            Location = BudgetSetting.GetLocation( location );
         }
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace BudgetExecution
             : this( size, location )
         {
             Size = BudgetSize.GetSize( size );
-            Location = BudgetControl.GetLocation( location );
+            Location = BudgetSetting.GetLocation( location );
             Value = start;
         }
 
@@ -163,7 +163,7 @@ namespace BudgetExecution
         public BudgetProgressBar( Size size, Point location, Control parent )
             : this( size, location )
         {
-            Parent = BudgetControl.GetParent( parent );
+            Parent = BudgetSetting.GetParent( parent );
             Parent.Controls.Add( this );
         }
 

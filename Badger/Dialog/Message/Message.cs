@@ -50,7 +50,7 @@ namespace BudgetExecution
             Icon = new Icon( @"C:\Users\terry\source\repos\BudgetExecution\Etc\epa.ico", 33, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            Padding = BudgetControl.Padding;
+            Padding = BudgetSetting.Padding;
             Text = string.Empty;
         }
 
@@ -95,7 +95,7 @@ namespace BudgetExecution
         /// <param name = "e" >
         /// The <see cref = "EventArgs"/> instance containing the event data.
         /// </param>
-        private void OnStackButtonClicked( object sender, EventArgs e )
+        public virtual void OnStackButtonClicked( object sender, EventArgs e )
         {
             Info.Text = "Call Stack: \n\n" + Stack;
         }
@@ -109,7 +109,7 @@ namespace BudgetExecution
         /// <param name = "e" >
         /// The <see cref = "EventArgs"/> instance containing the event data.
         /// </param>
-        private void OnTargetButtonClicked( object sender, EventArgs e )
+        public virtual void OnTargetButtonClicked( object sender, EventArgs e )
         {
             Info.Text = "Target SuperfundSite: \n\n" + Target;
         }
@@ -123,7 +123,7 @@ namespace BudgetExecution
         /// <param name = "e" >
         /// The <see cref = "EventArgs"/> instance containing the event data.
         /// </param>
-        private void OnClosing( object sender, EventArgs e )
+        public virtual void OnClosing( object sender, EventArgs e )
         {
             if( !IsDisposed )
             {
@@ -140,7 +140,7 @@ namespace BudgetExecution
         /// <param name = "e" >
         /// The <see cref = "EventArgs"/> instance containing the event data.
         /// </param>
-        private void OnLoad( object sender, EventArgs e )
+        public virtual void OnLoad( object sender, EventArgs e )
         {
         }
     }

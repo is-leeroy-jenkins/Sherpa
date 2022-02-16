@@ -76,11 +76,11 @@ namespace BudgetExecution
         public BudgetPictureBox()
         {
             Size = BudgetSize.PictureControl;
-            Anchor = BudgetControl.GetAnchorStyle( AnchorStyles.Left & AnchorStyles.Top );
-            Location = BudgetControl.GetLocation();
+            Anchor = BudgetSetting.GetAnchorStyle( AnchorStyles.Left & AnchorStyles.Top );
+            Location = BudgetSetting.GetLocation();
             BackColor = Color.Transparent;
-            Margin = BudgetControl.Margin;
-            Padding = BudgetControl.Padding;
+            Margin = BudgetSetting.Margin;
+            Padding = BudgetSetting.Padding;
             SizeMode = PictureBoxSizeMode.StretchImage;
             
             // Control Style Settings

@@ -77,7 +77,7 @@ namespace BudgetExecution
         {
             //Basic Control Properties
             Size = BudgetSize.ChartControl;
-            Location = BudgetControl.GetLocation( );
+            Location = BudgetSetting.GetLocation( );
             ShowLegend = false;
             ShowToolbar = true;
             ToolBar.Orientation = ChartOrientation.Horizontal;
@@ -87,8 +87,8 @@ namespace BudgetExecution
             ToolBar.ShowBorder = false;
             ShowScrollBars = false;
             EnableMouseRotation = true;
-            Padding = BudgetControl.Padding;
-            Margin = BudgetControl.Margin;
+            Padding = BudgetSetting.Padding;
+            Margin = BudgetSetting.Margin;
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
             AllowGapForEmptyPoints = true;
             AllowGradientPalette = true;

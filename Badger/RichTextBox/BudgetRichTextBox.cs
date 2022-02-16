@@ -15,11 +15,11 @@ namespace BudgetExecution
         {
             // Basic Properties
             Size = BudgetSize.TextBoxControl;
-            Location = BudgetControl.GetLocation();
-            Anchor = BudgetControl.GetAnchorStyle();
-            Dock = BudgetControl.GetDockStyle();
-            Margin = BudgetControl.Margin;
-            Padding = BudgetControl.Padding;
+            Location = BudgetSetting.GetLocation();
+            Anchor = BudgetSetting.GetAnchorStyle();
+            Dock = BudgetSetting.GetDockStyle();
+            Margin = BudgetSetting.Margin;
+            Padding = BudgetSetting.Padding;
             Font = BudgetFont.FontSizeSmall;
             ForeColor = BudgetColor.LightGray;
             Enabled = true;
@@ -55,7 +55,7 @@ namespace BudgetExecution
             : this()
         {
             Size = BudgetSize.GetSize( size );
-            Location = BudgetControl.GetLocation( location );
+            Location = BudgetSetting.GetLocation( location );
         }
 
         /// <summary>
@@ -68,11 +68,11 @@ namespace BudgetExecution
         public BudgetRichTextBox( Point location, Control parent = null )
             : this()
         {
-            Location = BudgetControl.GetLocation( location );
+            Location = BudgetSetting.GetLocation( location );
 
             if( parent != null )
             {
-                Parent = BudgetControl.GetParent( parent );
+                Parent = BudgetSetting.GetParent( parent );
                 Parent.Controls.Add( this );
             }
         }
@@ -91,7 +91,7 @@ namespace BudgetExecution
 
             if( parent != null )
             {
-                Parent = BudgetControl.GetParent( parent );
+                Parent = BudgetSetting.GetParent( parent );
                 Parent.Controls.Add( this );
             }
         }
@@ -108,8 +108,8 @@ namespace BudgetExecution
             : this()
         {
             Size = BudgetSize.GetSize( size );
-            Location = BudgetControl.GetLocation( location );
-            Parent = BudgetControl.GetParent( parent );
+            Location = BudgetSetting.GetLocation( location );
+            Parent = BudgetSetting.GetParent( parent );
             Parent.Controls.Add( this );
         }
 

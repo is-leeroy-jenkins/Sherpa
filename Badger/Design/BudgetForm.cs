@@ -15,14 +15,14 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetControl" />
+    /// <seealso cref="BudgetSetting" />
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "AccessToStaticMemberViaDerivedType" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Global" ) ]
-    public class BudgetForm : BudgetControl
+    public class BudgetForm : BudgetSetting
     {
         /// <summary>
         /// Gets or sets the state of the minimized.

@@ -84,7 +84,7 @@ namespace BudgetExecution
         {
             try
             {
-                Size = BudgetControl.GetSize( size );
+                Size = BudgetSetting.GetSize( size );
             }
             catch( Exception ex )
             {
@@ -101,7 +101,7 @@ namespace BudgetExecution
         {
             try
             {
-                Size = BudgetControl.GetSize( width, height );
+                Size = BudgetSetting.GetSize( width, height );
             }
             catch( Exception ex )
             {
@@ -117,7 +117,7 @@ namespace BudgetExecution
         {
             try
             {
-                Text = BudgetControl.GetText( text );
+                Text = BudgetSetting.GetText( text );
             }
             catch( Exception ex )
             {
@@ -133,7 +133,7 @@ namespace BudgetExecution
         {
             try
             {
-                Location = BudgetControl.GetLocation( point );
+                Location = BudgetSetting.GetLocation( point );
             }
             catch( Exception ex )
             {
@@ -150,7 +150,7 @@ namespace BudgetExecution
         {
             try
             {
-                Location = BudgetControl.GetLocation( x, y );
+                Location = BudgetSetting.GetLocation( x, y );
             }
             catch( Exception ex )
             {
@@ -182,7 +182,7 @@ namespace BudgetExecution
         {
             try
             {
-                Anchor = BudgetControl.GetAnchorStyle( anchor );
+                Anchor = BudgetSetting.GetAnchorStyle( anchor );
             }
             catch( Exception ex )
             {
@@ -198,7 +198,7 @@ namespace BudgetExecution
         {
             try
             {
-                Dock = BudgetControl.GetDockStyle( dock );
+                Dock = BudgetSetting.GetDockStyle( dock );
             }
             catch( Exception ex )
             {
@@ -230,7 +230,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tag = BudgetControl.GetTag( tag );
+                Tag = BudgetSetting.GetTag( tag );
             }
             catch( Exception ex )
             {
@@ -246,7 +246,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tag = BudgetControl.GetToolTip( this, tip );
+                Tag = BudgetSetting.GetToolTip( this, tip );
             }
             catch( Exception ex )
             {

@@ -82,8 +82,8 @@ namespace BudgetExecution
             BorderColor = BackColor;
             ForeColor = BudgetColor.ForeColorGray;
             Font = BudgetFont.FontSizeSmall;
-            Margin = BudgetControl.Margin;
-            Padding = BudgetControl.Padding;
+            Margin = BudgetSetting.Margin;
+            Padding = BudgetSetting.Padding;
             ClockShape = ClockShapes.Rectangle;
             ClockType = ClockTypes.Digital;
             DisplayDates = true;
@@ -97,9 +97,9 @@ namespace BudgetExecution
             MinuteColor = BudgetColor.ForeColorGray;
             SecondHandColor = BudgetColor.ForeColorGray;
             VisualStyle = ClockVisualStyle.None;
-            Location = BudgetControl.GetLocation();
-            Dock = BudgetControl.GetDockStyle();
-            Anchor = BudgetControl.GetAnchorStyle();
+            Location = BudgetSetting.GetLocation();
+            Dock = BudgetSetting.GetDockStyle();
+            Anchor = BudgetSetting.GetAnchorStyle();
             Visible = true;
             Enabled = true;
             
@@ -121,7 +121,7 @@ namespace BudgetExecution
             : this()
         {
             Size = BudgetSize.GetSize( size.Width, size.Height );
-            Location = BudgetControl.GetLocation( location.X, location.Y );
+            Location = BudgetSetting.GetLocation( location.X, location.Y );
         }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace BudgetExecution
         public BudgetClock( Point location, Size size, Control parent )
             : this( size, location )
         {
-            Parent = BudgetControl.GetParent( parent );
+            Parent = BudgetSetting.GetParent( parent );
         }
     }
 }

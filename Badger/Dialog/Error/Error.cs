@@ -60,7 +60,7 @@ namespace BudgetExecution
             Icon = new Icon( IconPath, 33, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            Padding = BudgetControl.Padding;
+            Padding = BudgetSetting.Padding;
             Text = string.Empty;
             Size = new Size( 812, 486 );
 
