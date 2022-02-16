@@ -59,8 +59,8 @@ namespace BudgetExecution
         public RibbonBase()
         {
             EnableRibbonCustomization = true;
-            Margin = BudgetControl.Margin;
-            Padding = BudgetControl.Padding;
+            Margin = BudgetSetting.Margin;
+            Padding = BudgetSetting.Padding;
             Font = BudgetFont.FontSizeSmall;
             ForeColor = BudgetColor.Black;
             BackColor = BudgetColor.FormDark;

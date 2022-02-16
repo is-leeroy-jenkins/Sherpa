@@ -88,14 +88,14 @@ namespace BudgetExecution
         {
             // Basic Properties
             Size = BudgetSize.GetSize( 165, 23 );
-            Location = BudgetControl.GetLocation();
+            Location = BudgetSetting.GetLocation();
             BackColor = BudgetColor.FormDark;
             ForeColor = BudgetColor.ForeColorGray;
             Font = BudgetFont.FontSizeSmall;
-            Margin = BudgetControl.Margin;
-            Padding = BudgetControl.Padding;
-            Anchor = BudgetControl.GetAnchorStyle();
-            Dock = BudgetControl.GetDockStyle();
+            Margin = BudgetSetting.Margin;
+            Padding = BudgetSetting.Padding;
+            Anchor = BudgetSetting.GetAnchorStyle();
+            Dock = BudgetSetting.GetDockStyle();
             Enabled = true;
             Visible = true;
             TextAlignment = BudgetAlign.StringAlignCenter;
@@ -120,7 +120,7 @@ namespace BudgetExecution
             : this()
         {
             Size = BudgetSize.GetSize( size );
-            Location = BudgetControl.GetLocation( location );
+            Location = BudgetSetting.GetLocation( location );
         }
 
         /// <summary>
@@ -146,7 +146,7 @@ namespace BudgetExecution
         public BudgetLabel( Size size, Point location, Control parent )
             : this( size, location )
         {
-            Parent = BudgetControl.GetParent( parent );
+            Parent = BudgetSetting.GetParent( parent );
             Parent.Controls.Add( this );
         }
 

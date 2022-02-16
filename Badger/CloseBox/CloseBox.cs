@@ -51,7 +51,7 @@ namespace BudgetExecution
             : this()
         {
             Size = BudgetSize.GetSize( size.Width, size.Height );
-            Location = BudgetControl.GetLocation( location.X, location.Y );
+            Location = BudgetSetting.GetLocation( location.X, location.Y );
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace BudgetExecution
         public CloseBox( Point location )
             : this()
         {
-            Location = BudgetControl.GetLocation( location.X, location.Y );
+            Location = BudgetSetting.GetLocation( location.X, location.Y );
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace BudgetExecution
         public CloseBox( Size size, Point location, Control parent )
             : this( size, location )
         {
-            Parent = BudgetControl.GetParent( parent );
+            Parent = BudgetSetting.GetParent( parent );
             Parent.Controls.Add( this );
         }
 
@@ -90,7 +90,7 @@ namespace BudgetExecution
         public CloseBox( Control parent )
             : this()
         {
-            Parent = BudgetControl.GetParent( parent );
+            Parent = BudgetSetting.GetParent( parent );
             Parent.Controls.Add( this );
         }
     }

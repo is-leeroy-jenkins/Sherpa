@@ -22,11 +22,11 @@ namespace BudgetExecution
         {
             // Basic Properties
             Size = BudgetSize.GetSize( 700, 428 );
-            Location = BudgetControl.GetLocation();
-            Anchor = BudgetControl.GetAnchorStyle();
-            Dock = BudgetControl.GetDockStyle();
-            Margin = BudgetControl.Margin;
-            Padding = BudgetControl.Padding;
+            Location = BudgetSetting.GetLocation();
+            Anchor = BudgetSetting.GetAnchorStyle();
+            Dock = BudgetSetting.GetDockStyle();
+            Margin = BudgetSetting.Margin;
+            Padding = BudgetSetting.Padding;
             Enabled = true;
             Visible = true;
 
@@ -53,7 +53,7 @@ namespace BudgetExecution
             : this()
         {
             Size = BudgetSize.GetSize( size );
-            Location = BudgetControl.GetLocation( location.X, location.Y );
+            Location = BudgetSetting.GetLocation( location.X, location.Y );
         }
 
         /// <summary>
@@ -68,8 +68,8 @@ namespace BudgetExecution
             : this()
         {
             Size = BudgetSize.GetSize( size.Width, size.Height );
-            Location = BudgetControl.GetLocation( location.X, location.Y );
-            Parent = BudgetControl.GetParent( parent );
+            Location = BudgetSetting.GetLocation( location.X, location.Y );
+            Parent = BudgetSetting.GetParent( parent );
             Parent.Controls.Add( this );
         }
 
@@ -82,7 +82,7 @@ namespace BudgetExecution
         public BudgetLayout( Control parent )
             : this()
         {
-            Parent = BudgetControl.GetParent( parent );
+            Parent = BudgetSetting.GetParent( parent );
             Parent.Controls.Add( this );
         }
     }

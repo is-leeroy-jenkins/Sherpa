@@ -95,7 +95,7 @@ namespace BudgetExecution
             Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 32, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            Padding = BudgetControl.Padding;
+            Padding = BudgetSetting.Padding;
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
         }

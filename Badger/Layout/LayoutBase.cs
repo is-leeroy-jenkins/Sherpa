@@ -111,7 +111,7 @@ namespace BudgetExecution
             : this()
         {
             Size = BudgetSize.GetSize( size );
-            Location = BudgetControl.GetLocation( location.X, location.Y );
+            Location = BudgetSetting.GetLocation( location.X, location.Y );
         }
 
         /// <summary>
@@ -126,8 +126,8 @@ namespace BudgetExecution
             : this()
         {
             Size = BudgetSize.GetSize( size.Width, size.Height );
-            Location = BudgetControl.GetLocation( location.X, location.Y );
-            Parent = BudgetControl.GetParent( parent );
+            Location = BudgetSetting.GetLocation( location.X, location.Y );
+            Parent = BudgetSetting.GetParent( parent );
             Parent.Controls.Add( this );
         }
 
@@ -140,7 +140,7 @@ namespace BudgetExecution
         public LayoutBase( Control parent )
             : this()
         {
-            Parent = BudgetControl.GetParent( parent );
+            Parent = BudgetSetting.GetParent( parent );
             Parent.Controls.Add( this );
         }
 
@@ -160,8 +160,8 @@ namespace BudgetExecution
             : this()
         {
             Size = BudgetSize.GetSize( size );
-            Location = BudgetControl.GetLocation( location );
-            Parent = BudgetControl.GetParent( parent );
+            Location = BudgetSetting.GetLocation( location );
+            Parent = BudgetSetting.GetParent( parent );
             Parent.Controls.Add( this );
             Border.HoverVisible = hover;
         }

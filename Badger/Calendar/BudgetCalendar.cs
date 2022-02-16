@@ -20,11 +20,11 @@ namespace BudgetExecution
         public BudgetCalendar()
         {
             Size = BudgetSize.GetSize( 497, 350 );
-            Location = BudgetControl.GetLocation();
+            Location = BudgetSetting.GetLocation();
             Font = BudgetFont.FontSizeSmall;
-            Margin = BudgetControl.Margin;
+            Margin = BudgetSetting.Margin;
             ForeColor = BudgetColor.LightGray;
-            Anchor = BudgetControl.GetAnchorStyle();
+            Anchor = BudgetSetting.GetAnchorStyle();
             HighlightTodayCell = true;
             NumberOfWeeksInView = 5;
             FirstDayOfWeek = DayOfWeek.Sunday;
@@ -77,7 +77,6 @@ namespace BudgetExecution
             Style.HorizontalSplitterColor = BudgetColor.WindowFrame;
             Style.VerticalSplitterColor = BudgetColor.WindowFrame;
             
-
             Visible = true;
             Enabled = true;
         }

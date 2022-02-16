@@ -104,12 +104,12 @@ namespace BudgetExecution
         public BudgetCalculator()
         {
             Size = BudgetSize.GetSize( 350, 350 );
-            Location = BudgetControl.GetLocation();
+            Location = BudgetSetting.GetLocation();
             BorderStyle = Border3DStyle.Adjust;
             BackColor = BudgetColor.FormDark;
             ForeColor = BudgetColor.White;
-            Margin = BudgetControl.Margin;
-            Padding = BudgetControl.Padding;
+            Margin = BudgetSetting.Margin;
+            Padding = BudgetSetting.Padding;
             Font = BudgetFont.FontSizeSmall;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             ButtonStyle = ButtonAppearance.Office2010;
@@ -139,7 +139,7 @@ namespace BudgetExecution
             : this()
         {
             Size = BudgetSize.GetSize( size );
-            Location = BudgetControl.GetLocation( location );
+            Location = BudgetSetting.GetLocation( location );
         }
 
         /// <summary>

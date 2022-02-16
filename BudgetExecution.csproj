@@ -489,7 +489,7 @@
     <Compile Include="Badger\Design\BudgetBorder.cs" />
     <Compile Include="Badger\Design\ChartConfig.cs" />
     <Compile Include="Badger\Design\BudgetColor.cs" />
-    <Compile Include="Badger\Design\BudgetControl.cs" />
+    <Compile Include="Badger\Design\BudgetSetting.cs" />
     <Compile Include="Badger\Binding\BindingBase.cs">
       <SubType>Component</SubType>
     </Compile>

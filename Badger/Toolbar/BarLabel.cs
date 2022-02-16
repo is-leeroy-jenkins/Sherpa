@@ -40,7 +40,7 @@ namespace BudgetExecution
         public BarLabel( string text )
             : this()
         {
-            Text = BudgetControl.GetText( text );
+            Text = BudgetSetting.GetText( text );
             MouseHover += OnMouseHover;
         }
         
@@ -68,7 +68,7 @@ namespace BudgetExecution
             try
             {
                 ForeColor = BudgetColor.GetColor( color );
-                Text = BudgetControl.GetText( text );
+                Text = BudgetSetting.GetText( text );
             }
             catch( Exception ex )
             {
@@ -86,7 +86,7 @@ namespace BudgetExecution
             {
                 Font = BudgetFont.GetFont( font );
                 ForeColor = BudgetColor.GetColor( color );
-                Text = BudgetControl.GetText( text );
+                Text = BudgetSetting.GetText( text );
             }
             catch( Exception ex )
             {

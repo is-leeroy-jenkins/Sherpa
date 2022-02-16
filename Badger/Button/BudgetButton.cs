@@ -83,12 +83,12 @@ namespace BudgetExecution
             // Basic SeriesConfiguration
             Font = BudgetFont.FontSizeSmall;
             ForeColor = BudgetColor.LightGray;
-            Margin = BudgetControl.Margin;
-            Padding = BudgetControl.Padding;
+            Margin = BudgetSetting.Margin;
+            Padding = BudgetSetting.Padding;
             Size = BudgetSize.ButtonControl;
-            Location = BudgetControl.GetLocation();
-            Dock = BudgetControl.GetDockStyle();
-            Anchor = BudgetControl.GetAnchorStyle();
+            Location = BudgetSetting.GetLocation();
+            Dock = BudgetSetting.GetDockStyle();
+            Anchor = BudgetSetting.GetAnchorStyle();
             Animation = true;
             Visible = true;
             Enabled = true;
@@ -156,7 +156,7 @@ namespace BudgetExecution
         public BudgetButton( Size size, Point location, Control parent )
             : this( size, location )
         {
-            Parent = BudgetControl.GetParent( parent );
+            Parent = BudgetSetting.GetParent( parent );
             Field = Field.NS;
         }
 
@@ -187,7 +187,7 @@ namespace BudgetExecution
         public BudgetButton( Control parent, string text )
             : this()
         {
-            Parent = BudgetControl.GetParent( parent );
+            Parent = BudgetSetting.GetParent( parent );
             Text = text;
             Field = Field.NS;
         }
@@ -201,7 +201,7 @@ namespace BudgetExecution
         public BudgetButton( Control parent )
             : this()
         {
-            Parent = BudgetControl.GetParent( parent );
+            Parent = BudgetSetting.GetParent( parent );
             Field = Field.NS;
         }
 
@@ -215,7 +215,7 @@ namespace BudgetExecution
         public BudgetButton( Control parent, Field field )
             : this()
         {
-            Parent = BudgetControl.GetParent( parent );
+            Parent = BudgetSetting.GetParent( parent );
             Field = field;
             Tag = Field;
         }

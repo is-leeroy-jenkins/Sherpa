@@ -4,8 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
-    using System.Collections.Specialized;
     using System.Configuration;
     using System.Drawing;
     using System.Windows.Forms;
@@ -21,7 +21,7 @@ namespace BudgetExecution
         /// <value>
         /// The rpio path.
         /// </value>
-        public string RegionPath { get; set; } = ConfigurationManager.AppSettings[ "CarouselRegionImages" ];
+        public string RegionDirectory { get; set; } = ConfigurationManager.AppSettings[ "CarouselRegionImages" ];
         
         /// <summary>
         /// Gets or sets the rpio path.
@@ -29,7 +29,7 @@ namespace BudgetExecution
         /// <value>
         /// The rpio path.
         /// </value>
-        public string NpmPath { get; set; } = ConfigurationManager.AppSettings[ "CarouselNpmImages" ];
+        public string NpmDirectory { get; set; } = ConfigurationManager.AppSettings[ "CarouselNpmImages" ];
 
         /// <summary>
         /// Gets or sets the provider path.
@@ -37,7 +37,7 @@ namespace BudgetExecution
         /// <value>
         /// The provider path.
         /// </value>
-        public string ProviderPath { get; set; } =
+        public string ProviderDirectory { get; set; } =
             ConfigurationManager.AppSettings[ "CarouselProviderPath" ];
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace BudgetExecution
         /// <value>
         /// The fund path.
         /// </value>
-        public string FundPath { get; set; } =  ConfigurationManager.AppSettings[ "CarouselFundImages" ];
+        public string FundDirectory { get; set; } =  ConfigurationManager.AppSettings[ "CarouselFundImages" ];
 
         /// <summary>
         /// Initializes a new instance
@@ -63,84 +63,25 @@ namespace BudgetExecution
             Padding = new Padding( 0, 10, 0, 10 );
             PadX = 0;
             PadY = 0;
-            Perspective = 4;
+            Perspective = 3;
             RotateAlways = false;
             ShowImagePreview = true;
             ShowImageShadow = true;
             TransitionSpeed = 2;
-            UseOriginalImageinPreview = true;
+            UseOriginalImageinPreview = false;
             UseCustomBounds = false;
             CanOverrideStyle = true;
             VisualStyle = CarouselVisualStyle.Metro;
-            FilePath = NpmPath;
+            FilePath = NpmDirectory;
             HighlightColor = BudgetColor.SteelBlue;
 
             // ThemeStyle Properties
-            ThemeStyle.BackColor = BudgetColor.FormDark;
+            ThemeStyle.BackColor = BudgetColor.Transparent;
             ThemeStyle.Font = BudgetFont.FontSizeSmall;
             ThemeStyle.ForeColor = BudgetColor.LightGray;
             ThemeStyle.HoverImageBorderColor = BudgetColor.SteelBlue;
             ThemeStyle.HoverImageBorderThickness = 2;
             ThemeStyle.ImageShadeColor = BudgetColor.FormDark;
-        }
-
-        /// <summary>
-        /// Creates the image list.
-        /// </summary>
-        /// <param name="srcDir">The source dir.</param>
-        /// <returns></returns>
-        private protected ImageList CreateImageList( string srcDir )
-        {
-            if( Directory.Exists( srcDir ) )
-            {
-                var _files = Directory.EnumerateFiles( srcDir );
-                var _paths = _files?.ToList();
-                var _list = new ImageList();
-
-                for( var i = 0; i < _paths.Count(); i++ )
-                {
-                    using var _stream = File.Open( _paths[ i ], FileMode.Open );
-                    using var _img = new Bitmap( _stream );
-                    var _carImg = new CarouselImage();
-                    _carImg.ItemImage = _img;
-                    _list?.Images?.Add( _img );
-                }
-
-                return _list?.Images?.Count > 0
-                    ? _list
-                    : default( ImageList );
-            }
-
-            return default( ImageList );
-        }
-
-        /// <summary>
-        /// Creates the carousel items.
-        /// </summary>
-        /// <param name="paths">The images.</param>
-        /// <returns></returns>
-        public IEnumerable<CarouselImage> CreateCarouselItems( IEnumerable<string> paths )
-        {
-            if( paths?.Any() == true )
-            {
-                var _list = paths.ToList();
-                var _carouselImages = new List<CarouselImage>();
-
-                for( var i = 0; i < _list?.Count; i++ )
-                {
-                    using var _stream = File.Open( _list[ i ], FileMode.Open );
-                    using var _img = new Bitmap( _stream );
-                    var _carouselImage = new CarouselImage();
-                    _carouselImage.ItemImage = _img;
-                    _carouselImages.Add( _carouselImage );
-                }
-
-                return _carouselImages.Any()
-                    ? _carouselImages
-                    : default( IEnumerable<CarouselImage> );
-            }
-
-            return default( IEnumerable<CarouselImage> );
         }
 
         /// <summary>
@@ -152,20 +93,34 @@ namespace BudgetExecution
         {
             if( images?.Any() == true )
             {
-                var _list = images.ToList();
-                var _carouselImages = new List<CarouselImage>();
-
-                for( var i = 0; i < images?.Count(); i++ )
+                try
                 {
-                    var _carouselImage = new CarouselImage();
-                    _carouselImage.ItemImage = _list[ i ];
-                    ImageListCollection.Add( _carouselImage );
-                    _carouselImages.Add( _carouselImage );
-                }
+                    var _list = images.ToList();
+                    var _carouselImages = new List<CarouselImage>();
 
-                return _carouselImages.Any()
-                    ? _carouselImages
-                    : default( IEnumerable<CarouselImage> );
+                    for( var i = 0; i < images?.Count(); i++ )
+                    {
+                        if ( _list[ i ] != null ) 
+                        {
+                            var _carouselImage = new CarouselImage
+                            {
+                                ItemImage = _list[ i ]
+                            };
+
+                            ImageListCollection.Add( _carouselImage );
+                            _carouselImages.Add( _carouselImage );
+                        }
+                    }
+
+                    return _carouselImages.Any()
+                        ? _carouselImages
+                        : default( IEnumerable<CarouselImage> );
+                }
+                catch ( Exception ex )
+                {
+                    Fail( ex  );
+                    return default( IEnumerable<CarouselImage> );
+                }
             }
 
             return default( IEnumerable<CarouselImage> );
@@ -179,24 +134,40 @@ namespace BudgetExecution
         public IEnumerable<CarouselImage> CreateCarouselItems( string srcPath )
         {
             if( !string.IsNullOrEmpty( srcPath )
-               && File.Exists( srcPath ) )
+               && Directory.Exists( srcPath ) )
             {
-                var _files = Directory.EnumerateFiles( srcPath );
-                var _list = _files?.ToList();
-                var _carouselImages = new List<CarouselImage>();
-
-                for( var i = 0; i < _list?.Count(); i++ )
+                try
                 {
-                    using var _stream = File.Open( _list[ i ], FileMode.Open );
-                    using var _image = new Bitmap( _stream );
-                    var _carouselImage = new CarouselImage();
-                    _carouselImage.ItemImage = _image;
-                    _carouselImages.Add( _carouselImage );
-                }
+                    var _files = Directory.EnumerateFiles( srcPath );
+                    var _list = _files?.ToList();
+                    var _carouselImages = new List<CarouselImage>();
 
-                return _carouselImages?.Any() == true
-                    ? _carouselImages
-                    : default( IEnumerable<CarouselImage> );
+                    for( var i = 0; i < _list?.Count; i++ )
+                    {
+                        if ( !string.IsNullOrEmpty( _list[ i ] ) 
+                            && File.Exists( _list[ i ] ) )
+                        {
+                            using var _stream = File.Open( _list[ i ], FileMode.Open );
+                            using var _image = new Bitmap( _stream );
+
+                            var _carouselImage = new CarouselImage
+                            {
+                                ItemImage = _image
+                            };
+
+                            _carouselImages.Add( _carouselImage );
+                        }
+                    }
+
+                    return _carouselImages?.Any() == true
+                        ? _carouselImages
+                        : default( IEnumerable<CarouselImage> );
+                }
+                catch ( Exception ex )
+                {
+                    Fail( ex  );
+                    return default( IEnumerable<CarouselImage> );
+                }
             }
 
             return default( IEnumerable<CarouselImage> );

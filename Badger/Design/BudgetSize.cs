@@ -180,7 +180,7 @@ namespace BudgetExecution
         /// <value>
         /// The image size medium.
         /// </value>
-        public static Size ImageSizeMedium { get; } = new Size( 20, 20 );
+        public static Size ImageSizeMedium { get; } = new Size( 50, 50 );
 
         /// <summary>
         /// Gets the image size large.
