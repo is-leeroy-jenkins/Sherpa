@@ -88,14 +88,13 @@ namespace BudgetExecution
             Dock = DockStyle.None;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
-            Font = new Font( "Roboto", 10  );
-            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9  );
+            ForeColor = Color.LightSteelBlue;
             Enabled = true;
             Visible = true;
 
             // Backcolor SeriesConfiguration
             BackColor = Color.FromArgb( 10, 10, 10 );
-            ForeColor = Color.LightGray;
             BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
             BackColorState.Enabled = Color.FromArgb( 10, 10, 10 );
 
