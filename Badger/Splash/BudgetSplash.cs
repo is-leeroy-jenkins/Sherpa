@@ -25,18 +25,20 @@ namespace BudgetExecution
         public BudgetSplash()
         {
             BackColor = Color.FromArgb( 10, 10, 10 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.LightSteelBlue;
             Font = new Font( "Roboto", 9 );
             Size = new Size( 300, 150 );
             BorderStyle = Border3DStyle.Flat;
+            BorderType = SplashBorderType.None;
 
             BackgroundColor = new BrushInfo( GradientStyle.None, Color.FromArgb( 10, 10, 10 ), 
                 Color.FromArgb( 10, 10, 10 ) );
 
             ShowAnimation = true;
+            ShowAsTopMost = true;
             AnimationSpeed = 10;
             AnimationSteps = 3;
-            AnimationDirection = AnimationDirection.RightToLeft;
+            AnimationDirection = AnimationDirection.Default;
             DesktopAlignment = SplashAlignment.Center;
             DiscreetLocation = new Point( 0, 0 );
             Location = new Point( 16, 16 );
@@ -53,6 +55,26 @@ namespace BudgetExecution
             : this()
         {
             Text = message;
+        }
+
+        /// <summary>
+        /// Displays the
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.SplashPanel" />
+        /// Splash panel.
+        /// </summary>
+        public void ShowMessage()
+        {
+            if( !string.IsNullOrEmpty( Text ) )
+            {
+                try
+                {
+                    ShowSplash();
+                }
+                catch ( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
         }
     }
 }

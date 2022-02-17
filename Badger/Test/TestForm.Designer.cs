@@ -35,7 +35,52 @@ namespace BudgetExecution
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestForm));
+            this.tabControlAdv1 = new Syncfusion.Windows.Forms.Tools.TabControlAdv();
+            this.TabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            ((System.ComponentModel.ISupportInitialize)(this.tabControlAdv1)).BeginInit();
+            this.tabControlAdv1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tabControlAdv1
+            // 
+            this.tabControlAdv1.ActiveTabColor = System.Drawing.Color.SteelBlue;
+            this.tabControlAdv1.BeforeTouchSize = new System.Drawing.Size(252, 131);
+            this.tabControlAdv1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tabControlAdv1.CanOverrideStyle = true;
+            this.tabControlAdv1.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tabControlAdv1.Controls.Add(this.TabPage);
+            this.tabControlAdv1.FixedSingleBorderColor = System.Drawing.Color.SteelBlue;
+            this.tabControlAdv1.FocusOnTabClick = false;
+            this.tabControlAdv1.HotTrack = true;
+            this.tabControlAdv1.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tabControlAdv1.InactiveTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tabControlAdv1.Location = new System.Drawing.Point(199, 195);
+            this.tabControlAdv1.Name = "tabControlAdv1";
+            this.tabControlAdv1.Size = new System.Drawing.Size(252, 131);
+            this.tabControlAdv1.TabIndex = 0;
+            this.tabControlAdv1.TabPanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tabControlAdv1.TabStyle = typeof(Syncfusion.Windows.Forms.Tools.TabRendererMetro);
+            this.tabControlAdv1.ThemeName = "TabRendererMetro";
+            this.tabControlAdv1.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tabControlAdv1.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tabControlAdv1.ThemeStyle.BorderFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tabControlAdv1.ThemeStyle.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tabControlAdv1.ThemeStyle.DisabledTabPanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tabControlAdv1.ThemeStyle.PrimitiveButtonStyle.DisabledNextPageImage = null;
+            // 
+            // TabPage
+            // 
+            this.TabPage.Image = null;
+            this.TabPage.ImageSize = new System.Drawing.Size(16, 16);
+            this.TabPage.Location = new System.Drawing.Point(0, 22);
+            this.TabPage.Name = "TabPage";
+            this.TabPage.ShowCloseButton = false;
+            this.TabPage.Size = new System.Drawing.Size(252, 109);
+            this.TabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.TabPage.TabForeColor = System.Drawing.Color.LightSteelBlue;
+            this.TabPage.TabIndex = 1;
+            this.TabPage.Text = "Tab One";
+            this.TabPage.ThemesEnabled = false;
             // 
             // TestForm
             // 
@@ -50,6 +95,7 @@ namespace BudgetExecution
             this.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CaptionForeColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1058, 618);
+            this.Controls.Add(this.tabControlAdv1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.LightGray;
@@ -62,10 +108,15 @@ namespace BudgetExecution
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Budget Execution";
+            ((System.ComponentModel.ISupportInitialize)(this.tabControlAdv1)).EndInit();
+            this.tabControlAdv1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private Syncfusion.Windows.Forms.Tools.TabControlAdv tabControlAdv1;
+        private Syncfusion.Windows.Forms.Tools.TabPageAdv TabPage;
     }
 }

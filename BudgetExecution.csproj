@@ -672,6 +672,12 @@
     <Compile Include="Badger\Toolbar\BarTextBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Badger\TabControl\BudgetTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\TabControl\BudgetTabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />
@@ -1049,6 +1055,12 @@
     </Compile>
     <Compile Include="Badger\Excel\BudgetWorkbook.cs" />
     <Compile Include="Badger\Tile\TileBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\TabControl\TabControlBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badger\TabControl\TabPageBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Badger\DataGrid\BudgetDataGridForm.resx">
