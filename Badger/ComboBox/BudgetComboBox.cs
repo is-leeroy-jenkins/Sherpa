@@ -82,7 +82,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetComboBox()
         {
-            Size = BudgetSize.ComboBoxControl;
+            Size = new Size( 200, 36 );
             Location = new Point( 1, 1 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
@@ -120,7 +120,7 @@ namespace BudgetExecution
             : this()
         {
             Size = size;
-            Location = BudgetSetting.GetLocation( location );
+            Location = location;
         }
 
         /// <summary>
@@ -133,11 +133,11 @@ namespace BudgetExecution
         public BudgetComboBox( Point location, Control parent = null )
             : this()
         {
-            Location = BudgetSetting.GetLocation( location );
+            Location = location;
 
             if( parent != null )
             {
-                Parent = BudgetSetting.GetParent( parent );
+                Parent = parent;
                 Parent.Controls.Add( this );
             }
         }
@@ -156,7 +156,7 @@ namespace BudgetExecution
 
             if( parent != null )
             {
-                Parent = BudgetSetting.GetParent( parent );
+                Parent = parent;
                 Parent.Controls.Add( this );
             }
         }
@@ -173,8 +173,8 @@ namespace BudgetExecution
             : this()
         {
             Size = size;
-            Location = BudgetSetting.GetLocation( location );
-            Parent = BudgetSetting.GetParent( parent );
+            Location = location;
+            Parent = parent;
             Parent.Controls.Add( this );
         }
 

@@ -128,12 +128,6 @@ namespace BudgetExecution
             Chart.Palette = ChartColorPalette.Metro;
             Chart.Dock = DockStyle.None;
             Controls.Add( Chart );
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
     }
 }

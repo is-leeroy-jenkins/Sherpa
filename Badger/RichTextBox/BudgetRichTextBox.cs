@@ -36,12 +36,6 @@ namespace BudgetExecution
             Border.Thickness = 1;
             Border.HoverColor = Color.SteelBlue;
             Border.HoverVisible = false;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
         
         /// <summary>
@@ -55,7 +49,7 @@ namespace BudgetExecution
             : this()
         {
             Size = size;
-            Location = BudgetSetting.GetLocation( location );
+            Location = location;
         }
 
         /// <summary>
@@ -68,11 +62,11 @@ namespace BudgetExecution
         public BudgetRichTextBox( Point location, Control parent = null )
             : this()
         {
-            Location = BudgetSetting.GetLocation( location );
+            Location = location;
 
             if( parent != null )
             {
-                Parent = BudgetSetting.GetParent( parent );
+                Parent = parent;
                 Parent.Controls.Add( this );
             }
         }
@@ -91,7 +85,7 @@ namespace BudgetExecution
 
             if( parent != null )
             {
-                Parent = BudgetSetting.GetParent( parent );
+                Parent = parent;
                 Parent.Controls.Add( this );
             }
         }
@@ -108,8 +102,8 @@ namespace BudgetExecution
             : this()
         {
             Size = size;
-            Location = BudgetSetting.GetLocation( location );
-            Parent = BudgetSetting.GetParent( parent );
+            Location = location;
+            Parent = parent;
             Parent.Controls.Add( this );
         }
 

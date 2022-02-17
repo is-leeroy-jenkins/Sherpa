@@ -22,7 +22,7 @@ namespace BudgetExecution
             Style = NavigationDrawerStyle.Office2016Black;
             Font = new Font( "Roboto", 9 );
             AnimationDuration = 20;
-            DrawerWidth = BudgetSize.CollectionControl.Width;
+            DrawerWidth = Size.Width;
             Text = string.Empty;
 
             // Navigation Menu ThemeStyle
@@ -40,11 +40,11 @@ namespace BudgetExecution
 
             // Navigation Footer ThemeStyle
             ThemeStyle.FooterBackColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.FooterBorderColor = BudgetColor.WindowFrame;
+            ThemeStyle.FooterBorderColor = SystemColors.WindowFrame;
             ThemeStyle.FooterBorderThickness = 2;
             ThemeStyle.FooterFont = new Font( "Roboto", 8, FontStyle.Regular );
             ThemeStyle.FooterForeColor = Color.LightGray;
-            ThemeStyle.FooterHoverBackColor = BudgetColor.HoverDark;
+            ThemeStyle.FooterHoverBackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.FooterHoverForeColor = Color.White;
 
             // Navigation ItemStyle
@@ -54,7 +54,7 @@ namespace BudgetExecution
             ThemeStyle.ItemStyle.DisabledBackColor = Color.FromArgb( 10, 10, 10 );
             ThemeStyle.ItemStyle.DisabledForeColor = Color.FromArgb( 10, 10, 10 );
             ThemeStyle.ItemStyle.DisabledSelectionMarkerColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.ItemStyle.HoverBackColor = BudgetColor.HoverDark;
+            ThemeStyle.ItemStyle.HoverBackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.ItemStyle.HoverForeColor = Color.White;
             ThemeStyle.ItemStyle.SelectedBackColor = Color.SteelBlue;
             ThemeStyle.ItemStyle.SelectedForeColor = Color.White;
@@ -62,12 +62,6 @@ namespace BudgetExecution
             // Navigation Panel Properties
             ThemeStyle.PanelBackColor = Color.FromArgb( 10, 10, 10 );
             ThemeStyle.DisabledPanelBackColor = Color.FromArgb( 10, 10, 10 );
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
     }
 }

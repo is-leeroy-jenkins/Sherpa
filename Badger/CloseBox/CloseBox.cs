@@ -32,12 +32,6 @@ namespace BudgetExecution
             MinimizeNormalForeColor = Color.FromArgb( 10, 10, 10 );
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
         
         /// <summary>
@@ -77,7 +71,7 @@ namespace BudgetExecution
         public CloseBox( Size size, Point location, Control parent )
             : this( size, location )
         {
-            Parent = BudgetSetting.GetParent( parent );
+            Parent = parent;
             Parent.Controls.Add( this );
         }
 
@@ -90,7 +84,7 @@ namespace BudgetExecution
         public CloseBox( Control parent )
             : this()
         {
-            Parent = BudgetSetting.GetParent( parent );
+            Parent = parent;
             Parent.Controls.Add( this );
         }
     }

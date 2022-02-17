@@ -81,7 +81,7 @@ namespace BudgetExecution
         public BudgetListView()
         {
             // Basic Properties
-            Size = BudgetSize.CollectionControl;
+            Size = new Size( 250, 150 );
             Location = new Point( 1, 1 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
@@ -94,7 +94,7 @@ namespace BudgetExecution
             Selectable = true;
             ControlStyle = LVControlStyles.SuperFlat;
             GridLines = GridLines.Horizontal;
-            GridColor = BudgetColor.WindowFrame;
+            GridColor = SystemColors.WindowFrame;
             GridLineStyle = GridLineStyle.Dashed;
             DisplayTextFont = new Font( "Roboto", 9 );
             DisplayTextOnEmpty = false;
@@ -114,19 +114,13 @@ namespace BudgetExecution
             BackColorState.Enabled = Color.FromArgb( 10, 10, 10 );
 
             // Border SeriesConfiguration
-            Border.Color = BudgetColor.WindowFrame;
+            Border.Color = SystemColors.WindowFrame;
             Border.Thickness = 1;
             Border.HoverColor = Color.SteelBlue;
             Border.HoverVisible = false;
 
             // Item SeriesConfiguration
             ItemHeight = 30;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
         
         /// <summary>
@@ -140,7 +134,7 @@ namespace BudgetExecution
             : this()
         {
             Size = size;
-            Location = BudgetSetting.GetLocation( location );
+            Location = location;
         }
 
         /// <summary>
@@ -166,7 +160,7 @@ namespace BudgetExecution
         public BudgetListView( Size size, Point location, Control parent )
             : this( size, location )
         {
-            Parent = BudgetSetting.GetParent( parent );
+            Parent = parent;
             Parent.Controls.Add( this );
         }
 
@@ -254,7 +248,7 @@ namespace BudgetExecution
                     {
                         Border.Color = Color.FromArgb( 64, 64, 64 );
                         Border.Thickness = 1;
-                        Border.HoverColor = BudgetColor.WindowFrame;
+                        Border.HoverColor = SystemColors.WindowFrame;
                         Border.HoverVisible = true;
                         Border.Type = ShapeTypes.Rounded;
                         break;

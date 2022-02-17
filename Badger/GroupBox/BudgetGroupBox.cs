@@ -104,13 +104,13 @@ namespace BudgetExecution
         public BudgetGroupBox()
         {
             // Basic Property SeriesConfiguration.
-            Size = BudgetSize.CollectionControl;
+            Size = new Size( 250, 150 );
             Location = new Point( 1, 1 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Visible = true;
             Enabled = true;
-            BackColor = BudgetColor.ControlInteriorDark;
+            BackColor = Color.FromArgb( 45, 45, 45 );
             ForeColor = Color.FromArgb( 141, 139, 138 );
             Font = new Font( "Roboto", 9 );
             Margin = new Padding( 3 );
@@ -125,23 +125,17 @@ namespace BudgetExecution
 
             // BackColor SeriesConfiguration.
             BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
-            BackColorState.Enabled = BudgetColor.ControlInteriorDark;
+            BackColorState.Enabled = Color.FromArgb( 45, 45, 45 );
 
             // Text SeriesConfiguration.
-            TextAlignment = BudgetAlign.StringAlignCenter;
-            TextLineAlignment = BudgetAlign.StringAlignCenter;
+            TextAlignment = StringAlignment.Center;
+            TextLineAlignment = StringAlignment.Center;
             TitleBoxHeight = 30;
 
             // Style SeriesConfiguration.
             BoxStyle = GroupBoxStyle.Default;
             SeparatorColor = Color.FromArgb( 64, 64, 64 );
             Separate = true;
-
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         /// <summary>
@@ -155,7 +149,7 @@ namespace BudgetExecution
             : this()
         {
             Size = size;
-            Location = BudgetSetting.GetLocation( location );
+            Location = location;
         }
 
         /// <summary>
@@ -168,11 +162,11 @@ namespace BudgetExecution
         public BudgetGroupBox( Point location, Control parent = null )
             : this()
         {
-            Location = BudgetSetting.GetLocation( location );
+            Location = location;
 
             if( parent != null )
             {
-                Parent = BudgetSetting.GetParent( parent );
+                Parent = parent;
                 Parent.Controls.Add( this );
             }
         }
@@ -191,7 +185,7 @@ namespace BudgetExecution
 
             if( parent != null )
             {
-                Parent = BudgetSetting.GetParent( parent );
+                Parent = parent;
                 Parent.Controls.Add( this );
             }
         }
@@ -208,8 +202,8 @@ namespace BudgetExecution
             : this()
         {
             Size = size;
-            Location = BudgetSetting.GetLocation( location );
-            Parent = BudgetSetting.GetParent( parent );
+            Location = location;
+            Parent = parent;
             Parent.Controls.Add( this );
         }
 

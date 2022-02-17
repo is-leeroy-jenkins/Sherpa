@@ -83,13 +83,13 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9 );
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
-            Size = BudgetSize.DataGridControl;
+            Size = new Size( 240, 150 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             EnableHeadersVisualStyles = false;
             BackColor = Color.FromArgb( 10, 10, 10 );
             BorderStyle = BorderStyle.None;
             BackgroundColor = Color.FromArgb( 10, 10, 10 );
-            GridColor = BudgetColor.WindowFrame;
+            GridColor = SystemColors.WindowFrame;
 
             // Column SeriesConfiguration
             AllowUserToOrderColumns = true;
@@ -123,12 +123,6 @@ namespace BudgetExecution
             Visible = true;
             Enabled = true;
             ColumnHeaderMouseClick += OnRightClick;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         /// <summary>

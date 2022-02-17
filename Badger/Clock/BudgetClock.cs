@@ -102,12 +102,6 @@ namespace BudgetExecution
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Visible = true;
             Enabled = true;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         /// <summary>
@@ -135,7 +129,7 @@ namespace BudgetExecution
         public BudgetClock( Point location, Size size, Control parent )
             : this( size, location )
         {
-            Parent = BudgetSetting.GetParent( parent );
+            Parent = parent;
         }
     }
 }

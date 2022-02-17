@@ -103,12 +103,6 @@ namespace BudgetExecution
             Padding = new Padding( 1 );
             Text = string.Empty;
             StartPosition = FormStartPosition.CenterScreen;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
 
             // Event-Wiring
             Load += OpenFundsControlManual;

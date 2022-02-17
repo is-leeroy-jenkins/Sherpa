@@ -75,19 +75,13 @@ namespace BudgetExecution
         /// </summary>
         public BudgetPictureBox()
         {
-            Size = BudgetSize.PictureControl;
-            Anchor = BudgetSetting.GetAnchorStyle( AnchorStyles.Left & AnchorStyles.Top );
+            Size = new Size( 60, 40 );
+            Anchor = AnchorStyles.Left | AnchorStyles.Top;
             Location = new Point( 1, 1 );
             BackColor = Color.Transparent;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             SizeMode = PictureBoxSizeMode.StretchImage;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         /// <summary>

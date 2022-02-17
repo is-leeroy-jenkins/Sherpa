@@ -32,7 +32,7 @@ namespace BudgetExecution
             ThemeStyle.EditMenuStyle.BorderColor = Color.SteelBlue;
 
             // Header Cell Style Properties
-            ThemeStyle.HeaderCellStyle.HoverBackColor = BudgetColor.HoverDark;
+            ThemeStyle.HeaderCellStyle.HoverBackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.HeaderCellStyle.HoverTextColor = Color.LightGray;
             ThemeStyle.HeaderCellStyle.PressedBackColor = Color.SteelBlue;
             ThemeStyle.HeaderCellStyle.PressedTextColor = Color.White;
@@ -52,7 +52,7 @@ namespace BudgetExecution
             // Filter DropDown Style Properties
             ThemeStyle.FilterDropDownStyle.ForeColor = Color.LightGray;
             ThemeStyle.FilterDropDownStyle.BackColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.FilterDropDownStyle.BorderColor = BudgetColor.WindowFrame;
+            ThemeStyle.FilterDropDownStyle.BorderColor = SystemColors.WindowFrame;
 
             // Group Bar Item Style Properties
             ThemeStyle.GroupBarItemStyle.ForeColor = Color.LightGray;
@@ -61,19 +61,13 @@ namespace BudgetExecution
             ThemeStyle.GroupBarItemStyle.SortIconColor = Color.SteelBlue;
 
             // Group Bar Style Properties
-            ThemeStyle.GroupBarStyle.FilterAreaBackColor = BudgetColor.ControlInteriorDark;
+            ThemeStyle.GroupBarStyle.FilterAreaBackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.GroupBarStyle.BackColor = Color.FromArgb( 10, 10, 10 );
 
             // PivotValueChoserStyle Properties
             ThemeStyle.PivotValueChooserStyle.ForeColor = Color.LightGray;
             ThemeStyle.PivotValueChooserStyle.BackColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.PivotValueChooserStyle.BorderColor = BudgetColor.WindowFrame;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
+            ThemeStyle.PivotValueChooserStyle.BorderColor = SystemColors.WindowFrame;
         }
     }
 }

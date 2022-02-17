@@ -98,15 +98,9 @@ namespace BudgetExecution
             Dock = DockStyle.None;
             Enabled = true;
             Visible = true;
-            TextAlignment = BudgetAlign.StringAlignCenter;
-            TextLineAlignment = BudgetAlign.StringAlignCenter;
+            TextAlignment = StringAlignment.Center;
+            TextLineAlignment = StringAlignment.Center;
             OutlineColor = Color.FromArgb( 10, 10, 10 );
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         /// <summary>
@@ -120,7 +114,7 @@ namespace BudgetExecution
             : this()
         {
             Size = size;
-            Location = BudgetSetting.GetLocation( location );
+            Location = location;
         }
 
         /// <summary>
@@ -146,7 +140,7 @@ namespace BudgetExecution
         public BudgetLabel( Size size, Point location, Control parent )
             : this( size, location )
         {
-            Parent = BudgetSetting.GetParent( parent );
+            Parent = parent;
             Parent.Controls.Add( this );
         }
 

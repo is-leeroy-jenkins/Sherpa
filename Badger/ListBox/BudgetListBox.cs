@@ -106,16 +106,10 @@ namespace BudgetExecution
 
             // Item SeriesConfiguration
             ItemHeight = 30;
-            ItemLineAlignment = BudgetAlign.StringAlignCenter;
+            ItemLineAlignment = StringAlignment.Center;
             ItemAlternate = Color.FromArgb( 10, 10, 10 );
             ItemNormal = Color.FromArgb( 10, 10, 10 );
             ItemSelected = Color.SteelBlue;
-
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
         
         /// <summary>
@@ -129,7 +123,7 @@ namespace BudgetExecution
             : this()
         {
             Size = size;
-            Location = BudgetSetting.GetLocation( location );
+            Location = location;
         }
 
         /// <summary>
@@ -142,11 +136,11 @@ namespace BudgetExecution
         public BudgetListBox( Point location, Control parent = null )
             : this()
         {
-            Location = BudgetSetting.GetLocation( location );
+            Location = location;
 
             if( parent != null )
             {
-                Parent = BudgetSetting.GetParent( parent );
+                Parent = parent;
                 Parent.Controls.Add( this );
             }
         }
@@ -165,7 +159,7 @@ namespace BudgetExecution
 
             if( parent != null )
             {
-                Parent = BudgetSetting.GetParent( parent );
+                Parent = parent;
                 Parent.Controls.Add( this );
             }
         }
@@ -182,8 +176,8 @@ namespace BudgetExecution
             : this()
         {
             Size = size;
-            Location = BudgetSetting.GetLocation( location );
-            Parent = BudgetSetting.GetParent( parent );
+            Location = location;
+            Parent = parent;
             Parent.Controls.Add( this );
         }
 

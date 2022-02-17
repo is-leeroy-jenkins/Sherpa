@@ -74,8 +74,8 @@ namespace BudgetExecution
             Style.Header.NavigationButtonDisabledForeColor = Color.FromArgb( 10, 10, 10 );
             Style.Header.NavigationButtonHoverForeColor = Color.White;
             Style.Header.NavigationButtonForeColor = Color.SteelBlue;
-            Style.HorizontalSplitterColor = BudgetColor.WindowFrame;
-            Style.VerticalSplitterColor = BudgetColor.WindowFrame;
+            Style.HorizontalSplitterColor = SystemColors.WindowFrame;
+            Style.VerticalSplitterColor = SystemColors.WindowFrame;
             
             Visible = true;
             Enabled = true;

@@ -41,12 +41,6 @@ namespace BudgetExecution
             Border.Thickness = 1;
             Border.HoverColor = Color.SteelBlue;
             Border.HoverVisible = false;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
         
         public BudgetLayout( Size size, Point location ) 
@@ -69,7 +63,7 @@ namespace BudgetExecution
         {
             Size = new Size( size.Width, size.Height );
             Location = BudgetSetting.GetLocation( location.X, location.Y );
-            Parent = BudgetSetting.GetParent( parent );
+            Parent = parent;
             Parent.Controls.Add( this );
         }
 
@@ -82,7 +76,7 @@ namespace BudgetExecution
         public BudgetLayout( Control parent )
             : this()
         {
-            Parent = BudgetSetting.GetParent( parent );
+            Parent = parent;
             Parent.Controls.Add( this );
         }
     }

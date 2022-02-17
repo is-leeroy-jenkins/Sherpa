@@ -123,7 +123,7 @@ namespace BudgetExecution
             ThemeStyle.BorderColor = Color.FromArgb( 10, 10, 10 );
             ThemeStyle.ForeColor = Color.White;
             ThemeStyle.Font = new Font( "Roboto", 11 );
-            ThemeStyle.TextBoxBackColor = BudgetColor.ControlInteriorDark;
+            ThemeStyle.TextBoxBackColor = Color.FromArgb( 45, 45, 45 );
             CanOverrideStyle = true;
             UseVerticalAndHorizontalSpacing = true;
             Visible = true;
@@ -139,7 +139,7 @@ namespace BudgetExecution
             : this()
         {
             Size = size;
-            Location = BudgetSetting.GetLocation( location );
+            Location = location;
         }
 
         /// <summary>

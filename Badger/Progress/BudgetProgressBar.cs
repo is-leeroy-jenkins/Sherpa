@@ -102,12 +102,6 @@ namespace BudgetExecution
             ThemeName = "Metro";
             Text = string.Empty;
             Value = 0;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         /// <summary>
@@ -121,7 +115,7 @@ namespace BudgetExecution
             : this()
         {
             Size = size;
-            Location = BudgetSetting.GetLocation( location );
+            Location = location;
         }
 
         /// <summary>
@@ -136,7 +130,7 @@ namespace BudgetExecution
             : this( size, location )
         {
             Size = size;
-            Location = BudgetSetting.GetLocation( location );
+            Location = location;
             Value = start;
         }
 
@@ -163,7 +157,7 @@ namespace BudgetExecution
         public BudgetProgressBar( Size size, Point location, Control parent )
             : this( size, location )
         {
-            Parent = BudgetSetting.GetParent( parent );
+            Parent = parent;
             Parent.Controls.Add( this );
         }
 

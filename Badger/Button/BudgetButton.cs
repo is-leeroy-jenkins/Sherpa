@@ -85,7 +85,7 @@ namespace BudgetExecution
             ForeColor = Color.LightGray;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
-            Size = BudgetSize.ButtonControl;
+            Size = new Size( 140, 40 );
             Location = new Point( 1, 1 );
             Dock = DockStyle.None;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
@@ -98,7 +98,7 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 10, 10, 10 );
             BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
             BackColorState.Enabled = Color.FromArgb( 10, 10, 10 );
-            BackColorState.Hover = BudgetColor.HoverDark;
+            BackColorState.Hover = Color.FromArgb( 45, 45, 45 );
             BackColorState.Pressed = Color.SteelBlue;
 
             // BorderColor SeriesConfiguration
@@ -116,14 +116,8 @@ namespace BudgetExecution
             TextStyle.Disabled = Color.FromArgb( 10, 10, 10 );
             TextStyle.Enabled = Color.LightGray;
             TextStyle.Hover = Color.White;
-            TextStyle.TextAlignment = BudgetAlign.StringAlignCenter;
-            TextStyle.TextLineAlignment = BudgetAlign.StringAlignCenter;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
+            TextStyle.TextAlignment = StringAlignment.Center;
+            TextStyle.TextLineAlignment = StringAlignment.Center;
 
             // Event-Wiring
             MouseHover += OnMouseOver;
@@ -156,7 +150,7 @@ namespace BudgetExecution
         public BudgetButton( Size size, Point location, Control parent )
             : this( size, location )
         {
-            Parent = BudgetSetting.GetParent( parent );
+            Parent = parent;
             Field = Field.NS;
         }
 
@@ -187,7 +181,7 @@ namespace BudgetExecution
         public BudgetButton( Control parent, string text )
             : this()
         {
-            Parent = BudgetSetting.GetParent( parent );
+            Parent = parent;
             Text = text;
             Field = Field.NS;
         }
@@ -201,7 +195,7 @@ namespace BudgetExecution
         public BudgetButton( Control parent )
             : this()
         {
-            Parent = BudgetSetting.GetParent( parent );
+            Parent = parent;
             Field = Field.NS;
         }
 
@@ -215,7 +209,7 @@ namespace BudgetExecution
         public BudgetButton( Control parent, Field field )
             : this()
         {
-            Parent = BudgetSetting.GetParent( parent );
+            Parent = parent;
             Field = field;
             Tag = Field;
         }
