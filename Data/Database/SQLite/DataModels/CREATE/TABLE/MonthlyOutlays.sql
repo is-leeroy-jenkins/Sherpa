@@ -32,5 +32,5 @@ CREATE TABLE "MonthlyOutlays"
 	"July"	REAL,
 	"August"	REAL,
 	"September"	REAL,
-	PRIMARY KEY("ID" AUTOINCREMENT)
+	PRIMARY KEY("MonthlyOutlaysId" AUTOINCREMENT)
 );

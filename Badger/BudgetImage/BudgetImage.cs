@@ -287,7 +287,7 @@ namespace BudgetExecution
                 var _paths = _files.ToList();
                 var _list = new List<string>();
 
-                for( var i = 0; i < _paths.Count(); i++ )
+                for( var i = 0; i < _paths.Count; i++ )
                 {
                     _list.Add( _paths[ i ] );
                 }

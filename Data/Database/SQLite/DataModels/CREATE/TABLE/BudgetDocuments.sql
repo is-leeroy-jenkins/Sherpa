@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS "BudgetDocuments" 
 (
-	"ID"	INTEGER,
+	"BudgetDocumentsId"	INTEGER,
 	"BFY"	INTEGER,
 	"EFY"	TEXT,
 	"BudgetLevel"	INTEGER,

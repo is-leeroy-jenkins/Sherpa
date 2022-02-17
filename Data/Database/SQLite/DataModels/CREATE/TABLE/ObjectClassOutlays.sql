@@ -16,5 +16,5 @@ CREATE TABLE "ObjectClassOutlays"
 	"PriorYear"	REAL,
 	"CurrentYear"	REAL,
 	"BudgetYear"	REAL,
-	PRIMARY KEY("ID" AUTOINCREMENT)
+	PRIMARY KEY("ObjectClassOutlaysId" AUTOINCREMENT)
 );

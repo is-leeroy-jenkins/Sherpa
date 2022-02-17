@@ -26,5 +26,5 @@ CREATE TABLE "AppropriationDocuments"
 	"CarryIn"	REAL,
 	"EstimatedReimbursements"	REAL,
 	"EstimatedRecoveries"	REAL,
-	PRIMARY KEY("ID" AUTOINCREMENT)
+	PRIMARY KEY("AppropriationDocumentsId" AUTOINCREMENT)
 );

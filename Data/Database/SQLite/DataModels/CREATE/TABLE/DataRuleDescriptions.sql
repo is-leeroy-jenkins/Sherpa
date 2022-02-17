@@ -6,5 +6,5 @@ CREATE TABLE "DataRuleDescriptions"
 	"RuleNumber"	TEXT,
 	"RuleDescription"	TEXT,
 	"ScheduleOrder"	TEXT,
-	PRIMARY KEY("DataRuleDescriptionId" AUTOINCREMENT)
+	PRIMARY KEY("DataRuleDescriptionsId" AUTOINCREMENT)
 );

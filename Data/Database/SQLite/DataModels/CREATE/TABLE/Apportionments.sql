@@ -22,5 +22,5 @@ CREATE TABLE "Apportionments"
 	"LineSort"	TEXT,
 	"LineDescription"	TEXT,
 	"Amount"	REAL,
-	PRIMARY KEY("ApportionmentId" AUTOINCREMENT)
+	PRIMARY KEY("ApportionmentsId" AUTOINCREMENT)
 );

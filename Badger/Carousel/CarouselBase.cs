@@ -280,7 +280,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="srcDir">The source dir.</param>
         /// <returns></returns>
-        private protected ImageList CreateImageList( string srcDir )
+        public virtual ImageList CreateImageList( string srcDir )
         {
             if( Directory.Exists( srcDir ) )
             {
@@ -310,11 +310,47 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Creates the image list.
+        /// </summary>
+        /// <param name="srcDir">The source dir.</param>
+        /// <param name = "size" > </param>
+        /// <returns></returns>
+        public virtual ImageList CreateImageList( string srcDir, Size size )
+        {
+            if( Directory.Exists( srcDir ) )
+            {
+                var _files = Directory.EnumerateFiles( srcDir );
+                var _paths = _files?.ToList();
+                var _list = new ImageList();
+
+                for( var i = 0; i < _paths.Count; i++ )
+                {
+                    if( !string.IsNullOrEmpty( _paths[ i ] )
+                        && File.Exists( _paths[ i ] ) )
+                    {
+                        var _name = Path.GetFileNameWithoutExtension( _paths[ i ] );
+                        using var _stream = File.Open( _paths[ i ], FileMode.Open );
+                        var _img = new Bitmap( _stream );
+                        _img.Tag = _name;
+                        _list.ImageSize = size;
+                        _list?.Images?.Add( _img );
+                    }
+                }
+
+                return _list?.Images?.Count > 0
+                    ? _list
+                    : default( ImageList );
+            }
+
+            return default( ImageList );
+        }
+
+        /// <summary>
         /// Creates the carousel items.
         /// </summary>
         /// <param name="paths">The images.</param>
         /// <returns></returns>
-        public IEnumerable<CarouselImage> CreateCarouselItems( IEnumerable<string> paths )
+        public virtual IEnumerable<CarouselImage> CreateCarouselItems( IEnumerable<string> paths )
         {
             if( paths?.Any() == true )
             {

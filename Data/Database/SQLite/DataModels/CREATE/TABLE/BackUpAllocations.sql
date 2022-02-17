@@ -1,7 +1,7 @@
 CREATE TABLE BackUpAllocations
 (
-	BackupAllocationId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyBackUpAllocations PRIMARY KEY,
-	PrcId INTEGER NOT NULL UNIQUE,
+	BackupAllocationsId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyBackUpAllocations PRIMARY KEY,
+	AllocationsId INTEGER NOT NULL UNIQUE,
 	BudgetLevel TEXT(255) NULL,
 	RPIO TEXT(255) NULL,
 	BFY TEXT(255) NULL,
@@ -30,7 +30,7 @@ CREATE TABLE BackUpAllocations
 	ObjectiveName TEXT(255) NULL,
 	ChangeDate DATETIME NULL,
 	CONSTRAINT ForeignKeyBackUpAllocations
-	FOREIGN KEY (PrcId)
+	FOREIGN KEY (AllocationsId)
 	REFERENCES Allocations
 );
 

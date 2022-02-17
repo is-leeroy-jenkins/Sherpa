@@ -88,7 +88,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="srcDir">The source dir.</param>
         /// <returns></returns>
-        public ImageList CreateImageList( string srcDir )
+        public override ImageList CreateImageList( string srcDir )
         {
             if( Directory.Exists( srcDir ) )
             {
@@ -124,7 +124,7 @@ namespace BudgetExecution
         /// <param name="srcDir">The source dir.</param>
         /// <param name = "size" > </param>
         /// <returns></returns>
-        public ImageList CreateImageList( string srcDir, Size size )
+        public override ImageList CreateImageList( string srcDir, Size size )
         {
             if( Directory.Exists( srcDir ) )
             {
@@ -159,7 +159,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="paths">The images.</param>
         /// <returns></returns>
-        public IEnumerable<CarouselImage> CreateCarouselItems( IEnumerable<string> paths )
+        public override IEnumerable<CarouselImage> CreateCarouselItems( IEnumerable<string> paths )
         {
             if( paths?.Any() == true )
             {

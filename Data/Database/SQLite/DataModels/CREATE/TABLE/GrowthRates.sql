@@ -14,5 +14,5 @@ CREATE TABLE "GrowthRates"
 	"OutYear8"	REAL,
 	"OutYear9"	REAL,
 	"Sort"	TEXT,
-	PRIMARY KEY("ID" AUTOINCREMENT)
+	PRIMARY KEY("GrowthRatesId" AUTOINCREMENT)
 )

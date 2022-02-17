@@ -24,5 +24,5 @@ CREATE TABLE "BudgetOutlays"
 	"BudgetYear7"	REAL,
 	"BudgetYear8"	REAL,
 	"BudgetYear9"	REAL,
-	PRIMARY KEY("ID" AUTOINCREMENT)
+	PRIMARY KEY("BudgetOutlaysId" AUTOINCREMENT)
 );

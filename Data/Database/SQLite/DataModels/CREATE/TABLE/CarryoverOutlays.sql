@@ -23,5 +23,5 @@ CREATE TABLE "CarryoverOutlays"
 	"OutYear7"	REAL,
 	"OutYear8"	REAL,
 	"OutYear9"	REAL,
-	PRIMARY KEY("ID" AUTOINCREMENT)
+	PRIMARY KEY("CarryoverOutlaysId" AUTOINCREMENT)
 );

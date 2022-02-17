@@ -1,6 +1,6 @@
 CREATE TABLE "ProgramFinancingSchedule" 
 (
-	"ID"	INTEGER NOT NULL,
+	"ProgramFinancingScheduleId"	INTEGER NOT NULL,
 	"ReportFiscalYear" TEXT(255),
 	"ReportFiscalMonth" TEXT(255),
 	"ReportFiscalQuarter" TEXT(255),
@@ -28,5 +28,5 @@ CREATE TABLE "ProgramFinancingSchedule"
 	"Year2Year1" TEXT(255),
 	"FLTR_AGETL" TEXT(255),
 	"FLTR_BUDGET_ACCT_ID" TEXT(255),
-	PRIMARY KEY("ID" AUTOINCREMENT)
+	PRIMARY KEY("ProgramFinancingScheduleId" AUTOINCREMENT)
 )
