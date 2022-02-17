@@ -25,7 +25,7 @@ namespace BudgetExecution
             Size = new Size( 100, 33 );
             ForeColor = SystemColors.Highlight;
             BackColor = SystemColors.Control;
-            Font = BudgetFont.FontSizeSmall;
+            Font = new Font( "Roboto", 9 );
             Style = ProgressBarStyle.Blocks;
             Visible = true;
             Enabled = true;

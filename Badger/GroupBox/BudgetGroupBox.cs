@@ -111,20 +111,20 @@ namespace BudgetExecution
             Visible = true;
             Enabled = true;
             BackColor = BudgetColor.ControlInteriorDark;
-            ForeColor = BudgetColor.ForeColorGray;
-            Font = BudgetFont.FontSizeSmall;
-            Margin = BudgetSetting.Margin;
-            Padding = BudgetSetting.Padding;
+            ForeColor = Color.FromArgb( 141, 139, 138 );
+            Font = new Font( "Roboto", 9 );
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
 
             // Border SeriesConfiguration.
             Border.Type = ShapeTypes.Rounded;
-            Border.Color = BudgetColor.BorderDark;
-            Border.Thickness = BudgetBorder.Thin;
-            Border.HoverColor = BudgetColor.BorderDark;
+            Border.Color = Color.FromArgb( 64, 64, 64 );
+            Border.Thickness = 1;
+            Border.HoverColor = Color.FromArgb( 64, 64, 64 );
             Border.HoverVisible = true;
 
             // BackColor SeriesConfiguration.
-            BackColorState.Disabled = BudgetColor.FormDark;
+            BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
             BackColorState.Enabled = BudgetColor.ControlInteriorDark;
 
             // Text SeriesConfiguration.
@@ -134,7 +134,7 @@ namespace BudgetExecution
 
             // Style SeriesConfiguration.
             BoxStyle = GroupBoxStyle.Default;
-            SeparatorColor = BudgetColor.BorderDark;
+            SeparatorColor = Color.FromArgb( 64, 64, 64 );
             Separate = true;
 
             // Control Style Settings
@@ -276,8 +276,8 @@ namespace BudgetExecution
                     case true:
                     {
                         Border.Color = Color.FromArgb( 64, 64, 64 );
-                        Border.Thickness = BudgetBorder.Thin;
-                        Border.HoverColor = BudgetColor.BorderDark;
+                        Border.Thickness = 1;
+                        Border.HoverColor = Color.FromArgb( 64, 64, 64 );
                         Border.HoverVisible = true;
                         SeparatorColor = Color.FromArgb( 64, 64, 64 );
                         Separate = true;
@@ -287,11 +287,11 @@ namespace BudgetExecution
 
                     case false:
                     {
-                        Border.Color = BudgetColor.FormDark;
-                        Border.Thickness = BudgetBorder.Thin;
-                        Border.HoverColor = BudgetColor.FormDark;
+                        Border.Color = Color.FromArgb( 10, 10, 10 );
+                        Border.Thickness = 1;
+                        Border.HoverColor = Color.FromArgb( 10, 10, 10 );
                         Border.HoverVisible = false;
-                        SeparatorColor = BudgetColor.FormDark;
+                        SeparatorColor = Color.FromArgb( 10, 10, 10 );
                         Separate = false;
                         Border.Type = ShapeTypes.Rounded;
                         break;

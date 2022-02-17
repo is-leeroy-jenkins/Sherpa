@@ -6,6 +6,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Drawing;
     using System.ComponentModel;
     using System.Windows.Forms;
     using MetroSet_UI.Design;
@@ -22,9 +23,9 @@ namespace BudgetExecution
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";
             Style = Style.Custom;
-            BackColor = BudgetColor.FormDark;
-            BorderColor = BudgetColor.SteelBlue;
-            ForeColor = BudgetColor.LightBlue;
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            BorderColor = Color.SteelBlue;
+            ForeColor = Color.LightSteelBlue;
             UseAnimation = true;
             UseFading = true;
             AutomaticDelay = 500;

@@ -25,21 +25,21 @@ namespace BudgetExecution
             Location = BudgetSetting.GetLocation();
             Anchor = BudgetSetting.GetAnchorStyle();
             Dock = BudgetSetting.GetDockStyle();
-            Margin = BudgetSetting.Margin;
-            Padding = BudgetSetting.Padding;
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
             Enabled = true;
             Visible = true;
 
             // Backcolor SeriesConfiguration
-            BackColor = BudgetColor.FormDark;
-            ForeColor = BudgetColor.ForeColorGray;
-            BackColorState.Disabled = BudgetColor.FormDark;
-            BackColorState.Enabled = BudgetColor.FormDark;
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            ForeColor = Color.FromArgb( 141, 139, 138 );
+            BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
+            BackColorState.Enabled = Color.FromArgb( 10, 10, 10 );
 
             // Border SeriesConfiguration
-            Border.Color = BudgetColor.FormDark;
-            Border.Thickness = BudgetBorder.Thin;
-            Border.HoverColor = BudgetColor.SteelBlue;
+            Border.Color = Color.FromArgb( 10, 10, 10 );
+            Border.Thickness = 1;
+            Border.HoverColor = Color.SteelBlue;
             Border.HoverVisible = false;
             
             // Control Style Settings

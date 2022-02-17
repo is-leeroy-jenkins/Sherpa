@@ -88,24 +88,24 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form Property Values
-            Size = BudgetSize.FormSizeNormal;
-            BackColor = BudgetColor.FormDark;
-            BorderThickness = BudgetBorder.Thin;
-            BorderColor = BudgetColor.SteelBlue;
-            Font = BudgetFont.FontSizeSmall;
-            CaptionBarColor = BudgetColor.FormDark;
-            CaptionBarHeight = BudgetSize.CaptionSize;
-            CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
-            CaptionButtonHoverColor = BudgetColor.White;
-            CaptionAlign = BudgetAlign.HorizontalLeft;
-            CaptionFont = BudgetFont.FontSizeMedium;
-            CaptionBarHeight = BudgetSize.CaptionSize;
-            MetroColor = BudgetColor.FormDark;
-            FormBorderStyle = BudgetBorder.Sizeable;
+            Size = new Size( 1200, 700 );
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            BorderThickness = 1;
+            BorderColor = Color.SteelBlue;
+            Font = new Font( "Roboto", 9 );
+            CaptionBarColor = Color.FromArgb( 10, 10, 10 );
+            CaptionBarHeight = 26;
+            CaptionButtonColor = Color.FromArgb( 80, 80, 80 );
+            CaptionButtonHoverColor = Color.White;
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionFont = new Font( "Roboto", 11 );
+            CaptionBarHeight = 26;
+            MetroColor = Color.FromArgb( 10, 10, 10 );
+            FormBorderStyle = FormBorderStyle.Sizable;
             Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 16, 16 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            Padding = BudgetSetting.Padding;
+            Padding = new Padding( 1 );
             Text = string.Empty;
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
@@ -115,10 +115,10 @@ namespace BudgetExecution
 
             Chart.Location = new Point( Size.Width / 10, Size.Height / 10 );
             Chart.Name = "Budget Execution Chart";
-            Chart.BackColor = BudgetColor.FormDark;
-            Chart.ForeColor = BudgetColor.LightGray;
-            Chart.Font = BudgetFont.FontSizeSmall;
-            Chart.BorderAppearance.BaseColor = BudgetColor.Transparent;
+            Chart.BackColor = Color.FromArgb( 10, 10, 10 );
+            Chart.ForeColor = Color.LightGray;
+            Chart.Font = new Font( "Roboto", 9 );
+            Chart.BorderAppearance.BaseColor = Color.Transparent;
             Chart.RealMode3D = true;
             Chart.Series3D = true;
             Chart.Depth = 100;

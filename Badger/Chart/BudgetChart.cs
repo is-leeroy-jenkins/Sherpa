@@ -76,38 +76,38 @@ namespace BudgetExecution
         public BudgetChart()
         {
             //Basic Control Properties
-            Size = BudgetSize.ChartControl;
+            Size = new Size( 600, 400 );
             Location = BudgetSetting.GetLocation( );
             ShowLegend = false;
             ShowToolbar = true;
             ToolBar.Orientation = ChartOrientation.Horizontal;
-            ToolBar.ButtonBackColor = BudgetColor.FormDark;
+            ToolBar.ButtonBackColor = Color.FromArgb( 10, 10, 10 );
             ToolBar.Position = ChartDock.Bottom;
             ToolBar.ShowGrip = false;
             ToolBar.ShowBorder = false;
             ShowScrollBars = false;
             EnableMouseRotation = true;
-            Padding = BudgetSetting.Padding;
-            Margin = BudgetSetting.Margin;
+            Padding = new Padding( 1 );
+            Margin = new Padding( 3 );
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
             AllowGapForEmptyPoints = true;
             AllowGradientPalette = true;
             AllowUserEditStyles = true;
             PrintColorMode = ChartPrintColorMode.CheckPrinter;
-            BackInterior = new BrushInfo( BudgetColor.FormDark );
-            BackColor = BudgetColor.FormDark;
+            BackInterior = new BrushInfo( Color.FromArgb( 10, 10, 10 ) );
+            BackColor = Color.FromArgb( 10, 10, 10 );
 
             ChartInterior = new BrushInfo( GradientStyle.PathRectangle, Color.LightGray,
-                BudgetColor.FormDark );
+                Color.FromArgb( 10, 10, 10 ) );
 
             CalcRegions = true;
 
             //ChartArea Properties
             ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
             ChartArea.AutoScale = true;
-            ChartArea.BackInterior = new BrushInfo( BudgetColor.FormDark );
-            ChartArea.BorderWidth = BudgetBorder.Thin;
-            ChartArea.BorderColor = BudgetColor.Transparent;
+            ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 10, 10, 10 ) );
+            ChartArea.BorderWidth = 1;
+            ChartArea.BorderColor = Color.Transparent;
             ChartArea.BorderStyle = BorderStyle.FixedSingle;
             ChartAreaMargins = new ChartMargins( 3, 3, 3, 3 );
 
@@ -119,7 +119,7 @@ namespace BudgetExecution
             SeriesHighlightIndex = -1;
             ShadowWidth = 5;
 
-            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, BudgetColor.FormDark,
+            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 10, 10, 10 ),
                 Color.Silver );
 
             Depth = 250;
@@ -146,10 +146,10 @@ namespace BudgetExecution
 
             //Chart Legend Setting;
             ShowLegend = true;
-            Legend.Font = BudgetFont.FontSizeSmall;
-            Legend.ItemsSize = BudgetSize.ImageSizeSmall;
+            Legend.Font = new Font( "Roboto", 9 );
+            Legend.ItemsSize = new Size( 12, 12 );
             Legend.VisibleCheckBox = true;
-            Legend.BackInterior = new BrushInfo( BudgetColor.FormDark );
+            Legend.BackInterior = new BrushInfo( Color.FromArgb( 10, 10, 10 ) );
             Legend.ItemsAlignment = BudgetAlign.GetStringAlignment( StringAlignment.Center );
             Legend.ItemsTextAligment = VerticalAlignment.Center;
             Legend.Orientation = ChartOrientation.Vertical;
@@ -158,12 +158,6 @@ namespace BudgetExecution
             Legend.ShowItemsShadow = true;
             Legend.ShowBorder = false;
             Legend.Visible = true;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         /// <summary>
@@ -379,7 +373,7 @@ namespace BudgetExecution
                 using var title = new ChartTitle();
                 title.Visible = true;
                 title.Font = font;
-                title.BackColor = BudgetColor.FormDark;
+                title.BackColor = Color.FromArgb( 10, 10, 10 );
                 title.ForeColor = color;
                 title.Text = text;
                 Titles?.Add( title );

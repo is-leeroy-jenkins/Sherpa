@@ -59,19 +59,19 @@ namespace BudgetExecution
         public RibbonBase()
         {
             EnableRibbonCustomization = true;
-            Margin = BudgetSetting.Margin;
-            Padding = BudgetSetting.Padding;
-            Font = BudgetFont.FontSizeSmall;
-            ForeColor = BudgetColor.Black;
-            BackColor = BudgetColor.FormDark;
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
+            Font = new Font( "Roboto", 9 );
+            ForeColor = Color.Black;
+            BackColor = Color.FromArgb( 10, 10, 10 );
             BorderStyle = ToolStripBorderStyle.None;
             RibbonStyle = RibbonStyle.Office2010;
             OfficeColorScheme = ToolStripEx.ColorScheme.Black;
-            TitleFont = BudgetFont.FontSizeSmall;
+            TitleFont = new Font( "Roboto", 9 );
 
             // Office Menu Properties
-            OfficeMenu.BackColor = BudgetColor.FormDark;
-            OfficeMenu.Font = BudgetFont.FontSizeSmall;
+            OfficeMenu.BackColor = Color.FromArgb( 10, 10, 10 );
+            OfficeMenu.Font = new Font( "Roboto", 9 );
             OfficeMenu.AutoSize = true;
             OfficeMenu.LayoutStyle = ToolStripLayoutStyle.Flow;
             ShowQuickItemsDropDownButton = false;

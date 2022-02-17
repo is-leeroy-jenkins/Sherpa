@@ -27,9 +27,9 @@ namespace BudgetExecution
             Margin = new Padding( 5, 5, 5, 5 );
             Padding = new Padding( 0 );
             Size = new Size( 150, 23 );
-            BackColor = BudgetColor.FormDark;
-            ForeColor = BudgetColor.ForeColorGray;
-            Font = BudgetFont.FontSizeSmall;
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            ForeColor = Color.FromArgb( 141, 139, 138 );
+            Font = new Font( "Roboto", 9 );
             Visible = true;
             Enabled = true;
             Tag = Name;

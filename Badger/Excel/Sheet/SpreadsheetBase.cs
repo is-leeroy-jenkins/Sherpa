@@ -50,10 +50,10 @@ namespace BudgetExecution
         {
             CanApplyTheme = true;
             CanOverrideStyle = true;
-            Margin = BudgetSetting.Margin;
-            Padding = BudgetSetting.Padding;
-            BackColor = BudgetColor.FormDark;
-            ForeColor = BudgetColor.Black;
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            ForeColor = Color.Black;
             Font = new Font( "Roboto", 9, FontStyle.Regular );
             DefaultColumnCount = 26;
             DefaultRowCount = 66;

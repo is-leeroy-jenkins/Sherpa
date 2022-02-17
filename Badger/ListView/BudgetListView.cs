@@ -85,10 +85,10 @@ namespace BudgetExecution
             Location = BudgetSetting.GetLocation();
             Anchor = BudgetSetting.GetAnchorStyle();
             Dock = BudgetSetting.GetDockStyle();
-            Margin = BudgetSetting.Margin;
-            Padding = BudgetSetting.Padding;
-            Font = BudgetFont.FontSizeSmall;
-            ForeColor = BudgetColor.LightGray;
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
+            Font = new Font( "Roboto", 9 );
+            ForeColor = Color.LightGray;
             Enabled = true;
             Visible = true;
             Selectable = true;
@@ -96,27 +96,27 @@ namespace BudgetExecution
             GridLines = GridLines.Horizontal;
             GridColor = BudgetColor.WindowFrame;
             GridLineStyle = GridLineStyle.Dashed;
-            DisplayTextFont = BudgetFont.FontSizeSmall;
+            DisplayTextFont = new Font( "Roboto", 9 );
             DisplayTextOnEmpty = false;
-            DisplayTextColor = BudgetColor.LightGray;
+            DisplayTextColor = Color.LightGray;
             FullRowSelect = true;
             AllowColumnResize = true;
             AlternatingColors = false;
             HoverColumnTracking = true;
             HeaderVisible = false;
-            ItemSelectedColor = BudgetColor.SteelBlue;
-            ItemSelectedTextColor = BudgetColor.White;
+            ItemSelectedColor = Color.SteelBlue;
+            ItemSelectedTextColor = Color.White;
 
             // Backcolor SeriesConfiguration
-            BackColor = BudgetColor.FormDark;
-            ForeColor = BudgetColor.LightGray;
-            BackColorState.Disabled = BudgetColor.FormDark;
-            BackColorState.Enabled = BudgetColor.FormDark;
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            ForeColor = Color.LightGray;
+            BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
+            BackColorState.Enabled = Color.FromArgb( 10, 10, 10 );
 
             // Border SeriesConfiguration
             Border.Color = BudgetColor.WindowFrame;
-            Border.Thickness = BudgetBorder.Thin;
-            Border.HoverColor = BudgetColor.SteelBlue;
+            Border.Thickness = 1;
+            Border.HoverColor = Color.SteelBlue;
             Border.HoverVisible = false;
 
             // Item SeriesConfiguration
@@ -253,7 +253,7 @@ namespace BudgetExecution
                     case true:
                     {
                         Border.Color = Color.FromArgb( 64, 64, 64 );
-                        Border.Thickness = BudgetBorder.Thin;
+                        Border.Thickness = 1;
                         Border.HoverColor = BudgetColor.WindowFrame;
                         Border.HoverVisible = true;
                         Border.Type = ShapeTypes.Rounded;
@@ -262,9 +262,9 @@ namespace BudgetExecution
 
                     case false:
                     {
-                        Border.Color = BudgetColor.FormDark;
-                        Border.Thickness = BudgetBorder.Thin;
-                        Border.HoverColor = BudgetColor.SteelBlue;
+                        Border.Color = Color.FromArgb( 10, 10, 10 );
+                        Border.Thickness = 1;
+                        Border.HoverColor = Color.SteelBlue;
                         Border.HoverVisible = false;
                         Border.Type = ShapeTypes.Rounded;
                         break;

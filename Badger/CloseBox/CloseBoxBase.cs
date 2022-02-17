@@ -39,8 +39,8 @@ namespace BudgetExecution
         public CloseBoxBase()
         {
             // Prologue
-            ForeColor = BudgetColor.ForeColorGray;
-            Font = BudgetFont.FontSizeSmall;
+            ForeColor = Color.FromArgb( 141, 139, 138 );
+            Font = new Font( "Roboto", 9 );
             Margin = new Padding( 0 );
             Padding = new Padding( 0 );
             Size = BudgetSize.GetSize( 300, 25 );
@@ -49,13 +49,13 @@ namespace BudgetExecution
             Enabled = true;
             CloseHoverBackColor = Color.Red;
             CloseHoverForeColor = Color.White;
-            CloseNormalForeColor = BudgetColor.FormDark;
+            CloseNormalForeColor = Color.FromArgb( 10, 10, 10 );
             MaximizeHoverBackColor = Color.Blue;
             MaximizeHoverForeColor = Color.White;
-            MaximizeNormalForeColor = BudgetColor.FormDark;
+            MaximizeNormalForeColor = Color.FromArgb( 10, 10, 10 );
             MinimizeHoverBackColor = Color.Blue;
             MinimizeHoverForeColor = Color.White;
-            MinimizeNormalForeColor = BudgetColor.FormDark;
+            MinimizeNormalForeColor = Color.FromArgb( 10, 10, 10 );
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";

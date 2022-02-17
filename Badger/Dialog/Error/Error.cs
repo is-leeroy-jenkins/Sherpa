@@ -44,41 +44,41 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form Property Values
-            BackColor = BudgetColor.FormDark;
-            BorderThickness = BudgetBorder.Thin;
-            BorderColor = BudgetColor.BorderRed;
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            BorderThickness = 1;
+            BorderColor = Color.FromArgb( 192, 0, 0 );
             Size = BudgetSize.DialogSizeNormal;
-            Font = BudgetFont.FontSizeSmall;
-            CaptionBarColor = BudgetColor.FormDark;
-            CaptionBarHeight = BudgetSize.CaptionSize;
-            CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
-            CaptionButtonHoverColor = BudgetColor.White;
-            CaptionAlign = BudgetAlign.HorizontalLeft;
-            CaptionFont = BudgetFont.FontSizeMedium;
-            MetroColor = BudgetColor.FormDark;
-            FormBorderStyle = BudgetBorder.Sizeable;
+            Font = new Font( "Roboto", 9 );
+            CaptionBarColor = Color.FromArgb( 10, 10, 10 );
+            CaptionBarHeight = 26;
+            CaptionButtonColor = Color.FromArgb( 80, 80, 80 );
+            CaptionButtonHoverColor = Color.White;
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionFont = new Font( "Roboto", 11 );
+            MetroColor = Color.FromArgb( 10, 10, 10 );
+            FormBorderStyle = FormBorderStyle.Sizable;
             Icon = new Icon( IconPath, 33, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            Padding = BudgetSetting.Padding;
+            Padding = new Padding( 1 );
             Text = string.Empty;
             Size = new Size( 812, 486 );
 
             // TextBox Properties
             TextBox.BackColor =  BudgetColor.FormDark;
-            TextBox.BackColorState.Enabled = BudgetColor.FormDark;
-            TextBox.BackColorState.Disabled = BudgetColor.FormDark;
+            TextBox.BackColorState.Enabled = Color.FromArgb( 10, 10, 10 );
+            TextBox.BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
             TextBox.Border.Type = ShapeTypes.Rounded;
-            TextBox.Border.Color = BudgetColor.BorderDark;
+            TextBox.Border.Color = Color.FromArgb( 64, 64, 64 );
             TextBox.Border.HoverColor = BudgetColor.Maroon;
             TextBox.Parent = Panel;
             TextBox.Dock = DockStyle.Fill;
 
-            Panel.BackColor = BudgetColor.FormDark;
-            Panel.BackColorState.Enabled = BudgetColor.FormDark;
-            Panel.BackColorState.Disabled = BudgetColor.FormDark;
-            Panel.Border.Color = BudgetColor.BorderDark;
-            Panel.Border.HoverColor = BudgetColor.BorderRed;
+            Panel.BackColor = Color.FromArgb( 10, 10, 10 );
+            Panel.BackColorState.Enabled = Color.FromArgb( 10, 10, 10 );
+            Panel.BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
+            Panel.Border.Color = Color.FromArgb( 64, 64, 64 );
+            Panel.Border.HoverColor = Color.FromArgb( 192, 0, 0 );
             Panel.Parent = this;
             Panel.Location = new Point( 61, 48 );
             Panel.Controls.Add( TextBox );

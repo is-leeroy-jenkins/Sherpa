@@ -30,9 +30,9 @@ namespace BudgetExecution
         public ChartConfig()
         {
             DisplayText = true;
-            TextColor = BudgetColor.ForeColorGray;
-            Interior = new BrushInfo( BudgetColor.FormDark );
-            Border = SetBorderStyle( BudgetColor.FormDark, BudgetBorder.Thin );
+            TextColor = Color.FromArgb( 141, 139, 138 );
+            Interior = new BrushInfo( Color.FromArgb( 10, 10, 10 ) );
+            Border = SetBorderStyle( Color.FromArgb( 10, 10, 10 ), 1 );
         }
 
         /// <summary>

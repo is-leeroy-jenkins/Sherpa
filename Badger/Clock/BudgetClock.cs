@@ -78,12 +78,12 @@ namespace BudgetExecution
         public BudgetClock()
         {
             // Basic Properties
-            BackColor = BudgetColor.FormDark;
+            BackColor = Color.FromArgb( 10, 10, 10 );
             BorderColor = BackColor;
-            ForeColor = BudgetColor.ForeColorGray;
-            Font = BudgetFont.FontSizeSmall;
-            Margin = BudgetSetting.Margin;
-            Padding = BudgetSetting.Padding;
+            ForeColor = Color.FromArgb( 141, 139, 138 );
+            Font = new Font( "Roboto", 9 );
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
             ClockShape = ClockShapes.Rectangle;
             ClockType = ClockTypes.Digital;
             DisplayDates = true;
@@ -93,9 +93,9 @@ namespace BudgetExecution
             ShowHourDesignator = true;
             ShowMinute = true;
             ShowSecondHand = true;
-            HourHandColor = BudgetColor.ForeColorGray;
-            MinuteColor = BudgetColor.ForeColorGray;
-            SecondHandColor = BudgetColor.ForeColorGray;
+            HourHandColor = Color.FromArgb( 141, 139, 138 );
+            MinuteColor = Color.FromArgb( 141, 139, 138 );
+            SecondHandColor = Color.FromArgb( 141, 139, 138 );
             VisualStyle = ClockVisualStyle.None;
             Location = BudgetSetting.GetLocation();
             Dock = BudgetSetting.GetDockStyle();

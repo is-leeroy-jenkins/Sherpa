@@ -81,21 +81,21 @@ namespace BudgetExecution
 
             // Form Properties
             Size = BudgetSize.GetSize( 400, 400 );
-            BackColor = BudgetColor.FormDark;
-            BorderThickness = BudgetBorder.Thin;
-            BorderColor = BudgetColor.SteelBlue;
-            Font = BudgetFont.FontSizeSmall;
-            CaptionBarColor = BudgetColor.FormDark;
-            CaptionBarHeight = BudgetSize.CaptionSize;
-            CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
-            CaptionButtonHoverColor = BudgetColor.White;
-            CaptionAlign = BudgetAlign.HorizontalLeft;
-            MetroColor = BudgetColor.FormDark;
-            FormBorderStyle = BudgetBorder.Sizeable;
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            BorderThickness = 1;
+            BorderColor = Color.SteelBlue;
+            Font = new Font( "Roboto", 9 );
+            CaptionBarColor = Color.FromArgb( 10, 10, 10 );
+            CaptionBarHeight = 26;
+            CaptionButtonColor = Color.FromArgb( 80, 80, 80 );
+            CaptionButtonHoverColor = Color.White;
+            CaptionAlign = HorizontalAlignment.Left;
+            MetroColor = Color.FromArgb( 10, 10, 10 );
+            FormBorderStyle = FormBorderStyle.Sizable;
             Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 16, 16 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            Padding = BudgetSetting.Padding;
+            Padding = new Padding( 1 );
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
             Controls.Add( Calculator );

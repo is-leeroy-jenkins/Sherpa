@@ -76,31 +76,25 @@ namespace BudgetExecution
         /// </summary>
         public BudgetTile()
         {
-            BackColor = BudgetColor.FormDark;
-            ForeColor = BudgetColor.LightGray;
-            Size = BudgetSize.TileControl;
-            Font = BudgetFont.FontSizeSmall;
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            ForeColor = Color.LightGray;
+            Size = new Size( 140, 140 );
+            Font = new Font( "Roboto", 9 );
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
             Dock = DockStyle.None;
             TileType = HubTileType.DefaultTile;
             Title.Font = new Font( "Roboto", 8, FontStyle.Regular );
-            Title.TextColor = BudgetColor.LightGray;
-            Body.TextColor = BudgetColor.LightGray;
-            Body.Font = BudgetFont.FontSizeMedium;
+            Title.TextColor = Color.LightGray;
+            Body.TextColor = Color.LightGray;
+            Body.Font = new Font( "Roboto", 11 );
             SlideTransition = TransitionDirection.RightToLeft;
             ShowBanner = false;
-            HoveredBorderColor = BudgetColor.SteelBlue;
+            HoveredBorderColor = Color.SteelBlue;
             HoverBorderLength = 1;
             EnableHoverColor = true;
             EnableSelectionMarker = false;
             Visible = true;
             Enabled = true;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         public BudgetTile( string name ) 

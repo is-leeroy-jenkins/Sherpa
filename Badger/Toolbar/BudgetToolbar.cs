@@ -44,9 +44,9 @@ namespace BudgetExecution
         {
             Margin = new Padding( 5, 5, 5, 0 );
             Padding = new Padding( 1, 1, 1, 0 );
-            BackColor = BudgetColor.FormDark;
+            BackColor = Color.FromArgb( 10, 10, 10 );
             ForeColor = Color.White;
-            Font = BudgetFont.FontSizeSmall;
+            Font = new Font( "Roboto", 9 );
             OfficeColorScheme = ColorScheme.Black;
             Dock = DockStyle.Bottom;
             ShowCaption = true;
@@ -55,12 +55,6 @@ namespace BudgetExecution
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
             BorderStyle = ToolStripBorderStyle.StaticEdge;
             Buttons = GetButtons();
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         /// <summary>

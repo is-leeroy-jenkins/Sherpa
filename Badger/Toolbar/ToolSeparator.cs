@@ -5,6 +5,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Drawing;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
 
@@ -22,8 +23,8 @@ namespace BudgetExecution
         {
             Margin = new Padding( 3, 0, 3, 0 );
             Padding = new Padding( 0 );
-            ForeColor = BudgetColor.ForeColorBlack;
-            Font = BudgetFont.FontSizeSmall;
+            ForeColor = Color.Black;
+            Font = new Font( "Roboto", 9 );
             Width = 6;
         }
         

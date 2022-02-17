@@ -18,20 +18,14 @@ namespace BudgetExecution
         public BudgetPivotChartControl()
         {
             // Basic Control Properties
-            Font = BudgetFont.FontSizeSmall;
-            ForeColor = BudgetColor.LightGray;
-            BackColor = BudgetColor.FormDark;
+            Font = new Font( "Roboto", 9 );
+            ForeColor = Color.LightGray;
+            BackColor = Color.FromArgb( 10, 10, 10 );
             Skins = Skins.Office2016Black;
             ShowLegend = true;
-            Size = BudgetSize.GetSize( 400, 300 );
+            Size = new Size( 400, 300 );
             CustomPalette = new [ ] { Color.SteelBlue, Color.Red, Color.Green };
             ChartTypes = PivotChartTypes.Column;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
     }
 }

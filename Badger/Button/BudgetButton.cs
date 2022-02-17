@@ -81,10 +81,10 @@ namespace BudgetExecution
         public BudgetButton()
         {
             // Basic SeriesConfiguration
-            Font = BudgetFont.FontSizeSmall;
-            ForeColor = BudgetColor.LightGray;
-            Margin = BudgetSetting.Margin;
-            Padding = BudgetSetting.Padding;
+            Font = new Font( "Roboto", 9 );
+            ForeColor = Color.LightGray;
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
             Size = BudgetSize.ButtonControl;
             Location = BudgetSetting.GetLocation();
             Dock = BudgetSetting.GetDockStyle();
@@ -95,15 +95,15 @@ namespace BudgetExecution
             Text = string.Empty;
 
             // BackColor SeriesConfiguration
-            BackColor = BudgetColor.FormDark;
-            BackColorState.Disabled = BudgetColor.FormDark;
-            BackColorState.Enabled = BudgetColor.FormDark;
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
+            BackColorState.Enabled = Color.FromArgb( 10, 10, 10 );
             BackColorState.Hover = BudgetColor.HoverDark;
-            BackColorState.Pressed = BudgetColor.SteelBlue;
+            BackColorState.Pressed = Color.SteelBlue;
 
             // BorderColor SeriesConfiguration
-            Border.Color = BudgetColor.FormDark;
-            Border.HoverColor = BudgetColor.SteelBlue;
+            Border.Color = Color.FromArgb( 10, 10, 10 );
+            Border.HoverColor = Color.SteelBlue;
             Border.HoverVisible = true;
             Border.Type = ShapeTypes.Rounded;
             Border.Thickness = 1;
@@ -112,10 +112,10 @@ namespace BudgetExecution
             TextImageRelation = TextImageRelation.Overlay;
 
             // Text SeriesConfiguration
-            TextStyle.Pressed = BudgetColor.White;
-            TextStyle.Disabled = BudgetColor.FormDark;
-            TextStyle.Enabled = BudgetColor.LightGray;
-            TextStyle.Hover = BudgetColor.White;
+            TextStyle.Pressed = Color.White;
+            TextStyle.Disabled = Color.FromArgb( 10, 10, 10 );
+            TextStyle.Enabled = Color.LightGray;
+            TextStyle.Hover = Color.White;
             TextStyle.TextAlignment = BudgetAlign.StringAlignCenter;
             TextStyle.TextLineAlignment = BudgetAlign.StringAlignCenter;
             

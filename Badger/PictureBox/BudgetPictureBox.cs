@@ -79,8 +79,8 @@ namespace BudgetExecution
             Anchor = BudgetSetting.GetAnchorStyle( AnchorStyles.Left & AnchorStyles.Top );
             Location = BudgetSetting.GetLocation();
             BackColor = Color.Transparent;
-            Margin = BudgetSetting.Margin;
-            Padding = BudgetSetting.Padding;
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
             SizeMode = PictureBoxSizeMode.StretchImage;
             
             // Control Style Settings

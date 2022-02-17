@@ -24,14 +24,14 @@ namespace BudgetExecution
         /// </remarks>
         public BudgetSplash()
         {
-            BackColor = BudgetColor.FormDark;
-            ForeColor = BudgetColor.LightGray;
-            Font = BudgetFont.FontSizeSmall;
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
             Size = new Size( 300, 150 );
             BorderStyle = Border3DStyle.Flat;
 
-            BackgroundColor = new BrushInfo( GradientStyle.None, BudgetColor.FormDark, 
-                BudgetColor.FormDark );
+            BackgroundColor = new BrushInfo( GradientStyle.None, Color.FromArgb( 10, 10, 10 ), 
+                Color.FromArgb( 10, 10, 10 ) );
 
             ShowAnimation = true;
             AnimationSpeed = 10;
@@ -47,12 +47,6 @@ namespace BudgetExecution
             MarqueePosition = MarqueePosition.BottomRight;
             MarqueeDirection = SplashPanelMarqueeDirection.RightToLeft;
             SlideStyle = SlideStyle.FadeIn;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
 
         public BudgetSplash( string message ) 

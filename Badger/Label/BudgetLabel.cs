@@ -89,18 +89,18 @@ namespace BudgetExecution
             // Basic Properties
             Size = BudgetSize.GetSize( 165, 23 );
             Location = BudgetSetting.GetLocation();
-            BackColor = BudgetColor.FormDark;
-            ForeColor = BudgetColor.ForeColorGray;
-            Font = BudgetFont.FontSizeSmall;
-            Margin = BudgetSetting.Margin;
-            Padding = BudgetSetting.Padding;
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            ForeColor = Color.FromArgb( 141, 139, 138 );
+            Font = new Font( "Roboto", 9 );
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
             Anchor = BudgetSetting.GetAnchorStyle();
             Dock = BudgetSetting.GetDockStyle();
             Enabled = true;
             Visible = true;
             TextAlignment = BudgetAlign.StringAlignCenter;
             TextLineAlignment = BudgetAlign.StringAlignCenter;
-            OutlineColor = BudgetColor.FormDark;
+            OutlineColor = Color.FromArgb( 10, 10, 10 );
             
             // Control Style Settings
             SetStyle( ControlStyles.OptimizedDoubleBuffer, true );

@@ -79,16 +79,16 @@ namespace BudgetExecution
         /// </summary>
         public BudgetDataGrid()
         {
-            ForeColor = BudgetColor.Black;
-            Font = BudgetFont.FontSizeSmall;
-            Margin = BudgetSetting.Margin;
-            Padding = BudgetSetting.Padding;
+            ForeColor = Color.Black;
+            Font = new Font( "Roboto", 9 );
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
             Size = BudgetSize.DataGridControl;
             Anchor = BudgetSetting.GetAnchorStyle();
             EnableHeadersVisualStyles = false;
-            BackColor = BudgetColor.FormDark;
+            BackColor = Color.FromArgb( 10, 10, 10 );
             BorderStyle = BorderStyle.None;
-            BackgroundColor = BudgetColor.FormDark;
+            BackgroundColor = Color.FromArgb( 10, 10, 10 );
             GridColor = BudgetColor.WindowFrame;
 
             // Column SeriesConfiguration
@@ -97,23 +97,23 @@ namespace BudgetExecution
             AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             ColumnHeadersHeight = 35;
             ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            ColumnHeadersDefaultCellStyle.BackColor = BudgetColor.SteelBlue;
-            ColumnHeadersDefaultCellStyle.ForeColor = BudgetColor.Black;
+            ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
+            ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
             ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            ColumnHeadersDefaultCellStyle.Font = BudgetFont.FontSizeMedium;
+            ColumnHeadersDefaultCellStyle.Font = new Font( "Roboto", 11 );
             RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             // Row SeriesConfiguration
             RowHeadersWidth = 26;
-            RowHeadersDefaultCellStyle.BackColor = BudgetColor.ForeColorGray;
-            RowHeadersDefaultCellStyle.Font = BudgetFont.FontSizeMedium;
-            RowHeadersDefaultCellStyle.ForeColor = BudgetColor.Black;
+            RowHeadersDefaultCellStyle.BackColor = Color.FromArgb( 141, 139, 138 );
+            RowHeadersDefaultCellStyle.Font = new Font( "Roboto", 11 );
+            RowHeadersDefaultCellStyle.ForeColor = Color.Black;
             RowHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter;
             CellBorderStyle = DataGridViewCellBorderStyle.None;
             AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             RowsDefaultCellStyle.BackColor = Color.LightSteelBlue;
-            RowsDefaultCellStyle.Font = BudgetFont.FontSizeSmall;
+            RowsDefaultCellStyle.Font = new Font( "Roboto", 9 );
             RowsDefaultCellStyle.ForeColor = Color.Black;
             RowsDefaultCellStyle.SelectionBackColor = SystemColors.ControlLight;
             RowsDefaultCellStyle.SelectionForeColor = Color.Black;

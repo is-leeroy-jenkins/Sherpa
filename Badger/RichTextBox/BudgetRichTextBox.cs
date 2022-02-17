@@ -14,27 +14,27 @@ namespace BudgetExecution
         public BudgetRichTextBox()
         {
             // Basic Properties
-            Size = BudgetSize.TextBoxControl;
+            Size = new Size( 140, 30 );
             Location = BudgetSetting.GetLocation();
             Anchor = BudgetSetting.GetAnchorStyle();
             Dock = BudgetSetting.GetDockStyle();
-            Margin = BudgetSetting.Margin;
-            Padding = BudgetSetting.Padding;
-            Font = BudgetFont.FontSizeSmall;
-            ForeColor = BudgetColor.LightGray;
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
+            Font = new Font( "Roboto", 9 );
+            ForeColor = Color.LightGray;
             Enabled = true;
             Visible = true;
             Text = string.Empty;
 
             // BackColor SeriesConfiguration
-            BackColor = BudgetColor.FormDark;
-            BackColorState.Disabled = BudgetColor.FormDark;
-            BackColorState.Enabled = BudgetColor.FormDark;
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
+            BackColorState.Enabled = Color.FromArgb( 10, 10, 10 );
 
             // Border SeriesConfiguration
-            Border.Color = BudgetColor.FormDark;
-            Border.Thickness = BudgetBorder.Thin;
-            Border.HoverColor = BudgetColor.SteelBlue;
+            Border.Color = Color.FromArgb( 10, 10, 10 );
+            Border.Thickness = 1;
+            Border.HoverColor = Color.SteelBlue;
             Border.HoverVisible = false;
             
             // Control Style Settings

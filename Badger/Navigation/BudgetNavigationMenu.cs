@@ -16,52 +16,52 @@ namespace BudgetExecution
         {
             // Navigation Menu Properties
             Size = new Size( 75, 23 );
-            BackColor = BudgetColor.FormDark;
-            ForeColor = BudgetColor.LightGray;
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            ForeColor = Color.LightGray;
             Position = SlidePosition.Right;
             Style = NavigationDrawerStyle.Office2016Black;
-            Font = BudgetFont.FontSizeSmall;
+            Font = new Font( "Roboto", 9 );
             AnimationDuration = 20;
             DrawerWidth = BudgetSize.CollectionControl.Width;
             Text = string.Empty;
 
             // Navigation Menu ThemeStyle
-            ThemeStyle.BackColor = BudgetColor.FormDark;
-            ThemeStyle.DisabledBackColor = BudgetColor.FormDark;
-            ThemeStyle.DisabledFooterBackColor = BudgetColor.FormDark;
-            ThemeStyle.DisabledFooterBorderColor = BudgetColor.FormDark;
-            ThemeStyle.DisabledHeaderBackColor = BudgetColor.FormDark;
-            ThemeStyle.DisabledPanelBackColor = BudgetColor.FormDark;
+            ThemeStyle.BackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.DisabledBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.DisabledFooterBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.DisabledFooterBorderColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.DisabledHeaderBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.DisabledPanelBackColor = Color.FromArgb( 10, 10, 10 );
 
             // Navigation Header ThemeStyle
-            ThemeStyle.HeaderBackColor = BudgetColor.FormDark;
-            ThemeStyle.HeaderFont = BudgetFont.FontSizeMedium;
-            ThemeStyle.HeaderForeColor = BudgetColor.LightGray;
+            ThemeStyle.HeaderBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.HeaderFont = new Font( "Roboto", 11 );
+            ThemeStyle.HeaderForeColor = Color.LightGray;
 
             // Navigation Footer ThemeStyle
-            ThemeStyle.FooterBackColor = BudgetColor.FormDark;
+            ThemeStyle.FooterBackColor = Color.FromArgb( 10, 10, 10 );
             ThemeStyle.FooterBorderColor = BudgetColor.WindowFrame;
             ThemeStyle.FooterBorderThickness = 2;
             ThemeStyle.FooterFont = new Font( "Roboto", 8, FontStyle.Regular );
-            ThemeStyle.FooterForeColor = BudgetColor.LightGray;
+            ThemeStyle.FooterForeColor = Color.LightGray;
             ThemeStyle.FooterHoverBackColor = BudgetColor.HoverDark;
-            ThemeStyle.FooterHoverForeColor = BudgetColor.White;
+            ThemeStyle.FooterHoverForeColor = Color.White;
 
             // Navigation ItemStyle
-            ThemeStyle.ItemStyle.BackColor = BudgetColor.FormDark;
-            ThemeStyle.ItemStyle.Font = BudgetFont.FontSizeSmall;
-            ThemeStyle.ItemStyle.ForeColor = BudgetColor.LightGray;
-            ThemeStyle.ItemStyle.DisabledBackColor = BudgetColor.FormDark;
-            ThemeStyle.ItemStyle.DisabledForeColor = BudgetColor.FormDark;
-            ThemeStyle.ItemStyle.DisabledSelectionMarkerColor = BudgetColor.FormDark;
+            ThemeStyle.ItemStyle.BackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.ItemStyle.Font = new Font( "Roboto", 9 );
+            ThemeStyle.ItemStyle.ForeColor = Color.LightGray;
+            ThemeStyle.ItemStyle.DisabledBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.ItemStyle.DisabledForeColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.ItemStyle.DisabledSelectionMarkerColor = Color.FromArgb( 10, 10, 10 );
             ThemeStyle.ItemStyle.HoverBackColor = BudgetColor.HoverDark;
-            ThemeStyle.ItemStyle.HoverForeColor = BudgetColor.White;
-            ThemeStyle.ItemStyle.SelectedBackColor = BudgetColor.SteelBlue;
-            ThemeStyle.ItemStyle.SelectedForeColor = BudgetColor.White;
+            ThemeStyle.ItemStyle.HoverForeColor = Color.White;
+            ThemeStyle.ItemStyle.SelectedBackColor = Color.SteelBlue;
+            ThemeStyle.ItemStyle.SelectedForeColor = Color.White;
 
             // Navigation Panel Properties
-            ThemeStyle.PanelBackColor = BudgetColor.FormDark;
-            ThemeStyle.DisabledPanelBackColor = BudgetColor.FormDark;
+            ThemeStyle.PanelBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.DisabledPanelBackColor = Color.FromArgb( 10, 10, 10 );
             
             // Control Style Settings
             SetStyle( ControlStyles.OptimizedDoubleBuffer, true );

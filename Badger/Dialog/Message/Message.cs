@@ -6,6 +6,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Drawing;
+    using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
     public partial class Message : MetroForm
@@ -34,23 +35,23 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form Property Values
-            BackColor = BudgetColor.FormDark;
-            BorderThickness = BudgetBorder.Thin;
-            BorderColor = BudgetColor.SteelBlue;
-            Size = BudgetSize.FormSizeNormal;
-            Font = BudgetFont.FontSizeSmall;
-            CaptionBarColor = BudgetColor.FormDark;
-            CaptionBarHeight = BudgetSize.CaptionSize;
-            CaptionButtonColor = BudgetColor.CaptionButtonDefaultColor;
-            CaptionButtonHoverColor = BudgetColor.White;
-            CaptionAlign = BudgetAlign.HorizontalLeft;
-            CaptionFont = BudgetFont.FontSizeMedium;
-            MetroColor = BudgetColor.FormDark;
-            FormBorderStyle = BudgetBorder.Sizeable;
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            BorderThickness = 1;
+            BorderColor = Color.SteelBlue;
+            Size = new Size( 1200, 700 );
+            Font = new Font( "Roboto", 9 );
+            CaptionBarColor = Color.FromArgb( 10, 10, 10 );
+            CaptionBarHeight = 26;
+            CaptionButtonColor = Color.FromArgb( 80, 80, 80 );
+            CaptionButtonHoverColor = Color.White;
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionFont = new Font( "Roboto", 11 );
+            MetroColor = Color.FromArgb( 10, 10, 10 );
+            FormBorderStyle = FormBorderStyle.Sizable;
             Icon = new Icon( @"C:\Users\terry\source\repos\BudgetExecution\Etc\epa.ico", 33, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            Padding = BudgetSetting.Padding;
+            Padding = new Padding( 1 );
             Text = string.Empty;
         }
 

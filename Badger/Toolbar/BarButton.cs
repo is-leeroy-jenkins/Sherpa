@@ -7,6 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
+    using System.Drawing;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -39,9 +40,9 @@ namespace BudgetExecution
             Margin = new Padding( 5, 5, 5, 5 );
             Padding = new Padding( 0 );
             DisplayStyle = ToolStripItemDisplayStyle.Image;
-            BackColor = BudgetColor.FormDark;
-            ForeColor = BudgetColor.ForeColorGray;
-            Font = BudgetFont.FontSizeSmall;
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            ForeColor = Color.FromArgb( 141, 139, 138 );
+            Font = new Font( "Roboto", 9 );
             HoverText = Tag?.ToString();
             Text = string.Empty;
             Visible = true;

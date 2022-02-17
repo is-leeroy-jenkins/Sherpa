@@ -54,9 +54,9 @@ namespace BudgetExecution
         public BudgetCarousel()
         {
             // Basic Carousel Properties
-            BackColor = BudgetColor.FormDark;
-            ForeColor = BudgetColor.LightGray;
-            Font = BudgetFont.FontSizeSmall;
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
             CarouselPath = CarouselPath.Default;
             ImageSlides = true;
             Padding = new Padding( 0, 10, 0, 10 );
@@ -72,15 +72,15 @@ namespace BudgetExecution
             CanOverrideStyle = true;
             VisualStyle = CarouselVisualStyle.Metro;
             FilePath = NpmPath;
-            HighlightColor = BudgetColor.SteelBlue;
+            HighlightColor = Color.SteelBlue;
 
             // ThemeStyle Properties
-            ThemeStyle.BackColor = BudgetColor.Transparent;
-            ThemeStyle.Font = BudgetFont.FontSizeSmall;
-            ThemeStyle.ForeColor = BudgetColor.LightGray;
-            ThemeStyle.HoverImageBorderColor = BudgetColor.SteelBlue;
+            ThemeStyle.BackColor = Color.Transparent;
+            ThemeStyle.Font = new Font( "Roboto", 9 );
+            ThemeStyle.ForeColor = Color.LightGray;
+            ThemeStyle.HoverImageBorderColor = Color.SteelBlue;
             ThemeStyle.HoverImageBorderThickness = 2;
-            ThemeStyle.ImageShadeColor = BudgetColor.FormDark;
+            ThemeStyle.ImageShadeColor = Color.FromArgb( 10, 10, 10 );
         }
 
         /// <summary>

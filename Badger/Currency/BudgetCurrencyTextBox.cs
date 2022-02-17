@@ -6,6 +6,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
@@ -27,14 +28,14 @@ namespace BudgetExecution
         public BudgetCurrencyTextBox()
         {
             // Basic Properties
-            Size = BudgetSize.TextBoxControl;
+            Size = new Size( 140, 30 );
             Location = BudgetSetting.GetLocation();
             Anchor = BudgetSetting.GetAnchorStyle();
             Dock = DockStyle.None;
-            Margin = BudgetSetting.Margin;
-            Padding = BudgetSetting.Padding;
-            Font = BudgetFont.FontSizeSmall;
-            ForeColor = BudgetColor.LightGray;
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
+            Font = new Font( "Roboto", 9 );
+            ForeColor = Color.LightGray;
             Enabled = true;
             Visible = true;
             Text = string.Empty;
@@ -46,27 +47,27 @@ namespace BudgetExecution
 
             // TextBox Properties
             TextBox.CurrencyDecimalDigits = 2;
-            TextBox.NegativeColor = BudgetColor.Red;
-            TextBox.PositiveColor = BudgetColor.LightBlue;
-            TextBox.BackGroundColor = BudgetColor.FormDark;
+            TextBox.NegativeColor = Color.Red;
+            TextBox.PositiveColor = Color.LightSteelBlue;
+            TextBox.BackGroundColor = Color.FromArgb( 10, 10, 10 );
             TextBox.Border3DStyle = Border3DStyle.Flat;
             TextBox.ThemeStyle = CurrencyTextBoxVisualStyle.DefaultStyle;
-            TextBox.BorderColor = BudgetColor.BorderDark;
+            TextBox.BorderColor = Color.FromArgb( 64, 64, 64 );
             TextBox.BorderStyle = BorderStyle.Fixed3D;
             TextBox.CurrencyDecimalSeparator = ".";
             TextBox.CurrencyGroupSeparator = ",";
-            TextBox.FocusBorderColor = BudgetColor.SteelBlue;
+            TextBox.FocusBorderColor = Color.SteelBlue;
             TransferFromCalculator = true;
             TransferToCalculator = true;
 
             // TextBox ThemeStyle Properties
-            ThemeStyle.BackColor = BudgetColor.FormDark;
-            ThemeStyle.BorderColor = BudgetColor.BorderDark;
-            ThemeStyle.DisabledBackColor = BudgetColor.FormDark;
-            ThemeStyle.DisabledBorderColor  = BudgetColor.FormDark;
-            ThemeStyle.HoverBorderColor = BudgetColor.SteelBlue;
-            ThemeStyle.FocusedBorderColor = BudgetColor.SteelBlue;
-            ThemeStyle.PressedBorderColor = BudgetColor.SteelBlue;
+            ThemeStyle.BackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.BorderColor = Color.FromArgb( 64, 64, 64 );
+            ThemeStyle.DisabledBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.DisabledBorderColor  = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.HoverBorderColor = Color.SteelBlue;
+            ThemeStyle.FocusedBorderColor = Color.SteelBlue;
+            ThemeStyle.PressedBorderColor = Color.SteelBlue;
         }
     }
 }

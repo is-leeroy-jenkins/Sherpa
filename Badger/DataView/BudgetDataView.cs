@@ -6,6 +6,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Drawing;
     using Syncfusion.WinForms.DataGrid.Enums;
     using Syncfusion.WinForms.GridCommon;
 
@@ -21,7 +22,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetDataView()
         {
-            BackColor = BudgetColor.FormDark;
+            BackColor = Color.FromArgb( 10, 10, 10 );
             ShowBusyIndicator = true;
             ShowErrorIcon = true;
             ShowGroupDropArea = true;
