@@ -103,8 +103,8 @@ namespace BudgetExecution
         /// </summary>
         public BudgetCalculator()
         {
-            Size = BudgetSize.GetSize( 350, 350 );
-            Location = BudgetSetting.GetLocation();
+            Size = new Size( 350, 350 );
+            Location = new Point( 1, 1 );
             BorderStyle = Border3DStyle.Adjust;
             BackColor = Color.FromArgb( 10, 10, 10 );
             ForeColor = Color.White;
@@ -138,7 +138,7 @@ namespace BudgetExecution
         public BudgetCalculator( Size size, Point location )
             : this()
         {
-            Size = BudgetSize.GetSize( size );
+            Size = size;
             Location = BudgetSetting.GetLocation( location );
         }
 

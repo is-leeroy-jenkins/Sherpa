@@ -43,7 +43,7 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9 );
             Margin = new Padding( 0 );
             Padding = new Padding( 0 );
-            Size = BudgetSize.GetSize( 300, 25 );
+            Size = new Size( 300, 25 );
             Anchor = AnchorStyles.Top & AnchorStyles.Right;
             Visible = true;
             Enabled = true;

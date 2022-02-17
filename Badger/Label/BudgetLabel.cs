@@ -87,15 +87,15 @@ namespace BudgetExecution
         public BudgetLabel()
         {
             // Basic Properties
-            Size = BudgetSize.GetSize( 165, 23 );
-            Location = BudgetSetting.GetLocation();
+            Size = new Size( 165, 23 );
+            Location = new Point( 1, 1 );
             BackColor = Color.FromArgb( 10, 10, 10 );
             ForeColor = Color.FromArgb( 141, 139, 138 );
             Font = new Font( "Roboto", 9 );
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
-            Anchor = BudgetSetting.GetAnchorStyle();
-            Dock = BudgetSetting.GetDockStyle();
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            Dock = DockStyle.None;
             Enabled = true;
             Visible = true;
             TextAlignment = BudgetAlign.StringAlignCenter;
@@ -119,7 +119,7 @@ namespace BudgetExecution
         public BudgetLabel( Size size, Point location )
             : this()
         {
-            Size = BudgetSize.GetSize( size );
+            Size = size;
             Location = BudgetSetting.GetLocation( location );
         }
 

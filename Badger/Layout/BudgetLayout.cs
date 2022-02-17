@@ -21,10 +21,10 @@ namespace BudgetExecution
         public BudgetLayout()
         {
             // Basic Properties
-            Size = BudgetSize.GetSize( 700, 428 );
-            Location = BudgetSetting.GetLocation();
-            Anchor = BudgetSetting.GetAnchorStyle();
-            Dock = BudgetSetting.GetDockStyle();
+            Size = new Size( 700, 428 );
+            Location = new Point( 1, 1 );
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            Dock = DockStyle.None;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Enabled = true;
@@ -52,7 +52,7 @@ namespace BudgetExecution
         public BudgetLayout( Size size, Point location ) 
             : this()
         {
-            Size = BudgetSize.GetSize( size );
+            Size = size;
             Location = BudgetSetting.GetLocation( location.X, location.Y );
         }
 
@@ -67,7 +67,7 @@ namespace BudgetExecution
         public BudgetLayout( Size size, Point location, Control parent )
             : this()
         {
-            Size = BudgetSize.GetSize( size.Width, size.Height );
+            Size = new Size( size.Width, size.Height );
             Location = BudgetSetting.GetLocation( location.X, location.Y );
             Parent = BudgetSetting.GetParent( parent );
             Parent.Controls.Add( this );

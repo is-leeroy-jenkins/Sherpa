@@ -84,7 +84,7 @@ namespace BudgetExecution
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Size = BudgetSize.DataGridControl;
-            Anchor = BudgetSetting.GetAnchorStyle();
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
             EnableHeadersVisualStyles = false;
             BackColor = Color.FromArgb( 10, 10, 10 );
             BorderStyle = BorderStyle.None;

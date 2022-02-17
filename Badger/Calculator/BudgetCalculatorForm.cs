@@ -80,7 +80,7 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form Properties
-            Size = BudgetSize.GetSize( 400, 400 );
+            Size = new Size( 400, 400 );
             BackColor = Color.FromArgb( 10, 10, 10 );
             BorderThickness = 1;
             BorderColor = Color.SteelBlue;

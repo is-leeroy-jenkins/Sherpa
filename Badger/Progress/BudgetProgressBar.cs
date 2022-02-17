@@ -120,7 +120,7 @@ namespace BudgetExecution
         public BudgetProgressBar( Size size, Point location )
             : this()
         {
-            Size = BudgetSize.GetSize( size );
+            Size = size;
             Location = BudgetSetting.GetLocation( location );
         }
 
@@ -135,7 +135,7 @@ namespace BudgetExecution
         public BudgetProgressBar( Size size, Point location, int start )
             : this( size, location )
         {
-            Size = BudgetSize.GetSize( size );
+            Size = size;
             Location = BudgetSetting.GetLocation( location );
             Value = start;
         }

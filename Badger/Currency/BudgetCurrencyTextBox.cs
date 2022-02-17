@@ -29,8 +29,8 @@ namespace BudgetExecution
         {
             // Basic Properties
             Size = new Size( 140, 30 );
-            Location = BudgetSetting.GetLocation();
-            Anchor = BudgetSetting.GetAnchorStyle();
+            Location = new Point( 1, 1 );
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );

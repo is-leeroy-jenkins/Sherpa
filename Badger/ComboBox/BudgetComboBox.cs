@@ -83,9 +83,9 @@ namespace BudgetExecution
         public BudgetComboBox()
         {
             Size = BudgetSize.ComboBoxControl;
-            Location = BudgetSetting.GetLocation();
-            Anchor = BudgetSetting.GetAnchorStyle();
-            Dock = BudgetSetting.GetDockStyle();
+            Location = new Point( 1, 1 );
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            Dock = DockStyle.None;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 10  );
@@ -107,12 +107,6 @@ namespace BudgetExecution
 
             // Item SeriesConfiguration
             ItemHeight = 30;
-            
-            // Control Style Settings
-            SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
-            SetStyle( ControlStyles.AllPaintingInWmPaint, true );
-            SetStyle( ControlStyles.UserPaint, true );
-            SetStyle( ControlStyles.ResizeRedraw, true );
         }
         
         /// <summary>
@@ -125,7 +119,7 @@ namespace BudgetExecution
         public BudgetComboBox( Size size, Point location )
             : this()
         {
-            Size = BudgetSize.GetSize( size );
+            Size = size;
             Location = BudgetSetting.GetLocation( location );
         }
 
@@ -158,7 +152,7 @@ namespace BudgetExecution
         public BudgetComboBox( Size size, Control parent = null )
             : this()
         {
-            Size = BudgetSize.GetSize( size );
+            Size = size;
 
             if( parent != null )
             {
@@ -178,7 +172,7 @@ namespace BudgetExecution
         public BudgetComboBox( Size size, Point location, Control parent )
             : this()
         {
-            Size = BudgetSize.GetSize( size );
+            Size = size;
             Location = BudgetSetting.GetLocation( location );
             Parent = BudgetSetting.GetParent( parent );
             Parent.Controls.Add( this );

@@ -86,9 +86,9 @@ namespace BudgetExecution
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Size = BudgetSize.ButtonControl;
-            Location = BudgetSetting.GetLocation();
-            Dock = BudgetSetting.GetDockStyle();
-            Anchor = BudgetSetting.GetAnchorStyle();
+            Location = new Point( 1, 1 );
+            Dock = DockStyle.None;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Animation = true;
             Visible = true;
             Enabled = true;

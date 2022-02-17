@@ -78,10 +78,10 @@ namespace BudgetExecution
         public BudgetListBox()
         {
             // Basic Properties
-            Size = BudgetSize.GetSize( 200, 100 );
-            Location = BudgetSetting.GetLocation();
-            Anchor = BudgetSetting.GetAnchorStyle();
-            Dock = BudgetSetting.GetDockStyle();
+            Size = new Size( 200, 100 );
+            Location = new Point( 1, 1 );
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            Dock = DockStyle.None;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 9 );
@@ -128,7 +128,7 @@ namespace BudgetExecution
         public BudgetListBox( Size size, Point location )
             : this()
         {
-            Size = BudgetSize.GetSize( size );
+            Size = size;
             Location = BudgetSetting.GetLocation( location );
         }
 
@@ -161,7 +161,7 @@ namespace BudgetExecution
         public BudgetListBox( Size size, Control parent = null )
             : this()
         {
-            Size = BudgetSize.GetSize( size );
+            Size = size;
 
             if( parent != null )
             {
@@ -181,7 +181,7 @@ namespace BudgetExecution
         public BudgetListBox( Size size, Point location, Control parent )
             : this()
         {
-            Size = BudgetSize.GetSize( size );
+            Size = size;
             Location = BudgetSetting.GetLocation( location );
             Parent = BudgetSetting.GetParent( parent );
             Parent.Controls.Add( this );

@@ -105,9 +105,9 @@ namespace BudgetExecution
         {
             // Basic Property SeriesConfiguration.
             Size = BudgetSize.CollectionControl;
-            Location = BudgetSetting.GetLocation();
-            Anchor = BudgetSetting.GetAnchorStyle();
-            Dock = BudgetSetting.GetDockStyle();
+            Location = new Point( 1, 1 );
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            Dock = DockStyle.None;
             Visible = true;
             Enabled = true;
             BackColor = BudgetColor.ControlInteriorDark;
@@ -154,7 +154,7 @@ namespace BudgetExecution
         public BudgetGroupBox( Size size, Point location )
             : this()
         {
-            Size = BudgetSize.GetSize( size );
+            Size = size;
             Location = BudgetSetting.GetLocation( location );
         }
 
@@ -187,7 +187,7 @@ namespace BudgetExecution
         public BudgetGroupBox( Size size, Control parent = null )
             : this()
         {
-            Size = BudgetSize.GetSize( size );
+            Size = size;
 
             if( parent != null )
             {
@@ -207,7 +207,7 @@ namespace BudgetExecution
         public BudgetGroupBox( Size size, Point location, Control parent )
             : this()
         {
-            Size = BudgetSize.GetSize( size );
+            Size = size;
             Location = BudgetSetting.GetLocation( location );
             Parent = BudgetSetting.GetParent( parent );
             Parent.Controls.Add( this );

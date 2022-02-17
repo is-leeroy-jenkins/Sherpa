@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    using DocumentFormat.OpenXml.Bibliography;
 
     /// <summary>
     /// 
@@ -72,6 +71,31 @@ namespace BudgetExecution
             }
 
             return default( object );
+        }
+
+        /// <summary>
+        /// Gets the size.
+        /// </summary>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        /// <returns></returns>
+        public static Size GetSize( int width = 1, int height = 1 )
+        {
+            if( width > -1 
+                && height > -1 )
+            {
+                try
+                {
+                    return new Size( width, height  );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return new Size( 1, 1 );
+                }
+            }
+
+            return new Size( 1, 1 );
         }
 
         /// <summary>
@@ -241,34 +265,7 @@ namespace BudgetExecution
 
             return Size.Empty;
         }
-
-        /// <summary>
-        /// Gets the size.
-        /// </summary>
-        /// <param name="width">The width.</param>
-        /// <param name="height">The height.</param>
-        /// <returns></returns>
-        public static Size GetSize( int width, int height )
-        {
-            if( width > 0
-                && width < BudgetSize.FormSizeMaximum.Width
-                && height > 0
-                && height < BudgetSize.FormSizeMaximum.Height )
-            {
-                try
-                {
-                    return new Size( width, height );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return Size.Empty;
-                }
-            }
-
-            return Size.Empty;
-        }
-
+        
         /// <summary>
         /// Gets the tool tip.
         /// </summary>

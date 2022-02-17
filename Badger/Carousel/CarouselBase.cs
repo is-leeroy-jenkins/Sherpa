@@ -86,7 +86,7 @@ namespace BudgetExecution
         {
             try
             {
-                Size = BudgetSetting.GetSize( size );
+                Size = size;
             }
             catch( Exception ex )
             {
@@ -103,7 +103,7 @@ namespace BudgetExecution
         {
             try
             {
-                Size = BudgetSetting.GetSize( width, height );
+                Size = new Size( width, height );
             }
             catch( Exception ex )
             {

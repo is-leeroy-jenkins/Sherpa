@@ -77,7 +77,7 @@ namespace BudgetExecution
         {
             Size = BudgetSize.PictureControl;
             Anchor = BudgetSetting.GetAnchorStyle( AnchorStyles.Left & AnchorStyles.Top );
-            Location = BudgetSetting.GetLocation();
+            Location = new Point( 1, 1 );
             BackColor = Color.Transparent;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
@@ -100,7 +100,7 @@ namespace BudgetExecution
         public BudgetPictureBox( Size size, Point location )
             : this()
         {
-            Size = BudgetSize.GetSize( size );
+            Size = size;
             Location = location;
         }
 

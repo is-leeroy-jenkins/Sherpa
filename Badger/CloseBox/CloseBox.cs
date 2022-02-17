@@ -17,7 +17,7 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9 );
             Margin = new Padding( 0 );
             Padding = new Padding( 0 );
-            Size = BudgetSize.GetSize( 300, 25 );
+            Size = new Size( 300, 25 );
             Anchor = AnchorStyles.Top & AnchorStyles.Right;
             Visible = true;
             Enabled = true;
@@ -50,7 +50,7 @@ namespace BudgetExecution
         public CloseBox( Size size, Point location )
             : this()
         {
-            Size = BudgetSize.GetSize( size.Width, size.Height );
+            Size = new Size( size.Width, size.Height );
             Location = BudgetSetting.GetLocation( location.X, location.Y );
         }
 

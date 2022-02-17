@@ -97,9 +97,9 @@ namespace BudgetExecution
             MinuteColor = Color.FromArgb( 141, 139, 138 );
             SecondHandColor = Color.FromArgb( 141, 139, 138 );
             VisualStyle = ClockVisualStyle.None;
-            Location = BudgetSetting.GetLocation();
-            Dock = BudgetSetting.GetDockStyle();
-            Anchor = BudgetSetting.GetAnchorStyle();
+            Location = new Point( 1, 1 );
+            Dock = DockStyle.None;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Visible = true;
             Enabled = true;
             
@@ -120,7 +120,7 @@ namespace BudgetExecution
         public BudgetClock( Size size, Point location )
             : this()
         {
-            Size = BudgetSize.GetSize( size.Width, size.Height );
+            Size = new Size( size.Width, size.Height );
             Location = BudgetSetting.GetLocation( location.X, location.Y );
         }
 

@@ -19,12 +19,12 @@ namespace BudgetExecution
         /// </summary>
         public BudgetCalendar()
         {
-            Size = BudgetSize.GetSize( 497, 350 );
-            Location = BudgetSetting.GetLocation();
+            Size = new Size( 497, 350 );
+            Location = new Point( 1, 1 );
             Font = new Font( "Roboto", 9 );
             Margin = new Padding( 3 );
             ForeColor = Color.LightGray;
-            Anchor = BudgetSetting.GetAnchorStyle();
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
             HighlightTodayCell = true;
             NumberOfWeeksInView = 5;
             FirstDayOfWeek = DayOfWeek.Sunday;
