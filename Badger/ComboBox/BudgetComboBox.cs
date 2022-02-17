@@ -103,7 +103,7 @@ namespace BudgetExecution
             Border.Color = Color.FromArgb( 10, 10, 10 );
             Border.Thickness = 1;
             Border.HoverColor = Color.SteelBlue;
-            Border.HoverVisible = false;
+            Border.HoverVisible = true;
 
             // Item SeriesConfiguration
             ItemHeight = 30;
