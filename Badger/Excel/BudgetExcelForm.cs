@@ -52,7 +52,7 @@ namespace BudgetExecution
         /// <value>
         /// The template path.
         /// </value>
-        public string TemplatePath { get; } = @"\Ninja\Template\Excel.xlsx";
+        public string TemplatePath { get; } = @"C:\Users\terry\source\repos\BudgetExecution\Ninja\Template\Excel.xlsx";
 
         /// <summary>
         /// Gets or sets the file path.
@@ -90,7 +90,7 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 10, 10, 10 );
             BorderThickness = 1;
             BorderColor = Color.SteelBlue;
-            Size = new Size( 1200, 700 );
+            Size = new Size( 1200, 800 );
             Font = new Font( "Roboto", 9 );
             CaptionBarColor = Color.FromArgb( 10, 10, 10 );
             CaptionBarHeight = 26;
@@ -107,6 +107,7 @@ namespace BudgetExecution
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
             FilePath = TemplatePath;
+            Load += OnFormLoad;
         }
 
         /// <summary>
@@ -133,7 +134,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Spreadsheet.Open( FilePath );
+                    Spreadsheet?.Open( FilePath );
                 }
                 catch ( Exception ex )
                 {

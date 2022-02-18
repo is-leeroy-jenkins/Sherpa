@@ -5,9 +5,6 @@
 
 namespace BudgetExecution
 {
-    using System;
-    using System.Collections.Specialized;
-    using System.Configuration;
     using System.Drawing;
     using System.Windows.Forms;
 
@@ -21,7 +18,7 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 10, 10, 10 );
             BorderThickness = 1;
             BorderColor = Color.SteelBlue;
-            Size = new Size( 1200, 700 );
+            Size = new Size( 1200, 800 );
             Font = new Font( "Roboto", 9 );
             CaptionBarColor = Color.FromArgb( 10, 10, 10 );
             CaptionBarHeight = 26;
