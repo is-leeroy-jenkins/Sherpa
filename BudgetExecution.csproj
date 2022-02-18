@@ -678,6 +678,12 @@
     <Compile Include="Badger\TabControl\BudgetTabPage.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="BudgetBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DialogBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />

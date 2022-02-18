@@ -10,6 +10,7 @@ namespace BudgetExecution
     using System.Collections.Specialized;
     using System.Drawing;
     using System.Windows.Forms;
+    using Syncfusion.Compression.Zip;
     using Syncfusion.Windows.Forms;
 
     public partial class TestForm : MetroForm
@@ -89,6 +90,8 @@ namespace BudgetExecution
                     BudgetButton.ForeColor = Color.White;
                     CaptionForeColor = Color.White;
                     Text = Setting[ "BudgetExecutionIcon" ];
+                    using var _excel = new BudgetExcelForm();
+                    _excel?.ShowDialog();
                 }
                 catch( Exception ex )
                 {

@@ -11,7 +11,6 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using System.Drawing;
     using System.Windows.Forms;
-    using Syncfusion.Windows.Forms.Tools;
 
     public partial class BudgetExcelForm : MetroForm
     {
@@ -48,12 +47,20 @@ namespace BudgetExecution
         public virtual Field Field { get; set; }
 
         /// <summary>
-        /// Gets or sets the numeric.
+        /// Gets the template path.
         /// </summary>
         /// <value>
-        /// The numeric.
+        /// The template path.
         /// </value>
-        public virtual Numeric Numeric { get; set; }
+        public string TemplatePath { get; } = @"\Ninja\Template\Excel.xlsx";
+
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
+        /// <value>
+        /// The file path.
+        /// </value>
+        public string FilePath { get; set; }
 
         /// <summary>
         /// Gets or sets the filter.
@@ -98,6 +105,51 @@ namespace BudgetExecution
             Padding = new Padding( 1 );
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
+            FilePath = TemplatePath;
+        }
+
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="BudgetExcelForm"/> class.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        public BudgetExcelForm( string filePath ) 
+            : this()
+        {
+            InitializeComponent();
+            FilePath = filePath;
+        }
+
+        /// <summary>
+        /// Called when [form load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnFormLoad( object sender, EventArgs e )
+        {
+            if( !string.IsNullOrEmpty( FilePath ) )
+            {
+                try
+                {
+                    Spreadsheet.Open( FilePath );
+                }
+                catch ( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }
