@@ -9,7 +9,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <seealso cref="MetroForm" />
     public partial class FileBrowser : MetroForm
     {
         /// <summary>

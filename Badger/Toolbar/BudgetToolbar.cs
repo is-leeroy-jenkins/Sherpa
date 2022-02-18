@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="ToolbarBase" />
-    /// <seealso cref="BudgetExecution.IToolBar" />
+    /// <seealso cref="IToolBar" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]

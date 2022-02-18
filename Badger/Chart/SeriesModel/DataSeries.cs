@@ -14,8 +14,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Chart.ChartSeries" />
-    /// <seealso cref="BudgetExecution.IDataSeries" />
+    /// <seealso cref="ChartSeries" />
+    /// <seealso cref="IDataSeries" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class DataSeries : ChartSeries, IDataSeries
@@ -132,7 +132,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.ChartType( type )
+                return Validate.ChartType( type )
                     ? (ChartSeriesType)Enum.Parse( typeof( ChartSeriesType ), type.ToString() )
                     : ChartSeriesType.Column;
             }
@@ -150,7 +150,7 @@ namespace BudgetExecution
         /// <param name="stat">The value.</param>
         public void SetPointConfiguration( STAT stat = STAT.Total )
         {
-            if( Verify.STAT( stat ) )
+            if( Validate.STAT( stat ) )
             {
                 try
                 {

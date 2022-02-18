@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// Sets the tag.
         /// </summary>
         /// <param name="tag">The tag.</param>
-        public void SetTag( object tag )
+        public void ReTag( object tag )
         {
             try
             {
@@ -76,34 +76,37 @@ namespace BudgetExecution
         {
             try
             {
-                HoverText = BudgetSetting.GetText( text );
+                HoverText = text;
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [mouse hover].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.EventArgs" /> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" />
+        /// instance containing the event data.</param>
         public void OnMouseHover( object sender, EventArgs e )
         {
             if( sender is BarProgress progress
-                && Verify.IsInput( progress?.HoverText ) )
+                && progress != null )
             {
                 try
                 {
-                    if( Verify.IsInput( HoverText ) )
+                    var _text = progress?.HoverText;
+
+                    if( !string.IsNullOrEmpty( _text ) )
                     {
-                        var text = progress?.HoverText;
-                        var _ = new ToolTip( this, text );
+                        var _ = new ToolTip( this, _text );
                     }
                     else
                     {
-                        if( Verify.IsInput( Tag?.ToString() ) )
+                        if( Verify.IsInput( Tag ) 
+                           && !string.IsNullOrEmpty( Tag.ToString() ) )
                         {
                             var _ = new ToolTip( progress, Tag?.ToString()?.SplitPascal() );
                         }

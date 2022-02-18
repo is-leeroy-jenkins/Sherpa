@@ -1,6 +1,6 @@
-﻿// // <copyright file = "ImageListBase.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "ImageListBase.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 //
 
 namespace BudgetExecution
@@ -10,6 +10,7 @@ namespace BudgetExecution
     using System.Collections.Specialized;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
@@ -71,20 +72,25 @@ namespace BudgetExecution
         /// The bud ex configuration.
         /// </value>
         public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
-
+        
         /// <summary>
-        /// Sets the field.
+        /// Res the size.
         /// </summary>
-        /// <param name="field">The field.</param>
-        public virtual void SetField( Field field )
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        public virtual void ReSizeImages( int width, int height )
         {
-            try
+            if ( width > 0 
+                && height > 0 )
             {
-                Field = BudgetForm.GetField( field );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
+                try
+                {
+                    ImageSize = new Size( width, height );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
@@ -94,9 +100,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

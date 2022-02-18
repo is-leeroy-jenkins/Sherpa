@@ -15,7 +15,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.UserControl" />
+    /// <seealso cref="UserControl" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class ControlData 
     {
@@ -208,7 +208,7 @@ namespace BudgetExecution
             where T2 : struct
         {
             if( Verify.IsSequence( data )
-                && Verify.IsField( field ) )
+                && Validate.IsField( field ) )
             {
                 try
                 {
@@ -311,7 +311,7 @@ namespace BudgetExecution
             where T2 : struct
         {
             if( Verify.IsSequence( data )
-                && Verify.IsField( field ) )
+                && Validate.IsField( field ) )
             {
                 try
                 {

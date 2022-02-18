@@ -44,7 +44,7 @@ namespace BudgetExecution
         {
             try
             {
-                Font = BudgetFont.GetFont( font );
+                Font = font;
             }
             catch( Exception ex )
             {
@@ -60,7 +60,7 @@ namespace BudgetExecution
         {
             try
             {
-                ForeColor = BudgetColor.GetColor( color );
+                ForeColor = color;
             }
             catch( Exception ex )
             {
@@ -76,7 +76,7 @@ namespace BudgetExecution
         {
             try
             {
-                BackColor = BudgetColor.GetColor( color );
+                BackColor = color;
             }
             catch( Exception ex )
             {
@@ -92,7 +92,7 @@ namespace BudgetExecution
         {
             try
             {
-                Text = BudgetSetting.GetText( text );
+                Text = text;
             }
             catch( Exception ex )
             {

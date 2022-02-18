@@ -1,6 +1,6 @@
-﻿// // <copyright file = "NavigatorMenuBase.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "NavigatorMenuBase.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 //
 
 namespace BudgetExecution
@@ -236,7 +236,7 @@ namespace BudgetExecution
             where T2 : struct
         {
             if( Verify.IsSequence( data )
-                && Verify.IsField( field ) )
+                && BudgetExecution.Validate.IsField( field ) )
             {
                 try
                 {
@@ -337,7 +337,7 @@ namespace BudgetExecution
             where T2 : struct
         {
             if( Verify.IsSequence( data )
-                && Verify.IsField( field ) )
+                && BudgetExecution.Validate.IsField( field ) )
             {
                 try
                 {

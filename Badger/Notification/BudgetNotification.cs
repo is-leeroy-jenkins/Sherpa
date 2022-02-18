@@ -11,7 +11,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="CharmNotification.Notification" />
+    /// <seealso cref="Notification" />
     public class BudgetNotification : Notification
     {
         /// <summary>

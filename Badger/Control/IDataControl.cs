@@ -88,7 +88,7 @@ namespace BudgetExecution
         /// Called when [mouse over].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.EventArgs" /> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         void OnMouseOver( object sender, EventArgs e );
 
         /// <summary>

@@ -20,7 +20,7 @@ namespace BudgetExecution
     /// <seealso cref="ButtonBase" />
     /// <seealso cref="IButton" />
     /// <seealso cref="VisualPlus.Toolkit.Controls.Interactivity.VisualButton" />
-    /// <seealso cref="System.IDisposable" />
+    /// <seealso cref="IDisposable" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class BudgetButton : ButtonBase, IButton
@@ -82,7 +82,7 @@ namespace BudgetExecution
         {
             // Basic SeriesConfiguration
             Font = new Font( "Roboto", 9 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.LightSteelBlue;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Size = new Size( 140, 40 );
@@ -234,16 +234,16 @@ namespace BudgetExecution
         /// Sets the state of the back color. Required Attributes: BackColor, DisableColor,
         /// EnabledColor, HoverColor, and PressedColor
         /// </summary>
-        /// <param name="format">The format.</param>
-        public void SetBackColorStyle( Color format )
+        /// <param name="color">The format.</param>
+        public void SetBackColorStyle( Color color )
         {
             try
             {
-                BackColor = BudgetColor.GetColor( format  );
-                BackColorState.Disabled = BudgetColor.GetColor( format );
-                BackColorState.Enabled = BudgetColor.GetColor( format );
-                BackColorState.Hover = BudgetColor.GetColor( format );
-                BackColorState.Pressed = BudgetColor.GetColor( format  );
+                BackColor = BudgetColor.GetColor( color  );
+                BackColorState.Disabled = color;
+                BackColorState.Enabled = color;
+                BackColorState.Hover = color;
+                BackColorState.Pressed = BudgetColor.GetColor( color  );
             }
             catch( Exception ex )
             {
@@ -254,13 +254,13 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the border configuration. Required Attributes: BorderColor, and HoverColor
         /// </summary>
-        /// <param name="format">The format.</param>
-        public void SetBorderStyle( Color format )
+        /// <param name="color">The format.</param>
+        public void SetBorderStyle( Color color )
         {
             try
             {
-                Border.Color = BudgetColor.GetColor( format );
-                Border.HoverColor = BudgetColor.GetColor( format );
+                Border.Color = color;
+                Border.HoverColor = color;
                 Border.HoverVisible = true;
                 Border.Type = ShapeTypes.Rounded;
                 Border.Thickness = 1;
@@ -275,8 +275,8 @@ namespace BudgetExecution
         /// Sets the text style configuration. Required Attributes: PressedColor,
         /// DisabledColor, EnabledColor, and HoverColor
         /// </summary>
-        /// <param name="format">The format.</param>
-        public void SetTextStyle( Color format )
+        /// <param name="color">The format.</param>
+        public void SetTextStyle( Color color )
         {
             try
             {
@@ -286,10 +286,10 @@ namespace BudgetExecution
                 {
                     TextLineAlignment = StringAlignment.Center,
                     TextAlignment = StringAlignment.Center,
-                    Hover = BudgetColor.GetColor( format ),
-                    Enabled = BudgetColor.GetColor( format ),
-                    Disabled = BudgetColor.GetColor( format ),
-                    Pressed = BudgetColor.GetColor( format )
+                    Hover = color,
+                    Enabled = color,
+                    Disabled = color,
+                    Pressed = color
                 };
             }
             catch( Exception ex )
@@ -353,7 +353,15 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
+        /// <summary>
+        /// Called when [mouse leave].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.
+        /// </param>
         public override void OnMouseLeave( object sender, EventArgs e )
         {
             var _button = sender as BudgetButton;
@@ -377,7 +385,7 @@ namespace BudgetExecution
         /// <param name="e">The
         /// <see cref="EventArgs" />
         /// instance containing the event data.</param>
-        public void OnClick( object sender, EventArgs e )
+        public virtual void OnClick( object sender, EventArgs e )
         {
         }
     }

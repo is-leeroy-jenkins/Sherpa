@@ -12,8 +12,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.ToolStripTextBox" />
-    /// <seealso cref="BudgetExecution.IBarTextBox" />
+    /// <seealso cref="ToolStripTextBox" />
+    /// <seealso cref="IBarTextBox" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class BarTextBox : BarTextBoxBase, IBarTextBox

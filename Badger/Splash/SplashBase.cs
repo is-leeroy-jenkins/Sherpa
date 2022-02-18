@@ -1,6 +1,6 @@
-﻿// // <copyright file = "BudgetNotification.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "BudgetNotification.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 //
 
 namespace BudgetExecution
@@ -85,7 +85,6 @@ namespace BudgetExecution
         /// middle of the screen.
         /// </remarks>
         public SplashBase()
-            : base()
         {
         }
 
@@ -93,7 +92,7 @@ namespace BudgetExecution
         /// Sets the size.
         /// </summary>
         /// <param name="size">The size.</param>
-        public virtual void SetSize( Size size )
+        public virtual void ReSize( Size size )
         {
             try
             {
@@ -110,7 +109,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public virtual void SetSize( int width, int height )
+        public virtual void ReSize( int width, int height )
         {
             try
             {
@@ -130,7 +129,7 @@ namespace BudgetExecution
         {
             try
             {
-                Text = BudgetSetting.GetText( text );
+                Text = text;
             }
             catch( Exception ex )
             {
@@ -142,7 +141,7 @@ namespace BudgetExecution
         /// Sets the location.
         /// </summary>
         /// <param name="point">The point.</param>
-        public virtual void SetLocation( Point point )
+        public virtual void ReLocate( Point point )
         {
             try
             {
@@ -159,7 +158,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
-        public virtual void SetLocation( int x, int y )
+        public virtual void ReLocate( int x, int y )
         {
             try
             {
@@ -179,7 +178,7 @@ namespace BudgetExecution
         {
             try
             {
-                BackColor = BudgetColor.GetColor( color );
+                BackColor = color;
             }
             catch( Exception ex )
             {
@@ -191,7 +190,7 @@ namespace BudgetExecution
         /// Sets the anchor style.
         /// </summary>
         /// <param name="anchor">The anchor.</param>
-        public virtual void SetAnchorStyle( AnchorStyles anchor )
+        public virtual void ReAnchor( AnchorStyles anchor )
         {
             try
             {
@@ -207,7 +206,7 @@ namespace BudgetExecution
         /// Sets the dock style.
         /// </summary>
         /// <param name="dock">The dock.</param>
-        public virtual void SetDockStyle( DockStyle dock )
+        public virtual void ReDock( DockStyle dock )
         {
             try
             {
@@ -239,7 +238,7 @@ namespace BudgetExecution
         /// Sets the tag.
         /// </summary>
         /// <param name="tag">The tag.</param>
-        public virtual void SetTag( object tag )
+        public virtual void ReTag( object tag )
         {
             try
             {
@@ -254,12 +253,12 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the tool tip.
         /// </summary>
-        /// <param name="tip">The tip.</param>
-        public virtual void SetToolTip( string tip )
+        /// <param name="message">The tip.</param>
+        public virtual void SetToolTip( string message )
         {
             try
             {
-                Tag = BudgetSetting.GetToolTip( this, tip );
+                Tag = BudgetSetting.GetToolTip( this, message );
             }
             catch( Exception ex )
             {
@@ -271,13 +270,14 @@ namespace BudgetExecution
         /// Sets the image.
         /// </summary>
         /// <param name = "path" > </param>
-        public virtual void SetImage( string path )
+        public virtual void ResetIcon( string path )
         {
             if( Verify.IsInput( path ) 
                 && File.Exists( path ) )
             {
                 try
                 {
+                    using var _stream = File.Open( path, FileMode.Open );
                     FormIcon = new Icon( path );
                 }
                 catch( Exception ex )
@@ -293,9 +293,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

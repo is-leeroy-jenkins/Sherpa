@@ -9,7 +9,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Chart.ChartCalloutInfo" />
+    /// <seealso cref="ChartCalloutInfo" />
     public class CallOut : ChartCalloutInfo
     {
     }

@@ -13,9 +13,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.DataConfig" />
-    /// <seealso cref="BudgetExecution.ISource" />
-    /// <seealso cref="BudgetExecution.IProvider" />
+    /// <seealso cref="DataConfig" />
+    /// <seealso cref="ISource" />
+    /// <seealso cref="IProvider" />
     [ SuppressMessage( "ReSharper", "ImplicitlyCapturedClosure" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]

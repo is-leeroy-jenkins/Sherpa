@@ -15,9 +15,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.SqlBase" />
-    /// <seealso cref="BudgetExecution.IProvider" />
-    /// <seealso cref="BudgetExecution.ISource" />
+    /// <seealso cref="SqlBase" />
+    /// <seealso cref="IProvider" />
+    /// <seealso cref="ISource" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class SqlConfig : SqlBase
     {

@@ -10,7 +10,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.FormBase" />
+    /// <seealso cref="FormBase" />
     public partial class ExecutionForm : FormBase
     {
         /// <summary>

@@ -9,7 +9,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.Obligation" />
+    /// <seealso cref="Obligation" />
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class SiteData : Obligation
     {

@@ -9,7 +9,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.Query" />
+    /// <seealso cref="Query" />
     public class SqlServerQuery : Query
     {
         /// <summary>

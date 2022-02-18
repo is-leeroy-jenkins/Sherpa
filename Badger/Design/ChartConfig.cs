@@ -15,8 +15,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Chart.ChartStyleInfo" />
-    /// <seealso cref="BudgetExecution.IChartConfig" />
+    /// <seealso cref="ChartStyleInfo" />
+    /// <seealso cref="IChartConfig" />
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberInitializerValueIgnored" ) ]

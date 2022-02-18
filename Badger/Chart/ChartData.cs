@@ -50,31 +50,15 @@ namespace BudgetExecution
         public IDictionary<string, object> DataFilter { get; set; }
         
         /// <summary>
-        /// Sets the field.
-        /// </summary>
-        /// <param name="field">The field.</param>
-        public void SetField( Field field )
-        {
-            try
-            {
-                Field = BudgetForm.GetField( field );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Sets the binding source.
         /// </summary>
-        /// <param name="bindingsource">The bindingsource.</param>
-        public void SetDataSource<T1>( T1 bindingsource ) 
+        /// <param name="bindingSource">The bindingsource.</param>
+        public void SetDataSource<T1>( T1 bindingSource ) 
             where T1 : IBindingList
         {
             try
             {
-                if( bindingsource is BindingSource binder
+                if( bindingSource is BindingSource binder
                     && binder?.DataSource != null )
                 {
                     try
@@ -98,20 +82,20 @@ namespace BudgetExecution
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2">The type of the 2.</typeparam>
-        /// <param name="bindinglist">The bindingsource.</param>
+        /// <param name="bindingList">The bindingsource.</param>
         /// <param name="dict">The dictionary.</param>
-        public void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
+        public void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
             where T1 : IBindingList 
             where T2 : IDictionary<string, object>
         {
             try
             {
-                if( Verify.IsBindable( bindinglist )
+                if( Verify.IsBindable( bindingList )
                     && Verify.IsMap( dict ) )
                 {
                     try
                     {
-                        var _list = bindinglist as BindingSource;
+                        var _list = bindingList as BindingSource;
                         var _filter = string.Empty;
 
                         foreach( var _kvp in dict )

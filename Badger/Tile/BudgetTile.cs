@@ -72,12 +72,13 @@ namespace BudgetExecution
         public override NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetTile"/> class.
+        /// Initializes a new instance
+        /// of the <see cref="BudgetTile"/> class.
         /// </summary>
-        public BudgetTile()
+        public BudgetTile( )
         {
             BackColor = Color.FromArgb( 10, 10, 10 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.LightSteelBlue;
             Size = new Size( 140, 140 );
             Font = new Font( "Roboto", 9 );
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
@@ -97,17 +98,43 @@ namespace BudgetExecution
             Enabled = true;
         }
 
-        public BudgetTile( string name ) 
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="BudgetTile"/> class.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        public BudgetTile( HubTileType type = HubTileType.DefaultTile ) 
+            : this()
+        {
+            TileType = type;
+        }
+
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="BudgetTile"/> class.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="type">The type.</param>
+        public BudgetTile( string name, HubTileType type = HubTileType.DefaultTile ) 
             : this()
         {
             Name = name;
+            TileType = type;
         }
 
-        public BudgetTile( Point location, Size size ) 
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="BudgetTile"/> class.
+        /// </summary>
+        /// <param name="location">The location.</param>
+        /// <param name="size">The size.</param>
+        /// <param name="type">The type.</param>
+        public BudgetTile( Point location, Size size, HubTileType type = HubTileType.DefaultTile ) 
             : this()
         {
             Size = size;
             Location = location;
+            TileType = type;
         }
     }
 }

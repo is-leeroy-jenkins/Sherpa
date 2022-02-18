@@ -88,7 +88,7 @@ namespace BudgetExecution
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 9 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.LightSteelBlue;
             Enabled = true;
             Visible = true;
             Selectable = true;
@@ -107,9 +107,9 @@ namespace BudgetExecution
             ItemSelectedColor = Color.SteelBlue;
             ItemSelectedTextColor = Color.White;
 
-            // Backcolor SeriesConfiguration
+            // BackColor SeriesConfiguration
             BackColor = Color.FromArgb( 10, 10, 10 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.LightSteelBlue;
             BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
             BackColorState.Enabled = Color.FromArgb( 10, 10, 10 );
 
@@ -270,59 +270,6 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
-        /// <summary>
-        /// Adds the control item.
-        /// </summary>
-        /// <param name="item">The item.</param>
-        public void AddControl( Control item )
-        {
-            if( item != null )
-            {
-                try
-                {
-                    Controls?.Add( item );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Adds the control item.
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<Control> GetChildren()
-        {
-            if( Controls?.Count > 0 )
-            {
-                try
-                {
-                    var _children = new List<Control>();
-
-                    foreach( Control _item in Controls )
-                    {
-                        if( _item != null )
-                        {
-                            _children.Add( _item );
-                        }
-                    }
-
-                    return _children.Any()
-                        ? _children
-                        : default( List<Control> );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IEnumerable<Control> );
-                }
-            }
-
-            return default( IEnumerable<Control> );
-        }
 
         /// <summary>
         /// Sets the hover information.
@@ -366,7 +313,7 @@ namespace BudgetExecution
         /// Sets the tag.
         /// </summary>
         /// <param name="tag">The tag.</param>
-        public void SetTag( object tag )
+        public void ReTag( object tag )
         {
             if( tag != null )
             {
@@ -380,26 +327,7 @@ namespace BudgetExecution
                 }
             }
         }
-
-        /// <summary>
-        /// Sets the numeric.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        public void SetNumeric( Numeric numeric )
-        {
-            if( Enum.IsDefined( typeof( Numeric ), numeric ) )
-            {
-                try
-                {
-                    Numeric = numeric;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
+        
         /// <summary>
         /// Adds the item.
         /// </summary>
@@ -410,7 +338,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Items.Add( item );
+                    Items?.Add( item );
                 }
                 catch( Exception ex )
                 {
@@ -431,7 +359,10 @@ namespace BudgetExecution
                 {
                     foreach( var _item in items )
                     {
-                        Items.Add( _item );
+                        if ( _item != null )
+                        {
+                            Items?.Add( _item );
+                        }
                     }
                 }
                 catch( Exception ex )
@@ -453,9 +384,9 @@ namespace BudgetExecution
                 {
                     foreach ( var _listItem in Items )
                     {
-                        if( _listItem.Equals( item ) )
+                        if( _listItem?.Equals( item ) == true )
                         {
-                            Items.RemoveByKey( item );
+                            Items?.RemoveByKey( item );
                         }
                     }
                 }

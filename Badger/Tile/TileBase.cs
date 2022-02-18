@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Tools.HubTile" />
+    /// <seealso cref="HubTile" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class TileBase : HubTile
     {
@@ -95,7 +95,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
-        public virtual void SetLocation( int x = 1, int y = 1 )
+        public virtual void ReLocate( int x = 1, int y = 1 )
         {
             if( x > 0
                && y > 0 )
@@ -116,7 +116,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public virtual void SetSize( int width = 140, int height = 140 )
+        public virtual void ReSize( int width = 140, int height = 140 )
         {
             if( width > -1
                && height > -1 )
@@ -195,7 +195,8 @@ namespace BudgetExecution
         /// <param name="message">The message.</param>
         public virtual void SetTitleText( string message )
         {
-            if( !string.IsNullOrEmpty( message ) )
+            if( !string.IsNullOrEmpty( message ) 
+               && Title != null )
             {
                 try
                 {
@@ -236,7 +237,8 @@ namespace BudgetExecution
         /// <param name="message">The message.</param>
         public virtual void SetBodyText( string message )
         {
-            if( !string.IsNullOrEmpty( message ) )
+            if( !string.IsNullOrEmpty( message ) 
+               && Body != null  )
             {
                 try
                 {
@@ -277,10 +279,13 @@ namespace BudgetExecution
         /// <param name="message">The message.</param>
         public virtual void SetBannerText( string message )
         {
-            if( Verify.IsInput( message ) )
+            if( Verify.IsInput( message ) 
+               && Banner != null 
+               && ShowBanner )
             {
                 try
                 {
+                    Banner.Text = message;
                 }
                 catch( Exception ex )
                 {
@@ -320,7 +325,8 @@ namespace BudgetExecution
         /// <param name="image">The image.</param>
         public virtual void SetBannerIcon( Image image )
         {
-            if( image != null )
+            if( image != null 
+               && Banner != null )
             {
                 try
                 {
@@ -359,9 +365,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

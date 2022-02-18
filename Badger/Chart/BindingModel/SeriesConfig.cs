@@ -14,8 +14,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Chart.ChartSeries" />
-    /// <seealso cref="BudgetExecution.ISeriesConfig" />
+    /// <seealso cref="ChartSeries" />
+    /// <seealso cref="ISeriesConfig" />
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class SeriesConfig : ChartSeries, ISeriesConfig

@@ -15,7 +15,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="IPictureBox" />
-    /// <seealso cref="System.Windows.Forms.PictureBox" />
+    /// <seealso cref="PictureBox" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]

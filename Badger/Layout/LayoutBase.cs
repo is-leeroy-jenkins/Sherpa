@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="VisualPlus.Toolkit.Controls.Layout.VisualPanel" />
+    /// <seealso cref="VisualPanel" />
     /// <seealso cref="ILayout" />
     /// 
     [ SuppressMessage( "ReSharper", "HeuristicUnreachableCode" ) ]

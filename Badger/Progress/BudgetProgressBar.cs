@@ -16,7 +16,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.ProgressBarBase" />
+    /// <seealso cref="ProgressBarBase" />
     public class BudgetProgressBar : ProgressBarBase
     {
         /// <summary>

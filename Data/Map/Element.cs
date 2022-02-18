@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.IElement" />
+    /// <seealso cref="IElement" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Element : DataUnit
     {

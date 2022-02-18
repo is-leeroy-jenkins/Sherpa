@@ -5,11 +5,13 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
 
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public interface IButton
     {
         /// <summary>
@@ -21,27 +23,27 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the state of the back color.
         /// </summary>
-        /// <param name="format">The format.</param>
-        void SetBackColorStyle( Color format );
+        /// <param name="color">The format.</param>
+        void SetBackColorStyle( Color color );
 
         /// <summary>
         /// Sets the border configuration. Required Attributes: BorderColor, and HoverColor
         /// </summary>
-        /// <param name="format">The format.</param>
-        void SetBorderStyle( Color format );
+        /// <param name="color">The format.</param>
+        void SetBorderStyle( Color color );
 
         /// <summary>
         /// Sets the text style configuration. Required Attributes: PressedColor, DisabledColor,
         /// EnabledColor, and HoverColor
         /// </summary>
-        /// <param name="format">The format.</param>
-        void SetTextStyle( Color format );
+        /// <param name="color">The format.</param>
+        void SetTextStyle( Color color );
 
         /// <summary>
         /// Sets the image.
         /// </summary>
         /// <param name="image">The image.</param>
-        void SetImage( System.Drawing.Image image );
+        void SetImage( Image image );
 
         /// <summary>
         /// Called when [mouse over].

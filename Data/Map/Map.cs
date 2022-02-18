@@ -9,8 +9,8 @@
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.Arg" />
-    /// <seealso cref="BudgetExecution.IMap" />
+    /// <seealso cref="Arg" />
+    /// <seealso cref="IMap" />
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class Map : Arg, IMap
     {

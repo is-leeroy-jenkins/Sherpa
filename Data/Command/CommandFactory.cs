@@ -18,7 +18,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.ICommandFactory" />
+    /// <seealso cref="ICommandFactory" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class CommandFactory : ICommandFactory
     {

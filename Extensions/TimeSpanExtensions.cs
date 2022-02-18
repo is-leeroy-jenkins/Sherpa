@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// The GetYears.
         /// </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "System.TimeSpan"/> .
+        /// The timeSpan <see cref = "TimeSpan"/> .
         /// </param>
         /// <returns>
         /// The <see cref = "int"/> .
@@ -42,7 +42,7 @@ namespace BudgetExecution
         /// The GetTotalYears.
         /// </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "System.TimeSpan"/> .
+        /// The timeSpan <see cref = "TimeSpan"/> .
         /// </param>
         /// <returns>
         /// The <see cref = "double"/> .
@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// The GetMonths.
         /// </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "System.TimeSpan"/> .
+        /// The timeSpan <see cref = "TimeSpan"/> .
         /// </param>
         /// <returns>
         /// The <see cref = "int"/> .
@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// The GetTotalMonths.
         /// </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "System.TimeSpan"/> .
+        /// The timeSpan <see cref = "TimeSpan"/> .
         /// </param>
         /// <returns>
         /// The <see cref = "double"/> .
@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// The GetWeeks.
         /// </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "System.TimeSpan"/> .
+        /// The timeSpan <see cref = "TimeSpan"/> .
         /// </param>
         /// <returns>
         /// The <see cref = "int"/> .
@@ -98,7 +98,7 @@ namespace BudgetExecution
         /// The GetTotalWeeks.
         /// </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "System.TimeSpan"/> .
+        /// The timeSpan <see cref = "TimeSpan"/> .
         /// </param>
         /// <returns>
         /// The <see cref = "double"/> .
@@ -112,7 +112,7 @@ namespace BudgetExecution
         /// The GetDays.
         /// </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "System.TimeSpan"/> .
+        /// The timeSpan <see cref = "TimeSpan"/> .
         /// </param>
         /// <returns>
         /// The <see cref = "int"/> .
@@ -126,7 +126,7 @@ namespace BudgetExecution
         /// The GetMicroseconds.
         /// </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "System.TimeSpan"/> .
+        /// The timeSpan <see cref = "TimeSpan"/> .
         /// </param>
         /// <returns>
         /// The <see cref = "double"/> .
@@ -140,7 +140,7 @@ namespace BudgetExecution
         /// The GetNanoseconds.
         /// </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "System.TimeSpan"/> .
+        /// The timeSpan <see cref = "TimeSpan"/> .
         /// </param>
         /// <returns>
         /// The <see cref = "double"/> .
@@ -154,16 +154,16 @@ namespace BudgetExecution
         /// The Round.
         /// </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "System.TimeSpan"/> .
+        /// The timeSpan <see cref = "TimeSpan"/> .
         /// </param>
         /// <param name = "roundinginterval" >
-        /// The roundingInterval <see cref = "System.TimeSpan"/> .
+        /// The roundingInterval <see cref = "TimeSpan"/> .
         /// </param>
         /// <param name = "roundingtype" >
         /// The roundingType <see cref = "MidpointRounding"/> .
         /// </param>
         /// <returns>
-        /// The <see cref = "System.TimeSpan"/> .
+        /// The <see cref = "TimeSpan"/> .
         /// </returns>
         public static TimeSpan Round( this TimeSpan timeSpan, TimeSpan roundinginterval,
             MidpointRounding roundingtype = MidpointRounding.ToEven )

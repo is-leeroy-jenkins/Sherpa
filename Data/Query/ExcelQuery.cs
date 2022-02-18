@@ -19,7 +19,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.Query" />
+    /// <seealso cref="Query" />
     public class ExcelQuery : Query
     {
         /// <summary>

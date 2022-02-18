@@ -11,7 +11,7 @@ namespace BudgetExecution
     using System.Linq;
 
     /// <summary> </summary>
-    /// <seealso cref = "BudgetExecution.Builder" />
+    /// <seealso cref = "Builder" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class DataBuilder : Builder
     {

@@ -11,7 +11,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.ISource" />
+    /// <seealso cref="ISource" />
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public interface IBuilder : ISource
     {

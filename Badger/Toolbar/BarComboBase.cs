@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.ToolStripComboBox" />
+    /// <seealso cref="ToolStripComboBox" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class BarComboBase : ToolStripComboBox
     {
@@ -56,7 +56,7 @@ namespace BudgetExecution
         {
             try
             {
-                Font = BudgetFont.GetFont( font );
+                Font = font;
             }
             catch( Exception ex )
             {
@@ -72,7 +72,7 @@ namespace BudgetExecution
         {
             try
             {
-                ForeColor = BudgetColor.GetColor( color );
+                ForeColor = color;
             }
             catch( Exception ex )
             {
@@ -88,7 +88,7 @@ namespace BudgetExecution
         {
             try
             {
-                BackColor = BudgetColor.GetColor( color );
+                BackColor = color;
             }
             catch( Exception ex )
             {
@@ -116,7 +116,7 @@ namespace BudgetExecution
         /// Sets the tag.
         /// </summary>
         /// <param name="tag">The tag.</param>
-        public virtual void SetTag( object tag )
+        public virtual void ReTag( object tag )
         {
             try
             {
@@ -154,7 +154,7 @@ namespace BudgetExecution
         {
             try
             {
-                HoverText = BudgetSetting.GetText( text );
+                HoverText = text;
             }
             catch( Exception ex )
             {

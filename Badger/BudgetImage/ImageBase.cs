@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.BudgetSize" />
+    /// <seealso cref="BudgetSize" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -93,7 +93,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.ImageResource( source )
+                return Validate.ImageResource( source )
                     ? source
                     : ImageSource.NS;
             }
@@ -114,7 +114,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.ImageResource( resource )
+                return Validate.ImageResource( resource )
                     && Verify.IsInput( filePath )
                     && File.Exists( filePath )
                     && resource != ImageSource.NS

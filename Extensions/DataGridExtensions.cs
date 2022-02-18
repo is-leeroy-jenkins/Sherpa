@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// <see cref="BindingSource" /></param>
         /// <returns>
         /// The
-        /// <see cref="System.Data.DataRow" />
+        /// <see cref="DataRow" />
         /// </returns>
         public static DataRow GetCurrentDataRow( this BindingSource bindingSource )
         {
@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <see cref="DataGridView" /></param>
         /// <returns>
         /// The
-        /// <see cref="System.Data.DataTable" />
+        /// <see cref="DataTable" />
         /// </returns>
         public static DataTable GetDataTable( this DataGridView dataGridView )
         {
@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// <see><cref> string[] </cref></see></param>
         /// <returns>
         /// The
-        /// <see cref="System.Data.DataTable" />
+        /// <see cref="DataTable" />
         /// </returns>
         public static DataTable SetColumns( this DataGridView dataGridView, string[ ] columns )
         {
@@ -131,7 +131,7 @@ namespace BudgetExecution
         /// <see /></param>
         /// <returns>
         /// The
-        /// <see cref="System.Data.DataTable" />
+        /// <see cref="DataTable" />
         /// </returns>
         public static DataTable SetColumns( this DataGridView dataGridView, Field[ ] fields )
         {
@@ -173,7 +173,7 @@ namespace BudgetExecution
         /// <see /></param>
         /// <returns>
         /// The
-        /// <see cref="System.Data.DataTable" />
+        /// <see cref="DataTable" />
         /// </returns>
         public static DataTable SetColumns( this DataGridView dataGridView, int[ ] index )
         {
@@ -323,7 +323,7 @@ namespace BudgetExecution
         /// <param name="dataGridView">The dataGridView
         /// <see cref="DataGridView" /></param>
         /// <param name="dataTable">The dataTable
-        /// <see cref="System.Data.DataTable" /></param>
+        /// <see cref="DataTable" /></param>
         public static void PascalizeHeaders( this DataGridView dataGridView, DataTable dataTable )
         {
             if( dataGridView != null 

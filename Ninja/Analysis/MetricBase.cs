@@ -13,8 +13,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.IMetric" />
-    /// <seealso cref="BudgetExecution.IDataFilter" />
+    /// <seealso cref="IMetric" />
+    /// <seealso cref="IDataFilter" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "BadListLineBreaks" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]

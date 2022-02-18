@@ -29,7 +29,7 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         /// <param name="provider">The provider.</param>
         /// <returns></returns>
-        /// <exception cref="System.ComponentModel.InvalidEnumArgumentException">
+        /// <exception cref="InvalidEnumArgumentException">
         /// provider</exception>
         public static IEnumerable<DbParameter> ToSqlDbParameters( this DataRow dataRow, Provider provider )
         {

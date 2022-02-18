@@ -11,8 +11,8 @@ namespace BudgetExecution
     public interface IBarComboBox
     {
         /// <summary> Sets the data source. </summary>
-        /// <param name = "bindingsource" > The bindingsource. </param>
-        void SetDataSource( BindingSource bindingsource );
+        /// <param name = "bindingSource" > The bindingSource. </param>
+        void SetDataSource( BindingSource bindingSource );
 
         /// <summary> Called when [mouse over]. </summary>
         /// <param name = "sender" > The sender. </param>
@@ -60,7 +60,7 @@ namespace BudgetExecution
         /// Sets the tag.
         /// </summary>
         /// <param name="tag">The tag.</param>
-        void SetTag( object tag );
+        void ReTag( object tag );
 
         /// <summary>
         /// Sets the hover text.

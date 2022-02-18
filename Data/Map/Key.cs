@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.IKey" />
+    /// <seealso cref="IKey" />
     public class Key : IKey
     {
         /// <summary>

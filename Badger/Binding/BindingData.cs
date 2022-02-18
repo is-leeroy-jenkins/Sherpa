@@ -15,7 +15,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.BindingBase" />
+    /// <seealso cref="BindingBase" />
     public class BindingData : BindingBase
     {
         /// <summary>
@@ -81,29 +81,14 @@ namespace BudgetExecution
         /// The numeric.
         /// </value>
         public Numeric Numeric { get; set; }
-
-        /// <summary>
-        /// Sets the field.
-        /// </summary>
-        /// <param name="field">The field.</param>
-        public void SetField( Field field )
-        {
-            try
-            {
-                Field = BudgetForm.GetField( field );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
+        
         /// <summary>
         /// Sets the data source.
         /// </summary>
         /// <typeparam name="T1">The type of the 1.</typeparam>
         /// <param name="bindingSource">The binding source.</param>
-        public void SetDataSource<T1>( T1 bindingSource ) where T1 : IBindingList
+        public void SetDataSource<T1>( T1 bindingSource ) 
+            where T1 : IBindingList
         {
             try
             {
@@ -134,7 +119,8 @@ namespace BudgetExecution
         /// <param name="bindingList">The binding list.</param>
         /// <param name="dict">The dictionary.</param>
         public void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
-            where T1 : IBindingList where T2 : IDictionary<string, object>
+            where T1 : IBindingList 
+            where T2 : IDictionary<string, object>
         {
             try
             {
@@ -237,7 +223,8 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The filter.</param>
         public void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
-            where T1 : IEnumerable<DataRow> where T2 : struct
+            where T1 : IEnumerable<DataRow> 
+            where T2 : struct
         {
             if( Verify.IsSequence( data )
                 && Validate.IsField( field ) )
@@ -301,7 +288,8 @@ namespace BudgetExecution
         /// <param name="data">The data.</param>
         /// <param name="dict">The dictionary.</param>
         public void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
-            where T1 : IEnumerable<DataRow> where T2 : IDictionary<string, object>
+            where T1 : IEnumerable<DataRow> 
+            where T2 : IDictionary<string, object>
         {
             if( Verify.IsSequence( data )
                 && Verify.IsMap( dict ) )
@@ -338,7 +326,8 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The filter.</param>
         public void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field, object filter = null )
-            where T1 : IEnumerable<DataRow> where T2 : struct
+            where T1 : IEnumerable<DataRow> 
+            where T2 : struct
         {
             if( Verify.IsSequence( data )
                 && Validate.IsField( field ) )
@@ -361,84 +350,6 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                 }
-            }
-        }
-
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <returns>
-        /// Returns the ImageSource Enumeration
-        /// </returns>
-        public override Source GetSource()
-        {
-            try
-            {
-                return Validate.IsSource( Source )
-                    ? Source
-                    : default( Source );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( Source );
-            }
-        }
-
-        /// <summary>
-        /// Gets the field.
-        /// </summary>
-        /// <returns></returns>
-        public override Field GetField()
-        {
-            try
-            {
-                return Validate.IsField( Field )
-                    ? Field
-                    : default( Field );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( Field );
-            }
-        }
-
-        /// <summary>
-        /// Gets the data filter.
-        /// </summary>
-        /// <returns></returns>
-        public override IDictionary<string, object> GetDataFilter()
-        {
-            try
-            {
-                return DataFilter?.Any() == true
-                    ? DataFilter
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
-            }
-        }
-
-        /// <summary>
-        /// Gets the data table.
-        /// </summary>
-        /// <returns></returns>
-        public override DataTable GetDataTable()
-        {
-            try
-            {
-                return DataTable?.Rows?.Count > 0 && DataTable?.Columns?.Count > 0
-                    ? DataTable
-                    : default( DataTable );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( DataTable );
             }
         }
 
@@ -479,25 +390,6 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return default( DataRow );
-            }
-        }
-
-        /// <summary>
-        /// Gets the index of the current.
-        /// </summary>
-        /// <returns></returns>
-        public override int GetIndex()
-        {
-            try
-            {
-                return Index > 0
-                    ? Index
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
             }
         }
 

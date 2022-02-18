@@ -135,7 +135,7 @@ namespace BudgetExecution
         {
             try
             {
-                return base.Metric;
+                return Metric;
             }
             catch( Exception ex )
             {

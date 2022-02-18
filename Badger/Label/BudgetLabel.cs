@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// Defines the
     /// <see cref="BudgetLabel" />
     /// </summary>
-    /// <seealso cref="VisualPlus.Toolkit.Controls.Interactivity.VisualLabel" />
+    /// <seealso cref="VisualLabel" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]

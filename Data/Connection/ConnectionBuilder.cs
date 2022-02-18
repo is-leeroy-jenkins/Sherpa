@@ -13,10 +13,10 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.ConnectionBase" />
-    /// <seealso cref="BudgetExecution.ISource" />
-    /// <seealso cref="BudgetExecution.IProvider" />
-    /// <seealso cref="BudgetExecution.IConnectionBuilder" />
+    /// <seealso cref="ConnectionBase" />
+    /// <seealso cref="ISource" />
+    /// <seealso cref="IProvider" />
+    /// <seealso cref="IConnectionBuilder" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]

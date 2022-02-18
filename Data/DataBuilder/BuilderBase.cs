@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.DataAccess" />
+    /// <seealso cref="DataAccess" />
     public abstract class BuilderBase : DataAccess
     {
         /// <summary>

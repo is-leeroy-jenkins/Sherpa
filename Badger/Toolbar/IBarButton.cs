@@ -39,24 +39,6 @@ namespace BudgetExecution
         void OnClick( object sender, EventArgs e );
 
         /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <returns></returns>
-        string GetName();
-
-        /// <summary>
-        /// Sets the field.
-        /// </summary>
-        /// <param name="field">The field.</param>
-        void SetField( Field field );
-
-        /// <summary>
-        /// Sets the tag.
-        /// </summary>
-        /// <param name="tag">The tag.</param>
-        void SetTag( object tag );
-
-        /// <summary>
         /// Sets the hover text.
         /// </summary>
         /// <param name="item">The item.</param>

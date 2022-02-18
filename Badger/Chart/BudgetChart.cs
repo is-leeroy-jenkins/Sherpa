@@ -71,7 +71,7 @@ namespace BudgetExecution
         // Initializes Properties
         /// <summary>
         /// Initializes a new instance
-        /// of the <see cref="BudgetExecution.BudgetChart"/> class.
+        /// of the <see cref="BudgetChart"/> class.
         /// </summary>
         public BudgetChart()
         {
@@ -161,7 +161,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetExecution.BudgetChart" /> class.
+        /// Initializes a new instance of the <see cref="BudgetChart" /> class.
         /// </summary>
         /// <param name="table">The table.</param>
         /// <param name="seriesConfig">The seriesConfig.</param>
@@ -179,7 +179,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetExecution.BudgetChart" /> class.
+        /// Initializes a new instance of the <see cref="BudgetChart" /> class.
         /// </summary>
         /// <param name="dataRows">The data.</param>
         /// <param name="seriesConfig">The seriesConfig.</param>
@@ -198,7 +198,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetExecution.BudgetChart" />
+        /// <see cref="BudgetChart" />
         /// class.
         /// </summary>
         /// <param name="sourceBinding">The sourceBinding.</param>
@@ -217,7 +217,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetExecution.BudgetChart" />
+        /// <see cref="BudgetChart" />
         /// class.
         /// </summary>
         /// <param name="sourceModel">The sourceModel.</param>
@@ -236,7 +236,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetExecution.BudgetChart" />
+        /// <see cref="BudgetChart" />
         /// class.
         /// </summary>
         /// <param name="sourceModel">The sourceModel.</param>
@@ -256,7 +256,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetExecution.BudgetChart" />
+        /// <see cref="BudgetChart" />
         /// class.
         /// </summary>
         /// <param name="chartData">The chartData.</param>

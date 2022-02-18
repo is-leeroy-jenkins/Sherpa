@@ -84,14 +84,14 @@ namespace BudgetExecution
         }
         
         /// <summary> Sets the data source. </summary>
-        /// <param name = "bindingsource" > The bindingsource. </param>
-        public void SetDataSource( BindingSource bindingsource )
+        /// <param name = "bindingSource" > The bindingsource. </param>
+        public void SetDataSource( BindingSource bindingSource )
         {
-            if( bindingsource?.DataSource != null )
+            if( bindingSource?.DataSource != null )
             {
                 try
                 {
-                    BindingSource.DataSource = bindingsource.DataSource;
+                    BindingSource.DataSource = bindingSource.DataSource;
                 }
                 catch( Exception ex )
                 {

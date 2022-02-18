@@ -13,9 +13,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.FiscalYear" />
-    /// <seealso cref="BudgetExecution.IBudgetFiscalYear" />
-    /// <seealso cref="BudgetExecution.ISource" />
+    /// <seealso cref="FiscalYear" />
+    /// <seealso cref="IBudgetFiscalYear" />
+    /// <seealso cref="ISource" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]

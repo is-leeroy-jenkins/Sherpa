@@ -10,7 +10,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Windows.Forms;
-    using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.WinForms.Input;
 
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
@@ -55,24 +54,6 @@ namespace BudgetExecution
         /// The filter.
         /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
-        
-        /// <summary>
-        /// Sets the field.
-        /// </summary>
-        /// <param name="field">
-        /// The field.
-        /// </param>
-        public virtual void SetField( Field field )
-        {
-            try
-            {
-                Field = BudgetForm.GetField( field );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
 
         /// <summary>
         /// Sets the binding source.
@@ -121,7 +102,8 @@ namespace BudgetExecution
         /// The dictionary.
         /// </param>
         public virtual void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
-            where T1 : IBindingList where T2 : IDictionary<string, object>
+            where T1 : IBindingList 
+            where T2 : IDictionary<string, object>
         {
             try
             {
@@ -166,7 +148,8 @@ namespace BudgetExecution
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <param name="data">The data.</param>
-        public virtual void SetDataSource<T1>( IEnumerable<T1> data ) where T1 : IEnumerable<T1>
+        public virtual void SetDataSource<T1>( IEnumerable<T1> data ) 
+            where T1 : IEnumerable<T1>
         {
             if( Verify.IsSequence( data ) )
             {
@@ -225,10 +208,11 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The dictionary.</param>
         public virtual void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
-            where T1 : IEnumerable<T1> where T2 : struct
+            where T1 : IEnumerable<T1> 
+            where T2 : struct
         {
             if( Verify.IsSequence( data )
-                && Verify.IsField( field ) )
+                && Validate.IsField( field ) )
             {
                 try
                 {
@@ -257,7 +241,8 @@ namespace BudgetExecution
         /// <typeparam name="T1">The type of the 1.</typeparam>
         /// <param name="data">The data.</param>
         /// <param name="field">The field.</param>
-        public virtual void SetDataSource<T1>( IEnumerable<T1> data, object field = null ) where T1 : IEnumerable<T1>
+        public virtual void SetDataSource<T1>( IEnumerable<T1> data, object field = null ) 
+            where T1 : IEnumerable<T1>
         {
             if( Verify.IsInput( data ) )
             {
@@ -330,7 +315,7 @@ namespace BudgetExecution
             where T2 : struct
         {
             if( Verify.IsSequence( data )
-                && BudgetExecution.Validate.IsField( field ) )
+                && Validate.IsField( field ) )
             {
                 try
                 {

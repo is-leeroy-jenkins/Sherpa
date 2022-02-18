@@ -11,7 +11,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="System.IDisposable" />
+    /// <seealso cref="IDisposable" />
     [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class BudgetFont : IDisposable
     {

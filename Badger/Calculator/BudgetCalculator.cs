@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Tools.CalculatorControl" />
+    /// <seealso cref="CalculatorControl" />
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class BudgetCalculator : CalculatorBase, ICalculator
     {

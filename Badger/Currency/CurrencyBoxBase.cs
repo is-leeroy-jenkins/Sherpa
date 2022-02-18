@@ -1,6 +1,6 @@
-﻿// // <copyright file = "CurrencyBoxBase.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "CurrencyBoxBase.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 //
 
 namespace BudgetExecution

@@ -82,7 +82,7 @@ namespace BudgetExecution
         /// Sets the size.
         /// </summary>
         /// <param name="size">The size.</param>
-        public virtual void SetSize( Size size )
+        public virtual void ReSize( Size size )
         {
             try
             {
@@ -99,7 +99,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public virtual void SetSize( int width, int height )
+        public virtual void ReSize( int width, int height )
         {
             try
             {
@@ -119,7 +119,7 @@ namespace BudgetExecution
         {
             try
             {
-                Text = BudgetSetting.GetText( text );
+                Text = text;
             }
             catch( Exception ex )
             {
@@ -131,7 +131,7 @@ namespace BudgetExecution
         /// Sets the location.
         /// </summary>
         /// <param name="point">The point.</param>
-        public virtual void SetLocation( Point point )
+        public virtual void ReLocate( Point point )
         {
             try
             {
@@ -148,7 +148,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
-        public virtual void SetLocation( int x, int y )
+        public virtual void ReLocate( int x, int y )
         {
             try
             {
@@ -168,7 +168,7 @@ namespace BudgetExecution
         {
             try
             {
-                BackColor = BudgetColor.GetColor( color );
+                BackColor = color;
             }
             catch( Exception ex )
             {
@@ -180,7 +180,7 @@ namespace BudgetExecution
         /// Sets the anchor style.
         /// </summary>
         /// <param name="anchor">The anchor.</param>
-        public virtual void SetAnchorStyle( AnchorStyles anchor )
+        public virtual void ReAnchor( AnchorStyles anchor )
         {
             try
             {
@@ -196,7 +196,7 @@ namespace BudgetExecution
         /// Sets the dock style.
         /// </summary>
         /// <param name="dock">The dock.</param>
-        public virtual void SetDockStyle( DockStyle dock )
+        public virtual void ReDock( DockStyle dock )
         {
             try
             {
@@ -228,7 +228,7 @@ namespace BudgetExecution
         /// Sets the tag.
         /// </summary>
         /// <param name="tag">The tag.</param>
-        public virtual void SetTag( object tag )
+        public virtual void ReTag( object tag )
         {
             try
             {
@@ -288,15 +288,13 @@ namespace BudgetExecution
                 var _paths = _files?.ToList();
                 var _list = new ImageList();
 
-                for( var i = 0; i < _paths.Count(); i++ )
+                for( var i = 0; i < _paths.Count; i++ )
                 {
                     if ( !string.IsNullOrEmpty( _paths[ i ] ) 
                         && File.Exists( _paths[ i ] ) )
                     {
                         using var _stream = File.Open( _paths[ i ], FileMode.Open );
-                        using var _img = new Bitmap( _stream );
-                        var _carImg = new CarouselImage();
-                        _carImg.ItemImage = _img;
+                        var _img = new Bitmap( _stream );
                         _list?.Images?.Add( _img );
                     }
                 }
@@ -359,7 +357,8 @@ namespace BudgetExecution
 
                 for( var i = 0; i < _list?.Count; i++ )
                 {
-                    if ( !string.IsNullOrEmpty( _list[ i ] ) )
+                    if ( !string.IsNullOrEmpty( _list[ i ] ) 
+                        && File.Exists( _list[ i ] ) )
                     {
                         using var _stream = File.Open( _list[ i ], FileMode.Open );
                         using var _img = new Bitmap( _stream );

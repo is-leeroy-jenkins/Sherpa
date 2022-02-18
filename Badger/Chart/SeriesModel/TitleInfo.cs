@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.ITitleInfo" />
+    /// <seealso cref="ITitleInfo" />
     [ SuppressMessage( "ReSharper", "GCSuppressFinalizeForTypeWithoutDestructor" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]

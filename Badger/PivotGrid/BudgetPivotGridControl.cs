@@ -7,7 +7,6 @@ namespace BudgetExecution
 {
     using System;
     using System.Drawing;
-    using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
     public class BudgetPivotGridControl : PivotGridBase
@@ -16,19 +15,19 @@ namespace BudgetExecution
         {
             GridVisualStyles = GridVisualStyles.Office2016Black;
             Font = new Font( "Roboto", 9 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.LightSteelBlue;
             Size = new Size( 400, 300 );
             ShowCalculationsAsColumns = true;
             ShowSubTotals = true;
 
             // Dialog Style Properties
             ThemeStyle.ComputationInfoDialogStyle.BackColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.ComputationInfoDialogStyle.ForeColor = Color.LightGray;
+            ThemeStyle.ComputationInfoDialogStyle.ForeColor = Color.LightSteelBlue;
             ThemeStyle.ComputationInfoDialogStyle.BorderColor = Color.SteelBlue;
 
             // Edit Menu Style Properties
             ThemeStyle.EditMenuStyle.BackColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.EditMenuStyle.ForeColor = Color.LightGray;
+            ThemeStyle.EditMenuStyle.ForeColor = Color.LightSteelBlue;
             ThemeStyle.EditMenuStyle.BorderColor = Color.SteelBlue;
 
             // Header Cell Style Properties
@@ -50,12 +49,12 @@ namespace BudgetExecution
             // Expander Style Properties
 
             // Filter DropDown Style Properties
-            ThemeStyle.FilterDropDownStyle.ForeColor = Color.LightGray;
+            ThemeStyle.FilterDropDownStyle.ForeColor = Color.LightSteelBlue;
             ThemeStyle.FilterDropDownStyle.BackColor = Color.FromArgb( 10, 10, 10 );
             ThemeStyle.FilterDropDownStyle.BorderColor = SystemColors.WindowFrame;
 
             // Group Bar Item Style Properties
-            ThemeStyle.GroupBarItemStyle.ForeColor = Color.LightGray;
+            ThemeStyle.GroupBarItemStyle.ForeColor = Color.LightSteelBlue;
             ThemeStyle.GroupBarItemStyle.BackColor = Color.FromArgb( 10, 10, 10 );
             ThemeStyle.GroupBarItemStyle.Font = new Font( "Roboto", 9 );
             ThemeStyle.GroupBarItemStyle.SortIconColor = Color.SteelBlue;
@@ -65,7 +64,7 @@ namespace BudgetExecution
             ThemeStyle.GroupBarStyle.BackColor = Color.FromArgb( 10, 10, 10 );
 
             // PivotValueChoserStyle Properties
-            ThemeStyle.PivotValueChooserStyle.ForeColor = Color.LightGray;
+            ThemeStyle.PivotValueChooserStyle.ForeColor = Color.LightSteelBlue;
             ThemeStyle.PivotValueChooserStyle.BackColor = Color.FromArgb( 10, 10, 10 );
             ThemeStyle.PivotValueChooserStyle.BorderColor = SystemColors.WindowFrame;
         }

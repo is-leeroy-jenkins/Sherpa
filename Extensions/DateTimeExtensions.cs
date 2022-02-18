@@ -351,7 +351,7 @@ namespace BudgetExecution
         /// The IsFederalHoliday
         /// </summary>
         /// <param name = "dateTime" >
-        /// The startDate <see cref = "System.DateTime"/>
+        /// The startDate <see cref = "DateTime"/>
         /// </param>
         /// <returns>
         /// The <see cref = "bool"/>

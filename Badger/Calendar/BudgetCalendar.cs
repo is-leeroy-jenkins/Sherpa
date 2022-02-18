@@ -23,7 +23,7 @@ namespace BudgetExecution
             Location = new Point( 1, 1 );
             Font = new Font( "Roboto", 9 );
             Margin = new Padding( 3 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.LightSteelBlue;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             HighlightTodayCell = true;
             NumberOfWeeksInView = 5;

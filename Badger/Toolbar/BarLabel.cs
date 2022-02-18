@@ -56,7 +56,7 @@ namespace BudgetExecution
         public BarLabel( string text )
             : this()
         {
-            Text = BudgetSetting.GetText( text );
+            Text = text;
             MouseHover += OnMouseHover;
         }
         
@@ -67,8 +67,8 @@ namespace BudgetExecution
         {
             try
             {
-                ForeColor = BudgetColor.GetColor( color );
-                Text = BudgetSetting.GetText( text );
+                ForeColor = color;
+                Text = text;
             }
             catch( Exception ex )
             {
@@ -84,22 +84,22 @@ namespace BudgetExecution
         {
             try
             {
-                Font = BudgetFont.GetFont( font );
-                ForeColor = BudgetColor.GetColor( color );
-                Text = BudgetSetting.GetText( text );
+                Font = font;
+                ForeColor = color;
+                Text = text;
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [mouse hover].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The
-        /// <see cref="System.EventArgs" /> instance
+        /// <see cref="EventArgs" /> instance
         /// containing the event data.</param>
         public void OnMouseHover( object sender, EventArgs e )
         {

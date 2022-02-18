@@ -16,8 +16,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.BuilderBase" />
-    /// <seealso cref="BudgetExecution.IBuilder" />
+    /// <seealso cref="BuilderBase" />
+    /// <seealso cref="IBuilder" />
     [ SuppressMessage( "ReSharper", "ImplicitlyCapturedClosure" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]

@@ -20,15 +20,17 @@ namespace BudgetExecution
         /// <value>
         /// The rpio path.
         /// </value>
-        public string RegionPath { get; set; } = ConfigurationManager.AppSettings[ "CarouselRegionImages" ];
-        
+        public string RegionPath { get; set; } =
+            ConfigurationManager.AppSettings[ "CarouselRegionImages" ];
+
         /// <summary>
         /// Gets or sets the rpio path.
         /// </summary>
         /// <value>
         /// The rpio path.
         /// </value>
-        public string NpmPath { get; set; } = ConfigurationManager.AppSettings[ "CarouselNpmImages" ];
+        public string NpmPath { get; set; } =
+            ConfigurationManager.AppSettings[ "CarouselNpmImages" ];
 
         /// <summary>
         /// Gets or sets the provider path.
@@ -45,7 +47,8 @@ namespace BudgetExecution
         /// <value>
         /// The fund path.
         /// </value>
-        public string FundPath { get; set; } =  ConfigurationManager.AppSettings[ "CarouselFundImages" ];
+        public string FundPath { get; set; } =
+            ConfigurationManager.AppSettings[ "CarouselFundImages" ];
 
         /// <summary>
         /// Initializes a new instance
@@ -55,7 +58,7 @@ namespace BudgetExecution
         {
             // Basic Carousel Properties
             BackColor = Color.FromArgb( 10, 10, 10 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.LightSteelBlue;
             Font = new Font( "Roboto", 9 );
             CarouselPath = CarouselPath.Default;
             ImageSlides = true;
@@ -77,7 +80,7 @@ namespace BudgetExecution
             // ThemeStyle Properties
             ThemeStyle.BackColor = Color.Transparent;
             ThemeStyle.Font = new Font( "Roboto", 9 );
-            ThemeStyle.ForeColor = Color.LightGray;
+            ThemeStyle.ForeColor = Color.LightSteelBlue;
             ThemeStyle.HoverImageBorderColor = Color.SteelBlue;
             ThemeStyle.HoverImageBorderThickness = 2;
             ThemeStyle.ImageShadeColor = Color.FromArgb( 10, 10, 10 );
@@ -98,13 +101,14 @@ namespace BudgetExecution
 
                 for( var i = 0; i < _paths.Count; i++ )
                 {
-                    if ( !string.IsNullOrEmpty( _paths[ i ] ) 
+                    if ( !string.IsNullOrEmpty( _paths[ i ] )
                         && File.Exists( _paths[ i ] ) )
                     {
                         var _name = Path.GetFileNameWithoutExtension( _paths[ i ] );
                         using var _stream = File.Open( _paths[ i ], FileMode.Open );
-                        var _img = new Bitmap( _stream );
-                        _img.Tag = _name;
+
+                        var _img = new Bitmap( _stream ) { Tag = _name };
+
                         _list.ImageSize = new Size( 250, 250 );
                         _list?.Images?.Add( _img );
                     }
@@ -134,7 +138,7 @@ namespace BudgetExecution
 
                 for( var i = 0; i < _paths.Count; i++ )
                 {
-                    if ( !string.IsNullOrEmpty( _paths[ i ] ) 
+                    if ( !string.IsNullOrEmpty( _paths[ i ] )
                         && File.Exists( _paths[ i ] ) )
                     {
                         var _name = Path.GetFileNameWithoutExtension( _paths[ i ] );
@@ -197,8 +201,8 @@ namespace BudgetExecution
 
                 for( var i = 0; i < images?.Count(); i++ )
                 {
-                    var _carouselImage = new CarouselImage();
-                    _carouselImage.ItemImage = _list[ i ];
+                    var _carouselImage = new CarouselImage { ItemImage = _list[ i ] };
+
                     ImageListCollection.Add( _carouselImage );
                     _carouselImages.Add( _carouselImage );
                 }
@@ -227,7 +231,7 @@ namespace BudgetExecution
 
                 for( var i = 0; i < _list?.Count; i++ )
                 {
-                    if ( !string.IsNullOrEmpty( _list[ i ] ) 
+                    if ( !string.IsNullOrEmpty( _list[ i ] )
                         && File.Exists( _list[ i ] ) )
                     {
                         using var _stream = File.Open( _list[ i ], FileMode.Open );

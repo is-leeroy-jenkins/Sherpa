@@ -16,7 +16,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <seealso cref="MetroForm" />
     public partial class BudgetPdfForm : MetroForm
     {
         /// <summary>
@@ -120,7 +120,7 @@ namespace BudgetExecution
                 + @"Etc\doc\RMDS\FundsControlManual.pdf";
 
             if( File.Exists( _path ) 
-               && System.IO.Path.GetExtension( _path ).Contains( ".pdf" )  )
+               && Path.GetExtension( _path ).Contains( ".pdf" )  )
             {
                 DocumentViewer.Load( _path );
             }

@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.ComboBase" />
+    /// <seealso cref="ComboBase" />
     public class BudgetComboBox : ComboBase
     {
         /// <summary>

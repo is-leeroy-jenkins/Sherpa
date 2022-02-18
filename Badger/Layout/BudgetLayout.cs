@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.LayoutBase" />
+    /// <seealso cref="LayoutBase" />
     public class BudgetLayout : LayoutBase
     {
         /// <summary>

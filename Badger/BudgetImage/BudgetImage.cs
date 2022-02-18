@@ -16,7 +16,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="ImageBase" />
-    /// <seealso cref="BudgetExecution.IBudgetImage" />
+    /// <seealso cref="IBudgetImage" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class BudgetImage : ImageBase, IBudgetImage
@@ -263,7 +263,11 @@ namespace BudgetExecution
 
                 for( var i = 0; i < items.Count; i++ )
                 {
-                    _list.Add( items[ i ] );
+                    if ( !string.IsNullOrEmpty( items[ i ] ) 
+                        && File.Exists( items[ i ] ) ) 
+                    {
+                        _list.Add( items[ i ] );
+                    }
                 }
 
                 return _list?.Any() == true
@@ -289,10 +293,13 @@ namespace BudgetExecution
 
                 for( var i = 0; i < _paths.Count; i++ )
                 {
-                    _list.Add( _paths[ i ] );
+                    if ( !string.IsNullOrEmpty( _paths[ i ] ) )
+                    {
+                        _list.Add( _paths[ i ] );
+                    }
                 }
 
-                return _list.Count > 0
+                return _list?.Count > 0
                     ? _list
                     : default( IEnumerable<string> );
             }

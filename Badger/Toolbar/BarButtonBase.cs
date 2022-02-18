@@ -10,7 +10,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.ToolStripButton" />
+    /// <seealso cref="ToolStripButton" />
     public class BarButtonBase : ToolStripButton
     {
         /// <summary>
@@ -36,25 +36,6 @@ namespace BudgetExecution
         /// The bar.
         /// </value>
         public ToolType Bar { get; set; }
-        
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <returns></returns>
-        public string GetName()
-        {
-            try
-            {
-                return Verify.IsInput( Name )
-                    ? Name
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
-        }
 
         /// <summary>
         /// Sets the field.
@@ -76,7 +57,7 @@ namespace BudgetExecution
         /// Sets the tag.
         /// </summary>
         /// <param name="tag">The tag.</param>
-        public void SetTag( object tag )
+        public void ReTag( object tag )
         {
             try
             {
@@ -96,13 +77,16 @@ namespace BudgetExecution
         {
             var _text = item?.Tag?.ToString();
 
-            try
+            if ( !string.IsNullOrEmpty( _text ) )
             {
-                HoverText = BudgetSetting.GetText( _text );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
+                try
+                {
+                    HoverText = _text;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
@@ -114,7 +98,7 @@ namespace BudgetExecution
         {
             try
             {
-                HoverText = BudgetSetting.GetText( text );
+                HoverText = text;
             }
             catch( Exception ex )
             {
