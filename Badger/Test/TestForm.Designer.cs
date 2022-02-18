@@ -44,7 +44,7 @@ namespace BudgetExecution
             // tabControlAdv1
             // 
             this.tabControlAdv1.ActiveTabColor = System.Drawing.Color.SteelBlue;
-            this.tabControlAdv1.BeforeTouchSize = new System.Drawing.Size(252, 131);
+            this.tabControlAdv1.BeforeTouchSize = new System.Drawing.Size(321, 193);
             this.tabControlAdv1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tabControlAdv1.CanOverrideStyle = true;
             this.tabControlAdv1.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
@@ -54,13 +54,17 @@ namespace BudgetExecution
             this.tabControlAdv1.HotTrack = true;
             this.tabControlAdv1.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.tabControlAdv1.InactiveTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.tabControlAdv1.ItemSize = new System.Drawing.Size(100, 23);
             this.tabControlAdv1.Location = new System.Drawing.Point(199, 195);
             this.tabControlAdv1.Name = "tabControlAdv1";
-            this.tabControlAdv1.Size = new System.Drawing.Size(252, 131);
+            this.tabControlAdv1.Office2007ColorScheme = Syncfusion.Windows.Forms.Office2007Theme.Black;
+            this.tabControlAdv1.Office2010ColorTheme = Syncfusion.Windows.Forms.Office2010Theme.Black;
+            this.tabControlAdv1.Size = new System.Drawing.Size(321, 193);
             this.tabControlAdv1.TabIndex = 0;
             this.tabControlAdv1.TabPanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.tabControlAdv1.TabStyle = typeof(Syncfusion.Windows.Forms.Tools.TabRendererMetro);
             this.tabControlAdv1.ThemeName = "TabRendererMetro";
+            this.tabControlAdv1.ThemesEnabled = true;
             this.tabControlAdv1.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.tabControlAdv1.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.tabControlAdv1.ThemeStyle.BorderFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
@@ -72,10 +76,10 @@ namespace BudgetExecution
             // 
             this.TabPage.Image = null;
             this.TabPage.ImageSize = new System.Drawing.Size(16, 16);
-            this.TabPage.Location = new System.Drawing.Point(0, 22);
+            this.TabPage.Location = new System.Drawing.Point(2, 24);
             this.TabPage.Name = "TabPage";
             this.TabPage.ShowCloseButton = false;
-            this.TabPage.Size = new System.Drawing.Size(252, 109);
+            this.TabPage.Size = new System.Drawing.Size(317, 167);
             this.TabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.TabPage.TabForeColor = System.Drawing.Color.LightSteelBlue;
             this.TabPage.TabIndex = 1;

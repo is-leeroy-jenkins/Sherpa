@@ -15,7 +15,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    public abstract class TabControlBase : TabPageAdv
+    public abstract class TabControlBase : TabControlAdv
     {
         /// <summary>
         /// Gets or sets the binding source.
