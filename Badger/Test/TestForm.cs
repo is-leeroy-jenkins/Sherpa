@@ -10,7 +10,6 @@ namespace BudgetExecution
     using System.Collections.Specialized;
     using System.Drawing;
     using System.Windows.Forms;
-    using Syncfusion.Compression.Zip;
     using Syncfusion.Windows.Forms;
 
     public partial class TestForm : MetroForm
@@ -71,7 +70,6 @@ namespace BudgetExecution
             BudgetButton.HoverText = System.IO.Path.GetFileNameWithoutExtension( Setting[ "BudgetExecutionIcon" ] );
             BudgetButton.Click += SetLabelText;
             BudgetButton.MouseLeave += ClearLabelText;
-
             Controls.Add( BudgetButton );
         }
 
@@ -108,7 +106,14 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         public void ClearLabelText( object sender, EventArgs e )
         {
-            Text = string.Empty;
+            try
+            {
+                Text = string.Empty;
+            }
+            catch ( Exception ex )
+            {
+                Fail( ex );
+            }
         }
 
         /// <summary>

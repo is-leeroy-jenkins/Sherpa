@@ -79,7 +79,8 @@ namespace BudgetExecution
         public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
         
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetExcelForm"/> class.
+        /// Initializes a new instance
+        /// of the <see cref="BudgetExcelForm"/> class.
         /// </summary>
         public BudgetExcelForm()
         {
