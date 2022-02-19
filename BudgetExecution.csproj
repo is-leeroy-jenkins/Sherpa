@@ -681,8 +681,8 @@
     <Compile Include="Badger\TabControl\BudgetTabForm.Designer.cs">
       <DependentUpon>BudgetTabForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BudgetCheckBox.cs" />
-    <Compile Include="CheckBoxBase.cs" />
+    <Compile Include="Badger\CheckBox\BudgetCheckBox.cs" />
+    <Compile Include="Badger\CheckBox\CheckBoxBase.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />
@@ -788,7 +788,7 @@
     <Compile Include="Badger\Control\IDataControl.cs" />
     <Compile Include="Badger\Binding\IBindingSource.cs" />
     <Compile Include="Badger\Binding\IDataSource.cs" />
-    <Compile Include="Badger\Label\ILabel.cs" />
+    <Compile Include="Badger\Label\IBudgetLabel.cs" />
     <Compile Include="Badger\Button\IBudgetButton.cs" />
     <Compile Include="Badger\Toolbar\IBarButton.cs" />
     <Compile Include="Badger\Toolbar\IBarComboBox.cs" />
@@ -3183,9 +3183,7 @@
     <Content Include="Lib\VisualPlus.dll" />
     <Content Include="readme.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Badger\CheckBox\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>

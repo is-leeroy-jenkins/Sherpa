@@ -15,6 +15,7 @@ namespace BudgetExecution
     using VisualPlus.Toolkit.Controls.Interactivity;
 
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public abstract class LabelBase : VisualLabel
     {
         /// <summary>
@@ -354,6 +355,67 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [mouse over].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.</param>
+        public virtual void OnMouseOver( object sender, EventArgs e )
+        {
+            var _budgetLabel = sender as BudgetLabel;
+
+            try
+            {
+                if( _budgetLabel != null
+                    && !string.IsNullOrEmpty( HoverText ) )
+                {
+                    if( Verify.IsInput( HoverText ) )
+                    {
+                        var _hoverText = _budgetLabel?.HoverText;
+                        var _ = new ToolTip( _budgetLabel, _hoverText );
+                    }
+                    else
+                    {
+                        if( Verify.IsInput( Tag?.ToString() ) )
+                        {
+                            var _text = Tag?.ToString()?.SplitPascal();
+                            var _ = new ToolTip( _budgetLabel, _text );
+                        }
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [mouse leave].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.
+        /// </param>
+        public virtual void OnMouseLeave( object sender, EventArgs e )
+        {
+            var _budgetLabel = sender as BudgetLabel;
+
+            try
+            {
+                if( _budgetLabel != null )
+                {
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 

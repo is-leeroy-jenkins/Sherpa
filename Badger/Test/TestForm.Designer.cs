@@ -36,51 +36,56 @@ namespace BudgetExecution
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestForm));
-            this.visualCheckBox1 = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
+            this.TestCheckBox = new BudgetExecution.BudgetCheckBox();
             this.SuspendLayout();
             // 
-            // visualCheckBox1
+            // TestCheckBox
             // 
-            this.visualCheckBox1.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.visualCheckBox1.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
-            this.visualCheckBox1.Border.HoverVisible = true;
-            this.visualCheckBox1.Border.Rounding = 3;
-            this.visualCheckBox1.Border.Thickness = 1;
-            this.visualCheckBox1.Border.Type = VisualPlus.Enumerators.ShapeTypes.Rounded;
-            this.visualCheckBox1.Border.Visible = true;
-            this.visualCheckBox1.Box = new System.Drawing.Size(14, 14);
-            this.visualCheckBox1.BoxColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.visualCheckBox1.BoxColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.visualCheckBox1.BoxColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.visualCheckBox1.BoxColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.visualCheckBox1.BoxSpacing = 4;
-            this.visualCheckBox1.CheckStyle.AutoSize = true;
-            this.visualCheckBox1.CheckStyle.Bounds = new System.Drawing.Rectangle(0, 0, 125, 23);
-            this.visualCheckBox1.CheckStyle.Character = '✔';
-            this.visualCheckBox1.CheckStyle.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(136)))), ((int)(((byte)(45)))));
-            this.visualCheckBox1.CheckStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visualCheckBox1.CheckStyle.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.visualCheckBox1.CheckStyle.ShapeRounding = 3;
-            this.visualCheckBox1.CheckStyle.ShapeType = VisualPlus.Enumerators.ShapeTypes.Rounded;
-            this.visualCheckBox1.CheckStyle.Style = VisualPlus.Models.CheckStyle.CheckType.Checkmark;
-            this.visualCheckBox1.CheckStyle.Thickness = 2F;
-            this.visualCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.visualCheckBox1.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.visualCheckBox1.IsBoxLarger = false;
-            this.visualCheckBox1.Location = new System.Drawing.Point(672, 365);
-            this.visualCheckBox1.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
-            this.visualCheckBox1.Name = "visualCheckBox1";
-            this.visualCheckBox1.Size = new System.Drawing.Size(125, 25);
-            this.visualCheckBox1.TabIndex = 0;
-            this.visualCheckBox1.Text = "visualCheckBox1";
-            this.visualCheckBox1.TextSize = new System.Drawing.Size(98, 16);
-            this.visualCheckBox1.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            this.visualCheckBox1.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.visualCheckBox1.TextStyle.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.visualCheckBox1.TextStyle.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.visualCheckBox1.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.visualCheckBox1.TextStyle.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            this.visualCheckBox1.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.TestCheckBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.TestCheckBox.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.TestCheckBox.Border.HoverColor = System.Drawing.Color.SteelBlue;
+            this.TestCheckBox.Border.HoverVisible = true;
+            this.TestCheckBox.Border.Rounding = 3;
+            this.TestCheckBox.Border.Thickness = 1;
+            this.TestCheckBox.Border.Type = VisualPlus.Enumerators.ShapeTypes.Rounded;
+            this.TestCheckBox.Border.Visible = true;
+            this.TestCheckBox.Box = new System.Drawing.Size(14, 14);
+            this.TestCheckBox.BoxColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TestCheckBox.BoxColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TestCheckBox.BoxColorState.Hover = System.Drawing.Color.SteelBlue;
+            this.TestCheckBox.BoxColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.TestCheckBox.BoxSpacing = 4;
+            this.TestCheckBox.CheckStyle.AutoSize = true;
+            this.TestCheckBox.CheckStyle.Bounds = new System.Drawing.Rectangle(0, 0, 125, 23);
+            this.TestCheckBox.CheckStyle.Character = '✔';
+            this.TestCheckBox.CheckStyle.CheckColor = System.Drawing.Color.SteelBlue;
+            this.TestCheckBox.CheckStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestCheckBox.CheckStyle.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.TestCheckBox.CheckStyle.ShapeRounding = 3;
+            this.TestCheckBox.CheckStyle.ShapeType = VisualPlus.Enumerators.ShapeTypes.Rounded;
+            this.TestCheckBox.CheckStyle.Style = VisualPlus.Models.CheckStyle.CheckType.Checkmark;
+            this.TestCheckBox.CheckStyle.Thickness = 2F;
+            this.TestCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TestCheckBox.DataFilter = null;
+            this.TestCheckBox.Font = new System.Drawing.Font("Roboto", 9F);
+            this.TestCheckBox.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.TestCheckBox.HoverText = null;
+            this.TestCheckBox.IsBoxLarger = false;
+            this.TestCheckBox.Location = new System.Drawing.Point(817, 39);
+            this.TestCheckBox.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.TestCheckBox.Name = "TestCheckBox";
+            this.TestCheckBox.Size = new System.Drawing.Size(125, 25);
+            this.TestCheckBox.TabIndex = 0;
+            this.TestCheckBox.Text = "Testing Check Box";
+            this.TestCheckBox.TextSize = new System.Drawing.Size(106, 16);
+            this.TestCheckBox.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            this.TestCheckBox.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TestCheckBox.TextStyle.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TestCheckBox.TextStyle.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TestCheckBox.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.TestCheckBox.TextStyle.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            this.TestCheckBox.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.TestCheckBox.ToolTip = null;
             // 
             // TestForm
             // 
@@ -95,7 +100,7 @@ namespace BudgetExecution
             this.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CaptionForeColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1058, 618);
-            this.Controls.Add(this.visualCheckBox1);
+            this.Controls.Add(this.TestCheckBox);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.LightGray;
@@ -114,6 +119,6 @@ namespace BudgetExecution
 
         #endregion
 
-        private VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox visualCheckBox1;
+        private BudgetCheckBox TestCheckBox;
     }
 }

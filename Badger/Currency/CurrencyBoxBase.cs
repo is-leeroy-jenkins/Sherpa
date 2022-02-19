@@ -16,6 +16,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
 
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public abstract class CurrencyBoxBase : CurrencyEdit
     {
         /// <summary>
@@ -355,6 +356,67 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [mouse over].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.</param>
+        public virtual void OnMouseOver( object sender, EventArgs e )
+        {
+            var _currencyTextBox = sender as BudgetCurrencyTextBox;
+
+            try
+            {
+                if( _currencyTextBox != null
+                    && !string.IsNullOrEmpty( HoverText ) )
+                {
+                    if( Verify.IsInput( HoverText ) )
+                    {
+                        var _hoverText = _currencyTextBox?.HoverText;
+                        var _ = new ToolTip( _currencyTextBox, _hoverText );
+                    }
+                    else
+                    {
+                        if( Verify.IsInput( Tag?.ToString() ) )
+                        {
+                            var _text = Tag?.ToString()?.SplitPascal();
+                            var _ = new ToolTip( _currencyTextBox, _text );
+                        }
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [mouse leave].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.
+        /// </param>
+        public virtual void OnMouseLeave( object sender, EventArgs e )
+        {
+            var _currencyTextBox = sender as BudgetCurrencyTextBox;
+
+            try
+            {
+                if( _currencyTextBox != null )
+                {
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 

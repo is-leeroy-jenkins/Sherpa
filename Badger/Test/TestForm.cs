@@ -71,6 +71,7 @@ namespace BudgetExecution
             BudgetButton.Click += SetLabelText;
             BudgetButton.MouseLeave += ClearLabelText;
             Controls.Add( BudgetButton );
+            TestCheckBox.HoverText = "THIS IS A TEST!";
         }
 
         /// <summary>

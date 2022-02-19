@@ -16,6 +16,7 @@ namespace BudgetExecution
     using VisualPlus.Toolkit.Controls.Layout;
 
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public abstract class GroupBoxBase : VisualGroupBox
     {
         /// <summary>
@@ -171,7 +172,8 @@ namespace BudgetExecution
         /// Sets the binding source.
         /// </summary>
         /// <param name="data">The data.</param>
-        public virtual void SetDataSource<T1>( IEnumerable<T1> data ) where T1 : IEnumerable<DataRow>
+        public virtual void SetDataSource<T1>( IEnumerable<T1> data ) 
+            where T1 : IEnumerable<DataRow>
         {
             if( Verify.IsSequence( data ) )
             {
@@ -230,7 +232,8 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The dictionary.</param>
         public virtual void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
-            where T1 : IEnumerable<DataRow> where T2 : struct
+            where T1 : IEnumerable<DataRow> 
+            where T2 : struct
         {
             if( Verify.IsSequence( data )
                 && Validate.IsField( field ) )
@@ -293,7 +296,8 @@ namespace BudgetExecution
         /// <param>The numeric.</param>
         /// <param name = "dict" > </param>
         public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
-            where T1 : IEnumerable<DataRow> where T2 : IDictionary<string, object>
+            where T1 : IEnumerable<DataRow> 
+            where T2 : IDictionary<string, object>
         {
             if( Verify.IsSequence( data )
                 && Verify.IsMap( dict ) )
@@ -328,7 +332,8 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The filter.</param>
         public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field, object filter = null )
-            where T1 : IEnumerable<DataRow> where T2 : struct
+            where T1 : IEnumerable<DataRow> 
+            where T2 : struct
         {
             if( Verify.IsSequence( data )
                 && Validate.IsField( field ) )
@@ -351,6 +356,67 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [mouse over].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.</param>
+        public virtual void OnMouseOver( object sender, EventArgs e )
+        {
+            var _groupBox = sender as BudgetGroupBox;
+
+            try
+            {
+                if( _groupBox != null
+                    && !string.IsNullOrEmpty( HoverText ) )
+                {
+                    if( Verify.IsInput( HoverText ) )
+                    {
+                        var _hoverText = _groupBox?.HoverText;
+                        var _ = new ToolTip( _groupBox, _hoverText );
+                    }
+                    else
+                    {
+                        if( Verify.IsInput( Tag?.ToString() ) )
+                        {
+                            var _text = Tag?.ToString()?.SplitPascal();
+                            var _ = new ToolTip( _groupBox, _text );
+                        }
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [mouse leave].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.
+        /// </param>
+        public virtual void OnMouseLeave( object sender, EventArgs e )
+        {
+            var _groupBox = sender as BudgetGroupBox;
+
+            try
+            {
+                if( _groupBox != null )
+                {
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 

@@ -21,7 +21,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class BudgetLabel : LabelBase, ILabel
+    public class BudgetLabel : LabelBase, IBudgetLabel
     {
         /// <summary>
         /// Gets or sets the binding source.
@@ -101,6 +101,7 @@ namespace BudgetExecution
             TextAlignment = StringAlignment.Center;
             TextLineAlignment = StringAlignment.Center;
             OutlineColor = Color.FromArgb( 10, 10, 10 );
+            MouseHover += OnMouseOver;
         }
 
         /// <summary>
