@@ -31,13 +31,32 @@ namespace BudgetExecution
             BorderVisible = false;
             ThemesEnabled = true;
             ActiveTabColor = Color.SteelBlue;
-            ActiveTabFont = new Font( "Roboto", 8, FontStyle.Bold  );
+            ActiveTabFont = new Font( "Roboto", 8, FontStyle.Regular  );
             ActiveTabForeColor = Color.White;
             InActiveTabForeColor = Color.FromArgb( 10, 10, 10 );
             InactiveTabColor = Color.FromArgb( 10, 10, 10 );
             SeparatorColor = Color.FromArgb( 64, 64, 64 );
             TextAlignment = StringAlignment.Center;
             VerticalAlignment = TabVerticalAlignment.Default;
+            ThemesEnabled = false;
+            ThemeStyle.BackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.DisabledBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.TabPanelBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.BorderColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.BorderFillColor = Color.FromArgb( 64, 64, 64 );
+            ThemeStyle.TabStyle.DisabledBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.TabStyle.ActiveBorderColor = Color.SteelBlue;
+            ThemeStyle.TabStyle.ActiveBackColor = Color.SteelBlue;
+            ThemeStyle.TabStyle.ActiveFont = new Font( "Roboto", 8, FontStyle.Regular );
+            ThemeStyle.TabStyle.ActiveForeColor = Color.White;
+            ThemeStyle.TabStyle.ActiveCloseButtonBackColor = Color.FromArgb( 64, 64, 64 );
+            ThemeStyle.TabStyle.HoverActiveBorderColor = Color.SteelBlue;
+            ThemeStyle.TabStyle.HoverActiveCloseButtonForeColor = Color.White;
+            ThemeStyle.TabStyle.HoverInactiveCloseButtonForeColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.TabStyle.HoverInactiveForeColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.TabStyle.InactiveCloseButtonBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.TabStyle.InactiveBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.TabStyle.InactiveForeColor = Color.FromArgb( 10, 10, 10 );
             ShowSeparator = true;
             LabelEdit = false;
             Multiline = false;
@@ -47,7 +66,6 @@ namespace BudgetExecution
             Visible = true;
             ShowTabCloseButton = false;
             TextLineAlignment = StringAlignment.Center;
-            ThemeStyle = TabControlAdvVisualStyle.DefaultStyle;
             UserMoveTabs = true;
         }
     }

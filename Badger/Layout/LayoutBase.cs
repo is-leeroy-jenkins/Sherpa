@@ -111,7 +111,7 @@ namespace BudgetExecution
             : this()
         {
             Size = size;
-            Location = BudgetSetting.GetLocation( location.X, location.Y );
+            Location = BudgetSetting.ReLocate( location.X, location.Y );
         }
 
         /// <summary>
@@ -320,9 +320,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

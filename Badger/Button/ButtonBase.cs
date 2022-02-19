@@ -133,7 +133,7 @@ namespace BudgetExecution
         {
             try
             {
-                Location = BudgetSetting.GetLocation( point );
+                Location = BudgetSetting.ReLocate( point );
             }
             catch( Exception ex )
             {
@@ -150,7 +150,7 @@ namespace BudgetExecution
         {
             try
             {
-                Location = BudgetSetting.GetLocation( x, y );
+                Location = BudgetSetting.ReLocate( x, y );
             }
             catch( Exception ex )
             {
@@ -182,7 +182,7 @@ namespace BudgetExecution
         {
             try
             {
-                Anchor = BudgetSetting.GetAnchorStyle( anchor );
+                Anchor = BudgetSetting.ReAnchor( anchor );
             }
             catch( Exception ex )
             {
@@ -198,7 +198,7 @@ namespace BudgetExecution
         {
             try
             {
-                Dock = BudgetSetting.GetDockStyle( dock );
+                Dock = BudgetSetting.ReDock( dock );
             }
             catch( Exception ex )
             {
@@ -230,7 +230,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tag = BudgetSetting.GetTag( tag );
+                Tag = BudgetSetting.ReTag( tag );
             }
             catch( Exception ex )
             {

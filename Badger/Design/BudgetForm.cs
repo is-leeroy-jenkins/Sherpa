@@ -173,32 +173,10 @@ namespace BudgetExecution
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
-        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
-        protected void Dispose( bool disposing )
-        {
-            if( disposing )
-            {
-                try
-                {
-                    BudgetFont.FontSizeSmall?.Dispose();
-                    BudgetFont.FontSizeMedium?.Dispose();
-                    BudgetFont.FontSizeLarge?.Dispose();
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
-        /// </summary>
         public void Dispose()
         {
             try
             {
-                Dispose( true );
                 GC.SuppressFinalize( this );
             }
             catch( Exception ex )

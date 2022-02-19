@@ -18,7 +18,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class ImageBase : BudgetSize 
+    public abstract class ImageBase : BudgetSetting
     {
         /// <summary>
         /// Gets or sets the image.
@@ -180,7 +180,7 @@ namespace BudgetExecution
             try
             {
                 return size != Size.Empty
-                    ? GetSize( size )
+                    ? ReSize( size )
                     : Size.Empty;
             }
             catch( Exception ex )
@@ -201,7 +201,7 @@ namespace BudgetExecution
             try
             {
                 return width > -1 && height > -1
-                    ? GetSize( width, height )
+                    ? ReSize( width, height )
                     : Size.Empty;
             }
             catch( Exception ex )
@@ -221,7 +221,7 @@ namespace BudgetExecution
             try
             {
                 return Enum.IsDefined( typeof( ImageSizer ), sizer )
-                    ? GetSize( sizer )
+                    ? ReSize( sizer )
                     : Size.Empty;
             }
             catch( Exception ex )

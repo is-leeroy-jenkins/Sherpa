@@ -26,7 +26,7 @@ namespace BudgetExecution
         /// Res the color.
         /// </summary>
         /// <param name="newColor">The new color.</param>
-        void ReColor( Color newColor );
+        void ReMapColor( Color newColor );
 
         /// <summary>
         /// Sets the color of the back ground.

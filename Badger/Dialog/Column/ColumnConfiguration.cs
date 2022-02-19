@@ -122,7 +122,7 @@ namespace BudgetExecution
         /// The <see cref = "DataGridViewCellMouseEventArgs"/> instance containing the
         /// event data.
         /// </param>
-        public void OnDatagridRightClick( object sender, DataGridViewCellMouseEventArgs e )
+        public void OnDataGridRightClick( object sender, DataGridViewCellMouseEventArgs e )
         {
             if( e.Button         == MouseButtons.Right
                 && Grid?.Columns != null )
@@ -136,13 +136,13 @@ namespace BudgetExecution
                         ColumnListBox?.Items.Add( c.HeaderText, c.Visible );
                     }
 
-                    using var colconfig = new ColumnConfiguration( Grid )
+                    using var _columnConfiguration = new ColumnConfiguration( Grid )
                     {
                         Location = Grid.PointToScreen( new Point( e.X, e.Y ) )
                     };
 
-                    colconfig?.ShowDialog();
-                    colconfig.TopMost = true;
+                    _columnConfiguration?.ShowDialog();
+                    _columnConfiguration.TopMost = true;
                 }
                 catch( Exception ex )
                 {
@@ -181,9 +181,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

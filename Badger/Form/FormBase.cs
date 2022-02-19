@@ -101,7 +101,6 @@ namespace BudgetExecution
             CaptionFont = new Font( "Roboto", 11 );
             MetroColor = Color.FromArgb( 10, 10, 10 );
             FormBorderStyle = FormBorderStyle.Sizable;
-            Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 16, 16 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = new Padding( 1 );

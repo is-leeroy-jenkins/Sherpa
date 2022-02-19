@@ -44,7 +44,7 @@ namespace BudgetExecution
             ImageSource = ImageSource.NS;
             FileExtension = Path.GetExtension( FullPath );
             ImageFormat = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
-            Size = ImageSizeSmall;
+            Size = ReSize( ImageSizer.Small );
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace BudgetExecution
             ImageFormat = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
             FullPath = GetImageFilePath( Name, ImageSource );
             ImageFormat = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
-            Size = ImageSizeSmall;
+            Size = ReSize( ImageSizer.Small );
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace BudgetExecution
             FullPath = GetImageFilePath( Name, ImageSource );
             FileExtension = Path.GetExtension( name );
             ImageFormat = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
-            Size = ImageSizeSmall;
+            Size = ReSize( ImageSizer.Small );
         }
 
         /// <summary>

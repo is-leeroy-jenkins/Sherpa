@@ -312,14 +312,14 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var commandfactory = new CommandFactory( CommandBuilder );
+                    var _commandFactory = new CommandFactory( CommandBuilder );
 
                     return SqlStatement?.GetCommandType() switch
                     {
-                        SQL.SELECT => commandfactory?.GetSelectCommand(),
-                        SQL.INSERT => commandfactory?.GetSelectCommand(),
-                        SQL.UPDATE => commandfactory?.GetSelectCommand(),
-                        SQL.DELETE => commandfactory?.GetDeleteCommand(),
+                        SQL.SELECT => _commandFactory?.GetSelectCommand(),
+                        SQL.INSERT => _commandFactory?.GetSelectCommand(),
+                        SQL.UPDATE => _commandFactory?.GetSelectCommand(),
+                        SQL.DELETE => _commandFactory?.GetDeleteCommand(),
                         _ => default( DbCommand )
                     };
                 }
@@ -357,9 +357,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

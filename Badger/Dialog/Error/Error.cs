@@ -17,7 +17,7 @@ namespace BudgetExecution
         /// <summary>
         /// The application setting
         /// </summary>
-        public virtual NameValueCollection AppSetting { get; set; } = ConfigurationManager.AppSettings;
+        public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
 
         /// <summary>
         /// Gets or sets the exception.
@@ -47,7 +47,7 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 10, 10, 10 );
             BorderThickness = 1;
             BorderColor = Color.FromArgb( 192, 0, 0 );
-            Size = BudgetSize.DialogSizeNormal;
+            Size = new Size( 700, 550 );
             Font = new Font( "Roboto", 9 );
             CaptionBarColor = Color.FromArgb( 10, 10, 10 );
             CaptionBarHeight = 26;
@@ -65,12 +65,12 @@ namespace BudgetExecution
             Size = new Size( 812, 486 );
 
             // TextBox Properties
-            TextBox.BackColor =  BudgetColor.FormDark;
+            TextBox.BackColor =  Color.FromArgb( 10, 10, 10 );
             TextBox.BackColorState.Enabled = Color.FromArgb( 10, 10, 10 );
             TextBox.BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
             TextBox.Border.Type = ShapeTypes.Rounded;
             TextBox.Border.Color = Color.FromArgb( 64, 64, 64 );
-            TextBox.Border.HoverColor = BudgetColor.Maroon;
+            TextBox.Border.HoverColor = Color.Maroon;
             TextBox.Parent = Panel;
             TextBox.Dock = DockStyle.Fill;
 

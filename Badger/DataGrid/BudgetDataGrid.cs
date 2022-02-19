@@ -196,7 +196,7 @@ namespace BudgetExecution
                     Alignment = DataGridViewContentAlignment.BottomCenter,
                     ForeColor = Color.Black,
                     Font = new Font( "Roboto", 10, FontStyle.Bold ),
-                    BackColor = BudgetColor.ForeColorGray
+                    BackColor = Color.FromArgb( 141, 139, 138 )
                 };
 
                 RowsDefaultCellStyle = new DataGridViewCellStyle
@@ -287,11 +287,11 @@ namespace BudgetExecution
                 {
                     if( dataRows?.CopyToDataTable()?.Columns?.Count > 0 )
                     {
-                        foreach( DataColumn column in dataRows.CopyToDataTable().Columns )
+                        foreach( DataColumn _dataColumn in dataRows.CopyToDataTable().Columns )
                         {
-                            foreach( DataGridViewColumn gridcol in Columns )
+                            foreach( DataGridViewColumn _gridViewColumn in Columns )
                             {
-                                gridcol.HeaderText = column.Caption;
+                                _gridViewColumn.HeaderText = _dataColumn.Caption;
                             }
                         }
                     }

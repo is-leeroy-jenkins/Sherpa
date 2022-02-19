@@ -52,7 +52,7 @@ namespace BudgetExecution
         {
             Name = Path.GetFileNameWithoutExtension( path );
             ImageBuilder = new ImageBuilder( Path.GetFullPath( path ) );
-            Size = ImageSizeMedium;
+            Size = ReSize( ImageSizer.Small );
             ImageSource = ImageBuilder.ImageSource;
             ImageFormat = ImageBuilder.ImageFormat;
             ImageFactory = new ImageFactory( ImageBuilder );
@@ -103,7 +103,7 @@ namespace BudgetExecution
         {
             Name = Path.GetFileNameWithoutExtension( path );
             ImageBuilder = new ImageBuilder( Name, source, ImageSizer.Medium );
-            Size = ImageSizeMedium;
+            Size = ReSize( ImageSizer.Medium );
             ImageSource = ImageBuilder.ImageSource;
             ImageFormat = ImageBuilder.ImageFormat;
             ImageFactory = new ImageFactory( ImageBuilder );
@@ -210,7 +210,7 @@ namespace BudgetExecution
             try
             {
                 return newColor != Color.Empty
-                    ? BudgetColor.GetColor( newColor )
+                    ? BudgetSetting.ReColor( newColor )
                     : Color.Empty;
             }
             catch( Exception ex )
@@ -225,7 +225,7 @@ namespace BudgetExecution
         /// Res the color.
         /// </summary>
         /// <param name="newColor">The new color.</param>
-        public void ReColor( Color newColor )
+        public void ReMapColor( Color newColor )
         {
             if( newColor != Color.Empty )
             {

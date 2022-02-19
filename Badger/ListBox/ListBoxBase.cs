@@ -335,7 +335,7 @@ namespace BudgetExecution
             where T2 : struct
         {
             if( Verify.IsSequence( data )
-                && Validate.IsField( field ) )
+                && Verify.IsField( field ) )
             {
                 try
                 {
@@ -364,9 +364,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

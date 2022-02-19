@@ -18,12 +18,12 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="ButtonBase" />
-    /// <seealso cref="IButton" />
+    /// <seealso cref="IBudgetButton" />
     /// <seealso cref="VisualPlus.Toolkit.Controls.Interactivity.VisualButton" />
     /// <seealso cref="IDisposable" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class BudgetButton : ButtonBase, IButton
+    public class BudgetButton : ButtonBase, IBudgetButton
     {
         /// <summary>
         /// Gets or sets the tool tip.
@@ -234,16 +234,17 @@ namespace BudgetExecution
         /// Sets the state of the back color. Required Attributes: BackColor, DisableColor,
         /// EnabledColor, HoverColor, and PressedColor
         /// </summary>
-        /// <param name="color">The format.</param>
-        public void SetBackColorStyle( Color color )
+        /// <param name="normal">The format.</param>
+        /// <param name = "hover" > </param>
+        public void SetBackColorStyle( Color normal, Color hover )
         {
             try
             {
-                BackColor = BudgetColor.GetColor( color  );
-                BackColorState.Disabled = color;
-                BackColorState.Enabled = color;
-                BackColorState.Hover = color;
-                BackColorState.Pressed = BudgetColor.GetColor( color  );
+                BackColor = normal;
+                BackColorState.Disabled = normal;
+                BackColorState.Enabled = normal;
+                BackColorState.Hover = hover;
+                BackColorState.Pressed = hover;
             }
             catch( Exception ex )
             {
@@ -254,13 +255,14 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the border configuration. Required Attributes: BorderColor, and HoverColor
         /// </summary>
-        /// <param name="color">The format.</param>
-        public void SetBorderStyle( Color color )
+        /// <param name="normal">The format.</param>
+        /// <param name = "hover" > </param>
+        public void SetBorderStyle( Color normal, Color hover )
         {
             try
             {
-                Border.Color = color;
-                Border.HoverColor = color;
+                Border.Color = normal;
+                Border.HoverColor = hover;
                 Border.HoverVisible = true;
                 Border.Type = ShapeTypes.Rounded;
                 Border.Thickness = 1;
@@ -275,8 +277,9 @@ namespace BudgetExecution
         /// Sets the text style configuration. Required Attributes: PressedColor,
         /// DisabledColor, EnabledColor, and HoverColor
         /// </summary>
-        /// <param name="color">The format.</param>
-        public void SetTextStyle( Color color )
+        /// <param name="normal">The format.</param>
+        /// <param name = "hover" > </param>
+        public void SetTextStyle( Color normal, Color hover )
         {
             try
             {
@@ -286,10 +289,10 @@ namespace BudgetExecution
                 {
                     TextLineAlignment = StringAlignment.Center,
                     TextAlignment = StringAlignment.Center,
-                    Hover = color,
-                    Enabled = color,
-                    Disabled = color,
-                    Pressed = color
+                    Hover = hover,
+                    Enabled = normal,
+                    Disabled = normal,
+                    Pressed = normal
                 };
             }
             catch( Exception ex )

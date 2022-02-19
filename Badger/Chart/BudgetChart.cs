@@ -77,7 +77,7 @@ namespace BudgetExecution
         {
             //Basic Control Properties
             Size = new Size( 600, 400 );
-            Location = BudgetSetting.GetLocation( );
+            Location = BudgetSetting.ReLocate( );
             ShowLegend = false;
             ShowToolbar = true;
             ToolBar.Orientation = ChartOrientation.Horizontal;
@@ -138,7 +138,7 @@ namespace BudgetExecution
             SpacingBetweenPoints = 5;
             SpacingBetweenSeries = 10;
             Style3D = true;
-            TextAlignment = BudgetAlign.GetStringAlignment( StringAlignment.Center );
+            TextAlignment = BudgetSetting.GetStringAlignment( StringAlignment.Center );
             TextPosition = ChartTextPosition.Top;
             Tilt = 5;
             ScrollPrecision = 100;
@@ -150,7 +150,7 @@ namespace BudgetExecution
             Legend.ItemsSize = new Size( 12, 12 );
             Legend.VisibleCheckBox = true;
             Legend.BackInterior = new BrushInfo( Color.FromArgb( 10, 10, 10 ) );
-            Legend.ItemsAlignment = BudgetAlign.GetStringAlignment( StringAlignment.Center );
+            Legend.ItemsAlignment = BudgetSetting.GetStringAlignment( StringAlignment.Center );
             Legend.ItemsTextAligment = VerticalAlignment.Center;
             Legend.Orientation = ChartOrientation.Vertical;
             Legend.FloatingAutoSize = true;

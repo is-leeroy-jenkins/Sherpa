@@ -61,7 +61,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tag = BudgetSetting.GetTag( tag );
+                Tag = BudgetSetting.ReTag( tag );
             }
             catch( Exception ex )
             {

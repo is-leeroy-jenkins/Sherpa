@@ -82,7 +82,7 @@ namespace BudgetExecution
         public BudgetProgressBar()
         {
             // Basic Properties
-            Size = BudgetSize.LabelControl;
+            Size = new Size( 200, 20 );
             ProgressStyle = ProgressBarStyles.Metro;
             Font = new Font( "Robot", 10  );
             Maximum = 100;

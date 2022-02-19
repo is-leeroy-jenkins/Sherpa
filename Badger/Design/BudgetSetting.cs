@@ -18,30 +18,6 @@ namespace BudgetExecution
     public class BudgetSetting
     {
         /// <summary>
-        /// Gets or sets the margin.
-        /// </summary>
-        /// <value>
-        /// The margin.
-        /// </value>
-        public static Padding Margin { get; set; } = new Padding( 3 );
-
-        /// <summary>
-        /// Gets or sets the padding.
-        /// </summary>
-        /// <value>
-        /// The padding.
-        /// </value>
-        public static Padding Padding { get; set; } = new Padding( 1 );
-
-        /// <summary>
-        /// Gets or sets the parent.
-        /// </summary>
-        /// <value>
-        /// The parent.
-        /// </value>
-        public static Control Parent { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="BudgetSetting"/> class.
         /// </summary>
         public BudgetSetting()
@@ -53,7 +29,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="tag">The tag.</param>
         /// <returns></returns>
-        public static object GetTag( object tag )
+        public static object ReTag( object tag )
         {
             if( tag != null )
             {
@@ -79,23 +55,88 @@ namespace BudgetExecution
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
         /// <returns></returns>
-        public static Size GetSize( int width = 1, int height = 1 )
+        public static Size ReSize( int width = 1, int height = 1 )
         {
-            if( width > -1 
-                && height > -1 )
+            try
+            {
+                return ( width > -1 && height > -1 ) 
+                    ? new Size( width, height )
+                    : new Size( 1, 1 );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return new Size( 1, 1 );
+            }
+        }
+
+        /// <summary>
+        /// Gets the size.
+        /// </summary>
+        /// <param name="size">The size.</param>
+        /// <returns></returns>
+        public static Size ReSize( Size size )
+        {
+            try
+            {
+                return ( size.Width > 0 && size.Height > 0 )
+                    ? size
+                    : new Size( 1, 1 );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return Size.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Gets the size.
+        /// </summary>
+        /// <param name="size">The size.</param>
+        /// <returns></returns>
+        public static Size ReSize( ImageSizer size )
+        {
+            if( Verify.IsImageSize( size ) )
             {
                 try
                 {
-                    return new Size( width, height  );
+                    return size switch
+                    {
+                        ImageSizer.Small => new Size( 16, 16 ),
+                        ImageSizer.Medium => new Size( 30, 30 ),
+                        ImageSizer.Large => new Size( 50 , 50 ),
+                        ImageSizer.Huge => new Size( 250, 250 ),
+                        _ => Size.Empty
+                    };
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return new Size( 1, 1 );
                 }
             }
 
-            return new Size( 1, 1 );
+            return Size.Empty;
+        }
+
+        /// <summary>
+        /// Gets the color.
+        /// </summary>
+        /// <param name="color">The color.</param>
+        /// <returns></returns>
+        public static Color ReColor( Color color )
+        {
+            try
+            {
+                return color != Color.Empty
+                    ? color
+                    : Color.Transparent;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return Color.Empty;
+            }
         }
 
         /// <summary>
@@ -105,20 +146,17 @@ namespace BudgetExecution
         /// <returns></returns>
         public static string GetText( string text )
         {
-            if( Verify.IsInput( text ) )
+            try
             {
-                try
-                {
-                    return text;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return string.Empty;
-                }
+                return !string.IsNullOrEmpty( text )
+                    ? text
+                    : string.Empty;
             }
-
-            return string.Empty;
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
         }
 
         /// <summary>
@@ -126,14 +164,14 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="anchor">The anchor.</param>
         /// <returns></returns>
-        public static AnchorStyles GetAnchorStyle( AnchorStyles anchor = AnchorStyles.Left 
+        public static AnchorStyles ReAnchor( AnchorStyles anchor = AnchorStyles.Left 
             | AnchorStyles.Top )
         {
             try
             {
                 return Enum.IsDefined( typeof( AnchorStyles ), anchor )
                     ? anchor
-                    : AnchorStyles.None;
+                    : AnchorStyles.Left | AnchorStyles.Top;
             }
             catch( Exception ex )
             {
@@ -147,49 +185,19 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="doc">The document.</param>
         /// <returns></returns>
-        public static DockStyle GetDockStyle( DockStyle doc = DockStyle.None )
+        public static DockStyle ReDock( DockStyle doc = DockStyle.None )
         {
-            if( Enum.IsDefined( typeof( DockStyle ), doc ) )
+            try
             {
-                try
-                {
-                    return Enum.IsDefined( typeof( DockStyle ), doc )
-                        ? doc
-                        : DockStyle.None;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return DockStyle.None;
-                }
+                return Enum.IsDefined( typeof( DockStyle ), doc )
+                    ? doc
+                    : DockStyle.None;
             }
-
-            return DockStyle.None;
-        }
-
-        /// <summary>
-        /// Gets the parent.
-        /// </summary>
-        /// <param name="control">The control.</param>
-        /// <returns></returns>
-        public static Control GetParent( Control control )
-        {
-            if( control != null )
+            catch( Exception ex )
             {
-                try
-                {
-                    return Parent.Controls.Contains( control )
-                        ? Parent
-                        : default( Control );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( Control );
-                }
+                Fail( ex );
+                return DockStyle.None;
             }
-
-            return default( Control );
         }
 
         /// <summary>
@@ -198,22 +206,19 @@ namespace BudgetExecution
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
         /// <returns></returns>
-        public static Point GetLocation( int x = 1, int y = 1 )
+        public static Point ReLocate( int x = 1, int y = 1 )
         {
-            if( x > -1
-                && y > -1 )
+            try
             {
-                try
-                {
-                    return new Point( x, y );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
+                return ( x > 0 && y > 0 )
+                    ? new Point( x, y )
+                    : new Point( 1, 1 );
             }
-
-            return default( Point );
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return Point.Empty;
+            }
         }
 
         /// <summary>
@@ -221,14 +226,16 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="point">The point.</param>
         /// <returns></returns>
-        public static Point GetLocation( Point point )
+        public static Point ReLocate( Point point )
         {
             if( point.X > -1
                 && point.Y > -1 )
             {
                 try
                 {
-                    return point;
+                    return ( point.X > 0 && point.Y > 0 )
+                        ? point
+                        : new Point( 1, 1 );
                 }
                 catch( Exception ex )
                 {
@@ -241,31 +248,72 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the size.
+        /// Gets the font.
         /// </summary>
+        /// <param name="family">The family.</param>
         /// <param name="size">The size.</param>
+        /// <param name="style">The style.</param>
         /// <returns></returns>
-        public static Size GetSize( Size size )
+        public static Font GetFont( string family = "Roboto", int size = 9,
+            FontStyle style = FontStyle.Regular )
         {
-            if( size.Width > 0
-                && size.Width < BudgetSize.FormSizeMaximum.Width
-                && size.Height > 0
-                && size.Height < BudgetSize.FormSizeMaximum.Height )
+            try
             {
-                try
-                {
-                    return size;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return Size.Empty;
-                }
+                return !string.IsNullOrEmpty( family ) 
+                    && size > 0 
+                    && Enum.IsDefined( typeof( FontStyle ), style )
+                        ? new Font( family, size, style )
+                        : new Font( "Roboto", 9, FontStyle.Regular );
             }
-
-            return Size.Empty;
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( Font );
+            }
         }
-        
+
+        /// <summary>
+        /// Gets the font.
+        /// </summary>
+        /// <param name="font">The font.</param>
+        /// <returns></returns>
+        public static Font GetFont( Font font )
+        {
+            try
+            {
+                return Verify.IsInput( font?.FontFamily?.Name )
+                    ? font
+                    : new Font( "Roboto", 9 , FontStyle.Regular );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( Font );
+            }
+        }
+
+        /// <summary>
+        /// Gets the style.
+        /// </summary>
+        /// <param name="style">
+        /// The style.
+        /// </param>
+        /// <returns></returns>
+        public static BorderStyle ReStyleBorder( BorderStyle style = BorderStyle.None )
+        {
+            try
+            {
+                return Enum.IsDefined( typeof( BorderStyle ), style )
+                    ? style
+                    : BorderStyle.None;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return BorderStyle.None;
+            }
+        }
+
         /// <summary>
         /// Gets the tool tip.
         /// </summary>
@@ -275,7 +323,7 @@ namespace BudgetExecution
         public static ToolTip GetToolTip( Control control, string text )
         {
             if( control != null
-                && Verify.IsInput( text ) )
+                && !string.IsNullOrEmpty( text ) )
             {
                 try
                 {
@@ -289,6 +337,52 @@ namespace BudgetExecution
             }
 
             return default( ToolTip );
+        }
+
+        /// <summary>
+        /// Sets the color.
+        /// </summary>
+        /// <param name = "alignment" >
+        /// The alignment.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        public static StringAlignment GetStringAlignment( StringAlignment alignment = StringAlignment.Center)
+        {
+            try
+            {
+                return Enum.IsDefined( typeof( StringAlignment ), alignment )
+                    ? alignment
+                    : StringAlignment.Center;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( StringAlignment );
+            }
+        }
+
+        /// <summary>
+        /// Sets the string alignment.
+        /// </summary>
+        /// <param name = "alignment" >
+        /// The alignment.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        public static HorizontalAlignment GetHorizontalAlignment( HorizontalAlignment alignment = HorizontalAlignment.Center )
+        {
+            try
+            {
+                return Enum.IsDefined( typeof( HorizontalAlignment ), alignment )
+                    ? alignment
+                    : HorizontalAlignment.Center;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( HorizontalAlignment );
+            }
         }
 
         /// <summary>

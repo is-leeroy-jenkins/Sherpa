@@ -16,7 +16,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="ChartSeries" />
     /// <seealso cref="ISeriesConfig" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class SeriesConfig : ChartSeries, ISeriesConfig
     {
@@ -297,9 +297,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }

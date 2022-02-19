@@ -135,7 +135,7 @@ namespace BudgetExecution
         {
             try
             {
-                Location = BudgetSetting.GetLocation( point );
+                Location = BudgetSetting.ReLocate( point );
             }
             catch( Exception ex )
             {
@@ -152,7 +152,7 @@ namespace BudgetExecution
         {
             try
             {
-                Location = BudgetSetting.GetLocation( x, y );
+                Location = BudgetSetting.ReLocate( x, y );
             }
             catch( Exception ex )
             {
@@ -184,7 +184,7 @@ namespace BudgetExecution
         {
             try
             {
-                Anchor = BudgetSetting.GetAnchorStyle( anchor );
+                Anchor = BudgetSetting.ReAnchor( anchor );
             }
             catch( Exception ex )
             {
@@ -200,7 +200,7 @@ namespace BudgetExecution
         {
             try
             {
-                Dock = BudgetSetting.GetDockStyle( dock );
+                Dock = BudgetSetting.ReDock( dock );
             }
             catch( Exception ex )
             {
@@ -232,7 +232,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tag = BudgetSetting.GetTag( tag );
+                Tag = BudgetSetting.ReTag( tag );
             }
             catch( Exception ex )
             {
@@ -328,10 +328,12 @@ namespace BudgetExecution
                     {
                         var _name = Path.GetFileNameWithoutExtension( _paths[ i ] );
                         using var _stream = File.Open( _paths[ i ], FileMode.Open );
+
                         var _img = new Bitmap( _stream )
                         {
                             Tag = _name
                         };
+
                         _list.ImageSize = size;
                         _list?.Images?.Add( _img );
                     }
@@ -364,10 +366,12 @@ namespace BudgetExecution
                     {
                         using var _stream = File.Open( _list[ i ], FileMode.Open );
                         using var _img = new Bitmap( _stream );
+
                         var _carouselImage = new CarouselImage
                         {
                             ItemImage = _img
                         };
+
                         _carouselImages.Add( _carouselImage );
                     }
                 }
@@ -386,9 +390,9 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var error = new Error( ex );
-            error?.SetText();
-            error?.ShowDialog();
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }
