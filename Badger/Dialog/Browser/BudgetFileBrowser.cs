@@ -7,6 +7,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Drawing;
+    using System.Windows.Forms;
 
     public partial class BudgetFileBrowser : FormBase
     {
@@ -14,6 +15,7 @@ namespace BudgetExecution
         {
             InitializeComponent();
             Size = new Size( 812, 486 );
+            FormBorderStyle = FormBorderStyle.FixedSingle;
         }
     }
 }

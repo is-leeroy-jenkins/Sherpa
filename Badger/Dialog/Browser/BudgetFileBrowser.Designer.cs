@@ -40,7 +40,6 @@ namespace BudgetExecution
             {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BudgetFileBrowser));
-            this.BottomTable = new System.Windows.Forms.TableLayoutPanel();
             this.TextBoxLayout = new System.Windows.Forms.TableLayoutPanel();
             this.TextBox = new VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox();
             this.CheckBoxLayout = new System.Windows.Forms.TableLayoutPanel();
@@ -54,32 +53,13 @@ namespace BudgetExecution
             this.PdfCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.WordCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.Dialog = new System.Windows.Forms.OpenFileDialog();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.OpenButton = new BudgetExecution.BudgetButton();
             this.CloseButton = new BudgetExecution.BudgetButton();
-            this.BottomTable.SuspendLayout();
             this.TextBoxLayout.SuspendLayout();
             this.CheckBoxLayout.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // BottomTable
-            // 
-            this.BottomTable.BackColor = System.Drawing.Color.Transparent;
-            this.BottomTable.ColumnCount = 3;
-            this.BottomTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.1938F));
-            this.BottomTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.8062F));
-            this.BottomTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 299F));
-            this.BottomTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.BottomTable.Controls.Add(this.CloseButton, 2, 0);
-            this.BottomTable.Controls.Add(this.OpenButton, 0, 0);
-            this.BottomTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BottomTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.BottomTable.Location = new System.Drawing.Point(1, 436);
-            this.BottomTable.Name = "BottomTable";
-            this.BottomTable.RowCount = 2;
-            this.BottomTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.BottomTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.BottomTable.Size = new System.Drawing.Size(686, 81);
-            this.BottomTable.TabIndex = 3;
             // 
             // TextBoxLayout
             // 
@@ -586,12 +566,33 @@ namespace BudgetExecution
             // 
             this.Dialog.Filter = "Document FIles | *.PDF | *.DOCX | *.DOC ";
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 176F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 14F));
+            this.tableLayoutPanel1.Controls.Add(this.CloseButton, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.OpenButton, 2, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 411);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.03773F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.09434F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.92453F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(686, 106);
+            this.tableLayoutPanel1.TabIndex = 8;
+            // 
             // OpenButton
             // 
             this.OpenButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.OpenButton.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.OpenButton.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.OpenButton.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.OpenButton.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.OpenButton.BackColorState.Pressed = System.Drawing.Color.SteelBlue;
             this.OpenButton.BindingSource = null;
             this.OpenButton.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
@@ -610,11 +611,11 @@ namespace BudgetExecution
             this.OpenButton.HoverText = null;
             this.OpenButton.Image = null;
             this.OpenButton.Images = null;
-            this.OpenButton.Location = new System.Drawing.Point(0, 0);
+            this.OpenButton.Location = new System.Drawing.Point(104, 17);
             this.OpenButton.Margin = new System.Windows.Forms.Padding(0);
             this.OpenButton.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.OpenButton.Name = "OpenButton";
-            this.OpenButton.Size = new System.Drawing.Size(291, 73);
+            this.OpenButton.Size = new System.Drawing.Size(200, 69);
             this.OpenButton.TabIndex = 6;
             this.OpenButton.Text = "Open";
             this.OpenButton.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
@@ -632,7 +633,7 @@ namespace BudgetExecution
             this.CloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.CloseButton.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.CloseButton.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.CloseButton.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.CloseButton.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CloseButton.BackColorState.Pressed = System.Drawing.Color.SteelBlue;
             this.CloseButton.BindingSource = null;
             this.CloseButton.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
@@ -651,11 +652,11 @@ namespace BudgetExecution
             this.CloseButton.HoverText = null;
             this.CloseButton.Image = null;
             this.CloseButton.Images = null;
-            this.CloseButton.Location = new System.Drawing.Point(386, 0);
+            this.CloseButton.Location = new System.Drawing.Point(379, 17);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(0);
             this.CloseButton.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(300, 73);
+            this.CloseButton.Size = new System.Drawing.Size(176, 69);
             this.CloseButton.TabIndex = 7;
             this.CloseButton.Text = "Close";
             this.CloseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
@@ -679,7 +680,7 @@ namespace BudgetExecution
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.ClientSize = new System.Drawing.Size(688, 518);
             this.Controls.Add(this.TextBoxLayout);
-            this.Controls.Add(this.BottomTable);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.LightSteelBlue;
@@ -692,9 +693,9 @@ namespace BudgetExecution
             this.ShowMinimizeBox = false;
             this.ShowMouseOver = true;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.BottomTable.ResumeLayout(false);
             this.TextBoxLayout.ResumeLayout(false);
             this.CheckBoxLayout.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
             }
@@ -715,7 +716,7 @@ namespace BudgetExecution
             public VisualCheckBox SqliteCheckBox;
             public VisualCheckBox SqlCeCheckBox;
             public VisualCheckBox PowerPointCheckBox;
-        public TableLayoutPanel BottomTable;
+        private TableLayoutPanel tableLayoutPanel1;
         private BudgetButton CloseButton;
         private BudgetButton OpenButton;
     }
