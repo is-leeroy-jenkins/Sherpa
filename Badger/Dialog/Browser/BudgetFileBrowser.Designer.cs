@@ -53,12 +53,13 @@ namespace BudgetExecution
             this.PdfCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.WordCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.Dialog = new System.Windows.Forms.OpenFileDialog();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.BottomPanel = new System.Windows.Forms.TableLayoutPanel();
             this.OpenButton = new BudgetExecution.BudgetButton();
             this.CloseButton = new BudgetExecution.BudgetButton();
+            this.budgetLabel1 = new BudgetExecution.BudgetLabel();
             this.TextBoxLayout.SuspendLayout();
             this.CheckBoxLayout.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.BottomPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // TextBoxLayout
@@ -68,9 +69,9 @@ namespace BudgetExecution
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
             this.TextBoxLayout.ColumnCount = 4;
-            this.TextBoxLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.46559F));
-            this.TextBoxLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.82578F));
-            this.TextBoxLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.TextBoxLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.26379F));
+            this.TextBoxLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.89568F));
+            this.TextBoxLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 13F));
             this.TextBoxLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.70863F));
             this.TextBoxLayout.Controls.Add(this.TextBox, 1, 0);
             this.TextBoxLayout.Controls.Add(this.CheckBoxLayout, 3, 0);
@@ -99,7 +100,7 @@ namespace BudgetExecution
             this.TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TextBox.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBox.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.TextBox.Location = new System.Drawing.Point(102, 6);
+            this.TextBox.Location = new System.Drawing.Point(95, 6);
             this.TextBox.Margin = new System.Windows.Forms.Padding(5);
             this.TextBox.MaxLength = 2147483647;
             this.TextBox.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
@@ -107,7 +108,7 @@ namespace BudgetExecution
             this.TextBox.ReadOnly = false;
             this.TextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Both;
             this.TextBox.ShowSelectionMargin = false;
-            this.TextBox.Size = new System.Drawing.Size(449, 308);
+            this.TextBox.Size = new System.Drawing.Size(459, 308);
             this.TextBox.TabIndex = 0;
             this.TextBox.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             this.TextBox.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -566,26 +567,26 @@ namespace BudgetExecution
             // 
             this.Dialog.Filter = "Document FIles | *.PDF | *.DOCX | *.DOC ";
             // 
-            // tableLayoutPanel1
+            // BottomPanel
             // 
-            this.tableLayoutPanel1.ColumnCount = 6;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 176F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 14F));
-            this.tableLayoutPanel1.Controls.Add(this.CloseButton, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.OpenButton, 2, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 411);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.03773F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.09434F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.92453F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(686, 106);
-            this.tableLayoutPanel1.TabIndex = 8;
+            this.BottomPanel.ColumnCount = 6;
+            this.BottomPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.BottomPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.BottomPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 224F));
+            this.BottomPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
+            this.BottomPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
+            this.BottomPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.BottomPanel.Controls.Add(this.OpenButton, 2, 1);
+            this.BottomPanel.Controls.Add(this.CloseButton, 4, 1);
+            this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BottomPanel.Location = new System.Drawing.Point(1, 375);
+            this.BottomPanel.Name = "BottomPanel";
+            this.BottomPanel.RowCount = 3;
+            this.BottomPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.57747F));
+            this.BottomPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.92958F));
+            this.BottomPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.78873F));
+            this.BottomPanel.Size = new System.Drawing.Size(686, 142);
+            this.BottomPanel.TabIndex = 8;
             // 
             // OpenButton
             // 
@@ -607,20 +608,20 @@ namespace BudgetExecution
             this.OpenButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OpenButton.Field = BudgetExecution.Field.NS;
             this.OpenButton.Font = new System.Drawing.Font("Roboto", 9F);
-            this.OpenButton.ForeColor = System.Drawing.Color.LightGray;
+            this.OpenButton.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.OpenButton.HoverText = null;
             this.OpenButton.Image = null;
             this.OpenButton.Images = null;
-            this.OpenButton.Location = new System.Drawing.Point(104, 17);
+            this.OpenButton.Location = new System.Drawing.Point(47, 42);
             this.OpenButton.Margin = new System.Windows.Forms.Padding(0);
             this.OpenButton.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.OpenButton.Name = "OpenButton";
-            this.OpenButton.Size = new System.Drawing.Size(200, 69);
+            this.OpenButton.Size = new System.Drawing.Size(224, 78);
             this.OpenButton.TabIndex = 6;
             this.OpenButton.Text = "Open";
             this.OpenButton.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.OpenButton.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.OpenButton.TextStyle.Enabled = System.Drawing.Color.LightGray;
+            this.OpenButton.TextStyle.Enabled = System.Drawing.Color.LightSteelBlue;
             this.OpenButton.TextStyle.Hover = System.Drawing.Color.White;
             this.OpenButton.TextStyle.Pressed = System.Drawing.Color.White;
             this.OpenButton.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -648,26 +649,64 @@ namespace BudgetExecution
             this.CloseButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CloseButton.Field = BudgetExecution.Field.NS;
             this.CloseButton.Font = new System.Drawing.Font("Roboto", 9F);
-            this.CloseButton.ForeColor = System.Drawing.Color.LightGray;
+            this.CloseButton.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.CloseButton.HoverText = null;
             this.CloseButton.Image = null;
             this.CloseButton.Images = null;
-            this.CloseButton.Location = new System.Drawing.Point(379, 17);
+            this.CloseButton.Location = new System.Drawing.Point(419, 42);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(0);
             this.CloseButton.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(176, 69);
+            this.CloseButton.Size = new System.Drawing.Size(215, 78);
             this.CloseButton.TabIndex = 7;
             this.CloseButton.Text = "Close";
             this.CloseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.CloseButton.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.CloseButton.TextStyle.Enabled = System.Drawing.Color.LightGray;
+            this.CloseButton.TextStyle.Enabled = System.Drawing.Color.LightSteelBlue;
             this.CloseButton.TextStyle.Hover = System.Drawing.Color.White;
             this.CloseButton.TextStyle.Pressed = System.Drawing.Color.White;
             this.CloseButton.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
             this.CloseButton.TextStyle.TextLineAlignment = System.Drawing.StringAlignment.Center;
             this.CloseButton.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.CloseButton.ToolTip = null;
+            // 
+            // budgetLabel1
+            // 
+            this.budgetLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.budgetLabel1.BindingSource = null;
+            this.budgetLabel1.DataFilter = null;
+            this.budgetLabel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.budgetLabel1.Field = BudgetExecution.Field.NS;
+            this.budgetLabel1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.budgetLabel1.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.budgetLabel1.HoverText = null;
+            this.budgetLabel1.Location = new System.Drawing.Point(1, 1);
+            this.budgetLabel1.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.budgetLabel1.Name = "budgetLabel1";
+            this.budgetLabel1.Numeric = BudgetExecution.Numeric.NS;
+            this.budgetLabel1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.budgetLabel1.Outline = false;
+            this.budgetLabel1.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.budgetLabel1.OutlineLocation = new System.Drawing.Point(0, 0);
+            this.budgetLabel1.ReflectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.budgetLabel1.ReflectionSpacing = 0;
+            this.budgetLabel1.ShadowColor = System.Drawing.Color.Black;
+            this.budgetLabel1.ShadowDirection = 315;
+            this.budgetLabel1.ShadowLocation = new System.Drawing.Point(0, 0);
+            this.budgetLabel1.ShadowOpacity = 100;
+            this.budgetLabel1.Size = new System.Drawing.Size(686, 23);
+            this.budgetLabel1.TabIndex = 9;
+            this.budgetLabel1.Text = "Budget Execution";
+            this.budgetLabel1.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.budgetLabel1.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            this.budgetLabel1.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            this.budgetLabel1.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.budgetLabel1.TextStyle.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.budgetLabel1.TextStyle.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.budgetLabel1.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.budgetLabel1.TextStyle.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            this.budgetLabel1.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.budgetLabel1.ToolTip = null;
             // 
             // BudgetFileBrowser
             // 
@@ -679,14 +718,15 @@ namespace BudgetExecution
             this.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.ClientSize = new System.Drawing.Size(688, 518);
+            this.Controls.Add(this.budgetLabel1);
+            this.Controls.Add(this.BottomPanel);
             this.Controls.Add(this.TextBoxLayout);
-            this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(700, 550);
             this.MinimizeBox = false;
             this.Name = "BudgetFileBrowser";
             this.ShowMaximizeBox = false;
@@ -695,7 +735,7 @@ namespace BudgetExecution
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.TextBoxLayout.ResumeLayout(false);
             this.CheckBoxLayout.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.BottomPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
             }
@@ -716,9 +756,10 @@ namespace BudgetExecution
             public VisualCheckBox SqliteCheckBox;
             public VisualCheckBox SqlCeCheckBox;
             public VisualCheckBox PowerPointCheckBox;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel BottomPanel;
         private BudgetButton CloseButton;
         private BudgetButton OpenButton;
+        private BudgetLabel budgetLabel1;
     }
     
 }
