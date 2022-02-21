@@ -244,17 +244,17 @@ ServiceFabricBackup/
 *.rptproj.bak
 
 # MS SQL Server files
-#*.mdf
-#*.ldf
-#*.ndf
-#*.sdf
+*.mdf
+*.ldf
+*.ndf
+*.sdf
 
 # MS Access Database files
 #*.accdb
-#*.mdb
+*.mdb
 
 # SQLite Database files
-#*.db
+*.db
 
 # Budget Execution Files
 #*.exe
