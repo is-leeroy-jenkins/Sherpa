@@ -46,7 +46,7 @@
             this.TextBox.Border.Type = VisualPlus.Enumerators.ShapeTypes.Rounded;
             this.TextBox.Border.Visible = true;
             this.TextBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBox.ForeColor = System.Drawing.Color.LightGray;
+            this.TextBox.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.TextBox.Location = new System.Drawing.Point(76, 68);
             this.TextBox.MaxLength = 2147483647;
             this.TextBox.MouseState = VisualPlus.Enumerators.MouseStates.Normal;

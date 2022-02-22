@@ -32,14 +32,14 @@ namespace BudgetExecution
 
             // Header Cell Style Properties
             ThemeStyle.HeaderCellStyle.HoverBackColor = Color.FromArgb( 45, 45, 45 );
-            ThemeStyle.HeaderCellStyle.HoverTextColor = Color.LightGray;
+            ThemeStyle.HeaderCellStyle.HoverTextColor = Color.LightSteelBlue;
             ThemeStyle.HeaderCellStyle.PressedBackColor = Color.SteelBlue;
             ThemeStyle.HeaderCellStyle.PressedTextColor = Color.White;
 
             // Value Cell Style Properties
             ThemeStyle.ValueCellStyle.Font = new Font( "Roboto", 9 );
             ThemeStyle.ValueCellStyle.BackColor = Color.FromArgb( 18, 18, 18 );
-            ThemeStyle.ValueCellStyle.TextColor = Color.LightGray;
+            ThemeStyle.ValueCellStyle.TextColor = Color.LightSteelBlue;
 
             // Summary Cell Style Properties
             ThemeStyle.SummaryCellStyle.Font = new Font( "Roboto", 9, FontStyle.Bold );

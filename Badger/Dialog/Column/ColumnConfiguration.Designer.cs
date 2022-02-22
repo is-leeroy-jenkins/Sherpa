@@ -67,7 +67,7 @@ namespace BudgetExecution
             // ColumnConfigPanel
             // 
             this.ColumnConfigPanel.Controls.Add(this.ColumnListBox);
-            this.ColumnConfigPanel.ForeColor = System.Drawing.Color.LightGray;
+            this.ColumnConfigPanel.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.ColumnConfigPanel.Location = new System.Drawing.Point(25, 23);
             this.ColumnConfigPanel.Name = "ColumnConfigPanel";
             this.ColumnConfigPanel.Padding = new System.Windows.Forms.Padding(1);
@@ -94,7 +94,7 @@ namespace BudgetExecution
             this.ClientSize = new System.Drawing.Size(238, 314);
             this.Controls.Add(this.ColumnConfigPanel);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.LightGray;
+            this.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.MaximumSize = new System.Drawing.Size(250, 350);
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.MinimumSize = new System.Drawing.Size(250, 350);

@@ -94,7 +94,7 @@ namespace BudgetExecution
             this.ClientSize = new System.Drawing.Size(915, 657);
             this.Controls.Add(this.DocumentViewer);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.LightGray;
+            this.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.Name = "BudgetPdfForm";
             this.ShowIcon = false;

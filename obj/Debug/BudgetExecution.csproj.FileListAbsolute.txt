@@ -422,3 +422,5 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.Ass
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetFileBrowser.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetTabForm.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.ColumnConfiguration.resources
+C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\DarkUI.dll
+C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\DarkUI.pdb

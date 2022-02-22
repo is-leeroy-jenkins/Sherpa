@@ -63,7 +63,7 @@ namespace BudgetExecution
             this.BackPanel.Border.Type = VisualPlus.Enumerators.ShapeTypes.Rounded;
             this.BackPanel.Border.Visible = true;
             this.BackPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BackPanel.ForeColor = System.Drawing.Color.LightGray;
+            this.BackPanel.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.BackPanel.Location = new System.Drawing.Point(1, 403);
             this.BackPanel.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.BackPanel.Name = "BackPanel";
@@ -108,7 +108,7 @@ namespace BudgetExecution
             this.TextBox.Border.Type = VisualPlus.Enumerators.ShapeTypes.Rounded;
             this.TextBox.Border.Visible = true;
             this.TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TextBox.ForeColor = System.Drawing.Color.LightGray;
+            this.TextBox.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.TextBox.Location = new System.Drawing.Point(86, 4);
             this.TextBox.MaxLength = 2147483647;
             this.TextBox.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
@@ -196,7 +196,7 @@ namespace BudgetExecution
             this.Controls.Add(this.Table);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.LightGray;
+            this.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

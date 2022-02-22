@@ -98,7 +98,7 @@ namespace BudgetExecution
             GridLineStyle = GridLineStyle.Dashed;
             DisplayTextFont = new Font( "Roboto", 9 );
             DisplayTextOnEmpty = false;
-            DisplayTextColor = Color.LightGray;
+            DisplayTextColor = Color.LightSteelBlue;
             FullRowSelect = true;
             AllowColumnResize = true;
             AlternatingColors = false;

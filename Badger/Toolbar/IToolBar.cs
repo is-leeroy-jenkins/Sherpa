@@ -14,7 +14,7 @@ namespace BudgetExecution
         /// Gets the buttons.
         /// </summary>
         /// <returns></returns>
-        IDictionary<string, BarButton> GetButtons();
+        IDictionary<string, BudgetToolButton> GetButtons();
 
         /// <summary>
         /// Creates the button.
@@ -24,28 +24,28 @@ namespace BudgetExecution
         /// </param>
         /// <returns>
         /// </returns>
-        BarButton CreateButton( string imageName );
+        BudgetToolButton CreateButton( string imageName );
 
         /// <summary>
         /// Creates the label.
         /// </summary>
         /// <returns>
         /// </returns>
-        BarLabel CreateLabel();
+        BudgetToolStripLabel CreateLabel();
 
         /// <summary>
         /// Creates the ComboBox.
         /// </summary>
         /// <returns>
         /// </returns>
-        BarComboBox CreateComboBox();
+        BudgetToolStripComboBox CreateComboBox();
 
         /// <summary>
         /// Creates the text box.
         /// </summary>
         /// <returns>
         /// </returns>
-        BarTextBox CreateTextBox();
+        BudgetToolStripTextBox CreateTextBox();
 
         /// <summary>
         /// Sets the field.

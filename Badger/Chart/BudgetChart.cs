@@ -97,7 +97,7 @@ namespace BudgetExecution
             BackInterior = new BrushInfo( Color.FromArgb( 18, 18, 18 ) );
             BackColor = Color.FromArgb( 18, 18, 18 );
 
-            ChartInterior = new BrushInfo( GradientStyle.PathRectangle, Color.LightGray,
+            ChartInterior = new BrushInfo( GradientStyle.PathRectangle, Color.LightSteelBlue,
                 Color.FromArgb( 18, 18, 18 ) );
 
             CalcRegions = true;

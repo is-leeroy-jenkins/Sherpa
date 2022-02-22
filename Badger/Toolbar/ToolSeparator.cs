@@ -16,7 +16,7 @@ namespace BudgetExecution
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "BarLabel"/>
+        /// <see cref = "BudgetToolStripLabel"/>
         /// class.
         /// </summary>
         public ToolSeparator()

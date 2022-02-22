@@ -114,7 +114,7 @@ namespace BudgetExecution
             // Text SeriesConfiguration
             TextStyle.Pressed = Color.White;
             TextStyle.Disabled = Color.FromArgb( 18, 18, 18 );
-            TextStyle.Enabled = Color.LightGray;
+            TextStyle.Enabled = Color.LightSteelBlue;
             TextStyle.Hover = Color.White;
             TextStyle.TextAlignment = StringAlignment.Center;
             TextStyle.TextLineAlignment = StringAlignment.Center;
