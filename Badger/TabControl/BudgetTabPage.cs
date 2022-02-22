@@ -17,8 +17,8 @@ namespace BudgetExecution
             Margin = new Padding( 3 );
             Font = new Font( "Roboto", 9  );
             ForeColor = Color.LightSteelBlue;
-            BackColor = Color.FromArgb( 15, 15, 15 );
-            TabBackColor = Color.FromArgb( 15, 15, 15 );
+            BackColor = Color.FromArgb( 18, 18, 18 );
+            TabBackColor = Color.FromArgb( 18, 18, 18 );
             BorderStyle = BorderStyle.None;
             TabFont = new Font( "Roboto", 8, FontStyle.Bold );
             TabForeColor = Color.White;

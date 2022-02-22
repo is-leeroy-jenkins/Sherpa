@@ -88,19 +88,19 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form Property Values
-            Size = new Size( 1200, 800 );
-            BackColor = Color.FromArgb( 15, 15, 15 );
+            Size = new Size( 1200, 700 );
+            BackColor = Color.FromArgb( 18, 18, 18 );
             BorderThickness = 1;
             BorderColor = Color.SteelBlue;
             Font = new Font( "Roboto", 9 );
-            CaptionBarColor = Color.FromArgb( 15, 15, 15 );
+            CaptionBarColor = Color.FromArgb( 18, 18, 18 );
             CaptionBarHeight = 26;
             CaptionButtonColor = Color.FromArgb( 80, 80, 80 );
             CaptionButtonHoverColor = Color.White;
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 11 );
             CaptionBarHeight = 26;
-            MetroColor = Color.FromArgb( 15, 15, 15 );
+            MetroColor = Color.FromArgb( 18, 18, 18 );
             FormBorderStyle = FormBorderStyle.Sizable;
             Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 16, 16 );
             ShowIcon = false;
@@ -115,7 +115,7 @@ namespace BudgetExecution
 
             Chart.Location = new Point( Size.Width / 10, Size.Height / 10 );
             Chart.Name = "Budget Execution Chart";
-            Chart.BackColor = Color.FromArgb( 15, 15, 15 );
+            Chart.BackColor = Color.FromArgb( 18, 18, 18 );
             Chart.ForeColor = Color.LightSteelBlue;
             Chart.Font = new Font( "Roboto", 9 );
             Chart.BorderAppearance.BaseColor = Color.Transparent;

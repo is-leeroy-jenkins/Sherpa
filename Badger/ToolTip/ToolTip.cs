@@ -23,7 +23,7 @@ namespace BudgetExecution
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";
             Style = Style.Custom;
-            BackColor = Color.FromArgb( 15, 15, 15 );
+            BackColor = Color.FromArgb( 18, 18, 18 );
             BorderColor = Color.SteelBlue;
             ForeColor = Color.LightSteelBlue;
             UseAnimation = true;

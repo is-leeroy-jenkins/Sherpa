@@ -124,7 +124,7 @@ namespace BudgetExecution
             Border.HoverVisible = true;
 
             // BackColor SeriesConfiguration.
-            BackColorState.Disabled = Color.FromArgb( 15, 15, 15 );
+            BackColorState.Disabled = Color.FromArgb( 18, 18, 18 );
             BackColorState.Enabled = Color.FromArgb( 45, 45, 45 );
 
             // Text SeriesConfiguration.
@@ -281,11 +281,11 @@ namespace BudgetExecution
 
                     case false:
                     {
-                        Border.Color = Color.FromArgb( 15, 15, 15 );
+                        Border.Color = Color.FromArgb( 18, 18, 18 );
                         Border.Thickness = 1;
-                        Border.HoverColor = Color.FromArgb( 15, 15, 15 );
+                        Border.HoverColor = Color.FromArgb( 18, 18, 18 );
                         Border.HoverVisible = false;
-                        SeparatorColor = Color.FromArgb( 15, 15, 15 );
+                        SeparatorColor = Color.FromArgb( 18, 18, 18 );
                         Separate = false;
                         Border.Type = ShapeTypes.Rounded;
                         break;

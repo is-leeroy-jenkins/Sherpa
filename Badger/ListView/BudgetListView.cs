@@ -108,10 +108,10 @@ namespace BudgetExecution
             ItemSelectedTextColor = Color.White;
 
             // BackColor SeriesConfiguration
-            BackColor = Color.FromArgb( 15, 15, 15 );
+            BackColor = Color.FromArgb( 18, 18, 18 );
             ForeColor = Color.LightSteelBlue;
-            BackColorState.Disabled = Color.FromArgb( 15, 15, 15 );
-            BackColorState.Enabled = Color.FromArgb( 15, 15, 15 );
+            BackColorState.Disabled = Color.FromArgb( 18, 18, 18 );
+            BackColorState.Enabled = Color.FromArgb( 18, 18, 18 );
 
             // Border SeriesConfiguration
             Border.Color = SystemColors.WindowFrame;
@@ -256,7 +256,7 @@ namespace BudgetExecution
 
                     case false:
                     {
-                        Border.Color = Color.FromArgb( 15, 15, 15 );
+                        Border.Color = Color.FromArgb( 18, 18, 18 );
                         Border.Thickness = 1;
                         Border.HoverColor = Color.SteelBlue;
                         Border.HoverVisible = false;

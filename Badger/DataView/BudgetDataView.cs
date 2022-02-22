@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetDataView()
         {
-            BackColor = Color.FromArgb( 15, 15, 15 );
+            BackColor = Color.FromArgb( 18, 18, 18 );
             ShowBusyIndicator = true;
             ShowErrorIcon = true;
             ShowGroupDropArea = true;

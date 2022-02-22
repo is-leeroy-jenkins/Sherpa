@@ -113,7 +113,7 @@ namespace BudgetExecution
                 Style.Callout.Position = LabelPosition.Top;
                 Style.Callout.DisplayTextAndFormat = "{0} : {2}";
                 Style.Callout.Border.Color = Color.SteelBlue;
-                Style.Callout.Color = Color.FromArgb( 15, 15, 15 );
+                Style.Callout.Color = Color.FromArgb( 18, 18, 18 );
                 Style.Callout.Font = ChartConfig.SetFont();
                 Style.DisplayText = true;
             }

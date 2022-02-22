@@ -78,7 +78,7 @@ namespace BudgetExecution
         public BudgetClock()
         {
             // Basic Properties
-            BackColor = Color.FromArgb( 15, 15, 15 );
+            BackColor = Color.FromArgb( 18, 18, 18 );
             BorderColor = BackColor;
             ForeColor = Color.FromArgb( 141, 139, 138 );
             Font = new Font( "Roboto", 9 );

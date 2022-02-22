@@ -44,7 +44,7 @@ namespace BudgetExecution
         {
             Margin = new Padding( 5, 5, 5, 0 );
             Padding = new Padding( 1, 1, 1, 0 );
-            BackColor = Color.FromArgb( 15, 15, 15 );
+            BackColor = Color.FromArgb( 18, 18, 18 );
             ForeColor = Color.White;
             Font = new Font( "Roboto", 9 );
             OfficeColorScheme = ColorScheme.Black;
