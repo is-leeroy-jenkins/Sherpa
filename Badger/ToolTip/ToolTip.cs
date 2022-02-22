@@ -9,7 +9,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.ComponentModel;
     using System.Windows.Forms;
-    using MetroSet_UI.Design;
     using MetroSet_UI.Enums;
 
     public class ToolTip : TipBase

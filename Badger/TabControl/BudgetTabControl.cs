@@ -31,7 +31,7 @@ namespace BudgetExecution
             BorderVisible = false;
             ThemesEnabled = true;
             ActiveTabColor = Color.SteelBlue;
-            ActiveTabFont = new Font( "Roboto", 8, FontStyle.Regular  );
+            ActiveTabFont = new Font( "Roboto", 9, FontStyle.Regular  );
             ActiveTabForeColor = Color.White;
             InActiveTabForeColor = Color.FromArgb( 18, 18, 18 );
             InactiveTabColor = Color.FromArgb( 18, 18, 18 );
@@ -47,7 +47,7 @@ namespace BudgetExecution
             ThemeStyle.TabStyle.DisabledBackColor = Color.FromArgb( 18, 18, 18 );
             ThemeStyle.TabStyle.ActiveBorderColor = Color.SteelBlue;
             ThemeStyle.TabStyle.ActiveBackColor = Color.SteelBlue;
-            ThemeStyle.TabStyle.ActiveFont = new Font( "Roboto", 8, FontStyle.Regular );
+            ThemeStyle.TabStyle.ActiveFont = new Font( "Roboto", 9, FontStyle.Regular );
             ThemeStyle.TabStyle.ActiveForeColor = Color.White;
             ThemeStyle.TabStyle.ActiveCloseButtonBackColor = Color.FromArgb( 64, 64, 64 );
             ThemeStyle.TabStyle.HoverActiveBorderColor = Color.SteelBlue;

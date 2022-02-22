@@ -41,8 +41,8 @@ namespace BudgetExecution
             // 
             // TestCheckBox
             // 
-            this.TestCheckBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.TestCheckBox.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.TestCheckBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.TestCheckBox.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.TestCheckBox.Border.HoverColor = System.Drawing.Color.SteelBlue;
             this.TestCheckBox.Border.HoverVisible = true;
             this.TestCheckBox.Border.Rounding = 3;
@@ -50,15 +50,15 @@ namespace BudgetExecution
             this.TestCheckBox.Border.Type = VisualPlus.Enumerators.ShapeTypes.Rounded;
             this.TestCheckBox.Border.Visible = true;
             this.TestCheckBox.Box = new System.Drawing.Size(14, 14);
-            this.TestCheckBox.BoxColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.TestCheckBox.BoxColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TestCheckBox.BoxColorState.Hover = System.Drawing.Color.SteelBlue;
+            this.TestCheckBox.BoxColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.TestCheckBox.BoxColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.TestCheckBox.BoxColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.TestCheckBox.BoxColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.TestCheckBox.BoxSpacing = 4;
             this.TestCheckBox.CheckStyle.AutoSize = true;
             this.TestCheckBox.CheckStyle.Bounds = new System.Drawing.Rectangle(0, 0, 125, 23);
             this.TestCheckBox.CheckStyle.Character = '✔';
-            this.TestCheckBox.CheckStyle.CheckColor = System.Drawing.Color.SteelBlue;
+            this.TestCheckBox.CheckStyle.CheckColor = System.Drawing.Color.Lime;
             this.TestCheckBox.CheckStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TestCheckBox.CheckStyle.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.TestCheckBox.CheckStyle.ShapeRounding = 3;
@@ -71,13 +71,13 @@ namespace BudgetExecution
             this.TestCheckBox.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.TestCheckBox.HoverText = null;
             this.TestCheckBox.IsBoxLarger = false;
-            this.TestCheckBox.Location = new System.Drawing.Point(817, 39);
+            this.TestCheckBox.Location = new System.Drawing.Point(740, 13);
             this.TestCheckBox.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.TestCheckBox.Name = "TestCheckBox";
             this.TestCheckBox.Size = new System.Drawing.Size(125, 25);
             this.TestCheckBox.TabIndex = 0;
-            this.TestCheckBox.Text = "Testing Check Box";
-            this.TestCheckBox.TextSize = new System.Drawing.Size(106, 16);
+            this.TestCheckBox.Text = "Test Check Box ";
+            this.TestCheckBox.TextSize = new System.Drawing.Size(89, 16);
             this.TestCheckBox.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             this.TestCheckBox.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TestCheckBox.TextStyle.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -91,15 +91,15 @@ namespace BudgetExecution
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.BorderColor = System.Drawing.Color.SteelBlue;
             this.CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.CaptionButtonColor = System.Drawing.Color.DimGray;
             this.CaptionButtonHoverColor = System.Drawing.Color.White;
-            this.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CaptionForeColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1058, 618);
+            this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CaptionForeColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(1058, 617);
             this.Controls.Add(this.TestCheckBox);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,7 +107,7 @@ namespace BudgetExecution
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.Name = "TestForm";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;

@@ -421,4 +421,4 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetFileBrowser.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetTabForm.resources
-C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.ColumnConfiguration.resources

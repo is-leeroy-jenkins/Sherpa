@@ -98,7 +98,7 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 18, 18, 18 );
             BackColorState.Disabled = Color.FromArgb( 18, 18, 18 );
             BackColorState.Enabled = Color.FromArgb( 18, 18, 18 );
-            BackColorState.Hover = Color.FromArgb( 20, 20, 20 );
+            BackColorState.Hover = Color.FromArgb( 41, 41, 41 );
             BackColorState.Pressed = Color.SteelBlue;
 
             // BorderColor SeriesConfiguration

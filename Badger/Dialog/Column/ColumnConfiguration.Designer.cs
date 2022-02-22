@@ -45,7 +45,6 @@ namespace BudgetExecution
             private void InitializeComponent()
             {
             Syncfusion.Windows.Forms.CaptionImage captionImage1 = new Syncfusion.Windows.Forms.CaptionImage();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ColumnConfiguration));
             this.ColumnListBox = new System.Windows.Forms.CheckedListBox();
             this.ColumnConfigPanel = new System.Windows.Forms.Panel();
             this.ColumnConfigPanel.SuspendLayout();
@@ -53,11 +52,11 @@ namespace BudgetExecution
             // 
             // ColumnListBox
             // 
-            this.ColumnListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
+            this.ColumnListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.ColumnListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ColumnListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ColumnListBox.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ColumnListBox.ForeColor = System.Drawing.Color.LightGray;
+            this.ColumnListBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColumnListBox.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.ColumnListBox.FormattingEnabled = true;
             this.ColumnListBox.Location = new System.Drawing.Point(1, 1);
             this.ColumnListBox.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
@@ -79,27 +78,28 @@ namespace BudgetExecution
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
-            this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.BorderColor = System.Drawing.Color.SteelBlue;
+            this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.CaptionButtonHoverColor = System.Drawing.Color.White;
             this.CaptionFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
+            this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             captionImage1.BackColor = System.Drawing.Color.Transparent;
             captionImage1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            captionImage1.Image = ((System.Drawing.Image)(resources.GetObject("captionImage1.BudgetImage")));
             captionImage1.Location = new System.Drawing.Point(10, 5);
             captionImage1.Name = "Image";
             captionImage1.Size = new System.Drawing.Size(16, 16);
             this.CaptionImages.Add(captionImage1);
             this.ClientSize = new System.Drawing.Size(238, 314);
             this.Controls.Add(this.ColumnConfigPanel);
-            this.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.LightGray;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(250, 350);
-            this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
+            this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.MinimumSize = new System.Drawing.Size(250, 350);
             this.Name = "ColumnConfiguration";
+            this.ShowIcon = false;
             this.ShowMaximizeBox = false;
             this.ShowMinimizeBox = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

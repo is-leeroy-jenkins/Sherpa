@@ -1074,6 +1074,9 @@
     <EmbeddedResource Include="Badger\Dialog\Browser\BudgetFileBrowser.resx">
       <DependentUpon>BudgetFileBrowser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Badger\Dialog\Column\ColumnConfiguration.resx">
+      <DependentUpon>ColumnConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Badger\Dialog\Error\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
     </EmbeddedResource>

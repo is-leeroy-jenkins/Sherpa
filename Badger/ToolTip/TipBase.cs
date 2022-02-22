@@ -101,7 +101,7 @@ namespace BudgetExecution
         /// Sets the duration.
         /// </summary>
         /// <param name="time">The time.</param>
-        public virtual void SetDuration( int time = 5000 )
+        public virtual void ResetDuration( int time = 5000 )
         {
             if( time > 0 )
             {
@@ -139,7 +139,7 @@ namespace BudgetExecution
         /// Sets the reshow delay.
         /// </summary>
         /// <param name="reshow">The reshow.</param>
-        public virtual void SetReshowDelay( int reshow = 100 )
+        public virtual void ResetDelay( int reshow = 100 )
         {
             if( reshow > 0 )
             {
@@ -177,7 +177,7 @@ namespace BudgetExecution
         /// Sets the tag.
         /// </summary>
         /// <param name="tag">The tag.</param>
-        public virtual void SetTag( object tag )
+        public virtual void ReTag( object tag )
         {
             if( tag != null )
             {

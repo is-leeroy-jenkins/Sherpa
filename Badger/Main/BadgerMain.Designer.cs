@@ -48,14 +48,15 @@ namespace BudgetExecution
             this.picturePanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.picturePanel1.BackColor = System.Drawing.Color.Transparent;
             this.picturePanel1.BindingSource = null;
+            this.picturePanel1.BudgetImage = null;
+            this.picturePanel1.BudgetImageList = null;
             this.picturePanel1.DataFilter = null;
             this.picturePanel1.Field = BudgetExecution.Field.NS;
             this.picturePanel1.HoverText = null;
-            this.picturePanel1.Image = ((System.Drawing.Image)(resources.GetObject("picturePanel1.BudgetImage")));
-            this.picturePanel1.BudgetImageList = null;
             this.picturePanel1.Location = new System.Drawing.Point(360, 119);
             this.picturePanel1.Margin = new System.Windows.Forms.Padding(5);
             this.picturePanel1.Name = "picturePanel1";
+            this.picturePanel1.Numeric = BudgetExecution.Numeric.NS;
             this.picturePanel1.Padding = new System.Windows.Forms.Padding(1);
             this.picturePanel1.Size = new System.Drawing.Size(410, 300);
             this.picturePanel1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -79,6 +80,7 @@ namespace BudgetExecution
             this.TestButton.Border.Thickness = 1;
             this.TestButton.Border.Type = VisualPlus.Enumerators.ShapeTypes.Rounded;
             this.TestButton.Border.Visible = true;
+            this.TestButton.DataFilter = null;
             this.TestButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.TestButton.Field = BudgetExecution.Field.NS;
             this.TestButton.Font = new System.Drawing.Font("Roboto", 8F);
@@ -103,18 +105,19 @@ namespace BudgetExecution
             this.TestButton.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.TestButton.ToolTip = null;
             // 
-            // LoadingPanel
+            // LoadingBase
             // 
             this.LoadingBase.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LoadingBase.BackColor = System.Drawing.Color.Transparent;
             this.LoadingBase.BindingSource = null;
+            this.LoadingBase.BudgetImage = null;
+            this.LoadingBase.BudgetImageList = null;
             this.LoadingBase.DataFilter = null;
             this.LoadingBase.Field = BudgetExecution.Field.NS;
             this.LoadingBase.HoverText = null;
-            this.LoadingBase.Image = ((System.Drawing.Image)(resources.GetObject("LoadingPanel.BudgetImage")));
-            this.LoadingBase.BudgetImageList = null;
             this.LoadingBase.Location = new System.Drawing.Point(400, 115);
             this.LoadingBase.Name = "LoadingBase";
+            this.LoadingBase.Numeric = BudgetExecution.Numeric.NS;
             this.LoadingBase.Padding = new System.Windows.Forms.Padding(1);
             this.LoadingBase.Size = new System.Drawing.Size(410, 304);
             this.LoadingBase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -126,16 +129,15 @@ namespace BudgetExecution
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
-            this.CaptionBarColor = System.Drawing.Color.Black;
-            this.CaptionFont = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CaptionForeColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1166, 595);
             this.Controls.Add(this.picturePanel1);
-            this.Font = new System.Drawing.Font("JetBrains Mono", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MetroColor = System.Drawing.Color.Black;
             this.Name = "BadgerMain";
-            this.Controls.SetChildIndex(this.picturePanel1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.picturePanel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoadingBase)).EndInit();
             this.ResumeLayout(false);
@@ -143,9 +145,8 @@ namespace BudgetExecution
         }
 
         #endregion
-
-        private PictureBase picturePanel1;
         private BudgetButton TestButton;
-        public PictureBase LoadingBase;
+        private BudgetPictureBox picturePanel1;
+        public BudgetPictureBox LoadingBase;
     }
 }
