@@ -15,7 +15,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
-    public class BudgetToolStripComboBox : ToolStripComboBoxBase, IBarComboBox
+    public class BudgetToolStripComboBox : ToolStripComboBoxBase, IToolStripComboBox
     {
         /// <summary>
         /// Gets or sets the tool tip.

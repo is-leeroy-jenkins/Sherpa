@@ -14,12 +14,12 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="ToolStripBase" />
-    /// <seealso cref="IToolBar" />
+    /// <seealso cref="IBudgetToolStrip" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
-    public class BudgetToolStrip : ToolStripBase, IToolBar
+    public class BudgetToolStrip : ToolStripBase, IBudgetToolStrip
     {
         /// <summary>
         /// Gets the buttons.

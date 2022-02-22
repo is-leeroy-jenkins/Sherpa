@@ -793,11 +793,11 @@
     <Compile Include="Badger\Binding\IDataSource.cs" />
     <Compile Include="Badger\Label\IBudgetLabel.cs" />
     <Compile Include="Badger\Button\IBudgetButton.cs" />
-    <Compile Include="Badger\Toolbar\IBarButton.cs" />
-    <Compile Include="Badger\Toolbar\IBarComboBox.cs" />
-    <Compile Include="Badger\Toolbar\IBarLabel.cs" />
-    <Compile Include="Badger\Toolbar\IBarTextBox.cs" />
-    <Compile Include="Badger\Toolbar\IToolBar.cs" />
+    <Compile Include="Badger\Toolbar\IToolStripButton.cs" />
+    <Compile Include="Badger\Toolbar\IToolStripComboBox.cs" />
+    <Compile Include="Badger\Toolbar\IToolStripLabel.cs" />
+    <Compile Include="Badger\Toolbar\IToolStipTextBox.cs" />
+    <Compile Include="Badger\Toolbar\IBudgetToolStrip.cs" />
     <Compile Include="Badger\PictureBox\IPictureBox.cs" />
     <Compile Include="Badger\Label\LabelBase.cs" />
     <Compile Include="Badger\Label\BudgetLabel.cs" />

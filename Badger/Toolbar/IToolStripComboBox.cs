@@ -8,10 +8,13 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
-    public interface IBarComboBox
+    public interface IToolStripComboBox
     {
-        /// <summary> Sets the data source. </summary>
-        /// <param name = "bindingSource" > The bindingSource. </param>
+        /// <summary> Sets the data source.
+        /// </summary>
+        /// <param name = "bindingSource" >
+        /// The bindingSource.
+        /// </param>
         void SetDataSource( BindingSource bindingSource );
 
         /// <summary> Called when [mouse over]. </summary>

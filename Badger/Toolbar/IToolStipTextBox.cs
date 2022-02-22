@@ -6,18 +6,27 @@ namespace BudgetExecution
 {
     using System.Windows.Forms;
 
-    public interface IBarTextBox
+    /// <summary>
+    /// 
+    /// </summary>
+    public interface IToolStipTextBox
     {
-        /// <summary> Sets the hover information. </summary>
-        /// <param name = "text" > The text. </param>
+        /// <summary>
+        /// Sets the hover text.
+        /// </summary>
+        /// <param name="text">The text.</param>
         void SetHoverText( string text );
 
-        /// <summary> Sets the field. </summary>
-        /// <param name = "field" > The field. </param>
+        /// <summary>
+        /// Sets the field.
+        /// </summary>
+        /// <param name="field">The field.</param>
         void SetField( Field field );
 
-        /// <summary> Sets the tag. </summary>
-        /// <param name = "tag" > The tag. </param>
+        /// <summary>
+        /// Sets the tag.
+        /// </summary>
+        /// <param name="tag">The tag.</param>
         void SetTag( object tag );
 
         /// <summary>
@@ -26,6 +35,9 @@ namespace BudgetExecution
         /// <param name="item">The item.</param>
         void SetHoverText( ToolStripItem item );
 
+        /// <summary>
+        /// Clears this instance.
+        /// </summary>
         void Clear();
     }
 }

@@ -14,7 +14,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "UsePatternMatching" ) ]
     [ Serializable ]
-    public class BudgetToolButton : ToolButtonBase, IBarButton
+    public class BudgetToolButton : ToolButtonBase, IToolStripButton
     {
         /// <summary>
         /// Gets or sets the binding source.

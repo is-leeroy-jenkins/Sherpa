@@ -13,10 +13,10 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="ToolStripTextBox" />
-    /// <seealso cref="IBarTextBox" />
+    /// <seealso cref="IToolStipTextBox" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    public class BudgetToolStripTextBox : ToolTextBoxBase, IBarTextBox
+    public class BudgetToolStripTextBox : ToolTextBoxBase, IToolStipTextBox
     {
         /// <summary>
         /// Initializes a new instance

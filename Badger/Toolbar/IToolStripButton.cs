@@ -7,7 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Windows.Forms;
 
-    public interface IBarButton
+    public interface IToolStripButton
     {
         /// <summary> Sets the image.
         /// </summary>
@@ -18,15 +18,21 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [mouse over].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         void OnMouseHover( object sender, EventArgs e );
 
         /// <summary>
         /// Called when [mouse leave].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         void OnMouseLeave( object sender, EventArgs e );
 
         /// <summary> Called when [click]. </summary>

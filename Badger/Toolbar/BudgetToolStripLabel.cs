@@ -12,7 +12,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
-    public class BudgetToolStripLabel : ToolStripLabelBase, IBarLabel
+    public class BudgetToolStripLabel : ToolStripLabelBase, IToolStripLabel
     {
         /// <summary>
         /// Gets or sets the tool tip.

@@ -8,7 +8,7 @@ namespace BudgetExecution
     using System.ComponentModel;
     using System.Windows.Forms;
 
-    public interface IToolBar
+    public interface IBudgetToolStrip
     {
         /// <summary>
         /// Gets the buttons.
