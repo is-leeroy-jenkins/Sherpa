@@ -81,7 +81,7 @@ namespace BudgetExecution
             ShowLegend = false;
             ShowToolbar = true;
             ToolBar.Orientation = ChartOrientation.Horizontal;
-            ToolBar.ButtonBackColor = Color.FromArgb( 10, 10, 10 );
+            ToolBar.ButtonBackColor = Color.FromArgb( 15, 15, 15 );
             ToolBar.Position = ChartDock.Bottom;
             ToolBar.ShowGrip = false;
             ToolBar.ShowBorder = false;
@@ -94,18 +94,18 @@ namespace BudgetExecution
             AllowGradientPalette = true;
             AllowUserEditStyles = true;
             PrintColorMode = ChartPrintColorMode.CheckPrinter;
-            BackInterior = new BrushInfo( Color.FromArgb( 10, 10, 10 ) );
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackInterior = new BrushInfo( Color.FromArgb( 15, 15, 15 ) );
+            BackColor = Color.FromArgb( 15, 15, 15 );
 
             ChartInterior = new BrushInfo( GradientStyle.PathRectangle, Color.LightGray,
-                Color.FromArgb( 10, 10, 10 ) );
+                Color.FromArgb( 15, 15, 15 ) );
 
             CalcRegions = true;
 
             //ChartArea Properties
             ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
             ChartArea.AutoScale = true;
-            ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 10, 10, 10 ) );
+            ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 15, 15, 15 ) );
             ChartArea.BorderWidth = 1;
             ChartArea.BorderColor = Color.Transparent;
             ChartArea.BorderStyle = BorderStyle.FixedSingle;
@@ -118,10 +118,7 @@ namespace BudgetExecution
             SeriesHighlight = true;
             SeriesHighlightIndex = -1;
             ShadowWidth = 5;
-
-            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 10, 10, 10 ),
-                Color.Silver );
-
+            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 15, 15, 15 ), Color.Silver );
             Depth = 250;
             ElementsSpacing = 10;
             ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
@@ -149,7 +146,7 @@ namespace BudgetExecution
             Legend.Font = new Font( "Roboto", 9 );
             Legend.ItemsSize = new Size( 12, 12 );
             Legend.VisibleCheckBox = true;
-            Legend.BackInterior = new BrushInfo( Color.FromArgb( 10, 10, 10 ) );
+            Legend.BackInterior = new BrushInfo( Color.FromArgb( 15, 15, 15 ) );
             Legend.ItemsAlignment = BudgetSetting.GetStringAlignment( StringAlignment.Center );
             Legend.ItemsTextAligment = VerticalAlignment.Center;
             Legend.Orientation = ChartOrientation.Vertical;
@@ -373,7 +370,7 @@ namespace BudgetExecution
                 using var title = new ChartTitle();
                 title.Visible = true;
                 title.Font = font;
-                title.BackColor = Color.FromArgb( 10, 10, 10 );
+                title.BackColor = Color.FromArgb( 15, 15, 15 );
                 title.ForeColor = color;
                 title.Text = text;
                 Titles?.Add( title );

@@ -40,7 +40,7 @@ namespace BudgetExecution
             Margin = new Padding( 5, 5, 5, 5 );
             Padding = new Padding( 0 );
             DisplayStyle = ToolStripItemDisplayStyle.Image;
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 15, 15, 15 );
             ForeColor = Color.FromArgb( 141, 139, 138 );
             Font = new Font( "Roboto", 9 );
             HoverText = Tag?.ToString();

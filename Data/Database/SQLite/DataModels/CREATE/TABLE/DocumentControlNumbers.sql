@@ -1,11 +1,11 @@
 CREATE TABLE IF NOT EXISTS "DocumentControlNumbers" 
 (
 	"DocumentControlNumberId"	INTEGER NOT NULL UNIQUE,
-	"RpioCode"	TEXT(255) DEFAULT "NS",
-	"RpioName"	TEXT(255) DEFAULT "NS",
-	"DocumentType"	TEXT(255) DEFAULT "NS",
-	"DocumentNumber"	TEXT(255) DEFAULT "NS",
-	"DocumentPrefix"	TEXT(255) DEFAULT "NS",
-	"DocumentControlNumber"	TEXT(255) DEFAULT "NS",
+	"RpioCode"	TEXT(80) NULL DEFAULT "NS",
+	"RpioName"	TEXT(80) NULL DEFAULT "NS",
+	"DocumentType"	TEXT(80) NULL DEFAULT "NS",
+	"DocumentNumber"	TEXT(80) NULL DEFAULT "NS",
+	"DocumentPrefix"	TEXT(80) NULL DEFAULT "NS",
+	"DocumentControlNumber"	TEXT(80) NULL DEFAULT "NS",
 	PRIMARY KEY("DocumentControlNumberId" AUTOINCREMENT)
 );

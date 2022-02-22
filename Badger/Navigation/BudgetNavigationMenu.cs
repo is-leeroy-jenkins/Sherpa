@@ -15,7 +15,7 @@ namespace BudgetExecution
         {
             // Navigation Menu Properties
             Size = new Size( 75, 23 );
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 15, 15, 15 );
             ForeColor = Color.LightSteelBlue;
             Position = SlidePosition.Right;
             Style = NavigationDrawerStyle.Office2016Black;
@@ -27,20 +27,20 @@ namespace BudgetExecution
             Enabled = true;
 
             // Navigation Menu ThemeStyle
-            ThemeStyle.BackColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.DisabledBackColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.DisabledFooterBackColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.DisabledFooterBorderColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.DisabledHeaderBackColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.DisabledPanelBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.BackColor = Color.FromArgb( 15, 15, 15 );
+            ThemeStyle.DisabledBackColor = Color.FromArgb( 15, 15, 15 );
+            ThemeStyle.DisabledFooterBackColor = Color.FromArgb( 15, 15, 15 );
+            ThemeStyle.DisabledFooterBorderColor = Color.FromArgb( 15, 15, 15 );
+            ThemeStyle.DisabledHeaderBackColor = Color.FromArgb( 15, 15, 15 );
+            ThemeStyle.DisabledPanelBackColor = Color.FromArgb( 15, 15, 15 );
 
             // Navigation Header ThemeStyle
-            ThemeStyle.HeaderBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.HeaderBackColor = Color.FromArgb( 15, 15, 15 );
             ThemeStyle.HeaderFont = new Font( "Roboto", 11 );
             ThemeStyle.HeaderForeColor = Color.LightSteelBlue;
 
             // Navigation Footer ThemeStyle
-            ThemeStyle.FooterBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.FooterBackColor = Color.FromArgb( 15, 15, 15 );
             ThemeStyle.FooterBorderColor = SystemColors.WindowFrame;
             ThemeStyle.FooterBorderThickness = 2;
             ThemeStyle.FooterFont = new Font( "Roboto", 8, FontStyle.Regular );
@@ -49,20 +49,20 @@ namespace BudgetExecution
             ThemeStyle.FooterHoverForeColor = Color.White;
 
             // Navigation ItemStyle
-            ThemeStyle.ItemStyle.BackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.ItemStyle.BackColor = Color.FromArgb( 15, 15, 15 );
             ThemeStyle.ItemStyle.Font = new Font( "Roboto", 9 );
             ThemeStyle.ItemStyle.ForeColor = Color.LightSteelBlue;
-            ThemeStyle.ItemStyle.DisabledBackColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.ItemStyle.DisabledForeColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.ItemStyle.DisabledSelectionMarkerColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.ItemStyle.DisabledBackColor = Color.FromArgb( 15, 15, 15 );
+            ThemeStyle.ItemStyle.DisabledForeColor = Color.FromArgb( 15, 15, 15 );
+            ThemeStyle.ItemStyle.DisabledSelectionMarkerColor = Color.FromArgb( 15, 15, 15 );
             ThemeStyle.ItemStyle.HoverBackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.ItemStyle.HoverForeColor = Color.White;
             ThemeStyle.ItemStyle.SelectedBackColor = Color.SteelBlue;
             ThemeStyle.ItemStyle.SelectedForeColor = Color.White;
 
             // Navigation Panel Properties
-            ThemeStyle.PanelBackColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.DisabledPanelBackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.PanelBackColor = Color.FromArgb( 15, 15, 15 );
+            ThemeStyle.DisabledPanelBackColor = Color.FromArgb( 15, 15, 15 );
         }
     }
 }

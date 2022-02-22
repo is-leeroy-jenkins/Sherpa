@@ -63,14 +63,14 @@ namespace BudgetExecution
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 9 );
             ForeColor = Color.Black;
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 15, 15, 15 );
             BorderStyle = ToolStripBorderStyle.None;
             RibbonStyle = RibbonStyle.Office2010;
             OfficeColorScheme = ToolStripEx.ColorScheme.Black;
             TitleFont = new Font( "Roboto", 9 );
 
             // Office Menu Properties
-            OfficeMenu.BackColor = Color.FromArgb( 10, 10, 10 );
+            OfficeMenu.BackColor = Color.FromArgb( 15, 15, 15 );
             OfficeMenu.Font = new Font( "Roboto", 9 );
             OfficeMenu.AutoSize = true;
             OfficeMenu.LayoutStyle = ToolStripLayoutStyle.Flow;

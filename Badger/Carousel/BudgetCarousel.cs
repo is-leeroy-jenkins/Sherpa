@@ -57,7 +57,7 @@ namespace BudgetExecution
         public BudgetCarousel()
         {
             // Basic Carousel Properties
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 15, 15, 15 );
             ForeColor = Color.LightSteelBlue;
             Font = new Font( "Roboto", 9 );
             CarouselPath = CarouselPath.Default;
@@ -83,7 +83,7 @@ namespace BudgetExecution
             ThemeStyle.ForeColor = Color.LightSteelBlue;
             ThemeStyle.HoverImageBorderColor = Color.SteelBlue;
             ThemeStyle.HoverImageBorderThickness = 2;
-            ThemeStyle.ImageShadeColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.ImageShadeColor = Color.FromArgb( 15, 15, 15 );
         }
 
         /// <summary>

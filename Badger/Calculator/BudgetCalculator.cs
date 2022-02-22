@@ -106,7 +106,7 @@ namespace BudgetExecution
             Size = new Size( 350, 350 );
             Location = new Point( 1, 1 );
             BorderStyle = Border3DStyle.Adjust;
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 15, 15, 15 );
             ForeColor = Color.White;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
@@ -117,10 +117,10 @@ namespace BudgetExecution
             Value = new CalculatorValue( 0.0 );
             ShowDisplayArea = true;
             DisplayTextAlign = HorizontalAlignment.Center;
-            MetroColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.BackColor = Color.FromArgb( 10, 10, 10 );
+            MetroColor = Color.FromArgb( 15, 15, 15 );
+            ThemeStyle.BackColor = Color.FromArgb( 15, 15, 15 );
             ThemeStyle.BorderThickness = 0;
-            ThemeStyle.BorderColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.BorderColor = Color.FromArgb( 15, 15, 15 );
             ThemeStyle.ForeColor = Color.White;
             ThemeStyle.Font = new Font( "Roboto", 11 );
             ThemeStyle.TextBoxBackColor = Color.FromArgb( 45, 45, 45 );

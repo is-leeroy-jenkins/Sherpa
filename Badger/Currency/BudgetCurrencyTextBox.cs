@@ -49,7 +49,7 @@ namespace BudgetExecution
             TextBox.CurrencyDecimalDigits = 2;
             TextBox.NegativeColor = Color.Red;
             TextBox.PositiveColor = Color.LightSteelBlue;
-            TextBox.BackGroundColor = Color.FromArgb( 10, 10, 10 );
+            TextBox.BackGroundColor = Color.FromArgb( 15, 15, 15 );
             TextBox.Border3DStyle = Border3DStyle.Flat;
             TextBox.ThemeStyle = CurrencyTextBoxVisualStyle.DefaultStyle;
             TextBox.BorderColor = Color.FromArgb( 64, 64, 64 );
@@ -61,10 +61,10 @@ namespace BudgetExecution
             TransferToCalculator = true;
 
             // TextBox ThemeStyle Properties
-            ThemeStyle.BackColor = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.BackColor = Color.FromArgb( 15, 15, 15 );
             ThemeStyle.BorderColor = Color.FromArgb( 64, 64, 64 );
-            ThemeStyle.DisabledBackColor = Color.FromArgb( 10, 10, 10 );
-            ThemeStyle.DisabledBorderColor  = Color.FromArgb( 10, 10, 10 );
+            ThemeStyle.DisabledBackColor = Color.FromArgb( 15, 15, 15 );
+            ThemeStyle.DisabledBorderColor  = Color.FromArgb( 15, 15, 15 );
             ThemeStyle.HoverBorderColor = Color.SteelBlue;
             ThemeStyle.FocusedBorderColor = Color.SteelBlue;
             ThemeStyle.PressedBorderColor = Color.SteelBlue;

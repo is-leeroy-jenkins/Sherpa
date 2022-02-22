@@ -86,9 +86,9 @@ namespace BudgetExecution
             Size = new Size( 240, 150 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             EnableHeadersVisualStyles = false;
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 15, 15, 15 );
             BorderStyle = BorderStyle.None;
-            BackgroundColor = Color.FromArgb( 10, 10, 10 );
+            BackgroundColor = Color.FromArgb( 15, 15, 15 );
             GridColor = SystemColors.WindowFrame;
 
             // Column SeriesConfiguration

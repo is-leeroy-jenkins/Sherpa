@@ -52,7 +52,7 @@ namespace BudgetExecution
             CanOverrideStyle = true;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 15, 15, 15 );
             ForeColor = Color.Black;
             Font = new Font( "Roboto", 9, FontStyle.Regular );
             DefaultColumnCount = 26;

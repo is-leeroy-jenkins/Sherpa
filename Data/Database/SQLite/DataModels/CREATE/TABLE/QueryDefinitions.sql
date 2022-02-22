@@ -1,7 +1,7 @@
-CREATE TABLE QueryDefinitions
+CREATE TABLE IF NOT EXISTS QueryDefinitions
 (
 	QueryDefinitionsId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyQueryDefinitions PRIMARY KEY,
-	Name TEXT(255) NULL,
-	Type TEXT(255) NULL
+	Name TEXT(80) NULL DEFAULT "NS",
+	Type TEXT(80) NULL DEFAULT "NS"
 );
 

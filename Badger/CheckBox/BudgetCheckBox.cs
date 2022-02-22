@@ -16,13 +16,13 @@ namespace BudgetExecution
         {
             Size = new Size( 125, 25 );
             Box = new Size( 14, 14 );
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 15, 15, 15 );
             Font = new Font( "Roboto", 9, FontStyle.Regular );
             ForeColor = Color.LightSteelBlue;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Cursor = Cursors.Hand;
-            Border.Color = Color.FromArgb( 10, 10, 10 );
+            Border.Color = Color.FromArgb( 15, 15, 15 );
             Border.HoverColor = Color.SteelBlue;
             Border.HoverVisible = true;
             CheckState = CheckState.Unchecked;

@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS "GrowthRates" 
 (
 	"GrowthRatesId"	INTEGER NOT NULL UNIQUE,
-	"RateId"	TEXT(255) DEFAULT "NS",
-	"Description"	TEXT(255) DEFAULT "NS",
+	"RateId"	TEXT(80) NULL DEFAULT "NS",
+	"Description"	TEXT(80) NULL DEFAULT "NS",
 	"BudgetYearRate"	REAL DEFAULT 0.0,
 	"OutYear1"	REAL DEFAULT 0.0,
 	"OutYear2"	REAL DEFAULT 0.0,
@@ -13,6 +13,6 @@ CREATE TABLE IF NOT EXISTS "GrowthRates"
 	"OutYear7"	REAL DEFAULT 0.0,
 	"OutYear8"	REAL DEFAULT 0.0,
 	"OutYear9"	REAL DEFAULT 0.0,
-	"Sort"	TEXT(255) DEFAULT "NS",
+	"Sort"	TEXT(80) NULL DEFAULT "NS",
 	PRIMARY KEY("GrowthRatesId" AUTOINCREMENT)
 );

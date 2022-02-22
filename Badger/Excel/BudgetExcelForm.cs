@@ -87,18 +87,18 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form Property Values
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 15, 15, 15 );
             BorderThickness = 1;
             BorderColor = Color.SteelBlue;
             Size = new Size( 1200, 800 );
             Font = new Font( "Roboto", 9 );
-            CaptionBarColor = Color.FromArgb( 10, 10, 10 );
+            CaptionBarColor = Color.FromArgb( 15, 15, 15 );
             CaptionBarHeight = 26;
             CaptionButtonColor = Color.FromArgb( 80, 80, 80 );
             CaptionButtonHoverColor = Color.White;
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 11 );
-            MetroColor = Color.FromArgb( 10, 10, 10 );
+            MetroColor = Color.FromArgb( 15, 15, 15 );
             FormBorderStyle = FormBorderStyle.Sizable;
             Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 32, 32 );
             ShowIcon = false;

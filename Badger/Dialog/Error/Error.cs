@@ -44,18 +44,18 @@ namespace BudgetExecution
             InitializeComponent();
 
             // Form Property Values
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 15, 15, 15 );
             BorderThickness = 1;
             BorderColor = Color.FromArgb( 192, 0, 0 );
             Size = new Size( 700, 550 );
             Font = new Font( "Roboto", 9 );
-            CaptionBarColor = Color.FromArgb( 10, 10, 10 );
+            CaptionBarColor = Color.FromArgb( 15, 15, 15 );
             CaptionBarHeight = 26;
             CaptionButtonColor = Color.FromArgb( 80, 80, 80 );
             CaptionButtonHoverColor = Color.White;
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 11 );
-            MetroColor = Color.FromArgb( 10, 10, 10 );
+            MetroColor = Color.FromArgb( 15, 15, 15 );
             FormBorderStyle = FormBorderStyle.Sizable;
             Icon = new Icon( IconPath, 33, 32 );
             ShowIcon = false;
@@ -65,18 +65,18 @@ namespace BudgetExecution
             Size = new Size( 812, 486 );
 
             // TextBox Properties
-            TextBox.BackColor =  Color.FromArgb( 10, 10, 10 );
-            TextBox.BackColorState.Enabled = Color.FromArgb( 10, 10, 10 );
-            TextBox.BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
+            TextBox.BackColor =  Color.FromArgb( 15, 15, 15 );
+            TextBox.BackColorState.Enabled = Color.FromArgb( 15, 15, 15 );
+            TextBox.BackColorState.Disabled = Color.FromArgb( 15, 15, 15 );
             TextBox.Border.Type = ShapeTypes.Rounded;
             TextBox.Border.Color = Color.FromArgb( 64, 64, 64 );
             TextBox.Border.HoverColor = Color.Maroon;
             TextBox.Parent = Panel;
             TextBox.Dock = DockStyle.Fill;
 
-            Panel.BackColor = Color.FromArgb( 10, 10, 10 );
-            Panel.BackColorState.Enabled = Color.FromArgb( 10, 10, 10 );
-            Panel.BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
+            Panel.BackColor = Color.FromArgb( 15, 15, 15 );
+            Panel.BackColorState.Enabled = Color.FromArgb( 15, 15, 15 );
+            Panel.BackColorState.Disabled = Color.FromArgb( 15, 15, 15 );
             Panel.Border.Color = Color.FromArgb( 64, 64, 64 );
             Panel.Border.HoverColor = Color.FromArgb( 192, 0, 0 );
             Panel.Parent = this;

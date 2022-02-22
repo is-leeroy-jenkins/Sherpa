@@ -24,15 +24,15 @@ namespace BudgetExecution
         /// </remarks>
         public BudgetSplash()
         {
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 15, 15, 15 );
             ForeColor = Color.LightSteelBlue;
             Font = new Font( "Roboto", 9 );
             Size = new Size( 300, 150 );
             BorderStyle = Border3DStyle.Flat;
             BorderType = SplashBorderType.None;
 
-            BackgroundColor = new BrushInfo( GradientStyle.None, Color.FromArgb( 10, 10, 10 ), 
-                Color.FromArgb( 10, 10, 10 ) );
+            BackgroundColor = new BrushInfo( GradientStyle.None, Color.FromArgb( 15, 15, 15 ), 
+                Color.FromArgb( 15, 15, 15 ) );
 
             ShowAnimation = true;
             ShowAsTopMost = true;

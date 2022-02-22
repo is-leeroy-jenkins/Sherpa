@@ -89,7 +89,7 @@ namespace BudgetExecution
             // Basic Properties
             Size = new Size( 165, 23 );
             Location = new Point( 1, 1 );
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 15, 15, 15 );
             ForeColor = Color.FromArgb( 141, 139, 138 );
             Font = new Font( "Roboto", 9 );
             Margin = new Padding( 3 );
@@ -100,7 +100,7 @@ namespace BudgetExecution
             Visible = true;
             TextAlignment = StringAlignment.Center;
             TextLineAlignment = StringAlignment.Center;
-            OutlineColor = Color.FromArgb( 10, 10, 10 );
+            OutlineColor = Color.FromArgb( 15, 15, 15 );
             MouseHover += OnMouseOver;
         }
 
