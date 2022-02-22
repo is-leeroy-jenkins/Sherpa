@@ -1,23 +1,27 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'ReimbursableAgreements' )
+BEGIN
 CREATE TABLE [dbo].[ReimbursableAgreements]
 (
-	[ReimbursableAgreementId] [int] IDENTITY(1,1) NOT NULL,
-	[RPIO] [nvarchar](255) NULL,
-	[BFY] [nvarchar](255) NULL,
-	[FundCode] [nvarchar](255) NULL,
-	[AgreementNumber] [nvarchar](255) NULL,
-	[StartDate] [datetime] NULL,
-	[EndDate] [datetime] NULL,
-	[RcCode] [nvarchar](255) NULL,
-	[OrgCode] [nvarchar](255) NULL,
-	[DivisionName] [nvarchar](255) NULL,
-	[SiteProjectCode] [nvarchar](255) NULL,
-	[AccountCode] [nvarchar](255) NULL,
-	[VendorCode] [nvarchar](255) NULL,
-	[VendorName] [nvarchar](255) NULL,
-	[Amount] [money] NULL,
-	[OpenCommitments] [money] NULL,
-	[Obligations] [money] NULL,
-	[ULO] [money] NULL,
-	[Available] [money] NULL
+	[ReimbursableAgreementsId] INT IDENTITY(1,1) NOT NULL,
+	[RPIO] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FundCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AgreementNumber] VARCHAR(80) NULL DEFAULT ('NS'),
+	[StartDate] DATETIME NULL,
+	[EndDate] DATETIME NULL,
+	[RcCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OrgCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[DivisionName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[SiteProjectCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AccountCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[VendorCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[VendorName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Amount] FLOAT NULL DEFAULT 0,
+	[OpenCommitments] FLOAT NULL DEFAULT 0,
+	[Obligations] FLOAT NULL DEFAULT 0,
+	[ULO] FLOAT NULL DEFAULT 0,
+	[Available] FLOAT NULL DEFAULT 0,
 );
-
+END

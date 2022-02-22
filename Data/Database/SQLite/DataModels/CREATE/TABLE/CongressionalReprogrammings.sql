@@ -1,0 +1,28 @@
+CREATE TABLE IF NOT EXISTS "CongressionalReprogrammings" 
+(
+	"CongressionalReprogrammingsId"	INTEGER NOT NULL UNIQUE,
+	"ReprogrammingNumber"	TEXT(255) DEFAULT "NS",
+	"BFY"	TEXT(255) DEFAULT "NS",
+	"EFY"	TEXT(255) DEFAULT "NS",
+	"RpioCode"	TEXT(255) DEFAULT "NS",
+	"AhCode"	TEXT(255) DEFAULT "NS",
+	"AhName"	TEXT(255) DEFAULT "NS",
+	"FundCode"	TEXT(255) DEFAULT "NS",
+	"FundName"	TEXT(255) DEFAULT "NS",
+	"AccountCode"	TEXT(255) DEFAULT "NS",
+	"ProgramProjectCode"	TEXT(255) DEFAULT "NS",
+	"ProgramProjectName"	TEXT(255) DEFAULT "NS",
+	"ProgramAreaCode"	TEXT(255) DEFAULT "NS",
+	"ProgramAreaName"	TEXT(255) DEFAULT "NS",
+	"OrgCode"	TEXT(255) DEFAULT "NS",
+	"OrgName"	TEXT(255) DEFAULT "NS",
+	"BocCode"	TEXT(255) DEFAULT "NS",
+	"BocName"	TEXT(255) DEFAULT "NS",
+	"FromTo"	TEXT(255) DEFAULT "NS",
+	"ActivityCode"	TEXT(255) DEFAULT "NS",
+	"Amount"	REAL DEFAULT 0.0,
+	"Description"	TEXT,
+	"ExtendedDescription"	TEXT,
+	"Cycle"	TEXT(255) DEFAULT "NS",
+	PRIMARY KEY("CongressionalReprogrammingsId" AUTOINCREMENT)
+);

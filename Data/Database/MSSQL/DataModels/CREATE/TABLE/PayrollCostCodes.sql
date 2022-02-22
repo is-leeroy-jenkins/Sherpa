@@ -1,13 +1,18 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'PayrollCostCodes' )
+BEGIN
 CREATE TABLE [dbo].[PayrollCostCodes]
 (
-	[PayrollCostCodeId] [int] IDENTITY(1,1) NOT NULL,
-	[RPIO] [nvarchar](255) NULL,
-	[AhCode] [nvarchar](255) NULL,
-	[BFY] [nvarchar](255) NULL,
-	[RcCode] [nvarchar](255) NULL,
-	[DivisionName] [nvarchar](255) NULL,
-	[WorkCode] [nvarchar](255) NULL,
-	[WorkCodeName] [nvarchar](255) NULL,
-	[HrOrgCode] [nvarchar](255) NULL,
-	[HrOrgName] [nvarchar](255) NULL
+	[PayrollCostCodesId] INT IDENTITY(1,1) NOT NULL,
+	[RPIO] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AhCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[RcCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[DivisionName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[WorkCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[WorkCodeName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[HrOrgCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[HrOrgName] VARCHAR(80) NULL DEFAULT ('NS')
 );
+END

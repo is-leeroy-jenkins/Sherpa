@@ -1,30 +1,35 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'PayrollAuthority' )
+BEGIN
 CREATE TABLE [dbo].[PayrollAuthority]
 (
-	[PayrollId] [int] IDENTITY(1,1) NOT NULL,
-	[AllocationsId] [int] NOT NULL,
-	[StatusOfFundsId] [int] NOT NULL,
-	[BFY] [text] NULL,
-	[EFY] [text] NULL,
-	[RpioCode] [text] NULL,
-	[RpioName] [text] NULL,
-	[BudgetLevel] [text] NULL,
-	[AhCode] [text] NULL,
-	[AhName] [text] NULL,
-	[FundCode] [text] NULL,
-	[FundName] [text] NULL,
-	[OrgCode] [text] NULL,
-	[OrgName] [text] NULL,
-	[AccountCode] [text] NULL,
-	[RcCode] [text] NULL,
-	[RcName] [text] NULL,
-	[BocCode] [tinyint] NULL,
-	[BocName] [text] NULL,
-	[Amount] [float] NULL,
-	[ProgramProjectCode] [text] NULL,
-	[ProgramProjectName] [text] NULL,
-	[ProgramAreaCode] [text] NULL,
-	[ProgramAreaName] [text] NULL,
-	[NpmCode] [text] NULL,
-	[NpmName] [text] NULL
+	[PayrollAuthorityId] INT IDENTITY(1,1) NOT NULL,
+	[AllocationsId] INT NOT NULL,
+	[StatusOfFundsId] INT NOT NULL,
+	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[EFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[RpioCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[RpioName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BudgetLevel] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AhCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AhName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FundCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FundName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OrgCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OrgName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AccountCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[RcCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[RcName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BocCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BocName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Amount] FLOAT NULL DEFAULT 0,
+	[ProgramProjectCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramProjectName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramAreaCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramAreaName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[NpmCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[NpmName] VARCHAR(80) NULL DEFAULT ('NS')
 );
+END
 

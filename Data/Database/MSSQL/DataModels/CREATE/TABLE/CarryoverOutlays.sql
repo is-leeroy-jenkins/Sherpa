@@ -1,27 +1,31 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'CarryoverOutlays' )
+BEGIN
 CREATE TABLE [dbo].[CarryoverOutlays]
 (
-	[CarryoverOutlaysId] [int] IDENTITY(1,1) NOT NULL,
-	[ReportYear] [nvarchar](50) NULL,
-	[AgencyName] [nvarchar](50) NULL,
-	[OmbAccountName] [nvarchar](100) NULL,
-	[LINE] [nvarchar](50) NULL,
-	[Carryover] [float] NULL,
-	[CarryoverOutlays] [float] NULL,
-	[Delta] [float] NULL,
-	[AvailableBalance] [float] NULL,
-	[ULO] [float] NULL,
-	[CurrentYearAdjustment] [float] NULL,
-	[BudgetYearAdjustment] [float] NULL,
-	[CurrentYear] [float] NULL,
-	[BudgetYear] [float] NULL,
-	[OutYear1] [float] NULL,
-	[OutYear2] [float] NULL,
-	[OutYear3] [float] NULL,
-	[OutYear4] [float] NULL,
-	[OutYear5] [float] NULL,
-	[OutYear6] [float] NULL,
-	[OutYear7] [float] NULL,
-	[OutYear8] [float] NULL,
-	[OutYear9] [time](7) NULL
+	[CarryoverOutlaysId] INT IDENTITY(1,1) NOT NULL,
+	[ReportYear] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AgencyName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OmbAccountName] VARCHAR(100) NULL DEFAULT ('NS'),
+	[LINE] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Carryover] FLOAT NULL DEFAULT 0,
+	[CarryoverOutlays] FLOAT NULL DEFAULT 0,
+	[Delta] FLOAT NULL DEFAULT 0,
+	[AvailableBalance] FLOAT NULL DEFAULT 0,
+	[ULO] FLOAT NULL DEFAULT 0,
+	[CurrentYearAdjustment] FLOAT NULL DEFAULT 0,
+	[BudgetYearAdjustment] FLOAT NULL DEFAULT 0,
+	[CurrentYear] FLOAT NULL DEFAULT 0,
+	[BudgetYear] FLOAT NULL DEFAULT 0,
+	[OutYear1] FLOAT NULL DEFAULT 0,
+	[OutYear2] FLOAT NULL DEFAULT 0,
+	[OutYear3] FLOAT NULL DEFAULT 0,
+	[OutYear4] FLOAT NULL DEFAULT 0,
+	[OutYear5] FLOAT NULL DEFAULT 0,
+	[OutYear6] FLOAT NULL DEFAULT 0,
+	[OutYear7] FLOAT NULL DEFAULT 0,
+	[OutYear8] FLOAT NULL DEFAULT 0,
+	[OutYear9] FLOAT NULL DEFAULT 0
 );
-
+END

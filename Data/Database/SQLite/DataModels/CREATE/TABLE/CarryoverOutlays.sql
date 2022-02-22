@@ -1,10 +1,10 @@
-CREATE TABLE "CarryoverOutlays" 
+CREATE TABLE IF NOT EXISTS "CarryoverOutlays" 
 (
 	"CarryoverOutlaysId"	INTEGER NOT NULL UNIQUE,
-	"ReportYear"	TEXT,
-	"AgencyName"	TEXT,
-	"OmbAccountName"	TEXT,
-	"LINE"	TEXT,
+	"ReportYear"	TEXT(255),
+	"AgencyName"	TEXT(255),
+	"OmbAccountName"	TEXT(255),
+	"LINE"	TEXT(255),
 	"Carryover"	REAL,
 	"CarryoverOutlays"	REAL,
 	"Delta"	REAL,

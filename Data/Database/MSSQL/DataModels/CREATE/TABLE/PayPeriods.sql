@@ -1,9 +1,14 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'PayPeriods' )
+BEGIN
 CREATE TABLE [dbo].[PayPeriods]
 (
-	[PayPeriodId] [int] IDENTITY(1,1) NOT NULL,
-	[Period] [nvarchar](255) NOT NULL,
-	[PayPeriod] [nvarchar](255) NULL,
-	[StartDate] [datetime] NULL,
-	[EndDate] [datetime] NULL
+	[PayPeriodsId] INT IDENTITY(1,1) NOT NULL,
+	[Period] VARCHAR(80) NULL DEFAULT ('NS'),
+	[PayPeriod] VARCHAR(80) NULL DEFAULT ('NS'),
+	[StartDate] DATETIME NULL,
+	[EndDate] DATETIME NULL
 );
+END
 

@@ -11,6 +11,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using static System.IO.Path;
 
     public partial class TestForm : MetroForm
     {
@@ -67,7 +68,7 @@ namespace BudgetExecution
             BudgetButton.Text = "Test";
             BudgetButton.Tag = "THIS IS A TEST";
             BudgetButton.Location = new Point( 500, 500 );
-            BudgetButton.HoverText = System.IO.Path.GetFileNameWithoutExtension( Setting[ "BudgetExecutionIcon" ] );
+            BudgetButton.HoverText = GetFileNameWithoutExtension( Setting[ "BudgetExecutionIcon" ] );
             BudgetButton.Click += SetLabelText;
             BudgetButton.MouseLeave += ClearLabelText;
             Controls.Add( BudgetButton );

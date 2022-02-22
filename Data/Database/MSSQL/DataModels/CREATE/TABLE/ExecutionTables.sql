@@ -1,7 +1,11 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'ExecutionTables' )
+BEGIN
 CREATE TABLE [dbo].[ExecutionTables]
 (
-	[ExecutionTableId] [int] IDENTITY(1,1) NOT NULL,
-	[TableName] [nvarchar](255) NULL,
-	[Type] [nvarchar](255) NULL
+	[ExecutionTablesId] INT IDENTITY(1,1) NOT NULL,
+	[TableName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Type] VARCHAR(80) NULL DEFAULT ('NS')
 );
-
+END

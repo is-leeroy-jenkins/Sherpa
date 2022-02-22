@@ -1,19 +1,30 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'CarryoverEstimates' )
+BEGIN
 CREATE TABLE [dbo].[CarryoverEstimates]
 (
-	[CarryoverEstimateId] [int] IDENTITY(1,1) NOT NULL,
-	[BudgetLevel] [nvarchar](255) NULL,
-	[BFY] [nvarchar](255) NULL,
-	[AhCode] [nvarchar](255) NULL,
-	[FundCode] [nvarchar](255) NULL,
-	[FundName] [nvarchar](255) NULL,
-	[OrgCode] [nvarchar](255) NULL,
-	[AccountCode] [nvarchar](255) NULL,
-	[RcCode] [nvarchar](255) NULL,
-	[DivisionName] [nvarchar](255) NULL,
-	[BocCode] [nvarchar](255) NULL,
-	[BocName] [nvarchar](255) NULL,
-	[Balance] [real] NULL,
-	[OpenCommitment] [real] NULL,
-	[Estimate] [real] NULL
+	[CarryoverEstimatesId] INT NOT NULL,
+	[BudgetLevel] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[EFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[RpioCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[RpioName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AhCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AhName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FundCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FundName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OrgCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AccountCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramProjectCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramProjectName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramAreaCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramAreaName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BocCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BocName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AvailableBalance] FLOAT NULL,
+	[OpenCommitments] FLOAT NULL,
+	[UnobligatedAuthority] FLOAT NULL
 );
+END
 

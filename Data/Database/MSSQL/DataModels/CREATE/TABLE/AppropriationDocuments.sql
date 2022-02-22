@@ -1,30 +1,34 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'AppropriationDocuments' )
+BEGIN
 CREATE TABLE [dbo].[AppropriationDocuments]
 (
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[BFY] [nvarchar](50) NOT NULL,
-	[EFY] [nvarchar](50) NOT NULL,
-	[Fund] [nvarchar](50) NOT NULL,
-	[FundCode] [nvarchar](50) NOT NULL,
-	[DocumentType] [nvarchar](50) NOT NULL,
-	[DocumentNumber] [nvarchar](50) NOT NULL,
+	[[AppropriationDocumentsId] INT IDENTITY(1,1) NOT NULL DEFAULT ('NS'),
+	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[EFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Fund] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FundCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[DocumentType] VARCHAR(80) NULL DEFAULT ('NS'),
+	[DocumentNumber] VARCHAR(80) NULL DEFAULT ('NS'),
 	[DocumentDate] [date] NOT NULL,
 	[LastDocumentDate] [date] NOT NULL,
-	[BudgetLevel] [nvarchar](50) NOT NULL,
-	[BudgetingControls] [nvarchar](50) NOT NULL,
-	[PostingControls] [nvarchar](50) NOT NULL,
-	[PreCommitmentControls] [nvarchar](50) NOT NULL,
-	[CommitmentControls] [nvarchar](50) NOT NULL,
-	[ObligationControls] [nvarchar](50) NOT NULL,
-	[AccrualControls] [nvarchar](50) NOT NULL,
-	[ExpenditureControls] [nvarchar](50) NOT NULL,
-	[ExpenseControls] [nvarchar](50) NOT NULL,
-	[ReimbursementControls] [nvarchar](50) NOT NULL,
-	[ReimbursableAgreementControls] [nvarchar](50) NOT NULL,
-	[Budgeted] [float] NOT NULL,
-	[Posted] [float] NOT NULL,
-	[CarryOut] [float] NOT NULL,
-	[CarryIn] [float] NOT NULL,
-	[EstimatedReimbursements] [float] NOT NULL,
-	[EstimatedRecoveries] [float] NOT NULL
+	[BudgetLevel] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BudgetingControls] VARCHAR(80) NULL DEFAULT ('NS'),
+	[PostingControls] VARCHAR(80) NULL DEFAULT ('NS'),
+	[PreCommitmentControls] VARCHAR(80) NULL DEFAULT ('NS'),
+	[CommitmentControls] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ObligationControls] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AccrualControls] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ExpenditureControls] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ExpenseControls] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ReimbursementControls] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ReimbursableAgreementControls] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Budgeted] FLOAT NOT NULL DEFAULT 0,
+	[Posted] FLOAT NOT NULL DEFAULT 0,
+	[CarryOut] FLOAT NOT NULL DEFAULT 0,
+	[CarryIn] FLOAT NOT NULL DEFAULT 0,
+	[EstimatedReimbursements] FLOAT NOT NULL DEFAULT 0,
+	[EstimatedRecoveries] FLOAT NOT NULL DEFAULT 0
 );
-
+END

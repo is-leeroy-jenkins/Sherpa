@@ -1,17 +1,22 @@
-CREATE TABLE ReimbursableFunds (
-	ReimbursableFundId	INTEGER,
-	RPIO	INTEGER,
-	BFY	INTEGER,
-	FundCode  TEXT(255),
-	AccountCode  TEXT(255),
-	RcCode  TEXT(255),
-	DivisionName  TEXT(255),
-	BocCode	INTEGER,
-	DocumentControlNumber  TEXT(255),
-	AgreeementNumber  TEXT(255),
-	Amount	REAL,
-	OpenCommitments	INTEGER,
-	Obligations	REAL,
-	ULO	INTEGER,
-	Available	REAL
-)
+CREATE TABLE IF NOT EXISTS "ReimbursableAgreements" 
+(
+	"ReimbursableAgreementsId"	INTEGER NOT NULL,
+	"RPIO"	TEXT(255) DEFAULT "NS",
+	"BFY"	TEXT(255) DEFAULT "NS",
+	"FundCode"	TEXT(255) DEFAULT "NS",
+	"AgreementNumber"	TEXT(255) DEFAULT "NS",
+	"StartDate"	TEXT(255) DEFAULT "NS",
+	"EndDate"	TEXT(255) DEFAULT "NS",
+	"RcCode"	TEXT(255) DEFAULT "NS",
+	"OrgCode"	TEXT(255) DEFAULT "NS",
+	"RcName"	TEXT(255) DEFAULT "NS",
+	"SiteProjectCode"	TEXT(255) DEFAULT "NS",
+	"AccountCode"	TEXT(255) DEFAULT "NS",
+	"VendorCode"	TEXT(255) DEFAULT "NS",
+	"VendorName"	TEXT(255) DEFAULT "NS",
+	"Amount"	REAL DEFAULT 0.0,
+	"OpenCommitments"	REAL DEFAULT 0.0,
+	"Obligations"	REAL DEFAULT 0.0,
+	"ULO"	REAL DEFAULT 0.0,
+	"Available"	REAL DEFAULT 0.0
+);

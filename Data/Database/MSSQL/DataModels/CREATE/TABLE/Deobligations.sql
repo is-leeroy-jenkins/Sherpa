@@ -1,16 +1,20 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'Deobligations' )
+BEGIN
 CREATE TABLE [dbo].[Deobligations]
 (
-	[DeobligationId] [int] IDENTITY(1,1) NOT NULL,
-	[RPIO] [nvarchar](255) NULL,
-	[BFY] [nvarchar](255) NULL,
-	[FundCode] [nvarchar](255) NULL,
-	[DocumentNumber] [nvarchar](255) NULL,
-	[CalendarYear] [nvarchar](255) NULL,
-	[OrgCode] [nvarchar](255) NULL,
-	[ProgramProjectCode] [nvarchar](255) NULL,
-	[AccountCode] [nvarchar](255) NULL,
-	[BocCode] [nvarchar](255) NULL,
-	[Date] [datetime] NULL,
-	[Amount] [float] NULL
+	[DeobligationsId] INT IDENTITY(1,1) NOT NULL,
+	[RPIO] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FundCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[DocumentNumber] VARCHAR(80) NULL DEFAULT ('NS'),
+	[CalendarYear] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OrgCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramProjectCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AccountCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BocCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Date] DATETIME NULL,
+	[Amount] FLOAT NULL DEFAULT 0
 );
-
+END

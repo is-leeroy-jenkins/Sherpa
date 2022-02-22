@@ -1,6 +1,14 @@
-CREATE TABLE [dbo].[ApplicationTables](
-	[ApplicationTableId] [int] IDENTITY(1,1) NOT NULL,
-	[TableName] [nvarchar](255) NULL,
-	[Model] [nvarchar](255) NULL
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'ApplicationTables' )
+BEGIN
+CREATE TABLE [dbo].[ApplicationTables]
+(
+	[ApplicationTablesId] INT IDENTITY(1,1) NOT NULL,
+	[TableName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Model] VARCHAR(80) NULL DEFAULT ('NS')
 );
+END
+
+
 

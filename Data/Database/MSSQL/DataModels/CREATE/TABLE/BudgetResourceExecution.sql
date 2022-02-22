@@ -1,0 +1,44 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'BudgetResourceExecution' )
+BEGIN
+CREATE TABLE [dbo].[BudgetResourceExecutionBudgetResourceExecution]
+(
+
+	[BudgetResourceExecutionId] INT NOT NULL,
+	[FiscalYear] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Agency] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Bureau] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OmbAccount] VARCHAR(80) NULL DEFAULT ('NS'),
+	[TreasuryAgencyCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[TreasuryAccountCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[EFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[STAT] VARCHAR(80) NULL DEFAULT ('NS'),
+	[CreditIndicator] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LineNumber] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LineDescription] VARCHAR(80) NULL DEFAULT ('NS'),
+	[TAFS] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AgencyTitle] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LastUpdate] [datetime] NULL,
+	[SectionName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[SectionNumber] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LineType] VARCHAR(80) NULL DEFAULT ('NS'),
+	[TafsAccountCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BureauTitle] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OmbAccountCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FinancingAccounts] VARCHAR(80) NULL DEFAULT ('NS'),
+	[November] FLOAT NULL DEFAULT 0,
+	[January] FLOAT NULL DEFAULT 0,
+	[Feburary] FLOAT NULL DEFAULT 0,
+	[April] FLOAT NULL DEFAULT 0,
+	[May] FLOAT NULL DEFAULT 0,
+	[June] FLOAT NULL DEFAULT 0,
+	[August] FLOAT NULL DEFAULT 0,
+	[October] FLOAT NULL DEFAULT 0,
+	[AMT1] FLOAT NULL DEFAULT 0,
+	[AMT2] FLOAT NULL DEFAULT 0,
+	[AMT3] FLOAT NULL DEFAULT 0,
+	[AMT4] [float] NULL
+);
+END

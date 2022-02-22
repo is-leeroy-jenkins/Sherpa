@@ -1,0 +1,38 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'BackUpAllocations' )
+BEGIN
+CREATE TABLE [dbo].[BackUpAllocations]
+(
+	[BackupAllocationsId] INT IDENTITY(1,1) NOT NULL,
+	[AllocationsId] INT NOT NULL,
+	[BudgetLevel] VARCHAR(80) NULL DEFAULT ('NS'),
+	[RPIO] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FundCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AhCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OrgCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[RcCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AccountCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BocCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Amount] FLOAT NOT NULL DEFAULT 0,
+	[AllocationRatio] FLOAT NOT NULL DEFAULT 0,
+	[FundName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BocName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Division] VARCHAR(80) NULL DEFAULT ('NS'),
+	[DivisionName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ActivityCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[NpmName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[NpmCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramProjectCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramProjectName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramAreaCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramAreaName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[GoalCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[GoalName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ObjectiveCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ObjectiveName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ChangeDate] [datetime] NULL
+);
+END
+

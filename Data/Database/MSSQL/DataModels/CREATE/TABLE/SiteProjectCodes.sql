@@ -1,15 +1,19 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'SiteProjectCodes' )
+BEGIN
 CREATE TABLE [dbo].[SiteProjectCodes]
 (
-	[SiteProjectCodeId] [int] IDENTITY(713,1) NOT NULL,
-	[RpioCode] [text] NULL,
-	[RpioName] [text] NULL,
-	[State] [text] NULL,
-	[CongressionalDistrict] [text] NULL,
-	[EpaSiteId] [text] NULL,
-	[SiteProjectName] [text] NULL,
-	[SiteProjectCode] [text] NULL,
-	[SSID] [text] NULL,
-	[ActionCode] [text] NULL,
-	[OperableUnit] [text] NULL
+	[SiteProjectCodesId] INT IDENTITY(713,1) NOT NULL,
+	[RpioCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[RpioName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[State] VARCHAR(80) NULL DEFAULT ('NS'),
+	[CongressionalDistrict] VARCHAR(80) NULL DEFAULT ('NS'),
+	[EpaSiteId] VARCHAR(80) NULL DEFAULT ('NS'),
+	[SiteProjectName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[SiteProjectCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[SSID] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ActionCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OperableUnit] VARCHAR(80) NULL DEFAULT ('NS')
 );
-
+END

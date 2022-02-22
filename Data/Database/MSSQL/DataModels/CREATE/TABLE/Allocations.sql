@@ -1,28 +1,38 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'Allocations' )
+BEGIN
 CREATE TABLE [dbo].[Allocations]
 (
-	[AllocationsId] [int] IDENTITY(1,1) NOT NULL,
-	[BudgetLevel] [nvarchar](50) NOT NULL,
-	[RPIO] [nvarchar](50) NOT NULL,
-	[BFY] [nvarchar](50) NOT NULL,
-	[FundCode] [nvarchar](50) NOT NULL,
-	[AhCode] [nvarchar](50) NOT NULL,
-	[OrgCode] [nvarchar](50) NOT NULL,
-	[RcCode] [nvarchar](50) NOT NULL,
-	[AccountCode] [nvarchar](50) NOT NULL,
-	[BocCode] [nvarchar](50) NOT NULL,
-	[Amount] [float] NOT NULL,
-	[ActivityCode] [nvarchar](50) NOT NULL,
-	[ActivityName] [nvarchar](50) NOT NULL,
-	[FundName] [nvarchar](50) NOT NULL,
-	[BocName] [nvarchar](50) NOT NULL,
-	[NpmName] [nvarchar](50) NOT NULL,
-	[Division] [nvarchar](50) NOT NULL,
-	[DivisionName] [nvarchar](50) NOT NULL,
-	[ProgramProjectCode] [nvarchar](50) NOT NULL,
-	[ProgramProjectName] [nvarchar](100) NOT NULL,
-	[ProgramAreaName] [nvarchar](50) NOT NULL,
-	[AhName] [nvarchar](50) NOT NULL,
-	[OrgName] [nvarchar](50) NOT NULL,
-	[GoalName] [nvarchar](50) NOT NULL,
-	[ObjectiveName] [nvarchar](50) NOT NULL
+	[AllocationsId] INT NOT NULL,
+	[StatusOfFundsId] INT NOT NULL,
+	[BudgetLevel] VARCHAR(80) NULL DEFAULT ('NS'),
+	[RpioCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[EFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AhCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FundCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OrgCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AccountCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BocCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[RcCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Amount] FLOAT NULL DEFAULT 0,
+	[RpioName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FundName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AhName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BocName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[RcName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OrgName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[NpmName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[NpmCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramProjectCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramProjectName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramAreaCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ProgramAreaName] VARCHAR(80) NULL DEFAULT ('NS')
 );
+END
+
+
+
+
+

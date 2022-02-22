@@ -1,0 +1,55 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'CompassLevels' )
+BEGIN
+CREATE TABLE [dbo].[CompassLevels]
+(
+	[CompassLevelsId] [int] NOT NULL,
+	[BudgetLevel] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[EFY] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FundCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FundName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AppropriationCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[SubAppropriationCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AppropriationName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[TreasurySymbol] VARCHAR(80) NULL DEFAULT ('NS'),
+	[DocumentType] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LowerName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[PostedControlFlag] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ActualRecoveryTransType] VARCHAR(80) NULL DEFAULT ('NS'),
+	[CommitmentSpendControlFlag] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BudgetDefault] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LowerChildExpendSpendCtrlFlag] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LowerChildExpenseSpendCtrlFlag] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FteControlFlag] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AccrualSpendingControlFlag] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ObligationSpendingControlFlag] VARCHAR(80) NULL DEFAULT ('NS'),
+	[PreCommitmentSpendingControlFlag] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LowerCommSpendCtrlFlag] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LowerObligSpendCtrlFlag] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LowerExpenditureSpendingCtrlFlag] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LowerExpenseSpendingCtrlFlag] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LowerPostedCtrlFlag] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LowerPostedTransType] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LowerTransType] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LowerPostedFlag] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LowerPreCommSpendCtrlFlag] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LowerRecoveriesSpendingOption] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LowerRecoveriesOption] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LowerReimbSpendingOption] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Date] [datetime] NULL,
+	[TotalAuthority] [float] NULL,
+	[OriginalAmount] [float] NULL,
+	[CarryoverAvailabilityPercentage] [float] NULL,
+	[CarryIn] [float] NULL,
+	[CarryOut] [float] NULL,
+	[FundsIn] [float] NULL,
+	[FundOut] [float] NULL,
+	[RecoveriesWithdrawn] [float] NULL,
+	[ActualRecoveries] [float] NULL,
+	[ActualReimbursements] [float] NULL,
+	[AgreementReimbursables] [float] NULL
+);
+END
+

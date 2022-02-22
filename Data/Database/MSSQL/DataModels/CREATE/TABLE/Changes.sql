@@ -1,12 +1,16 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'Changes' )
+BEGIN
 CREATE TABLE [dbo].[Changes]
 (
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[TableName] [nvarchar](255) NULL,
-	[FieldName] [nvarchar](255) NULL,
-	[Action] [nvarchar](255) NULL,
-	[OldValue] [nvarchar](255) NULL,
-	[NewValue] [nvarchar](255) NULL,
-	[TimeStamp] [datetime] NULL,
-	[Message] [nvarchar](255) NULL
+	[ChangesId] INT IDENTITY(1,1) NOT NULL,
+	[TableName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FieldName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Action] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OldValue] VARCHAR(80) NULL DEFAULT ('NS'),
+	[NewValue] VARCHAR(80) NULL DEFAULT ('NS'),
+	[TimeStamp] DATETIME NULL,
+	[Message] VARCHAR(80) NULL DEFAULT ('NS')
 );
-
+END

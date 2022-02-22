@@ -1,20 +1,24 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'ObjectClassOutlays' )
+BEGIN
 CREATE TABLE [dbo].[ObjectClassOutlays]
 (
-	[ObjectClassOutlaysId] [int] IDENTITY(1,1) NOT NULL,
-	[ReportYear] [nvarchar](50) NULL,
-	[OmbAgencyCode] [nvarchar](50) NULL,
-	[OmbAgencyName] [nvarchar](100) NULL,
-	[OmbBureauCode] [nvarchar](100) NULL,
-	[OmbBureauName] [nvarchar](100) NULL,
-	[OmbAccountCode] [nvarchar](100) NULL,
-	[OmbAccountName] [nvarchar](100) NULL,
-	[Direct_Reimbursable] [nvarchar](50) NULL,
-	[DirectReimbursableTitle] [nvarchar](50) NULL,
-	[ObjectClassGroupNumber] [nvarchar](50) NULL,
-	[ObjectClassGroupName] [nvarchar](50) NULL,
-	[FinanceObjectClass] [nvarchar](100) NULL,
-	[PriorYear] [float] NULL,
-	[CurrentYear] [float] NULL,
-	[BudgetYear] [nvarchar](50) NULL
+	[ObjectClassOutlaysId] INT IDENTITY(1,1) NOT NULL,
+	[ReportYear] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OmbAgencyCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OmbAgencyName] VARCHAR(100) NULL DEFAULT ('NS'),
+	[OmbBureauCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OmbBureauName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OmbAccountCode] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OmbAccountName] VARCHAR(MAX) NULL DEFAULT ('NS'),
+	[Direct_Reimbursable] VARCHAR(80) NULL DEFAULT ('NS'),
+	[DirectReimbursableTitle] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ObjectClassGroupNumber] VARCHAR(80) NULL DEFAULT ('NS'),
+	[ObjectClassGroupName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[FinanceObjectClass] VARCHAR(80) NULL DEFAULT ('NS'),
+	[PriorYear] MONEY NULL DEFAULT 0,
+	[CurrentYear] MONEY NULL DEFAULT 0,
+	[BudgetYear] MONEY NULL DEFAULT 0
  );
-
+END

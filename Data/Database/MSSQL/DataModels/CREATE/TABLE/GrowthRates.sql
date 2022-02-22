@@ -1,17 +1,22 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'GrowthRates' )
+BEGIN
 CREATE TABLE [dbo].[GrowthRates]
 (
-	[GrowthRatesId] [int] IDENTITY(1,1) NOT NULL,
-	[RateId] [nvarchar](50) NULL,
-	[DESCRIPTION] [nvarchar](100) NULL,
-	[BudgetYearRate] [float] NULL,
-	[OutYear1] [float] NULL,
-	[OutYear2] [float] NULL,
-	[OutYear3] [float] NULL,
-	[OutYear4] [float] NULL,
-	[OutYear5] [float] NULL,
-	[OutYear6] [float] NULL,
-	[OutYear7] [float] NULL,
-	[OutYear8] [float] NULL,
-	[OutYear9] [float] NULL,
-	[Sort] [nvarchar](50) NULL
+	[GrowthRatesId] INT IDENTITY(1,1) NOT NULL,
+	[RateId] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Description] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BudgetYearRate] FLOAT NULL DEFAULT 0,
+	[OutYear1] FLOAT NULL DEFAULT 0,
+	[OutYear2] FLOAT NULL DEFAULT 0,
+	[OutYear3] FLOAT NULL DEFAULT 0,
+	[OutYear4] FLOAT NULL DEFAULT 0,
+	[OutYear5] FLOAT NULL DEFAULT 0,
+	[OutYear6] FLOAT NULL DEFAULT 0,
+	[OutYear7] FLOAT NULL DEFAULT 0,
+	[OutYear8] FLOAT NULL DEFAULT 0,
+	[OutYear9] FLOAT NULL DEFAULT 0,
+	[Sort] VARCHAR(80) NULL DEFAULT ('NS')
 );
+END

@@ -1,4 +1,5 @@
-CREATE TABLE "ApplicationTables" (
+CREATE TABLE IF NOT EXISTS "ApplicationTables" 
+(
 	"ApplicationTableId"	INTEGER NOT NULL UNIQUE,
 	"TableName"	TEXT(255) NOT NULL DEFAULT 'NS',
 	"Model"	TEXT(255) NOT NULL DEFAULT 'NS',
