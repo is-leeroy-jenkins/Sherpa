@@ -91,7 +91,7 @@ namespace BudgetExecution
                 Style.Callout.Position = LabelPosition.Top;
                 Style.Callout.DisplayTextAndFormat = "{0} : {2}";
                 Style.Callout.Border.Color = Color.SteelBlue;
-                Style.Callout.Color = Color.FromArgb( 10, 10, 10 );
+                Style.Callout.Color = Color.FromArgb( 18, 18, 18 );
                 Style.Callout.Font = ChartConfig.SetFont( "Roboto", 8, FontStyle.Regular );
                 Style.DisplayText = true;
             }

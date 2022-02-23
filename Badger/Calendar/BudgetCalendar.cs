@@ -8,8 +8,6 @@ namespace BudgetExecution
     using System;
     using System.Drawing;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
-    using Syncfusion.Windows.Forms;
 
     public class BudgetCalendar : CalendarBase
     {
@@ -30,13 +28,13 @@ namespace BudgetExecution
             FirstDayOfWeek = DayOfWeek.Sunday;
             ShowWeekNumbers = false;
             ShowToday = true;
-            Style.BorderColor = Color.FromArgb( 10, 10, 10 );
-            Style.Cell.BlackoutDatesForeColor = Color.FromArgb( 10, 10, 10 );
+            Style.BorderColor = Color.FromArgb( 18, 18, 18 );
+            Style.Cell.BlackoutDatesForeColor = Color.FromArgb( 18, 18, 18 );
             ShowFooter = false;
 
             // Basic Cell Properties
             Style.Cell.CellFont = new Font( "Roboto", 9 );
-            Style.Cell.CellBackColor = Color.FromArgb( 10, 10, 10 );
+            Style.Cell.CellBackColor = Color.FromArgb( 18, 18, 18 );
             Style.Cell.CellForeColor = Color.SteelBlue;
             Style.Cell.CellHoverBorderColor = Color.SteelBlue;
 
@@ -54,8 +52,8 @@ namespace BudgetExecution
 
             //TrailingCell Properties
             Style.Cell.TrailingCellFont = new Font( "Roboto", 9, FontStyle.Regular );
-            Style.Cell.TrailingCellBackColor = Color.FromArgb( 10, 10, 10 );
-            Style.Cell.TrailingCellForeColor = Color.FromArgb( 10, 10, 10 );
+            Style.Cell.TrailingCellBackColor = Color.FromArgb( 18, 18, 18 );
+            Style.Cell.TrailingCellForeColor = Color.FromArgb( 18, 18, 18 );
 
             // TodayCell Properties
             Style.Cell.TodayFont = new Font( "Roboto", 10, FontStyle.Bold );
@@ -64,14 +62,14 @@ namespace BudgetExecution
             Style.Cell.TodayHoverBorderColor = Color.SteelBlue;
 
             // Header Properties
-            Style.Header.BackColor = Color.FromArgb( 10, 10, 10 );
+            Style.Header.BackColor = Color.FromArgb( 18, 18, 18 );
             Style.Header.ForeColor = Color.SteelBlue;
             Style.Header.Font = new Font( "Roboto", 14, FontStyle.Bold );
-            Style.Header.DayNamesBackColor = Color.FromArgb( 10, 10, 10 );
+            Style.Header.DayNamesBackColor = Color.FromArgb( 18, 18, 18 );
             Style.Header.DayNamesFont = new Font( "Roboto", 10, FontStyle.Bold );
             Style.Header.DayNamesForeColor = Color.SteelBlue;
             Style.Header.HoverForeColor = Color.White;
-            Style.Header.NavigationButtonDisabledForeColor = Color.FromArgb( 10, 10, 10 );
+            Style.Header.NavigationButtonDisabledForeColor = Color.FromArgb( 18, 18, 18 );
             Style.Header.NavigationButtonHoverForeColor = Color.White;
             Style.Header.NavigationButtonForeColor = Color.SteelBlue;
             Style.HorizontalSplitterColor = SystemColors.WindowFrame;

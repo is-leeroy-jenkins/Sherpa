@@ -95,14 +95,14 @@ namespace BudgetExecution
             Text = string.Empty;
 
             // BackColor SeriesConfiguration
-            BackColor = Color.FromArgb( 10, 10, 10 );
-            BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
-            BackColorState.Enabled = Color.FromArgb( 10, 10, 10 );
-            BackColorState.Hover = Color.FromArgb( 20, 20, 20 );
+            BackColor = Color.FromArgb( 18, 18, 18 );
+            BackColorState.Disabled = Color.FromArgb( 18, 18, 18 );
+            BackColorState.Enabled = Color.FromArgb( 18, 18, 18 );
+            BackColorState.Hover = Color.FromArgb( 41, 41, 41 );
             BackColorState.Pressed = Color.SteelBlue;
 
             // BorderColor SeriesConfiguration
-            Border.Color = Color.FromArgb( 10, 10, 10 );
+            Border.Color = Color.FromArgb( 18, 18, 18 );
             Border.HoverColor = Color.SteelBlue;
             Border.HoverVisible = true;
             Border.Type = ShapeTypes.Rounded;
@@ -113,8 +113,8 @@ namespace BudgetExecution
 
             // Text SeriesConfiguration
             TextStyle.Pressed = Color.White;
-            TextStyle.Disabled = Color.FromArgb( 10, 10, 10 );
-            TextStyle.Enabled = Color.LightGray;
+            TextStyle.Disabled = Color.FromArgb( 18, 18, 18 );
+            TextStyle.Enabled = Color.LightSteelBlue;
             TextStyle.Hover = Color.White;
             TextStyle.TextAlignment = StringAlignment.Center;
             TextStyle.TextLineAlignment = StringAlignment.Center;

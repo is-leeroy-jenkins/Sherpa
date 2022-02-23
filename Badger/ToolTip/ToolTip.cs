@@ -9,7 +9,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.ComponentModel;
     using System.Windows.Forms;
-    using MetroSet_UI.Design;
     using MetroSet_UI.Enums;
 
     public class ToolTip : TipBase
@@ -23,7 +22,7 @@ namespace BudgetExecution
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";
             Style = Style.Custom;
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 18, 18, 18 );
             BorderColor = Color.SteelBlue;
             ForeColor = Color.LightSteelBlue;
             UseAnimation = true;

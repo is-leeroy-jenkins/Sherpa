@@ -77,16 +77,16 @@ namespace BudgetExecution
         /// </summary>
         public BudgetTile( )
         {
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 18, 18, 18 );
             ForeColor = Color.LightSteelBlue;
             Size = new Size( 140, 140 );
             Font = new Font( "Roboto", 9 );
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
             Dock = DockStyle.None;
             TileType = HubTileType.DefaultTile;
-            Title.Font = new Font( "Roboto", 8, FontStyle.Regular );
-            Title.TextColor = Color.LightGray;
-            Body.TextColor = Color.LightGray;
+            Title.Font = new Font( "Roboto", 8, FontStyle.Bold );
+            Title.TextColor = Color.White;
+            Body.TextColor = Color.LightSteelBlue;
             Body.Font = new Font( "Roboto", 11 );
             SlideTransition = TransitionDirection.RightToLeft;
             ShowBanner = false;

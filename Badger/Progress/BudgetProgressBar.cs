@@ -87,7 +87,7 @@ namespace BudgetExecution
             Font = new Font( "Robot", 10  );
             Maximum = 100;
             Anchor = AnchorStyles.Left & AnchorStyles.Top;
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 18, 18, 18 );
             BackgroundStyle = ProgressBarBackgroundStyles.Gradient;
             ProgressOrientation = Orientation.Horizontal;
             BorderStyle = BorderStyle.FixedSingle;

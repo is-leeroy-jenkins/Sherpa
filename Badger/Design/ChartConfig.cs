@@ -31,8 +31,8 @@ namespace BudgetExecution
         {
             DisplayText = true;
             TextColor = Color.FromArgb( 141, 139, 138 );
-            Interior = new BrushInfo( Color.FromArgb( 10, 10, 10 ) );
-            Border = SetBorderStyle( Color.FromArgb( 10, 10, 10 ), 1 );
+            Interior = new BrushInfo( Color.FromArgb( 18, 18, 18 ) );
+            Border = SetBorderStyle( Color.FromArgb( 18, 18, 18 ), 1 );
         }
 
         /// <summary>

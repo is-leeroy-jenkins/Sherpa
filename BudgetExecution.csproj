@@ -70,6 +70,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\CharmNotification.dll</HintPath>
     </Reference>
+    <Reference Include="DarkUI">
+      <HintPath>..\..\..\Desktop\lib\darkui\DarkUI.dll</HintPath>
+    </Reference>
     <Reference Include="DataGridViewExtension">
       <HintPath>lib\DataGridViewExtension.dll</HintPath>
     </Reference>
@@ -503,28 +506,28 @@
     <Compile Include="Badger\Button\BudgetButton.cs" />
     <Compile Include="Badger\Chart\BindingModel\SeriesConfig.cs" />
     <Compile Include="Badger\Chart\BindingModel\SeriesModel.cs" />
-    <Compile Include="Badger\Toolbar\BarButton.cs">
+    <Compile Include="Badger\Toolbar\BudgetToolButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\BarButtonBase.cs">
+    <Compile Include="Badger\Toolbar\ToolButtonBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\BarComboBase.cs">
+    <Compile Include="Badger\Toolbar\ToolStripComboBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\BarComboBox.cs">
+    <Compile Include="Badger\Toolbar\BudgetToolStripComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\BarLabel.cs">
+    <Compile Include="Badger\Toolbar\BudgetToolStripLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\BarLabelBase.cs">
+    <Compile Include="Badger\Toolbar\ToolStripLabelBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Toolbar\BarProgress.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\BarTextBox.cs">
+    <Compile Include="Badger\Toolbar\BudgetToolStripTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\BudgetImage\BudgetImage.cs" />
@@ -666,7 +669,7 @@
     <Compile Include="Badger\Toolbar\BarProgressBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\BarTextBoxBase.cs">
+    <Compile Include="Badger\Toolbar\ToolTextBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\TabControl\BudgetTabControl.cs">
@@ -790,11 +793,11 @@
     <Compile Include="Badger\Binding\IDataSource.cs" />
     <Compile Include="Badger\Label\IBudgetLabel.cs" />
     <Compile Include="Badger\Button\IBudgetButton.cs" />
-    <Compile Include="Badger\Toolbar\IBarButton.cs" />
-    <Compile Include="Badger\Toolbar\IBarComboBox.cs" />
-    <Compile Include="Badger\Toolbar\IBarLabel.cs" />
-    <Compile Include="Badger\Toolbar\IBarTextBox.cs" />
-    <Compile Include="Badger\Toolbar\IToolBar.cs" />
+    <Compile Include="Badger\Toolbar\IToolStripButton.cs" />
+    <Compile Include="Badger\Toolbar\IToolStripComboBox.cs" />
+    <Compile Include="Badger\Toolbar\IToolStripLabel.cs" />
+    <Compile Include="Badger\Toolbar\IToolStipTextBox.cs" />
+    <Compile Include="Badger\Toolbar\IBudgetToolStrip.cs" />
     <Compile Include="Badger\PictureBox\IPictureBox.cs" />
     <Compile Include="Badger\Label\LabelBase.cs" />
     <Compile Include="Badger\Label\BudgetLabel.cs" />
@@ -1033,10 +1036,10 @@
     <Compile Include="Badger\ToolTip\TipBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\BudgetToolbar.cs">
+    <Compile Include="Badger\Toolbar\BudgetToolStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\ToolbarBase.cs">
+    <Compile Include="Badger\Toolbar\ToolStripBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Toolbar\ToolSeparator.cs">
@@ -1073,6 +1076,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\Dialog\Browser\BudgetFileBrowser.resx">
       <DependentUpon>BudgetFileBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Badger\Dialog\Column\ColumnConfiguration.resx">
+      <DependentUpon>ColumnConfiguration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\Dialog\Error\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>

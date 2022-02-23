@@ -207,7 +207,6 @@ C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.C
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetHtmlForm.resources
-C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Data\Database\access\datamodels\Data.accdb
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Data\Database\access\referencemodels\References.accdb
 C:\Users\terry\source\repos\BudgetExecution\bin\Debug\Data\Database\access\referencemodels\References.mdf
@@ -420,3 +419,8 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.Cop
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetFileBrowser.resources
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetTabForm.resources
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.ColumnConfiguration.resources
+C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\DarkUI.dll
+C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\DarkUI.pdb

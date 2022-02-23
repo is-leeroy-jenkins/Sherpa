@@ -31,13 +31,13 @@ namespace BudgetExecution
             Visible = true;
 
             // Backcolor SeriesConfiguration
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 18, 18, 18 );
             ForeColor = Color.FromArgb( 141, 139, 138 );
-            BackColorState.Disabled = Color.FromArgb( 10, 10, 10 );
-            BackColorState.Enabled = Color.FromArgb( 10, 10, 10 );
+            BackColorState.Disabled = Color.FromArgb( 18, 18, 18 );
+            BackColorState.Enabled = Color.FromArgb( 18, 18, 18 );
 
             // Border SeriesConfiguration
-            Border.Color = Color.FromArgb( 10, 10, 10 );
+            Border.Color = Color.FromArgb( 18, 18, 18 );
             Border.Thickness = 1;
             Border.HoverColor = Color.SteelBlue;
             Border.HoverVisible = false;

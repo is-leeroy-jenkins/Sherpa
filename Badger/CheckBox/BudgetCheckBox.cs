@@ -16,20 +16,21 @@ namespace BudgetExecution
         {
             Size = new Size( 125, 25 );
             Box = new Size( 14, 14 );
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 18, 18, 18 );
             Font = new Font( "Roboto", 9, FontStyle.Regular );
             ForeColor = Color.LightSteelBlue;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Cursor = Cursors.Hand;
-            Border.Color = Color.FromArgb( 10, 10, 10 );
+            Border.Color = Color.FromArgb( 28, 28, 28 );
             Border.HoverColor = Color.SteelBlue;
             Border.HoverVisible = true;
             CheckState = CheckState.Unchecked;
             CheckStyle.Style = CheckStyle.CheckType.Checkmark;
-            CheckStyle.CheckColor = Color.SteelBlue;
-            BoxColorState.Enabled = Color.FromArgb( 20, 20, 20 );
-            BoxColorState.Hover = Color.SteelBlue;
+            CheckStyle.CheckColor = Color.Lime;
+            BoxColorState.Enabled = Color.FromArgb( 28, 28, 28 );
+            BoxColorState.Hover = Color.FromArgb( 41, 41, 41 );
+            BoxColorState.Disabled = Color.FromArgb( 18, 18, 18 );
             CheckStyle.AutoSize = true;
             CheckStyle.Bounds = new Rectangle( 0, 0, 125, 23 );
             CheckStyle.Style = CheckStyle.CheckType.Checkmark;
