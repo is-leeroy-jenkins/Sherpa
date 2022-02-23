@@ -1,11 +1,11 @@
 CREATE TABLE IF NOT EXISTS Changes
 (
-	    ChangesId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyChanges PRIMARY KEY,
-	    TableName TEXT(255) DEFAULT "NS",
-	    FieldName TEXT(255) DEFAULT "NS",
-	    ActionType TEXT(255) DEFAULT "NS",
-	    OldValue TEXT(255) DEFAULT "NS",
-	    NewValue TEXT(255) DEFAULT "NS",
+	    ChangesId INTEGER NOT NULL UNIQUE CONSTRAINT ChangesPrimaryKey PRIMARY KEY,
+	    TableName TEXT(80) NULL DEFAULT 'NS',
+	    FieldName TEXT(80) NULL DEFAULT 'NS',
+	    ActionType TEXT(80) NULL DEFAULT 'NS',
+	    OldValue TEXT(80) NULL DEFAULT 'NS',
+	    NewValue TEXT(80) NULL DEFAULT 'NS',
 	    ChangeDate DATETIME NULL,
-	    Message TEXT(255) DEFAULT "NS"
+	    Message TEXT(80) NULL DEFAULT 'NS'
 );

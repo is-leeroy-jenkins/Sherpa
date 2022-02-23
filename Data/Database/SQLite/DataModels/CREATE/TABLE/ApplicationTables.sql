@@ -1,7 +1,8 @@
 CREATE TABLE IF NOT EXISTS "ApplicationTables" 
 (
-	"ApplicationTableId"	INTEGER NOT NULL UNIQUE,
-	"TableName"	TEXT(255) NOT NULL DEFAULT 'NS',
-	"Model"	TEXT(255) NOT NULL DEFAULT 'NS',
-	CONSTRAINT "PrimaryKeyApplicationTables" PRIMARY KEY("ApplicationTableId")
+	"ApplicationTablesId"	INTEGER NOT NULL UNIQUE,
+	"TableName"	TEXT(80) NULL DEFAULT 'NS',
+	"Model"	TEXT(80) NULL DEFAULT 'NS',
+	CONSTRAINT "ApplicationTablesPrimaryKey" 
+	PRIMARY KEY("ApplicationTablesId" AUTOINCREMENT)
 );

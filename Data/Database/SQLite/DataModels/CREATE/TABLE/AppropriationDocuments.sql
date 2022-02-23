@@ -1,30 +1,30 @@
 CREATE TABLE IF NOT EXISTS "AppropriationDocuments" 
 (
 	"AppropriationDocumentsId"	INTEGER NOT NULL UNIQUE,
-	"BFY"	TEXT(255) DEFAULT "NS",
-	"EFY"	TEXT(255) DEFAULT "NS",
-	"FundCode"	TEXT(255) DEFAULT "NS",
-	"Fund"	TEXT(255) DEFAULT "NS",
-	"DocumentType"	TEXT(255) DEFAULT "NS",
-	"DocumentNumber"	TEXT(255) DEFAULT "NS",
-	"DocumentDate"	TEXT(255) DEFAULT "NS",
-	"LastDocumentDate"	TEXT(255) DEFAULT "NS",
-	"BudgetLevel"	TEXT(255) DEFAULT "NS",
-	"BudgetingControls"	TEXT(255) DEFAULT "NS",
-	"PostingControls"	TEXT(255) DEFAULT "NS",
-	"PreCommitmentControls"	TEXT(255) DEFAULT "NS",
-	"CommitmentControls"	TEXT(255) DEFAULT "NS",
-	"ObligationControls"	TEXT(255) DEFAULT "NS",
-	"AccrualControls"	TEXT(255) DEFAULT "NS",
-	"ExpenditureControls"	TEXT(255) DEFAULT "NS",
-	"ExpenseControls"	TEXT(255) DEFAULT "NS",
-	"ReimbursementControls"	TEXT(255) DEFAULT "NS",
-	"ReimbursableAgreementControls"	TEXT(255) DEFAULT "NS",
-	"Budgeted"	REAL DEFAULT 0.0,
-	"Posted"	REAL DEFAULT 0.0,
-	"CarryOut"	REAL DEFAULT 0.0,
-	"CarryIn"	REAL DEFAULT 0.0,
-	"EstimatedReimbursements"	REAL,
-	"EstimatedRecoveries"	REAL,
+	"BFY"	TEXT(80) NULL DEFAULT 'NS'
+	"EFY"	TEXT(80) NULL DEFAULT 'NS'
+	"FundCode"	TEXT(80) NULL DEFAULT 'NS'
+	"Fund"	TEXT(80) NULL DEFAULT 'NS'
+	"DocumentType"	TEXT(80) NULL DEFAULT 'NS'
+	"DocumentNumber"	TEXT(80) NULL DEFAULT 'NS'
+	"DocumentDate"	TEXT(80) NULL DEFAULT 'NS'
+	"LastDocumentDate"	TEXT(80) NULL DEFAULT 'NS'
+	"BudgetLevel"	TEXT(80) NULL DEFAULT 'NS'
+	"BudgetingControls"	TEXT(80) NULL DEFAULT 'NS'
+	"PostingControls"	TEXT(80) NULL DEFAULT 'NS'
+	"PreCommitmentControls"	TEXT(80) NULL DEFAULT 'NS'
+	"CommitmentControls"	TEXT(80) NULL DEFAULT 'NS'
+	"ObligationControls"	TEXT(80) NULL DEFAULT 'NS'
+	"AccrualControls"	TEXT(80) NULL DEFAULT 'NS'
+	"ExpenditureControls"	TEXT(80) NULL DEFAULT 'NS'
+	"ExpenseControls"	TEXT(80) NULL DEFAULT 'NS'
+	"ReimbursementControls"	TEXT(80) NULL DEFAULT 'NS'
+	"ReimbursableAgreementControls"	TEXT(80) NULL DEFAULT 'NS'
+	"Budgeted"	NUMERIC NULL DEFAULT 0.0,
+	"Posted"	NUMERIC NULL DEFAULT 0.0,
+	"CarryOut"	NUMERIC NULL DEFAULT 0.0,
+	"CarryIn"	NUMERIC NULL DEFAULT 0.0,
+	"EstimatedReimbursements"	NUMERIC NULL DEFAULT 0,
+	"EstimatedRecoveries"	NUMERIC NULL DEFAULT 0,
 	PRIMARY KEY("AppropriationDocumentsId" AUTOINCREMENT)
 );

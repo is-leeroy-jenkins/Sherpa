@@ -1,10 +1,10 @@
 CREATE TABLE IF NOT EXISTS "DataRuleDescriptions" 
 (
 	"DataRuleDescriptionsId"	INTEGER NOT NULL UNIQUE,
-	"Schedule"	TEXT(255) DEFAULT "NS",
-	"LineNumber"	TEXT(255) DEFAULT "NS",
-	"RuleNumber"	TEXT(255) DEFAULT "NS",
-	"RuleDescription"	TEXT(255) DEFAULT "NS",
-	"ScheduleOrder"	TEXT(255) DEFAULT "NS",
+	"Schedule"	TEXT(80) NULL DEFAULT 'NS',
+	"LineNumber"	TEXT(80) NULL DEFAULT 'NS',
+	"RuleNumber"	TEXT(80) NULL DEFAULT 'NS',
+	"RuleDescription"	TEXT(255) NULL DEFAULT 'NS',
+	"ScheduleOrder"	TEXT(80) NULL DEFAULT 'NS',
 	PRIMARY KEY("DataRuleDescriptionsId" AUTOINCREMENT)
 );

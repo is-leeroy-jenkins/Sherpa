@@ -1,26 +1,26 @@
 CREATE TABLE IF NOT EXISTS "Apportionments" 
 (
 	"ApportionmentsId"	INTEGER NOT NULL UNIQUE,
-	"Year"	TEXT(255) DEFAULT "NS",
-	"ActivityId"	TEXT(255) DEFAULT "NS",
-	"TreasuryFundCode"	TEXT(255) DEFAULT "NS",
-	"TreasuryFundSymbol"	TEXT(255) DEFAULT "NS",
-	"TreasuryAgency"	TEXT(255) DEFAULT "NS",
-	"TreasuryAccountCode"	TEXT(255) DEFAULT "NS",
-	"BFY"	TEXT(255) DEFAULT "NS",
-	"EFY"	TEXT(255) DEFAULT "NS",
-	"AvailabilityType"	TEXT(255) DEFAULT "NS",
-	"TreasuryAccountTitle"	TEXT(255) DEFAULT "NS",
-	"BudgetAgency"	TEXT(255) DEFAULT "NS",
-	"BudgetBureau"	TEXT(255) DEFAULT "NS",
-	"BudgetAccount"	TEXT(255) DEFAULT "NS",
-	"BudgetAgencyTitle"	TEXT(255) DEFAULT "NS",
-	"BudgetBureauTitle"	TEXT(255) DEFAULT "NS",
-	"BudgetAccountTitle"	TEXT(255) DEFAULT "NS",
-	"DateApproved"	TEXT(255) DEFAULT "NS",
-	"LineNumber"	TEXT(255) DEFAULT "NS",
-	"LineSort"	TEXT(255) DEFAULT "NS",
-	"LineDescription"	TEXT(255) DEFAULT "NS",
-	"Amount"	REAL,
+	"Year"	TEXT(80) NULL DEFAULT 'NS'
+	"ActivityId"	TEXT(80) NULL DEFAULT 'NS'
+	"TreasuryFundCode"	TEXT(80) NULL DEFAULT 'NS'
+	"TreasuryFundSymbol"	TEXT(80) NULL DEFAULT 'NS'
+	"TreasuryAgency"	TEXT(80) NULL DEFAULT 'NS'
+	"TreasuryAccountCode"	TEXT(80) NULL DEFAULT 'NS'
+	"BFY"	TEXT(80) NULL DEFAULT 'NS'
+	"EFY"	TEXT(80) NULL DEFAULT 'NS'
+	"AvailabilityType"	TEXT(80) NULL DEFAULT 'NS'
+	"TreasuryAccountTitle"	TEXT(80) NULL DEFAULT 'NS'
+	"BudgetAgency"	TEXT(80) NULL DEFAULT 'NS'
+	"BudgetBureau"	TEXT(80) NULL DEFAULT 'NS'
+	"BudgetAccount"	TEXT(80) NULL DEFAULT 'NS'
+	"BudgetAgencyTitle"	TEXT(80) NULL DEFAULT 'NS'
+	"BudgetBureauTitle"	TEXT(80) NULL DEFAULT 'NS'
+	"BudgetAccountTitle"	TEXT(80) NULL DEFAULT 'NS'
+	"DateApproved"	TEXT(80) NULL DEFAULT 'NS'
+	"LineNumber"	TEXT(80) NULL DEFAULT 'NS'
+	"LineSort"	TEXT(80) NULL DEFAULT 'NS'
+	"LineDescription"	TEXT(80) NULL DEFAULT 'NS'
+	"Amount"	NUMERIC NULL DEFAULT 0,
 	PRIMARY KEY("ApportionmentsId" AUTOINCREMENT)
 );
