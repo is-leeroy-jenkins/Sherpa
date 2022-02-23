@@ -34,7 +34,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "UnliquidatedObligation"/> class.
+        /// Initializes a new instance of the <see cref =
+        /// "UnliquidatedObligation"/> class.
         /// </summary>
         /// <param name = "query" >
         /// </param>
@@ -42,14 +43,15 @@ namespace BudgetExecution
             : base( query )
         {
             Record = new DataBuilder()?.GetRecord();
-            ID = new Key( Record, PrimaryKey.UnliquidatedObligationId );
+            ID = new Key( Record, PrimaryKey.ObligationsId );
             OriginalActionDate = GetOriginalActionDate();
             ULO = new Amount( Record, Numeric.ULO );
             Data = Record?.ToDictionary();
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "UnliquidatedObligation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "UnliquidatedObligation"/> class.
         /// </summary>
         /// <param name = "builder" >
         /// The builder.
@@ -58,7 +60,7 @@ namespace BudgetExecution
             : base( builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.UnliquidatedObligationId );
+            ID = new Key( Record, PrimaryKey.ObligationsId );
             OriginalActionDate = GetOriginalActionDate();
             ULO = new Amount( Record, Numeric.ULO );
             Data = Record?.ToDictionary();
@@ -73,7 +75,7 @@ namespace BudgetExecution
         public UnliquidatedObligation( DataRow datarow )
         {
             Record = datarow;
-            ID = new Key( Record, PrimaryKey.UnliquidatedObligationId );
+            ID = new Key( Record, PrimaryKey.ObligationsId );
             OriginalActionDate = GetOriginalActionDate();
             ULO = new Amount( Record, Numeric.ULO );
             Data = Record?.ToDictionary();

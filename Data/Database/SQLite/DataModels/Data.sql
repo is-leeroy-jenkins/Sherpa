@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS "ApplicationTables"
 
 CREATE TABLE IF NOT EXISTS "Deobligations" 
 (
-	"DeobligationId" INTEGER NOT NULL UNIQUE,
+	"DeobligationsId" INTEGER NOT NULL UNIQUE,
 	"RPIO" TEXT(255),
 	"BFY" TEXT(255),
 	"FundCode" TEXT(255),
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS "Deobligations"
 	"BocCode" TEXT(255),
 	"ProcessedDate" DATETIME,
 	"Amount" DOUBLE,
-	CONSTRAINT "PrimaryKeyDeobligations" PRIMARY KEY("DeobligationId")
+	CONSTRAINT "PrimaryKeyDeobligations" PRIMARY KEY("DeobligationsId")
 );
 
 CREATE TABLE IF NOT EXISTS "RegionalTransfers"

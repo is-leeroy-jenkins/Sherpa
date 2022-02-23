@@ -47,7 +47,7 @@ namespace BudgetExecution
             : base( query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.ReimbursableId );
+            ID = new Key( Record, PrimaryKey.ReimbursableFundsId );
             AgreementNumber = new Element( Record, Field.ReimbursableAgreementNumber );
             OpenCommitments = new Amount( Record, Numeric.OpenCommitments );
             ULO = new Amount( Record, Numeric.ULO );
@@ -65,7 +65,7 @@ namespace BudgetExecution
             : base( builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.ReimbursableId );
+            ID = new Key( Record, PrimaryKey.ReimbursableFundsId );
             AgreementNumber = new Element( Record, Field.ReimbursableAgreementNumber );
             OpenCommitments = new Amount( Record, Numeric.OpenCommitments );
             ULO = new Amount( Record, Numeric.ULO );
@@ -83,7 +83,7 @@ namespace BudgetExecution
             : base( dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.ReimbursableId );
+            ID = new Key( Record, PrimaryKey.ReimbursableFundsId );
             AgreementNumber = new Element( Record, Field.ReimbursableAgreementNumber );
             OpenCommitments = new Amount( Record, Numeric.OpenCommitments );
             ULO = new Amount( Record, Numeric.ULO );

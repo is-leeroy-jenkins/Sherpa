@@ -103,7 +103,7 @@ namespace BudgetExecution
         public AllowanceHolder( IBuilder dataBuilder )
         {
             Record = dataBuilder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.AllowanceHolderId );
+            ID = new Key( Record, PrimaryKey.AllowanceHoldersId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -119,7 +119,7 @@ namespace BudgetExecution
         public AllowanceHolder( IQuery query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.AllowanceHolderId );
+            ID = new Key( Record, PrimaryKey.AllowanceHoldersId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -136,7 +136,7 @@ namespace BudgetExecution
             : this()
         {
             Record = data;
-            ID = new Key( Record, PrimaryKey.AllowanceHolderId );
+            ID = new Key( Record, PrimaryKey.AllowanceHoldersId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -152,7 +152,7 @@ namespace BudgetExecution
         public AllowanceHolder( string ahcode )
         {
             Record = new DataBuilder( Source, SetArgs( ahcode ) )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.AllowanceHolderId );
+            ID = new Key( Record, PrimaryKey.AllowanceHoldersId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();

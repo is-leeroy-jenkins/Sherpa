@@ -15,6 +15,11 @@ namespace BudgetExecution
         NS = 0,
 
         /// <summary>
+        /// The actuals
+        /// </summary>
+        Actuals,
+
+        /// <summary>
         /// The accounting events
         /// </summary>
         AccountingEvents,
@@ -68,6 +73,11 @@ namespace BudgetExecution
         /// The accounts
         /// </summary>
         Accounts,
+
+        /// <summary>
+        /// The arra
+        /// </summary>
+        ARRA,
         
         /// <summary>
         /// The budget documents
@@ -93,12 +103,7 @@ namespace BudgetExecution
         /// The budget resource outlays
         /// </summary>
         BudgetResourceExecution,
-
-        /// <summary>
-        /// The carryover balances
-        /// </summary>
-        CarryoverBalances,
-
+        
         /// <summary>
         /// The carryover outlays
         /// </summary>
@@ -217,7 +222,7 @@ namespace BudgetExecution
         /// <summary>
         /// The gs pay scale
         /// </summary>
-        GsPayScale,
+        GsPayScales,
 
         /// <summary>
         /// The headquarters authority
@@ -248,7 +253,12 @@ namespace BudgetExecution
         /// The information technology
         /// </summary>
         InformationTechnology,
-        
+
+        /// <summary>
+        /// The infrastructure accounts
+        /// </summary>
+        InfrastructureAccounts,
+
         /// <summary>
         /// The regional authority
         /// </summary>

@@ -42,7 +42,7 @@ namespace BudgetExecution
             : base( query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.DeobligationId );
+            ID = new Key( Record, PrimaryKey.DeobligationsId );
             OriginalActionDate = GetOriginalActionDate();
             Amount = GetDeobligations();
             Data = Record?.ToDictionary();
@@ -59,7 +59,7 @@ namespace BudgetExecution
             : base( db )
         {
             Record = db.GetRecord();
-            ID = new Key( Record, PrimaryKey.DeobligationId );
+            ID = new Key( Record, PrimaryKey.DeobligationsId );
             OriginalActionDate = GetOriginalActionDate();
             Amount = GetDeobligations();
             Data = Record?.ToDictionary();
@@ -76,7 +76,7 @@ namespace BudgetExecution
             : base( dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.DeobligationId );
+            ID = new Key( Record, PrimaryKey.DeobligationsId );
             OriginalActionDate = GetOriginalActionDate();
             Amount = GetDeobligations();
             Data = Record?.ToDictionary();

@@ -84,7 +84,7 @@ namespace BudgetExecution
         public FinanceObjectClass( IQuery query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.FinanceObjectClassId );
+            ID = new Key( Record, PrimaryKey.FinanceObjectClassesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -97,7 +97,7 @@ namespace BudgetExecution
         public FinanceObjectClass( IBuilder builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.FinanceObjectClassId );
+            ID = new Key( Record, PrimaryKey.FinanceObjectClassesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -110,7 +110,7 @@ namespace BudgetExecution
         public FinanceObjectClass( DataRow dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.FinanceObjectClassId );
+            ID = new Key( Record, PrimaryKey.FinanceObjectClassesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -123,7 +123,7 @@ namespace BudgetExecution
         public FinanceObjectClass( string focCode )
         {
             Record = new DataBuilder( Source, GetArgs( focCode ) )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.FinanceObjectClassId );
+            ID = new Key( Record, PrimaryKey.FinanceObjectClassesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();

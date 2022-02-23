@@ -76,7 +76,7 @@ namespace BudgetExecution
         public Goal( IQuery query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.GoalId );
+            ID = new Key( Record, PrimaryKey.GoalsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -92,7 +92,7 @@ namespace BudgetExecution
         public Goal( IBuilder builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.GoalId );
+            ID = new Key( Record, PrimaryKey.GoalsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -108,7 +108,7 @@ namespace BudgetExecution
         public Goal( DataRow dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.GoalId );
+            ID = new Key( Record, PrimaryKey.GoalsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -123,7 +123,7 @@ namespace BudgetExecution
         public Goal( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.GoalId );
+            ID = new Key( Record, PrimaryKey.GoalsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();

@@ -68,7 +68,7 @@ namespace BudgetExecution
         {
             InputYear = new Element( Field.BFY, bfy );
             Record = new DataBuilder( Source, SetArgs( bfy ) )?.GetRecord();
-            FiscalYearId = new Key( Record, PrimaryKey.FiscalYearId );
+            FiscalYearId = new Key( Record, PrimaryKey.FiscalYearsId );
             FirstYear = new Element( Record, Field.BBFY );
             LastYear = new Element( Record, Field.EBFY );
             Availability = new Element( Record, Field.Availability );
@@ -89,7 +89,7 @@ namespace BudgetExecution
         public BudgetFiscalYear( IQuery query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            FiscalYearId = new Key( Record, PrimaryKey.FiscalYearId );
+            FiscalYearId = new Key( Record, PrimaryKey.FiscalYearsId );
             FirstYear = new Element( Record, Field.BBFY );
             LastYear = new Element( Record, Field.EBFY );
             Availability = new Element( Record, Field.Availability );
@@ -110,7 +110,7 @@ namespace BudgetExecution
         public BudgetFiscalYear( IBuilder dataBuilder )
         {
             Record = dataBuilder?.GetRecord();
-            FiscalYearId = new Key( Record, PrimaryKey.FiscalYearId );
+            FiscalYearId = new Key( Record, PrimaryKey.FiscalYearsId );
             FirstYear = new Element( Record, Field.BBFY );
             LastYear = new Element( Record, Field.EBFY );
             Availability = new Element( Record, Field.Availability );
@@ -131,7 +131,7 @@ namespace BudgetExecution
         public BudgetFiscalYear( BFY fy )
         {
             Record = new DataBuilder( Source, Provider.SQLite, SetArgs( fy ) )?.GetRecord();
-            FiscalYearId = new Key( Record, PrimaryKey.FiscalYearId );
+            FiscalYearId = new Key( Record, PrimaryKey.FiscalYearsId );
             FirstYear = new Element( Record, Field.BBFY );
             LastYear = new Element( Record, Field.EBFY );
             Availability = new Element( Record, Field.Availability );
@@ -153,7 +153,7 @@ namespace BudgetExecution
         {
             Record = dataRow;
             InputYear = new Element( Record, CurrentYear.ToString() );
-            FiscalYearId = new Key( Record, PrimaryKey.FiscalYearId );
+            FiscalYearId = new Key( Record, PrimaryKey.FiscalYearsId );
             FirstYear = new Element( Record, Field.BBFY );
             LastYear = new Element( Record, Field.EBFY );
             Availability = new Element( Record, Field.Availability );

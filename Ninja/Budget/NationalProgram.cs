@@ -97,7 +97,7 @@ namespace BudgetExecution
         public NationalProgram( IQuery query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.NationalProgramId );
+            ID = new Key( Record, PrimaryKey.NationalProgramsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             RpioCode = new Element( Record, Field.RpioCode );
@@ -115,7 +115,7 @@ namespace BudgetExecution
         public NationalProgram( IBuilder builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.NationalProgramId );
+            ID = new Key( Record, PrimaryKey.NationalProgramsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             RpioCode = new Element( Record, Field.RpioCode );
@@ -133,7 +133,7 @@ namespace BudgetExecution
         public NationalProgram( DataRow dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.NationalProgramId );
+            ID = new Key( Record, PrimaryKey.NationalProgramsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             RpioCode = new Element( Record, Field.RpioCode );
@@ -151,7 +151,7 @@ namespace BudgetExecution
         public NationalProgram( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.NationalProgramId );
+            ID = new Key( Record, PrimaryKey.NationalProgramsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             RpioCode = new Element( Record, Field.RpioCode );

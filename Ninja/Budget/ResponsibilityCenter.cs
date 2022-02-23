@@ -78,7 +78,7 @@ namespace BudgetExecution
             : this()
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.ResponsibilityCenterId );
+            ID = new Key( Record, PrimaryKey.ResponsibilityCentersId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.RcCode ).Code;
             Data = Record?.ToDictionary();
@@ -93,7 +93,7 @@ namespace BudgetExecution
         public ResponsibilityCenter( IBuilder builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.ResponsibilityCenterId );
+            ID = new Key( Record, PrimaryKey.ResponsibilityCentersId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.RcCode ).Code;
             Data = Record?.ToDictionary();
@@ -109,7 +109,7 @@ namespace BudgetExecution
             : this()
         {
             Record = data;
-            ID = new Key( Record, PrimaryKey.ResponsibilityCenterId );
+            ID = new Key( Record, PrimaryKey.ResponsibilityCentersId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.RcCode ).Code;
             Data = Record?.ToDictionary();
@@ -124,7 +124,7 @@ namespace BudgetExecution
             : this()
         {
             Record = new DataBuilder( Source, SetArgs( rcCode ) )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.ResponsibilityCenterId );
+            ID = new Key( Record, PrimaryKey.ResponsibilityCentersId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.RcCode ).Code;
             Data = Record?.ToDictionary();

@@ -50,11 +50,10 @@ namespace BudgetExecution
             : this()
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.WorkCodeId );
+            ID = new Key( Record, PrimaryKey.WorkCodesId );
             Code = new Element( Record, Field.Code ).Code;
             Name = new Element( Record, Field.Name ).Name;
             ShortName = new Element( Record, Field.ShortName );
-            Notification = new Element( Record, Field.Notifications );
             Status = new Element( Record, Field.Status );
             PayPeriod = new Element( Record, Field.PayPeriod );
             BFY = new Element( Record, Field.BBFY );
@@ -79,11 +78,10 @@ namespace BudgetExecution
         public WorkCode( IBuilder builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.WorkCodeId );
+            ID = new Key( Record, PrimaryKey.WorkCodesId );
             Code = new Element( Record, Field.Code ).Code;
             Name = new Element( Record, Field.Name ).Name;
             ShortName = new Element( Record, Field.ShortName );
-            Notification = new Element( Record, Field.Notifications );
             Status = new Element( Record, Field.Status );
             PayPeriod = new Element( Record, Field.PayPeriod );
             BFY = new Element( Record, Field.BBFY );
@@ -108,11 +106,10 @@ namespace BudgetExecution
         public WorkCode( DataRow data )
         {
             Record = data;
-            ID = new Key( Record, PrimaryKey.WorkCodeId );
+            ID = new Key( Record, PrimaryKey.WorkCodesId );
             Code = new Element( Record, Field.Code ).Code;
             Name = new Element( Record, Field.Name ).Name;
             ShortName = new Element( Record, Field.ShortName );
-            Notification = new Element( Record, Field.Notifications );
             Status = new Element( Record, Field.Status );
             PayPeriod = new Element( Record, Field.PayPeriod );
             BFY = new Element( Record, Field.BBFY );

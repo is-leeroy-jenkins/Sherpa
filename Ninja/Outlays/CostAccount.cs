@@ -30,7 +30,7 @@ namespace BudgetExecution
         {
             Record = dataRow;
             PRC = new ProgramResultsCode( dataRow );
-            ID = new Key( Record, PrimaryKey.PrcId );
+            ID = new Key( Record, PrimaryKey.AllocationsId );
             NpmCode = new Element( Record, Field.NpmCode );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
             ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );

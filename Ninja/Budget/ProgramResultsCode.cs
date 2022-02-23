@@ -79,7 +79,7 @@ namespace BudgetExecution
         public ProgramResultsCode( IQuery query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.PrcId );
+            ID = new Key( Record, PrimaryKey.AllocationsId );
             BudgetLevel = new Element( Record, Field.BudgetLevel );
             BFY = new Element( Record, Field.BFY );
             RpioCode = new Element( Record, Field.RpioCode );
@@ -104,7 +104,7 @@ namespace BudgetExecution
         public ProgramResultsCode( IBuilder builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.PrcId );
+            ID = new Key( Record, PrimaryKey.AllocationsId );
             BudgetLevel = new Element( Record, Field.BudgetLevel );
             BFY = new Element( Record, Field.BFY );
             RpioCode = new Element( Record, Field.RpioCode );
@@ -129,7 +129,7 @@ namespace BudgetExecution
         public ProgramResultsCode( DataRow dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.PrcId );
+            ID = new Key( Record, PrimaryKey.AllocationsId );
             BudgetLevel = new Element( Record, Field.BudgetLevel );
             BFY = new Element( Record, Field.BFY );
             RpioCode = new Element( Record, Field.RpioCode );
@@ -153,7 +153,7 @@ namespace BudgetExecution
         public ProgramResultsCode( IDictionary<string, object> dict )
         {
             Record = new DataBuilder( Source, dict )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.PrcId );
+            ID = new Key( Record, PrimaryKey.AllocationsId );
             BudgetLevel = new Element( Record, Field.BudgetLevel );
             BFY = new Element( Record, Field.BFY );
             RpioCode = new Element( Record, Field.RpioCode );

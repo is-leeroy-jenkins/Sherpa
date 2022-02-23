@@ -106,7 +106,7 @@ namespace BudgetExecution
         public InformationTechnology( IQuery query )
         {
             Record = new Builder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.InformationTechnologyId );
+            ID = new Key( Record, PrimaryKey.CpicId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             ProjectCode = new Element( Record, Field.ProjectCode );
@@ -126,7 +126,7 @@ namespace BudgetExecution
             : this()
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.InformationTechnologyId );
+            ID = new Key( Record, PrimaryKey.CpicId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             ProjectCode = new Element( Record, Field.ProjectCode );
@@ -145,7 +145,7 @@ namespace BudgetExecution
             : this()
         {
             Record = data;
-            ID = new Key( Record, PrimaryKey.InformationTechnologyId );
+            ID = new Key( Record, PrimaryKey.CpicId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             ProjectCode = new Element( Record, Field.ProjectCode );
@@ -164,7 +164,7 @@ namespace BudgetExecution
         public InformationTechnology( string itcode )
         {
             Record = new DataBuilder( Source, GetArgs( itcode ) )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.InformationTechnologyId );
+            ID = new Key( Record, PrimaryKey.CpicId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             ProjectCode = new Element( Record, Field.ProjectCode );
@@ -298,7 +298,7 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object>
                     {
-                        [ PrimaryKey.InformationTechnologyId.ToString() ] = ID.Index,
+                        [ PrimaryKey.CpicId.ToString() ] = ID.Index,
                         [ Field.Name.ToString() ] = Name,
                         [ Field.Code.ToString() ] = Code
                     };

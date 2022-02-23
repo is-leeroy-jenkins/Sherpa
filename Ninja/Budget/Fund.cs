@@ -87,7 +87,7 @@ namespace BudgetExecution
         public Fund( FundCode fundCode )
         {
             Record = new DataBuilder( Source, GetArgs( fundCode ) )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.FundId );
+            ID = new Key( Record, PrimaryKey.FundsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Title = new Element( Record, Field.Title );
@@ -104,7 +104,7 @@ namespace BudgetExecution
         public Fund( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.FundId );
+            ID = new Key( Record, PrimaryKey.FundsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Title = new Element( Record, Field.Title );
@@ -121,7 +121,7 @@ namespace BudgetExecution
         public Fund( IQuery query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.FundId );
+            ID = new Key( Record, PrimaryKey.FundsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Title = new Element( Record, Field.Title );
@@ -138,7 +138,7 @@ namespace BudgetExecution
         public Fund( IBuilder builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.FundId );
+            ID = new Key( Record, PrimaryKey.FundsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Title = new Element( Record, Field.Title );
@@ -156,7 +156,7 @@ namespace BudgetExecution
             : this()
         {
             Record = data;
-            ID = new Key( Record, PrimaryKey.FundId );
+            ID = new Key( Record, PrimaryKey.FundsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Title = new Element( Record, Field.Title );
