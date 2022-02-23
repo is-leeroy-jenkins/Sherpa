@@ -9,6 +9,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
+    using static System.IO.Path;
 
     /// <summary>
     /// 
@@ -27,28 +28,31 @@ namespace BudgetExecution
         public string FullPath { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageBuilder"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ImageBuilder"/> class.
         /// </summary>
         public ImageBuilder()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageBuilder"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ImageBuilder"/> class.
         /// </summary>
         /// <param name="fullPath">The full path.</param>
         public ImageBuilder( string fullPath )
         {
             FullPath = fullPath;
-            Name = Path.GetFileNameWithoutExtension( FullPath );
+            Name = GetFileNameWithoutExtension( FullPath );
             ImageSource = ImageSource.NS;
             FileExtension = Path.GetExtension( FullPath );
             ImageFormat = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
-            Size = ReSize( ImageSizer.Small );
+            Size = ReSize( PicSize.Small );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageBuilder"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ImageBuilder"/> class.
         /// </summary>
         /// <param name="imageSource">The source.</param>
         public ImageBuilder( ImageSource imageSource )
@@ -59,27 +63,29 @@ namespace BudgetExecution
             ImageFormat = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
             FullPath = GetImageFilePath( Name, ImageSource );
             ImageFormat = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
-            Size = ReSize( ImageSizer.Small );
+            Size = ReSize( PicSize.Small );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageBuilder"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ImageBuilder"/> class.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="imageSource">The source.</param>
         /// <param name="size">The size.</param>
-        public ImageBuilder( string name, ImageSource imageSource, ImageSizer size = ImageSizer.Medium )
+        public ImageBuilder( string name, ImageSource imageSource, PicSize size = PicSize.Medium )
         {
             Name = name;
             ImageSource = imageSource;
             FullPath = GetImageFilePath( Name, ImageSource );
             FileExtension = Path.GetExtension( name );
             ImageFormat = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
-            Size = ReSize( ImageSizer.Small );
+            Size = ReSize( PicSize.Small );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageBuilder"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ImageBuilder"/> class.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="imageSource">The source.</param>
@@ -98,7 +104,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageBuilder"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ImageBuilder"/> class.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="imageSource">The source.</param>
@@ -158,7 +165,7 @@ namespace BudgetExecution
             try
             {
                 return File.Exists( filePath )
-                    ? Path.GetFullPath( filePath )
+                    ? GetFullPath( filePath )
                     : default( string );
             }
             catch( Exception ex )

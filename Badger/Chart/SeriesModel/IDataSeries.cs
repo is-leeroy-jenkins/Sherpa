@@ -36,8 +36,8 @@ namespace BudgetExecution
         /// <param name="data">The data.</param>
         /// <param name="type">The type.</param>
         /// <param name="stat">The stat.</param>
-        void SetPoints( IDictionary<string, double> data, ChartType type = ChartType.Column,
-            STAT stat = STAT.Total );
+        void SetPoints( IDictionary<string, double> data, 
+            ChartType type = ChartType.Column, STAT stat = STAT.Total );
 
         /// <summary>
         /// Gets the series values.

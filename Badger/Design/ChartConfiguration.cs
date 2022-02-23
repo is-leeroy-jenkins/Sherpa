@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Drawing.Drawing2D;
-    using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Chart;
 
@@ -16,18 +15,27 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="ChartStyleInfo" />
-    /// <seealso cref="IChartConfig" />
+    /// <seealso cref="IChartConfiguration" />
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberInitializerValueIgnored" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    public class ChartConfig : ChartStyleInfo, IChartConfig
+    [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
+    public class ChartConfiguration : ChartStyleInfo, IChartConfiguration
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartConfig"/> class.
+        /// Gets or sets the call out.
         /// </summary>
-        public ChartConfig()
+        /// <value>
+        /// The call out.
+        /// </value>
+        public ChartCalloutInfo CallOut { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ChartConfiguration"/> class.
+        /// </summary>
+        public ChartConfiguration()
         {
             DisplayText = true;
             TextColor = Color.FromArgb( 141, 139, 138 );
@@ -53,7 +61,9 @@ namespace BudgetExecution
                         Size = font.Size
                     };
 
-                    return _chart;
+                    return _chart != null
+                        ? _chart
+                        : default( ChartFontInfo );
                 }
                 catch( Exception ex )
                 {
@@ -71,7 +81,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="style">The style.</param>
         /// <returns></returns>
-        public static ChartFontInfo SetFont( string family = "Roboto", int size = 8,
+        public static ChartFontInfo SetFont( string family = "Roboto", int size = 9,
             FontStyle style = FontStyle.Regular )
         {
             if( Verify.IsInput( family ) )
@@ -85,7 +95,9 @@ namespace BudgetExecution
                         Size = size
                     };
 
-                    return _chart;
+                    return _chart != null
+                        ? _chart
+                        : default( ChartFontInfo );
                 }
                 catch( Exception ex )
                 {
@@ -97,24 +109,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the anchor.
-        /// </summary>
-        /// <param name="anchor">The anchor.</param>
-        /// <returns></returns>
-        public AnchorStyles SetAnchor( AnchorStyles anchor = AnchorStyles.Left & AnchorStyles.Top )
-        {
-            try
-            {
-                return anchor;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( AnchorStyles );
-            }
-        }
-
-        /// <summary>
         /// Sets the border style.
         /// </summary>
         /// <param name="color">The color.</param>
@@ -122,22 +116,29 @@ namespace BudgetExecution
         /// <returns></returns>
         public static ChartLineInfo SetBorderStyle( Color color, int width = 1 )
         {
-            try
+            if( color != null )
             {
-                var _style = new ChartLineInfo
+                try
                 {
-                    Alignment = PenAlignment.Center,
-                    Width = width,
-                    Color = color
-                };
+                    var _style = new ChartLineInfo
+                    {
+                        Alignment = PenAlignment.Center,
+                        Width = width,
+                        Color = color
+                    };
 
-                return _style;
+                    return _style != null 
+                        ? _style
+                        : default( ChartLineInfo );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( ChartLineInfo );
+                }
             }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( ChartLineInfo );
-            }
+
+            return default( ChartLineInfo );
         }
 
         /// <summary>

@@ -360,7 +360,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _image = new BudgetImage( imageName, ImageSource.ToolBarImages, ImageSizer.Small );
+                    var _image = new BudgetImage( imageName, ImageSource.ToolBarImages, PicSize.Small );
                     var _button = new BudgetToolButton( _image );
                     Items?.Add( _button );
 

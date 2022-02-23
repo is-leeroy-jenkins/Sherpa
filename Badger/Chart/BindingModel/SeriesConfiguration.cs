@@ -11,43 +11,19 @@ namespace BudgetExecution
     using System.Linq;
     using Syncfusion.Windows.Forms.Chart;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="ChartSeries" />
-    /// <seealso cref="ISeriesConfig" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class SeriesConfig : ChartSeries, ISeriesConfig
+    public class SeriesConfiguration : ChartSeries, ISeriesConfig
     {
-        /// <summary>
-        /// Gets the field.
-        /// </summary>
         public Field Field { get; set; }
 
-        /// <summary>
-        /// Gets the statistic.
-        /// </summary>
         public STAT Stat { get; set; }
 
-        /// <summary>
-        /// Gets or sets the type of the chart.
-        /// </summary>
-        /// <value>
-        /// The type of the chart.
-        /// </value>
         public ChartType ChartType { get; set; }
 
-        /// <summary>
-        /// Gets the numeric.
-        /// </summary>
         public Numeric Numeric { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="SeriesConfig"/> class.
-        /// </summary>
-        public SeriesConfig()
+        public SeriesConfiguration()
         {
             // Basic Properties
             SmartLabels = true;
@@ -60,29 +36,18 @@ namespace BudgetExecution
             LegendItemUseSeriesStyle = true;
             SmartLabelsBorderColor = Color.SteelBlue;
             SmartLabelsBorderWidth = 1;
+            Numeric = Numeric.Amount;
+            Stat = STAT.Total;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SeriesConfig"/> class.
-        /// </summary>
-        /// <param name="field">The field.</param>
-        /// <param name="stat">The stat.</param>
-        /// <param name="type">The type.</param>
-        /// <param name="numeric">The numeric.</param>
-        public SeriesConfig( Field field, STAT stat = STAT.Total, ChartType type = ChartType.Column,
-            Numeric numeric = Numeric.Amount )
+        public SeriesConfiguration( Field field, ChartType type = ChartType.Column )
             : this()
         {
             Name = $"{field}";
             Field = field;
-            Stat = stat;
             ChartType = type;
-            Numeric = numeric;
         }
 
-        /// <summary>
-        /// Sets the call out.
-        /// </summary>
         public void SetCallOut()
         {
             try
@@ -92,7 +57,7 @@ namespace BudgetExecution
                 Style.Callout.DisplayTextAndFormat = "{0} : {2}";
                 Style.Callout.Border.Color = Color.SteelBlue;
                 Style.Callout.Color = Color.FromArgb( 18, 18, 18 );
-                Style.Callout.Font = ChartConfig.SetFont( "Roboto", 8, FontStyle.Regular );
+                Style.Callout.Font = ChartConfiguration.SetFont( "Roboto", 9, FontStyle.Regular );
                 Style.DisplayText = true;
             }
             catch( Exception ex )
@@ -101,11 +66,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the type of the series.
-        /// </summary>
-        /// <param name="type">The type.</param>
-        /// <returns></returns>
         public ChartType GetSeriesType( ChartType type = ChartType.Column )
         {
             try
@@ -121,10 +81,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the point configuration.
-        /// </summary>
-        /// <param name="stat">The stat.</param>
         public void SetPointConfiguration( STAT stat = STAT.Total )
         {
             if( Validate.STAT( stat ) )
@@ -193,12 +149,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the points.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        /// <param name="type">The type.</param>
-        /// <param name="stat">The stat.</param>
         public void SetPoints( IDictionary<string, double> data, ChartType type = ChartType.Column,
             STAT stat = STAT.Total )
         {
@@ -291,10 +241,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );

@@ -260,7 +260,7 @@ namespace BudgetExecution
         public static bool IsImageSize<T>( T imageSize )
             where T : struct
         {
-            if( !Enum.IsDefined( typeof( ImageSizer ), imageSize ) )
+            if( !Enum.IsDefined( typeof( PicSize ), imageSize ) )
             {
                 Fail( new ArgumentException( "Verify [ enum ImageSizer ] input argument!" ) );
                 return false;

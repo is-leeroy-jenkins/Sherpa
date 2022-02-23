@@ -38,21 +38,23 @@ namespace BudgetExecution
         public ImageFactory ImageFactory { get; set;  }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetImage" /> class.
+        /// Initializes a new instance
+        /// of the <see cref="BudgetImage" /> class.
         /// </summary>
         public BudgetImage()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetImage" /> class.
+        /// Initializes a new instance
+        /// of the <see cref="BudgetImage" /> class.
         /// </summary>
         /// <param name="path">The path.</param>
         public BudgetImage( string path )
         {
             Name = Path.GetFileNameWithoutExtension( path );
             ImageBuilder = new ImageBuilder( Path.GetFullPath( path ) );
-            Size = ReSize( ImageSizer.Small );
+            Size = ReSize( PicSize.Small );
             ImageSource = ImageBuilder.ImageSource;
             ImageFormat = ImageBuilder.ImageFormat;
             ImageFactory = new ImageFactory( ImageBuilder );
@@ -60,7 +62,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetImage" /> class.
+        /// Initializes a new instance
+        /// of the <see cref="BudgetImage" /> class.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name = "size" > </param>
@@ -77,7 +80,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetImage" /> class.
+        /// Initializes a new instance
+        /// of the <see cref="BudgetImage" /> class.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name = "width" > </param>
@@ -95,15 +99,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetImage"/> class.
+        /// Initializes a new instance
+        /// of the <see cref="BudgetImage"/> class.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name="source">The source.</param>
         public BudgetImage( string path, ImageSource source = ImageSource.NS )
         {
             Name = Path.GetFileNameWithoutExtension( path );
-            ImageBuilder = new ImageBuilder( Name, source, ImageSizer.Medium );
-            Size = ReSize( ImageSizer.Medium );
+            ImageBuilder = new ImageBuilder( Name, source, PicSize.Medium );
+            Size = ReSize( PicSize.Medium );
             ImageSource = ImageBuilder.ImageSource;
             ImageFormat = ImageBuilder.ImageFormat;
             ImageFactory = new ImageFactory( ImageBuilder );
@@ -111,7 +116,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetImage"/> class.
+        /// Initializes a new instance
+        /// of the <see cref="BudgetImage"/> class.
         /// </summary>
         /// <param name="imageBuilder">The image builder.</param>
         public BudgetImage( ImageBuilder imageBuilder )
@@ -126,12 +132,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetImage"/> class.
+        /// Initializes a new instance
+        /// of the <see cref="BudgetImage"/> class.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="resource">The resource.</param>
         /// <param name="size">The size.</param>
-        public BudgetImage( string name, ImageSource resource, ImageSizer size = ImageSizer.Medium )
+        public BudgetImage( string name, ImageSource resource, PicSize size = PicSize.Medium )
         {
             ImageBuilder = new ImageBuilder( name, resource, size );
             Name = ImageBuilder.Name;
@@ -143,7 +150,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetImage"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="BudgetImage"/> class.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="resource">The resource.</param>

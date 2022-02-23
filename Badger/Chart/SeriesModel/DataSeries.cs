@@ -26,7 +26,7 @@ namespace BudgetExecution
         /// <value>
         /// The configuration.
         /// </value>
-        public ISeriesConfig Config { get; set; }
+        public ISeriesConfig SeriesSetting { get; set; }
 
         /// <summary>
         /// Gets the metric.
@@ -82,22 +82,22 @@ namespace BudgetExecution
         public DataSeries( ISeriesModel chartData )
             : this()
         {
-            Config = chartData.SeriesConfiguration;
-            Name = Config.Name;
-            Type = GetSeriesType( Config.GetSeriesType() );
-            Metric = Config.Stat;
+            SeriesSetting = chartData.SeriesConfiguration;
+            Name = SeriesSetting.Name;
+            Type = GetSeriesType( SeriesSetting.GetSeriesType() );
+            Metric = SeriesSetting.Stat;
             SourceModel = chartData?.SourceModel;
             SeriesData = SourceModel?.SeriesData;
             SeriesValues = chartData?.Values;
             SeriesCategories = chartData?.Categories;
-            SmartLabels = Config.SmartLabels;
-            Visible = Config.Visible;
-            ShowTicks = Config.ShowTicks;
-            Rotate = Config.Rotate;
-            EnableAreaToolTip = Config.EnableAreaToolTip;
-            EnableStyles = Config.EnableStyles;
-            OptimizePiePointPositions = Config.OptimizePiePointPositions;
-            LegendItemUseSeriesStyle = Config.LegendItemUseSeriesStyle;
+            SmartLabels = SeriesSetting.SmartLabels;
+            Visible = SeriesSetting.Visible;
+            ShowTicks = SeriesSetting.ShowTicks;
+            Rotate = SeriesSetting.Rotate;
+            EnableAreaToolTip = SeriesSetting.EnableAreaToolTip;
+            EnableStyles = SeriesSetting.EnableStyles;
+            OptimizePiePointPositions = SeriesSetting.OptimizePiePointPositions;
+            LegendItemUseSeriesStyle = SeriesSetting.LegendItemUseSeriesStyle;
             SmartLabelsBorderColor = Color.SteelBlue;
             SmartLabelsBorderWidth = 1;
         }
@@ -114,7 +114,7 @@ namespace BudgetExecution
                 Style.Callout.DisplayTextAndFormat = "{0} : {2}";
                 Style.Callout.Border.Color = Color.SteelBlue;
                 Style.Callout.Color = Color.FromArgb( 18, 18, 18 );
-                Style.Callout.Font = ChartConfig.SetFont();
+                Style.Callout.Font = ChartConfiguration.SetFont();
                 Style.DisplayText = true;
             }
             catch( Exception ex )

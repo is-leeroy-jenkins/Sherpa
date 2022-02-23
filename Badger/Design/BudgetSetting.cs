@@ -95,7 +95,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="size">The size.</param>
         /// <returns></returns>
-        public static Size ReSize( ImageSizer size )
+        public static Size ReSize( PicSize size )
         {
             if( Verify.IsImageSize( size ) )
             {
@@ -103,10 +103,10 @@ namespace BudgetExecution
                 {
                     return size switch
                     {
-                        ImageSizer.Small => new Size( 16, 16 ),
-                        ImageSizer.Medium => new Size( 30, 30 ),
-                        ImageSizer.Large => new Size( 50 , 50 ),
-                        ImageSizer.Huge => new Size( 250, 250 ),
+                        PicSize.Small => new Size( 16, 16 ),
+                        PicSize.Medium => new Size( 30, 30 ),
+                        PicSize.Large => new Size( 50 , 50 ),
+                        PicSize.Huge => new Size( 250, 250 ),
                         _ => Size.Empty
                     };
                 }

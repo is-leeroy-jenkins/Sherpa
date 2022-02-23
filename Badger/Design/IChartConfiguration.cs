@@ -5,92 +5,11 @@
 namespace BudgetExecution
 {
     using System.Drawing;
-    using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Chart;
 
-    public interface IChartConfig
+    public interface IChartConfiguration
     {
-        /// <summary>
-        /// Sets the anchor.
-        /// </summary>
-        /// <param name = "anchor" >
-        /// The anchor.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        AnchorStyles SetAnchor( AnchorStyles anchor = AnchorStyles.Left & AnchorStyles.Top );
-
-        /// <summary>
-        /// Resets the color of the text.
-        /// </summary>
-        void ResetTextColor();
-
-        /// <summary>
-        /// Resets the font.
-        /// </summary>
-        void ResetFont();
-
-        /// <summary>
-        /// Resets the border.
-        /// </summary>
-        void ResetBorder();
-
-        /// <summary>
-        /// Resets the interior.
-        /// </summary>
-        void ResetInterior();
-
-        /// <summary>
-        /// Resets the text.
-        /// </summary>
-        void ResetText();
-
-        /// <summary>
-        /// Resets the tool tip.
-        /// </summary>
-        void ResetToolTip();
-
-        /// <summary>
-        /// Resets the tool tip format.
-        /// </summary>
-        void ResetToolTipFormat();
-
-        /// <summary>
-        /// Resets the images.
-        /// </summary>
-        void ResetImages();
-
-        /// <summary>
-        /// Resets the callout.
-        /// </summary>
-        void ResetCallout();
-
-        /// <summary>
-        /// Resets the text orientation.
-        /// </summary>
-        void ResetTextOrientation();
-
-        /// <summary>
-        /// Resets the highlight interior.
-        /// </summary>
-        void ResetHighlightInterior();
-
-        /// <summary>
-        /// Resets the label.
-        /// </summary>
-        void ResetLabel();
-
-        /// <summary>
-        /// Resets the text format.
-        /// </summary>
-        void ResetTextFormat();
-
-        /// <summary>
-        /// Resets the display text.
-        /// </summary>
-        void ResetDisplayText();
-
         /// <summary>
         /// Gets or sets the color of the text.
         /// </summary>
@@ -153,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The callout.
         /// </value>
-        ChartCalloutInfo Callout { get; set; }
+        ChartCalloutInfo CallOut { get; set; }
 
         /// <summary>
         /// Gets or sets the text orientation.
@@ -172,10 +91,13 @@ namespace BudgetExecution
         BrushInfo ShadowInterior { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether [highlight on mouse over].
+        /// Gets or sets a value
+        /// indicating whether [highlight on mouse over].
         /// </summary>
         /// <value>
-        ///   <c>true</c> if [highlight on mouse over]; otherwise, <c>false</c>.
+        /// <c>true</c>
+        /// if [highlight on mouse over]; otherwise,
+        /// <c> false </c>.
         /// </value>
         bool HighlightOnMouseOver { get; set; }
 
@@ -210,5 +132,75 @@ namespace BudgetExecution
         ///   <c>true</c> if [display text]; otherwise, <c>false</c>.
         /// </value>
         bool DisplayText { get; set; }
+
+        /// <summary>
+        /// Resets the color of the text.
+        /// </summary>
+        void ResetTextColor();
+
+        /// <summary>
+        /// Resets the font.
+        /// </summary>
+        void ResetFont();
+
+        /// <summary>
+        /// Resets the border.
+        /// </summary>
+        void ResetBorder();
+
+        /// <summary>
+        /// Resets the interior.
+        /// </summary>
+        void ResetInterior();
+
+        /// <summary>
+        /// Resets the text.
+        /// </summary>
+        void ResetText();
+
+        /// <summary>
+        /// Resets the tool tip.
+        /// </summary>
+        void ResetToolTip();
+
+        /// <summary>
+        /// Resets the tool tip format.
+        /// </summary>
+        void ResetToolTipFormat();
+
+        /// <summary>
+        /// Resets the images.
+        /// </summary>
+        void ResetImages();
+
+        /// <summary>
+        /// Resets the call-out.
+        /// </summary>
+        void ResetCallout();
+
+        /// <summary>
+        /// Resets the text orientation.
+        /// </summary>
+        void ResetTextOrientation();
+
+        /// <summary>
+        /// Resets the highlight interior.
+        /// </summary>
+        void ResetHighlightInterior();
+
+        /// <summary>
+        /// Resets the label.
+        /// </summary>
+        void ResetLabel();
+
+        /// <summary>
+        /// Resets the text format.
+        /// </summary>
+        void ResetTextFormat();
+
+        /// <summary>
+        /// Resets the display text.
+        /// </summary>
+        void ResetDisplayText();
     }
 }

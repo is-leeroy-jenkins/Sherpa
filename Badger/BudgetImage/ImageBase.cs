@@ -13,7 +13,6 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetSize" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -114,7 +113,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.ImageResource( resource )
+                return Verify.ImageResource( resource )
                     && Verify.IsInput( filePath )
                     && File.Exists( filePath )
                     && resource != ImageSource.NS
@@ -216,11 +215,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sizer">The sizer.</param>
         /// <returns></returns>
-        public virtual Size GetImageSize( ImageSizer sizer )
+        public virtual Size GetImageSize( PicSize sizer )
         {
             try
             {
-                return Enum.IsDefined( typeof( ImageSizer ), sizer )
+                return Enum.IsDefined( typeof( PicSize ), sizer )
                     ? ReSize( sizer )
                     : Size.Empty;
             }
