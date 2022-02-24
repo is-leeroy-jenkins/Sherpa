@@ -449,56 +449,6 @@ namespace BudgetExecution
         /// </summary>
         AuthorityType,
 
-        /// <summary>
-        /// The prior year
-        /// </summary>
-        PriorYear,
-
-        /// <summary>
-        /// The out year1
-        /// </summary>
-        OutYear1,
-
-        /// <summary>
-        /// The out year2
-        /// </summary>
-        OutYear2,
-
-        /// <summary>
-        /// The out year3
-        /// </summary>
-        OutYear3,
-
-        /// <summary>
-        /// The out year4
-        /// </summary>
-        OutYear4,
-
-        /// <summary>
-        /// The out year5
-        /// </summary>
-        OutYear5,
-
-        /// <summary>
-        /// The out year6
-        /// </summary>
-        OutYear6,
-
-        /// <summary>
-        /// The out year7
-        /// </summary>
-        OutYear7,
-
-        /// <summary>
-        /// The out year8
-        /// </summary>
-        OutYear8,
-
-        /// <summary>
-        /// The out year9
-        /// </summary>
-        OutYear9,
-
         //************************************************************************************ */
         //*******************      BudgetResourceExectuion        **************************** */
         //************************************************************************************ */
@@ -577,67 +527,7 @@ namespace BudgetExecution
         /// The financing accounts
         /// </summary>
         FinancingAccounts,
-
-        /// <summary>
-        /// The november
-        /// </summary>
-        November,
-
-        /// <summary>
-        /// The january
-        /// </summary>
-        January,
-
-        /// <summary>
-        /// The feburary
-        /// </summary>
-        Feburary,
-
-        /// <summary>
-        /// The april
-        /// </summary>
-        April,
-
-        /// <summary>
-        /// The may
-        /// </summary>
-        May,
-
-        /// <summary>
-        /// The june
-        /// </summary>
-        June,
-
-        /// <summary>
-        /// The august
-        /// </summary>
-        August,
-
-        /// <summary>
-        /// The october
-        /// </summary>
-        October,
-
-        /// <summary>
-        /// The amount1
-        /// </summary>
-        Amount1,
-
-        /// <summary>
-        /// The amount2
-        /// </summary>
-        Amount2,
-
-        /// <summary>
-        /// The amount3
-        /// </summary>
-        Amount3,
-
-        /// <summary>
-        /// The amount4
-        /// </summary>
-        Amount4,
-
+        
         //************************************************************************************ */
         //*******************               Changes               **************************** */
         //************************************************************************************ */
