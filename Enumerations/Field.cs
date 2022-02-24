@@ -500,6 +500,145 @@ namespace BudgetExecution
         OutYear9,
 
         //************************************************************************************ */
+        //*******************      BudgetResourceExectuion        **************************** */
+        //************************************************************************************ */
+
+        /// <summary>
+        /// The agency
+        /// </summary>
+        Agency,
+
+        /// <summary>
+        /// The bureau
+        /// </summary>
+        Bureau,
+
+        /// <summary>
+        /// The stat
+        /// </summary>
+        STAT,
+
+        /// <summary>
+        /// The credit indicator
+        /// </summary>
+        CreditIndicator,
+
+        /// <summary>
+        /// The line description
+        /// </summary>
+        LineDescription,
+
+        /// <summary>
+        /// The tafs
+        /// </summary>
+        TAFS,
+
+        /// <summary>
+        /// The treasury appropriation fund symbol
+        /// </summary>
+        TreasuryAppropriationFundSymbol,
+
+        /// <summary>
+        /// The agency title
+        /// </summary>
+        AgencyTitle,
+
+        /// <summary>
+        /// The last update
+        /// </summary>
+        LastUpdate,
+
+        /// <summary>
+        /// The section name
+        /// </summary>
+        SectionName,
+
+        /// <summary>
+        /// The section number
+        /// </summary>
+        SectionNumber,
+
+        /// <summary>
+        /// The line type
+        /// </summary>
+        LineType,
+
+        /// <summary>
+        /// The tafs account code
+        /// </summary>
+        TafsAccountCode,
+
+        /// <summary>
+        /// The bureau title
+        /// </summary>
+        BureauTitle,
+
+        /// <summary>
+        /// The financing accounts
+        /// </summary>
+        FinancingAccounts,
+
+        /// <summary>
+        /// The november
+        /// </summary>
+        November,
+
+        /// <summary>
+        /// The january
+        /// </summary>
+        January,
+
+        /// <summary>
+        /// The feburary
+        /// </summary>
+        Feburary,
+
+        /// <summary>
+        /// The april
+        /// </summary>
+        April,
+
+        /// <summary>
+        /// The may
+        /// </summary>
+        May,
+
+        /// <summary>
+        /// The june
+        /// </summary>
+        June,
+
+        /// <summary>
+        /// The august
+        /// </summary>
+        August,
+
+        /// <summary>
+        /// The october
+        /// </summary>
+        October,
+
+        /// <summary>
+        /// The amount1
+        /// </summary>
+        Amount1,
+
+        /// <summary>
+        /// The amount2
+        /// </summary>
+        Amount2,
+
+        /// <summary>
+        /// The amount3
+        /// </summary>
+        Amount3,
+
+        /// <summary>
+        /// The amount4
+        /// </summary>
+        Amount4,
+
+        //************************************************************************************ */
         //*******************                 WorkCodes           **************************** */
         //************************************************************************************ */
 
