@@ -39,7 +39,7 @@ namespace BudgetExecution
         public Account( IQuery query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.AccountId );
+            ID = new Key( Record, PrimaryKey.AccountsId );
             Code = new Element( Record, Field.Code ).Code;
             NpmCode = new Element( Record, Field.NpmCode );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
@@ -59,7 +59,7 @@ namespace BudgetExecution
         public Account( IBuilder dataBuilder )
         {
             Record = dataBuilder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.AccountId );
+            ID = new Key( Record, PrimaryKey.AccountsId );
             Code = new Element( Record, Field.Code ).Code;
             NpmCode = new Element( Record, Field.NpmCode );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
@@ -79,7 +79,7 @@ namespace BudgetExecution
         public Account( DataRow dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.AccountId );
+            ID = new Key( Record, PrimaryKey.AccountsId );
             Code = new Element( Record, Field.Code ).Code;
             NpmCode = new Element( Record, Field.NpmCode );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
@@ -99,7 +99,7 @@ namespace BudgetExecution
         public Account( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.AccountId );
+            ID = new Key( Record, PrimaryKey.AccountsId );
             Code = new Element( Record, Field.Code ).Code;
             NpmCode = new Element( Record, Field.NpmCode );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );

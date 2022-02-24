@@ -75,7 +75,7 @@ namespace BudgetExecution
         public HumanResourceOrganization( IQuery query )
         {
             Record = new Builder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.HumanResourceOrganizationId );
+            ID = new Key( Record, PrimaryKey.HumanResourceOrganizationsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Args = Record?.ToDictionary();
@@ -91,7 +91,7 @@ namespace BudgetExecution
         public HumanResourceOrganization( IBuilder builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.HumanResourceOrganizationId );
+            ID = new Key( Record, PrimaryKey.HumanResourceOrganizationsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Args = Record?.ToDictionary();
@@ -107,7 +107,7 @@ namespace BudgetExecution
         public HumanResourceOrganization( DataRow data )
         {
             Record = data;
-            ID = new Key( Record, PrimaryKey.HumanResourceOrganizationId );
+            ID = new Key( Record, PrimaryKey.HumanResourceOrganizationsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Args = Record?.ToDictionary();

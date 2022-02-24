@@ -101,7 +101,7 @@ namespace BudgetExecution
             : base( query )
         {
             Record = new Builder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.TransferId );
+            ID = new Key( Record, PrimaryKey.TransfersId );
             DocPrefix = new Element( Record, Field.DocType );
             DocumentNumber = new Element( Record, Field.DocumentNumber );
             Purpose = new Element( Record, Field.Purpose );
@@ -121,7 +121,7 @@ namespace BudgetExecution
             : base( builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.TransferId );
+            ID = new Key( Record, PrimaryKey.TransfersId );
             DocPrefix = new Element( Record, Field.DocType );
             DocumentNumber = new Element( Record, Field.DocumentNumber );
             Purpose = new Element( Record, Field.Purpose );
@@ -141,7 +141,7 @@ namespace BudgetExecution
             : base( dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.TransferId );
+            ID = new Key( Record, PrimaryKey.TransfersId );
             DocPrefix = new Element( Record, Field.DocType );
             DocumentNumber = new Element( Record, Field.DocumentNumber );
             Purpose = new Element( Record, Field.Purpose );

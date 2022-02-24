@@ -109,7 +109,7 @@ namespace BudgetExecution
             : base( query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.PayrollObligationId );
+            ID = new Key( Record, PrimaryKey.PayrollActivityId );
             RpioCode = new Element( Record, Field.RpioCode );
             FundCode = new Element( Record, Field.FundCode );
             AhCode = new Element( Record, Field.AhCode );
@@ -144,7 +144,7 @@ namespace BudgetExecution
             : base( builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.PayrollObligationId );
+            ID = new Key( Record, PrimaryKey.PayrollActivityId );
             RpioCode = new Element( Record, Field.RpioCode );
             FundCode = new Element( Record, Field.FundCode );
             AhCode = new Element( Record, Field.AhCode );
@@ -179,7 +179,7 @@ namespace BudgetExecution
         public PayrollActivity( DataRow dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.PayrollObligationId );
+            ID = new Key( Record, PrimaryKey.PayrollActivityId );
             RpioCode = new Element( Record, Field.RpioCode );
             FundCode = new Element( Record, Field.FundCode );
             AhCode = new Element( Record, Field.AhCode );

@@ -43,7 +43,7 @@ namespace BudgetExecution
             : base( query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.ExpenditureId );
+            ID = new Key( Record, PrimaryKey.ObligationsId );
             OriginalActionDate = GetOriginalActionDate();
             Expenditures = GetExpenditures();
             Data = Record?.ToDictionary();
@@ -60,7 +60,7 @@ namespace BudgetExecution
             : base( builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.ExpenditureId );
+            ID = new Key( Record, PrimaryKey.ObligationsId );
             OriginalActionDate = GetOriginalActionDate();
             Expenditures = GetExpenditures();
             Data = Record?.ToDictionary();
@@ -77,7 +77,7 @@ namespace BudgetExecution
             : base( dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.ExpenditureId );
+            ID = new Key( Record, PrimaryKey.ObligationsId );
             OriginalActionDate = GetOriginalActionDate();
             Expenditures = GetExpenditures();
             Data = Record?.ToDictionary();

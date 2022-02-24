@@ -52,7 +52,7 @@ CREATE TABLE [Allocations]
 
 CREATE TABLE [AllowanceHolders]
 (
-   [AllowanceHolderId] INT NOT NULL IDENTITY (1,1),
+   [AllowanceHoldersId] INT NOT NULL IDENTITY (1,1),
    [Code] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
    [Name] NVARCHAR(255) NOT NULL DEFAULT ('NS')
 );
@@ -127,7 +127,7 @@ CREATE TABLE [FinanceObjectClass]
 
 CREATE TABLE [Goals]
 (
-   [GoalId] INT NOT NULL IDENTITY (1,1),
+   [GoalsId] INT NOT NULL IDENTITY (1,1),
    [Code] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
    [Name] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
    [Title] NVARCHAR(255) NOT NULL DEFAULT ('NS')
@@ -173,7 +173,7 @@ CREATE TABLE [LeaveProjections]
 
 CREATE TABLE [NationalPrograms]
 (
-   [NationalProgramId] INT NOT NULL IDENTITY (1,1),
+   [NationalProgramsId] INT NOT NULL IDENTITY (1,1),
    [Code] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
    [Name] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
    [RpioCode] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
@@ -182,7 +182,7 @@ CREATE TABLE [NationalPrograms]
 
 CREATE TABLE [Objectives]
 (
-   [ObjectiveId] INT NOT NULL IDENTITY (1,1),
+   [ObjectivesId] INT NOT NULL IDENTITY (1,1),
    [Code] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
    [Name] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
    [Title] NVARCHAR(255) NOT NULL DEFAULT ('NS')
@@ -190,7 +190,7 @@ CREATE TABLE [Objectives]
 
 CREATE TABLE [Organizations]
 (
-   [OrganizationId] INT NOT NULL IDENTITY (1,1),
+   [OrganizationsId] INT NOT NULL IDENTITY (1,1),
    [Code] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
    [Name] NVARCHAR(255) NOT NULL DEFAULT ('NS')
 );
@@ -302,7 +302,7 @@ CREATE TABLE [PRC]
 
 CREATE TABLE [ProgramAreas]
 (
-   [ProgramAreaId] INT NOT NULL IDENTITY (1,1),
+   [ProgramAreasId] INT NOT NULL IDENTITY (1,1),
    [Code] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
    [Name] NVARCHAR(255) NOT NULL DEFAULT ('NS')
 );
@@ -380,7 +380,7 @@ CREATE TABLE [Reimbursables]
 
 CREATE TABLE [ResourcePlanningOffices]
 (
-   [ResourcePlanningOfficeId] INT NOT NULL IDENTITY (1,1),
+   [ResourcePlanningOfficesId] INT NOT NULL IDENTITY (1,1),
    [Code] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
    [Name] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
    [RPIO] NVARCHAR(255) NOT NULL DEFAULT ('NS')
@@ -396,7 +396,7 @@ CREATE TABLE [ResponsibilityCenters]
 
 CREATE TABLE [Sites]
 (
-   [SiteId] INT NOT NULL IDENTITY (1,1),
+   [SuperfundSitesId] INT NOT NULL IDENTITY (1,1),
    [RpioCode] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
    [BFY] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
    [FundCode] NVARCHAR(255) NOT NULL DEFAULT ('NS'),

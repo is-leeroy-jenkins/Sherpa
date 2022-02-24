@@ -46,7 +46,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return dataUnit?.Value?.ToString()?.Equals( Value ) == true;
+                    var _name = dataUnit.Name;
+                    var _value = dataUnit.Value;
+                    return _value.Equals( Value ) && _name.Equals( Name );
                 }
                 catch( Exception ex )
                 {

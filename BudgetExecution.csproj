@@ -686,6 +686,7 @@
     </Compile>
     <Compile Include="Badger\CheckBox\BudgetCheckBox.cs" />
     <Compile Include="Badger\CheckBox\CheckBoxBase.cs" />
+    <Compile Include="Commitment.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
     <Compile Include="Extensions\DataRowExtensions.cs" />
@@ -926,7 +927,6 @@
     <Compile Include="Ninja\Folder\Folder.cs" />
     <Compile Include="Ninja\Folder\FolderBase.cs" />
     <Compile Include="Ninja\Folder\IFolder.cs" />
-    <Compile Include="Ninja\Outlays\Commitment.cs" />
     <Compile Include="Ninja\Outlays\Cost.cs" />
     <Compile Include="Ninja\Outlays\CostAccount.cs" />
     <Compile Include="Ninja\Outlays\Deobligation.cs" />

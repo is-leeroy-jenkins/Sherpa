@@ -13,7 +13,15 @@ namespace BudgetExecution
         /// The value.
         /// </value>
         object Value { get; set; }
-        
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        string Name { get; set; }
+
         /// <summary> Determines whether the specified dataUnit is equal. </summary>
         /// <param name = "dataUnit" > The dataUnit. </param>
         /// <returns>

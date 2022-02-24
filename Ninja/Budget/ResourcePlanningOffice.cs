@@ -76,7 +76,7 @@ namespace BudgetExecution
             : this()
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficeId );
+            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -92,7 +92,7 @@ namespace BudgetExecution
         public ResourcePlanningOffice( IBuilder builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficeId );
+            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -109,7 +109,7 @@ namespace BudgetExecution
             : this()
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficeId );
+            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -126,7 +126,7 @@ namespace BudgetExecution
             : this()
         {
             Record = new DataBuilder( Source, SetArgs( rpioCode ) )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficeId );
+            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();

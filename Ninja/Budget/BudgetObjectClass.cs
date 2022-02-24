@@ -104,7 +104,7 @@ namespace BudgetExecution
             : this()
         {
             Record = new DataBuilder( Source, SetArgs( boc ) )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.BudgetObjectClassId );
+            ID = new Key( Record, PrimaryKey.BudgetObjectClassesId );
             Name = new Element( Record, Field.BudgetObjectClassName ).Name;
             Code = new Element( Record, Field.BudgetObjectClassCode ).Code;
             Category = boc;
@@ -121,7 +121,7 @@ namespace BudgetExecution
             : this()
         {
             Record = new DataBuilder( Source, SetArgs( code ) )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.BudgetObjectClassId );
+            ID = new Key( Record, PrimaryKey.BudgetObjectClassesId );
             Name = new Element( Record, Field.BudgetObjectClassName ).Name;
             Code = new Element( Record, Field.BudgetObjectClassCode ).Code;
             Category = (BOC)Enum.Parse( typeof( BOC ), Name );
@@ -137,7 +137,7 @@ namespace BudgetExecution
         public BudgetObjectClass( IQuery query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.BudgetObjectClassId );
+            ID = new Key( Record, PrimaryKey.BudgetObjectClassesId );
             Name = new Element( Record, Field.BudgetObjectClassName ).Name;
             Code = new Element( Record, Field.BudgetObjectClassCode ).Code;
             Category = (BOC)Enum.Parse( typeof( BOC ), Name );
@@ -153,7 +153,7 @@ namespace BudgetExecution
         public BudgetObjectClass( IBuilder builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.BudgetObjectClassId );
+            ID = new Key( Record, PrimaryKey.BudgetObjectClassesId );
             Name = new Element( Record, Field.BudgetObjectClassName ).Name;
             Code = new Element( Record, Field.BudgetObjectClassCode ).Code;
             Category = (BOC)Enum.Parse( typeof( BOC ), Name );
@@ -169,7 +169,7 @@ namespace BudgetExecution
         public BudgetObjectClass( DataRow dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.BudgetObjectClassId );
+            ID = new Key( Record, PrimaryKey.BudgetObjectClassesId );
             Name = new Element( Record, Field.BudgetObjectClassName ).Name;
             Code = new Element( Record, Field.BudgetObjectClassCode ).Code;
             Category = (BOC)Enum.Parse( typeof( BOC ), Name );

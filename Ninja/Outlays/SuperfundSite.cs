@@ -43,7 +43,7 @@ namespace BudgetExecution
             : base( query )
         {
             Record = new Builder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.SiteId );
+            ID = new Key( Record, PrimaryKey.SuperfundSitesId );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
             FocCode = new Element( Record, Field.FocCode );
             DCN = new Element( Record, Field.DocumentControlNumber );
@@ -80,7 +80,7 @@ namespace BudgetExecution
             : base( builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.SiteId );
+            ID = new Key( Record, PrimaryKey.SuperfundSitesId );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
             FocCode = new Element( Record, Field.FocCode );
             DCN = new Element( Record, Field.DocumentControlNumber );
@@ -116,7 +116,7 @@ namespace BudgetExecution
         public SuperfundSite( DataRow dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.SiteId );
+            ID = new Key( Record, PrimaryKey.SuperfundSitesId );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
             FocCode = new Element( Record, Field.FocCode );
             DCN = new Element( Record, Field.DocumentControlNumber );

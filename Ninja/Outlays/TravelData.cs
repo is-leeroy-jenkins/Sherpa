@@ -19,7 +19,7 @@ namespace BudgetExecution
         /// <value>
         /// The destination.
         /// </value>
-        public IElement Destination { get; set; } 
+        public IElement Duration { get; set; } 
 
         /// <summary>
         /// Gets the first name.
@@ -28,30 +28,14 @@ namespace BudgetExecution
         /// The first name.
         /// </value>
         public IElement FirstName { get; set; } 
-
-        /// <summary>
-        /// Gets the name of the middle.
-        /// </summary>
-        /// <value>
-        /// The name of the middle.
-        /// </value>
-        public IElement MiddleName { get; set; } 
-
+        
         /// <summary>
         /// Gets the last name.
         /// </summary>
         /// <value>
         /// The last name.
         /// </value>
-        public IElement LastName { get; set; } 
-
-        /// <summary>
-        /// Gets the email.
-        /// </summary>
-        /// <value>
-        /// The email.
-        /// </value>
-        public IElement Email { get; set; } 
+        public IElement LastName { get; set; }
 
         /// <summary>
         /// Gets the start date.
@@ -70,7 +54,8 @@ namespace BudgetExecution
         public ITime EndDate { get; set; } 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TravelData"/> class.
+        /// Initializes a new instance of
+        /// the <see cref="TravelData"/> class.
         /// </summary>
         /// <inheritdoc />
         public TravelData()
@@ -78,7 +63,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TravelData"/> class.
+        /// Initializes a new instance
+        /// of the <see cref="TravelData"/> class.
         /// </summary>
         /// <param name="query"></param>
         public TravelData( IQuery query )
@@ -87,7 +73,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TravelData"/> class.
+        /// Initializes a new instance of
+        /// the <see cref="TravelData"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public TravelData( IBuilder builder )

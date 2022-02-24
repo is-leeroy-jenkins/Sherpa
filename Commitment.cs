@@ -1,4 +1,4 @@
-﻿// <copyright file = "OpenCommitment.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "Commitment.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -16,66 +16,86 @@ namespace BudgetExecution
     /// Accounting Standards (SFFAS) No. 25, Basis for Conclusions, para. 8, and SFFAS
     /// No. 17, Basis for Conclusions, paras. 65 and 94.
     /// </summary>
+    /// <seealso cref = "Obligation"/>
+    /// <seealso cref = "IAmount"/>
     /// <seealso cref = "Outlay"/>
-    /// <seealso cref = "IOpenCommitment"/>
-    public class OpenCommitment : Commitment
+    /// <seealso cref = "ICommitment"/>
+    public class Commitment : Outlay
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref = "OpenCommitment"/> class.
+        /// Gets or sets the source.
         /// </summary>
-        public OpenCommitment()
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source { get;  } = Source.Obligations;
+        
+        /// <summary>
+        /// Gets or sets the amount.
+        /// </summary>
+        /// <value>
+        /// The amount.
+        /// </value>
+        /// 
+        public IAmount Amount { get; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref = "Commitment"/> class.
+        /// </summary>
+        /// <inheritdoc/>
+        public Commitment()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "OpenCommitment"/> class.
+        /// Initializes a new instance of the <see cref = "Commitment"/> class.
         /// </summary>
         /// <param name = "query" >
         /// </param>
-        public OpenCommitment( IQuery query )
-            : base( query )
+        public Commitment( IQuery query )
         {
             Record = new DataBuilder( query )?.GetRecord();
             ID = new Key( Record, PrimaryKey.ObligationsId );
             OriginalActionDate = GetOriginalActionDate();
             Data = Record?.ToDictionary();
-            Type = OutlayType.OpenCommitment;
+            Type = OutlayType.Commitment;
+            Amount = new Amount( Record, Numeric.Amount );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "OpenCommitment"/> class.
+        /// Initializes a new instance of the <see cref = "Commitment"/> class.
         /// </summary>
         /// <param name = "builder" >
-        /// The builder.
+        /// The database.
         /// </param>
-        public OpenCommitment( IBuilder builder )
-            : base( builder )
+        public Commitment( IBuilder builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder.GetRecord();
             ID = new Key( Record, PrimaryKey.ObligationsId );
             OriginalActionDate = GetOriginalActionDate();
             Data = Record?.ToDictionary();
-            Type = OutlayType.OpenCommitment;
+            Type = OutlayType.Commitment;
+            Amount = new Amount( Record, Numeric.Amount );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "OpenCommitment"/> class.
+        /// Initializes a new instance of the <see cref = "Commitment"/> class.
         /// </summary>
         /// <param name = "dataRow" >
         /// The dr.
         /// </param>
-        public OpenCommitment( DataRow dataRow )
-            : base( dataRow )
+        public Commitment( DataRow dataRow )
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ObligationsId );
             OriginalActionDate = GetOriginalActionDate();
             Data = Record?.ToDictionary();
-            Type = OutlayType.OpenCommitment;
+            Type = OutlayType.Commitment;
+            Amount = new Amount( Record, Numeric.Amount );
         }
         
         /// <summary>
-        /// Gets the OpenCommitment identifier.
+        /// Gets the Commitment identifier.
         /// </summary>
         /// <returns>
         /// </returns>
@@ -85,7 +105,7 @@ namespace BudgetExecution
             {
                 return Verify.IsKey( ID )
                     ? ID
-                    : default( IKey );
+                    : Key.Default;
             }
             catch( Exception ex )
             {
@@ -115,16 +135,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the commitment amount.
+        /// Gets the amount.
         /// </summary>
         /// <returns>
         /// </returns>
-        public override IAmount GetAmount()
+        public virtual IAmount GetAmount()
         {
             try
             {
-                return OpenCommitments.Funding > -1
-                    ? OpenCommitments
+                return Commitments?.Funding > -1
+                    ? Commitments
                     : default( IAmount );
             }
             catch( Exception ex )
@@ -132,6 +152,15 @@ namespace BudgetExecution
                 Fail( ex );
                 return default( IAmount );
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override IBuilder GetBuilder()
+        {
+            return new Builder( Source, Data );
         }
     }
 }

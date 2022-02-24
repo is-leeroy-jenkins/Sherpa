@@ -70,7 +70,7 @@ namespace BudgetExecution
         public ProgramArea( IQuery query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.ProgramAreaId );
+            ID = new Key( Record, PrimaryKey.ProgramAreasId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -85,7 +85,7 @@ namespace BudgetExecution
         public ProgramArea( IBuilder builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.ProgramAreaId );
+            ID = new Key( Record, PrimaryKey.ProgramAreasId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -101,7 +101,7 @@ namespace BudgetExecution
             : this()
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.ProgramAreaId );
+            ID = new Key( Record, PrimaryKey.ProgramAreasId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -116,7 +116,7 @@ namespace BudgetExecution
         public ProgramArea( string code )
         {
             Record = new DataBuilder( Source, SetArgs( code ) )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.ProgramAreaId );
+            ID = new Key( Record, PrimaryKey.ProgramAreasId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();

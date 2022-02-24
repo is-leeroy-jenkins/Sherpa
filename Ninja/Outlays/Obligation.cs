@@ -50,7 +50,7 @@ namespace BudgetExecution
         public Obligation( IQuery query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.ObligationId );
+            ID = new Key( Record, PrimaryKey.ObligationsId );
             OriginalActionDate = GetOriginalActionDate();
             Amount = new Amount( Record, Numeric.Obligations );
             Data = Record?.ToDictionary();
@@ -67,7 +67,7 @@ namespace BudgetExecution
         public Obligation( IBuilder builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.ObligationId );
+            ID = new Key( Record, PrimaryKey.ObligationsId );
             OriginalActionDate = GetOriginalActionDate();
             Amount = new Amount( Record, Numeric.Obligations );
             Data = Record?.ToDictionary();
@@ -85,7 +85,7 @@ namespace BudgetExecution
         public Obligation( DataRow dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.ObligationId );
+            ID = new Key( Record, PrimaryKey.ObligationsId );
             OriginalActionDate = GetOriginalActionDate();
             Amount = new Amount( Record, Numeric.Obligations );
             Data = Record?.ToDictionary();

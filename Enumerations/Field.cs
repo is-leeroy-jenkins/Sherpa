@@ -6,6 +6,206 @@ namespace BudgetExecution
 {
     public enum Field
     {
+        //************************************************************************************ */
+        //*******************                  Actuals           **************************** */
+        //************************************************************************************ */
+
+        /// <summary>
+        /// The rpio activity code
+        /// </summary>
+        RpioActivityCode,
+
+        /// <summary>
+        /// The rpio activity name
+        /// </summary>
+        RpioActivityName,
+
+        //************************************************************************************ */
+        //*******************     Administrative   Requests      **************************** */
+        //************************************************************************************ */
+
+        /// <summary>
+        /// The BFS
+        /// </summary>
+        BFS,
+
+        /// <summary>
+        /// The comments
+        /// </summary>
+        Comments,
+
+        /// <summary>
+        /// The type code
+        /// </summary>
+        TypeCode,
+
+        /// <summary>
+        /// The decision
+        /// </summary>
+        Decision,
+
+        /// <summary>
+        /// The request type
+        /// </summary>
+        RequestType,
+
+        /// <summary>
+        /// The last activity date
+        /// </summary>
+        LastActivityDate,
+
+        /// <summary>
+        /// The original request date
+        /// </summary>
+        OriginalRequestDate,
+
+        //************************************************************************************ */
+        //*******************            Apportionments           **************************** */
+        //************************************************************************************ */
+
+        /// <summary>
+        /// The treasury fund code
+        /// </summary>
+        TreasuryFundCode,
+
+        /// <summary>
+        /// The treasury fund name
+        /// </summary>
+        TreasuryFundName,
+
+        /// <summary>
+        /// The treasury agency code
+        /// </summary>
+        TreasuryAgencyCode,
+
+        /// <summary>
+        /// The treasury account code
+        /// </summary>
+        TreasuryAccountCode,
+
+        /// <summary>
+        /// The treasury account name
+        /// </summary>
+        TreasuryAccountName,
+
+        /// <summary>
+        /// The omb agency code
+        /// </summary>
+        OmbAgencyCode,
+
+        /// <summary>
+        /// The omb agency name
+        /// </summary>
+        OmbAgencyName,
+
+        /// <summary>
+        /// The omb account code
+        /// </summary>
+        OmbAccountCode,
+
+        /// <summary>
+        /// The omb account name
+        /// </summary>
+        OmbAccountName,
+
+        /// <summary>
+        /// The foot note
+        /// </summary>
+        FootNote,
+
+        /// <summary>
+        /// The line number
+        /// </summary>
+        LineNumber,
+
+        /// <summary>
+        /// The line name
+        /// </summary>
+        LineName,
+
+        //************************************************************************************ */
+        //*******************   Appropriation Documents          **************************** */
+        //************************************************************************************ */
+
+        /// <summary>
+        /// The budgeting controls
+        /// </summary>
+        BudgetingControls,
+
+        /// <summary>
+        /// The posting controls
+        /// </summary>
+        PostingControls,
+
+        /// <summary>
+        /// The pre commitment controls
+        /// </summary>
+        PreCommitmentControls,
+
+        /// <summary>
+        /// The commitment controls
+        /// </summary>
+        CommitmentControls,
+
+        /// <summary>
+        /// The obligation controls
+        /// </summary>
+        ObligationControls,
+
+        /// <summary>
+        /// The accrual controls
+        /// </summary>
+        AccrualControls,
+
+        /// <summary>
+        /// The expenditure controls
+        /// </summary>
+        ExpenditureControls,
+
+        /// <summary>
+        /// The reimbursement controls
+        /// </summary>
+        ReimbursementControls,
+
+        /// <summary>
+        /// The reimbursable agreement controls
+        /// </summary>
+        ReimbursableAgreementControls,
+
+        /// <summary>
+        /// The carry in
+        /// </summary>
+        CarryIn,
+
+        /// <summary>
+        /// The carry out
+        /// </summary>
+        CarryOut,
+
+        /// <summary>
+        /// The budgeted
+        /// </summary>
+        Budgeted,
+
+        /// <summary>
+        /// The posted
+        /// </summary>
+        Posted,
+
+        /// <summary>
+        /// The estimated reimbursments
+        /// </summary>
+        EstimatedReimbursments,
+
+        /// <summary>
+        /// The estimated recoveries
+        /// </summary>
+        EstimatedRecoveries,
+
+        //************************************************************************************ */
+        //*******************                 WorkCodes           **************************** */
+        //************************************************************************************ */
+
         /// <summary>
         /// The ns
         /// </summary>
@@ -121,7 +321,7 @@ namespace BudgetExecution
         /// The work code name
         /// </summary>
         WorkCodeName,
-
+        
         /// <summary>
         /// The short name
         /// </summary>
@@ -133,30 +333,40 @@ namespace BudgetExecution
         ChargeType,
 
         /// <summary>
-        /// The notifications
+        /// The prevent new use
         /// </summary>
-        Notifications,
+        PreventNewUse,
 
+        /// <summary>
+        /// The re org code
+        /// </summary>
+        ReOrgCode,
+
+        /// <summary>
+        /// The active
+        /// </summary>
+        Active,
+
+        /// <summary>
+        /// The budget year
+        /// </summary>
+        BudgetYear,
+        
         /// <summary>
         /// The approver user name
         /// </summary>
-        ApproverUserName,
+        ApprovedBy,
 
         /// <summary>
         /// The approved date
         /// </summary>
-        ApprovedDate,
+        ApprovalDate,
 
         /// <summary>
         /// The modifier user name
         /// </summary>
-        ModifierUserName,
-
-        /// <summary>
-        /// The modified date
-        /// </summary>
         ModifiedDate,
-
+        
         /// <summary>
         /// The work project code
         /// </summary>
@@ -173,93 +383,40 @@ namespace BudgetExecution
         Percentage,
 
         //************************************************************************************ */
-        //*******************      PayrollCostCodes                   **************************** */
+        //*******************      PayrollCostCodes                   ************************ */
         //************************************************************************************ */
-
-        /// <summary>
-        /// The start date
-        /// </summary>
-        StartDate,
-
-        /// <summary>
-        /// The end date
-        /// </summary>
-        EndDate,
-
-        /// <summary>
-        /// The approval date
-        /// </summary>
-        ApprovalDate,
-
+        
         /// <summary>
         /// The employee number
         /// </summary>
-        EmployeeNumber,
+        SubRcCode,
 
         /// <summary>
-        /// The employee first name
+        /// The sub rc name
         /// </summary>
-        EmployeeFirstName,
-
-        /// <summary>
-        /// The employee last name
-        /// </summary>
-        EmployeeLastName,
-
-        /// <summary>
-        /// The date
-        /// </summary>
-        Date,
-
-        /// <summary>
-        /// The reporting code
-        /// </summary>
-        ReportingCode,
-
-        /// <summary>
-        /// The reporting code name
-        /// </summary>
-        ReportingCodeName,
-
-        /// <summary>
-        /// The hours
-        /// </summary>
-        Hours,
+        SubRcName,
 
         //************************************************************************************ */
         //*******************      TravelActivity              **************************** */
         //************************************************************************************ */
-
-        /// <summary>
-        /// The destination
-        /// </summary>
-        Destination,
-
-        /// <summary>
-        /// The middle name
-        /// </summary>
-        MiddleName,
-
+        
         /// <summary>
         /// The address
         /// </summary>
-        Address,
+        Duration,
 
         /// <summary>
         /// The departure date
         /// </summary>
-        DepartureDate,
+        StartDate,
 
         /// <summary>
         /// The return date
         /// </summary>
-        ReturnDate,
+        EndDate,
 
-        //************************************************************************************ */
-        //*******************              PayPeriods              **************************** */
-        //************************************************************************************ */
         /// <summary>
-        /// The DocumentControlNumber
+        /// The document control number
         /// </summary>
         DocumentControlNumber,
 
@@ -346,86 +503,7 @@ namespace BudgetExecution
         /// The status
         /// </summary>
         Status,
-
-        //************************************************************************************ */
-        //*******************          WorkForceData              **************************** */
-        //************************************************************************************ */
-
-        /// <summary>
-        /// The employee name
-        /// </summary>
-        EmployeeName,
-
-        /// <summary>
-        /// The service date
-        /// </summary>
-        ServiceDate,
-
-        /// <summary>
-        /// The hire date
-        /// </summary>
-        HireDate,
-
-        /// <summary>
-        /// The job title
-        /// </summary>
-        JobTitle,
-
-        /// <summary>
-        /// The occupational series
-        /// </summary>
-        OccupationalSeries,
-
-        /// <summary>
-        /// The grade
-        /// </summary>
-        Grade,
-
-        /// <summary>
-        /// The step
-        /// </summary>
-        Step,
-
-        /// <summary>
-        /// The grade entry date
-        /// </summary>
-        GradeEntryDate,
-
-        /// <summary>
-        /// The step entry date
-        /// </summary>
-        StepEntryDate,
-
-        /// <summary>
-        /// The wigi due date
-        /// </summary>
-        WigiDueDate,
-
-        /// <summary>
-        /// The appointment authority
-        /// </summary>
-        AppointmentAuthority,
-
-        /// <summary>
-        /// The appointment type
-        /// </summary>
-        AppointmentType,
-
-        /// <summary>
-        /// The bargaining unit
-        /// </summary>
-        BargainingUnit,
-
-        /// <summary>
-        /// The employee status
-        /// </summary>
-        EmployeeStatus,
-
-        /// <summary>
-        /// The retirement plan
-        /// </summary>
-        RetirementPlan,
-
+        
         //************************************************************************************ */
         //*******************        ReimbursableFunds                **************************** */
         //************************************************************************************ */
@@ -453,6 +531,11 @@ namespace BudgetExecution
         /// The document number
         /// </summary>
         DocumentNumber,
+
+        /// <summary>
+        /// The reprogramming number
+        /// </summary>
+        ReprogrammingNumber,
 
         /// <summary>
         /// The processed date
@@ -770,7 +853,7 @@ namespace BudgetExecution
         WeekEnds,
 
         //************************************************************************************ */
-        //*******************             Holidys                 **************************** */
+        //*******************             Holidays                 **************************** */
         //************************************************************************************ */
 
         /// <summary>
@@ -792,6 +875,11 @@ namespace BudgetExecution
         /// The memorial
         /// </summary>
         Memorial,
+        
+        /// <summary>
+        /// The juneteenth
+        /// </summary>
+        Juneteenth,
 
         /// <summary>
         /// The independence
@@ -845,22 +933,12 @@ namespace BudgetExecution
         /// The NPM code
         /// </summary>
         NpmCode,
-
-        /// <summary>
-        /// The national projgram code
-        /// </summary>
-        NationalProjgramCode,
-
+        
         /// <summary>
         /// The NPM name
         /// </summary>
         NpmName,
-
-        /// <summary>
-        /// The national program name
-        /// </summary>
-        NationalProgramName,
-
+        
         //************************************************************************************ */
         //*******************           Organizations             **************************** */
         //************************************************************************************ */
@@ -889,22 +967,12 @@ namespace BudgetExecution
         /// The cost org code
         /// </summary>
         CostOrgCode,
-
-        /// <summary>
-        /// The cost organization code
-        /// </summary>
-        CostOrganizationCode,
-
+        
         /// <summary>
         /// The cost org name
         /// </summary>
         CostOrgName,
-
-        /// <summary>
-        /// The cost organization name
-        /// </summary>
-        CostOrganizationName,
-
+        
         //************************************************************************************ */
         //*******************    ResourcePlanningOffices          **************************** */
         //************************************************************************************ */
@@ -913,22 +981,12 @@ namespace BudgetExecution
         /// The rpio code
         /// </summary>
         RpioCode,
-
-        /// <summary>
-        /// The resource planning office code
-        /// </summary>
-        ResourcePlanningOfficeCode,
-
+        
         /// <summary>
         /// The rpio name
         /// </summary>
         RpioName,
-
-        /// <summary>
-        /// The resource planning office name
-        /// </summary>
-        ResourcePlanningOfficeName,
-
+        
         //************************************************************************************ */
         //*******************        AllowanceHolders             **************************** */
         //************************************************************************************ */
@@ -937,22 +995,12 @@ namespace BudgetExecution
         /// The ah code
         /// </summary>
         AhCode,
-
-        /// <summary>
-        /// The allowance holder code
-        /// </summary>
-        AllowanceHolderCode,
-
+        
         /// <summary>
         /// The ah name
         /// </summary>
         AhName,
-
-        /// <summary>
-        /// The allowance holder name
-        /// </summary>
-        AllowanceHolderName,
-
+        
         //************************************************************************************ */
         //*******************              Divisions              **************************** */
         //************************************************************************************ */

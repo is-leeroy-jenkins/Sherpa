@@ -70,7 +70,7 @@ namespace BudgetExecution
         public Organization( IQuery query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.OrganizationId );
+            ID = new Key( Record, PrimaryKey.OrganizationsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -85,7 +85,7 @@ namespace BudgetExecution
         public Organization( string org )
         {
             Record = new DataBuilder( Source, GetArgs( org ) )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.OrganizationId );
+            ID = new Key( Record, PrimaryKey.OrganizationsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -100,7 +100,7 @@ namespace BudgetExecution
         public Organization( IBuilder builder )
         {
             Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.OrganizationId );
+            ID = new Key( Record, PrimaryKey.OrganizationsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();
@@ -115,7 +115,7 @@ namespace BudgetExecution
         public Organization( DataRow dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.OrganizationId );
+            ID = new Key( Record, PrimaryKey.OrganizationsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Data = Record?.ToDictionary();

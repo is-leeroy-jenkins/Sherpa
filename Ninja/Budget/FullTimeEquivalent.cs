@@ -43,7 +43,7 @@ namespace BudgetExecution
         public FullTimeEquivalent( IQuery query )
             : base( query )
         {
-            ID = new Key( Record, PrimaryKey.PrcId );
+            ID = new Key( Record, PrimaryKey.AllocationsId );
             Amount = new Amount( Record, Numeric.Amount );
         }
 
@@ -56,7 +56,7 @@ namespace BudgetExecution
         public FullTimeEquivalent( IBuilder builder )
             : base( builder )
         {
-            ID = new Key( Record, PrimaryKey.PrcId );
+            ID = new Key( Record, PrimaryKey.AllocationsId );
             Amount = new Amount( Record, Numeric.Amount );
         }
 
@@ -69,7 +69,7 @@ namespace BudgetExecution
         public FullTimeEquivalent( DataRow dataRow )
             : base( dataRow )
         {
-            ID = new Key( Record, PrimaryKey.PrcId );
+            ID = new Key( Record, PrimaryKey.AllocationsId );
             Amount = new Amount( Record, Numeric.Amount );
         }
         

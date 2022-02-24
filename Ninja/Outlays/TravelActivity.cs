@@ -41,19 +41,17 @@ namespace BudgetExecution
             : base( query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.TravelObligationId );
-            ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
+            ID = new Key( Record, PrimaryKey.TravelActivityId );
             FocCode = new Element( Record, Field.FocCode );
             FocName = new Element( Record, Field.FocName );
             DCN = new Element( Record, Field.DocumentControlNumber );
             FirstName = new Element( Record, Field.FirstName );
-            MiddleName = new Element( Record, Field.MiddleName );
             LastName = new Element( Record, Field.LastName );
-            Email = new Element( Record, Field.Email );
-            Destination = new Element( Record, Field.Destination );
             StartDate = new Time( Record, EventDate.StartDate );
             EndDate = new Time( Record, EventDate.EndDate );
-            Amount = new Amount( Record, Numeric.Amount );
+            Obligations = new Amount( Record, Numeric.Obligations );
+            ULO = new Amount( Record, Numeric.ULO );
+            Expenditures = new Amount( Record, Numeric.Expenditures );
             Data = Record?.ToDictionary();
             Type = OutlayType.Obligation;
         }
@@ -67,20 +65,18 @@ namespace BudgetExecution
         public TravelActivity( IBuilder builder )
             : base( builder )
         {
-            Record = builder?.GetRecord();
-            ID = new Key( Record, PrimaryKey.TravelObligationId );
-            ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
+            Record = builder.GetRecord();
+            ID = new Key( Record, PrimaryKey.TravelActivityId );
             FocCode = new Element( Record, Field.FocCode );
             FocName = new Element( Record, Field.FocName );
             DCN = new Element( Record, Field.DocumentControlNumber );
             FirstName = new Element( Record, Field.FirstName );
-            MiddleName = new Element( Record, Field.MiddleName );
             LastName = new Element( Record, Field.LastName );
-            Email = new Element( Record, Field.Email );
-            Destination = new Element( Record, Field.Destination );
             StartDate = new Time( Record, EventDate.StartDate );
             EndDate = new Time( Record, EventDate.EndDate );
-            Amount = new Amount( Record, Numeric.Amount );
+            Obligations = new Amount( Record, Numeric.Obligations );
+            ULO = new Amount( Record, Numeric.ULO );
+            Expenditures = new Amount( Record, Numeric.Expenditures );
             Data = Record?.ToDictionary();
             Type = OutlayType.Obligation;
         }
@@ -94,19 +90,17 @@ namespace BudgetExecution
         public TravelActivity( DataRow dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.TravelObligationId );
-            ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
+            ID = new Key( Record, PrimaryKey.TravelActivityId );
             FocCode = new Element( Record, Field.FocCode );
             FocName = new Element( Record, Field.FocName );
             DCN = new Element( Record, Field.DocumentControlNumber );
             FirstName = new Element( Record, Field.FirstName );
-            MiddleName = new Element( Record, Field.MiddleName );
             LastName = new Element( Record, Field.LastName );
-            Email = new Element( Record, Field.Email );
-            Destination = new Element( Record, Field.Destination );
             StartDate = new Time( Record, EventDate.StartDate );
             EndDate = new Time( Record, EventDate.EndDate );
-            Amount = new Amount( Record, Numeric.Amount );
+            Obligations = new Amount( Record, Numeric.Obligations );
+            ULO = new Amount( Record, Numeric.ULO );
+            Expenditures = new Amount( Record, Numeric.Expenditures );
             Data = Record?.ToDictionary();
             Type = OutlayType.Obligation;
         }

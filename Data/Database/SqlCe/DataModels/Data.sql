@@ -152,7 +152,7 @@ CREATE TABLE [ControlNumbers]
 
 CREATE TABLE [Deobligations]
 (
-   [DeobligationId] INT NOT NULL IDENTITY (1,1),
+   [DeobligationsId] INT NOT NULL IDENTITY (1,1),
    [RPIO] NVARCHAR(255),
    [BFY] NVARCHAR(255),
    [FundCode] NVARCHAR(255),
@@ -733,7 +733,7 @@ CREATE TABLE [Rescission]
 
 CREATE TABLE [Sites]
 (
-   [SiteId] INT NOT NULL IDENTITY (1,1),
+   [SuperfundSitesId] INT NOT NULL IDENTITY (1,1),
    [RpioCode] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
    [BFY] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
    [FundCode] NVARCHAR(255) NOT NULL DEFAULT ('NS'),
