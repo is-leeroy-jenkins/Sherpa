@@ -12,6 +12,7 @@ namespace BudgetExecution
         //************************************************************************************ */
         //*******************          Program Elements           **************************** */
         //************************************************************************************ */
+
         NS = 0,
 
         /// <summary>
@@ -171,6 +172,16 @@ namespace BudgetExecution
         /// The available
         /// </summary>
         Available,
+        
+        /// <summary>
+        /// The estimated reimbursments
+        /// </summary>
+        EstimatedReimbursments,
+
+        /// <summary>
+        /// The estimated recoveries
+        /// </summary>
+        EstimatedRecoveries,
 
         //************************************************************* */
         //**************  PAYROLL ACTIVITY NUMERIC FIELDS  ************ */

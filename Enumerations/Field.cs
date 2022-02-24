@@ -172,36 +172,6 @@ namespace BudgetExecution
         /// </summary>
         ReimbursableAgreementControls,
 
-        /// <summary>
-        /// The carry in
-        /// </summary>
-        CarryIn,
-
-        /// <summary>
-        /// The carry out
-        /// </summary>
-        CarryOut,
-
-        /// <summary>
-        /// The budgeted
-        /// </summary>
-        Budgeted,
-
-        /// <summary>
-        /// The posted
-        /// </summary>
-        Posted,
-
-        /// <summary>
-        /// The estimated reimbursments
-        /// </summary>
-        EstimatedReimbursments,
-
-        /// <summary>
-        /// The estimated recoveries
-        /// </summary>
-        EstimatedRecoveries,
-
         //************************************************************************************ */
         //*******************       Budget Control Values         **************************** */
         //************************************************************************************ */
@@ -612,7 +582,7 @@ namespace BudgetExecution
         RequestedBy,
 
         //************************************************************************************ */
-        //*******************              ReferenceTables             ************************** */
+        //*******************              ReferenceTables           ************************* */
         //************************************************************************************ */
 
         /// <summary>
@@ -1140,7 +1110,7 @@ namespace BudgetExecution
         TreasurySymbol,
 
         //************************************************************************************ */
-        //*******************          ActivityCodes                   **************************** */
+        //*******************          ActivityCodes              **************************** */
         //************************************************************************************ */
 
         /// <summary>
