@@ -949,19 +949,9 @@ namespace BudgetExecution
         OrgCode,
 
         /// <summary>
-        /// The organization code
-        /// </summary>
-        OrganizationCode,
-
-        /// <summary>
         /// The org name
         /// </summary>
         OrgName,
-
-        /// <summary>
-        /// The organization name
-        /// </summary>
-        OrganizationName,
 
         /// <summary>
         /// The cost org code
