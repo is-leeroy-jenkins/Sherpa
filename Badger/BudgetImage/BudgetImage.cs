@@ -54,7 +54,7 @@ namespace BudgetExecution
         {
             Name = Path.GetFileNameWithoutExtension( path );
             ImageBuilder = new ImageBuilder( Path.GetFullPath( path ) );
-            Size = ReSize( PicSize.Small );
+            Size = GetImageSize( PicSize.Small );
             ImageSource = ImageBuilder.ImageSource;
             ImageFormat = ImageBuilder.ImageFormat;
             ImageFactory = new ImageFactory( ImageBuilder );
@@ -108,7 +108,7 @@ namespace BudgetExecution
         {
             Name = Path.GetFileNameWithoutExtension( path );
             ImageBuilder = new ImageBuilder( Name, source, PicSize.Medium );
-            Size = ReSize( PicSize.Medium );
+            Size = GetImageSize( PicSize.Medium );
             ImageSource = ImageBuilder.ImageSource;
             ImageFormat = ImageBuilder.ImageFormat;
             ImageFactory = new ImageFactory( ImageBuilder );

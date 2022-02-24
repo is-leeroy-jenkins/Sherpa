@@ -18,6 +18,46 @@ namespace BudgetExecution
     public class BudgetSetting
     {
         /// <summary>
+        /// Gets or sets the image size icon.
+        /// </summary>
+        /// <value>
+        /// The image size icon.
+        /// </value>
+        public static Size ImageSizeIcon { get; set; } = new Size( 16, 16 );
+
+        /// <summary>
+        /// Gets or sets the image size small.
+        /// </summary>
+        /// <value>
+        /// The image size small.
+        /// </value>
+        public static Size ImageSizeSmall { get; set; } = new Size( 20, 20 );
+
+        /// <summary>
+        /// Gets or sets the image size medium.
+        /// </summary>
+        /// <value>
+        /// The image size medium.
+        /// </value>
+        public static Size ImageSizeMedium { get; set; } = new Size( 50, 50 );
+
+        /// <summary>
+        /// Gets or sets the image size large.
+        /// </summary>
+        /// <value>
+        /// The image size large.
+        /// </value>
+        public static Size ImageSizeLarge { get; set; } = new Size( 100, 100 );
+
+        /// <summary>
+        /// Gets or sets the image size large.
+        /// </summary>
+        /// <value>
+        /// The image size large.
+        /// </value>
+        public static Size ImageSizeHuge { get; set; } = new Size( 250, 250 );
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="BudgetSetting"/> class.
         /// </summary>
         public BudgetSetting()

@@ -9,6 +9,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
+    using System.Windows.Forms;
 
     /// <summary>
     /// 
@@ -17,7 +18,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class ImageBase : BudgetSetting
+    public abstract class ImageBase 
     {
         /// <summary>
         /// Gets or sets the image.
@@ -174,12 +175,12 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="size">The size.</param>
         /// <returns></returns>
-        public virtual Size GetImageSize( Size size )
+        public static Size GetImageSize( Size size )
         {
             try
             {
                 return size != Size.Empty
-                    ? ReSize( size )
+                    ? size
                     : Size.Empty;
             }
             catch( Exception ex )
@@ -188,46 +189,35 @@ namespace BudgetExecution
                 return Size.Empty;
             }
         }
-
-        /// <summary>
-        /// Gets the size of the image.
-        /// </summary>
-        /// <param name="width">The width.</param>
-        /// <param name="height">The height.</param>
-        /// <returns></returns>
-        public virtual Size GetImageSize( int width, int height )
-        {
-            try
-            {
-                return width > -1 && height > -1
-                    ? ReSize( width, height )
-                    : Size.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Size.Empty;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the size of the image.
         /// </summary>
         /// <param name="sizer">The sizer.</param>
         /// <returns></returns>
-        public virtual Size GetImageSize( PicSize sizer )
+        public  static Size GetImageSize( PicSize sizer )
         {
-            try
+            if ( Enum.IsDefined( typeof( PicSize ), sizer ))
             {
-                return Enum.IsDefined( typeof( PicSize ), sizer )
-                    ? ReSize( sizer )
-                    : Size.Empty;
+                try
+                {
+                    return sizer switch
+                    {
+                        PicSize.Small => BudgetSetting.ImageSizeSmall,
+                        PicSize.Medium => BudgetSetting.ImageSizeMedium,
+                        PicSize.Large => BudgetSetting.ImageSizeLarge,
+                        PicSize.Huge => BudgetSetting.ImageSizeHuge,
+                        _ => BudgetSetting.ImageSizeIcon
+                    };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return Size.Empty;
+                }
             }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Size.Empty;
-            }
+
+            return Size.Empty;
         }
 
         /// <summary>
@@ -247,6 +237,17 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText();
+            _error?.ShowDialog();
         }
     }
 }
