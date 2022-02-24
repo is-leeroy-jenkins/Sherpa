@@ -55,7 +55,7 @@ namespace BudgetExecution
         public Commitment( IQuery query )
         {
             Record = new DataBuilder( query )?.GetRecord();
-            ID = new Key( Record, PrimaryKey.CommitmentId );
+            ID = new Key( Record, PrimaryKey.ObligationsId );
             OriginalActionDate = GetOriginalActionDate();
             Data = Record?.ToDictionary();
             Type = OutlayType.Commitment;
@@ -71,7 +71,7 @@ namespace BudgetExecution
         public Commitment( IBuilder builder )
         {
             Record = builder.GetRecord();
-            ID = new Key( Record, PrimaryKey.CommitmentId );
+            ID = new Key( Record, PrimaryKey.ObligationsId );
             OriginalActionDate = GetOriginalActionDate();
             Data = Record?.ToDictionary();
             Type = OutlayType.Commitment;
@@ -87,7 +87,7 @@ namespace BudgetExecution
         public Commitment( DataRow dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.CommitmentId );
+            ID = new Key( Record, PrimaryKey.ObligationsId );
             OriginalActionDate = GetOriginalActionDate();
             Data = Record?.ToDictionary();
             Type = OutlayType.Commitment;
