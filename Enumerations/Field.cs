@@ -203,6 +203,303 @@ namespace BudgetExecution
         EstimatedRecoveries,
 
         //************************************************************************************ */
+        //*******************       Budget Control Values         **************************** */
+        //************************************************************************************ */
+
+        /// <summary>
+        /// The budgeted trans type
+        /// </summary>
+        BudgetedTransType,
+
+        /// <summary>
+        /// The posted trans type
+        /// </summary>
+        PostedTransType,
+
+        /// <summary>
+        /// The estimated reimbursements trans type
+        /// </summary>
+        EstimatedReimbursementsTransType,
+
+        /// <summary>
+        /// The spending adjustment trans type
+        /// </summary>
+        SpendingAdjustmentTransType,
+
+        /// <summary>
+        /// The estimated recoveries trans type
+        /// </summary>
+        EstimatedRecoveriesTransType,
+
+        /// <summary>
+        /// The actual recoveries trans type
+        /// </summary>
+        ActualRecoveriesTransType,
+
+        /// <summary>
+        /// The status reserve trans type
+        /// </summary>
+        StatusReserveTransType,
+
+        /// <summary>
+        /// The profit loss trans type
+        /// </summary>
+        ProfitLossTransType,
+
+        /// <summary>
+        /// The estimated reimbursements spending option
+        /// </summary>
+        EstimatedReimbursementsSpendingOption,
+
+        /// <summary>
+        /// The estimated reimursements budgeting option
+        /// </summary>
+        EstimatedReimursementsBudgetingOption,
+
+        /// <summary>
+        /// The track agreement lower level
+        /// </summary>
+        TrackAgreementLowerLevel,
+
+        /// <summary>
+        /// The budget estimated lower level
+        /// </summary>
+        BudgetEstimatedLowerLevel,
+
+        /// <summary>
+        /// The estimated recoveries spending option
+        /// </summary>
+        EstimatedRecoveriesSpendingOption,
+
+        /// <summary>
+        /// The estimated recoveries budgeting option
+        /// </summary>
+        EstimatedRecoveriesBudgetingOption,
+
+        /// <summary>
+        /// The recovery next level
+        /// </summary>
+        RecoveryNextLevel,
+
+        /// <summary>
+        /// The recovery budget mismatch
+        /// </summary>
+        RecoveryBudgetMismatch,
+
+        /// <summary>
+        /// The profit loss spending option
+        /// </summary>
+        ProfitLossSpendingOption,
+
+        /// <summary>
+        /// The profit loss budget option
+        /// </summary>
+        ProfitLossBudgetOption,
+
+        /// <summary>
+        /// The recoveries carry in lower level
+        /// </summary>
+        RecoveriesCarryInLowerLevel,
+
+        /// <summary>
+        /// The recoveries carry in lower level control
+        /// </summary>
+        RecoveriesCarryInLowerLevelControl,
+
+        /// <summary>
+        /// The recoveries carry in amount control
+        /// </summary>
+        RecoveriesCarryInAmountControl,
+
+        /// <summary>
+        /// The budgeted control
+        /// </summary>
+        BudgetedControl,
+
+        /// <summary>
+        /// The posted control
+        /// </summary>
+        PostedControl,
+
+        /// <summary>
+        /// The pre commitment spending control
+        /// </summary>
+        PreCommitmentSpendingControl,
+
+        /// <summary>
+        /// The commitment spending control
+        /// </summary>
+        CommitmentSpendingControl,
+
+        /// <summary>
+        /// The obligation spending control
+        /// </summary>
+        ObligationSpendingControl,
+
+        /// <summary>
+        /// The accrual spending control
+        /// </summary>
+        AccrualSpendingControl,
+
+        /// <summary>
+        /// The expenditure spending control
+        /// </summary>
+        ExpenditureSpendingControl,
+
+        /// <summary>
+        /// The expense spending control
+        /// </summary>
+        ExpenseSpendingControl,
+
+        /// <summary>
+        /// The reimbursable spending control
+        /// </summary>
+        ReimbursableSpendingControl,
+
+        /// <summary>
+        /// The reimbursable agreement spending control
+        /// </summary>
+        ReimbursableAgreementSpendingControl,
+
+        /// <summary>
+        /// The fte budgeting control
+        /// </summary>
+        FteBudgetingControl,
+
+        /// <summary>
+        /// The fte spending control
+        /// </summary>
+        FteSpendingControl,
+
+        /// <summary>
+        /// The transaction type control
+        /// </summary>
+        TransactionTypeControl,
+
+        /// <summary>
+        /// The authority distribution control
+        /// </summary>
+        AuthorityDistributionControl,
+
+        //************************************************************************************ */
+        //*******************            BudgetDocuments          **************************** */
+        //************************************************************************************ */
+
+        /// <summary>
+        /// The last document date
+        /// </summary>
+        LastDocumentDate,
+
+        /// <summary>
+        /// The expense controls
+        /// </summary>
+        ExpenseControls,
+
+        /// <summary>
+        /// The estimated reimbursements
+        /// </summary>
+        EstimatedReimbursements,
+
+        //************************************************************************************ */
+        //*******************            BudgetOutlays           **************************** */
+        //************************************************************************************ */
+
+        /// <summary>
+        /// The category
+        /// </summary>
+        Category,
+
+        /// <summary>
+        /// The report year
+        /// </summary>
+        ReportYear,
+
+        /// <summary>
+        /// The agency name
+        /// </summary>
+        AgencyName,
+
+        /// <summary>
+        /// The line section
+        /// </summary>
+        LineSection,
+
+        /// <summary>
+        /// The omb account
+        /// </summary>
+        OmbAccount,
+
+        /// <summary>
+        /// The line title
+        /// </summary>
+        LineTitle,
+
+        /// <summary>
+        /// The account type
+        /// </summary>
+        AccountType,
+
+        /// <summary>
+        /// The authority type name
+        /// </summary>
+        AuthorityTypeName,
+
+        /// <summary>
+        /// The authority type
+        /// </summary>
+        AuthorityType,
+
+        /// <summary>
+        /// The prior year
+        /// </summary>
+        PriorYear,
+
+        /// <summary>
+        /// The out year1
+        /// </summary>
+        OutYear1,
+
+        /// <summary>
+        /// The out year2
+        /// </summary>
+        OutYear2,
+
+        /// <summary>
+        /// The out year3
+        /// </summary>
+        OutYear3,
+
+        /// <summary>
+        /// The out year4
+        /// </summary>
+        OutYear4,
+
+        /// <summary>
+        /// The out year5
+        /// </summary>
+        OutYear5,
+
+        /// <summary>
+        /// The out year6
+        /// </summary>
+        OutYear6,
+
+        /// <summary>
+        /// The out year7
+        /// </summary>
+        OutYear7,
+
+        /// <summary>
+        /// The out year8
+        /// </summary>
+        OutYear8,
+
+        /// <summary>
+        /// The out year9
+        /// </summary>
+        OutYear9,
+
+        //************************************************************************************ */
         //*******************                 WorkCodes           **************************** */
         //************************************************************************************ */
 
