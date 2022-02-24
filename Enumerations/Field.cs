@@ -502,7 +502,7 @@ namespace BudgetExecution
         //************************************************************************************ */
         //*******************      BudgetResourceExectuion        **************************** */
         //************************************************************************************ */
-
+        
         /// <summary>
         /// The agency
         /// </summary>
@@ -637,6 +637,45 @@ namespace BudgetExecution
         /// The amount4
         /// </summary>
         Amount4,
+
+        //************************************************************************************ */
+        //*******************               Changes               **************************** */
+        //************************************************************************************ */
+
+        /// <summary>
+        /// The table name
+        /// </summary>
+        TableName,
+
+        /// <summary>
+        /// The field name
+        /// </summary>
+        FieldName,
+
+        /// <summary>
+        /// The action
+        /// </summary>
+        Action,
+
+        /// <summary>
+        /// The old value
+        /// </summary>
+        OldValue,
+
+        /// <summary>
+        /// Creates new value.
+        /// </summary>
+        NewValue,
+
+        /// <summary>
+        /// The time stamp
+        /// </summary>
+        TimeStamp,
+
+        /// <summary>
+        /// The message
+        /// </summary>
+        Message,
 
         //************************************************************************************ */
         //*******************                 WorkCodes           **************************** */
