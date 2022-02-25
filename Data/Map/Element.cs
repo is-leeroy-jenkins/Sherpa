@@ -15,6 +15,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="IElement" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public class Element : DataUnit, IElement
     {
         /// <summary>
