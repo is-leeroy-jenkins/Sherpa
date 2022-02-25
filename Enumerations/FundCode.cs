@@ -4,94 +4,715 @@
 
 namespace BudgetExecution
 {
-    // ********************************************************************************************************************************
-    // *********************************************************  ASSEMBLIES   ********************************************************
-    // ********************************************************************************************************************************
-
-
     /// <summary>
     /// Defines the FundCode
     /// </summary>
     public enum FundCode
     {
-        // ******************************************************************************************************************************
-        // ******************************************************   MEMBERS   ***********************************************************
-        // ******************************************************************************************************************************
-
         /// <summary>
-        /// Defines the None
-        /// </summary>
-        NS = 0,
-
-        /// <summary>
-        /// Defines the B
+        /// The b
         /// </summary>
         B,
 
         /// <summary>
-        /// Defines the BR
+        /// The b2
+        /// </summary>
+        B2,
+
+        /// <summary>
+        /// The b2 d
+        /// </summary>
+        B2D,
+
+        /// <summary>
+        /// The b3
+        /// </summary>
+        B3,
+
+        /// <summary>
+        /// The b5
+        /// </summary>
+        B5,
+
+        /// <summary>
+        /// The b9
+        /// </summary>
+        B9,
+
+        /// <summary>
+        /// The BLT
+        /// </summary>
+        BLT,
+
+        /// <summary>
+        /// The br
         /// </summary>
         BR,
 
         /// <summary>
-        /// Defines the BR1
+        /// The b r1
         /// </summary>
         BR1,
 
         /// <summary>
-        /// Defines the BR2
-        /// </summary>
-        BR2,
-
-        /// <summary>
-        /// Defines the BR3
+        /// The b r3
         /// </summary>
         BR3,
 
         /// <summary>
-        /// Defines the T
+        /// The b r5
+        /// </summary>
+        BR5,
+
+        /// <summary>
+        /// The b r7
+        /// </summary>
+        BR7,
+
+        /// <summary>
+        /// The BRX
+        /// </summary>
+        BRX,
+
+        /// <summary>
+        /// The b s2
+        /// </summary>
+        BS2,
+
+        /// <summary>
+        /// The b s5
+        /// </summary>
+        BS5,
+
+        /// <summary>
+        /// The b s6
+        /// </summary>
+        BS6,
+
+        /// <summary>
+        /// The b s7
+        /// </summary>
+        BS7,
+
+        /// <summary>
+        /// The BSD
+        /// </summary>
+        BSD,
+
+        /// <summary>
+        /// The bsda
+        /// </summary>
+        BSDA,
+
+        /// <summary>
+        /// The BSD e1
+        /// </summary>
+        BSDE1,
+
+        /// <summary>
+        /// The BSD e2
+        /// </summary>
+        BSDE2,
+
+        /// <summary>
+        /// The BSD e3
+        /// </summary>
+        BSDE3,
+
+        /// <summary>
+        /// The BSD e4
+        /// </summary>
+        BSDE4,
+
+        /// <summary>
+        /// The BSDW
+        /// </summary>
+        BSDW,
+
+        /// <summary>
+        /// The bt
+        /// </summary>
+        BT,
+
+        /// <summary>
+        /// The BTC
+        /// </summary>
+        BTC,
+
+        /// <summary>
+        /// The BTD
+        /// </summary>
+        BTD,
+
+        /// <summary>
+        /// The c
+        /// </summary>
+        C,
+
+        /// <summary>
+        /// The c2
+        /// </summary>
+        C2,
+
+        /// <summary>
+        /// The c2 a
+        /// </summary>
+        C2A,
+
+        /// <summary>
+        /// The c2 d
+        /// </summary>
+        C2D,
+
+        /// <summary>
+        /// The c3
+        /// </summary>
+        C3,
+
+        /// <summary>
+        /// The c4
+        /// </summary>
+        C4,
+
+        /// <summary>
+        /// The c9
+        /// </summary>
+        C9,
+
+        /// <summary>
+        /// The cr
+        /// </summary>
+        CR,
+
+        /// <summary>
+        /// The c r1
+        /// </summary>
+        CR1,
+
+        /// <summary>
+        /// The c r3
+        /// </summary>
+        CR3,
+
+        /// <summary>
+        /// The CRX
+        /// </summary>
+        CRX,
+
+        /// <summary>
+        /// The c s4
+        /// </summary>
+        CS4,
+
+        /// <summary>
+        /// The c s6
+        /// </summary>
+        CS6,
+
+        /// <summary>
+        /// The CSDB
+        /// </summary>
+        CSDB,
+
+        /// <summary>
+        /// The CSD e1
+        /// </summary>
+        CSDE1,
+
+        /// <summary>
+        /// The CSD e2
+        /// </summary>
+        CSDE2,
+
+        /// <summary>
+        /// The CSD e3
+        /// </summary>
+        CSDE3,
+
+        /// <summary>
+        /// The CSD e4
+        /// </summary>
+        CSDE4,
+
+        /// <summary>
+        /// The d
+        /// </summary>
+        D,
+
+        /// <summary>
+        /// The dc
+        /// </summary>
+        DC,
+
+        /// <summary>
+        /// The dd
+        /// </summary>
+        DD,
+
+        /// <summary>
+        /// The d s6
+        /// </summary>
+        DS6,
+
+        /// <summary>
+        /// The e
+        /// </summary>
+        E,
+
+        /// <summary>
+        /// The e1
+        /// </summary>
+        E1,
+
+        /// <summary>
+        /// The e1 c
+        /// </summary>
+        E1C,
+
+        /// <summary>
+        /// The e1 d
+        /// </summary>
+        E1D,
+
+        /// <summary>
+        /// The e1 s3
+        /// </summary>
+        E1S3,
+
+        /// <summary>
+        /// The e1 s4
+        /// </summary>
+        E1S4,
+
+        /// <summary>
+        /// The e1 s7
+        /// </summary>
+        E1S7,
+
+        /// <summary>
+        /// The e1 sd
+        /// </summary>
+        E1SD,
+
+        /// <summary>
+        /// The e1 sda
+        /// </summary>
+        E1SDA,
+
+        /// <summary>
+        /// The e2
+        /// </summary>
+        E2,
+
+        /// <summary>
+        /// The e2 c
+        /// </summary>
+        E2C,
+
+        /// <summary>
+        /// The e2 d
+        /// </summary>
+        E2D,
+
+        /// <summary>
+        /// The e2 s2
+        /// </summary>
+        E2S2,
+
+        /// <summary>
+        /// The e2 s4
+        /// </summary>
+        E2S4,
+
+        /// <summary>
+        /// The e2 sd
+        /// </summary>
+        E2SD,
+
+        /// <summary>
+        /// The e2 sda
+        /// </summary>
+        E2SDA,
+
+        /// <summary>
+        /// The e3
+        /// </summary>
+        E3,
+
+        /// <summary>
+        /// The e3 c
+        /// </summary>
+        E3C,
+
+        /// <summary>
+        /// The e3 d
+        /// </summary>
+        E3D,
+
+        /// <summary>
+        /// The e3 s2
+        /// </summary>
+        E3S2,
+
+        /// <summary>
+        /// The e3 s4
+        /// </summary>
+        E3S4,
+
+        /// <summary>
+        /// The e3 sd
+        /// </summary>
+        E3SD,
+
+        /// <summary>
+        /// The e3 sda
+        /// </summary>
+        E3SDA,
+
+        /// <summary>
+        /// The e4
+        /// </summary>
+        E4,
+
+        /// <summary>
+        /// The e4 c
+        /// </summary>
+        E4C,
+
+        /// <summary>
+        /// The e4 d
+        /// </summary>
+        E4D,
+
+        /// <summary>
+        /// The e4 s5
+        /// </summary>
+        E4S5,
+
+        /// <summary>
+        /// The e4 s7
+        /// </summary>
+        E4S7,
+
+        /// <summary>
+        /// The e4 sd
+        /// </summary>
+        E4SD,
+
+        /// <summary>
+        /// The e4 sda
+        /// </summary>
+        E4SDA,
+
+        /// <summary>
+        /// The e5 c
+        /// </summary>
+        E5C,
+
+        /// <summary>
+        /// The e7 x
+        /// </summary>
+        E7X,
+
+        /// <summary>
+        /// The e9
+        /// </summary>
+        E9,
+
+        /// <summary>
+        /// The elim
+        /// </summary>
+        ELIM,
+
+        /// <summary>
+        /// The elimtf
+        /// </summary>
+        ELIMTF,
+
+        /// <summary>
+        /// The er
+        /// </summary>
+        ER,
+
+        /// <summary>
+        /// The f
+        /// </summary>
+        F,
+
+        /// <summary>
+        /// The f3
+        /// </summary>
+        F3,
+
+        /// <summary>
+        /// The f8
+        /// </summary>
+        F8,
+
+        /// <summary>
+        /// The f8 d
+        /// </summary>
+        F8D,
+
+        /// <summary>
+        /// The fc
+        /// </summary>
+        FC,
+
+        /// <summary>
+        /// The fd
+        /// </summary>
+        FD,
+
+        /// <summary>
+        /// The f r3
+        /// </summary>
+        FR3,
+
+        /// <summary>
+        /// The f s2
+        /// </summary>
+        FS2,
+
+        /// <summary>
+        /// The f s3
+        /// </summary>
+        FS3,
+
+        /// <summary>
+        /// The f s4
+        /// </summary>
+        FS4,
+
+        /// <summary>
+        /// The GZZ
+        /// </summary>
+        GZZ,
+
+        /// <summary>
+        /// The h
+        /// </summary>
+        H,
+
+        /// <summary>
+        /// The hc
+        /// </summary>
+        HC,
+
+        /// <summary>
+        /// The hd
+        /// </summary>
+        HD,
+
+        /// <summary>
+        /// The hr
+        /// </summary>
+        HR,
+
+        /// <summary>
+        /// The HSC R68
+        /// </summary>
+        HSCR68,
+
+        /// <summary>
+        /// The hse Q68
+        /// </summary>
+        HSEQ68,
+
+        /// <summary>
+        /// The HSF P68
+        /// </summary>
+        HSFP68,
+
+        /// <summary>
+        /// The hssa
+        /// </summary>
+        HSSA,
+
+        /// <summary>
+        /// The hssaa
+        /// </summary>
+        HSSAA,
+
+        /// <summary>
+        /// The hssab
+        /// </summary>
+        HSSAB,
+
+        /// <summary>
+        /// The HSX i68
+        /// </summary>
+        HSXI68,
+
+        /// <summary>
+        /// The impfun
+        /// </summary>
+        IMPFUN,
+
+        /// <summary>
+        /// The lt
+        /// </summary>
+        LT,
+
+        /// <summary>
+        /// The m
+        /// </summary>
+        M,
+
+        /// <summary>
+        /// The m3
+        /// </summary>
+        M3,
+
+        /// <summary>
+        /// The m3 f
+        /// </summary>
+        M3F,
+
+        /// <summary>
+        /// The mc
+        /// </summary>
+        MC,
+
+        /// <summary>
+        /// The md
+        /// </summary>
+        MD,
+
+        /// <summary>
+        /// The n
+        /// </summary>
+        N,
+
+        /// <summary>
+        /// The n2
+        /// </summary>
+        N2,
+
+        /// <summary>
+        /// The nr
+        /// </summary>
+        NR,
+
+        /// <summary>
+        /// The NSDB
+        /// </summary>
+        NSDB,
+
+        /// <summary>
+        /// The NSDBW
+        /// </summary>
+        NSDBW,
+
+        /// <summary>
+        /// The NSD e1
+        /// </summary>
+        NSDE1,
+
+        /// <summary>
+        /// The NSD e2
+        /// </summary>
+        NSDE2,
+
+        /// <summary>
+        /// The NSD e3
+        /// </summary>
+        NSDE3,
+
+        /// <summary>
+        /// The NSD e4
+        /// </summary>
+        NSDE4,
+
+        /// <summary>
+        /// The NSDT
+        /// </summary>
+        NSDT,
+
+        /// <summary>
+        /// The p
+        /// </summary>
+        P,
+
+        /// <summary>
+        /// The p1
+        /// </summary>
+        P1,
+
+        /// <summary>
+        /// The S589
+        /// </summary>
+        S589,
+
+        /// <summary>
+        /// The t
         /// </summary>
         T,
 
         /// <summary>
-        /// Defines the TC
+        /// The t2
+        /// </summary>
+        T2,
+
+        /// <summary>
+        /// The t3
+        /// </summary>
+        T3,
+
+        /// <summary>
+        /// The t4
+        /// </summary>
+        T4,
+
+        /// <summary>
+        /// The t9
+        /// </summary>
+        T9,
+
+        /// <summary>
+        /// The tc
         /// </summary>
         TC,
 
         /// <summary>
-        /// Defines the TD
+        /// The td
         /// </summary>
         TD,
 
         /// <summary>
-        /// Defines the TR
+        /// The tr
         /// </summary>
         TR,
 
         /// <summary>
-        /// Defines the TR1
+        /// The t r1
         /// </summary>
         TR1,
 
         /// <summary>
-        /// Defines the TR2
+        /// The t r2
         /// </summary>
         TR2,
 
         /// <summary>
-        /// Defines the TR2A
+        /// The t r2 a
         /// </summary>
         TR2A,
 
         /// <summary>
-        /// Defines the TR2B
+        /// The t r2 b
         /// </summary>
         TR2B,
 
         /// <summary>
-        /// Defines the TR3
+        /// The t r3
         /// </summary>
         TR3,
+
+        /// <summary>
+        /// The t s2
+        /// </summary>
+        TS2,
 
         /// <summary>
         /// The t s3
@@ -99,137 +720,117 @@ namespace BudgetExecution
         TS3,
 
         /// <summary>
-        /// Defines the F
+        /// The t s6
         /// </summary>
-        F,
+        TS6,
 
         /// <summary>
-        /// Defines the FC
+        /// The TSD
         /// </summary>
-        FC,
+        TSD,
 
         /// <summary>
-        /// Defines the FD
+        /// The wf
         /// </summary>
-        FD,
+        WF,
 
         /// <summary>
-        /// The fr
+        /// The w f1
         /// </summary>
-        FR,
+        WF1,
 
         /// <summary>
-        /// Defines the FS3
+        /// The wfa
         /// </summary>
-        FS3,
+        WFA,
 
         /// <summary>
-        /// Defines the H
+        /// The wfac
         /// </summary>
-        H,
+        WFAC,
 
         /// <summary>
-        /// Defines the HR
+        /// The wfad
         /// </summary>
-        HR,
+        WFAD,
 
         /// <summary>
-        /// Defines the HC
+        /// The WFC
         /// </summary>
-        HC,
+        WFC,
 
         /// <summary>
-        /// Defines the HD
+        /// The WFD
         /// </summary>
-        HD,
+        WFD,
 
         /// <summary>
-        /// Defines the E
+        /// The WFF
         /// </summary>
-        E,
+        WFF,
 
         /// <summary>
-        /// Defines the E1
+        /// The WFL
         /// </summary>
-        E1,
+        WFL,
 
         /// <summary>
-        /// Defines the E1C
+        /// The wr
         /// </summary>
-        E1C,
+        WR,
 
         /// <summary>
-        /// Defines the E1D
+        /// The w r1
         /// </summary>
-        E1D,
+        WR1,
 
         /// <summary>
-        /// Defines the E1S3
+        /// The y
         /// </summary>
-        E1S3,
+        Y,
 
         /// <summary>
-        /// Defines the E2
+        /// The Z81
         /// </summary>
-        E2,
+        Z81,
 
         /// <summary>
-        /// Defines the E2C
+        /// The za
         /// </summary>
-        E2C,
+        ZA,
 
         /// <summary>
-        /// Defines the E2D
+        /// The zb
         /// </summary>
-        E2D,
+        ZB,
 
         /// <summary>
-        /// Defines the E3
+        /// The zc
         /// </summary>
-        E3,
+        ZC,
 
         /// <summary>
-        /// Defines the E3C
+        /// The zd
         /// </summary>
-        E3C,
+        ZD,
 
         /// <summary>
-        /// Defines the E3D
+        /// The ze
         /// </summary>
-        E3D,
+        ZE,
 
         /// <summary>
-        /// Defines the E4
+        /// The zf
         /// </summary>
-        E4,
+        ZF,
 
         /// <summary>
-        /// Defines the E4C
+        /// The zg
         /// </summary>
-        E4C,
+        ZG,
 
         /// <summary>
-        /// Defines the E4D
-        /// </summary>
-        E4D,
-
-        /// <summary>
-        /// Defines the E5
-        /// </summary>
-        E5,
-
-        /// <summary>
-        /// Defines the E5C
-        /// </summary>
-        E5C,
-
-        /// <summary>
-        /// Defines the E5D
-        /// </summary>
-        E5D,
-
-        /// <summary>
-        /// Defines the ZL
+        /// The zl
         /// </summary>
         ZL
     }

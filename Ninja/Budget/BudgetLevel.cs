@@ -44,7 +44,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetLevel()
         {
-            _level = Level.Region;
+            _level = Level.BudgetObjectClass;
             _code = ( (int)_level ).ToString();
             _name = _level.ToString();
         }
@@ -86,7 +86,7 @@ namespace BudgetExecution
             {
                 return Enum.IsDefined( typeof( Level ), _level.ToString() )
                     ? (int)Enum.Parse( typeof( Level ), _level.ToString() )
-                    : (int)Level.Region;
+                    : (int)Level.BudgetObjectClass;
             }
             catch( Exception ex )
             {

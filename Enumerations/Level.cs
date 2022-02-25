@@ -4,30 +4,52 @@
 
 namespace BudgetExecution
 {
-    // ********************************************************************************************************************************
-    // *********************************************************  ASSEMBLIES   ********************************************************
-    // ********************************************************************************************************************************
-
-
     public enum Level
     {
-        // ******************************************************************************************************************************
-        // ******************************************************   MEMBERS   ***********************************************************
-        // ******************************************************************************************************************************
-
         /// <summary>
         /// The ns
         /// </summary>
         NS = 0,
 
         /// <summary>
-        /// The region
+        /// The appropriation
         /// </summary>
-        Region = 7,
+        Appropriation = 1,
 
         /// <summary>
-        /// The division
+        /// The rpio
         /// </summary>
-        Division = 8
+        RPIO = 2,
+
+        /// <summary>
+        /// The allowance holder
+        /// </summary>
+        AllowanceHolder = 3,
+
+        /// <summary>
+        /// The program area
+        /// </summary>
+        ProgramArea = 4,
+
+        /// <summary>
+        /// The progream project
+        /// </summary>
+        ProgreamProject = 5,
+
+        /// <summary>
+        /// The program results code
+        /// </summary>
+        ProgramResultsCode = 6,
+
+        /// <summary>
+        /// The budget object class
+        /// </summary>
+        BudgetObjectClass = 7,
+
+        /// <summary>
+        /// The sub allocation
+        /// </summary>
+        SubAllocation = 8
     }
 }
+
