@@ -424,3 +424,5 @@ C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetTa
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.ColumnConfiguration.resources
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\DarkUI.dll
 C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\DarkUI.pdb
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.Message.resources

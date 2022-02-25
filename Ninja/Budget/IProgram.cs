@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IProgram : IElement
+    public interface IProgram 
     {
         /// <summary>
         /// Gets the identifier.
@@ -15,6 +15,30 @@ namespace BudgetExecution
         /// <returns>
         /// </returns>
         IKey ID { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the value.
+        /// </summary>
+        /// <value>
+        /// The value.
+        /// </value>
+        object Value { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
+        Field Field { get; set; }
 
         /// <summary>
         /// Gets the code.

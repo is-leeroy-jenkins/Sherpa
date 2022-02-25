@@ -5,10 +5,12 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class Message : MetroForm
     {
         /// <summary>
@@ -38,7 +40,7 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 18, 18, 18 );
             BorderThickness = 1;
             BorderColor = Color.SteelBlue;
-            Size = new Size( 1200, 700 );
+            Size = new Size( 700, 550 );
             Font = new Font( "Roboto", 9 );
             CaptionBarColor = Color.FromArgb( 18, 18, 18 );
             CaptionBarHeight = 26;
@@ -48,7 +50,7 @@ namespace BudgetExecution
             CaptionFont = new Font( "Roboto", 11 );
             MetroColor = Color.FromArgb( 18, 18, 18 );
             FormBorderStyle = FormBorderStyle.Sizable;
-            Icon = new Icon( @"C:\Users\terry\source\repos\BudgetExecution\Etc\epa.ico", 33, 32 );
+            Icon = new Icon( @"C:\Users\terry\source\repos\BudgetExecution\Etc\epa.ico", 24, 24 );
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = new Padding( 1 );

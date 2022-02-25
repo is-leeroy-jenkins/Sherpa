@@ -56,7 +56,7 @@ namespace BudgetExecution
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 11 );
             MetroColor = Color.FromArgb( 18, 18, 18 );
-            FormBorderStyle = FormBorderStyle.Sizable;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = new Icon( IconPath, 33, 32 );
             ShowIcon = false;
             ShowInTaskbar = true;

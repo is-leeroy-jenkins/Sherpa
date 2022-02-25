@@ -590,7 +590,9 @@
     <Compile Include="Badger\ComboBox\ComboBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Control\ControlData.cs" />
+    <Compile Include="Badger\Control\ControlBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Badger\Excel\ExcelForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -893,7 +895,7 @@
     <Compile Include="Ninja\Budget\PrcBase.cs" />
     <Compile Include="Ninja\Budget\PrcConfig.cs" />
     <Compile Include="Ninja\Budget\ProgramArea.cs" />
-    <Compile Include="Ninja\Budget\ProgramBase.cs" />
+    <Compile Include="Ninja\Budget\DescriptionBase.cs" />
     <Compile Include="Ninja\Budget\ProgramProject.cs" />
     <Compile Include="Ninja\Budget\ProgramResultsCode.cs" />
     <Compile Include="Ninja\Budget\RegionalAuthority.cs" />
@@ -1082,6 +1084,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\Dialog\Error\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Badger\Dialog\Message\Message.resx">
+      <DependentUpon>Message.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\Main\BadgerMain.resx">
       <DependentUpon>BadgerMain.cs</DependentUpon>
@@ -3121,7 +3126,6 @@
     <Content Include="Data\Database\sqlite\ui\SQLiteDatabaseBrowserPortable.exe" />
     <Content Include="epa.ico" />
     <Content Include="etc\BlueNinja.ico" />
-    <Content Include="etc\BudgetClamp.ico" />
     <Content Include="etc\BudgetExecutionLogo.ico" />
     <Content Include="etc\epa.ico" />
     <Content Include="etc\EpaHorizontal.ico" />

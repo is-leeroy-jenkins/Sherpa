@@ -69,7 +69,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="numeric">The numeric.</param>
-        public Amount( double value = 0, Numeric numeric = Numeric.Amount )
+        public Amount( double value = 0d, Numeric numeric = Numeric.Amount )
         {
             Funding = value;
             Numeric = numeric;
@@ -150,12 +150,12 @@ namespace BudgetExecution
         /// <summary>
         /// Increases the specified amount.
         /// </summary>
-        /// <param name="amount">The amount.</param>
-        public void Increase( double amount )
+        /// <param name="increment">The amount.</param>
+        public void Increase( double increment = 0d )
         {
             try
             {
-                Delta = amount;
+                Delta = increment;
                 Funding += Delta;
 
                 if( Initial != Funding )
@@ -172,16 +172,16 @@ namespace BudgetExecution
         /// <summary>
         /// Decreases the specified amount.
         /// </summary>
-        /// <param name="amount">The amount.</param>
-        public void Decrease( double amount )
+        /// <param name="decrement">The amount.</param>
+        public void Decrease( double decrement = 0d )
         {
             try
             {
-                Delta = amount;
+                Delta = decrement;
 
-                if( Funding > amount )
+                if( Funding > decrement )
                 {
-                    Funding -= amount;
+                    Funding -= decrement;
                 }
 
                 if( Initial != Funding )

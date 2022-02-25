@@ -20,33 +20,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class ColumnConfiguration : MetroForm
     {
-        //    
-
-        /// <summary>
-        /// Sets Basic Properties Initializes a new instance of the
-        /// <see cref = "ColumnConfiguration"/> class.
-        /// </summary>
-        public ColumnConfiguration()
-        {
-            InitializeComponent();
-            Enabled = true;
-            Visible = true;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref = "ColumnConfiguration"/> class.
-        /// </summary>
-        /// <param name = "dgv" >
-        /// The DGV.
-        /// </param>
-        public ColumnConfiguration( DataGridView dgv )
-            : this()
-        {
-            Grid = dgv;
-            PopUp = new ToolStripDropDown();
-            ColumnListBox.CheckOnClick = true;
-        }
-
         /// <summary>
         /// Gets the grid.
         /// </summary>
@@ -78,18 +51,43 @@ namespace BudgetExecution
         /// The host.
         /// </value>
         public ToolStripControlHost Host { get; set; }
-        
+
+        /// <summary>
+        /// Sets Basic Properties Initializes a new instance of the
+        /// <see cref = "ColumnConfiguration"/> class.
+        /// </summary>
+        public ColumnConfiguration()
+        {
+            InitializeComponent();
+            Enabled = true;
+            Visible = true;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref = "ColumnConfiguration"/> class.
+        /// </summary>
+        /// <param name = "dataGrid" >
+        /// The DGV.
+        /// </param>
+        public ColumnConfiguration( DataGridView dataGrid )
+            : this()
+        {
+            Grid = dataGrid;
+            PopUp = new ToolStripDropDown();
+            ColumnListBox.CheckOnClick = true;
+        }
+
         /// <summary>
         /// Gets the control host.
         /// </summary>
-        /// <param name = "listbox" >
+        /// <param name = "listBox" >
         /// The listbox.
         /// </param>
         /// <returns>
         /// </returns>
-        private ToolStripControlHost GetControlHost( Control listbox )
+        private ToolStripControlHost GetControlHost( Control listBox )
         {
-            if( listbox != null )
+            if( listBox != null )
             {
                 try
                 {
@@ -124,7 +122,7 @@ namespace BudgetExecution
         /// </param>
         public void OnDataGridRightClick( object sender, DataGridViewCellMouseEventArgs e )
         {
-            if( e.Button         == MouseButtons.Right
+            if( e.Button == MouseButtons.Right
                 && Grid?.Columns != null )
             {
                 try

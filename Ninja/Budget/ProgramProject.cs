@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class ProgramProject : ProgramBase, IProgramProject, ISource
+    public class ProgramProject : DescriptionBase, IProgramProject, ISource
     {
         /// <summary>
         /// The source
