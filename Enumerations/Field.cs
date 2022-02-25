@@ -1001,19 +1001,9 @@ namespace BudgetExecution
         FocCode,
 
         /// <summary>
-        /// The finance object class code
-        /// </summary>
-        FinanceObjectClassCode,
-
-        /// <summary>
         /// The foc name
         /// </summary>
         FocName,
-
-        /// <summary>
-        /// The finance object class name
-        /// </summary>
-        FinanceObjectClassName,
 
         //************************************************************************************ */
         //*******************         BudgetObjectClasses           **************************** */
@@ -1433,38 +1423,102 @@ namespace BudgetExecution
         /// <summary>
         /// The district
         /// </summary>
-        District,
-
-        /// <summary>
-        /// The county
-        /// </summary>
-        County,
-
-        /// <summary>
-        /// The state name
-        /// </summary>
-        StateName,
-
+        CongressionalDistrict,
+        
         /// <summary>
         /// The state code
         /// </summary>
-        StateCode,
+        State,
+        
+        /// <summary>
+        /// The ssid
+        /// </summary>
+        SSID,
 
         /// <summary>
-        /// The street address line1
+        /// The action code
         /// </summary>
-        StreetAddressLine1,
+        ActionCode,
 
         /// <summary>
-        /// The street address line2
+        /// The operable unit
         /// </summary>
-        StreetAddressLine2,
+        OperableUnit,
 
         /// <summary>
-        /// The zip code
+        /// The project type
         /// </summary>
-        ZipCode,
+        ProjectType,
 
+        //************************************************************************************ */
+        //*******************           Special Accounts            ************************** */
+        //************************************************************************************ */
+
+        /// <summary>
+        /// The special account fund
+        /// </summary>
+        SpecialAccountFund,
+
+        /// <summary>
+        /// The special account number
+        /// </summary>
+        SpecialAccountNumber,
+
+        /// <summary>
+        /// The special account name
+        /// </summary>
+        SpecialAccountName,
+
+        /// <summary>
+        /// The account status
+        /// </summary>
+        AccountStatus,
+
+        /// <summary>
+        /// The NPL status code
+        /// </summary>
+        NplStatusCode,
+
+        /// <summary>
+        /// The NPL status name
+        /// </summary>
+        NplStatusName,
+
+        /// <summary>
+        /// The site identifier
+        /// </summary>
+        SiteId,
+
+        /// <summary>
+        /// The cerclis identifier
+        /// </summary>
+        CerclisId,
+
+        /// <summary>
+        /// The pipeline code
+        /// </summary>
+        PipelineCode,
+
+        /// <summary>
+        /// The site code
+        /// </summary>
+        SiteCode,
+
+        /// <summary>
+        /// The pipeline description
+        /// </summary>
+        PipelineDescription,
+
+        /// <summary>
+        /// The transaction type
+        /// </summary>
+        TransactionType,
+
+        /// <summary>
+        /// The transaction type name
+        /// </summary>
+        TransactionTypeName,
+        
         //************************************************************************************ */
         //*******************     INFORMATION TECHNOLOGY            ************************** */
         //************************************************************************************ */

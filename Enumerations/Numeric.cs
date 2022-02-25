@@ -352,7 +352,26 @@ namespace BudgetExecution
         /// The amount4
         /// </summary>
         Amount4,
-        
+
+        //************************************************************************************ */
+        //*******************            SF Site Activity         **************************** */
+        //************************************************************************************ */
+
+        /// <summary>
+        /// The accepted
+        /// </summary>
+        Accepted,
+
+        /// <summary>
+        /// The refunded
+        /// </summary>
+        Refunded,
+
+        /// <summary>
+        /// The reversal
+        /// </summary>
+        Reversal,
+
         //************************************************************************************ */
         //*******************            BudgetOutlays           **************************** */
         //************************************************************************************ */
@@ -406,5 +425,34 @@ namespace BudgetExecution
         /// The out year9
         /// </summary>
         OutYear9,
+
+        /// <summary>
+        /// The out year10
+        /// </summary>
+        OutYear10,
+
+        /// <summary>
+        /// The out year11
+        /// </summary>
+        OutYear11,
+
+        //************************************************************************************ */
+        //*******************           SF Site Obligations       **************************** */
+        //************************************************************************************ */
+
+        /// <summary>
+        /// The collections
+        /// </summary>
+        Collections,
+
+        /// <summary>
+        /// The unpaid balances
+        /// </summary>
+        UnpaidBalances,
+
+        /// <summary>
+        /// The cumulative reciepts
+        /// </summary>
+        CumulativeReciepts
     }
 }

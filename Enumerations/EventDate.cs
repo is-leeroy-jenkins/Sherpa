@@ -175,6 +175,11 @@ namespace BudgetExecution
         /// <summary>
         /// The time
         /// </summary>
-        Time
+        Time,
+
+        /// <summary>
+        /// The transaction date
+        /// </summary>
+        TransactionDate
     }
 }
