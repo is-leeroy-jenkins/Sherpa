@@ -19,7 +19,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class InformationTechnology : DataUnit, IInformationTechnology, ISource
+    public class InformationTechnology : Element, IInformationTechnology, ISource
     {
         /// <summary>
         /// The source
@@ -41,15 +41,7 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get;  }
-
-        /// <summary>
-        /// Gets the information technology identifier.
-        /// </summary>
-        /// <value>
-        /// The information technology identifier.
-        /// </value>
-        public IKey ID { get; set; }
-
+        
         /// <summary>
         /// Gets the project code.
         /// </summary>
@@ -57,14 +49,6 @@ namespace BudgetExecution
         /// The project code.
         /// </value>
         public IElement ProjectCode { get; set; }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; }
         
         /// <summary>
         /// Gets the cost area code.

@@ -433,12 +433,7 @@ namespace BudgetExecution
         /// The spending rates
         /// </summary>
         SpendingRates,
-
-        /// <summary>
-        /// The s F133
-        /// </summary>
-        SF133,
-
+        
         /// <summary>
         /// The state organizations
         /// </summary>

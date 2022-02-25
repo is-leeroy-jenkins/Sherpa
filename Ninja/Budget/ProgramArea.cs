@@ -15,7 +15,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class ProgramArea : DataUnit, IProgramArea, ISource
+    public class ProgramArea : Element, IProgramArea, ISource
     {
         /// <summary>
         /// Gets the dataRow.
@@ -32,22 +32,6 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; }
-
-        /// <summary>
-        /// Gets the program area identifier.
-        /// </summary>
-        /// <value>
-        /// The program area identifier.
-        /// </value>
-        public IKey ID { get; set; }
         
         /// <summary>
         /// The source

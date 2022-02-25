@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IFund : IProgram
+    public interface IFund : IElement
     {
         /// <summary>
         /// Gets the title.

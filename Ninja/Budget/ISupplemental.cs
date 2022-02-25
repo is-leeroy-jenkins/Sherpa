@@ -4,7 +4,7 @@
 
 namespace BudgetExecution
 {
-    public interface ISupplemental : IProgram
+    public interface ISupplemental : IElement
     {
         /// <summary>
         /// Gets the fund code.

@@ -19,7 +19,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class Goal : DataUnit, IGoal, ISource
+    public class Goal : Element, IGoal, ISource
     {
         /// <summary>
         /// The source
@@ -41,22 +41,6 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; }
-
-        /// <summary>
-        /// Gets the goal identifier.
-        /// </summary>
-        /// <value>
-        /// The goal identifier.
-        /// </value>
-        public IKey ID { get; set; }
         
         /// <summary>
         /// Initializes a new instance of the

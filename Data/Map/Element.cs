@@ -15,7 +15,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="IElement" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Element : DataUnit
+    public class Element : DataUnit, IElement
     {
         /// <summary>
         /// Gets the identifier.
@@ -23,14 +23,14 @@ namespace BudgetExecution
         /// <returns>
         /// </returns>
         public IKey ID { get; set; }
-
+        
         /// <summary>
         /// Gets the code.
         /// </summary>
         /// <returns>
         /// </returns>
         public string Code { get; set; }
-
+        
         /// <summary>
         /// The initial
         /// </summary>

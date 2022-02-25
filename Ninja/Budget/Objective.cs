@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class Objective : DataUnit, IObjective, ISource
+    public class Objective : Element, IObjective, ISource
     {
         /// <summary>
         /// The source
@@ -36,22 +36,6 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; }
-
-        /// <summary>
-        /// Gets the objective identifier.
-        /// </summary>
-        /// <value>
-        /// The objective identifier.
-        /// </value>
-        public IKey ID { get; set; }
         
         /// <summary>
         /// Initializes a new instance of the <see cref = "Objective"/> class.

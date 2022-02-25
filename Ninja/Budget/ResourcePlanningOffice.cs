@@ -18,7 +18,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class ResourcePlanningOffice : DataUnit, IResourcePlanningOffice, ISource
+    public class ResourcePlanningOffice : Element, IResourcePlanningOffice, ISource
     {
         /// <summary>
         /// The source
@@ -40,22 +40,6 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; }
-
-        /// <summary>
-        /// Gets the resource planning office identifier.
-        /// </summary>
-        /// <value>
-        /// The resource planning office identifier.
-        /// </value>
-        public IKey ID { get; set; }
         
         /// <summary>
         /// Initializes a new instance of the

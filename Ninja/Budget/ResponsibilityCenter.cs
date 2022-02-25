@@ -16,7 +16,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class ResponsibilityCenter : DataUnit, IResponsibilityCenter, ISource
+    public class ResponsibilityCenter : Element, IResponsibilityCenter, ISource
     {
         /// <summary>The source</summary>
         public Source Source = Source.ResponsibilityCenters;
@@ -36,22 +36,6 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get; set; } 
-
-        /// <summary>
-        /// Gets the responsibility center identifier.
-        /// </summary>
-        /// <value>
-        /// The responsibility center identifier.
-        /// </value>
-        public IKey ID { get; set; } 
-
-        /// <summary>
-        /// Gets the rc code.
-        /// </summary>
-        /// <value>
-        /// The rc code.
-        /// </value>
-        public string Code { get; set; } 
         
         /// <summary>
         /// Gets the rc.

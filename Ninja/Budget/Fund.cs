@@ -16,7 +16,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
-    public class Fund : DataUnit, IFund, ISource
+    public class Fund : Element, IFund, ISource
     {
         /// <summary>
         /// The source
@@ -46,22 +46,6 @@ namespace BudgetExecution
         /// The treasury symbol.
         /// </value>
         public IElement TreasurySymbol { get; set; }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; }
-
-        /// <summary>
-        /// Gets the fund identifier.
-        /// </summary>
-        /// <value>
-        /// The fund identifier.
-        /// </value>
-        public IKey ID { get; set; }
         
         /// <summary>
         /// Gets the title.

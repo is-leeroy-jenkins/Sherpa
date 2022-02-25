@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IProgramProject : IProgram
+    public interface IProgramProject : IElement
     {
         /// <summary>
         /// Gets the program project.

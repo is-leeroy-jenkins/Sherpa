@@ -11,18 +11,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public abstract class ProgramBase : DataUnit, IProgram
+    public abstract class ProgramBase : Element, IProgram
     {
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        public IKey ID { get; set; }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        public string Code { get; set; }
-        
         /// <summary>
         /// Gets the record.
         /// </summary>

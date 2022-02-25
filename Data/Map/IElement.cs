@@ -15,12 +15,20 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        string Name { get; set; }
+        IKey ID { get; set; }
         
         /// <summary>
         /// Gets the field.
         /// </summary>
         /// <returns></returns>
-        Field Field { get; set; }
+        string Code { get; set; }
+
+        /// <summary>
+        /// Gets or sets the initial.
+        /// </summary>
+        /// <value>
+        /// The initial.
+        /// </value>
+        string Initial { get; set; }
     }
 }

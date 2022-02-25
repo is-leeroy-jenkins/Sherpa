@@ -33,7 +33,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Activity : DataUnit, IActivity, ISource
+    public class Activity : Element, IActivity, ISource
     {
         /// <summary>
         /// Gets the source.
@@ -50,22 +50,6 @@ namespace BudgetExecution
         /// The dataRow.
         /// </value>
         public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets the activity identifier.
-        /// </summary>
-        /// <value>
-        /// The activity identifier.
-        /// </value>
-        public IKey ID { get; set; }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; }
         
         /// <summary>
         /// Gets the arguments.

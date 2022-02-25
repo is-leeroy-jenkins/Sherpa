@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IAccount : IProgram
+    public interface IAccount : IElement
     {
         /// <summary>
         /// Gets the account.

@@ -25,7 +25,7 @@ namespace BudgetExecution
     /// <seealso cref = "IBudgetObjectClass"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class BudgetObjectClass : DataUnit, IBudgetObjectClass, ISource
+    public class BudgetObjectClass : Element, IBudgetObjectClass, ISource
     {
         /// <summary>
         /// The codes
@@ -62,22 +62,6 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get; set; } 
-
-        /// <summary>
-        /// Gets the budget object class identifier.
-        /// </summary>
-        /// <value>
-        /// The budget object class identifier.
-        /// </value>
-        public IKey ID { get; set; } 
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; } 
         
         /// <summary>
         /// Gets the category.

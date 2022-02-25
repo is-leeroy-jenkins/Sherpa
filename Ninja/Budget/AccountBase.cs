@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
-    public abstract class AccountBase : DataUnit
+    public abstract class AccountBase : Element
     {
         /// <summary>
         /// Gets the Data.
@@ -22,15 +22,7 @@ namespace BudgetExecution
         /// The Data.
         /// </value>
         public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets the account identifier.
-        /// </summary>
-        /// <value>
-        /// The account identifier.
-        /// </value>
-        public IKey ID { get; set; }
-
+        
         /// <summary>
         /// Gets the NPM code.
         /// </summary>
@@ -38,15 +30,7 @@ namespace BudgetExecution
         /// The NPM code.
         /// </value>
         public IElement NpmCode { get; set; }
-
-        /// <summary>
-        /// Gets the account code.
-        /// </summary>
-        /// <value>
-        /// The account code.
-        /// </value>
-        public string Code { get; set; }
-
+        
         /// <summary>
         /// Gets the program project code.
         /// </summary>

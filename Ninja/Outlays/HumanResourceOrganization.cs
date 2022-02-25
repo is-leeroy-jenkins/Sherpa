@@ -19,12 +19,13 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MissingBlankLines" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class HumanResourceOrganization : DataUnit, IHumanResourceOrganization, ISource
+    public class HumanResourceOrganization : Element, IHumanResourceOrganization, ISource
     {
         /// <summary>
         /// The source
         /// </summary>
         public Source Source { get; } = Source.HumanResourceOrganizations;
+
         /// <summary>
         /// Gets the Data.
         /// </summary>
@@ -40,22 +41,6 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Args { get; set; }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; }
-
-        /// <summary>
-        /// Gets the human resource organization identifier.
-        /// </summary>
-        /// <value>
-        /// The human resource organization identifier.
-        /// </value>
-        public IKey ID { get; set; }
         
         /// <summary>
         /// Initializes a new instance of the <see cref = "HumanResourceOrganization"/>

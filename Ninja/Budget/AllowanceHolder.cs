@@ -46,7 +46,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Local" ) ]
-    public class AllowanceHolder : DataUnit, IAllowanceHolder, ISource
+    public class AllowanceHolder : Element, IAllowanceHolder, ISource
     {
         /// <summary>
         /// The source
@@ -68,22 +68,6 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get;  } 
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; } 
-
-        /// <summary>
-        /// Gets the allowance holder identifier.
-        /// </summary>
-        /// <value>
-        /// The allowance holder identifier.
-        /// </value>
-        public IKey ID { get; set; } 
         
         /// <summary>
         /// Initializes a new instance of the

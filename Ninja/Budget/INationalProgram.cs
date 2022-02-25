@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface INationalProgram : IProgram
+    public interface INationalProgram : IElement
     {
         /// <summary>
         /// Gets or sets the NPM.

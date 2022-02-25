@@ -4,7 +4,7 @@
 
 namespace BudgetExecution
 {
-    public interface IBudgetObjectClass : IProgram
+    public interface IBudgetObjectClass : IElement
     {
         /// <summary>
         /// Gets the budget object class.

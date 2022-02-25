@@ -13,12 +13,12 @@ namespace BudgetExecution
     /// <seealso cref="IDataUnit" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public abstract class DataUnit : IElement
+    public abstract class DataUnit : IDataUnit
     {
         /// <summary>
         /// The value
         /// </summary>
-        public object Value { get; set; }
+        public virtual object Value { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -26,12 +26,12 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
         /// <summary>
         /// Gets the field.
         /// </summary>
-        public Field Field { get; set; }
+        public virtual Field Field { get; set; }
         
         /// <summary>
         /// Determines whether the specified dataUnit is match.
@@ -48,6 +48,33 @@ namespace BudgetExecution
                 {
                     var _name = dataUnit.Name;
                     var _value = dataUnit.Value;
+                    return _value.Equals( Value ) && _name.Equals( Name );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return false;
+                }
+            }
+
+            return false;
+        }
+        
+        /// <summary>
+        /// Determines whether the specified dataUnit is match.
+        /// </summary>
+        /// <param name="element">The dataUnit.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified dataUnit is match; otherwise, <c>false</c>.
+        /// </returns>
+        public virtual bool IsMatch( IElement element )
+        {
+            if( Verify.IsRef( element ) )
+            {
+                try
+                {
+                    var _name = element.Name;
+                    var _value = element.Value;
                     return _value.Equals( Value ) && _name.Equals( Name );
                 }
                 catch( Exception ex )

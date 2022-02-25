@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IAllowanceHolder : IProgram
+    public interface IAllowanceHolder : IElement
     {
         /// <summary>
         /// Gets the allowance holder.

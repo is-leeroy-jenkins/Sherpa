@@ -20,7 +20,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
     [ SuppressMessage( "ReSharper", "UnassignedReadonlyField" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class FinanceObjectClass : DataUnit, IFinanceObjectClass, ISource
+    public class FinanceObjectClass : Element, IFinanceObjectClass, ISource
     {
         /// <summary>
         /// Gets the source.
@@ -45,22 +45,6 @@ namespace BudgetExecution
         /// The data.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Gets or sets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; }
-
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public IKey ID { get; set; }
         
         /// <summary>
         /// Gets or sets the category.

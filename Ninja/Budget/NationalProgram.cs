@@ -18,7 +18,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    public class NationalProgram : DataUnit, INationalProgram, ISource
+    public class NationalProgram : Element, INationalProgram, ISource
     {
         /// <summary>
         /// The source
@@ -40,15 +40,7 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get; set; } 
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; } 
-
+        
         /// <summary>
         /// Gets the title.
         /// </summary>
@@ -56,14 +48,6 @@ namespace BudgetExecution
         /// The title.
         /// </value>
         public IElement Title { get; set; } 
-
-        /// <summary>
-        /// Gets the national program identifier.
-        /// </summary>
-        /// <value>
-        /// The national program identifier.
-        /// </value>
-        public IKey ID { get; set; } 
         
         /// <summary>
         /// Gets the rpio code.

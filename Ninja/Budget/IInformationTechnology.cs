@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IInformationTechnology : IProgram
+    public interface IInformationTechnology : IElement
     {
         /// <summary>
         /// Gets it code.
