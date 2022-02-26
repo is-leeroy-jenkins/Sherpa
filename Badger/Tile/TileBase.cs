@@ -91,6 +91,14 @@ namespace BudgetExecution
         public virtual Color HoverColor { get; set; }
 
         /// <summary>
+        /// Gets or sets the bar.
+        /// </summary>
+        /// <value>
+        /// The bar.
+        /// </value>
+        public ToolType Bar { get; set; }
+
+        /// <summary>
         /// Sets the location.
         /// </summary>
         /// <param name="x">The x.</param>

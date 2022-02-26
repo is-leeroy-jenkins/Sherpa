@@ -6,11 +6,12 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Collections.Specialized;
+    using System.Configuration;
+    using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
 
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class BarProgressBase : ToolStripProgressBar
     {
         /// <summary>
@@ -38,6 +39,22 @@ namespace BudgetExecution
         public virtual ToolTip ToolTip { get; set; }
 
         /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public virtual IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the setting.
+        /// </summary>
+        /// <value>
+        /// The setting.
+        /// </value>
+        public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
+
+        /// <summary>
         /// Gets or sets the hover text.
         /// </summary>
         /// <value>
@@ -45,6 +62,10 @@ namespace BudgetExecution
         /// </value>
         public virtual string HoverText { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="BarProgressBase"/> class.
+        /// </summary>
         public BarProgressBase()
         {
         }

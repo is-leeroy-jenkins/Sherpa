@@ -9,8 +9,16 @@ namespace BudgetExecution
     using System.Drawing;
     using Syncfusion.Windows.Forms;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.PivotGridBase" />
     public class BudgetPivotGridControl : PivotGridBase
     {
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="BudgetPivotGridControl"/> class.
+        /// </summary>
         public BudgetPivotGridControl()
         {
             GridVisualStyles = GridVisualStyles.Office2016Black;
@@ -51,22 +59,22 @@ namespace BudgetExecution
             // Filter DropDown Style Properties
             ThemeStyle.FilterDropDownStyle.ForeColor = Color.LightSteelBlue;
             ThemeStyle.FilterDropDownStyle.BackColor = Color.FromArgb( 18, 18, 18 );
-            ThemeStyle.FilterDropDownStyle.BorderColor = SystemColors.WindowFrame;
+            ThemeStyle.FilterDropDownStyle.BorderColor = Color.SteelBlue;
 
-            // Group Bar Item Style Properties
+            // GroupBar Item Style Properties
             ThemeStyle.GroupBarItemStyle.ForeColor = Color.LightSteelBlue;
             ThemeStyle.GroupBarItemStyle.BackColor = Color.FromArgb( 18, 18, 18 );
             ThemeStyle.GroupBarItemStyle.Font = new Font( "Roboto", 9 );
             ThemeStyle.GroupBarItemStyle.SortIconColor = Color.SteelBlue;
 
-            // Group Bar Style Properties
+            // GroupBar Style Properties
             ThemeStyle.GroupBarStyle.FilterAreaBackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.GroupBarStyle.BackColor = Color.FromArgb( 18, 18, 18 );
 
-            // PivotValueChoserStyle Properties
+            // PivotValueChooser Style Properties
             ThemeStyle.PivotValueChooserStyle.ForeColor = Color.LightSteelBlue;
             ThemeStyle.PivotValueChooserStyle.BackColor = Color.FromArgb( 18, 18, 18 );
-            ThemeStyle.PivotValueChooserStyle.BorderColor = SystemColors.WindowFrame;
+            ThemeStyle.PivotValueChooserStyle.BorderColor = Color.SteelBlue;
         }
     }
 }

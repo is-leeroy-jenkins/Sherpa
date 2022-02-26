@@ -14,12 +14,29 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "UsePatternMatching" ) ]
     [ Serializable ]
-    public class BudgetToolButton : ToolStripButtonBase, IToolStripButton
+    public class BudgetToolStripButton : ToolButtonBase, IToolStripButton
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetToolButton"/> class.
+        /// Gets or sets the binding source.
         /// </summary>
-        public BudgetToolButton()
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public ToolTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of
+        /// the <see cref="BudgetToolStripButton"/> class.
+        /// </summary>
+        public BudgetToolStripButton()
         {
             Margin = new Padding( 5, 5, 5, 5 );
             Padding = new Padding( 0 );
@@ -37,21 +54,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetToolButton"/> class.
+        /// Initializes a new instance
+        /// Mof the <see cref="BudgetToolStripButton"/> class.
         /// </summary>
         /// <param name="toolType">The tool.</param>
-        public BudgetToolButton( ToolType toolType )
+        public BudgetToolStripButton( ToolType toolType )
             : this()
         {
-            Image = new BudgetImage( toolType.ToString(), ImageSource.ToolBarImages )?.GetBitmap();
+            Image = new BudgetImage( toolType.ToString(), ImageSource.ToolStripImages )?.GetBitmap();
             Bar = toolType;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetToolButton"/> class.
+        /// Initializes a new instance of the <see cref="BudgetToolStripButton"/> class.
         /// </summary>
         /// <param name="image">The image.</param>
-        public BudgetToolButton( IBudgetImage image )
+        public BudgetToolStripButton( IBudgetImage image )
             : this()
         {
             Image = image.GetBitmap();
@@ -68,7 +86,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _image = new BudgetImage( toolType.ToString(), ImageSource.ToolBarImages );
+                    var _image = new BudgetImage( toolType.ToString(), ImageSource.ToolStripImages );
                     Image = _image?.GetBitmap();
                 }
                 catch( Exception ex )
@@ -88,7 +106,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _button = sender as BudgetToolButton;
+                var _button = sender as BudgetToolStripButton;
 
                 if( _button != null
                     && !string.IsNullOrEmpty( HoverText ) )
@@ -142,7 +160,7 @@ namespace BudgetExecution
         ///     event data.</param>
         public void OnClick( object sender, EventArgs e )
         {
-            if( sender is BudgetToolButton _button )
+            if( sender is BudgetToolStripButton _button )
             {
                 try
                 {

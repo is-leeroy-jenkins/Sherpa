@@ -10,10 +10,10 @@ namespace BudgetExecution
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Tools;
 
-    public class BudgetSplash : SplashBase
+    public class BudgetSplashNotification : SplashBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetSplash"/> class.
+        /// Initializes a new instance of the <see cref="BudgetSplashNotification"/> class.
         /// </summary>
         /// <remarks>
         /// The default value for the
@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// The splash panel has animation turned and by default will appear in the
         /// middle of the screen.
         /// </remarks>
-        public BudgetSplash()
+        public BudgetSplashNotification()
         {
             BackColor = Color.FromArgb( 18, 18, 18 );
             ForeColor = Color.LightSteelBlue;
@@ -51,7 +51,7 @@ namespace BudgetExecution
             SlideStyle = SlideStyle.FadeIn;
         }
 
-        public BudgetSplash( string message ) 
+        public BudgetSplashNotification( string message ) 
             : this()
         {
             Text = message;

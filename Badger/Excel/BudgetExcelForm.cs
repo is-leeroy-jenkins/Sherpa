@@ -5,47 +5,11 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
-    using System.Collections.Specialized;
-    using System.Configuration;
-    using Syncfusion.Windows.Forms;
     using System.Drawing;
     using System.Windows.Forms;
 
-    public partial class BudgetExcelForm : MetroForm
+    public partial class BudgetExcelForm : FormBase
     {
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
-        public virtual BindingSource BindingSource { get; set; }
-
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
-        public virtual ToolTip ToolTip { get; set; }
-
-        /// <summary>
-        /// Gets or sets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
-        public virtual string HoverText { get; set; }
-
-        /// <summary>
-        /// Gets or sets the field.
-        /// </summary>
-        /// <value>
-        /// The field.
-        /// </value>
-        public virtual Field Field { get; set; }
-
         /// <summary>
         /// Gets the template path.
         /// </summary>
@@ -62,22 +26,6 @@ namespace BudgetExecution
         /// </value>
         public string FilePath { get; set; }
 
-        /// <summary>
-        /// Gets or sets the filter.
-        /// </summary>
-        /// <value>
-        /// The filter.
-        /// </value>
-        public virtual IDictionary<string, object> DataFilter { get; set; }
-
-        /// <summary>
-        /// Gets or sets the bud ex configuration.
-        /// </summary>
-        /// <value>
-        /// The bud ex configuration.
-        /// </value>
-        public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
-        
         /// <summary>
         /// Initializes a new instance
         /// of the <see cref="BudgetExcelForm"/> class.

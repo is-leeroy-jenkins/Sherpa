@@ -12,13 +12,13 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Notification" />
-    public class BudgetNotification : Notification
+    public class BudgetCharmNotification : Notification
     {
         /// <summary>
         /// Initializes a new instance of
-        /// the <see cref="BudgetNotification"/> class.
+        /// the <see cref="BudgetCharmNotification"/> class.
         /// </summary>
-        public BudgetNotification()
+        public BudgetCharmNotification()
         {
             PlayTone = true;
             Duration = 5;
@@ -26,11 +26,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of
-        /// the <see cref="BudgetNotification"/> class.
+        /// the <see cref="BudgetCharmNotification"/> class.
         /// </summary>
         /// <param name = "message" > </param>
         /// <param name = "title" > </param>
-        public BudgetNotification( string message, string title = "Budget Execution" )
+        public BudgetCharmNotification( string message, string title = "Budget Execution" )
         {
             Title = title;
             Text = message;

@@ -200,8 +200,7 @@ namespace BudgetExecution
             Source.SiteActivity,
             Source.DocumentControlNumbers,
             Source.ProjectCostCodes,
-            Source.SiteProjectCodes,
-            Source.BudgetResourceExecution
+            Source.SiteProjectCodes
         };
 
         /// <summary>
@@ -237,7 +236,7 @@ namespace BudgetExecution
         /// <summary>
         /// The image resources
         /// </summary>
-        public static readonly string[ ] ImageResources = Enum.GetNames( typeof( ImageSource ) );
+        public static readonly string[ ] Images = Enum.GetNames( typeof( ImageSource ) );
 
         /// <summary>
         /// The charts

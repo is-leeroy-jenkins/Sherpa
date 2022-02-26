@@ -10,6 +10,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using System.Data;
     using System.ComponentModel;
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
@@ -22,7 +23,7 @@ namespace BudgetExecution
         /// <value>
         /// The application setting.
         /// </value>
-        public virtual NameValueCollection AppSetting { get; set; }
+        public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
 
         /// <summary>
         /// Gets or sets the hover text.
@@ -31,6 +32,14 @@ namespace BudgetExecution
         /// The hover text.
         /// </value>
         public virtual string HoverText { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public virtual ToolTip ToolTip { get; set; }
 
         /// <summary>
         /// Gets or sets the binding source.

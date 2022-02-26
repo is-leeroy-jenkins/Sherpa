@@ -15,22 +15,6 @@ namespace BudgetExecution
     public class BudgetToolStripLabel : ToolStripLabelBase, IToolStripLabel
     {
         /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
-        public ToolTip ToolTip { get; set; }
-
-        /// <summary>
-        /// Gets or sets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
-        public string HoverText { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "BudgetToolStripLabel"/>
         /// class.

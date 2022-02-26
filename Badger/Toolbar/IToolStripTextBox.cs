@@ -9,7 +9,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IToolStipTextBox
+    public interface IToolStripTextBox
     {
         /// <summary>
         /// Sets the hover text.

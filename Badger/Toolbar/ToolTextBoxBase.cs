@@ -56,6 +56,14 @@ namespace BudgetExecution
             ConfigurationManager.AppSettings;
 
         /// <summary>
+        /// Gets or sets the bar.
+        /// </summary>
+        /// <value>
+        /// The bar.
+        /// </value>
+        public ToolType Bar { get; set; }
+
+        /// <summary>
         /// Initializes a new instance
         /// of the <see cref="ToolTextBoxBase"/> class.
         /// </summary>

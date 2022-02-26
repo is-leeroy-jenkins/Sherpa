@@ -509,7 +509,7 @@
     <Compile Include="Badger\Toolbar\BudgetToolButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\ToolButtonBase.cs">
+    <Compile Include="Badger\Toolbar\ToolStripButtonBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Toolbar\ToolStripComboBoxBase.cs">
@@ -641,7 +641,7 @@
     <Compile Include="Badger\Navigation\BudgetNavigationMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Splash\BudgetSplash.cs">
+    <Compile Include="Badger\Splash\BudgetSplashNotification.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Carousel\BudgetCarousel.cs">
@@ -799,7 +799,7 @@
     <Compile Include="Badger\Toolbar\IToolStripButton.cs" />
     <Compile Include="Badger\Toolbar\IToolStripComboBox.cs" />
     <Compile Include="Badger\Toolbar\IToolStripLabel.cs" />
-    <Compile Include="Badger\Toolbar\IToolStipTextBox.cs" />
+    <Compile Include="Badger\Toolbar\IToolStripTextBox.cs" />
     <Compile Include="Badger\Toolbar\IBudgetToolStrip.cs" />
     <Compile Include="Badger\PictureBox\IPictureBox.cs" />
     <Compile Include="Badger\Label\LabelBase.cs" />
@@ -997,7 +997,7 @@
     <Compile Include="Badger\Splash\SplashBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Notification\BudgetNotification.cs">
+    <Compile Include="Badger\Notification\BudgetCharmNotification.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />

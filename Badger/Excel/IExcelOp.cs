@@ -5,7 +5,6 @@
 namespace BudgetExecution
 {
     using System.IO;
-    using DocumentFormat.OpenXml.Spreadsheet;
     using OfficeOpenXml;
 
     /// <summary>
