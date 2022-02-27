@@ -89,7 +89,7 @@ namespace BudgetExecution
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 9  );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.White;
             Enabled = true;
             Visible = true;
 

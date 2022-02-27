@@ -85,7 +85,7 @@ namespace BudgetExecution
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 9 );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.White;
             Enabled = true;
             Visible = true;
             AlternateColors = false;
@@ -94,7 +94,7 @@ namespace BudgetExecution
 
             // BackColor SeriesConfiguration
             BackColor = Color.FromArgb( 18, 18, 18 );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.White;
             BackColorState.Disabled = Color.FromArgb( 18, 18, 18 );
             BackColorState.Enabled = Color.FromArgb( 18, 18, 18 );
 

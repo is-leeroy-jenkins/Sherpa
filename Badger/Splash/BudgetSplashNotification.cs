@@ -25,7 +25,7 @@ namespace BudgetExecution
         public BudgetSplashNotification()
         {
             BackColor = Color.FromArgb( 18, 18, 18 );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.White;
             Font = new Font( "Roboto", 9 );
             Size = new Size( 300, 150 );
             BorderStyle = Border3DStyle.Flat;

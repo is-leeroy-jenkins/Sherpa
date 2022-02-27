@@ -116,7 +116,7 @@ namespace BudgetExecution
             Chart.Location = new Point( Size.Width / 10, Size.Height / 10 );
             Chart.Name = "Budget Execution Chart";
             Chart.BackColor = Color.FromArgb( 18, 18, 18 );
-            Chart.ForeColor = Color.LightSteelBlue;
+            Chart.ForeColor = Color.White;
             Chart.Font = new Font( "Roboto", 9 );
             Chart.BorderAppearance.BaseColor = Color.Transparent;
             Chart.RealMode3D = true;

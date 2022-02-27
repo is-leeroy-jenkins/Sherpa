@@ -72,6 +72,7 @@ namespace BudgetExecution
             BudgetButton.Click += SetLabelText;
             BudgetButton.MouseLeave += ClearLabelText;
             Controls.Add( BudgetButton );
+            SetToolStripButtonImages();
         }
 
         /// <summary>
@@ -88,15 +89,50 @@ namespace BudgetExecution
                     BudgetButton = _button;
                     BudgetButton.ForeColor = Color.White;
                     CaptionForeColor = Color.White;
+                    var _title = "Budget Execution Notification";
                     Text = Setting[ "BudgetExecutionIcon" ];
-                    using var _excel = new BudgetFileBrowser();
-                    _excel?.ShowDialog();
+                    using var _excel = new BudgetNotification( _title, Setting[ "BudgetExecutionIcon" ] );
+                    _excel.ShowDialog( this );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
                 }
             }
+        }
+
+        private void SetToolStripButtonImages()
+        {
+            var _firstRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\FirstRecord.png";
+            var _previousRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\PreviousRecord.png";
+            var _nextRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\NextRecord.png";
+            var _lastRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\LastRecord.png";
+            var _editRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\EditRecord.png";
+            var _addRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\AddRecord.png";
+            var _refresh = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\Refresh.png";
+            var _trash = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\Trash.png";
+            var _excelFile = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\ExcelFile.png";
+            var _calculator = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\Calculator.png";
+            ToolButton1.Image = Image.FromFile( _firstRecord );
+            ToolButton1.HoverText = "First Record";
+            ToolButton2.Image = Image.FromFile( _previousRecord );
+            ToolButton2.HoverText = "Previous Record";
+            ToolButton3.Image = Image.FromFile( _nextRecord );
+            ToolButton3.HoverText = "Next Record";
+            ToolButton4.Image = Image.FromFile( _lastRecord );
+            ToolButton4.HoverText = "Last Record";
+            ToolButton5.Image = Image.FromFile( _editRecord );
+            ToolButton5.HoverText = "Edit Record";
+            ToolButton6.Image = Image.FromFile( _addRecord );
+            ToolButton6.HoverText = "Add Record";
+            ToolButton7.Image = Image.FromFile( _refresh );
+            ToolButton7.HoverText = "Refresh Data";
+            ToolButton8.Image = Image.FromFile( _trash );
+            ToolButton8.HoverText = "Delete Record";
+            ToolButton9.Image = Image.FromFile( _excelFile );
+            ToolButton9.HoverText = "Excel Export";
+            ToolButton10.Image = Image.FromFile( _calculator );
+            ToolButton10.HoverText = "Budget Calculator";
         }
 
         /// <summary>

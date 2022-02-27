@@ -198,12 +198,12 @@ namespace BudgetExecution
             {
                 return Verify.IsElement( ProjectCode )
                     ? ProjectCode
-                    : Element.Default;
+                    : Default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Element.Default;
+                return Default;
             }
         }
 
@@ -218,12 +218,12 @@ namespace BudgetExecution
             {
                 return Verify.IsElement( ProgramProjectName )
                     ? ProgramProjectName
-                    : Element.Default;
+                    : Default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Element.Default;
+                return Default;
             }
         }
 
@@ -238,12 +238,12 @@ namespace BudgetExecution
             {
                 return Verify.IsElement( CostAreaCode )
                     ? CostAreaCode
-                    : Element.Default;
+                    : Default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Element.Default;
+                return Default;
             }
         }
 
@@ -258,12 +258,12 @@ namespace BudgetExecution
             {
                 return Verify.IsElement( CostAreaName )
                     ? CostAreaName
-                    : Element.Default;
+                    : Default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Element.Default;
+                return Default;
             }
         }
 

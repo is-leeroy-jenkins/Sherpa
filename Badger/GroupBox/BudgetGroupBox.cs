@@ -111,7 +111,7 @@ namespace BudgetExecution
             Visible = true;
             Enabled = true;
             BackColor = Color.FromArgb( 18, 18, 18 );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.White;
             Font = new Font( "Roboto", 9 );
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );

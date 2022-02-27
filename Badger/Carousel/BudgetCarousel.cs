@@ -58,7 +58,7 @@ namespace BudgetExecution
         {
             // Basic Carousel Properties
             BackColor = Color.FromArgb( 18, 18, 18 );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.White;
             Font = new Font( "Roboto", 9 );
             CarouselPath = CarouselPath.Default;
             ImageSlides = true;
@@ -80,7 +80,7 @@ namespace BudgetExecution
             // ThemeStyle Properties
             ThemeStyle.BackColor = Color.Transparent;
             ThemeStyle.Font = new Font( "Roboto", 9 );
-            ThemeStyle.ForeColor = Color.LightSteelBlue;
+            ThemeStyle.ForeColor = Color.White;
             ThemeStyle.HoverImageBorderColor = Color.SteelBlue;
             ThemeStyle.HoverImageBorderThickness = 2;
             ThemeStyle.ImageShadeColor = Color.FromArgb( 18, 18, 18 );

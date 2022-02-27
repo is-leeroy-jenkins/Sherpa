@@ -152,12 +152,12 @@ namespace BudgetExecution
             {
                 return Verify.IsElement( Definition )
                     ? Definition
-                    : Element.Default;
+                    : Default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Element.Default;
+                return Default;
             }
         }
 
@@ -172,12 +172,12 @@ namespace BudgetExecution
             {
                 return Verify.IsElement( Laws )
                     ? Laws
-                    : Element.Default;
+                    : Default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Element.Default;
+                return Default;
             }
         }
 
@@ -192,12 +192,12 @@ namespace BudgetExecution
             {
                 return Verify.IsElement( Title )
                     ? Title
-                    : Element.Default;
+                    : Default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Element.Default;
+                return Default;
             }
         }
 
@@ -212,12 +212,12 @@ namespace BudgetExecution
             {
                 return Verify.IsElement( Narrative )
                     ? Narrative
-                    : Element.Default;
+                    : Default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Element.Default;
+                return Default;
             }
         }
 
@@ -232,12 +232,12 @@ namespace BudgetExecution
             {
                 return Verify.IsElement( ProgramAreaName )
                     ? ProgramAreaCode
-                    : Element.Default;
+                    : Default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Element.Default;
+                return Default;
             }
         }
 
@@ -252,12 +252,12 @@ namespace BudgetExecution
             {
                 return Verify.IsElement( ProgramAreaName )
                     ? ProgramAreaName
-                    : Element.Default;
+                    : Default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Element.Default;
+                return Default;
             }
         }
 

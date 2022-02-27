@@ -25,7 +25,7 @@ namespace BudgetExecution
             Padding = new Padding( 0 );
             DisplayStyle = ToolStripItemDisplayStyle.Image;
             BackColor = Color.FromArgb( 18, 18, 18 );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.White;
             Font = new Font( "Roboto", 9 );
             HoverText = Tag?.ToString();
             Text = string.Empty;

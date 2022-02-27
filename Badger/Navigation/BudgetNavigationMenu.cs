@@ -16,7 +16,7 @@ namespace BudgetExecution
             // Navigation Menu Properties
             Size = new Size( 75, 23 );
             BackColor = Color.FromArgb( 18, 18, 18 );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.White;
             Position = SlidePosition.Right;
             Style = NavigationDrawerStyle.Office2016Black;
             Font = new Font( "Roboto", 9 );
@@ -51,7 +51,7 @@ namespace BudgetExecution
             // Navigation ItemStyle
             ThemeStyle.ItemStyle.BackColor = Color.FromArgb( 18, 18, 18 );
             ThemeStyle.ItemStyle.Font = new Font( "Roboto", 9 );
-            ThemeStyle.ItemStyle.ForeColor = Color.LightSteelBlue;
+            ThemeStyle.ItemStyle.ForeColor = Color.White;
             ThemeStyle.ItemStyle.DisabledBackColor = Color.FromArgb( 18, 18, 18 );
             ThemeStyle.ItemStyle.DisabledForeColor = Color.FromArgb( 18, 18, 18 );
             ThemeStyle.ItemStyle.DisabledSelectionMarkerColor = Color.FromArgb( 18, 18, 18 );

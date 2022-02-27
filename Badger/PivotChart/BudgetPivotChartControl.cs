@@ -21,7 +21,7 @@ namespace BudgetExecution
         {
             // Basic Control Properties
             Font = new Font( "Roboto", 9 );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.White;
             BackColor = Color.FromArgb( 18, 18, 18 );
             Skins = Skins.Office2016Black;
             ShowLegend = true;

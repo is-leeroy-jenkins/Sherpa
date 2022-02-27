@@ -256,12 +256,12 @@ namespace BudgetExecution
             {
                 return Verify.IsElement( Title )
                     ? Title
-                    : Element.Default;
+                    : Default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Element.Default;
+                return Default;
             }
         }
 
@@ -276,12 +276,12 @@ namespace BudgetExecution
             {
                 return Verify.IsElement( TreasurySymbol )
                     ? TreasurySymbol
-                    : Element.Default;
+                    : Default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Element.Default;
+                return Default;
             }
         }
 

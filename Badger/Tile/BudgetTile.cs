@@ -78,7 +78,7 @@ namespace BudgetExecution
         public BudgetTile( )
         {
             BackColor = Color.FromArgb( 18, 18, 18 );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.White;
             Size = new Size( 140, 140 );
             Font = new Font( "Roboto", 9 );
             Anchor = AnchorStyles.Top & AnchorStyles.Left;

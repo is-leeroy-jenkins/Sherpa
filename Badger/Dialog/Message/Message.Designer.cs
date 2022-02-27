@@ -45,7 +45,6 @@ namespace BudgetExecution
             this.Info = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.Table = new System.Windows.Forms.TableLayoutPanel();
             this.TextBox = new VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox();
-            this.TopTablePanel = new System.Windows.Forms.TableLayoutPanel();
             this.Table.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +61,7 @@ namespace BudgetExecution
             this.BackPanel.Border.Visible = true;
             this.BackPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BackPanel.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.BackPanel.Location = new System.Drawing.Point(1, 374);
+            this.BackPanel.Location = new System.Drawing.Point(1, 378);
             this.BackPanel.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.BackPanel.Name = "BackPanel";
             this.BackPanel.Padding = new System.Windows.Forms.Padding(1);
@@ -81,7 +80,7 @@ namespace BudgetExecution
             this.Info.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Info.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Info.ForeColor = System.Drawing.Color.White;
-            this.Info.Location = new System.Drawing.Point(1, 27);
+            this.Info.Location = new System.Drawing.Point(1, 1);
             this.Info.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.Info.Name = "Info";
             this.Info.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -94,7 +93,7 @@ namespace BudgetExecution
             this.Info.ShadowDirection = 315;
             this.Info.ShadowLocation = new System.Drawing.Point(0, 0);
             this.Info.ShadowOpacity = 100;
-            this.Info.Size = new System.Drawing.Size(686, 347);
+            this.Info.Size = new System.Drawing.Size(686, 377);
             this.Info.TabIndex = 5;
             this.Info.Text = "Label";
             this.Info.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -113,7 +112,7 @@ namespace BudgetExecution
             this.Table.ColumnCount = 3;
             this.Table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.75129F));
             this.Table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.24871F));
-            this.Table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
+            this.Table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
             this.Table.Controls.Add(this.TextBox, 1, 0);
             this.Table.Location = new System.Drawing.Point(1, 76);
             this.Table.Name = "Table";
@@ -143,7 +142,7 @@ namespace BudgetExecution
             this.TextBox.ReadOnly = false;
             this.TextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Both;
             this.TextBox.ShowSelectionMargin = false;
-            this.TextBox.Size = new System.Drawing.Size(470, 313);
+            this.TextBox.Size = new System.Drawing.Size(469, 313);
             this.TextBox.TabIndex = 0;
             this.TextBox.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             this.TextBox.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -153,21 +152,6 @@ namespace BudgetExecution
             this.TextBox.TextStyle.TextLineAlignment = System.Drawing.StringAlignment.Center;
             this.TextBox.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
-            // TopTablePanel
-            // 
-            this.TopTablePanel.BackColor = System.Drawing.Color.Transparent;
-            this.TopTablePanel.ColumnCount = 3;
-            this.TopTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.046729F));
-            this.TopTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 94.95327F));
-            this.TopTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
-            this.TopTablePanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TopTablePanel.Location = new System.Drawing.Point(1, 1);
-            this.TopTablePanel.Name = "TopTablePanel";
-            this.TopTablePanel.RowCount = 1;
-            this.TopTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TopTablePanel.Size = new System.Drawing.Size(686, 26);
-            this.TopTablePanel.TabIndex = 3;
-            // 
             // Message
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -175,7 +159,7 @@ namespace BudgetExecution
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.BorderColor = System.Drawing.Color.SteelBlue;
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.CaptionButtonHoverColor = System.Drawing.Color.White;
             this.CaptionFont = new System.Drawing.Font("Roboto", 8.25F);
             this.CaptionForeColor = System.Drawing.Color.LightSteelBlue;
@@ -184,16 +168,14 @@ namespace BudgetExecution
             captionImage1.Name = "CaptionImage1";
             captionImage1.Size = new System.Drawing.Size(15, 15);
             this.CaptionImages.Add(captionImage1);
-            this.ClientSize = new System.Drawing.Size(688, 488);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(688, 492);
             this.Controls.Add(this.Info);
-            this.Controls.Add(this.TopTablePanel);
             this.Controls.Add(this.BackPanel);
             this.Controls.Add(this.Table);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.MinimizeBox = false;
@@ -216,7 +198,6 @@ namespace BudgetExecution
         public TableLayoutPanel Table;
         public VisualRichTextBox TextBox;
         public VisualLabel Info;
-        public TableLayoutPanel TopTablePanel;
     }
     
 }

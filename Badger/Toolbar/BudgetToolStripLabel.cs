@@ -28,7 +28,6 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9, FontStyle.Regular );
             Visible = true;
             Enabled = true;
-            Name = "Budget Execution";
             Tag = Name;
         }
 

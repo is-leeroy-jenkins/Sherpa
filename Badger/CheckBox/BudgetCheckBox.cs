@@ -18,7 +18,7 @@ namespace BudgetExecution
             Box = new Size( 14, 14 );
             BackColor = Color.FromArgb( 18, 18, 18 );
             Font = new Font( "Roboto", 9, FontStyle.Regular );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.White;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Cursor = Cursors.Hand;

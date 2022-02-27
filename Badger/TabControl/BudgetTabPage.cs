@@ -16,7 +16,7 @@ namespace BudgetExecution
             Dock = DockStyle.None;
             Margin = new Padding( 3 );
             Font = new Font( "Roboto", 9  );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.White;
             BackColor = Color.FromArgb( 18, 18, 18 );
             TabBackColor = Color.FromArgb( 18, 18, 18 );
             BorderStyle = BorderStyle.None;

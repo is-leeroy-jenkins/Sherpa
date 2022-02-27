@@ -82,7 +82,7 @@ namespace BudgetExecution
         {
             // Basic SeriesConfiguration
             Font = new Font( "Roboto", 9 );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.White;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Size = new Size( 140, 40 );

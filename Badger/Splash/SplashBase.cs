@@ -109,7 +109,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public virtual void ReSize( int width, int height )
+        public virtual void ReSize( int width = 300, int height = 150 )
         {
             try
             {

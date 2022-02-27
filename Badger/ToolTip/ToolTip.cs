@@ -24,7 +24,7 @@ namespace BudgetExecution
             Style = Style.Custom;
             BackColor = Color.FromArgb( 18, 18, 18 );
             BorderColor = Color.SteelBlue;
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.White;
             UseAnimation = true;
             UseFading = true;
             AutomaticDelay = 500;

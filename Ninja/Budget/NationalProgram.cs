@@ -184,12 +184,12 @@ namespace BudgetExecution
             {
                 return Verify.IsInput( RpioCode?.Value?.ToString() )
                     ? RpioCode
-                    : Element.Default;
+                    : Default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Element.Default;
+                return Default;
             }
         }
 
@@ -244,12 +244,12 @@ namespace BudgetExecution
             {
                 return Verify.IsElement( Title )
                     ? Title
-                    : Element.Default;
+                    : Default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Element.Default;
+                return Default;
             }
         }
 
