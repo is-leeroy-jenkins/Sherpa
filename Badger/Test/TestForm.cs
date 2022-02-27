@@ -11,6 +11,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Tools;
     using static System.IO.Path;
 
     public partial class TestForm : MetroForm
@@ -72,6 +73,12 @@ namespace BudgetExecution
             BudgetButton.Click += SetLabelText;
             BudgetButton.MouseLeave += ClearLabelText;
             Controls.Add( BudgetButton );
+            ToolStip.Office12Mode = true;
+            ToolStip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+            ToolStip.LauncherStyle = LauncherStyle.Office12;
+            ToolStip.Padding = new Padding( 0 );
+            ToolStip.Margin = new Padding( 1, 1, 1, 1 );
+            ToolStip.ForeColor = Color.Black;
             SetToolStripButtonImages();
         }
 
@@ -107,32 +114,35 @@ namespace BudgetExecution
             var _previousRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\PreviousRecord.png";
             var _nextRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\NextRecord.png";
             var _lastRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\LastRecord.png";
-            var _editRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\EditRecord.png";
-            var _addRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\AddRecord.png";
-            var _refresh = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\Refresh.png";
-            var _trash = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\Trash.png";
+            var _edit = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\Edit.png";
+            var _add = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\Add.png";
+            var _delete = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\Delete.png";
+            var _refresh = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\RefreshData.png";
+            var _save = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\Save.png";
+            var _print = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\Save.png";
             var _excelFile = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\ExcelFile.png";
             var _calculator = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\Calculator.png";
-            ToolButton1.Image = Image.FromFile( _firstRecord );
-            ToolButton1.HoverText = "First Record";
-            ToolButton2.Image = Image.FromFile( _previousRecord );
-            ToolButton2.HoverText = "Previous Record";
-            ToolButton3.Image = Image.FromFile( _nextRecord );
-            ToolButton3.HoverText = "Next Record";
-            ToolButton4.Image = Image.FromFile( _lastRecord );
-            ToolButton4.HoverText = "Last Record";
-            ToolButton5.Image = Image.FromFile( _editRecord );
-            ToolButton5.HoverText = "Edit Record";
-            ToolButton6.Image = Image.FromFile( _addRecord );
-            ToolButton6.HoverText = "Add Record";
-            ToolButton7.Image = Image.FromFile( _refresh );
-            ToolButton7.HoverText = "Refresh Data";
-            ToolButton8.Image = Image.FromFile( _trash );
-            ToolButton8.HoverText = "Delete Record";
-            ToolButton9.Image = Image.FromFile( _excelFile );
-            ToolButton9.HoverText = "Excel Export";
-            ToolButton10.Image = Image.FromFile( _calculator );
-            ToolButton10.HoverText = "Budget Calculator";
+            FirstRecordToolStripButton.Image = Image.FromFile( _firstRecord );
+            FirstRecordToolStripButton.HoverText = "First Record";
+            PreviousRecordToolStripButton.Image = Image.FromFile( _previousRecord );
+            PreviousRecordToolStripButton.HoverText = "Previous Record";
+            NextRecordToolStripButton.Image = Image.FromFile( _nextRecord );
+            NextRecordToolStripButton.HoverText = "Next Record";
+            LastRecordToolStripButton.Image = Image.FromFile( _lastRecord );
+            LastRecordToolStripButton.HoverText = "Last Record";
+            EditRecordToolStripButton.Image = Image.FromFile( _edit );
+            EditRecordToolStripButton.HoverText = "Edit Record";
+            AddRecordToolStripButton.Image = Image.FromFile( _add );
+            AddRecordToolStripButton.HoverText = "Add Record";
+            ToolButton7.Image = Image.FromFile( _delete );
+            ToolButton7.HoverText = "Delete Record";
+            ToolButton8.Image = Image.FromFile( _refresh );
+            ToolButton8.HoverText = "Refresh Data";
+            ToolButton9.Image = Image.FromFile( _save );
+            ToolButton9.HoverText = "Refresh Data";
+            ToolButton10.Image = Image.FromFile( _excelFile );
+            ToolButton10.HoverText = "Save Changes";
+            CalculatorToolStripButton.Image = Image.FromFile( _calculator );
         }
 
         /// <summary>

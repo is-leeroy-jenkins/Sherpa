@@ -21,11 +21,11 @@ namespace BudgetExecution
         /// </summary>
         public ToolSeparator()
         {
-            Margin = new Padding( 3, 0, 3, 0 );
-            Padding = new Padding( 0 );
+            Margin = new Padding( 1, 0, 1, 0 );
+            Padding = new Padding( 1, 5, 1, 5 );
             ForeColor = Color.Black;
             Font = new Font( "Roboto", 9 );
-            Width = 6;
+            Width = 3;
         }
         
         /// <summary>

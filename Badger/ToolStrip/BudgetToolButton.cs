@@ -21,14 +21,15 @@ namespace BudgetExecution
         /// </summary>
         public BudgetToolButton()
         {
-            Margin = new Padding( 5, 5, 5, 5 );
-            Padding = new Padding( 0 );
+            Margin = new Padding( 1, 1, 1, 1 );
+            Padding = new Padding( 1 );
             DisplayStyle = ToolStripItemDisplayStyle.Image;
             BackColor = Color.FromArgb( 18, 18, 18 );
             ForeColor = Color.White;
             Font = new Font( "Roboto", 9 );
             HoverText = Tag?.ToString();
             Text = string.Empty;
+            AutoToolTip = false;
             Visible = true;
             Enabled = true;
             MouseHover += OnMouseHover;

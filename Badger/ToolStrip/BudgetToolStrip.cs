@@ -42,12 +42,11 @@ namespace BudgetExecution
         /// </summary>
         public BudgetToolStrip()
         {
-            Margin = new Padding( 5, 5, 5, 0 );
-            Padding = new Padding( 1, 1, 1, 0 );
+            Margin = new Padding( 1, 1, 1, 1 );
+            Padding = new Padding( 1, 1, 1, 1 );
             BackColor = Color.FromArgb( 18, 18, 18 );
             ForeColor = Color.White;
             Font = new Font( "Roboto", 9 );
-            OfficeColorScheme = ColorScheme.Black;
             ShowCaption = true;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             CaptionStyle = CaptionStyle.Top;
@@ -61,6 +60,7 @@ namespace BudgetExecution
             ShowLauncher = true;
             GripStyle = ToolStripGripStyle.Hidden;
             ThemeName = "Office2016Black";
+            OfficeColorScheme = ColorScheme.Black;
             ThemeStyle.BackColor = Color.FromArgb( 18, 18, 18 );
             ThemeStyle.ArrowColor = Color.SteelBlue;
             ThemeStyle.BottomToolStripBackColor = Color.FromArgb( 28, 28, 28 );

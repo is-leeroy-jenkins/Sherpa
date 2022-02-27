@@ -506,28 +506,28 @@
     <Compile Include="Badger\Button\BudgetButton.cs" />
     <Compile Include="Badger\Chart\BindingModel\SeriesConfiguration.cs" />
     <Compile Include="Badger\Chart\BindingModel\SeriesModel.cs" />
-    <Compile Include="Badger\Toolbar\BudgetToolButton.cs">
+    <Compile Include="Badger\ToolStrip\BudgetToolButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\ToolStripButtonBase.cs">
+    <Compile Include="Badger\ToolStrip\ToolStripButtonBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\ToolStripComboBoxBase.cs">
+    <Compile Include="Badger\ToolStrip\ToolStripComboBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\BudgetToolStripComboBox.cs">
+    <Compile Include="Badger\ToolStrip\BudgetToolStripComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\BudgetToolStripLabel.cs">
+    <Compile Include="Badger\ToolStrip\BudgetToolStripLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\ToolStripLabelBase.cs">
+    <Compile Include="Badger\ToolStrip\ToolStripLabelBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\BarProgress.cs">
+    <Compile Include="Badger\ToolStrip\BarProgress.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\BudgetToolStripTextBox.cs">
+    <Compile Include="Badger\ToolStrip\BudgetToolStripTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\BudgetImage\BudgetImage.cs" />
@@ -668,10 +668,10 @@
     <Compile Include="Badger\DataView\BudgetDataViewForm.Designer.cs">
       <DependentUpon>BudgetDataViewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Toolbar\BarProgressBase.cs">
+    <Compile Include="Badger\ToolStrip\BarProgressBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\ToolTextBoxBase.cs">
+    <Compile Include="Badger\ToolStrip\ToolTextBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\TabControl\BudgetTabControl.cs">
@@ -803,11 +803,11 @@
     <Compile Include="Badger\Binding\IDataSource.cs" />
     <Compile Include="Badger\Label\IBudgetLabel.cs" />
     <Compile Include="Badger\Button\IBudgetButton.cs" />
-    <Compile Include="Badger\Toolbar\IToolStripButton.cs" />
-    <Compile Include="Badger\Toolbar\IToolStripComboBox.cs" />
-    <Compile Include="Badger\Toolbar\IToolStripLabel.cs" />
-    <Compile Include="Badger\Toolbar\IToolStripTextBox.cs" />
-    <Compile Include="Badger\Toolbar\IBudgetToolStrip.cs" />
+    <Compile Include="Badger\ToolStrip\IToolStripButton.cs" />
+    <Compile Include="Badger\ToolStrip\IToolStripComboBox.cs" />
+    <Compile Include="Badger\ToolStrip\IToolStripLabel.cs" />
+    <Compile Include="Badger\ToolStrip\IToolStripTextBox.cs" />
+    <Compile Include="Badger\ToolStrip\IBudgetToolStrip.cs" />
     <Compile Include="Badger\PictureBox\IPictureBox.cs" />
     <Compile Include="Badger\Label\LabelBase.cs" />
     <Compile Include="Badger\Label\BudgetLabel.cs" />
@@ -1042,13 +1042,13 @@
     <Compile Include="Badger\ToolTip\TipBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\BudgetToolStrip.cs">
+    <Compile Include="Badger\ToolStrip\BudgetToolStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\ToolStripBase.cs">
+    <Compile Include="Badger\ToolStrip\ToolStripBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Toolbar\ToolSeparator.cs">
+    <Compile Include="Badger\ToolStrip\ToolSeparator.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Chart\SeriesModel\TitleInfo.cs" />
