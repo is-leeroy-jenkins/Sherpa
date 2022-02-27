@@ -354,28 +354,28 @@ namespace BudgetExecution
         /// </param>
         /// <returns>
         /// </returns>
-        public virtual BudgetToolButton CreateButton( string imageName )
+        public virtual BudgetToolStripButton CreateButton( string imageName )
         {
             if( Verify.IsInput( imageName ) )
             {
                 try
                 {
                     var _image = new BudgetImage( imageName, ImageSource.ToolBarImages, PicSize.Small );
-                    var _button = new BudgetToolButton( _image );
+                    var _button = new BudgetToolStripButton( _image );
                     Items?.Add( _button );
 
                     return Items?.Count > 0
                         ? _button
-                        : default( BudgetToolButton );
+                        : default( BudgetToolStripButton );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( BudgetToolButton );
+                    return default( BudgetToolStripButton );
                 }
             }
 
-            return default( BudgetToolButton );
+            return default( BudgetToolStripButton );
         }
 
         /// <summary>

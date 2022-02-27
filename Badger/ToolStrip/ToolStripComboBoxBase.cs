@@ -11,13 +11,14 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
+    using Syncfusion.Windows.Forms.Tools;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="ToolStripComboBox" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class ToolStripComboBoxBase : ToolStripComboBox
+    public abstract class ToolStripComboBoxBase : ToolStripComboBoxEx
     {
         /// <summary>
         /// Gets or sets the binding source.

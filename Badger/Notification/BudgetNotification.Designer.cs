@@ -40,13 +40,12 @@
             // Title
             // 
             this.Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Title.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.Title.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.Title.Location = new System.Drawing.Point(111, 3);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(325, 38);
+            this.Title.Size = new System.Drawing.Size(325, 26);
             this.Title.TabIndex = 0;
-            this.Title.Text = "Notification";
             this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Message
@@ -54,11 +53,11 @@
             this.Message.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Message.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Message.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Message.ForeColor = System.Drawing.Color.White;
+            this.Message.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.Message.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Message.Location = new System.Drawing.Point(64, 59);
+            this.Message.Location = new System.Drawing.Point(48, 59);
             this.Message.Name = "Message";
-            this.Message.Size = new System.Drawing.Size(372, 123);
+            this.Message.Size = new System.Drawing.Size(388, 123);
             this.Message.TabIndex = 1;
             this.Message.Text = "Notification body";
             // 
@@ -67,7 +66,7 @@
             this.NotifyIcon.Image = ((System.Drawing.Image)(resources.GetObject("NotifyIcon.Image")));
             this.NotifyIcon.Location = new System.Drawing.Point(1, 3);
             this.NotifyIcon.Name = "NotifyIcon";
-            this.NotifyIcon.Size = new System.Drawing.Size(62, 30);
+            this.NotifyIcon.Size = new System.Drawing.Size(63, 23);
             this.NotifyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.NotifyIcon.TabIndex = 2;
             this.NotifyIcon.TabStop = false;
@@ -78,6 +77,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.BorderColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BorderThickness = 2;
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.CaptionBarHeight = 2;
             this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));

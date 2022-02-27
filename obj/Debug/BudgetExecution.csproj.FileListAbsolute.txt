@@ -430,3 +430,4 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.Cor
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.CopyComplete
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.exe
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
+C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.DataForm.resources

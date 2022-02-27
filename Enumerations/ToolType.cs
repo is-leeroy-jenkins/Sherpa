@@ -80,16 +80,6 @@ namespace BudgetExecution
         RewindButton,
 
         /// <summary>
-        /// The undo button
-        /// </summary>
-        UndoButton,
-
-        /// <summary>
-        /// The upload button
-        /// </summary>
-        UploadButton,
-
-        /// <summary>
         /// The verify button
         /// </summary>
         VerifyButton,
@@ -115,14 +105,29 @@ namespace BudgetExecution
         CloseButton,
 
         /// <summary>
+        /// The CSV import button
+        /// </summary>
+        CsvButton,
+
+        /// <summary>
         /// The copy button
         /// </summary>
         CopyButton,
 
         /// <summary>
+        /// The delete column button
+        /// </summary>
+        DeleteColumnButton,
+
+        /// <summary>
+        /// The delete record button
+        /// </summary>
+        DeleteRecordButton,
+
+        /// <summary>
         /// The browse button
         /// </summary>
-        BrowseButton,
+        BrowseFolderButton,
 
         /// <summary>
         /// The data table button
@@ -163,6 +168,16 @@ namespace BudgetExecution
         /// The edit button
         /// </summary>
         EditButton,
+
+        /// <summary>
+        /// The edit record button
+        /// </summary>
+        EditRecordButton,
+
+        /// <summary>
+        /// The edit column button
+        /// </summary>
+        EditColumnButton,
 
         /// <summary>
         /// The forward button
@@ -235,6 +250,11 @@ namespace BudgetExecution
         PdfButton,
 
         /// <summary>
+        /// The redo button
+        /// </summary>
+        RedoButton,
+        
+        /// <summary>
         /// The settings button
         /// </summary>
         SettingsButton,
@@ -253,6 +273,16 @@ namespace BudgetExecution
         /// The update button
         /// </summary>
         UpdateButton,
+
+        /// <summary>
+        /// The undo button
+        /// </summary>
+        UndoButton,
+
+        /// <summary>
+        /// The upload button
+        /// </summary>
+        UploadButton,
 
         /// <summary>
         /// The web button

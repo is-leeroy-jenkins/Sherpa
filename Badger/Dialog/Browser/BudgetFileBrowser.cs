@@ -14,7 +14,7 @@ namespace BudgetExecution
         public BudgetFileBrowser()
         {
             InitializeComponent();
-            Size = new Size( 812, 486 );
+            Size = new Size( 700, 530 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             CloseButton.Click += OnCloseButtonClicked;
         }

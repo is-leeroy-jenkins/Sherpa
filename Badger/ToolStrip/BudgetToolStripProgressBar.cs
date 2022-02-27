@@ -8,25 +8,27 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
+    using Syncfusion.Windows.Forms.Tools;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
-    public class BarProgress : BarProgressBase
+    public class BudgetToolStripProgressBar : ToolStripProgressBase
     {
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "BudgetToolStripLabel"/>
         /// class.
         /// </summary>
-        public BarProgress()
+        public BudgetToolStripProgressBar( ToolStripEx toolStrip ) 
+            : base( toolStrip )
         {
+            Parent = toolStrip;
             Margin = new Padding( 10, 5, 10, 0 );
             Size = new Size( 100, 33 );
             ForeColor = SystemColors.Highlight;
             BackColor = SystemColors.Control;
             Font = new Font( "Roboto", 9 );
-            Style = ProgressBarStyle.Blocks;
             Visible = true;
             Enabled = true;
             Name = "Progress";
@@ -92,7 +94,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         public void OnMouseHover( object sender, EventArgs e )
         {
-            if( sender is BarProgress progress
+            if( sender is BudgetToolStripProgressBar progress
                 && progress != null )
             {
                 try

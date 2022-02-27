@@ -4,6 +4,7 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
@@ -27,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The buttons.
         /// </value>
-        public IDictionary<string, BudgetToolButton> Buttons { get;  }
+        public IDictionary<string, BudgetToolStripButton> Buttons { get;  }
 
         /// <summary>
         /// Gets or sets the size of the image.
@@ -35,7 +36,7 @@ namespace BudgetExecution
         /// <value>
         /// The size of the image.
         /// </value>
-        public Size ImageSize { get; set; } = new Size( 16, 16 );
+        public Size ImageSize { get; set; } = new Size( 20, 20 );
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BudgetToolStrip"/> class.
@@ -45,21 +46,23 @@ namespace BudgetExecution
             Margin = new Padding( 1, 1, 1, 1 );
             Padding = new Padding( 1, 1, 1, 1 );
             BackColor = Color.FromArgb( 18, 18, 18 );
-            ForeColor = Color.White;
+            ForeColor = Color.Black;
             Font = new Font( "Roboto", 9 );
             ShowCaption = true;
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionFont = new Font( "Roboto", 9, FontStyle.Bold );
             CaptionStyle = CaptionStyle.Top;
             CaptionAlignment = CaptionAlignment.Near;
             CaptionTextStyle = CaptionTextStyle.Shadow;
-            Anchor = AnchorStyles.Top & AnchorStyles.Left;
-            BorderStyle = ToolStripBorderStyle.None;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            BorderStyle = ToolStripBorderStyle.StaticEdge;
             CanApplyTheme = true;
             CanOverrideStyle = true;
+            ImageScalingSize = ImageSize;
             LauncherStyle = LauncherStyle.Office12;
             ShowLauncher = true;
             GripStyle = ToolStripGripStyle.Hidden;
             ThemeName = "Office2016Black";
+            VisualStyle = ToolStripExStyle.Office2016Black;
             OfficeColorScheme = ColorScheme.Black;
             ThemeStyle.BackColor = Color.FromArgb( 18, 18, 18 );
             ThemeStyle.ArrowColor = Color.SteelBlue;
@@ -70,22 +73,22 @@ namespace BudgetExecution
             ThemeStyle.ComboBoxStyle.HoverBorderColor = Color.SteelBlue;
             ThemeStyle.HoverItemBackColor = Color.SteelBlue;
             ThemeStyle.HoverItemForeColor = Color.White;
-            Buttons = GetButtons();
+            Buttons = null;
         }
-
+        
         /// <summary>
         /// Gets the buttons.
         /// </summary>
         /// <returns></returns>
-        public IDictionary<string, BudgetToolButton> GetButtons()
+        public IDictionary<string, BudgetToolStripButton> GetButtons()
         {
-            var _buttons = new SortedList<string, BudgetToolButton>();
+            var _buttons = new SortedList<string, BudgetToolStripButton>();
 
             if( Items?.Count > 0 )
             {
                 foreach( var _control in Items )
                 {
-                    if( _control is BudgetToolButton _item )
+                    if( _control is BudgetToolStripButton _item )
                     {
                         if( !string.IsNullOrEmpty( _item.Name ) )
                         {
@@ -96,10 +99,10 @@ namespace BudgetExecution
 
                 return _buttons?.Count > 0
                     ? _buttons
-                    : default( SortedList<string, BudgetToolButton> );
+                    : default( SortedList<string, BudgetToolStripButton> );
             }
 
-            return default( IDictionary<string, BudgetToolButton> );
+            return default( IDictionary<string, BudgetToolStripButton> );
         }
     }
 }

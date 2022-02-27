@@ -506,6 +506,12 @@
     <Compile Include="Badger\Button\BudgetButton.cs" />
     <Compile Include="Badger\Chart\BindingModel\SeriesConfiguration.cs" />
     <Compile Include="Badger\Chart\BindingModel\SeriesModel.cs" />
+    <Compile Include="Badger\DataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Badger\DataForm.Designer.cs">
+      <DependentUpon>DataForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Badger\ToolStrip\BudgetToolButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -524,7 +530,7 @@
     <Compile Include="Badger\ToolStrip\ToolStripLabelBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\ToolStrip\BarProgress.cs">
+    <Compile Include="Badger\ToolStrip\BudgetToolStripProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\ToolStrip\BudgetToolStripTextBox.cs">
@@ -668,7 +674,7 @@
     <Compile Include="Badger\DataView\BudgetDataViewForm.Designer.cs">
       <DependentUpon>BudgetDataViewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\ToolStrip\BarProgressBase.cs">
+    <Compile Include="Badger\ToolStrip\ToolStripProgressBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\ToolStrip\ToolTextBoxBase.cs">
@@ -1078,6 +1084,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Notification\FormAnimator.cs" />
+    <Compile Include="Badger\ToolStrip\ToolFactory.cs" />
     <EmbeddedResource Include="Badger\DataGrid\BudgetDataGridForm.resx">
       <DependentUpon>BudgetDataGridForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1107,6 +1114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\Calculator\CalculatorBase.resx">
       <DependentUpon>CalculatorBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Badger\DataForm.resx">
+      <DependentUpon>DataForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Badger\Test\TestForm.resx">
       <DependentUpon>TestForm.cs</DependentUpon>

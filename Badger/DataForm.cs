@@ -1,20 +1,20 @@
-﻿// <copyright file = "TestForm.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
-// </copyright>
+﻿// // <copyright file = "TestForm3.cs" company = "Terry D. Eppler">
+// // Copyright (c) Terry D. Eppler. All rights reserved.
+// // </copyright>
 //
 
 namespace BudgetExecution
 {
     using System;
-    using System.Configuration;
     using System.Collections.Specialized;
+    using System.Configuration;
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
     using static System.IO.Path;
 
-    public partial class TestForm : MetroForm
+    public partial class DataForm : MetroForm
     {
         /// <summary>
         /// Gets or sets the settings.
@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// <value>
         /// The settings.
         /// </value>
-        public NameValueCollection Setting { get;  set; } = ConfigurationManager.AppSettings;
+        public NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
 
         /// <summary>
         /// Gets or sets the budget button.
@@ -40,10 +40,10 @@ namespace BudgetExecution
         /// </value>
         public string CurrentDirectory { get; } = Environment.CurrentDirectory;
 
-        public TestForm()
+        public DataForm()
         {
             InitializeComponent();
-            
+
             // Form Property Values
             BackColor = Color.FromArgb( 18, 18, 18 );
             BorderThickness = 1;
@@ -134,14 +134,16 @@ namespace BudgetExecution
             EditRecordToolStripButton.HoverText = "Edit Record";
             AddRecordToolStripButton.Image = Image.FromFile( _add );
             AddRecordToolStripButton.HoverText = "Add Record";
-            DeleteButton.Image = Image.FromFile( _delete );
-            DeleteButton.HoverText = "Delete Record";
-            RefreshButton.Image = Image.FromFile( _refresh );
-            RefreshButton.HoverText = "Refresh Data";
-            SaveButton.Image = Image.FromFile( _save );
-            SaveButton.HoverText = "Save Data";
-            ExcelButton.Image = Image.FromFile( _excelFile );
-            ExcelButton.HoverText = "Export to Excel";
+            DeleteToolStripButton.Image = Image.FromFile( _delete );
+            DeleteToolStripButton.HoverText = "Delete Record";
+            RefreshToolStripButton.Image = Image.FromFile( _refresh );
+            RefreshToolStripButton.HoverText = "Refresh Data";
+            SaveToolStripButton.Image = Image.FromFile( _save );
+            SaveToolStripButton.HoverText = "Refresh Data";
+            PrintToolStripButton.Image = Image.FromFile( _print );
+            PrintToolStripButton.HoverText = "Print Data";
+            ExcelExportToolStripButton.Image = Image.FromFile( _excelFile );
+            ExcelExportToolStripButton.HoverText = "Save Changes";
             CalculatorToolStripButton.Image = Image.FromFile( _calculator );
             CalculatorToolStripButton.HoverText = "Launch Calculator";
         }
@@ -158,7 +160,7 @@ namespace BudgetExecution
             {
                 Text = string.Empty;
             }
-            catch ( Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }

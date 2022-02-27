@@ -49,7 +49,7 @@ namespace BudgetExecution
             this.budgetDataView1.BindingSource = null;
             this.budgetDataView1.CopyOption = Syncfusion.WinForms.DataGrid.Enums.CopyOptions.IncludeHeaders;
             this.budgetDataView1.DataFilter = null;
-            this.budgetDataView1.Field = BudgetExecution.Field.NS;
+            this.budgetDataView1.Field = BudgetExecution.Field.RpioActivityCode;
             this.budgetDataView1.FilterPopupMode = Syncfusion.WinForms.GridCommon.FilterPopupMode.AdvancedFilter;
             this.budgetDataView1.HoverText = null;
             this.budgetDataView1.Location = new System.Drawing.Point(195, 88);
@@ -62,7 +62,7 @@ namespace BudgetExecution
             this.budgetDataView1.ShowPreviewRow = true;
             this.budgetDataView1.ShowRowHeader = true;
             this.budgetDataView1.ShowToolTip = true;
-            this.budgetDataView1.Size = new System.Drawing.Size(950, 550);
+            this.budgetDataView1.Size = new System.Drawing.Size(998, 550);
             this.budgetDataView1.TabIndex = 0;
             this.budgetDataView1.Text = "budgetDataView1";
             // 

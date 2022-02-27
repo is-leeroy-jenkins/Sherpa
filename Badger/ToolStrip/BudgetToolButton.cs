@@ -14,12 +14,12 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "UsePatternMatching" ) ]
     [ Serializable ]
-    public class BudgetToolButton : ToolStripButtonBase, IToolStripButton
+    public class BudgetToolStripButton : ToolStripButtonBase, IToolStripButton
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetToolButton"/> class.
+        /// Initializes a new instance of the <see cref="BudgetToolStripButton"/> class.
         /// </summary>
-        public BudgetToolButton()
+        public BudgetToolStripButton()
         {
             Margin = new Padding( 1, 1, 1, 1 );
             Padding = new Padding( 1 );
@@ -38,10 +38,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetToolButton"/> class.
+        /// Initializes a new instance of the <see cref="BudgetToolStripButton"/> class.
         /// </summary>
         /// <param name="toolType">The tool.</param>
-        public BudgetToolButton( ToolType toolType )
+        public BudgetToolStripButton( ToolType toolType )
             : this()
         {
             Image = new BudgetImage( toolType.ToString(), ImageSource.ToolBarImages )?.GetBitmap();
@@ -49,10 +49,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetToolButton"/> class.
+        /// Initializes a new instance of the <see cref="BudgetToolStripButton"/> class.
         /// </summary>
         /// <param name="image">The image.</param>
-        public BudgetToolButton( IBudgetImage image )
+        public BudgetToolStripButton( IBudgetImage image )
             : this()
         {
             Image = image.GetBitmap();
@@ -89,7 +89,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _button = sender as BudgetToolButton;
+                var _button = sender as BudgetToolStripButton;
 
                 if( _button != null
                     && !string.IsNullOrEmpty( HoverText ) )
@@ -143,7 +143,7 @@ namespace BudgetExecution
         ///     event data.</param>
         public void OnClick( object sender, EventArgs e )
         {
-            if( sender is BudgetToolButton _button )
+            if( sender is BudgetToolStripButton _button )
             {
                 try
                 {
@@ -259,7 +259,7 @@ namespace BudgetExecution
                             break;
                         }
 
-                        case ToolType.BrowseButton:
+                        case ToolType.BrowseFolderButton:
                         {
                             using var _message = new BudgetFileBrowser();
                             _message?.ShowDialog();

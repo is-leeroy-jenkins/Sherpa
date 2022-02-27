@@ -12,7 +12,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
 
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class BarProgressBase : ToolStripProgressBar
+    public abstract class ToolStripProgressBase : ToolStripControlHost
     {
         /// <summary>
         /// Gets or sets the field.
@@ -61,12 +61,13 @@ namespace BudgetExecution
         /// The hover text.
         /// </value>
         public virtual string HoverText { get; set; }
-
+        
         /// <summary>
         /// Initializes a new instance
-        /// of the <see cref="BarProgressBase"/> class.
+        /// of the <see cref="ToolStripProgressBase"/> class.
         /// </summary>
-        public BarProgressBase()
+        public ToolStripProgressBase( Control toolStrip ) 
+            : base( toolStrip )
         {
         }
 

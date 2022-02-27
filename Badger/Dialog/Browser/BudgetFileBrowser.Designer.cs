@@ -52,7 +52,7 @@ namespace BudgetExecution
             this.SqlServerCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.PdfCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.WordCheckBox = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
-            this.Dialog = new System.Windows.Forms.OpenFileDialog();
+            this.FileDialog = new System.Windows.Forms.OpenFileDialog();
             this.BottomPanel = new System.Windows.Forms.TableLayoutPanel();
             this.OpenButton = new BudgetExecution.BudgetButton();
             this.CloseButton = new BudgetExecution.BudgetButton();
@@ -177,7 +177,7 @@ namespace BudgetExecution
             this.SqlCeCheckBox.CheckStyle.Thickness = 2F;
             this.SqlCeCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SqlCeCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SqlCeCheckBox.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.SqlCeCheckBox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.SqlCeCheckBox.IsBoxLarger = false;
             this.SqlCeCheckBox.Location = new System.Drawing.Point(5, 296);
             this.SqlCeCheckBox.Margin = new System.Windows.Forms.Padding(5);
@@ -223,7 +223,7 @@ namespace BudgetExecution
             this.PowerPointCheckBox.CheckStyle.Thickness = 2F;
             this.PowerPointCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PowerPointCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PowerPointCheckBox.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.PowerPointCheckBox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.PowerPointCheckBox.IsBoxLarger = false;
             this.PowerPointCheckBox.Location = new System.Drawing.Point(5, 260);
             this.PowerPointCheckBox.Margin = new System.Windows.Forms.Padding(5);
@@ -269,7 +269,7 @@ namespace BudgetExecution
             this.ExcelCheckBox.CheckStyle.Thickness = 2F;
             this.ExcelCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ExcelCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ExcelCheckBox.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.ExcelCheckBox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.ExcelCheckBox.IsBoxLarger = false;
             this.ExcelCheckBox.Location = new System.Drawing.Point(5, 224);
             this.ExcelCheckBox.Margin = new System.Windows.Forms.Padding(5);
@@ -315,7 +315,7 @@ namespace BudgetExecution
             this.CsvCheckBox.CheckStyle.Thickness = 2F;
             this.CsvCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CsvCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CsvCheckBox.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.CsvCheckBox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.CsvCheckBox.IsBoxLarger = false;
             this.CsvCheckBox.Location = new System.Drawing.Point(5, 188);
             this.CsvCheckBox.Margin = new System.Windows.Forms.Padding(5);
@@ -361,7 +361,7 @@ namespace BudgetExecution
             this.AccessCheckBox.CheckStyle.Thickness = 2F;
             this.AccessCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AccessCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AccessCheckBox.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.AccessCheckBox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.AccessCheckBox.IsBoxLarger = false;
             this.AccessCheckBox.Location = new System.Drawing.Point(5, 152);
             this.AccessCheckBox.Margin = new System.Windows.Forms.Padding(5);
@@ -407,7 +407,7 @@ namespace BudgetExecution
             this.SqliteCheckBox.CheckStyle.Thickness = 2F;
             this.SqliteCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SqliteCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SqliteCheckBox.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.SqliteCheckBox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.SqliteCheckBox.IsBoxLarger = false;
             this.SqliteCheckBox.Location = new System.Drawing.Point(5, 116);
             this.SqliteCheckBox.Margin = new System.Windows.Forms.Padding(5);
@@ -453,7 +453,7 @@ namespace BudgetExecution
             this.SqlServerCheckBox.CheckStyle.Thickness = 2F;
             this.SqlServerCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SqlServerCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SqlServerCheckBox.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.SqlServerCheckBox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.SqlServerCheckBox.IsBoxLarger = false;
             this.SqlServerCheckBox.Location = new System.Drawing.Point(5, 80);
             this.SqlServerCheckBox.Margin = new System.Windows.Forms.Padding(5);
@@ -499,7 +499,7 @@ namespace BudgetExecution
             this.PdfCheckBox.CheckStyle.Thickness = 2F;
             this.PdfCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PdfCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PdfCheckBox.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.PdfCheckBox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.PdfCheckBox.IsBoxLarger = false;
             this.PdfCheckBox.Location = new System.Drawing.Point(5, 5);
             this.PdfCheckBox.Margin = new System.Windows.Forms.Padding(5);
@@ -545,7 +545,7 @@ namespace BudgetExecution
             this.WordCheckBox.CheckStyle.Thickness = 2F;
             this.WordCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.WordCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.WordCheckBox.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.WordCheckBox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.WordCheckBox.IsBoxLarger = false;
             this.WordCheckBox.Location = new System.Drawing.Point(5, 44);
             this.WordCheckBox.Margin = new System.Windows.Forms.Padding(5);
@@ -563,9 +563,9 @@ namespace BudgetExecution
             this.WordCheckBox.TextStyle.TextLineAlignment = System.Drawing.StringAlignment.Center;
             this.WordCheckBox.TextStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
-            // Dialog
+            // FileDialog
             // 
-            this.Dialog.Filter = "Document FIles | *.PDF | *.DOCX | *.DOC ";
+            this.FileDialog.Filter = "Document FIles | *.PDF | *.DOCX | *.DOC ";
             // 
             // BottomPanel
             // 
@@ -606,9 +606,9 @@ namespace BudgetExecution
             this.OpenButton.DataFilter = null;
             this.OpenButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.OpenButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OpenButton.Field = BudgetExecution.Field.NS;
+            this.OpenButton.Field = BudgetExecution.Field.RpioActivityCode;
             this.OpenButton.Font = new System.Drawing.Font("Roboto", 9F);
-            this.OpenButton.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.OpenButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.OpenButton.HoverText = null;
             this.OpenButton.Image = null;
             this.OpenButton.Images = null;
@@ -621,7 +621,7 @@ namespace BudgetExecution
             this.OpenButton.Text = "Open";
             this.OpenButton.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.OpenButton.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.OpenButton.TextStyle.Enabled = System.Drawing.Color.LightSteelBlue;
+            this.OpenButton.TextStyle.Enabled = System.Drawing.Color.WhiteSmoke;
             this.OpenButton.TextStyle.Hover = System.Drawing.Color.White;
             this.OpenButton.TextStyle.Pressed = System.Drawing.Color.White;
             this.OpenButton.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -647,9 +647,9 @@ namespace BudgetExecution
             this.CloseButton.DataFilter = null;
             this.CloseButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.CloseButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CloseButton.Field = BudgetExecution.Field.NS;
+            this.CloseButton.Field = BudgetExecution.Field.RpioActivityCode;
             this.CloseButton.Font = new System.Drawing.Font("Roboto", 9F);
-            this.CloseButton.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.CloseButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.CloseButton.HoverText = null;
             this.CloseButton.Image = null;
             this.CloseButton.Images = null;
@@ -662,7 +662,7 @@ namespace BudgetExecution
             this.CloseButton.Text = "Close";
             this.CloseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.CloseButton.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.CloseButton.TextStyle.Enabled = System.Drawing.Color.LightSteelBlue;
+            this.CloseButton.TextStyle.Enabled = System.Drawing.Color.WhiteSmoke;
             this.CloseButton.TextStyle.Hover = System.Drawing.Color.White;
             this.CloseButton.TextStyle.Pressed = System.Drawing.Color.White;
             this.CloseButton.TextStyle.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -676,9 +676,9 @@ namespace BudgetExecution
             this.budgetLabel1.BindingSource = null;
             this.budgetLabel1.DataFilter = null;
             this.budgetLabel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.budgetLabel1.Field = BudgetExecution.Field.NS;
+            this.budgetLabel1.Field = BudgetExecution.Field.RpioActivityCode;
             this.budgetLabel1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.budgetLabel1.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.budgetLabel1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.budgetLabel1.HoverText = null;
             this.budgetLabel1.Location = new System.Drawing.Point(1, 1);
             this.budgetLabel1.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
@@ -724,7 +724,7 @@ namespace BudgetExecution
             this.Controls.Add(this.TextBoxLayout);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(700, 550);
@@ -750,7 +750,7 @@ namespace BudgetExecution
             public VisualCheckBox SqlServerCheckBox;
             public VisualCheckBox PdfCheckBox;
             public VisualCheckBox WordCheckBox;
-            public OpenFileDialog Dialog;
+            public OpenFileDialog FileDialog;
             public VisualCheckBox ExcelCheckBox;
             public VisualCheckBox CsvCheckBox;
             public VisualCheckBox AccessCheckBox;

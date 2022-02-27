@@ -14,7 +14,7 @@ namespace BudgetExecution
         /// Gets the buttons.
         /// </summary>
         /// <returns></returns>
-        IDictionary<string, BudgetToolButton> GetButtons();
+        IDictionary<string, BudgetToolStripButton> GetButtons();
 
         /// <summary>
         /// Creates the button.
@@ -24,7 +24,7 @@ namespace BudgetExecution
         /// </param>
         /// <returns>
         /// </returns>
-        BudgetToolButton CreateButton( string imageName );
+        BudgetToolStripButton CreateButton( string imageName );
 
         /// <summary>
         /// Creates the label.

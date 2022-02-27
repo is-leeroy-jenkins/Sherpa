@@ -35,7 +35,6 @@ namespace BudgetExecution
             Size = new Size( 150, 23 );
             DropDownStyle = ComboBoxStyle.DropDownList;
             MaxDropDownItems = 30;
-            DropDownHeight = 200;
             BackColor = Color.FromArgb( 18, 18, 18 );
             ForeColor = Color.FromArgb( 141, 139, 138 );
             Font = new Font( "Roboto", 9 );
