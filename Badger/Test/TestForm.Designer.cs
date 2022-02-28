@@ -215,6 +215,7 @@ namespace BudgetExecution
             // 
             // FirstRecordToolStripButton
             // 
+            this.FirstRecordToolStripButton.AutoToolTip = false;
             this.FirstRecordToolStripButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.FirstRecordToolStripButton.Bar = BudgetExecution.ToolType.FirstButton;
             this.FirstRecordToolStripButton.BindingSource = null;
@@ -229,7 +230,7 @@ namespace BudgetExecution
             this.FirstRecordToolStripButton.Margin = new System.Windows.Forms.Padding(1);
             this.FirstRecordToolStripButton.Name = "FirstRecordToolStripButton";
             this.FirstRecordToolStripButton.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstRecordToolStripButton.Size = new System.Drawing.Size(22, 30);
+            this.FirstRecordToolStripButton.Size = new System.Drawing.Size(23, 30);
             this.FirstRecordToolStripButton.Text = "ToolButton1";
             this.FirstRecordToolStripButton.ToolTip = null;
             // 
@@ -243,6 +244,7 @@ namespace BudgetExecution
             // 
             // PreviousRecordToolStripButton
             // 
+            this.PreviousRecordToolStripButton.AutoToolTip = false;
             this.PreviousRecordToolStripButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.PreviousRecordToolStripButton.Bar = BudgetExecution.ToolType.PreviousButton;
             this.PreviousRecordToolStripButton.BindingSource = null;
@@ -257,7 +259,7 @@ namespace BudgetExecution
             this.PreviousRecordToolStripButton.Margin = new System.Windows.Forms.Padding(1);
             this.PreviousRecordToolStripButton.Name = "PreviousRecordToolStripButton";
             this.PreviousRecordToolStripButton.Padding = new System.Windows.Forms.Padding(1);
-            this.PreviousRecordToolStripButton.Size = new System.Drawing.Size(22, 30);
+            this.PreviousRecordToolStripButton.Size = new System.Drawing.Size(23, 30);
             this.PreviousRecordToolStripButton.Text = "ToolButton2";
             this.PreviousRecordToolStripButton.ToolTip = null;
             // 
@@ -271,6 +273,7 @@ namespace BudgetExecution
             // 
             // NextRecordToolStripButton
             // 
+            this.NextRecordToolStripButton.AutoToolTip = false;
             this.NextRecordToolStripButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.NextRecordToolStripButton.Bar = BudgetExecution.ToolType.NextButton;
             this.NextRecordToolStripButton.BindingSource = null;
@@ -285,7 +288,7 @@ namespace BudgetExecution
             this.NextRecordToolStripButton.Margin = new System.Windows.Forms.Padding(1);
             this.NextRecordToolStripButton.Name = "NextRecordToolStripButton";
             this.NextRecordToolStripButton.Padding = new System.Windows.Forms.Padding(1);
-            this.NextRecordToolStripButton.Size = new System.Drawing.Size(22, 30);
+            this.NextRecordToolStripButton.Size = new System.Drawing.Size(23, 30);
             this.NextRecordToolStripButton.Text = "ToolButton3";
             this.NextRecordToolStripButton.ToolTip = null;
             // 
@@ -299,6 +302,7 @@ namespace BudgetExecution
             // 
             // LastRecordToolStripButton
             // 
+            this.LastRecordToolStripButton.AutoToolTip = false;
             this.LastRecordToolStripButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.LastRecordToolStripButton.Bar = BudgetExecution.ToolType.LastButton;
             this.LastRecordToolStripButton.BindingSource = null;
@@ -313,7 +317,7 @@ namespace BudgetExecution
             this.LastRecordToolStripButton.Margin = new System.Windows.Forms.Padding(1);
             this.LastRecordToolStripButton.Name = "LastRecordToolStripButton";
             this.LastRecordToolStripButton.Padding = new System.Windows.Forms.Padding(1);
-            this.LastRecordToolStripButton.Size = new System.Drawing.Size(22, 30);
+            this.LastRecordToolStripButton.Size = new System.Drawing.Size(23, 30);
             this.LastRecordToolStripButton.Text = "ToolButton3";
             this.LastRecordToolStripButton.ToolTip = null;
             // 
@@ -327,6 +331,7 @@ namespace BudgetExecution
             // 
             // EditRecordToolStripButton
             // 
+            this.EditRecordToolStripButton.AutoToolTip = false;
             this.EditRecordToolStripButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.EditRecordToolStripButton.Bar = BudgetExecution.ToolType.NS;
             this.EditRecordToolStripButton.BindingSource = null;
@@ -341,7 +346,7 @@ namespace BudgetExecution
             this.EditRecordToolStripButton.Margin = new System.Windows.Forms.Padding(1);
             this.EditRecordToolStripButton.Name = "EditRecordToolStripButton";
             this.EditRecordToolStripButton.Padding = new System.Windows.Forms.Padding(1);
-            this.EditRecordToolStripButton.Size = new System.Drawing.Size(22, 30);
+            this.EditRecordToolStripButton.Size = new System.Drawing.Size(23, 30);
             this.EditRecordToolStripButton.Text = "ToolButton5";
             this.EditRecordToolStripButton.ToolTip = null;
             // 
@@ -355,6 +360,7 @@ namespace BudgetExecution
             // 
             // AddRecordToolStripButton
             // 
+            this.AddRecordToolStripButton.AutoToolTip = false;
             this.AddRecordToolStripButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.AddRecordToolStripButton.Bar = BudgetExecution.ToolType.NS;
             this.AddRecordToolStripButton.BindingSource = null;
@@ -369,7 +375,7 @@ namespace BudgetExecution
             this.AddRecordToolStripButton.Margin = new System.Windows.Forms.Padding(1);
             this.AddRecordToolStripButton.Name = "AddRecordToolStripButton";
             this.AddRecordToolStripButton.Padding = new System.Windows.Forms.Padding(1);
-            this.AddRecordToolStripButton.Size = new System.Drawing.Size(22, 30);
+            this.AddRecordToolStripButton.Size = new System.Drawing.Size(23, 30);
             this.AddRecordToolStripButton.Text = "budgetToolButton2";
             this.AddRecordToolStripButton.ToolTip = null;
             // 
@@ -383,6 +389,7 @@ namespace BudgetExecution
             // 
             // DeleteButton
             // 
+            this.DeleteButton.AutoToolTip = false;
             this.DeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.DeleteButton.Bar = BudgetExecution.ToolType.NS;
             this.DeleteButton.BindingSource = null;
@@ -397,7 +404,7 @@ namespace BudgetExecution
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(1);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Padding = new System.Windows.Forms.Padding(1);
-            this.DeleteButton.Size = new System.Drawing.Size(22, 30);
+            this.DeleteButton.Size = new System.Drawing.Size(23, 30);
             this.DeleteButton.Text = "budgetToolButton3";
             this.DeleteButton.ToolTip = null;
             // 
@@ -411,6 +418,7 @@ namespace BudgetExecution
             // 
             // RefreshButton
             // 
+            this.RefreshButton.AutoToolTip = false;
             this.RefreshButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.RefreshButton.Bar = BudgetExecution.ToolType.NS;
             this.RefreshButton.BindingSource = null;
@@ -425,7 +433,7 @@ namespace BudgetExecution
             this.RefreshButton.Margin = new System.Windows.Forms.Padding(1);
             this.RefreshButton.Name = "RefreshButton";
             this.RefreshButton.Padding = new System.Windows.Forms.Padding(1);
-            this.RefreshButton.Size = new System.Drawing.Size(22, 30);
+            this.RefreshButton.Size = new System.Drawing.Size(23, 30);
             this.RefreshButton.Text = "budgetToolButton1";
             this.RefreshButton.ToolTip = null;
             // 
@@ -439,6 +447,7 @@ namespace BudgetExecution
             // 
             // SaveButton
             // 
+            this.SaveButton.AutoToolTip = false;
             this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.SaveButton.Bar = BudgetExecution.ToolType.NS;
             this.SaveButton.BindingSource = null;
@@ -453,7 +462,7 @@ namespace BudgetExecution
             this.SaveButton.Margin = new System.Windows.Forms.Padding(1);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Padding = new System.Windows.Forms.Padding(1);
-            this.SaveButton.Size = new System.Drawing.Size(22, 30);
+            this.SaveButton.Size = new System.Drawing.Size(23, 30);
             this.SaveButton.Text = "budgetToolButton2";
             this.SaveButton.ToolTip = null;
             // 
@@ -467,6 +476,7 @@ namespace BudgetExecution
             // 
             // ExcelButton
             // 
+            this.ExcelButton.AutoToolTip = false;
             this.ExcelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.ExcelButton.Bar = BudgetExecution.ToolType.NS;
             this.ExcelButton.BindingSource = null;
@@ -481,7 +491,7 @@ namespace BudgetExecution
             this.ExcelButton.Margin = new System.Windows.Forms.Padding(1);
             this.ExcelButton.Name = "ExcelButton";
             this.ExcelButton.Padding = new System.Windows.Forms.Padding(1);
-            this.ExcelButton.Size = new System.Drawing.Size(22, 30);
+            this.ExcelButton.Size = new System.Drawing.Size(23, 30);
             this.ExcelButton.Text = "budgetToolButton3";
             this.ExcelButton.ToolTip = null;
             // 
@@ -495,6 +505,7 @@ namespace BudgetExecution
             // 
             // CalculatorToolStripButton
             // 
+            this.CalculatorToolStripButton.AutoToolTip = false;
             this.CalculatorToolStripButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.CalculatorToolStripButton.Bar = BudgetExecution.ToolType.NS;
             this.CalculatorToolStripButton.BindingSource = null;
@@ -509,7 +520,7 @@ namespace BudgetExecution
             this.CalculatorToolStripButton.Margin = new System.Windows.Forms.Padding(1);
             this.CalculatorToolStripButton.Name = "CalculatorToolStripButton";
             this.CalculatorToolStripButton.Padding = new System.Windows.Forms.Padding(1);
-            this.CalculatorToolStripButton.Size = new System.Drawing.Size(22, 30);
+            this.CalculatorToolStripButton.Size = new System.Drawing.Size(23, 30);
             this.CalculatorToolStripButton.ToolTip = null;
             // 
             // TestForm

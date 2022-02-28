@@ -80,6 +80,7 @@ namespace BudgetExecution
             ToolStip.ImageScalingSize = new Size( 20, 20 );
             ToolStip.Margin = new Padding( 1, 1, 1, 1 );
             ToolStip.ForeColor = Color.Black;
+            ExcelButton.Click += OnExcelButtonClicked;
             SetToolStripButtonImages();
         }
 
@@ -158,6 +159,19 @@ namespace BudgetExecution
             try
             {
                 Text = string.Empty;
+            }
+            catch ( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        public void OnExcelButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                using var _data = new DataForm();
+                _data.ShowDialog();
             }
             catch ( Exception ex )
             {

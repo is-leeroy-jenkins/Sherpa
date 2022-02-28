@@ -73,12 +73,6 @@ namespace BudgetExecution
             BudgetButton.Click += SetLabelText;
             BudgetButton.MouseLeave += ClearLabelText;
             Controls.Add( BudgetButton );
-            ToolStip.Office12Mode = true;
-            ToolStip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
-            ToolStip.LauncherStyle = LauncherStyle.Office12;
-            ToolStip.Padding = new Padding( 0 );
-            ToolStip.Margin = new Padding( 1, 1, 1, 1 );
-            ToolStip.ForeColor = Color.Black;
             SetToolStripButtonImages();
         }
 
@@ -122,30 +116,6 @@ namespace BudgetExecution
             var _print = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\PrintButton.png";
             var _excelFile = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\ExcelButton.png";
             var _calculator = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\CalculatorButton.png";
-            FirstRecordToolStripButton.Image = Image.FromFile( _firstRecord );
-            FirstRecordToolStripButton.HoverText = "First Record";
-            PreviousRecordToolStripButton.Image = Image.FromFile( _previousRecord );
-            PreviousRecordToolStripButton.HoverText = "Previous Record";
-            NextRecordToolStripButton.Image = Image.FromFile( _nextRecord );
-            NextRecordToolStripButton.HoverText = "Next Record";
-            LastRecordToolStripButton.Image = Image.FromFile( _lastRecord );
-            LastRecordToolStripButton.HoverText = "Last Record";
-            EditRecordToolStripButton.Image = Image.FromFile( _edit );
-            EditRecordToolStripButton.HoverText = "Edit Record";
-            AddRecordToolStripButton.Image = Image.FromFile( _add );
-            AddRecordToolStripButton.HoverText = "Add Record";
-            DeleteToolStripButton.Image = Image.FromFile( _delete );
-            DeleteToolStripButton.HoverText = "Delete Record";
-            RefreshToolStripButton.Image = Image.FromFile( _refresh );
-            RefreshToolStripButton.HoverText = "Refresh Data";
-            SaveToolStripButton.Image = Image.FromFile( _save );
-            SaveToolStripButton.HoverText = "Refresh Data";
-            PrintToolStripButton.Image = Image.FromFile( _print );
-            PrintToolStripButton.HoverText = "Print Data";
-            ExcelExportToolStripButton.Image = Image.FromFile( _excelFile );
-            ExcelExportToolStripButton.HoverText = "Save Changes";
-            CalculatorToolStripButton.Image = Image.FromFile( _calculator );
-            CalculatorToolStripButton.HoverText = "Launch Calculator";
         }
 
         /// <summary>
