@@ -111,18 +111,18 @@ namespace BudgetExecution
 
         private void SetToolStripButtonImages()
         {
-            var _firstRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\FirstButton.png";
-            var _previousRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\PreviousButton.png";
-            var _nextRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\NextButton.png";
-            var _lastRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\LastButton.png";
-            var _edit = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\EditButton.png";
-            var _add = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\AddButton.png";
-            var _delete = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\DeleteButton.png";
-            var _refresh = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\RefreshButton.png";
-            var _save = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\SaveButton.png";
-            var _print = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\PrintButton.png";
-            var _excelFile = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\ExcelButton.png";
-            var _calculator = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\CalculatorButton.png";
+            var _firstRecord = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\FirstButton.png";
+            var _previousRecord = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\PreviousButton.png";
+            var _nextRecord = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\NextButton.png";
+            var _lastRecord = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\LastButton.png";
+            var _edit = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\EditButton.png";
+            var _add = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\AddButton.png";
+            var _delete = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\DeleteButton.png";
+            var _refresh = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\RefreshButton.png";
+            var _save = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\SaveButton.png";
+            var _print = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\PrintButton.png";
+            var _excelFile = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\ExcelButton.png";
+            var _calculator = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\CalculatorButton.png";
             FirstRecordToolStripButton.Image = Image.FromFile( _firstRecord );
             FirstRecordToolStripButton.HoverText = "First Record";
             PreviousRecordToolStripButton.Image = Image.FromFile( _previousRecord );
