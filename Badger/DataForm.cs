@@ -11,7 +11,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.Tools;
     using static System.IO.Path;
 
     public partial class DataForm : MetroForm
@@ -73,7 +72,6 @@ namespace BudgetExecution
             BudgetButton.Click += SetLabelText;
             BudgetButton.MouseLeave += ClearLabelText;
             Controls.Add( BudgetButton );
-            SetToolStripButtonImages();
         }
 
         /// <summary>
@@ -102,22 +100,6 @@ namespace BudgetExecution
             }
         }
 
-        private void SetToolStripButtonImages()
-        {
-            var _firstRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\FirstButton.png";
-            var _previousRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\PreviousButton.png";
-            var _nextRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\NextButton.png";
-            var _lastRecord = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\LastButton.png";
-            var _edit = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\EditButton.png";
-            var _add = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\AddButton.png";
-            var _delete = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\DeleteButton.png";
-            var _refresh = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\RefreshButton.png";
-            var _save = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\SaveButton.png";
-            var _print = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\PrintButton.png";
-            var _excelFile = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\ExcelButton.png";
-            var _calculator = @"C:\Users\terry\source\repos\BudgetExecution\Badger\Images\ToolBar\png\CalculatorButton.png";
-        }
-
         /// <summary>
         /// Clears the label text.
         /// </summary>
@@ -133,6 +115,29 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        public void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                ToolStrip.FirstButton = ToolFactory.CreateFirstButton();
+                ToolStrip.PreviousButton = ToolFactory.CreatePreviousButton();
+                ToolStrip.NextButton = ToolFactory.CreateNextButton();
+                ToolStrip.LastButton = ToolFactory.CreateLastButton();
+                ToolStrip.EditButton = ToolFactory.CreateEditButton();
+                ToolStrip.DeleteButton = ToolFactory.CreateDeleteButton();
+                ToolStrip.RefreshButton = ToolFactory.CreateRefreshButton();
+                ToolStrip.SaveButton = ToolFactory.CreateSaveButton();
+                ToolStrip.PrintButton = ToolFactory.CreatePrintButton();
+                ToolStrip.ExcelButton = ToolFactory.CreateExcelButton();
+                ToolStrip.CalculatorButton = ToolFactory.CreateCalculatorButton();
+            }
+            catch ( Exception _exception )
+            {
+                Console.WriteLine( _exception );
+                throw;
             }
         }
 

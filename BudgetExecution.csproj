@@ -506,9 +506,6 @@
     <Compile Include="Badger\DataForm.Designer.cs">
       <DependentUpon>DataForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\ToolStrip\BudgetToolButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Badger\ToolStrip\ToolStripButtonBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -700,6 +697,9 @@
     </Compile>
     <Compile Include="Badger\Dialog\Message\Message.Designer.cs">
       <DependentUpon>Message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Badger\ToolStrip\BudgetToolStripButton.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Ninja\Outlays\Commitment.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />

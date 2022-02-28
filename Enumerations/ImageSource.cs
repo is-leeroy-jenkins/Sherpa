@@ -142,6 +142,6 @@ namespace BudgetExecution
         /// <summary>
         /// The tool bar images
         /// </summary>
-        ToolBarImages
+        ToolStripImages
     }
 }

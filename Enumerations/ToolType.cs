@@ -25,6 +25,21 @@ namespace BudgetExecution
         AddButton,
 
         /// <summary>
+        /// The add column button
+        /// </summary>
+        AddColumnButton,
+
+        /// <summary>
+        /// The add record button
+        /// </summary>
+        AddRecordButton,
+
+        /// <summary>
+        /// The home button
+        /// </summary>
+        HomeButton,
+        
+        /// <summary>
         /// The account button
         /// </summary>
         AccountButton,
@@ -113,7 +128,7 @@ namespace BudgetExecution
         /// The copy button
         /// </summary>
         CopyButton,
-
+        
         /// <summary>
         /// The delete column button
         /// </summary>
@@ -127,7 +142,7 @@ namespace BudgetExecution
         /// <summary>
         /// The browse button
         /// </summary>
-        BrowseFolderButton,
+        BrowseButton,
 
         /// <summary>
         /// The data table button

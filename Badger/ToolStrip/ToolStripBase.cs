@@ -60,7 +60,119 @@ namespace BudgetExecution
         /// <summary>
         /// The image path
         /// </summary>
-        public string ImagePath { get; set; } 
+        public virtual string ImagePath { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool strip ComboBox.
+        /// </summary>
+        /// <value>
+        /// The tool strip ComboBox.
+        /// </value>
+        public virtual BudgetToolStripComboBox ToolStripComboBox { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool strip text box.
+        /// </summary>
+        /// <value>
+        /// The tool strip text box.
+        /// </value>
+        public virtual BudgetToolStripTextBox ToolStripTextBox { get; set; }
+
+        /// <summary>
+        /// Gets or sets the first button.
+        /// </summary>
+        /// <value>
+        /// The first button.
+        /// </value>
+        public virtual BudgetToolStripButton FirstButton { get; set; }
+
+        /// <summary>
+        /// Gets or sets the previous button.
+        /// </summary>
+        /// <value>
+        /// The previous button.
+        /// </value>
+        public virtual BudgetToolStripButton PreviousButton { get; set; }
+
+        /// <summary>
+        /// Gets or sets the next button.
+        /// </summary>
+        /// <value>
+        /// The next button.
+        /// </value>
+        public virtual BudgetToolStripButton NextButton { get; set; }
+
+        /// <summary>
+        /// Gets or sets the last button.
+        /// </summary>
+        /// <value>
+        /// The last button.
+        /// </value>
+        public virtual BudgetToolStripButton LastButton { get; set; }
+
+        /// <summary>
+        /// Gets or sets the edit button.
+        /// </summary>
+        /// <value>
+        /// The edit button.
+        /// </value>
+        public virtual BudgetToolStripButton EditButton { get; set; }
+
+        /// <summary>
+        /// Gets or sets the add button.
+        /// </summary>
+        /// <value>
+        /// The add button.
+        /// </value>
+        public virtual BudgetToolStripButton AddButton { get; set; }
+
+        /// <summary>
+        /// Gets or sets the delete button.
+        /// </summary>
+        /// <value>
+        /// The delete button.
+        /// </value>
+        public virtual BudgetToolStripButton DeleteButton { get; set; }
+
+        /// <summary>
+        /// Gets or sets the refresh button.
+        /// </summary>
+        /// <value>
+        /// The refresh button.
+        /// </value>
+        public virtual BudgetToolStripButton RefreshButton { get; set; }
+
+        /// <summary>
+        /// Gets or sets the save button.
+        /// </summary>
+        /// <value>
+        /// The save button.
+        /// </value>
+        public virtual BudgetToolStripButton SaveButton { get; set; }
+
+        /// <summary>
+        /// Gets or sets the print button.
+        /// </summary>
+        /// <value>
+        /// The print button.
+        /// </value>
+        public virtual BudgetToolStripButton PrintButton { get; set; }
+
+        /// <summary>
+        /// Gets or sets the excel button.
+        /// </summary>
+        /// <value>
+        /// The excel button.
+        /// </value>
+        public virtual BudgetToolStripButton ExcelButton { get; set; }
+
+        /// <summary>
+        /// Gets or sets the calculator button.
+        /// </summary>
+        /// <value>
+        /// The calculator button.
+        /// </value>
+        public virtual BudgetToolStripButton CalculatorButton { get; set; }
 
         /// <summary>
         /// Sets the binding source.
@@ -360,7 +472,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _image = new BudgetImage( imageName, ImageSource.ToolBarImages, PicSize.Small );
+                    var _image = new BudgetImage( imageName, ImageSource.ToolStripImages, PicSize.Small );
                     var _button = new BudgetToolStripButton( _image );
                     Items?.Add( _button );
 
@@ -388,11 +500,7 @@ namespace BudgetExecution
             try
             {
                 var _label = new BudgetToolStripLabel();
-                Items?.Add( _label );
-
-                return ( _label?.BindingSource != null && Items?.Count > 0 )
-                    ? _label
-                    : default( BudgetToolStripLabel );
+                return  _label;
             }
             catch( Exception ex )
             {
@@ -411,11 +519,7 @@ namespace BudgetExecution
             try
             {
                 var _comboBox = new BudgetToolStripComboBox();
-                Items?.Add( _comboBox );
-
-                return ( Items?.Count > 0 )
-                    ? _comboBox
-                    : default( BudgetToolStripComboBox );
+                return  _comboBox;
             }
             catch( Exception ex )
             {
@@ -434,16 +538,35 @@ namespace BudgetExecution
             try
             {
                 var _textBox = new BudgetToolStripTextBox();
-                Items?.Add( _textBox );
-
-                return ( Items?.Count > 0 )
-                    ? _textBox
-                    : default( BudgetToolStripTextBox );
+                return _textBox;
             }
             catch( Exception ex )
             {
                 Fail( ex );
                 return default( BudgetToolStripTextBox );
+            }
+        }
+        
+        /// <summary>
+        /// Creates the text box.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public virtual ToolSeparator CreateSeparator()
+        {
+            try
+            {
+                var _separator = new ToolSeparator();
+                Items?.Add( _separator );
+
+                return ( Items?.Count > 0 )
+                    ? _separator
+                    : default( ToolSeparator );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( ToolSeparator );
             }
         }
 

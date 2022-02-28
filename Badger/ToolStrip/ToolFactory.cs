@@ -8,7 +8,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public class ToolFactory
+    public static class ToolFactory
     {
         /// <summary>
         /// Gets or sets the image directory.
@@ -16,13 +16,13 @@
         /// <value>
         /// The image directory.
         /// </value>
-        public NameValueCollection ImageDirectory { get; } = ConfigurationManager.AppSettings;
+        public static NameValueCollection ImageDirectory { get; } = ConfigurationManager.AppSettings;
 
         /// <summary>
         /// Initializes a new instance
         /// of the <see cref="ToolFactory"/> class.
         /// </summary>
-        public ToolFactory()
+        static ToolFactory()
         {
         }
 
@@ -30,7 +30,7 @@
         /// Creates the first record button.
         /// </summary>
         /// <returns></returns>
-        public BudgetToolStripButton CreateFirstRecordButton()
+        public static BudgetToolStripButton CreateFirstButton()
         {
             try
             {
@@ -51,7 +51,7 @@
         /// Creates the previous record button.
         /// </summary>
         /// <returns></returns>
-        public BudgetToolStripButton CreatePreviousRecordButton()
+        public static BudgetToolStripButton CreatePreviousButton()
         {
             try
             {
@@ -72,7 +72,7 @@
         /// Creates the next record button.
         /// </summary>
         /// <returns></returns>
-        public BudgetToolStripButton CreateNextRecordButton()
+        public static BudgetToolStripButton CreateNextButton()
         {
             try
             {
@@ -93,7 +93,7 @@
         /// Creates the last record button.
         /// </summary>
         /// <returns></returns>
-        public BudgetToolStripButton CreateLastRecordButton()
+        public static BudgetToolStripButton CreateLastButton()
         {
             try
             {
@@ -114,7 +114,7 @@
         /// Creates the edit record button.
         /// </summary>
         /// <returns></returns>
-        public BudgetToolStripButton CreateEditRecordButton()
+        public static BudgetToolStripButton CreateEditButton()
         {
             try
             {
@@ -135,7 +135,7 @@
         /// Creates the add record button.
         /// </summary>
         /// <returns></returns>
-        public BudgetToolStripButton CreateAddRecordButton()
+        public static BudgetToolStripButton CreateAddButton()
         {
             try
             {
@@ -156,7 +156,7 @@
         /// Creates the delete record button.
         /// </summary>
         /// <returns></returns>
-        public BudgetToolStripButton CreateDeleteRecordButton()
+        public static BudgetToolStripButton CreateDeleteButton()
         {
             try
             {
@@ -177,7 +177,7 @@
         /// Creates the refresh data button.
         /// </summary>
         /// <returns></returns>
-        public BudgetToolStripButton CreateRefreshDataButton()
+        public static BudgetToolStripButton CreateRefreshButton()
         {
             try
             {
@@ -198,7 +198,7 @@
         /// Creates the save changes button.
         /// </summary>
         /// <returns></returns>
-        public BudgetToolStripButton CreateSaveChangesButton()
+        public static BudgetToolStripButton CreateSaveButton()
         {
             try
             {
@@ -219,7 +219,7 @@
         /// Creates the print data button.
         /// </summary>
         /// <returns></returns>
-        public BudgetToolStripButton CreatePrintDataButton()
+        public static BudgetToolStripButton CreatePrintButton()
         {
             try
             {
@@ -240,7 +240,7 @@
         /// Creates the excel export button.
         /// </summary>
         /// <returns></returns>
-        public BudgetToolStripButton CreateExcelExportButton()
+        public static BudgetToolStripButton CreateExcelButton()
         {
             try
             {
@@ -261,7 +261,7 @@
         /// Creates the calculator button.
         /// </summary>
         /// <returns></returns>
-        public BudgetToolStripButton CreateCalculatorButton()
+        public static BudgetToolStripButton CreateCalculatorButton()
         {
             try
             {
@@ -283,7 +283,7 @@
         /// </summary>
         /// <returns>
         /// </returns>
-        public BudgetToolStripLabel CreateLabel()
+        public static BudgetToolStripLabel CreateLabel()
         {
             try
             {
@@ -302,7 +302,7 @@
         /// </summary>
         /// <returns>
         /// </returns>
-        public BudgetToolStripComboBox CreateComboBox()
+        public static BudgetToolStripComboBox CreateComboBox()
         {
             try
             {
@@ -321,7 +321,7 @@
         /// </summary>
         /// <returns>
         /// </returns>
-        public BudgetToolStripTextBox CreateTextBox()
+        public static BudgetToolStripTextBox CreateTextBox()
         {
             try
             {
@@ -339,7 +339,7 @@
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
+        private static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
             _error?.SetText();

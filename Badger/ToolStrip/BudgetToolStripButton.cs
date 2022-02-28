@@ -14,24 +14,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "UsePatternMatching" ) ]
     [ Serializable ]
-    public class BudgetToolStripButton : ToolButtonBase, IToolStripButton
+    public class BudgetToolStripButton : ToolStripButtonBase, IToolStripButton
     {
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
-        public BindingSource BindingSource { get; set; }
-
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
-        public ToolTip ToolTip { get; set; }
-
         /// <summary>
         /// Initializes a new instance of
         /// the <see cref="BudgetToolStripButton"/> class.

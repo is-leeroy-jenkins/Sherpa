@@ -55,7 +55,7 @@ namespace BudgetExecution
             CaptionTextStyle = CaptionTextStyle.Plain;
             Text = "Budget Execution";
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            Dock = DockStyle.None;
+            Dock = DockStyle.Bottom;
             BorderStyle = ToolStripBorderStyle.StaticEdge;
             CanApplyTheme = true;
             CanOverrideStyle = true;
