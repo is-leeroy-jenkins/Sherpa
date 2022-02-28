@@ -74,9 +74,10 @@ namespace BudgetExecution
             BudgetButton.MouseLeave += ClearLabelText;
             Controls.Add( BudgetButton );
             ToolStip.Office12Mode = true;
-            ToolStip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+            ToolStip.OfficeColorScheme = ToolStripEx.ColorScheme.Blue;
             ToolStip.LauncherStyle = LauncherStyle.Office12;
             ToolStip.Padding = new Padding( 0 );
+            ToolStip.ImageScalingSize = new Size( 20, 20 );
             ToolStip.Margin = new Padding( 1, 1, 1, 1 );
             ToolStip.ForeColor = Color.Black;
             SetToolStripButtonImages();

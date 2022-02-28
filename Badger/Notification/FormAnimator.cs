@@ -111,7 +111,7 @@ namespace BudgetExecution
         /// <remarks>
         /// <b>Roll</b> is used by default if no method is specified
         /// </remarks>
-        public AnimationMethod Method { get; set;  }
+        public AnimationMethod Method { get; set; }
 
         /// <summary>
         /// Gets or Sets the direction in which the animation is performed
@@ -156,9 +156,9 @@ namespace BudgetExecution
         public FormAnimator( Form form )
         {
             Form = form;
-            Form.Load += OnLoad;
-            Form.VisibleChanged += OnVisibleChanged;
-            Form.Closing += OnClosing;
+            Form.Load += Form_Load;
+            Form.VisibleChanged += Form_VisibleChanged;
+            Form.Closing += Form_Closing;
             Duration = DefaultDuration;
         }
 
@@ -181,7 +181,7 @@ namespace BudgetExecution
         /// <b>Slide</b> methods unless the
         /// <b>Direction</b> property is set independently
         /// </remarks>
-        public FormAnimator( Form form, AnimationMethod method = AnimationMethod.Slide, int duration = 500 )
+        public FormAnimator( Form form, AnimationMethod method, int duration )
             : this( form )
         {
             Method = method;
@@ -208,19 +208,17 @@ namespace BudgetExecution
         /// The <i>direction</i> argument will have no effect if the <b>Center</b> or <b>Fade</b> method is
         /// specified
         /// </remarks>
-        public FormAnimator( Form form, AnimationMethod method = AnimationMethod.Slide, 
-            AnimationDirection direction = AnimationDirection.Left, int duration = 500 )
+        public FormAnimator( Form form, AnimationMethod method, AnimationDirection direction,
+            int duration )
             : this( form, method, duration )
         {
-            Method = method;
             Direction = direction;
-            Duration = duration;
         }
 
         /// <summary>
         /// Animates the form automatically when it is loaded
         /// </summary>
-        private void OnLoad( object sender, EventArgs e )
+        private void Form_Load( object sender, EventArgs e )
         {
             if ( Form.MdiParent == null
                 || Method != AnimationMethod.Fade )
@@ -233,29 +231,29 @@ namespace BudgetExecution
         /// <summary>
         /// Animates the form automatically when it is shown or hidden
         /// </summary>
-        private void OnVisibleChanged( object sender, EventArgs e )
+        private void Form_VisibleChanged( object sender, EventArgs e )
         {
             if( Form.MdiParent == null )
             {
-                var _flags = (int)Method | (int)Direction;
+                var flags = (int)Method | (int)Direction;
 
                 if ( Form.Visible )
                 {
-                    _flags |= AwActivate;
+                    flags = flags | AwActivate;
                 }
                 else
                 {
-                    _flags |= AwHide;
+                    flags = flags | AwHide;
                 }
 
-                NativeMethods.AnimateWindow( Form.Handle, Duration, _flags );
+                NativeMethods.AnimateWindow( Form.Handle, Duration, flags );
             }
         }
 
         /// <summary>
         /// Animates the form automatically when it closes
         /// </summary>
-        private void OnClosing( object sender, CancelEventArgs e )
+        private void Form_Closing( object sender, CancelEventArgs e )
         {
             if( !e.Cancel )
             {

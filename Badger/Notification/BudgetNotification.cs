@@ -12,27 +12,60 @@ namespace BudgetExecution
     using DocumentFormat.OpenXml.Drawing.Diagrams;
     using Point = System.Drawing.Point;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     public partial class BudgetNotification : MetroForm
     {
+        /// <summary>
+        /// The open notifications
+        /// </summary>
         public static readonly List<BudgetNotification> OpenNotifications = new List<BudgetNotification>();
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [allow focus].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [allow focus]; otherwise, <c>false</c>.
+        /// </value>
         public bool AllowFocus { get; set; }
 
+        /// <summary>
+        /// Gets the animator.
+        /// </summary>
+        /// <value>
+        /// The animator.
+        /// </value>
         public FormAnimator Animator { get; }
 
+        /// <summary>
+        /// The current foreground window
+        /// </summary>
         private IntPtr _currentForegroundWindow;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BudgetNotification"/> class.
+        /// </summary>
         public BudgetNotification()
         {
         }
-        
-        public BudgetNotification( string title, string body, int duration = 3,
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BudgetNotification"/> class.
+        /// </summary>
+        /// <param name="title">The title.</param>
+        /// <param name="body">The body.</param>
+        /// <param name="duration">The duration.</param>
+        /// <param name="animation">The animation.</param>
+        /// <param name="direction">The direction.</param>
+        public BudgetNotification( string title, string body, int duration = 2,
             FormAnimator.AnimationMethod animation = FormAnimator.AnimationMethod.Slide,
             FormAnimator.AnimationDirection direction = FormAnimator.AnimationDirection.Left )
             : this()
         {
             InitializeComponent();
-            BackColor = Color.FromArgb( 18, 18, 18 );
+            BackColor = Color.FromArgb( 10, 10, 10 );
             Load += OnLoad;
             Timer.Interval = duration * 1000;
             Title.Text = title;
@@ -48,6 +81,9 @@ namespace BudgetExecution
             Timer.Tick += OnTimerTick;
         }
 
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show()
         {
             _currentForegroundWindow = NativeMethods.GetForegroundWindow();
@@ -55,6 +91,11 @@ namespace BudgetExecution
             base.Show();
         }
 
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             Location = new Point( Screen.PrimaryScreen.WorkingArea.Width - Width, 
@@ -69,6 +110,11 @@ namespace BudgetExecution
             Timer.Start();
         }
 
+        /// <summary>
+        /// Called when [activated].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnActivated( object sender, EventArgs e )
         {
             if( !AllowFocus )
@@ -77,13 +123,23 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnShown( object sender, EventArgs e )
         {
             AllowFocus = true;
-            Animator.Duration = 0;
+            Animator.Duration = 1500;
             Animator.Direction = FormAnimator.AnimationDirection.Down;
         }
 
+        /// <summary>
+        /// Called when [closed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="FormClosedEventArgs"/> instance containing the event data.</param>
         private void OnClosed( object sender, FormClosedEventArgs e )
         {
             foreach( var _openForm in OpenNotifications )
@@ -99,11 +155,19 @@ namespace BudgetExecution
             OpenNotifications.Remove( this );
         }
 
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnTimerTick( object sender, EventArgs e )
         {
             Close();
         }
 
+        /// <summary>
+        /// Notifications the close.
+        /// </summary>
         public void NotificationClose()
         {
             Close();

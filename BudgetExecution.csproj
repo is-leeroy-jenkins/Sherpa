@@ -482,12 +482,6 @@
     <Compile Include="Badger\Dialog\Column\ColumnConfiguration.Designer.cs">
       <DependentUpon>ColumnConfiguration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Badger\Dialog\Message\Message.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Badger\Dialog\Message\Message.Designer.cs">
-      <DependentUpon>Message.cs</DependentUpon>
-    </Compile>
     <Compile Include="Badger\Design\ChartConfiguration.cs" />
     <Compile Include="Badger\Design\BudgetSetting.cs" />
     <Compile Include="Badger\Binding\BindingBase.cs">
@@ -647,7 +641,7 @@
     <Compile Include="Badger\Navigation\BudgetNavigationMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badger\Splash\BudgetSplashNotification.cs">
+    <Compile Include="Badger\Splash\BudgetSplashControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Badger\Carousel\BudgetCarousel.cs">
@@ -701,6 +695,12 @@
       <DependentUpon>BudgetNotification.cs</DependentUpon>
     </Compile>
     <Compile Include="Badger\Notification\NativeMethods.cs" />
+    <Compile Include="Badger\Dialog\Message\Message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Badger\Dialog\Message\Message.Designer.cs">
+      <DependentUpon>Message.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ninja\Outlays\Commitment.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
@@ -1097,9 +1097,6 @@
     <EmbeddedResource Include="Badger\Dialog\Error\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Badger\Dialog\Message\Message.resx">
-      <DependentUpon>Message.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Badger\Main\BadgerMain.resx">
       <DependentUpon>BadgerMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -1145,6 +1142,9 @@
     <EmbeddedResource Include="Badger\Notification\BudgetNotification.resx">
       <DependentUpon>BudgetNotification.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Badger\Dialog\Message\Message.resx">
+      <DependentUpon>Message.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

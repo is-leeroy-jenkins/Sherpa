@@ -22,8 +22,8 @@ namespace BudgetExecution
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";
             Style = Style.Custom;
-            BackColor = Color.FromArgb( 18, 18, 18 );
-            BorderColor = Color.SteelBlue;
+            BackColor = Color.FromArgb( 5, 5, 5 );
+            BorderColor = SystemColors.Highlight;
             ForeColor = Color.White;
             UseAnimation = true;
             UseFading = true;
@@ -40,10 +40,13 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="control">The control.</param>
         /// <param name="text">The text.</param>
-        public ToolTip( Control control, string text )
+        /// <param name = "title" > </param>
+        public ToolTip( Control control, string text, string title = "" )
             : this()
         {
-            SetToolTipText( control, text );
+            TipTitle = title;
+            TipText = text;
+            SetToolTipText( control, TipText );
         }
 
         /// <summary>
@@ -52,9 +55,12 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="component">The component.</param>
         /// <param name="text">The text.</param>
-        public ToolTip( Component component, string text )
+        /// <param name = "title" > </param>
+        public ToolTip( Component component, string text, string title = "" )
             : this()
         {
+            TipTitle = title;
+            TipText = text;
             SetToolTipText( component, text );
         }
 

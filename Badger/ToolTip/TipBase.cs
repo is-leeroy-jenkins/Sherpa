@@ -38,6 +38,14 @@ namespace BudgetExecution
         public virtual string TipTitle { get; set; }
 
         /// <summary>
+        /// Gets or sets the tip text.
+        /// </summary>
+        /// <value>
+        /// The tip title.
+        /// </value>
+        public virtual string TipText { get; set; }
+
+        /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>

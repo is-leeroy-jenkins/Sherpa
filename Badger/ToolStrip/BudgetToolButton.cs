@@ -186,7 +186,7 @@ namespace BudgetExecution
 
                         case ToolType.PdfButton:
                         {
-                            using var _message = new BudgetFileBrowser();
+                            using var _message = new Message();
                             _message?.ShowDialog();
                             break;
                         }

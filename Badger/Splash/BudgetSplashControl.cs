@@ -7,13 +7,14 @@ namespace BudgetExecution
     using System;
     using System.Drawing;
     using System.Windows.Forms;
+    using DocumentFormat.OpenXml.Bibliography;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Tools;
 
-    public class BudgetSplashNotification : SplashBase
+    public class BudgetSplashControl : SplashBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetSplashNotification"/> class.
+        /// Initializes a new instance of the <see cref="BudgetSplashControl"/> class.
         /// </summary>
         /// <remarks>
         /// The default value for the
@@ -22,7 +23,7 @@ namespace BudgetExecution
         /// The splash panel has animation turned and by default will appear in the
         /// middle of the screen.
         /// </remarks>
-        public BudgetSplashNotification()
+        public BudgetSplashControl()
         {
             BackColor = Color.FromArgb( 18, 18, 18 );
             ForeColor = Color.White;
@@ -41,7 +42,6 @@ namespace BudgetExecution
             AnimationDirection = AnimationDirection.Default;
             DesktopAlignment = SplashAlignment.Center;
             DiscreetLocation = new Point( 0, 0 );
-            Location = new Point( 16, 16 );
             SuspendAutoCloseWhenMouseOver = false;
             TabIndex = 0;
             TimerInterval = 5000;
@@ -51,10 +51,16 @@ namespace BudgetExecution
             SlideStyle = SlideStyle.FadeIn;
         }
 
-        public BudgetSplashNotification( string message ) 
+        public BudgetSplashControl( string message ) 
             : this()
         {
             Text = message;
+        }
+
+        public BudgetSplashControl( ToolTip toolTip )
+            : this()
+        {
+            Text = toolTip.TipTitle;
         }
 
         /// <summary>
