@@ -63,12 +63,20 @@ namespace BudgetExecution
         public virtual string ImagePath { get; set; }
 
         /// <summary>
+        /// Gets or sets the separator.
+        /// </summary>
+        /// <value>
+        /// The separator.
+        /// </value>
+        public ToolSeparator Separator { get; set; } 
+
+        /// <summary>
         /// Gets or sets the tool strip ComboBox.
         /// </summary>
         /// <value>
         /// The tool strip ComboBox.
         /// </value>
-        public BudgetToolStripComboBox ToolStripComboBox { get; set; } = ToolFactory.CreateComboBox();
+        public BudgetToolStripComboBox ToolStripComboBox { get; set; }
 
         /// <summary>
         /// Gets or sets the tool strip text box.
@@ -76,7 +84,7 @@ namespace BudgetExecution
         /// <value>
         /// The tool strip text box.
         /// </value>
-        public BudgetToolStripTextBox ToolStripTextBox { get; set; } = ToolFactory.CreateTextBox();
+        public BudgetToolStripTextBox ToolStripTextBox { get; set; }
 
         /// <summary>
         /// Gets or sets the first button.
@@ -84,7 +92,7 @@ namespace BudgetExecution
         /// <value>
         /// The first button.
         /// </value>
-        public BudgetToolStripButton FirstButton { get; set; } = ToolFactory.CreateFirstButton();
+        public BudgetToolStripButton FirstButton { get; set; }
 
         /// <summary>
         /// Gets or sets the previous button.
@@ -92,7 +100,7 @@ namespace BudgetExecution
         /// <value>
         /// The previous button.
         /// </value>
-        public BudgetToolStripButton PreviousButton { get; set; } = ToolFactory.CreatePreviousButton();
+        public BudgetToolStripButton PreviousButton { get; set; }
 
         /// <summary>
         /// Gets or sets the next button.
@@ -100,7 +108,7 @@ namespace BudgetExecution
         /// <value>
         /// The next button.
         /// </value>
-        public BudgetToolStripButton NextButton { get; set; } = ToolFactory.CreateNextButton();
+        public BudgetToolStripButton NextButton { get; set; }
 
         /// <summary>
         /// Gets or sets the last button.
@@ -108,7 +116,7 @@ namespace BudgetExecution
         /// <value>
         /// The last button.
         /// </value>
-        public BudgetToolStripButton LastButton { get; set; } = ToolFactory.CreateLastButton();
+        public BudgetToolStripButton LastButton { get; set; }
 
         /// <summary>
         /// Gets or sets the edit button.
@@ -116,7 +124,7 @@ namespace BudgetExecution
         /// <value>
         /// The edit button.
         /// </value>
-        public BudgetToolStripButton EditButton { get; set; } = ToolFactory.CreateEditButton();
+        public BudgetToolStripButton EditButton { get; set; }
 
         /// <summary>
         /// Gets or sets the add button.
@@ -124,7 +132,7 @@ namespace BudgetExecution
         /// <value>
         /// The add button.
         /// </value>
-        public BudgetToolStripButton AddButton { get; set; } = ToolFactory.CreateAddButton();
+        public BudgetToolStripButton AddButton { get; set; }
 
         /// <summary>
         /// Gets or sets the delete button.
@@ -132,7 +140,7 @@ namespace BudgetExecution
         /// <value>
         /// The delete button.
         /// </value>
-        public BudgetToolStripButton DeleteButton { get; set; } = ToolFactory.CreateDeleteButton();
+        public BudgetToolStripButton DeleteButton { get; set; }
 
         /// <summary>
         /// Gets or sets the refresh button.
@@ -140,7 +148,7 @@ namespace BudgetExecution
         /// <value>
         /// The refresh button.
         /// </value>
-        public BudgetToolStripButton RefreshButton { get; set; } = ToolFactory.CreateRefreshButton();
+        public BudgetToolStripButton RefreshButton { get; set; }
 
         /// <summary>
         /// Gets or sets the save button.
@@ -148,7 +156,7 @@ namespace BudgetExecution
         /// <value>
         /// The save button.
         /// </value>
-        public BudgetToolStripButton SaveButton { get; set; } = ToolFactory.CreateSaveButton();
+        public BudgetToolStripButton SaveButton { get; set; }
 
         /// <summary>
         /// Gets or sets the print button.
@@ -156,7 +164,7 @@ namespace BudgetExecution
         /// <value>
         /// The print button.
         /// </value>
-        public BudgetToolStripButton PrintButton { get; set; } = ToolFactory.CreatePrintButton();
+        public BudgetToolStripButton PrintButton { get; set; }
 
         /// <summary>
         /// Gets or sets the excel button.
@@ -164,7 +172,7 @@ namespace BudgetExecution
         /// <value>
         /// The excel button.
         /// </value>
-        public BudgetToolStripButton ExcelButton { get; set; } = ToolFactory.CreateExcelButton();
+        public BudgetToolStripButton ExcelButton { get; set; }
 
         /// <summary>
         /// Gets or sets the calculator button.
@@ -172,7 +180,30 @@ namespace BudgetExecution
         /// <value>
         /// The calculator button.
         /// </value>
-        public BudgetToolStripButton CalculatorButton { get; set; } = ToolFactory.CreateCalculatorButton();
+        public BudgetToolStripButton CalculatorButton { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="ToolStripBase"/> class.
+        /// </summary>
+        public ToolStripBase()
+        {
+            Separator = ToolFactory.CreateSeparator();
+            ToolStripComboBox = ToolFactory.CreateComboBox();
+            ToolStripTextBox = ToolFactory.CreateTextBox();
+            FirstButton = ToolFactory.CreateFirstButton();
+            PreviousButton = ToolFactory.CreatePreviousButton();
+            NextButton = ToolFactory.CreateNextButton();
+            LastButton = ToolFactory.CreateLastButton();
+            EditButton = ToolFactory.CreateEditButton();
+            AddButton = ToolFactory.CreateAddButton();
+            DeleteButton = ToolFactory.CreateDeleteButton();
+            RefreshButton = ToolFactory.CreateRefreshButton();
+            SaveButton = ToolFactory.CreateSaveButton();
+            PrintButton = ToolFactory.CreatePrintButton();
+            ExcelButton = ToolFactory.CreateExcelButton();
+            CalculatorButton = ToolFactory.CreateCalculatorButton();
+        }
 
         /// <summary>
         /// Sets the binding source.

@@ -75,34 +75,6 @@ namespace BudgetExecution
             ThemeStyle.ComboBoxStyle.HoverBorderColor = Color.SteelBlue;
             ThemeStyle.HoverItemBackColor = Color.SteelBlue;
             ThemeStyle.HoverItemForeColor = Color.White;
-            Items.Add( ToolFactory.CreateSeparator() );
-            Items.Add( ToolFactory.CreateLabel() );
-            Items.Add( ToolFactory.CreateSeparator() );
-            Items.Add( ToolFactory.CreateSeparator() );
-            Items.Add( ToolFactory.CreateComboBox() );
-            Items.Add( ToolFactory.CreateSeparator() );
-            Items.Add( FirstButton );
-            Items.Add( ToolFactory.CreateSeparator() );
-            Items.Add( PreviousButton );
-            Items.Add( ToolFactory.CreateSeparator() );
-            Items.Add( NextButton );
-            Items.Add( ToolFactory.CreateSeparator() );
-            Items.Add( LastButton );
-            Items.Add( ToolFactory.CreateSeparator() );
-            Items.Add( EditButton );
-            Items.Add( ToolFactory.CreateSeparator() );
-            Items.Add( DeleteButton );
-            Items.Add( ToolFactory.CreateSeparator() );
-            Items.Add( RefreshButton );
-            Items.Add( ToolFactory.CreateSeparator() );
-            Items.Add( SaveButton );
-            Items.Add( ToolFactory.CreateSeparator() );
-            Items.Add( PrintButton );
-            Items.Add( ToolFactory.CreateSeparator() );
-            Items.Add( ExcelButton );
-            Items.Add( ToolFactory.CreateSeparator() );
-            Items.Add( CalculatorButton );
-            Items.Add( ToolFactory.CreateSeparator() );
             Buttons = null;
         }
         
@@ -134,7 +106,50 @@ namespace BudgetExecution
 
             return default( IDictionary<string, BudgetToolStripButton> );
         }
-       
+
+        public void PopulateItems()
+        {
+            try
+            {
+                if( Items?.Count > 0 )
+                {
+                    Items.Clear();
+                }
+
+                Items.Add( Separator );
+                Items.Add( ToolStripComboBox );
+                Items.Add( Separator );
+                Items.Add( ToolStripTextBox );
+                Items.Add( Separator );
+                Items.Add( FirstButton );
+                Items.Add( Separator );
+                Items.Add( PreviousButton );
+                Items.Add( Separator );
+                Items.Add( NextButton );
+                Items.Add( Separator );
+                Items.Add( LastButton );
+                Items.Add( Separator );
+                Items.Add( EditButton );
+                Items.Add( Separator );
+                Items.Add( DeleteButton );
+                Items.Add( Separator );
+                Items.Add( RefreshButton );
+                Items.Add( Separator );
+                Items.Add( SaveButton );
+                Items.Add( Separator );
+                Items.Add( PrintButton );
+                Items.Add( Separator );
+                Items.Add( ExcelButton );
+                Items.Add( Separator );
+                Items.Add( CalculatorButton );
+                Items.Add( Separator );
+            }
+            catch ( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Creates the text box.
         /// </summary>

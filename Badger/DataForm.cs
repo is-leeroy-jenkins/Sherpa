@@ -78,7 +78,8 @@ namespace BudgetExecution
         /// Sets the label text.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void SetLabelText( object sender, EventArgs e )
         {
             if( sender is BudgetButton _button )
@@ -99,7 +100,7 @@ namespace BudgetExecution
                 }
             }
         }
-
+        
         /// <summary>
         /// Clears the label text.
         /// </summary>
