@@ -19,6 +19,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "IsExpressionAlwaysTrue" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     public abstract class TipBase : MetroSetSetToolTip
     {
         /// <summary>
@@ -68,7 +69,7 @@ namespace BudgetExecution
         /// The field.
         /// </value>
         public virtual Field Field { get; set; }
-        
+
         /// <summary>
         /// Sets the animation.
         /// </summary>

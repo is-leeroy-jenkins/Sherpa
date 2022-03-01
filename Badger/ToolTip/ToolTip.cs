@@ -31,7 +31,6 @@ namespace BudgetExecution
             InitialDelay = 500;
             AutoPopDelay = 5000;
             ReshowDelay = 100;
-            TipTitle = "Budget Execution";
         }
 
         /// <summary>

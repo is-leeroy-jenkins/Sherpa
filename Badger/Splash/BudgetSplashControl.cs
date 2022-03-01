@@ -29,15 +29,15 @@ namespace BudgetExecution
             ForeColor = Color.White;
             Font = new Font( "Roboto", 9 );
             Size = new Size( 300, 150 );
-            BorderStyle = Border3DStyle.Flat;
-            BorderType = SplashBorderType.None;
+            BorderStyle = Border3DStyle.Etched;
+            BorderType = SplashBorderType.Border3D;
 
-            BackgroundColor = new BrushInfo( GradientStyle.None, Color.FromArgb( 18, 18, 18 ), 
-                Color.FromArgb( 18, 18, 18 ) );
+            BackgroundColor = new BrushInfo( GradientStyle.PathEllipse, Color.FromArgb( 18, 18, 18 ), 
+                Color.FromArgb( 45, 45, 45 ) );
 
             ShowAnimation = true;
             ShowAsTopMost = true;
-            AnimationSpeed = 10;
+            AnimationSpeed = 20;
             AnimationSteps = 3;
             AnimationDirection = AnimationDirection.Default;
             DesktopAlignment = SplashAlignment.Center;
@@ -60,7 +60,14 @@ namespace BudgetExecution
         public BudgetSplashControl( ToolTip toolTip )
             : this()
         {
-            Text = toolTip.TipTitle;
+            Text = toolTip.TipText;
+        }
+
+        public BudgetSplashControl( Control control, string message )
+            : this()
+        {
+            Parent = control;
+            Text = message;
         }
 
         /// <summary>

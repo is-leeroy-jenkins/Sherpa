@@ -19,6 +19,7 @@ namespace BudgetExecution
             CloseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             OpenButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             CloseButton.Click += OnCloseButtonClicked;
+            OpenButton.Click += OnOpenButtonClick;
         }
 
         /// <summary>
@@ -45,6 +46,22 @@ namespace BudgetExecution
                     Close();
                 }
                 catch ( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        public virtual void OnOpenButtonClick( object sender, EventArgs e )
+        {
+            if( sender is BudgetButton _button )
+            {
+                try
+                {
+                    var _splash = new BudgetSplashControl( "This is a test of the splash control!" );
+                    _splash.ShowSplash();
+                }
+                catch( Exception ex )
                 {
                     Fail( ex );
                 }
