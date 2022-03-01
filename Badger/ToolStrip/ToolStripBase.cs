@@ -68,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The tool strip ComboBox.
         /// </value>
-        public virtual BudgetToolStripComboBox ToolStripComboBox { get; set; }
+        public BudgetToolStripComboBox ToolStripComboBox { get; set; } = ToolFactory.CreateComboBox();
 
         /// <summary>
         /// Gets or sets the tool strip text box.
@@ -76,7 +76,7 @@ namespace BudgetExecution
         /// <value>
         /// The tool strip text box.
         /// </value>
-        public virtual BudgetToolStripTextBox ToolStripTextBox { get; set; }
+        public BudgetToolStripTextBox ToolStripTextBox { get; set; } = ToolFactory.CreateTextBox();
 
         /// <summary>
         /// Gets or sets the first button.
@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// <value>
         /// The first button.
         /// </value>
-        public virtual BudgetToolStripButton FirstButton { get; set; }
+        public BudgetToolStripButton FirstButton { get; set; } = ToolFactory.CreateFirstButton();
 
         /// <summary>
         /// Gets or sets the previous button.
@@ -92,7 +92,7 @@ namespace BudgetExecution
         /// <value>
         /// The previous button.
         /// </value>
-        public virtual BudgetToolStripButton PreviousButton { get; set; }
+        public BudgetToolStripButton PreviousButton { get; set; } = ToolFactory.CreatePreviousButton();
 
         /// <summary>
         /// Gets or sets the next button.
@@ -100,7 +100,7 @@ namespace BudgetExecution
         /// <value>
         /// The next button.
         /// </value>
-        public virtual BudgetToolStripButton NextButton { get; set; }
+        public BudgetToolStripButton NextButton { get; set; } = ToolFactory.CreateNextButton();
 
         /// <summary>
         /// Gets or sets the last button.
@@ -108,7 +108,7 @@ namespace BudgetExecution
         /// <value>
         /// The last button.
         /// </value>
-        public virtual BudgetToolStripButton LastButton { get; set; }
+        public BudgetToolStripButton LastButton { get; set; } = ToolFactory.CreateLastButton();
 
         /// <summary>
         /// Gets or sets the edit button.
@@ -116,7 +116,7 @@ namespace BudgetExecution
         /// <value>
         /// The edit button.
         /// </value>
-        public virtual BudgetToolStripButton EditButton { get; set; }
+        public BudgetToolStripButton EditButton { get; set; } = ToolFactory.CreateEditButton();
 
         /// <summary>
         /// Gets or sets the add button.
@@ -124,7 +124,7 @@ namespace BudgetExecution
         /// <value>
         /// The add button.
         /// </value>
-        public virtual BudgetToolStripButton AddButton { get; set; }
+        public BudgetToolStripButton AddButton { get; set; } = ToolFactory.CreateAddButton();
 
         /// <summary>
         /// Gets or sets the delete button.
@@ -132,7 +132,7 @@ namespace BudgetExecution
         /// <value>
         /// The delete button.
         /// </value>
-        public virtual BudgetToolStripButton DeleteButton { get; set; }
+        public BudgetToolStripButton DeleteButton { get; set; } = ToolFactory.CreateDeleteButton();
 
         /// <summary>
         /// Gets or sets the refresh button.
@@ -140,7 +140,7 @@ namespace BudgetExecution
         /// <value>
         /// The refresh button.
         /// </value>
-        public virtual BudgetToolStripButton RefreshButton { get; set; }
+        public BudgetToolStripButton RefreshButton { get; set; } = ToolFactory.CreateRefreshButton();
 
         /// <summary>
         /// Gets or sets the save button.
@@ -148,7 +148,7 @@ namespace BudgetExecution
         /// <value>
         /// The save button.
         /// </value>
-        public virtual BudgetToolStripButton SaveButton { get; set; }
+        public BudgetToolStripButton SaveButton { get; set; } = ToolFactory.CreateSaveButton();
 
         /// <summary>
         /// Gets or sets the print button.
@@ -156,7 +156,7 @@ namespace BudgetExecution
         /// <value>
         /// The print button.
         /// </value>
-        public virtual BudgetToolStripButton PrintButton { get; set; }
+        public BudgetToolStripButton PrintButton { get; set; } = ToolFactory.CreatePrintButton();
 
         /// <summary>
         /// Gets or sets the excel button.
@@ -164,7 +164,7 @@ namespace BudgetExecution
         /// <value>
         /// The excel button.
         /// </value>
-        public virtual BudgetToolStripButton ExcelButton { get; set; }
+        public BudgetToolStripButton ExcelButton { get; set; } = ToolFactory.CreateExcelButton();
 
         /// <summary>
         /// Gets or sets the calculator button.
@@ -172,7 +172,7 @@ namespace BudgetExecution
         /// <value>
         /// The calculator button.
         /// </value>
-        public virtual BudgetToolStripButton CalculatorButton { get; set; }
+        public BudgetToolStripButton CalculatorButton { get; set; } = ToolFactory.CreateCalculatorButton();
 
         /// <summary>
         /// Sets the binding source.
@@ -455,118 +455,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Creates the button.
-        /// </summary>
-        /// <param name = "imageName" >
-        /// The name.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public virtual BudgetToolStripButton CreateButton( string imageName )
-        {
-            if( Verify.IsInput( imageName ) )
-            {
-                try
-                {
-                    var _image = new BudgetImage( imageName, ImageSource.ToolStripImages, PicSize.Small );
-                    var _button = new BudgetToolStripButton( _image );
-                    Items?.Add( _button );
-
-                    return Items?.Count > 0
-                        ? _button
-                        : default( BudgetToolStripButton );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( BudgetToolStripButton );
-                }
-            }
-
-            return default( BudgetToolStripButton );
-        }
-
-        /// <summary>
-        /// Creates the label.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public virtual BudgetToolStripLabel CreateLabel()
-        {
-            try
-            {
-                var _label = new BudgetToolStripLabel();
-                return  _label;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( BudgetToolStripLabel );
-            }
-        }
-
-        /// <summary>
-        /// Creates the ComboBox.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public virtual BudgetToolStripComboBox CreateComboBox()
-        {
-            try
-            {
-                var _comboBox = new BudgetToolStripComboBox();
-                return  _comboBox;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( BudgetToolStripComboBox );
-            }
-        }
-
-        /// <summary>
-        /// Creates the text box.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public virtual BudgetToolStripTextBox CreateTextBox()
-        {
-            try
-            {
-                var _textBox = new BudgetToolStripTextBox();
-                return _textBox;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( BudgetToolStripTextBox );
-            }
-        }
-        
-        /// <summary>
-        /// Creates the text box.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public virtual ToolSeparator CreateSeparator()
-        {
-            try
-            {
-                var _separator = new ToolSeparator();
-                Items?.Add( _separator );
-
-                return ( Items?.Count > 0 )
-                    ? _separator
-                    : default( ToolSeparator );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( ToolSeparator );
             }
         }
 

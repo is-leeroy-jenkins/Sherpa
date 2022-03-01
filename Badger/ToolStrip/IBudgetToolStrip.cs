@@ -15,38 +15,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns></returns>
         IDictionary<string, BudgetToolStripButton> GetButtons();
-
-        /// <summary>
-        /// Creates the button.
-        /// </summary>
-        /// <param name = "imageName" >
-        /// The name.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        BudgetToolStripButton CreateButton( string imageName );
-
-        /// <summary>
-        /// Creates the label.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        BudgetToolStripLabel CreateLabel();
-
-        /// <summary>
-        /// Creates the ComboBox.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        BudgetToolStripComboBox CreateComboBox();
-
-        /// <summary>
-        /// Creates the text box.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        BudgetToolStripTextBox CreateTextBox();
-
+     
         /// <summary>
         /// Sets the field.
         /// </summary>

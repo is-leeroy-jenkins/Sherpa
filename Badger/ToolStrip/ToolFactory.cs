@@ -8,7 +8,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public static class ToolFactory
+    public class ToolFactory
     {
         /// <summary>
         /// Gets or sets the image directory.
@@ -22,8 +22,22 @@
         /// Initializes a new instance
         /// of the <see cref="ToolFactory"/> class.
         /// </summary>
-        static ToolFactory()
+        public ToolFactory()
         {
+        }
+        
+        public static ToolSeparator CreateSeparator()
+        {
+            try
+            {
+                var _separator = new ToolSeparator();
+                return _separator;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( ToolSeparator );
+            }
         }
 
         /// <summary>

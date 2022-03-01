@@ -75,6 +75,34 @@ namespace BudgetExecution
             ThemeStyle.ComboBoxStyle.HoverBorderColor = Color.SteelBlue;
             ThemeStyle.HoverItemBackColor = Color.SteelBlue;
             ThemeStyle.HoverItemForeColor = Color.White;
+            Items.Add( ToolFactory.CreateSeparator() );
+            Items.Add( ToolFactory.CreateLabel() );
+            Items.Add( ToolFactory.CreateSeparator() );
+            Items.Add( ToolFactory.CreateSeparator() );
+            Items.Add( ToolFactory.CreateComboBox() );
+            Items.Add( ToolFactory.CreateSeparator() );
+            Items.Add( FirstButton );
+            Items.Add( ToolFactory.CreateSeparator() );
+            Items.Add( PreviousButton );
+            Items.Add( ToolFactory.CreateSeparator() );
+            Items.Add( NextButton );
+            Items.Add( ToolFactory.CreateSeparator() );
+            Items.Add( LastButton );
+            Items.Add( ToolFactory.CreateSeparator() );
+            Items.Add( EditButton );
+            Items.Add( ToolFactory.CreateSeparator() );
+            Items.Add( DeleteButton );
+            Items.Add( ToolFactory.CreateSeparator() );
+            Items.Add( RefreshButton );
+            Items.Add( ToolFactory.CreateSeparator() );
+            Items.Add( SaveButton );
+            Items.Add( ToolFactory.CreateSeparator() );
+            Items.Add( PrintButton );
+            Items.Add( ToolFactory.CreateSeparator() );
+            Items.Add( ExcelButton );
+            Items.Add( ToolFactory.CreateSeparator() );
+            Items.Add( CalculatorButton );
+            Items.Add( ToolFactory.CreateSeparator() );
             Buttons = null;
         }
         
@@ -105,6 +133,42 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, BudgetToolStripButton> );
+        }
+       
+        /// <summary>
+        /// Creates the text box.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public virtual void AddTextBox()
+        {
+            try
+            {
+                var _textBox = new BudgetToolStripTextBox();
+                Items?.Add( _textBox );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
+        /// Creates the text box.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public virtual void AddSeparator()
+        {
+            try
+            {
+                var _separator = new ToolSeparator();
+                Items?.Add( _separator );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
     }
 }

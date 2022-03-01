@@ -430,3 +430,4 @@ C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.pdb
 C:\Users\terry\source\repos\BudgetExecution\obj\Debug\BudgetExecution.DataForm.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.DataForm.resources
 C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.BudgetNotification.resources
+C:\Users\teppler\source\repos\BudgetExecution\obj\Debug\BudgetExecution.csproj.AssemblyReference.cache

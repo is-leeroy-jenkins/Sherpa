@@ -117,30 +117,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
-        public void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-                ToolStrip.FirstButton = ToolFactory.CreateFirstButton();
-                ToolStrip.PreviousButton = ToolFactory.CreatePreviousButton();
-                ToolStrip.NextButton = ToolFactory.CreateNextButton();
-                ToolStrip.LastButton = ToolFactory.CreateLastButton();
-                ToolStrip.EditButton = ToolFactory.CreateEditButton();
-                ToolStrip.DeleteButton = ToolFactory.CreateDeleteButton();
-                ToolStrip.RefreshButton = ToolFactory.CreateRefreshButton();
-                ToolStrip.SaveButton = ToolFactory.CreateSaveButton();
-                ToolStrip.PrintButton = ToolFactory.CreatePrintButton();
-                ToolStrip.ExcelButton = ToolFactory.CreateExcelButton();
-                ToolStrip.CalculatorButton = ToolFactory.CreateCalculatorButton();
-            }
-            catch ( Exception _exception )
-            {
-                Console.WriteLine( _exception );
-                throw;
-            }
-        }
-
+        
         /// <summary>
         /// Get Error Dialog.
         /// </summary>
