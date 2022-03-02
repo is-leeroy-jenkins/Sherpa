@@ -18,6 +18,8 @@ namespace BudgetExecution
             FormBorderStyle = FormBorderStyle.FixedSingle;
             CloseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             OpenButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            OpenButton.HoverText = "Launch DataForm";
+            CloseButton.HoverText = "Okay / Close";
             CloseButton.Click += OnCloseButtonClicked;
             OpenButton.Click += OnOpenButtonClick;
         }

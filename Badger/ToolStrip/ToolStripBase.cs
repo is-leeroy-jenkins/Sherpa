@@ -4,71 +4,124 @@
 
 namespace BudgetExecution
 {
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Linq;
-    using System.Windows.Forms;
     using System;
-    using System.Collections.Specialized;
-    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using Syncfusion.Windows.Forms.Tools;
     
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public class ToolStripBase : ToolStripEx
+    public abstract class ToolStripBase : ToolStripEx
     {
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
-        public virtual BindingSource BindingSource { get; set; }
-
-        /// <summary>
-        /// Gets or sets the field.
-        /// </summary>
-        /// <value>
-        /// The field.
-        /// </value>
-        public virtual Field Field { get; set; }
-
-        /// <summary>
-        /// Gets or sets the numeric.
-        /// </summary>
-        /// <value>
-        /// The numeric.
-        /// </value>
-        public virtual Numeric Numeric { get; set; }
-
-        /// <summary>
-        /// Gets or sets the filter.
-        /// </summary>
-        /// <value>
-        /// The filter.
-        /// </value>
-        public virtual IDictionary<string, object> DataFilter { get; set; }
-
-        /// <summary>
-        /// Gets or sets the setting.
-        /// </summary>
-        /// <value>
-        /// The setting.
-        /// </value>
-        public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
-        
-        /// <summary>
-        /// The image path
-        /// </summary>
-        public virtual string ImagePath { get; set; }
-
         /// <summary>
         /// Gets or sets the separator.
         /// </summary>
         /// <value>
         /// The separator.
         /// </value>
-        public ToolSeparator Separator { get; set; } 
+        public ToolSeparator Separator1 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the separator2.
+        /// </summary>
+        /// <value>
+        /// The separator2.
+        /// </value>
+        public ToolSeparator Separator2 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the separator3.
+        /// </summary>
+        /// <value>
+        /// The separator3.
+        /// </value>
+        public ToolSeparator Separator3 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the separator4.
+        /// </summary>
+        /// <value>
+        /// The separator4.
+        /// </value>
+        public ToolSeparator Separator4 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the separator5.
+        /// </summary>
+        /// <value>
+        /// The separator5.
+        /// </value>
+        public ToolSeparator Separator5 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the separator6.
+        /// </summary>
+        /// <value>
+        /// The separator6.
+        /// </value>
+        public ToolSeparator Separator6 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the separator7.
+        /// </summary>
+        /// <value>
+        /// The separator7.
+        /// </value>
+        public ToolSeparator Separator7 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the separator8.
+        /// </summary>
+        /// <value>
+        /// The separator8.
+        /// </value>
+        public ToolSeparator Separator8 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the separator9.
+        /// </summary>
+        /// <value>
+        /// The separator9.
+        /// </value>
+        public ToolSeparator Separator9 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the separator10.
+        /// </summary>
+        /// <value>
+        /// The separator10.
+        /// </value>
+        public ToolSeparator Separator10 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the separator11.
+        /// </summary>
+        /// <value>
+        /// The separator11.
+        /// </value>
+        public ToolSeparator Separator11 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the separator12.
+        /// </summary>
+        /// <value>
+        /// The separator12.
+        /// </value>
+        public ToolSeparator Separator12 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the separator13.
+        /// </summary>
+        /// <value>
+        /// The separator13.
+        /// </value>
+        public ToolSeparator Separator13 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the separator14.
+        /// </summary>
+        /// <value>
+        /// The separator14.
+        /// </value>
+        public ToolSeparator Separator14 { get; set; }
 
         /// <summary>
         /// Gets or sets the tool strip ComboBox.
@@ -181,358 +234,7 @@ namespace BudgetExecution
         /// The calculator button.
         /// </value>
         public BudgetToolStripButton CalculatorButton { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="ToolStripBase"/> class.
-        /// </summary>
-        public ToolStripBase()
-        {
-            Separator = ToolFactory.CreateSeparator();
-            ToolStripComboBox = ToolFactory.CreateComboBox();
-            ToolStripTextBox = ToolFactory.CreateTextBox();
-            FirstButton = ToolFactory.CreateFirstButton();
-            PreviousButton = ToolFactory.CreatePreviousButton();
-            NextButton = ToolFactory.CreateNextButton();
-            LastButton = ToolFactory.CreateLastButton();
-            EditButton = ToolFactory.CreateEditButton();
-            AddButton = ToolFactory.CreateAddButton();
-            DeleteButton = ToolFactory.CreateDeleteButton();
-            RefreshButton = ToolFactory.CreateRefreshButton();
-            SaveButton = ToolFactory.CreateSaveButton();
-            PrintButton = ToolFactory.CreatePrintButton();
-            ExcelButton = ToolFactory.CreateExcelButton();
-            CalculatorButton = ToolFactory.CreateCalculatorButton();
-            PopulateItems();
-        }
-
-        public void PopulateItems()
-        {
-            try
-            {
-                if( Items?.Count > 0 )
-                {
-                    Items.Clear();
-                }
-
-                Items.Add( Separator );
-                Items.Add( ToolStripComboBox );
-                Items.Add( Separator );
-                Items.Add( ToolStripTextBox );
-                Items.Add( Separator );
-                Items.Add( FirstButton );
-                Items.Add( Separator );
-                Items.Add( PreviousButton );
-                Items.Add( Separator );
-                Items.Add( NextButton );
-                Items.Add( Separator );
-                Items.Add( LastButton );
-                Items.Add( Separator );
-                Items.Add( EditButton );
-                Items.Add( Separator );
-                Items.Add( DeleteButton );
-                Items.Add( Separator );
-                Items.Add( RefreshButton );
-                Items.Add( Separator );
-                Items.Add( SaveButton );
-                Items.Add( Separator );
-                Items.Add( PrintButton );
-                Items.Add( Separator );
-                Items.Add( ExcelButton );
-                Items.Add( Separator );
-                Items.Add( CalculatorButton );
-                Items.Add( Separator );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <param name="bindingSource">The bindingSource.</param>
-        public virtual void SetDataSource<T1>( T1 bindingSource ) 
-            where T1 : IBindingList
-        {
-            try
-            {
-                if( bindingSource is BindingSource _binder
-                    && _binder?.DataSource != null )
-                {
-                    try
-                    {
-                        BindingSource.DataSource = _binder.DataSource;
-                    }
-                    catch( Exception ex )
-                    {
-                        Fail( ex );
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <typeparam name="T1"></typeparam>
-        /// <typeparam name="T2">The type of the 2.</typeparam>
-        /// <param name="bindingList">The bindingSource.</param>
-        /// <param name="dict">The dictionary.</param>
-        public virtual void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
-            where T1 : IBindingList 
-            where T2 : IDictionary<string, object>
-        {
-            try
-            {
-                if( Verify.IsBindable( bindingList )
-                    && Verify.IsMap( dict ) )
-                {
-                    try
-                    {
-                        var _list = bindingList as BindingSource;
-                        var _filter = string.Empty;
-
-                        foreach( var _kvp in dict )
-                        {
-                            if( Verify.IsInput( _kvp.Key )
-                                && Verify.IsRef( _kvp.Value ) )
-                            {
-                                _filter += $"{_kvp.Key} = {_kvp.Value} AND";
-                            }
-                        }
-
-                        if( _filter?.Length > 0
-                            && _list?.DataSource != null )
-                        {
-                            BindingSource.DataSource = _list?.DataSource;
-                            BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray() );
-                        }
-                    }
-                    catch( Exception ex )
-                    {
-                        Fail( ex );
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        public virtual void SetDataSource<T1>( IEnumerable<T1> data ) 
-            where T1 : IEnumerable<T1>
-        {
-            if( Verify.IsSequence( data ) )
-            {
-                try
-                {
-                    BindingSource.DataSource = data?.ToList();
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <typeparam name="T1">The type of the 1.</typeparam>
-        /// <param name="data">The data.</param>
-        /// <param name="dict">The dictionary.</param>
-        public virtual void SetDataSource<T1>( IEnumerable<T1> data, IDictionary<string, object> dict )
-            where T1 : IEnumerable<T1>
-        {
-            if( Verify.IsSequence( data ) )
-            {
-                try
-                {
-                    var _filter = string.Empty;
-
-                    foreach( var _kvp in dict )
-                    {
-                        if( Verify.IsInput( _kvp.Key )
-                            && _kvp.Value != null )
-                        {
-                            _filter += $"{_kvp.Key} = {_kvp.Value} AND";
-                        }
-                    }
-
-                    BindingSource.DataSource = data?.ToList();
-                    BindingSource.Filter = _filter.TrimEnd( " AND".ToCharArray() );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <typeparam name="T1">The type of the 1.</typeparam>
-        /// <typeparam name="T2">The type of the 2.</typeparam>
-        /// <typeparam name="T3">The type of the 3.</typeparam>
-        /// <param name="data">The data.</param>
-        /// <param name="field">The field.</param>
-        /// <param name="filter">The dictionary.</param>
-        public virtual void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
-            where T1 : IEnumerable<T1> 
-            where T2 : struct
-        {
-            if( Verify.IsSequence( data )
-                && Validate.IsField( field ) )
-            {
-                try
-                {
-                    if( Verify.IsInput( filter?.ToString() ) )
-                    {
-                        BindingSource.DataSource = data.ToList();
-                        BindingSource.DataMember = field.ToString();
-                        BindingSource.Filter = $"{field} = {filter}";
-                    }
-                    else
-                    {
-                        BindingSource.DataSource = data.ToList();
-                        BindingSource.DataMember = field.ToString();
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <typeparam name="T1">The type of the 1.</typeparam>
-        /// <param name="data">The data.</param>
-        /// <param name="field">The field.</param>
-        public virtual void SetDataSource<T1>( IEnumerable<T1> data, object field = null ) 
-            where T1 : IEnumerable<T1>
-        {
-            if( Verify.IsInput( data ) )
-            {
-                try
-                {
-                    if( Verify.IsInput( field?.ToString() ) )
-                    {
-                        BindingSource.DataSource = data.ToList();
-                        BindingSource.DataMember = field?.ToString();
-                    }
-                    else
-                    {
-                        BindingSource.DataSource = data.ToList();
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the bindings.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        /// <param>The numeric.</param>
-        /// <param name = "dict" > </param>
-        public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
-            where T1 : IEnumerable<T1> 
-            where T2 : IDictionary<string, object>
-        {
-            if( Verify.IsSequence( data )
-                && Verify.IsMap( dict ) )
-            {
-                try
-                {
-                    var _filter = string.Empty;
-
-                    foreach( var _kvp in dict )
-                    {
-                        if( Verify.IsInput( _kvp.Key )
-                            && _kvp.Value != null )
-                        {
-                            _filter += $"{_kvp.Key} = {_kvp.Value} AND";
-                        }
-                    }
-
-                    BindingSource.DataSource = data?.ToList();
-                    BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray() );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        /// <param name="field">The field.</param>
-        /// <param name="filter">The filter.</param>
-        public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field, object filter = null )
-            where T1 : IEnumerable<T1> 
-            where T2 : struct
-        {
-            if( Verify.IsSequence( data )
-                && Validate.IsField( field ) )
-            {
-                try
-                {
-                    if( Verify.IsInput( filter?.ToString() ) )
-                    {
-                        BindingSource.DataSource = data.ToList();
-                        BindingSource.DataMember = field.ToString();
-                        BindingSource.Filter = $"{field} = {filter}";
-                    }
-                    else
-                    {
-                        BindingSource.DataSource = data.ToList();
-                        BindingSource.DataMember = field.ToString();
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
         
-        /// <summary>
-        /// Sets the field.
-        /// </summary>
-        /// <param name="field">The field.</param>
-        public virtual void SetField( Field field )
-        {
-            try
-            {
-                Field = BudgetForm.GetField( field );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

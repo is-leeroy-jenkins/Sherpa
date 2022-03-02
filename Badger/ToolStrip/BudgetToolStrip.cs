@@ -10,18 +10,64 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Configuration;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="ToolStripBase" />
-    /// <seealso cref="IBudgetToolStrip" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
     public class BudgetToolStrip : ToolStripBase, IBudgetToolStrip
     {
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
+        public Field Field { get; set; }
+
+        /// <summary>
+        /// Gets or sets the numeric.
+        /// </summary>
+        /// <value>
+        /// The numeric.
+        /// </value>
+        public Numeric Numeric { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the setting.
+        /// </summary>
+        /// <value>
+        /// The setting.
+        /// </value>
+        public NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
+
+        /// <summary>
+        /// The image path
+        /// </summary>
+        public virtual string ImagePath { get; set; }
+
         /// <summary>
         /// Gets the buttons.
         /// </summary>
@@ -75,7 +121,23 @@ namespace BudgetExecution
             ThemeStyle.ComboBoxStyle.HoverBorderColor = Color.SteelBlue;
             ThemeStyle.HoverItemBackColor = Color.SteelBlue;
             ThemeStyle.HoverItemForeColor = Color.White;
-            Buttons = null;
+            Buttons = new Dictionary<string, BudgetToolStripButton>();
+            Separator1 = new ToolSeparator();
+            Items.Add( Separator1 );
+            ToolStripComboBox = new BudgetToolStripComboBox();
+            ToolStripTextBox = new BudgetToolStripTextBox();
+            FirstButton = new BudgetToolStripButton();
+            PreviousButton = new BudgetToolStripButton();
+            NextButton = new BudgetToolStripButton( ToolType.NextButton );
+            LastButton = new BudgetToolStripButton( ToolType.LastButton );
+            EditButton = new BudgetToolStripButton( ToolType.EditButton );
+            AddButton = new BudgetToolStripButton( ToolType.AddButton );
+            DeleteButton = new BudgetToolStripButton( ToolType.DeleteButton );
+            RefreshButton = new BudgetToolStripButton( ToolType.RefreshButton );
+            SaveButton = new BudgetToolStripButton( ToolType.SaveButton );
+            PrintButton = new BudgetToolStripButton( ToolType.PrintButton );
+            ExcelButton = new BudgetToolStripButton( ToolType.ExcelButton );
+            CalculatorButton = new BudgetToolStripButton( ToolType.CalculatorButton );
         }
         
         /// <summary>
@@ -136,6 +198,49 @@ namespace BudgetExecution
             {
                 var _separator = new ToolSeparator();
                 Items?.Add( _separator );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        public void PopulateItems()
+        {
+            try
+            {
+                if( Items?.Count > 0 )
+                {
+                    Items.Clear();
+                }
+
+                Items.Add( Separator1 );
+                Items.Add( ToolStripComboBox );
+                Items.Add( Separator2 );
+                Items.Add( ToolStripTextBox );
+                Items.Add( Separator3 );
+                Items.Add( FirstButton );
+                Items.Add( Separator4 );
+                Items.Add( PreviousButton );
+                Items.Add( Separator5 );
+                Items.Add( NextButton );
+                Items.Add( Separator6 );
+                Items.Add( LastButton );
+                Items.Add( Separator7 );
+                Items.Add( EditButton );
+                Items.Add( Separator8 );
+                Items.Add( DeleteButton );
+                Items.Add( Separator9 );
+                Items.Add( RefreshButton );
+                Items.Add( Separator10 );
+                Items.Add( SaveButton );
+                Items.Add( Separator11 );
+                Items.Add( PrintButton );
+                Items.Add( Separator12 );
+                Items.Add( ExcelButton );
+                Items.Add( Separator13 );
+                Items.Add( CalculatorButton );
+                Items.Add( Separator14 );
             }
             catch( Exception ex )
             {

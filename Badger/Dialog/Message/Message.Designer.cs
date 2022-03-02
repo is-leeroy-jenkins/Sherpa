@@ -189,7 +189,7 @@ namespace BudgetExecution
             this.budgetRichTextBox1.Font = new System.Drawing.Font("Roboto", 9F);
             this.budgetRichTextBox1.ForeColor = System.Drawing.Color.White;
             this.budgetRichTextBox1.HoverText = null;
-            this.budgetRichTextBox1.Location = new System.Drawing.Point(41, 75);
+            this.budgetRichTextBox1.Location = new System.Drawing.Point(41, 67);
             this.budgetRichTextBox1.MaxLength = 2147483647;
             this.budgetRichTextBox1.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.budgetRichTextBox1.Name = "budgetRichTextBox1";
@@ -197,7 +197,7 @@ namespace BudgetExecution
             this.budgetRichTextBox1.ReadOnly = false;
             this.budgetRichTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Both;
             this.budgetRichTextBox1.ShowSelectionMargin = false;
-            this.budgetRichTextBox1.Size = new System.Drawing.Size(499, 122);
+            this.budgetRichTextBox1.Size = new System.Drawing.Size(499, 144);
             this.budgetRichTextBox1.TabIndex = 11;
             this.budgetRichTextBox1.TextStyle.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             this.budgetRichTextBox1.TextStyle.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));

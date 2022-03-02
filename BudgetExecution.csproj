@@ -506,6 +506,7 @@
     <Compile Include="Badger\DataForm.Designer.cs">
       <DependentUpon>DataForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Badger\ToolStrip\IBudgetToolStrip.cs" />
     <Compile Include="Badger\ToolStrip\ToolStripButtonBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -813,7 +814,6 @@
     <Compile Include="Badger\ToolStrip\IToolStripComboBox.cs" />
     <Compile Include="Badger\ToolStrip\IToolStripLabel.cs" />
     <Compile Include="Badger\ToolStrip\IToolStripTextBox.cs" />
-    <Compile Include="Badger\ToolStrip\IBudgetToolStrip.cs" />
     <Compile Include="Badger\PictureBox\IPictureBox.cs" />
     <Compile Include="Badger\Label\LabelBase.cs" />
     <Compile Include="Badger\Label\BudgetLabel.cs" />

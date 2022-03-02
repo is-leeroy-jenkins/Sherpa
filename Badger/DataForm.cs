@@ -1,28 +1,17 @@
-﻿// // <copyright file = "TestForm3.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "TestForm3.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+//  </copyright>
 //
 
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Specialized;
-    using System.Configuration;
     using System.Drawing;
     using System.Windows.Forms;
-    using Syncfusion.Windows.Forms;
     using static System.IO.Path;
 
-    public partial class DataForm : MetroForm
+    public partial class DataForm : FormBase
     {
-        /// <summary>
-        /// Gets or sets the settings.
-        /// </summary>
-        /// <value>
-        /// The settings.
-        /// </value>
-        public NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
-
         /// <summary>
         /// Gets or sets the budget button.
         /// </summary>
@@ -30,15 +19,7 @@ namespace BudgetExecution
         /// The budget button.
         /// </value>
         public BudgetButton BudgetButton { get; set; } = new BudgetButton();
-
-        /// <summary>
-        /// Gets the current directory.
-        /// </summary>
-        /// <value>
-        /// The current directory.
-        /// </value>
-        public string CurrentDirectory { get; } = Environment.CurrentDirectory;
-
+        
         /// <summary>
         /// Initializes a new instance
         /// of the <see cref="DataForm"/> class.
@@ -73,7 +54,7 @@ namespace BudgetExecution
             BudgetButton.Tag = "THIS IS A TEST";
             BudgetButton.Location = new Point( 500, 500 );
             BudgetButton.HoverText = GetFileNameWithoutExtension( Setting[ "BudgetExecutionIcon" ] );
-            BudgetButton.Click += SetLabelText;
+            BudgetButton.Click += OnBudgetButtonClick;
             BudgetButton.MouseLeave += ClearLabelText;
             Controls.Add( BudgetButton );
         }
@@ -84,7 +65,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        public void SetLabelText( object sender, EventArgs e )
+        public void OnBudgetButtonClick( object sender, EventArgs e )
         {
             if( sender is BudgetButton _button )
             {
@@ -93,9 +74,9 @@ namespace BudgetExecution
                     BudgetButton = _button;
                     BudgetButton.ForeColor = Color.White;
                     CaptionForeColor = Color.White;
-                    var _title = "Budget Execution Notification";
+                    var _notification = "Budget Execution Notification";
                     Text = Setting[ "BudgetExecutionIcon" ];
-                    using var _excel = new BudgetNotification( _title, Setting[ "BudgetExecutionIcon" ] );
+                    using var _excel = new BudgetNotification( _notification, Setting[ "BudgetExecutionIcon" ] );
                     _excel.ShowDialog( this );
                 }
                 catch( Exception ex )

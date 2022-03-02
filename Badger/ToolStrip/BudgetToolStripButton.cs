@@ -28,7 +28,6 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 18, 18, 18 );
             ForeColor = Color.LightSteelBlue;
             Font = new Font( "Roboto", 9 );
-            HoverText = Tag?.ToString();
             Text = string.Empty;
             Visible = true;
             Enabled = true;
