@@ -41,17 +41,17 @@ namespace BudgetExecution
             this.Separator2 = new BudgetExecution.ToolSeparator();
             this.ComboBox1 = new BudgetExecution.BudgetToolStripComboBox();
             this.Separator3 = new BudgetExecution.ToolSeparator();
-            this.FirstRecordToolStripButton = new BudgetExecution.BudgetToolStripButton();
+            this.FirstButton = new BudgetExecution.BudgetToolStripButton();
             this.Separator4 = new BudgetExecution.ToolSeparator();
-            this.PreviousRecordToolStripButton = new BudgetExecution.BudgetToolStripButton();
+            this.PreviousButton = new BudgetExecution.BudgetToolStripButton();
             this.Separator5 = new BudgetExecution.ToolSeparator();
-            this.NextRecordToolStripButton = new BudgetExecution.BudgetToolStripButton();
+            this.NextButton = new BudgetExecution.BudgetToolStripButton();
             this.Separator6 = new BudgetExecution.ToolSeparator();
-            this.LastRecordToolStripButton = new BudgetExecution.BudgetToolStripButton();
+            this.LastButton = new BudgetExecution.BudgetToolStripButton();
             this.Separator7 = new BudgetExecution.ToolSeparator();
-            this.EditRecordToolStripButton = new BudgetExecution.BudgetToolStripButton();
+            this.EditButton = new BudgetExecution.BudgetToolStripButton();
             this.Separator8 = new BudgetExecution.ToolSeparator();
-            this.AddRecordToolStripButton = new BudgetExecution.BudgetToolStripButton();
+            this.AddButton = new BudgetExecution.BudgetToolStripButton();
             this.Separator9 = new BudgetExecution.ToolSeparator();
             this.DeleteButton = new BudgetExecution.BudgetToolStripButton();
             this.Separator10 = new BudgetExecution.ToolSeparator();
@@ -61,7 +61,7 @@ namespace BudgetExecution
             this.Separator12 = new BudgetExecution.ToolSeparator();
             this.ExcelButton = new BudgetExecution.BudgetToolStripButton();
             this.Separator13 = new BudgetExecution.ToolSeparator();
-            this.CalculatorToolStripButton = new BudgetExecution.BudgetToolStripButton();
+            this.CalculatorButton = new BudgetExecution.BudgetToolStripButton();
             this.ToolStip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,17 +79,17 @@ namespace BudgetExecution
             this.Separator2,
             this.ComboBox1,
             this.Separator3,
-            this.FirstRecordToolStripButton,
+            this.FirstButton,
             this.Separator4,
-            this.PreviousRecordToolStripButton,
+            this.PreviousButton,
             this.Separator5,
-            this.NextRecordToolStripButton,
+            this.NextButton,
             this.Separator6,
-            this.LastRecordToolStripButton,
+            this.LastButton,
             this.Separator7,
-            this.EditRecordToolStripButton,
+            this.EditButton,
             this.Separator8,
-            this.AddRecordToolStripButton,
+            this.AddButton,
             this.Separator9,
             this.DeleteButton,
             this.Separator10,
@@ -99,7 +99,7 @@ namespace BudgetExecution
             this.Separator12,
             this.ExcelButton,
             this.Separator13,
-            this.CalculatorToolStripButton});
+            this.CalculatorButton});
             this.ToolStip.Location = new System.Drawing.Point(0, 571);
             this.ToolStip.Name = "ToolStip";
             this.ToolStip.Office12Mode = false;
@@ -215,24 +215,24 @@ namespace BudgetExecution
             // 
             // FirstRecordToolStripButton
             // 
-            this.FirstRecordToolStripButton.AutoToolTip = false;
-            this.FirstRecordToolStripButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.FirstRecordToolStripButton.Bar = BudgetExecution.ToolType.FirstButton;
-            this.FirstRecordToolStripButton.BindingSource = null;
-            this.FirstRecordToolStripButton.DataFilter = null;
-            this.FirstRecordToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.FirstRecordToolStripButton.Field = BudgetExecution.Field.RpioActivityCode;
-            this.FirstRecordToolStripButton.Font = new System.Drawing.Font("Roboto", 9F);
-            this.FirstRecordToolStripButton.ForeColor = System.Drawing.Color.Black;
-            this.FirstRecordToolStripButton.HoverText = null;
-            this.FirstRecordToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("FirstRecordToolStripButton.Image")));
-            this.FirstRecordToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.FirstRecordToolStripButton.Margin = new System.Windows.Forms.Padding(1);
-            this.FirstRecordToolStripButton.Name = "FirstRecordToolStripButton";
-            this.FirstRecordToolStripButton.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstRecordToolStripButton.Size = new System.Drawing.Size(23, 30);
-            this.FirstRecordToolStripButton.Text = "ToolButton1";
-            this.FirstRecordToolStripButton.ToolTip = null;
+            this.FirstButton.AutoToolTip = false;
+            this.FirstButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.FirstButton.Bar = BudgetExecution.ToolType.FirstButton;
+            this.FirstButton.BindingSource = null;
+            this.FirstButton.DataFilter = null;
+            this.FirstButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.FirstButton.Field = BudgetExecution.Field.RpioActivityCode;
+            this.FirstButton.Font = new System.Drawing.Font("Roboto", 9F);
+            this.FirstButton.ForeColor = System.Drawing.Color.Black;
+            this.FirstButton.HoverText = null;
+            this.FirstButton.Image = ((System.Drawing.Image)(resources.GetObject("FirstRecordToolStripButton.Image")));
+            this.FirstButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FirstButton.Margin = new System.Windows.Forms.Padding(1);
+            this.FirstButton.Name = "FirstButton";
+            this.FirstButton.Padding = new System.Windows.Forms.Padding(1);
+            this.FirstButton.Size = new System.Drawing.Size(23, 30);
+            this.FirstButton.Text = "ToolButton1";
+            this.FirstButton.ToolTip = null;
             // 
             // Separator4
             // 
@@ -244,24 +244,24 @@ namespace BudgetExecution
             // 
             // PreviousRecordToolStripButton
             // 
-            this.PreviousRecordToolStripButton.AutoToolTip = false;
-            this.PreviousRecordToolStripButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.PreviousRecordToolStripButton.Bar = BudgetExecution.ToolType.PreviousButton;
-            this.PreviousRecordToolStripButton.BindingSource = null;
-            this.PreviousRecordToolStripButton.DataFilter = null;
-            this.PreviousRecordToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.PreviousRecordToolStripButton.Field = BudgetExecution.Field.RpioActivityCode;
-            this.PreviousRecordToolStripButton.Font = new System.Drawing.Font("Roboto", 9F);
-            this.PreviousRecordToolStripButton.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.PreviousRecordToolStripButton.HoverText = null;
-            this.PreviousRecordToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("PreviousRecordToolStripButton.Image")));
-            this.PreviousRecordToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.PreviousRecordToolStripButton.Margin = new System.Windows.Forms.Padding(1);
-            this.PreviousRecordToolStripButton.Name = "PreviousRecordToolStripButton";
-            this.PreviousRecordToolStripButton.Padding = new System.Windows.Forms.Padding(1);
-            this.PreviousRecordToolStripButton.Size = new System.Drawing.Size(23, 30);
-            this.PreviousRecordToolStripButton.Text = "ToolButton2";
-            this.PreviousRecordToolStripButton.ToolTip = null;
+            this.PreviousButton.AutoToolTip = false;
+            this.PreviousButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.PreviousButton.Bar = BudgetExecution.ToolType.PreviousButton;
+            this.PreviousButton.BindingSource = null;
+            this.PreviousButton.DataFilter = null;
+            this.PreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.PreviousButton.Field = BudgetExecution.Field.RpioActivityCode;
+            this.PreviousButton.Font = new System.Drawing.Font("Roboto", 9F);
+            this.PreviousButton.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.PreviousButton.HoverText = null;
+            this.PreviousButton.Image = ((System.Drawing.Image)(resources.GetObject("PreviousRecordToolStripButton.Image")));
+            this.PreviousButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.PreviousButton.Margin = new System.Windows.Forms.Padding(1);
+            this.PreviousButton.Name = "PreviousButton";
+            this.PreviousButton.Padding = new System.Windows.Forms.Padding(1);
+            this.PreviousButton.Size = new System.Drawing.Size(23, 30);
+            this.PreviousButton.Text = "ToolButton2";
+            this.PreviousButton.ToolTip = null;
             // 
             // Separator5
             // 
@@ -273,24 +273,24 @@ namespace BudgetExecution
             // 
             // NextRecordToolStripButton
             // 
-            this.NextRecordToolStripButton.AutoToolTip = false;
-            this.NextRecordToolStripButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.NextRecordToolStripButton.Bar = BudgetExecution.ToolType.NextButton;
-            this.NextRecordToolStripButton.BindingSource = null;
-            this.NextRecordToolStripButton.DataFilter = null;
-            this.NextRecordToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.NextRecordToolStripButton.Field = BudgetExecution.Field.RpioActivityCode;
-            this.NextRecordToolStripButton.Font = new System.Drawing.Font("Roboto", 9F);
-            this.NextRecordToolStripButton.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.NextRecordToolStripButton.HoverText = null;
-            this.NextRecordToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("NextRecordToolStripButton.Image")));
-            this.NextRecordToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.NextRecordToolStripButton.Margin = new System.Windows.Forms.Padding(1);
-            this.NextRecordToolStripButton.Name = "NextRecordToolStripButton";
-            this.NextRecordToolStripButton.Padding = new System.Windows.Forms.Padding(1);
-            this.NextRecordToolStripButton.Size = new System.Drawing.Size(23, 30);
-            this.NextRecordToolStripButton.Text = "ToolButton3";
-            this.NextRecordToolStripButton.ToolTip = null;
+            this.NextButton.AutoToolTip = false;
+            this.NextButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.NextButton.Bar = BudgetExecution.ToolType.NextButton;
+            this.NextButton.BindingSource = null;
+            this.NextButton.DataFilter = null;
+            this.NextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.NextButton.Field = BudgetExecution.Field.RpioActivityCode;
+            this.NextButton.Font = new System.Drawing.Font("Roboto", 9F);
+            this.NextButton.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.NextButton.HoverText = null;
+            this.NextButton.Image = ((System.Drawing.Image)(resources.GetObject("NextRecordToolStripButton.Image")));
+            this.NextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.NextButton.Margin = new System.Windows.Forms.Padding(1);
+            this.NextButton.Name = "NextButton";
+            this.NextButton.Padding = new System.Windows.Forms.Padding(1);
+            this.NextButton.Size = new System.Drawing.Size(23, 30);
+            this.NextButton.Text = "ToolButton3";
+            this.NextButton.ToolTip = null;
             // 
             // Separator6
             // 
@@ -302,24 +302,24 @@ namespace BudgetExecution
             // 
             // LastRecordToolStripButton
             // 
-            this.LastRecordToolStripButton.AutoToolTip = false;
-            this.LastRecordToolStripButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.LastRecordToolStripButton.Bar = BudgetExecution.ToolType.LastButton;
-            this.LastRecordToolStripButton.BindingSource = null;
-            this.LastRecordToolStripButton.DataFilter = null;
-            this.LastRecordToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.LastRecordToolStripButton.Field = BudgetExecution.Field.RpioActivityCode;
-            this.LastRecordToolStripButton.Font = new System.Drawing.Font("Roboto", 9F);
-            this.LastRecordToolStripButton.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.LastRecordToolStripButton.HoverText = null;
-            this.LastRecordToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("LastRecordToolStripButton.Image")));
-            this.LastRecordToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.LastRecordToolStripButton.Margin = new System.Windows.Forms.Padding(1);
-            this.LastRecordToolStripButton.Name = "LastRecordToolStripButton";
-            this.LastRecordToolStripButton.Padding = new System.Windows.Forms.Padding(1);
-            this.LastRecordToolStripButton.Size = new System.Drawing.Size(23, 30);
-            this.LastRecordToolStripButton.Text = "ToolButton3";
-            this.LastRecordToolStripButton.ToolTip = null;
+            this.LastButton.AutoToolTip = false;
+            this.LastButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.LastButton.Bar = BudgetExecution.ToolType.LastButton;
+            this.LastButton.BindingSource = null;
+            this.LastButton.DataFilter = null;
+            this.LastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.LastButton.Field = BudgetExecution.Field.RpioActivityCode;
+            this.LastButton.Font = new System.Drawing.Font("Roboto", 9F);
+            this.LastButton.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.LastButton.HoverText = null;
+            this.LastButton.Image = ((System.Drawing.Image)(resources.GetObject("LastRecordToolStripButton.Image")));
+            this.LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.LastButton.Margin = new System.Windows.Forms.Padding(1);
+            this.LastButton.Name = "LastButton";
+            this.LastButton.Padding = new System.Windows.Forms.Padding(1);
+            this.LastButton.Size = new System.Drawing.Size(23, 30);
+            this.LastButton.Text = "ToolButton3";
+            this.LastButton.ToolTip = null;
             // 
             // Separator7
             // 
@@ -331,24 +331,24 @@ namespace BudgetExecution
             // 
             // EditRecordToolStripButton
             // 
-            this.EditRecordToolStripButton.AutoToolTip = false;
-            this.EditRecordToolStripButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.EditRecordToolStripButton.Bar = BudgetExecution.ToolType.NS;
-            this.EditRecordToolStripButton.BindingSource = null;
-            this.EditRecordToolStripButton.DataFilter = null;
-            this.EditRecordToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.EditRecordToolStripButton.Field = BudgetExecution.Field.RpioActivityCode;
-            this.EditRecordToolStripButton.Font = new System.Drawing.Font("Roboto", 9F);
-            this.EditRecordToolStripButton.ForeColor = System.Drawing.Color.White;
-            this.EditRecordToolStripButton.HoverText = null;
-            this.EditRecordToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("EditRecordToolStripButton.Image")));
-            this.EditRecordToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.EditRecordToolStripButton.Margin = new System.Windows.Forms.Padding(1);
-            this.EditRecordToolStripButton.Name = "EditRecordToolStripButton";
-            this.EditRecordToolStripButton.Padding = new System.Windows.Forms.Padding(1);
-            this.EditRecordToolStripButton.Size = new System.Drawing.Size(23, 30);
-            this.EditRecordToolStripButton.Text = "ToolButton5";
-            this.EditRecordToolStripButton.ToolTip = null;
+            this.EditButton.AutoToolTip = false;
+            this.EditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.EditButton.Bar = BudgetExecution.ToolType.NS;
+            this.EditButton.BindingSource = null;
+            this.EditButton.DataFilter = null;
+            this.EditButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.EditButton.Field = BudgetExecution.Field.RpioActivityCode;
+            this.EditButton.Font = new System.Drawing.Font("Roboto", 9F);
+            this.EditButton.ForeColor = System.Drawing.Color.White;
+            this.EditButton.HoverText = null;
+            this.EditButton.Image = ((System.Drawing.Image)(resources.GetObject("EditRecordToolStripButton.Image")));
+            this.EditButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.EditButton.Margin = new System.Windows.Forms.Padding(1);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Padding = new System.Windows.Forms.Padding(1);
+            this.EditButton.Size = new System.Drawing.Size(23, 30);
+            this.EditButton.Text = "ToolButton5";
+            this.EditButton.ToolTip = null;
             // 
             // Separator8
             // 
@@ -360,24 +360,24 @@ namespace BudgetExecution
             // 
             // AddRecordToolStripButton
             // 
-            this.AddRecordToolStripButton.AutoToolTip = false;
-            this.AddRecordToolStripButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.AddRecordToolStripButton.Bar = BudgetExecution.ToolType.NS;
-            this.AddRecordToolStripButton.BindingSource = null;
-            this.AddRecordToolStripButton.DataFilter = null;
-            this.AddRecordToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.AddRecordToolStripButton.Field = BudgetExecution.Field.RpioActivityCode;
-            this.AddRecordToolStripButton.Font = new System.Drawing.Font("Roboto", 9F);
-            this.AddRecordToolStripButton.ForeColor = System.Drawing.Color.White;
-            this.AddRecordToolStripButton.HoverText = null;
-            this.AddRecordToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("AddRecordToolStripButton.Image")));
-            this.AddRecordToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.AddRecordToolStripButton.Margin = new System.Windows.Forms.Padding(1);
-            this.AddRecordToolStripButton.Name = "AddRecordToolStripButton";
-            this.AddRecordToolStripButton.Padding = new System.Windows.Forms.Padding(1);
-            this.AddRecordToolStripButton.Size = new System.Drawing.Size(23, 30);
-            this.AddRecordToolStripButton.Text = "budgetToolButton2";
-            this.AddRecordToolStripButton.ToolTip = null;
+            this.AddButton.AutoToolTip = false;
+            this.AddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.AddButton.Bar = BudgetExecution.ToolType.NS;
+            this.AddButton.BindingSource = null;
+            this.AddButton.DataFilter = null;
+            this.AddButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.AddButton.Field = BudgetExecution.Field.RpioActivityCode;
+            this.AddButton.Font = new System.Drawing.Font("Roboto", 9F);
+            this.AddButton.ForeColor = System.Drawing.Color.White;
+            this.AddButton.HoverText = null;
+            this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddRecordToolStripButton.Image")));
+            this.AddButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AddButton.Margin = new System.Windows.Forms.Padding(1);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Padding = new System.Windows.Forms.Padding(1);
+            this.AddButton.Size = new System.Drawing.Size(23, 30);
+            this.AddButton.Text = "budgetToolButton2";
+            this.AddButton.ToolTip = null;
             // 
             // Separator9
             // 
@@ -505,23 +505,23 @@ namespace BudgetExecution
             // 
             // CalculatorToolStripButton
             // 
-            this.CalculatorToolStripButton.AutoToolTip = false;
-            this.CalculatorToolStripButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.CalculatorToolStripButton.Bar = BudgetExecution.ToolType.NS;
-            this.CalculatorToolStripButton.BindingSource = null;
-            this.CalculatorToolStripButton.DataFilter = null;
-            this.CalculatorToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.CalculatorToolStripButton.Field = BudgetExecution.Field.RpioActivityCode;
-            this.CalculatorToolStripButton.Font = new System.Drawing.Font("Roboto", 9F);
-            this.CalculatorToolStripButton.ForeColor = System.Drawing.Color.White;
-            this.CalculatorToolStripButton.HoverText = null;
-            this.CalculatorToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("CalculatorToolStripButton.Image")));
-            this.CalculatorToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.CalculatorToolStripButton.Margin = new System.Windows.Forms.Padding(1);
-            this.CalculatorToolStripButton.Name = "CalculatorToolStripButton";
-            this.CalculatorToolStripButton.Padding = new System.Windows.Forms.Padding(1);
-            this.CalculatorToolStripButton.Size = new System.Drawing.Size(23, 30);
-            this.CalculatorToolStripButton.ToolTip = null;
+            this.CalculatorButton.AutoToolTip = false;
+            this.CalculatorButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.CalculatorButton.Bar = BudgetExecution.ToolType.NS;
+            this.CalculatorButton.BindingSource = null;
+            this.CalculatorButton.DataFilter = null;
+            this.CalculatorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.CalculatorButton.Field = BudgetExecution.Field.RpioActivityCode;
+            this.CalculatorButton.Font = new System.Drawing.Font("Roboto", 9F);
+            this.CalculatorButton.ForeColor = System.Drawing.Color.White;
+            this.CalculatorButton.HoverText = null;
+            this.CalculatorButton.Image = ((System.Drawing.Image)(resources.GetObject("CalculatorToolStripButton.Image")));
+            this.CalculatorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.CalculatorButton.Margin = new System.Windows.Forms.Padding(1);
+            this.CalculatorButton.Name = "CalculatorButton";
+            this.CalculatorButton.Padding = new System.Windows.Forms.Padding(1);
+            this.CalculatorButton.Size = new System.Drawing.Size(23, 30);
+            this.CalculatorButton.ToolTip = null;
             // 
             // TestForm
             // 
@@ -564,17 +564,17 @@ namespace BudgetExecution
         private ToolSeparator Separator2;
         private BudgetToolStripComboBox ComboBox1;
         private ToolSeparator Separator3;
-        public BudgetToolStripButton FirstRecordToolStripButton;
+        public BudgetToolStripButton FirstButton;
         private ToolSeparator Separator4;
-        private BudgetToolStripButton PreviousRecordToolStripButton;
+        private BudgetToolStripButton PreviousButton;
         private ToolSeparator Separator5;
-        private BudgetToolStripButton NextRecordToolStripButton;
+        private BudgetToolStripButton NextButton;
         private ToolSeparator Separator6;
-        private BudgetToolStripButton LastRecordToolStripButton;
+        private BudgetToolStripButton LastButton;
         private ToolSeparator Separator7;
-        private BudgetToolStripButton EditRecordToolStripButton;
+        private BudgetToolStripButton EditButton;
         private ToolSeparator Separator8;
-        private BudgetToolStripButton AddRecordToolStripButton;
+        private BudgetToolStripButton AddButton;
         private ToolSeparator Separator9;
         private BudgetToolStripButton DeleteButton;
         private ToolSeparator Separator10;
@@ -584,6 +584,6 @@ namespace BudgetExecution
         private ToolSeparator Separator12;
         private BudgetToolStripButton ExcelButton;
         private ToolSeparator Separator13;
-        private BudgetToolStripButton CalculatorToolStripButton;
+        private BudgetToolStripButton CalculatorButton;
     }
 }

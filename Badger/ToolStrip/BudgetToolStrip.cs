@@ -66,7 +66,7 @@ namespace BudgetExecution
         /// <summary>
         /// The image path
         /// </summary>
-        public virtual string ImagePath { get; set; }
+        public virtual string ImageDirectory { get; set; } 
 
         /// <summary>
         /// Gets the buttons.
@@ -82,7 +82,7 @@ namespace BudgetExecution
         /// <value>
         /// The size of the image.
         /// </value>
-        public Size ImageSize { get; set; } = new Size( 20, 20 );
+        public Size ImageSize { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BudgetToolStrip"/> class.
@@ -105,7 +105,7 @@ namespace BudgetExecution
             BorderStyle = ToolStripBorderStyle.StaticEdge;
             CanApplyTheme = true;
             CanOverrideStyle = true;
-            ImageScalingSize = ImageSize;
+            ImageScalingSize = new Size( 20, 20 );
             Office12Mode = true;
             LauncherStyle = LauncherStyle.Office12;
             ShowLauncher = true;
@@ -121,23 +121,9 @@ namespace BudgetExecution
             ThemeStyle.ComboBoxStyle.HoverBorderColor = Color.SteelBlue;
             ThemeStyle.HoverItemBackColor = Color.SteelBlue;
             ThemeStyle.HoverItemForeColor = Color.White;
-            Buttons = new Dictionary<string, BudgetToolStripButton>();
-            Separator1 = new ToolSeparator();
-            Items.Add( Separator1 );
-            ToolStripComboBox = new BudgetToolStripComboBox();
-            ToolStripTextBox = new BudgetToolStripTextBox();
+            ImageDirectory = Setting[ "ToolStripImages" ];
             FirstButton = new BudgetToolStripButton();
-            PreviousButton = new BudgetToolStripButton();
-            NextButton = new BudgetToolStripButton( ToolType.NextButton );
-            LastButton = new BudgetToolStripButton( ToolType.LastButton );
-            EditButton = new BudgetToolStripButton( ToolType.EditButton );
-            AddButton = new BudgetToolStripButton( ToolType.AddButton );
-            DeleteButton = new BudgetToolStripButton( ToolType.DeleteButton );
-            RefreshButton = new BudgetToolStripButton( ToolType.RefreshButton );
-            SaveButton = new BudgetToolStripButton( ToolType.SaveButton );
-            PrintButton = new BudgetToolStripButton( ToolType.PrintButton );
-            ExcelButton = new BudgetToolStripButton( ToolType.ExcelButton );
-            CalculatorButton = new BudgetToolStripButton( ToolType.CalculatorButton );
+            FirstButton.Image = Image.FromFile(  Setting[ "ToolStripImages" ]  + @"\FirstButton.png" );
         }
         
         /// <summary>
@@ -205,6 +191,46 @@ namespace BudgetExecution
             }
         }
 
+        public void SetButtonImages()
+        {
+            var _firstRecord = Setting[ "ToolStripImages" ] + @"\FirstButton.png";
+            var _previousRecord = Setting[ "ToolStripImages" ] + @"\PreviousButton.png";
+            var _nextRecord = Setting[ "ToolStripImages" ] + @"\NextButton.png";
+            var _lastRecord = Setting[ "ToolStripImages" ] + @"\LastButton.png";
+            var _edit = Setting[ "ToolStripImages" ] + @"\EditButton.png";
+            var _add = Setting[ "ToolStripImages" ] + @"\AddButton.png";
+            var _delete = Setting[ "ToolStripImages" ] + @"\DeleteButton.png";
+            var _refresh = Setting[ "ToolStripImages" ] + @"\RefreshButton.png";
+            var _save = Setting[ "ToolStripImages" ] + @"\SaveButton.png";
+            var _print = Setting[ "ToolStripImages" ] + @"\PrintButton.png";
+            var _excelFile = Setting[ "ToolStripImages" ] + @"\ExcelButton.png";
+            var _calculator = Setting[ "ToolStripImages" ] + @"\CalculatorButton.png";
+            FirstButton.Image = Image.FromFile( _firstRecord );
+            FirstButton.HoverText = "First Record";
+            PreviousButton.Image = Image.FromFile( _previousRecord );
+            PreviousButton.HoverText = "Previous Record";
+            NextButton.Image = Image.FromFile( _nextRecord );
+            NextButton.HoverText = "Next Record";
+            LastButton.Image = Image.FromFile( _lastRecord );
+            LastButton.HoverText = "Last Record";
+            EditButton.Image = Image.FromFile( _edit );
+            EditButton.HoverText = "Edit Record";
+            AddButton.Image = Image.FromFile( _add );
+            AddButton.HoverText = "Add Record";
+            DeleteButton.Image = Image.FromFile( _delete );
+            DeleteButton.HoverText = "Delete Record";
+            RefreshButton.Image = Image.FromFile( _refresh );
+            RefreshButton.HoverText = "Refresh Data";
+            SaveButton.Image = Image.FromFile( _save );
+            SaveButton.HoverText = "Save Data";
+            PrintButton.Image = Image.FromFile( _print );
+            PrintButton.HoverText = "Print Data";
+            ExcelButton.Image = Image.FromFile( _excelFile );
+            ExcelButton.HoverText = "Export to Excel";
+            CalculatorButton.Image = Image.FromFile( _calculator );
+            CalculatorButton.HoverText = "Launch Calculator";
+        }
+
         public void PopulateItems()
         {
             try
@@ -213,11 +239,39 @@ namespace BudgetExecution
                 {
                     Items.Clear();
                 }
-
+                
+                Separator1 = new ToolSeparator();
+                Separator2 = new ToolSeparator();
+                Separator3 = new ToolSeparator();
+                Separator4 = new ToolSeparator();
+                Separator5 = new ToolSeparator();
+                Separator6 = new ToolSeparator();
+                Separator7 = new ToolSeparator();
+                Separator8 = new ToolSeparator();
+                Separator9 = new ToolSeparator();
+                Separator10 = new ToolSeparator();
+                Separator11 = new ToolSeparator();
+                Separator12 = new ToolSeparator();
+                Separator13 = new ToolSeparator();
+                Separator14 = new ToolSeparator();
                 Items.Add( Separator1 );
-                Items.Add( ToolStripComboBox );
-                Items.Add( Separator2 );
+                ToolStripTextBox = new BudgetToolStripTextBox();
                 Items.Add( ToolStripTextBox );
+                Items.Add( Separator2 );
+                ToolStripComboBox = new BudgetToolStripComboBox();
+                FirstButton = new BudgetToolStripButton();
+                PreviousButton = new BudgetToolStripButton();
+                NextButton = new BudgetToolStripButton();
+                LastButton = new BudgetToolStripButton();
+                EditButton = new BudgetToolStripButton();
+                AddButton = new BudgetToolStripButton();
+                DeleteButton = new BudgetToolStripButton();
+                RefreshButton = new BudgetToolStripButton();
+                SaveButton = new BudgetToolStripButton();
+                PrintButton = new BudgetToolStripButton();
+                ExcelButton = new BudgetToolStripButton();
+                CalculatorButton = new BudgetToolStripButton();
+                Items.Add( ToolStripComboBox );
                 Items.Add( Separator3 );
                 Items.Add( FirstButton );
                 Items.Add( Separator4 );

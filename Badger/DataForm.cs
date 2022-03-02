@@ -57,6 +57,7 @@ namespace BudgetExecution
             BudgetButton.Click += OnBudgetButtonClick;
             BudgetButton.MouseLeave += ClearLabelText;
             Controls.Add( BudgetButton );
+            //Load += OnFormLoad;
         }
 
         /// <summary>
@@ -85,7 +86,13 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
+        public void OnFormLoad( object sender, EventArgs e )
+        {
+            var _firstButton = Setting[ "ToolStripImages" ] + @"\FirstButton.png";
+            ToolStrip.FirstButton.Image = Image.FromFile(  _firstButton );
+        }
+
         /// <summary>
         /// Clears the label text.
         /// </summary>

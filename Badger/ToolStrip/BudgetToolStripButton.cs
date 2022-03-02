@@ -45,8 +45,8 @@ namespace BudgetExecution
         public BudgetToolStripButton( ToolType toolType )
             : this()
         {
-            Image = new BudgetImage( toolType.ToString(), ImageDirectory.ToolStripImages )?.GetBitmap();
             Bar = toolType;
+            Image = new BudgetImage( toolType.ToString(), ImageDirectory.ToolStripImages )?.GetBitmap();
         }
 
         /// <summary>

@@ -46,7 +46,7 @@ namespace BudgetExecution
         /// <summary>
         /// The image path
         /// </summary>
-        string ImagePath { get; set; }
+        string ImageDirectory { get; set; }
 
         /// <summary>
         /// Gets the buttons.

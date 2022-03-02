@@ -112,30 +112,30 @@ namespace BudgetExecution
 
         private void SetToolStripButtonImages()
         {
-            var _firstRecord = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\FirstButton.png";
-            var _previousRecord = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\PreviousButton.png";
-            var _nextRecord = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\NextButton.png";
-            var _lastRecord = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\LastButton.png";
-            var _edit = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\EditButton.png";
-            var _add = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\AddButton.png";
-            var _delete = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\DeleteButton.png";
-            var _refresh = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\RefreshButton.png";
-            var _save = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\SaveButton.png";
-            var _print = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\PrintButton.png";
-            var _excelFile = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\ExcelButton.png";
-            var _calculator = @"C:\Users\teppler\source\repos\BudgetExecution\Badger\Images\ToolBar\png\CalculatorButton.png";
-            FirstRecordToolStripButton.Image = Image.FromFile( _firstRecord );
-            FirstRecordToolStripButton.HoverText = "First Record";
-            PreviousRecordToolStripButton.Image = Image.FromFile( _previousRecord );
-            PreviousRecordToolStripButton.HoverText = "Previous Record";
-            NextRecordToolStripButton.Image = Image.FromFile( _nextRecord );
-            NextRecordToolStripButton.HoverText = "Next Record";
-            LastRecordToolStripButton.Image = Image.FromFile( _lastRecord );
-            LastRecordToolStripButton.HoverText = "Last Record";
-            EditRecordToolStripButton.Image = Image.FromFile( _edit );
-            EditRecordToolStripButton.HoverText = "Edit Record";
-            AddRecordToolStripButton.Image = Image.FromFile( _add );
-            AddRecordToolStripButton.HoverText = "Add Record";
+            var _firstRecord = Setting[ "ToolStripImages" ] + @"\FirstButton.png";
+            var _previousRecord = Setting[ "ToolStripImages" ] + @"\PreviousButton.png";
+            var _nextRecord = Setting[ "ToolStripImages" ] + @"\NextButton.png";
+            var _lastRecord = Setting[ "ToolStripImages" ] + @"\LastButton.png";
+            var _edit = Setting[ "ToolStripImages" ] + @"\EditButton.png";
+            var _add = Setting[ "ToolStripImages" ] + @"\AddButton.png";
+            var _delete = Setting[ "ToolStripImages" ] + @"\DeleteButton.png";
+            var _refresh = Setting[ "ToolStripImages" ] + @"\RefreshButton.png";
+            var _save = Setting[ "ToolStripImages" ] + @"\SaveButton.png";
+            var _print = Setting[ "ToolStripImages" ] + @"\PrintButton.png";
+            var _excelFile = Setting[ "ToolStripImages" ] + @"\ExcelButton.png";
+            var _calculator = Setting[ "ToolStripImages" ] + @"\CalculatorButton.png";
+            FirstButton.Image = Image.FromFile( _firstRecord );
+            FirstButton.HoverText = "First Record";
+            PreviousButton.Image = Image.FromFile( _previousRecord );
+            PreviousButton.HoverText = "Previous Record";
+            NextButton.Image = Image.FromFile( _nextRecord );
+            NextButton.HoverText = "Next Record";
+            LastButton.Image = Image.FromFile( _lastRecord );
+            LastButton.HoverText = "Last Record";
+            EditButton.Image = Image.FromFile( _edit );
+            EditButton.HoverText = "Edit Record";
+            AddButton.Image = Image.FromFile( _add );
+            AddButton.HoverText = "Add Record";
             DeleteButton.Image = Image.FromFile( _delete );
             DeleteButton.HoverText = "Delete Record";
             RefreshButton.Image = Image.FromFile( _refresh );
@@ -144,8 +144,8 @@ namespace BudgetExecution
             SaveButton.HoverText = "Save Data";
             ExcelButton.Image = Image.FromFile( _excelFile );
             ExcelButton.HoverText = "Export to Excel";
-            CalculatorToolStripButton.Image = Image.FromFile( _calculator );
-            CalculatorToolStripButton.HoverText = "Launch Calculator";
+            CalculatorButton.Image = Image.FromFile( _calculator );
+            CalculatorButton.HoverText = "Launch Calculator";
         }
 
         /// <summary>
