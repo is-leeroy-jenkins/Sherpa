@@ -35,6 +35,7 @@ namespace BudgetExecution
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataForm));
+            this.ToolStrip = new BudgetToolStrip();
             this.ToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
