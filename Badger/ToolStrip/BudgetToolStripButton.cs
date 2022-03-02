@@ -31,6 +31,7 @@ namespace BudgetExecution
             Text = string.Empty;
             Visible = true;
             Enabled = true;
+            AutoToolTip = false;
             MouseHover += OnMouseHover;
             MouseLeave += OnMouseLeave;
             Click += OnClick;
