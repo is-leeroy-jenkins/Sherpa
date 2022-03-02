@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public enum ImageSource
+    public enum ImageDirectory
     {
         /// <summary>
         /// The ns

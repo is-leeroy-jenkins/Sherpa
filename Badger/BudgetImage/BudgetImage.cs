@@ -104,7 +104,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name="source">The source.</param>
-        public BudgetImage( string path, ImageSource source = ImageSource.NS )
+        public BudgetImage( string path, ImageDirectory source = ImageDirectory.NS )
         {
             Name = Path.GetFileNameWithoutExtension( path );
             ImageBuilder = new ImageBuilder( Name, source, PicSize.Medium );
@@ -138,7 +138,7 @@ namespace BudgetExecution
         /// <param name="name">The name.</param>
         /// <param name="resource">The resource.</param>
         /// <param name="size">The size.</param>
-        public BudgetImage( string name, ImageSource resource, PicSize size = PicSize.Medium )
+        public BudgetImage( string name, ImageDirectory resource, PicSize size = PicSize.Medium )
         {
             ImageBuilder = new ImageBuilder( name, resource, size );
             Name = ImageBuilder.Name;
@@ -156,7 +156,7 @@ namespace BudgetExecution
         /// <param name="name">The name.</param>
         /// <param name="resource">The resource.</param>
         /// <param name="size">The size.</param>
-        public BudgetImage( string name, ImageSource resource, Size size )
+        public BudgetImage( string name, ImageDirectory resource, Size size )
         {
             ImageBuilder = new ImageBuilder( name, resource, size );
             Name = ImageBuilder.Name;

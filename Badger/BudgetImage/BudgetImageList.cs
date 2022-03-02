@@ -46,7 +46,7 @@ namespace BudgetExecution
         /// <value>
         /// The image source.
         /// </value>
-        public ImageSource ImageSource { get; set; }
+        public ImageDirectory ImageSource { get; set; }
 
         /// <summary>
         /// Gets or sets the image.
@@ -88,7 +88,7 @@ namespace BudgetExecution
         /// <param name = "size" >
         /// The size.
         /// </param>
-        public BudgetImageList( ImageSource imageImageSource, Size size )
+        public BudgetImageList( ImageDirectory imageImageSource, Size size )
         {
             ImageSource = imageImageSource;
             ImageSize = size;
@@ -109,7 +109,7 @@ namespace BudgetExecution
         /// </param>
         public BudgetImageList( string path, Size size )
         {
-            ImageSource = ImageSource.NS;
+            ImageSource = ImageDirectory.NS;
             ImageSize = size;
             ImageBuilder = new ImageBuilder( path );
             ImageFactory = new ImageFactory( ImageBuilder );

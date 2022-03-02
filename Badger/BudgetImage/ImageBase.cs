@@ -34,7 +34,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public virtual ImageSource ImageSource { get; set; }
+        public virtual ImageDirectory ImageSource { get; set; }
 
         /// <summary>
         /// Gets or sets the format.
@@ -89,18 +89,18 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="source">The source.</param>
         /// <returns></returns>
-        public virtual ImageSource GetImageSource( ImageSource source )
+        public virtual ImageDirectory GetImageSource( ImageDirectory source )
         {
             try
             {
-                return Validate.ImageResource( source )
+                return Validate.ImageDirectory( source )
                     ? source
-                    : ImageSource.NS;
+                    : ImageDirectory.NS;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return ImageSource.NS;
+                return ImageDirectory.NS;
             }
         }
 
@@ -110,14 +110,14 @@ namespace BudgetExecution
         /// <param name="filePath">The file path.</param>
         /// <param name="resource">The resource.</param>
         /// <returns></returns>
-        public virtual string GetFileExtension( string filePath, ImageSource resource = ImageSource.NS )
+        public virtual string GetFileExtension( string filePath, ImageDirectory resource = ImageDirectory.NS )
         {
             try
             {
-                return Validate.ImageResource( resource )
+                return Validate.ImageDirectory( resource )
                     && Verify.IsInput( filePath )
                     && File.Exists( filePath )
-                    && resource != ImageSource.NS
+                    && resource != ImageDirectory.NS
                         ? filePath
                         : string.Empty;
             }

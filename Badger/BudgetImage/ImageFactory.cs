@@ -43,7 +43,7 @@ namespace BudgetExecution
             ImageBuilder = imageBuilder;
             ImageSource = ImageBuilder.ImageSource;
             ImageFormat = ImageBuilder.GetExtension();
-            Paths = Resource.Images;
+            Paths = Resource.ImageFolders;
             Names = Paths.Select( n => Path.GetFileNameWithoutExtension( n ) );
             FileStream = GetFileStreams();
         }
@@ -54,12 +54,12 @@ namespace BudgetExecution
         /// <param name = "imageSource" >
         /// The imageSource.
         /// </param>
-        public ImageFactory( ImageSource imageSource )
+        public ImageFactory( ImageDirectory imageSource )
         {
             ImageBuilder = new ImageBuilder( imageSource );
             ImageSource = ImageBuilder.ImageSource;
             ImageFormat = ImageBuilder.GetExtension();
-            Paths = Resource.Images;
+            Paths = Resource.ImageFolders;
             Names = Paths.Select( n => Path.GetFileNameWithoutExtension( n ) );
             FileStream = GetFileStreams( );
         }
@@ -76,7 +76,7 @@ namespace BudgetExecution
             {
                 var _dictionary = new Dictionary<string, FileInfo>();
 
-                foreach( var _name in Resource.Images )
+                foreach( var _name in Resource.ImageFolders )
                 {
                     if ( File.Exists( _name ) )
                     {

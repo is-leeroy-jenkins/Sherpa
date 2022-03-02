@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// </param>
         public virtual void SetTableFormat( Grid grid )
         {
-            if( Validate.Grid( grid ) )
+            if( Validate.IsGrid( grid ) )
             {
                 try
                 {
@@ -108,7 +108,7 @@ namespace BudgetExecution
         /// </param>
         public virtual void SetCaptionFormat( Grid grid )
         {
-            if( Validate.Grid( grid ) )
+            if( Validate.IsGrid( grid ) )
             {
                 try
                 {
@@ -131,7 +131,7 @@ namespace BudgetExecution
         /// </param>
         public virtual void SetDarkRowFormat( Grid grid )
         {
-            if( Validate.Grid( grid ) )
+            if( Validate.IsGrid( grid ) )
             {
                 try
                 {
@@ -159,7 +159,7 @@ namespace BudgetExecution
         /// </param>
         public virtual void SetLightRowFormat( Grid grid )
         {
-            if( Validate.Grid( grid ) )
+            if( Validate.IsGrid( grid ) )
             {
                 try
                 {
@@ -187,7 +187,7 @@ namespace BudgetExecution
         /// </param>
         public virtual void SetAlternatingColorFormat( Grid grid )
         {
-            if( Validate.Grid( grid ) )
+            if( Validate.IsGrid( grid ) )
             {
                 try
                 {
@@ -224,7 +224,7 @@ namespace BudgetExecution
         /// </param>
         public virtual void SetNumericRowFormat( Grid grid )
         {
-            if( Validate.Grid( grid ) )
+            if( Validate.IsGrid( grid ) )
             {
                 try
                 {
@@ -254,7 +254,7 @@ namespace BudgetExecution
         public virtual void SetTableFormat( Grid grid, Font font,
             ExcelBorderStyle borderStyle = ExcelBorderStyle.Thin )
         {
-            if( Validate.Grid( grid ) )
+            if( Validate.IsGrid( grid ) )
             {
                 try
                 {
@@ -282,7 +282,7 @@ namespace BudgetExecution
         /// </param>
         public virtual void SetTotalRowFormat( Grid grid )
         {
-            if( Validate.Grid( grid ) )
+            if( Validate.IsGrid( grid ) )
             {
                 try
                 {

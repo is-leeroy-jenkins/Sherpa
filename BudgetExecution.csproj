@@ -795,7 +795,7 @@
     <Compile Include="Enumerations\IconResource.cs" />
     <Compile Include="Enumerations\ImageFormat.cs" />
     <Compile Include="Enumerations\PicSize.cs" />
-    <Compile Include="Enumerations\ImageSource.cs" />
+    <Compile Include="Enumerations\ImageDirectory.cs" />
     <Compile Include="Enumerations\Level.cs" />
     <Compile Include="Enumerations\Logic.cs" />
     <Compile Include="Enumerations\Net.cs" />

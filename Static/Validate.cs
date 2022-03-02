@@ -11,6 +11,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "UseDeconstructionOnParameter" ) ]
     public class Validate
     {
         /// <summary>
@@ -178,7 +179,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="obj">The object.</param>
         /// <returns></returns>
-        public static bool Grid( object obj )
+        public static bool IsGrid( object obj )
         {
             if( obj != null )
             {
@@ -201,7 +202,7 @@ namespace BudgetExecution
         {
             if( !Enum.IsDefined( typeof( FundAvailability ), avail ) )
             {
-                Fail( new ArgumentException( "Verify [ enum Availability ] input argument!" ) );
+                Fail( new ArgumentException( "Verify [ enum FundAvailability ] input argument!" ) );
                 return false;
             }
             else
@@ -336,10 +337,10 @@ namespace BudgetExecution
         /// <typeparam name="T"></typeparam>
         /// <param name="imageResource">The imageResource.</param>
         /// <returns></returns>
-        public static bool ImageResource<T>( T imageResource )
+        public static bool ImageDirectory<T>( T imageResource )
             where T : struct
         {
-            if( !Enum.IsDefined( typeof( ImageSource ), imageResource ) )
+            if( !Enum.IsDefined( typeof( ImageDirectory ), imageResource ) )
             {
                 Fail( new ArgumentException( "Verify [ enum ImageSource ] input argument!" ) );
                 return false;

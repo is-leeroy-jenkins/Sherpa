@@ -44,7 +44,7 @@ namespace BudgetExecution
         {
             FullPath = fullPath;
             Name = GetFileNameWithoutExtension( FullPath );
-            ImageSource = ImageSource.NS;
+            ImageSource = ImageDirectory.NS;
             FileExtension = Path.GetExtension( FullPath );
             ImageFormat = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
             Size = GetImageSize( PicSize.Small );
@@ -55,7 +55,7 @@ namespace BudgetExecution
         /// <see cref="ImageBuilder"/> class.
         /// </summary>
         /// <param name="imageSource">The source.</param>
-        public ImageBuilder( ImageSource imageSource )
+        public ImageBuilder( ImageDirectory imageSource )
         {
             Name = imageSource.ToString();
             ImageSource = imageSource;
@@ -73,7 +73,7 @@ namespace BudgetExecution
         /// <param name="name">The name.</param>
         /// <param name="imageSource">The source.</param>
         /// <param name="size">The size.</param>
-        public ImageBuilder( string name, ImageSource imageSource, PicSize size = PicSize.Medium )
+        public ImageBuilder( string name, ImageDirectory imageSource, PicSize size = PicSize.Medium )
         {
             Name = name;
             ImageSource = imageSource;
@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// <param name="imageSource">The source.</param>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public ImageBuilder( string name, ImageSource imageSource, int width = 16,
+        public ImageBuilder( string name, ImageDirectory imageSource, int width = 16,
             int height = 16 )
         {
             Name = name;
@@ -110,7 +110,7 @@ namespace BudgetExecution
         /// <param name="name">The name.</param>
         /// <param name="imageSource">The source.</param>
         /// <param name="size">The size.</param>
-        public ImageBuilder( string name, ImageSource imageSource, Size size )
+        public ImageBuilder( string name, ImageDirectory imageSource, Size size )
         {
             Name = name;
             ImageSource = imageSource;
@@ -127,16 +127,16 @@ namespace BudgetExecution
         /// <param name="filePath">The file path.</param>
         /// <param name="imageSource">The image source.</param>
         /// <returns></returns>
-        private protected string GetImageFilePath( string filePath, ImageSource imageSource )
+        private protected string GetImageFilePath( string filePath, ImageDirectory imageSource )
         {
-            if( Validate.ImageResource( imageSource )
+            if( Validate.ImageDirectory( imageSource )
                 && Verify.IsInput( filePath )
                 && File.Exists( filePath )
-                && imageSource != ImageSource.NS )
+                && imageSource != ImageDirectory.NS )
             {
                 try
                 {
-                    var _path = Resource.Images
+                    var _path = Resource.ImageFolders
                         ?.Where( n => n.Contains( filePath ) )
                         ?.Select( n => n )
                         ?.FirstOrDefault();

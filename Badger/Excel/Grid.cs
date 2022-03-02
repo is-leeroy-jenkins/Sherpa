@@ -21,17 +21,17 @@ namespace BudgetExecution
         /// <summary>
         /// The range
         /// </summary>
-        private protected ExcelRange _range;
+        public ExcelRange Range { get; set; }
 
         /// <summary>
         /// The workSheet
         /// </summary>
-        private protected ExcelWorksheet _worksheet;
+        public ExcelWorksheet Worksheet { get; set; }
 
         /// <summary>
         /// The address
         /// </summary>
-        private protected ExcelAddress _address;
+        public ExcelAddress Address { get; set; }
 
         /// <summary>
         /// Gets or sets from.
@@ -39,7 +39,7 @@ namespace BudgetExecution
         /// <value>
         /// From.
         /// </value>
-        private protected (int Row, int Column) _from;
+        public (int Row, int Column) From { get; set; }
 
         /// <summary>
         /// Gets or sets to.
@@ -47,7 +47,7 @@ namespace BudgetExecution
         /// <value>
         /// To.
         /// </value>
-        private protected (int Row, int Column) _to;
+        public (int Row, int Column) To { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Grid"/> class.
@@ -66,14 +66,14 @@ namespace BudgetExecution
         /// </param>
         public Grid( ExcelWorksheet workSheet, ExcelRange range )
         {
-            _worksheet = workSheet;
-            _range = range;
+            Worksheet = workSheet;
+            Range = range;
 
-            _address = new ExcelAddress( _range.Start.Row, _range.Start.Column, 
-                _range.End.Row, _range.End.Row );
+            Address = new ExcelAddress( Range.Start.Row, Range.Start.Column, 
+                Range.End.Row, Range.End.Row );
 
-            _from = ( _address.Start.Row, _address.Start.Column );
-            _to = ( _address.End.Row, _address.End.Column );
+            From = ( Address.Start.Row, Address.Start.Column );
+            To = ( Address.End.Row, Address.End.Column );
         }
 
         /// <summary>
@@ -87,11 +87,11 @@ namespace BudgetExecution
         /// </param>
         public Grid( ExcelWorksheet workSheet, ExcelAddress address )
         {
-            _worksheet = workSheet;
-            _address = address;
-            _from = ( _address.Start.Row, _address.Start.Column );
-            _to = ( _address.End.Row, _address.End.Column );
-            _range = _worksheet.Cells[ _from.Row, _from.Column, _to.Row, _to.Column ];
+            Worksheet = workSheet;
+            Address = address;
+            From = ( Address.Start.Row, Address.Start.Column );
+            To = ( Address.End.Row, Address.End.Column );
+            Range = Worksheet.Cells[ From.Row, From.Column, To.Row, To.Column ];
         }
 
         /// <summary>
@@ -114,11 +114,11 @@ namespace BudgetExecution
         public Grid( ExcelWorksheet workSheet, int fromRow = 1, int fromColumn = 1,
             int toRow = 55, int toColumn = 12 )
         {
-            _worksheet = workSheet;
-            _range = _worksheet.Cells[ fromRow, fromColumn, toRow, toColumn ];
-            _address = new ExcelAddress( _range.Start.Row, _range.Start.Column, _range.End.Row, _range.End.Row );
-            _from = ( _address.Start.Row, _address.Start.Column );
-            _to = ( _address.End.Row, _address.End.Column );
+            Worksheet = workSheet;
+            Range = Worksheet.Cells[ fromRow, fromColumn, toRow, toColumn ];
+            Address = new ExcelAddress( Range.Start.Row, Range.Start.Column, Range.End.Row, Range.End.Row );
+            From = ( Address.Start.Row, Address.Start.Column );
+            To = ( Address.End.Row, Address.End.Column );
         }
 
         /// <summary>
@@ -131,14 +131,14 @@ namespace BudgetExecution
         /// </param>
         public Grid( ExcelWorksheet workSheet, IReadOnlyList<int> cell )
         {
-            _worksheet = workSheet;
-            _range = _worksheet.Cells[ cell[ 0 ], cell[ 1 ], cell[ 2 ], cell[ 3 ] ];
+            Worksheet = workSheet;
+            Range = Worksheet.Cells[ cell[ 0 ], cell[ 1 ], cell[ 2 ], cell[ 3 ] ];
 
-            _address = new ExcelAddress( _range.Start.Row, _range.Start.Column, _range.End.Row,
-                _range.End.Column );
+            Address = new ExcelAddress( Range.Start.Row, Range.Start.Column, Range.End.Row,
+                Range.End.Column );
 
-            _from = ( _address.Start.Row, _address.Start.Column );
-            _to = ( _address.End.Row, _address.End.Column );
+            From = ( Address.Start.Row, Address.Start.Column );
+            To = ( Address.End.Row, Address.End.Column );
         }
 
         /// <summary>
@@ -154,11 +154,11 @@ namespace BudgetExecution
         /// </param>
         public Grid( ExcelWorksheet workSheet, (int Row, int Column) from, (int Row, int Column) to )
         {
-            _worksheet = workSheet;
-            _range = _worksheet.Cells[ from.Row, from.Column, to.Row, to.Column ];
-            _address = new ExcelAddress( _range.Start.Row, _range.Start.Column, _range.End.Row, _range.End.Row );
-            _from = from;
-            _to = to;
+            Worksheet = workSheet;
+            Range = Worksheet.Cells[ from.Row, from.Column, to.Row, to.Column ];
+            Address = new ExcelAddress( Range.Start.Row, Range.Start.Column, Range.End.Row, Range.End.Row );
+            From = from;
+            To = to;
         }
 
         /// <summary>Initializes a new instance of the
@@ -172,14 +172,14 @@ namespace BudgetExecution
         /// </param>
         public Grid( ExcelWorksheet workSheet, (int Row, int Column) from )
         {
-            _worksheet = workSheet;
-            _range = _worksheet.Cells[ from.Row, from.Column ];
+            Worksheet = workSheet;
+            Range = Worksheet.Cells[ from.Row, from.Column ];
 
-            _address = new ExcelAddress( _range.Start.Row, _range.Start.Column, _range.Start.Row,
-                _range.Start.Column );
+            Address = new ExcelAddress( Range.Start.Row, Range.Start.Column, Range.Start.Row,
+                Range.Start.Column );
 
-            _from = from;
-            _to = _from;
+            From = from;
+            To = From;
         }
         
         /// <summary>
@@ -191,8 +191,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _address.Columns > 0
-                    ? _address
+                return Address.Columns > 0
+                    ? Address
                     : default( ExcelAddress );
             }
             catch( Exception ex )
@@ -211,8 +211,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _range.Columns > 0
-                    ? _range
+                return Range.Columns > 0
+                    ? Range
                     : default( ExcelRange );
             }
             catch( Exception ex )
@@ -231,8 +231,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _from.Row > 0 && _from.Column  > 0
-                    ? ( _from.Row, _from.Column )
+                return From.Row > 0 && From.Column  > 0
+                    ? ( From.Row, From.Column )
                     : default( (int, int) );
             }
             catch( Exception ex )
@@ -251,8 +251,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _to.Row > 0 && _to.Column > 0
-                    ? ( _to.Row, _to.Column )
+                return To.Row > 0 && To.Column > 0
+                    ? ( To.Row, To.Column )
                     : default( (int, int) );
             }
             catch( Exception ex )
@@ -271,8 +271,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( _worksheet.Name )
-                    ? _worksheet
+                return Verify.IsInput( Worksheet.Name )
+                    ? Worksheet
                     : default( ExcelWorksheet );
             }
             catch( Exception ex )
@@ -314,8 +314,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _range.Rows > 0
-                    ? _range.Rows
+                return Range.Rows > 0
+                    ? Range.Rows
                     : 0;
             }
             catch( Exception ex )
@@ -334,8 +334,8 @@ namespace BudgetExecution
         {
             try
             {
-                return _range.Columns > 0
-                    ? _range.Columns
+                return Range.Columns > 0
+                    ? Range.Columns
                     : 0;
             }
             catch( Exception ex )

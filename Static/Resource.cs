@@ -236,7 +236,7 @@ namespace BudgetExecution
         /// <summary>
         /// The image resources
         /// </summary>
-        public static readonly string[ ] Images = Enum.GetNames( typeof( ImageSource ) );
+        public static readonly string[ ] ImageFolders = Enum.GetNames( typeof( ImageDirectory ) );
 
         /// <summary>
         /// The charts

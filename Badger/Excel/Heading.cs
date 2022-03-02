@@ -54,12 +54,12 @@ namespace BudgetExecution
         /// <param name="grid"></param>
         public Heading( IGrid grid )
         {
-            _worksheet = grid.GetWorksheet();
-            _range = grid.GetRange();
-            _address = grid.GetAddress();
-            _from = ( _range.Start.Row, _range.Start.Column );
-            _to = ( _range.Start.Row, _range.End.Column );
-            Anchor = ( _from.Row, _from.Column );
+            Worksheet = grid.GetWorksheet();
+            Range = grid.GetRange();
+            Address = grid.GetAddress();
+            From = ( Range.Start.Row, Range.Start.Column );
+            To = ( Range.Start.Row, Range.End.Column );
+            Anchor = ( From.Row, From.Column );
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace BudgetExecution
             : this( grid )
         {
             Caption = caption;
-            Span = _range.Columns;
+            Span = Range.Columns;
         }
 
         /// <summary>

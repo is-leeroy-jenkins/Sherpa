@@ -68,13 +68,13 @@ namespace BudgetExecution
 
         {
             Grid = grid;
-            _worksheet = Grid.GetWorksheet();
-            _range = Grid.GetRange();
-            _address = Grid.GetAddress();
-            _from = ( _range.Start.Row, _range.Start.Column );
-            _to = ( _range.End.Row, _range.End.Column );
-            Span = _range.Columns;
-            Depth = _range.Rows;
+            Worksheet = Grid.GetWorksheet();
+            Range = Grid.GetRange();
+            Address = Grid.GetAddress();
+            From = ( Range.Start.Row, Range.Start.Column );
+            To = ( Range.End.Row, Range.End.Column );
+            Span = Range.Columns;
+            Depth = Range.Rows;
             Area = ( Depth, Span );
         }
 
