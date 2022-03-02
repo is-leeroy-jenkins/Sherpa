@@ -58,8 +58,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _splash = new BudgetSplashControl( "This is a test of the splash control!" );
-                    _splash.ShowSplash();
+                    var _dataForm = new DataForm();
+                    _dataForm.ShowDialog( this );
                 }
                 catch( Exception ex )
                 {

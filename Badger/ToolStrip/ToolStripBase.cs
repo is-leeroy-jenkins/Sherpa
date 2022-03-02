@@ -15,7 +15,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
     
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class ToolStripBase : ToolStripEx
+    public class ToolStripBase : ToolStripEx
     {
         /// <summary>
         /// Gets or sets the binding source.
@@ -203,6 +203,50 @@ namespace BudgetExecution
             PrintButton = ToolFactory.CreatePrintButton();
             ExcelButton = ToolFactory.CreateExcelButton();
             CalculatorButton = ToolFactory.CreateCalculatorButton();
+            PopulateItems();
+        }
+
+        public void PopulateItems()
+        {
+            try
+            {
+                if( Items?.Count > 0 )
+                {
+                    Items.Clear();
+                }
+
+                Items.Add( Separator );
+                Items.Add( ToolStripComboBox );
+                Items.Add( Separator );
+                Items.Add( ToolStripTextBox );
+                Items.Add( Separator );
+                Items.Add( FirstButton );
+                Items.Add( Separator );
+                Items.Add( PreviousButton );
+                Items.Add( Separator );
+                Items.Add( NextButton );
+                Items.Add( Separator );
+                Items.Add( LastButton );
+                Items.Add( Separator );
+                Items.Add( EditButton );
+                Items.Add( Separator );
+                Items.Add( DeleteButton );
+                Items.Add( Separator );
+                Items.Add( RefreshButton );
+                Items.Add( Separator );
+                Items.Add( SaveButton );
+                Items.Add( Separator );
+                Items.Add( PrintButton );
+                Items.Add( Separator );
+                Items.Add( ExcelButton );
+                Items.Add( Separator );
+                Items.Add( CalculatorButton );
+                Items.Add( Separator );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
 
         /// <summary>

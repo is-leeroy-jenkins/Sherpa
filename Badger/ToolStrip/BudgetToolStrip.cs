@@ -107,49 +107,6 @@ namespace BudgetExecution
             return default( IDictionary<string, BudgetToolStripButton> );
         }
 
-        public void PopulateItems()
-        {
-            try
-            {
-                if( Items?.Count > 0 )
-                {
-                    Items.Clear();
-                }
-
-                Items.Add( Separator );
-                Items.Add( ToolStripComboBox );
-                Items.Add( Separator );
-                Items.Add( ToolStripTextBox );
-                Items.Add( Separator );
-                Items.Add( FirstButton );
-                Items.Add( Separator );
-                Items.Add( PreviousButton );
-                Items.Add( Separator );
-                Items.Add( NextButton );
-                Items.Add( Separator );
-                Items.Add( LastButton );
-                Items.Add( Separator );
-                Items.Add( EditButton );
-                Items.Add( Separator );
-                Items.Add( DeleteButton );
-                Items.Add( Separator );
-                Items.Add( RefreshButton );
-                Items.Add( Separator );
-                Items.Add( SaveButton );
-                Items.Add( Separator );
-                Items.Add( PrintButton );
-                Items.Add( Separator );
-                Items.Add( ExcelButton );
-                Items.Add( Separator );
-                Items.Add( CalculatorButton );
-                Items.Add( Separator );
-            }
-            catch ( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
         /// <summary>
         /// Creates the text box.
         /// </summary>

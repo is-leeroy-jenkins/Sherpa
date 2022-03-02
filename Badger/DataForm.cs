@@ -39,6 +39,10 @@ namespace BudgetExecution
         /// </value>
         public string CurrentDirectory { get; } = Environment.CurrentDirectory;
 
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="DataForm"/> class.
+        /// </summary>
         public DataForm()
         {
             InitializeComponent();
