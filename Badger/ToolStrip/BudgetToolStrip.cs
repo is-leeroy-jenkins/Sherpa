@@ -213,61 +213,85 @@ namespace BudgetExecution
                 Items.Add( new ToolSeparator() );
                 Items.Add( new BudgetToolStripComboBox() );
                 Items.Add( new ToolSeparator() );
+                
+                // First Button
                 FirstButton = new BudgetToolStripButton();
                 FirstButton.Image = Image.FromFile( _firstRecord );
                 FirstButton.HoverText = "Go To Beginning";
                 Items.Add( FirstButton  );
                 Items.Add( new ToolSeparator() );
+
+                // Previous Button
                 PreviousButton = new BudgetToolStripButton();
                 PreviousButton.Image = Image.FromFile( _previousRecord );
                 PreviousButton.HoverText = "Go To Previous";
                 Items.Add( PreviousButton );
                 Items.Add( new ToolSeparator() );
+
+                // Next Button
                 NextButton = new BudgetToolStripButton();
                 NextButton.Image = Image.FromFile( _nextRecord );
                 NextButton.HoverText = "Go To Next Record";
                 Items.Add( NextButton );
                 Items.Add( new ToolSeparator() );
+
+                // Last button
                 LastButton = new BudgetToolStripButton();
                 LastButton.Image = Image.FromFile( _lastRecord );
                 LastButton.HoverText = "Go To Last Record";
                 Items.Add( LastButton);
                 Items.Add( new ToolSeparator() );
+
+                // Edit Button
                 EditButton = new BudgetToolStripButton();
                 EditButton.Image = Image.FromFile( _edit );
                 EditButton.HoverText = "Edit Record";
-                Items.Add( EditButton);
+                Items.Add( EditButton );
                 Items.Add( new ToolSeparator() );
+
+                // Add Button
                 AddButton = new BudgetToolStripButton();
                 AddButton.Image = Image.FromFile( _add );
                 AddButton.HoverText = "Add Record";
                 Items.Add( AddButton );
                 Items.Add( new ToolSeparator() );
+
+                // Delete Button
                 DeleteButton = new BudgetToolStripButton();
                 DeleteButton.Image = Image.FromFile( _delete );
                 DeleteButton.HoverText = "Delete Record";
                 Items.Add( DeleteButton );
                 Items.Add( new ToolSeparator() );
+
+                // Refresh Button
                 RefreshButton = new BudgetToolStripButton();
                 RefreshButton.Image = Image.FromFile( _refresh );
                 RefreshButton.HoverText = "Refresh Data";
                 Items.Add( RefreshButton );
                 Items.Add( new ToolSeparator() );
+
+                // Save Button
                 SaveButton = new BudgetToolStripButton();
                 SaveButton.Image = Image.FromFile( _save );
                 SaveButton.HoverText = "Save Data";
                 Items.Add( SaveButton );
                 Items.Add( new ToolSeparator() );
+
+                // Print Button
                 PrintButton = new BudgetToolStripButton();
                 PrintButton.Image = Image.FromFile( _print );
                 PrintButton.HoverText = "Print Data";
                 Items.Add( PrintButton );
                 Items.Add( new ToolSeparator() );
+
+                // Excel Button
                 ExcelButton = new BudgetToolStripButton();
                 ExcelButton.Image = Image.FromFile( _excelFile );
                 ExcelButton.HoverText = "Export to Excel";
                 Items.Add( ExcelButton );
                 Items.Add( new ToolSeparator() );
+
+                // Calculator Button
                 CalculatorButton = new BudgetToolStripButton();
                 CalculatorButton.Image = Image.FromFile( _calculator );
                 CalculatorButton.HoverText = "Launch Calculator";
