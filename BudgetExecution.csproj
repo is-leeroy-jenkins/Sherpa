@@ -702,6 +702,7 @@
     <Compile Include="Badger\ToolStrip\BudgetToolStripButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Guidance.cs" />
     <Compile Include="Ninja\Outlays\Commitment.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
