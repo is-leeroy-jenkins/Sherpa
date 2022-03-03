@@ -57,7 +57,7 @@ namespace BudgetExecution
             BudgetButton.Click += OnBudgetButtonClick;
             BudgetButton.MouseLeave += ClearLabelText;
             Controls.Add( BudgetButton );
-            //Load += OnFormLoad;
+            Load += OnFormLoad;
         }
 
         /// <summary>
@@ -87,10 +87,23 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [form load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnFormLoad( object sender, EventArgs e )
         {
-            var _firstButton = Setting[ "ToolStripImages" ] + @"\FirstButton.png";
-            ToolStrip.FirstButton.Image = Image.FromFile(  _firstButton );
+            try
+            {
+                ToolStrip?.PopulateTools();
+            }
+            catch ( Exception ex )
+            {
+                Fail( ex );
+            }
         }
 
         /// <summary>

@@ -124,6 +124,14 @@ namespace BudgetExecution
         public ToolSeparator Separator14 { get; set; }
 
         /// <summary>
+        /// Gets or sets the separator15.
+        /// </summary>
+        /// <value>
+        /// The separator15.
+        /// </value>
+        public ToolSeparator Separator15 { get; set; }
+
+        /// <summary>
         /// Gets or sets the tool strip ComboBox.
         /// </summary>
         /// <value>
