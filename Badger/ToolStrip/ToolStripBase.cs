@@ -218,6 +218,14 @@ namespace BudgetExecution
         /// The save button.
         /// </value>
         public BudgetToolStripButton SaveButton { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the browse button.
+        /// </summary>
+        /// <value>
+        /// The browse button.
+        /// </value>
+        public BudgetToolStripButton BrowseButton { get; set; }
 
         /// <summary>
         /// Gets or sets the print button.
@@ -242,6 +250,14 @@ namespace BudgetExecution
         /// The calculator button.
         /// </value>
         public BudgetToolStripButton CalculatorButton { get; set; }
+
+        /// <summary>
+        /// Gets or sets the progress bar.
+        /// </summary>
+        /// <value>
+        /// The progress bar.
+        /// </value>
+        public BudgetToolStripProgressBar ProgressBar { get; set; }
         
         /// <summary>
         /// Get Error Dialog.

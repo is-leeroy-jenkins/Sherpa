@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    using Syncfusion.Windows.Forms.Tools;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -20,24 +19,61 @@ namespace BudgetExecution
         /// <see cref = "BudgetToolStripLabel"/>
         /// class.
         /// </summary>
-        public BudgetToolStripProgressBar( ToolStripEx toolStrip ) 
-            : base( toolStrip )
+        public BudgetToolStripProgressBar( )
         {
-            Parent = toolStrip;
-            Margin = new Padding( 10, 5, 10, 0 );
-            Size = new Size( 100, 33 );
+            Margin = new Padding( 5, 5, 5, 5 );
+            Size = new Size( 200, 22 );
             ForeColor = SystemColors.Highlight;
             BackColor = SystemColors.Control;
             Font = new Font( "Roboto", 9 );
             Visible = true;
             Enabled = true;
             Name = "Progress";
+            Maximum = 100;
+            Minimum = 1;
             Tag = Name;
             ToolTipText = Tag.ToString();
             HoverText = ToolTipText;
+            Style = ProgressBarStyle.Blocks;
+            Step = 10;
             MouseHover += OnMouseHover;
         }
+
+        /// <summary>
+        /// Increases the specified increment.
+        /// </summary>
+        /// <param name="increment">The increment.</param>
+        public void IncreaseBy( int increment )
+        {
+            if( increment > 0 )
+            {
+                try
+                {
+                    Increment( increment );
+                }
+                catch ( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
         
+        /// <summary>
+        /// Increases the specified increment.
+        /// </summary>
+        public void ShowProgress( int step = 10 )
+        {
+            try
+            {
+                Step = step;
+                PerformStep();
+            }
+            catch ( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Sets the field.
         /// </summary>

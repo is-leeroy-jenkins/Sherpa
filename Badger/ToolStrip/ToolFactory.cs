@@ -335,6 +335,25 @@
         /// </summary>
         /// <returns>
         /// </returns>
+        public static BudgetToolStripProgressBar CreateProgressBar()
+        {
+            try
+            {
+                var _progress= new BudgetToolStripProgressBar();
+                return _progress;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( BudgetToolStripProgressBar );
+            }
+        }
+        
+        /// <summary>
+        /// Creates the text box.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         public static BudgetToolStripTextBox CreateTextBox()
         {
             try

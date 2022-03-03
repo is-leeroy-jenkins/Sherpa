@@ -213,7 +213,7 @@ namespace BudgetExecution
             this.Separator3.Padding = new System.Windows.Forms.Padding(1, 5, 1, 5);
             this.Separator3.Size = new System.Drawing.Size(6, 32);
             // 
-            // FirstRecordToolStripButton
+            // FirstButton
             // 
             this.FirstButton.AutoToolTip = false;
             this.FirstButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
@@ -225,7 +225,6 @@ namespace BudgetExecution
             this.FirstButton.Font = new System.Drawing.Font("Roboto", 9F);
             this.FirstButton.ForeColor = System.Drawing.Color.Black;
             this.FirstButton.HoverText = null;
-            this.FirstButton.Image = ((System.Drawing.Image)(resources.GetObject("FirstRecordToolStripButton.Image")));
             this.FirstButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.FirstButton.Margin = new System.Windows.Forms.Padding(1);
             this.FirstButton.Name = "FirstButton";
@@ -242,7 +241,7 @@ namespace BudgetExecution
             this.Separator4.Padding = new System.Windows.Forms.Padding(1, 5, 1, 5);
             this.Separator4.Size = new System.Drawing.Size(6, 32);
             // 
-            // PreviousRecordToolStripButton
+            // PreviousButton
             // 
             this.PreviousButton.AutoToolTip = false;
             this.PreviousButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
@@ -254,7 +253,6 @@ namespace BudgetExecution
             this.PreviousButton.Font = new System.Drawing.Font("Roboto", 9F);
             this.PreviousButton.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.PreviousButton.HoverText = null;
-            this.PreviousButton.Image = ((System.Drawing.Image)(resources.GetObject("PreviousRecordToolStripButton.Image")));
             this.PreviousButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.PreviousButton.Margin = new System.Windows.Forms.Padding(1);
             this.PreviousButton.Name = "PreviousButton";
@@ -271,7 +269,7 @@ namespace BudgetExecution
             this.Separator5.Padding = new System.Windows.Forms.Padding(1, 5, 1, 5);
             this.Separator5.Size = new System.Drawing.Size(6, 32);
             // 
-            // NextRecordToolStripButton
+            // NextButton
             // 
             this.NextButton.AutoToolTip = false;
             this.NextButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
@@ -283,7 +281,6 @@ namespace BudgetExecution
             this.NextButton.Font = new System.Drawing.Font("Roboto", 9F);
             this.NextButton.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.NextButton.HoverText = null;
-            this.NextButton.Image = ((System.Drawing.Image)(resources.GetObject("NextRecordToolStripButton.Image")));
             this.NextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.NextButton.Margin = new System.Windows.Forms.Padding(1);
             this.NextButton.Name = "NextButton";
@@ -300,7 +297,7 @@ namespace BudgetExecution
             this.Separator6.Padding = new System.Windows.Forms.Padding(1, 5, 1, 5);
             this.Separator6.Size = new System.Drawing.Size(6, 32);
             // 
-            // LastRecordToolStripButton
+            // LastButton
             // 
             this.LastButton.AutoToolTip = false;
             this.LastButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
@@ -312,7 +309,6 @@ namespace BudgetExecution
             this.LastButton.Font = new System.Drawing.Font("Roboto", 9F);
             this.LastButton.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.LastButton.HoverText = null;
-            this.LastButton.Image = ((System.Drawing.Image)(resources.GetObject("LastRecordToolStripButton.Image")));
             this.LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.LastButton.Margin = new System.Windows.Forms.Padding(1);
             this.LastButton.Name = "LastButton";
@@ -329,7 +325,7 @@ namespace BudgetExecution
             this.Separator7.Padding = new System.Windows.Forms.Padding(1, 5, 1, 5);
             this.Separator7.Size = new System.Drawing.Size(6, 32);
             // 
-            // EditRecordToolStripButton
+            // EditButton
             // 
             this.EditButton.AutoToolTip = false;
             this.EditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
@@ -341,7 +337,6 @@ namespace BudgetExecution
             this.EditButton.Font = new System.Drawing.Font("Roboto", 9F);
             this.EditButton.ForeColor = System.Drawing.Color.White;
             this.EditButton.HoverText = null;
-            this.EditButton.Image = ((System.Drawing.Image)(resources.GetObject("EditRecordToolStripButton.Image")));
             this.EditButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.EditButton.Margin = new System.Windows.Forms.Padding(1);
             this.EditButton.Name = "EditButton";
@@ -358,7 +353,7 @@ namespace BudgetExecution
             this.Separator8.Padding = new System.Windows.Forms.Padding(1, 5, 1, 5);
             this.Separator8.Size = new System.Drawing.Size(6, 32);
             // 
-            // AddRecordToolStripButton
+            // AddButton
             // 
             this.AddButton.AutoToolTip = false;
             this.AddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
@@ -370,7 +365,6 @@ namespace BudgetExecution
             this.AddButton.Font = new System.Drawing.Font("Roboto", 9F);
             this.AddButton.ForeColor = System.Drawing.Color.White;
             this.AddButton.HoverText = null;
-            this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddRecordToolStripButton.Image")));
             this.AddButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.AddButton.Margin = new System.Windows.Forms.Padding(1);
             this.AddButton.Name = "AddButton";
@@ -503,7 +497,7 @@ namespace BudgetExecution
             this.Separator13.Padding = new System.Windows.Forms.Padding(1, 5, 1, 5);
             this.Separator13.Size = new System.Drawing.Size(6, 32);
             // 
-            // CalculatorToolStripButton
+            // CalculatorButton
             // 
             this.CalculatorButton.AutoToolTip = false;
             this.CalculatorButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
@@ -515,7 +509,6 @@ namespace BudgetExecution
             this.CalculatorButton.Font = new System.Drawing.Font("Roboto", 9F);
             this.CalculatorButton.ForeColor = System.Drawing.Color.White;
             this.CalculatorButton.HoverText = null;
-            this.CalculatorButton.Image = ((System.Drawing.Image)(resources.GetObject("CalculatorToolStripButton.Image")));
             this.CalculatorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.CalculatorButton.Margin = new System.Windows.Forms.Padding(1);
             this.CalculatorButton.Name = "CalculatorButton";

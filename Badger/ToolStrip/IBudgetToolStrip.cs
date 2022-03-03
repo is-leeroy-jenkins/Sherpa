@@ -269,6 +269,14 @@ namespace BudgetExecution
         BudgetToolStripButton SaveButton { get; set; }
 
         /// <summary>
+        /// Gets or sets the browse button.
+        /// </summary>
+        /// <value>
+        /// The browse button.
+        /// </value>
+        BudgetToolStripButton BrowseButton { get; set; }
+
+        /// <summary>
         /// Gets or sets the print button.
         /// </summary>
         /// <value>

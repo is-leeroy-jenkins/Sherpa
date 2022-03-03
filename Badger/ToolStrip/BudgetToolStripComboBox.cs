@@ -32,11 +32,12 @@ namespace BudgetExecution
         {
             Margin = new Padding( 5, 5, 5, 5 );
             Padding = new Padding( 0 );
-            Size = new Size( 150, 23 );
+            Size = new Size( 175, 23 );
             DropDownStyle = ComboBoxStyle.DropDownList;
-            MaxDropDownItems = 30;
+            MaxDropDownItems = 100;
+            DroppedDown = true;
             BackColor = Color.FromArgb( 18, 18, 18 );
-            ForeColor = Color.FromArgb( 141, 139, 138 );
+            ForeColor = Color.White;
             Font = new Font( "Roboto", 9 );
             Field = Field.NS;
             Tag = "Make Selection";
@@ -81,7 +82,30 @@ namespace BudgetExecution
             BindingSource.DataSource = data.ToList();
             BindingSource.DataMember = filter;
         }
-        
+
+        /// <summary>
+        /// Gets the selected item.
+        /// </summary>
+        /// <returns></returns>
+        public object GetSelectedItem()
+        {
+            if( Selected 
+                && SelectedIndex > -1 )
+            {
+                try
+                {
+                    return Items[ SelectedIndex ];
+                }
+                catch ( Exception ex )
+                {
+                    Fail( ex  );
+                    return null;
+                }
+            }
+
+            return null;
+        }
+
         /// <summary> Sets the data source. </summary>
         /// <param name = "bindingSource" > The bindingsource. </param>
         public void SetDataSource( BindingSource bindingSource )

@@ -34,8 +34,15 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataForm));
             this.ToolStrip = new BudgetExecution.BudgetToolStrip();
+            this.budgetDataGrid1 = new BudgetExecution.BudgetDataGrid();
+            this.BindingSource = new BudgetExecution.BudgetBinding();
+            ((System.ComponentModel.ISupportInitialize)(this.budgetDataGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ToolStrip
@@ -44,6 +51,7 @@ namespace BudgetExecution
             this.ToolStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.ToolStrip.BindingSource = null;
             this.ToolStrip.BorderStyle = Syncfusion.Windows.Forms.Tools.ToolStripBorderStyle.StaticEdge;
+            this.ToolStrip.BrowseButton = null;
             this.ToolStrip.CalculatorButton = null;
             this.ToolStrip.CanOverrideStyle = true;
             this.ToolStrip.CaptionAlignment = Syncfusion.Windows.Forms.Tools.CaptionAlignment.Near;
@@ -58,7 +66,7 @@ namespace BudgetExecution
             this.ToolStrip.Field = BudgetExecution.Field.RpioActivityCode;
             this.ToolStrip.FirstButton = null;
             this.ToolStrip.Font = new System.Drawing.Font("Roboto", 9F);
-            this.ToolStrip.ForeColor = System.Drawing.Color.Black;
+            this.ToolStrip.ForeColor = System.Drawing.Color.MidnightBlue;
             this.ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.ToolStrip.Image = null;
             this.ToolStrip.ImageDirectory = null;
@@ -75,6 +83,7 @@ namespace BudgetExecution
             this.ToolStrip.Padding = new System.Windows.Forms.Padding(1);
             this.ToolStrip.PreviousButton = null;
             this.ToolStrip.PrintButton = null;
+            this.ToolStrip.ProgressBar = null;
             this.ToolStrip.RefreshButton = null;
             this.ToolStrip.SaveButton = null;
             this.ToolStrip.Separator1 = null;
@@ -109,6 +118,68 @@ namespace BudgetExecution
             this.ToolStrip.ToolStripComboBox = null;
             this.ToolStrip.ToolStripTextBox = null;
             // 
+            // budgetDataGrid1
+            // 
+            this.budgetDataGrid1.AllowUserToOrderColumns = true;
+            this.budgetDataGrid1.AutoGenerateColumns = false;
+            this.budgetDataGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.budgetDataGrid1.BindingSource = null;
+            this.budgetDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.budgetDataGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.budgetDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 11F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.budgetDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.budgetDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.budgetDataGrid1.DataFilter = null;
+            this.budgetDataGrid1.DataSource = this.BindingSource;
+            this.budgetDataGrid1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.budgetDataGrid1.EnableHeadersVisualStyles = false;
+            this.budgetDataGrid1.Field = BudgetExecution.Field.RpioActivityCode;
+            this.budgetDataGrid1.Font = new System.Drawing.Font("Roboto", 9F);
+            this.budgetDataGrid1.GridColor = System.Drawing.SystemColors.WindowFrame;
+            this.budgetDataGrid1.HoverText = null;
+            this.budgetDataGrid1.Location = new System.Drawing.Point(1, 61);
+            this.budgetDataGrid1.Name = "budgetDataGrid1";
+            this.budgetDataGrid1.Numeric = BudgetExecution.Numeric.NS;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.budgetDataGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.budgetDataGrid1.RowHeadersWidth = 26;
+            this.budgetDataGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.budgetDataGrid1.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.budgetDataGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.budgetDataGrid1.Size = new System.Drawing.Size(1056, 514);
+            this.budgetDataGrid1.TabIndex = 1;
+            this.budgetDataGrid1.ToolTip = null;
+            // 
+            // BindingSource
+            // 
+            this.BindingSource.DataFilter = null;
+            this.BindingSource.DataSet = null;
+            this.BindingSource.DataTable = null;
+            this.BindingSource.Field = BudgetExecution.Field.RpioActivityCode;
+            this.BindingSource.Index = 0;
+            this.BindingSource.Numeric = BudgetExecution.Numeric.NS;
+            this.BindingSource.Record = null;
+            this.BindingSource.Source = BudgetExecution.Source.NS;
+            // 
             // DataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -117,6 +188,7 @@ namespace BudgetExecution
             this.CaptionButtonColor = System.Drawing.Color.DimGray;
             this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClientSize = new System.Drawing.Size(1058, 617);
+            this.Controls.Add(this.budgetDataGrid1);
             this.Controls.Add(this.ToolStrip);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -126,6 +198,8 @@ namespace BudgetExecution
             this.Name = "DataForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Budget Execution";
+            ((System.ComponentModel.ISupportInitialize)(this.budgetDataGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,5 +208,7 @@ namespace BudgetExecution
         #endregion
 
         private BudgetToolStrip ToolStrip;
+        private BudgetDataGrid budgetDataGrid1;
+        private BudgetBinding BindingSource;
     }
 }

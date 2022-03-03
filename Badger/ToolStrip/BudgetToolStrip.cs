@@ -111,7 +111,7 @@ namespace BudgetExecution
             ShowLauncher = true;
             GripStyle = ToolStripGripStyle.Hidden;
             VisualStyle = ToolStripExStyle.Default;
-            OfficeColorScheme = ColorScheme.Blue;
+            OfficeColorScheme = ColorScheme.Black;
             ThemeStyle.BackColor = Color.FromArgb( 18, 18, 18 );
             ThemeStyle.ArrowColor = Color.SteelBlue;
             ThemeStyle.BottomToolStripBackColor = Color.FromArgb( 28, 28, 28 );
@@ -205,6 +205,7 @@ namespace BudgetExecution
                 var _delete = Setting[ "ToolStripImages" ] + @"\DeleteButton.png";
                 var _refresh = Setting[ "ToolStripImages" ] + @"\RefreshButton.png";
                 var _save = Setting[ "ToolStripImages" ] + @"\SaveButton.png";
+                var _browse = Setting[ "ToolStripImages" ] + @"\BrowseButton.png";
                 var _print = Setting[ "ToolStripImages" ] + @"\PrintButton.png";
                 var _excelFile = Setting[ "ToolStripImages" ] + @"\ExcelButton.png";
                 var _calculator = Setting[ "ToolStripImages" ] + @"\CalculatorButton.png";
@@ -273,10 +274,17 @@ namespace BudgetExecution
                 // Save Button
                 SaveButton = new BudgetToolStripButton();
                 SaveButton.Image = Image.FromFile( _save );
-                SaveButton.HoverText = "Save Data";
+                SaveButton.HoverText = "Save Changes";
                 Items.Add( SaveButton );
                 Items.Add( new ToolSeparator() );
-
+                
+                // Browse Button
+                BrowseButton = new BudgetToolStripButton();
+                BrowseButton.Image = Image.FromFile( _browse );
+                BrowseButton.HoverText = "Browse for file";
+                Items.Add( BrowseButton );
+                Items.Add( new ToolSeparator() );
+                
                 // Print Button
                 PrintButton = new BudgetToolStripButton();
                 PrintButton.Image = Image.FromFile( _print );
@@ -297,6 +305,11 @@ namespace BudgetExecution
                 CalculatorButton.HoverText = "Launch Calculator";
                 Items.Add( CalculatorButton );
                 Items.Add( new ToolSeparator() );
+
+                // Progress Bar
+                ProgressBar = new BudgetToolStripProgressBar( );
+                ProgressBar.Visible = false;
+                Items.Add( ProgressBar );
             }
             catch ( Exception ex )
             {
