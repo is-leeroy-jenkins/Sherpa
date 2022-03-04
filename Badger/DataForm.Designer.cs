@@ -39,9 +39,9 @@ namespace BudgetExecution
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataForm));
             this.ToolStrip = new BudgetExecution.BudgetToolStrip();
-            this.budgetDataGrid1 = new BudgetExecution.BudgetDataGrid();
+            this.DataGrid = new BudgetExecution.BudgetDataGrid();
             this.BindingSource = new BudgetExecution.BudgetBinding();
-            ((System.ComponentModel.ISupportInitialize)(this.budgetDataGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,13 +120,13 @@ namespace BudgetExecution
             // 
             // budgetDataGrid1
             // 
-            this.budgetDataGrid1.AllowUserToOrderColumns = true;
-            this.budgetDataGrid1.AutoGenerateColumns = false;
-            this.budgetDataGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.budgetDataGrid1.BindingSource = null;
-            this.budgetDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.budgetDataGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.budgetDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGrid.AllowUserToOrderColumns = true;
+            this.DataGrid.AutoGenerateColumns = false;
+            this.DataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.DataGrid.BindingSource = null;
+            this.DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 11F);
@@ -134,19 +134,19 @@ namespace BudgetExecution
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.budgetDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.budgetDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.budgetDataGrid1.DataFilter = null;
-            this.budgetDataGrid1.DataSource = this.BindingSource;
-            this.budgetDataGrid1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.budgetDataGrid1.EnableHeadersVisualStyles = false;
-            this.budgetDataGrid1.Field = BudgetExecution.Field.RpioActivityCode;
-            this.budgetDataGrid1.Font = new System.Drawing.Font("Roboto", 9F);
-            this.budgetDataGrid1.GridColor = System.Drawing.SystemColors.WindowFrame;
-            this.budgetDataGrid1.HoverText = null;
-            this.budgetDataGrid1.Location = new System.Drawing.Point(1, 61);
-            this.budgetDataGrid1.Name = "budgetDataGrid1";
-            this.budgetDataGrid1.Numeric = BudgetExecution.Numeric.NS;
+            this.DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGrid.DataFilter = null;
+            this.DataGrid.DataSource = this.BindingSource;
+            this.DataGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DataGrid.EnableHeadersVisualStyles = false;
+            this.DataGrid.Field = BudgetExecution.Field.RpioActivityCode;
+            this.DataGrid.Font = new System.Drawing.Font("Roboto", 9F);
+            this.DataGrid.GridColor = System.Drawing.SystemColors.WindowFrame;
+            this.DataGrid.HoverText = null;
+            this.DataGrid.Location = new System.Drawing.Point(1, 61);
+            this.DataGrid.Name = "DataGrid";
+            this.DataGrid.Numeric = BudgetExecution.Numeric.NS;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11F);
@@ -154,20 +154,20 @@ namespace BudgetExecution
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.budgetDataGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.budgetDataGrid1.RowHeadersWidth = 26;
-            this.budgetDataGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DataGrid.RowHeadersWidth = 26;
+            this.DataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightSteelBlue;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.budgetDataGrid1.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.budgetDataGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.budgetDataGrid1.Size = new System.Drawing.Size(1056, 514);
-            this.budgetDataGrid1.TabIndex = 1;
-            this.budgetDataGrid1.ToolTip = null;
+            this.DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGrid.Size = new System.Drawing.Size(1056, 514);
+            this.DataGrid.TabIndex = 1;
+            this.DataGrid.ToolTip = null;
             // 
             // BindingSource
             // 
@@ -188,7 +188,7 @@ namespace BudgetExecution
             this.CaptionButtonColor = System.Drawing.Color.DimGray;
             this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClientSize = new System.Drawing.Size(1058, 617);
-            this.Controls.Add(this.budgetDataGrid1);
+            this.Controls.Add(this.DataGrid);
             this.Controls.Add(this.ToolStrip);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -198,7 +198,7 @@ namespace BudgetExecution
             this.Name = "DataForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Budget Execution";
-            ((System.ComponentModel.ISupportInitialize)(this.budgetDataGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -207,8 +207,8 @@ namespace BudgetExecution
 
         #endregion
 
-        private BudgetToolStrip ToolStrip;
-        private BudgetDataGrid budgetDataGrid1;
-        private BudgetBinding BindingSource;
+        public BudgetToolStrip ToolStrip;
+        public BudgetDataGrid DataGrid;
+        public BudgetBinding BindingSource;
     }
 }
