@@ -10,43 +10,48 @@ namespace BudgetExecution
     public enum Provider
     {
         /// <summary>
-        /// The ns
-        /// </summary>
-        NS = 0,
-
-        /// <summary>
         /// Defines the SQLite
         /// </summary>
-        SQLite = 1,
+        SQLite = 0,
 
         /// <summary>
         /// Defines the Excel
         /// </summary>
-        Excel = 2,
+        Excel = 1,
 
         /// <summary>
         /// Defines the SqlServer
         /// </summary>
-        SqlServer = 3,
+        SqlServer = 2,
 
         /// <summary>
         /// Defines the SqlCe
         /// </summary>
-        SqlCe = 4,
+        SqlCe = 3,
 
         /// <summary>
         /// Defines the Access
         /// </summary>
-        Access = 5,
+        Access = 4,
 
         /// <summary>
         /// Defines the OleDb
         /// </summary>
-        OleDb = 6,
+        OleDb = 5,
 
         /// <summary>
         /// Defines the CSV
         /// </summary>
-        CSV
+        CSV = 6,
+
+        /// <summary>
+        /// The text
+        /// </summary>
+        TXT = 7,
+
+        /// <summary>
+        /// The ns
+        /// </summary>
+        NS = 8
     }
 }

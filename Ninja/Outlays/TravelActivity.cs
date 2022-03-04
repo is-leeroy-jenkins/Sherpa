@@ -53,7 +53,7 @@ namespace BudgetExecution
             ULO = new Amount( Record, Numeric.ULO );
             Expenditures = new Amount( Record, Numeric.Expenditures );
             Data = Record?.ToDictionary();
-            Type = OutlayType.Obligation;
+            Type = ExpenseType.Obligation;
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace BudgetExecution
             ULO = new Amount( Record, Numeric.ULO );
             Expenditures = new Amount( Record, Numeric.Expenditures );
             Data = Record?.ToDictionary();
-            Type = OutlayType.Obligation;
+            Type = ExpenseType.Obligation;
         }
 
         /// <summary>
@@ -102,67 +102,7 @@ namespace BudgetExecution
             ULO = new Amount( Record, Numeric.ULO );
             Expenditures = new Amount( Record, Numeric.Expenditures );
             Data = Record?.ToDictionary();
-            Type = OutlayType.Obligation;
-        }
-        
-        /// <summary>
-        /// Gets the travel obligation identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public override IKey GetId()
-        {
-            try
-            {
-                return Verify.IsKey( ID )
-                    ? ID
-                    : default( IKey );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IKey );
-            }
-        }
-
-        /// <summary>
-        /// Gets the bbfy.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetBBFY()
-        {
-            try
-            {
-                return Verify.IsElement( BFY )
-                    ? BFY
-                    : default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Element.Default;
-            }
-        }
-        
-        /// <summary>
-        /// Gets the travel obligation amount.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public override IAmount GetAmount()
-        {
-            try
-            {
-                return Amount?.Funding > -1.0
-                    ? Amount
-                    : default( IAmount );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IAmount );
-            }
+            Type = ExpenseType.Obligation;
         }
     }
 }

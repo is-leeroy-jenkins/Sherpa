@@ -54,7 +54,7 @@ namespace BudgetExecution
             OriginalActionDate = GetOriginalActionDate();
             Amount = new Amount( Record, Numeric.Obligations );
             Data = Record?.ToDictionary();
-            Type = OutlayType.Obligation;
+            Type = ExpenseType.Obligation;
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace BudgetExecution
             OriginalActionDate = GetOriginalActionDate();
             Amount = new Amount( Record, Numeric.Obligations );
             Data = Record?.ToDictionary();
-            Type = OutlayType.Obligation;
+            Type = ExpenseType.Obligation;
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace BudgetExecution
             OriginalActionDate = GetOriginalActionDate();
             Amount = new Amount( Record, Numeric.Obligations );
             Data = Record?.ToDictionary();
-            Type = OutlayType.Obligation;
+            Type = ExpenseType.Obligation;
         }
         
         /// <summary>

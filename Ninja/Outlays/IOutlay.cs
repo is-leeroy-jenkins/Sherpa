@@ -14,7 +14,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        OutlayType GetExpenseType();
+        ExpenseType GetExpenseType();
 
         /// <summary>
         /// Gets the bbfy.

@@ -702,7 +702,8 @@
     <Compile Include="Badger\ToolStrip\BudgetToolStripButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Guidance.cs" />
+    <Compile Include="Enumerations\DataPath.cs" />
+    <Compile Include="Enumerations\Guidance.cs" />
     <Compile Include="Ninja\Outlays\Commitment.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataGridExtensions.cs" />
@@ -997,7 +998,7 @@
     <Compile Include="Ninja\Writer\FileWriter.cs" />
     <Compile Include="Enumerations\NPM.cs" />
     <Compile Include="Enumerations\Numeric.cs" />
-    <Compile Include="Enumerations\OutlayType.cs" />
+    <Compile Include="Enumerations\ExpenseType.cs" />
     <Compile Include="Enumerations\PrimaryKey.cs" />
     <Compile Include="Badger\PictureBox\PictureBase.cs">
       <SubType>Component</SubType>

@@ -166,7 +166,7 @@ namespace BudgetExecution
             AnnualOtherPaid = new Amount( Record, Numeric.AnnualOtherPaid );
             AnnualOvertimeHours = new Amount( Record, Numeric.Benefits );
             AnnualOvertimePaid = new Amount( Record, Numeric.Benefits );
-            Type = OutlayType.Obligation;
+            Type = ExpenseType.Obligation;
             Data = Record?.ToDictionary();
         }
 
@@ -201,7 +201,7 @@ namespace BudgetExecution
             AnnualOtherPaid = new Amount( Record, Numeric.AnnualOtherPaid );
             AnnualOvertimeHours = new Amount( Record, Numeric.Benefits );
             AnnualOvertimePaid = new Amount( Record, Numeric.Benefits );
-            Type = OutlayType.Obligation;
+            Type = ExpenseType.Obligation;
             Data = Record?.ToDictionary();
         }
     }
