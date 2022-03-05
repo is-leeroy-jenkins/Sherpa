@@ -57,7 +57,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         public void OpenFundsControlManual( object sender, EventArgs e )
         {
-            var _path = @"C:\Users\teppler\source\repos\BudgetExecution\"
+            var _path = @"C:\Users\terry\source\repos\BudgetExecution\"
                 + @"Etc\doc\RMDS\FundsControlManual.pdf";
 
             if( File.Exists( _path ) 

@@ -100,7 +100,8 @@ namespace BudgetExecution
             {
                 ToolStrip.ShowCaption = false;
                 ToolStrip?.PopulateTools();
-                SQLiteAdapter.Fill( StatusOfFunds );
+                DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                SQLiteAdapter.Fill( DataSet );
             }
             catch ( Exception ex )
             {

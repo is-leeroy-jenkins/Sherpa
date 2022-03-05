@@ -16,7 +16,7 @@ namespace BudgetExecution
         /// <value>
         /// The template path.
         /// </value>
-        public string TemplatePath { get; } = @"C:\Users\teppler\source\repos\BudgetExecution\Ninja\Template\Excel.xlsx";
+        public string TemplatePath { get; } = @"C:\Users\terry\source\repos\BudgetExecution\Ninja\Template\Excel.xlsx";
 
         /// <summary>
         /// Gets or sets the file path.
