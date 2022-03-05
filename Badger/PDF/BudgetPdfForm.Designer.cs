@@ -63,7 +63,7 @@ namespace BudgetExecution
             pdfViewerPrinterSettings1.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings1.PrintLocation")));
             pdfViewerPrinterSettings1.ShowPrintStatusDialog = true;
             this.DocumentViewer.PrinterSettings = pdfViewerPrinterSettings1;
-            this.DocumentViewer.ReferencePath = "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Etc\\doc\\RMDS\\";
+            this.DocumentViewer.ReferencePath = "C:\\Users\\teppler\\source\\repos\\BudgetExecution\\Etc\\doc\\RMDS\\";
             this.DocumentViewer.ScrollDisplacementValue = 0;
             this.DocumentViewer.ShowHorizontalScrollBar = true;
             this.DocumentViewer.ShowVerticalScrollBar = true;

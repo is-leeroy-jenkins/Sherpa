@@ -16,7 +16,7 @@ namespace BudgetExecution
         /// <value>
         /// The template path.
         /// </value>
-        public string TemplatePath { get; } = @"C:\Users\terry\source\repos\BudgetExecution\Ninja\Template\Excel.xlsx";
+        public string TemplatePath { get; } = @"C:\Users\teppler\source\repos\BudgetExecution\Ninja\Template\Excel.xlsx";
 
         /// <summary>
         /// Gets or sets the file path.
@@ -24,7 +24,7 @@ namespace BudgetExecution
         /// <value>
         /// The file path.
         /// </value>
-        public string FilePath { get; set; }
+        public string ExcelPath { get; set; }
 
         /// <summary>
         /// Initializes a new instance
@@ -54,7 +54,7 @@ namespace BudgetExecution
             Padding = new Padding( 1 );
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
-            FilePath = TemplatePath;
+            ExcelPath = TemplatePath;
             Load += OnFormLoad;
         }
 
@@ -62,12 +62,12 @@ namespace BudgetExecution
         /// Initializes a new instance
         /// of the <see cref="BudgetExcelForm"/> class.
         /// </summary>
-        /// <param name="filePath">The file path.</param>
-        public BudgetExcelForm( string filePath ) 
+        /// <param name="excelPath">The file path.</param>
+        public BudgetExcelForm( string excelPath ) 
             : this()
         {
             InitializeComponent();
-            FilePath = filePath;
+            ExcelPath = excelPath;
         }
 
         /// <summary>
@@ -78,11 +78,11 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         public void OnFormLoad( object sender, EventArgs e )
         {
-            if( !string.IsNullOrEmpty( FilePath ) )
+            if( !string.IsNullOrEmpty( ExcelPath ) )
             {
                 try
                 {
-                    Spreadsheet?.Open( FilePath );
+                    Spreadsheet?.Open( ExcelPath );
                 }
                 catch ( Exception ex )
                 {
