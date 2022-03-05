@@ -217,7 +217,7 @@ namespace BudgetExecution
             // 
             this.FirstButton.AutoToolTip = false;
             this.FirstButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.FirstButton.Bar = BudgetExecution.ToolType.FirstButton;
+            this.FirstButton.ToolType = BudgetExecution.ToolType.FirstButton;
             this.FirstButton.BindingSource = null;
             this.FirstButton.DataFilter = null;
             this.FirstButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -245,7 +245,7 @@ namespace BudgetExecution
             // 
             this.PreviousButton.AutoToolTip = false;
             this.PreviousButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.PreviousButton.Bar = BudgetExecution.ToolType.PreviousButton;
+            this.PreviousButton.ToolType = BudgetExecution.ToolType.PreviousButton;
             this.PreviousButton.BindingSource = null;
             this.PreviousButton.DataFilter = null;
             this.PreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -273,7 +273,7 @@ namespace BudgetExecution
             // 
             this.NextButton.AutoToolTip = false;
             this.NextButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.NextButton.Bar = BudgetExecution.ToolType.NextButton;
+            this.NextButton.ToolType = BudgetExecution.ToolType.NextButton;
             this.NextButton.BindingSource = null;
             this.NextButton.DataFilter = null;
             this.NextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -301,7 +301,7 @@ namespace BudgetExecution
             // 
             this.LastButton.AutoToolTip = false;
             this.LastButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.LastButton.Bar = BudgetExecution.ToolType.LastButton;
+            this.LastButton.ToolType = BudgetExecution.ToolType.LastButton;
             this.LastButton.BindingSource = null;
             this.LastButton.DataFilter = null;
             this.LastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -329,7 +329,7 @@ namespace BudgetExecution
             // 
             this.EditButton.AutoToolTip = false;
             this.EditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.EditButton.Bar = BudgetExecution.ToolType.NS;
+            this.EditButton.ToolType = BudgetExecution.ToolType.NS;
             this.EditButton.BindingSource = null;
             this.EditButton.DataFilter = null;
             this.EditButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -357,7 +357,7 @@ namespace BudgetExecution
             // 
             this.AddButton.AutoToolTip = false;
             this.AddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.AddButton.Bar = BudgetExecution.ToolType.NS;
+            this.AddButton.ToolType = BudgetExecution.ToolType.NS;
             this.AddButton.BindingSource = null;
             this.AddButton.DataFilter = null;
             this.AddButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -385,7 +385,7 @@ namespace BudgetExecution
             // 
             this.DeleteButton.AutoToolTip = false;
             this.DeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.DeleteButton.Bar = BudgetExecution.ToolType.NS;
+            this.DeleteButton.ToolType = BudgetExecution.ToolType.NS;
             this.DeleteButton.BindingSource = null;
             this.DeleteButton.DataFilter = null;
             this.DeleteButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -414,7 +414,7 @@ namespace BudgetExecution
             // 
             this.RefreshButton.AutoToolTip = false;
             this.RefreshButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.RefreshButton.Bar = BudgetExecution.ToolType.NS;
+            this.RefreshButton.ToolType = BudgetExecution.ToolType.NS;
             this.RefreshButton.BindingSource = null;
             this.RefreshButton.DataFilter = null;
             this.RefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -443,7 +443,7 @@ namespace BudgetExecution
             // 
             this.SaveButton.AutoToolTip = false;
             this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.SaveButton.Bar = BudgetExecution.ToolType.NS;
+            this.SaveButton.ToolType = BudgetExecution.ToolType.NS;
             this.SaveButton.BindingSource = null;
             this.SaveButton.DataFilter = null;
             this.SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -472,7 +472,7 @@ namespace BudgetExecution
             // 
             this.ExcelButton.AutoToolTip = false;
             this.ExcelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.ExcelButton.Bar = BudgetExecution.ToolType.NS;
+            this.ExcelButton.ToolType = BudgetExecution.ToolType.NS;
             this.ExcelButton.BindingSource = null;
             this.ExcelButton.DataFilter = null;
             this.ExcelButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -501,7 +501,7 @@ namespace BudgetExecution
             // 
             this.CalculatorButton.AutoToolTip = false;
             this.CalculatorButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.CalculatorButton.Bar = BudgetExecution.ToolType.NS;
+            this.CalculatorButton.ToolType = BudgetExecution.ToolType.NS;
             this.CalculatorButton.BindingSource = null;
             this.CalculatorButton.DataFilter = null;
             this.CalculatorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;

@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The bar.
         /// </value>
-        public ToolType Bar { get; set; }
+        public ToolType ToolType { get; set; }
 
         /// <summary>
         /// Sets the field.

@@ -34,15 +34,55 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataForm));
             this.ToolStrip = new BudgetExecution.BudgetToolStrip();
-            this.budgetDataGrid1 = new BudgetExecution.BudgetDataGrid();
-            this.BindingSource = new BudgetExecution.BudgetBinding();
-            ((System.ComponentModel.ISupportInitialize)(this.budgetDataGrid1)).BeginInit();
+            this.SQLiteSelectCommand = new System.Data.SQLite.SQLiteCommand();
+            this.SQLiteConnection = new System.Data.SQLite.SQLiteConnection();
+            this.SQLiteAdapter = new System.Data.SQLite.SQLiteDataAdapter();
+            this.StatusOfFunds = new BudgetExecution.StatusOfFunds();
+            this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DataGrid = new BudgetExecution.BudgetDataGrid();
+            this.statusOfFundsIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.budgetLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bFYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eFYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rpioCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rpioNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ahCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ahNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fundCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fundNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bocCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bocNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.programProjectCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.programProjectNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.programAreaCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.programAreaNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rcCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rcNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lowerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.budgetedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openCommitmentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uLODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expendituresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.obligationsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.availableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.npmCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.npmNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.StatusOfFunds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // ToolStrip
@@ -74,7 +114,7 @@ namespace BudgetExecution
             this.ToolStrip.ImageSize = new System.Drawing.Size(0, 0);
             this.ToolStrip.LastButton = null;
             this.ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
-            this.ToolStrip.Location = new System.Drawing.Point(1, 575);
+            this.ToolStrip.Location = new System.Drawing.Point(1, 589);
             this.ToolStrip.Margin = new System.Windows.Forms.Padding(1);
             this.ToolStrip.Name = "ToolStrip";
             this.ToolStrip.NextButton = null;
@@ -101,11 +141,12 @@ namespace BudgetExecution
             this.ToolStrip.Separator7 = null;
             this.ToolStrip.Separator8 = null;
             this.ToolStrip.Separator9 = null;
-            this.ToolStrip.ShowCaption = true;
+            this.ToolStrip.ShowCaption = false;
             this.ToolStrip.ShowLauncher = true;
-            this.ToolStrip.Size = new System.Drawing.Size(1056, 41);
+            this.ToolStrip.Size = new System.Drawing.Size(1056, 27);
             this.ToolStrip.TabIndex = 0;
             this.ToolStrip.Text = "Budget Execution";
+            this.ToolStrip.ThemeName = "Default";
             this.ToolStrip.ThemeStyle.ArrowColor = System.Drawing.Color.SteelBlue;
             this.ToolStrip.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.ToolStrip.ThemeStyle.BottomToolStripBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
@@ -118,67 +159,369 @@ namespace BudgetExecution
             this.ToolStrip.ToolStripComboBox = null;
             this.ToolStrip.ToolStripTextBox = null;
             // 
-            // budgetDataGrid1
+            // SQLiteSelectCommand
             // 
-            this.budgetDataGrid1.AllowUserToOrderColumns = true;
-            this.budgetDataGrid1.AutoGenerateColumns = false;
-            this.budgetDataGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.budgetDataGrid1.BindingSource = null;
-            this.budgetDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.budgetDataGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.budgetDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 11F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.budgetDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.budgetDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.budgetDataGrid1.DataFilter = null;
-            this.budgetDataGrid1.DataSource = this.BindingSource;
-            this.budgetDataGrid1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.budgetDataGrid1.EnableHeadersVisualStyles = false;
-            this.budgetDataGrid1.Field = BudgetExecution.Field.RpioActivityCode;
-            this.budgetDataGrid1.Font = new System.Drawing.Font("Roboto", 9F);
-            this.budgetDataGrid1.GridColor = System.Drawing.SystemColors.WindowFrame;
-            this.budgetDataGrid1.HoverText = null;
-            this.budgetDataGrid1.Location = new System.Drawing.Point(1, 61);
-            this.budgetDataGrid1.Name = "budgetDataGrid1";
-            this.budgetDataGrid1.Numeric = BudgetExecution.Numeric.NS;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.budgetDataGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.budgetDataGrid1.RowHeadersWidth = 26;
-            this.budgetDataGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.budgetDataGrid1.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.budgetDataGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.budgetDataGrid1.Size = new System.Drawing.Size(1056, 514);
-            this.budgetDataGrid1.TabIndex = 1;
-            this.budgetDataGrid1.ToolTip = null;
+            this.SQLiteSelectCommand.CommandText = "SELECT        *\r\nFROM            StatusOfFunds";
+            this.SQLiteSelectCommand.Connection = this.SQLiteConnection;
+            this.SQLiteSelectCommand.UpdatedRowSource = System.Data.UpdateRowSource.Both;
+            // 
+            // SQLiteConnection
+            // 
+            this.SQLiteConnection.BusyTimeout = 0;
+            this.SQLiteConnection.ConnectionString = "Foreign Keys=True;Data Source=C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\Da" +
+    "tabase\\SQLite\\DataModels\\Data.db";
+            this.SQLiteConnection.DefaultDbType = System.Data.DbType.String;
+            this.SQLiteConnection.DefaultTimeout = 30;
+            this.SQLiteConnection.DefaultTypeName = null;
+            this.SQLiteConnection.Flags = System.Data.SQLite.SQLiteConnectionFlags.None;
+            this.SQLiteConnection.ParseViaFramework = false;
+            this.SQLiteConnection.PrepareRetries = 3;
+            this.SQLiteConnection.ProgressOps = 0;
+            this.SQLiteConnection.VfsName = null;
+            this.SQLiteConnection.WaitTimeout = 30000;
+            // 
+            // SQLiteAdapter
+            // 
+            this.SQLiteAdapter.SelectCommand = this.SQLiteSelectCommand;
+            this.SQLiteAdapter.TableMappings.AddRange(new System.Data.Common.DataTableMapping[] {
+            new System.Data.Common.DataTableMapping("Table", "Table", new System.Data.Common.DataColumnMapping[] {
+                        new System.Data.Common.DataColumnMapping("StatusOfFundsId", "StatusOfFundsId"),
+                        new System.Data.Common.DataColumnMapping("BudgetLevel", "BudgetLevel"),
+                        new System.Data.Common.DataColumnMapping("BFY", "BFY"),
+                        new System.Data.Common.DataColumnMapping("EFY", "EFY"),
+                        new System.Data.Common.DataColumnMapping("RpioCode", "RpioCode"),
+                        new System.Data.Common.DataColumnMapping("RpioName", "RpioName"),
+                        new System.Data.Common.DataColumnMapping("AhCode", "AhCode"),
+                        new System.Data.Common.DataColumnMapping("AhName", "AhName"),
+                        new System.Data.Common.DataColumnMapping("FundCode", "FundCode"),
+                        new System.Data.Common.DataColumnMapping("FundName", "FundName"),
+                        new System.Data.Common.DataColumnMapping("OrgCode", "OrgCode"),
+                        new System.Data.Common.DataColumnMapping("OrgName", "OrgName"),
+                        new System.Data.Common.DataColumnMapping("AccountCode", "AccountCode"),
+                        new System.Data.Common.DataColumnMapping("BocCode", "BocCode"),
+                        new System.Data.Common.DataColumnMapping("BocName", "BocName"),
+                        new System.Data.Common.DataColumnMapping("ProgramProjectCode", "ProgramProjectCode"),
+                        new System.Data.Common.DataColumnMapping("ProgramProjectName", "ProgramProjectName"),
+                        new System.Data.Common.DataColumnMapping("ProgramAreaCode", "ProgramAreaCode"),
+                        new System.Data.Common.DataColumnMapping("ProgramAreaName", "ProgramAreaName"),
+                        new System.Data.Common.DataColumnMapping("RcCode", "RcCode"),
+                        new System.Data.Common.DataColumnMapping("RcName", "RcName"),
+                        new System.Data.Common.DataColumnMapping("LowerName", "LowerName"),
+                        new System.Data.Common.DataColumnMapping("Amount", "Amount"),
+                        new System.Data.Common.DataColumnMapping("Budgeted", "Budgeted"),
+                        new System.Data.Common.DataColumnMapping("Posted", "Posted"),
+                        new System.Data.Common.DataColumnMapping("OpenCommitments", "OpenCommitments"),
+                        new System.Data.Common.DataColumnMapping("ULO", "ULO"),
+                        new System.Data.Common.DataColumnMapping("Expenditures", "Expenditures"),
+                        new System.Data.Common.DataColumnMapping("Obligations", "Obligations"),
+                        new System.Data.Common.DataColumnMapping("Used", "Used"),
+                        new System.Data.Common.DataColumnMapping("Available", "Available"),
+                        new System.Data.Common.DataColumnMapping("NpmCode", "NpmCode"),
+                        new System.Data.Common.DataColumnMapping("NpmName", "NpmName")})});
+            // 
+            // StatusOfFunds
+            // 
+            this.StatusOfFunds.DataSetName = "StatusOfFunds";
+            this.StatusOfFunds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // BindingSource
             // 
-            this.BindingSource.DataFilter = null;
-            this.BindingSource.DataSet = null;
-            this.BindingSource.DataTable = null;
-            this.BindingSource.Field = BudgetExecution.Field.RpioActivityCode;
-            this.BindingSource.Index = 0;
-            this.BindingSource.Numeric = BudgetExecution.Numeric.NS;
-            this.BindingSource.Record = null;
-            this.BindingSource.Source = BudgetExecution.Source.NS;
+            this.BindingSource.DataSource = this.StatusOfFunds;
+            this.BindingSource.Position = 0;
+            // 
+            // DataGrid
+            // 
+            this.DataGrid.AllowUserToOrderColumns = true;
+            this.DataGrid.AutoGenerateColumns = false;
+            this.DataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.DataGrid.BindingSource = this.BindingSource;
+            this.DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataGrid.ColumnHeadersHeight = 33;
+            this.DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.statusOfFundsIdDataGridViewTextBoxColumn,
+            this.budgetLevelDataGridViewTextBoxColumn,
+            this.bFYDataGridViewTextBoxColumn,
+            this.eFYDataGridViewTextBoxColumn,
+            this.rpioCodeDataGridViewTextBoxColumn,
+            this.rpioNameDataGridViewTextBoxColumn,
+            this.ahCodeDataGridViewTextBoxColumn,
+            this.ahNameDataGridViewTextBoxColumn,
+            this.fundCodeDataGridViewTextBoxColumn,
+            this.fundNameDataGridViewTextBoxColumn,
+            this.orgCodeDataGridViewTextBoxColumn,
+            this.orgNameDataGridViewTextBoxColumn,
+            this.accountCodeDataGridViewTextBoxColumn,
+            this.bocCodeDataGridViewTextBoxColumn,
+            this.bocNameDataGridViewTextBoxColumn,
+            this.programProjectCodeDataGridViewTextBoxColumn,
+            this.programProjectNameDataGridViewTextBoxColumn,
+            this.programAreaCodeDataGridViewTextBoxColumn,
+            this.programAreaNameDataGridViewTextBoxColumn,
+            this.rcCodeDataGridViewTextBoxColumn,
+            this.rcNameDataGridViewTextBoxColumn,
+            this.lowerNameDataGridViewTextBoxColumn,
+            this.amountDataGridViewTextBoxColumn,
+            this.budgetedDataGridViewTextBoxColumn,
+            this.postedDataGridViewTextBoxColumn,
+            this.openCommitmentsDataGridViewTextBoxColumn,
+            this.uLODataGridViewTextBoxColumn,
+            this.expendituresDataGridViewTextBoxColumn,
+            this.obligationsDataGridViewTextBoxColumn,
+            this.usedDataGridViewTextBoxColumn,
+            this.availableDataGridViewTextBoxColumn,
+            this.npmCodeDataGridViewTextBoxColumn,
+            this.npmNameDataGridViewTextBoxColumn});
+            this.DataGrid.DataFilter = null;
+            this.DataGrid.DataMember = "Table";
+            this.DataGrid.DataSource = this.BindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DataGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DataGrid.EnableHeadersVisualStyles = false;
+            this.DataGrid.Field = BudgetExecution.Field.RpioActivityCode;
+            this.DataGrid.Font = new System.Drawing.Font("Roboto", 9F);
+            this.DataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
+            this.DataGrid.HoverText = null;
+            this.DataGrid.Location = new System.Drawing.Point(1, 44);
+            this.DataGrid.Name = "DataGrid";
+            this.DataGrid.Numeric = BudgetExecution.Numeric.NS;
+            this.DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.DataGrid.RowHeadersWidth = 22;
+            this.DataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGrid.Size = new System.Drawing.Size(1056, 545);
+            this.DataGrid.TabIndex = 1;
+            this.DataGrid.ToolTip = null;
+            // 
+            // statusOfFundsIdDataGridViewTextBoxColumn
+            // 
+            this.statusOfFundsIdDataGridViewTextBoxColumn.DataPropertyName = "StatusOfFundsId";
+            this.statusOfFundsIdDataGridViewTextBoxColumn.HeaderText = "StatusOfFundsId";
+            this.statusOfFundsIdDataGridViewTextBoxColumn.Name = "statusOfFundsIdDataGridViewTextBoxColumn";
+            // 
+            // budgetLevelDataGridViewTextBoxColumn
+            // 
+            this.budgetLevelDataGridViewTextBoxColumn.DataPropertyName = "BudgetLevel";
+            this.budgetLevelDataGridViewTextBoxColumn.HeaderText = "BudgetLevel";
+            this.budgetLevelDataGridViewTextBoxColumn.Name = "budgetLevelDataGridViewTextBoxColumn";
+            // 
+            // bFYDataGridViewTextBoxColumn
+            // 
+            this.bFYDataGridViewTextBoxColumn.DataPropertyName = "BFY";
+            this.bFYDataGridViewTextBoxColumn.HeaderText = "BFY";
+            this.bFYDataGridViewTextBoxColumn.Name = "bFYDataGridViewTextBoxColumn";
+            // 
+            // eFYDataGridViewTextBoxColumn
+            // 
+            this.eFYDataGridViewTextBoxColumn.DataPropertyName = "EFY";
+            this.eFYDataGridViewTextBoxColumn.HeaderText = "EFY";
+            this.eFYDataGridViewTextBoxColumn.Name = "eFYDataGridViewTextBoxColumn";
+            // 
+            // rpioCodeDataGridViewTextBoxColumn
+            // 
+            this.rpioCodeDataGridViewTextBoxColumn.DataPropertyName = "RpioCode";
+            this.rpioCodeDataGridViewTextBoxColumn.HeaderText = "RpioCode";
+            this.rpioCodeDataGridViewTextBoxColumn.Name = "rpioCodeDataGridViewTextBoxColumn";
+            // 
+            // rpioNameDataGridViewTextBoxColumn
+            // 
+            this.rpioNameDataGridViewTextBoxColumn.DataPropertyName = "RpioName";
+            this.rpioNameDataGridViewTextBoxColumn.HeaderText = "RpioName";
+            this.rpioNameDataGridViewTextBoxColumn.Name = "rpioNameDataGridViewTextBoxColumn";
+            // 
+            // ahCodeDataGridViewTextBoxColumn
+            // 
+            this.ahCodeDataGridViewTextBoxColumn.DataPropertyName = "AhCode";
+            this.ahCodeDataGridViewTextBoxColumn.HeaderText = "AhCode";
+            this.ahCodeDataGridViewTextBoxColumn.Name = "ahCodeDataGridViewTextBoxColumn";
+            // 
+            // ahNameDataGridViewTextBoxColumn
+            // 
+            this.ahNameDataGridViewTextBoxColumn.DataPropertyName = "AhName";
+            this.ahNameDataGridViewTextBoxColumn.HeaderText = "AhName";
+            this.ahNameDataGridViewTextBoxColumn.Name = "ahNameDataGridViewTextBoxColumn";
+            // 
+            // fundCodeDataGridViewTextBoxColumn
+            // 
+            this.fundCodeDataGridViewTextBoxColumn.DataPropertyName = "FundCode";
+            this.fundCodeDataGridViewTextBoxColumn.HeaderText = "FundCode";
+            this.fundCodeDataGridViewTextBoxColumn.Name = "fundCodeDataGridViewTextBoxColumn";
+            // 
+            // fundNameDataGridViewTextBoxColumn
+            // 
+            this.fundNameDataGridViewTextBoxColumn.DataPropertyName = "FundName";
+            this.fundNameDataGridViewTextBoxColumn.HeaderText = "FundName";
+            this.fundNameDataGridViewTextBoxColumn.Name = "fundNameDataGridViewTextBoxColumn";
+            // 
+            // orgCodeDataGridViewTextBoxColumn
+            // 
+            this.orgCodeDataGridViewTextBoxColumn.DataPropertyName = "OrgCode";
+            this.orgCodeDataGridViewTextBoxColumn.HeaderText = "OrgCode";
+            this.orgCodeDataGridViewTextBoxColumn.Name = "orgCodeDataGridViewTextBoxColumn";
+            // 
+            // orgNameDataGridViewTextBoxColumn
+            // 
+            this.orgNameDataGridViewTextBoxColumn.DataPropertyName = "OrgName";
+            this.orgNameDataGridViewTextBoxColumn.HeaderText = "OrgName";
+            this.orgNameDataGridViewTextBoxColumn.Name = "orgNameDataGridViewTextBoxColumn";
+            // 
+            // accountCodeDataGridViewTextBoxColumn
+            // 
+            this.accountCodeDataGridViewTextBoxColumn.DataPropertyName = "AccountCode";
+            this.accountCodeDataGridViewTextBoxColumn.HeaderText = "AccountCode";
+            this.accountCodeDataGridViewTextBoxColumn.Name = "accountCodeDataGridViewTextBoxColumn";
+            // 
+            // bocCodeDataGridViewTextBoxColumn
+            // 
+            this.bocCodeDataGridViewTextBoxColumn.DataPropertyName = "BocCode";
+            this.bocCodeDataGridViewTextBoxColumn.HeaderText = "BocCode";
+            this.bocCodeDataGridViewTextBoxColumn.Name = "bocCodeDataGridViewTextBoxColumn";
+            // 
+            // bocNameDataGridViewTextBoxColumn
+            // 
+            this.bocNameDataGridViewTextBoxColumn.DataPropertyName = "BocName";
+            this.bocNameDataGridViewTextBoxColumn.HeaderText = "BocName";
+            this.bocNameDataGridViewTextBoxColumn.Name = "bocNameDataGridViewTextBoxColumn";
+            // 
+            // programProjectCodeDataGridViewTextBoxColumn
+            // 
+            this.programProjectCodeDataGridViewTextBoxColumn.DataPropertyName = "ProgramProjectCode";
+            this.programProjectCodeDataGridViewTextBoxColumn.HeaderText = "ProgramProjectCode";
+            this.programProjectCodeDataGridViewTextBoxColumn.Name = "programProjectCodeDataGridViewTextBoxColumn";
+            // 
+            // programProjectNameDataGridViewTextBoxColumn
+            // 
+            this.programProjectNameDataGridViewTextBoxColumn.DataPropertyName = "ProgramProjectName";
+            this.programProjectNameDataGridViewTextBoxColumn.HeaderText = "ProgramProjectName";
+            this.programProjectNameDataGridViewTextBoxColumn.Name = "programProjectNameDataGridViewTextBoxColumn";
+            // 
+            // programAreaCodeDataGridViewTextBoxColumn
+            // 
+            this.programAreaCodeDataGridViewTextBoxColumn.DataPropertyName = "ProgramAreaCode";
+            this.programAreaCodeDataGridViewTextBoxColumn.HeaderText = "ProgramAreaCode";
+            this.programAreaCodeDataGridViewTextBoxColumn.Name = "programAreaCodeDataGridViewTextBoxColumn";
+            // 
+            // programAreaNameDataGridViewTextBoxColumn
+            // 
+            this.programAreaNameDataGridViewTextBoxColumn.DataPropertyName = "ProgramAreaName";
+            this.programAreaNameDataGridViewTextBoxColumn.HeaderText = "ProgramAreaName";
+            this.programAreaNameDataGridViewTextBoxColumn.Name = "programAreaNameDataGridViewTextBoxColumn";
+            // 
+            // rcCodeDataGridViewTextBoxColumn
+            // 
+            this.rcCodeDataGridViewTextBoxColumn.DataPropertyName = "RcCode";
+            this.rcCodeDataGridViewTextBoxColumn.HeaderText = "RcCode";
+            this.rcCodeDataGridViewTextBoxColumn.Name = "rcCodeDataGridViewTextBoxColumn";
+            // 
+            // rcNameDataGridViewTextBoxColumn
+            // 
+            this.rcNameDataGridViewTextBoxColumn.DataPropertyName = "RcName";
+            this.rcNameDataGridViewTextBoxColumn.HeaderText = "RcName";
+            this.rcNameDataGridViewTextBoxColumn.Name = "rcNameDataGridViewTextBoxColumn";
+            // 
+            // lowerNameDataGridViewTextBoxColumn
+            // 
+            this.lowerNameDataGridViewTextBoxColumn.DataPropertyName = "LowerName";
+            this.lowerNameDataGridViewTextBoxColumn.HeaderText = "LowerName";
+            this.lowerNameDataGridViewTextBoxColumn.Name = "lowerNameDataGridViewTextBoxColumn";
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            // 
+            // budgetedDataGridViewTextBoxColumn
+            // 
+            this.budgetedDataGridViewTextBoxColumn.DataPropertyName = "Budgeted";
+            this.budgetedDataGridViewTextBoxColumn.HeaderText = "Budgeted";
+            this.budgetedDataGridViewTextBoxColumn.Name = "budgetedDataGridViewTextBoxColumn";
+            // 
+            // postedDataGridViewTextBoxColumn
+            // 
+            this.postedDataGridViewTextBoxColumn.DataPropertyName = "Posted";
+            this.postedDataGridViewTextBoxColumn.HeaderText = "Posted";
+            this.postedDataGridViewTextBoxColumn.Name = "postedDataGridViewTextBoxColumn";
+            // 
+            // openCommitmentsDataGridViewTextBoxColumn
+            // 
+            this.openCommitmentsDataGridViewTextBoxColumn.DataPropertyName = "OpenCommitments";
+            this.openCommitmentsDataGridViewTextBoxColumn.HeaderText = "OpenCommitments";
+            this.openCommitmentsDataGridViewTextBoxColumn.Name = "openCommitmentsDataGridViewTextBoxColumn";
+            // 
+            // uLODataGridViewTextBoxColumn
+            // 
+            this.uLODataGridViewTextBoxColumn.DataPropertyName = "ULO";
+            this.uLODataGridViewTextBoxColumn.HeaderText = "ULO";
+            this.uLODataGridViewTextBoxColumn.Name = "uLODataGridViewTextBoxColumn";
+            // 
+            // expendituresDataGridViewTextBoxColumn
+            // 
+            this.expendituresDataGridViewTextBoxColumn.DataPropertyName = "Expenditures";
+            this.expendituresDataGridViewTextBoxColumn.HeaderText = "Expenditures";
+            this.expendituresDataGridViewTextBoxColumn.Name = "expendituresDataGridViewTextBoxColumn";
+            // 
+            // obligationsDataGridViewTextBoxColumn
+            // 
+            this.obligationsDataGridViewTextBoxColumn.DataPropertyName = "Obligations";
+            this.obligationsDataGridViewTextBoxColumn.HeaderText = "Obligations";
+            this.obligationsDataGridViewTextBoxColumn.Name = "obligationsDataGridViewTextBoxColumn";
+            // 
+            // usedDataGridViewTextBoxColumn
+            // 
+            this.usedDataGridViewTextBoxColumn.DataPropertyName = "Used";
+            this.usedDataGridViewTextBoxColumn.HeaderText = "Used";
+            this.usedDataGridViewTextBoxColumn.Name = "usedDataGridViewTextBoxColumn";
+            // 
+            // availableDataGridViewTextBoxColumn
+            // 
+            this.availableDataGridViewTextBoxColumn.DataPropertyName = "Available";
+            this.availableDataGridViewTextBoxColumn.HeaderText = "Available";
+            this.availableDataGridViewTextBoxColumn.Name = "availableDataGridViewTextBoxColumn";
+            // 
+            // npmCodeDataGridViewTextBoxColumn
+            // 
+            this.npmCodeDataGridViewTextBoxColumn.DataPropertyName = "NpmCode";
+            this.npmCodeDataGridViewTextBoxColumn.HeaderText = "NpmCode";
+            this.npmCodeDataGridViewTextBoxColumn.Name = "npmCodeDataGridViewTextBoxColumn";
+            // 
+            // npmNameDataGridViewTextBoxColumn
+            // 
+            this.npmNameDataGridViewTextBoxColumn.DataPropertyName = "NpmName";
+            this.npmNameDataGridViewTextBoxColumn.HeaderText = "NpmName";
+            this.npmNameDataGridViewTextBoxColumn.Name = "npmNameDataGridViewTextBoxColumn";
             // 
             // DataForm
             // 
@@ -188,7 +531,7 @@ namespace BudgetExecution
             this.CaptionButtonColor = System.Drawing.Color.DimGray;
             this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClientSize = new System.Drawing.Size(1058, 617);
-            this.Controls.Add(this.budgetDataGrid1);
+            this.Controls.Add(this.DataGrid);
             this.Controls.Add(this.ToolStrip);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -198,8 +541,9 @@ namespace BudgetExecution
             this.Name = "DataForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Budget Execution";
-            ((System.ComponentModel.ISupportInitialize)(this.budgetDataGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StatusOfFunds)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,7 +552,44 @@ namespace BudgetExecution
         #endregion
 
         private BudgetToolStrip ToolStrip;
-        private BudgetDataGrid budgetDataGrid1;
-        private BudgetBinding BindingSource;
+        private System.Data.SQLite.SQLiteCommand SQLiteSelectCommand;
+        public System.Data.SQLite.SQLiteDataAdapter SQLiteAdapter;
+        public System.Data.SQLite.SQLiteConnection SQLiteConnection;
+        public StatusOfFunds StatusOfFunds;
+        public System.Windows.Forms.BindingSource BindingSource;
+        public BudgetDataGrid DataGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusOfFundsIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn budgetLevelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bFYDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eFYDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rpioCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rpioNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ahCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ahNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fundCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fundNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accountCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bocCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bocNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn programProjectCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn programProjectNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn programAreaCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn programAreaNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rcCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rcNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lowerNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn budgetedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn postedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn openCommitmentsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uLODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expendituresDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn obligationsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn availableDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn npmCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn npmNameDataGridViewTextBoxColumn;
     }
 }

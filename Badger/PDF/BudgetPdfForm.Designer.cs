@@ -52,7 +52,7 @@ namespace BudgetExecution
             this.DocumentViewer.HorizontalScrollOffset = 0;
             this.DocumentViewer.IsTextSearchEnabled = true;
             this.DocumentViewer.IsTextSelectionEnabled = true;
-            this.DocumentViewer.Location = new System.Drawing.Point(63, 70);
+            this.DocumentViewer.Location = new System.Drawing.Point(54, 25);
             messageBoxSettings1.EnableNotification = true;
             this.DocumentViewer.MessageBoxSettings = messageBoxSettings1;
             this.DocumentViewer.MinimumZoomPercentage = 50;
@@ -67,7 +67,7 @@ namespace BudgetExecution
             this.DocumentViewer.ScrollDisplacementValue = 0;
             this.DocumentViewer.ShowHorizontalScrollBar = true;
             this.DocumentViewer.ShowVerticalScrollBar = true;
-            this.DocumentViewer.Size = new System.Drawing.Size(799, 465);
+            this.DocumentViewer.Size = new System.Drawing.Size(876, 602);
             this.DocumentViewer.SpaceBetweenPages = 8;
             this.DocumentViewer.TabIndex = 0;
             textSearchSettings1.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
@@ -84,20 +84,13 @@ namespace BudgetExecution
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.BorderColor = System.Drawing.Color.SteelBlue;
-            this.CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.CaptionButtonHoverColor = System.Drawing.Color.White;
             this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CaptionForeColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(915, 657);
+            this.ClientSize = new System.Drawing.Size(988, 668);
             this.Controls.Add(this.DocumentViewer);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.Name = "BudgetPdfForm";
-            this.ShowIcon = false;
             this.Text = "Budget Execution";
             this.ResumeLayout(false);
 

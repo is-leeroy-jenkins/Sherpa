@@ -21,6 +21,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "ObjectCreationAsStatement" ) ]
+    [ SuppressMessage( "ReSharper", "UnassignedGetOnlyAutoProperty" ) ]
     public class BudgetToolStrip : ToolStripBase, IBudgetToolStrip
     {
         /// <summary>
@@ -111,7 +113,7 @@ namespace BudgetExecution
             ShowLauncher = true;
             GripStyle = ToolStripGripStyle.Hidden;
             VisualStyle = ToolStripExStyle.Default;
-            OfficeColorScheme = ColorScheme.Black;
+            OfficeColorScheme = ColorScheme.Blue;
             ThemeStyle.BackColor = Color.FromArgb( 18, 18, 18 );
             ThemeStyle.ArrowColor = Color.SteelBlue;
             ThemeStyle.BottomToolStripBackColor = Color.FromArgb( 28, 28, 28 );
@@ -224,6 +226,7 @@ namespace BudgetExecution
 
                 // Previous Button
                 PreviousButton = new BudgetToolStripButton();
+                PreviousButton.ToolType = ToolType.PreviousButton;
                 PreviousButton.Image = Image.FromFile( _previousRecord );
                 PreviousButton.HoverText = "Go To Previous";
                 Items.Add( PreviousButton );
@@ -231,6 +234,7 @@ namespace BudgetExecution
 
                 // Next Button
                 NextButton = new BudgetToolStripButton();
+                NextButton.ToolType = ToolType.NextButton;
                 NextButton.Image = Image.FromFile( _nextRecord );
                 NextButton.HoverText = "Go To Next Record";
                 Items.Add( NextButton );
@@ -238,13 +242,15 @@ namespace BudgetExecution
 
                 // Last button
                 LastButton = new BudgetToolStripButton();
+                LastButton.ToolType = ToolType.LastButton;
                 LastButton.Image = Image.FromFile( _lastRecord );
                 LastButton.HoverText = "Go To Last Record";
-                Items.Add( LastButton);
+                Items.Add( LastButton );
                 Items.Add( new ToolSeparator() );
 
                 // Edit Button
                 EditButton = new BudgetToolStripButton();
+                EditButton.ToolType = ToolType.EditButton;
                 EditButton.Image = Image.FromFile( _edit );
                 EditButton.HoverText = "Edit Record";
                 Items.Add( EditButton );
@@ -252,6 +258,7 @@ namespace BudgetExecution
 
                 // Add Button
                 AddButton = new BudgetToolStripButton();
+                AddButton.ToolType = ToolType.AddButton;
                 AddButton.Image = Image.FromFile( _add );
                 AddButton.HoverText = "Add Record";
                 Items.Add( AddButton );
@@ -259,6 +266,7 @@ namespace BudgetExecution
 
                 // Delete Button
                 DeleteButton = new BudgetToolStripButton();
+                DeleteButton.ToolType = ToolType.DeleteButton;
                 DeleteButton.Image = Image.FromFile( _delete );
                 DeleteButton.HoverText = "Delete Record";
                 Items.Add( DeleteButton );
@@ -266,6 +274,7 @@ namespace BudgetExecution
 
                 // Refresh Button
                 RefreshButton = new BudgetToolStripButton();
+                RefreshButton.ToolType = ToolType.RefreshButton;
                 RefreshButton.Image = Image.FromFile( _refresh );
                 RefreshButton.HoverText = "Refresh Data";
                 Items.Add( RefreshButton );
@@ -273,6 +282,7 @@ namespace BudgetExecution
 
                 // Save Button
                 SaveButton = new BudgetToolStripButton();
+                SaveButton.ToolType = ToolType.SaveButton;
                 SaveButton.Image = Image.FromFile( _save );
                 SaveButton.HoverText = "Save Changes";
                 Items.Add( SaveButton );
@@ -280,6 +290,7 @@ namespace BudgetExecution
                 
                 // Browse Button
                 BrowseButton = new BudgetToolStripButton();
+                BrowseButton.ToolType = ToolType.BrowseButton;
                 BrowseButton.Image = Image.FromFile( _browse );
                 BrowseButton.HoverText = "Browse for file";
                 Items.Add( BrowseButton );
@@ -287,6 +298,7 @@ namespace BudgetExecution
                 
                 // Print Button
                 PrintButton = new BudgetToolStripButton();
+                PrintButton.ToolType = ToolType.PrintButton;
                 PrintButton.Image = Image.FromFile( _print );
                 PrintButton.HoverText = "Print Data";
                 Items.Add( PrintButton );
@@ -294,6 +306,7 @@ namespace BudgetExecution
 
                 // Excel Button
                 ExcelButton = new BudgetToolStripButton();
+                ExcelButton.ToolType = ToolType.ExcelButton;
                 ExcelButton.Image = Image.FromFile( _excelFile );
                 ExcelButton.HoverText = "Export to Excel";
                 Items.Add( ExcelButton );
@@ -301,6 +314,7 @@ namespace BudgetExecution
 
                 // Calculator Button
                 CalculatorButton = new BudgetToolStripButton();
+                CalculatorButton.ToolType = ToolType.CalculatorButton;
                 CalculatorButton.Image = Image.FromFile( _calculator );
                 CalculatorButton.HoverText = "Launch Calculator";
                 Items.Add( CalculatorButton );

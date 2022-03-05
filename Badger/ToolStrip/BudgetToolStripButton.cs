@@ -45,7 +45,7 @@ namespace BudgetExecution
         public BudgetToolStripButton( ToolType toolType )
             : this()
         {
-            Bar = toolType;
+            ToolType = toolType;
             Image = new BudgetImage( toolType.ToString(), ImageDirectory.ToolStripImages )?.GetBitmap();
         }
 
@@ -57,7 +57,7 @@ namespace BudgetExecution
             : this()
         {
             Image = image.GetBitmap();
-            Bar = (ToolType)Enum.Parse( typeof( ToolType ), image.Name );
+            ToolType = (ToolType)Enum.Parse( typeof( ToolType ), image.Name );
         }
         
         /// <summary>
@@ -148,7 +148,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    switch( _button.Bar )
+                    switch( _button.ToolType )
                     {
                         case ToolType.FirstButton:
                         {
@@ -180,14 +180,21 @@ namespace BudgetExecution
 
                         case ToolType.ExcelButton:
                         {
-                            using var _message = new ExcelForm();
-                            _message?.ShowDialog();
+                            using var _excelForm = new BudgetExcelForm();
+                            _excelForm?.ShowDialog();
                             break;
                         }
 
                         case ToolType.PdfButton:
                         {
-                            using var _message = new BudgetFileBrowser();
+                            using var _message = new BudgetPdfForm();
+                            _message?.ShowDialog();
+                            break;
+                        }
+
+                        case ToolType.PrintButton:
+                        {
+                            using var _message = new BudgetPdfForm();
                             _message?.ShowDialog();
                             break;
                         }
@@ -257,6 +264,8 @@ namespace BudgetExecution
 
                         case ToolType.CalculatorButton:
                         {
+                            using var _calculator = new BudgetCalculatorForm();
+                            _calculator?.ShowDialog();
                             break;
                         }
 

@@ -114,7 +114,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Validate.ImageDirectory( resource )
+                return Verify.ImageDirectory( resource )
                     && Verify.IsInput( filePath )
                     && File.Exists( filePath )
                     && resource != ImageDirectory.NS

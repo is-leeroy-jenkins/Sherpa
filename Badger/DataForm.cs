@@ -98,7 +98,9 @@ namespace BudgetExecution
         {
             try
             {
+                ToolStrip.ShowCaption = false;
                 ToolStrip?.PopulateTools();
+                SQLiteAdapter.Fill( StatusOfFunds );
             }
             catch ( Exception ex )
             {

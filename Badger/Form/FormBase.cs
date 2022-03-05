@@ -13,6 +13,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Diagram;
 
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public partial class FormBase : MetroForm
@@ -104,6 +105,7 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowInTaskbar = true;
             Padding = new Padding( 1 );
+            Margin = new Padding( 1, 1, 1, 1 );
             Text = string.Empty;
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
