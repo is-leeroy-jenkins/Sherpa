@@ -6,10 +6,12 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
     using static System.IO.Path;
 
+    [ SuppressMessage( "ReSharper", "BitwiseOperatorOnEnumWithoutFlags" ) ]
     public partial class DataForm : FormBase
     {
         /// <summary>
@@ -39,7 +41,7 @@ namespace BudgetExecution
             CaptionButtonColor = Color.FromArgb( 80, 80, 80 );
             CaptionButtonHoverColor = Color.White;
             CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 11 );
+            CaptionFont = new Font( "Roboto", 9 );
             MetroColor = Color.FromArgb( 18, 18, 18 );
             FormBorderStyle = FormBorderStyle.Sizable;
             Icon = new Icon( Setting[ "BudgetExecutionIcon" ], 62, 16 );
@@ -98,10 +100,10 @@ namespace BudgetExecution
         {
             try
             {
+                SQLiteAdapter.Fill( BudgetDataSet );
+                DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
                 ToolStrip.ShowCaption = false;
                 ToolStrip?.PopulateTools();
-                DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-                SQLiteAdapter.Fill( DataSet );
             }
             catch ( Exception ex )
             {

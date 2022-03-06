@@ -108,12 +108,12 @@ namespace BudgetExecution
             BorderStyle = Border3DStyle.Adjust;
             BackColor = Color.FromArgb( 18, 18, 18 );
             ForeColor = Color.White;
-            Margin = new Padding( 3 );
+            Margin = new Padding( 1 );
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 9 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            ButtonStyle = ButtonAppearance.Office2010;
-            FlatStyle = FlatStyle.System;
+            ButtonStyle = ButtonAppearance.Metro;
+            FlatStyle = FlatStyle.Flat;
             Value = new CalculatorValue( 0.0 );
             ShowDisplayArea = true;
             DisplayTextAlign = HorizontalAlignment.Center;

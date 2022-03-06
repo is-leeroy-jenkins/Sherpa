@@ -99,7 +99,7 @@ namespace BudgetExecution
             CaptionButtonColor = Color.FromArgb( 80, 80, 80 );
             CaptionButtonHoverColor = Color.White;
             CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 11 );
+            CaptionFont = new Font( "Roboto", 9 );
             MetroColor = Color.FromArgb( 18, 18, 18 );
             FormBorderStyle = FormBorderStyle.Sizable;
             ShowIcon = false;

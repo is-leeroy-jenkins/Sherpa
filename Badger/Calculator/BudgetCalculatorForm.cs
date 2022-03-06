@@ -5,6 +5,7 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Collections.Specialized;
     using System.Configuration;
@@ -70,8 +71,6 @@ namespace BudgetExecution
         /// </value>
         public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
 
-        public BudgetCalculator Calculator { get; set; } = new BudgetCalculator();
-
         /// <summary>
         /// Initializes a new instance of the <see cref="BudgetCalculatorForm"/> class.
         /// </summary>
@@ -98,8 +97,12 @@ namespace BudgetExecution
             Padding = new Padding( 1 );
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
-            Controls.Add( Calculator );
-            Calculator.Dock = DockStyle.Fill;
+            Load += OnFormLoad;
+        }
+
+        public void OnFormLoad( object sender, EventArgs e )
+        {
+            CalculatorControl.BorderStyle = Border3DStyle.Adjust;
         }
     }
 }

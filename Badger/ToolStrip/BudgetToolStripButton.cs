@@ -152,29 +152,25 @@ namespace BudgetExecution
                     {
                         case ToolType.FirstButton:
                         {
-                            using var _message = new Message( "NOT YET IMPLEMENTED!" );
-                            _message?.ShowDialog();
+                            BindingSource?.MoveFirst();
                             break;
                         }
 
                         case ToolType.PreviousButton:
                         {
-                            using var _message = new Message( "NOT YET IMPLEMENTED!" );
-                            _message?.ShowDialog();
+                            BindingSource?.MovePrevious();
                             break;
                         }
 
                         case ToolType.NextButton:
                         {
-                            using var _message = new Message( "NOT YET IMPLEMENTED!" );
-                            _message?.ShowDialog();
+                            BindingSource?.MoveNext();
                             break;
                         }
 
                         case ToolType.LastButton:
                         {
-                            using var _message = new Message( "NOT YET IMPLEMENTED!" );
-                            _message?.ShowDialog();
+                            BindingSource?.MoveLast();
                             break;
                         }
 
@@ -202,6 +198,7 @@ namespace BudgetExecution
                         case ToolType.AddButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
+                            _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
                             _message?.ShowDialog();
                             break;
                         }
@@ -209,6 +206,7 @@ namespace BudgetExecution
                         case ToolType.DeleteButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
+                            _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
                             _message?.ShowDialog();
                             break;
                         }
@@ -216,6 +214,7 @@ namespace BudgetExecution
                         case ToolType.RefreshButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
+                            _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
                             _message?.ShowDialog();
                             break;
                         }
@@ -223,6 +222,7 @@ namespace BudgetExecution
                         case ToolType.EditButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
+                            _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
                             _message?.ShowDialog();
                             break;
                         }
@@ -230,6 +230,7 @@ namespace BudgetExecution
                         case ToolType.ExitButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
+                            _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
                             _message?.ShowDialog();
                             break;
                         }
@@ -237,6 +238,7 @@ namespace BudgetExecution
                         case ToolType.ExportButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
+                            _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
                             _message?.ShowDialog();
                             break;
                         }
@@ -244,6 +246,7 @@ namespace BudgetExecution
                         case ToolType.ImportButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
+                            _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
                             _message?.ShowDialog();
                             break;
                         }
@@ -251,6 +254,7 @@ namespace BudgetExecution
                         case ToolType.UpdateButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
+                            _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
                             _message?.ShowDialog();
                             break;
                         }
@@ -258,6 +262,7 @@ namespace BudgetExecution
                         case ToolType.InsertButton:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
+                            _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
                             _message?.ShowDialog();
                             break;
                         }

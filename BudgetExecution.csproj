@@ -702,6 +702,9 @@
     <Compile Include="Badger\ToolStrip\BudgetToolStripButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Data\DataSets\StatusOfFunds.cs">
+      <DependentUpon>StatusOfFunds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Enumerations\DataPath.cs" />
     <Compile Include="Enumerations\Guidance.cs" />
     <Compile Include="Ninja\Outlays\Commitment.cs" />
@@ -1087,7 +1090,7 @@
     </Compile>
     <Compile Include="Badger\Notification\FormAnimator.cs" />
     <Compile Include="Badger\ToolStrip\ToolFactory.cs" />
-    <Compile Include="StatusOfFunds.Designer.cs">
+    <Compile Include="Data\DataSets\StatusOfFunds.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StatusOfFunds.xsd</DependentUpon>
@@ -1338,15 +1341,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="StatusOfFunds.xsc">
+    <None Include="Data\DataSets\StatusOfFunds.xsc">
       <DependentUpon>StatusOfFunds.xsd</DependentUpon>
     </None>
-    <None Include="StatusOfFunds.xsd">
+    <None Include="Data\DataSets\StatusOfFunds.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>StatusOfFunds.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="StatusOfFunds.xss">
+    <None Include="Data\DataSets\StatusOfFunds.xss">
       <DependentUpon>StatusOfFunds.xsd</DependentUpon>
     </None>
   </ItemGroup>

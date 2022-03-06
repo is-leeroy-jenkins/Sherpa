@@ -219,7 +219,9 @@ namespace BudgetExecution
                 
                 // First Button
                 FirstButton = new BudgetToolStripButton();
+                FirstButton.ToolType = ToolType.FirstButton;
                 FirstButton.Image = Image.FromFile( _firstRecord );
+                FirstButton.BindingSource = BindingSource;
                 FirstButton.HoverText = "Go To Beginning";
                 Items.Add( FirstButton  );
                 Items.Add( new ToolSeparator() );
@@ -228,6 +230,7 @@ namespace BudgetExecution
                 PreviousButton = new BudgetToolStripButton();
                 PreviousButton.ToolType = ToolType.PreviousButton;
                 PreviousButton.Image = Image.FromFile( _previousRecord );
+                PreviousButton.BindingSource = BindingSource;
                 PreviousButton.HoverText = "Go To Previous";
                 Items.Add( PreviousButton );
                 Items.Add( new ToolSeparator() );
@@ -236,6 +239,7 @@ namespace BudgetExecution
                 NextButton = new BudgetToolStripButton();
                 NextButton.ToolType = ToolType.NextButton;
                 NextButton.Image = Image.FromFile( _nextRecord );
+                NextButton.BindingSource = BindingSource;
                 NextButton.HoverText = "Go To Next Record";
                 Items.Add( NextButton );
                 Items.Add( new ToolSeparator() );
@@ -244,6 +248,7 @@ namespace BudgetExecution
                 LastButton = new BudgetToolStripButton();
                 LastButton.ToolType = ToolType.LastButton;
                 LastButton.Image = Image.FromFile( _lastRecord );
+                LastButton.BindingSource = BindingSource;
                 LastButton.HoverText = "Go To Last Record";
                 Items.Add( LastButton );
                 Items.Add( new ToolSeparator() );

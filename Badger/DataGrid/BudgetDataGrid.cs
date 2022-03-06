@@ -51,6 +51,7 @@ namespace BudgetExecution
             ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
             ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.SteelBlue;
             ColumnHeadersDefaultCellStyle.Font = new Font( "Roboto", 9, FontStyle.Bold );
             SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
@@ -61,14 +62,21 @@ namespace BudgetExecution
             RowHeadersDefaultCellStyle.Font = new Font( "Roboto", 9 );
             RowHeadersDefaultCellStyle.ForeColor = Color.Black;
             RowHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter;
+            RowHeadersDefaultCellStyle.SelectionBackColor = Color.SteelBlue;
             CellBorderStyle = DataGridViewCellBorderStyle.None;
             AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             RowsDefaultCellStyle.BackColor = Color.FromArgb( 35, 35, 35 );
             RowsDefaultCellStyle.Font = new Font( "Roboto", 8 );
             RowsDefaultCellStyle.ForeColor = Color.LightSteelBlue;
-            RowsDefaultCellStyle.SelectionBackColor = SystemColors.ControlDark;
-            RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+            RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb( 55, 55, 55 );
+            RowsDefaultCellStyle.SelectionForeColor = Color.White;
             RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb( 30, 30, 30 );
+            AlternatingRowsDefaultCellStyle.ForeColor = Color.LightSteelBlue;
+            AlternatingRowsDefaultCellStyle.Font =  new Font( "Roboto", 8 );
+            AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.FromArgb( 55, 55, 55 );
+            AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             // Epilog
             Visible = true;
