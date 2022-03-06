@@ -270,25 +270,5 @@ namespace BudgetExecution
                 return Element.Default;
             }
         }
-
-        /// <summary>
-        /// Implements the GetSource member of the ISource interface.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        Source ISource.GetSource()
-        {
-            try
-            {
-                return Validate.IsSource( Source )
-                    ? Source
-                    : Source.NS;
-            }
-            catch( SystemException ex )
-            {
-                Fail( ex );
-                return Source.NS;
-            }
-        }
     }
 }

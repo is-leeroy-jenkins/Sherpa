@@ -24,7 +24,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; } = Source.Goals;
+        public Source Source { get; set; } = Source.Goals;
 
         /// <summary>
         /// Gets the record.

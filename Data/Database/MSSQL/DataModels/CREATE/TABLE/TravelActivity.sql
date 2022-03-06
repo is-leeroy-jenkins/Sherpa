@@ -4,7 +4,7 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[TravelActivity]
 (
-	[TravelActivityId] INT IDENTITY(713,1) NOT NULL,
+	[TravelActivityId] INT IDENTITY(1,1) NOT NULL,
 	[RpioCode] VARCHAR(80) NULL DEFAULT ('NS'),
 	[RpioName] VARCHAR(80) NULL DEFAULT ('NS'),
 	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
@@ -31,8 +31,7 @@ CREATE TABLE [dbo].[TravelActivity]
 	[DocumentControlNumber] VARCHAR(80) NULL DEFAULT ('NS'),
 	[Obligations] FLOAT NULL DEFAULT 0,
 	[ULO] FLOAT NULL DEFAULT 0,
-	[Expenditures] FLOAT NULL DEFAULT 0,
-	[Extra] FLOAT NULL DEFAULT 0
+	[Expenditures] FLOAT NULL DEFAULT 0
 );
 END
 

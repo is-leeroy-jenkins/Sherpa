@@ -4,7 +4,7 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[SiteActivity]
 (
-	[SiteActivityId] [int] NOT NULL,
+	[SiteActivityId] INT IDENTITY(1,1) NOT NULL,
 	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
 	[EFY] VARCHAR(80) NULL DEFAULT ('NS'),
 	[RpioCode] VARCHAR(80) NULL DEFAULT ('NS'),

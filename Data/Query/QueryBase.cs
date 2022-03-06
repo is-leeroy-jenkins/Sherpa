@@ -14,6 +14,16 @@ namespace BudgetExecution
     public abstract class QueryBase
     {
         /// <summary>
+        /// Gets the source.
+        /// </summary>
+        public Source Source { get; set; }
+
+        /// <summary>
+        /// Gets the Provider
+        /// </summary>
+        public Provider Provider { get; set; }
+
+        /// <summary>
         /// Gets the arguments.
         /// </summary>
         /// <value>

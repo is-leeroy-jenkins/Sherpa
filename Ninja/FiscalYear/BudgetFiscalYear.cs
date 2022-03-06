@@ -27,7 +27,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; } = Source.FiscalYears;
+        public Source Source { get; set; } = Source.FiscalYears;
 
         /// <summary>
         /// Gets or sets the holidays.

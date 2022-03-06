@@ -4,7 +4,7 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[CompassLevels]
 (
-	[CompassLevelsId] [int] NOT NULL,
+	[CompassLevelsId] INT IDENTITY(1,1) NOT NULL,
 	[BudgetLevel] VARCHAR(80) NULL DEFAULT ('NS'),
 	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
 	[EFY] VARCHAR(80) NULL DEFAULT ('NS'),
@@ -38,18 +38,18 @@ CREATE TABLE [dbo].[CompassLevels]
 	[LowerRecoveriesSpendingOption] VARCHAR(80) NULL DEFAULT ('NS'),
 	[LowerRecoveriesOption] VARCHAR(80) NULL DEFAULT ('NS'),
 	[LowerReimbSpendingOption] VARCHAR(80) NULL DEFAULT ('NS'),
-	[Date] [datetime] NULL,
-	[TotalAuthority] [float] NULL,
-	[OriginalAmount] [float] NULL,
-	[CarryoverAvailabilityPercentage] [float] NULL,
-	[CarryIn] [float] NULL,
-	[CarryOut] [float] NULL,
-	[FundsIn] [float] NULL,
-	[FundOut] [float] NULL,
-	[RecoveriesWithdrawn] [float] NULL,
-	[ActualRecoveries] [float] NULL,
-	[ActualReimbursements] [float] NULL,
-	[AgreementReimbursables] [float] NULL
+	[Date] DATETIME NULL,
+	[TotalAuthority] FLOAT NULL DEFAULT (0),
+	[OriginalAmount] FLOAT NULL DEFAULT (0),
+	[CarryoverAvailabilityPercentage] FLOAT NULL DEFAULT (0),
+	[CarryIn] FLOAT NULL DEFAULT (0),
+	[CarryOut] FLOAT NULL DEFAULT (0),
+	[FundsIn] FLOAT NULL DEFAULT (0),
+	[FundOut] FLOAT NULL DEFAULT (0),
+	[RecoveriesWithdrawn] FLOAT NULL DEFAULT (0),
+	[ActualRecoveries] FLOAT NULL DEFAULT (0),
+	[ActualReimbursements] FLOAT NULL DEFAULT (0),
+	[AgreementReimbursables] FLOAT NULL DEFAULT (0)
 );
 END
 

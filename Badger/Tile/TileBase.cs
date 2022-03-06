@@ -91,19 +91,11 @@ namespace BudgetExecution
         public virtual Color HoverColor { get; set; }
 
         /// <summary>
-        /// Gets or sets the bar.
-        /// </summary>
-        /// <value>
-        /// The bar.
-        /// </value>
-        public ToolType Bar { get; set; }
-
-        /// <summary>
         /// Sets the location.
         /// </summary>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
-        public virtual void ReLocate( int x = 1, int y = 1 )
+        public virtual void SetLocation( int x = 1, int y = 1 )
         {
             if( x > 0
                && y > 0 )
@@ -124,7 +116,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public virtual void ReSize( int width = 140, int height = 140 )
+        public virtual void SetSize( int width = 140, int height = 140 )
         {
             if( width > -1
                && height > -1 )

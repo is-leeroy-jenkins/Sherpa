@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; } = Source.ProgramAreas;
+        public Source Source { get; set; } = Source.ProgramAreas;
         
         /// <summary>
         /// Initializes a new instance of the <see cref = "ProgramArea"/> class.

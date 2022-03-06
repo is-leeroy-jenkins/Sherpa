@@ -24,7 +24,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; } = Source.HumanResourceOrganizations;
+        public Source Source { get; set; } = Source.HumanResourceOrganizations;
 
         /// <summary>
         /// Gets the Data.

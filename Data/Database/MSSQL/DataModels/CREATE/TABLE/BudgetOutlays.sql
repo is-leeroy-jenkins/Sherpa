@@ -1,10 +1,10 @@
 IF NOT EXISTS ( SELECT * 
 				FROM INFORMATION_SCHEMA.TABLES 
-				WHERE TABLE_NAME = N'BudgetOutlays' )
+				WHERE TABLE_NAME = N'GrossBudgetAuthorityOutlays' )
 BEGIN
-CREATE TABLE [dbo].[BudgetOutlays]
+CREATE TABLE [dbo].[GrossBudgetAuthorityOutlays]
 (
-	[BudgetOutlaysId] [int] NOT NULL,
+	[GrossBudgetAuthorityOutlaysId] INT IDENTITY(1,1) NOT NULL
 	[ReportYear] VARCHAR(80) NULL DEFAULT ('NS'),
 	[Category] VARCHAR(80) NULL DEFAULT ('NS'),
 	[AgencyName] VARCHAR(80) NULL DEFAULT ('NS'),

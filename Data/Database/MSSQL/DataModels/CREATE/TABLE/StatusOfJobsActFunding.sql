@@ -4,8 +4,8 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[StatusOfJobsActFunding]
 (
-	[StatusOfJobsActFundingId] [int] NOT NULL,
-	[StatusOfFundsId] [float] NOT NULL,
+	[StatusOfJobsActFundingId] INT IDENTITY(1,1) NOT NULL,
+	[StatusOfFundsId] INT NOT NULL,
 	[BudgetLevel] VARCHAR(80) NULL DEFAULT ('NS'),
 	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
 	[EFY] VARCHAR(80) NULL DEFAULT ('NS'),
@@ -29,15 +29,15 @@ CREATE TABLE [dbo].[StatusOfJobsActFunding]
 	[RcCode] VARCHAR(80) NULL DEFAULT ('NS'),
 	[RcName] VARCHAR(80) NULL DEFAULT ('NS'),
 	[LowerName] VARCHAR(80) NULL DEFAULT ('NS'),
-	[Amount] [float] NULL,
-	[Budgeted] [float] NULL,
-	[Posted] [float] NULL,
-	[OpenCommitments] [float] NULL,
-	[ULO] [float] NULL,
-	[Expenditures] [float] NULL,
-	[Obligations] [float] NULL,
-	[Used] [float] NULL,
-	[Available] [float] NULL
+	[Amount] FLOAT NULL DEFAULT (0),
+	[Budgeted] FLOAT NULL DEFAULT (0),
+	[Posted] FLOAT NULL DEFAULT (0),
+	[OpenCommitments] FLOAT NULL DEFAULT (0),
+	[ULO] FLOAT NULL DEFAULT (0),
+	[Expenditures] FLOAT NULL DEFAULT (0),
+	[Obligations] FLOAT NULL DEFAULT (0),
+	[Used] FLOAT NULL DEFAULT (0),
+	[Available] FLOAT NULL DEFAULT (0)
 );
 END
 

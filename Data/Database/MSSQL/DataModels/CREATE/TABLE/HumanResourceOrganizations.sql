@@ -4,7 +4,7 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[HumanResourceOrganizations]
 (
-	[HumanResourceOrganizationsId] INT NOT NULL,
+	[HumanResourceOrganizationsId] INT IDENTITY(1,1) NOT NULL,
 	[Code] VARCHAR(80) NULL DEFAULT ('NS'),
 	[Name] VARCHAR(80) NULL
 );

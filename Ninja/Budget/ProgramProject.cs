@@ -18,7 +18,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; } = Source.ProgramProjects;
+        public Source Source { get; set; } = Source.ProgramDescriptions;
         
         /// <summary>
         /// Initializes a new instance of the

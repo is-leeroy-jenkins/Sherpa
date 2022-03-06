@@ -51,7 +51,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; } =  Source.AllowanceHolders;
+        public Source Source { get; set; } =  Source.AllowanceHolders;
 
         /// <summary>
         /// Gets or sets the dict.

@@ -4,7 +4,7 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[RegionalAuthority]
 (
-	[RegionalAuthorityId] INT NOT NULL,
+	[RegionalAuthorityId] INT IDENTITY(1,1) NOT NULL,
 	[AllocationsId] INT NOT NULL,
 	[StatusOfFundsId] INT NOT NULL,
 	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
@@ -29,5 +29,6 @@ CREATE TABLE [dbo].[RegionalAuthority]
 	[ProgramAreaCode] VARCHAR(80) NULL DEFAULT ('NS'),
 	[ProgramAreaName] VARCHAR(80) NULL DEFAULT ('NS'),
 	[NpmCode] VARCHAR(80) NULL DEFAULT ('NS'),
-	[NpmName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[NpmName] VARCHAR(80) NULL DEFAULT ('NS')
+);
 END

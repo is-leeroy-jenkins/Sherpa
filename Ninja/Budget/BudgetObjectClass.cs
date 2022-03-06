@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; } =  Source.BudgetObjectClasses;
+        public Source Source { get; set; } =  Source.BudgetObjectClasses;
 
         /// <summary>
         /// Gets the Data.
@@ -312,26 +312,6 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return default( BOC );
-            }
-        }
-
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        Source ISource.GetSource()
-        {
-            try
-            {
-                return Validate.IsSource( Source )
-                    ? Source
-                    : default( Source );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( Source );
             }
         }
     }

@@ -25,6 +25,15 @@ namespace BudgetExecution
     public class ConnectionFactory : ISource, IConnectionFactory
     {
         /// <summary>
+        /// Gets the source.
+        /// </summary>
+        public Source Source { get; set; }
+
+        /// <summary>
+        /// </summary>
+        public Provider Provider { get; set; }
+
+        /// <summary>
         /// Gets or sets the connection builder.
         /// </summary>
         /// <value>
@@ -41,14 +50,16 @@ namespace BudgetExecution
         public DbConnection Connection { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ConnectionFactory"/> class.
+        /// Initializes a new instance of
+        /// the <see cref = "ConnectionFactory"/> class.
         /// </summary>
         public ConnectionFactory()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ConnectionFactory"/> class.
+        /// Initializes a new instance of
+        /// the <see cref = "ConnectionFactory"/> class.
         /// </summary>
         /// <param name = "builder" >
         /// The manager.
@@ -60,7 +71,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ConnectionFactory"/> class.
+        /// Initializes a new instance of
+        /// the <see cref = "ConnectionFactory"/> class.
         /// </summary>
         /// <param name = "builder" >
         /// The connectionBuilder.

@@ -117,7 +117,7 @@ namespace BudgetExecution
         public Authority( IQuery query )
             : base( query )
         {
-            Source = query.GetSource();
+            Source = query.Source;
             Record = new DataBuilder( query )?.GetRecord();
             BudgetFiscalYear = GetBudgetFiscalYear();
             RPIO = GetResourcePlanningOffice();

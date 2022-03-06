@@ -1,0 +1,31 @@
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'GrossBudgetAuthorityOutlays' )
+BEGIN
+CREATE TABLE [dbo].[GrossBudgetAuthorityOutlays]
+(
+	[GrossBudgetAuthorityOutlaysId] INT IDENTITY(1,1) NOT NULL,
+	[ReportYear] VARCHAR(80) NULL DEFAULT ('NS'),
+	[AgencyName] VARCHAR(80) NULL DEFAULT ('NS'),
+	[OmbAccount] VARCHAR(255) NULL,
+	[Line] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LineNumber] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LineSection] VARCHAR(80) NULL DEFAULT ('NS'),
+	[LineName] VARCHAR(255) NULL,
+	[BeaCategory] VARCHAR(80) NULL DEFAULT ('NS'),
+	[BeaCategoryName] VARCHAR(255) NULL,
+	[LineCategory] VARCHAR(80) NULL DEFAULT ('NS'),
+	[PriorYear] MONEY NULL DEFAULT (0),
+	[CurrentYear] MONEY NULL DEFAULT (0),
+	[BudgetYear] MONEY NULL DEFAULT (0),
+	[OutYear1] MONEY NULL DEFAULT (0),
+	[OutYear2] MONEY NULL DEFAULT (0),
+	[OutYear3] MONEY NULL DEFAULT (0),
+	[OutYear4] MONEY NULL DEFAULT (0),
+	[OutYear5] MONEY NULL DEFAULT (0),
+	[OutYear6] MONEY NULL DEFAULT (0),
+	[OutYear7] MONEY NULL DEFAULT (0),
+	[OutYear8] MONEY NULL DEFAULT (0),
+	[OutYear9] MONEY NULL DEFAULT (0)
+);
+END

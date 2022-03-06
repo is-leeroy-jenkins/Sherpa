@@ -4,7 +4,7 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[Transfers]
 (
-	[TransfersId] INT IDENTITY(713,1) NOT NULL,
+	[TransfersId] INT IDENTITY(1,1) NOT NULL,
 	[BudgetLevel] VARCHAR(80) NULL DEFAULT ('NS'),
 	[DocType] VARCHAR(80) NULL DEFAULT ('NS'),
 	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
@@ -31,8 +31,7 @@ CREATE TABLE [dbo].[Transfers]
 	[BocName] VARCHAR(80) NULL DEFAULT ('NS'),
 	[Amount] FLOAT NULL DEFAULT 0,
 	[Purpose] TEXT NULL DEFAULT ('NS'),
-	[ExtendedPurpose] TEXT NULL,
-	[ResourceType] VARCHAR(80) NULL
+	[ExtendedPurpose] TEXT NULL
 );
 END
 

@@ -24,13 +24,13 @@ CREATE TABLE [dbo].[Reprogrammings]
 	[DivisionName] VARCHAR(80) NULL DEFAULT ('NS'),
 	[Amount] NUMERIC(18, 0) NULL,
 	[SPIO] VARCHAR(80) NULL DEFAULT ('NS'),
-	[Purpose] VARCHAR(80) NULL DEFAULT ('NS'),
-	[ExtendedPurpose] VARCHAR(80) NULL DEFAULT ('NS'),
+	[Purpose] VARCHAR(max) NULL DEFAULT ('NS'),
+	[ExtendedPurpose] VARCHAR(max) NULL DEFAULT ('NS'),
 	[FromTo] VARCHAR(80) NULL DEFAULT ('NS'),
 	[DocType] VARCHAR(80) NULL DEFAULT ('NS'),
 	[DocPrefix] VARCHAR(80) NULL DEFAULT ('NS'),
 	[NpmCode] VARCHAR(80) NULL DEFAULT ('NS'),
 	[Line] VARCHAR(80) NULL DEFAULT ('NS'),
-	[Subline] VARCHAR(255) NULL
+	[Subline] VARCHAR(80) NULL DEFAULT ('NS')
 );
 END

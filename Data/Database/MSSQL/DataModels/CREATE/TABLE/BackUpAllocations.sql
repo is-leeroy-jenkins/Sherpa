@@ -15,8 +15,8 @@ CREATE TABLE [dbo].[BackUpAllocations]
 	[RcCode] VARCHAR(80) NULL DEFAULT ('NS'),
 	[AccountCode] VARCHAR(80) NULL DEFAULT ('NS'),
 	[BocCode] VARCHAR(80) NULL DEFAULT ('NS'),
-	[Amount] FLOAT NOT NULL DEFAULT 0,
-	[AllocationRatio] FLOAT NOT NULL DEFAULT 0,
+	[Amount] FLOAT NULL DEFAULT 0,
+	[AllocationRatio] FLOAT NULL DEFAULT 0,
 	[FundName] VARCHAR(80) NULL DEFAULT ('NS'),
 	[BocName] VARCHAR(80) NULL DEFAULT ('NS'),
 	[Division] VARCHAR(80) NULL DEFAULT ('NS'),
@@ -35,4 +35,3 @@ CREATE TABLE [dbo].[BackUpAllocations]
 	[ChangeDate] [datetime] NULL
 );
 END
-

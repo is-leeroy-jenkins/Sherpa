@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; } = Source.NationalPrograms;
+        public Source Source { get; set; } = Source.NationalPrograms;
 
         /// <summary>
         /// Gets the record.

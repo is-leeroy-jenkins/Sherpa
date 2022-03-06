@@ -4,8 +4,8 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[FullTimeEquivalents]
 (
-	[FullTimeEquivialentsId] INT NOT NULL,
-	[OperatingPlanId] INT NOT NULL,
+	[FullTimeEquivialentsId] INT IDENTITY(1,1) NOT NULL,
+	[OperatingPlansId] INT NOT NULL,
 	[RpioCode] VARCHAR(80) NULL DEFAULT ('NS'),
 	[RpioName] VARCHAR(80) NULL DEFAULT ('NS'),
 	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),

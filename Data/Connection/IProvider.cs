@@ -13,6 +13,6 @@ namespace BudgetExecution
         /// 
         /// </summary>
         /// <returns></returns>
-        Provider GetProvider();
+        Provider Provider { get; set; }
     }
 }

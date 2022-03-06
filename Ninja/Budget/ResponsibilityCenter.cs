@@ -18,8 +18,10 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     public class ResponsibilityCenter : Element, IResponsibilityCenter, ISource
     {
-        /// <summary>The source</summary>
-        public Source Source = Source.ResponsibilityCenters;
+        /// <summary>
+        /// The source
+        /// </summary>
+        public Source Source { get; set; } = Source.ResponsibilityCenters;
         
         /// <summary>
         /// Gets the record.

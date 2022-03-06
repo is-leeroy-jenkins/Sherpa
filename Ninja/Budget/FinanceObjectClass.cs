@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; } = Source.FinanceObjectClasses;
+        public Source Source { get; set; } = Source.FinanceObjectClasses;
 
         /// <summary>
         /// Gets or sets the record.
@@ -172,25 +172,6 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return default( FinanceObjectClass );
-            }
-        }
-
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <returns></returns>
-        Source ISource.GetSource()
-        {
-            try
-            {
-                return Validate.IsSource( Source )
-                    ? Source
-                    : Source.NS;
-            }
-            catch( SystemException ex )
-            {
-                Fail( ex );
-                return Source.NS;
             }
         }
     }

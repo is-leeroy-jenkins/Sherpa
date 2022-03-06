@@ -19,6 +19,11 @@ namespace BudgetExecution
     public class DataSchema : ISource, IDataSchema
     {
         /// <summary>
+        /// Gets the source.
+        /// </summary>
+        public Source Source { get; set; }
+        
+        /// <summary>
         /// Gets the name of the Table.
         /// </summary>
         /// <value>

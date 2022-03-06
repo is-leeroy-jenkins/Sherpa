@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source = Source.ResourcePlanningOffices;
+        public Source Source { get; set; } = Source.ResourcePlanningOffices;
         
         /// <summary>
         /// Gets the dataRow.

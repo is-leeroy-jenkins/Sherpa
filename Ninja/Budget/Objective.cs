@@ -19,7 +19,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; } = Source.Objectives;
+        public Source Source { get; set; } = Source.Objectives;
 
         /// <summary>
         /// Gets the record.

@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; } = Source.WorkCodes;
+        public Source Source { get; set; } = Source.WorkCodes;
 
         /// <summary>
         /// Gets the arguments.

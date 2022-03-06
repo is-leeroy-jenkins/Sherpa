@@ -118,17 +118,17 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref = "Query"/> class.
         /// </summary>
-        /// <param name = "fullpath" >
+        /// <param name = "fullPath" >
         /// The fullpath.
         /// </param>
-        /// <param name = "commandtype" >
+        /// <param name = "commandType" >
         /// The commandType.
         /// </param>
-        public Query( string fullpath, SQL commandtype = SQL.SELECT )
+        public Query( string fullPath, SQL commandType = SQL.SELECT )
         {
-            SetConnectionBuilder( fullpath );
+            SetConnectionBuilder( fullPath );
             ConnectionFactory = new ConnectionFactory( ConnectionBuilder );
-            SqlStatement = new SqlStatement( ConnectionBuilder, commandtype );
+            SqlStatement = new SqlStatement( ConnectionBuilder, commandType );
             CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
             Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter();
             IsDisposed = false;
@@ -137,20 +137,20 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref = "Query"/> class.
         /// </summary>
-        /// <param name = "fullpath" >
+        /// <param name = "fullPath" >
         /// The fullpath.
         /// </param>
-        /// <param name = "commandtype" >
+        /// <param name = "commandType" >
         /// The commandType.
         /// </param>
         /// <param name = "dict" >
         /// The dictionary.
         /// </param>
-        public Query( string fullpath, SQL commandtype, IDictionary<string, object> dict )
+        public Query( string fullPath, SQL commandType, IDictionary<string, object> dict )
         {
-            SetConnectionBuilder( fullpath );
+            SetConnectionBuilder( fullPath );
             ConnectionFactory = new ConnectionFactory( ConnectionBuilder );
-            SqlStatement = new SqlStatement( ConnectionBuilder, dict, commandtype );
+            SqlStatement = new SqlStatement( ConnectionBuilder, dict, commandType );
             CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
             Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter();
             IsDisposed = false;

@@ -4,7 +4,7 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[CongressionalReprogrammings]
 (
-	[CongressionalReprogrammingsId] INT NOT NULL,
+	[CongressionalReprogrammingsId] INT IDENTITY(1,1) NOT NULL,
 	[ReprogrammingNumber] VARCHAR(80) NULL DEFAULT ('NS'),
 	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
 	[EFY] VARCHAR(80) NULL DEFAULT ('NS'),

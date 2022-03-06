@@ -21,6 +21,11 @@ namespace BudgetExecution
     public abstract class MetricBase : IMetric, IDataFilter
     {
         /// <summary>
+        /// Gets the source.
+        /// </summary>
+        public Source Source { get; set; }
+        
+        /// <summary>
         /// The field
         /// </summary>
         public Field Field { get; set; }

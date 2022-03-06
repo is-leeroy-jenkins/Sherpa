@@ -41,7 +41,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; } = Source.ActivityCodes;
+        public Source Source { get; set; } = Source.ActivityCodes;
 
         /// <summary>
         /// Gets the dataRow.

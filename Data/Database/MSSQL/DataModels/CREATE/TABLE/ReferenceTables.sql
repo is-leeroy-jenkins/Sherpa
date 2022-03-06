@@ -1,6 +1,11 @@
-CREATE TABLE IF NOT EXISTS ReferenceTables
+IF NOT EXISTS ( SELECT * 
+				FROM INFORMATION_SCHEMA.TABLES 
+				WHERE TABLE_NAME = N'ReferenceTables' )
+BEGIN
+CREATE TABLE [dbo].[ReferenceTables]
 (
-   ReferenceTablesId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyReferenceTables PRIMARY KEY,
-   TableName TEXT(255),
-   Type TEXT(255)
+   [ReferenceTablesId] INT IDENTITY(1,1) NOT NULL,
+   [TableName] VARCHAR(80) NULL DEFAULT ('NS'),
+   [Type] VARCHAR(80) NULL DEFAULT ('NS')
 );
+END

@@ -24,7 +24,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; } = Source.InformationTechnology;
+        public Source Source { get; set; } = Source.InformationTechnology;
         
         /// <summary>
         /// Gets the Data.
@@ -312,26 +312,6 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return default( IInformationTechnology );
-            }
-        }
-
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        Source ISource.GetSource()
-        {
-            try
-            {
-                return Validate.IsSource( Source )
-                    ? Source
-                    : Source.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( Source );
             }
         }
     }

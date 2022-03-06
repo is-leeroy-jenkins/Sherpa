@@ -26,7 +26,7 @@ namespace BudgetExecution
         /// <value>
         /// The provider.
         /// </value>
-        public Provider Provider { get; } = Provider.CSV;
+        public new Provider Provider { get; set; } = Provider.CSV;
         
         /// <summary>
         /// Initializes a new instance of the <see cref = "CsvQuery"/> class.

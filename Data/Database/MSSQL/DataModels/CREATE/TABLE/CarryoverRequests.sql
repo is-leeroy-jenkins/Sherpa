@@ -4,19 +4,19 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[CarryoverRequests]
 (
-	[CarryoverRequestsId] [int] NOT NULL,
+	[CarryoverRequestsId] INT IDENTITY(1,1) NOT NULL,
 	[ControlTeamAnalyst] VARCHAR(80) NULL DEFAULT ('NS'),
 	[RpioCode] VARCHAR(80) NULL DEFAULT ('NS'),
 	[DocumentTitle] VARCHAR(100) NULL,
-	[Amount] [money] NULL,
+	[Amount] FLOAT NULL DEFAULT (0),
 	[FundCode] VARCHAR(80) NULL DEFAULT ('NS'),
 	[Status] VARCHAR(80) NULL DEFAULT ('NS'),
-	[OriginalRequestDate] [datetime] NULL,
-	[LastActivityDate] [datetime] NULL,
+	[OriginalRequestDate] DATETIME NULL,
+	[LastActivityDate] DATETIME NULL,
 	[BFS] VARCHAR(80) NULL DEFAULT ('NS'),
 	[Comments] VARCHAR(80) NULL DEFAULT ('NS'),
 	[RequestDocument] VARCHAR(80) NULL DEFAULT ('NS'),
-	[Duration] VARCHAR(80) NULL
+	[Duration] VARCHAR(80) NULL DEFAULT ('NS')
 );
 ENd
 

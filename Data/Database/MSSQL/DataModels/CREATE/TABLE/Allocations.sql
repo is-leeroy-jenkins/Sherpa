@@ -4,7 +4,7 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[Allocations]
 (
-	[AllocationsId] INT NOT NULL,
+	[AllocationsId] INT IDENTITY(1,1) NOT NULL,
 	[StatusOfFundsId] INT NOT NULL,
 	[BudgetLevel] VARCHAR(80) NULL DEFAULT ('NS'),
 	[RpioCode] VARCHAR(80) NULL DEFAULT ('NS'),

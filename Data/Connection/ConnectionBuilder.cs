@@ -21,6 +21,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public class ConnectionBuilder : ConnectionBase, ISource, IProvider, IConnectionBuilder
     {
         /// <summary>
@@ -48,10 +49,10 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            FilePath = GetFilePath( Provider );
+            FilePath = GetFilePath( provider );
             FileName = Path.GetFileNameWithoutExtension( FilePath );
             ProviderPath = ConfigurationManager.AppSettings;
-            FileExtension = (EXT)Enum.Parse( typeof( EXT ), Path.GetExtension( FilePath ) ?? string.Empty );
+            FileExtension = (EXT)Enum.Parse( typeof( EXT ), Path.GetExtension( FilePath ) );
             TableName = Source.ToString(); 
             ConnectionString = GetConnectionString( Provider );
         }
@@ -67,7 +68,7 @@ namespace BudgetExecution
             Source = Source.External;
             FilePath = fullPath;
             FileName = Path.GetFileNameWithoutExtension( FilePath );
-            FileExtension = (EXT)Enum.Parse( typeof( EXT ), Path.GetExtension( FilePath ) ?? string.Empty );
+            FileExtension = (EXT)Enum.Parse( typeof( EXT ), Path.GetExtension( FilePath ) );
             Provider = (Provider)Enum.Parse( typeof( Provider ), GetProviderPath( FilePath ) );
             ProviderPath = ConfigurationManager.AppSettings;
             TableName = FileName;
@@ -88,47 +89,9 @@ namespace BudgetExecution
             FilePath = fullPath;
             FileName = Path.GetFileNameWithoutExtension( fullPath );
             ProviderPath = ConfigurationManager.AppSettings;
-            FileExtension = (EXT)Enum.Parse( typeof( EXT ), Path.GetExtension( fullPath ) ?? string.Empty );
+            FileExtension = (EXT)Enum.Parse( typeof( EXT ), Path.GetExtension( fullPath ) );
             TableName = Source.ToString();
             ConnectionString = GetConnectionString( Provider );
-        }
-
-        /// <summary>
-        /// Gets the provider.
-        /// </summary>
-        /// <returns></returns>
-        public Provider GetProvider()
-        {
-            try
-            {
-                return Validate.IsProvider( Provider )
-                    ? Provider
-                    : default( Provider );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( Provider );
-            }
-        }
-
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <returns></returns>
-        public Source GetSource()
-        {
-            try
-            {
-                return Validate.IsSource( Source )
-                    ? Source
-                    : Source.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Source.NS;
-            }
         }
     }
 }

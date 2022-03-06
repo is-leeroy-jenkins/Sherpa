@@ -4,13 +4,13 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[DocumentControlNumbers]
 (
-	[DocumentControlNumbersId] [int] NOT NULL,
+	[DocumentControlNumbersId]  INT IDENTITY(1,1) NOT NULL,
 	[RpioCode] VARCHAR(80) NULL DEFAULT ('NS'),
 	[RpioName] VARCHAR(80) NULL DEFAULT ('NS'),
 	[DocumentType] VARCHAR(80) NULL DEFAULT ('NS'),
 	[DocumentNumber] VARCHAR(80) NULL DEFAULT ('NS'),
 	[DocumentPrefix] VARCHAR(80) NULL DEFAULT ('NS'),
-	[DocumentControlNumber] VARCHAR(80) NULL
+	[DocumentControlNumber] VARCHAR(80) NULL DEFAULT ('NS')
 );
 END
 

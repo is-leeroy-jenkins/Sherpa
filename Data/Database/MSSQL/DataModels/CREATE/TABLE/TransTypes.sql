@@ -4,7 +4,7 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[TransTypes]
 (
-	[TransTypesId] [int] NOT NULL,
+	[TransTypesId] INT IDENTITY(1,1) NOT NULL,
 	[FundCode] VARCHAR(80) NULL DEFAULT ('NS'),
 	[Appropriation] VARCHAR(max) NULL,
 	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),

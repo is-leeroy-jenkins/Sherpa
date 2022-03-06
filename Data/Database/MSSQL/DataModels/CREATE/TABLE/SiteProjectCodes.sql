@@ -4,7 +4,7 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[SiteProjectCodes]
 (
-	[SiteProjectCodesId] INT IDENTITY(713,1) NOT NULL,
+	[SiteProjectCodesId] INT IDENTITY(1,1) NOT NULL,
 	[RpioCode] VARCHAR(80) NULL DEFAULT ('NS'),
 	[RpioName] VARCHAR(80) NULL DEFAULT ('NS'),
 	[State] VARCHAR(80) NULL DEFAULT ('NS'),

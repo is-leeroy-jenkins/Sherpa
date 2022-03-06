@@ -4,7 +4,7 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[StateGrantObligations]
 (
-	[StateGrantObligationsId] INT IDENTITY(713,1) NOT NULL,
+	[StateGrantObligationsId] INT IDENTITY(1,1) NOT NULL,
 	[RpioCode] VARCHAR(80) NULL DEFAULT ('NS'),
 	[RpioName] VARCHAR(80) NULL DEFAULT ('NS'),
 	[FundCode] VARCHAR(80) NULL DEFAULT ('NS'),

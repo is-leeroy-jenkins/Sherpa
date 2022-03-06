@@ -4,7 +4,7 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[CarryoverEstimates]
 (
-	[CarryoverEstimatesId] INT NOT NULL,
+	[CarryoverEstimatesId]  INT IDENTITY(1,1) NOT NULL,
 	[BudgetLevel] VARCHAR(80) NULL DEFAULT ('NS'),
 	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
 	[EFY] VARCHAR(80) NULL DEFAULT ('NS'),

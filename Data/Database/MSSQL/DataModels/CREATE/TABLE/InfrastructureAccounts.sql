@@ -4,7 +4,7 @@ IF NOT EXISTS ( SELECT *
 BEGIN
 CREATE TABLE [dbo].[InfrastructureAccounts]
 (
-	[InfrastructureAccountsId] [int] NOT NULL,
+	[InfrastructureAccountsId] INT IDENTITY(1,1) NOT NULL,
 	[StrategicPlan] VARCHAR(80) NULL DEFAULT ('NS'),
 	[BFY] VARCHAR(80) NULL DEFAULT ('NS'),
 	[EFY] VARCHAR(80) NULL DEFAULT ('NS'),

@@ -5,7 +5,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Specialized;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
@@ -22,12 +21,7 @@ namespace BudgetExecution
         /// The connector
         /// </summary>
         public virtual ConnectionStringSettingsCollection Connectors { get; set; } = ConfigurationManager.ConnectionStrings;
-
-        /// <summary>
-        /// The provider path
-        /// </summary>
-        public virtual NameValueCollection AppSettings { get; set; } = ConfigurationManager.AppSettings;
-
+        
         /// <summary>
         /// The source
         /// </summary>
@@ -69,21 +63,21 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         public virtual string GetFilePath( Provider provider )
         {
-            if( Validate.IsProvider( provider ) )
+            if( Verify.IsProvider( provider ) )
             {
                 try
                 {
                     FilePath = provider switch
                     {
-                        Provider.OleDb => AppSettings[ "OleDb" ],
-                        Provider.Access => AppSettings[ "Access" ],
-                        Provider.SQLite => AppSettings[ "SQLite" ],
-                        Provider.SqlCe => AppSettings[ "SqlCe" ],
-                        Provider.SqlServer => AppSettings[ "SqlServer" ],
-                        Provider.CSV => AppSettings[ "CSV" ],
-                        Provider.Excel => AppSettings[ "Excel" ],
-                        Provider.NS => AppSettings[ "Excel" ],
-                        _ => AppSettings[ "SQLite" ]
+                        Provider.OleDb => ConfigurationManager.AppSettings[ "OleDb" ],
+                        Provider.Access => ConfigurationManager.AppSettings[ "Access" ],
+                        Provider.SQLite => ConfigurationManager.AppSettings[ "SQLite" ],
+                        Provider.SqlCe => ConfigurationManager.AppSettings[ "SqlCe" ],
+                        Provider.SqlServer => ConfigurationManager.AppSettings[ "SqlServer" ],
+                        Provider.CSV => ConfigurationManager.AppSettings[ "CSV" ],
+                        Provider.Excel => ConfigurationManager.AppSettings[ "Excel" ],
+                        Provider.NS => ConfigurationManager.AppSettings[ "Excel" ],
+                        _ => ConfigurationManager.AppSettings[ "SQLite" ]
                     };
 
                     return !string.IsNullOrEmpty( FilePath )
@@ -136,16 +130,16 @@ namespace BudgetExecution
 
                     return _provider switch
                     {
-                        EXT.MDB => AppSettings[ "OleDbFilePath" ],
-                        EXT.ACCDB => AppSettings[ "AccessFilePath" ],
-                        EXT.DB => AppSettings[ "SQLiteFilePath" ],
-                        EXT.SDF => AppSettings[ "SqlCeFilePath" ],
-                        EXT.MDF => AppSettings[ "SqlServerFilePath" ],
-                        EXT.XLS => AppSettings[ "ExcelFilePath" ].Replace( "{FilePath}", filePath ),
-                        EXT.XLSX => AppSettings[ "ExcelFilePath" ].Replace( "{FilePath}", filePath ),
-                        EXT.CSV => AppSettings[ "CsvFilePath" ].Replace( "{FilePath}", filePath ),
-                        EXT.TXT => AppSettings[ "CsvFilePath" ].Replace( "{FilePath}", filePath ),
-                        _ => AppSettings[ "SQLiteFilePath" ]
+                        EXT.MDB => ConfigurationManager.AppSettings[ "OleDbFilePath" ],
+                        EXT.ACCDB => ConfigurationManager.AppSettings[ "AccessFilePath" ],
+                        EXT.DB => ConfigurationManager.AppSettings[ "SQLiteFilePath" ],
+                        EXT.SDF => ConfigurationManager.AppSettings[ "SqlCeFilePath" ],
+                        EXT.MDF => ConfigurationManager.AppSettings[ "SqlServerFilePath" ],
+                        EXT.XLS => ConfigurationManager.AppSettings[ "ExcelFilePath" ].Replace( "{FilePath}", filePath ),
+                        EXT.XLSX => ConfigurationManager.AppSettings[ "ExcelFilePath" ].Replace( "{FilePath}", filePath ),
+                        EXT.CSV => ConfigurationManager.AppSettings[ "CsvFilePath" ].Replace( "{FilePath}", filePath ),
+                        EXT.TXT => ConfigurationManager.AppSettings[ "CsvFilePath" ].Replace( "{FilePath}", filePath ),
+                        _ => ConfigurationManager.AppSettings[ "SQLiteFilePath" ]
                     };
                 }
                 catch( Exception ex )
