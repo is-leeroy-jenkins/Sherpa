@@ -250,7 +250,7 @@ ServiceFabricBackup/
 *.sdf
 
 # MS Access Database files
-#*.accdb
+*.accdb
 *.mdb
 
 # SQLite Database files
@@ -259,12 +259,12 @@ ServiceFabricBackup/
 # Budget Execution Files
 #*.exe
 #[Ee]tc/
-#[Dd]b/
+*.[Dd]b/
 #[Dd]atabases/
 
 # Settings and Condfiguration files
 *.DotSettings
-#*.editorconfig
+*.editorconfig
 
 # Business Intelligence projects
 *.rdl.data
@@ -276,7 +276,7 @@ ServiceFabricBackup/
 FakesAssemblies/
 
 # GhostDoc plugin setting file
-#*.GhostDoc.xml
+*.GhostDoc.xml
 
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
