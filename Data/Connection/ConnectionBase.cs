@@ -63,7 +63,7 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         public virtual string GetFilePath( Provider provider )
         {
-            if( Verify.IsProvider( provider ) )
+            if( Validate.IsProvider( provider ) )
             {
                 try
                 {

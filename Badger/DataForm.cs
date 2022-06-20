@@ -54,10 +54,7 @@ namespace BudgetExecution
             BudgetButton.Text = "Test";
             BudgetButton.Tag = "THIS IS A TEST";
             BudgetButton.Location = new Point( 500, 500 );
-
-            BudgetButton.HoverText =
-                GetFileNameWithoutExtension( Setting[ "BudgetExecutionIcon" ] );
-
+            BudgetButton.HoverText = GetFileNameWithoutExtension( Setting[ "BudgetExecutionIcon" ] );
             BudgetButton.Click += OnBudgetButtonClick;
             BudgetButton.MouseLeave += ClearLabelText;
             Controls.Add( BudgetButton );
@@ -82,14 +79,14 @@ namespace BudgetExecution
                     var _notification = "Budget Execution Notification";
                     Text = Setting[ "BudgetExecutionIcon" ];
 
-                    using var _excel = new BudgetNotification( _notification,
-                        Setting[ "BudgetExecutionIcon" ] );
+                    using var _excel =
+                        new BudgetNotification( _notification, Setting[ "BudgetExecutionIcon" ] );
 
                     _excel.ShowDialog( this );
                 }
                 catch( Exception ex )
                 {
-                    DataForm.Fail( ex );
+                    Fail( ex );
                 }
             }
         }
@@ -106,16 +103,13 @@ namespace BudgetExecution
             try
             {
                 SQLiteAdapter.Fill( BudgetDataSet );
-
-                DataGrid.ColumnHeadersHeightSizeMode =
-                    DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-
+                DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
                 ToolStrip.ShowCaption = false;
                 ToolStrip?.PopulateTools( );
             }
             catch ( Exception ex )
             {
-                DataForm.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -133,7 +127,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                DataForm.Fail( ex );
+                Fail( ex );
             }
         }
 

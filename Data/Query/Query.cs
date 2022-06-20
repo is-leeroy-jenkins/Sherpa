@@ -196,7 +196,7 @@ namespace BudgetExecution
                         command?.Connection?.Close( );
                     }
 
-                    Query.Fail( ex );
+                    Fail( ex );
                     return default( DbDataReader );
                 }
             }
@@ -231,7 +231,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     IsDisposed = false;
-                    Query.Fail( ex );
+                    Fail( ex );
                 }
             }
         }
@@ -251,7 +251,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 IsDisposed = false;
-                Query.Fail( ex );
+                Fail( ex );
             }
         }
     }

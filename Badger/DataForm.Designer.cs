@@ -44,9 +44,9 @@ namespace BudgetExecution
             this.SQLiteConnection = new System.Data.SQLite.SQLiteConnection();
             this.SQLiteAdapter = new System.Data.SQLite.SQLiteDataAdapter();
             this.ToolStrip = new BudgetExecution.BudgetToolStrip();
+            this.StatusOfFunds = new System.Windows.Forms.BindingSource(this.components);
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BudgetDataSet = new BudgetExecution.Data.DataSets.StatusOfFunds();
-            this.StatusOfFunds = new System.Windows.Forms.BindingSource(this.components);
             this.DataGrid = new BudgetExecution.BudgetDataGrid();
             this.statusOfFundsIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.budgetLevelDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,9 +81,9 @@ namespace BudgetExecution
             this.availableDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.npmCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.npmNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.StatusOfFunds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BudgetDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StatusOfFunds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -220,6 +220,11 @@ namespace BudgetExecution
             this.ToolStrip.ToolStripComboBox = null;
             this.ToolStrip.ToolStripTextBox = null;
             // 
+            // StatusOfFunds
+            // 
+            this.StatusOfFunds.DataMember = "Table";
+            this.StatusOfFunds.DataSource = this.BindingSource;
+            // 
             // BindingSource
             // 
             this.BindingSource.DataSource = this.BudgetDataSet;
@@ -229,11 +234,6 @@ namespace BudgetExecution
             // 
             this.BudgetDataSet.DataSetName = "BudgetDataSet";
             this.BudgetDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // StatusOfFunds
-            // 
-            this.StatusOfFunds.DataMember = "Table";
-            this.StatusOfFunds.DataSource = this.BindingSource;
             // 
             // DataGrid
             // 
@@ -301,7 +301,7 @@ namespace BudgetExecution
             this.DataGrid.Font = new System.Drawing.Font("Roboto", 9F);
             this.DataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
             this.DataGrid.HoverText = null;
-            this.DataGrid.Location = new System.Drawing.Point(97, 89);
+            this.DataGrid.Location = new System.Drawing.Point(52, 89);
             this.DataGrid.Name = "DataGrid";
             this.DataGrid.Numeric = BudgetExecution.Numeric.NS;
             this.DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -322,7 +322,7 @@ namespace BudgetExecution
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGrid.Size = new System.Drawing.Size(978, 471);
+            this.DataGrid.Size = new System.Drawing.Size(1097, 471);
             this.DataGrid.TabIndex = 4;
             this.DataGrid.ToolTip = null;
             // 
@@ -542,9 +542,9 @@ namespace BudgetExecution
             this.Name = "DataForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Budget Execution";
+            ((System.ComponentModel.ISupportInitialize)(this.StatusOfFunds)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BudgetDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StatusOfFunds)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -553,8 +553,6 @@ namespace BudgetExecution
 
         #endregion
         private System.Data.SQLite.SQLiteCommand SQLiteSelectCommand;
-        public System.Data.SQLite.SQLiteDataAdapter SQLiteAdapter;
-        public System.Data.SQLite.SQLiteConnection SQLiteConnection;
         private BudgetToolStrip ToolStrip;
         private System.Windows.Forms.BindingSource StatusOfFunds;
         private System.Windows.Forms.BindingSource BindingSource;
@@ -593,5 +591,7 @@ namespace BudgetExecution
         private System.Windows.Forms.DataGridViewTextBoxColumn availableDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn npmCodeDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn npmNameDataGridViewTextBoxColumn1;
+        private System.Data.SQLite.SQLiteDataAdapter SQLiteAdapter;
+        private System.Data.SQLite.SQLiteConnection SQLiteConnection;
     }
 }
