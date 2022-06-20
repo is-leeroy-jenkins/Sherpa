@@ -1,6 +1,6 @@
-﻿// <copyright file = "Query.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
-// </copyright>
+﻿// // <copyright file = "Query.cs" company = "Terry D. Eppler">
+// // Copyright (c) Terry D. Eppler. All rights reserved.
+// // </copyright>
 
 namespace BudgetExecution
 {
@@ -38,13 +38,14 @@ namespace BudgetExecution
         /// <param name = "commandType" >
         /// The commandType.
         /// </param>
-        public Query( Source source, Provider provider = Provider.SQLite, SQL commandType = SQL.SELECT )
+        public Query( Source source, Provider provider = Provider.SQLite,
+            SQL commandType = SQL.SELECT )
         {
             SetConnectionBuilder( source, provider );
             ConnectionFactory = new ConnectionFactory( ConnectionBuilder );
             SqlStatement = new SqlStatement( ConnectionBuilder, commandType );
             CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
-            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter();
+            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter( );
             IsDisposed = false;
         }
 
@@ -70,7 +71,7 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( ConnectionBuilder );
             SqlStatement = new SqlStatement( ConnectionBuilder, dict, commandType );
             CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
-            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter();
+            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter( );
             IsDisposed = false;
         }
 
@@ -89,7 +90,7 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( ConnectionBuilder );
             SqlStatement = sqlStatement;
             CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
-            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter();
+            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter( );
             IsDisposed = false;
         }
 
@@ -111,7 +112,7 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( ConnectionBuilder );
             SqlStatement = new SqlStatement( ConnectionBuilder, dict, SQL.SELECT );
             CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
-            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter();
+            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter( );
             IsDisposed = false;
         }
 
@@ -130,7 +131,7 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( ConnectionBuilder );
             SqlStatement = new SqlStatement( ConnectionBuilder, commandType );
             CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
-            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter();
+            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter( );
             IsDisposed = false;
         }
 
@@ -152,7 +153,7 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( ConnectionBuilder );
             SqlStatement = new SqlStatement( ConnectionBuilder, dict, commandType );
             CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
-            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter();
+            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter( );
             IsDisposed = false;
         }
 
@@ -172,14 +173,14 @@ namespace BudgetExecution
             CommandBehavior behavior = CommandBehavior.CloseConnection )
         {
             if( Command?.Connection != null
-                && Verify.IsInput( command?.CommandText )
-                && Enum.IsDefined( typeof( CommandBehavior ), behavior ) )
+               && Verify.IsInput( command?.CommandText )
+               && Enum.IsDefined( typeof( CommandBehavior ), behavior ) )
             {
                 try
                 {
                     if( command?.Connection?.State != ConnectionState.Open )
                     {
-                        command?.Connection?.Open();
+                        command?.Connection?.Open( );
                         return command?.ExecuteReader( CommandBehavior.CloseConnection );
                     }
 
@@ -192,10 +193,10 @@ namespace BudgetExecution
                 {
                     if( command?.Connection?.State == ConnectionState.Open )
                     {
-                        command?.Connection?.Close();
+                        command?.Connection?.Close( );
                     }
 
-                    Fail( ex );
+                    Query.Fail( ex );
                     return default( DbDataReader );
                 }
             }
@@ -219,18 +220,18 @@ namespace BudgetExecution
         [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
         protected virtual void Dispose( bool disposing )
         {
-            if( ConnectionFactory?.GetConnection() != null )
+            if( ConnectionFactory?.GetConnection( ) != null )
             {
                 try
                 {
-                    ConnectionFactory?.GetConnection()?.Close();
-                    ConnectionFactory?.GetConnection()?.Dispose();
+                    ConnectionFactory?.GetConnection( )?.Close( );
+                    ConnectionFactory?.GetConnection( )?.Dispose( );
                     IsDisposed = true;
                 }
                 catch( Exception ex )
                 {
                     IsDisposed = false;
-                    Fail( ex );
+                    Query.Fail( ex );
                 }
             }
         }
@@ -250,7 +251,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 IsDisposed = false;
-                Fail( ex );
+                Query.Fail( ex );
             }
         }
     }

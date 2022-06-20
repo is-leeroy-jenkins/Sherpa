@@ -1,7 +1,6 @@
-﻿// <copyright file = "TestForm3.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
-//  </copyright>
-//
+﻿// // <copyright file = "DataForm.cs" company = "Terry D. Eppler">
+// // Copyright (c) Terry D. Eppler. All rights reserved.
+// // </copyright>
 
 namespace BudgetExecution
 {
@@ -20,15 +19,15 @@ namespace BudgetExecution
         /// <value>
         /// The budget button.
         /// </value>
-        public BudgetButton BudgetButton { get; set; } = new BudgetButton();
-        
+        public BudgetButton BudgetButton { get; set; } = new BudgetButton( );
+
         /// <summary>
         /// Initializes a new instance
         /// of the <see cref="DataForm"/> class.
         /// </summary>
         public DataForm()
         {
-            InitializeComponent();
+            InitializeComponent( );
 
             // Form Property Values
             BackColor = Color.FromArgb( 18, 18, 18 );
@@ -55,7 +54,10 @@ namespace BudgetExecution
             BudgetButton.Text = "Test";
             BudgetButton.Tag = "THIS IS A TEST";
             BudgetButton.Location = new Point( 500, 500 );
-            BudgetButton.HoverText = GetFileNameWithoutExtension( Setting[ "BudgetExecutionIcon" ] );
+
+            BudgetButton.HoverText =
+                GetFileNameWithoutExtension( Setting[ "BudgetExecutionIcon" ] );
+
             BudgetButton.Click += OnBudgetButtonClick;
             BudgetButton.MouseLeave += ClearLabelText;
             Controls.Add( BudgetButton );
@@ -79,12 +81,15 @@ namespace BudgetExecution
                     CaptionForeColor = Color.White;
                     var _notification = "Budget Execution Notification";
                     Text = Setting[ "BudgetExecutionIcon" ];
-                    using var _excel = new BudgetNotification( _notification, Setting[ "BudgetExecutionIcon" ] );
+
+                    using var _excel = new BudgetNotification( _notification,
+                        Setting[ "BudgetExecutionIcon" ] );
+
                     _excel.ShowDialog( this );
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    DataForm.Fail( ex );
                 }
             }
         }
@@ -101,13 +106,16 @@ namespace BudgetExecution
             try
             {
                 SQLiteAdapter.Fill( BudgetDataSet );
-                DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+                DataGrid.ColumnHeadersHeightSizeMode =
+                    DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
                 ToolStrip.ShowCaption = false;
-                ToolStrip?.PopulateTools();
+                ToolStrip?.PopulateTools( );
             }
             catch ( Exception ex )
             {
-                Fail( ex );
+                DataForm.Fail( ex );
             }
         }
 
@@ -125,10 +133,10 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataForm.Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Get Error Dialog.
         /// </summary>
@@ -136,8 +144,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

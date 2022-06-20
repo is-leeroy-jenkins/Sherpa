@@ -1,7 +1,6 @@
-﻿// <copyright file = "TestForm.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
-// </copyright>
-//
+﻿// // <copyright file = "TestForm.cs" company = "Terry D. Eppler">
+// // Copyright (c) Terry D. Eppler. All rights reserved.
+// // </copyright>
 
 namespace BudgetExecution
 {
@@ -30,7 +29,7 @@ namespace BudgetExecution
         /// <value>
         /// The budget button.
         /// </value>
-        public BudgetButton BudgetButton { get; set; } = new BudgetButton();
+        public BudgetButton BudgetButton { get; set; } = new BudgetButton( );
 
         /// <summary>
         /// Gets the current directory.
@@ -42,8 +41,8 @@ namespace BudgetExecution
 
         public TestForm()
         {
-            InitializeComponent();
-            
+            InitializeComponent( );
+
             // Form Property Values
             BackColor = Color.FromArgb( 18, 18, 18 );
             BorderThickness = 1;
@@ -69,7 +68,10 @@ namespace BudgetExecution
             BudgetButton.Text = "Test";
             BudgetButton.Tag = "THIS IS A TEST";
             BudgetButton.Location = new Point( 500, 500 );
-            BudgetButton.HoverText = GetFileNameWithoutExtension( Setting[ "BudgetExecutionIcon" ] );
+
+            BudgetButton.HoverText =
+                GetFileNameWithoutExtension( Setting[ "BudgetExecutionIcon" ] );
+
             BudgetButton.Click += SetLabelText;
             BudgetButton.MouseLeave += ClearLabelText;
             Controls.Add( BudgetButton );
@@ -81,7 +83,7 @@ namespace BudgetExecution
             ToolStip.Margin = new Padding( 1, 1, 1, 1 );
             ToolStip.ForeColor = Color.Black;
             ExcelButton.Click += OnExcelButtonClicked;
-            SetToolStripButtonImages();
+            SetToolStripButtonImages( );
         }
 
         /// <summary>
@@ -100,12 +102,15 @@ namespace BudgetExecution
                     CaptionForeColor = Color.White;
                     var _title = "Budget Execution Notification";
                     Text = Setting[ "BudgetExecutionIcon" ];
-                    using var _excel = new BudgetNotification( _title, Setting[ "BudgetExecutionIcon" ] );
+
+                    using var _excel =
+                        new BudgetNotification( _title, Setting[ "BudgetExecutionIcon" ] );
+
                     _excel.ShowDialog( this );
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    TestForm.Fail( ex );
                 }
             }
         }
@@ -162,7 +167,7 @@ namespace BudgetExecution
             }
             catch ( Exception ex )
             {
-                Fail( ex );
+                TestForm.Fail( ex );
             }
         }
 
@@ -170,12 +175,12 @@ namespace BudgetExecution
         {
             try
             {
-                using var _data = new DataForm();
-                _data.ShowDialog();
+                using var _data = new DataForm( );
+                _data.ShowDialog( );
             }
             catch ( Exception ex )
             {
-                Fail( ex );
+                TestForm.Fail( ex );
             }
         }
 
@@ -186,8 +191,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -13,14 +13,6 @@ namespace BudgetExecution
     public class SqlServerQuery : Query
     {
         /// <summary>
-        /// Gets or sets the Provider
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        public Provider Provider { get; } = Provider.SqlServer;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="SqlServerQuery"/> class.
         /// </summary>
         public SqlServerQuery()
@@ -71,7 +63,7 @@ namespace BudgetExecution
         {
             if( disposing )
             {
-                Dispose();
+                Dispose( );
             }
 
             IsDisposed = true;
