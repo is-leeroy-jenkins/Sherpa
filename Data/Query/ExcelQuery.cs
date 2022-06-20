@@ -23,14 +23,6 @@ namespace BudgetExecution
     public class ExcelQuery : Query
     {
         /// <summary>
-        /// Gets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        public Provider Provider { get; } = Provider.Excel;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
         public ExcelQuery()

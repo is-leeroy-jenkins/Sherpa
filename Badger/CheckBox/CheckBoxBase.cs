@@ -62,7 +62,7 @@ namespace BudgetExecution
                     {
                         if( Verify.IsInput( Tag?.ToString() ) )
                         {
-                            var _text = Tag?.ToString()?.SplitPascal();
+                            var _text = Tag?.ToString( )?.SplitPascal( );
                             var _ = new ToolTip( _checkBox, _text );
                         }
                     }
