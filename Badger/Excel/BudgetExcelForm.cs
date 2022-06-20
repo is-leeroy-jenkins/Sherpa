@@ -32,7 +32,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetExcelForm()
         {
-            InitializeComponent();
+            InitializeComponent( );
 
             // Form Property Values
             BackColor = Color.FromArgb( 18, 18, 18 );
@@ -63,10 +63,10 @@ namespace BudgetExecution
         /// of the <see cref="BudgetExcelForm"/> class.
         /// </summary>
         /// <param name="excelPath">The file path.</param>
-        public BudgetExcelForm( string excelPath ) 
-            : this()
+        public BudgetExcelForm( string excelPath )
+            : this( )
         {
-            InitializeComponent();
+            InitializeComponent( );
             ExcelPath = excelPath;
         }
 
@@ -84,13 +84,13 @@ namespace BudgetExecution
                 {
                     Spreadsheet?.Open( ExcelPath );
                 }
-                catch ( Exception ex )
+                catch( Exception ex )
                 {
                     Fail( ex );
                 }
             }
         }
-        
+
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
@@ -98,8 +98,8 @@ namespace BudgetExecution
         private static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="VisualButton" />
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
     public abstract class ButtonBase : VisualButton
     {
         /// <summary>
@@ -43,7 +43,7 @@ namespace BudgetExecution
         /// The tool tip.
         /// </value>
         public virtual ToolTip ToolTip { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the field.
         /// </summary>
@@ -124,7 +124,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Sets the location.
         /// </summary>
@@ -253,7 +253,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Sets the image.
         /// </summary>
@@ -284,7 +284,7 @@ namespace BudgetExecution
             {
                 if( ToolTip?.Active == true )
                 {
-                    ToolTip.RemoveAll();
+                    ToolTip.RemoveAll( );
                 }
             }
             catch( Exception ex )
@@ -300,8 +300,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

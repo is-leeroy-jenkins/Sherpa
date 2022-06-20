@@ -12,7 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref = "Builder" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class DataBuilder : Builder
     {
         /// <summary>
@@ -93,7 +93,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _columns = Record.Table?.GetColumnNames();
+                    var _columns = Record.Table?.GetColumnNames( );
 
                     if( _columns?.Contains( $"{field}" ) == true )
                     {
@@ -131,12 +131,12 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _dataRows = GetData()
+                    var _dataRows = GetData( )
                                     ?.Where( p => p.Field<string>( $"{field}" ).Equals( filter ) )
                                     ?.Select( p => p );
 
-                    return _dataRows?.Any() == true
-                        ? _dataRows.ToArray()
+                    return _dataRows?.Any( ) == true
+                        ? _dataRows.ToArray( )
                         : default( DataRow[ ] );
                 }
                 catch( Exception ex )

@@ -15,10 +15,10 @@ namespace BudgetExecution
     /// <seealso cref = "IGoal"/>
     /// <seealso cref = "IProgram"/>
     /// <seealso cref = "ISource"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
     public class Goal : Element, IGoal, ISource
     {
         /// <summary>
@@ -41,7 +41,7 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "Goal"/> class.
@@ -59,11 +59,11 @@ namespace BudgetExecution
         /// </param>
         public Goal( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.GoalsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -75,11 +75,11 @@ namespace BudgetExecution
         /// </param>
         public Goal( IBuilder builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.GoalsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace BudgetExecution
             ID = new Key( Record, PrimaryKey.GoalsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -106,11 +106,11 @@ namespace BudgetExecution
         /// </param>
         public Goal( string code )
         {
-            Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
+            Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.GoalsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -179,7 +179,7 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object>
                     {
-                        [ "Code" ] = goal.ToString()
+                        [ "Code" ] = goal.ToString( )
                     };
                 }
                 catch( SystemException ex )
@@ -191,7 +191,7 @@ namespace BudgetExecution
 
             return default( IDictionary<string, object> );
         }
-        
+
         /// <summary>
         /// Gets the goal.
         /// </summary>
@@ -201,7 +201,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone() as Goal;
+                return MemberwiseClone( ) as Goal;
             }
             catch( Exception ex )
             {

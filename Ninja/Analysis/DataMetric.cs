@@ -16,7 +16,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref = "MetricBase"/>
     /// <seealso cref = "IDataMetric"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public class DataMetric : MetricBase, IDataMetric
     {
         /// <summary>
@@ -56,7 +56,7 @@ namespace BudgetExecution
             Data = dataRow;
             Field = Field.NS;
             Numeric = numeric;
-            Count = Data.Count();
+            Count = Data.Count( );
             Total = CalculateTotals( Data, Numeric );
             Average = CalculateAverage( Data, Numeric );
             Variance = CalculateVariance( Data, Numeric );
@@ -80,7 +80,7 @@ namespace BudgetExecution
             Field = field;
             Numeric = numeric;
             Data = dataRow;
-            Count = Data.Count();
+            Count = Data.Count( );
             Total = CalculateTotals( Data, Numeric );
             Average = CalculateAverage( Data, Numeric );
             Variance = CalculateVariance( Data, Numeric );
@@ -99,7 +99,7 @@ namespace BudgetExecution
             {
                 var _source = Data
                     ?.Select( r => r )
-                    ?.FirstOrDefault();
+                    ?.FirstOrDefault( );
 
                 var _name = _source
                     ?.Table
@@ -131,8 +131,8 @@ namespace BudgetExecution
         /// </returns>
         public double CalculateDeviation( IEnumerable<DataRow> dataRow, Numeric numeric )
         {
-            if( dataRow?.Any() == true
-                && dataRow.HasNumeric()
+            if( dataRow?.Any( ) == true
+                && dataRow.HasNumeric( )
                 && GetCount( dataRow, numeric ) > 30 )
             {
                 try
@@ -142,7 +142,7 @@ namespace BudgetExecution
                         ?.StandardDeviation( p => p.Field<double>( $"{numeric}" ) );
 
                     return _query > 0.0d
-                        ? double.Parse( _query.ToString() )
+                        ? double.Parse( _query.ToString( ) )
                         : 0.0d;
                 }
                 catch( Exception ex )
@@ -172,17 +172,17 @@ namespace BudgetExecution
         public double CalculateDeviations( IEnumerable<DataRow> dataRow, Field field,
             Numeric numeric = Numeric.Amount )
         {
-            if( dataRow?.Any() == true
+            if( dataRow?.Any( ) == true
                 && Validate.IsField( field )
                 && Validate.Numeric( numeric ) )
 
             {
-                if( dataRow?.Count() < 30 )
+                if( dataRow?.Count( ) < 30 )
                 {
                     return 0.0d;
                 }
 
-                if( dataRow.Count() > 30 )
+                if( dataRow.Count( ) > 30 )
                 {
                     try
                     {
@@ -191,7 +191,7 @@ namespace BudgetExecution
                             ?.StandardDeviation( p => p.Field<double>( $"{numeric}" ) );
 
                         return _query > 0.0d
-                            ? double.Parse( _query.ToString() )
+                            ? double.Parse( _query.ToString( ) )
                             : 0.0d;
                     }
                     catch( Exception ex )
@@ -218,20 +218,20 @@ namespace BudgetExecution
         /// </returns>
         public double CalculateVariance( IEnumerable<DataRow> dataRow, Numeric numeric )
         {
-            if( dataRow?.Any() == true
-                && dataRow.HasNumeric()
+            if( dataRow?.Any( ) == true
+                && dataRow.HasNumeric( )
                 && GetCount( dataRow, numeric ) > 30 )
             {
-                var _table = dataRow.CopyToDataTable();
+                var _table = dataRow.CopyToDataTable( );
 
                 try
                 {
-                    var _query = _table?.AsEnumerable()
+                    var _query = _table?.AsEnumerable( )
                         ?.Where( p => p.Field<double>( $"{numeric}" ) != 0d )
                         ?.Variance( p => p.Field<double>( $"{numeric}" ) );
 
                     return _query > 0.0d
-                        ? double.Parse( _query.ToString() )
+                        ? double.Parse( _query.ToString( ) )
                         : 0.0d;
                 }
                 catch( Exception ex )
@@ -279,20 +279,20 @@ namespace BudgetExecution
         public double CalculateVariances( IEnumerable<DataRow> dataRow, Field field,
             Numeric numeric = Numeric.Amount )
         {
-            if( dataRow?.Any() == true
+            if( dataRow?.Any( ) == true
                 && Validate.IsField( field )
                 && Validate.Numeric( numeric ) )
             {
-                var _table = dataRow.CopyToDataTable();
+                var _table = dataRow.CopyToDataTable( );
 
                 try
                 {
-                    var _query = _table?.AsEnumerable()
+                    var _query = _table?.AsEnumerable( )
                         ?.Where( p => p.Field<double>( $"{numeric}" ) != 0d )
                         ?.Variance( p => p.Field<double>( $"{numeric}" ) );
 
                     return _query > 0.0d
-                        ? double.Parse( _query.ToString() )
+                        ? double.Parse( _query.ToString( ) )
                         : 0.0d;
                 }
                 catch( Exception ex )
@@ -316,10 +316,10 @@ namespace BudgetExecution
         /// </param>
         /// <returns>
         /// </returns>
-        [ SuppressMessage( "ReSharper", "BadListLineBreaks" ) ]
+        [SuppressMessage( "ReSharper", "BadListLineBreaks" )]
         public IEnumerable<double> CalculateStatistics( IEnumerable<DataRow> dataRow, Numeric numeric )
         {
-            if( dataRow?.Any() == true 
+            if( dataRow?.Any( ) == true
                 && Validate.Numeric( numeric ) )
             {
                 try
@@ -334,7 +334,7 @@ namespace BudgetExecution
                         CalculateVariance( dataRow, numeric )
                     };
 
-                    return _metrics.Any()
+                    return _metrics.Any( )
                         ? _metrics
                         : default( double[ ] );
                 }
@@ -365,16 +365,16 @@ namespace BudgetExecution
         public IDictionary<string, IEnumerable<double>> CalculateStatistics( IEnumerable<DataRow> dataRow,
             Field field, Numeric numeric = Numeric.Amount )
         {
-            if( dataRow?.Any() == true
+            if( dataRow?.Any( ) == true
                 && Validate.IsField( field )
                 && Validate.Numeric( numeric ) )
             {
                 try
                 {
-                    var _dictionary = new Dictionary<string, IEnumerable<double>>();
+                    var _dictionary = new Dictionary<string, IEnumerable<double>>( );
                     var _codes = GetCodes( dataRow, field );
 
-                    if( _codes?.Any() == true )
+                    if( _codes?.Any( ) == true )
                     {
                         foreach( var filter in _codes )
                         {
@@ -384,7 +384,7 @@ namespace BudgetExecution
 
                             if( CalculateTotals( _select, numeric ) > 0 )
                             {
-                                _dictionary.Add( filter, CalculateStatistics( _select, numeric )?.ToArray() );
+                                _dictionary.Add( filter, CalculateStatistics( _select, numeric )?.ToArray( ) );
                             }
                         }
 

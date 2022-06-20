@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" )]
     public abstract class AccountBase : Element
     {
         /// <summary>
@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// The Data.
         /// </value>
         public DataRow Record { get; set; }
-        
+
         /// <summary>
         /// Gets the NPM code.
         /// </summary>
@@ -30,7 +30,7 @@ namespace BudgetExecution
         /// The NPM code.
         /// </value>
         public IElement NpmCode { get; set; }
-        
+
         /// <summary>
         /// Gets the program project code.
         /// </summary>
@@ -78,7 +78,7 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
-        
+
         /// <summary>
         /// Sets the arguments.
         /// </summary>

@@ -16,11 +16,11 @@ namespace BudgetExecution
     /// <seealso cref="DataConfig" />
     /// <seealso cref="ISource" />
     /// <seealso cref="IProvider" />
-    [ SuppressMessage( "ReSharper", "ImplicitlyCapturedClosure" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [SuppressMessage( "ReSharper", "ImplicitlyCapturedClosure" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
     public abstract class DataAccess : DataConfig, ISource, IProvider
     {
         /// <summary>
@@ -51,7 +51,7 @@ namespace BudgetExecution
                 try
                 {
                     var _data = Table
-                        ?.AsEnumerable();
+                        ?.AsEnumerable( );
 
                     return Verify.IsRows( _data )
                         ? _data
@@ -88,7 +88,7 @@ namespace BudgetExecution
                     };
 
                     DataSet.Tables.Add( Table );
-                    var _adapter = Query?.GetAdapter();
+                    var _adapter = Query?.GetAdapter( );
                     _adapter?.Fill( DataSet, Table.TableName );
                     SetColumnCaptions( Table );
 
@@ -127,7 +127,7 @@ namespace BudgetExecution
                     };
 
                     DataSet.Tables.Add( _table );
-                    using var _adapter = Query?.GetAdapter();
+                    using var _adapter = Query?.GetAdapter( );
                     _adapter?.Fill( DataSet, _table?.TableName );
                     SetColumnCaptions( _table );
 
@@ -217,13 +217,13 @@ namespace BudgetExecution
                         {
                             case < 5:
                             {
-                                var _caption = column.ColumnName.ToUpper();
+                                var _caption = column.ColumnName.ToUpper( );
                                 column.Caption = _caption;
                                 continue;
                             }
 
                             case >= 5:
-                                column.Caption = column.ColumnName.SplitPascal();
+                                column.Caption = column.ColumnName.SplitPascal( );
                                 break;
                         }
                     }
@@ -243,7 +243,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _table = GetDataTable();
+                var _table = GetDataTable( );
                 SetColumnCaptions( _table );
 
                 DataSet = new DataSet
@@ -257,7 +257,7 @@ namespace BudgetExecution
                 };
 
                 DataSet.Tables.Add( _dataTable );
-                using var _adapter = Query?.GetAdapter();
+                using var _adapter = Query?.GetAdapter( );
                 _adapter?.Fill( DataSet, _dataTable.TableName );
                 SetColumnCaptions( _dataTable );
 
@@ -280,15 +280,15 @@ namespace BudgetExecution
         public IEnumerable<int> GetPrimaryIndexes( IEnumerable<DataRow> dataRows )
         {
             if( Verify.IsInput( dataRows )
-                && dataRows?.HasPrimaryKey() == true )
+                && dataRows?.HasPrimaryKey( ) == true )
             {
                 try
                 {
-                    var _table = dataRows?.CopyToDataTable();
-                    var _values = _table?.GetPrimaryKeyValues();
+                    var _table = dataRows?.CopyToDataTable( );
+                    var _values = _table?.GetPrimaryKeyValues( );
 
-                    return _values?.Any() == true
-                        ? _values.ToArray()
+                    return _values?.Any( ) == true
+                        ? _values.ToArray( )
                         : default( IEnumerable<int> );
                 }
                 catch( Exception ex )
@@ -312,10 +312,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _list = dataColumns.ToList();
-                    var _values = new List<int>();
+                    var _list = dataColumns.ToList( );
+                    var _values = new List<int>( );
 
-                    if( _list?.Any() == true )
+                    if( _list?.Any( ) == true )
                     {
                         foreach( var column in _list )
                         {
@@ -323,8 +323,8 @@ namespace BudgetExecution
                         }
                     }
 
-                    return _values?.Any() == true
-                        ? _values.ToArray()
+                    return _values?.Any( ) == true
+                        ? _values.ToArray( )
                         : default( int[ ] );
                 }
                 catch( Exception ex )

@@ -14,7 +14,7 @@ namespace BudgetExecution
         /// Sets the binding source.
         /// </summary>
         /// <param name="bindingSource">The bindingSource.</param>
-        void SetDataSource<T1>( T1 bindingSource ) 
+        void SetDataSource<T1>( T1 bindingSource )
             where T1 : IBindingList;
 
         /// <summary>
@@ -25,14 +25,14 @@ namespace BudgetExecution
         /// <param name="bindingList">The bindingList.</param>
         /// <param name="dict">The dictionary.</param>
         void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
-            where T1 : IBindingList 
+            where T1 : IBindingList
             where T2 : IDictionary<string, object>;
 
         /// <summary>
         /// Sets the binding source.
         /// </summary>
         /// <param name="data">The data.</param>
-        void SetDataSource<T1>( IEnumerable<T1> data ) 
+        void SetDataSource<T1>( IEnumerable<T1> data )
             where T1 : IEnumerable<DataRow>;
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The dictionary.</param>
         void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
-            where T1 : IEnumerable<DataRow> 
+            where T1 : IEnumerable<DataRow>
             where T2 : struct;
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace BudgetExecution
         /// <typeparam name="T1">The type of the 1.</typeparam>
         /// <param name="data">The data.</param>
         /// <param name="field">The field.</param>
-        void SetDataSource<T1>( IEnumerable<T1> data, object field = null ) 
+        void SetDataSource<T1>( IEnumerable<T1> data, object field = null )
             where T1 : IEnumerable<DataRow>;
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace BudgetExecution
         /// <param>The numeric.</param>
         /// <param name = "dict" > </param>
         void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
-            where T1 : IEnumerable<DataRow> 
+            where T1 : IEnumerable<DataRow>
             where T2 : IDictionary<string, object>;
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The filter.</param>
         void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field, object filter = null )
-            where T1 : IEnumerable<DataRow> 
+            where T1 : IEnumerable<DataRow>
             where T2 : struct;
     }
 }

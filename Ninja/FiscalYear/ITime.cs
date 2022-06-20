@@ -24,7 +24,7 @@ namespace BudgetExecution
         /// <returns>
         /// </returns>
         EventDate GetEventDate();
-        
+
         /// <summary>
         /// Determines whether the specified element is equal.
         /// </summary>

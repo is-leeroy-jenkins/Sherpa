@@ -41,7 +41,7 @@ namespace BudgetExecution
         /// <param name="text">The text.</param>
         /// <param name = "title" > </param>
         public ToolTip( Control control, string text, string title = "" )
-            : this()
+            : this( )
         {
             TipTitle = title;
             TipText = text;
@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// <param name="text">The text.</param>
         /// <param name = "title" > </param>
         public ToolTip( Component component, string text, string title = "" )
-            : this()
+            : this( )
         {
             TipTitle = title;
             TipText = text;
@@ -69,7 +69,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="toolItem">The toolItem.</param>
         public ToolTip( ToolStripItem toolItem )
-            : this()
+            : this( )
         {
             SetToolTipText( toolItem );
         }

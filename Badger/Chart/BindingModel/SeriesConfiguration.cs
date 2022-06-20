@@ -11,8 +11,8 @@ namespace BudgetExecution
     using System.Linq;
     using Syncfusion.Windows.Forms.Chart;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public class SeriesConfiguration : ChartSeries, ISeriesConfig
     {
         public Field Field { get; set; }
@@ -41,7 +41,7 @@ namespace BudgetExecution
         }
 
         public SeriesConfiguration( Field field, ChartType type = ChartType.Column )
-            : this()
+            : this( )
         {
             Name = $"{field}";
             Field = field;
@@ -71,7 +71,7 @@ namespace BudgetExecution
             try
             {
                 return Validate.ChartType( type )
-                    ? (ChartType)Enum.Parse( typeof( ChartType ), type.ToString() )
+                    ? (ChartType)Enum.Parse( typeof( ChartType ), type.ToString( ) )
                     : ChartType.Column;
             }
             catch( Exception ex )
@@ -158,7 +158,7 @@ namespace BudgetExecution
                 {
                     if( Points.Count > 0 )
                     {
-                        Points.Clear();
+                        Points.Clear( );
                     }
 
                     switch( type )
@@ -211,8 +211,8 @@ namespace BudgetExecution
                             foreach( var _kvp in data )
                             {
                                 Points.Add( _kvp.Key, _kvp.Value );
-                                var _keys = data.Keys.Select( k => k.ToString() ).ToArray();
-                                var _vals = data.Values.Select( v => v ).ToArray();
+                                var _keys = data.Keys.Select( k => k.ToString( ) ).ToArray( );
+                                var _vals = data.Values.Select( v => v ).ToArray( );
 
                                 if( stat != STAT.Percentage )
                                 {
@@ -244,8 +244,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

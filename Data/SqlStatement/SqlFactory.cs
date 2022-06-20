@@ -9,7 +9,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref = "SqlStatement"/>
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
     public class SqlFactory : SqlConfig
     {
         /// <summary>
@@ -26,7 +26,7 @@ namespace BudgetExecution
             CommandType = command;
             ConnectionBuilder = conectionBuilder;
             SqlStatement = new SqlStatement( ConnectionBuilder, CommandType );
-            FilePath = Path.GetFullPath( ProviderPath[ Provider.ToString() ] );
+            FilePath = Path.GetFullPath( ProviderPath[ Provider.ToString( ) ] );
             FileName = Path.GetFileNameWithoutExtension( FilePath );
         }
 
@@ -45,7 +45,7 @@ namespace BudgetExecution
             CommandType = command;
             SqlStatement = new SqlStatement( ConnectionBuilder, CommandType );
             FileName = ConnectionBuilder.FileName;
-            FilePath = ConnectionBuilder.ProviderPath[ Provider.ToString() ];
+            FilePath = ConnectionBuilder.ProviderPath[ Provider.ToString( ) ];
         }
     }
 }

@@ -11,7 +11,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using System.Diagnostics.CodeAnalysis;
 
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
     public interface IDataControl
     {
         /// <summary>

@@ -18,7 +18,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public override Source Source { get; set; } =  Source.PayrollActivity;
+        public override Source Source { get; set; } = Source.PayrollActivity;
 
         /// <summary>
         /// Gets the allocation percentage.
@@ -58,7 +58,7 @@ namespace BudgetExecution
         /// <value>
         /// The cumulative benefits.
         /// </value>
-        public IAmount CumulativeBenefits { get;  set; }
+        public IAmount CumulativeBenefits { get; set; }
 
         /// <summary>
         /// Gets the annual other hours.
@@ -66,7 +66,7 @@ namespace BudgetExecution
         /// <value>
         /// The annual other hours.
         /// </value>
-        public IAmount AnnualOtherHours { get;  set; }
+        public IAmount AnnualOtherHours { get; set; }
 
         /// <summary>
         /// Gets the annual other paid.
@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// The annual overtime hours.
         /// </value>
         public IAmount AnnualOvertimeHours { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref = "PayrollActivity"/> class.
         /// </summary>
@@ -108,7 +108,7 @@ namespace BudgetExecution
         public PayrollActivity( IQuery query )
             : base( query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.PayrollActivityId );
             RpioCode = new Element( Record, Field.RpioCode );
             FundCode = new Element( Record, Field.FundCode );
@@ -131,7 +131,7 @@ namespace BudgetExecution
             AnnualOtherPaid = new Amount( Record, Numeric.AnnualOtherPaid );
             AnnualOvertimeHours = new Amount( Record, Numeric.Benefits );
             AnnualOvertimePaid = new Amount( Record, Numeric.Benefits );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace BudgetExecution
         public PayrollActivity( IBuilder builder )
             : base( builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.PayrollActivityId );
             RpioCode = new Element( Record, Field.RpioCode );
             FundCode = new Element( Record, Field.FundCode );
@@ -167,7 +167,7 @@ namespace BudgetExecution
             AnnualOvertimeHours = new Amount( Record, Numeric.Benefits );
             AnnualOvertimePaid = new Amount( Record, Numeric.Benefits );
             Type = ExpenseType.Obligation;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -202,7 +202,7 @@ namespace BudgetExecution
             AnnualOvertimeHours = new Amount( Record, Numeric.Benefits );
             AnnualOvertimePaid = new Amount( Record, Numeric.Benefits );
             Type = ExpenseType.Obligation;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
     }
 }

@@ -15,11 +15,11 @@ namespace BudgetExecution
     /// <seealso cref="IFinanceObjectClass" />
     /// <seealso cref="IProgram" />
     /// <seealso cref="ISource" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
-    [ SuppressMessage( "ReSharper", "UnassignedReadonlyField" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" )]
+    [SuppressMessage( "ReSharper", "UnassignedReadonlyField" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class FinanceObjectClass : Element, IFinanceObjectClass, ISource
     {
         /// <summary>
@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// The data.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the category.
         /// </summary>
@@ -67,11 +67,11 @@ namespace BudgetExecution
         /// <param name="query">The query.</param>
         public FinanceObjectClass( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.FinanceObjectClassesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace BudgetExecution
         /// <param name="builder">The builder.</param>
         public FinanceObjectClass( IBuilder builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.FinanceObjectClassesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace BudgetExecution
             ID = new Key( Record, PrimaryKey.FinanceObjectClassesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -106,11 +106,11 @@ namespace BudgetExecution
         /// <param name="focCode">The foc code.</param>
         public FinanceObjectClass( string focCode )
         {
-            Record = new DataBuilder( Source, GetArgs( focCode ) )?.GetRecord();
+            Record = new DataBuilder( Source, GetArgs( focCode ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.FinanceObjectClassesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
-        
+
         /// <summary>
         /// Gets the finance object class.
         /// </summary>
@@ -166,7 +166,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone() as FinanceObjectClass;
+                return MemberwiseClone( ) as FinanceObjectClass;
             }
             catch( Exception ex )
             {

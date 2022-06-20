@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Obligation" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class UnliquidatedObligation : Obligation
     {
         /// <summary>
@@ -42,11 +42,11 @@ namespace BudgetExecution
         public UnliquidatedObligation( IQuery query )
             : base( query )
         {
-            Record = new DataBuilder()?.GetRecord();
+            Record = new DataBuilder( )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ObligationsId );
-            OriginalActionDate = GetOriginalActionDate();
+            OriginalActionDate = GetOriginalActionDate( );
             ULO = new Amount( Record, Numeric.ULO );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -59,11 +59,11 @@ namespace BudgetExecution
         public UnliquidatedObligation( IBuilder builder )
             : base( builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ObligationsId );
-            OriginalActionDate = GetOriginalActionDate();
+            OriginalActionDate = GetOriginalActionDate( );
             ULO = new Amount( Record, Numeric.ULO );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -76,11 +76,11 @@ namespace BudgetExecution
         {
             Record = datarow;
             ID = new Key( Record, PrimaryKey.ObligationsId );
-            OriginalActionDate = GetOriginalActionDate();
+            OriginalActionDate = GetOriginalActionDate( );
             ULO = new Amount( Record, Numeric.ULO );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
-        
+
         /// <summary>
         /// Gets the unliquidated obligation identifier.
         /// </summary>

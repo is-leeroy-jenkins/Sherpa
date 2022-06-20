@@ -67,7 +67,7 @@ namespace BudgetExecution
         /// The data filter.
         /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
-        
+
         /// <summary>
         /// Gets the source.
         /// </summary>
@@ -118,7 +118,7 @@ namespace BudgetExecution
         {
             try
             {
-                return DataFilter?.Any() == true
+                return DataFilter?.Any( ) == true
                     ? DataFilter
                     : default( IDictionary<string, object> );
             }
@@ -138,7 +138,7 @@ namespace BudgetExecution
         {
             try
             {
-                return DataTable?.Rows?.Count > 0 
+                return DataTable?.Rows?.Count > 0
                     && DataTable?.Columns?.Count > 0
                         ? DataTable
                         : default( DataTable );
@@ -159,7 +159,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _dataRows = DataTable?.AsEnumerable();
+                var _dataRows = DataTable?.AsEnumerable( );
 
                 return Verify.IsRows( _dataRows )
                     ? _dataRows
@@ -219,8 +219,8 @@ namespace BudgetExecution
         private protected virtual void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

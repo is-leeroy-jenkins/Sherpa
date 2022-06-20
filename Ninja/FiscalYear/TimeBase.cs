@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="DataUnit" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" )]
     public abstract class TimeBase : DataUnit
     {
         /// <summary>
@@ -57,20 +57,20 @@ namespace BudgetExecution
                 try
                 {
                     var _columns = dataRow.Table
-                        ?.GetColumnNames();
+                        ?.GetColumnNames( );
 
                     return _columns?.Contains( name ) == true
                         ? name
-                        : EventDate.NS.ToString();
+                        : EventDate.NS.ToString( );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return EventDate.NS.ToString();
+                    return EventDate.NS.ToString( );
                 }
             }
 
-            return EventDate.NS.ToString();
+            return EventDate.NS.ToString( );
         }
 
         /// <summary>
@@ -83,13 +83,13 @@ namespace BudgetExecution
             try
             {
                 return Verify.IsEventDate( date )
-                    ? date.ToString()
-                    : EventDate.NS.ToString();
+                    ? date.ToString( )
+                    : EventDate.NS.ToString( );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return EventDate.NS.ToString();
+                return EventDate.NS.ToString( );
             }
         }
 
@@ -107,20 +107,20 @@ namespace BudgetExecution
                 try
                 {
                     var _names = dataRow.Table
-                        ?.GetColumnNames();
+                        ?.GetColumnNames( );
 
-                    return _names?.Contains( date.ToString() ) == true
-                        ? date.ToString()
-                        : EventDate.NS.ToString();
+                    return _names?.Contains( date.ToString( ) ) == true
+                        ? date.ToString( )
+                        : EventDate.NS.ToString( );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return EventDate.NS.ToString();
+                    return EventDate.NS.ToString( );
                 }
             }
 
-            return EventDate.NS.ToString();
+            return EventDate.NS.ToString( );
         }
 
         /// <summary>
@@ -167,9 +167,9 @@ namespace BudgetExecution
                     var _date = (EventDate)Enum.Parse( typeof( EventDate ), name );
 
                     var _columns = dataRow.Table
-                        ?.GetColumnNames();
+                        ?.GetColumnNames( );
 
-                    if( _columns?.Any() == true
+                    if( _columns?.Any( ) == true
                         && _columns?.Contains( $"{_date}" ) == true )
                     {
                         return Enum.GetNames( typeof( EventDate ) )?.Contains( $"{_date}" ) == true
@@ -201,11 +201,11 @@ namespace BudgetExecution
                 try
                 {
                     var _names = dataRow.Table
-                        ?.GetColumnNames();
+                        ?.GetColumnNames( );
 
-                    if( _names?.Any() == true )
+                    if( _names?.Any( ) == true )
                     {
-                        return _names?.Contains( date.ToString() ) == true
+                        return _names?.Contains( date.ToString( ) ) == true
                             ? date
                             : EventDate.NS;
                     }
@@ -255,9 +255,9 @@ namespace BudgetExecution
                 try
                 {
                     var _names = dataRow.Table
-                        ?.GetColumnNames();
+                        ?.GetColumnNames( );
 
-                    var _timeString = dataRow[ column ]?.ToString();
+                    var _timeString = dataRow[ column ]?.ToString( );
 
                     return _names?.Contains( column ) == true && Verify.IsInput( _timeString )
                         ? DateTime.Parse( _timeString )
@@ -286,7 +286,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var value = dataRow[ $"{date}" ]?.ToString();
+                    var value = dataRow[ $"{date}" ]?.ToString( );
 
                     return DateTime.Parse( value ) != null
                         ? DateTime.Parse( value )
@@ -336,11 +336,11 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _names = dataRow.Table?.GetColumnNames();
-                    var _input = dataRow[ column ]?.ToString();
+                    var _names = dataRow.Table?.GetColumnNames( );
+                    var _input = dataRow[ column ]?.ToString( );
 
                     return _names?.Contains( column ) == true && Verify.IsInput( _input )
-                        ? dataRow[ column ].ToString()
+                        ? dataRow[ column ].ToString( )
                         : string.Empty;
                 }
                 catch( Exception ex )
@@ -366,10 +366,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _timeString = dataRow[ $"{date}" ]?.ToString();
+                    var _timeString = dataRow[ $"{date}" ]?.ToString( );
 
                     return DateTime.Parse( _timeString ) != null
-                        ? dataRow[ $"{date}" ]?.ToString()
+                        ? dataRow[ $"{date}" ]?.ToString( )
                         : string.Empty;
                 }
                 catch( Exception ex )

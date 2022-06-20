@@ -13,8 +13,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="DbDataAdapter" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class AdapterBuilder : DbDataAdapter
     {
         /// <summary>
@@ -25,12 +25,12 @@ namespace BudgetExecution
         /// <summary>
         /// The SQL statement
         /// </summary>
-        public ISqlStatement SqlStatement { get;  set; }
+        public ISqlStatement SqlStatement { get; set; }
 
         /// <summary>
         /// The connection builder
         /// </summary>
-        public IConnectionBuilder ConnectionBuilder { get;  set; }
+        public IConnectionBuilder ConnectionBuilder { get; set; }
 
         /// <summary>
         /// Gets the command builder.
@@ -66,14 +66,14 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="commandBuilder">The commandbuilder.</param>
         public AdapterBuilder( ICommandBuilder commandBuilder )
-            : this()
+            : this( )
         {
             ConnectionBuilder = commandBuilder.ConnectionBuilder;
             SqlStatement = commandBuilder.SqlStatement;
-            Connection = new ConnectionFactory( ConnectionBuilder )?.GetConnection();
+            Connection = new ConnectionFactory( ConnectionBuilder )?.GetConnection( );
             CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
             CommandFactory = new CommandFactory( CommandBuilder );
-            SelectCommand = CommandFactory.GetSelectCommand();
+            SelectCommand = CommandFactory.GetSelectCommand( );
         }
 
         /// <summary>
@@ -82,16 +82,16 @@ namespace BudgetExecution
         /// <param name="connectionBuilder">The connectionbuilder.</param>
         /// <param name="sqlStatement">The sqlstatement.</param>
         public AdapterBuilder( IConnectionBuilder connectionBuilder, ISqlStatement sqlStatement )
-            : this()
+            : this( )
         {
             ConnectionBuilder = connectionBuilder;
-            Connection = new ConnectionFactory( ConnectionBuilder )?.GetConnection();
+            Connection = new ConnectionFactory( ConnectionBuilder )?.GetConnection( );
             SqlStatement = sqlStatement;
             CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
             CommandFactory = new CommandFactory( CommandBuilder );
-            SelectCommand = CommandFactory.GetSelectCommand();
+            SelectCommand = CommandFactory.GetSelectCommand( );
         }
-        
+
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
@@ -99,8 +99,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

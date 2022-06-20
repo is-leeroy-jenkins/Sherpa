@@ -12,17 +12,17 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
     public class Account : AccountBase, IAccount, ISource
     {
         /// <summary>
         /// The source
         /// </summary>
         public Source Source { get; set; } = Source.Accounts;
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref = "Account"/> class.
         /// </summary>
@@ -38,7 +38,7 @@ namespace BudgetExecution
         /// </param>
         public Account( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.AccountsId );
             Code = new Element( Record, Field.Code ).Code;
             NpmCode = new Element( Record, Field.NpmCode );
@@ -47,7 +47,7 @@ namespace BudgetExecution
             GoalCode = new Element( Record, Field.GoalCode );
             ObjectiveCode = new Element( Record, Field.ObjectiveCode );
             ActivityCode = new Element( Record, Field.ActivityCode );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace BudgetExecution
         /// </param>
         public Account( IBuilder dataBuilder )
         {
-            Record = dataBuilder?.GetRecord();
+            Record = dataBuilder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.AccountsId );
             Code = new Element( Record, Field.Code ).Code;
             NpmCode = new Element( Record, Field.NpmCode );
@@ -67,7 +67,7 @@ namespace BudgetExecution
             GoalCode = new Element( Record, Field.GoalCode );
             ObjectiveCode = new Element( Record, Field.ObjectiveCode );
             ActivityCode = new Element( Record, Field.ActivityCode );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace BudgetExecution
             GoalCode = new Element( Record, Field.GoalCode );
             ObjectiveCode = new Element( Record, Field.ObjectiveCode );
             ActivityCode = new Element( Record, Field.ActivityCode );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace BudgetExecution
         /// </param>
         public Account( string code )
         {
-            Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
+            Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.AccountsId );
             Code = new Element( Record, Field.Code ).Code;
             NpmCode = new Element( Record, Field.NpmCode );
@@ -107,9 +107,9 @@ namespace BudgetExecution
             GoalCode = new Element( Record, Field.GoalCode );
             ObjectiveCode = new Element( Record, Field.ObjectiveCode );
             ActivityCode = new Element( Record, Field.ActivityCode );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
-        
+
         /// <summary>
         /// Gets the account.
         /// </summary>
@@ -119,7 +119,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone() as Account;
+                return MemberwiseClone( ) as Account;
             }
             catch( Exception ex )
             {

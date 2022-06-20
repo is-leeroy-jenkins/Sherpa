@@ -21,7 +21,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns></returns>
         Image GetBitmap();
-        
+
         /// <summary>
         /// Res the color.
         /// </summary>

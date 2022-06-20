@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="FileSystemWatcher" />
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
     public class FileWatcher : FileSystemWatcher
     {
         /// <summary>
@@ -21,7 +21,7 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        public string FileName { get;  }
+        public string FileName { get; }
 
         /// <summary>
         /// Gets the Data path.
@@ -29,7 +29,7 @@ namespace BudgetExecution
         /// <value>
         /// The Data path.
         /// </value>
-        public IPath FilePath { get;  }
+        public IPath FilePath { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FileWatcher"/> class.
@@ -77,7 +77,7 @@ namespace BudgetExecution
             try
             {
                 using var _message = new Message( "NOT YET IMPLEMENTED" );
-                _message.ShowDialog();
+                _message.ShowDialog( );
             }
             catch( Exception ex )
             {
@@ -95,7 +95,7 @@ namespace BudgetExecution
             try
             {
                 using var _message = new Message( "NOT YET IMPLEMENTED" );
-                _message.ShowDialog();
+                _message.ShowDialog( );
             }
             catch( Exception ex )
             {
@@ -113,7 +113,7 @@ namespace BudgetExecution
             try
             {
                 using var _message = new Message( "NOT YET IMPLEMENTED" );
-                _message.ShowDialog();
+                _message.ShowDialog( );
             }
             catch( Exception ex )
             {
@@ -131,7 +131,7 @@ namespace BudgetExecution
             try
             {
                 using var _message = new Message( "NOT YET IMPLEMENTED" );
-                _message.ShowDialog();
+                _message.ShowDialog( );
             }
             catch( Exception ex )
             {
@@ -149,7 +149,7 @@ namespace BudgetExecution
             try
             {
                 using var _message = new Message( "NOT YET IMPLEMENTED" );
-                _message.ShowDialog();
+                _message.ShowDialog( );
             }
             catch( Exception ex )
             {
@@ -164,8 +164,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

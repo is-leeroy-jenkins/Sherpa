@@ -84,7 +84,7 @@ namespace BudgetExecution
             // Basic Properties
             Size = new Size( 200, 20 );
             ProgressStyle = ProgressBarStyles.Metro;
-            Font = new Font( "Robot", 10  );
+            Font = new Font( "Robot", 10 );
             Maximum = 100;
             Anchor = AnchorStyles.Left & AnchorStyles.Top;
             BackColor = Color.FromArgb( 18, 18, 18 );
@@ -112,7 +112,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         public BudgetProgressBar( Size size, Point location )
-            : this()
+            : this( )
         {
             Size = size;
             Location = location;
@@ -140,7 +140,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="progressBar">The progressBar.</param>
-        [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
+        [SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" )]
         public BudgetProgressBar( BudgetProgressBar progressBar )
             : this( progressBar.Size, progressBar.Location )
         {
@@ -192,7 +192,7 @@ namespace BudgetExecution
         {
             BindingSource = bindingSource;
         }
-        
+
         /// <summary>
         /// Sets the hover information.
         /// </summary>
@@ -218,7 +218,7 @@ namespace BudgetExecution
         /// <param name="value">The value.</param>
         public void UpdateValue( int value )
         {
-            if( value > 0 
+            if( value > 0
                && value < 100 )
             {
                 try

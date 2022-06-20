@@ -18,7 +18,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="CalculatorControl" />
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
     public class BudgetCalculator : CalculatorBase, ICalculator
     {
         /// <summary>
@@ -136,7 +136,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         public BudgetCalculator( Size size, Point location )
-            : this()
+            : this( )
         {
             Size = size;
             Location = location;
@@ -149,7 +149,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="value">The value.</param>
         public BudgetCalculator( string value )
-            : this()
+            : this( )
         {
             Result.SetValue( value );
         }

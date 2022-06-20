@@ -14,8 +14,8 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="ToolStripTextBox" />
     /// <seealso cref="IToolStripTextBox" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
     public class BudgetToolStripTextBox : ToolTextBoxBase, IToolStripTextBox
     {
         /// <summary>
@@ -33,7 +33,7 @@ namespace BudgetExecution
             Visible = true;
             Enabled = true;
             Tag = Name;
-            ToolTipText = Tag.ToString();
+            ToolTipText = Tag.ToString( );
             HoverText = ToolTipText;
             MouseHover += OnMouseHover;
             MouseLeave += OnMouseLeave;
@@ -105,7 +105,7 @@ namespace BudgetExecution
         /// <param name="item">The item.</param>
         public void SetHoverText( ToolStripItem item )
         {
-            var _text = item?.Tag?.ToString();
+            var _text = item?.Tag?.ToString( );
 
             if( Verify.IsInput( _text ) )
             {
@@ -140,7 +140,7 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    if( !string.IsNullOrEmpty( Tag?.ToString() ) )
+                    if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
                     {
                         var _tool = new ToolTip( _button );
                         ToolTip = _tool;
@@ -164,7 +164,7 @@ namespace BudgetExecution
             {
                 if( ToolTip?.Active == true )
                 {
-                    ToolTip.RemoveAll();
+                    ToolTip.RemoveAll( );
                     ToolTip = null;
                 }
             }

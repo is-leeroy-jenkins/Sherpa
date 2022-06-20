@@ -35,10 +35,10 @@ namespace BudgetExecution
         public OpenCommitment( IQuery query )
             : base( query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ObligationsId );
-            OriginalActionDate = GetOriginalActionDate();
-            Data = Record?.ToDictionary();
+            OriginalActionDate = GetOriginalActionDate( );
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.OpenCommitment;
         }
 
@@ -51,10 +51,10 @@ namespace BudgetExecution
         public OpenCommitment( IBuilder builder )
             : base( builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ObligationsId );
-            OriginalActionDate = GetOriginalActionDate();
-            Data = Record?.ToDictionary();
+            OriginalActionDate = GetOriginalActionDate( );
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.OpenCommitment;
         }
 
@@ -69,11 +69,11 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ObligationsId );
-            OriginalActionDate = GetOriginalActionDate();
-            Data = Record?.ToDictionary();
+            OriginalActionDate = GetOriginalActionDate( );
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.OpenCommitment;
         }
-        
+
         /// <summary>
         /// Gets the OpenCommitment identifier.
         /// </summary>

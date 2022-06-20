@@ -24,7 +24,7 @@ namespace BudgetExecution
         /// The binding source.
         /// </value>
         public virtual BindingSource BindingSource { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the field.
         /// </summary>
@@ -32,7 +32,7 @@ namespace BudgetExecution
         /// The field.
         /// </value>
         public virtual Field Field { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the filter.
         /// </summary>
@@ -60,12 +60,12 @@ namespace BudgetExecution
         public TabControlBase()
         {
         }
-        
+
         /// <summary>
         /// Sets the binding source.
         /// </summary>
         /// <param name="bindingSource">The Binding Source.</param>
-        public virtual void SetDataSource<T1>( T1 bindingSource ) 
+        public virtual void SetDataSource<T1>( T1 bindingSource )
             where T1 : IBindingList
         {
             try
@@ -97,7 +97,7 @@ namespace BudgetExecution
         /// <param name="bindinglist">The bindingSource.</param>
         /// <param name="dict">The dictionary.</param>
         public virtual void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
-            where T1 : IBindingList 
+            where T1 : IBindingList
             where T2 : IDictionary<string, object>
         {
             try
@@ -123,7 +123,7 @@ namespace BudgetExecution
                             && _list?.DataSource != null )
                         {
                             BindingSource.DataSource = _list?.DataSource;
-                            BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray() );
+                            BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray( ) );
                         }
                     }
                     catch( Exception ex )
@@ -148,7 +148,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    BindingSource.DataSource = data?.ToList();
+                    BindingSource.DataSource = data?.ToList( );
                 }
                 catch( Exception ex )
                 {
@@ -181,8 +181,8 @@ namespace BudgetExecution
                         }
                     }
 
-                    BindingSource.DataSource = data?.ToList();
-                    BindingSource.Filter = _filter.TrimEnd( " AND".ToCharArray() );
+                    BindingSource.DataSource = data?.ToList( );
+                    BindingSource.Filter = _filter.TrimEnd( " AND".ToCharArray( ) );
                 }
                 catch( Exception ex )
                 {
@@ -208,16 +208,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Verify.IsInput( filter?.ToString() ) )
+                    if( Verify.IsInput( filter?.ToString( ) ) )
                     {
-                        BindingSource.DataSource = data.ToList();
-                        BindingSource.DataMember = field.ToString();
+                        BindingSource.DataSource = data.ToList( );
+                        BindingSource.DataMember = field.ToString( );
                         BindingSource.Filter = $"{field} = {filter}";
                     }
                     else
                     {
-                        BindingSource.DataSource = data.ToList();
-                        BindingSource.DataMember = field.ToString();
+                        BindingSource.DataSource = data.ToList( );
+                        BindingSource.DataMember = field.ToString( );
                     }
                 }
                 catch( Exception ex )
@@ -240,14 +240,14 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Verify.IsInput( field?.ToString() ) )
+                    if( Verify.IsInput( field?.ToString( ) ) )
                     {
-                        BindingSource.DataSource = data.ToList();
-                        BindingSource.DataMember = field?.ToString();
+                        BindingSource.DataSource = data.ToList( );
+                        BindingSource.DataMember = field?.ToString( );
                     }
                     else
                     {
-                        BindingSource.DataSource = data.ToList();
+                        BindingSource.DataSource = data.ToList( );
                     }
                 }
                 catch( Exception ex )
@@ -282,8 +282,8 @@ namespace BudgetExecution
                         }
                     }
 
-                    BindingSource.DataSource = data?.ToList();
-                    BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray() );
+                    BindingSource.DataSource = data?.ToList( );
+                    BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray( ) );
                 }
                 catch( Exception ex )
                 {
@@ -306,16 +306,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Verify.IsInput( filter?.ToString() ) )
+                    if( Verify.IsInput( filter?.ToString( ) ) )
                     {
-                        BindingSource.DataSource = data.ToList();
-                        BindingSource.DataMember = field.ToString();
+                        BindingSource.DataSource = data.ToList( );
+                        BindingSource.DataMember = field.ToString( );
                         BindingSource.Filter = $"{field} = {filter}";
                     }
                     else
                     {
-                        BindingSource.DataSource = data.ToList();
-                        BindingSource.DataMember = field.ToString();
+                        BindingSource.DataSource = data.ToList( );
+                        BindingSource.DataMember = field.ToString( );
                     }
                 }
                 catch( Exception ex )
@@ -332,8 +332,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

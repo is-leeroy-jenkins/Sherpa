@@ -23,8 +23,8 @@ namespace BudgetExecution
     /// <seealso cref = "ISource"/>
     /// <seealso cref = "IDataBuilder"/>
     /// <seealso cref = "IBudgetObjectClass"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public class BudgetObjectClass : Element, IBudgetObjectClass, ISource
     {
         /// <summary>
@@ -41,11 +41,11 @@ namespace BudgetExecution
             "38",
             "41"
         };
-        
+
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; set; } =  Source.BudgetObjectClasses;
+        public Source Source { get; set; } = Source.BudgetObjectClasses;
 
         /// <summary>
         /// Gets the Data.
@@ -53,7 +53,7 @@ namespace BudgetExecution
         /// <value>
         /// The Data.
         /// </value>
-        public DataRow Record { get; set; } 
+        public DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -61,8 +61,8 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; } 
-        
+        public IDictionary<string, object> Data { get; set; }
+
         /// <summary>
         /// Gets the category.
         /// </summary>
@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// The category.
         /// </value>
         public BOC Category { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref = "BudgetObjectClass"/> class.
         /// </summary>
@@ -85,14 +85,14 @@ namespace BudgetExecution
         /// The code.
         /// </param>
         public BudgetObjectClass( BOC boc )
-            : this()
+            : this( )
         {
-            Record = new DataBuilder( Source, SetArgs( boc ) )?.GetRecord();
+            Record = new DataBuilder( Source, SetArgs( boc ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.BudgetObjectClassesId );
             Name = new Element( Record, Field.BudgetObjectClassName ).Name;
             Code = new Element( Record, Field.BudgetObjectClassCode ).Code;
             Category = boc;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -102,14 +102,14 @@ namespace BudgetExecution
         /// The code.
         /// </param>
         public BudgetObjectClass( string code )
-            : this()
+            : this( )
         {
-            Record = new DataBuilder( Source, SetArgs( code ) )?.GetRecord();
+            Record = new DataBuilder( Source, SetArgs( code ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.BudgetObjectClassesId );
             Name = new Element( Record, Field.BudgetObjectClassName ).Name;
             Code = new Element( Record, Field.BudgetObjectClassCode ).Code;
             Category = (BOC)Enum.Parse( typeof( BOC ), Name );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -120,12 +120,12 @@ namespace BudgetExecution
         /// </param>
         public BudgetObjectClass( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.BudgetObjectClassesId );
             Name = new Element( Record, Field.BudgetObjectClassName ).Name;
             Code = new Element( Record, Field.BudgetObjectClassCode ).Code;
             Category = (BOC)Enum.Parse( typeof( BOC ), Name );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -136,12 +136,12 @@ namespace BudgetExecution
         /// </param>
         public BudgetObjectClass( IBuilder builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.BudgetObjectClassesId );
             Name = new Element( Record, Field.BudgetObjectClassName ).Name;
             Code = new Element( Record, Field.BudgetObjectClassCode ).Code;
             Category = (BOC)Enum.Parse( typeof( BOC ), Name );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace BudgetExecution
             Name = new Element( Record, Field.BudgetObjectClassName ).Name;
             Code = new Element( Record, Field.BudgetObjectClassCode ).Code;
             Category = (BOC)Enum.Parse( typeof( BOC ), Name );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -192,7 +192,7 @@ namespace BudgetExecution
         {
             try
             {
-                var amount = prc?.GetAmount();
+                var amount = prc?.GetAmount( );
 
                 return amount?.Funding > -1
                     ? amount.Funding
@@ -263,15 +263,15 @@ namespace BudgetExecution
         /// </returns>
         private IDictionary<string, object> SetArgs( BOC boc )
         {
-            if( Verify.IsInput( boc.ToString() )
-                && boc.ToString().Length == 2
-                && Codes.Contains( boc.ToString() ) )
+            if( Verify.IsInput( boc.ToString( ) )
+                && boc.ToString( ).Length == 2
+                && Codes.Contains( boc.ToString( ) ) )
             {
                 try
                 {
                     return new Dictionary<string, object>
                     {
-                        [ Field.Code.ToString() ] = boc.ToString()
+                        [ Field.Code.ToString( ) ] = boc.ToString( )
                     };
                 }
                 catch( Exception ex )
@@ -283,7 +283,7 @@ namespace BudgetExecution
 
             return default( IDictionary<string, object> );
         }
-        
+
         /// <summary>
         /// Gets the budget object class.
         /// </summary>
@@ -291,7 +291,7 @@ namespace BudgetExecution
         /// </returns>
         public IBudgetObjectClass GetBudgetObjectClass()
         {
-            return MemberwiseClone() as BudgetObjectClass;
+            return MemberwiseClone( ) as BudgetObjectClass;
         }
 
         /// <summary>
@@ -303,7 +303,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( Name ) 
+                return Verify.IsInput( Name )
                     && Enum.IsDefined( typeof( BOC ), Name )
                         ? (BOC)Enum.Parse( typeof( BOC ), Name )
                         : BOC.NS;

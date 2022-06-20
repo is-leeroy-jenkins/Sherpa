@@ -10,7 +10,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IEmployee 
+    public interface IEmployee
     {
         /// <summary>
         /// Gets or sets the record.

@@ -12,9 +12,9 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" )]
     public class BudgetToolStripComboBox : ToolStripComboBoxBase, IToolStripComboBox
     {
         /// <summary>
@@ -41,8 +41,8 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9 );
             Field = Field.NS;
             Tag = "Make Selection";
-            ToolTipText = Tag.ToString();
-            HoverText = Tag.ToString();
+            ToolTipText = Tag.ToString( );
+            HoverText = Tag.ToString( );
             Text = string.Empty;
             Visible = true;
             Enabled = true;
@@ -55,9 +55,9 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="data">The data.</param>
         public BudgetToolStripComboBox( IEnumerable<object> data )
-            : this()
+            : this( )
         {
-            BindingSource.DataSource = data?.ToList();
+            BindingSource.DataSource = data?.ToList( );
         }
 
         /// <summary>
@@ -77,9 +77,9 @@ namespace BudgetExecution
         /// <param name="data">The data.</param>
         /// <param name="filter">The filter.</param>
         public BudgetToolStripComboBox( IEnumerable<DataRow> data, string filter )
-            : this()
+            : this( )
         {
-            BindingSource.DataSource = data.ToList();
+            BindingSource.DataSource = data.ToList( );
             BindingSource.DataMember = filter;
         }
 
@@ -89,16 +89,16 @@ namespace BudgetExecution
         /// <returns></returns>
         public object GetSelectedItem()
         {
-            if( Selected 
+            if( Selected
                 && SelectedIndex > -1 )
             {
                 try
                 {
                     return Items[ SelectedIndex ];
                 }
-                catch ( Exception ex )
+                catch( Exception ex )
                 {
-                    Fail( ex  );
+                    Fail( ex );
                     return null;
                 }
             }
@@ -122,7 +122,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary> Called when [mouse over]. </summary>
         /// <param name = "sender" > The sender. </param>
         /// <param name = "e" >
@@ -145,7 +145,7 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    if( !string.IsNullOrEmpty( Tag?.ToString() ) )
+                    if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
                     {
                         var tool = new ToolTip( _button );
                         ToolTip = tool;
@@ -169,7 +169,7 @@ namespace BudgetExecution
             {
                 if( ToolTip?.Active == true )
                 {
-                    ToolTip.RemoveAll();
+                    ToolTip.RemoveAll( );
                     ToolTip = null;
                 }
             }
@@ -194,7 +194,7 @@ namespace BudgetExecution
                 try
                 {
                     using var _message = new Message( "NOT YET IMPLEMENTED" );
-                    _message?.ShowDialog();
+                    _message?.ShowDialog( );
                 }
                 catch( Exception ex )
                 {

@@ -11,7 +11,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso/>
     /// <seealso cref = "ISource"/>
-    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
+    [SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" )]
     public class RegionalAuthority : Authority
     {
         /// <summary>
@@ -44,9 +44,9 @@ namespace BudgetExecution
         public RegionalAuthority( IQuery query )
             : base( query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             BudgetFiscalYear = new BudgetFiscalYear( Record.GetField( Field.BFY ) );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -58,11 +58,11 @@ namespace BudgetExecution
         public RegionalAuthority( IBuilder builder )
             : base( builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             BudgetFiscalYear = new BudgetFiscalYear( Record.GetField( Field.BFY ) );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
-        
+
         /// <summary>
         /// Calculates the percentage.
         /// </summary>

@@ -10,13 +10,13 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    public class BudgetTile  : TileBase
+    public class BudgetTile : TileBase
     {
         /// <summary>
         /// Initializes a new instance
         /// of the <see cref="BudgetTile"/> class.
         /// </summary>
-        public BudgetTile( )
+        public BudgetTile()
         {
             BackColor = Color.FromArgb( 18, 18, 18 );
             ForeColor = Color.White;
@@ -44,8 +44,8 @@ namespace BudgetExecution
         /// of the <see cref="BudgetTile"/> class.
         /// </summary>
         /// <param name="type">The type.</param>
-        public BudgetTile( HubTileType type = HubTileType.DefaultTile ) 
-            : this()
+        public BudgetTile( HubTileType type = HubTileType.DefaultTile )
+            : this( )
         {
             TileType = type;
         }
@@ -56,8 +56,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="type">The type.</param>
-        public BudgetTile( string name, HubTileType type = HubTileType.DefaultTile ) 
-            : this()
+        public BudgetTile( string name, HubTileType type = HubTileType.DefaultTile )
+            : this( )
         {
             Name = name;
             TileType = type;
@@ -70,8 +70,8 @@ namespace BudgetExecution
         /// <param name="location">The location.</param>
         /// <param name="size">The size.</param>
         /// <param name="type">The type.</param>
-        public BudgetTile( Point location, Size size, HubTileType type = HubTileType.DefaultTile ) 
-            : this()
+        public BudgetTile( Point location, Size size, HubTileType type = HubTileType.DefaultTile )
+            : this( )
         {
             Size = size;
             Location = location;

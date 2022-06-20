@@ -12,11 +12,11 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnassignedGetOnlyAutoProperty" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "UnassignedGetOnlyAutoProperty" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" )]
     public abstract class Arg : DataUnit
     {
         /// <summary>
@@ -49,7 +49,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _dictionary = new Dictionary<string, object>();
+                    var _dictionary = new Dictionary<string, object>( );
                     var _fields = Enum.GetNames( typeof( Field ) );
 
                     foreach( var kvp in dict )
@@ -61,7 +61,7 @@ namespace BudgetExecution
                         }
                     }
 
-                    Input = _dictionary?.Any() == true
+                    Input = _dictionary?.Any( ) == true
                         ? _dictionary
                         : default( Dictionary<string, object> );
                 }
@@ -82,24 +82,24 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _dictionary = new Dictionary<string, object>();
+                    var _dictionary = new Dictionary<string, object>( );
 
-                    if( Values?.Any() == true )
+                    if( Values?.Any( ) == true )
                     {
-                        var data = Values.ToArray();
+                        var data = Values.ToArray( );
 
                         foreach( var kvp in dict )
                         {
                             for( var i = 0; i < data.Length; i++ )
                             {
-                                if( kvp.Key.Contains( data[ i ].ToString() ) )
+                                if( kvp.Key.Contains( data[ i ].ToString( ) ) )
                                 {
                                     _dictionary?.Add( kvp.Key, kvp.Value );
                                 }
                             }
                         }
 
-                        Output = _dictionary?.Any() == true
+                        Output = _dictionary?.Any( ) == true
                             ? _dictionary
                             : default( Dictionary<string, object> );
                     }
@@ -117,17 +117,17 @@ namespace BudgetExecution
         /// <returns></returns>
         public IEnumerable<string> GetValues()
         {
-            if( Output?.Any() == true )
+            if( Output?.Any( ) == true )
             {
                 try
                 {
-                    var _array = Output?.Values?.ToArray();
-                    var _enumerable = _array?.Select( o => o.ToString() );
+                    var _array = Output?.Values?.ToArray( );
+                    var _enumerable = _array?.Select( o => o.ToString( ) );
                     var _fields = Enum.GetNames( typeof( Field ) );
-                    var _list = new List<string>();
+                    var _list = new List<string>( );
 
-                    if( _enumerable?.Any() == true
-                        && _fields?.Any() == true )
+                    if( _enumerable?.Any( ) == true
+                        && _fields?.Any( ) == true )
                     {
                         foreach( var value in _enumerable )
                         {
@@ -139,7 +139,7 @@ namespace BudgetExecution
                         }
                     }
 
-                    return _enumerable?.Any() == true
+                    return _enumerable?.Any( ) == true
                         ? _enumerable
                         : default( IEnumerable<string> );
                 }
@@ -159,15 +159,15 @@ namespace BudgetExecution
         /// <returns></returns>
         public IEnumerable<string> GetNames()
         {
-            if( Output?.Any() == true )
+            if( Output?.Any( ) == true )
             {
                 try
                 {
                     var _keys = Output?.Keys;
                     var _fields = Enum.GetNames( typeof( Field ) );
-                    var _list = new List<string>();
+                    var _list = new List<string>( );
 
-                    if( _keys?.Any() == true )
+                    if( _keys?.Any( ) == true )
                     {
                         foreach( var key in _keys )
                         {
@@ -179,7 +179,7 @@ namespace BudgetExecution
                         }
                     }
 
-                    return _list?.Any() == true
+                    return _list?.Any( ) == true
                         ? _list
                         : default( List<string> );
                 }

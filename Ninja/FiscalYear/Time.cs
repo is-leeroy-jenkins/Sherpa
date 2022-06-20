@@ -15,9 +15,9 @@ namespace BudgetExecution
     /// <seealso cref="TimeBase" />
     /// <seealso cref="ITime" />
     /// <seealso cref="TimeBase" />
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ArrangeModifiersOrder" )]
     public class Time : TimeBase, ITime
     {
         /// <summary>
@@ -56,7 +56,7 @@ namespace BudgetExecution
         {
             Name = GetDate( kvp.Key );
             Date = SetDate( kvp.Key );
-            Day = SetDay( kvp.Value?.ToString() );
+            Day = SetDay( kvp.Value?.ToString( ) );
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace BudgetExecution
         public Time( EventDate date, string value = "" )
         {
             Name = GetDate( date );
-            Date = SetDate( date.ToString() );
+            Date = SetDate( date.ToString( ) );
             Day = SetDay( value );
         }
 
@@ -116,9 +116,9 @@ namespace BudgetExecution
         {
             Date = SetDate( dataRow, column.ColumnName );
             Name = GetDate( dataRow, column.ColumnName );
-            Day = SetDay( dataRow, dataRow[ column ]?.ToString() );
+            Day = SetDay( dataRow, dataRow[ column ]?.ToString( ) );
         }
-        
+
         /// <summary>
         /// Gets the time.
         /// </summary>
@@ -147,13 +147,13 @@ namespace BudgetExecution
             try
             {
                 return Enum.IsDefined( typeof( EventDate ), Date )
-                    ? Date.ToString()
-                    : EventDate.NS.ToString();
+                    ? Date.ToString( )
+                    : EventDate.NS.ToString( );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return EventDate.NS.ToString();
+                return EventDate.NS.ToString( );
             }
         }
 
@@ -165,7 +165,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Enum.IsDefined( typeof( EventDate ), Date ) 
+                return Enum.IsDefined( typeof( EventDate ), Date )
                     && Verify.IsEventDate( Date )
                         ? $"{Name} = {Day}"
                         : string.Empty;
@@ -217,7 +217,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( day?.Value?.ToString()?.Equals( Day ) == true )
+                    if( day?.Value?.ToString( )?.Equals( Day ) == true )
                     {
                         return true;
                     }
@@ -256,7 +256,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( first?.Value?.ToString()?.Equals( second?.Value?.ToString() ) == true )
+                    if( first?.Value?.ToString( )?.Equals( second?.Value?.ToString( ) ) == true )
                     {
                         return true;
                     }

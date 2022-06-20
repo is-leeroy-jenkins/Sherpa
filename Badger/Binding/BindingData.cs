@@ -81,13 +81,13 @@ namespace BudgetExecution
         /// The numeric.
         /// </value>
         public Numeric Numeric { get; set; }
-        
+
         /// <summary>
         /// Sets the data source.
         /// </summary>
         /// <typeparam name="T1">The type of the 1.</typeparam>
         /// <param name="bindingSource">The binding source.</param>
-        public void SetDataSource<T1>( T1 bindingSource ) 
+        public void SetDataSource<T1>( T1 bindingSource )
             where T1 : IBindingList
         {
             try
@@ -119,12 +119,12 @@ namespace BudgetExecution
         /// <param name="bindingList">The binding list.</param>
         /// <param name="dict">The dictionary.</param>
         public void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
-            where T1 : IBindingList 
+            where T1 : IBindingList
             where T2 : IDictionary<string, object>
         {
             try
             {
-                if( dict?.Any() == true
+                if( dict?.Any( ) == true
                     && bindingList is BindingSource _list )
                 {
                     try
@@ -144,7 +144,7 @@ namespace BudgetExecution
                             && _list?.DataSource != null )
                         {
                             DataSource = _list?.DataSource;
-                            Filter = _filter?.TrimEnd( " AND".ToCharArray() );
+                            Filter = _filter?.TrimEnd( " AND".ToCharArray( ) );
                         }
                     }
                     catch( Exception ex )
@@ -169,7 +169,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    DataSource = data?.ToList();
+                    DataSource = data?.ToList( );
                 }
                 catch( Exception ex )
                 {
@@ -203,8 +203,8 @@ namespace BudgetExecution
                         }
                     }
 
-                    DataSource = data?.ToList();
-                    Filter = _filter?.TrimEnd( " AND".ToCharArray() );
+                    DataSource = data?.ToList( );
+                    Filter = _filter?.TrimEnd( " AND".ToCharArray( ) );
                 }
                 catch( Exception ex )
                 {
@@ -223,7 +223,7 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The filter.</param>
         public void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
-            where T1 : IEnumerable<DataRow> 
+            where T1 : IEnumerable<DataRow>
             where T2 : struct
         {
             if( Verify.IsSequence( data )
@@ -233,14 +233,14 @@ namespace BudgetExecution
                 {
                     if( Verify.IsInput( filter ) )
                     {
-                        DataSource = data.ToList();
-                        DataMember = field.ToString();
+                        DataSource = data.ToList( );
+                        DataMember = field.ToString( );
                         Filter = $"{field} = {filter}";
                     }
                     else
                     {
-                        DataSource = data.ToList();
-                        DataMember = field.ToString();
+                        DataSource = data.ToList( );
+                        DataMember = field.ToString( );
                     }
                 }
                 catch( Exception ex )
@@ -265,12 +265,12 @@ namespace BudgetExecution
                 {
                     if( Verify.IsRef( field ) )
                     {
-                        DataSource = data.ToList();
-                        DataMember = field?.ToString();
+                        DataSource = data.ToList( );
+                        DataMember = field?.ToString( );
                     }
                     else
                     {
-                        DataSource = data.ToList();
+                        DataSource = data.ToList( );
                     }
                 }
                 catch( Exception ex )
@@ -288,7 +288,7 @@ namespace BudgetExecution
         /// <param name="data">The data.</param>
         /// <param name="dict">The dictionary.</param>
         public void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
-            where T1 : IEnumerable<DataRow> 
+            where T1 : IEnumerable<DataRow>
             where T2 : IDictionary<string, object>
         {
             if( Verify.IsSequence( data )
@@ -307,8 +307,8 @@ namespace BudgetExecution
                         }
                     }
 
-                    DataSource = data?.ToList();
-                    Filter = _filter?.TrimEnd( " AND".ToCharArray() );
+                    DataSource = data?.ToList( );
+                    Filter = _filter?.TrimEnd( " AND".ToCharArray( ) );
                 }
                 catch( Exception ex )
                 {
@@ -326,7 +326,7 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The filter.</param>
         public void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field, object filter = null )
-            where T1 : IEnumerable<DataRow> 
+            where T1 : IEnumerable<DataRow>
             where T2 : struct
         {
             if( Verify.IsSequence( data )
@@ -334,16 +334,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Verify.IsRef( filter?.ToString() ) )
+                    if( Verify.IsRef( filter?.ToString( ) ) )
                     {
-                        DataSource = data.ToList();
-                        DataMember = field.ToString();
+                        DataSource = data.ToList( );
+                        DataMember = field.ToString( );
                         Filter = $"{field} = {filter}";
                     }
                     else
                     {
-                        DataSource = data?.ToList();
-                        DataMember = field.ToString();
+                        DataSource = data?.ToList( );
+                        DataMember = field.ToString( );
                     }
                 }
                 catch( Exception ex )
@@ -361,7 +361,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _rows = DataTable?.AsEnumerable();
+                var _rows = DataTable?.AsEnumerable( );
 
                 return Verify.IsInput( _rows )
                     ? _rows
@@ -400,8 +400,8 @@ namespace BudgetExecution
         private protected override void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

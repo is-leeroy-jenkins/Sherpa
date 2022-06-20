@@ -12,7 +12,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.PivotChart;
 
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
     public abstract class PivotChartBase : PivotChart
     {
         /// <summary>
@@ -146,7 +146,7 @@ namespace BudgetExecution
                            && _list?.DataSource != null )
                         {
                             BindingSource.DataSource = _list?.DataSource;
-                            BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray() );
+                            BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray( ) );
                         }
                     }
                     catch( Exception ex )
@@ -173,7 +173,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    BindingSource.DataSource = data?.ToList();
+                    BindingSource.DataSource = data?.ToList( );
                 }
                 catch( Exception ex )
                 {
@@ -207,8 +207,8 @@ namespace BudgetExecution
                         }
                     }
 
-                    BindingSource.DataSource = data?.ToList();
-                    BindingSource.Filter = _filter.TrimEnd( " AND".ToCharArray() );
+                    BindingSource.DataSource = data?.ToList( );
+                    BindingSource.Filter = _filter.TrimEnd( " AND".ToCharArray( ) );
                 }
                 catch( Exception ex )
                 {
@@ -235,16 +235,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Verify.IsInput( filter?.ToString() ) )
+                    if( Verify.IsInput( filter?.ToString( ) ) )
                     {
-                        BindingSource.DataSource = data.ToList();
-                        BindingSource.DataMember = field.ToString();
+                        BindingSource.DataSource = data.ToList( );
+                        BindingSource.DataMember = field.ToString( );
                         BindingSource.Filter = $"{field} = {filter}";
                     }
                     else
                     {
-                        BindingSource.DataSource = data.ToList();
-                        BindingSource.DataMember = field.ToString();
+                        BindingSource.DataSource = data.ToList( );
+                        BindingSource.DataMember = field.ToString( );
                     }
                 }
                 catch( Exception ex )
@@ -267,14 +267,14 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Verify.IsInput( field?.ToString() ) )
+                    if( Verify.IsInput( field?.ToString( ) ) )
                     {
-                        BindingSource.DataSource = data.ToList();
-                        BindingSource.DataMember = field?.ToString();
+                        BindingSource.DataSource = data.ToList( );
+                        BindingSource.DataMember = field?.ToString( );
                     }
                     else
                     {
-                        BindingSource.DataSource = data.ToList();
+                        BindingSource.DataSource = data.ToList( );
                     }
                 }
                 catch( Exception ex )
@@ -311,8 +311,8 @@ namespace BudgetExecution
                         }
                     }
 
-                    BindingSource.DataSource = data?.ToList();
-                    BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray() );
+                    BindingSource.DataSource = data?.ToList( );
+                    BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray( ) );
                 }
                 catch( Exception ex )
                 {
@@ -339,16 +339,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Verify.IsInput( filter?.ToString() ) )
+                    if( Verify.IsInput( filter?.ToString( ) ) )
                     {
-                        BindingSource.DataSource = data.ToList();
-                        BindingSource.DataMember = field.ToString();
+                        BindingSource.DataSource = data.ToList( );
+                        BindingSource.DataMember = field.ToString( );
                         BindingSource.Filter = $"{field} = {filter}";
                     }
                     else
                     {
-                        BindingSource.DataSource = data.ToList();
-                        BindingSource.DataMember = field.ToString();
+                        BindingSource.DataSource = data.ToList( );
+                        BindingSource.DataMember = field.ToString( );
                     }
                 }
                 catch( Exception ex )
@@ -365,8 +365,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

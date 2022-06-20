@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// The accounting events
         /// </summary>
         AccountingEvents,
-        
+
         /// <summary>
         /// The appropriations
         /// </summary>
@@ -78,7 +78,7 @@ namespace BudgetExecution
         /// The arra
         /// </summary>
         ARRA,
-        
+
         /// <summary>
         /// The budget documents
         /// </summary>
@@ -103,7 +103,7 @@ namespace BudgetExecution
         /// The budget resource outlays
         /// </summary>
         BudgetResourceExecution,
-        
+
         /// <summary>
         /// The carryover outlays
         /// </summary>
@@ -178,7 +178,7 @@ namespace BudgetExecution
         /// The federal holidays
         /// </summary>
         FederalHolidays,
-        
+
         /// <summary>
         /// The deobligations
         /// </summary>
@@ -403,7 +403,7 @@ namespace BudgetExecution
         /// The reprogrammings
         /// </summary>
         Reprogrammings,
-        
+
         /// <summary>
         /// The schema types
         /// </summary>
@@ -433,7 +433,7 @@ namespace BudgetExecution
         /// The spending rates
         /// </summary>
         SpendingRates,
-        
+
         /// <summary>
         /// The state organizations
         /// </summary>
@@ -463,7 +463,7 @@ namespace BudgetExecution
         /// The special accounts
         /// </summary>
         SpecialAccounts,
-        
+
         /// <summary>
         /// The transfers
         /// </summary>
@@ -478,7 +478,7 @@ namespace BudgetExecution
         /// The travel activity
         /// </summary>
         TravelActivity,
-        
+
         /// <summary>
         /// The work codes
         /// </summary>

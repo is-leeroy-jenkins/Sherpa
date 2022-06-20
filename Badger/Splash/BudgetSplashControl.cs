@@ -32,7 +32,7 @@ namespace BudgetExecution
             BorderStyle = Border3DStyle.Etched;
             BorderType = SplashBorderType.Border3D;
 
-            BackgroundColor = new BrushInfo( GradientStyle.PathEllipse, Color.FromArgb( 18, 18, 18 ), 
+            BackgroundColor = new BrushInfo( GradientStyle.PathEllipse, Color.FromArgb( 18, 18, 18 ),
                 Color.FromArgb( 45, 45, 45 ) );
 
             ShowAnimation = true;
@@ -51,20 +51,20 @@ namespace BudgetExecution
             SlideStyle = SlideStyle.FadeIn;
         }
 
-        public BudgetSplashControl( string message ) 
-            : this()
+        public BudgetSplashControl( string message )
+            : this( )
         {
             Text = message;
         }
 
         public BudgetSplashControl( ToolTip toolTip )
-            : this()
+            : this( )
         {
             Text = toolTip.TipText;
         }
 
         public BudgetSplashControl( Control control, string message )
-            : this()
+            : this( )
         {
             Parent = control;
             Text = message;
@@ -81,9 +81,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ShowSplash();
+                    ShowSplash( );
                 }
-                catch ( Exception ex )
+                catch( Exception ex )
                 {
                     Fail( ex );
                 }

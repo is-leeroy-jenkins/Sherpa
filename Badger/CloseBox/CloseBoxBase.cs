@@ -16,11 +16,11 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="VisualPlus.Toolkit.Controls.Interactivity.VisualControlBox" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
     public abstract class CloseBoxBase : MetroSetControlBox
     {
         /// <summary>
@@ -68,8 +68,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

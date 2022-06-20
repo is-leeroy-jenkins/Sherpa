@@ -15,10 +15,10 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="ImageBase" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class ImageBuilder : BudgetImage
-    { 
+    {
         /// <summary>
         /// Gets or sets the full path.
         /// </summary>
@@ -57,9 +57,9 @@ namespace BudgetExecution
         /// <param name="imageSource">The source.</param>
         public ImageBuilder( ImageDirectory imageSource )
         {
-            Name = imageSource.ToString();
+            Name = imageSource.ToString( );
             ImageSource = imageSource;
-            FileExtension = ImageFormat.PNG.ToString();
+            FileExtension = ImageFormat.PNG.ToString( );
             ImageFormat = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
             FullPath = GetImageFilePath( Name, ImageSource );
             ImageFormat = (ImageFormat)Enum.Parse( typeof( ImageFormat ), FileExtension );
@@ -139,7 +139,7 @@ namespace BudgetExecution
                     var _path = Resource.ImageFolders
                         ?.Where( n => n.Contains( filePath ) )
                         ?.Select( n => n )
-                        ?.FirstOrDefault();
+                        ?.FirstOrDefault( );
 
                     return !string.IsNullOrEmpty( _path )
                         ? _path

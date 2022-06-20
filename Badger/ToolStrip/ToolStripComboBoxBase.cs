@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="ToolStripComboBox" />
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
     public abstract class ToolStripComboBoxBase : ToolStripComboBoxEx
     {
         /// <summary>
@@ -170,7 +170,7 @@ namespace BudgetExecution
         /// <param name="item">The item.</param>
         public virtual void SetHoverText( ToolStripItem item )
         {
-            var _text = item?.Tag?.ToString();
+            var _text = item?.Tag?.ToString( );
 
             try
             {
@@ -205,8 +205,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

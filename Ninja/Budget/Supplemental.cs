@@ -17,9 +17,9 @@ namespace BudgetExecution
     /// <seealso cref = "ProgramResultsCode"/>
     /// <seealso cref = "IProgram"/>
     /// <seealso cref = "ISupplemental"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Global" )]
     public abstract class Supplemental : ProgramResultsCode
     {
         /// <summary>
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public override Source Source { get; set; } =  Source.StatusOfSupplementalFuning;
+        public override Source Source { get; set; } = Source.StatusOfSupplementalFuning;
 
         /// <summary>
         /// Gets or sets the ProgramResultCodes identifier.
@@ -42,7 +42,7 @@ namespace BudgetExecution
         /// Gets the code.
         /// </summary>
         public string Code { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the type.
         /// </summary>
@@ -58,7 +58,7 @@ namespace BudgetExecution
         /// The boc.
         /// </value>
         public IElement BOC { get; set; }
-        
+
         /// <summary>
         /// Gets the Data builder.
         /// </summary>

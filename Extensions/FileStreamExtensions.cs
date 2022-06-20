@@ -10,8 +10,8 @@ namespace BudgetExecution
     using System.IO;
     using System.Text;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UseNullPropagation" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UseNullPropagation" )]
     public static class FileStreamExtensions
     {
         /// <summary>
@@ -27,9 +27,9 @@ namespace BudgetExecution
         {
             if( reader != null )
             {
-                while( reader.ReadLine() != null )
+                while( reader.ReadLine( ) != null )
                 {
-                    yield return reader.ReadLine();
+                    yield return reader.ReadLine( );
                 }
             }
         }
@@ -46,12 +46,12 @@ namespace BudgetExecution
         /// </param>
         public static void IterateLines( this TextReader reader, Action<string> action )
         {
-            if ( reader != null
+            if( reader != null
                 && action != null )
             {
                 try
                 {
-                    foreach( var _line in reader.IterateLines() )
+                    foreach( var _line in reader.IterateLines( ) )
                     {
                         action( _line );
                     }
@@ -74,7 +74,7 @@ namespace BudgetExecution
         /// </returns>
         public static StreamReader GetReader( this Stream stream )
         {
-            if ( stream != null )
+            if( stream != null )
             {
                 try
                 {
@@ -104,7 +104,7 @@ namespace BudgetExecution
         /// </returns>
         public static StreamReader GetReader( this Stream stream, Encoding encoding )
         {
-            if ( stream != null )
+            if( stream != null )
             {
                 try
                 {
@@ -132,7 +132,7 @@ namespace BudgetExecution
         /// </returns>
         public static StreamWriter GetWriter( this Stream stream )
         {
-            if ( stream != null )
+            if( stream != null )
             {
                 try
                 {
@@ -162,7 +162,7 @@ namespace BudgetExecution
         /// </returns>
         public static StreamWriter GetWriter( this Stream stream, Encoding encoding )
         {
-            if ( stream != null 
+            if( stream != null
                 && stream.CanWrite )
             {
                 try
@@ -208,12 +208,12 @@ namespace BudgetExecution
         /// </returns>
         public static string ReadToEnd( this Stream stream, Encoding encoding )
         {
-            if ( stream != null )
+            if( stream != null )
             {
                 try
                 {
                     using var _reader = stream.GetReader( encoding );
-                    return _reader.ReadToEnd();
+                    return _reader.ReadToEnd( );
                 }
                 catch( Exception ex )
                 {
@@ -236,7 +236,7 @@ namespace BudgetExecution
         /// </returns>
         public static Stream SeekBeginning( this Stream stream )
         {
-            if ( stream != null )
+            if( stream != null )
             {
                 try
                 {
@@ -264,7 +264,7 @@ namespace BudgetExecution
         /// </returns>
         public static Stream SeekEnding( this Stream stream )
         {
-            if ( stream != null 
+            if( stream != null
                 && stream.CanSeek )
             {
                 try
@@ -299,9 +299,9 @@ namespace BudgetExecution
         /// </returns>
         public static Stream CopyTo( this Stream stream, Stream target, int buffer )
         {
-            if ( stream != null 
+            if( stream != null
                 && target != null
-                && stream.CanRead 
+                && stream.CanRead
                 && target.CanWrite )
             {
                 try
@@ -337,7 +337,7 @@ namespace BudgetExecution
         /// </returns>
         public static MemoryStream CopyToMemory( this Stream stream )
         {
-            if ( stream != null )
+            if( stream != null )
             {
                 try
                 {
@@ -366,12 +366,12 @@ namespace BudgetExecution
         /// </returns>
         public static IEnumerable<byte> ReadAllBytes( this Stream stream )
         {
-            if ( stream != null )
+            if( stream != null )
             {
                 try
                 {
-                    using var _memory = stream.CopyToMemory();
-                    return _memory.ToArray();
+                    using var _memory = stream.CopyToMemory( );
+                    return _memory.ToArray( );
                 }
                 catch( Exception ex )
                 {
@@ -397,7 +397,7 @@ namespace BudgetExecution
         /// </returns>
         public static IEnumerable<byte> ReadFixedbuffersize( this Stream stream, int bufsize )
         {
-            if ( stream != null )
+            if( stream != null )
             {
                 try
                 {
@@ -440,7 +440,7 @@ namespace BudgetExecution
         /// </param>
         public static void Write( this Stream stream, byte[ ] bytes )
         {
-            if ( stream != null )
+            if( stream != null )
             {
                 try
                 {
@@ -460,8 +460,8 @@ namespace BudgetExecution
         private static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

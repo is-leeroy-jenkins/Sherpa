@@ -17,8 +17,8 @@ namespace BudgetExecution
     /// incurred.
     /// </summary>
     /// <seealso cref = "Expense"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public abstract class Cost : Expense, ICostBase
     {
         /// <summary>
@@ -27,7 +27,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; } 
+        public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Gets or sets the program project code.
@@ -35,7 +35,7 @@ namespace BudgetExecution
         /// <value>
         /// The program project code.
         /// </value>
-        public IElement ProgramProjectCode { get; set; } 
+        public IElement ProgramProjectCode { get; set; }
 
         /// <summary>
         /// Gets or sets the program area code.
@@ -43,7 +43,7 @@ namespace BudgetExecution
         /// <value>
         /// The program area code.
         /// </value>
-        public IElement ProgramAreaCode { get; set; } 
+        public IElement ProgramAreaCode { get; set; }
 
         /// <summary>
         /// Gets or sets the NPM code.
@@ -51,7 +51,7 @@ namespace BudgetExecution
         /// <value>
         /// The NPM code.
         /// </value>
-        public IElement NpmCode { get; set; } 
+        public IElement NpmCode { get; set; }
 
         /// <summary>
         /// Gets the foc code.
@@ -59,7 +59,7 @@ namespace BudgetExecution
         /// <value>
         /// The foc code.
         /// </value>
-        public IElement FocCode { get; set; } 
+        public IElement FocCode { get; set; }
 
         /// <summary>
         /// Gets the name of the foc.
@@ -67,7 +67,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the foc.
         /// </value>
-        public IElement FocName { get; set; } 
+        public IElement FocName { get; set; }
 
         /// <summary>
         /// Gets the type of the document.
@@ -75,7 +75,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the document.
         /// </value>
-        public IElement DocPrefix { get; set; } 
+        public IElement DocPrefix { get; set; }
 
         /// <summary>
         /// Gets the document prefix.
@@ -83,7 +83,7 @@ namespace BudgetExecution
         /// <value>
         /// The document prefix.
         /// </value>
-        public IElement DocType { get; set; } 
+        public IElement DocType { get; set; }
 
         /// <summary>
         /// Gets the DCN.
@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// <value>
         /// The DCN.
         /// </value>
-        public IElement DCN { get; set; } 
+        public IElement DCN { get; set; }
 
         /// <summary>
         /// Gets the grant number.
@@ -99,7 +99,7 @@ namespace BudgetExecution
         /// <value>
         /// The grant number.
         /// </value>
-        public IElement GrantNumber { get; set; } 
+        public IElement GrantNumber { get; set; }
 
         /// <summary>
         /// Gets the obligating document number.
@@ -107,7 +107,7 @@ namespace BudgetExecution
         /// <value>
         /// The obligating document number.
         /// </value>
-        public IElement ObligatingDocumentNumber { get; set; } 
+        public IElement ObligatingDocumentNumber { get; set; }
 
         /// <summary>
         /// Gets the reimbursable agreement number.
@@ -115,7 +115,7 @@ namespace BudgetExecution
         /// <value>
         /// The reimbursable agreement number.
         /// </value>
-        public IElement AgreementNumber { get; set; } 
+        public IElement AgreementNumber { get; set; }
 
         /// <summary>
         /// Gets the site project code.
@@ -123,7 +123,7 @@ namespace BudgetExecution
         /// <value>
         /// The site project code.
         /// </value>
-        public IElement SiteProjectCode { get; set; } 
+        public IElement SiteProjectCode { get; set; }
 
         /// <summary>
         /// Gets the system.
@@ -131,7 +131,7 @@ namespace BudgetExecution
         /// <value>
         /// The system.
         /// </value>
-        public IElement System { get; set; } 
+        public IElement System { get; set; }
 
         /// <summary>
         /// Gets the transaction number.
@@ -139,7 +139,7 @@ namespace BudgetExecution
         /// <value>
         /// The transaction number.
         /// </value>
-        public IElement TransactionNumber { get; set; } 
+        public IElement TransactionNumber { get; set; }
 
         /// <summary>
         /// Gets the purchase request.
@@ -147,8 +147,8 @@ namespace BudgetExecution
         /// <value>
         /// The purchase request.
         /// </value>
-        public IElement PurchaseRequest { get; set; } 
-        
+        public IElement PurchaseRequest { get; set; }
+
         /// <summary>
         /// Converts to dictionary.
         /// </summary>
@@ -178,7 +178,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( FocCode?.Value?.ToString() )
+                return Verify.IsInput( FocCode?.Value?.ToString( ) )
                     ? FocCode
                     : default( IElement );
             }
@@ -198,7 +198,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( FocName?.Value?.ToString() )
+                return Verify.IsInput( FocName?.Value?.ToString( ) )
                     ? FocName
                     : default( IElement );
             }
@@ -218,7 +218,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( ProgramProjectCode?.Value?.ToString() )
+                return Verify.IsInput( ProgramProjectCode?.Value?.ToString( ) )
                     ? ProgramProjectCode
                     : default( IElement );
             }
@@ -238,7 +238,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( ProgramAreaCode?.Value?.ToString() )
+                return Verify.IsInput( ProgramAreaCode?.Value?.ToString( ) )
                     ? ProgramAreaCode
                     : default( IElement );
             }
@@ -258,7 +258,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( NpmCode?.Value?.ToString() )
+                return Verify.IsInput( NpmCode?.Value?.ToString( ) )
                     ? NpmCode
                     : default( IElement );
             }
@@ -278,7 +278,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( DocPrefix?.Value?.ToString() )
+                return Verify.IsInput( DocPrefix?.Value?.ToString( ) )
                     ? DocPrefix
                     : default( IElement );
             }
@@ -298,7 +298,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( DocType?.Value?.ToString() )
+                return Verify.IsInput( DocType?.Value?.ToString( ) )
                     ? DocType
                     : default( IElement );
             }
@@ -318,7 +318,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( AgreementNumber?.Value?.ToString() )
+                return Verify.IsInput( AgreementNumber?.Value?.ToString( ) )
                     ? AgreementNumber
                     : default( IElement );
             }
@@ -338,7 +338,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( SiteProjectCode?.Value?.ToString() )
+                return Verify.IsInput( SiteProjectCode?.Value?.ToString( ) )
                     ? SiteProjectCode
                     : default( IElement );
             }
@@ -358,7 +358,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( System?.Value?.ToString() )
+                return Verify.IsInput( System?.Value?.ToString( ) )
                     ? System
                     : default( IElement );
             }
@@ -378,7 +378,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( PurchaseRequest?.Value?.ToString() )
+                return Verify.IsInput( PurchaseRequest?.Value?.ToString( ) )
                     ? PurchaseRequest
                     : default( IElement );
             }
@@ -398,7 +398,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( DCN?.Value?.ToString() )
+                return Verify.IsInput( DCN?.Value?.ToString( ) )
                     ? DCN
                     : default( IElement );
             }
@@ -418,7 +418,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( GrantNumber?.Value?.ToString() )
+                return Verify.IsInput( GrantNumber?.Value?.ToString( ) )
                     ? GrantNumber
                     : default( IElement );
             }
@@ -438,7 +438,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( ObligatingDocumentNumber?.Value?.ToString() )
+                return Verify.IsInput( ObligatingDocumentNumber?.Value?.ToString( ) )
                     ? ObligatingDocumentNumber
                     : default( IElement );
             }
@@ -458,7 +458,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( TransactionNumber?.Value?.ToString() )
+                return Verify.IsInput( TransactionNumber?.Value?.ToString( ) )
                     ? TransactionNumber
                     : default( IElement );
             }

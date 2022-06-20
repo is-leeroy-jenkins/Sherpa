@@ -70,14 +70,14 @@ namespace BudgetExecution
         /// The bud ex configuration.
         /// </value>
         public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
-        
+
         /// <summary>
         /// Initializes a new instance of
         /// the <see cref="BudgetDataGridForm"/> class.
         /// </summary>
         public BudgetDataGridForm()
         {
-            InitializeComponent();
+            InitializeComponent( );
 
             // Form Properties
             Size = new Size( 1200, 700 );

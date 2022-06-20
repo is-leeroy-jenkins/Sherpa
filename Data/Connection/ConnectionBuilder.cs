@@ -17,11 +17,11 @@ namespace BudgetExecution
     /// <seealso cref="ISource" />
     /// <seealso cref="IProvider" />
     /// <seealso cref="IConnectionBuilder" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" )]
+    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
     public class ConnectionBuilder : ConnectionBase, ISource, IProvider, IConnectionBuilder
     {
         /// <summary>
@@ -53,7 +53,7 @@ namespace BudgetExecution
             FileName = Path.GetFileNameWithoutExtension( FilePath );
             ProviderPath = ConfigurationManager.AppSettings;
             FileExtension = (EXT)Enum.Parse( typeof( EXT ), Path.GetExtension( FilePath ) );
-            TableName = Source.ToString(); 
+            TableName = Source.ToString( );
             ConnectionString = GetConnectionString( Provider );
         }
 
@@ -90,7 +90,7 @@ namespace BudgetExecution
             FileName = Path.GetFileNameWithoutExtension( fullPath );
             ProviderPath = ConfigurationManager.AppSettings;
             FileExtension = (EXT)Enum.Parse( typeof( EXT ), Path.GetExtension( fullPath ) );
-            TableName = Source.ToString();
+            TableName = Source.ToString( );
             ConnectionString = GetConnectionString( Provider );
         }
     }

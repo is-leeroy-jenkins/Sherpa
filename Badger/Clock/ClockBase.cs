@@ -17,9 +17,9 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Clock" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
     public abstract class ClockBase : Clock, IClock
     {
         /// <summary>
@@ -249,9 +249,9 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        if( Verify.IsInput( Tag?.ToString() ) )
+                        if( Verify.IsInput( Tag?.ToString( ) ) )
                         {
-                            var _text = Tag?.ToString()?.SplitPascal();
+                            var _text = Tag?.ToString( )?.SplitPascal( );
                             var _ = new ToolTip( _budgetClock, _text );
                         }
                     }
@@ -294,8 +294,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

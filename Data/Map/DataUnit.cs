@@ -11,8 +11,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="IDataUnit" />
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
     public abstract class DataUnit : IDataUnit
     {
         /// <summary>
@@ -32,7 +32,7 @@ namespace BudgetExecution
         /// Gets the field.
         /// </summary>
         public virtual Field Field { get; set; }
-        
+
         /// <summary>
         /// Determines whether the specified dataUnit is match.
         /// </summary>
@@ -59,7 +59,7 @@ namespace BudgetExecution
 
             return false;
         }
-        
+
         /// <summary>
         /// Determines whether the specified dataUnit is match.
         /// </summary>
@@ -95,7 +95,7 @@ namespace BudgetExecution
         {
             using var _error = new Error( ex );
             _error?.SetText( ex );
-            _error?.ShowDialog();
+            _error?.ShowDialog( );
         }
     }
 }

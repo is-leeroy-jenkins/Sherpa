@@ -12,9 +12,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" )]
     public class Heading : Grid
     {
         /// <summary>
@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <value>
         /// From.
         /// </value>
-        public  (int Row, int Column) Anchor { get; set; }
+        public (int Row, int Column) Anchor { get; set; }
 
         /// <summary>
         /// Gets or sets the caption.
@@ -54,12 +54,12 @@ namespace BudgetExecution
         /// <param name="grid"></param>
         public Heading( IGrid grid )
         {
-            Worksheet = grid.GetWorksheet();
-            Range = grid.GetRange();
-            Address = grid.GetAddress();
-            From = ( Range.Start.Row, Range.Start.Column );
-            To = ( Range.Start.Row, Range.End.Column );
-            Anchor = ( From.Row, From.Column );
+            Worksheet = grid.GetWorksheet( );
+            Range = grid.GetRange( );
+            Address = grid.GetAddress( );
+            From = (Range.Start.Row, Range.Start.Column);
+            To = (Range.Start.Row, Range.End.Column);
+            Anchor = (From.Row, From.Column);
         }
 
         /// <summary>
@@ -97,19 +97,19 @@ namespace BudgetExecution
         /// Gets the anchor.
         /// </summary>
         /// <returns></returns>
-        public ( int Row, int Column ) GetAnchor()
+        public (int Row, int Column) GetAnchor()
         {
             try
             {
-                return Anchor.Row > 0 
+                return Anchor.Row > 0
                     && Anchor.Column > 0
                         ? Anchor
-                        : ( 0, 0 );
+                        : (0, 0);
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return ( 0, 0 );
+                return (0, 0);
             }
         }
 
@@ -121,7 +121,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Caption?.Any() == true
+                return Caption?.Any( ) == true
                     ? Caption
                     : default( IDictionary<int, string> );
             }

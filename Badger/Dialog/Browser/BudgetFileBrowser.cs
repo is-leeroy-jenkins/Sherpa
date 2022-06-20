@@ -13,7 +13,7 @@ namespace BudgetExecution
     {
         public BudgetFileBrowser()
         {
-            InitializeComponent();
+            InitializeComponent( );
             Size = new Size( 700, 530 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             CloseButton.Click += OnCloseButtonClicked;
@@ -30,9 +30,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Close();
+                    Close( );
                 }
-                catch ( Exception ex )
+                catch( Exception ex )
                 {
                     Fail( ex );
                 }
@@ -46,8 +46,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

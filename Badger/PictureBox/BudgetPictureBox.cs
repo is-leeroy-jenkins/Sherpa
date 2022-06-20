@@ -92,7 +92,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         public BudgetPictureBox( Size size, Point location )
-            : this()
+            : this( )
         {
             Size = size;
             Location = location;
@@ -105,10 +105,10 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="imageBuilder">The imagebuilder.</param>
         public BudgetPictureBox( ImageBuilder imageBuilder )
-            : this()
+            : this( )
         {
             BudgetImage = new BudgetImage( imageBuilder );
-            InitialImage = BudgetImage.GetBitmap();
+            InitialImage = BudgetImage.GetBitmap( );
         }
 
         /// <summary>
@@ -118,17 +118,17 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="image">The image.</param>
         public BudgetPictureBox( IBudgetImage image )
-            : this()
+            : this( )
         {
             BudgetImage = image;
-            InitialImage = BudgetImage.GetBitmap();
+            InitialImage = BudgetImage.GetBitmap( );
         }
 
         public BudgetPictureBox( string path )
-            : this()
+            : this( )
         {
             BudgetImage = new BudgetImage( path );
-            InitialImage = BudgetImage.GetBitmap();
+            InitialImage = BudgetImage.GetBitmap( );
         }
     }
 }

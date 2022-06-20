@@ -51,7 +51,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _table = new DataTable();
+                var _table = new DataTable( );
 
                 foreach( DataGridViewColumn _column in dataGridView.Columns )
                 {
@@ -95,12 +95,12 @@ namespace BudgetExecution
         /// </returns>
         public static DataTable SetColumns( this DataGridView dataGridView, string[ ] columns )
         {
-            if( dataGridView?.DataSource != null 
+            if( dataGridView?.DataSource != null
                 && columns?.Length > 0 )
             {
                 try
                 {
-                    using var _grid = dataGridView.GetDataTable();
+                    using var _grid = dataGridView.GetDataTable( );
                     using var _view = new DataView( _grid );
 
                     if( _grid?.Columns.Count > 0 )
@@ -135,18 +135,18 @@ namespace BudgetExecution
         /// </returns>
         public static DataTable SetColumns( this DataGridView dataGridView, Field[ ] fields )
         {
-            if( dataGridView?.DataSource != null 
+            if( dataGridView?.DataSource != null
                 && fields?.Length > 0 )
             {
                 try
                 {
-                    using var _dataTable = dataGridView.GetDataTable();
+                    using var _dataTable = dataGridView.GetDataTable( );
                     using var _view = new DataView( _dataTable );
-                    using var _grid = dataGridView.GetDataTable();
+                    using var _grid = dataGridView.GetDataTable( );
 
                     if( _grid?.Columns?.Count > 0 )
                     {
-                        var _columns = fields?.Select( f => f.ToString() )?.ToArray();
+                        var _columns = fields?.Select( f => f.ToString( ) )?.ToArray( );
                         var _table = _view?.ToTable( true, _columns );
 
                         return _table?.Columns?.Count > 0
@@ -179,7 +179,7 @@ namespace BudgetExecution
         {
             try
             {
-                using var _dataTable = dataGridView?.GetDataTable();
+                using var _dataTable = dataGridView?.GetDataTable( );
 
                 if( _dataTable?.Columns?.Count > 0
                     && index?.Length > 0 )
@@ -228,24 +228,24 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _list = new List<string>();
+                    var _list = new List<string>( );
 
                     foreach( var _row in datagridview.Rows )
                     {
                         if( !( (DataGridViewRow)_row )?.IsNewRow == true )
                         {
                             var _cells = ( (DataGridViewRow)_row )
-                                ?.Cells?.Cast<DataGridViewCell>()
-                                ?.ToArray();
+                                ?.Cells?.Cast<DataGridViewCell>( )
+                                ?.ToArray( );
 
                             var _array = ( (DataGridViewRow)_row )
                                 ?.Cells
-                                ?.Cast<DataGridViewCell>()
-                                ?.ToArray();
+                                ?.Cast<DataGridViewCell>( )
+                                ?.ToArray( );
 
-                            if( _cells?.Any() == true )
+                            if( _cells?.Any( ) == true )
                             {
-                                var _item = string.Join( ",", Array.ConvertAll( _array, c => c.Value?.ToString() ) );
+                                var _item = string.Join( ",", Array.ConvertAll( _array, c => c.Value?.ToString( ) ) );
 
                                 if( !string.IsNullOrEmpty( _item ) )
                                 {
@@ -255,8 +255,8 @@ namespace BudgetExecution
                         }
                     }
 
-                    return _list?.Any() == true
-                        ? _list.ToArray()
+                    return _list?.Any( ) == true
+                        ? _list.ToArray( )
                         : default( string[ ] );
                 }
                 catch( Exception ex )
@@ -287,7 +287,7 @@ namespace BudgetExecution
 
                     if( !string.IsNullOrEmpty( _path ) )
                     {
-                        File.WriteAllLines( _path, dataGridView.CommaDelimitedRows() );
+                        File.WriteAllLines( _path, dataGridView.CommaDelimitedRows( ) );
                     }
                 }
                 catch( Exception ex )
@@ -326,7 +326,7 @@ namespace BudgetExecution
         /// <see cref="DataTable" /></param>
         public static void PascalizeHeaders( this DataGridView dataGridView, DataTable dataTable )
         {
-            if( dataGridView != null 
+            if( dataGridView != null
                 && dataTable?.Columns?.Count > 0 )
             {
                 try
@@ -357,7 +357,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _table = dataGridView.GetDataTable();
+                    using var _table = dataGridView.GetDataTable( );
 
                     if( _table?.Columns?.Count > 0 )
                     {
@@ -384,8 +384,8 @@ namespace BudgetExecution
         private static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

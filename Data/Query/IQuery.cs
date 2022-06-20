@@ -18,7 +18,7 @@ namespace BudgetExecution
         ///   <c>true</c> if this instance is disposed; otherwise, <c>false</c>.
         /// </value>
         bool IsDisposed { get; set; }
-        
+
         /// <summary>
         /// Gets the arguments.
         /// </summary>

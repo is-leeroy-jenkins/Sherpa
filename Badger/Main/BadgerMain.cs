@@ -12,7 +12,7 @@ namespace BudgetExecution
     {
         public BadgerMain()
         {
-            InitializeComponent();
+            InitializeComponent( );
 
             // Form Property Values
             BackColor = Color.FromArgb( 18, 18, 18 );

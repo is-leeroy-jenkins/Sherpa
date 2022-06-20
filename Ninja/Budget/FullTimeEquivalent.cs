@@ -18,13 +18,13 @@ namespace BudgetExecution
     /// an FullTimeEquivalent of 0.5 signals half of a full work or school load.
     /// </summary>
     /// <seealso cref = "ProgramResultsCode"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class FullTimeEquivalent : ProgramResultsCode, IFullTimeEquivalent
     {
         /// <summary>
         /// The source
         /// </summary>
-        public new Source Source { get; } =  Source.FullTimeEquivalents;
+        public new Source Source { get; } = Source.FullTimeEquivalents;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -72,7 +72,7 @@ namespace BudgetExecution
             ID = new Key( Record, PrimaryKey.AllocationsId );
             Amount = new Amount( Record, Numeric.Amount );
         }
-        
+
         /// <summary>
         /// Gets the ProgramResultCodes identifier.
         /// </summary>

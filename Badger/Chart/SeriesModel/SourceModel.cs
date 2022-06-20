@@ -15,9 +15,9 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="ChartDataBindModel" />
     /// <seealso cref="ISourceModel" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" )]
     public class SourceModel : ChartDataBindModel, ISourceModel
     {
         /// <summary>
@@ -92,12 +92,12 @@ namespace BudgetExecution
         public SourceModel( IEnumerable<DataRow> data, ISeriesConfig seriesConfig )
         {
             SourceBinding = new ChartBinding( data, seriesConfig );
-            BindingModel = new ChartDataBindModel( data, seriesConfig?.Field.ToString() );
-            SourceData = SourceBinding.GetData();
-            Configuration = SourceBinding?.GetSeriesConfig();
+            BindingModel = new ChartDataBindModel( data, seriesConfig?.Field.ToString( ) );
+            SourceData = SourceBinding.GetData( );
+            Configuration = SourceBinding?.GetSeriesConfig( );
             Stat = Configuration.Stat;
-            Metric = SourceBinding?.GetDataMetric();
-            SeriesData = Metric?.CalculateStatistics();
+            Metric = SourceBinding?.GetDataMetric( );
+            SeriesData = Metric?.CalculateStatistics( );
             BindingModel.Changed += OnChanged;
         }
 
@@ -108,13 +108,13 @@ namespace BudgetExecution
         /// <param name="seriesConfig">The seriesConfig.</param>
         public SourceModel( DataTable table, ISeriesConfig seriesConfig )
         {
-            SourceBinding = new ChartBinding( table?.AsEnumerable(), seriesConfig );
-            BindingModel = new ChartDataBindModel( table, seriesConfig?.Field.ToString() );
-            SourceData = SourceBinding.GetData();
-            Configuration = SourceBinding?.GetSeriesConfig();
+            SourceBinding = new ChartBinding( table?.AsEnumerable( ), seriesConfig );
+            BindingModel = new ChartDataBindModel( table, seriesConfig?.Field.ToString( ) );
+            SourceData = SourceBinding.GetData( );
+            Configuration = SourceBinding?.GetSeriesConfig( );
             Stat = Configuration.Stat;
-            Metric = SourceBinding?.GetDataMetric();
-            SeriesData = Metric?.CalculateStatistics();
+            Metric = SourceBinding?.GetDataMetric( );
+            SeriesData = Metric?.CalculateStatistics( );
             BindingModel.Changed += OnChanged;
         }
 
@@ -126,14 +126,14 @@ namespace BudgetExecution
         {
             SourceBinding = bindingSource;
             BindingModel = new ChartDataBindModel( SourceBinding );
-            SourceData = SourceBinding.GetData();
-            Configuration = SourceBinding?.GetSeriesConfig();
+            SourceData = SourceBinding.GetData( );
+            Configuration = SourceBinding?.GetSeriesConfig( );
             Stat = Configuration.Stat;
-            Metric = SourceBinding?.GetDataMetric();
-            SeriesData = Metric?.CalculateStatistics();
+            Metric = SourceBinding?.GetDataMetric( );
+            SeriesData = Metric?.CalculateStatistics( );
             BindingModel.Changed += OnChanged;
         }
-        
+
         /// <summary>
         /// Called when [changed].
         /// </summary>
@@ -148,7 +148,7 @@ namespace BudgetExecution
                 try
                 {
                     using var message = new Message( "NOT YET IMPLEMENTED" );
-                    message?.ShowDialog();
+                    message?.ShowDialog( );
                 }
                 catch( Exception ex )
                 {
@@ -164,8 +164,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

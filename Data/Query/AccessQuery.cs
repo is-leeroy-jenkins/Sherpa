@@ -63,7 +63,7 @@ namespace BudgetExecution
         {
             if( disposing )
             {
-                Dispose();
+                Dispose( );
             }
 
             IsDisposed = true;

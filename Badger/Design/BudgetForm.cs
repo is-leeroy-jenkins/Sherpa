@@ -16,12 +16,12 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetSetting" />
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AccessToStaticMemberViaDerivedType" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Global" ) ]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
+    [SuppressMessage( "ReSharper", "AccessToStaticMemberViaDerivedType" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Global" )]
     public class BudgetForm : BudgetSetting
     {
         /// <summary>

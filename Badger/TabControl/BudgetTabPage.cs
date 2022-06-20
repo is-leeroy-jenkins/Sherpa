@@ -15,7 +15,7 @@ namespace BudgetExecution
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Margin = new Padding( 3 );
-            Font = new Font( "Roboto", 9  );
+            Font = new Font( "Roboto", 9 );
             ForeColor = Color.White;
             BackColor = Color.FromArgb( 18, 18, 18 );
             TabBackColor = Color.FromArgb( 18, 18, 18 );

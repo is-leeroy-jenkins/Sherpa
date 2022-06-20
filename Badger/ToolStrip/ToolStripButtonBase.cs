@@ -15,7 +15,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="ToolStripButton" />
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
     public class ToolStripButtonBase : ToolStripButton
     {
         /// <summary>
@@ -112,9 +112,9 @@ namespace BudgetExecution
         /// <param name="item">The item.</param>
         public void SetHoverText( ToolStripItem item )
         {
-            var _text = item?.Tag?.ToString();
+            var _text = item?.Tag?.ToString( );
 
-            if ( !string.IsNullOrEmpty( _text ) )
+            if( !string.IsNullOrEmpty( _text ) )
             {
                 try
                 {
@@ -150,8 +150,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

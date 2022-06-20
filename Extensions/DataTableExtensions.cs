@@ -18,11 +18,11 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "StringIndexOfIsCultureSpecific.1" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "StringIndexOfIsCultureSpecific.1" )]
     public static class DataTableExtensions
     {
         /// <summary>
@@ -54,7 +54,7 @@ namespace BudgetExecution
 
                     foreach( DataColumn col in dataTable.Columns )
                     {
-                        var _row = _dataRow?[ col ]?.ToString()?.Trim( ' ' );
+                        var _row = _dataRow?[ col ]?.ToString( )?.Trim( ' ' );
                         var _node = new XElement( col.ColumnName, _row );
 
                         _element.Add( new XElement( _node ) );
@@ -92,7 +92,7 @@ namespace BudgetExecution
                     throw new Exception( "OSExportToExcelFile: Null or empty input datatable!\n" );
                 }
 
-                var _excel = new ExcelPackage();
+                var _excel = new ExcelPackage( );
                 var _worksheet = _excel?.Workbook?.Worksheets[ 0 ];
 
                 for( var i = 0; i < dataTable?.Columns?.Count; i++ )
@@ -146,7 +146,7 @@ namespace BudgetExecution
         {
             if( dataTable?.Columns.Count > 0
                 && dataTable.Rows.Count > 0
-                && !string.IsNullOrEmpty( filePath ) 
+                && !string.IsNullOrEmpty( filePath )
                 && !string.IsNullOrEmpty( sheetName ) )
             {
                 try
@@ -154,7 +154,7 @@ namespace BudgetExecution
                     var _connection = ConnectionString[ "Excel" ].ConnectionString;
                     var _sql = "SELECT * FROM [" + sheetName + "$]";
                     using var _adapter = new OleDbDataAdapter( _sql, _connection );
-                    
+
                     var _table = new DataTable
                     {
                         TableName = sheetName
@@ -181,12 +181,12 @@ namespace BudgetExecution
         /// <returns>
         ///   <c>true</c> if [has numeric column] [the specified dataTable]; otherwise, <c>false</c>.
         /// </returns>
-        [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+        [SuppressMessage( "ReSharper", "UnusedVariable" )]
         public static bool HasNumericColumn( this DataTable dataTable )
         {
             try
             {
-                if( dataTable?.Rows?.Count > 0 
+                if( dataTable?.Rows?.Count > 0
                     && dataTable.Columns?.Count > 0 )
                 {
                     foreach( DataColumn _column in dataTable.Columns )
@@ -219,7 +219,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( dataTable?.Rows?.Count > 0 
+                if( dataTable?.Rows?.Count > 0
                     && dataTable.Columns?.Count > 0 )
                 {
                     foreach( DataColumn _column in dataTable.Columns )
@@ -249,20 +249,20 @@ namespace BudgetExecution
         {
             try
             {
-                if( dataTable?.Rows?.Count > 0 
+                if( dataTable?.Rows?.Count > 0
                     && dataTable.Columns?.Count > 0 )
                 {
-                    var _list = new List<int>();
+                    var _list = new List<int>( );
 
-                    foreach( var _row in dataTable.AsEnumerable() )
+                    foreach( var _row in dataTable.AsEnumerable( ) )
                     {
-                        if( _row?.HasPrimaryKey() == true )
+                        if( _row?.HasPrimaryKey( ) == true )
                         {
-                            _list.Add( int.Parse( _row[ 0 ].ToString() ) );
+                            _list.Add( int.Parse( _row[ 0 ].ToString( ) ) );
                         }
                     }
 
-                    return _list?.Any() == true
+                    return _list?.Any( ) == true
                         ? _list
                         : default( List<int> );
                 }
@@ -289,13 +289,13 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _enumerable = dataTable?.AsEnumerable()
+                    var _enumerable = dataTable?.AsEnumerable( )
                         ?.Select( p => p.Field<string>( column ) )
-                        ?.Distinct();
+                        ?.Distinct( );
 
-                    var _array = _enumerable as string[ ] ?? _enumerable.ToArray();
+                    var _array = _enumerable as string[ ] ?? _enumerable.ToArray( );
 
-                    return _array.Any()
+                    return _array.Any( )
                         ? _array
                         : default( string[ ] );
                 }
@@ -317,19 +317,19 @@ namespace BudgetExecution
         /// <returns></returns>
         public static string[ ] GetUniqueValues( this DataTable dataTable, Field field )
         {
-            if( dataTable?.Rows.Count > 0 
-                && Enum.IsDefined( typeof( Field ), field ) 
+            if( dataTable?.Rows.Count > 0
+                && Enum.IsDefined( typeof( Field ), field )
                 && dataTable.Columns.Contains( $"{field}" ) )
             {
                 try
                 {
-                    var _enumerable = dataTable?.AsEnumerable()
+                    var _enumerable = dataTable?.AsEnumerable( )
                         ?.Select( p => p.Field<string>( $"{field}" ) )
-                        ?.Distinct();
+                        ?.Distinct( );
 
-                    var _array = _enumerable as string[ ] ?? _enumerable.ToArray();
+                    var _array = _enumerable as string[ ] ?? _enumerable.ToArray( );
 
-                    return _array.Any()
+                    return _array.Any( )
                         ? _array
                         : default( string[ ] );
                 }
@@ -352,18 +352,18 @@ namespace BudgetExecution
         /// <returns></returns>
         public static IEnumerable<DataRow> Filter( this DataTable dataTable, Field field, string filter )
         {
-            if( dataTable?.Columns.Count > 0 
-                && Enum.IsDefined( typeof( Field ), field ) 
-                && !string.IsNullOrEmpty( filter ) 
+            if( dataTable?.Columns.Count > 0
+                && Enum.IsDefined( typeof( Field ), field )
+                && !string.IsNullOrEmpty( filter )
                 && dataTable.Columns.Contains( $"{field}" ) )
             {
                 try
                 {
-                    var _query = dataTable?.AsEnumerable()
+                    var _query = dataTable?.AsEnumerable( )
                         ?.Where( p => p.Field<string>( $"{field}" ).Equals( filter ) )
                         ?.Select( p => p );
 
-                    return _query?.Any() == true
+                    return _query?.Any( ) == true
                         ? _query
                         : default( EnumerableRowCollection<DataRow> );
                 }
@@ -395,9 +395,9 @@ namespace BudgetExecution
 
                 var _names = _fields?.OrderBy( f => f.IndexOf( f ) )
                     ?.Select( f => f )
-                    ?.ToArray();
+                    ?.ToArray( );
 
-                return _names.Any()
+                return _names.Any( )
                     ? _names
                     : default( string[ ] );
             }
@@ -417,7 +417,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _index = new Dictionary<string, int>();
+                var _index = new Dictionary<string, int>( );
 
                 for( var i = 0; i < dataTable.Columns.Count; i++ )
                 {
@@ -442,8 +442,8 @@ namespace BudgetExecution
         private static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

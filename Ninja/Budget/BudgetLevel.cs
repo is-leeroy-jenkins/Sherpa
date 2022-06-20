@@ -11,8 +11,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class BudgetLevel : IBudgetLevel
     {
         /// <summary>
@@ -45,8 +45,8 @@ namespace BudgetExecution
         public BudgetLevel()
         {
             _level = Level.BudgetObjectClass;
-            _code = ( (int)_level ).ToString();
-            _name = _level.ToString();
+            _code = ( (int)_level ).ToString( );
+            _name = _level.ToString( );
         }
 
         /// <summary>
@@ -58,8 +58,8 @@ namespace BudgetExecution
         public BudgetLevel( string budgetLevel )
         {
             _level = GetLevel( budgetLevel );
-            _code = ( (int)_level ).ToString();
-            _name = _level.ToString();
+            _code = ( (int)_level ).ToString( );
+            _name = _level.ToString( );
         }
 
         /// <summary>
@@ -71,8 +71,8 @@ namespace BudgetExecution
         private BudgetLevel( Level level )
         {
             _level = level;
-            _code = ( (int)_level ).ToString();
-            _name = _level.ToString();
+            _code = ( (int)_level ).ToString( );
+            _name = _level.ToString( );
         }
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Enum.IsDefined( typeof( Level ), _level.ToString() )
-                    ? (int)Enum.Parse( typeof( Level ), _level.ToString() )
+                return Enum.IsDefined( typeof( Level ), _level.ToString( ) )
+                    ? (int)Enum.Parse( typeof( Level ), _level.ToString( ) )
                     : (int)Level.BudgetObjectClass;
             }
             catch( Exception ex )
@@ -195,9 +195,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object>()
+                    return new Dictionary<string, object>( )
                     {
-                        [ $"{_level}" ] = _level.ToString(),
+                        [ $"{_level}" ] = _level.ToString( ),
                         [ $"{_code}" ] = _code,
                         [ $"{_name}" ] = _name
                     };
@@ -221,7 +221,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone() as BudgetLevel;
+                return MemberwiseClone( ) as BudgetLevel;
             }
             catch( Exception ex )
             {
@@ -237,8 +237,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

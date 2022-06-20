@@ -17,10 +17,10 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref = "Query"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    [ SuppressMessage( "ReSharper", "BadListLineBreaks" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
+    [SuppressMessage( "ReSharper", "BadListLineBreaks" )]
     public class SQLiteQuery : Query
     {
         /// <summary>
@@ -130,7 +130,7 @@ namespace BudgetExecution
         {
             try
             {
-                return command.ExecuteReader();
+                return command.ExecuteReader( );
             }
             catch( Exception ex )
             {
@@ -180,7 +180,7 @@ namespace BudgetExecution
                     RestoreDirectory = true
                 };
 
-                if( fdlg.ShowDialog() == DialogResult.OK )
+                if( fdlg.ShowDialog( ) == DialogResult.OK )
                 {
                     _fname = fdlg.FileName;
                 }
@@ -212,24 +212,24 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _dataset = new DataSet();
-                    var _cstring = GetExcelFilePath();
+                    using var _dataset = new DataSet( );
+                    var _cstring = GetExcelFilePath( );
                     var _sql = "SELECT * FROM [" + sheetName + "]";
                     var _msg = "Sheet Does Not Exist!";
                     using var _excelQuery = new ExcelQuery( _cstring );
-                    using var _connection = _excelQuery.GetConnection() as OleDbConnection;
-                    _connection?.Open();
+                    using var _connection = _excelQuery.GetConnection( ) as OleDbConnection;
+                    _connection?.Open( );
                     using var _table = _connection?.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
 
-                    if( _table?.Rows.Count > 0 
+                    if( _table?.Rows.Count > 0
                         && CheckIfSheetNameExists( sheetName, _table ) )
                     {
                         using var _message = new Message( _msg );
-                        _message?.ShowDialog();
+                        _message?.ShowDialog( );
                     }
                     else
                     {
-                        sheetName = _table?.Rows[ 0 ][ "TABLENAME" ].ToString();
+                        sheetName = _table?.Rows[ 0 ][ "TABLENAME" ].ToString( );
                     }
 
                     using var _adapter = new OleDbDataAdapter( _sql, _connection );
@@ -264,18 +264,18 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _dataSet = new DataSet();
-                    using var _dataTable = new DataTable();
+                    using var _dataSet = new DataSet( );
+                    using var _dataTable = new DataTable( );
                     _dataSet.DataSetName = fileName;
                     _dataTable.TableName = sheetName;
                     _dataSet.Tables.Add( _dataTable );
-                    var _cstring = GetExcelFilePath();
+                    var _cstring = GetExcelFilePath( );
 
                     if( Verify.IsInput( _cstring ) )
                     {
                         using var _csvquery = new CsvQuery( _cstring );
-                        var _select = _csvquery.GetCommand();
-                        using var _connection = _csvquery.GetConnection() as OleDbConnection;
+                        var _select = _csvquery.GetCommand( );
+                        using var _connection = _csvquery.GetConnection( ) as OleDbConnection;
                         using var _adapter = new OleDbDataAdapter( _select.CommandText, _connection );
                         _adapter?.Fill( _dataSet, sheetName );
 
@@ -308,7 +308,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return dict.Keys.Any()
+                    return dict.Keys.Any( )
                         ? dict.ToSqlDbParameters( _provider )
                         : default( IEnumerable<DbParameter> );
                 }
@@ -335,14 +335,14 @@ namespace BudgetExecution
         /// </returns>
         private bool CheckIfSheetNameExists( string sheetName, DataTable dataSchema )
         {
-            if( Verify.IsInput( sheetName ) 
+            if( Verify.IsInput( sheetName )
                 && Verify.IsTable( dataSchema ) )
             {
                 for( var i = 0; i < dataSchema.Rows.Count; i++ )
                 {
                     var _dataRow = dataSchema.Rows[ i ];
 
-                    if( sheetName == _dataRow[ "TABLENAME" ].ToString() )
+                    if( sheetName == _dataRow[ "TABLENAME" ].ToString( ) )
                     {
                         return true;
                     }
@@ -366,22 +366,22 @@ namespace BudgetExecution
             SQLiteConnection.CreateFile( "databaseFile.db3" );
             using var _connection = new SQLiteConnection( "Data source=databaseFile.db3" );
             using var _command = new SQLiteCommand( _connection );
-            _connection.Open();
+            _connection.Open( );
             _command.CommandText = _commandText;
-            _command.ExecuteNonQuery();
+            _command.ExecuteNonQuery( );
             _command.CommandText = "INSERT INTO MyTable (Key,Value) Values ('key one','value one')";
-            _command.ExecuteNonQuery();
+            _command.ExecuteNonQuery( );
             _command.CommandText = "INSERT INTO MyTable (Key,Value) Values ('key two','value value')";
-            _command.ExecuteNonQuery();
+            _command.ExecuteNonQuery( );
             _command.CommandText = "Select * FROM MyTable";
-            using var _reader = _command.ExecuteReader();
+            using var _reader = _command.ExecuteReader( );
 
-            while( _reader.Read() )
+            while( _reader.Read( ) )
             {
                 Console.WriteLine( _reader[ "Key" ] + " : " + _reader[ "Value" ] );
             }
 
-            _connection.Close();
+            _connection.Close( );
         }
 
         /// <summary>
@@ -401,7 +401,7 @@ namespace BudgetExecution
         {
             if( disposing )
             {
-                base.Dispose();
+                base.Dispose( );
             }
 
             IsDisposed = true;

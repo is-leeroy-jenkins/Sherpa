@@ -28,8 +28,8 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get;  } = Source.Obligations;
-        
+        public Source Source { get; } = Source.Obligations;
+
         /// <summary>
         /// Gets or sets the amount.
         /// </summary>
@@ -54,10 +54,10 @@ namespace BudgetExecution
         /// </param>
         public Commitment( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ObligationsId );
-            OriginalActionDate = GetOriginalActionDate();
-            Data = Record?.ToDictionary();
+            OriginalActionDate = GetOriginalActionDate( );
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.Commitment;
             Amount = new Amount( Record, Numeric.Amount );
         }
@@ -70,10 +70,10 @@ namespace BudgetExecution
         /// </param>
         public Commitment( IBuilder builder )
         {
-            Record = builder.GetRecord();
+            Record = builder.GetRecord( );
             ID = new Key( Record, PrimaryKey.ObligationsId );
-            OriginalActionDate = GetOriginalActionDate();
-            Data = Record?.ToDictionary();
+            OriginalActionDate = GetOriginalActionDate( );
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.Commitment;
             Amount = new Amount( Record, Numeric.Amount );
         }
@@ -88,12 +88,12 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ObligationsId );
-            OriginalActionDate = GetOriginalActionDate();
-            Data = Record?.ToDictionary();
+            OriginalActionDate = GetOriginalActionDate( );
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.Commitment;
             Amount = new Amount( Record, Numeric.Amount );
         }
-        
+
         /// <summary>
         /// Gets the Commitment identifier.
         /// </summary>

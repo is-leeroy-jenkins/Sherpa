@@ -11,7 +11,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
 
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
     public abstract class ToolTextBoxBase : ToolStripTextBox
     {
         /// <summary>
@@ -78,8 +78,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -15,9 +15,9 @@ namespace BudgetExecution
     /// <seealso cref = "INationalProgram"/>
     /// <seealso cref = "IProgram"/>
     /// <seealso cref = "ISource"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
     public class NationalProgram : Element, INationalProgram, ISource
     {
         /// <summary>
@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <value>
         /// The record.
         /// </value>
-        public DataRow Record { get; set; } 
+        public DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -39,23 +39,23 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; } 
-        
+        public IDictionary<string, object> Data { get; set; }
+
         /// <summary>
         /// Gets the title.
         /// </summary>
         /// <value>
         /// The title.
         /// </value>
-        public IElement Title { get; set; } 
-        
+        public IElement Title { get; set; }
+
         /// <summary>
         /// Gets the rpio code.
         /// </summary>
         /// <value>
         /// The rpio code.
         /// </value>
-        public IElement RpioCode { get; set; } 
+        public IElement RpioCode { get; set; }
 
         /// <summary>
         /// Gets or sets the NPM.
@@ -80,13 +80,13 @@ namespace BudgetExecution
         /// </param>
         public NationalProgram( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.NationalProgramsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             RpioCode = new Element( Record, Field.RpioCode );
             Title = new Element( Record, Field.Title );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
             NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
 
@@ -98,13 +98,13 @@ namespace BudgetExecution
         /// </param>
         public NationalProgram( IBuilder builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.NationalProgramsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             RpioCode = new Element( Record, Field.RpioCode );
             Title = new Element( Record, Field.Title );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
             NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
 
@@ -122,7 +122,7 @@ namespace BudgetExecution
             Code = new Element( Record, Field.Code ).Code;
             RpioCode = new Element( Record, Field.RpioCode );
             Title = new Element( Record, Field.Title );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
             NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
 
@@ -134,16 +134,16 @@ namespace BudgetExecution
         /// </param>
         public NationalProgram( string code )
         {
-            Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
+            Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.NationalProgramsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             RpioCode = new Element( Record, Field.RpioCode );
             Title = new Element( Record, Field.Title );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
             NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
-        
+
         /// <summary>
         /// Sets the arguments.
         /// </summary>
@@ -182,7 +182,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( RpioCode?.Value?.ToString() )
+                return Verify.IsInput( RpioCode?.Value?.ToString( ) )
                     ? RpioCode
                     : Default;
             }
@@ -232,7 +232,7 @@ namespace BudgetExecution
                 return NPM.NS;
             }
         }
-        
+
         /// <summary>
         /// Gets the national program office.
         /// </summary>
@@ -262,7 +262,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone() as INationalProgram;
+                return MemberwiseClone( ) as INationalProgram;
             }
             catch( Exception ex )
             {

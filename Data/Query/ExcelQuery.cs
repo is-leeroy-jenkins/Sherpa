@@ -69,7 +69,7 @@ namespace BudgetExecution
             : base( connectionBuilder, sqlStatement )
         {
         }
-        
+
         /// <summary>
         /// Saves the file.
         /// </summary>
@@ -86,13 +86,13 @@ namespace BudgetExecution
                         FilterIndex = 1
                     };
 
-                    if( _dialog?.ShowDialog() == DialogResult.OK )
+                    if( _dialog?.ShowDialog( ) == DialogResult.OK )
                     {
                         var _name = _dialog.FileName;
                         workBook.Save( _name );
                         const string _successful = "Save Successful!";
                         using var _message = new Message( _successful );
-                        _message?.ShowDialog();
+                        _message?.ShowDialog( );
                     }
                 }
                 catch( Exception ex )
@@ -183,7 +183,7 @@ namespace BudgetExecution
                     RestoreDirectory = true
                 };
 
-                if( dialog.ShowDialog() == DialogResult.OK )
+                if( dialog.ShowDialog( ) == DialogResult.OK )
                 {
                     _fileName = dialog.FileName;
                 }
@@ -208,9 +208,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _dataSet = new DataSet();
-                    using var _connection = GetConnection();
-                    _connection?.Open();
+                    using var _dataSet = new DataSet( );
+                    using var _connection = GetConnection( );
+                    _connection?.Open( );
                     var _sql = "SELECT * FROM [" + sheetName + "]";
 
                     var _schema =
@@ -221,11 +221,11 @@ namespace BudgetExecution
                     {
                         const string _msg = "Sheet Does Not Exist!";
                         using var _message = new Message( _msg );
-                        _message?.ShowDialog();
+                        _message?.ShowDialog( );
                     }
                     else
                     {
-                        sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString();
+                        sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
                     }
 
                     using var _dataAdapter = new OleDbDataAdapter( _sql, _connection as OleDbConnection );
@@ -255,7 +255,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _data = new DataSet();
+                    using var _data = new DataSet( );
                     var _sql = "SELECT * FROM [" + sheetName + "]";
 
                     var _connectionString =
@@ -271,12 +271,12 @@ namespace BudgetExecution
                         {
                             var _msg = $"{sheetName} in {fileName} Does Not Exist!";
                             using var _message = new Message( _msg );
-                            _message?.ShowDialog();
+                            _message?.ShowDialog( );
                         }
                     }
                     else
                     {
-                        sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString();
+                        sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
                     }
 
                     using var _dataAdapter = new OleDbDataAdapter( _sql, _connection );
@@ -301,8 +301,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _filePath = GetConnectionBuilder().ProviderPath[ Provider.ToString() ];
-                var _application = new App();
+                var _filePath = GetConnectionBuilder( ).ProviderPath[ Provider.ToString( ) ];
+                var _application = new App( );
                 var _workbook = _application.Workbooks.Open( _filePath );
                 var worksheet = _workbook.Sheets[ 1 ];
                 var _range = worksheet.UsedRange;
@@ -315,11 +315,11 @@ namespace BudgetExecution
                 {
                     for( var j = 1; j <= _columns; j++ )
                     {
-                        if( _range.Cells[ i, j ]           != null
+                        if( _range.Cells[ i, j ] != null
                             && _range.Cells[ i, j ].Value2 != null )
                         {
                             dataGrid.Rows[ i - 1 ].Cells[ j - 1 ].Value =
-                                _range.Cells[ i, j ].Value2.ToString();
+                                _range.Cells[ i, j ].Value2.ToString( );
                         }
                     }
                 }
@@ -342,7 +342,7 @@ namespace BudgetExecution
         {
             if( Verify.IsInput( sheetName )
                 && dataTable?.Columns.Count > 0
-                && dataTable.Rows.Count     > 0 )
+                && dataTable.Rows.Count > 0 )
             {
                 try
                 {
@@ -350,7 +350,7 @@ namespace BudgetExecution
                     {
                         var _dataRow = dataTable.Rows[ i ];
 
-                        if( sheetName == _dataRow[ "TABLENAME" ].ToString() )
+                        if( sheetName == _dataRow[ "TABLENAME" ].ToString( ) )
                         {
                             return true;
                         }
@@ -377,11 +377,11 @@ namespace BudgetExecution
         {
             try
             {
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
+                GC.Collect( );
+                GC.WaitForPendingFinalizers( );
                 Marshal.ReleaseComObject( range );
                 Marshal.ReleaseComObject( workSheet );
-                excel.Quit();
+                excel.Quit( );
                 Marshal.ReleaseComObject( excel );
             }
             catch( Exception ex )
@@ -405,7 +405,7 @@ namespace BudgetExecution
         {
             if( disposing )
             {
-                base.Dispose();
+                base.Dispose( );
             }
 
             IsDisposed = true;

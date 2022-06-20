@@ -12,16 +12,16 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
     public abstract class ConnectionBase
     {
         /// <summary>
         /// The connector
         /// </summary>
         public virtual ConnectionStringSettingsCollection Connectors { get; set; } = ConfigurationManager.ConnectionStrings;
-        
+
         /// <summary>
         /// The source
         /// </summary>
@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// The connection string
         /// </summary>
         public virtual string ConnectionString { get; set; }
-        
+
         /// <summary>
         /// Sets the file path.
         /// </summary>
@@ -101,7 +101,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( filePath ) 
+                return Verify.IsInput( filePath )
                     && File.Exists( filePath )
                         ? Path.GetFullPath( filePath )
                         : default( string );
@@ -112,7 +112,7 @@ namespace BudgetExecution
                 return string.Empty;
             }
         }
-        
+
         /// <summary>
         /// Sets the provider path.
         /// </summary>
@@ -126,7 +126,7 @@ namespace BudgetExecution
                 try
                 {
                     var _extension = Path.GetExtension( filePath );
-                    var _provider =  (EXT)Enum.Parse( typeof( EXT ), _extension );
+                    var _provider = (EXT)Enum.Parse( typeof( EXT ), _extension );
 
                     return _provider switch
                     {
@@ -167,7 +167,7 @@ namespace BudgetExecution
                         case Provider.Excel:
                         case Provider.CSV:
                         {
-                            var _connection = Connectors[ provider.ToString() ]?.ConnectionString;
+                            var _connection = Connectors[ provider.ToString( ) ]?.ConnectionString;
 
                             return Verify.IsInput( _connection )
                                 ? _connection?.Replace( "{FilePath}", FilePath )
@@ -179,7 +179,7 @@ namespace BudgetExecution
                         case Provider.SqlCe:
                         case Provider.SqlServer:
                         {
-                            var _connection = Connectors[ provider.ToString() ]?.ConnectionString;
+                            var _connection = Connectors[ provider.ToString( ) ]?.ConnectionString;
 
                             return Verify.IsInput( _connection )
                                 ? _connection
@@ -203,8 +203,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

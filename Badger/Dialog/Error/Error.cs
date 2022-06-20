@@ -41,7 +41,7 @@ namespace BudgetExecution
         /// </summary>
         public Error()
         {
-            InitializeComponent();
+            InitializeComponent( );
 
             // Form Property Values
             BackColor = Color.FromArgb( 18, 18, 18 );
@@ -65,7 +65,7 @@ namespace BudgetExecution
             Size = new Size( 812, 486 );
 
             // TextBox Properties
-            TextBox.BackColor =  Color.FromArgb( 18, 18, 18 );
+            TextBox.BackColor = Color.FromArgb( 18, 18, 18 );
             TextBox.BackColorState.Enabled = Color.FromArgb( 18, 18, 18 );
             TextBox.BackColorState.Disabled = Color.FromArgb( 18, 18, 18 );
             TextBox.Border.Type = ShapeTypes.Rounded;
@@ -92,7 +92,7 @@ namespace BudgetExecution
         /// <param name="ext">The ext.</param>
         public Error( Exception ext )
         {
-            InitializeComponent();
+            InitializeComponent( );
             Exception = ext;
             Text = ext.ToLogString( "" );
         }
@@ -103,7 +103,7 @@ namespace BudgetExecution
         /// <param name="message">The message.</param>
         public Error( string message )
         {
-            InitializeComponent();
+            InitializeComponent( );
             TextBox.Text = message;
         }
 

@@ -41,17 +41,17 @@ namespace BudgetExecution
     /// <seealso cref = "IAllowanceHolder"/>
     /// <seealso cref = "IDataBuilder"/>
     /// <seealso cref = "ISource"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Local" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Local" )]
     public class AllowanceHolder : Element, IAllowanceHolder, ISource
     {
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; set; } =  Source.AllowanceHolders;
+        public Source Source { get; set; } = Source.AllowanceHolders;
 
         /// <summary>
         /// Gets or sets the dict.
@@ -59,7 +59,7 @@ namespace BudgetExecution
         /// <value>
         /// The dict.
         /// </value>
-        public DataRow Record { get;  } 
+        public DataRow Record { get; }
 
         /// <summary>
         /// Gets the arguments.
@@ -67,8 +67,8 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get;  } 
-        
+        public IDictionary<string, object> Data { get; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "AllowanceHolder"/> class.
@@ -86,11 +86,11 @@ namespace BudgetExecution
         /// </param>
         public AllowanceHolder( IBuilder dataBuilder )
         {
-            Record = dataBuilder?.GetRecord();
+            Record = dataBuilder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.AllowanceHoldersId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -102,11 +102,11 @@ namespace BudgetExecution
         /// </param>
         public AllowanceHolder( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.AllowanceHoldersId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -117,13 +117,13 @@ namespace BudgetExecution
         /// The Data.
         /// </param>
         public AllowanceHolder( DataRow data )
-            : this()
+            : this( )
         {
             Record = data;
             ID = new Key( Record, PrimaryKey.AllowanceHoldersId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -135,11 +135,11 @@ namespace BudgetExecution
         /// </param>
         public AllowanceHolder( string ahcode )
         {
-            Record = new DataBuilder( Source, SetArgs( ahcode ) )?.GetRecord();
+            Record = new DataBuilder( Source, SetArgs( ahcode ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.AllowanceHoldersId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -200,7 +200,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone() as AllowanceHolder;
+                return MemberwiseClone( ) as AllowanceHolder;
             }
             catch( Exception ex )
             {

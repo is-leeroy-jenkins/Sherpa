@@ -16,8 +16,8 @@ namespace BudgetExecution
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Chart;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public class BudgetChart : ChartBase, IBudgetChart
     {
         /// <summary>
@@ -163,16 +163,16 @@ namespace BudgetExecution
         /// <param name="table">The table.</param>
         /// <param name="seriesConfig">The seriesConfig.</param>
         public BudgetChart( DataTable table, ISeriesConfig seriesConfig )
-            : this()
+            : this( )
         {
             SourceModel = new SourceModel( table, seriesConfig );
             Configuration = seriesConfig;
             ChartData = new SeriesModel( table, seriesConfig );
             DataMetric = SourceModel.Metric;
-            TitleInfo = new TitleInfo( DataMetric.Data?.CopyToDataTable()?.TableName );
+            TitleInfo = new TitleInfo( DataMetric.Data?.CopyToDataTable( )?.TableName );
             DataSeries = new DataSeries( ChartData );
             Series.Add( DataSeries );
-            Titles.Add( TitleInfo.GetChartMainTitle() );
+            Titles.Add( TitleInfo.GetChartMainTitle( ) );
         }
 
         /// <summary>
@@ -181,16 +181,16 @@ namespace BudgetExecution
         /// <param name="dataRows">The data.</param>
         /// <param name="seriesConfig">The seriesConfig.</param>
         public BudgetChart( IEnumerable<DataRow> dataRows, ISeriesConfig seriesConfig )
-            : this()
+            : this( )
         {
             SourceModel = new SourceModel( dataRows, seriesConfig );
             Configuration = seriesConfig;
             ChartData = new SeriesModel( dataRows, seriesConfig );
             DataMetric = SourceModel.Metric;
-            TitleInfo = new TitleInfo( DataMetric.Data?.CopyToDataTable()?.TableName );
+            TitleInfo = new TitleInfo( DataMetric.Data?.CopyToDataTable( )?.TableName );
             DataSeries = new DataSeries( ChartData );
             Series.Add( DataSeries );
-            Titles.Add( TitleInfo.GetChartMainTitle() );
+            Titles.Add( TitleInfo.GetChartMainTitle( ) );
         }
 
         /// <summary>
@@ -200,16 +200,16 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sourceBinding">The sourceBinding.</param>
         public BudgetChart( IChartBinding sourceBinding )
-            : this()
+            : this( )
         {
             SourceModel = new SourceModel( sourceBinding );
-            Configuration = sourceBinding.GetSeriesConfig();
+            Configuration = sourceBinding.GetSeriesConfig( );
             ChartData = new SeriesModel( sourceBinding );
             DataMetric = SourceModel.Metric;
-            TitleInfo = new TitleInfo( DataMetric.Data?.CopyToDataTable()?.TableName );
+            TitleInfo = new TitleInfo( DataMetric.Data?.CopyToDataTable( )?.TableName );
             DataSeries = new DataSeries( ChartData );
             Series.Add( DataSeries );
-            Titles.Add( TitleInfo.GetChartMainTitle() );
+            Titles.Add( TitleInfo.GetChartMainTitle( ) );
         }
 
         /// <summary>
@@ -219,16 +219,16 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sourceModel">The sourceModel.</param>
         public BudgetChart( ISourceModel sourceModel )
-            : this()
+            : this( )
         {
             SourceModel = sourceModel;
-            Configuration = SourceModel.SourceBinding.GetSeriesConfig();
+            Configuration = SourceModel.SourceBinding.GetSeriesConfig( );
             ChartData = new SeriesModel( SourceModel.SourceBinding );
             TitleInfo = new TitleInfo( Configuration.Name );
             DataMetric = SourceModel.Metric;
             DataSeries = new DataSeries( ChartData );
             Series.Add( DataSeries );
-            Titles.Add( TitleInfo.GetChartMainTitle() );
+            Titles.Add( TitleInfo.GetChartMainTitle( ) );
         }
 
         /// <summary>
@@ -239,16 +239,16 @@ namespace BudgetExecution
         /// <param name="sourceModel">The sourceModel.</param>
         /// <param name="titleInfo">The titleInfo.</param>
         public BudgetChart( ISourceModel sourceModel, ITitleInfo titleInfo )
-            : this()
+            : this( )
         {
             SourceModel = sourceModel;
-            Configuration = SourceModel.SourceBinding.GetSeriesConfig();
+            Configuration = SourceModel.SourceBinding.GetSeriesConfig( );
             TitleInfo = titleInfo;
             DataMetric = SourceModel.Metric;
             ChartData = new SeriesModel( SourceModel.SourceBinding );
             DataSeries = new DataSeries( ChartData );
             Series.Add( DataSeries );
-            Titles.Add( TitleInfo.GetChartMainTitle() );
+            Titles.Add( TitleInfo.GetChartMainTitle( ) );
         }
 
         /// <summary>
@@ -259,7 +259,7 @@ namespace BudgetExecution
         /// <param name="chartData">The chartData.</param>
         /// <param name="titleInfo">The titleInfo.</param>
         public BudgetChart( ISeriesModel chartData, ITitleInfo titleInfo )
-            : this()
+            : this( )
         {
             ChartData = chartData;
             Configuration = ChartData.SeriesConfiguration;
@@ -268,9 +268,9 @@ namespace BudgetExecution
             DataMetric = ChartData.DataMetric;
             DataSeries = new DataSeries( ChartData );
             Series.Add( DataSeries );
-            Titles.Add( TitleInfo.GetChartMainTitle() );
+            Titles.Add( TitleInfo.GetChartMainTitle( ) );
         }
-        
+
         /// <summary>
         /// Sets the size.
         /// </summary>
@@ -364,10 +364,10 @@ namespace BudgetExecution
             {
                 if( Titles?.Count > 0 )
                 {
-                    Titles.Clear();
+                    Titles.Clear( );
                 }
 
-                using var title = new ChartTitle();
+                using var title = new ChartTitle( );
                 title.Visible = true;
                 title.Font = font;
                 title.BackColor = Color.FromArgb( 18, 18, 18 );

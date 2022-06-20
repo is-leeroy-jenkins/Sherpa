@@ -16,7 +16,7 @@ namespace BudgetExecution
         /// SQL
         /// </returns>
         SQL GetCommandType();
-        
+
         /// <summary>
         /// Gets the select statement.
         /// </summary>

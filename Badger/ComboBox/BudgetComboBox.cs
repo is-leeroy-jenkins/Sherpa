@@ -88,7 +88,7 @@ namespace BudgetExecution
             Dock = DockStyle.None;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
-            Font = new Font( "Roboto", 9  );
+            Font = new Font( "Roboto", 9 );
             ForeColor = Color.White;
             Enabled = true;
             Visible = true;
@@ -107,7 +107,7 @@ namespace BudgetExecution
             // Item SeriesConfiguration
             ItemHeight = 30;
         }
-        
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="BudgetComboBox" />
@@ -116,7 +116,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         public BudgetComboBox( Size size, Point location )
-            : this()
+            : this( )
         {
             Size = size;
             Location = location;
@@ -130,7 +130,7 @@ namespace BudgetExecution
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
         public BudgetComboBox( Point location, Control parent = null )
-            : this()
+            : this( )
         {
             Location = location;
 
@@ -149,7 +149,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="parent">The parent.</param>
         public BudgetComboBox( Size size, Control parent = null )
-            : this()
+            : this( )
         {
             Size = size;
 
@@ -169,7 +169,7 @@ namespace BudgetExecution
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
         public BudgetComboBox( Size size, Point location, Control parent )
-            : this()
+            : this( )
         {
             Size = size;
             Location = location;
@@ -184,7 +184,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="title">The title.</param>
         public BudgetComboBox( string title )
-            : this()
+            : this( )
         {
             Text = title;
         }
@@ -263,7 +263,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Adds the control item.
         /// </summary>
@@ -293,7 +293,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _children = new List<Control>();
+                    var _children = new List<Control>( );
 
                     foreach( Control _item in Controls )
                     {
@@ -303,7 +303,7 @@ namespace BudgetExecution
                         }
                     }
 
-                    return _children.Any()
+                    return _children.Any( )
                         ? _children
                         : default( List<Control> );
                 }

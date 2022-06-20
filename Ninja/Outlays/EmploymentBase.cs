@@ -11,7 +11,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref = "IEmploymentInfo"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public abstract class EmploymentBase : IEmploymentInfo
     {
         /// <summary>
@@ -125,7 +125,7 @@ namespace BudgetExecution
         /// The WIGI due date.
         /// </value>
         public ITime WigiDueDate { get; set; }
-        
+
         /// <summary>
         /// Gets the employee number.
         /// </summary>
@@ -255,7 +255,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( ServiceDate?.Value?.ToString() )
+                return Verify.IsInput( ServiceDate?.Value?.ToString( ) )
                     ? ServiceDate
                     : default( ITime );
             }
@@ -275,7 +275,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( GradeEntryDate?.Value?.ToString() )
+                return Verify.IsInput( GradeEntryDate?.Value?.ToString( ) )
                     ? GradeEntryDate
                     : default( ITime );
             }
@@ -295,7 +295,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( StepEntryDate?.Value?.ToString() )
+                return Verify.IsInput( StepEntryDate?.Value?.ToString( ) )
                     ? StepEntryDate
                     : default( ITime );
             }
@@ -315,7 +315,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( WigiDueDate?.Value?.ToString() )
+                return Verify.IsInput( WigiDueDate?.Value?.ToString( ) )
                     ? WigiDueDate
                     : default( ITime );
             }
@@ -413,8 +413,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

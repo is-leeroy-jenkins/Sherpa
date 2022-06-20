@@ -31,7 +31,7 @@ namespace BudgetExecution
                 + ";Jet OLEDB:Database Password=h@#%^ein;";
 
             _connection = new OleDbConnection( connectionstring );
-            _connection?.Open();
+            _connection?.Open( );
         }
 
         /// <summary>
@@ -40,14 +40,14 @@ namespace BudgetExecution
         /// <returns></returns>
         public IEnumerable<string> GetTableNames()
         {
-            var _names = new List<string>();
+            var _names = new List<string>( );
             var _restrictions = new string[ 4 ];
             _restrictions[ 3 ] = "Table";
             var _schema = _connection.GetSchema( "Tables", _restrictions );
 
             for( var i = 0; i < _schema.Rows.Count; i++ )
             {
-                _names.Add( _schema.Rows[ i ][ 2 ].ToString() );
+                _names.Add( _schema.Rows[ i ][ 2 ].ToString( ) );
             }
 
             return _names;
@@ -62,7 +62,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _table = new DataTable();
+                var _table = new DataTable( );
                 var _adapter = new OleDbDataAdapter( "SELECT * FROM " + name, _connection );
                 _adapter.Fill( _table );
 
@@ -84,10 +84,10 @@ namespace BudgetExecution
         /// <returns></returns>
         public List<string> GetColumnNames( string tableName )
         {
-            var _names = new List<string>();
+            var _names = new List<string>( );
             using var _command = new OleDbCommand( "select * from " + tableName, _connection );
             using var _dataReader = _command.ExecuteReader( CommandBehavior.SchemaOnly );
-            var _dataTable = _dataReader.GetSchemaTable();
+            var _dataTable = _dataReader.GetSchemaTable( );
             var _dataColumn = _dataTable?.Columns[ "ColumnName" ];
 
             if( _dataTable?.Rows != null )
@@ -96,12 +96,12 @@ namespace BudgetExecution
                 {
                     if( _dataColumn != null )
                     {
-                        _names.Add( row[ _dataColumn ].ToString() );
+                        _names.Add( row[ _dataColumn ].ToString( ) );
                     }
                 }
             }
 
-            return _names?.Any() == true
+            return _names?.Any( ) == true
                 ? _names
                 : default( List<string> );
         }

@@ -7,8 +7,8 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using Syncfusion.Windows.Forms.Tools;
-    
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
     public abstract class ToolStripBase : ToolStripEx
     {
         /// <summary>
@@ -218,7 +218,7 @@ namespace BudgetExecution
         /// The save button.
         /// </value>
         public BudgetToolStripButton SaveButton { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the browse button.
         /// </summary>
@@ -258,7 +258,7 @@ namespace BudgetExecution
         /// The progress bar.
         /// </value>
         public BudgetToolStripProgressBar ProgressBar { get; set; }
-        
+
         /// <summary>
         /// Get Error Dialog.
         /// </summary>
@@ -266,8 +266,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

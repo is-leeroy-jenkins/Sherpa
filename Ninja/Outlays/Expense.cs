@@ -12,10 +12,10 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="PrcBase" />
     /// <seealso cref="IExpense" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public abstract class Expense : PrcBase, IExpense
     {
         /// <summary>
@@ -24,7 +24,7 @@ namespace BudgetExecution
         /// <value>
         /// The original action date.
         /// </value>
-        public ITime OriginalActionDate { get; set; } 
+        public ITime OriginalActionDate { get; set; }
 
         /// <summary>
         /// Gets or sets the hr org code.
@@ -32,7 +32,7 @@ namespace BudgetExecution
         /// <value>
         /// The hr org code.
         /// </value>
-        public IElement HrOrgCode { get; set; } 
+        public IElement HrOrgCode { get; set; }
 
         /// <summary>
         /// Gets or sets the work code.
@@ -40,7 +40,7 @@ namespace BudgetExecution
         /// <value>
         /// The work code.
         /// </value>
-        public IElement WorkCode { get; set; } 
+        public IElement WorkCode { get; set; }
 
         /// <summary>
         /// Gets or sets the type.
@@ -48,7 +48,7 @@ namespace BudgetExecution
         /// <value>
         /// The type.
         /// </value>
-        public ExpenseType Type { get; set; } 
+        public ExpenseType Type { get; set; }
 
         /// <summary>
         /// Gets or sets the pay period.
@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// <value>
         /// The pay period.
         /// </value>
-        public IElement PayPeriod { get; set; } 
+        public IElement PayPeriod { get; set; }
 
         /// <summary>
         /// Gets or sets the commitments.
@@ -64,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         /// The commitments.
         /// </value>
-        public IAmount Commitments { get; set; } 
+        public IAmount Commitments { get; set; }
 
         /// <summary>
         /// Gets or sets the open commitments.
@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The open commitments.
         /// </value>
-        public IAmount OpenCommitments { get; set; } 
+        public IAmount OpenCommitments { get; set; }
 
         /// <summary>
         /// Gets or sets the ulo.
@@ -80,7 +80,7 @@ namespace BudgetExecution
         /// <value>
         /// The ulo.
         /// </value>
-        public IAmount ULO { get; set; } 
+        public IAmount ULO { get; set; }
 
         /// <summary>
         /// Gets or sets the obligations.
@@ -88,7 +88,7 @@ namespace BudgetExecution
         /// <value>
         /// The obligations.
         /// </value>
-        public IAmount Obligations { get; set; } 
+        public IAmount Obligations { get; set; }
 
         /// <summary>
         /// Gets or sets the deobligations.
@@ -96,7 +96,7 @@ namespace BudgetExecution
         /// <value>
         /// The deobligations.
         /// </value>
-        public IAmount Deobligations { get; set; } 
+        public IAmount Deobligations { get; set; }
 
         /// <summary>
         /// Gets or sets the expenditures.
@@ -104,7 +104,7 @@ namespace BudgetExecution
         /// <value>
         /// The expenditures.
         /// </value>
-        public IAmount Expenditures { get; set; } 
+        public IAmount Expenditures { get; set; }
 
         /// <summary>
         /// Gets the available balance.
@@ -112,8 +112,8 @@ namespace BudgetExecution
         /// <value>
         /// The available balance.
         /// </value>
-        public IAmount Balance { get; set; } 
-        
+        public IAmount Balance { get; set; }
+
         /// <summary>
         /// Gets the original action date.
         /// </summary>
@@ -217,7 +217,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Enum.IsDefined( typeof( ExpenseType ), Type.ToString() )
+                return Enum.IsDefined( typeof( ExpenseType ), Type.ToString( ) )
                     ? Type
                     : ExpenseType.NS;
             }
@@ -237,7 +237,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( PayPeriod?.Value?.ToString() )
+                return Verify.IsInput( PayPeriod?.Value?.ToString( ) )
                     ? PayPeriod
                     : default( IElement );
             }
@@ -257,7 +257,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( HrOrgCode?.Value?.ToString() )
+                return Verify.IsInput( HrOrgCode?.Value?.ToString( ) )
                     ? HrOrgCode
                     : default( IElement );
             }
@@ -277,7 +277,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( WorkCode?.Value?.ToString() )
+                return Verify.IsInput( WorkCode?.Value?.ToString( ) )
                     ? WorkCode
                     : default( IElement );
             }

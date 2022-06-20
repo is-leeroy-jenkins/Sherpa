@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class Computation : Builder, IDataFilter
     {
         /// <summary>
@@ -39,7 +39,7 @@ namespace BudgetExecution
         /// </param>
         public Computation( IDataAccess data )
         {
-            _dataRow = data.GetData();
+            _dataRow = data.GetData( );
         }
 
         /// <summary>
@@ -54,18 +54,18 @@ namespace BudgetExecution
         /// </returns>
         public IEnumerable<DataRow> FilterData( Field field, string filter )
         {
-            if( GetData()?.Any() == true
+            if( GetData( )?.Any( ) == true
                 && Enum.IsDefined( typeof( Field ), field )
                 && Verify.IsInput( filter ) )
             {
                 try
                 {
-                    var _select = GetData()
+                    var _select = GetData( )
                         ?.Where( p => p.Field<string>( $"{field}" ).Equals( filter ) )
                         ?.Select( p => p );
 
-                    return _select?.Any() == true 
-                        ? _select.ToArray()
+                    return _select?.Any( ) == true
+                        ? _select.ToArray( )
                         : default( DataRow[ ] );
                 }
                 catch( Exception ex )

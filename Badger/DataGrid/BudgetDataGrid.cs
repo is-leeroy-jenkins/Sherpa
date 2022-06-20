@@ -17,9 +17,9 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="DataGridView" />
     /// <seealso/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" )]
     public class BudgetDataGrid : GridBase, IDataGrid
     {
         /// <summary>
@@ -74,7 +74,7 @@ namespace BudgetExecution
 
             AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb( 30, 30, 30 );
             AlternatingRowsDefaultCellStyle.ForeColor = Color.LightSteelBlue;
-            AlternatingRowsDefaultCellStyle.Font =  new Font( "Roboto", 8 );
+            AlternatingRowsDefaultCellStyle.Font = new Font( "Roboto", 8 );
             AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.FromArgb( 55, 55, 55 );
             AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.White;
 
@@ -92,7 +92,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         public BudgetDataGrid( Size size, Point location )
-            : this()
+            : this( )
         {
             Size = size;
             Location = location;
@@ -102,7 +102,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="BudgetDataGrid"/> class.
         /// </summary>
         /// <param name="dataGrid">The dataGrid.</param>
-        [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
+        [SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" )]
         public BudgetDataGrid( DataGridView dataGrid )
             : this( dataGrid.Size, dataGrid.Location )
         {
@@ -121,7 +121,7 @@ namespace BudgetExecution
         {
             Parent = parent;
         }
-        
+
         /// <summary>
         /// Sets the column configuration.
         /// </summary>
@@ -182,16 +182,16 @@ namespace BudgetExecution
         public void SetBindingSource( IEnumerable<DataRow> dataRows, IDictionary<string, object> dict )
         {
             if( Verify.IsInput( dataRows )
-                && dict?.Any() == true )
+                && dict?.Any( ) == true )
             {
                 try
                 {
                     if( Verify.IsInput( BindingSource.Filter ) )
                     {
-                        BindingSource.RemoveFilter();
+                        BindingSource.RemoveFilter( );
                     }
 
-                    BindingSource.DataSource = dataRows.CopyToDataTable();
+                    BindingSource.DataSource = dataRows.CopyToDataTable( );
                     BindingSource.Filter = GetFilterValues( dict );
                     DataSource = BindingSource;
                     PascalizeHeaders( dataRows );
@@ -211,17 +211,17 @@ namespace BudgetExecution
         public void SetBindingSource( BindingSource bindingSource, IDictionary<string, object> dict )
         {
             if( bindingSource?.DataSource != null
-                && dict?.Any() == true )
+                && dict?.Any( ) == true )
             {
                 try
                 {
                     if( Verify.IsInput( BindingSource.Filter ) )
                     {
-                        BindingSource.RemoveFilter();
+                        BindingSource.RemoveFilter( );
                     }
 
                     BindingSource.DataSource = ( bindingSource.DataSource as IEnumerable<DataRow> )
-                        ?.CopyToDataTable();
+                        ?.CopyToDataTable( );
 
                     BindingSource.Filter = GetFilterValues( dict );
                     DataSource = BindingSource;
@@ -244,9 +244,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( dataRows?.CopyToDataTable()?.Columns?.Count > 0 )
+                    if( dataRows?.CopyToDataTable( )?.Columns?.Count > 0 )
                     {
-                        foreach( DataColumn _dataColumn in dataRows.CopyToDataTable().Columns )
+                        foreach( DataColumn _dataColumn in dataRows.CopyToDataTable( ).Columns )
                         {
                             foreach( DataGridViewColumn _gridViewColumn in Columns )
                             {
@@ -281,7 +281,7 @@ namespace BudgetExecution
                             _vals += $"{_kvp.Key} = '{_kvp.Value}' AND ";
                         }
 
-                        return _vals.Trim().Substring( 0, _vals.Length - 4 );
+                        return _vals.Trim( ).Substring( 0, _vals.Length - 4 );
                     }
                     catch( Exception ex )
                     {
@@ -303,7 +303,7 @@ namespace BudgetExecution
             try
             {
                 using var _message = new Message( "Not Yet Implemented." );
-                _message?.ShowDialog();
+                _message?.ShowDialog( );
                 return default( DataRow );
             }
             catch( Exception ex )
@@ -312,7 +312,7 @@ namespace BudgetExecution
                 return default( DataRow );
             }
         }
-        
+
         /// <summary>
         /// Called when [right click].
         /// </summary>
@@ -331,9 +331,9 @@ namespace BudgetExecution
                         _columnConfiguration.ColumnListBox.Items.Add( c.HeaderText, c.Visible );
                     }
 
-                    _columnConfiguration.ColumnListBox.Items.Clear();
+                    _columnConfiguration.ColumnListBox.Items.Clear( );
                     _columnConfiguration.Location = PointToScreen( new Point( e.X, e.Y ) );
-                    _columnConfiguration.ShowDialog();
+                    _columnConfiguration.ShowDialog( );
                 }
                 catch( Exception ex )
                 {

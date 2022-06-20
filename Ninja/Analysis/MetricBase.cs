@@ -15,16 +15,16 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="IMetric" />
     /// <seealso cref="IDataFilter" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "BadListLineBreaks" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "BadListLineBreaks" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
     public abstract class MetricBase : IMetric, IDataFilter
     {
         /// <summary>
         /// Gets the source.
         /// </summary>
         public Source Source { get; set; }
-        
+
         /// <summary>
         /// The field
         /// </summary>
@@ -77,7 +77,7 @@ namespace BudgetExecution
                         ?.Where( p => p.Field<string>( $"{field}" ).Equals( filter ) )
                         ?.Select( p => p );
 
-                    return _query?.Any() == true
+                    return _query?.Any( ) == true
                         ? _query
                         : default( IEnumerable<DataRow> );
                 }
@@ -99,15 +99,15 @@ namespace BudgetExecution
         /// <returns></returns>
         public static IEnumerable<string> GetCodes( IEnumerable<DataRow> dataRow, Field field )
         {
-            if( dataRow.Any()
+            if( dataRow.Any( )
                 && Verify.IsInput( $"{field}" ) )
             {
                 try
                 {
                     var _query = dataRow
                         ?.Select( p => p.Field<string>( $"{field}" ) )
-                        ?.Distinct()
-                        ?.ToArray();
+                        ?.Distinct( )
+                        ?.ToArray( );
 
                     return _query.Length > 0
                         ? _query
@@ -131,7 +131,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public int GetCount( IEnumerable<DataRow> dataRow, Numeric numeric = Numeric.Amount )
         {
-            if( dataRow.Any() )
+            if( dataRow.Any( ) )
             {
                 try
                 {
@@ -139,8 +139,8 @@ namespace BudgetExecution
                         ?.Where( p => p.Field<double>( $"{numeric}" ) != 0.0D )
                         ?.Select( p => p );
 
-                    return _select.Any()
-                        ? _select.Count()
+                    return _select.Any( )
+                        ? _select.Count( )
                         : default( int );
                 }
                 catch( Exception ex )
@@ -161,15 +161,15 @@ namespace BudgetExecution
         /// <returns></returns>
         public double CalculateTotals( IEnumerable<DataRow> dataRow, Numeric numeric = Numeric.Amount )
         {
-            if( dataRow?.Any() == true )
+            if( dataRow?.Any( ) == true )
             {
                 try
                 {
                     var _select = dataRow
                         ?.Select( p => p.Field<double>( $"{numeric}" ) );
 
-                    return _select.Any() && _select?.Sum() > 0
-                        ? _select.Sum()
+                    return _select.Any( ) && _select?.Sum( ) > 0
+                        ? _select.Sum( )
                         : 0.0d;
                 }
                 catch( Exception ex )
@@ -188,32 +188,32 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
-        public IDictionary<string, double> CalculateTotals( IEnumerable<DataRow> dataRow, Field field, 
+        public IDictionary<string, double> CalculateTotals( IEnumerable<DataRow> dataRow, Field field,
             Numeric numeric = Numeric.Amount )
         {
-            if( dataRow?.Any() == true
+            if( dataRow?.Any( ) == true
                 && Enum.IsDefined( typeof( Field ), field )
                 && Enum.IsDefined( typeof( Numeric ), numeric ) )
             {
                 try
                 {
-                    var _dictionary = new Dictionary<string, double>();
+                    var _dictionary = new Dictionary<string, double>( );
                     var _codes = GetCodes( dataRow, field );
 
-                    if( _codes.Any() )
+                    if( _codes.Any( ) )
                     {
                         foreach( var filter in _codes )
                         {
-                            var _query = dataRow.Filter( field.ToString(), filter )
+                            var _query = dataRow.Filter( field.ToString( ), filter )
                                 ?.Sum( p => p.Field<double>( $"{numeric}" ) );
 
                             if( _query > 0.0d )
                             {
-                                _dictionary?.Add( filter, double.Parse( _query?.ToString() ) );
+                                _dictionary?.Add( filter, double.Parse( _query?.ToString( ) ) );
                             }
                         }
 
-                        return _dictionary?.Any() == true
+                        return _dictionary?.Any( ) == true
                             ? _dictionary
                             : default( Dictionary<string, double> );
                     }
@@ -236,7 +236,7 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected double CalculateAverage( IEnumerable<DataRow> dataRow, Numeric numeric = Numeric.Amount )
         {
-            if( dataRow?.Any() == true
+            if( dataRow?.Any( ) == true
                 && Enum.IsDefined( typeof( Numeric ), numeric ) )
             {
                 try
@@ -244,10 +244,10 @@ namespace BudgetExecution
                     var _query = dataRow
                         .Where( p => p.Field<double>( $"{numeric}" ) != 0.0 )
                         ?.Select( p => p.Field<double>( $"{numeric}" ) )
-                        ?.Average();
+                        ?.Average( );
 
                     return _query > 0d
-                        ? double.Parse( _query?.ToString() )
+                        ? double.Parse( _query?.ToString( ) )
                         : 0.0d;
                 }
                 catch( Exception ex )
@@ -270,22 +270,22 @@ namespace BudgetExecution
         public IDictionary<string, double> CalculateAverages( IEnumerable<DataRow> dataRow, Field field,
             Numeric numeric = Numeric.Amount )
         {
-            if( dataRow?.Any() == true
+            if( dataRow?.Any( ) == true
                 && Enum.IsDefined( typeof( Field ), field )
                 && Enum.IsDefined( typeof( Numeric ), numeric ) )
             {
                 try
                 {
-                    var _dictionary = new Dictionary<string, double>();
+                    var _dictionary = new Dictionary<string, double>( );
                     var _filters = GetCodes( dataRow, field );
 
-                    if( _filters.Any() )
+                    if( _filters.Any( ) )
                     {
                         foreach( var filter in _filters )
                         {
-                            var _query = dataRow?.Filter( field.ToString(), filter );
+                            var _query = dataRow?.Filter( field.ToString( ), filter );
 
-                            if( _query?.Any() == true )
+                            if( _query?.Any( ) == true )
                             {
                                 var _value = CalculateAverage( _query, numeric );
 
@@ -296,7 +296,7 @@ namespace BudgetExecution
                             }
                         }
 
-                        return _dictionary.Any()
+                        return _dictionary.Any( )
                             ? _dictionary
                             : default( Dictionary<string, double> );
                     }
@@ -318,8 +318,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

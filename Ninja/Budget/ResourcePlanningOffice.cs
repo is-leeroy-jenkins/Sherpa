@@ -15,16 +15,16 @@ namespace BudgetExecution
     /// <seealso cref = "IResourcePlanningOffice"/>
     /// <seealso cref = "IProgram"/>
     /// <seealso cref = "ISource"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
     public class ResourcePlanningOffice : Element, IResourcePlanningOffice, ISource
     {
         /// <summary>
         /// The source
         /// </summary>
         public Source Source { get; set; } = Source.ResourcePlanningOffices;
-        
+
         /// <summary>
         /// Gets the dataRow.
         /// </summary>
@@ -40,7 +40,7 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "ResourcePlanningOffice"/> class.
@@ -57,13 +57,13 @@ namespace BudgetExecution
         /// The query.
         /// </param>
         public ResourcePlanningOffice( IQuery query )
-            : this()
+            : this( )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -75,11 +75,11 @@ namespace BudgetExecution
         /// </param>
         public ResourcePlanningOffice( IBuilder builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -90,13 +90,13 @@ namespace BudgetExecution
         /// The dataRow.
         /// </param>
         public ResourcePlanningOffice( DataRow dataRow )
-            : this()
+            : this( )
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -107,13 +107,13 @@ namespace BudgetExecution
         /// The rpioCode.
         /// </param>
         public ResourcePlanningOffice( string rpioCode )
-            : this()
+            : this( )
         {
-            Record = new DataBuilder( Source, SetArgs( rpioCode ) )?.GetRecord();
+            Record = new DataBuilder( Source, SetArgs( rpioCode ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace BudgetExecution
         /// </returns>
         public IResourcePlanningOffice GetResourcePlanningOffice()
         {
-            return MemberwiseClone() as ResourcePlanningOffice;
+            return MemberwiseClone( ) as ResourcePlanningOffice;
         }
 
         /// <summary>

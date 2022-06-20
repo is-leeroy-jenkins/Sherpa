@@ -14,11 +14,11 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class ImageBase 
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
+    public abstract class ImageBase
     {
         /// <summary>
         /// Gets or sets the image.
@@ -189,15 +189,15 @@ namespace BudgetExecution
                 return Size.Empty;
             }
         }
-        
+
         /// <summary>
         /// Gets the size of the image.
         /// </summary>
         /// <param name="sizer">The sizer.</param>
         /// <returns></returns>
-        public  static Size GetImageSize( PicSize sizer )
+        public static Size GetImageSize( PicSize sizer )
         {
-            if ( Enum.IsDefined( typeof( PicSize ), sizer ))
+            if( Enum.IsDefined( typeof( PicSize ), sizer ) )
             {
                 try
                 {
@@ -246,8 +246,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

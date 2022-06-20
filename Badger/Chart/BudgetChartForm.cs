@@ -77,7 +77,7 @@ namespace BudgetExecution
         /// <value>
         /// The chart.
         /// </value>
-        public BudgetChart Chart { get; set; } = new BudgetChart();
+        public BudgetChart Chart { get; set; } = new BudgetChart( );
 
         /// <summary>
         /// Initializes a new instance of
@@ -85,7 +85,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetChartForm()
         {
-            InitializeComponent();
+            InitializeComponent( );
 
             // Form Property Values
             Size = new Size( 1200, 700 );

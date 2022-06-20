@@ -55,7 +55,7 @@ namespace BudgetExecution
         public Key( KeyValuePair<string, object> kvp )
         {
             PrimaryKey = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), kvp.Key );
-            Index = int.Parse( kvp.Value.ToString() );
+            Index = int.Parse( kvp.Value.ToString( ) );
         }
 
         /// <summary>
@@ -76,8 +76,8 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         public Key( DataRow dataRow, PrimaryKey field )
         {
-            PrimaryKey = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), field.ToString() );
-            Index = (int)dataRow[ field.ToString() ];
+            PrimaryKey = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), field.ToString( ) );
+            Index = (int)dataRow[ field.ToString( ) ];
         }
 
         /// <summary>
@@ -97,8 +97,8 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         public Key( DataRow dataRow )
         {
-            PrimaryKey = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), dataRow[ 0 ].ToString() );
-            Index = int.Parse( dataRow[ 0 ].ToString() );
+            PrimaryKey = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), dataRow[ 0 ].ToString( ) );
+            Index = int.Parse( dataRow[ 0 ].ToString( ) );
         }
 
         /// <summary>
@@ -213,14 +213,14 @@ namespace BudgetExecution
                 {
                     var _columns = Enum.GetNames( typeof( PrimaryKey ) );
 
-                    if( _columns?.Contains( dataRow[ 0 ]?.ToString() ) == true )
+                    if( _columns?.Contains( dataRow[ 0 ]?.ToString( ) ) == true )
                     {
-                        var _field = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), dataRow[ 0 ].ToString() );
+                        var _field = (PrimaryKey)Enum.Parse( typeof( PrimaryKey ), dataRow[ 0 ].ToString( ) );
 
                         var _names = dataRow.Table
-                            ?.GetColumnNames();
+                            ?.GetColumnNames( );
 
-                        PrimaryKey = _names?.Contains( _field.ToString() ) == true
+                        PrimaryKey = _names?.Contains( _field.ToString( ) ) == true
                             ? _field
                             : PrimaryKey.NS;
                     }
@@ -267,9 +267,9 @@ namespace BudgetExecution
                 try
                 {
                     var _names = dataRow.Table
-                        ?.GetColumnNames();
+                        ?.GetColumnNames( );
 
-                    PrimaryKey = _names?.Contains( keyName.ToString() ) == true
+                    PrimaryKey = _names?.Contains( keyName.ToString( ) ) == true
                         ? keyName
                         : PrimaryKey.NS;
                 }
@@ -311,10 +311,10 @@ namespace BudgetExecution
                 try
                 {
                     var _names = dataRow?.Table
-                        ?.GetColumnNames();
+                        ?.GetColumnNames( );
 
-                    Index = _names?.Contains( key.ToString() ) == true
-                        ? int.Parse( dataRow[ $"{key}" ].ToString() )
+                    Index = _names?.Contains( key.ToString( ) ) == true
+                        ? int.Parse( dataRow[ $"{key}" ].ToString( ) )
                         : (int)PrimaryKey.NS;
                 }
                 catch( Exception ex )
@@ -331,8 +331,8 @@ namespace BudgetExecution
         private static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

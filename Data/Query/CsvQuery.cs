@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref = "Query"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class CsvQuery : Query
     {
         /// <summary>
@@ -27,7 +27,7 @@ namespace BudgetExecution
         /// The provider.
         /// </value>
         public new Provider Provider { get; set; } = Provider.CSV;
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref = "CsvQuery"/> class.
         /// </summary>
@@ -93,7 +93,7 @@ namespace BudgetExecution
             : base( connectionBuilder, sqlStatement )
         {
         }
-        
+
         /// <summary>
         /// Saves the file.
         /// </summary>
@@ -112,12 +112,12 @@ namespace BudgetExecution
                         FilterIndex = 1
                     };
 
-                    if( _fileDialog.ShowDialog() == DialogResult.OK )
+                    if( _fileDialog.ShowDialog( ) == DialogResult.OK )
                     {
                         workBook.SaveAs( new FileInfo( _fileDialog.FileName ) );
                         const string _msg = "Save Successful!";
                         using var _message = new Message( _msg );
-                        _message?.ShowDialog();
+                        _message?.ShowDialog( );
                     }
                 }
                 catch( Exception ex )
@@ -142,7 +142,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _dataSet = new DataSet();
+                    using var _dataSet = new DataSet( );
                     var _sql = "SELECT * FROM [" + sheetName + "]";
 
                     var _connectionString =
@@ -158,12 +158,12 @@ namespace BudgetExecution
                         {
                             var _msg = $"{sheetName} in {sheetName} Does Not Exist!";
                             using var _message = new Message( _msg );
-                            _message?.ShowDialog();
+                            _message?.ShowDialog( );
                         }
                     }
                     else
                     {
-                        sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString();
+                        sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
                     }
 
                     using var _dataAdapter = new OleDbDataAdapter( _sql, _connection );
@@ -198,7 +198,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _dataSet = new DataSet();
+                    using var _dataSet = new DataSet( );
                     var _sql = "SELECT * FROM [" + sheetName + "]";
 
                     var _connectionString =
@@ -213,12 +213,12 @@ namespace BudgetExecution
                         {
                             var _msg = $"{sheetName} in {fileName} Does Not Exist!";
                             using var _message = new Message( _msg );
-                            _message?.ShowDialog();
+                            _message?.ShowDialog( );
                         }
                     }
                     else
                     {
-                        sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString();
+                        sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
                     }
 
                     using var _dataAdapter = new OleDbDataAdapter( _sql, _connection );
@@ -246,8 +246,8 @@ namespace BudgetExecution
         /// </param>
         public void CsvExport( DataTable table, string filePath )
         {
-            if( table?.Columns.Count > 0 
-                && table.Rows.Count > 0 
+            if( table?.Columns.Count > 0
+                && table.Rows.Count > 0
                 && Verify.IsInput( filePath ) )
             {
                 try
@@ -290,7 +290,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _filePath = GetConnectionBuilder().ProviderPath[ Provider.ToString() ];
+                    var _filePath = GetConnectionBuilder( ).ProviderPath[ Provider.ToString( ) ];
                     using var _excelPackage = new ExcelPackage( new FileInfo( _filePath ) );
                     var _excelWorkbook = _excelPackage.Workbook;
                     var _excelWorksheet = _excelWorkbook.Worksheets[ 1 ];
@@ -307,7 +307,7 @@ namespace BudgetExecution
                                 && _excelWorksheet.Cells[ i, j ].Value != null )
                             {
                                 dataGrid.Rows[ i - 1 ].Cells[ j - 1 ].Value =
-                                    _excelWorksheet.Cells[ i, j ].Value.ToString();
+                                    _excelWorksheet.Cells[ i, j ].Value.ToString( );
                             }
                         }
                     }
@@ -366,7 +366,7 @@ namespace BudgetExecution
                     RestoreDirectory = true
                 };
 
-                if( _fileDialog.ShowDialog() == DialogResult.OK )
+                if( _fileDialog.ShowDialog( ) == DialogResult.OK )
                 {
                     _fileName = _fileDialog.FileName;
                 }
@@ -393,8 +393,8 @@ namespace BudgetExecution
         /// </returns>
         private bool SheetExists( string sheetName, DataTable dataTable )
         {
-            if( Verify.IsInput( sheetName ) 
-                && dataTable?.Columns.Count > 0 
+            if( Verify.IsInput( sheetName )
+                && dataTable?.Columns.Count > 0
                 && dataTable.Rows.Count > 0 )
             {
                 try
@@ -403,7 +403,7 @@ namespace BudgetExecution
                     {
                         var _dataRow = dataTable.Rows[ i ];
 
-                        if( sheetName == _dataRow[ "TABLENAME" ].ToString() )
+                        if( sheetName == _dataRow[ "TABLENAME" ].ToString( ) )
                         {
                             return true;
                         }

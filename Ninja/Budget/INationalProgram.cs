@@ -16,7 +16,7 @@ namespace BudgetExecution
         /// The NPM.
         /// </value>
         NPM NPM { get; set; }
-        
+
         /// <summary>
         /// Gets the national program.
         /// </summary>

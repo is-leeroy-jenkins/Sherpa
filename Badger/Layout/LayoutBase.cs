@@ -20,11 +20,11 @@ namespace BudgetExecution
     /// <seealso cref="VisualPanel" />
     /// <seealso cref="ILayout" />
     /// 
-    [ SuppressMessage( "ReSharper", "HeuristicUnreachableCode" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [SuppressMessage( "ReSharper", "HeuristicUnreachableCode" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
     public abstract class LayoutBase : VisualPanel, ILayout
     {
         /// <summary>
@@ -108,7 +108,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         public LayoutBase( Size size, Point location )
-            : this()
+            : this( )
         {
             Size = size;
             Location = BudgetSetting.ReLocate( location.X, location.Y );
@@ -123,7 +123,7 @@ namespace BudgetExecution
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
         public LayoutBase( Size size, Point location, Control parent )
-            : this()
+            : this( )
         {
             Size = new Size( size.Width, size.Height );
             Location = new Point( location.X, location.Y );
@@ -138,7 +138,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="parent">The parent.</param>
         public LayoutBase( Control parent )
-            : this()
+            : this( )
         {
             Parent = parent;
             Parent.Controls.Add( this );
@@ -157,7 +157,7 @@ namespace BudgetExecution
         /// [hover].</param>
         public LayoutBase( Size size, Point location, Control parent,
             bool hover )
-            : this()
+            : this( )
         {
             Size = size;
             Location = location;
@@ -165,7 +165,7 @@ namespace BudgetExecution
             Parent.Controls.Add( this );
             Border.HoverVisible = hover;
         }
-        
+
         /// <summary>
         /// Sets the color of the border.
         /// </summary>
@@ -244,7 +244,7 @@ namespace BudgetExecution
                         item
                     };
 
-                    return _list?.Any() == true
+                    return _list?.Any( ) == true
                         ? _list
                         : default( List<Control> );
                 }
@@ -303,7 +303,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Children?.Any() == true
+                return Children?.Any( ) == true
                     ? Children
                     : default( IEnumerable<Control> );
             }
@@ -321,8 +321,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

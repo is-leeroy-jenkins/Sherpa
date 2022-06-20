@@ -43,10 +43,10 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="toolType">The tool.</param>
         public BudgetToolStripButton( ToolType toolType )
-            : this()
+            : this( )
         {
             ToolType = toolType;
-            Image = new BudgetImage( toolType.ToString(), ImageDirectory.ToolStripImages )?.GetBitmap();
+            Image = new BudgetImage( toolType.ToString( ), ImageDirectory.ToolStripImages )?.GetBitmap( );
         }
 
         /// <summary>
@@ -54,12 +54,12 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="image">The image.</param>
         public BudgetToolStripButton( IBudgetImage image )
-            : this()
+            : this( )
         {
-            Image = image.GetBitmap();
+            Image = image.GetBitmap( );
             ToolType = (ToolType)Enum.Parse( typeof( ToolType ), image.Name );
         }
-        
+
         /// <summary>
         /// Sets the image.
         /// </summary>
@@ -70,8 +70,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _image = new BudgetImage( toolType.ToString(), ImageDirectory.ToolStripImages );
-                    Image = _image?.GetBitmap();
+                    var _image = new BudgetImage( toolType.ToString( ), ImageDirectory.ToolStripImages );
+                    Image = _image?.GetBitmap( );
                 }
                 catch( Exception ex )
                 {
@@ -79,7 +79,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Called when [mouse over].
         /// </summary>
@@ -101,7 +101,7 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    if( !string.IsNullOrEmpty( Tag?.ToString() ) )
+                    if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
                     {
                         var _tool = new ToolTip( _button );
                         ToolTip = _tool;
@@ -126,7 +126,7 @@ namespace BudgetExecution
             {
                 if( ToolTip?.Active == true )
                 {
-                    ToolTip.RemoveAll();
+                    ToolTip.RemoveAll( );
                     ToolTip = null;
                 }
             }
@@ -152,46 +152,47 @@ namespace BudgetExecution
                     {
                         case ToolType.FirstButton:
                         {
-                            BindingSource?.MoveFirst();
+                            BindingSource?.MoveFirst( );
                             break;
                         }
 
                         case ToolType.PreviousButton:
                         {
-                            BindingSource?.MovePrevious();
+                            BindingSource?.MovePrevious( );
                             break;
                         }
 
                         case ToolType.NextButton:
                         {
-                            BindingSource?.MoveNext();
+                            BindingSource?.MoveNext( );
                             break;
                         }
 
                         case ToolType.LastButton:
                         {
-                            BindingSource?.MoveLast();
+                            BindingSource?.MoveLast( );
                             break;
                         }
 
                         case ToolType.ExcelButton:
                         {
-                            using var _excelForm = new BudgetExcelForm();
-                            _excelForm?.ShowDialog();
+                            using var _excelForm = new BudgetExcelForm( );
+                            _excelForm?.ShowDialog( );
                             break;
                         }
 
                         case ToolType.PdfButton:
                         {
-                            using var _message = new BudgetPdfForm();
-                            _message?.ShowDialog();
+                            using var _message = new BudgetPdfForm( );
+                            _message?.ShowDialog( );
                             break;
                         }
 
                         case ToolType.PrintButton:
                         {
-                            using var _message = new BudgetPdfForm();
-                            _message?.ShowDialog();
+                            using var _message = new Message( "NOT YET IMPLEMENTED!" );
+                            _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
+                            _message?.ShowDialog( );
                             break;
                         }
 
@@ -199,7 +200,7 @@ namespace BudgetExecution
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
-                            _message?.ShowDialog();
+                            _message?.ShowDialog( );
                             break;
                         }
 
@@ -207,7 +208,7 @@ namespace BudgetExecution
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
-                            _message?.ShowDialog();
+                            _message?.ShowDialog( );
                             break;
                         }
 
@@ -215,7 +216,7 @@ namespace BudgetExecution
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
-                            _message?.ShowDialog();
+                            _message?.ShowDialog( );
                             break;
                         }
 
@@ -223,7 +224,7 @@ namespace BudgetExecution
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
-                            _message?.ShowDialog();
+                            _message?.ShowDialog( );
                             break;
                         }
 
@@ -231,7 +232,7 @@ namespace BudgetExecution
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
-                            _message?.ShowDialog();
+                            _message?.ShowDialog( );
                             break;
                         }
 
@@ -239,7 +240,7 @@ namespace BudgetExecution
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
-                            _message?.ShowDialog();
+                            _message?.ShowDialog( );
                             break;
                         }
 
@@ -247,7 +248,7 @@ namespace BudgetExecution
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
-                            _message?.ShowDialog();
+                            _message?.ShowDialog( );
                             break;
                         }
 
@@ -255,7 +256,7 @@ namespace BudgetExecution
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
-                            _message?.ShowDialog();
+                            _message?.ShowDialog( );
                             break;
                         }
 
@@ -263,28 +264,28 @@ namespace BudgetExecution
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
                             _message.HeaderLabel.Text = "NOT YET IMPLEMENTED!";
-                            _message?.ShowDialog();
+                            _message?.ShowDialog( );
                             break;
                         }
 
                         case ToolType.CalculatorButton:
                         {
-                            using var _calculator = new BudgetCalculatorForm();
-                            _calculator?.ShowDialog();
+                            using var _calculator = new BudgetCalculatorForm( );
+                            _calculator?.ShowDialog( );
                             break;
                         }
 
                         case ToolType.BrowseButton:
                         {
-                            using var _message = new BudgetFileBrowser();
-                            _message?.ShowDialog();
+                            using var _message = new BudgetFileBrowser( );
+                            _message?.ShowDialog( );
                             break;
                         }
 
                         default:
                         {
                             using var _message = new Message( "NOT YET IMPLEMENTED!" );
-                            _message?.ShowDialog();
+                            _message?.ShowDialog( );
                             break;
                         }
                     }

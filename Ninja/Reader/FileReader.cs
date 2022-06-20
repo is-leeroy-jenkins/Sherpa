@@ -13,9 +13,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
     public class FileReader
     {
         /// <summary>
@@ -92,7 +92,7 @@ namespace BudgetExecution
                 {
                     var _stream = File.ReadAllLines( _file );
 
-                    return _stream?.Any() == true
+                    return _stream?.Any( ) == true
                         ? _stream
                         : default( string[ ] );
                 }
@@ -120,7 +120,7 @@ namespace BudgetExecution
                 {
                     var _stream = File.ReadAllBytes( _file );
 
-                    return _stream?.Any() == true
+                    return _stream?.Any( ) == true
                         ? _stream
                         : default( byte[ ] );
                 }
@@ -142,8 +142,8 @@ namespace BudgetExecution
         {
             try
             {
-                using var _reader = FileInfo?.OpenText();
-                var _result = _reader?.ReadToEnd();
+                using var _reader = FileInfo?.OpenText( );
+                var _result = _reader?.ReadToEnd( );
 
                 return Verify.IsInput( _result )
                     ? _result
@@ -181,8 +181,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -30,12 +30,12 @@ namespace BudgetExecution
     /// <seealso cref = "IBudgetLevel"/>
     /// <seealso cref = "IProgram"/>
     /// <seealso cref = "IOutlay"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Global" )]
     public abstract class Outlay : Cost
     {
         /// <summary>
@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// The authority Data.
         /// </value>
         public CostAccount PRC { get; set; }
-        
+
         /// <summary>
         /// Gets the outlay identifier.
         /// </summary>

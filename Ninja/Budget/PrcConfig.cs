@@ -43,7 +43,7 @@ namespace BudgetExecution
             try
             {
                 return Verify.IsElement( BudgetLevel )
-                    ? new BudgetLevel( BudgetLevel.Value?.ToString() )
+                    ? new BudgetLevel( BudgetLevel.Value?.ToString( ) )
                     : default( BudgetLevel );
             }
             catch( Exception ex )
@@ -63,7 +63,7 @@ namespace BudgetExecution
             try
             {
                 return Verify.IsElement( BFY )
-                    ? new BudgetFiscalYear( BFY?.Value?.ToString() )
+                    ? new BudgetFiscalYear( BFY?.Value?.ToString( ) )
                     : default( BudgetFiscalYear );
             }
             catch( Exception ex )
@@ -84,7 +84,7 @@ namespace BudgetExecution
             {
                 var _dictionary = new Dictionary<string, object>
                 {
-                    [ $"{Field.Code}" ] = RpioCode?.Value?.ToString()
+                    [ $"{Field.Code}" ] = RpioCode?.Value?.ToString( )
                 };
 
                 var _connection = new ConnectionBuilder( Source.ResourcePlanningOffices );
@@ -110,7 +110,7 @@ namespace BudgetExecution
             {
                 var _dictionary = new Dictionary<string, object>
                 {
-                    [ $"{Field.Code}" ] = AhCode?.Value?.ToString()
+                    [ $"{Field.Code}" ] = AhCode?.Value?.ToString( )
                 };
 
                 var _builder = new ConnectionBuilder( Source.AllowanceHolders );
@@ -135,7 +135,7 @@ namespace BudgetExecution
             try
             {
                 return Verify.IsElement( FundCode )
-                    ? new Fund( FundCode?.Value?.ToString() )
+                    ? new Fund( FundCode?.Value?.ToString( ) )
                     : default( Fund );
             }
             catch( Exception ex )
@@ -156,7 +156,7 @@ namespace BudgetExecution
             {
                 var _dictionary = new Dictionary<string, object>
                 {
-                    [ $"{Field.Code}" ] = OrgCode?.Value?.ToString()
+                    [ $"{Field.Code}" ] = OrgCode?.Value?.ToString( )
                 };
 
                 var _builder = new ConnectionBuilder( Source.Organizations );
@@ -182,7 +182,7 @@ namespace BudgetExecution
             {
                 var _dictionary = new Dictionary<string, object>
                 {
-                    [ $"{Field.Code}" ] = AccountCode?.Value?.ToString()
+                    [ $"{Field.Code}" ] = AccountCode?.Value?.ToString( )
                 };
 
                 var _builder = new ConnectionBuilder( Source.Accounts );
@@ -208,7 +208,7 @@ namespace BudgetExecution
             {
                 var _dictionary = new Dictionary<string, object>
                 {
-                    [ $"{Field.Code}" ] = BocCode?.Value?.ToString()
+                    [ $"{Field.Code}" ] = BocCode?.Value?.ToString( )
                 };
 
                 var _builder = new ConnectionBuilder( Source.BudgetObjectClasses );
@@ -234,7 +234,7 @@ namespace BudgetExecution
             {
                 var _dictionary = new Dictionary<string, object>
                 {
-                    [ $"{Field.Code}" ] = RcCode?.Value?.ToString()
+                    [ $"{Field.Code}" ] = RcCode?.Value?.ToString( )
                 };
 
                 var _builder = new ConnectionBuilder( Source.ResponsibilityCenters );

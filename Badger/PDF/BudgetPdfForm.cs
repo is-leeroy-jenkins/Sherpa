@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetPdfForm()
         {
-            InitializeComponent();
+            InitializeComponent( );
 
             // Form Properties
             Size = new Size( 1000, 700 );
@@ -60,8 +60,8 @@ namespace BudgetExecution
             var _path = @"C:\Users\terry\source\repos\BudgetExecution\"
                 + @"Etc\doc\RMDS\FundsControlManual.pdf";
 
-            if( File.Exists( _path ) 
-               && Path.GetExtension( _path ).Contains( ".pdf" )  )
+            if( File.Exists( _path )
+               && Path.GetExtension( _path ).Contains( ".pdf" ) )
             {
                 DocumentViewer.Load( _path );
             }

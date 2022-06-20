@@ -76,9 +76,9 @@ namespace BudgetExecution
         }
 
         public BudgetWorkbook( DataTable dataTable )
-            : this()
+            : this( )
         {
-            Data = dataTable.AsEnumerable();
+            Data = dataTable.AsEnumerable( );
             Worksheet = Workbook.Worksheets.Add( dataTable.TableName );
             Worksheet.View.ShowGridLines = false;
             Worksheet.View.ZoomScale = ZoomLevel;
@@ -98,7 +98,7 @@ namespace BudgetExecution
             Worksheet.HeaderFooter.AlignWithMargins = true;
             Worksheet.HeaderFooter.ScaleWithDocument = true;
         }
-        
+
         /// <summary>
         /// Sets the header format.
         /// </summary>
@@ -107,7 +107,7 @@ namespace BudgetExecution
         /// </param>
         private protected void SetHeaderFormat( Grid grid )
         {
-            if( grid?.GetWorksheet() != null )
+            if( grid?.GetWorksheet( ) != null )
             {
                 try
                 {
@@ -131,12 +131,12 @@ namespace BudgetExecution
         /// </param>
         private protected void SetHeaderText( Grid grid )
         {
-            if( grid?.GetWorksheet() != null )
+            if( grid?.GetWorksheet( ) != null )
             {
                 try
                 {
-                    using var _worksheet = grid.GetWorksheet();
-                    using var _range = grid.GetRange();
+                    using var _worksheet = grid.GetWorksheet( );
+                    using var _range = grid.GetRange( );
                     var _row = _range.Start.Row;
                     var _column = _range.Start.Column;
                     SetFontColor( grid, FontColor );
@@ -163,7 +163,7 @@ namespace BudgetExecution
         /// <param name = "excelRange" >
         /// The excelRange.
         /// </param>
-        [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
+        [SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" )]
         public void SetDarkColorRow( ExcelRange excelRange )
         {
             if( excelRange != null )
@@ -194,7 +194,7 @@ namespace BudgetExecution
         /// <param name = "excelRange" >
         /// The excelRange.
         /// </param>
-        [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
+        [SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" )]
         public void SetLightColorRow( ExcelRange excelRange )
         {
             if( excelRange != null )
@@ -235,7 +235,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _prc = 
+                    var _prc =
                         Worksheet.Cells[ excelRange.Start.Row, excelRange.Start.Column,
                             excelRange.End.Row, excelRange.End.Column ];
 
@@ -298,12 +298,12 @@ namespace BudgetExecution
         /// </param>
         public void SetTableFormat( Grid grid )
         {
-            if( grid?.GetWorksheet() != null )
+            if( grid?.GetWorksheet( ) != null )
             {
                 try
                 {
                     SetHeaderText( grid );
-                    using var _range = grid.GetRange();
+                    using var _range = grid.GetRange( );
                     using var _gridFont = TitleFont;
                     _range.Style.Font.SetFromFont( TitleFont );
                     _range.Style.Border.BorderAround( ExcelBorderStyle.Thin );
@@ -334,10 +334,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _total = Worksheet.Cells[ excelRange.Start.Row, excelRange.Start.Column, 
+                    var _total = Worksheet.Cells[ excelRange.Start.Row, excelRange.Start.Column,
                         excelRange.Start.Row, excelRange.Start.Column + 6 ];
 
-                    var _range = Worksheet.Cells[ excelRange.Start.Row, excelRange.Start.Column + 1, 
+                    var _range = Worksheet.Cells[ excelRange.Start.Row, excelRange.Start.Column + 1,
                         excelRange.Start.Row, excelRange.Start.Column + 6 ];
 
                     _total.Style.Fill.PatternType = ExcelFillStyle.Solid;
@@ -364,11 +364,11 @@ namespace BudgetExecution
         /// </c>
         /// to release only unmanaged resources.
         /// </param>
-        [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+        [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
         public void Dispose( bool disposing )
         {
-            TitleFont?.Dispose();
-            Font?.Dispose();
+            TitleFont?.Dispose( );
+            Font?.Dispose( );
         }
 
         /// <summary>

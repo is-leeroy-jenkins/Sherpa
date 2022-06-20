@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="SqlConfig" />
     /// <seealso cref="ISqlStatement" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public class SqlStatement : SqlConfig, ISqlStatement
     {
         /// <summary>
@@ -92,7 +92,7 @@ namespace BudgetExecution
                         _values += $"{kvp.Key} = '{kvp.Value}' AND ";
                     }
 
-                    _values = _values.TrimEnd( " AND".ToCharArray() );
+                    _values = _values.TrimEnd( " AND".ToCharArray( ) );
                     var _table = ConnectionBuilder?.TableName;
                     CommandText = $"{SQL.SELECT} * FROM {_table} WHERE {_values};";
 
@@ -131,7 +131,7 @@ namespace BudgetExecution
                         _update += $" {kvp.Key} = '{kvp.Value}' AND";
                     }
 
-                    var _values = _update.TrimEnd( " AND".ToCharArray() );
+                    var _values = _update.TrimEnd( " AND".ToCharArray( ) );
                     CommandText = $"{SQL.UPDATE} {ConnectionBuilder?.TableName} SET {_values};";
 
                     return Verify.IsInput( CommandText )
@@ -167,7 +167,7 @@ namespace BudgetExecution
                 }
 
                 var values =
-                    $"({_columnName.TrimEnd( ", ".ToCharArray() )}) VALUES ({_values.TrimEnd( ", ".ToCharArray() )})";
+                    $"({_columnName.TrimEnd( ", ".ToCharArray( ) )}) VALUES ({_values.TrimEnd( ", ".ToCharArray( ) )})";
 
                 CommandText = $"{SQL.INSERT} INTO {_table} {values};";
 

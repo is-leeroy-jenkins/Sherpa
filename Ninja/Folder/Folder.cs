@@ -32,15 +32,15 @@ namespace BudgetExecution
         public Folder( IFile file )
         {
             DataFile = file;
-            DirectoryInfo = GetBaseDirectory();
+            DirectoryInfo = GetBaseDirectory( );
             FolderName = DirectoryInfo.Name;
             FolderPath = DirectoryInfo.FullName;
             Files = Directory.GetFiles( FolderPath );
-            DirectorySecurity = DirectoryInfo.GetAccessControl();
+            DirectorySecurity = DirectoryInfo.GetAccessControl( );
             CreationDate = DirectoryInfo.CreationTime;
             ChangeDate = DirectoryInfo.LastWriteTime;
         }
-        
+
         /// <summary>
         /// Gets the current directory.
         /// </summary>
@@ -69,7 +69,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( fullName ) 
+                return Verify.IsInput( fullName )
                     && !Directory.Exists( fullName )
                         ? Directory.CreateDirectory( fullName )
                         : default( DirectoryInfo );
@@ -121,7 +121,7 @@ namespace BudgetExecution
 
             try
             {
-                return Verify.IsInput( folderName ) 
+                return Verify.IsInput( folderName )
                     && !Directory.Exists( folderName )
                         ? DirectoryInfo?.CreateSubdirectory( folderName )
                         : default( DirectoryInfo );
@@ -143,9 +143,9 @@ namespace BudgetExecution
             {
                 var _paths = Files
                     ?.Select( fd => new BudgetPath( fd ) )
-                    ?.ToArray();
+                    ?.ToArray( );
 
-                return _paths?.Any() == true
+                return _paths?.Any( ) == true
                     ? _paths
                     : default( BudgetPath[ ] );
             }
@@ -166,11 +166,11 @@ namespace BudgetExecution
             {
                 var _paths = Files
                     ?.Select( f => new BudgetPath( f ) )
-                    ?.ToArray();
+                    ?.ToArray( );
 
                 var _data = _paths
                     ?.Select( d => new BudgetFile( d ) )
-                    ?.ToArray();
+                    ?.ToArray( );
 
                 return Verify.IsInput( _data )
                     ? _data

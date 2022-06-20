@@ -15,9 +15,9 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref = "MetroForm"/>
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class ColumnConfiguration : MetroForm
     {
         /// <summary>
@@ -58,7 +58,7 @@ namespace BudgetExecution
         /// </summary>
         public ColumnConfiguration()
         {
-            InitializeComponent();
+            InitializeComponent( );
             Enabled = true;
             Visible = true;
         }
@@ -70,10 +70,10 @@ namespace BudgetExecution
         /// The DGV.
         /// </param>
         public ColumnConfiguration( DataGridView dataGrid )
-            : this()
+            : this( )
         {
             Grid = dataGrid;
-            PopUp = new ToolStripDropDown();
+            PopUp = new ToolStripDropDown( );
             ColumnListBox.CheckOnClick = true;
         }
 
@@ -127,7 +127,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ColumnListBox?.Items?.Clear();
+                    ColumnListBox?.Items?.Clear( );
 
                     foreach( DataGridViewColumn c in Grid?.Columns )
                     {
@@ -139,7 +139,7 @@ namespace BudgetExecution
                         Location = Grid.PointToScreen( new Point( e.X, e.Y ) )
                     };
 
-                    _columnConfiguration?.ShowDialog();
+                    _columnConfiguration?.ShowDialog( );
                     _columnConfiguration.TopMost = true;
                 }
                 catch( Exception ex )
@@ -180,8 +180,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

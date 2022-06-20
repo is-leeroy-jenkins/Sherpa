@@ -14,9 +14,9 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref = "CalendarYear"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" )]
     public abstract class FiscalYear : CalendarYear
     {
         /// <summary>
@@ -50,7 +50,7 @@ namespace BudgetExecution
         /// The ebfy.
         /// </value>
         public IElement LastYear { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the expiring year.
         /// </summary>
@@ -98,7 +98,7 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public override DataRow Record { get; set; }
-        
+
         /// <summary>
         /// Determines whether this instance is current.
         /// </summary>
@@ -147,7 +147,7 @@ namespace BudgetExecution
                         [ $"{Field.BBFY}" ] = year
                     };
 
-                    return bfy.Any()
+                    return bfy.Any( )
                         ? bfy
                         : default( Dictionary<string, object> );
                 }
@@ -175,26 +175,26 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _year = new Dictionary<string, object>();
+                    var _year = new Dictionary<string, object>( );
 
                     switch( bfy )
                     {
                         case BFY.Current:
                         {
-                            _year?.Add( $"{Field.BBFY}", CurrentYear.ToString() );
-                            _year?.Add( $"{Field.EBFY}", ( CurrentYear + 1 ).ToString() );
+                            _year?.Add( $"{Field.BBFY}", CurrentYear.ToString( ) );
+                            _year?.Add( $"{Field.EBFY}", ( CurrentYear + 1 ).ToString( ) );
 
-                            return _year.Any()
+                            return _year.Any( )
                                 ? _year
                                 : default( Dictionary<string, object> );
                         }
 
                         case BFY.CarryOver:
                         {
-                            _year?.Add( $"{Field.BBFY}", ( CurrentYear - 1 ).ToString() );
-                            _year?.Add( $"{Field.EBFY}", CurrentYear.ToString() );
+                            _year?.Add( $"{Field.BBFY}", ( CurrentYear - 1 ).ToString( ) );
+                            _year?.Add( $"{Field.EBFY}", CurrentYear.ToString( ) );
 
-                            return _year?.Any() == true
+                            return _year?.Any( ) == true
                                 ? _year
                                 : default( Dictionary<string, object> );
                         }
@@ -220,7 +220,7 @@ namespace BudgetExecution
             try
             {
                 return Verify.IsRow( Record )
-                    ? Record.ToDictionary()
+                    ? Record.ToDictionary( )
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )

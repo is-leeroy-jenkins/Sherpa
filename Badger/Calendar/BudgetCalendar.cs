@@ -39,7 +39,7 @@ namespace BudgetExecution
             Style.Cell.CellHoverBorderColor = Color.SteelBlue;
 
             // SelectedCell Properties
-            Style.Cell.SelectedCellFont = new Font( "Roboto", 9, FontStyle.Bold  );
+            Style.Cell.SelectedCellFont = new Font( "Roboto", 9, FontStyle.Bold );
             Style.Cell.SelectedCellBackColor = Color.SteelBlue;
             Style.Cell.SelectedCellForeColor = Color.White;
             Style.Cell.SelectedCellHoverBorderColor = Color.SteelBlue;
@@ -74,7 +74,7 @@ namespace BudgetExecution
             Style.Header.NavigationButtonForeColor = Color.SteelBlue;
             Style.HorizontalSplitterColor = SystemColors.WindowFrame;
             Style.VerticalSplitterColor = SystemColors.WindowFrame;
-            
+
             Visible = true;
             Enabled = true;
         }

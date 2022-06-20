@@ -112,7 +112,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         public BudgetClock( Size size, Point location )
-            : this()
+            : this( )
         {
             Size = new Size( size.Width, size.Height );
             Location = BudgetSetting.ReLocate( location.X, location.Y );

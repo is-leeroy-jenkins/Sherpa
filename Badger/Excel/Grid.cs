@@ -12,10 +12,10 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
     public class Grid : ExcelCellBase, IGrid
     {
         /// <summary>
@@ -69,11 +69,11 @@ namespace BudgetExecution
             Worksheet = workSheet;
             Range = range;
 
-            Address = new ExcelAddress( Range.Start.Row, Range.Start.Column, 
+            Address = new ExcelAddress( Range.Start.Row, Range.Start.Column,
                 Range.End.Row, Range.End.Row );
 
-            From = ( Address.Start.Row, Address.Start.Column );
-            To = ( Address.End.Row, Address.End.Column );
+            From = (Address.Start.Row, Address.Start.Column);
+            To = (Address.End.Row, Address.End.Column);
         }
 
         /// <summary>
@@ -89,8 +89,8 @@ namespace BudgetExecution
         {
             Worksheet = workSheet;
             Address = address;
-            From = ( Address.Start.Row, Address.Start.Column );
-            To = ( Address.End.Row, Address.End.Column );
+            From = (Address.Start.Row, Address.Start.Column);
+            To = (Address.End.Row, Address.End.Column);
             Range = Worksheet.Cells[ From.Row, From.Column, To.Row, To.Column ];
         }
 
@@ -117,8 +117,8 @@ namespace BudgetExecution
             Worksheet = workSheet;
             Range = Worksheet.Cells[ fromRow, fromColumn, toRow, toColumn ];
             Address = new ExcelAddress( Range.Start.Row, Range.Start.Column, Range.End.Row, Range.End.Row );
-            From = ( Address.Start.Row, Address.Start.Column );
-            To = ( Address.End.Row, Address.End.Column );
+            From = (Address.Start.Row, Address.Start.Column);
+            To = (Address.End.Row, Address.End.Column);
         }
 
         /// <summary>
@@ -137,8 +137,8 @@ namespace BudgetExecution
             Address = new ExcelAddress( Range.Start.Row, Range.Start.Column, Range.End.Row,
                 Range.End.Column );
 
-            From = ( Address.Start.Row, Address.Start.Column );
-            To = ( Address.End.Row, Address.End.Column );
+            From = (Address.Start.Row, Address.Start.Column);
+            To = (Address.End.Row, Address.End.Column);
         }
 
         /// <summary>
@@ -181,7 +181,7 @@ namespace BudgetExecution
             From = from;
             To = From;
         }
-        
+
         /// <summary>
         /// Gets the address.
         /// </summary>
@@ -231,8 +231,8 @@ namespace BudgetExecution
         {
             try
             {
-                return From.Row > 0 && From.Column  > 0
-                    ? ( From.Row, From.Column )
+                return From.Row > 0 && From.Column > 0
+                    ? (From.Row, From.Column)
                     : default( (int, int) );
             }
             catch( Exception ex )
@@ -252,7 +252,7 @@ namespace BudgetExecution
             try
             {
                 return To.Row > 0 && To.Column > 0
-                    ? ( To.Row, To.Column )
+                    ? (To.Row, To.Column)
                     : default( (int, int) );
             }
             catch( Exception ex )
@@ -352,8 +352,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

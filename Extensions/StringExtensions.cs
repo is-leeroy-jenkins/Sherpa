@@ -13,8 +13,8 @@ namespace BudgetExecution
     using System.Text.RegularExpressions;
     using System.Threading;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public static class StringExtensions
     {
         /// <summary>
@@ -34,7 +34,7 @@ namespace BudgetExecution
             {
                 return string.IsNullOrEmpty( text ) || text.Length < 5
                     ? text
-                    : Regex.Replace( text, "([A-Z])", " $1", RegexOptions.Compiled ).Trim();
+                    : Regex.Replace( text, "([A-Z])", " $1", RegexOptions.Compiled ).Trim( );
             }
             catch( Exception ex )
             {
@@ -52,7 +52,7 @@ namespace BudgetExecution
         /// <returns>
         /// The <see cref = "string"/>
         /// </returns>
-        [ SuppressMessage( "ReSharper", "UnusedMethodReturnValue.Global" ) ]
+        [SuppressMessage( "ReSharper", "UnusedMethodReturnValue.Global" )]
         public static string ToProperCase( this string text )
         {
             if( !string.IsNullOrEmpty( text ) )
@@ -194,7 +194,7 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( text ) )
                 {
-                    var letters = text.ToCharArray();
+                    var letters = text.ToCharArray( );
                     letters[ 0 ] = char.ToUpper( letters[ 0 ] );
                     return new string( letters );
                 }
@@ -360,14 +360,14 @@ namespace BudgetExecution
         {
             try
             {
-                var _message = new MailMessage();
+                var _message = new MailMessage( );
                 _message.To.Add( recipient );
                 var _address = new MailAddress( sender );
                 _message.From = _address;
                 _message.Subject = subject;
                 _message.Body = body;
                 var _client = new SmtpClient( server );
-                var _credentials = new NetworkCredential();
+                var _credentials = new NetworkCredential( );
                 _client.Credentials = _credentials;
                 _client.Send( _message );
                 return true;
@@ -411,8 +411,8 @@ namespace BudgetExecution
         private static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

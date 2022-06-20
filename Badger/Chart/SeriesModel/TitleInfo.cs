@@ -14,9 +14,9 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="ITitleInfo" />
-    [ SuppressMessage( "ReSharper", "GCSuppressFinalizeForTypeWithoutDestructor" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "GCSuppressFinalizeForTypeWithoutDestructor" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class TitleInfo : ITitleInfo
     {
         /// <summary>
@@ -166,7 +166,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _title = new ChartTitle();
+                    using var _title = new ChartTitle( );
                     _title.Text = Main;
                     _title.ForeColor = Color.FromArgb( 141, 139, 138 );
                     _title.Visible = true;
@@ -194,7 +194,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _title = new ChartTitle();
+                    using var _title = new ChartTitle( );
                     _title.Text = Main;
                     _title.ForeColor = Color.FromArgb( 141, 139, 138 );
                     _title.Visible = true;
@@ -225,7 +225,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _title = new ChartTitle();
+                    using var _title = new ChartTitle( );
                     _title.Text = Main;
                     _title.Visible = true;
                     _title.Font = font;
@@ -256,7 +256,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _title = new ChartTitle();
+                    using var _title = new ChartTitle( );
                     _title.Text = Main;
                     _title.Visible = true;
                     _title.Font = font;
@@ -281,8 +281,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

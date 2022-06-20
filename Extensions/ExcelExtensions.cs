@@ -45,7 +45,7 @@ namespace BudgetExecution
                 throw new ArgumentOutOfRangeException( nameof( header ), header, "Must be 0 or greater." );
             }
 
-            var _result = new DataSet();
+            var _result = new DataSet( );
 
             foreach( var _worksheet in excelPackage.Workbook.Worksheets )
             {
@@ -62,12 +62,12 @@ namespace BudgetExecution
                 }
 
                 var _columns =
-                    from _cell in _worksheet?.Cells[ _start, 1, _start, _worksheet.Dimension.End.Column ] 
+                    from _cell in _worksheet?.Cells[ _start, 1, _start, _worksheet.Dimension.End.Column ]
                     select new DataColumn( header > 0
-                        ? _cell?.Value?.ToString()
+                        ? _cell?.Value?.ToString( )
                         : $"Column {_cell?.Start?.Column}" );
 
-                _table.Columns.AddRange( _columns?.ToArray() );
+                _table.Columns.AddRange( _columns?.ToArray( ) );
 
                 var i = header > 0
                     ? _start + 1
@@ -76,7 +76,7 @@ namespace BudgetExecution
                 for( var index = i; index <= _worksheet?.Dimension.End.Row; index++ )
                 {
                     var _range = _worksheet.Cells[ index, 1, index, _worksheet.Dimension.End.Column ];
-                    var _row = _table.Rows.Add();
+                    var _row = _table.Rows.Add( );
 
                     foreach( var cell in _range )
                     {
@@ -94,7 +94,7 @@ namespace BudgetExecution
         /// <param name="worksheet">The worksheet.</param>
         public static void TrimLastEmptyRows( this ExcelWorksheet worksheet )
         {
-            while( worksheet.IsLastRowEmpty() )
+            while( worksheet.IsLastRowEmpty( ) )
             {
                 worksheet.DeleteRow( worksheet.Dimension.End.Row, 1 );
             }
@@ -109,12 +109,12 @@ namespace BudgetExecution
         /// </returns>
         public static bool IsLastRowEmpty( this ExcelWorksheet worksheet )
         {
-            var _empties = new List<bool>();
+            var _empties = new List<bool>( );
 
             for( var index = 1; index <= worksheet.Dimension.End.Column; index++ )
             {
                 var _value = worksheet.Cells[ worksheet.Dimension.End.Row, index ].Value;
-                _empties.Add( string.IsNullOrWhiteSpace( _value?.ToString() ) );
+                _empties.Add( string.IsNullOrWhiteSpace( _value?.ToString( ) ) );
             }
 
             return _empties.All( e => e );
@@ -144,8 +144,8 @@ namespace BudgetExecution
                 ? Math.Round( 7.0 * _second - 0.0, 0 ) / 7.0
                 : Math.Round( 12.0 * _second - 0.0, 0 ) / 12.0 + 0.0;
 
-            column.Width = _first > 0.0 
-                ? width + _third 
+            column.Width = _first > 0.0
+                ? width + _third
                 : 0.0;
         }
 
@@ -227,8 +227,8 @@ namespace BudgetExecution
         private static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

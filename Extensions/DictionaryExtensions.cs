@@ -15,8 +15,8 @@ namespace BudgetExecution
     using System.Linq;
 
     /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public static class DictionaryExtensions
     {
         /// <summary> Adds the or update. </summary>
@@ -57,42 +57,42 @@ namespace BudgetExecution
         /// <returns></returns>
         public static string Predicate( this IDictionary<string, object> dict, Logic logic = Logic.AND )
         {
-            if( dict?.Any() == true
+            if( dict?.Any( ) == true
                 && Enum.IsDefined( typeof( Logic ), logic ) )
             {
                 try
                 {
-                    var _conjuction = logic.ToString();
+                    var _conjuction = logic.ToString( );
                     var _string = "";
 
-                    if( dict.HasPrimaryKey() )
+                    if( dict.HasPrimaryKey( ) )
                     {
-                        var _key = dict.GetPrimaryKey();
+                        var _key = dict.GetPrimaryKey( );
 
                         if( !string.IsNullOrEmpty( _key.Key )
-                            & int.Parse( _key.Value.ToString() ) > -1 )
+                            & int.Parse( _key.Value.ToString( ) ) > -1 )
                         {
                             foreach( var kvp in dict )
                             {
                                 _string += $"{kvp.Key} = {kvp.Value}  {_conjuction} ";
                             }
 
-                            var _sql = _string.TrimEnd( $"  {_conjuction} ".ToCharArray() );
-                            _sql += $" WHERE {_key.Key} = {int.Parse( _key.Value.ToString() )};";
+                            var _sql = _string.TrimEnd( $"  {_conjuction} ".ToCharArray( ) );
+                            _sql += $" WHERE {_key.Key} = {int.Parse( _key.Value.ToString( ) )};";
 
                             return !string.IsNullOrEmpty( _sql )
                                 ? _sql
                                 : string.Empty;
                         }
                     }
-                    else if( !dict.HasPrimaryKey() )
+                    else if( !dict.HasPrimaryKey( ) )
                     {
                         foreach( var kvp in dict )
                         {
                             _string += $"{kvp.Key} = {kvp.Value} {_conjuction} ";
                         }
 
-                        var _sql = _string.TrimEnd( $" {_conjuction} ".ToCharArray() );
+                        var _sql = _string.TrimEnd( $" {_conjuction} ".ToCharArray( ) );
 
                         return !string.IsNullOrEmpty( _sql )
                             ? _sql
@@ -157,15 +157,15 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _columns = dict.Keys.ToArray();
-                    var _values = dict.Values.ToArray();
+                    var _columns = dict.Keys.ToArray( );
+                    var _values = dict.Values.ToArray( );
 
                     switch( provider )
                     {
                         case Provider.NS:
                         case Provider.SQLite:
                         {
-                            var _sqlite = new List<SQLiteParameter>();
+                            var _sqlite = new List<SQLiteParameter>( );
 
                             for( var i = 0; i < _columns.Length; i++ )
                             {
@@ -178,14 +178,14 @@ namespace BudgetExecution
                                 _sqlite.Add( _parameter );
                             }
 
-                            return _sqlite.Any()
-                                ? _sqlite.ToArray()
+                            return _sqlite.Any( )
+                                ? _sqlite.ToArray( )
                                 : default( SQLiteParameter[ ] );
                         }
 
                         case Provider.SqlCe:
                         {
-                            var _sqlce = new List<SqlCeParameter>();
+                            var _sqlce = new List<SqlCeParameter>( );
 
                             for( var i = 0; i < _columns.Length; i++ )
                             {
@@ -198,8 +198,8 @@ namespace BudgetExecution
                                 _sqlce.Add( _parameter );
                             }
 
-                            return _sqlce.Any()
-                                ? _sqlce.ToArray()
+                            return _sqlce.Any( )
+                                ? _sqlce.ToArray( )
                                 : default( SqlCeParameter[ ] );
                         }
 
@@ -207,7 +207,7 @@ namespace BudgetExecution
                         case Provider.Excel:
                         case Provider.Access:
                         {
-                            var _oledb = new List<OleDbParameter>();
+                            var _oledb = new List<OleDbParameter>( );
 
                             for( var i = 0; i < _columns.Length; i++ )
                             {
@@ -220,14 +220,14 @@ namespace BudgetExecution
                                 _oledb.Add( _parameter );
                             }
 
-                            return _oledb.Any()
-                                ? _oledb.ToArray()
+                            return _oledb.Any( )
+                                ? _oledb.ToArray( )
                                 : default( OleDbParameter[ ] );
                         }
 
                         case Provider.SqlServer:
                         {
-                            var _sqlserver = new List<SqlParameter>();
+                            var _sqlserver = new List<SqlParameter>( );
 
                             for( var i = 0; i < _columns.Length; i++ )
                             {
@@ -240,8 +240,8 @@ namespace BudgetExecution
                                 _sqlserver.Add( _parameter );
                             }
 
-                            return _sqlserver?.Any() == true
-                                ? _sqlserver.ToArray()
+                            return _sqlserver?.Any( ) == true
+                                ? _sqlserver.ToArray( )
                                 : default( SqlParameter[ ] );
                         }
                     }
@@ -268,11 +268,11 @@ namespace BudgetExecution
         /// </returns>
         public static bool HasPrimaryKey( this IDictionary<string, object> dict )
         {
-            if( dict?.Any() == true )
+            if( dict?.Any( ) == true )
             {
                 try
                 {
-                    var _array = dict.Keys?.ToArray();
+                    var _array = dict.Keys?.ToArray( );
                     var _names = Enum.GetNames( typeof( PrimaryKey ) );
                     var _count = 0;
 
@@ -305,8 +305,8 @@ namespace BudgetExecution
         /// <returns></returns>
         public static KeyValuePair<string, object> GetPrimaryKey( this IDictionary<string, object> dict )
         {
-            if( dict?.Any() == true
-                && dict.HasPrimaryKey() )
+            if( dict?.Any( ) == true
+                && dict.HasPrimaryKey( ) )
             {
                 try
                 {
@@ -337,8 +337,8 @@ namespace BudgetExecution
         private static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

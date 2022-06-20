@@ -12,8 +12,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
     public abstract class SqlBase
     {
         /// <summary>
@@ -29,7 +29,7 @@ namespace BudgetExecution
         /// <summary>
         /// The arguments
         /// </summary>
-        public IDictionary<string, object> Args { get; set; } 
+        public IDictionary<string, object> Args { get; set; }
 
         /// <summary>
         /// The command text
@@ -61,13 +61,13 @@ namespace BudgetExecution
         /// <param name="dict">The dictionary.</param>
         private protected void SetArgs( IDictionary<string, object> dict )
         {
-            if( dict?.Any() == true )
+            if( dict?.Any( ) == true )
             {
                 try
                 {
-                    Args = dict?.Any() == true
+                    Args = dict?.Any( ) == true
                         ? dict
-                        : new Dictionary<string, object>();
+                        : new Dictionary<string, object>( );
                 }
                 catch( Exception ex )
                 {
@@ -85,7 +85,7 @@ namespace BudgetExecution
             try
             {
                 CommandType = Enum.IsDefined( typeof( SQL ), commandType )
-                    && Enum.GetNames( typeof( SQL ) ).Contains( commandType.ToString() )
+                    && Enum.GetNames( typeof( SQL ) ).Contains( commandType.ToString( ) )
                         ? commandType
                         : SQL.SELECT;
             }
@@ -129,7 +129,7 @@ namespace BudgetExecution
                         _empty += $" {_kvp.Key} = '{_kvp.Value}' AND";
                     }
 
-                    var _values = _empty.TrimEnd( " AND".ToCharArray() );
+                    var _values = _empty.TrimEnd( " AND".ToCharArray( ) );
                     var _tableName = ConnectionBuilder?.TableName;
                     CommandText = $"{SQL.SELECT} * FROM {_tableName} WHERE {_values};";
                 }
@@ -161,7 +161,7 @@ namespace BudgetExecution
                         _update += $" {kvp.Key} = '{kvp.Value}' AND";
                     }
 
-                    var _vals = _update.TrimEnd( " AND".ToCharArray() );
+                    var _vals = _update.TrimEnd( " AND".ToCharArray( ) );
                     CommandText = $"{SQL.UPDATE} {ConnectionBuilder?.TableName} SET {_vals};";
                 }
                 catch( Exception ex )
@@ -192,7 +192,7 @@ namespace BudgetExecution
                     }
 
                     var values =
-                        $"({_column.TrimEnd( ", ".ToCharArray() )}) VALUES ({_values.TrimEnd( ", ".ToCharArray() )})";
+                        $"({_column.TrimEnd( ", ".ToCharArray( ) )}) VALUES ({_values.TrimEnd( ", ".ToCharArray( ) )})";
 
                     CommandText = $"{SQL.INSERT} INTO {_table} {values};";
                 }
@@ -220,7 +220,7 @@ namespace BudgetExecution
                         _columns += $" {kvp.Key} = '{kvp.Value}' AND";
                     }
 
-                    var _values = _columns.TrimEnd( " AND".ToCharArray() );
+                    var _values = _columns.TrimEnd( " AND".ToCharArray( ) );
                     var _table = ConnectionBuilder?.TableName;
                     CommandText = $"{SQL.DELETE} FROM {_table} WHERE {_values};";
                 }
@@ -263,7 +263,7 @@ namespace BudgetExecution
             if( dict == null
                 && Verify.IsInput( ConnectionBuilder?.ConnectionString ) )
             {
-                SetSelectStatement();
+                SetSelectStatement( );
             }
             else if( Verify.IsMap( dict ) )
             {
@@ -310,8 +310,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
 
         /// <summary>

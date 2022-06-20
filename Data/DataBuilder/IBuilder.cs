@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="ISource" />
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
     public interface IBuilder : ISource
     {
         /// <summary>

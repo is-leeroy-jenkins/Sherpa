@@ -77,11 +77,11 @@ namespace BudgetExecution
         /// <value>
         /// The calendar.
         /// </value>
-        public CalendarBase Calendar { get; } = new BudgetCalendar();
+        public CalendarBase Calendar { get; } = new BudgetCalendar( );
 
         public BudgetCalendarForm()
         {
-            InitializeComponent();
+            InitializeComponent( );
 
             // Form properties
             Size = new Size( Calendar.Size.Width + 5, Calendar.Size.Height + 5 );

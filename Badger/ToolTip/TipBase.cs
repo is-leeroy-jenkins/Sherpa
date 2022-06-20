@@ -14,12 +14,12 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="MetroSetSetToolTip" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    [ SuppressMessage( "ReSharper", "IsExpressionAlwaysTrue" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [SuppressMessage( "ReSharper", "IsExpressionAlwaysTrue" )]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
+    [SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" )]
     public abstract class TipBase : MetroSetSetToolTip
     {
         /// <summary>
@@ -207,12 +207,12 @@ namespace BudgetExecution
         /// <param name="control">The control.</param>
         public virtual void SetToolTipText( Control control )
         {
-            if( Verify.IsInput( control?.Tag?.ToString() ) )
+            if( Verify.IsInput( control?.Tag?.ToString( ) ) )
             {
                 try
                 {
-                    RemoveAll();
-                    var _caption = control.Tag.ToString();
+                    RemoveAll( );
+                    var _caption = control.Tag.ToString( );
                     SetToolTip( control, _caption );
                 }
                 catch( Exception ex )
@@ -234,7 +234,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    RemoveAll();
+                    RemoveAll( );
                     SetToolTip( control, caption );
                 }
                 catch( Exception ex )
@@ -250,17 +250,17 @@ namespace BudgetExecution
         /// <param name="item">The item.</param>
         public virtual void SetToolTipText( ToolStripItem item )
         {
-            if( item.GetCurrentParent() != null
+            if( item.GetCurrentParent( ) != null
                 && item is not null )
             {
                 try
                 {
-                    Control parent = item.GetCurrentParent();
-                    var caption = item?.Tag?.ToString();
+                    Control parent = item.GetCurrentParent( );
+                    var caption = item?.Tag?.ToString( );
 
                     if( Verify.IsInput( caption ) )
                     {
-                        RemoveAll();
+                        RemoveAll( );
                         SetToolTipText( parent, caption );
                     }
                 }
@@ -282,10 +282,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Verify.IsInput( control?.Tag?.ToString() ) )
+                    if( Verify.IsInput( control?.Tag?.ToString( ) ) )
                     {
-                        var caption = control.Tag.ToString();
-                        RemoveAll();
+                        var caption = control.Tag.ToString( );
+                        RemoveAll( );
                         SetToolTip( control, caption );
                     }
                 }
@@ -310,7 +310,7 @@ namespace BudgetExecution
                 {
                     if( component is Control control )
                     {
-                        RemoveAll();
+                        RemoveAll( );
                         SetToolTip( control, caption );
                     }
                 }
@@ -328,8 +328,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

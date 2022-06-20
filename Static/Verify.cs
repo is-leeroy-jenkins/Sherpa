@@ -15,8 +15,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Validate" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
     public class Verify : Validate
     {
         /// <summary>
@@ -48,7 +48,7 @@ namespace BudgetExecution
         public static bool IsRow<T>( T data )
             where T : DataRow
         {
-            if( !data?.ItemArray?.Any() == true )
+            if( !data?.ItemArray?.Any( ) == true )
             {
                 Fail( new ArgumentException( "Verify [ DataRow data ] input argument!" ) );
                 return false;
@@ -66,7 +66,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public static bool IsInput( object input )
         {
-            if( string.IsNullOrEmpty( input?.ToString() ) )
+            if( string.IsNullOrEmpty( input?.ToString( ) ) )
             {
                 Fail( new ArgumentException( "Verify argument!" ) );
                 return false;
@@ -86,7 +86,7 @@ namespace BudgetExecution
         public static bool IsRows<T>( T data )
             where T : IEnumerable<DataRow>
         {
-            if( !data?.Any() == true )
+            if( !data?.Any( ) == true )
             {
                 Fail( new ArgumentException( "Verify [ IEnumerable<DataRow> data ] input argument!" ) );
                 return false;
@@ -140,7 +140,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public static bool IsAmount( object data )
         {
-            if( data is IAmount  )
+            if( data is IAmount )
             {
                 return true;
             }
@@ -156,9 +156,9 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="data">The object.</param>
         /// <returns></returns>
-        public static bool IsElement( object data ) 
+        public static bool IsElement( object data )
         {
-            if( data is IElement  )
+            if( data is IElement )
             {
                 return true;
             }
@@ -178,7 +178,7 @@ namespace BudgetExecution
         public static bool IsMap<T>( T data )
             where T : IDictionary<string, object>
         {
-            if( data?.Any() == true )
+            if( data?.Any( ) == true )
             {
                 return true;
             }
@@ -200,7 +200,7 @@ namespace BudgetExecution
         public static bool IsBindable<T>( T data )
             where T : IBindingList
         {
-            if( data is IBindingList _list 
+            if( data is IBindingList _list
                && _list?.Count > 0 )
             {
                 return true;
@@ -220,7 +220,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public static bool IsSequence<T>( IEnumerable<T> data )
         {
-            if( data?.Any() == true )
+            if( data?.Any( ) == true )
             {
                 Fail( new ArgumentException( "Verify [ IEnumerable<T> data ] input argument!" ) );
                 return false;
@@ -302,7 +302,7 @@ namespace BudgetExecution
         public static bool IsAuthority<T>( T source )
             where T : struct
         {
-            var _source = (Source)Enum.Parse( typeof( Source ), source.ToString() );
+            var _source = (Source)Enum.Parse( typeof( Source ), source.ToString( ) );
 
             if( !Enum.IsDefined( typeof( Source ), source )
                 || !Resource.AuthoritySources.Contains( _source ) )
@@ -347,7 +347,7 @@ namespace BudgetExecution
         public static bool IsDateTime<T>( T date )
             where T : struct
         {
-            if( !DateTime.TryParse( date.ToString(), out _ ) )
+            if( !DateTime.TryParse( date.ToString( ), out _ ) )
             {
                 Fail( new ArgumentException( "Verify [ IsDateTime date ] input argument!" ) );
                 return false;

@@ -7,13 +7,13 @@ namespace BudgetExecution
     using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
 
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
     public interface IChartSeriesModel
     {
         /// <summary> Gets or sets the count. </summary>
         /// <value> The count. </value>
         int Count { get; set; }
-        
+
         /// <summary> Gets the empty. </summary>
         /// <param name = "xIndex" > The xIndex. </param>
         /// <returns> </returns>
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <param name = "xIndex" > The xIndex. </param>
         /// <returns> </returns>
         double GetY( int xIndex );
-        
+
         /// <summary> Occurs when [changed]. </summary>
         event ListChangedEventHandler Changed;
     }

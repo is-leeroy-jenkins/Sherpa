@@ -72,7 +72,7 @@ namespace BudgetExecution
 
         public BudgetHtmlForm()
         {
-            InitializeComponent();
+            InitializeComponent( );
 
             // Form Properties
             Size = new Size( 1200, 700 );

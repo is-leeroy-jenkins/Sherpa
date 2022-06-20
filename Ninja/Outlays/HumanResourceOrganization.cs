@@ -15,10 +15,10 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref = "IHumanResourceOrganization"/>
     /// <seealso cref = "ISource"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MissingBlankLines" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MissingBlankLines" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
     public class HumanResourceOrganization : Element, IHumanResourceOrganization, ISource
     {
         /// <summary>
@@ -41,7 +41,7 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Args { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref = "HumanResourceOrganization"/>
         /// class.
@@ -59,11 +59,11 @@ namespace BudgetExecution
         /// </param>
         public HumanResourceOrganization( IQuery query )
         {
-            Record = new Builder( query )?.GetRecord();
+            Record = new Builder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.HumanResourceOrganizationsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Args = Record?.ToDictionary();
+            Args = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -75,11 +75,11 @@ namespace BudgetExecution
         /// </param>
         public HumanResourceOrganization( IBuilder builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.HumanResourceOrganizationsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Args = Record?.ToDictionary();
+            Args = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -95,9 +95,9 @@ namespace BudgetExecution
             ID = new Key( Record, PrimaryKey.HumanResourceOrganizationsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Args = Record?.ToDictionary();
+            Args = Record?.ToDictionary( );
         }
-        
+
         /// <summary>
         /// Gets the human resource organization.
         /// </summary>
@@ -107,7 +107,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone() as HumanResourceOrganization;
+                return MemberwiseClone( ) as HumanResourceOrganization;
             }
             catch( Exception ex )
             {
@@ -128,13 +128,13 @@ namespace BudgetExecution
                 try
                 {
                     var _rows = new Builder( Source, Args )
-                        ?.GetData()
+                        ?.GetData( )
                         ?.Select( r => r );
 
                     var _select = _rows
                         ?.Select( h => new HumanResourceOrganization( h ) );
 
-                    return _select?.Any() == true
+                    return _select?.Any( ) == true
                         ? _select
                         : default( IEnumerable<HumanResourceOrganization> );
                 }
@@ -157,7 +157,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Args.Any()
+                return Args.Any( )
                     ? Args
                     : default( IDictionary<string, object> );
             }

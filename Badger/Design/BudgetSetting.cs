@@ -12,9 +12,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public class BudgetSetting
     {
         /// <summary>
@@ -75,7 +75,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return Verify.IsInput( tag.ToString() )
+                    return Verify.IsInput( tag.ToString( ) )
                         ? tag
                         : default( object );
                 }
@@ -99,7 +99,7 @@ namespace BudgetExecution
         {
             try
             {
-                return ( width > -1 && height > -1 ) 
+                return ( width > -1 && height > -1 )
                     ? new Size( width, height )
                     : new Size( 1, 1 );
             }
@@ -145,7 +145,7 @@ namespace BudgetExecution
                     {
                         PicSize.Small => new Size( 16, 16 ),
                         PicSize.Medium => new Size( 30, 30 ),
-                        PicSize.Large => new Size( 50 , 50 ),
+                        PicSize.Large => new Size( 50, 50 ),
                         PicSize.Huge => new Size( 250, 250 ),
                         _ => Size.Empty
                     };
@@ -204,7 +204,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="anchor">The anchor.</param>
         /// <returns></returns>
-        public static AnchorStyles ReAnchor( AnchorStyles anchor = AnchorStyles.Left 
+        public static AnchorStyles ReAnchor( AnchorStyles anchor = AnchorStyles.Left
             | AnchorStyles.Top )
         {
             try
@@ -299,8 +299,8 @@ namespace BudgetExecution
         {
             try
             {
-                return !string.IsNullOrEmpty( family ) 
-                    && size > 0 
+                return !string.IsNullOrEmpty( family )
+                    && size > 0
                     && Enum.IsDefined( typeof( FontStyle ), style )
                         ? new Font( family, size, style )
                         : new Font( "Roboto", 9, FontStyle.Regular );
@@ -323,7 +323,7 @@ namespace BudgetExecution
             {
                 return Verify.IsInput( font?.FontFamily?.Name )
                     ? font
-                    : new Font( "Roboto", 9 , FontStyle.Regular );
+                    : new Font( "Roboto", 9, FontStyle.Regular );
             }
             catch( Exception ex )
             {
@@ -387,7 +387,7 @@ namespace BudgetExecution
         /// </param>
         /// <returns>
         /// </returns>
-        public static StringAlignment GetStringAlignment( StringAlignment alignment = StringAlignment.Center)
+        public static StringAlignment GetStringAlignment( StringAlignment alignment = StringAlignment.Center )
         {
             try
             {
@@ -432,8 +432,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

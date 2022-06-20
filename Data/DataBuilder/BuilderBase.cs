@@ -23,8 +23,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _columns = GetDataTable()?.Columns;
-                var _values = new List<int>();
+                var _columns = GetDataTable( )?.Columns;
+                var _values = new List<int>( );
 
                 if( _columns?.Count > 0 )
                 {
@@ -34,7 +34,7 @@ namespace BudgetExecution
                     }
                 }
 
-                return _values?.Any() == true
+                return _values?.Any( ) == true
                     ? _values
                     : default( IEnumerable<int> );
             }
@@ -54,16 +54,16 @@ namespace BudgetExecution
             try
             {
                 var _columns = Record
-                    ?.ToDictionary()
+                    ?.ToDictionary( )
                     ?.Keys
-                    ?.ToArray();
+                    ?.ToArray( );
 
-                if( _columns?.Any() == true )
+                if( _columns?.Any( ) == true )
                 {
                     var _fields = _columns
-                        ?.Select( e => e.ToEnum<Field>() );
+                        ?.Select( e => e.ToEnum<Field>( ) );
 
-                    return _fields?.Any() == true
+                    return _fields?.Any( ) == true
                         ? _fields
                         : default( IEnumerable<Field> );
                 }
@@ -87,7 +87,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _elements = new List<IElement>();
+                var _elements = new List<IElement>( );
                 var _columns = Record?.Table?.Columns;
                 var _fields = Enum.GetNames( typeof( Field ) );
 
@@ -102,7 +102,7 @@ namespace BudgetExecution
                         }
                     }
 
-                    return _elements?.Any() == true
+                    return _elements?.Any( ) == true
                         ? _elements
                         : default( IEnumerable<IElement> );
                 }

@@ -22,7 +22,7 @@ namespace BudgetExecution
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Margin = new Padding( 3 );
-            Font = new Font( "Roboto", 9  );
+            Font = new Font( "Roboto", 9 );
             ForeColor = Color.White;
             BackColor = Color.FromArgb( 18, 18, 18 );
             TabPanelBackColor = Color.FromArgb( 18, 18, 18 );
@@ -31,7 +31,7 @@ namespace BudgetExecution
             BorderVisible = false;
             ThemesEnabled = true;
             ActiveTabColor = Color.SteelBlue;
-            ActiveTabFont = new Font( "Roboto", 9, FontStyle.Regular  );
+            ActiveTabFont = new Font( "Roboto", 9, FontStyle.Regular );
             ActiveTabForeColor = Color.White;
             InActiveTabForeColor = Color.FromArgb( 18, 18, 18 );
             InactiveTabColor = Color.FromArgb( 18, 18, 18 );

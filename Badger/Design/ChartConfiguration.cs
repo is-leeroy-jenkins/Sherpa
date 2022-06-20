@@ -16,12 +16,12 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="ChartStyleInfo" />
     /// <seealso cref="IChartConfiguration" />
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberInitializerValueIgnored" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberInitializerValueIgnored" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "MergeConditionalExpression" )]
     public class ChartConfiguration : ChartStyleInfo, IChartConfiguration
     {
         /// <summary>
@@ -127,7 +127,7 @@ namespace BudgetExecution
                         Color = color
                     };
 
-                    return _style != null 
+                    return _style != null
                         ? _style
                         : default( ChartLineInfo );
                 }
@@ -148,8 +148,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

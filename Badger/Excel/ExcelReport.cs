@@ -16,9 +16,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "PossiblyMistakenUseOfParamsMethod" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
+    [SuppressMessage( "ReSharper", "PossiblyMistakenUseOfParamsMethod" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" )]
     public class ExcelReport
     {
         /// <summary>
@@ -27,7 +27,7 @@ namespace BudgetExecution
         public ExcelReport()
         {
         }
-        
+
         /// <summary>
         /// Creates the excel document.
         /// </summary>
@@ -48,7 +48,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _dataSet = new DataSet();
+                    using var _dataSet = new DataSet( );
                     _dataSet?.Tables?.Add( ListToDataTable( data ) );
                     return CreateExcelDocument( _dataSet, excelFilePath );
                 }
@@ -81,7 +81,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _dataSet = new DataSet();
+                    using var _dataSet = new DataSet( );
                     _dataSet.Tables.Add( dataTable );
                     var _document = CreateExcelDocument( _dataSet, excelFilePath );
                     _dataSet.Tables.Remove( dataTable );
@@ -149,9 +149,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _table = new DataTable();
+                    var _table = new DataTable( );
 
-                    foreach( var info in typeof( T ).GetProperties() )
+                    foreach( var info in typeof( T ).GetProperties( ) )
                     {
                         _table?.Columns?.Add( new DataColumn( info.Name,
                             GetNullableType( info.PropertyType ) ) );
@@ -159,9 +159,9 @@ namespace BudgetExecution
 
                     foreach( var t in data )
                     {
-                        var _row = _table.NewRow();
+                        var _row = _table.NewRow( );
 
-                        foreach( var info in typeof( T ).GetProperties() )
+                        foreach( var info in typeof( T ).GetProperties( ) )
                         {
                             _row[ info.Name ] = !IsNullableType( info.PropertyType )
                                 ? info.GetValue( t, null )
@@ -198,7 +198,7 @@ namespace BudgetExecution
                 var _returnType = type;
 
                 if( type.IsGenericType
-                    && type.GetGenericTypeDefinition() == typeof( Nullable<> ) )
+                    && type.GetGenericTypeDefinition( ) == typeof( Nullable<> ) )
                 {
                     _returnType = Nullable.GetUnderlyingType( type );
                 }
@@ -235,7 +235,7 @@ namespace BudgetExecution
                 return type == typeof( string )
                     || type.IsArray
                     || ( type.IsGenericType
-                        && type.GetGenericTypeDefinition() == typeof( Nullable<> ) );
+                        && type.GetGenericTypeDefinition( ) == typeof( Nullable<> ) );
             }
             catch( Exception ex )
             {
@@ -334,7 +334,7 @@ namespace BudgetExecution
             {
                 if( columnIndex < 26 )
                 {
-                    return ( (char)( 'A' + columnIndex ) ).ToString();
+                    return ( (char)( 'A' + columnIndex ) ).ToString( );
                 }
 
                 var _first = (char)( ( 'A' + ( columnIndex / 26 ) ) - 1 );
@@ -364,32 +364,32 @@ namespace BudgetExecution
             {
                 try
                 {
-                    spreadSheet.AddWorkbookPart();
+                    spreadSheet.AddWorkbookPart( );
 
-                    if ( spreadSheet.WorkbookPart != null )
+                    if( spreadSheet.WorkbookPart != null )
                     {
-                        spreadSheet.WorkbookPart.Workbook = new Workbook();
-                        spreadSheet.WorkbookPart.Workbook.Append( new BookViews( new WorkbookView() ) );
+                        spreadSheet.WorkbookPart.Workbook = new Workbook( );
+                        spreadSheet.WorkbookPart.Workbook.Append( new BookViews( new WorkbookView( ) ) );
                         var _styles = spreadSheet.WorkbookPart.AddNewPart<WorkbookStylesPart>( "rIdStyles" );
 
-                        var _stylesheet = new Stylesheet();
+                        var _stylesheet = new Stylesheet( );
                         _styles.Stylesheet = _stylesheet;
                         uint _id = 1;
 
                         foreach( DataTable _dataTable in dataSet.Tables )
                         {
-                            var _part = spreadSheet.WorkbookPart.AddNewPart<WorksheetPart>();
-                            _part.Worksheet = new Worksheet();
-                            _part.Worksheet.AppendChild( new SheetData() );
+                            var _part = spreadSheet.WorkbookPart.AddNewPart<WorksheetPart>( );
+                            _part.Worksheet = new Worksheet( );
+                            _part.Worksheet.AppendChild( new SheetData( ) );
                             WriteDataTableToExcelWorksheet( _dataTable, _part );
-                            _part.Worksheet.Save();
+                            _part.Worksheet.Save( );
 
                             if( _id == 1 )
                             {
-                                spreadSheet.WorkbookPart.Workbook.AppendChild( new Sheets() );
+                                spreadSheet.WorkbookPart.Workbook.AppendChild( new Sheets( ) );
                             }
 
-                            spreadSheet.WorkbookPart.Workbook.GetFirstChild<Sheets>()
+                            spreadSheet.WorkbookPart.Workbook.GetFirstChild<Sheets>( )
                                        ?.AppendChild( new Sheet
                                        {
                                            Id = spreadSheet.WorkbookPart.GetIdOfPart( _part ),
@@ -400,7 +400,7 @@ namespace BudgetExecution
                             _id++;
                         }
 
-                        spreadSheet.WorkbookPart.Workbook.Save();
+                        spreadSheet.WorkbookPart.Workbook.Save( );
                     }
                 }
                 catch( Exception ex )
@@ -421,14 +421,14 @@ namespace BudgetExecution
         /// </param>
         public void WriteDataTableToExcelWorksheet( DataTable dataTable, WorksheetPart workSheetPart )
         {
-            if( dataTable?.Rows.Count      > 0
+            if( dataTable?.Rows.Count > 0
                 && dataTable.Columns.Count > 0
                 && workSheetPart != null )
             {
                 try
                 {
                     var _worksheet = workSheetPart.Worksheet;
-                    var _data = _worksheet?.GetFirstChild<SheetData>();
+                    var _data = _worksheet?.GetFirstChild<SheetData>( );
                     var _columns = dataTable.Columns.Count;
                     var _isNumeric = new bool[ _columns ];
                     var _names = new string[ _columns ];
@@ -469,13 +469,13 @@ namespace BudgetExecution
 
                         for( var i = 0; i < _columns; i++ )
                         {
-                            var _value = _dataRow?.ItemArray[ i ].ToString();
+                            var _value = _dataRow?.ItemArray[ i ].ToString( );
 
                             if( _isNumeric[ i ] )
                             {
                                 if( double.TryParse( _value, out var cellnumericvalue ) )
                                 {
-                                    _value = cellnumericvalue.ToString();
+                                    _value = cellnumericvalue.ToString( );
                                     AppendNumericCell( _names[ i ] + _rowIndex, _value, _excelRow );
                                 }
                             }
@@ -500,8 +500,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

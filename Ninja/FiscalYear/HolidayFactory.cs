@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class HolidayFactory : IFederalHoliday
     {
         /// <summary>
@@ -144,7 +144,7 @@ namespace BudgetExecution
             ColumbusDay = new Element( Record, Field.Columbus );
             ThanksgivingDay = new Element( Record, Field.Thanksgiving );
             ChristmasDay = new Element( Record, Field.Christmas );
-            Args = Record?.ToDictionary();
+            Args = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -159,14 +159,14 @@ namespace BudgetExecution
         {
             try
             {
-                var _holiday = new Dictionary<string, DateTime>();
+                var _holiday = new Dictionary<string, DateTime>( );
 
                 foreach( var kvp in dict )
                 {
                     _holiday.Add( kvp.Key, DateTime.Parse( kvp.Value ) );
                 }
 
-                return _holiday.Any()
+                return _holiday.Any( )
                     ? _holiday
                     : default( Dictionary<string, DateTime> );
             }
@@ -189,14 +189,14 @@ namespace BudgetExecution
         {
             try
             {
-                var _holiday = new Dictionary<string, DateTime>();
+                var _holiday = new Dictionary<string, DateTime>( );
 
                 foreach( var kvp in dict )
                 {
                     _holiday.Add( kvp.Key, DateTime.Parse( kvp.Value ) );
                 }
 
-                return _holiday.Any()
+                return _holiday.Any( )
                     ? _holiday
                     : default( Dictionary<string, DateTime> );
             }
@@ -234,8 +234,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

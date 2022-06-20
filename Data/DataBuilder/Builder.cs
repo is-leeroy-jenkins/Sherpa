@@ -18,11 +18,11 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="BuilderBase" />
     /// <seealso cref="IBuilder" />
-    [ SuppressMessage( "ReSharper", "ImplicitlyCapturedClosure" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [SuppressMessage( "ReSharper", "ImplicitlyCapturedClosure" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
     public class Builder : BuilderBase, IBuilder
     {
         /// <summary>
@@ -49,9 +49,9 @@ namespace BudgetExecution
             ConnectionBuilder = new ConnectionBuilder( source, provider );
             SqlStatement = new SqlStatement( ConnectionBuilder, SQL.SELECT );
             Query = new Query( ConnectionBuilder, SqlStatement );
-            ProgramElements = GetSeries( GetDataTable() );
-            Record = GetData()?.FirstOrDefault();
-            Args = Record?.ToDictionary();
+            ProgramElements = GetSeries( GetDataTable( ) );
+            Record = GetData( )?.FirstOrDefault( );
+            Args = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -67,9 +67,9 @@ namespace BudgetExecution
             ConnectionBuilder = new ConnectionBuilder( source, provider );
             SqlStatement = new SqlStatement( ConnectionBuilder, dict, SQL.SELECT );
             Query = new Query( ConnectionBuilder, SqlStatement );
-            ProgramElements = GetSeries( GetDataTable() );
-            Record = GetRecord();
-            Args = Record?.ToDictionary();
+            ProgramElements = GetSeries( GetDataTable( ) );
+            Record = GetRecord( );
+            Args = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -84,9 +84,9 @@ namespace BudgetExecution
             ConnectionBuilder = new ConnectionBuilder( Source, Provider );
             SqlStatement = new SqlStatement( ConnectionBuilder, dict, SQL.SELECT );
             Query = new Query( ConnectionBuilder, SqlStatement );
-            ProgramElements = GetSeries( GetDataTable() );
-            Record = GetRecord();
-            Args = Record?.ToDictionary();
+            ProgramElements = GetSeries( GetDataTable( ) );
+            Record = GetRecord( );
+            Args = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -98,11 +98,11 @@ namespace BudgetExecution
             Query = query;
             Source = ConnectionBuilder.Source;
             Provider = ConnectionBuilder.Provider;
-            ConnectionBuilder = Query.GetConnectionBuilder();
-            SqlStatement = Query.GetSqlStatement();
-            ProgramElements = GetSeries( GetDataTable() );
-            Record = GetRecord();
-            Args = Record?.ToDictionary();
+            ConnectionBuilder = Query.GetConnectionBuilder( );
+            SqlStatement = Query.GetSqlStatement( );
+            ProgramElements = GetSeries( GetDataTable( ) );
+            Record = GetRecord( );
+            Args = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -120,9 +120,9 @@ namespace BudgetExecution
                 {
                     var _query = dataRows
                         ?.Select( p => p.Field<string>( column ) )
-                        ?.Distinct();
+                        ?.Distinct( );
 
-                    return _query?.Any() == true
+                    return _query?.Any( ) == true
                         ? _query
                         : default( IEnumerable<string> );
                 }
@@ -154,9 +154,9 @@ namespace BudgetExecution
                     var _query = dataRows
                         ?.Where( p => p.Field<string>( $"{field}" ).Equals( filter ) )
                         ?.Select( p => p.Field<string>( $"{field}" ) )
-                        ?.Distinct();
+                        ?.Distinct( );
 
-                    return _query?.Any() == true
+                    return _query?.Any( ) == true
                         ? _query
                         : default( IEnumerable<string> );
                 }
@@ -182,7 +182,7 @@ namespace BudgetExecution
                 try
                 {
                     using var _reader = new DataTableReader( dataTable );
-                    var _schema = _reader?.GetSchemaTable();
+                    var _schema = _reader?.GetSchemaTable( );
 
                     return _schema?.Rows?.Count > 0
                         ? _schema
@@ -217,29 +217,29 @@ namespace BudgetExecution
                         + ";Extended Properties='Excel 12.0;HDR=YES;IMEX=1;';";
 
                     using var _connection = new OleDbConnection( _connectionString );
-                    _connection?.Open();
-                    using var _dataSet = new DataSet();
+                    _connection?.Open( );
+                    using var _dataSet = new DataSet( );
                     using var _schema = _connection?.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
                     var _sheetName = string.Empty;
 
                     if( _schema != null )
                     {
-                        var _dataTable = _schema?.AsEnumerable()
+                        var _dataTable = _schema?.AsEnumerable( )
                             ?.Where( r =>
                                 r.Field<string>( "TABLE_NAME" ).Contains( "FilterDatabase" ) )
                             ?.Select( r => r )
-                            ?.CopyToDataTable();
+                            ?.CopyToDataTable( );
 
-                        _sheetName = _dataTable.Rows[ 0 ][ "TABLE_NAME" ].ToString();
+                        _sheetName = _dataTable.Rows[ 0 ][ "TABLE_NAME" ].ToString( );
                     }
 
-                    using var _command = new OleDbCommand();
+                    using var _command = new OleDbCommand( );
                     _command.Connection = _connection;
                     _command.CommandText = "SELECT * FROM [" + _sheetName + "]";
                     using var _dataAdapter = new OleDbDataAdapter( _command );
                     _dataAdapter.Fill( _dataSet, "excelData" );
                     using var _table = _dataSet.Tables[ "ExcelData" ];
-                    _connection.Close();
+                    _connection.Close( );
                     return _table;
                 }
                 catch( Exception ex )
@@ -265,10 +265,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _package = new ExcelPackage();
+                    using var _package = new ExcelPackage( );
                     using var _stream = File.OpenRead( filePath );
                     _package.Load( _stream );
-                    var _worksheet = _package?.Workbook?.Worksheets?.First();
+                    var _worksheet = _package?.Workbook?.Worksheets?.First( );
                     var _table = new DataTable( _worksheet?.Name );
 
                     if( _worksheet?.Cells != null )
@@ -287,7 +287,7 @@ namespace BudgetExecution
                         for( var _row = _start; _row <= _worksheet.Dimension.End.Row; _row++ )
                         {
                             var _excelRange = _worksheet.Cells[ _row, 1, _row, _worksheet.Dimension.End.Column ];
-                            var _dataRow = _table.Rows?.Add();
+                            var _dataRow = _table.Rows?.Add( );
 
                             foreach( var cell in _excelRange )
                             {
@@ -317,7 +317,7 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The filter.</param>
         /// <returns></returns>
-        public static IDictionary<string, IEnumerable<string>> GetSeries( IEnumerable<DataRow> dataRows, 
+        public static IDictionary<string, IEnumerable<string>> GetSeries( IEnumerable<DataRow> dataRows,
             Field field, string filter )
         {
             if( Verify.IsInput( dataRows )
@@ -326,12 +326,12 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _dataTable = dataRows.CopyToDataTable();
+                    var _dataTable = dataRows.CopyToDataTable( );
                     var _columns = _dataTable?.Columns;
-                    var _dict = new Dictionary<string, IEnumerable<string>>();
+                    var _dict = new Dictionary<string, IEnumerable<string>>( );
                     var _values = GetValues( dataRows, field, filter );
 
-                    if( _values?.Any() == true )
+                    if( _values?.Any( ) == true )
                     {
                         for( var i = 0; i < _columns?.Count; i++ )
                         {
@@ -344,7 +344,7 @@ namespace BudgetExecution
                             }
                         }
 
-                        return _dict?.Any() == true
+                        return _dict?.Any( ) == true
                             ? _dict
                             : default( Dictionary<string, IEnumerable<string>> );
                     }
@@ -370,7 +370,7 @@ namespace BudgetExecution
             try
             {
                 return Query != null
-                    ? MemberwiseClone() as Builder
+                    ? MemberwiseClone( ) as Builder
                     : default( Builder );
             }
             catch( Exception ex )
@@ -399,8 +399,8 @@ namespace BudgetExecution
                         ?.Where( p => p.Field<string>( $"{field}" ).Equals( filter ) )
                         ?.Select( p => p );
 
-                    return _query?.Any() == true
-                        ? _query.ToArray()
+                    return _query?.Any( ) == true
+                        ? _query.ToArray( )
                         : default( DataRow[ ] );
                 }
                 catch( Exception ex )
@@ -424,7 +424,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _dict = new Dictionary<string, IEnumerable<string>>();
+                    var _dict = new Dictionary<string, IEnumerable<string>>( );
                     var _columns = dataTable.Columns;
 
                     for( var i = 0; i < _columns?.Count; i++ )
@@ -433,12 +433,12 @@ namespace BudgetExecution
                             && _columns[ i ]?.DataType == typeof( string ) )
                         {
                             _dict?.Add( _columns[ i ]?.ColumnName,
-                                GetValues( dataTable?.AsEnumerable(),
+                                GetValues( dataTable?.AsEnumerable( ),
                                     _columns[ i ]?.ColumnName ) );
                         }
                     }
 
-                    return _dict?.Any() == true
+                    return _dict?.Any( ) == true
                         ? _dict
                         : default( Dictionary<string, IEnumerable<string>> );
                 }

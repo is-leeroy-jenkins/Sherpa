@@ -21,7 +21,7 @@ namespace BudgetExecution
         /// <value>
         /// The settings.
         /// </value>
-        public NameValueCollection Setting { get;  set; } = ConfigurationManager.AppSettings;
+        public NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
 
         /// <summary>
         /// Gets or sets the budget button.
@@ -68,10 +68,7 @@ namespace BudgetExecution
             BudgetButton.Text = "Test";
             BudgetButton.Tag = "THIS IS A TEST";
             BudgetButton.Location = new Point( 500, 500 );
-
-            BudgetButton.HoverText =
-                GetFileNameWithoutExtension( Setting[ "BudgetExecutionIcon" ] );
-
+            BudgetButton.HoverText = GetFileNameWithoutExtension( Setting[ "BudgetExecutionIcon" ] );
             BudgetButton.Click += SetLabelText;
             BudgetButton.MouseLeave += ClearLabelText;
             Controls.Add( BudgetButton );
@@ -102,10 +99,7 @@ namespace BudgetExecution
                     CaptionForeColor = Color.White;
                     var _title = "Budget Execution Notification";
                     Text = Setting[ "BudgetExecutionIcon" ];
-
-                    using var _excel =
-                        new BudgetNotification( _title, Setting[ "BudgetExecutionIcon" ] );
-
+                    using var _excel = new BudgetNotification( _title, Setting[ "BudgetExecutionIcon" ] );
                     _excel.ShowDialog( this );
                 }
                 catch( Exception ex )
@@ -165,7 +159,7 @@ namespace BudgetExecution
             {
                 Text = string.Empty;
             }
-            catch ( Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }
@@ -178,7 +172,7 @@ namespace BudgetExecution
                 using var _data = new DataForm( );
                 _data.ShowDialog( );
             }
-            catch ( Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }

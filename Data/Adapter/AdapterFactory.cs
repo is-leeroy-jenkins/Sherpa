@@ -16,9 +16,9 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="IDisposable" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class AdapterFactory : IDisposable
     {
         /// <summary>
@@ -69,7 +69,7 @@ namespace BudgetExecution
         {
             AdapterBuilder = adapterBuilder;
             ConnectionBuilder = AdapterBuilder.ConnectionBuilder;
-            Connection = new ConnectionFactory( ConnectionBuilder )?.GetConnection();
+            Connection = new ConnectionFactory( ConnectionBuilder )?.GetConnection( );
             SqlStatement = new SqlStatement( ConnectionBuilder );
             CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
         }
@@ -84,7 +84,7 @@ namespace BudgetExecution
             ConnectionBuilder = connectionBuilder;
             SqlStatement = sqlStatement;
             AdapterBuilder = new AdapterBuilder( ConnectionBuilder, SqlStatement );
-            Connection = new ConnectionFactory( ConnectionBuilder )?.GetConnection();
+            Connection = new ConnectionFactory( ConnectionBuilder )?.GetConnection( );
             CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
         }
 
@@ -99,7 +99,7 @@ namespace BudgetExecution
             CommandBuilder = commandBuilder;
             SqlStatement = CommandBuilder.SqlStatement;
             AdapterBuilder = new AdapterBuilder( ConnectionBuilder, SqlStatement );
-            Connection = new ConnectionFactory( ConnectionBuilder ).GetConnection();
+            Connection = new ConnectionFactory( ConnectionBuilder ).GetConnection( );
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace BudgetExecution
         public DbDataAdapter GetAdapter()
         {
             if( Verify.IsInput( ConnectionBuilder.ConnectionString )
-                && Verify.IsInput( SqlStatement.GetSelectStatement() ) )
+                && Verify.IsInput( SqlStatement.GetSelectStatement( ) ) )
             {
                 try
                 {
@@ -121,17 +121,17 @@ namespace BudgetExecution
                         {
                             case Provider.SQLite:
                             {
-                                return GetSQLiteAdapter() ?? default( SQLiteDataAdapter );
+                                return GetSQLiteAdapter( ) ?? default( SQLiteDataAdapter );
                             }
 
                             case Provider.SqlCe:
                             {
-                                return GetSqlCeAdapter() ?? default( SqlCeDataAdapter );
+                                return GetSqlCeAdapter( ) ?? default( SqlCeDataAdapter );
                             }
 
                             case Provider.SqlServer:
                             {
-                                return GetSqlAdapter() ?? default( SqlDataAdapter );
+                                return GetSqlAdapter( ) ?? default( SqlDataAdapter );
                             }
 
                             case Provider.CSV:
@@ -139,7 +139,7 @@ namespace BudgetExecution
                             case Provider.Access:
                             case Provider.Excel:
                             {
-                                return GetOleDbDataAdapter() ?? default( OleDbDataAdapter );
+                                return GetOleDbDataAdapter( ) ?? default( OleDbDataAdapter );
                             }
                         }
                     }
@@ -159,14 +159,14 @@ namespace BudgetExecution
         /// <returns></returns>
         private OleDbDataAdapter GetOleDbDataAdapter()
         {
-            if( Verify.IsInput( SqlStatement.GetSelectStatement() ) )
+            if( Verify.IsInput( SqlStatement.GetSelectStatement( ) ) )
             {
                 try
                 {
                     var _connectionString = ConnectionBuilder?.ConnectionString;
 
                     return Verify.IsInput( _connectionString )
-                        ? new OleDbDataAdapter( SqlStatement.GetSelectStatement(), _connectionString )
+                        ? new OleDbDataAdapter( SqlStatement.GetSelectStatement( ), _connectionString )
                         : default( OleDbDataAdapter );
                 }
                 catch( Exception ex )
@@ -192,7 +192,7 @@ namespace BudgetExecution
                     var _connectionString = ConnectionBuilder?.ConnectionString;
 
                     return Verify.IsInput( _connectionString )
-                        ? new SqlDataAdapter( SqlStatement.GetSelectStatement(), _connectionString )
+                        ? new SqlDataAdapter( SqlStatement.GetSelectStatement( ), _connectionString )
                         : default( SqlDataAdapter );
                 }
                 catch( Exception ex )
@@ -212,11 +212,11 @@ namespace BudgetExecution
         private SqlCeDataAdapter GetSqlCeAdapter()
         {
             if( Verify.IsInput( Connection?.ConnectionString )
-                && Verify.IsInput( SqlStatement?.GetSelectStatement() ) )
+                && Verify.IsInput( SqlStatement?.GetSelectStatement( ) ) )
             {
                 try
                 {
-                    var _dataAdapter = new SqlCeDataAdapter( SqlStatement?.GetSelectStatement(),
+                    var _dataAdapter = new SqlCeDataAdapter( SqlStatement?.GetSelectStatement( ),
                         Connection as SqlCeConnection );
 
                     return _dataAdapter ?? default( SqlCeDataAdapter );
@@ -241,7 +241,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _adapter = new SQLiteDataAdapter( SqlStatement.GetSelectStatement(),
+                    var _adapter = new SQLiteDataAdapter( SqlStatement.GetSelectStatement( ),
                         Connection as SQLiteConnection );
 
                     return _adapter ?? default( SQLiteDataAdapter );
@@ -266,8 +266,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    AdapterBuilder?.Dispose();
-                    Connection?.Dispose();
+                    AdapterBuilder?.Dispose( );
+                    Connection?.Dispose( );
                 }
                 catch( Exception ex )
                 {
@@ -299,8 +299,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error.SetText();
-            _error.ShowDialog();
+            _error.SetText( );
+            _error.ShowDialog( );
         }
     }
 }

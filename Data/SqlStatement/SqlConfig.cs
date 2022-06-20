@@ -18,7 +18,7 @@ namespace BudgetExecution
     /// <seealso cref="SqlBase" />
     /// <seealso cref="IProvider" />
     /// <seealso cref="ISource" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public abstract class SqlConfig : SqlBase
     {
         /// <summary>
@@ -55,27 +55,27 @@ namespace BudgetExecution
         /// The file name
         /// </summary>
         public string FileName { get; set; }
-        
+
         /// <summary>
         /// Gets the arguments.
         /// </summary>
         /// <returns></returns>
         public IDictionary<string, object> GetArgs()
         {
-            if( Args.Any() )
+            if( Args.Any( ) )
             {
                 try
                 {
-                    return Args ?? new Dictionary<string, object>();
+                    return Args ?? new Dictionary<string, object>( );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return new Dictionary<string, object>();
+                    return new Dictionary<string, object>( );
                 }
             }
 
-            return new Dictionary<string, object>();
+            return new Dictionary<string, object>( );
         }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace BudgetExecution
                 return default( ConnectionBuilder );
             }
         }
-        
+
         /// <summary>
         /// Gets the script files.
         /// </summary>
@@ -115,7 +115,7 @@ namespace BudgetExecution
                     {
                         var _scriptFiles = Directory.GetFiles( _directory );
 
-                        return _scriptFiles?.Any() == true
+                        return _scriptFiles?.Any( ) == true
                             ? _scriptFiles
                             : default( string[ ] );
                     }

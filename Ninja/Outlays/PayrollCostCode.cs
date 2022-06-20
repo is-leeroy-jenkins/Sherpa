@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref = "IPayrollCostData"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public abstract class PayrollCostCode
     {
         /// <summary>
@@ -186,7 +186,7 @@ namespace BudgetExecution
         /// </returns>
         public IElement GetProjectCode()
         {
-            if( Verify.IsInput( ProjectCode?.Value?.ToString() ) )
+            if( Verify.IsInput( ProjectCode?.Value?.ToString( ) ) )
             {
                 try
                 {
@@ -209,7 +209,7 @@ namespace BudgetExecution
         /// </returns>
         public IElement GetProjectCodeName()
         {
-            if( Verify.IsInput( ProjectCodeName?.Value?.ToString() ) )
+            if( Verify.IsInput( ProjectCodeName?.Value?.ToString( ) ) )
             {
                 try
                 {
@@ -224,7 +224,7 @@ namespace BudgetExecution
 
             return Element.Default;
         }
-        
+
         /// <summary>
         /// Gets the work code.
         /// </summary>
@@ -354,8 +354,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -64,7 +64,7 @@ namespace BudgetExecution
             ThemeStyle.BackColor = Color.FromArgb( 28, 28, 28 );
             ThemeStyle.BorderColor = Color.FromArgb( 41, 41, 41 );
             ThemeStyle.DisabledBackColor = Color.FromArgb( 18, 18, 18 );
-            ThemeStyle.DisabledBorderColor  = Color.FromArgb( 18, 18, 18 );
+            ThemeStyle.DisabledBorderColor = Color.FromArgb( 18, 18, 18 );
             ThemeStyle.HoverBorderColor = Color.SteelBlue;
             ThemeStyle.FocusedBorderColor = Color.SteelBlue;
             ThemeStyle.PressedBorderColor = Color.SteelBlue;

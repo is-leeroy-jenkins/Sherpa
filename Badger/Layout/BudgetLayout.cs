@@ -42,9 +42,9 @@ namespace BudgetExecution
             Border.HoverColor = Color.SteelBlue;
             Border.HoverVisible = false;
         }
-        
-        public BudgetLayout( Size size, Point location ) 
-            : this()
+
+        public BudgetLayout( Size size, Point location )
+            : this( )
         {
             Size = size;
             Location = BudgetSetting.ReLocate( location.X, location.Y );
@@ -59,7 +59,7 @@ namespace BudgetExecution
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
         public BudgetLayout( Size size, Point location, Control parent )
-            : this()
+            : this( )
         {
             Size = new Size( size.Width, size.Height );
             Location = BudgetSetting.ReLocate( location.X, location.Y );
@@ -74,7 +74,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="parent">The parent.</param>
         public BudgetLayout( Control parent )
-            : this()
+            : this( )
         {
             Parent = parent;
             Parent.Controls.Add( this );

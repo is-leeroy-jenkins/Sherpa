@@ -16,9 +16,9 @@ namespace BudgetExecution
     /// <seealso cref="BudgetBinding" />
     /// <seealso cref="IChartBinding" />
     /// <seealso cref="IChartSeriesModel" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public class ChartBinding : BudgetBinding, IChartBinding, IChartSeriesModel
     {
         /// <summary>
@@ -81,9 +81,9 @@ namespace BudgetExecution
         /// <param name="table">The table.</param>
         /// <param name="seriesConfig">The seriesConfig.</param>
         public ChartBinding( DataTable table, ISeriesConfig seriesConfig )
-            : base( table.AsEnumerable() )
+            : base( table.AsEnumerable( ) )
         {
-            Data = table.AsEnumerable();
+            Data = table.AsEnumerable( );
             SeriesConfiguration = seriesConfig;
             DataTable = table;
             DataSet = DataTable?.DataSet;
@@ -107,7 +107,7 @@ namespace BudgetExecution
         {
             Data = data;
             SeriesConfiguration = seriesConfig;
-            DataTable = data.CopyToDataTable();
+            DataTable = data.CopyToDataTable( );
             DataSet = DataTable.DataSet;
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             DataSource = DataTable;
@@ -116,7 +116,7 @@ namespace BudgetExecution
             AllowNew = true;
             Changed += OnCurrentChanged;
         }
-        
+
         /// <summary>
         /// Gets the series configuration.
         /// </summary>
@@ -178,7 +178,7 @@ namespace BudgetExecution
             try
             {
                 var _numeric = SeriesConfiguration?.Numeric;
-                return double.Parse( Record[ $"{_numeric}" ].ToString() ) > 0;
+                return double.Parse( Record[ $"{_numeric}" ].ToString( ) ) > 0;
             }
             catch( Exception ex )
             {
@@ -199,7 +199,7 @@ namespace BudgetExecution
                 var _numeric = SeriesConfiguration?.Numeric;
 
                 return !GetEmpty( xIndex )
-                    ? double.Parse( Record[ $"{_numeric}" ].ToString() )
+                    ? double.Parse( Record[ $"{_numeric}" ].ToString( ) )
                     : 0;
             }
             catch( Exception ex )
@@ -221,7 +221,7 @@ namespace BudgetExecution
                 var _numeric = SeriesConfiguration?.Numeric;
 
                 return !GetEmpty( xIndex )
-                    ? double.Parse( Record[ $@"{_numeric}" ].ToString() )
+                    ? double.Parse( Record[ $@"{_numeric}" ].ToString( ) )
                     : 0;
             }
             catch( Exception ex )
@@ -230,7 +230,7 @@ namespace BudgetExecution
                 return 0;
             }
         }
-        
+
         /// <summary>
         /// Called when [current changed].
         /// </summary>
@@ -246,7 +246,7 @@ namespace BudgetExecution
                 try
                 {
                     using var _message = new Message( "NOT YET IMPLEMENTED" );
-                    _message?.ShowDialog();
+                    _message?.ShowDialog( );
                 }
                 catch( Exception ex )
                 {

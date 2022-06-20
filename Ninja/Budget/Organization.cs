@@ -12,9 +12,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
     public class Organization : Element, IOrganization, ISource
     {
         /// <summary>
@@ -37,7 +37,7 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref = "Organization"/> class.
         /// </summary>
@@ -53,11 +53,11 @@ namespace BudgetExecution
         /// </param>
         public Organization( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.OrganizationsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -68,11 +68,11 @@ namespace BudgetExecution
         /// </param>
         public Organization( string org )
         {
-            Record = new DataBuilder( Source, GetArgs( org ) )?.GetRecord();
+            Record = new DataBuilder( Source, GetArgs( org ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.OrganizationsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -83,11 +83,11 @@ namespace BudgetExecution
         /// </param>
         public Organization( IBuilder builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.OrganizationsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace BudgetExecution
             ID = new Key( Record, PrimaryKey.OrganizationsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
-        
+
         /// <summary>
         /// Gets the organization.
         /// </summary>
@@ -163,7 +163,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone() as Organization;
+                return MemberwiseClone( ) as Organization;
             }
             catch( Exception ex )
             {

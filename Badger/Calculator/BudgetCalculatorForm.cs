@@ -76,7 +76,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetCalculatorForm()
         {
-            InitializeComponent();
+            InitializeComponent( );
 
             // Form Properties
             Size = new Size( 400, 400 );

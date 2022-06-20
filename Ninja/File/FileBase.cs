@@ -12,9 +12,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
     public abstract class FileBase
     {
         /// <summary>
@@ -100,7 +100,7 @@ namespace BudgetExecution
         /// The security.
         /// </value>
         public virtual FileSecurity FileSecurity { get; set; }
-        
+
         /// <summary>
         /// Moves the specified destination.
         /// </summary>
@@ -171,7 +171,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( FileInfo?.DirectoryName ) 
+                return Verify.IsInput( FileInfo?.DirectoryName )
                     && Directory.Exists( FileInfo?.DirectoryName );
             }
             catch( Exception ex )
@@ -197,7 +197,7 @@ namespace BudgetExecution
                 return default( FileSecurity );
             }
         }
-        
+
         /// <summary>
         /// Gets the base stream.
         /// </summary>
@@ -206,9 +206,9 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( Path?.FullPath ) 
+                return Verify.IsInput( Path?.FullPath )
                     && File.Exists( Path?.FullPath )
-                        ? new FileInfo( Path?.FullPath )?.Create()
+                        ? new FileInfo( Path?.FullPath )?.Create( )
                         : default( FileStream );
             }
             catch( Exception ex )
@@ -225,8 +225,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

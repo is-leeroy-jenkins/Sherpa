@@ -9,8 +9,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
     public class TravelData : Obligation
     {
         /// <summary>
@@ -19,7 +19,7 @@ namespace BudgetExecution
         /// <value>
         /// The destination.
         /// </value>
-        public IElement Duration { get; set; } 
+        public IElement Duration { get; set; }
 
         /// <summary>
         /// Gets the first name.
@@ -27,8 +27,8 @@ namespace BudgetExecution
         /// <value>
         /// The first name.
         /// </value>
-        public IElement FirstName { get; set; } 
-        
+        public IElement FirstName { get; set; }
+
         /// <summary>
         /// Gets the last name.
         /// </summary>
@@ -43,7 +43,7 @@ namespace BudgetExecution
         /// <value>
         /// The start date.
         /// </value>
-        public ITime StartDate { get; set; } 
+        public ITime StartDate { get; set; }
 
         /// <summary>
         /// Gets the end date.
@@ -51,7 +51,7 @@ namespace BudgetExecution
         /// <value>
         /// The end date.
         /// </value>
-        public ITime EndDate { get; set; } 
+        public ITime EndDate { get; set; }
 
         /// <summary>
         /// Initializes a new instance of

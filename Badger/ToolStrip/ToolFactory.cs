@@ -25,12 +25,12 @@
         public ToolFactory()
         {
         }
-        
+
         public static ToolSeparator CreateSeparator()
         {
             try
             {
-                var _separator = new ToolSeparator();
+                var _separator = new ToolSeparator( );
                 return _separator;
             }
             catch( Exception ex )
@@ -49,12 +49,12 @@
             try
             {
                 var _filename = ImageDirectory + "FirstButton.png";
-                var _firstButton = new BudgetToolStripButton();
+                var _firstButton = new BudgetToolStripButton( );
                 _firstButton.Image = Image.FromFile( _filename );
                 _firstButton.HoverText = "First Record";
                 return _firstButton;
             }
-            catch ( Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
                 return default( BudgetToolStripButton );
@@ -70,7 +70,7 @@
             try
             {
                 var _filename = ImageDirectory + "PreviousButton.png";
-                var _previousButton = new BudgetToolStripButton();
+                var _previousButton = new BudgetToolStripButton( );
                 _previousButton.Image = Image.FromFile( _filename );
                 _previousButton.HoverText = "Previous Record";
                 return _previousButton;
@@ -91,7 +91,7 @@
             try
             {
                 var _filename = ImageDirectory + "NextButton.png";
-                var _nextButton = new BudgetToolStripButton();
+                var _nextButton = new BudgetToolStripButton( );
                 _nextButton.Image = Image.FromFile( _filename );
                 _nextButton.HoverText = "Next Record";
                 return _nextButton;
@@ -112,7 +112,7 @@
             try
             {
                 var _filename = ImageDirectory + "LastButton.png";
-                var _lastButton = new BudgetToolStripButton();
+                var _lastButton = new BudgetToolStripButton( );
                 _lastButton.Image = Image.FromFile( _filename );
                 _lastButton.HoverText = "Last Record";
                 return _lastButton;
@@ -133,7 +133,7 @@
             try
             {
                 var _filename = ImageDirectory + "EditButton.png";
-                var _editButton = new BudgetToolStripButton();
+                var _editButton = new BudgetToolStripButton( );
                 _editButton.Image = Image.FromFile( _filename );
                 _editButton.HoverText = "Edit Record";
                 return _editButton;
@@ -154,7 +154,7 @@
             try
             {
                 var _filename = ImageDirectory + "AddButton.png";
-                var _addButton = new BudgetToolStripButton();
+                var _addButton = new BudgetToolStripButton( );
                 _addButton.Image = Image.FromFile( _filename );
                 _addButton.HoverText = "Add Record";
                 return _addButton;
@@ -175,7 +175,7 @@
             try
             {
                 var _filename = ImageDirectory + "DeleteButton.png";
-                var _deleteButton = new BudgetToolStripButton();
+                var _deleteButton = new BudgetToolStripButton( );
                 _deleteButton.Image = Image.FromFile( _filename );
                 _deleteButton.HoverText = "Delete Record";
                 return _deleteButton;
@@ -196,7 +196,7 @@
             try
             {
                 var _filename = ImageDirectory + "RefreshButton.png";
-                var _refreshButton = new BudgetToolStripButton();
+                var _refreshButton = new BudgetToolStripButton( );
                 _refreshButton.Image = Image.FromFile( _filename );
                 _refreshButton.HoverText = "Refresh Data";
                 return _refreshButton;
@@ -217,7 +217,7 @@
             try
             {
                 var _filename = ImageDirectory + "SaveButton.png";
-                var _saveButton = new BudgetToolStripButton();
+                var _saveButton = new BudgetToolStripButton( );
                 _saveButton.Image = Image.FromFile( _filename );
                 _saveButton.HoverText = "Save Changes";
                 return _saveButton;
@@ -238,7 +238,7 @@
             try
             {
                 var _filename = ImageDirectory + "PrintButton.png";
-                var _printButton = new BudgetToolStripButton();
+                var _printButton = new BudgetToolStripButton( );
                 _printButton.Image = Image.FromFile( _filename );
                 _printButton.HoverText = "Print Data";
                 return _printButton;
@@ -259,7 +259,7 @@
             try
             {
                 var _filename = ImageDirectory + "ExcelButton.png";
-                var _excelButton = new BudgetToolStripButton();
+                var _excelButton = new BudgetToolStripButton( );
                 _excelButton.Image = Image.FromFile( _filename );
                 _excelButton.HoverText = "Export to Excel";
                 return _excelButton;
@@ -280,7 +280,7 @@
             try
             {
                 var _filename = ImageDirectory + "CalculatorButton.png";
-                var _calculatorButton = new BudgetToolStripButton();
+                var _calculatorButton = new BudgetToolStripButton( );
                 _calculatorButton.Image = Image.FromFile( _filename );
                 _calculatorButton.HoverText = "Launch Calculator";
                 return _calculatorButton;
@@ -301,7 +301,7 @@
         {
             try
             {
-                var _label = new BudgetToolStripLabel();
+                var _label = new BudgetToolStripLabel( );
                 return _label;
             }
             catch( Exception ex )
@@ -320,7 +320,7 @@
         {
             try
             {
-                var _comboBox = new BudgetToolStripComboBox();
+                var _comboBox = new BudgetToolStripComboBox( );
                 return _comboBox;
             }
             catch( Exception ex )
@@ -339,7 +339,7 @@
         {
             try
             {
-                var _progress= new BudgetToolStripProgressBar();
+                var _progress = new BudgetToolStripProgressBar( );
                 return _progress;
             }
             catch( Exception ex )
@@ -348,7 +348,7 @@
                 return default( BudgetToolStripProgressBar );
             }
         }
-        
+
         /// <summary>
         /// Creates the text box.
         /// </summary>
@@ -358,7 +358,7 @@
         {
             try
             {
-                var _textBox = new BudgetToolStripTextBox();
+                var _textBox = new BudgetToolStripTextBox( );
                 return _textBox;
             }
             catch( Exception ex )
@@ -375,8 +375,8 @@
         private static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -9,8 +9,8 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using VisualPlus.Toolkit.Controls.Interactivity;
 
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
     public abstract class CheckBoxBase : VisualCheckBox
     {
         /// <summary>
@@ -60,7 +60,7 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        if( Verify.IsInput( Tag?.ToString() ) )
+                        if( Verify.IsInput( Tag?.ToString( ) ) )
                         {
                             var _text = Tag?.ToString( )?.SplitPascal( );
                             var _ = new ToolTip( _checkBox, _text );
@@ -105,8 +105,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

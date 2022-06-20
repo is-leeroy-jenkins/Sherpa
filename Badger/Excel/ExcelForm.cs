@@ -19,7 +19,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class ExcelForm : MetroForm
     {
         /// <summary>
@@ -102,7 +102,7 @@ namespace BudgetExecution
         /// </summary>
         public ExcelForm()
         {
-            InitializeComponent();
+            InitializeComponent( );
             Size = new Size( 1073, 900 );
         }
 
@@ -112,13 +112,13 @@ namespace BudgetExecution
         /// <param name="filePath">The filePath.</param>
         public ExcelForm( string filePath )
         {
-            InitializeComponent();
+            InitializeComponent( );
             Size = new Size( 1073, 900 );
             FilePath = Path.GetFullPath( filePath );
             FileName = Path.GetFileNameWithoutExtension( FilePath );
             Sheet.Open( filePath );
         }
-        
+
         /// <summary>
         /// Sets the file path.
         /// </summary>
@@ -203,7 +203,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ConnectionString = extension?.ToUpper() switch
+                    ConnectionString = extension?.ToUpper( ) switch
                     {
                         ".XLS" => @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source="
                             + filePath
@@ -240,7 +240,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    spreadSheet.Workbook.ActiveSheet.ListObjects.Clear();
+                    spreadSheet.Workbook.ActiveSheet.ListObjects.Clear( );
                     spreadSheet.Workbook.ActiveSheet.UsedRange.Clear( true );
                     spreadSheet.Workbook.ActiveSheet.StandardWidth = 12.5f;
                     var name = spreadSheet.Workbook.Worksheets[ 0 ].Name;
@@ -249,7 +249,7 @@ namespace BudgetExecution
                     var range = sheet.UsedRange;
                     var table = sheet.ListObjects.Create( name, range );
                     table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium2;
-                    spreadSheet.ActiveGrid.InvalidateCells();
+                    spreadSheet.ActiveGrid.InvalidateCells( );
                     spreadSheet.SetZoomFactor( "Sheet1", 110 );
                 }
                 catch( Exception ex )
@@ -271,7 +271,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    spreadSheet.Workbook.ActiveSheet.ListObjects.Clear();
+                    spreadSheet.Workbook.ActiveSheet.ListObjects.Clear( );
                     spreadSheet.Workbook.ActiveSheet.StandardWidth = 12.5f;
                     var name = spreadSheet.Workbook.Worksheets[ 0 ].Name;
                     var sheet = spreadSheet.Workbook.ActiveSheet;
@@ -282,7 +282,7 @@ namespace BudgetExecution
                     var range = sheet.UsedRange;
                     var table = sheet.ListObjects.Create( name, range );
                     table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium2;
-                    spreadSheet.ActiveGrid.InvalidateCells();
+                    spreadSheet.ActiveGrid.InvalidateCells( );
                     spreadSheet.SetZoomFactor( "Sheet1", 110 );
                 }
                 catch( Exception ex )
@@ -299,8 +299,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

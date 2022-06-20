@@ -96,12 +96,12 @@ namespace BudgetExecution
             if( Directory.Exists( srcDir ) )
             {
                 var _files = Directory.EnumerateFiles( srcDir );
-                var _paths = _files?.ToList();
-                var _list = new ImageList();
+                var _paths = _files?.ToList( );
+                var _list = new ImageList( );
 
                 for( var i = 0; i < _paths.Count; i++ )
                 {
-                    if ( !string.IsNullOrEmpty( _paths[ i ] )
+                    if( !string.IsNullOrEmpty( _paths[ i ] )
                         && File.Exists( _paths[ i ] ) )
                     {
                         var _name = Path.GetFileNameWithoutExtension( _paths[ i ] );
@@ -133,12 +133,12 @@ namespace BudgetExecution
             if( Directory.Exists( srcDir ) )
             {
                 var _files = Directory.EnumerateFiles( srcDir );
-                var _paths = _files?.ToList();
-                var _list = new ImageList();
+                var _paths = _files?.ToList( );
+                var _list = new ImageList( );
 
                 for( var i = 0; i < _paths.Count; i++ )
                 {
-                    if ( !string.IsNullOrEmpty( _paths[ i ] )
+                    if( !string.IsNullOrEmpty( _paths[ i ] )
                         && File.Exists( _paths[ i ] ) )
                     {
                         var _name = Path.GetFileNameWithoutExtension( _paths[ i ] );
@@ -169,10 +169,10 @@ namespace BudgetExecution
         /// <returns></returns>
         public override IEnumerable<CarouselImage> CreateCarouselItems( IEnumerable<string> paths )
         {
-            if( paths?.Any() == true )
+            if( paths?.Any( ) == true )
             {
-                var _list = paths.ToList();
-                var _carouselImages = new List<CarouselImage>();
+                var _list = paths.ToList( );
+                var _carouselImages = new List<CarouselImage>( );
 
                 for( var i = 0; i < _list?.Count; i++ )
                 {
@@ -187,7 +187,7 @@ namespace BudgetExecution
                     _carouselImages.Add( _carouselImage );
                 }
 
-                return _carouselImages.Any()
+                return _carouselImages.Any( )
                     ? _carouselImages
                     : default( IEnumerable<CarouselImage> );
             }
@@ -202,12 +202,12 @@ namespace BudgetExecution
         /// <returns></returns>
         public IEnumerable<CarouselImage> CreateCarouselItems( IEnumerable<Image> images )
         {
-            if( images?.Any() == true )
+            if( images?.Any( ) == true )
             {
-                var _list = images.ToList();
-                var _carouselImages = new List<CarouselImage>();
+                var _list = images.ToList( );
+                var _carouselImages = new List<CarouselImage>( );
 
-                for( var i = 0; i < images?.Count(); i++ )
+                for( var i = 0; i < images?.Count( ); i++ )
                 {
                     var _carouselImage = new CarouselImage { ItemImage = _list[ i ] };
 
@@ -215,7 +215,7 @@ namespace BudgetExecution
                     _carouselImages.Add( _carouselImage );
                 }
 
-                return _carouselImages.Any()
+                return _carouselImages.Any( )
                     ? _carouselImages
                     : default( IEnumerable<CarouselImage> );
             }
@@ -234,12 +234,12 @@ namespace BudgetExecution
                && Directory.Exists( srcDir ) )
             {
                 var _files = Directory.EnumerateFiles( srcDir );
-                var _list = _files?.ToList();
-                var _carouselImages = new List<CarouselImage>();
+                var _list = _files?.ToList( );
+                var _carouselImages = new List<CarouselImage>( );
 
                 for( var i = 0; i < _list?.Count; i++ )
                 {
-                    if ( !string.IsNullOrEmpty( _list[ i ] )
+                    if( !string.IsNullOrEmpty( _list[ i ] )
                         && File.Exists( _list[ i ] ) )
                     {
                         using var _stream = File.Open( _list[ i ], FileMode.Open );
@@ -254,7 +254,7 @@ namespace BudgetExecution
                     }
                 }
 
-                return _carouselImages?.Any() == true
+                return _carouselImages?.Any( ) == true
                     ? _carouselImages
                     : default( IEnumerable<CarouselImage> );
             }

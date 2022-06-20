@@ -48,10 +48,10 @@
         /// <param name="data">The Data.</param>
         public Map( DataRow data )
         {
-            Input = data?.ToDictionary();
+            Input = data?.ToDictionary( );
             Output = Input;
-            Names = GetNames();
-            Values = GetValues();
+            Names = GetNames( );
+            Values = GetValues( );
             Count = Output.Count;
         }
 
@@ -63,7 +63,7 @@
         {
             try
             {
-                return Input?.Any() == true
+                return Input?.Any( ) == true
                     ? Input
                     : default( IDictionary<string, object> );
             }
@@ -82,7 +82,7 @@
         {
             try
             {
-                return Output?.Any() == true
+                return Output?.Any( ) == true
                     ? Output
                     : default( IDictionary<string, object> );
             }
@@ -103,7 +103,7 @@
         {
             try
             {
-                return Input?.HasPrimaryKey() == true;
+                return Input?.HasPrimaryKey( ) == true;
             }
             catch( Exception ex )
             {
@@ -120,7 +120,7 @@
         /// </returns>
         public bool HasElements()
         {
-            if( Input?.Any() == true )
+            if( Input?.Any( ) == true )
             {
                 try
                 {
@@ -151,11 +151,11 @@
         /// <returns></returns>
         public IKey GetKey()
         {
-            if( Input?.HasPrimaryKey() == true )
+            if( Input?.HasPrimaryKey( ) == true )
             {
                 try
                 {
-                    var _data = Input.GetPrimaryKey();
+                    var _data = Input.GetPrimaryKey( );
 
                     return Verify.IsInput( _data.Key )
                         ? new Key( _data )
@@ -177,11 +177,11 @@
         /// <returns></returns>
         public IEnumerable<IElement> GetElements()
         {
-            if( Output?.Any() == true )
+            if( Output?.Any( ) == true )
             {
                 try
                 {
-                    var _output = new List<IElement>();
+                    var _output = new List<IElement>( );
                     var _fields = Enum.GetNames( typeof( Field ) );
 
                     foreach( var kvp in Output )
@@ -193,7 +193,7 @@
                         }
                     }
 
-                    return _output?.Any() == true
+                    return _output?.Any( ) == true
                         ? _output
                         : default( List<IElement> );
                 }

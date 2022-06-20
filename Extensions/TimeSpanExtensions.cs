@@ -10,8 +10,8 @@ namespace BudgetExecution
     /// <summary>
     /// Defines the <see cref = "TimeSpanExtensions"/> .
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "IntroduceOptionalParameters.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "IntroduceOptionalParameters.Global" )]
     public static class TimeSpanExtensions
     {
         /// <summary>

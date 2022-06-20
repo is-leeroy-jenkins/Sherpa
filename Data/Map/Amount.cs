@@ -12,23 +12,23 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="IAmount" />
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ArrangeModifiersOrder" )]
     public class Amount : DataUnit, IAmount
     {
         /// <summary>
         /// The default
         /// </summary>
         public static readonly IAmount Default = new Amount( Numeric.NS, 0.0 );
-        
+
         /// <summary>
         /// The funding
         /// </summary>
         public double Funding { get; set; }
-        
+
         /// <summary>
         /// The initial
         /// </summary>
@@ -43,7 +43,7 @@ namespace BudgetExecution
         /// The numeric
         /// </summary>
         public Numeric Numeric { get; set; } = Numeric.Amount;
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Amount"/> class.
         /// </summary>
@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         public Amount( DataRow dataRow, Numeric numeric = Numeric.Amount )
         {
-            Funding = double.Parse( dataRow[ $"{numeric}" ].ToString() );
+            Funding = double.Parse( dataRow[ $"{numeric}" ].ToString( ) );
             Numeric = numeric;
             Initial = Funding;
             Delta = Initial - Funding;
@@ -209,7 +209,7 @@ namespace BudgetExecution
                 try
                 {
                     if( amount?.Funding == Funding
-                        && amount?.Numeric.ToString()?.Equals( Numeric.ToString() ) == true )
+                        && amount?.Numeric.ToString( )?.Equals( Numeric.ToString( ) ) == true )
                     {
                         return true;
                     }
@@ -240,7 +240,7 @@ namespace BudgetExecution
                 try
                 {
                     if( first?.Funding.Equals( second?.Funding ) == true
-                        && first?.Numeric.ToString().Equals( second?.Numeric.ToString() )   == true )
+                        && first?.Numeric.ToString( ).Equals( second?.Numeric.ToString( ) ) == true )
                     {
                         return true;
                     }

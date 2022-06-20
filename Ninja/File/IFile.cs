@@ -147,13 +147,13 @@ namespace BudgetExecution
         /// Deletes this instance.
         /// </summary>
         void Delete();
-        
+
         /// <summary>
         /// Gets the parent.
         /// </summary>
         /// <returns></returns>
         IFolder GetParentFolder();
-        
+
         /// <summary>
         /// Gets the base stream.
         /// </summary>

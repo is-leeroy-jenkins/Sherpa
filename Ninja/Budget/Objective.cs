@@ -12,8 +12,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
     public class Objective : Element, IObjective, ISource
     {
         /// <summary>
@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref = "Objective"/> class.
         /// </summary>
@@ -52,11 +52,11 @@ namespace BudgetExecution
         /// </param>
         public Objective( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ObjectivesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -67,11 +67,11 @@ namespace BudgetExecution
         /// </param>
         public Objective( IBuilder builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ObjectivesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -81,13 +81,13 @@ namespace BudgetExecution
         /// The dataRow.
         /// </param>
         public Objective( DataRow dataRow )
-            : this()
+            : this( )
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ObjectivesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -98,11 +98,11 @@ namespace BudgetExecution
         /// </param>
         public Objective( string code )
         {
-            Record = new DataBuilder( Source, SetArgs( code ) )?.GetRecord();
+            Record = new DataBuilder( Source, SetArgs( code ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ObjectivesId );
             Name = new Element( Record, Field.Name ).Code;
             Code = new Element( Record, Field.Code ).Name;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
-        
+
         /// <summary>
         /// Gets the objective.
         /// </summary>
@@ -163,7 +163,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone() as Objective;
+                return MemberwiseClone( ) as Objective;
             }
             catch( Exception ex )
             {

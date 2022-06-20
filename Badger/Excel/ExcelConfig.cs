@@ -14,10 +14,10 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref = "ExcelBase"/>
     /// <seealso cref = "IDisposable"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" )]
     public abstract class ExcelConfig : ExcelBase
     {
         /// <summary>
@@ -59,7 +59,7 @@ namespace BudgetExecution
         /// The footer image height
         /// </summary>
         public virtual double FooterImageHeight { get; set; } = 0.70;
-        
+
         /// <summary>
         /// Gets or sets the header image.
         /// </summary>
@@ -75,7 +75,7 @@ namespace BudgetExecution
         /// The footer image.
         /// </value>
         public virtual Image FooterImage { get; set; }
-        
+
         /// <summary>
         /// Sets the table format.
         /// </summary>
@@ -135,7 +135,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _range = grid.GetRange();
+                    using var _range = grid.GetRange( );
                     _range.Style.Font.Color.SetColor( Color.Black );
                     using var _font = DataFont;
                     _range.Style.Font.SetFromFont( DataFont );
@@ -163,7 +163,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _range = grid.GetRange();
+                    using var _range = grid.GetRange( );
                     _range.Style.Font.Color.SetColor( FontColor );
                     using var _font = DataFont;
                     _range.Style.Font.SetFromFont( DataFont );
@@ -191,8 +191,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _excelWorksheet = grid.GetWorksheet();
-                    using var _range = grid.GetRange();
+                    using var _excelWorksheet = grid.GetWorksheet( );
+                    using var _range = grid.GetRange( );
 
                     for( var i = _range.Start.Row; i < _range.End.Row; i++ )
                     {
@@ -228,7 +228,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _range = grid.GetRange();
+                    using var _range = grid.GetRange( );
                     _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                     _range.Style.Numberformat.Format = "#,###";
                 }
@@ -258,7 +258,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _range = grid.GetRange();
+                    using var _range = grid.GetRange( );
                     SetCaptionFormat( grid );
                     using var _font = HeaderFont;
                     _range.Style.Font.SetFromFont( font );
@@ -286,10 +286,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _excelWorksheet = grid.GetWorksheet();
-                    using var _range = grid.GetRange();
+                    using var _excelWorksheet = grid.GetWorksheet( );
+                    using var _range = grid.GetRange( );
 
-                    var _total = _excelWorksheet.Cells[ _range.Start.Row, _range.Start.Column, 
+                    var _total = _excelWorksheet.Cells[ _range.Start.Row, _range.Start.Column,
                         _range.Start.Row, _range.Start.Column + 6 ];
 
                     _total.Style.Fill.PatternType = ExcelFillStyle.Solid;

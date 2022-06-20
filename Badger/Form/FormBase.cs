@@ -15,7 +15,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Diagram;
 
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
     public partial class FormBase : MetroForm
     {
         /// <summary>
@@ -88,7 +88,7 @@ namespace BudgetExecution
         /// </summary>
         public FormBase()
         {
-            InitializeComponent();
+            InitializeComponent( );
             BackColor = Color.FromArgb( 18, 18, 18 );
             BorderThickness = 1;
             BorderColor = Color.SteelBlue;

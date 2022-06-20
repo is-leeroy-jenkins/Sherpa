@@ -29,10 +29,10 @@ namespace BudgetExecution
     /// <seealso cref = "ISource"/>
     /// <seealso cref = "IActivity"/>
     /// <seealso cref = "IDataBuilder"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class Activity : Element, IActivity, ISource
     {
         /// <summary>
@@ -50,7 +50,7 @@ namespace BudgetExecution
         /// The dataRow.
         /// </value>
         public DataRow Record { get; set; }
-        
+
         /// <summary>
         /// Gets the arguments.
         /// </summary>
@@ -74,11 +74,11 @@ namespace BudgetExecution
         /// </param>
         public Activity( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ActivityCodesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -89,11 +89,11 @@ namespace BudgetExecution
         /// </param>
         public Activity( IBuilder builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ActivityCodesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <inheritdoc/>
@@ -105,13 +105,13 @@ namespace BudgetExecution
         /// The dataRow.
         /// </param>
         public Activity( DataRow dataRow )
-            : this()
+            : this( )
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ActivityCodesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -122,13 +122,13 @@ namespace BudgetExecution
         /// </param>
         public Activity( string code )
         {
-            Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
+            Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ActivityCodesId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
-        
+
         /// <summary>
         /// Sets the arguments.
         /// </summary>
@@ -177,7 +177,7 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
-        
+
         /// <summary>
         /// Gets the activity.
         /// </summary>
@@ -187,7 +187,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone() as Activity;
+                return MemberwiseClone( ) as Activity;
             }
             catch( Exception ex )
             {

@@ -16,8 +16,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnassignedReadonlyField" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnassignedReadonlyField" )]
     public class ExcelReader
     {
         /// <summary>
@@ -34,7 +34,7 @@ namespace BudgetExecution
         /// <value>
         /// The XLS.
         /// </value>
-        public string XLS { get; set; } = BudgetPath.ConnectionString[ "OleDb" ].ToString();
+        public string XLS { get; set; } = BudgetPath.ConnectionString[ "OleDb" ].ToString( );
 
         /// <summary>
         /// Gets the XLSX.
@@ -42,7 +42,7 @@ namespace BudgetExecution
         /// <value>
         /// The XLSX.
         /// </value>
-        public string XLSX { get; set; } = BudgetPath.ConnectionString[ "Excel" ].ToString();
+        public string XLSX { get; set; } = BudgetPath.ConnectionString[ "Excel" ].ToString( );
 
         /// <summary>
         /// Gets the CSV.
@@ -50,7 +50,7 @@ namespace BudgetExecution
         /// <value>
         /// The CSV.
         /// </value>
-        public string CSV { get; set; } = BudgetPath.ConnectionString[ "CSV" ].ToString();
+        public string CSV { get; set; } = BudgetPath.ConnectionString[ "CSV" ].ToString( );
 
         /// <summary>
         /// Gets the accdb.
@@ -58,7 +58,7 @@ namespace BudgetExecution
         /// <value>
         /// The accdb.
         /// </value>
-        public string ACCDB { get; set; } = BudgetPath.ConnectionString[ "Access" ].ToString();
+        public string ACCDB { get; set; } = BudgetPath.ConnectionString[ "Access" ].ToString( );
 
         /// <summary>
         /// Gets the MDB.
@@ -66,7 +66,7 @@ namespace BudgetExecution
         /// <value>
         /// The MDB.
         /// </value>
-        public string MDB { get; set; } = BudgetPath.ConnectionString[ "OleDb" ].ToString();
+        public string MDB { get; set; } = BudgetPath.ConnectionString[ "OleDb" ].ToString( );
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelReader"/> class.
@@ -100,12 +100,12 @@ namespace BudgetExecution
                         FilterIndex = 1
                     };
 
-                    if( _fileDialog.ShowDialog() == DialogResult.OK )
+                    if( _fileDialog.ShowDialog( ) == DialogResult.OK )
                     {
                         excelPackage.Save( _fileDialog.FileName );
                         const string _msg = "Save Successful!";
                         using var _message = new Message( _msg );
-                        _message?.ShowDialog();
+                        _message?.ShowDialog( );
                     }
                 }
                 catch( Exception ex )
@@ -122,8 +122,8 @@ namespace BudgetExecution
         /// <param name="filePath">The file path.</param>
         public void ExportToExcel( DataTable dataTable, string filePath )
         {
-            if( dataTable?.Columns?.Count > 0 
-                && dataTable.Rows?.Count > 0 
+            if( dataTable?.Columns?.Count > 0
+                && dataTable.Rows?.Count > 0
                 && Verify.IsInput( filePath ) )
             {
                 try
@@ -197,7 +197,7 @@ namespace BudgetExecution
                     RestoreDirectory = true
                 };
 
-                if( _fileDialog.ShowDialog() == DialogResult.OK )
+                if( _fileDialog.ShowDialog( ) == DialogResult.OK )
                 {
                     _name = _fileDialog.FileName;
                 }
@@ -224,22 +224,22 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _dataSet = new DataSet();
+                    using var _dataSet = new DataSet( );
                     using var _connection = new OleDbConnection( XLSX );
-                    _connection?.Open();
+                    _connection?.Open( );
                     var _sql = "SELECT * FROM [" + sheetName + "]";
                     var _schema = _connection?.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
 
-                    if( _schema?.Columns.Count > 0 
+                    if( _schema?.Columns.Count > 0
                         && !SheetExists( sheetName, _schema ) )
                     {
                         const string _msg = "Sheet Does Not Exist!";
                         using var _message = new Message( _msg );
-                        _message?.ShowDialog();
+                        _message?.ShowDialog( );
                     }
                     else
                     {
-                        sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString();
+                        sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
                     }
 
                     using var _adapter = new OleDbDataAdapter( _sql, _connection );
@@ -269,7 +269,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _data = new DataSet();
+                    using var _data = new DataSet( );
                     var _sql = "SELECT * FROM [" + sheetName + "]";
 
                     var _connectionString =
@@ -285,12 +285,12 @@ namespace BudgetExecution
                         {
                             var _msg = $"{sheetName} in {fileName} Does Not Exist!";
                             using var _message = new Message( _msg );
-                            _message?.ShowDialog();
+                            _message?.ShowDialog( );
                         }
                     }
                     else
                     {
-                        sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString();
+                        sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
                     }
 
                     using var _adapter = new OleDbDataAdapter( _sql, _connection );
@@ -336,7 +336,7 @@ namespace BudgetExecution
                                 && _worksheet.Cells[ i, j ].Value != null )
                             {
                                 dataGrid.Rows[ i - 1 ].Cells[ j - 1 ].Value =
-                                    _worksheet.Cells[ i, j ].Value.ToString();
+                                    _worksheet.Cells[ i, j ].Value.ToString( );
                             }
                         }
                     }
@@ -356,8 +356,8 @@ namespace BudgetExecution
         /// <returns></returns>
         private bool SheetExists( string sheetName, DataTable dataTable )
         {
-            if( Verify.IsInput( sheetName ) 
-                && dataTable?.Columns.Count > 0 
+            if( Verify.IsInput( sheetName )
+                && dataTable?.Columns.Count > 0
                 && dataTable.Rows.Count > 0 )
             {
                 try
@@ -366,7 +366,7 @@ namespace BudgetExecution
                     {
                         var _row = dataTable.Rows[ i ];
 
-                        if( sheetName == _row[ "TABLENAME" ].ToString() )
+                        if( sheetName == _row[ "TABLENAME" ].ToString( ) )
                         {
                             return true;
                         }
@@ -390,8 +390,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

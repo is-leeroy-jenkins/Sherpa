@@ -16,9 +16,9 @@ namespace BudgetExecution
     /// <seealso cref="FiscalYear" />
     /// <seealso cref="IBudgetFiscalYear" />
     /// <seealso cref="ISource" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
     public class BudgetFiscalYear : FiscalYear, IBudgetFiscalYear, ISource
     {
         /// <summary>
@@ -67,7 +67,7 @@ namespace BudgetExecution
         public BudgetFiscalYear( string bfy )
         {
             InputYear = new Element( Field.BFY, bfy );
-            Record = new DataBuilder( Source, SetArgs( bfy ) )?.GetRecord();
+            Record = new DataBuilder( Source, SetArgs( bfy ) )?.GetRecord( );
             FiscalYearId = new Key( Record, PrimaryKey.FiscalYearsId );
             FirstYear = new Element( Record, Field.BBFY );
             LastYear = new Element( Record, Field.EBFY );
@@ -88,7 +88,7 @@ namespace BudgetExecution
         /// <param name="query">The query.</param>
         public BudgetFiscalYear( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             FiscalYearId = new Key( Record, PrimaryKey.FiscalYearsId );
             FirstYear = new Element( Record, Field.BBFY );
             LastYear = new Element( Record, Field.EBFY );
@@ -109,7 +109,7 @@ namespace BudgetExecution
         /// <param name="dataBuilder">The data builder.</param>
         public BudgetFiscalYear( IBuilder dataBuilder )
         {
-            Record = dataBuilder?.GetRecord();
+            Record = dataBuilder?.GetRecord( );
             FiscalYearId = new Key( Record, PrimaryKey.FiscalYearsId );
             FirstYear = new Element( Record, Field.BBFY );
             LastYear = new Element( Record, Field.EBFY );
@@ -130,7 +130,7 @@ namespace BudgetExecution
         /// <param name="fy">The fy.</param>
         public BudgetFiscalYear( BFY fy )
         {
-            Record = new DataBuilder( Source, Provider.SQLite, SetArgs( fy ) )?.GetRecord();
+            Record = new DataBuilder( Source, Provider.SQLite, SetArgs( fy ) )?.GetRecord( );
             FiscalYearId = new Key( Record, PrimaryKey.FiscalYearsId );
             FirstYear = new Element( Record, Field.BBFY );
             LastYear = new Element( Record, Field.EBFY );
@@ -152,7 +152,7 @@ namespace BudgetExecution
         public BudgetFiscalYear( DataRow dataRow )
         {
             Record = dataRow;
-            InputYear = new Element( Record, CurrentYear.ToString() );
+            InputYear = new Element( Record, CurrentYear.ToString( ) );
             FiscalYearId = new Key( Record, PrimaryKey.FiscalYearsId );
             FirstYear = new Element( Record, Field.BBFY );
             LastYear = new Element( Record, Field.EBFY );
@@ -175,20 +175,20 @@ namespace BudgetExecution
         {
             try
             {
-                var _dictionary = new Dictionary<Field, DateTime>();
+                var _dictionary = new Dictionary<Field, DateTime>( );
                 var _factory = new HolidayFactory( Record );
-                _dictionary.Add( Field.NewYears, DateTime.Parse( _factory?.NewYearsDay?.Value?.ToString() ) );
-                _dictionary.Add( Field.MartinLutherKing, DateTime.Parse( _factory?.MartinLutherKingDay?.Value?.ToString() ) );
-                _dictionary.Add( Field.Memorial, DateTime.Parse( _factory?.MemorialDay?.Value?.ToString() ) );
-                _dictionary.Add( Field.Presidents, DateTime.Parse( _factory?.PresidentsDay?.Value?.ToString() ) );
-                _dictionary.Add( Field.Veterans, DateTime.Parse( _factory?.VeteransDay?.Value?.ToString() ) );
-                _dictionary.Add( Field.Labor, DateTime.Parse( _factory?.LaborDay?.Value?.ToString() ) );
-                _dictionary.Add( Field.Independence, DateTime.Parse( _factory?.IndependenceDay?.Value?.ToString() ) );
-                _dictionary.Add( Field.Columbus, DateTime.Parse( _factory?.ColumbusDay?.Value?.ToString() ) );
-                _dictionary.Add( Field.Thanksgiving, DateTime.Parse( _factory?.ThanksgivingDay?.Value?.ToString() ) );
-                _dictionary.Add( Field.Christmas, DateTime.Parse( _factory?.ChristmasDay?.Value?.ToString() ) );
+                _dictionary.Add( Field.NewYears, DateTime.Parse( _factory?.NewYearsDay?.Value?.ToString( ) ) );
+                _dictionary.Add( Field.MartinLutherKing, DateTime.Parse( _factory?.MartinLutherKingDay?.Value?.ToString( ) ) );
+                _dictionary.Add( Field.Memorial, DateTime.Parse( _factory?.MemorialDay?.Value?.ToString( ) ) );
+                _dictionary.Add( Field.Presidents, DateTime.Parse( _factory?.PresidentsDay?.Value?.ToString( ) ) );
+                _dictionary.Add( Field.Veterans, DateTime.Parse( _factory?.VeteransDay?.Value?.ToString( ) ) );
+                _dictionary.Add( Field.Labor, DateTime.Parse( _factory?.LaborDay?.Value?.ToString( ) ) );
+                _dictionary.Add( Field.Independence, DateTime.Parse( _factory?.IndependenceDay?.Value?.ToString( ) ) );
+                _dictionary.Add( Field.Columbus, DateTime.Parse( _factory?.ColumbusDay?.Value?.ToString( ) ) );
+                _dictionary.Add( Field.Thanksgiving, DateTime.Parse( _factory?.ThanksgivingDay?.Value?.ToString( ) ) );
+                _dictionary.Add( Field.Christmas, DateTime.Parse( _factory?.ChristmasDay?.Value?.ToString( ) ) );
 
-                return _dictionary?.Any() == true
+                return _dictionary?.Any( ) == true
                     ? _dictionary
                     : default( Dictionary<Field, DateTime> );
             }
@@ -209,8 +209,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( FirstYear?.Value?.ToString() )
-                    ? FirstYear?.Value?.ToString()
+                return Verify.IsInput( FirstYear?.Value?.ToString( ) )
+                    ? FirstYear?.Value?.ToString( )
                     : default( string );
             }
             catch( Exception ex )
@@ -228,7 +228,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone() as BudgetFiscalYear;
+                return MemberwiseClone( ) as BudgetFiscalYear;
             }
             catch( Exception ex )
             {

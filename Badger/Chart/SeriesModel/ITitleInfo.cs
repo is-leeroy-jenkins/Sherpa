@@ -6,7 +6,7 @@ namespace BudgetExecution
 {
     using System.Drawing;
     using Syncfusion.Windows.Forms.Chart;
-    
+
     public interface ITitleInfo
     {
         /// <summary> Sets the main title. </summary>

@@ -11,7 +11,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.PivotChart;
 
-    [ SuppressMessage( "ReSharper", "BadListLineBreaks" ) ]
+    [SuppressMessage( "ReSharper", "BadListLineBreaks" )]
     public class BudgetPivotChartControl : PivotChartBase
     {
         /// <summary>
@@ -26,7 +26,7 @@ namespace BudgetExecution
             Skins = Skins.Office2016Black;
             ShowLegend = true;
             Size = new Size( 400, 300 );
-            CustomPalette = new [ ] { Color.SteelBlue, Color.Red, Color.Green };
+            CustomPalette = new[ ] { Color.SteelBlue, Color.Red, Color.Green };
             ChartTypes = PivotChartTypes.Column;
         }
     }

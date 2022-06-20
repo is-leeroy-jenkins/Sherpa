@@ -10,7 +10,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using static System.IO.Path;
 
-    [ SuppressMessage( "ReSharper", "BitwiseOperatorOnEnumWithoutFlags" ) ]
+    [SuppressMessage( "ReSharper", "BitwiseOperatorOnEnumWithoutFlags" )]
     public partial class DataForm : FormBase
     {
         /// <summary>
@@ -107,7 +107,7 @@ namespace BudgetExecution
                 ToolStrip.ShowCaption = false;
                 ToolStrip?.PopulateTools( );
             }
-            catch ( Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }

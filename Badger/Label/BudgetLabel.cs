@@ -18,9 +18,9 @@ namespace BudgetExecution
     /// <see cref="BudgetLabel" />
     /// </summary>
     /// <seealso cref="VisualLabel" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public class BudgetLabel : LabelBase, IBudgetLabel
     {
         /// <summary>
@@ -112,7 +112,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         public BudgetLabel( Size size, Point location )
-            : this()
+            : this( )
         {
             Size = size;
             Location = location;
@@ -124,7 +124,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="label">The label.</param>
-        [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
+        [SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" )]
         public BudgetLabel( VisualLabel label )
             : this( label.Size, label.Location )
         {
@@ -176,7 +176,7 @@ namespace BudgetExecution
         {
             BindingSource = bindingSource;
         }
-        
+
         /// <summary>
         /// Sets the color of the border.
         /// </summary>

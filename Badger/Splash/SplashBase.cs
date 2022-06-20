@@ -15,8 +15,8 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
+    [SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" )]
     public abstract class SplashBase : SplashPanel
     {
         /// <summary>
@@ -103,7 +103,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Sets the size.
         /// </summary>
@@ -136,7 +136,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Sets the location.
         /// </summary>
@@ -272,7 +272,7 @@ namespace BudgetExecution
         /// <param name = "path" > </param>
         public virtual void ResetIcon( string path )
         {
-            if( Verify.IsInput( path ) 
+            if( Verify.IsInput( path )
                 && File.Exists( path ) )
             {
                 try
@@ -294,8 +294,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -25,10 +25,10 @@ namespace BudgetExecution
     /// <seealso cref = "IProgramResultsCode"/>
     /// <seealso cref = "IFund"/>
     /// <seealso cref = "ISource"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public class ProgramResultsCode : PrcConfig, IProgramResultsCode
     {
         /// <summary>
@@ -78,7 +78,7 @@ namespace BudgetExecution
         /// </param>
         public ProgramResultsCode( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.AllocationsId );
             BudgetLevel = new Element( Record, Field.BudgetLevel );
             BFY = new Element( Record, Field.BFY );
@@ -91,8 +91,8 @@ namespace BudgetExecution
             AccountCode = new Element( Record, Field.AccountCode );
             ActivityCode = new Element( Record, Field.ActivityCode );
             Amount = new Amount( Record, Numeric.Amount );
-            Data = Record?.ToDictionary();
-            Elements = GetElements();
+            Data = Record?.ToDictionary( );
+            Elements = GetElements( );
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace BudgetExecution
         /// </param>
         public ProgramResultsCode( IBuilder builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.AllocationsId );
             BudgetLevel = new Element( Record, Field.BudgetLevel );
             BFY = new Element( Record, Field.BFY );
@@ -116,8 +116,8 @@ namespace BudgetExecution
             AccountCode = new Element( Record, Field.AccountCode );
             ActivityCode = new Element( Record, Field.ActivityCode );
             Amount = new Amount( Record, Numeric.Amount );
-            Data = Record?.ToDictionary();
-            Elements = GetElements();
+            Data = Record?.ToDictionary( );
+            Elements = GetElements( );
         }
 
         /// <summary>
@@ -141,8 +141,8 @@ namespace BudgetExecution
             AccountCode = new Element( Record, Field.AccountCode );
             ActivityCode = new Element( Record, Field.ActivityCode );
             Amount = new Amount( Record, Numeric.Amount );
-            Data = Record?.ToDictionary();
-            Elements = GetElements();
+            Data = Record?.ToDictionary( );
+            Elements = GetElements( );
         }
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace BudgetExecution
         /// </param>
         public ProgramResultsCode( IDictionary<string, object> dict )
         {
-            Record = new DataBuilder( Source, dict )?.GetRecord();
+            Record = new DataBuilder( Source, dict )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.AllocationsId );
             BudgetLevel = new Element( Record, Field.BudgetLevel );
             BFY = new Element( Record, Field.BFY );
@@ -165,8 +165,8 @@ namespace BudgetExecution
             AccountCode = new Element( Record, Field.AccountCode );
             ActivityCode = new Element( Record, Field.ActivityCode );
             Amount = new Amount( Record, Numeric.Amount );
-            Data = Record?.ToDictionary();
-            Elements = GetElements();
+            Data = Record?.ToDictionary( );
+            Elements = GetElements( );
         }
 
         /// <summary>
@@ -178,11 +178,11 @@ namespace BudgetExecution
         {
             try
             {
-                var _account = GetAccount();
+                var _account = GetAccount( );
 
                 var _dict = new Dictionary<string, object>
                 {
-                    [ $"{Field.Code}" ] = _account?.GetProgramProject()?.Code
+                    [ $"{Field.Code}" ] = _account?.GetProgramProject( )?.Code
                 };
 
                 var _connectionBuilder = new ConnectionBuilder( Source.ProgramProjects, Provider.SQLite );
@@ -206,8 +206,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( GetAccount().ToString() )
-                    ? GetAccount().GetProgramArea()
+                return Verify.IsInput( GetAccount( ).ToString( ) )
+                    ? GetAccount( ).GetProgramArea( )
                     : default( IProgramArea );
             }
             catch( Exception ex )
@@ -226,7 +226,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone() as ProgramResultsCode;
+                return MemberwiseClone( ) as ProgramResultsCode;
             }
             catch( Exception ex )
             {
@@ -258,7 +258,7 @@ namespace BudgetExecution
                     ActivityCode
                 };
 
-                return _elements?.Any() == true
+                return _elements?.Any( ) == true
                     ? _elements
                     : default( List<IElement> );
             }

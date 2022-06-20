@@ -30,8 +30,8 @@ namespace BudgetExecution
     /// <seealso cref = "IProgram"/>
     /// <seealso cref = "IReprogramming"/>
     /// <seealso cref = "ISource"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Global" )]
     public class Reprogramming : ProgramResultsCode, ISource
     {
         /// <summary>
@@ -48,7 +48,7 @@ namespace BudgetExecution
         /// <value>
         /// The date.
         /// </value>
-        public DateTime ProcessedDate { get;  }
+        public DateTime ProcessedDate { get; }
 
         /// <summary>
         /// Gets the type of the document.
@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the document.
         /// </value>
-        public IElement DocPrefix { get;  }
+        public IElement DocPrefix { get; }
 
         /// <summary>
         /// Gets from to.
@@ -64,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         /// From to.
         /// </value>
-        public IElement FromTo { get;  }
+        public IElement FromTo { get; }
 
         /// <summary>
         /// Gets the document number.
@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The document number.
         /// </value>
-        public IElement DocumentNumber { get;  }
+        public IElement DocumentNumber { get; }
 
         /// <summary>
         /// Gets the purpose.
@@ -80,7 +80,7 @@ namespace BudgetExecution
         /// <value>
         /// The purpose.
         /// </value>
-        public IElement Purpose { get;  }
+        public IElement Purpose { get; }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -100,15 +100,15 @@ namespace BudgetExecution
         public Reprogramming( IQuery query )
             : base( query )
         {
-            Record = new Builder( query )?.GetRecord();
+            Record = new Builder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.TransfersId );
             DocPrefix = new Element( Record, Field.DocType );
             DocumentNumber = new Element( Record, Field.DocumentNumber );
             Purpose = new Element( Record, Field.Purpose );
             FromTo = new Element( Record, Field.FromTo );
-            ProcessedDate = DateTime.Parse( Record[ $"{Field.DocumentNumber}" ].ToString() );
-            Amount = GetAmount();
-            Data = Record?.ToDictionary();
+            ProcessedDate = DateTime.Parse( Record[ $"{Field.DocumentNumber}" ].ToString( ) );
+            Amount = GetAmount( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -120,15 +120,15 @@ namespace BudgetExecution
         public Reprogramming( IBuilder builder )
             : base( builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.TransfersId );
             DocPrefix = new Element( Record, Field.DocType );
             DocumentNumber = new Element( Record, Field.DocumentNumber );
             Purpose = new Element( Record, Field.Purpose );
             FromTo = new Element( Record, Field.FromTo );
-            ProcessedDate = DateTime.Parse( Record?[ $"{Field.DocumentNumber}" ].ToString() );
-            Amount = GetAmount();
-            Data = Record?.ToDictionary();
+            ProcessedDate = DateTime.Parse( Record?[ $"{Field.DocumentNumber}" ].ToString( ) );
+            Amount = GetAmount( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -146,9 +146,9 @@ namespace BudgetExecution
             DocumentNumber = new Element( Record, Field.DocumentNumber );
             Purpose = new Element( Record, Field.Purpose );
             FromTo = new Element( Record, Field.FromTo );
-            ProcessedDate = DateTime.Parse( Record[ $"{Field.DocumentNumber}" ].ToString() );
-            Amount = GetAmount();
-            Data = Record?.ToDictionary();
+            ProcessedDate = DateTime.Parse( Record[ $"{Field.DocumentNumber}" ].ToString( ) );
+            Amount = GetAmount( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -221,7 +221,7 @@ namespace BudgetExecution
             try
             {
                 return Verify.IsElement( FromTo )
-                    ? (FromTo)Enum.Parse( typeof( FromTo ), FromTo.Value.ToString() )
+                    ? (FromTo)Enum.Parse( typeof( FromTo ), FromTo.Value.ToString( ) )
                     : default( FromTo );
             }
             catch( Exception ex )

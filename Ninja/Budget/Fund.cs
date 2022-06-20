@@ -12,10 +12,10 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" )]
     public class Fund : Element, IFund, ISource
     {
         /// <summary>
@@ -46,7 +46,7 @@ namespace BudgetExecution
         /// The treasury symbol.
         /// </value>
         public IElement TreasurySymbol { get; set; }
-        
+
         /// <summary>
         /// Gets the title.
         /// </summary>
@@ -70,13 +70,13 @@ namespace BudgetExecution
         /// </param>
         public Fund( FundCode fundCode )
         {
-            Record = new DataBuilder( Source, GetArgs( fundCode ) )?.GetRecord();
+            Record = new DataBuilder( Source, GetArgs( fundCode ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.FundsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Title = new Element( Record, Field.Title );
             TreasurySymbol = new Element( Record, Field.TreasurySymbol );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -87,13 +87,13 @@ namespace BudgetExecution
         /// </param>
         public Fund( string code )
         {
-            Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
+            Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.FundsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Title = new Element( Record, Field.Title );
             TreasurySymbol = new Element( Record, Field.TreasurySymbol );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -104,13 +104,13 @@ namespace BudgetExecution
         /// </param>
         public Fund( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.FundsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Title = new Element( Record, Field.Title );
             TreasurySymbol = new Element( Record, Field.TreasurySymbol );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -121,13 +121,13 @@ namespace BudgetExecution
         /// </param>
         public Fund( IBuilder builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.FundsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
             Title = new Element( Record, Field.Title );
             TreasurySymbol = new Element( Record, Field.TreasurySymbol );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace BudgetExecution
         /// The Data.
         /// </param>
         public Fund( DataRow data )
-            : this()
+            : this( )
         {
             Record = data;
             ID = new Key( Record, PrimaryKey.FundsId );
@@ -145,7 +145,7 @@ namespace BudgetExecution
             Code = new Element( Record, Field.Code ).Code;
             Title = new Element( Record, Field.Title );
             TreasurySymbol = new Element( Record, Field.TreasurySymbol );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -185,7 +185,7 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object>
                     {
-                        [ Field.Code.ToString() ] = fundCode
+                        [ Field.Code.ToString( ) ] = fundCode
                     };
                 }
                 catch( Exception ex )
@@ -194,7 +194,7 @@ namespace BudgetExecution
 
                     return new Dictionary<string, object>
                     {
-                        [ Field.Name.ToString() ] = fundCode
+                        [ Field.Name.ToString( ) ] = fundCode
                     };
                 }
             }
@@ -206,7 +206,7 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object>
                     {
-                        [ Field.Name.ToString() ] = fundCode
+                        [ Field.Name.ToString( ) ] = fundCode
                     };
                 }
                 catch( Exception ex )
@@ -234,7 +234,7 @@ namespace BudgetExecution
                 return Validate.FundCode( fundCode )
                     ? new Dictionary<string, object>
                     {
-                        [ "FundCode" ] = fundCode.ToString()
+                        [ "FundCode" ] = fundCode.ToString( )
                     }
                     : default( Dictionary<string, object> );
             }
@@ -244,7 +244,7 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
-        
+
         /// <summary>
         /// Gets the fund title.
         /// </summary>
@@ -294,7 +294,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone() as Fund;
+                return MemberwiseClone( ) as Fund;
             }
             catch( Exception ex )
             {

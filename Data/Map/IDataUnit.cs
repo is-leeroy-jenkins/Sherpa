@@ -4,7 +4,7 @@
 
 namespace BudgetExecution
 {
-    public interface IDataUnit 
+    public interface IDataUnit
     {
         /// <summary>
         /// Gets or sets the value.

@@ -12,7 +12,7 @@ namespace BudgetExecution
     {
         public static IList<TriggerSchema> GetForeignKeyTriggers( TableSchema dt )
         {
-            IList<TriggerSchema> result = new List<TriggerSchema>();
+            IList<TriggerSchema> result = new List<TriggerSchema>( );
 
             foreach( var fks in dt.ForeignKeys )
             {

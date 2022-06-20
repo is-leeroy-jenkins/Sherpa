@@ -13,11 +13,11 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "MustUseReturnValue" ) ]
-    public class FileWriter  
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "MustUseReturnValue" )]
+    public class FileWriter
     {
         /// <summary>
         /// Gets or sets the data file.
@@ -57,7 +57,7 @@ namespace BudgetExecution
         public FileWriter( IFile file )
         {
             DataFile = file;
-            FileStream = DataFile.GetBaseStream();
+            FileStream = DataFile.GetBaseStream( );
             FileInfo = DataFile.FileInfo;
         }
 
@@ -97,7 +97,7 @@ namespace BudgetExecution
                 {
                     var text = File.ReadAllLines( _file );
 
-                    if( text?.Any() == true )
+                    if( text?.Any( ) == true )
                     {
                         File.WriteAllLines( _file, text );
                     }
@@ -122,7 +122,7 @@ namespace BudgetExecution
                 {
                     var stream = File.ReadAllBytes( _path );
 
-                    if( stream?.Any() == true )
+                    if( stream?.Any( ) == true )
                     {
                         File.WriteAllBytes( _path, stream );
                     }
@@ -168,7 +168,7 @@ namespace BudgetExecution
         {
             try
             {
-                using var _stream = FileInfo?.Create();
+                using var _stream = FileInfo?.Create( );
                 _stream?.Write( data, 0, data.Length );
             }
             catch( IOException ex )
@@ -187,7 +187,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _writer = FileInfo?.AppendText();
+                    using var _writer = FileInfo?.AppendText( );
                     _writer?.Write( text );
                 }
                 catch( IOException ex )
@@ -206,7 +206,7 @@ namespace BudgetExecution
             {
                 var _bytes = File.ReadAllBytes( FileInfo.FullName );
 
-                if( _bytes?.Any() == true )
+                if( _bytes?.Any( ) == true )
                 {
                     var _length = _bytes.Length;
                     using var _stream = new GZipStream( FileStream, CompressionMode.Compress );
@@ -228,7 +228,7 @@ namespace BudgetExecution
             {
                 var _bytes = File.ReadAllBytes( DataFile?.Path?.FullPath );
 
-                if( _bytes?.Any() == true )
+                if( _bytes?.Any( ) == true )
                 {
                     var _stream = new MemoryStream( _bytes );
                     _stream.Read( _bytes, 0, _bytes.Length );
@@ -247,8 +247,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -42,7 +42,7 @@ namespace BudgetExecution
         /// <param name="sqlStatement">The SQL statement.</param>
         /// <returns></returns>
         DbCommand GetCommand( ISqlStatement sqlStatement );
-        
+
         /// <summary>
         /// Gets the sq lite command.
         /// </summary>

@@ -12,8 +12,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref = "ICalendarYear"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public abstract class CalendarYear : ICalendarYear
     {
         /// <summary>
@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// <value>
         /// The Data.
         /// </value>
-        public virtual DataRow Record { get; set; } 
+        public virtual DataRow Record { get; set; }
 
         /// <summary>
         /// Gets or sets the work days.
@@ -30,7 +30,7 @@ namespace BudgetExecution
         /// <value>
         /// The work days.
         /// </value>
-        public virtual IElement WorkDays { get; set; } 
+        public virtual IElement WorkDays { get; set; }
 
         /// <summary>
         /// Gets or sets the week days.
@@ -38,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The week days.
         /// </value>
-        public virtual IElement WeekDays { get; set; } 
+        public virtual IElement WeekDays { get; set; }
 
         /// <summary>
         /// Gets or sets the week ends.
@@ -46,7 +46,7 @@ namespace BudgetExecution
         /// <value>
         /// The week ends.
         /// </value>
-        public virtual IElement WeekEnds { get; set; } 
+        public virtual IElement WeekEnds { get; set; }
 
         /// <summary>
         /// Gets the current date.
@@ -79,7 +79,7 @@ namespace BudgetExecution
         /// The current year.
         /// </value>
         public readonly int CurrentYear = DateTime.Now.Year;
-        
+
         /// <summary>
         /// Get Error Dialog.
         /// </summary>
@@ -87,8 +87,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

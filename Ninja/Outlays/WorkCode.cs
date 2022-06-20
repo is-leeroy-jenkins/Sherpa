@@ -15,9 +15,9 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref = "PayrollCostCode"/>
     /// <seealso cref = "ISource"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
     public class WorkCode : PayrollCostCode, ISource, IWorkCode
     {
         /// <summary>
@@ -47,9 +47,9 @@ namespace BudgetExecution
         /// The query.
         /// </param>
         public WorkCode( IQuery query )
-            : this()
+            : this( )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.WorkCodesId );
             Code = new Element( Record, Field.Code ).Code;
             Name = new Element( Record, Field.Name ).Name;
@@ -65,8 +65,8 @@ namespace BudgetExecution
             AccountCode = new Element( Record, Field.AccountCode );
             ProjectCode = new Element( Record, Field.ProjectCode );
             ProjectCodeName = new Element( Record, Field.ProjectName );
-            ApprovalDate = DateTime.Parse( Record[ $"{Field.ApprovalDate}" ].ToString() );
-            Args = Record?.ToDictionary();
+            ApprovalDate = DateTime.Parse( Record[ $"{Field.ApprovalDate}" ].ToString( ) );
+            Args = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace BudgetExecution
         /// </param>
         public WorkCode( IBuilder builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.WorkCodesId );
             Code = new Element( Record, Field.Code ).Code;
             Name = new Element( Record, Field.Name ).Name;
@@ -93,8 +93,8 @@ namespace BudgetExecution
             AccountCode = new Element( Record, Field.AccountCode );
             ProjectCode = new Element( Record, Field.ProjectCode );
             ProjectCodeName = new Element( Record, Field.ProjectName );
-            ApprovalDate = DateTime.Parse( Record?[ $"{Field.ApprovalDate}" ].ToString() );
-            Args = Record?.ToDictionary();
+            ApprovalDate = DateTime.Parse( Record?[ $"{Field.ApprovalDate}" ].ToString( ) );
+            Args = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace BudgetExecution
             AccountCode = new Element( Record, Field.AccountCode );
             ProjectCode = new Element( Record, Field.ProjectCode );
             ProjectCodeName = new Element( Record, Field.ProjectName );
-            ApprovalDate = DateTime.Parse( Record[ $"{Field.ApprovalDate}" ].ToString() );
-            Args = Record?.ToDictionary();
+            ApprovalDate = DateTime.Parse( Record[ $"{Field.ApprovalDate}" ].ToString( ) );
+            Args = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace BudgetExecution
             try
             {
                 return Verify.IsElement( BFY )
-                    ? new BudgetFiscalYear( BFY?.Value?.ToString() )
+                    ? new BudgetFiscalYear( BFY?.Value?.ToString( ) )
                     : default( BudgetFiscalYear );
             }
             catch( Exception ex )
@@ -182,7 +182,7 @@ namespace BudgetExecution
                 {
                     var _dict = new Dictionary<string, object>
                     {
-                        [ $"{Field.FocCode}" ] = FocCode?.Value?.ToString()
+                        [ $"{Field.FocCode}" ] = FocCode?.Value?.ToString( )
                     };
 
                     var _builder = new ConnectionBuilder( Source.FinanceObjectClasses );
@@ -210,7 +210,7 @@ namespace BudgetExecution
             try
             {
                 return Verify.IsElement( FundCode )
-                    ? new Fund( FundCode?.Value?.ToString() )
+                    ? new Fund( FundCode?.Value?.ToString( ) )
                     : default( Fund );
             }
             catch( Exception ex )
@@ -233,7 +233,7 @@ namespace BudgetExecution
                 {
                     var _dictionary = new Dictionary<string, object>
                     {
-                        [ $"{Field.CostOrgCode}" ] = CostOrgCode?.Value?.ToString()
+                        [ $"{Field.CostOrgCode}" ] = CostOrgCode?.Value?.ToString( )
                     };
 
                     var _builder = new ConnectionBuilder( Source.Organizations );
@@ -264,7 +264,7 @@ namespace BudgetExecution
                 {
                     var _dictionary = new Dictionary<string, object>
                     {
-                        [ $"{Field.Code}" ] = AccountCode?.Value?.ToString()
+                        [ $"{Field.Code}" ] = AccountCode?.Value?.ToString( )
                     };
 
                     var _builder = new ConnectionBuilder( Source.Accounts );
@@ -295,7 +295,7 @@ namespace BudgetExecution
                 {
                     var _dictionary = new Dictionary<string, object>
                     {
-                        [ $"{Field.Code}" ] = RcCode?.Value?.ToString()
+                        [ $"{Field.Code}" ] = RcCode?.Value?.ToString( )
                     };
 
                     var _builder = new ConnectionBuilder( Source.ResponsibilityCenters );
@@ -325,14 +325,14 @@ namespace BudgetExecution
                 try
                 {
                     var _data = new Builder( Source.WorkCodes, Args )
-                        ?.GetData()
+                        ?.GetData( )
                         ?.Select( h => h );
 
                     var _query = _data
                         ?.Select( h => new WorkCode( h ) );
 
-                    return _query?.Any() == true
-                        ? _query.ToArray()
+                    return _query?.Any( ) == true
+                        ? _query.ToArray( )
                         : default( WorkCode[ ] );
                 }
                 catch( Exception ex )
@@ -344,7 +344,7 @@ namespace BudgetExecution
 
             return default( IEnumerable<IWorkCode> );
         }
-        
+
         /// <summary>
         /// Converts to dictionary.
         /// </summary>
@@ -364,7 +364,7 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
-        
+
         /// <summary>
         /// Gets the source.
         /// </summary>

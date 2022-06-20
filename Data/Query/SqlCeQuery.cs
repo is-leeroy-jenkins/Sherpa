@@ -17,7 +17,7 @@ namespace BudgetExecution
     public class SqlCeQuery : Query
     {
         private readonly Provider _provider = Provider.SqlCe;
-        
+
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the <see cref = "T:BudgetExecution.SqlCeQuery"/>
@@ -90,7 +90,7 @@ namespace BudgetExecution
                     RestoreDirectory = true
                 };
 
-                if( _fileDialog.ShowDialog() == DialogResult.OK )
+                if( _fileDialog.ShowDialog( ) == DialogResult.OK )
                 {
                     _fileName = _fileDialog.FileName;
                 }
@@ -122,20 +122,20 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _dataSet = new DataSet();
-                    using var _dataTable = new DataTable();
+                    using var _dataSet = new DataSet( );
+                    using var _dataTable = new DataTable( );
                     _dataSet.DataSetName = fileName;
                     _dataTable.TableName = sheetName;
                     _dataSet.Tables.Add( _dataTable );
-                    var cstring = GetExcelFilePath();
+                    var cstring = GetExcelFilePath( );
 
                     if( Verify.IsInput( cstring ) )
                     {
                         using var _excelQuery = new ExcelQuery( cstring );
-                        using var _connection = _excelQuery.GetConnection() as OleDbConnection;
-                        _connection?.Open();
+                        using var _connection = _excelQuery.GetConnection( ) as OleDbConnection;
+                        _connection?.Open( );
 
-                        using var _dataAdapter = _excelQuery.GetAdapter();
+                        using var _dataAdapter = _excelQuery.GetAdapter( );
                         _dataAdapter.Fill( _dataSet );
 
                         return _dataTable.Columns.Count > 0
@@ -171,18 +171,18 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _dataSet = new DataSet();
-                    using var _dataTable = new DataTable();
-                    var _fileName = GetConnectionBuilder().FileName;
+                    using var _dataSet = new DataSet( );
+                    using var _dataTable = new DataTable( );
+                    var _fileName = GetConnectionBuilder( ).FileName;
                     _dataSet.DataSetName = _fileName;
                     _dataTable.TableName = sheetName;
                     _dataSet.Tables.Add( _dataTable );
-                    var _cstring = GetExcelFilePath();
+                    var _cstring = GetExcelFilePath( );
 
                     if( Verify.IsInput( _cstring ) )
                     {
                         using var _csvQuery = new CsvQuery( _cstring );
-                        using var _dataAdapter = _csvQuery.GetAdapter() as OleDbDataAdapter;
+                        using var _dataAdapter = _csvQuery.GetAdapter( ) as OleDbDataAdapter;
                         _dataAdapter?.Fill( _dataSet, sheetName );
 
                         return _dataTable.Columns.Count > 0
@@ -213,14 +213,14 @@ namespace BudgetExecution
         /// </returns>
         private bool CheckIfSheetNameExists( string sheetName, DataTable schemaTable )
         {
-            if( Verify.IsInput( sheetName ) 
+            if( Verify.IsInput( sheetName )
                 && Verify.IsTable( schemaTable ) )
             {
                 for( var i = 0; i < schemaTable.Rows.Count; i++ )
                 {
                     var _dataRow = schemaTable.Rows[ i ];
 
-                    if( sheetName == _dataRow[ "TABLENAME" ].ToString() )
+                    if( sheetName == _dataRow[ "TABLENAME" ].ToString( ) )
                     {
                         return true;
                     }
@@ -237,7 +237,7 @@ namespace BudgetExecution
         {
             if( disposing )
             {
-                Dispose();
+                Dispose( );
                 IsDisposed = true;
             }
         }

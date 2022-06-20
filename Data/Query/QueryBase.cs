@@ -69,7 +69,7 @@ namespace BudgetExecution
         /// <value>
         /// The command.
         /// </value>
-        [ SuppressMessage( "ReSharper", "UnassignedGetOnlyAutoProperty" ) ]
+        [SuppressMessage( "ReSharper", "UnassignedGetOnlyAutoProperty" )]
         public DbCommand Command { get; set; }
 
         /// <summary>
@@ -151,7 +151,7 @@ namespace BudgetExecution
         {
             try
             {
-                return dict?.Any() == true
+                return dict?.Any( ) == true
                     ? dict
                     : default( IDictionary<string, object> );
             }
@@ -300,7 +300,7 @@ namespace BudgetExecution
         {
             try
             {
-                return ConnectionFactory?.GetConnection() ?? default( DbConnection );
+                return ConnectionFactory?.GetConnection( ) ?? default( DbConnection );
             }
             catch( Exception ex )
             {
@@ -324,12 +324,12 @@ namespace BudgetExecution
                 {
                     var _commandFactory = new CommandFactory( CommandBuilder );
 
-                    return SqlStatement?.GetCommandType() switch
+                    return SqlStatement?.GetCommandType( ) switch
                     {
-                        SQL.SELECT => _commandFactory?.GetSelectCommand(),
-                        SQL.INSERT => _commandFactory?.GetSelectCommand(),
-                        SQL.UPDATE => _commandFactory?.GetSelectCommand(),
-                        SQL.DELETE => _commandFactory?.GetDeleteCommand(),
+                        SQL.SELECT => _commandFactory?.GetSelectCommand( ),
+                        SQL.INSERT => _commandFactory?.GetSelectCommand( ),
+                        SQL.UPDATE => _commandFactory?.GetSelectCommand( ),
+                        SQL.DELETE => _commandFactory?.GetDeleteCommand( ),
                         _ => default( DbCommand )
                     };
                 }
@@ -368,8 +368,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -11,7 +11,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
 
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
     public abstract class ToolStripProgressBase : ToolStripProgressBar
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace BudgetExecution
         /// The hover text.
         /// </value>
         public virtual string HoverText { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance
         /// of the <see cref="ToolStripProgressBase"/> class.
         /// </summary>
-        public ToolStripProgressBase( ) 
+        public ToolStripProgressBase()
         {
         }
 
@@ -77,8 +77,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

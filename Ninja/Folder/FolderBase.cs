@@ -15,7 +15,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
     public abstract class FolderBase
     {
         /// <summary>
@@ -86,7 +86,7 @@ namespace BudgetExecution
         /// The changed date.
         /// </value>
         public DateTime ChangeDate { get; set; }
-        
+
         /// <summary>
         /// Gets the name.
         /// </summary>
@@ -156,8 +156,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsDateTime( CreationDate ) 
-                    ? CreationDate 
+                return Verify.IsDateTime( CreationDate )
+                    ? CreationDate
                     : default( DateTime );
             }
             catch( IOException ex )
@@ -194,7 +194,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Files?.Any() == true
+                return Files?.Any( ) == true
                     ? Files
                     : default( IEnumerable<string> );
             }
@@ -215,7 +215,7 @@ namespace BudgetExecution
             {
                 var _enumerable = DirectoryInfo?.EnumerateFiles( FolderPath );
 
-                return Verify.IsSequence(  _enumerable )
+                return Verify.IsSequence( _enumerable )
                     ? _enumerable
                     : default( IEnumerable<FileInfo> );
             }
@@ -236,7 +236,7 @@ namespace BudgetExecution
             {
                 var _folders = Enum.GetNames( typeof( Environment.SpecialFolder ) );
 
-                return _folders?.Any() == true
+                return _folders?.Any( ) == true
                     ? _folders
                     : default( string[ ] );
             }
@@ -255,9 +255,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _folders = DirectoryInfo?.GetDirectories();
+                var _folders = DirectoryInfo?.GetDirectories( );
 
-                return _folders?.Any() != true
+                return _folders?.Any( ) != true
                     ? _folders
                     : default( DirectoryInfo[ ] );
             }
@@ -296,8 +296,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

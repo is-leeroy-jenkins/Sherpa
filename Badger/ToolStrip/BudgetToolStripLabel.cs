@@ -9,9 +9,9 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" )]
     public class BudgetToolStripLabel : ToolStripLabelBase, IToolStripLabel
     {
         /// <summary>
@@ -38,12 +38,12 @@ namespace BudgetExecution
         /// <param name="text">The text to display
         /// on the <see cref="T:System.Windows.Forms.ToolStripLabel" />.</param>
         public BudgetToolStripLabel( string text )
-            : this()
+            : this( )
         {
             Text = text;
             MouseHover += OnMouseHover;
         }
-        
+
         /// <summary> Sets the text. </summary>
         /// <param name = "text" > The text. </param>
         /// <param name = "color" > The color. </param>
@@ -99,9 +99,9 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        if( Verify.IsInput( Tag?.ToString() ) )
+                        if( Verify.IsInput( Tag?.ToString( ) ) )
                         {
-                            var _ = new ToolTip( _label, Tag?.ToString()?.SplitPascal() );
+                            var _ = new ToolTip( _label, Tag?.ToString( )?.SplitPascal( ) );
                         }
                     }
                 }

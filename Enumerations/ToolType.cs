@@ -38,7 +38,7 @@ namespace BudgetExecution
         /// The home button
         /// </summary>
         HomeButton,
-        
+
         /// <summary>
         /// The account button
         /// </summary>
@@ -98,7 +98,7 @@ namespace BudgetExecution
         /// The verify button
         /// </summary>
         VerifyButton,
-        
+
         /// <summary>
         /// The save button
         /// </summary>
@@ -128,7 +128,7 @@ namespace BudgetExecution
         /// The copy button
         /// </summary>
         CopyButton,
-        
+
         /// <summary>
         /// The delete column button
         /// </summary>
@@ -268,7 +268,7 @@ namespace BudgetExecution
         /// The redo button
         /// </summary>
         RedoButton,
-        
+
         /// <summary>
         /// The settings button
         /// </summary>

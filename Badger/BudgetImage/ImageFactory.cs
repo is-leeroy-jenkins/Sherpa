@@ -10,11 +10,11 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "NotAccessedField.Local" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
+
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "NotAccessedField.Local" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" )]
     public class ImageFactory : BudgetImage
     {
         /// <summary>
@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// The file names
         /// </summary>
         public IEnumerable<string> Names { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref = "ImageFactory"/> class.
         /// </summary>
@@ -42,10 +42,10 @@ namespace BudgetExecution
         {
             ImageBuilder = imageBuilder;
             ImageSource = ImageBuilder.ImageSource;
-            ImageFormat = ImageBuilder.GetExtension();
+            ImageFormat = ImageBuilder.GetExtension( );
             Paths = Resource.ImageFolders;
             Names = Paths.Select( n => Path.GetFileNameWithoutExtension( n ) );
-            FileStream = GetFileStreams();
+            FileStream = GetFileStreams( );
         }
 
         /// <summary>
@@ -58,33 +58,33 @@ namespace BudgetExecution
         {
             ImageBuilder = new ImageBuilder( imageSource );
             ImageSource = ImageBuilder.ImageSource;
-            ImageFormat = ImageBuilder.GetExtension();
+            ImageFormat = ImageBuilder.GetExtension( );
             Paths = Resource.ImageFolders;
             Names = Paths.Select( n => Path.GetFileNameWithoutExtension( n ) );
             FileStream = GetFileStreams( );
         }
-        
+
         /// <summary>
         /// Sets the file stream data.
         /// </summary>
         /// <returns>
         /// IDictionary
         /// </returns>
-        private IDictionary<string, FileInfo> GetFileStreams( )
+        private IDictionary<string, FileInfo> GetFileStreams()
         {
             try
             {
-                var _dictionary = new Dictionary<string, FileInfo>();
+                var _dictionary = new Dictionary<string, FileInfo>( );
 
                 foreach( var _name in Resource.ImageFolders )
                 {
-                    if ( File.Exists( _name ) )
+                    if( File.Exists( _name ) )
                     {
                         _dictionary.Add( _name, new FileInfo( _name ) );
                     }
                 }
 
-                return _dictionary?.Any() == true
+                return _dictionary?.Any( ) == true
                     ? _dictionary
                     : default( Dictionary<string, FileInfo> );
             }
@@ -94,7 +94,7 @@ namespace BudgetExecution
                 return default( IDictionary<string, FileInfo> );
             }
         }
-        
+
         /// <summary>
         /// Gets the file stream data.
         /// </summary>
@@ -104,7 +104,7 @@ namespace BudgetExecution
         {
             try
             {
-                return FileStream?.Any() == true
+                return FileStream?.Any( ) == true
                     ? FileStream
                     : default( IDictionary<string, FileInfo> );
             }
@@ -122,11 +122,11 @@ namespace BudgetExecution
         /// </returns>
         public Bitmap CreateImage()
         {
-            if( ImageBuilder?.GetFileStream() != null )
+            if( ImageBuilder?.GetFileStream( ) != null )
             {
                 try
                 {
-                    using var _stream = ImageBuilder?.GetFileStream();
+                    using var _stream = ImageBuilder?.GetFileStream( );
 
                     return _stream != null
                         ? new Bitmap( _stream )
@@ -153,7 +153,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _fileStream = ImageBuilder.GetFileStream();
+                    using var _fileStream = ImageBuilder.GetFileStream( );
 
                     return _fileStream != null
                         ? new Icon( _fileStream, ImageBuilder.Size )

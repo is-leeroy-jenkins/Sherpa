@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
+    [SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" )]
     public static class TypeObject
     {
         /// <summary>
@@ -32,8 +32,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _stream = new MemoryStream();
-                    var _formatter = new BinaryFormatter();
+                    using var _stream = new MemoryStream( );
+                    var _formatter = new BinaryFormatter( );
                     _formatter.Serialize( _stream, type );
                     _stream.Position = 0;
                     return (T)_formatter.Deserialize( _stream );
@@ -56,15 +56,15 @@ namespace BudgetExecution
         /// <returns></returns>
         public static string ToJson<T>( this T type )
         {
-            if ( type != null )
+            if( type != null )
             {
                 try
                 {
                     var _encoding = Encoding.Default;
                     var _serializer = new DataContractJsonSerializer( typeof( T ) );
-                    using var stream = new MemoryStream();
+                    using var stream = new MemoryStream( );
                     _serializer.WriteObject( stream, type );
-                    var json = _encoding.GetString( stream.ToArray() );
+                    var json = _encoding.GetString( stream.ToArray( ) );
                     return json;
                 }
                 catch( Exception ex )
@@ -87,14 +87,14 @@ namespace BudgetExecution
         /// </returns>
         public static string SerializeBinary<T>( this T type )
         {
-            if ( type != null )
+            if( type != null )
             {
                 try
                 {
-                    var _formatter = new BinaryFormatter();
-                    using var _stream = new MemoryStream();
+                    var _formatter = new BinaryFormatter( );
+                    using var _stream = new MemoryStream( );
                     _formatter.Serialize( _stream, type );
-                    return Encoding.Default.GetString( _stream.ToArray() );
+                    return Encoding.Default.GetString( _stream.ToArray( ) );
                 }
                 catch( Exception ex )
                 {
@@ -117,14 +117,14 @@ namespace BudgetExecution
         /// </returns>
         public static string SerializeBinary<T>( this T type, Encoding encoding )
         {
-            if ( type != null )
+            if( type != null )
             {
                 try
                 {
-                    var _formatter = new BinaryFormatter();
-                    using var _stream = new MemoryStream();
+                    var _formatter = new BinaryFormatter( );
+                    using var _stream = new MemoryStream( );
                     _formatter.Serialize( _stream, type );
-                    return encoding.GetString( _stream.ToArray() );
+                    return encoding.GetString( _stream.ToArray( ) );
                 }
                 catch( Exception ex )
                 {
@@ -145,15 +145,15 @@ namespace BudgetExecution
         /// </returns>
         public static string SerializeXml( this object type )
         {
-            if ( type != null )
+            if( type != null )
             {
                 try
                 {
-                    var _serializer = new XmlSerializer( type.GetType() );
-                    using var _writer = new StringWriter();
+                    var _serializer = new XmlSerializer( type.GetType( ) );
+                    using var _writer = new StringWriter( );
                     _serializer.Serialize( _writer, type );
-                    using var _reader = new StringReader( _writer.GetStringBuilder().ToString() );
-                    return _reader.ReadToEnd();
+                    using var _reader = new StringReader( _writer.GetStringBuilder( ).ToString( ) );
+                    return _reader.ReadToEnd( );
                 }
                 catch( Exception ex )
                 {
@@ -173,11 +173,11 @@ namespace BudgetExecution
         /// <returns>A string.</returns>
         public static string SerializeJavaScript<T>( this T type )
         {
-            if ( type != null )
+            if( type != null )
             {
                 try
                 {
-                    var _serializer = new JavaScriptSerializer();
+                    var _serializer = new JavaScriptSerializer( );
                     return _serializer.Serialize( type );
                 }
                 catch( Exception ex )
@@ -197,8 +197,8 @@ namespace BudgetExecution
         private static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

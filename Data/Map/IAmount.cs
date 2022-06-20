@@ -14,7 +14,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns></returns>
         double Funding { get; set; }
-        
+
         /// <summary>
         /// Gets the numeric.
         /// </summary>

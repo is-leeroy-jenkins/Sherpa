@@ -29,7 +29,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public new Source Source { get; } =  Source.ReimbursableFunds;
+        public new Source Source { get; } = Source.ReimbursableFunds;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Reimbursable"/> class.
@@ -46,13 +46,13 @@ namespace BudgetExecution
         public Reimbursable( IQuery query )
             : base( query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ReimbursableFundsId );
             AgreementNumber = new Element( Record, Field.ReimbursableAgreementNumber );
             OpenCommitments = new Amount( Record, Numeric.OpenCommitments );
             ULO = new Amount( Record, Numeric.ULO );
             Expenditures = new Amount( Record, Numeric.Expenditures );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -64,13 +64,13 @@ namespace BudgetExecution
         public Reimbursable( IBuilder builder )
             : base( builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ReimbursableFundsId );
             AgreementNumber = new Element( Record, Field.ReimbursableAgreementNumber );
             OpenCommitments = new Amount( Record, Numeric.OpenCommitments );
             ULO = new Amount( Record, Numeric.ULO );
             Expenditures = new Amount( Record, Numeric.Expenditures );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -88,9 +88,9 @@ namespace BudgetExecution
             OpenCommitments = new Amount( Record, Numeric.OpenCommitments );
             ULO = new Amount( Record, Numeric.ULO );
             Expenditures = new Amount( Record, Numeric.Expenditures );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
-        
+
         /// <summary>
         /// Gets the reimbursable identifier.
         /// </summary>

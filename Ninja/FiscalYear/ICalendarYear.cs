@@ -8,7 +8,7 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    [ SuppressMessage( "ReSharper", "UnusedMemberInSuper.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedMemberInSuper.Global" )]
     public interface ICalendarYear
     {
         /// <summary>

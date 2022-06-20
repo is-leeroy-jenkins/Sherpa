@@ -9,9 +9,9 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" )]
     public class BudgetToolStripProgressBar : ToolStripProgressBase
     {
         /// <summary>
@@ -19,7 +19,7 @@ namespace BudgetExecution
         /// <see cref = "BudgetToolStripLabel"/>
         /// class.
         /// </summary>
-        public BudgetToolStripProgressBar( )
+        public BudgetToolStripProgressBar()
         {
             Margin = new Padding( 5, 5, 5, 5 );
             Size = new Size( 200, 22 );
@@ -32,7 +32,7 @@ namespace BudgetExecution
             Maximum = 100;
             Minimum = 1;
             Tag = Name;
-            ToolTipText = Tag.ToString();
+            ToolTipText = Tag.ToString( );
             HoverText = ToolTipText;
             Style = ProgressBarStyle.Blocks;
             Step = 10;
@@ -51,13 +51,13 @@ namespace BudgetExecution
                 {
                     Increment( increment );
                 }
-                catch ( Exception ex )
+                catch( Exception ex )
                 {
                     Fail( ex );
                 }
             }
         }
-        
+
         /// <summary>
         /// Increases the specified increment.
         /// </summary>
@@ -66,9 +66,9 @@ namespace BudgetExecution
             try
             {
                 Step = step;
-                PerformStep();
+                PerformStep( );
             }
-            catch ( Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }
@@ -143,10 +143,10 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        if( Verify.IsInput( Tag ) 
-                           && !string.IsNullOrEmpty( Tag.ToString() ) )
+                        if( Verify.IsInput( Tag )
+                           && !string.IsNullOrEmpty( Tag.ToString( ) ) )
                         {
-                            var _ = new ToolTip( progress, Tag?.ToString()?.SplitPascal() );
+                            var _ = new ToolTip( progress, Tag?.ToString( )?.SplitPascal( ) );
                         }
                     }
                 }

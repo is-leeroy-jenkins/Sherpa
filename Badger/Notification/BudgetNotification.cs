@@ -21,7 +21,7 @@ namespace BudgetExecution
         /// <summary>
         /// The open notifications
         /// </summary>
-        public static readonly List<BudgetNotification> OpenNotifications = new List<BudgetNotification>();
+        public static readonly List<BudgetNotification> OpenNotifications = new List<BudgetNotification>( );
 
         /// <summary>
         /// Gets or sets a value indicating whether [allow focus].
@@ -62,9 +62,9 @@ namespace BudgetExecution
         public BudgetNotification( string title, string body, int duration = 2,
             FormAnimator.AnimationMethod animation = FormAnimator.AnimationMethod.Slide,
             FormAnimator.AnimationDirection direction = FormAnimator.AnimationDirection.Left )
-            : this()
+            : this( )
         {
-            InitializeComponent();
+            InitializeComponent( );
             BackColor = Color.FromArgb( 10, 10, 10 );
             Load += OnLoad;
             Timer.Interval = duration * 1000;
@@ -75,9 +75,9 @@ namespace BudgetExecution
             Activated += OnActivated;
             Shown += OnShown;
             FormClosed += OnClosed;
-            Click += ( s, e ) => Close();
-            Message.Click += ( s, e ) => Close();
-            Title.Click += ( s, e ) => Close();
+            Click += ( s, e ) => Close( );
+            Message.Click += ( s, e ) => Close( );
+            Title.Click += ( s, e ) => Close( );
             Timer.Tick += OnTimerTick;
         }
 
@@ -86,9 +86,9 @@ namespace BudgetExecution
         /// </summary>
         public new void Show()
         {
-            _currentForegroundWindow = NativeMethods.GetForegroundWindow();
+            _currentForegroundWindow = NativeMethods.GetForegroundWindow( );
 
-            base.Show();
+            base.Show( );
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
-            Location = new Point( Screen.PrimaryScreen.WorkingArea.Width - Width, 
+            Location = new Point( Screen.PrimaryScreen.WorkingArea.Width - Width,
                 Screen.PrimaryScreen.WorkingArea.Height - Height );
 
             foreach( var _form in OpenNotifications )
@@ -107,7 +107,7 @@ namespace BudgetExecution
             }
 
             OpenNotifications.Add( this );
-            Timer.Start();
+            Timer.Start( );
         }
 
         /// <summary>
@@ -162,7 +162,7 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnTimerTick( object sender, EventArgs e )
         {
-            Close();
+            Close( );
         }
 
         /// <summary>
@@ -170,7 +170,7 @@ namespace BudgetExecution
         /// </summary>
         public void NotificationClose()
         {
-            Close();
+            Close( );
         }
     }
 }

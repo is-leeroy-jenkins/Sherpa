@@ -12,8 +12,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref = "Obligation"/>
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class TravelActivity : TravelData
     {
         /// <summary>
@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public override Source Source { get; set; } =  Source.TravelActivity;
+        public override Source Source { get; set; } = Source.TravelActivity;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "TravelActivity"/> class.
@@ -40,7 +40,7 @@ namespace BudgetExecution
         public TravelActivity( IQuery query )
             : base( query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.TravelActivityId );
             FocCode = new Element( Record, Field.FocCode );
             FocName = new Element( Record, Field.FocName );
@@ -52,7 +52,7 @@ namespace BudgetExecution
             Obligations = new Amount( Record, Numeric.Obligations );
             ULO = new Amount( Record, Numeric.ULO );
             Expenditures = new Amount( Record, Numeric.Expenditures );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.Obligation;
         }
 
@@ -65,7 +65,7 @@ namespace BudgetExecution
         public TravelActivity( IBuilder builder )
             : base( builder )
         {
-            Record = builder.GetRecord();
+            Record = builder.GetRecord( );
             ID = new Key( Record, PrimaryKey.TravelActivityId );
             FocCode = new Element( Record, Field.FocCode );
             FocName = new Element( Record, Field.FocName );
@@ -77,7 +77,7 @@ namespace BudgetExecution
             Obligations = new Amount( Record, Numeric.Obligations );
             ULO = new Amount( Record, Numeric.ULO );
             Expenditures = new Amount( Record, Numeric.Expenditures );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.Obligation;
         }
 
@@ -101,7 +101,7 @@ namespace BudgetExecution
             Obligations = new Amount( Record, Numeric.Obligations );
             ULO = new Amount( Record, Numeric.ULO );
             Expenditures = new Amount( Record, Numeric.Expenditures );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.Obligation;
         }
     }

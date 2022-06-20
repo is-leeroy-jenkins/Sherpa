@@ -10,7 +10,7 @@ namespace BudgetExecution
     {
         public BudgetTabForm()
         {
-            InitializeComponent();
+            InitializeComponent( );
         }
     }
 }

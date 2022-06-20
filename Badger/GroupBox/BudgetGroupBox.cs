@@ -20,7 +20,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="VisualPlus.Toolkit.Controls.Layout.VisualGroupBox" />
     /// <seealso cref="IGroupBox" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class BudgetGroupBox : GroupBoxBase, IGroupBox
     {
         /// <summary>
@@ -86,14 +86,14 @@ namespace BudgetExecution
         /// The header text.
         /// </value>
         public string HeaderText { get; set; }
-        
+
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="BudgetGroupBox"/> is separator.
         /// </summary>
         /// <value>
         ///   <c>true</c> if separator; otherwise, <c>false</c>.
         /// </value>
-        [ DefaultValue( true ) ]
+        [DefaultValue( true )]
         public bool Separate { get; set; }
 
         /// <summary>
@@ -146,7 +146,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         public BudgetGroupBox( Size size, Point location )
-            : this()
+            : this( )
         {
             Size = size;
             Location = location;
@@ -160,7 +160,7 @@ namespace BudgetExecution
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
         public BudgetGroupBox( Point location, Control parent = null )
-            : this()
+            : this( )
         {
             Location = location;
 
@@ -179,7 +179,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="parent">The parent.</param>
         public BudgetGroupBox( Size size, Control parent = null )
-            : this()
+            : this( )
         {
             Size = size;
 
@@ -199,7 +199,7 @@ namespace BudgetExecution
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
         public BudgetGroupBox( Size size, Point location, Control parent )
-            : this()
+            : this( )
         {
             Size = size;
             Location = location;
@@ -214,11 +214,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="title">The title.</param>
         public BudgetGroupBox( string title )
-            : this()
+            : this( )
         {
             Text = title;
         }
-        
+
         /// <summary>
         /// Sets the color of the border.
         /// </summary>
@@ -405,7 +405,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _children = new List<Control>();
+                    var _children = new List<Control>( );
 
                     foreach( Control _item in Controls )
                     {
@@ -415,7 +415,7 @@ namespace BudgetExecution
                         }
                     }
 
-                    return _children.Any()
+                    return _children.Any( )
                         ? _children
                         : default( List<Control> );
                 }

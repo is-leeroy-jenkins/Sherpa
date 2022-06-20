@@ -16,7 +16,7 @@ namespace BudgetExecution
         /// The name.
         /// </value>
         IKey ID { get; set; }
-        
+
         /// <summary>
         /// Gets the field.
         /// </summary>

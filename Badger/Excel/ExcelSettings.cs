@@ -19,12 +19,12 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Global" ) ]
+    [SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Global" )]
     public abstract class ExcelSettings
     {
         /// <summary>
@@ -41,7 +41,7 @@ namespace BudgetExecution
         /// <value>
         /// The file path.
         /// </value>
-        public virtual string FilePath { get; set; } 
+        public virtual string FilePath { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the file.
@@ -49,7 +49,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the file.
         /// </value>
-        public virtual string FileName { get; set; } 
+        public virtual string FileName { get; set; }
 
         /// <summary>
         /// Gets or sets the connection string.
@@ -297,7 +297,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ConnectionString = extension?.ToUpper() switch
+                    ConnectionString = extension?.ToUpper( ) switch
                     {
                         ".XLS" => @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source="
                             + filePath
@@ -334,7 +334,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    spreadSheet.Workbook.ActiveSheet.ListObjects.Clear();
+                    spreadSheet.Workbook.ActiveSheet.ListObjects.Clear( );
                     spreadSheet.Workbook.ActiveSheet.UsedRange.Clear( true );
                     spreadSheet.Workbook.ActiveSheet.StandardWidth = 12.5f;
                     var name = spreadSheet.Workbook.Worksheets[ 0 ].Name;
@@ -343,7 +343,7 @@ namespace BudgetExecution
                     var range = sheet.UsedRange;
                     var table = sheet.ListObjects.Create( name, range );
                     table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium2;
-                    spreadSheet.ActiveGrid.InvalidateCells();
+                    spreadSheet.ActiveGrid.InvalidateCells( );
                     spreadSheet.SetZoomFactor( "Sheet1", 110 );
                 }
                 catch( Exception ex )
@@ -365,7 +365,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    spreadSheet.Workbook.ActiveSheet.ListObjects.Clear();
+                    spreadSheet.Workbook.ActiveSheet.ListObjects.Clear( );
                     spreadSheet.Workbook.ActiveSheet.StandardWidth = 12.5f;
                     var name = spreadSheet.Workbook.Worksheets[ 0 ].Name;
                     var sheet = spreadSheet.Workbook.ActiveSheet;
@@ -376,7 +376,7 @@ namespace BudgetExecution
                     var range = sheet.UsedRange;
                     var table = sheet.ListObjects.Create( name, range );
                     table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium2;
-                    spreadSheet.ActiveGrid.InvalidateCells();
+                    spreadSheet.ActiveGrid.InvalidateCells( );
                     spreadSheet.SetZoomFactor( "Sheet1", 110 );
                 }
                 catch( Exception ex )
@@ -398,7 +398,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _range = grid?.GetRange();
+                    using var _range = grid?.GetRange( );
                     var _excelComment = _range?.AddComment( text, "Budget" );
 
                     if( _excelComment != null )
@@ -431,16 +431,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _sheet = grid.GetWorksheet();
-                    var _row = grid.GetRange().Start.Row;
-                    var _column = grid.GetRange().Start.Column;
+                    using var _sheet = grid.GetWorksheet( );
+                    var _row = grid.GetRange( ).Start.Row;
+                    var _column = grid.GetRange( ).Start.Column;
                     _sheet.Cells[ _row, _column ].Value = "Account";
                     _sheet.Cells[ _row, _column + 1 ].Value = "SuperfundSite";
                     _sheet.Cells[ _row, _column + 2 ].Value = "Travel";
-                    _sheet.Cells[ _row, _column  + 3 ].Value = "Expenses";
-                    _sheet.Cells[ _row, _column  + 4 ].Value = "Contracts";
-                    _sheet.Cells[ _row, _column  + 5 ].Value = "Grants";
-                    _sheet.Cells[ _row, _column  + 6 ].Value = "Total";
+                    _sheet.Cells[ _row, _column + 3 ].Value = "Expenses";
+                    _sheet.Cells[ _row, _column + 4 ].Value = "Contracts";
+                    _sheet.Cells[ _row, _column + 5 ].Value = "Grants";
+                    _sheet.Cells[ _row, _column + 6 ].Value = "Total";
                 }
                 catch( Exception ex )
                 {
@@ -457,12 +457,12 @@ namespace BudgetExecution
         public void SetText( Grid grid, IEnumerable<string> text )
         {
             if( Validate.IsGrid( grid )
-               && text?.Any() == true
-               && grid.GetRange().Any() )
+               && text?.Any( ) == true
+               && grid.GetRange( ).Any( ) )
             {
                 try
                 {
-                    foreach( var cell in grid.GetRange() )
+                    foreach( var cell in grid.GetRange( ) )
                     {
                         foreach( var caption in text )
                         {
@@ -488,8 +488,8 @@ namespace BudgetExecution
         public static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

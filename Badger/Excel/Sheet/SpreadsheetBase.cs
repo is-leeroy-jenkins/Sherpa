@@ -15,8 +15,8 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="Spreadsheet" />
     /// <seealso cref="ISpreadsheet" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public abstract class SpreadsheetBase : Spreadsheet, ISpreadsheet
     {
         /// <summary>
@@ -59,7 +59,7 @@ namespace BudgetExecution
             DefaultRowCount = 66;
             AllowZooming = true;
         }
-        
+
         /// <summary>
         /// Opens the file.
         /// </summary>

@@ -60,7 +60,7 @@ namespace BudgetExecution
         /// <returns>
         /// </returns>
         IEnumerable<IWorkCode> GetWorkCodes();
-        
+
         /// <summary>
         /// Converts to dictionary.
         /// </summary>
@@ -88,14 +88,14 @@ namespace BudgetExecution
         /// <returns>
         /// </returns>
         IElement GetProjectCodeName();
-        
+
         /// <summary>
         /// Gets the work code.
         /// </summary>
         /// <returns>
         /// </returns>
         IElement GetWorkCode();
-        
+
         /// <summary>
         /// Gets the short name.
         /// </summary>

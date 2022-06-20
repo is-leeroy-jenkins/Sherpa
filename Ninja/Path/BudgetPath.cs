@@ -15,9 +15,9 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="IPath" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "ArrangeModifiersOrder" )]
     public class BudgetPath : IPath
     {
         /// <summary>
@@ -74,7 +74,7 @@ namespace BudgetExecution
         /// <value>
         /// The current directory.
         /// </value>
-        public static string CurrentDirectory { get; set; } = Directory.GetCurrentDirectory();
+        public static string CurrentDirectory { get; set; } = Directory.GetCurrentDirectory( );
 
         /// <summary>
         /// Gets or sets the base directory.
@@ -121,7 +121,7 @@ namespace BudgetExecution
             FileExtension = Path.GetExtension( Input );
             PathRoot = Path.GetPathRoot( Input );
         }
-        
+
         /// <summary>
         /// Changes the extension.
         /// </summary>
@@ -131,7 +131,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( ext ) 
+                return Verify.IsInput( ext )
                     && Enum.GetNames( typeof( EXT ) ).Contains( ext )
                         ? Path.ChangeExtension( FullPath, ext )
                         : string.Empty;
@@ -153,7 +153,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( first ) 
+                return Verify.IsInput( first )
                     && Verify.IsInput( second )
                         ? Path.Combine( first, second )
                         : string.Empty;
@@ -193,8 +193,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

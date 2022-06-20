@@ -12,9 +12,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
     public class ProgramArea : Element, IProgramArea, ISource
     {
         /// <summary>
@@ -32,12 +32,12 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
-        
+
         /// <summary>
         /// The source
         /// </summary>
         public Source Source { get; set; } = Source.ProgramAreas;
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref = "ProgramArea"/> class.
         /// </summary>
@@ -53,11 +53,11 @@ namespace BudgetExecution
         /// </param>
         public ProgramArea( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ProgramAreasId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -68,11 +68,11 @@ namespace BudgetExecution
         /// </param>
         public ProgramArea( IBuilder builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ProgramAreasId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -82,13 +82,13 @@ namespace BudgetExecution
         /// The dataRow.
         /// </param>
         public ProgramArea( DataRow dataRow )
-            : this()
+            : this( )
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ProgramAreasId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -99,13 +99,13 @@ namespace BudgetExecution
         /// </param>
         public ProgramArea( string code )
         {
-            Record = new DataBuilder( Source, SetArgs( code ) )?.GetRecord();
+            Record = new DataBuilder( Source, SetArgs( code ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ProgramAreasId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
-        
+
         /// <summary>
         /// Sets the arguments.
         /// </summary>
@@ -154,7 +154,7 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
-        
+
         /// <summary>
         /// Gets the program area.
         /// </summary>
@@ -164,7 +164,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone() as ProgramArea;
+                return MemberwiseClone( ) as ProgramArea;
             }
             catch( Exception ex )
             {

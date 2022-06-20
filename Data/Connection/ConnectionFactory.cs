@@ -19,9 +19,9 @@ namespace BudgetExecution
     /// <seealso cref = "T:BudgetExecution.ISource"/>
     /// <seealso cref = "T:BudgetExecution.IProvider"/>
     /// <seealso/>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
     public class ConnectionFactory : ISource, IConnectionFactory
     {
         /// <summary>
@@ -297,8 +297,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

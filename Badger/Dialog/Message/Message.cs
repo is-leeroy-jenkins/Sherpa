@@ -13,7 +13,7 @@ namespace BudgetExecution
     {
         public Message()
         {
-            InitializeComponent();
+            InitializeComponent( );
             Size = new Size( 576, 300 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             CloseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -28,8 +28,8 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Message"/> class.
         /// </summary>
         /// <param name="text">The text displayed by the control.</param>
-        public Message( string text ) 
-            : this()
+        public Message( string text )
+            : this( )
         {
             Text = text;
         }
@@ -45,9 +45,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Close();
+                    Close( );
                 }
-                catch ( Exception ex )
+                catch( Exception ex )
                 {
                     Fail( ex );
                 }
@@ -60,7 +60,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _dataForm = new DataForm();
+                    var _dataForm = new DataForm( );
                     _dataForm.ShowDialog( this );
                 }
                 catch( Exception ex )
@@ -77,8 +77,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

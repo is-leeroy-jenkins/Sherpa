@@ -21,8 +21,8 @@ namespace BudgetExecution
     /// <seealso cref="IBudgetButton" />
     /// <seealso cref="VisualPlus.Toolkit.Controls.Interactivity.VisualButton" />
     /// <seealso cref="IDisposable" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public class BudgetButton : ButtonBase, IBudgetButton
     {
         /// <summary>
@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// The settings.
         /// </value>
         public override NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
-        
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="BudgetButton" />
@@ -132,7 +132,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         public BudgetButton( Size size, Point location )
-            : this()
+            : this( )
         {
             Size = size;
             Location = location;
@@ -179,7 +179,7 @@ namespace BudgetExecution
         /// <param name="parent">The parent.</param>
         /// <param name="text">The text displayed by the control.</param>
         public BudgetButton( Control parent, string text )
-            : this()
+            : this( )
         {
             Parent = parent;
             Text = text;
@@ -193,7 +193,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="parent">The parent.</param>
         public BudgetButton( Control parent )
-            : this()
+            : this( )
         {
             Parent = parent;
             Field = Field.NS;
@@ -207,13 +207,13 @@ namespace BudgetExecution
         /// <param name="parent">The parent.</param>
         /// <param name="field">The field.</param>
         public BudgetButton( Control parent, Field field )
-            : this()
+            : this( )
         {
             Parent = parent;
             Field = field;
             Tag = Field;
         }
-        
+
         /// <summary>
         /// Sets the color of the fore. Required Attributes: ForeColor
         /// </summary>
@@ -284,7 +284,7 @@ namespace BudgetExecution
             try
             {
                 TextImageRelation = TextImageRelation.ImageBeforeText;
-                
+
                 TextStyle = new TextStyle
                 {
                     TextLineAlignment = StringAlignment.Center,
@@ -319,7 +319,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Called when [mouse over].
         /// </summary>
@@ -333,7 +333,7 @@ namespace BudgetExecution
 
             try
             {
-                if( _button != null 
+                if( _button != null
                     && !string.IsNullOrEmpty( HoverText ) )
                 {
                     if( Verify.IsInput( HoverText ) )
@@ -343,9 +343,9 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        if( Verify.IsInput( Tag?.ToString() ) )
+                        if( Verify.IsInput( Tag?.ToString( ) ) )
                         {
-                            var _text = Tag?.ToString()?.SplitPascal();
+                            var _text = Tag?.ToString( )?.SplitPascal( );
                             var _ = new ToolTip( _button, _text );
                         }
                     }
@@ -371,7 +371,7 @@ namespace BudgetExecution
 
             try
             {
-                if( _button != null  )
+                if( _button != null )
                 {
                 }
             }

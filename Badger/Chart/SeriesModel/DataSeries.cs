@@ -16,8 +16,8 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="ChartSeries" />
     /// <seealso cref="IDataSeries" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public class DataSeries : ChartSeries, IDataSeries
     {
         /// <summary>
@@ -80,11 +80,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="chartData">The chart data.</param>
         public DataSeries( ISeriesModel chartData )
-            : this()
+            : this( )
         {
             SeriesSetting = chartData.SeriesConfiguration;
             Name = SeriesSetting.Name;
-            Type = GetSeriesType( SeriesSetting.GetSeriesType() );
+            Type = GetSeriesType( SeriesSetting.GetSeriesType( ) );
             Metric = SeriesSetting.Stat;
             SourceModel = chartData?.SourceModel;
             SeriesData = SourceModel?.SeriesData;
@@ -114,7 +114,7 @@ namespace BudgetExecution
                 Style.Callout.DisplayTextAndFormat = "{0} : {2}";
                 Style.Callout.Border.Color = Color.SteelBlue;
                 Style.Callout.Color = Color.FromArgb( 18, 18, 18 );
-                Style.Callout.Font = ChartConfiguration.SetFont();
+                Style.Callout.Font = ChartConfiguration.SetFont( );
                 Style.DisplayText = true;
             }
             catch( Exception ex )
@@ -133,7 +133,7 @@ namespace BudgetExecution
             try
             {
                 return Validate.ChartType( type )
-                    ? (ChartSeriesType)Enum.Parse( typeof( ChartSeriesType ), type.ToString() )
+                    ? (ChartSeriesType)Enum.Parse( typeof( ChartSeriesType ), type.ToString( ) )
                     : ChartSeriesType.Column;
             }
             catch( Exception ex )
@@ -231,7 +231,7 @@ namespace BudgetExecution
                 {
                     if( Points.Count > 0 )
                     {
-                        Points.Clear();
+                        Points.Clear( );
                     }
 
                     switch( type )
@@ -284,8 +284,8 @@ namespace BudgetExecution
                             foreach( var kvp in data )
                             {
                                 Points.Add( kvp.Key, kvp.Value );
-                                var keys = data.Keys.Select( k => k.ToString() ).ToArray();
-                                var vals = data.Values.Select( v => v ).ToArray();
+                                var keys = data.Keys.Select( k => k.ToString( ) ).ToArray( );
+                                var vals = data.Values.Select( v => v ).ToArray( );
 
                                 if( stat != STAT.Percentage )
                                 {
@@ -322,7 +322,7 @@ namespace BudgetExecution
         {
             try
             {
-                return SeriesData?.Any() == true
+                return SeriesData?.Any( ) == true
                     ? SeriesData
                     : default( IDictionary<string, IEnumerable<double>> );
             }
@@ -340,8 +340,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

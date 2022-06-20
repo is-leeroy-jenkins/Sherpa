@@ -7,7 +7,7 @@ namespace BudgetExecution
     using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
 
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
     public interface IChartBinding : IBindingSource
     {
         /// <summary> Gets the empty. </summary>

@@ -15,9 +15,9 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="FileBase" />
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
     public class BudgetFile : FileBase, IFile
     {
         /// <summary>
@@ -36,10 +36,10 @@ namespace BudgetExecution
             Path = new BudgetPath( input );
             FileInfo = new FileInfo( Path.FullPath );
             FullName = FileInfo.FullName;
-            HasParent = CheckParent();
+            HasParent = CheckParent( );
             Length = FileInfo.Length;
             Attributes = FileInfo.Attributes;
-            FileSecurity = FileInfo.GetAccessControl();
+            FileSecurity = FileInfo.GetAccessControl( );
             CreationDate = FileInfo.CreationTime;
             ChangeDate = FileInfo.LastWriteTime;
         }
@@ -53,10 +53,10 @@ namespace BudgetExecution
             Path = path;
             FileInfo = new FileInfo( Path.FullPath );
             FullName = FileInfo.FullName;
-            HasParent = CheckParent();
+            HasParent = CheckParent( );
             Length = FileInfo.Length;
             Attributes = FileInfo.Attributes;
-            FileSecurity = FileInfo.GetAccessControl();
+            FileSecurity = FileInfo.GetAccessControl( );
             CreationDate = FileInfo.CreationTime;
             ChangeDate = FileInfo.LastWriteTime;
         }
@@ -97,7 +97,7 @@ namespace BudgetExecution
 
             try
             {
-                foreach( var _fileInfo in folder?.GetFiles() )
+                foreach( var _fileInfo in folder?.GetFiles( ) )
                 {
                     Directory.Move( _fileInfo.FullName, folder.Name );
                 }
@@ -124,7 +124,7 @@ namespace BudgetExecution
                 {
                     var _input = Path?.FullPath;
                     using var _reader = new StreamReader( _input );
-                    var _text = _reader?.ReadLine();
+                    var _text = _reader?.ReadLine( );
                     var _result = false;
 
                     while( _text == string.Empty )
@@ -135,7 +135,7 @@ namespace BudgetExecution
                             break;
                         }
 
-                        _text = _reader.ReadLine();
+                        _text = _reader.ReadLine( );
                     }
 
                     return _result;
@@ -167,7 +167,7 @@ namespace BudgetExecution
                         && File.Exists( _input ) )
                     {
                         var _enumerable = Directory.EnumerateFiles( _input, pattern );
-                        var _list = new List<FileInfo>();
+                        var _list = new List<FileInfo>( );
 
                         foreach( var file in _enumerable )
                         {
@@ -298,7 +298,7 @@ namespace BudgetExecution
         {
             try
             {
-                return CheckParent()
+                return CheckParent( )
                     ? new Folder( this )
                     : default( Folder );
             }
@@ -325,7 +325,7 @@ namespace BudgetExecution
 
                 var _file = new BudgetFile( _dialog?.FileName );
 
-                return File.Exists( _file?.GetFilePath() )
+                return File.Exists( _file?.GetFilePath( ) )
                     ? _file
                     : default( BudgetFile );
             }

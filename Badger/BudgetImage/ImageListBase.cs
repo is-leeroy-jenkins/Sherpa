@@ -14,7 +14,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
     public abstract class ImageListBase : ImageListAdv
     {
         /// <summary>
@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// The bud ex configuration.
         /// </value>
         public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
-        
+
         /// <summary>
         /// Res the size.
         /// </summary>
@@ -80,7 +80,7 @@ namespace BudgetExecution
         /// <param name="height">The height.</param>
         public virtual void ReSizeImages( int width, int height )
         {
-            if ( width > 0 
+            if( width > 0
                 && height > 0 )
             {
                 try
@@ -101,8 +101,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

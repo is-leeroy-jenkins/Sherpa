@@ -19,8 +19,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public static class DataRowExtensions
     {
         /// <summary>
@@ -47,7 +47,7 @@ namespace BudgetExecution
                         {
                             case Provider.SQLite:
                             {
-                                var _sqlite = new List<SQLiteParameter>();
+                                var _sqlite = new List<SQLiteParameter>( );
 
                                 for( var i = 0; i < _columns?.Count; i++ )
                                 {
@@ -60,14 +60,14 @@ namespace BudgetExecution
                                     _sqlite.Add( _parameter );
                                 }
 
-                                return _sqlite?.Any() == true
+                                return _sqlite?.Any( ) == true
                                     ? _sqlite
                                     : default( List<SQLiteParameter> );
                             }
 
                             case Provider.SqlCe:
                             {
-                                var _sqlce = new List<SqlCeParameter>();
+                                var _sqlce = new List<SqlCeParameter>( );
 
                                 for( var i = 0; i < _columns?.Count; i++ )
                                 {
@@ -80,7 +80,7 @@ namespace BudgetExecution
                                     _sqlce.Add( _parameter );
                                 }
 
-                                return _sqlce?.Any() == true
+                                return _sqlce?.Any( ) == true
                                     ? _sqlce
                                     : default( List<SqlCeParameter> );
                             }
@@ -89,7 +89,7 @@ namespace BudgetExecution
                             case Provider.Excel:
                             case Provider.Access:
                             {
-                                var _oledb = new List<OleDbParameter>();
+                                var _oledb = new List<OleDbParameter>( );
 
                                 for( var i = 0; i < _columns?.Count; i++ )
                                 {
@@ -102,14 +102,14 @@ namespace BudgetExecution
                                     _oledb.Add( parameter );
                                 }
 
-                                return _oledb.Any()
+                                return _oledb.Any( )
                                     ? _oledb
                                     : default( List<OleDbParameter> );
                             }
 
                             case Provider.SqlServer:
                             {
-                                var _sqlserver = new List<SqlParameter>();
+                                var _sqlserver = new List<SqlParameter>( );
 
                                 for( var i = 0; i < _columns?.Count; i++ )
                                 {
@@ -122,7 +122,7 @@ namespace BudgetExecution
                                     _sqlserver.Add( _parameter );
                                 }
 
-                                return _sqlserver?.Any() == true
+                                return _sqlserver?.Any( ) == true
                                     ? _sqlserver
                                     : default( List<SqlParameter> );
                             }
@@ -152,7 +152,7 @@ namespace BudgetExecution
             {
                 if( dataRow?.ItemArray.Length > 0 )
                 {
-                    var _dictionary = new Dictionary<string, object>();
+                    var _dictionary = new Dictionary<string, object>( );
                     var _table = dataRow?.Table;
                     var _column = _table?.Columns;
                     var _items = dataRow?.ItemArray;
@@ -190,7 +190,7 @@ namespace BudgetExecution
             {
                 if( dataRow?.ItemArray.Length > 0 )
                 {
-                    var _sortedlist = new SortedList<string, object>();
+                    var _sortedlist = new SortedList<string, object>( );
                     var _table = dataRow?.Table;
                     var _column = _table?.Columns;
                     var _items = dataRow?.ItemArray;
@@ -247,14 +247,14 @@ namespace BudgetExecution
             if( Verify.IsRow( dataRow )
                 && Enum.IsDefined( typeof( Field ), field ) )
             {
-                var _columns = dataRow.Table?.GetColumnNames();
+                var _columns = dataRow.Table?.GetColumnNames( );
 
-                if( _columns?.Any() == true
+                if( _columns?.Any( ) == true
                     && _columns.Contains( $"{field}" ) )
                 {
                     try
                     {
-                        return dataRow[ $"{field}" ].ToString();
+                        return dataRow[ $"{field}" ].ToString( );
                     }
                     catch( Exception ex )
                     {
@@ -277,14 +277,14 @@ namespace BudgetExecution
         {
             if( Verify.IsRow( dataRow ) & Enum.IsDefined( typeof( Numeric ), numeric ) )
             {
-                var _columns = dataRow.Table?.GetColumnNames();
+                var _columns = dataRow.Table?.GetColumnNames( );
 
-                if( _columns?.Any() == true
+                if( _columns?.Any( ) == true
                     && _columns.Contains( $"{numeric}" ) )
                 {
                     try
                     {
-                        return double.Parse( dataRow[ $"{numeric}" ].ToString() );
+                        return double.Parse( dataRow[ $"{numeric}" ].ToString( ) );
                     }
                     catch( Exception ex )
                     {
@@ -307,14 +307,14 @@ namespace BudgetExecution
         {
             if( Verify.IsRow( dataRow ) & Enum.IsDefined( typeof( Field ), field ) )
             {
-                var _columns = dataRow.Table?.GetColumnNames();
+                var _columns = dataRow.Table?.GetColumnNames( );
 
                 if( _columns != null
-                    && _columns?.Any() == true & _columns.Contains( $"{field}" ) )
+                    && _columns?.Any( ) == true & _columns.Contains( $"{field}" ) )
                 {
                     try
                     {
-                        return DateTime.Parse( dataRow[ $"{field}" ].ToString() );
+                        return DateTime.Parse( dataRow[ $"{field}" ].ToString( ) );
                     }
                     catch( Exception ex )
                     {
@@ -340,7 +340,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _colums = dataRow.Table?.GetColumnNames();
+                    var _colums = dataRow.Table?.GetColumnNames( );
                     var _names = Enum.GetNames( typeof( Numeric ) );
 
                     for( var i = 1; i < _colums?.Length; i++ )
@@ -379,8 +379,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _dictionary = row.ToDictionary();
-                    var _key = _dictionary.Keys?.ToArray();
+                    var _dictionary = row.ToDictionary( );
+                    var _key = _dictionary.Keys?.ToArray( );
                     var _names = Enum.GetNames( typeof( PrimaryKey ) );
                     var _count = 0;
 
@@ -417,8 +417,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _dictionary = row.ToDictionary();
-                    var _key = _dictionary.Keys?.ToArray();
+                    var _dictionary = row.ToDictionary( );
+                    var _key = _dictionary.Keys?.ToArray( );
                     var _names = Enum.GetNames( typeof( PrimaryKey ) );
 
                     for( var i = 1; i < _key?.Length; i++ )
@@ -429,7 +429,7 @@ namespace BudgetExecution
                         {
                             return new Dictionary<string, object>
                             {
-                                [ _name ] = int.Parse( _dictionary[ _name ].ToString() )
+                                [ _name ] = int.Parse( _dictionary[ _name ].ToString( ) )
                             };
                         }
 
@@ -456,8 +456,8 @@ namespace BudgetExecution
         private static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

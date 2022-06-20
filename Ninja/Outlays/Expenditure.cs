@@ -24,7 +24,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public new Source Source { get; } =  Source.Obligations;
+        public new Source Source { get; } = Source.Obligations;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Expenditure"/> class.
@@ -42,11 +42,11 @@ namespace BudgetExecution
         public Expenditure( IQuery query )
             : base( query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ObligationsId );
-            OriginalActionDate = GetOriginalActionDate();
-            Expenditures = GetExpenditures();
-            Data = Record?.ToDictionary();
+            OriginalActionDate = GetOriginalActionDate( );
+            Expenditures = GetExpenditures( );
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.Expenditure;
         }
 
@@ -59,11 +59,11 @@ namespace BudgetExecution
         public Expenditure( IBuilder builder )
             : base( builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ObligationsId );
-            OriginalActionDate = GetOriginalActionDate();
-            Expenditures = GetExpenditures();
-            Data = Record?.ToDictionary();
+            OriginalActionDate = GetOriginalActionDate( );
+            Expenditures = GetExpenditures( );
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.Expenditure;
         }
 
@@ -78,9 +78,9 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ObligationsId );
-            OriginalActionDate = GetOriginalActionDate();
-            Expenditures = GetExpenditures();
-            Data = Record?.ToDictionary();
+            OriginalActionDate = GetOriginalActionDate( );
+            Expenditures = GetExpenditures( );
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.Expenditure;
         }
     }

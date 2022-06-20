@@ -150,7 +150,7 @@ namespace BudgetExecution
         /// The hours.
         /// </value>
         public IAmount Hours { get; set; }
-        
+
         /// <summary>
         /// Gets the payroll hours identifier.
         /// </summary>
@@ -479,8 +479,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

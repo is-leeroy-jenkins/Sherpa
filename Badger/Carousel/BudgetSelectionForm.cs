@@ -62,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The carousel.
         /// </value>
-        public virtual BudgetCarousel Carousel { get;  } = new BudgetCarousel();
+        public virtual BudgetCarousel Carousel { get; } = new BudgetCarousel( );
 
         /// <summary>
         /// Initializes a new instance
@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetSelectionForm()
         {
-            InitializeComponent();
+            InitializeComponent( );
 
             // Form Properties
             Size = new Size( 1200, 700 );

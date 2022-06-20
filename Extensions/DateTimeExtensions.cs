@@ -7,7 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
 
-    [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" )]
+    [SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" )]
     public static class DateTimeExtensions
     {
         /// <summary>
@@ -21,7 +21,7 @@ namespace BudgetExecution
         /// </returns>
         public static bool IsDate( this object date )
         {
-            return DateTime.TryParse( date.ToString(), out _ );
+            return DateTime.TryParse( date.ToString( ), out _ );
         }
 
         /// <summary>
@@ -147,7 +147,7 @@ namespace BudgetExecution
         /// </returns>
         public static bool IsWeekDay( this DateTime dateTime )
         {
-            return dateTime.DayOfWeek != DayOfWeek.Saturday 
+            return dateTime.DayOfWeek != DayOfWeek.Saturday
                 && dateTime.DayOfWeek != DayOfWeek.Sunday;
         }
 
@@ -159,7 +159,7 @@ namespace BudgetExecution
         /// </returns>
         public static bool IsWeekEnd( this DateTime dateTime )
         {
-            return dateTime.DayOfWeek == DayOfWeek.Saturday 
+            return dateTime.DayOfWeek == DayOfWeek.Saturday
                 || dateTime.DayOfWeek == DayOfWeek.Sunday;
         }
 
@@ -184,7 +184,7 @@ namespace BudgetExecution
             {
                 var dt = startDate.AddDays( i );
 
-                if( dt.IsWeekDay() )
+                if( dt.IsWeekDay( ) )
                 {
                     cnt++;
                 }
@@ -213,7 +213,7 @@ namespace BudgetExecution
             {
                 var dt = startDate.AddDays( i );
 
-                if( dt.IsWeekEnd() )
+                if( dt.IsWeekEnd( ) )
                 {
                     cnt++;
                 }

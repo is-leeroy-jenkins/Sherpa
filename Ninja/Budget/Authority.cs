@@ -27,15 +27,15 @@ namespace BudgetExecution
     /// <seealso/>
     /// <seealso cref = "IBudgetFiscalYear"/>
     /// <seealso cref = "IDataBuilder"/>
-    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
-    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AccessToStaticMemberViaDerivedType" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class Authority : ProgramResultsCode 
+    [SuppressMessage( "ReSharper", "ArrangeModifiersOrder" )]
+    [SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" )]
+    [SuppressMessage( "ReSharper", "AccessToStaticMemberViaDerivedType" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    public class Authority : ProgramResultsCode
     {
         /// <summary>
         /// Gets or sets the rpio.
@@ -43,7 +43,7 @@ namespace BudgetExecution
         /// <value>
         /// The rpio.
         /// </value>
-        public IResourcePlanningOffice RPIO { get; set; } 
+        public IResourcePlanningOffice RPIO { get; set; }
 
         /// <summary>
         /// Gets the fiscal year.
@@ -100,7 +100,7 @@ namespace BudgetExecution
         /// The activity.
         /// </value>
         public IActivity Activity { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see/> class.
         /// </summary>
@@ -118,16 +118,16 @@ namespace BudgetExecution
             : base( query )
         {
             Source = query.Source;
-            Record = new DataBuilder( query )?.GetRecord();
-            BudgetFiscalYear = GetBudgetFiscalYear();
-            RPIO = GetResourcePlanningOffice();
-            Fund = GetFund();
+            Record = new DataBuilder( query )?.GetRecord( );
+            BudgetFiscalYear = GetBudgetFiscalYear( );
+            RPIO = GetResourcePlanningOffice( );
+            Fund = GetFund( );
             BudgetLevel = new Element( Record, Field.BudgetLevel );
-            AllowanceHolder = GetAllowanceHolder();
-            Organization = GetOrganization();
-            Account = GetAccount();
-            ResponsibilityCenter = GetResponsibilityCenter();
-            Data = Record?.ToDictionary();
+            AllowanceHolder = GetAllowanceHolder( );
+            Organization = GetOrganization( );
+            Account = GetAccount( );
+            ResponsibilityCenter = GetResponsibilityCenter( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -139,18 +139,18 @@ namespace BudgetExecution
         public Authority( IBuilder builder )
             : base( builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             Source = GetSource( Record );
-            BudgetFiscalYear = GetBudgetFiscalYear();
-            RPIO = GetResourcePlanningOffice();
-            Fund = GetFund();
+            BudgetFiscalYear = GetBudgetFiscalYear( );
+            RPIO = GetResourcePlanningOffice( );
+            Fund = GetFund( );
             BudgetLevel = new Element( Record, Field.BudgetLevel );
-            AllowanceHolder = GetAllowanceHolder();
-            Organization = GetOrganization();
-            Account = GetAccount();
-            ResponsibilityCenter = GetResponsibilityCenter();
-            Amount = GetAmount();
-            Data = Record?.ToDictionary();
+            AllowanceHolder = GetAllowanceHolder( );
+            Organization = GetOrganization( );
+            Account = GetAccount( );
+            ResponsibilityCenter = GetResponsibilityCenter( );
+            Amount = GetAmount( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -164,17 +164,17 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Source = GetSource( Record );
-            BudgetFiscalYear = GetBudgetFiscalYear();
-            RPIO = GetResourcePlanningOffice();
-            Fund = GetFund();
+            BudgetFiscalYear = GetBudgetFiscalYear( );
+            RPIO = GetResourcePlanningOffice( );
+            Fund = GetFund( );
             BudgetLevel = new Element( Record, Field.BudgetLevel );
-            AllowanceHolder = GetAllowanceHolder();
-            Organization = GetOrganization();
-            Account = GetAccount();
-            ResponsibilityCenter = GetResponsibilityCenter();
-            Activity = Account.GetActivity();
-            Amount = GetAmount();
-            Data = Record?.ToDictionary();
+            AllowanceHolder = GetAllowanceHolder( );
+            Organization = GetOrganization( );
+            Account = GetAccount( );
+            ResponsibilityCenter = GetResponsibilityCenter( );
+            Activity = Account.GetActivity( );
+            Amount = GetAmount( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -229,7 +229,7 @@ namespace BudgetExecution
                 {
                     var _builder = new Builder( Source, Data );
 
-                    return Verify.IsRows( _builder?.GetData() )
+                    return Verify.IsRows( _builder?.GetData( ) )
                         ? _builder
                         : default( Builder );
                 }
@@ -256,7 +256,7 @@ namespace BudgetExecution
                 try
                 {
                     var _rows = new DataBuilder( Source, Data )
-                        ?.GetData();
+                        ?.GetData( );
 
                     return Verify.IsRows( _rows )
                         ? _rows
@@ -290,10 +290,10 @@ namespace BudgetExecution
                 try
                 {
                     var _rows = new DataBuilder( Source, Data )
-                        ?.GetData();
+                        ?.GetData( );
 
                     var _filter = _rows
-                        ?.Filter( field.ToString(), filter );
+                        ?.Filter( field.ToString( ), filter );
 
                     return Verify.IsRows( _filter )
                         ? _filter
@@ -324,7 +324,7 @@ namespace BudgetExecution
                 {
                     try
                     {
-                        var _value = _element?.Value?.ToString();
+                        var _value = _element?.Value?.ToString( );
                         var _availability = (FundAvailability)Enum.Parse( typeof( FundAvailability ), _value );
 
                         return Validate.Availability( _availability )
@@ -359,13 +359,13 @@ namespace BudgetExecution
         /// </param>
         /// <returns>
         /// </returns>
-        public IDataMetric GetMetric( IEnumerable<DataRow> dataRow, Field field, 
+        public IDataMetric GetMetric( IEnumerable<DataRow> dataRow, Field field,
             Numeric numeric = Numeric.Amount )
         {
             if( Verify.IsRows( dataRow )
                 && Validate.IsField( field )
                 && Validate.Numeric( numeric )
-                && dataRow.HasNumeric() )
+                && dataRow.HasNumeric( ) )
             {
                 try
                 {

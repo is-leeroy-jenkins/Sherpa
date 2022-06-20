@@ -41,11 +41,11 @@ namespace BudgetExecution
         public Deobligation( IQuery query )
             : base( query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.DeobligationsId );
-            OriginalActionDate = GetOriginalActionDate();
-            Amount = GetDeobligations();
-            Data = Record?.ToDictionary();
+            OriginalActionDate = GetOriginalActionDate( );
+            Amount = GetDeobligations( );
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.Deobligation;
         }
 
@@ -58,11 +58,11 @@ namespace BudgetExecution
         public Deobligation( IBuilder db )
             : base( db )
         {
-            Record = db.GetRecord();
+            Record = db.GetRecord( );
             ID = new Key( Record, PrimaryKey.DeobligationsId );
-            OriginalActionDate = GetOriginalActionDate();
-            Amount = GetDeobligations();
-            Data = Record?.ToDictionary();
+            OriginalActionDate = GetOriginalActionDate( );
+            Amount = GetDeobligations( );
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.Deobligation;
         }
 
@@ -77,12 +77,12 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.DeobligationsId );
-            OriginalActionDate = GetOriginalActionDate();
-            Amount = GetDeobligations();
-            Data = Record?.ToDictionary();
+            OriginalActionDate = GetOriginalActionDate( );
+            Amount = GetDeobligations( );
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.Deobligation;
         }
-        
+
         /// <summary>
         /// Gets the deobligation identifier.
         /// </summary>
@@ -93,7 +93,7 @@ namespace BudgetExecution
             try
             {
                 return Verify.IsKey( ID )
-                    ? ID 
+                    ? ID
                     : default( IKey );
             }
             catch( Exception ex )

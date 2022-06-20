@@ -235,7 +235,7 @@ namespace BudgetExecution
             // Item SeriesConfiguration
             ItemHeight = 30;
         }
-        
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="BudgetListView" />
@@ -244,7 +244,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         public BudgetListView( Size size, Point location )
-            : this()
+            : this( )
         {
             Size = size;
             Location = location;
@@ -256,7 +256,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="label">The label.</param>
-        [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
+        [SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" )]
         public BudgetListView( VisualLabel label )
             : this( label.Size, label.Location )
         {
@@ -308,7 +308,7 @@ namespace BudgetExecution
         {
             BindingSource = bindingSource;
         }
-        
+
         /// <summary>
         /// Sets the color of the border.
         /// </summary>
@@ -440,7 +440,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Adds the item.
         /// </summary>
@@ -466,13 +466,13 @@ namespace BudgetExecution
         /// <param name="items">The items.</param>
         public void AddItems( IEnumerable<string> items )
         {
-            if( items?.Count() > 0 )
+            if( items?.Count( ) > 0 )
             {
                 try
                 {
                     foreach( var _item in items )
                     {
-                        if ( _item != null )
+                        if( _item != null )
                         {
                             Items?.Add( _item );
                         }
@@ -495,7 +495,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    foreach ( var _listItem in Items )
+                    foreach( var _listItem in Items )
                     {
                         if( _listItem?.Equals( item ) == true )
                         {

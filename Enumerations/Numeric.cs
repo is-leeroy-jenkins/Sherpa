@@ -127,7 +127,7 @@ namespace BudgetExecution
         /// The open commitments
         /// </summary>
         OpenCommitments,
-        
+
         /// <summary>
         /// The expenditures
         /// </summary>
@@ -172,7 +172,7 @@ namespace BudgetExecution
         /// The available
         /// </summary>
         Available,
-        
+
         /// <summary>
         /// The estimated reimbursments
         /// </summary>
@@ -249,7 +249,7 @@ namespace BudgetExecution
         /// The disbursed
         /// </summary>
         Disbursements,
-        
+
         //************************************************************************************ */
         //*******************       CarryoverOutlays              **************************** */
         //************************************************************************************ */
@@ -288,7 +288,7 @@ namespace BudgetExecution
         /// The current year
         /// </summary>
         CurrentYear,
-        
+
         //************************************************************************************ */
         //*******************      BudgetResourceExectuion        **************************** */
         //************************************************************************************ */
@@ -375,7 +375,7 @@ namespace BudgetExecution
         //************************************************************************************ */
         //*******************            BudgetOutlays           **************************** */
         //************************************************************************************ */
-        
+
         /// <summary>
         /// The prior year
         /// </summary>

@@ -16,11 +16,11 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="SourceModel" />
     /// <seealso cref="ISeriesModel" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class SeriesModel : SourceModel , ISeriesModel
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    public class SeriesModel : SourceModel, ISeriesModel
     {
         /// <summary>
         /// Gets or sets the series configuration.
@@ -83,11 +83,11 @@ namespace BudgetExecution
             SourceBinding = bindingSource;
             SourceModel = new SourceModel( bindingSource );
             BindingModel = new ChartDataBindModel( SourceBinding );
-            SourceData = SourceBinding.GetData();
-            SeriesConfiguration = SourceBinding.GetSeriesConfig();
+            SourceData = SourceBinding.GetData( );
+            SeriesConfiguration = SourceBinding.GetSeriesConfig( );
             Stat = SeriesConfiguration.Stat;
-            DataMetric = SourceBinding.GetDataMetric();
-            SeriesData = DataMetric.CalculateStatistics();
+            DataMetric = SourceBinding.GetDataMetric( );
+            SeriesData = DataMetric.CalculateStatistics( );
             BindingModel.Changed += OnChanged;
         }
 
@@ -101,11 +101,11 @@ namespace BudgetExecution
         {
             SourceBinding = new ChartBinding( table, seriesConfig );
             BindingModel = new ChartDataBindModel( SourceBinding );
-            SourceData = SourceBinding.GetData();
-            SeriesConfiguration = SourceBinding.GetSeriesConfig();
+            SourceData = SourceBinding.GetData( );
+            SeriesConfiguration = SourceBinding.GetSeriesConfig( );
             Stat = SeriesConfiguration.Stat;
-            DataMetric = SourceBinding.GetDataMetric();
-            SeriesData = DataMetric.CalculateStatistics();
+            DataMetric = SourceBinding.GetDataMetric( );
+            SeriesData = DataMetric.CalculateStatistics( );
             BindingModel.Changed += OnChanged;
         }
 
@@ -119,14 +119,14 @@ namespace BudgetExecution
         {
             SourceBinding = new ChartBinding( data, seriesConfig );
             BindingModel = new ChartDataBindModel( SourceBinding );
-            SourceData = SourceBinding.GetData();
-            SeriesConfiguration = SourceBinding.GetSeriesConfig();
+            SourceData = SourceBinding.GetData( );
+            SeriesConfiguration = SourceBinding.GetSeriesConfig( );
             Stat = SeriesConfiguration.Stat;
-            DataMetric = SourceBinding.GetDataMetric();
-            SeriesData = DataMetric.CalculateStatistics();
+            DataMetric = SourceBinding.GetDataMetric( );
+            SeriesData = DataMetric.CalculateStatistics( );
             BindingModel.Changed += OnChanged;
         }
-        
+
         /// <summary>
         /// Gets the data metric.
         /// </summary>
@@ -156,8 +156,8 @@ namespace BudgetExecution
                     ?.Values
                     ?.SelectMany( v => v );
 
-                return ( _values?.Any() == true )
-                    ? _values.ToArray()
+                return ( _values?.Any( ) == true )
+                    ? _values.ToArray( )
                     : default( double[ ] );
             }
             catch( Exception ex )
@@ -177,8 +177,8 @@ namespace BudgetExecution
             {
                 var _values = SeriesData.Keys;
 
-                return _values?.Any() == true
-                    ? _values.ToArray()
+                return _values?.Any( ) == true
+                    ? _values.ToArray( )
                     : default( string[ ] );
             }
             catch( Exception ex )
@@ -196,7 +196,7 @@ namespace BudgetExecution
         {
             try
             {
-                return (SourceModel)MemberwiseClone();
+                return (SourceModel)MemberwiseClone( );
             }
             catch( Exception ex )
             {

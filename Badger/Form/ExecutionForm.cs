@@ -19,7 +19,7 @@ namespace BudgetExecution
         /// </summary>
         public ExecutionForm()
         {
-            InitializeComponent();
+            InitializeComponent( );
         }
     }
 }

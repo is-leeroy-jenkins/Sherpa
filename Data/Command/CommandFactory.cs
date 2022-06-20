@@ -19,13 +19,13 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="ICommandFactory" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public class CommandFactory : ICommandFactory
     {
         /// <summary>
         /// The command builder
         /// </summary>
-        public ICommandBuilder CommandBuilder { get;  }
+        public ICommandBuilder CommandBuilder { get; }
 
         /// <summary>
         /// Gets the connection builder.
@@ -159,7 +159,7 @@ namespace BudgetExecution
         public DbCommand GetCreateViewCommand( string viewName, IEnumerable<DataColumn> dataColumns )
         {
             if( Verify.IsInput( viewName )
-                && dataColumns?.Any() == true
+                && dataColumns?.Any( ) == true
                 && ConnectionBuilder != null
                 && ConnectionBuilder.Provider != Provider.SqlCe )
             {
@@ -474,8 +474,8 @@ namespace BudgetExecution
         private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

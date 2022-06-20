@@ -11,8 +11,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public abstract class PrcBase : DataUnit
     {
         /// <summary>
@@ -110,7 +110,7 @@ namespace BudgetExecution
         /// The activity code.
         /// </value>
         public IElement ActivityCode { get; set; }
-        
+
         /// <summary>
         /// Sets the field.
         /// </summary>
@@ -124,7 +124,7 @@ namespace BudgetExecution
         /// </returns>
         public string GetField( DataRow dataRow, Field field )
         {
-            if( Verify.IsRow( dataRow ) 
+            if( Verify.IsRow( dataRow )
                 && Validate.IsField( field ) )
             {
                 try
@@ -170,7 +170,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( BudgetLevel?.Value?.ToString() )
+                return Verify.IsInput( BudgetLevel?.Value?.ToString( ) )
                     ? BudgetLevel
                     : default( IElement );
             }
@@ -190,7 +190,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( BFY?.Value?.ToString() )
+                return Verify.IsInput( BFY?.Value?.ToString( ) )
                     ? BFY
                     : default( IElement );
             }
@@ -210,7 +210,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( RpioCode?.Value?.ToString() )
+                return Verify.IsInput( RpioCode?.Value?.ToString( ) )
                     ? RpioCode
                     : default( IElement );
             }

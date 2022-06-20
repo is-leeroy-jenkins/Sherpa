@@ -10,9 +10,9 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public class BudgetBinding : BindingData, IBindingSource
     {
         /// <summary>
@@ -22,10 +22,10 @@ namespace BudgetExecution
         {
         }
 
-        [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+        [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
         public BudgetBinding( IEnumerable<DataRow> dataRows )
         {
-            DataTable = dataRows?.CopyToDataTable();
+            DataTable = dataRows?.CopyToDataTable( );
             DataSet = DataTable?.DataSet;
             Source = (Source)Enum.Parse( typeof( Source ), DataTable?.TableName );
             DataSource = DataTable;
@@ -38,7 +38,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="BudgetBinding"/> class.
         /// </summary>
         /// <param name="dataTable">The dataTable.</param>
-        [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+        [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
         public BudgetBinding( DataTable dataTable )
         {
             DataTable = dataTable;
@@ -49,7 +49,7 @@ namespace BudgetExecution
             Index = Position;
             AllowNew = false;
         }
-        
+
         /// <summary>
         /// Sets the data filter.
         /// </summary>
@@ -69,7 +69,7 @@ namespace BudgetExecution
                         }
                     };
 
-                    DataFilter = _dataFilter?.Any() == true
+                    DataFilter = _dataFilter?.Any( ) == true
                         ? _dataFilter
                         : default( Dictionary<string, object> );
                 }
@@ -92,7 +92,7 @@ namespace BudgetExecution
                 {
                     if( DataFilter?.Count > 0 )
                     {
-                        DataFilter.Clear();
+                        DataFilter.Clear( );
                     }
 
                     foreach( var kvp in dict )

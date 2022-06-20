@@ -11,15 +11,15 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref = "Cost"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public class CostAccount : Cost, ICostAccount
     {
         /// <summary>
         /// The ProgramResultCodes
         /// </summary>
         public IProgramResultsCode PRC { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref = "CostAccount"/> class.
         /// </summary>
@@ -50,9 +50,9 @@ namespace BudgetExecution
             Deobligations = new Amount( Record, Numeric.Deobligations );
             ULO = new Amount( Record, Numeric.ULO );
             Balance = new Amount( Record, Numeric.Balance );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
-        
+
         /// <summary>
         /// Gets the ProgramResultCodes identifier.
         /// </summary>
@@ -82,7 +82,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _code = FocCode?.Value?.ToString();
+                var _code = FocCode?.Value?.ToString( );
 
                 return Verify.IsInput( _code )
                     ? new FinanceObjectClass( _code )
@@ -104,8 +104,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( NpmCode?.Value?.ToString() )
-                    ? new NationalProgram( NpmCode?.Value?.ToString() )
+                return Verify.IsInput( NpmCode?.Value?.ToString( ) )
+                    ? new NationalProgram( NpmCode?.Value?.ToString( ) )
                     : default( NationalProgram );
             }
             catch( Exception ex )
@@ -124,7 +124,7 @@ namespace BudgetExecution
         {
             try
             {
-                return PRC?.GetAmount()?.Funding > 0.0
+                return PRC?.GetAmount( )?.Funding > 0.0
                     ? PRC
                     : default( IProgramResultsCode );
             }
@@ -144,8 +144,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( ProgramProjectCode?.Value?.ToString() )
-                    ? new ProgramProject( ProgramProjectCode?.Value?.ToString() )
+                return Verify.IsInput( ProgramProjectCode?.Value?.ToString( ) )
+                    ? new ProgramProject( ProgramProjectCode?.Value?.ToString( ) )
                     : default( ProgramProject );
             }
             catch( Exception ex )
@@ -164,8 +164,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( ProgramAreaCode?.Value?.ToString() )
-                    ? new ProgramArea( ProgramAreaCode?.Value?.ToString() )
+                return Verify.IsInput( ProgramAreaCode?.Value?.ToString( ) )
+                    ? new ProgramArea( ProgramAreaCode?.Value?.ToString( ) )
                     : default( ProgramArea );
             }
             catch( Exception ex )

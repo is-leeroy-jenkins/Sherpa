@@ -14,8 +14,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="IElement" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
     public class Element : DataUnit, IElement
     {
         /// <summary>
@@ -24,19 +24,19 @@ namespace BudgetExecution
         /// <returns>
         /// </returns>
         public IKey ID { get; set; }
-        
+
         /// <summary>
         /// Gets the code.
         /// </summary>
         /// <returns>
         /// </returns>
         public string Code { get; set; }
-        
+
         /// <summary>
         /// The initial
         /// </summary>
         public string Initial { get; set; }
-        
+
         /// <summary>
         /// The default
         /// </summary>
@@ -80,8 +80,8 @@ namespace BudgetExecution
         public Element( DataRow dataRow, Field field )
         {
             Field = field;
-            Name = field.ToString();
-            Value = dataRow[ field.ToString() ];
+            Name = field.ToString( );
+            Value = dataRow[ field.ToString( ) ];
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace BudgetExecution
         public Element( Field field, string value = "" )
         {
             Field = field;
-            Name = field.ToString();
+            Name = field.ToString( );
             Value = value;
         }
 
@@ -103,7 +103,7 @@ namespace BudgetExecution
         /// <param name="value">The value.</param>
         public Element( DataRow dataRow, string value )
         {
-            Name = dataRow[ value ].ToString();
+            Name = dataRow[ value ].ToString( );
             Value = dataRow[ value ];
             Field = (Field)Enum.Parse( typeof( Field ), Name );
         }
@@ -178,7 +178,7 @@ namespace BudgetExecution
 
             return false;
         }
-        
+
         /// <summary>
         /// Sets the columnName.
         /// </summary>
@@ -193,11 +193,11 @@ namespace BudgetExecution
                 try
                 {
                     var _names = dataRow.Table
-                        ?.GetColumnNames();
+                        ?.GetColumnNames( );
 
                     Name = _names?.Contains( columnName ) == true
                         ? columnName
-                        : Field.NS.ToString();
+                        : Field.NS.ToString( );
                 }
                 catch( Exception ex )
                 {
@@ -217,8 +217,8 @@ namespace BudgetExecution
                 try
                 {
                     Name = Validate.IsField( field )
-                        ? field.ToString()
-                        : Field.NS.ToString();
+                        ? field.ToString( )
+                        : Field.NS.ToString( );
                 }
                 catch( Exception ex )
                 {
@@ -240,11 +240,11 @@ namespace BudgetExecution
                 try
                 {
                     var _columnNames = dataRow.Table
-                        ?.GetColumnNames();
+                        ?.GetColumnNames( );
 
-                    Name = _columnNames?.Contains( field.ToString() ) == true
-                        ? field.ToString()
-                        : Field.NS.ToString();
+                    Name = _columnNames?.Contains( field.ToString( ) ) == true
+                        ? field.ToString( )
+                        : Field.NS.ToString( );
                 }
                 catch( Exception ex )
                 {
@@ -290,9 +290,9 @@ namespace BudgetExecution
                 try
                 {
                     var _input = (Field)Enum.Parse( typeof( Field ), fieldName );
-                    var _names = dataRow.Table?.GetColumnNames();
+                    var _names = dataRow.Table?.GetColumnNames( );
 
-                    if( _names?.Any() == true
+                    if( _names?.Any( ) == true
                         && _names?.Contains( $"{_input}" ) == true )
                     {
                         Field = Enum.GetNames( typeof( Field ) )?.Contains( $"{_input}" ) == true
@@ -338,9 +338,9 @@ namespace BudgetExecution
                 try
                 {
                     var _names = dataRow.Table
-                        ?.GetColumnNames();
+                        ?.GetColumnNames( );
 
-                    Field = _names?.Contains( field.ToString() ) == true
+                    Field = _names?.Contains( field.ToString( ) ) == true
                         ? field
                         : Field.NS;
                 }
@@ -384,11 +384,11 @@ namespace BudgetExecution
                 try
                 {
                     var _names = dataRow.Table
-                        ?.GetColumnNames();
+                        ?.GetColumnNames( );
 
                     Value = _names?.Contains( columnName ) == true
-                        ? dataRow[ columnName ]?.ToString()
-                        : Field.NS.ToString();
+                        ? dataRow[ columnName ]?.ToString( )
+                        : Field.NS.ToString( );
                 }
                 catch( Exception ex )
                 {
@@ -410,11 +410,11 @@ namespace BudgetExecution
                 try
                 {
                     var _names = dataRow.Table
-                        ?.GetColumnNames();
+                        ?.GetColumnNames( );
 
-                    Value = _names?.Contains( field.ToString() ) == true
-                        ? dataRow[ $"{field}" ]?.ToString()
-                        : Field.NS.ToString();
+                    Value = _names?.Contains( field.ToString( ) ) == true
+                        ? dataRow[ $"{field}" ]?.ToString( )
+                        : Field.NS.ToString( );
                 }
                 catch( Exception ex )
                 {

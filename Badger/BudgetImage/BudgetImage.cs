@@ -17,8 +17,8 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="ImageBase" />
     /// <seealso cref="IBudgetImage" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class BudgetImage : ImageBase, IBudgetImage
     {
         /// <summary>
@@ -35,7 +35,7 @@ namespace BudgetExecution
         /// <value>
         /// The factory.
         /// </value>
-        public ImageFactory ImageFactory { get; set;  }
+        public ImageFactory ImageFactory { get; set; }
 
         /// <summary>
         /// Initializes a new instance
@@ -128,7 +128,7 @@ namespace BudgetExecution
             ImageSource = imageBuilder.ImageSource;
             ImageFormat = imageBuilder.ImageFormat;
             ImageFactory = new ImageFactory( ImageBuilder );
-            ImageFile = ImageFactory.CreateImage();
+            ImageFile = ImageFactory.CreateImage( );
         }
 
         /// <summary>
@@ -146,7 +146,7 @@ namespace BudgetExecution
             ImageSource = ImageBuilder.ImageSource;
             ImageFormat = ImageBuilder.ImageFormat;
             ImageFactory = new ImageFactory( ImageBuilder );
-            ImageFile = ImageFactory.CreateImage();
+            ImageFile = ImageFactory.CreateImage( );
         }
 
         /// <summary>
@@ -164,7 +164,7 @@ namespace BudgetExecution
             ImageSource = ImageBuilder.ImageSource;
             ImageFormat = ImageBuilder.ImageFormat;
             ImageFactory = new ImageFactory( ImageBuilder );
-            ImageFile = ImageFactory.CreateImage();
+            ImageFile = ImageFactory.CreateImage( );
         }
 
         /// <summary>
@@ -183,7 +183,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    ImageFile?.Dispose();
+                    ImageFile?.Dispose( );
                 }
             }
         }
@@ -203,7 +203,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                ImageFile?.Dispose();
+                ImageFile?.Dispose( );
                 return default( Image );
             }
         }
@@ -224,11 +224,11 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                ImageFile?.Dispose();
+                ImageFile?.Dispose( );
                 return default( Color );
             }
         }
-        
+
         /// <summary>
         /// Res the color.
         /// </summary>
@@ -253,7 +253,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    ImageFile.Dispose();
+                    ImageFile.Dispose( );
                 }
             }
         }
@@ -267,18 +267,18 @@ namespace BudgetExecution
         {
             if( items?.Count > 0 )
             {
-                var _list = new List<string>();
+                var _list = new List<string>( );
 
                 for( var i = 0; i < items.Count; i++ )
                 {
-                    if ( !string.IsNullOrEmpty( items[ i ] ) 
-                        && File.Exists( items[ i ] ) ) 
+                    if( !string.IsNullOrEmpty( items[ i ] )
+                        && File.Exists( items[ i ] ) )
                     {
                         _list.Add( items[ i ] );
                     }
                 }
 
-                return _list?.Any() == true
+                return _list?.Any( ) == true
                     ? _list
                     : default( IEnumerable<string> );
             }
@@ -296,12 +296,12 @@ namespace BudgetExecution
             if( Directory.Exists( srcDir ) )
             {
                 var _files = Directory.EnumerateFiles( srcDir );
-                var _paths = _files.ToList();
-                var _list = new List<string>();
+                var _paths = _files.ToList( );
+                var _list = new List<string>( );
 
                 for( var i = 0; i < _paths.Count; i++ )
                 {
-                    if ( !string.IsNullOrEmpty( _paths[ i ] ) )
+                    if( !string.IsNullOrEmpty( _paths[ i ] ) )
                     {
                         _list.Add( _paths[ i ] );
                     }

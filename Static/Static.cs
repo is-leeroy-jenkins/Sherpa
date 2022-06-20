@@ -14,12 +14,12 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "NotAccessedVariable" ) ]
-    [ SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "NotAccessedVariable" )]
+    [SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" )]
     public static class Static
     {
         /// <summary>
@@ -65,7 +65,7 @@ namespace BudgetExecution
                     throw new ArgumentNullException( nameof( connection ) );
                 }
 
-                var _command = connection?.CreateCommand();
+                var _command = connection?.CreateCommand( );
                 _command.CommandText = sql;
 
                 return Verify.IsInput( _command?.CommandText )
@@ -90,8 +90,8 @@ namespace BudgetExecution
             try
             {
                 using var _command = connection?.CreateCommand( sql );
-                
-                return _command?.ExecuteNonQuery() ?? 0;
+
+                return _command?.ExecuteNonQuery( ) ?? 0;
             }
             catch( Exception ex )
             {
@@ -110,7 +110,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _stringBuilder = new StringBuilder();
+                var _stringBuilder = new StringBuilder( );
 
                 if( Verify.IsInput( message ) )
                 {
@@ -165,17 +165,17 @@ namespace BudgetExecution
                         _stringBuilder.Append( Environment.NewLine );
                     }
 
-                    var _baseException = ex.GetBaseException();
+                    var _baseException = ex.GetBaseException( );
 
                     if( _baseException != null )
                     {
                         _stringBuilder.Append( "BaseException:" );
                         _stringBuilder.Append( Environment.NewLine );
-                        _stringBuilder.Append( ex.GetBaseException() );
+                        _stringBuilder.Append( ex.GetBaseException( ) );
                     }
                 }
 
-                return _stringBuilder.ToString();
+                return _stringBuilder.ToString( );
             }
             catch( Exception e )
             {
@@ -193,7 +193,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _dictionary = new Dictionary<string, object>();
+                var _dictionary = new Dictionary<string, object>( );
 
                 if( nvm != null )
                 {
@@ -219,8 +219,8 @@ namespace BudgetExecution
         public static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
-            _error?.SetText();
-            _error?.ShowDialog();
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

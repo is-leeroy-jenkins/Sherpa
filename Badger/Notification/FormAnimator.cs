@@ -62,7 +62,7 @@ namespace BudgetExecution
         /// Horizontal and vertical directions can be
         /// combined to create diagonal animations
         /// </remarks>
-        [ Flags ]
+        [Flags]
         public enum AnimationDirection
         {
             /// <summary>
@@ -101,7 +101,7 @@ namespace BudgetExecution
         /// the animation occurs if no value is specified
         /// </summary>
         private const int DefaultDuration = 250;
-        
+
         /// <summary>
         /// Gets or sets the animation method used to show and hide the form
         /// </summary>
@@ -220,7 +220,7 @@ namespace BudgetExecution
         /// </summary>
         private void Form_Load( object sender, EventArgs e )
         {
-            if ( Form.MdiParent == null
+            if( Form.MdiParent == null
                 || Method != AnimationMethod.Fade )
             {
                 NativeMethods.AnimateWindow( Form.Handle, Duration,
@@ -237,7 +237,7 @@ namespace BudgetExecution
             {
                 var flags = (int)Method | (int)Direction;
 
-                if ( Form.Visible )
+                if( Form.Visible )
                 {
                     flags = flags | AwActivate;
                 }
@@ -257,7 +257,7 @@ namespace BudgetExecution
         {
             if( !e.Cancel )
             {
-                if( Form.MdiParent == null 
+                if( Form.MdiParent == null
                    || Method != AnimationMethod.Fade )
                 {
                     NativeMethods.AnimateWindow( Form.Handle, Duration, AwHide | (int)Method | (int)Direction );

@@ -65,7 +65,7 @@ namespace BudgetExecution
 
         public BudgetDataViewForm()
         {
-            InitializeComponent();
+            InitializeComponent( );
 
             // Form Properties
             Size = new Size( 1200, 700 );

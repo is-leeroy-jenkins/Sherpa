@@ -15,9 +15,9 @@ namespace BudgetExecution
     /// <seealso cref = "Outlay"/>
     /// <seealso cref = "T:BudgetExecution.Outlay"/>
     /// <seealso cref = "T:BudgetExecution.IObligation"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
     public class Obligation : Outlay
     {
         /// <summary>
@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <summary>
         /// 
         /// </summary>
-        public virtual Source Source { get; set;  } = Source.Obligations;
+        public virtual Source Source { get; set; } = Source.Obligations;
 
         /// <inheritdoc/>
         /// <summary>
@@ -49,11 +49,11 @@ namespace BudgetExecution
         /// </param>
         public Obligation( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ObligationsId );
-            OriginalActionDate = GetOriginalActionDate();
+            OriginalActionDate = GetOriginalActionDate( );
             Amount = new Amount( Record, Numeric.Obligations );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.Obligation;
         }
 
@@ -66,11 +66,11 @@ namespace BudgetExecution
         /// </param>
         public Obligation( IBuilder builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ObligationsId );
-            OriginalActionDate = GetOriginalActionDate();
+            OriginalActionDate = GetOriginalActionDate( );
             Amount = new Amount( Record, Numeric.Obligations );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.Obligation;
         }
 
@@ -86,12 +86,12 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ObligationsId );
-            OriginalActionDate = GetOriginalActionDate();
+            OriginalActionDate = GetOriginalActionDate( );
             Amount = new Amount( Record, Numeric.Obligations );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
             Type = ExpenseType.Obligation;
         }
-        
+
         /// <summary>
         /// Converts to dictionary.
         /// </summary>

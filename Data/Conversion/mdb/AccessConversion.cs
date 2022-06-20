@@ -10,7 +10,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "UnusedMethodReturnValue.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedMethodReturnValue.Global" )]
     public class AccessConversion
     {
         /// <summary>
@@ -25,7 +25,7 @@ namespace BudgetExecution
         {
             SQLiteConnection.CreateFile( "MyDatabase.sqlite" );
             _connection = new SQLiteConnection( "Data Source=MyDatabase.sqlite;Version=3;" );
-            _connection.Open();
+            _connection.Open( );
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace BudgetExecution
         {
             var _sql = "CREATE TABLE " + name + " (word varchar(200), image text)";
             using var _cmd = new SQLiteCommand( _sql, _connection );
-            return _cmd.ExecuteNonQuery();
+            return _cmd.ExecuteNonQuery( );
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace BudgetExecution
             using var _cmd = new SQLiteCommand( _sql, _connection );
             _cmd.Parameters.AddWithValue( "@word", word );
             _cmd.Parameters.AddWithValue( "@image", image );
-            return _cmd.ExecuteNonQuery();
+            return _cmd.ExecuteNonQuery( );
         }
     }
 }

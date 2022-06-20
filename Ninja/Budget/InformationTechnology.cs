@@ -16,23 +16,23 @@ namespace BudgetExecution
     /// <seealso cref = "IProgram"/>
     /// <seealso cref = "ISource"/>
     /// <seealso cref = "IInformationTechnology"/>
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public class InformationTechnology : Element, IInformationTechnology, ISource
     {
         /// <summary>
         /// The source
         /// </summary>
         public Source Source { get; set; } = Source.InformationTechnology;
-        
+
         /// <summary>
         /// Gets the Data.
         /// </summary>
         /// <value>
         /// The Data.
         /// </value>
-        public DataRow Record { get;  }
+        public DataRow Record { get; }
 
         /// <summary>
         /// Gets the arguments.
@@ -40,8 +40,8 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get;  }
-        
+        public IDictionary<string, object> Data { get; }
+
         /// <summary>
         /// Gets the project code.
         /// </summary>
@@ -49,14 +49,14 @@ namespace BudgetExecution
         /// The project code.
         /// </value>
         public IElement ProjectCode { get; set; }
-        
+
         /// <summary>
         /// Gets the cost area code.
         /// </summary>
         /// <value>
         /// The cost area code.
         /// </value>
-        public IElement CostAreaCode { get;  }
+        public IElement CostAreaCode { get; }
 
         /// <summary>
         /// Gets the name of the cost area.
@@ -64,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the cost area.
         /// </value>
-        public IElement CostAreaName { get;  }
+        public IElement CostAreaName { get; }
 
         /// <summary>
         /// Gets the name of the project.
@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the project.
         /// </value> 
-        private IElement ProgramProjectName { get;  }
+        private IElement ProgramProjectName { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "InformationTechnology"/> class.
@@ -89,7 +89,7 @@ namespace BudgetExecution
         /// </param>
         public InformationTechnology( IQuery query )
         {
-            Record = new Builder( query )?.GetRecord();
+            Record = new Builder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.CpicId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
@@ -97,7 +97,7 @@ namespace BudgetExecution
             ProgramProjectName = new Element( Record, Field.ProjectName );
             CostAreaCode = new Element( Record, Field.CostAreaCode );
             CostAreaName = new Element( Record, Field.CostAreaName );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -107,9 +107,9 @@ namespace BudgetExecution
         /// The builder.
         /// </param>
         public InformationTechnology( IBuilder builder )
-            : this()
+            : this( )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.CpicId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
@@ -117,7 +117,7 @@ namespace BudgetExecution
             ProgramProjectName = new Element( Record, Field.ProjectName );
             CostAreaCode = new Element( Record, Field.CostAreaCode );
             CostAreaName = new Element( Record, Field.CostAreaName );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace BudgetExecution
         /// <param name = "data" >
         /// </param>
         public InformationTechnology( DataRow data )
-            : this()
+            : this( )
         {
             Record = data;
             ID = new Key( Record, PrimaryKey.CpicId );
@@ -136,7 +136,7 @@ namespace BudgetExecution
             ProgramProjectName = new Element( Record, Field.ProjectName );
             CostAreaCode = new Element( Record, Field.CostAreaCode );
             CostAreaName = new Element( Record, Field.CostAreaName );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -147,7 +147,7 @@ namespace BudgetExecution
         /// </param>
         public InformationTechnology( string itcode )
         {
-            Record = new DataBuilder( Source, GetArgs( itcode ) )?.GetRecord();
+            Record = new DataBuilder( Source, GetArgs( itcode ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.CpicId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
@@ -155,9 +155,9 @@ namespace BudgetExecution
             ProgramProjectName = new Element( Record, Field.ProjectName );
             CostAreaCode = new Element( Record, Field.CostAreaCode );
             CostAreaName = new Element( Record, Field.CostAreaName );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
-        
+
         /// <summary>
         /// Sets the arguments.
         /// </summary>
@@ -282,9 +282,9 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object>
                     {
-                        [ PrimaryKey.CpicId.ToString() ] = ID.Index,
-                        [ Field.Name.ToString() ] = Name,
-                        [ Field.Code.ToString() ] = Code
+                        [ PrimaryKey.CpicId.ToString( ) ] = ID.Index,
+                        [ Field.Name.ToString( ) ] = Name,
+                        [ Field.Code.ToString( ) ] = Code
                     };
                 }
                 catch( Exception ex )
@@ -296,7 +296,7 @@ namespace BudgetExecution
 
             return default( IDictionary<string, object> );
         }
-        
+
         /// <summary>
         /// Gets it code.
         /// </summary>
@@ -306,7 +306,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone() as InformationTechnology;
+                return MemberwiseClone( ) as InformationTechnology;
             }
             catch( Exception ex )
             {

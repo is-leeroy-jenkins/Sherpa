@@ -11,9 +11,9 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public class BudgetImageList : ImageListBase
     {
         /// <summary>
@@ -115,7 +115,7 @@ namespace BudgetExecution
             ImageFactory = new ImageFactory( ImageBuilder );
             FilePaths = ImageFactory.Paths;
             FileNames = ImageFactory.Names;
-            Images.Add( new Bitmap( path )  );
+            Images.Add( new Bitmap( path ) );
         }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace BudgetExecution
                 {
                     Images.Add( image );
                 }
-                catch ( Exception ex )
+                catch( Exception ex )
                 {
                     Fail( ex );
                 }
@@ -224,9 +224,9 @@ namespace BudgetExecution
             if( Directory.Exists( srcDir ) )
             {
                 var _files = Directory.EnumerateFiles( srcDir );
-                var _list = new List<Image>();
+                var _list = new List<Image>( );
 
-                if( _files?.Count() > 0 )
+                if( _files?.Count( ) > 0 )
                 {
                     foreach( var _file in _files )
                     {
@@ -236,7 +236,7 @@ namespace BudgetExecution
                     }
                 }
 
-                return _list?.Any() == true
+                return _list?.Any( ) == true
                     ? _list
                     : default( IEnumerable<Image> );
             }
@@ -251,10 +251,10 @@ namespace BudgetExecution
         /// <returns></returns>
         public IEnumerable<Image> CreateImages( IEnumerable<string> paths )
         {
-            if( paths?.Count() > 0 )
+            if( paths?.Count( ) > 0 )
             {
-                var _files = paths.ToList();
-                var _list = new List<Image>();
+                var _files = paths.ToList( );
+                var _list = new List<Image>( );
 
                 for( var i = 0; i < _files.Count; i++ )
                 {

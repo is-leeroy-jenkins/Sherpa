@@ -12,14 +12,14 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" )]
     public class ProgramProject : DescriptionBase, IProgramProject, ISource
     {
         /// <summary>
         /// The source
         /// </summary>
         public Source Source { get; set; } = Source.ProgramDescriptions;
-        
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "ProgramProject"/> class.
@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// </param>
         public ProgramProject( IQuery query )
         {
-            Record = new DataBuilder( query )?.GetRecord();
+            Record = new DataBuilder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ProgramProjectsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
@@ -46,7 +46,7 @@ namespace BudgetExecution
             Narrative = new Element( Record, Field.Narrative );
             ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
             ProgramAreaName = new Element( Record, Field.ProgramAreaName );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace BudgetExecution
         /// </param>
         public ProgramProject( IBuilder dataBuilder )
         {
-            Record = dataBuilder?.GetRecord();
+            Record = dataBuilder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ProgramProjectsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
@@ -67,7 +67,7 @@ namespace BudgetExecution
             Narrative = new Element( Record, Field.Narrative );
             ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
             ProgramAreaName = new Element( Record, Field.ProgramAreaName );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace BudgetExecution
             Narrative = new Element( Record, Field.Narrative );
             ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
             ProgramAreaName = new Element( Record, Field.ProgramAreaName );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace BudgetExecution
         /// </param>
         public ProgramProject( string code )
         {
-            Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord();
+            Record = new DataBuilder( Source, GetArgs( code ) )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.ProgramProjectsId );
             Name = new Element( Record, Field.Name ).Name;
             Code = new Element( Record, Field.Code ).Code;
@@ -109,9 +109,9 @@ namespace BudgetExecution
             Narrative = new Element( Record, Field.Narrative );
             ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
             ProgramAreaName = new Element( Record, Field.ProgramAreaName );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
-        
+
         /// <summary>
         /// Sets the arguments.
         /// </summary>
@@ -280,7 +280,7 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
-        
+
         /// <summary>
         /// Gets the program project.
         /// </summary>
@@ -288,7 +288,7 @@ namespace BudgetExecution
         /// </returns>
         public IProgramProject GetProgramProject()
         {
-            return MemberwiseClone() as ProgramProject;
+            return MemberwiseClone( ) as ProgramProject;
         }
 
         /// <summary>

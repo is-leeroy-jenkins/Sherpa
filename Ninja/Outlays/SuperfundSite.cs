@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref = "Obligation"/>
     /// <seealso cref = "ISource"/>
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
     public class SuperfundSite : SiteData
     {
         /// <summary>
@@ -42,7 +42,7 @@ namespace BudgetExecution
         public SuperfundSite( IQuery query )
             : base( query )
         {
-            Record = new Builder( query )?.GetRecord();
+            Record = new Builder( query )?.GetRecord( );
             ID = new Key( Record, PrimaryKey.SuperfundSitesId );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
             FocCode = new Element( Record, Field.FocCode );
@@ -62,7 +62,7 @@ namespace BudgetExecution
             ULO = new Amount( Record, Numeric.ULO );
             Deobligations = new Amount( Record, Numeric.Deobligations );
             Expenditures = new Amount( Record, Numeric.Expenditures );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace BudgetExecution
         public SuperfundSite( IBuilder builder )
             : base( builder )
         {
-            Record = builder?.GetRecord();
+            Record = builder?.GetRecord( );
             ID = new Key( Record, PrimaryKey.SuperfundSitesId );
             ProgramProjectCode = new Element( Record, Field.ProgramProjectCode );
             FocCode = new Element( Record, Field.FocCode );
@@ -94,7 +94,7 @@ namespace BudgetExecution
             ULO = new Amount( Record, Numeric.ULO );
             Deobligations = new Amount( Record, Numeric.Deobligations );
             Expenditures = new Amount( Record, Numeric.Expenditures );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -125,9 +125,9 @@ namespace BudgetExecution
             ULO = new Amount( Record, Numeric.ULO );
             Deobligations = new Amount( Record, Numeric.Deobligations );
             Expenditures = new Amount( Record, Numeric.Expenditures );
-            Data = Record?.ToDictionary();
+            Data = Record?.ToDictionary( );
         }
-        
+
         /// <summary>
         /// Gets the SuperfundSites identifier.
         /// </summary>
@@ -147,7 +147,7 @@ namespace BudgetExecution
                 return default( IKey );
             }
         }
-        
+
         /// <summary>
         /// Converts to dictionary.
         /// </summary>
