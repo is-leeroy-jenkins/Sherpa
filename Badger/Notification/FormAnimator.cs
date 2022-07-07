@@ -239,11 +239,11 @@ namespace BudgetExecution
 
                 if( Form.Visible )
                 {
-                    flags = flags | AwActivate;
+                    flags |= FormAnimator.AwActivate;
                 }
                 else
                 {
-                    flags = flags | AwHide;
+                    flags |= FormAnimator.AwHide;
                 }
 
                 NativeMethods.AnimateWindow( Form.Handle, Duration, flags );
