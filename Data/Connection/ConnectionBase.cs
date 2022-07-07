@@ -1,6 +1,6 @@
-﻿// <copyright file = "ConnectionBase.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
-// </copyright>
+﻿// // <copyright file = "ConnectionBase.cs" company = "Terry D. Eppler">
+// // Copyright (c) Terry D. Eppler. All rights reserved.
+// // </copyright>
 
 namespace BudgetExecution
 {
@@ -8,19 +8,21 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
+    using static ConnectionBase;
 
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class ConnectionBase
     {
         /// <summary>
         /// The connector
         /// </summary>
-        public virtual ConnectionStringSettingsCollection Connectors { get; set; } = ConfigurationManager.ConnectionStrings;
+        public virtual ConnectionStringSettingsCollection Connectors { get; } =
+            ConfigurationManager.ConnectionStrings;
 
         /// <summary>
         /// The source
@@ -101,10 +103,9 @@ namespace BudgetExecution
         {
             try
             {
-                return Verify.IsInput( filePath )
-                    && File.Exists( filePath )
-                        ? Path.GetFullPath( filePath )
-                        : default( string );
+                return Verify.IsInput( filePath ) && File.Exists( filePath )
+                    ? Path.GetFullPath( filePath )
+                    : default( string );
             }
             catch( Exception ex )
             {
@@ -120,12 +121,13 @@ namespace BudgetExecution
         private protected string GetProviderPath( string filePath )
         {
             if( Verify.IsInput( filePath )
-                && File.Exists( filePath )
-                && Path.HasExtension( filePath ) )
+               && File.Exists( filePath )
+               && Path.HasExtension( filePath ) )
             {
                 try
                 {
                     var _extension = Path.GetExtension( filePath );
+
                     var _provider = (EXT)Enum.Parse( typeof( EXT ), _extension );
 
                     return _provider switch
@@ -135,10 +137,14 @@ namespace BudgetExecution
                         EXT.DB => ConfigurationManager.AppSettings[ "SQLiteFilePath" ],
                         EXT.SDF => ConfigurationManager.AppSettings[ "SqlCeFilePath" ],
                         EXT.MDF => ConfigurationManager.AppSettings[ "SqlServerFilePath" ],
-                        EXT.XLS => ConfigurationManager.AppSettings[ "ExcelFilePath" ].Replace( "{FilePath}", filePath ),
-                        EXT.XLSX => ConfigurationManager.AppSettings[ "ExcelFilePath" ].Replace( "{FilePath}", filePath ),
-                        EXT.CSV => ConfigurationManager.AppSettings[ "CsvFilePath" ].Replace( "{FilePath}", filePath ),
-                        EXT.TXT => ConfigurationManager.AppSettings[ "CsvFilePath" ].Replace( "{FilePath}", filePath ),
+                        EXT.XLS => ConfigurationManager.AppSettings[ "ExcelFilePath" ]
+                            .Replace( "{FilePath}", filePath ),
+                        EXT.XLSX => ConfigurationManager.AppSettings[ "ExcelFilePath" ]
+                            .Replace( "{FilePath}", filePath ),
+                        EXT.CSV => ConfigurationManager.AppSettings[ "CsvFilePath" ]
+                            .Replace( "{FilePath}", filePath ),
+                        EXT.TXT => ConfigurationManager.AppSettings[ "CsvFilePath" ]
+                            .Replace( "{FilePath}", filePath ),
                         _ => ConfigurationManager.AppSettings[ "SQLiteFilePath" ]
                     };
                 }
