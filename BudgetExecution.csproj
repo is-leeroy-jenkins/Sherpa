@@ -28,7 +28,7 @@
     <NoWarn>1701;1702;2201;1051;1305;1822;CA1716</NoWarn>
     <OutputPath>C:\Users\terry\source\repos\BudgetExecution\bin\Debug\</OutputPath>
     <Deterministic>False</Deterministic>
-    <Optimize>True</Optimize>
+    <Optimize>False</Optimize>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BudgetExecution|AnyCPU'">
@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;2201;1051;1305;1822;CA1716</NoWarn>
     <Deterministic>False</Deterministic>
-    <Optimize>True</Optimize>
+    <Optimize>False</Optimize>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
