@@ -15,6 +15,11 @@ namespace BudgetExecution
         NS = 0,
 
         /// <summary>
+        /// The account button
+        /// </summary>
+        AccountButton,
+
+        /// <summary>
         /// The access button
         /// </summary>
         AccessButton,
@@ -35,74 +40,19 @@ namespace BudgetExecution
         AddRecordButton,
 
         /// <summary>
-        /// The home button
+        /// The add table button
         /// </summary>
-        HomeButton,
+        AddTableButton,
 
         /// <summary>
-        /// The account button
+        /// The bluetooth button
         /// </summary>
-        AccountButton,
+        BluetoothButton,
 
         /// <summary>
-        /// The first button
+        /// The browse button
         /// </summary>
-        FirstButton,
-
-        /// <summary>
-        /// The previous button
-        /// </summary>
-        PreviousButton,
-
-        /// <summary>
-        /// The menu button
-        /// </summary>
-        MenuButton,
-
-        /// <summary>
-        /// The menu interface button
-        /// </summary>
-        MenuInterfaceButton,
-
-        /// <summary>
-        /// The next button
-        /// </summary>
-        NextButton,
-
-        /// <summary>
-        /// The last button
-        /// </summary>
-        LastButton,
-
-        /// <summary>
-        /// The logout button
-        /// </summary>
-        LogoutButton,
-
-        /// <summary>
-        /// The refresh button
-        /// </summary>
-        RefreshButton,
-
-        /// <summary>
-        /// The remove button
-        /// </summary>
-        RemoveButton,
-
-        /// <summary>
-        /// The rewind button
-        /// </summary>
-        RewindButton,
-
-        /// <summary>
-        /// The verify button
-        /// </summary>
-        VerifyButton,
-
-        /// <summary>
-        /// The save button
-        /// </summary>
-        SaveButton,
+        BrowseButton,
 
         /// <summary>
         /// The chart button
@@ -120,7 +70,7 @@ namespace BudgetExecution
         CloseButton,
 
         /// <summary>
-        /// The CSV import button
+        /// The CSV button
         /// </summary>
         CsvButton,
 
@@ -128,6 +78,21 @@ namespace BudgetExecution
         /// The copy button
         /// </summary>
         CopyButton,
+
+        /// <summary>
+        /// The data add button
+        /// </summary>
+        DataAddButton,
+
+        /// <summary>
+        /// The database button
+        /// </summary>
+        DatabaseButton,
+
+        /// <summary>
+        /// The data configuration button
+        /// </summary>
+        DataConfigButton,
 
         /// <summary>
         /// The delete column button
@@ -140,24 +105,34 @@ namespace BudgetExecution
         DeleteRecordButton,
 
         /// <summary>
-        /// The browse button
+        /// The delete button
         /// </summary>
-        BrowseButton,
+        DeleteButton,
 
         /// <summary>
-        /// The data table button
+        /// The data row button
         /// </summary>
-        TableButton,
+        DataRowButton,
 
         /// <summary>
-        /// The trash button
+        /// The delete table button
         /// </summary>
-        TrashButton,
+        DeleteTableButton,
 
         /// <summary>
-        /// The transfer button
+        /// The data delete button
         /// </summary>
-        TransferButton,
+        DataDeleteButton,
+
+        /// <summary>
+        /// The download button
+        /// </summary>
+        DownloadButton,
+
+        /// <summary>
+        /// The download data button
+        /// </summary>
+        DownloadDataButton,
 
         /// <summary>
         /// The exit button
@@ -195,9 +170,34 @@ namespace BudgetExecution
         EditColumnButton,
 
         /// <summary>
+        /// The encrypt data button
+        /// </summary>
+        EncryptDataButton,
+
+        /// <summary>
+        /// The excel import button
+        /// </summary>
+        ExcelImportButton,
+
+        /// <summary>
+        /// The excel export button
+        /// </summary>
+        ExcelExportButton,
+
+        /// <summary>
         /// The forward button
         /// </summary>
         ForwardButton,
+
+        /// <summary>
+        /// The first button
+        /// </summary>
+        FirstButton,
+
+        /// <summary>
+        /// The grid button
+        /// </summary>
+        GridButton,
 
         /// <summary>
         /// The guidance button
@@ -205,14 +205,9 @@ namespace BudgetExecution
         GuidanceButton,
 
         /// <summary>
-        /// The navigation button
+        /// The home button
         /// </summary>
-        NavigationButton,
-
-        /// <summary>
-        /// Creates new button.
-        /// </summary>
-        NewButton,
+        HomeButton,
 
         /// <summary>
         /// The insert button
@@ -225,14 +220,39 @@ namespace BudgetExecution
         ImportButton,
 
         /// <summary>
-        /// The delete button
+        /// The last button
         /// </summary>
-        DeleteButton,
+        LastButton,
 
         /// <summary>
-        /// The download button
+        /// The logout button
         /// </summary>
-        DownloadButton,
+        LogoutButton,
+
+        /// <summary>
+        /// The previous button
+        /// </summary>
+        PreviousButton,
+
+        /// <summary>
+        /// The menu button
+        /// </summary>
+        MenuButton,
+
+        /// <summary>
+        /// The metrics button
+        /// </summary>
+        MetricsButton,
+
+        /// <summary>
+        /// The next button
+        /// </summary>
+        NextButton,
+
+        /// <summary>
+        /// The navigation button
+        /// </summary>
+        NavigationButton,
 
         /// <summary>
         /// The pause button
@@ -265,9 +285,39 @@ namespace BudgetExecution
         PdfButton,
 
         /// <summary>
+        /// The refresh button
+        /// </summary>
+        RefreshButton,
+
+        /// <summary>
+        /// The refresh data button
+        /// </summary>
+        RefreshDataButton,
+
+        /// <summary>
         /// The redo button
         /// </summary>
         RedoButton,
+
+        /// <summary>
+        /// The remove button
+        /// </summary>
+        RemoveButton,
+
+        /// <summary>
+        /// The rewind button
+        /// </summary>
+        RewindButton,
+
+        /// <summary>
+        /// The save button
+        /// </summary>
+        SaveButton,
+
+        /// <summary>
+        /// The search data button
+        /// </summary>
+        SearchDataButton,
 
         /// <summary>
         /// The settings button
@@ -285,6 +335,36 @@ namespace BudgetExecution
         StopButton,
 
         /// <summary>
+        /// The SQL server button
+        /// </summary>
+        SqlServerButton,
+
+        /// <summary>
+        /// The table button
+        /// </summary>
+        TableButton,
+
+        /// <summary>
+        /// The trash button
+        /// </summary>
+        TrashButton,
+
+        /// <summary>
+        /// The transfer button
+        /// </summary>
+        TransferButton,
+
+        /// <summary>
+        /// The transfer in button
+        /// </summary>
+        TransferInButton,
+
+        /// <summary>
+        /// The transfer out button
+        /// </summary>
+        TransferOutButton,
+
+        /// <summary>
         /// The update button
         /// </summary>
         UpdateButton,
@@ -298,6 +378,21 @@ namespace BudgetExecution
         /// The upload button
         /// </summary>
         UploadButton,
+
+        /// <summary>
+        /// The upload data button
+        /// </summary>
+        UploadDataButton,
+
+        /// <summary>
+        /// The verify button
+        /// </summary>
+        VerifyButton,
+
+        /// <summary>
+        /// The verify data button
+        /// </summary>
+        VerifyDataButton,
 
         /// <summary>
         /// The web button
