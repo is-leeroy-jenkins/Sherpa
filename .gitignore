@@ -1,4 +1,4 @@
-# Prerequisites
+﻿# Prerequisites
 *.d
 
 # Object files
@@ -52,8 +52,6 @@ Mkfile.old
 dkms.conf
 /bin
 /obj
-/Data/Database/Access/DataModels/Data.accdb
-/Data/Database/SQLite/DataModels/Data.db
 *.mdf
 *.ldf
 *.sdf
@@ -63,3 +61,6 @@ dkms.conf
 *.sdf
 *.lock
 *.vsidx
+*.accdb
+*.sdf
+*.db
