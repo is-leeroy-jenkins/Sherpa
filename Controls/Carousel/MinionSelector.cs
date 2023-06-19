@@ -65,7 +65,7 @@ namespace BudgetExecution
         /// The image path.
         /// </value>
         public string ImagePath { get; set; } =
-            @"C:\Users\terry\source\repos\Budget\Resource\Images\Carousel\Minion";
+            @"C:\Users\terry\source\repos\BudgetExecution\Resource\Images\Carousel\Minion";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MinionSelector"/> class.

@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-17-2023
+//     Last Modified On:        06-19-2023
 // ******************************************************************************************
 // <copyright file="DataGridForm.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -56,17 +56,17 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
-    [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -630,7 +630,7 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( FirstCategory ) )
                     {
                         DataModel = new DataBuilder( Source, Provider );
-                        var _data = DataModel.DataElements[FirstCategory];
+                        var _data = DataModel.DataElements[ FirstCategory ];
                         foreach( var _item in _data )
                         {
                             FirstListBox.Items?.Add( _item );
@@ -717,7 +717,7 @@ namespace BudgetExecution
                     SecondCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( SecondCategory ) )
                     {
-                        var _data = DataModel.DataElements[SecondCategory];
+                        var _data = DataModel.DataElements[ SecondCategory ];
                         foreach( var _item in _data )
                         {
                             SecondListBox.Items?.Add( _item );
@@ -788,7 +788,7 @@ namespace BudgetExecution
                     ThirdCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( ThirdCategory ) )
                     {
-                        var _data = DataModel?.DataElements[ThirdCategory];
+                        var _data = DataModel?.DataElements[ ThirdCategory ];
                         if( _data?.Any( ) == true )
                         {
                             foreach( var _item in _data )
@@ -1069,7 +1069,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings["Providers"];
+                var _path = ConfigurationManager.AppSettings[ "Providers" ];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -1100,7 +1100,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings["Dialogs"];
+                var _path = ConfigurationManager.AppSettings[ "Dialogs" ];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -1547,9 +1547,9 @@ namespace BudgetExecution
 
                     for( var _i = 0; _i < Numerics.Count; _i++ )
                     {
-                        if( !string.IsNullOrEmpty( Numerics[_i] ) )
+                        if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
                         {
-                            NumericListBox.Items.Add( Numerics[_i] );
+                            NumericListBox.Items.Add( Numerics[ _i ] );
                         }
                     }
                 }
@@ -1666,7 +1666,7 @@ namespace BudgetExecution
                         && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
-                    var _mainForm = (MainForm)Program.Windows["MainForm"];
+                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     ClearData( );
@@ -2108,7 +2108,7 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    var _mainForm = (MainForm)Program.Windows["MainForm"];
+                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     ClearData( );
@@ -2155,7 +2155,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows["DataGridForm"] = this;
+                Program.Windows[ "DataGridForm" ] = this;
             }
             catch( Exception _ex )
             {

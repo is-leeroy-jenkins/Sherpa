@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetExecution", "BudgetEx
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetBrowser", "..\BudgetBrowser\BudgetBrowser.csproj", "{A4AF9C7F-1BFA-420E-B122-25BDDF65FE44}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetWeb", "..\BudgetWeb\BudgetWeb.csproj", "{858BFEC8-C438-4CB9-BC86-EF3BB5A1AFE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		BudgetExecution|Any CPU = BudgetExecution|Any CPU
@@ -41,6 +43,18 @@ Global
 		{A4AF9C7F-1BFA-420E-B122-25BDDF65FE44}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A4AF9C7F-1BFA-420E-B122-25BDDF65FE44}.Release|x64.ActiveCfg = Release|x64
 		{A4AF9C7F-1BFA-420E-B122-25BDDF65FE44}.Release|x64.Build.0 = Release|x64
+		{858BFEC8-C438-4CB9-BC86-EF3BB5A1AFE6}.BudgetExecution|Any CPU.ActiveCfg = Debug|Any CPU
+		{858BFEC8-C438-4CB9-BC86-EF3BB5A1AFE6}.BudgetExecution|Any CPU.Build.0 = Debug|Any CPU
+		{858BFEC8-C438-4CB9-BC86-EF3BB5A1AFE6}.BudgetExecution|x64.ActiveCfg = Debug|Any CPU
+		{858BFEC8-C438-4CB9-BC86-EF3BB5A1AFE6}.BudgetExecution|x64.Build.0 = Debug|Any CPU
+		{858BFEC8-C438-4CB9-BC86-EF3BB5A1AFE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{858BFEC8-C438-4CB9-BC86-EF3BB5A1AFE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{858BFEC8-C438-4CB9-BC86-EF3BB5A1AFE6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{858BFEC8-C438-4CB9-BC86-EF3BB5A1AFE6}.Debug|x64.Build.0 = Debug|Any CPU
+		{858BFEC8-C438-4CB9-BC86-EF3BB5A1AFE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{858BFEC8-C438-4CB9-BC86-EF3BB5A1AFE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{858BFEC8-C438-4CB9-BC86-EF3BB5A1AFE6}.Release|x64.ActiveCfg = Release|Any CPU
+		{858BFEC8-C438-4CB9-BC86-EF3BB5A1AFE6}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
