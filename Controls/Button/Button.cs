@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        06-19-2023
 // ******************************************************************************************
 // <copyright file="Button.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -132,8 +132,9 @@ namespace BudgetExecution
             MouseLeave += OnMouseLeave;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Button"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.Button" /> class.
         /// </summary>
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
@@ -144,8 +145,9 @@ namespace BudgetExecution
             Location = location;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Button"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.Button" /> class.
         /// </summary>
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
@@ -156,8 +158,9 @@ namespace BudgetExecution
             Parent = parent;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Button"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.Button" /> class.
         /// </summary>
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
@@ -169,8 +172,9 @@ namespace BudgetExecution
             Text = text;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Button"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.Button" /> class.
         /// </summary>
         /// <param name="parent">The <see cref="T:System.Windows.Forms.Control" /> to be the parent of the control.</param>
         /// <param name="text">The text displayed by the control.</param>
@@ -181,8 +185,9 @@ namespace BudgetExecution
             Text = text;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Button"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.Button" /> class.
         /// </summary>
         /// <param name="parent">The parent.</param>
         public Button( Control parent )
@@ -191,8 +196,9 @@ namespace BudgetExecution
             Parent = parent;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Button"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.Button" /> class.
         /// </summary>
         /// <param name="parent">The parent.</param>
         /// <param name="field">The field.</param>
@@ -203,6 +209,7 @@ namespace BudgetExecution
             Tag = field.ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Sets the color of the fore. Required Attributes: ForeColor
         /// </summary>
@@ -215,19 +222,20 @@ namespace BudgetExecution
                 {
                     ForeColor = foreColor;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Called when [mouse over].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The
-        /// <see cref="EventArgs" />
+        /// <see cref="T:System.EventArgs" />
         /// instance containing the event data.</param>
         public void OnMouseOver( object sender, EventArgs e )
         {
@@ -252,18 +260,19 @@ namespace BudgetExecution
                     }
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Called when [click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The
-        /// <see cref="EventArgs" />
+        /// <see cref="T:System.EventArgs" />
         /// instance containing the event data.</param>
         public virtual void OnClick( object sender, EventArgs e )
         {
@@ -280,9 +289,9 @@ namespace BudgetExecution
             {
                 Size = new Size( width, height );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -296,9 +305,9 @@ namespace BudgetExecution
             {
                 Text = text;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -316,9 +325,9 @@ namespace BudgetExecution
                 {
                     Location = new Point( x, y );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -339,9 +348,9 @@ namespace BudgetExecution
                     ToolTip.RemoveAll( );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -357,9 +366,9 @@ namespace BudgetExecution
                 {
                     BackColor = normal;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

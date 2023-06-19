@@ -14,7 +14,7 @@
     <RootNamespace>BudgetExecution</RootNamespace>
     <Authors>Terry D. Eppler</Authors>
     <Company>US EPA</Company>
-    <Product>Budget</Product>
+    <Product>BudgetExecution</Product>
     <RepositoryUrl>https://github.com/KarmaScripter/BudgetExecution</RepositoryUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
@@ -72,8 +72,8 @@
     <PackageReference Include="WinFormsMapControl" Version="1.1.0" />
     <PackageReference Include="Zeroit.Framework.BasicCharts" Version="1.0.0" />
     <PackageReference Include="Zeroit.Framework.Metro" Version="1.0.0" />
-      <PackageReference Include="Syncfusion.GridHelperClasses.Windows" Version="21.1.35" />
-</ItemGroup>
+    <PackageReference Include="Syncfusion.GridHelperClasses.Windows" Version="21.1.35" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="C1.Win.4.8">
       <HintPath>Libraries\C1.Win.4.8.dll</HintPath>
@@ -145,8 +145,14 @@
     <Reference Include="Syncfusion.Grid.Grouping.Windows">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.Grid.Grouping.Windows.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Grid.Windows">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.Grid.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.GridCommon.WinForms">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.GridCommon.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridHelperClasses.Windows">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.GridHelperClasses.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grouping.Base">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.Grouping.Base.dll</HintPath>
@@ -156,6 +162,9 @@
     </Reference>
     <Reference Include="Syncfusion.HTMLUI.Windows">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.HTMLUI.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Linq.Base">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.Linq.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Maps.Windows">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.Maps.Windows.dll</HintPath>
@@ -168,6 +177,9 @@
     </Reference>
     <Reference Include="Syncfusion.PdfViewer.Windows">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.PdfViewer.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PivotAnalysis.Base">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.PivotAnalysis.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.PivotChart.Windows">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.PivotChart.Windows.dll</HintPath>
@@ -199,6 +211,12 @@
     <Reference Include="Syncfusion.SfSmithChart.WinForms">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.SfSmithChart.WinForms.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Shared.Base">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.Shared.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Windows">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.Shared.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.SpellChecker.Base">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.SpellChecker.Base.dll</HintPath>
     </Reference>
@@ -207,6 +225,9 @@
     </Reference>
     <Reference Include="Syncfusion.Tools.Base">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.Tools.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Windows">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.Tools.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.TreeMap.Windows">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.TreeMap.Windows.dll</HintPath>
