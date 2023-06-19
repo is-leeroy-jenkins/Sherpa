@@ -1,0 +1,11 @@
+CREATE TABLE Changes 
+(
+	ChangesId	INT NOT NULL IDENTITY(1,1),
+	TableName	NVARCHAR(80) NULL,
+	FieldName	NVARCHAR(80) NULL,
+	Action	NVARCHAR(80) NULL,
+	OldValue	NVARCHAR(80) NULL,
+	NewValue	NVARCHAR(80) NULL,
+	TimeStamp	datetime NULL,
+	Message	NVARCHAR(80) NULL
+);

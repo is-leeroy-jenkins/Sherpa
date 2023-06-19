@@ -1,41 +1,76 @@
-﻿// <copyright file = "CollectionExtensions.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="CollectionExtensions.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   CollectionExtensions.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" )]
+    /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class CollectionExtensions
     {
-        /// <summary>Adds if.</summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="collection">The collection.</param>
-        /// <param name="predicate">The predicate.</param>
-        /// <param name="value">The value.</param>
-        /// <returns></returns>
+        /// <summary> Adds if. </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="collection"> The collection. </param>
+        /// <param name="predicate"> The predicate. </param>
+        /// <param name="value"> The value. </param>
+        /// <returns> </returns>
         public static bool AddIf<T>( this ICollection<T> collection, Func<T, bool> predicate, T value )
         {
-            if( collection?.Count > 0
-                && predicate( value ) )
+            if( ( collection?.Count > 0 )
+               && predicate( value ) )
             {
                 try
                 {
                     collection.Add( value );
                     return true;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return false;
                 }
             }
@@ -43,39 +78,37 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary>Adds the range.</summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="collection">The collection.</param>
-        /// <param name="values">The values.</param>
+        /// <summary> Adds the range. </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="collection"> The collection. </param>
+        /// <param name="values"> The values. </param>
         public static void AddRange<T>( this ICollection<T> collection, params T[ ] values )
         {
-            if( values?.Length > 0
-                && collection?.Any( ) == true )
+            if( ( values?.Length > 0 )
+               && ( collection?.Any( ) == true ) )
             {
                 try
                 {
-                    for( var i = 0; i < values.Length; i++ )
+                    for( var _i = 0; _i < values.Length; _i++ )
                     {
-                        var _value = values[ i ];
-
-                        if( _value != null )
-                        {
-                            collection.Add( _value );
-                        }
+                        collection.Add( values[ _i ] );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
 
-        /// <summary>Determines whether this instance is empty.</summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="collection">The collection.</param>
+        /// <summary> Determines whether this instance is empty. </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="collection"> The collection. </param>
         /// <returns>
-        ///   <c>true</c> if the specified collection is empty; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if the specified collection is empty; otherwise,
+        /// <c> false </c>
+        /// .
         /// </returns>
         public static bool IsEmpty<T>( this ICollection<T> collection )
         {
@@ -83,17 +116,17 @@ namespace BudgetExecution
             {
                 return !( collection?.Count > 0 );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return false;
             }
         }
 
-        /// <summary>Removes if contains.</summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="collection">The collection.</param>
-        /// <param name="value">The value.</param>
+        /// <summary> Removes if contains. </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="collection"> The collection. </param>
+        /// <param name="value"> The value. </param>
         public static void RemoveIfContains<T>( this ICollection<T> collection, T value )
         {
             if( collection?.Contains( value ) == true )
@@ -102,66 +135,66 @@ namespace BudgetExecution
                 {
                     collection.Remove( value );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
 
-        /// <summary>Removes the range.</summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="collection">The collection.</param>
-        /// <param name="values">The values.</param>
+        /// <summary> Removes the range. </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="collection"> The collection. </param>
+        /// <param name="values"> The values. </param>
         public static void RemoveRange<T>( this ICollection<T> collection, params T[ ] values )
         {
-            if( collection?.Any( ) == true
-                && values?.Any( ) == true )
+            if( ( collection?.Any( ) == true )
+               && ( values?.Any( ) == true ) )
             {
                 try
                 {
-                    foreach( var value in values )
+                    foreach( var _item in values )
                     {
-                        collection.Remove( value );
+                        collection.Remove( _item );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
 
-        /// <summary>Removes the where.</summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="collection">The collection.</param>
-        /// <param name="predicate">The predicate.</param>
+        /// <summary> Removes the where. </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="collection"> The collection. </param>
+        /// <param name="predicate"> The predicate. </param>
         public static void RemoveWhere<T>( this ICollection<T> collection, Predicate<T> predicate )
         {
             if( collection?.Any( ) == true )
             {
                 try
                 {
-                    var list = collection
-                        ?.Where( child => predicate( child ) )
-                        ?.ToList( );
-
-                    if( list?.Any( ) == true )
+                    var _list = collection?.Where( child => predicate( child ) )?.ToList( );
+                    if( _list?.Any( ) == true )
                     {
-                        list.ForEach( t => collection.Remove( t ) );
+                        _list.ForEach( t => collection.Remove( t ) );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
 
-        /// <summary>Determines whether this instance is empty.</summary>
-        /// <param name="collection">The collection.</param>
+        /// <summary> Determines whether this instance is empty. </summary>
+        /// <param name="collection"> The collection. </param>
         /// <returns>
-        ///   <c>true</c> if the specified collection is empty; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if the specified collection is empty; otherwise,
+        /// <c> false </c>
+        /// .
         /// </returns>
         public static bool IsEmpty( this ICollection collection )
         {
@@ -169,18 +202,48 @@ namespace BudgetExecution
             {
                 return !( collection?.Count > 0 );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return true;
             }
         }
 
-        /// <summary>Fails the specified ex.</summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Converts to bindinglist. </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="collection"> The collection. </param>
+        /// <returns> </returns>
+        public static BindingList<T> ToBindingList<T>( this ICollection<T> collection )
+        {
+            if( collection?.Count > 0 )
+            {
+                try
+                {
+                    var _list = new BindingList<T>( );
+                    foreach( var _item in collection )
+                    {
+                        _list.Add( _item );
+                    }
+
+                    return _list?.Any( ) == true
+                        ? _list
+                        : default( BindingList<T> );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( BindingList<T> );
+                }
+            }
+
+            return default( BindingList<T> );
+        }
+
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private static void Fail( Exception ex )
         {
-            using var _error = new Error( ex );
+            using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

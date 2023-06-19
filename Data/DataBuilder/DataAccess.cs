@@ -1,6 +1,42 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="DataAccess.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   DataAccess.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -10,95 +46,91 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="DataConfig" />
-    /// <seealso cref="ISource" />
-    /// <seealso cref="IProvider" />
-    [SuppressMessage( "ReSharper", "ImplicitlyCapturedClosure" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    public abstract class DataAccess : DataConfig, ISource, IProvider
+    /// <seealso cref="T:BudgetExecution.ModelConfig" />
+    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:BudgetExecution.IProvider" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    public abstract class DataAccess : ModelConfig, ISource, IProvider
     {
         /// <summary>
-        /// Gets the query.
+        /// Gets the data.
         /// </summary>
         /// <returns></returns>
-        public IQuery GetQuery()
+        public IEnumerable<DataRow> GetData( )
         {
             try
             {
-                return Query ?? new Query( ConnectionBuilder, SqlStatement );
+                var _dataTable = GetDataTable( );
+                var _data = _dataTable?.AsEnumerable( );
+                return _data?.Any( ) == true
+                    ? _data
+                    : default( IEnumerable<DataRow> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
-                return default( IQuery );
+                Fail( _ex );
+                return default( IEnumerable<DataRow> );
             }
         }
 
         /// <summary>
-        /// Gets the Data.
+        /// Gets the table schema.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<DataRow> GetData()
+        public DataColumnCollection GetTableSchema( )
         {
-            if( Verify.IsTable( Table ) )
+            if( Query != null )
             {
                 try
                 {
-                    var _data = Table
-                        ?.AsEnumerable( );
-
-                    return Verify.IsRows( _data )
-                        ? _data
-                        : default( EnumerableRowCollection<DataRow> );
+                    DataSet = new DataSet( $"{Provider}" );
+                    DataTable = new DataTable( $"{Source}" );
+                    DataSet.Tables.Add( DataTable );
+                    var _adapter = Query?.DataAdapter;
+                    _adapter?.Fill( DataSet, DataTable.TableName );
+                    SetColumnCaptions( DataTable );
+                    return DataTable?.Columns?.Count > 0
+                        ? DataTable.Columns
+                        : default( DataColumnCollection );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
-                    return default( IEnumerable<DataRow> );
+                    Fail( _ex );
+                    return default( DataColumnCollection );
                 }
             }
 
-            return default( IEnumerable<DataRow> );
+            return default( DataColumnCollection );
         }
 
         /// <summary>
-        /// Gets the Data table.
+        /// Gets the data table.
         /// </summary>
         /// <returns></returns>
-        public DataTable GetDataTable()
+        private protected DataTable GetDataTable( )
         {
-            if( Verify.IsTable( Table ) )
+            if( Query != null )
             {
                 try
                 {
-                    DataSet = new DataSet
-                    {
-                        DataSetName = $"{Source}"
-                    };
-
-                    Table = new DataTable( $"{Source}" )
-                    {
-                        TableName = $"{Source}"
-                    };
-
-                    DataSet.Tables.Add( Table );
-                    var _adapter = Query?.GetAdapter( );
-                    _adapter?.Fill( DataSet, Table.TableName );
-                    SetColumnCaptions( Table );
-
-                    return Table?.Rows?.Count > 0
-                        ? Table
+                    DataSet = new DataSet( $"{Provider}" );
+                    DataTable = new DataTable( $"{Source}" );
+                    DataTable.TableName = Source.ToString( );
+                    DataSet.Tables.Add( DataTable );
+                    var _adapter = Query.DataAdapter;
+                    _adapter.Fill( DataSet, DataTable.TableName );
+                    SetColumnCaptions( DataTable );
+                    return DataTable?.Rows?.Count > 0
+                        ? DataTable
                         : default( DataTable );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataTable );
                 }
             }
@@ -107,37 +139,28 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the Data set.
+        /// Gets the data set.
         /// </summary>
         /// <returns></returns>
-        public DataSet GetDataSet()
+        private protected DataSet GetDataSet( )
         {
-            if( Enum.IsDefined( typeof( Source ), Source ) )
+            if( Query != null )
             {
                 try
                 {
-                    DataSet = new DataSet
-                    {
-                        DataSetName = "DataSet"
-                    };
-
-                    var _table = new DataTable( $"{Source}" )
-                    {
-                        TableName = $"{Source}"
-                    };
-
-                    DataSet.Tables.Add( _table );
-                    using var _adapter = Query?.GetAdapter( );
-                    _adapter?.Fill( DataSet, _table?.TableName );
-                    SetColumnCaptions( _table );
-
-                    return _table?.Rows?.Count > 0
+                    DataSet = new DataSet( $"{Provider}" );
+                    DataTable = new DataTable( $"{Source}" );
+                    DataSet.Tables.Add( DataTable );
+                    var _adapter = Query.DataAdapter;
+                    _adapter?.Fill( DataSet, DataTable.TableName );
+                    SetColumnCaptions( DataTable );
+                    return DataSet?.Tables?.Count > 0
                         ? DataSet
                         : default( DataSet );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataSet );
                 }
             }
@@ -146,195 +169,164 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <returns></returns>
-        public Source GetSource()
-        {
-            try
-            {
-                return Validate.IsSource( Source )
-                    ? Source
-                    : Source.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Source.NS;
-            }
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <returns></returns>
-        public Provider GetProvider()
-        {
-            try
-            {
-                return Validate.IsProvider( Provider )
-                    ? Provider
-                    : Provider.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Provider.NS;
-            }
-        }
-
-        /// <summary>
-        /// Gets the record.
-        /// </summary>
-        /// <returns></returns>
-        public DataRow GetRecord()
-        {
-            try
-            {
-                return Verify.IsRow( Record )
-                    ? Record
-                    : default( DataRow );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( DataRow );
-            }
-        }
-
-        /// <summary>
         /// Sets the column captions.
         /// </summary>
-        /// <param name="dataTable">The Data table.</param>
-        public void SetColumnCaptions( DataTable dataTable )
+        /// <param name="dataTable">The data table.</param>
+        private protected void SetColumnCaptions( DataTable dataTable )
         {
-            if( Verify.IsTable( dataTable ) )
+            if( dataTable?.Rows?.Count > 0 )
             {
                 try
                 {
-                    foreach( DataColumn column in dataTable.Columns )
+                    foreach( DataColumn _column in dataTable.Columns )
                     {
-                        switch( column?.ColumnName?.Length )
+                        if( _column != null )
                         {
-                            case < 5:
-                            {
-                                var _caption = column.ColumnName.ToUpper( );
-                                column.Caption = _caption;
-                                continue;
-                            }
-
-                            case >= 5:
-                                column.Caption = column.ColumnName.SplitPascal( );
-                                break;
+                            var _caption = _column.ColumnName.SplitPascal( );
+                            _column.Caption = _caption;
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
 
         /// <summary>
-        /// Gets the column schema.
+        /// Gets the fields.
         /// </summary>
         /// <returns></returns>
-        public DataColumnCollection GetColumnSchema()
+        private protected IList<string> GetFields( )
         {
-            try
-            {
-                var _table = GetDataTable( );
-                SetColumnCaptions( _table );
-
-                DataSet = new DataSet
-                {
-                    DataSetName = $"{Source}"
-                };
-
-                var _dataTable = new DataTable( $"{ Source }" )
-                {
-                    TableName = $"{Source}"
-                };
-
-                DataSet.Tables.Add( _dataTable );
-                using var _adapter = Query?.GetAdapter( );
-                _adapter?.Fill( DataSet, _dataTable.TableName );
-                SetColumnCaptions( _dataTable );
-
-                return _table.Columns.Count > 0
-                    ? _table.Columns
-                    : default( DataColumnCollection );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( DataColumnCollection );
-            }
-        }
-
-        /// <summary>
-        /// Gets the primary indexes.
-        /// </summary>
-        /// <param name="dataRows">The Data rows.</param>
-        /// <returns></returns>
-        public IEnumerable<int> GetPrimaryIndexes( IEnumerable<DataRow> dataRows )
-        {
-            if( Verify.IsInput( dataRows )
-                && dataRows?.HasPrimaryKey( ) == true )
+            if( DataTable != null )
             {
                 try
                 {
-                    var _table = dataRows?.CopyToDataTable( );
-                    var _values = _table?.GetPrimaryKeyValues( );
-
-                    return _values?.Any( ) == true
-                        ? _values.ToArray( )
-                        : default( IEnumerable<int> );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IEnumerable<int> );
-                }
-            }
-
-            return default( IEnumerable<int> );
-        }
-
-        /// <summary>
-        /// Gets the column ordinals.
-        /// </summary>
-        /// <param name="dataColumns">The Data columns.</param>
-        /// <returns></returns>
-        public IEnumerable<int> GetColumnOrdinals( IEnumerable<DataColumn> dataColumns )
-        {
-            if( Verify.IsSequence( dataColumns ) )
-            {
-                try
-                {
-                    var _list = dataColumns.ToList( );
-                    var _values = new List<int>( );
-
-                    if( _list?.Any( ) == true )
+                    var _fields = new List<string>( );
+                    foreach( DataColumn _col in DataTable.Columns )
                     {
-                        foreach( var column in _list )
+                        if( _col.DataType == typeof( string ) )
                         {
-                            _values.Add( column.Ordinal );
+                            _fields.Add( _col.ColumnName );
                         }
                     }
 
-                    return _values?.Any( ) == true
-                        ? _values.ToArray( )
-                        : default( int[ ] );
+                    return _fields?.Any( ) == true
+                        ? _fields
+                        : default( IList<string> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
-                    return default( IEnumerable<int> );
+                    Fail( _ex );
+                    return default( IList<string> );
                 }
             }
 
-            return default( IEnumerable<int> );
+            return default( IList<string> );
+        }
+
+        /// <summary>
+        /// Gets the numerics.
+        /// </summary>
+        /// <returns></returns>
+        private protected IList<string> GetNumerics( )
+        {
+            if( DataTable != null )
+            {
+                try
+                {
+                    var _numerics = new List<string>( );
+                    foreach( DataColumn _col in DataTable.Columns )
+                    {
+                        if( ( !_col.ColumnName.EndsWith( "Id" )
+                               && ( _col.Ordinal > 0 ) 
+                               && ( _col.DataType == typeof( double ) ) )
+                           || ( _col.DataType == typeof( short ) ) 
+                           || ( _col.DataType == typeof( long ) ) 
+                           || ( _col.DataType == typeof( decimal ) ) 
+                           || ( _col.DataType == typeof( float ) ) )
+                        {
+                            _numerics.Add( _col.ColumnName );
+                        }
+                    }
+
+                    return _numerics?.Any( ) == true
+                        ? _numerics
+                        : default( IList<string> );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( IList<string> );
+                }
+            }
+
+            return default( IList<string> );
+        }
+
+        /// <summary>
+        /// Gets the dates.
+        /// </summary>
+        /// <returns></returns>
+        private protected IList<string> GetDates( )
+        {
+            if( DataTable != null )
+            {
+                try
+                {
+                    var _dates = new List<string>( );
+                    foreach( DataColumn _col in DataTable.Columns )
+                    {
+                        if( ( _col.Ordinal > 0 )
+                           && ( ( _col.DataType == typeof( DateTime ) ) 
+                               || ( _col.DataType == typeof( DateOnly ) ) 
+                               || ( _col.DataType == typeof( DateTimeOffset ) ) 
+                               || ( _col.ColumnName.EndsWith( "Day" ) )   
+                               || ( _col.ColumnName.EndsWith( "Date" ) ) ) )
+                        {
+                            _dates.Add( _col.ColumnName );
+                        }
+                    }
+
+                    return _dates?.Any( ) == true
+                        ? _dates
+                        : default( IList<string> );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( IList<string> );
+                }
+            }
+
+            return default( IList<string> );
+        }
+
+        /// <summary>
+        /// Gets the primary keys.
+        /// </summary>
+        /// <returns></returns>
+        private protected IList<int> GetPrimaryKeys( )
+        {
+            if( DataTable != null )
+            {
+                try
+                {
+                    var _values = DataTable.GetIndexValues( );
+                    return _values?.Any( ) == true
+                        ? _values.ToList( )
+                        : default( IList<int> );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( IList<int> );
+                }
+            }
+
+            return default( IList<int> );
         }
     }
 }

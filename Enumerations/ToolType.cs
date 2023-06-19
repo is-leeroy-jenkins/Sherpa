@@ -1,9 +1,47 @@
-﻿// <copyright file = "Tool.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="ToolType.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   ToolType.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
+    using System;
+
     /// <summary>
     /// 
     /// </summary>
@@ -12,7 +50,7 @@ namespace BudgetExecution
         /// <summary>
         /// The ns
         /// </summary>
-        NS = 0,
+        Ns = 0,
 
         /// <summary>
         /// The account button
@@ -45,9 +83,19 @@ namespace BudgetExecution
         AddTableButton,
 
         /// <summary>
-        /// The bluetooth button
+        /// The add database button
         /// </summary>
-        BluetoothButton,
+        AddDatabaseButton,
+
+        /// <summary>
+        /// The back button
+        /// </summary>
+        BackButton,
+
+        /// <summary>
+        /// The blue tooth button
+        /// </summary>
+        BlueToothButton,
 
         /// <summary>
         /// The browse button
@@ -60,9 +108,19 @@ namespace BudgetExecution
         ChartButton,
 
         /// <summary>
+        /// The cancel request button
+        /// </summary>
+        CancelRequestButton,
+
+        /// <summary>
         /// The calculator button
         /// </summary>
         CalculatorButton,
+
+        /// <summary>
+        /// The calendar button
+        /// </summary>
+        CalendarButton,
 
         /// <summary>
         /// The close button
@@ -75,19 +133,29 @@ namespace BudgetExecution
         CsvButton,
 
         /// <summary>
+        /// The CSV import button
+        /// </summary>
+        CsvImportButton,
+
+        /// <summary>
+        /// The CSV export button
+        /// </summary>
+        CsvExportButton,
+
+        /// <summary>
         /// The copy button
         /// </summary>
         CopyButton,
 
         /// <summary>
-        /// The data add button
-        /// </summary>
-        DataAddButton,
-
-        /// <summary>
         /// The database button
         /// </summary>
         DatabaseButton,
+
+        /// <summary>
+        /// The database settings button
+        /// </summary>
+        DatabaseSettingsButton,
 
         /// <summary>
         /// The data configuration button
@@ -120,9 +188,9 @@ namespace BudgetExecution
         DeleteTableButton,
 
         /// <summary>
-        /// The data delete button
+        /// The delete database button
         /// </summary>
-        DataDeleteButton,
+        DeleteDatabaseButton,
 
         /// <summary>
         /// The download button
@@ -150,6 +218,11 @@ namespace BudgetExecution
         ExportButton,
 
         /// <summary>
+        /// The export database button
+        /// </summary>
+        ExportDatabaseButton,
+
+        /// <summary>
         /// The excel button
         /// </summary>
         ExcelButton,
@@ -170,6 +243,11 @@ namespace BudgetExecution
         EditColumnButton,
 
         /// <summary>
+        /// The edit button
+        /// </summary>
+        EditTextButton,
+
+        /// <summary>
         /// The encrypt data button
         /// </summary>
         EncryptDataButton,
@@ -183,6 +261,16 @@ namespace BudgetExecution
         /// The excel export button
         /// </summary>
         ExcelExportButton,
+
+        /// <summary>
+        /// The filter data button
+        /// </summary>
+        FilterDataButton,
+
+        /// <summary>
+        /// The filter button
+        /// </summary>
+        FilterButton,
 
         /// <summary>
         /// The forward button
@@ -200,9 +288,24 @@ namespace BudgetExecution
         GridButton,
 
         /// <summary>
+        /// The group button
+        /// </summary>
+        GroupButton,
+
+        /// <summary>
         /// The guidance button
         /// </summary>
         GuidanceButton,
+
+        /// <summary>
+        /// The google button
+        /// </summary>
+        GoogleButton,
+
+        /// <summary>
+        /// The go button
+        /// </summary>
+        GoButton,
 
         /// <summary>
         /// The home button
@@ -220,6 +323,11 @@ namespace BudgetExecution
         ImportButton,
 
         /// <summary>
+        /// The import database button
+        /// </summary>
+        ImportDatabaseButton,
+
+        /// <summary>
         /// The last button
         /// </summary>
         LastButton,
@@ -228,6 +336,11 @@ namespace BudgetExecution
         /// The logout button
         /// </summary>
         LogoutButton,
+
+        /// <summary>
+        /// The lookup button
+        /// </summary>
+        LookupButton,
 
         /// <summary>
         /// The previous button
@@ -285,6 +398,16 @@ namespace BudgetExecution
         PdfButton,
 
         /// <summary>
+        /// The PDF import button
+        /// </summary>
+        PdfImportButton,
+
+        /// <summary>
+        /// The PDF export button
+        /// </summary>
+        PdfExportButton,
+
+        /// <summary>
         /// The refresh button
         /// </summary>
         RefreshButton,
@@ -305,6 +428,11 @@ namespace BudgetExecution
         RemoveButton,
 
         /// <summary>
+        /// The remove filters button
+        /// </summary>
+        RemoveFiltersButton,
+
+        /// <summary>
         /// The rewind button
         /// </summary>
         RewindButton,
@@ -313,6 +441,11 @@ namespace BudgetExecution
         /// The save button
         /// </summary>
         SaveButton,
+
+        /// <summary>
+        /// The save as button
+        /// </summary>
+        SaveAsButton,
 
         /// <summary>
         /// The search data button
@@ -335,14 +468,29 @@ namespace BudgetExecution
         StopButton,
 
         /// <summary>
+        /// The edit SQL button
+        /// </summary>
+        EditSqlButton,
+
+        /// <summary>
         /// The SQL server button
         /// </summary>
         SqlServerButton,
 
         /// <summary>
+        /// The shutdown button
+        /// </summary>
+        ShutdownButton,
+
+        /// <summary>
         /// The table button
         /// </summary>
         TableButton,
+
+        /// <summary>
+        /// The table settings button
+        /// </summary>
+        TableSettingsButton,
 
         /// <summary>
         /// The trash button

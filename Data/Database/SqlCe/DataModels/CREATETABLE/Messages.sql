@@ -1,0 +1,7 @@
+CREATE TABLE Messages
+(
+	MessagesId INT NOT NULL IDENTITY(1,1),
+	Content NVARCHAR(255) NULL,
+	Type TEXT(80) NULL,
+	Form TEXT(80) NULL
+);

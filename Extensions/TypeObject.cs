@@ -1,59 +1,60 @@
-﻿// <copyright file="{ClassName}.cs" company="Terry D. Eppler">
-// Copyright (c) Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="TypeObject.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   TypeObject.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
     using System.Runtime.Serialization.Json;
     using System.Text;
     using System.Xml.Serialization;
-    using System.IO;
-    using System.Runtime.Serialization;
-    using System.Runtime.Serialization.Formatters.Binary;
-    using System.Web.Script.Serialization;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    [SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" )]
+    /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
     public static class TypeObject
     {
-        /// <summary>
-        /// Copies the specified type.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="type">The type.</param>
-        /// <returns></returns>
-        public static T Copy<T>( this T type ) where T : ISerializable
-        {
-            if( type != null )
-            {
-                try
-                {
-                    using var _stream = new MemoryStream( );
-                    var _formatter = new BinaryFormatter( );
-                    _formatter.Serialize( _stream, type );
-                    _stream.Position = 0;
-                    return (T)_formatter.Deserialize( _stream );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( T );
-                }
-            }
-
-            return default( T );
-        }
-
-        /// <summary>
-        /// Converts to json.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="type">The type.</param>
-        /// <returns></returns>
+        /// <summary> Converts to json. </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="type"> The type. </param>
+        /// <returns> </returns>
         public static string ToJson<T>( this T type )
         {
             if( type != null )
@@ -62,14 +63,14 @@ namespace BudgetExecution
                 {
                     var _encoding = Encoding.Default;
                     var _serializer = new DataContractJsonSerializer( typeof( T ) );
-                    using var stream = new MemoryStream( );
-                    _serializer.WriteObject( stream, type );
-                    var json = _encoding.GetString( stream.ToArray( ) );
-                    return json;
+                    using var _stream = new MemoryStream( );
+                    _serializer.WriteObject( _stream, type );
+                    var _json = _encoding.GetString( _stream.ToArray( ) );
+                    return _json;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( string );
                 }
             }
@@ -80,25 +81,25 @@ namespace BudgetExecution
         /// <summary>
         /// An object extension method that serialize an object to binary.
         /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="type">The @type to act on.</param>
-        /// <returns>
-        /// A string.
-        /// </returns>
-        public static string SerializeBinary<T>( this T type )
+        /// <typeparam name="T"> Generic type parameter. </typeparam>
+        /// <param name="type"> The @type to act on. </param>
+        /// <returns> A string. </returns>
+        public static string JavaScriptSerialize<T>( this T type )
         {
             if( type != null )
             {
                 try
                 {
-                    var _formatter = new BinaryFormatter( );
+                    var _encoding = Encoding.Default;
+                    var _serializer = new DataContractJsonSerializer( typeof( T ) );
                     using var _stream = new MemoryStream( );
-                    _formatter.Serialize( _stream, type );
-                    return Encoding.Default.GetString( _stream.ToArray( ) );
+                    _serializer.WriteObject( _stream, type );
+                    var _json = _encoding.GetString( _stream.ToArray( ) );
+                    return _json;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( string );
                 }
             }
@@ -106,44 +107,10 @@ namespace BudgetExecution
             return default( string );
         }
 
-        /// <summary>
-        /// An object extension method that serialize an object to binary.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="type">The @type to act on.</param>
-        /// <param name="encoding">The encoding.</param>
-        /// <returns>
-        /// A string.
-        /// </returns>
-        public static string SerializeBinary<T>( this T type, Encoding encoding )
-        {
-            if( type != null )
-            {
-                try
-                {
-                    var _formatter = new BinaryFormatter( );
-                    using var _stream = new MemoryStream( );
-                    _formatter.Serialize( _stream, type );
-                    return encoding.GetString( _stream.ToArray( ) );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( string );
-                }
-            }
-
-            return default( string );
-        }
-
-        /// <summary>
-        /// An object extension method that serialize a string to XML.
-        /// </summary>
-        /// <param name="type">The @type to act on.</param>
-        /// <returns>
-        /// The string representation of the Xml Serialization.
-        /// </returns>
-        public static string SerializeXml( this object type )
+        /// <summary> An object extension method that serialize a string to XML. </summary>
+        /// <param name="type"> The @type to act on. </param>
+        /// <returns> The string representation of the Xml Serialization. </returns>
+        public static string XmlSerialize<T>( this T type )
         {
             if( type != null )
             {
@@ -151,13 +118,14 @@ namespace BudgetExecution
                 {
                     var _serializer = new XmlSerializer( type.GetType( ) );
                     using var _writer = new StringWriter( );
-                    _serializer.Serialize( _writer, type );
-                    using var _reader = new StringReader( _writer.GetStringBuilder( ).ToString( ) );
-                    return _reader.ReadToEnd( );
+                    _serializer?.Serialize( _writer, type );
+                    var _string = _writer?.GetStringBuilder( )?.ToString( );
+                    using var _reader = new StringReader( _string );
+                    return _reader?.ReadToEnd( ) ?? string.Empty;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( string );
                 }
             }
@@ -165,38 +133,11 @@ namespace BudgetExecution
             return default( string );
         }
 
-        /// <summary>
-        ///     A T extension method that serialize java script.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="type">The @type to act on.</param>
-        /// <returns>A string.</returns>
-        public static string SerializeJavaScript<T>( this T type )
-        {
-            if( type != null )
-            {
-                try
-                {
-                    var _serializer = new JavaScriptSerializer( );
-                    return _serializer.Serialize( type );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( string );
-                }
-            }
-
-            return default( string );
-        }
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private static void Fail( Exception ex )
         {
-            using var _error = new Error( ex );
+            using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

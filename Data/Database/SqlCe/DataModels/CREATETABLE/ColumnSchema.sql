@@ -1,0 +1,8 @@
+CREATE TABLE ColumnSchema
+(
+	ColumnSchemaId	INT NOT NULL IDENTITY(1,1),
+	DataType	NVARCHAR(80) NULL,
+	ColumnName	NVARCHAR(80) NULL,
+	TableName	NVARCHAR(80) NULL,
+	ColumnCaption	NVARCHAR(80) NULL
+);

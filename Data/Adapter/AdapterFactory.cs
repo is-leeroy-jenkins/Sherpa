@@ -1,306 +1,124 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="AdapterFactory.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   AdapterFactory.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
     using System.Data.Common;
-    using System.Data.OleDb;
-    using System.Data.SqlClient;
-    using System.Data.SQLite;
-    using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IDisposable" />
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    public class AdapterFactory : IDisposable
+    /// <seealso cref="BudgetExecution.AdapterBase" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class AdapterFactory : AdapterBase
     {
         /// <summary>
-        /// Gets or sets the connection.
-        /// </summary>
-        /// <value>
-        /// The connection.
-        /// </value>
-        public DbConnection Connection { get; set; }
-
-        /// <summary>
-        /// Gets or sets the SQL statement.
-        /// </summary>
-        /// <value>
-        /// The SQL statement.
-        /// </value>
-        public ISqlStatement SqlStatement { get; set; }
-
-        /// <summary>
-        /// Gets or sets the command builder.
-        /// </summary>
-        /// <value>
-        /// The command builder.
-        /// </value>
-        public ICommandBuilder CommandBuilder { get; set; }
-
-        /// <summary>
-        /// Gets or sets the connection builder.
-        /// </summary>
-        /// <value>
-        /// The connection builder.
-        /// </value>
-        public IConnectionBuilder ConnectionBuilder { get; set; }
-
-        /// <summary>
-        /// Gets or sets the adapter builder.
-        /// </summary>
-        /// <value>
-        /// The adapter builder.
-        /// </value>
-        public AdapterBuilder AdapterBuilder { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="AdapterFactory"/> class.
         /// </summary>
-        /// <param name="adapterBuilder">The adapter builder.</param>
-        public AdapterFactory( AdapterBuilder adapterBuilder )
+        public AdapterFactory( )
         {
-            AdapterBuilder = adapterBuilder;
-            ConnectionBuilder = AdapterBuilder.ConnectionBuilder;
-            Connection = new ConnectionFactory( ConnectionBuilder )?.GetConnection( );
-            SqlStatement = new SqlStatement( ConnectionBuilder );
-            CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AdapterFactory"/> class.
         /// </summary>
-        /// <param name="connectionBuilder">The connection builder.</param>
+        /// <param name="commandFactory">The command factory.</param>
+        public AdapterFactory( ICommandFactory commandFactory )
+            : base( commandFactory )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AdapterFactory"/> class.
+        /// </summary>
         /// <param name="sqlStatement">The SQL statement.</param>
-        public AdapterFactory( IConnectionBuilder connectionBuilder, ISqlStatement sqlStatement )
+        public AdapterFactory( ISqlStatement sqlStatement )
+            : base( sqlStatement )
         {
-            ConnectionBuilder = connectionBuilder;
-            SqlStatement = sqlStatement;
-            AdapterBuilder = new AdapterBuilder( ConnectionBuilder, SqlStatement );
-            Connection = new ConnectionFactory( ConnectionBuilder )?.GetConnection( );
-            CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AdapterFactory"/> class.
-        /// </summary>
-        /// <param name="connectionBuilder">The connection builder.</param>
-        /// <param name="commandBuilder">The command builder.</param>
-        public AdapterFactory( IConnectionBuilder connectionBuilder, ICommandBuilder commandBuilder )
-        {
-            ConnectionBuilder = connectionBuilder;
-            CommandBuilder = commandBuilder;
-            SqlStatement = CommandBuilder.SqlStatement;
-            AdapterBuilder = new AdapterBuilder( ConnectionBuilder, SqlStatement );
-            Connection = new ConnectionFactory( ConnectionBuilder ).GetConnection( );
         }
 
         /// <summary>
         /// Gets the adapter.
         /// </summary>
         /// <returns></returns>
-        public DbDataAdapter GetAdapter()
+        public DbDataAdapter GetAdapter( )
         {
-            if( Verify.IsInput( ConnectionBuilder.ConnectionString )
-                && Verify.IsInput( SqlStatement.GetSelectStatement( ) ) )
+            if( Enum.IsDefined( typeof( Provider ), Provider )
+               && ( DataConnection != null )
+               && !string.IsNullOrEmpty( CommandText ) )
             {
                 try
                 {
-                    var _provider = ConnectionBuilder.Provider;
-
-                    if( Validate.IsProvider( _provider ) )
+                    switch( Provider )
                     {
-                        switch( _provider )
+                        case Provider.SQLite:
                         {
-                            case Provider.SQLite:
-                            {
-                                return GetSQLiteAdapter( ) ?? default( SQLiteDataAdapter );
-                            }
-
-                            case Provider.SqlCe:
-                            {
-                                return GetSqlCeAdapter( ) ?? default( SqlCeDataAdapter );
-                            }
-
-                            case Provider.SqlServer:
-                            {
-                                return GetSqlAdapter( ) ?? default( SqlDataAdapter );
-                            }
-
-                            case Provider.CSV:
-                            case Provider.OleDb:
-                            case Provider.Access:
-                            case Provider.Excel:
-                            {
-                                return GetOleDbDataAdapter( ) ?? default( OleDbDataAdapter );
-                            }
+                            return GetSQLiteAdapter( );
+                        }
+                        case Provider.SqlCe:
+                        {
+                            return GetSqlCeAdapter( );
+                        }
+                        case Provider.SqlServer:
+                        {
+                            return GetSqlAdapter( );
+                        }
+                        case Provider.Excel:
+                        case Provider.CSV:
+                        case Provider.Access:
+                        case Provider.OleDb:
+                        {
+                            return GetOleDbAdapter( );
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
+                    return default( DbDataAdapter );
                 }
             }
 
             return default( DbDataAdapter );
-        }
-
-        /// <summary>
-        /// Gets the OLE database data adapter.
-        /// </summary>
-        /// <returns></returns>
-        private OleDbDataAdapter GetOleDbDataAdapter()
-        {
-            if( Verify.IsInput( SqlStatement.GetSelectStatement( ) ) )
-            {
-                try
-                {
-                    var _connectionString = ConnectionBuilder?.ConnectionString;
-
-                    return Verify.IsInput( _connectionString )
-                        ? new OleDbDataAdapter( SqlStatement.GetSelectStatement( ), _connectionString )
-                        : default( OleDbDataAdapter );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( OleDbDataAdapter );
-                }
-            }
-
-            return default( OleDbDataAdapter );
-        }
-
-        /// <summary>
-        /// Gets the SQL adapter.
-        /// </summary>
-        /// <returns></returns>
-        private SqlDataAdapter GetSqlAdapter()
-        {
-            if( Verify.IsRef( SqlStatement ) )
-            {
-                try
-                {
-                    var _connectionString = ConnectionBuilder?.ConnectionString;
-
-                    return Verify.IsInput( _connectionString )
-                        ? new SqlDataAdapter( SqlStatement.GetSelectStatement( ), _connectionString )
-                        : default( SqlDataAdapter );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( SqlDataAdapter );
-                }
-            }
-
-            return default( SqlDataAdapter );
-        }
-
-        /// <summary>
-        /// Gets the SQL ce adapter.
-        /// </summary>
-        /// <returns></returns>
-        private SqlCeDataAdapter GetSqlCeAdapter()
-        {
-            if( Verify.IsInput( Connection?.ConnectionString )
-                && Verify.IsInput( SqlStatement?.GetSelectStatement( ) ) )
-            {
-                try
-                {
-                    var _dataAdapter = new SqlCeDataAdapter( SqlStatement?.GetSelectStatement( ),
-                        Connection as SqlCeConnection );
-
-                    return _dataAdapter ?? default( SqlCeDataAdapter );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( SqlCeDataAdapter );
-                }
-            }
-
-            return default( SqlCeDataAdapter );
-        }
-
-        /// <summary>
-        /// Gets the sq lite adapter.
-        /// </summary>
-        /// <returns></returns>
-        private SQLiteDataAdapter GetSQLiteAdapter()
-        {
-            if( SqlStatement != null )
-            {
-                try
-                {
-                    var _adapter = new SQLiteDataAdapter( SqlStatement.GetSelectStatement( ),
-                        Connection as SQLiteConnection );
-
-                    return _adapter ?? default( SQLiteDataAdapter );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( SQLiteDataAdapter );
-                }
-            }
-
-            return default( SQLiteDataAdapter );
-        }
-
-        /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
-        /// </summary>
-        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
-        private protected virtual void Dispose( bool disposing )
-        {
-            if( disposing )
-            {
-                try
-                {
-                    AdapterBuilder?.Dispose( );
-                    Connection?.Dispose( );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose()
-        {
-            try
-            {
-                Dispose( true );
-                GC.SuppressFinalize( this );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error.SetText( );
-            _error.ShowDialog( );
         }
     }
 }

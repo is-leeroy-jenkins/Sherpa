@@ -1,116 +1,146 @@
-﻿// <copyright file = "RPIO.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="RPIO.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   RPIO.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
-    /// <summary>
-    /// 
-    /// </summary>
+    using System;
+
     public enum RPIO
     {
         /// <summary>
-        /// The ns
-        /// </summary>
-        NS = 0,
-
-        /// <summary>
-        /// RPIO-01
+        /// The R01
         /// </summary>
         R01,
 
         /// <summary>
-        /// RPIO-02
+        /// The R02
         /// </summary>
         R02,
 
         /// <summary>
-        /// RPIO-03
+        /// The R03
         /// </summary>
         R03,
 
         /// <summary>
-        /// RPIO-04
+        /// The R04
         /// </summary>
         R04,
 
         /// <summary>
-        /// RPIO-05
+        /// The R05
         /// </summary>
         R05,
 
         /// <summary>
-        /// RPIO-06
+        /// The R06
         /// </summary>
         R06,
 
         /// <summary>
-        /// RPIO-07
+        /// The R07
         /// </summary>
         R07,
 
         /// <summary>
-        /// RPIO-08
+        /// The R08
         /// </summary>
         R08,
 
         /// <summary>
-        /// RPIO-09
+        /// The R09
         /// </summary>
         R09,
 
         /// <summary>
-        /// RPIO-10
+        /// The R10
         /// </summary>
         R10,
 
         /// <summary>
-        /// RPIO-11
+        /// The R11
         /// </summary>
         R11,
 
         /// <summary>
-        /// RPIO-13
+        /// The R13
         /// </summary>
         R13,
 
         /// <summary>
-        /// RPIO-PIO-16
+        /// The R16
         /// </summary>
         R16,
 
         /// <summary>
-        /// RPIO-17
+        /// The R17
         /// </summary>
         R17,
 
         /// <summary>
-        /// RPIO-18
+        /// The R18
         /// </summary>
         R18,
 
         /// <summary>
-        /// RPIO-20
+        /// The R20
         /// </summary>
         R20,
 
         /// <summary>
-        /// RPIO-26
+        /// The R26
         /// </summary>
         R26,
 
         /// <summary>
-        /// RPIO-30
+        /// The R30
         /// </summary>
         R30,
 
         /// <summary>
-        /// RPIO-35
+        /// The R35
         /// </summary>
         R35,
 
         /// <summary>
-        /// RPIO-39
+        /// The R39
         /// </summary>
         R39,
 
@@ -120,73 +150,63 @@ namespace BudgetExecution
         R66,
 
         /// <summary>
-        /// RPIO-75
+        /// The R75
         /// </summary>
         R75,
 
         /// <summary>
-        /// RPIO-77
+        /// The R77
         /// </summary>
         R77,
 
         /// <summary>
-        /// RPIO-92
+        /// The R92
         /// </summary>
         R92,
 
         /// <summary>
-        /// RPIO-94
+        /// The R94
         /// </summary>
         R94,
 
         /// <summary>
-        /// RPIO-95
+        /// The R95
         /// </summary>
         R95,
 
         /// <summary>
-        /// RPIO-98
+        /// The R98
         /// </summary>
         R98,
 
         /// <summary>
-        /// RPIO-09 b
+        /// The r9 b
         /// </summary>
         R9B,
 
         /// <summary>
-        /// RPIO-09 h
+        /// The r9 h
         /// </summary>
         R9H,
 
         /// <summary>
-        /// RPIO-09 p
+        /// The r9 p
         /// </summary>
         R9P,
 
         /// <summary>
-        /// RPIO-09 r
+        /// The r9 r
         /// </summary>
         R9R,
 
         /// <summary>
-        /// RPIO-09 v
+        /// The r9 v
         /// </summary>
         R9V,
 
         /// <summary>
-        /// RPIO-09 z
+        /// The r9 z
         /// </summary>
-        R9Z,
-
-        /// <summary>
-        /// HQ
-        /// </summary>
-        HQ,
-
-        /// <summary>
-        /// RPIO-RT
-        /// </summary>
-        RT
+        R9Z
     }
 }

@@ -1,72 +1,174 @@
-﻿// <copyright file = "ExcelQuery.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="ExcelQuery.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   ExcelQuery.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Data.Common;
     using System.Data.OleDb;
     using System.IO;
     using System.Runtime.InteropServices;
     using System.Windows.Forms;
-    using Microsoft.Office.Interop.Excel;
     using OfficeOpenXml;
-    using App = Microsoft.Office.Interop.Excel.Application;
-    using DataTable = System.Data.DataTable;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Query" />
     public class ExcelQuery : Query
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
-        public ExcelQuery()
+        public ExcelQuery( )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
-        /// <param name="filePath">The file path.</param>
-        /// <param name="command">The command.</param>
-        public ExcelQuery( string filePath, SQL command = SQL.SELECT )
-            : base( filePath, command )
+        /// <param name="source">The source.</param>
+        public ExcelQuery( Source source )
+            : base( source, Provider.Excel, SQL.SELECT )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
-        /// <param name="filePath">The file path.</param>
-        /// <param name="command">The command.</param>
+        /// <param name="source">The source.</param>
         /// <param name="dict">The dictionary.</param>
-        public ExcelQuery( string filePath, SQL command, IDictionary<string, object> dict )
-            : base( filePath, command, dict )
+        public ExcelQuery( Source source, IDictionary<string, object> dict )
+            : base( source, Provider.Excel, dict, SQL.SELECT )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
-        /// <param name="filePath">The file path.</param>
+        /// <param name="source">The source.</param>
         /// <param name="dict">The dictionary.</param>
-        public ExcelQuery( string filePath, IDictionary<string, object> dict )
-            : base( filePath, SQL.SELECT, dict )
+        /// <param name="commandType">Type of the command.</param>
+        public ExcelQuery( Source source, IDictionary<string, object> dict, SQL commandType )
+            : base( source, Provider.Excel, dict, commandType )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
-        /// <param name="connectionBuilder">The connectionBuilder.</param>
+        /// <param name="source">The source.</param>
+        /// <param name="updates">The updates.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public ExcelQuery( Source source, IDictionary<string, object> updates, 
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            : base( source, Provider.Excel, updates, where, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="columns">The columns.</param>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public ExcelQuery( Source source, IEnumerable<string> columns, 
+            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+            : base( source, Provider.Excel, columns, criteria, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public ExcelQuery( Source source, IEnumerable<string> fields, 
+            IEnumerable<string> numerics, IDictionary<string, object> criteria,
+            SQL commandType = SQL.SELECT )
+            : base( source, Provider.Excel, fields, numerics, criteria,
+                commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
+        /// </summary>
         /// <param name="sqlStatement">The sqlStatement.</param>
-        public ExcelQuery( IConnectionBuilder connectionBuilder, ISqlStatement sqlStatement )
-            : base( connectionBuilder, sqlStatement )
+        public ExcelQuery( ISqlStatement sqlStatement )
+            : base( sqlStatement )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="sqlText">The SQL text.</param>
+        public ExcelQuery( Source source, string sqlText )
+            : base( source, Provider.Excel, sqlText )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
+        /// </summary>
+        /// <param name="fullPath">The fullpath.</param>
+        /// <param name="sqlText"></param>
+        /// <param name="commandType">The commandType.</param>
+        public ExcelQuery( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
+            : base( fullPath, sqlText, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
+        /// </summary>
+        /// <param name="fullPath">The fullpath.</param>
+        /// <param name="commandType">The commandType.</param>
+        /// <param name="dict"></param>
+        public ExcelQuery( string fullPath, SQL commandType, IDictionary<string, object> dict )
+            : base( fullPath, commandType, dict )
         {
         }
 
@@ -80,7 +182,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _dialog = new SaveFileDialog
+                    var _dialog = new SaveFileDialog
                     {
                         Filter = "Excel files (*.xlsx)|*.xlsx",
                         FilterIndex = 1
@@ -90,14 +192,14 @@ namespace BudgetExecution
                     {
                         var _name = _dialog.FileName;
                         workBook.Save( _name );
-                        const string _successful = "Save Successful!";
-                        using var _message = new Message( _successful );
+                        const string SUCCESSFUL = "Save Successful!";
+                        var _message = new Message( SUCCESSFUL );
                         _message?.ShowDialog( );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -109,72 +211,54 @@ namespace BudgetExecution
         /// <param name="filePath">The file path.</param>
         public void WriteExcelFile( DataTable table, string filePath )
         {
-            if( Verify.IsTable( table )
-                && Verify.IsInput( filePath ) )
+            if( ( table?.Columns.Count > 0 )
+               && !string.IsNullOrEmpty( filePath ) )
             {
                 try
                 {
                     using var _excelPackage = ReadExcelFile( filePath );
                     var _name = Path.GetFileNameWithoutExtension( filePath );
-                    using var _excelWorksheet = _excelPackage.Workbook.Worksheets.Add( _name );
-                    var _columns = table.Columns.Count;
-                    var _rows = table.Rows.Count;
-
-                    for( var column = 1; column <= _columns; column++ )
+                    var _excelWorksheet = _excelPackage?.Workbook?.Worksheets?.Add( _name );
+                    var _columns = table?.Columns?.Count;
+                    var _rows = table?.Rows?.Count;
+                    for( var _column = 1; _column <= _columns; _column++ )
                     {
-                        _excelWorksheet.Cells[ 1, column ].Value = table.Columns[ column - 1 ].ColumnName;
+                        if( _excelWorksheet != null )
+                        {
+                            var _colName = table.Columns[ _column - 1 ].ColumnName;
+                            _excelWorksheet.Cells[ 1, _column ].Value = _colName;
+                        }
                     }
 
-                    for( var row = 1; row <= _rows; row++ )
+                    for( var _row = 1; _row <= _rows; _row++ )
                     {
-                        for( var col = 0; col < _columns; col++ )
+                        for( var _col = 0; _col < _columns; _col++ )
                         {
-                            _excelWorksheet.Cells[ row + 1, col + 1 ].Value = table.Rows[ row - 1 ][ col ];
+                            if( _excelWorksheet != null )
+                            {
+                                var _column = table.Rows[ _row - 1 ][ _col ];
+                                _excelWorksheet.Cells[ _row + 1, _col + 1 ].Value = _column;
+                            }
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Reads the excel file.
-        /// </summary>
-        /// <param name="filePath">The file path.</param>
-        /// <returns></returns>
-        private static ExcelPackage ReadExcelFile( string filePath )
-        {
-            if( Verify.IsInput( filePath ) )
-            {
-                try
-                {
-                    var _fileInfo = new FileInfo( filePath );
-                    return new ExcelPackage( _fileInfo );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( ExcelPackage );
-                }
-            }
-
-            return default( ExcelPackage );
         }
 
         /// <summary>
         /// Gets the excel file.
         /// </summary>
         /// <returns></returns>
-        public string GetExcelFile()
+        public string GetExcelFile( )
         {
             try
             {
                 var _fileName = "";
-
-                using var dialog = new OpenFileDialog
+                var _dialog = new OpenFileDialog
                 {
                     Title = "Excel File Dialog",
                     InitialDirectory = @"c:\",
@@ -183,44 +267,41 @@ namespace BudgetExecution
                     RestoreDirectory = true
                 };
 
-                if( dialog.ShowDialog( ) == DialogResult.OK )
+                if( _dialog.ShowDialog( ) == DialogResult.OK )
                 {
-                    _fileName = dialog.FileName;
+                    _fileName = _dialog.FileName;
                 }
 
                 return _fileName;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( string );
             }
         }
 
         /// <summary>
-        /// Imports the Data.
+        /// Imports the data.
         /// </summary>
         /// <param name="sheetName">Name of the sheet.</param>
         /// <returns></returns>
         public DataTable ImportData( ref string sheetName )
         {
-            if( Verify.IsInput( sheetName ) )
+            if( !string.IsNullOrEmpty( sheetName ) )
             {
                 try
                 {
-                    using var _dataSet = new DataSet( );
-                    using var _connection = GetConnection( );
+                    var _dataSet = new DataSet( );
+                    var _connection = DataConnection as OleDbConnection;
                     _connection?.Open( );
-                    var _sql = "SELECT * FROM [" + sheetName + "]";
-
-                    var _schema =
-                        ( (OleDbConnection)_connection )?.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
-
-                    if( _schema?.Columns?.Count > 0
-                        && !SheetExists( sheetName, _schema ) )
+                    var _sql = $"SELECT * FROM {sheetName}";
+                    var _schema = _connection?.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
+                    if( ( _schema?.Columns?.Count > 0 )
+                       && !SheetExists( sheetName, _schema ) )
                     {
-                        const string _msg = "Sheet Does Not Exist!";
-                        using var _message = new Message( _msg );
+                        const string MSG = "Sheet Does Not Exist!";
+                        var _message = new Message( MSG );
                         _message?.ShowDialog( );
                     }
                     else
@@ -228,13 +309,13 @@ namespace BudgetExecution
                         sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
                     }
 
-                    using var _dataAdapter = new OleDbDataAdapter( _sql, _connection as OleDbConnection );
-                    _dataAdapter?.Fill( _dataSet );
+                    var _adapter = new OleDbDataAdapter( _sql, _connection );
+                    _adapter?.Fill( _dataSet );
                     return _dataSet?.Tables[ 0 ];
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataTable );
                 }
             }
@@ -250,27 +331,25 @@ namespace BudgetExecution
         /// <returns></returns>
         public DataTable CsvImport( string fileName, ref string sheetName )
         {
-            if( Verify.IsInput( fileName )
-                && Verify.IsInput( sheetName ) )
+            if( !string.IsNullOrEmpty( fileName )
+               && !string.IsNullOrEmpty( sheetName ) )
             {
                 try
                 {
-                    using var _data = new DataSet( );
-                    var _sql = "SELECT * FROM [" + sheetName + "]";
-
-                    var _connectionString =
-                        $@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={Path.GetDirectoryName( fileName )};"
-                        + @"Extended Properties='Text;HDR=YES;FMT=Delimited'";
-
-                    using var _connection = new OleDbConnection( _connectionString );
+                    var _data = new DataSet( );
+                    var _sql = $"SELECT * FROM {sheetName}";
+                    var _connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;" 
+                        + $"Data Source={Path.GetDirectoryName( fileName )} " 
+                        + "Extended Properties='Text;HDR=YES;FMT=Delimited'";
+                    
+                    var _connection = new OleDbConnection( _connectionString );
                     var _schema = _connection.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
-
-                    if( Verify.IsInput( sheetName ) )
+                    if( !string.IsNullOrEmpty( sheetName ) )
                     {
                         if( !SheetExists( sheetName, _schema ) )
                         {
                             var _msg = $"{sheetName} in {fileName} Does Not Exist!";
-                            using var _message = new Message( _msg );
+                            var _message = new Message( _msg );
                             _message?.ShowDialog( );
                         }
                     }
@@ -279,13 +358,13 @@ namespace BudgetExecution
                         sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
                     }
 
-                    using var _dataAdapter = new OleDbDataAdapter( _sql, _connection );
+                    var _dataAdapter = new OleDbDataAdapter( _sql, _connection );
                     _dataAdapter.Fill( _data );
                     return _data.Tables[ 0 ];
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataTable );
                 }
             }
@@ -294,41 +373,96 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Exports to Data grid.
+        /// Releases the specified range.
         /// </summary>
-        /// <param name="dataGrid">The Data grid.</param>
+        /// <param name="range">The range.</param>
+        /// <param name="workSheet">The work sheet.</param>
+        /// <param name="excel">The excel.</param>
+        protected virtual void Release( ExcelRange range, ExcelWorksheet workSheet, 
+            ExcelPackage excel )
+        {
+            try
+            {
+                GC.Collect( );
+                GC.WaitForPendingFinalizers( );
+                Marshal.ReleaseComObject( range );
+                Marshal.ReleaseComObject( workSheet );
+                Marshal.ReleaseComObject( excel );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Reads the excel file.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <returns></returns>
+        private static ExcelPackage ReadExcelFile( string filePath )
+        {
+            if( !string.IsNullOrEmpty( filePath ) )
+            {
+                try
+                {
+                    var _fileInfo = new FileInfo( filePath );
+                    return new ExcelPackage( _fileInfo );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( ExcelPackage );
+                }
+            }
+
+            return default( ExcelPackage );
+        }
+
+        /// <summary>
+        /// Gets the connection.
+        /// </summary>
+        /// <returns></returns>
+        private DbConnection GetConnection( )
+        {
+            return ConnectionFactory.Connection;
+        }
+
+        /// <summary>
+        /// Exports to data grid.
+        /// </summary>
+        /// <param name="dataGrid">The data grid.</param>
         private void ExportToDataGrid( DataGridView dataGrid )
         {
             try
             {
-                var _filePath = GetConnectionBuilder( ).ProviderPath[ Provider.ToString( ) ];
-                var _application = new App( );
-                var _workbook = _application.Workbooks.Open( _filePath );
-                var worksheet = _workbook.Sheets[ 1 ];
-                var _range = worksheet.UsedRange;
-                var _rows = _range.Rows.Count;
-                var _columns = _range.Columns.Count;
+                var _filePath = ConnectionFactory.DbPath;
+                var _stream = new FileInfo( _filePath );
+                var _application = new ExcelPackage( _stream );
+                var _workbook = _application.Workbook;
+                var _worksheet = _workbook.Worksheets[ 1 ];
+                var _range = _worksheet.SelectedRange;
+                var _rows = _range.Rows;
+                var _columns = _range.Columns;
                 dataGrid.ColumnCount = _columns;
                 dataGrid.RowCount = _rows;
-
-                for( var i = 1; i <= _rows; i++ )
+                for( var _i = 1; _i <= _rows; _i++ )
                 {
-                    for( var j = 1; j <= _columns; j++ )
+                    for( var _j = 1; _j <= _columns; _j++ )
                     {
-                        if( _range.Cells[ i, j ] != null
-                            && _range.Cells[ i, j ].Value2 != null )
+                        if( ( _range[ _i, _j ].Address != null )
+                           && ( _range[ _i, _j ].Value != null ) )
                         {
-                            dataGrid.Rows[ i - 1 ].Cells[ j - 1 ].Value =
-                                _range.Cells[ i, j ].Value2.ToString( );
+                            dataGrid.Rows[ _i - 1 ].Cells[ _j - 1 ].Value = _range[ _i, _j ].Address;
                         }
                     }
                 }
 
-                Release( _range, worksheet, _application );
+                Release( _range, _worksheet, _application );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -336,20 +470,19 @@ namespace BudgetExecution
         /// Sheets the exists.
         /// </summary>
         /// <param name="sheetName">Name of the sheet.</param>
-        /// <param name="dataTable">The Data table.</param>
+        /// <param name="dataTable">The data table.</param>
         /// <returns></returns>
         private bool SheetExists( string sheetName, DataTable dataTable )
         {
-            if( Verify.IsInput( sheetName )
-                && dataTable?.Columns.Count > 0
-                && dataTable.Rows.Count > 0 )
+            if( !string.IsNullOrEmpty( sheetName )
+               && ( dataTable?.Columns.Count > 0 )
+               && ( dataTable.Rows.Count > 0 ) )
             {
                 try
                 {
-                    for( var i = 0; i < dataTable.Rows.Count; i++ )
+                    for( var _i = 0; _i < dataTable.Rows.Count; _i++ )
                     {
-                        var _dataRow = dataTable.Rows[ i ];
-
+                        var _dataRow = dataTable.Rows[ _i ];
                         if( sheetName == _dataRow[ "TABLENAME" ].ToString( ) )
                         {
                             return true;
@@ -358,54 +491,20 @@ namespace BudgetExecution
 
                     return false;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
 
             return false;
         }
 
-        /// <summary>
-        /// Releases the specified range.
-        /// </summary>
-        /// <param name="range">The range.</param>
-        /// <param name="workSheet">The work sheet.</param>
-        /// <param name="excel">The excel.</param>
-        protected virtual void Release( Range range, Worksheet workSheet, App excel )
-        {
-            try
-            {
-                GC.Collect( );
-                GC.WaitForPendingFinalizers( );
-                Marshal.ReleaseComObject( range );
-                Marshal.ReleaseComObject( workSheet );
-                excel.Quit( );
-                Marshal.ReleaseComObject( excel );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
-        /// </summary>
-        /// <param name="disposing"><c>
-        /// true
-        /// </c>
-        /// to release both managed and unmanaged resources;
-        /// <c>
-        /// false
-        /// </c>
-        /// to release only unmanaged resources.</param>
         protected override void Dispose( bool disposing )
         {
             if( disposing )
             {
-                base.Dispose( );
+                base.Dispose( disposing );
             }
 
             IsDisposed = true;

@@ -1,0 +1,8 @@
+CREATE TABLE NationalPrograms 
+(
+	NationalProgramsId	INT NOT NULL IDENTITY(1,1),
+	Code	NVARCHAR(80) NOT NULL,
+	Name	NVARCHAR(80) NULL,
+	RpioCode	NVARCHAR(80) NULL,
+	Title	NVARCHAR(80) NULL
+);

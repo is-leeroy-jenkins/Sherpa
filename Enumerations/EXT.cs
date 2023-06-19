@@ -1,111 +1,144 @@
-﻿// <copyright file = "EXT.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="EXT.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   EXT.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
+    using System;
+
     /// <summary>
-    /// Defines the EXT
+    /// 
     /// </summary>
     public enum EXT
     {
         /// <summary>
-        /// Defines the None
-        /// </summary>
-        NS = 0,
-
-        /// <summary>
-        /// Defines the DB on SQLite database files.
+        /// The database
         /// </summary>
         DB,
 
         /// <summary>
-        /// Defines the ACCDB on newer MS Access database files.
+        /// The accdb
         /// </summary>
         ACCDB,
 
         /// <summary>
-        /// Defines the MDB on older MS Access database files.
+        /// The MDB
         /// </summary>
         MDB,
 
         /// <summary>
-        /// Defines the SDF on MS SQL Server Compact Edition database files.
+        /// The SDF
         /// </summary>
         SDF,
 
         /// <summary>
-        /// Defines the MDF on MS SQL Server database files.
+        /// The MDF
         /// </summary>
         MDF,
 
         /// <summary>
-        /// Defines the XLS on older MS Excel files.
+        /// The XLS
         /// </summary>
         XLS,
 
         /// <summary>
-        /// Defines the XLSX on newer MS Excel files.
+        /// The XLSX
         /// </summary>
         XLSX,
 
         /// <summary>
-        /// Defines the CSV on Comma Seperated Value files.
+        /// The CSV
         /// </summary>
         CSV,
 
         /// <summary>
-        /// Defines the TXT on Text files.
+        /// The text
         /// </summary>
         TXT,
 
         /// <summary>
-        /// Defines the PDF on Portable Document Codec files.
+        /// The PDF
         /// </summary>
         PDF,
 
         /// <summary>
-        /// Defines the DOCX on newer MS Word files.
+        /// The docx
         /// </summary>
         DOCX,
 
         /// <summary>
-        /// Defines the DOC on older MS Word files.
+        /// The document
         /// </summary>
         DOC,
 
         /// <summary>
-        /// Identifies SQL files
+        /// The SQL
         /// </summary>
         SQL,
 
         /// <summary>
-        /// Identififes .resx file extension for resource files
+        /// The RESX
         /// </summary>
         RESX,
 
         /// <summary>
-        /// Identifies .dll extension for libraries
+        /// The DLL
         /// </summary>
-        DLL,
+        Dll,
 
         /// <summary>
-        /// Identifies the .exe file extenstion for executables
+        /// The executable
         /// </summary>
-        EXE,
+        Exe,
 
         /// <summary>
-        /// Identifies the .ico file extension for icons
+        /// The icon
         /// </summary>
         ICO,
 
         /// <summary>
-        /// Identifies the .png file extension for images
+        /// The PNG
         /// </summary>
         PNG,
 
         /// <summary>
-        /// Identifies the .gif file extension for gifs
+        /// The GIF
         /// </summary>
         GIF
     }

@@ -1,6 +1,42 @@
-﻿// <copyright file = "Static.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="Static.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   Static.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -14,12 +50,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "NotAccessedVariable" )]
-    [SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public static class Static
     {
         /// <summary>
@@ -32,19 +64,34 @@ namespace BudgetExecution
             try
             {
                 type = Nullable.GetUnderlyingType( type ) ?? type;
-
-                return type.Name switch
+                switch( type.Name )
                 {
-                    "String" or "Boolean" => "Text",
-                    "IsDateTime" => "Date",
-                    "Int32" => "Double",
-                    "Decimal" => "Currency",
-                    _ => type.Name,
-                };
+                    case "String":
+                    case "Boolean":
+                    {
+                        return "Text";
+                    }
+                    case "DateTime":
+                    {
+                        return "Date";
+                    }
+                    case "Int32":
+                    {
+                        return "Double";
+                    }
+                    case "Decimal":
+                    {
+                        return "Currency";
+                    }
+                    default:
+                    {
+                        return type.Name;
+                    }
+                }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( string );
             }
         }
@@ -55,7 +102,7 @@ namespace BudgetExecution
         /// <param name="connection">The connection.</param>
         /// <param name="sql">The SQL.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException">connection</exception>
+        /// <exception cref="System.ArgumentNullException">connection</exception>
         public static IDbCommand CreateCommand( this IDbConnection connection, string sql )
         {
             try
@@ -67,14 +114,13 @@ namespace BudgetExecution
 
                 var _command = connection?.CreateCommand( );
                 _command.CommandText = sql;
-
-                return Verify.IsInput( _command?.CommandText )
+                return !string.IsNullOrEmpty( _command?.CommandText )
                     ? _command
                     : default( IDbCommand );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IDbCommand );
             }
         }
@@ -87,17 +133,21 @@ namespace BudgetExecution
         /// <returns></returns>
         public static int ExecuteNonQuery( this IDbConnection connection, string sql )
         {
-            try
+            if( !string.IsNullOrEmpty( sql ) )
             {
-                using var _command = connection?.CreateCommand( sql );
+                try
+                {
+                    using var _command = connection?.CreateCommand( sql );
+                    return _command?.ExecuteNonQuery( ) ?? 0;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( int );
+                }
+            }
 
-                return _command?.ExecuteNonQuery( ) ?? 0;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
-            }
+            return -1;
         }
 
         /// <summary>
@@ -111,8 +161,7 @@ namespace BudgetExecution
             try
             {
                 var _stringBuilder = new StringBuilder( );
-
-                if( Verify.IsInput( message ) )
+                if( !string.IsNullOrEmpty( message ) )
                 {
                     _stringBuilder.Append( message );
                     _stringBuilder.Append( Environment.NewLine );
@@ -120,23 +169,22 @@ namespace BudgetExecution
 
                 if( ex != null )
                 {
-                    var _orgex = ex;
+                    var _exception = ex;
                     _stringBuilder.Append( "Exception:" );
                     _stringBuilder.Append( Environment.NewLine );
-
-                    while( _orgex != null )
+                    while( _exception != null )
                     {
-                        _stringBuilder.Append( _orgex.Message );
+                        _stringBuilder.Append( _exception.Message );
                         _stringBuilder.Append( Environment.NewLine );
-                        _orgex = _orgex.InnerException;
+                        _exception = _exception.InnerException;
                     }
 
                     if( ex.Data != null )
                     {
-                        foreach( var i in ex.Data )
+                        foreach( var _i in ex.Data )
                         {
                             _stringBuilder.Append( "Data :" );
-                            _stringBuilder.Append( i );
+                            _stringBuilder.Append( _i );
                             _stringBuilder.Append( Environment.NewLine );
                         }
                     }
@@ -151,7 +199,7 @@ namespace BudgetExecution
 
                     if( ex.Source != null )
                     {
-                        _stringBuilder.Append( "ImageSource:" );
+                        _stringBuilder.Append( "ErrorSource:" );
                         _stringBuilder.Append( Environment.NewLine );
                         _stringBuilder.Append( ex.Source );
                         _stringBuilder.Append( Environment.NewLine );
@@ -166,7 +214,6 @@ namespace BudgetExecution
                     }
 
                     var _baseException = ex.GetBaseException( );
-
                     if( _baseException != null )
                     {
                         _stringBuilder.Append( "BaseException:" );
@@ -177,9 +224,9 @@ namespace BudgetExecution
 
                 return _stringBuilder.ToString( );
             }
-            catch( Exception e )
+            catch( Exception _ex )
             {
-                Fail( e );
+                Fail( _ex );
                 return default( string );
             }
         }
@@ -194,7 +241,6 @@ namespace BudgetExecution
             try
             {
                 var _dictionary = new Dictionary<string, object>( );
-
                 if( nvm != null )
                 {
                     foreach( var _key in nvm.AllKeys )
@@ -205,20 +251,20 @@ namespace BudgetExecution
 
                 return _dictionary;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IDictionary<string, object> );
             }
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        public static void Fail( Exception ex )
+        private static void Fail( Exception ex )
         {
-            using var _error = new Error( ex );
+            using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

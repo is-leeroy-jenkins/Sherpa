@@ -1,6 +1,42 @@
-﻿// <copyright file = "ExcelExtensions.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="ExcelExtensions.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   ExcelExtensions.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -12,221 +48,344 @@ namespace BudgetExecution
     using System.Linq;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
-    using VisualPlus.Extensibility;
+    using Syncfusion.Linq;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    [SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" )]
+    /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class ExcelExtensions
     {
-        /// <summary>Converts to dataset.</summary>
-        /// <param name="excelPackage">The excelPackage.</param>
-        /// <param name="header">if set to <c>true</c> [header].</param>
-        /// <returns></returns>
-        public static DataSet ToDataSet( this ExcelPackage excelPackage, bool header = false )
+        /// <summary> </summary>
+        public enum InsertMode
         {
-            var _row = header
-                ? 1
-                : 0;
+            /// <summary> The row before </summary>
+            RowBefore,
 
-            return ToDataSet( excelPackage, _row );
+            /// <summary> The row after </summary>
+            RowAfter,
+
+            /// <summary> The column right </summary>
+            ColumnRight,
+
+            /// <summary> The column left </summary>
+            ColumnLeft
         }
 
-        /// <summary>Converts to dataset.</summary>
-        /// <param name="excelPackage">The excelPackage.</param>
-        /// <param name="header">The header.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException">header - Must be 0 or greater.</exception>
+        /// <summary> Converts to data set. </summary>
+        /// <param name="excelPackage"> The excelPackage. </param>
+        /// <param name="header">
+        /// if set to
+        /// <c> true </c>
+        /// [header].
+        /// </param>
+        /// <returns> </returns>
+        public static DataSet ToDataSet( this ExcelPackage excelPackage, bool header = false )
+        {
+            try
+            {
+                var _row = header
+                    ? 1
+                    : 0;
+
+                return excelPackage.ToDataSet( _row );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( DataSet );
+            }
+        }
+
+        /// <summary> Converts to data set. </summary>
+        /// <param name="excelPackage"> The excelPackage. </param>
+        /// <param name="header"> The header. </param>
+        /// <returns> </returns>
+        /// <exception cref="ArgumentOutOfRangeException"> header - Must be 0 or greater. </exception>
         public static DataSet ToDataSet( this ExcelPackage excelPackage, int header = 0 )
         {
-            if( header < 0 )
+            try
             {
-                throw new ArgumentOutOfRangeException( nameof( header ), header, "Must be 0 or greater." );
-            }
-
-            var _result = new DataSet( );
-
-            foreach( var _worksheet in excelPackage.Workbook.Worksheets )
-            {
-                var _table = new DataTable
+                if( header < 0 )
                 {
-                    TableName = _worksheet?.Name
-                };
-
-                var _start = 1;
-
-                if( header > 0 )
-                {
-                    _start = header;
+                    throw new ArgumentOutOfRangeException( nameof( header ), header, "Must be 0 or greater." );
                 }
 
-                var _columns =
-                    from _cell in _worksheet?.Cells[ _start, 1, _start, _worksheet.Dimension.End.Column ]
-                    select new DataColumn( header > 0
+                var _result = new DataSet( );
+                foreach( var _worksheet in excelPackage.Workbook.Worksheets )
+                {
+                    var _table = new DataTable( );
+                    if( _worksheet?.Name != null )
+                    {
+                        _table.TableName = _worksheet?.Name;
+                    }
+
+                    var _start = 1;
+                    if( header > 0 )
+                    {
+                        _start = header;
+                    }
+
+                    var _columns = from _cell in _worksheet?.Cells[ _start, 1, _start, _worksheet.Dimension.End.Column ] select new DataColumn( header > 0
                         ? _cell?.Value?.ToString( )
                         : $"Column {_cell?.Start?.Column}" );
 
-                _table.Columns.AddRange( _columns?.ToArray( ) );
+                    _table.Columns.AddRange( _columns?.ToArray( ) );
+                    var _i = header > 0
+                        ? _start + 1
+                        : _start;
 
-                var i = header > 0
-                    ? _start + 1
-                    : _start;
-
-                for( var index = i; index <= _worksheet?.Dimension.End.Row; index++ )
-                {
-                    var _range = _worksheet.Cells[ index, 1, index, _worksheet.Dimension.End.Column ];
-                    var _row = _table.Rows.Add( );
-
-                    foreach( var cell in _range )
+                    for( var _index = _i; _index <= _worksheet?.Dimension.End.Row; _index++ )
                     {
-                        _row[ cell.Start.Column - 1 ] = cell.Value;
+                        var _range = _worksheet.Cells[ _index, 1, _index, _worksheet.Dimension.End.Column ];
+                        var _row = _table.Rows?.Add( );
+                        foreach( var _cell in _range )
+                        {
+                            _row[ _cell.Start.Column - 1 ] = _cell.Value;
+                        }
                     }
+
+                    _result.Tables?.Add( _table );
                 }
 
-                _result.Tables.Add( _table );
+                return _result;
             }
-
-            return _result;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( DataSet );
+            }
         }
 
-        /// <summary>Trims the last empty rows.</summary>
-        /// <param name="worksheet">The worksheet.</param>
+        /// <summary> Trims the last empty rows. </summary>
+        /// <param name="worksheet"> The worksheet. </param>
         public static void TrimLastEmptyRows( this ExcelWorksheet worksheet )
         {
-            while( worksheet.IsLastRowEmpty( ) )
+            try
             {
-                worksheet.DeleteRow( worksheet.Dimension.End.Row, 1 );
+                while( worksheet.IsLastRowEmpty( ) )
+                {
+                    worksheet.DeleteRow( worksheet.Dimension.End.Row, 1 );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
-        /// <summary>
-        /// Determines whether [is last row empty].
-        /// </summary>
-        /// <param name="worksheet">The worksheet.</param>
+        /// <summary> Determines whether [is last row empty]. </summary>
+        /// <param name="worksheet"> The worksheet. </param>
         /// <returns>
-        ///   <c>true</c> if [is last row empty] [the specified worksheet]; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if [is last row empty] [the specified worksheet]; otherwise,
+        /// <c> false </c>
+        /// .
         /// </returns>
         public static bool IsLastRowEmpty( this ExcelWorksheet worksheet )
         {
-            var _empties = new List<bool>( );
-
-            for( var index = 1; index <= worksheet.Dimension.End.Column; index++ )
+            try
             {
-                var _value = worksheet.Cells[ worksheet.Dimension.End.Row, index ].Value;
-                _empties.Add( string.IsNullOrWhiteSpace( _value?.ToString( ) ) );
+                var _empties = new List<bool>( );
+                for( var _index = 1; _index <= worksheet.Dimension.End.Column; _index++ )
+                {
+                    var _value = worksheet.Cells[ worksheet.Dimension.End.Row, _index ].Value;
+                    _empties.Add( string.IsNullOrEmpty( _value?.ToString( ) ) );
+                }
+
+                return _empties.All( e => e );
             }
-
-            return _empties.All( e => e );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return false;
+            }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public enum InsertMode
-        {
-            /// <summary>The row before</summary>
-            RowBefore, RowAfter, ColumnRight, ColumnLeft
-        }
-
-        /// <summary>Sets the width.</summary>
-        /// <param name="column">The column.</param>
-        /// <param name="width">The width.</param>
+        /// <summary> Sets the width. </summary>
+        /// <param name="column"> The column. </param>
+        /// <param name="width"> The width. </param>
         public static void SetWidth( this ExcelColumn column, double width )
         {
-            var _first = width >= 1.0
-                ? Math.Round( ( Math.Round( 7.0 * ( width - 0.0 ), 0 ) - 5.0 ) / 7.0, 2 )
-                : Math.Round( ( Math.Round( 12.0 * ( width - 0.0 ), 0 ) - Math.Round( 5.0 * width, 0 ) ) / 12.0, 2 );
+            if( width > 0 )
+            {
+                try
+                {
+                    var _first = width >= 1.0
+                        ? Math.Round( ( Math.Round( 7.0 * ( width - 0.0 ), 0 ) - 5.0 ) / 7.0, 2 )
+                        : Math.Round( ( Math.Round( 12.0 * ( width - 0.0 ), 0 ) - Math.Round( 5.0 * width, 0 ) ) / 12.0, 2 );
 
-            var _second = width - _first;
+                    var _second = width - _first;
+                    var _third = width >= 1.0
+                        ? Math.Round( 7.0 * _second - 0.0, 0 ) / 7.0
+                        : Math.Round( 12.0 * _second - 0.0, 0 ) / 12.0 + 0.0;
 
-            var _third = width >= 1.0
-                ? Math.Round( 7.0 * _second - 0.0, 0 ) / 7.0
-                : Math.Round( 12.0 * _second - 0.0, 0 ) / 12.0 + 0.0;
-
-            column.Width = _first > 0.0
-                ? width + _third
-                : 0.0;
+                    column.Width = _first > 0.0
+                        ? width + _third
+                        : 0.0;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
         }
 
-        /// <summary>Sets the height.</summary>
-        /// <param name="row">The row.</param>
-        /// <param name="height">The height.</param>
+        /// <summary> Sets the height. </summary>
+        /// <param name="row"> The row. </param>
+        /// <param name="height"> The height. </param>
         public static void SetHeight( this ExcelRow row, double height )
         {
-            row.Height = height;
+            if( height > 0 )
+            {
+                try
+                {
+                    row.Height = height;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
         }
 
-        /// <summary>Expands the column.</summary>
-        /// <param name="index">The index.</param>
-        /// <param name="offset">The offset.</param>
-        /// <returns></returns>
+        /// <summary> Expands the column. </summary>
+        /// <param name="index"> The index. </param>
+        /// <param name="offset"> The offset. </param>
+        /// <returns> </returns>
         public static int[ ] ExpandColumn( this int[ ] index, int offset )
         {
-            var _column = index;
-            _column[ 3 ] += offset;
-            return _column;
+            if( offset > 0 )
+            {
+                try
+                {
+                    var _column = index;
+                    _column[ 3 ] += offset;
+                    return _column;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( int[ ] );
+                }
+            }
+
+            return default( int[ ] );
         }
 
-        /// <summary>Expands the row.</summary>
-        /// <param name="index">The index.</param>
-        /// <param name="offset">The offset.</param>
-        /// <returns></returns>
+        /// <summary> Expands the row. </summary>
+        /// <param name="index"> The index. </param>
+        /// <param name="offset"> The offset. </param>
+        /// <returns> </returns>
         public static int[ ] ExpandRow( this int[ ] index, int offset )
         {
-            var row = index;
-            row[ 2 ] += offset;
-            return row;
+            if( offset > 0 )
+            {
+                try
+                {
+                    var _row = index;
+                    _row[ 2 ] += offset;
+                    return _row;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( int[ ] );
+                }
+            }
+
+            return default( int[ ] );
         }
 
-        /// <summary>Moves the column.</summary>
-        /// <param name="index">The index.</param>
-        /// <param name="offset">The offset.</param>
-        /// <returns></returns>
+        /// <summary> Moves the column. </summary>
+        /// <param name="index"> The index. </param>
+        /// <param name="offset"> The offset. </param>
+        /// <returns> </returns>
         public static int[ ] MoveColumn( this int[ ] index, int offset )
         {
-            var _column = index;
-            _column[ 1 ] += offset;
-            _column[ 3 ] += offset;
-            return _column;
+            if( offset > 0 )
+            {
+                try
+                {
+                    var _column = index;
+                    _column[ 1 ] += offset;
+                    _column[ 3 ] += offset;
+                    return _column;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( int[ ] );
+                }
+            }
+
+            return default( int[ ] );
         }
 
-        /// <summary>Moves the row.</summary>
-        /// <param name="index">The index.</param>
-        /// <param name="offset">The offset.</param>
-        /// <returns></returns>
+        /// <summary> Moves the row. </summary>
+        /// <param name="index"> The index. </param>
+        /// <param name="offset"> The offset. </param>
+        /// <returns> </returns>
         public static int[ ] MoveRow( this int[ ] index, int offset )
         {
-            var _row = index;
-            _row[ 0 ] += offset;
-            _row[ 2 ] += offset;
-            return _row;
+            if( offset > 0 )
+            {
+                try
+                {
+                    var _row = index;
+                    _row[ 0 ] += offset;
+                    _row[ 2 ] += offset;
+                    return _row;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( int[ ] );
+                }
+            }
+
+            return default( int[ ] );
         }
 
-        /// <summary>Alls the border.</summary>
-        /// <param name="range">The range.</param>
-        /// <param name="borderstyle">The borderstyle.</param>
-        public static void AllBorder( this ExcelRange range, ExcelBorderStyle borderstyle )
+        /// <summary> All the borders. </summary>
+        /// <param name="range"> The range. </param>
+        /// <param name="borderStyle"> </param>
+        public static void AllBorder( this ExcelRange range, ExcelBorderStyle borderStyle = ExcelBorderStyle.Thin )
         {
-            range.ForEach( r => r.Style.Border.BorderAround( borderstyle ) );
+            try
+            {
+                range.ForEach( r => r.Style.Border.BorderAround( borderStyle ) );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
-        /// <summary>Backgrounds the color.</summary>
-        /// <param name="range">The range.</param>
-        /// <param name="color">The color.</param>
-        /// <param name="fillstyle">The fillstyle.</param>
-        public static void BackgroundColor( this ExcelRange range, Color color,
-            ExcelFillStyle fillstyle = ExcelFillStyle.Solid )
+        /// <summary> Backgrounds the color. </summary>
+        /// <param name="range"> The range. </param>
+        /// <param name="color"> The color. </param>
+        /// <param name="fillStyle"> </param>
+        public static void BackgroundColor( this ExcelRange range, Color color, ExcelFillStyle fillStyle = ExcelFillStyle.Solid )
         {
-            range.Style.Fill.PatternType = fillstyle;
-            range.Style.Fill.BackgroundColor.SetColor( color );
+            if( color != Color.Empty )
+            {
+                try
+                {
+                    range.Style.Fill.PatternType = fillStyle;
+                    range.Style.Fill.BackgroundColor.SetColor( color );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
         }
 
-        /// <summary>Fails the specified ex.</summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private static void Fail( Exception ex )
         {
-            using var _error = new Error( ex );
+            using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

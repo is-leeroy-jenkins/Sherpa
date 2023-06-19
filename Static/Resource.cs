@@ -1,6 +1,42 @@
-﻿// <copyright file = "Resource.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="Resource.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   Resource.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -15,32 +51,32 @@ namespace BudgetExecution
         /// <summary>
         /// The summary
         /// </summary>
-        public static string Summary = AppSettings[ "SummaryImages" ];
+        public static readonly string Summary = AppSettings[ "SummaryImages" ];
 
         /// <summary>
         /// The fund images
         /// </summary>
-        public static string FundImages = AppSettings[ "FundImages" ];
+        public static readonly string FundImages = AppSettings[ "FundImages" ];
 
         /// <summary>
         /// The databases
         /// </summary>
-        public static string Databases = AppSettings[ "DatabaseImages" ];
+        public static readonly string Databases = AppSettings[ "DatabaseImages" ];
 
         /// <summary>
         /// The data images
         /// </summary>
-        public static string DataImages = AppSettings[ "DataImages" ];
+        public static readonly string DataImages = AppSettings[ "DataImages" ];
 
         /// <summary>
         /// The office images
         /// </summary>
-        public static string OfficeImages = AppSettings[ "OfficeImages" ];
+        public static readonly string OfficeImages = AppSettings[ "OfficeImages" ];
 
         /// <summary>
         /// The navigation images
         /// </summary>
-        public static string NavigationImages = AppSettings[ "NavigationImages" ];
+        public static readonly string NavigationImages = AppSettings[ "NavigationImages" ];
 
         /// <summary>
         /// The codec images
@@ -88,16 +124,6 @@ namespace BudgetExecution
         public static readonly string DivisionCaption = AppSettings[ "DivisionCaption" ];
 
         /// <summary>
-        /// The division images
-        /// </summary>
-        public static readonly string DivisionImages = AppSettings[ "DivisionImages" ];
-
-        /// <summary>
-        /// The division text icon
-        /// </summary>
-        public static readonly string DivisionTextIcon = AppSettings[ "DivisionTextIcon" ];
-
-        /// <summary>
         /// The main form images
         /// </summary>
         public static readonly string MainFormImages = AppSettings[ "MainFormImages" ];
@@ -108,100 +134,14 @@ namespace BudgetExecution
         public static readonly string ExecutionImages = AppSettings[ "ExecutionImages" ];
 
         /// <summary>
-        /// The tool bar images
+        /// The tool strip images
         /// </summary>
-        public static readonly string ToolBarImages = AppSettings[ "ToolBarImages" ];
-
-        /// <summary>
-        /// The object class sources
-        /// </summary>
-        public static readonly Source[ ] ObjectClassSources =
-        {
-            Source.FullTimeEquivalents,
-            Source.PayrollAuthority
-        };
+        public static readonly string ToolStripImages = AppSettings[ "ToolStripImages" ];
 
         /// <summary>
         /// The chart types
         /// </summary>
         public static readonly string[ ] ChartTypes = Enum.GetNames( typeof( ChartType ) );
-
-        /// <summary>
-        /// The reference sources
-        /// </summary>
-        public static readonly Source[ ] ReferenceSources =
-        {
-            Source.Accounts,
-            Source.AccountingEvents,
-            Source.ActivityCodes,
-            Source.AllowanceHolders,
-            Source.Appropriations,
-            Source.BudgetObjectClasses,
-            Source.CostAreas,
-            Source.FinanceObjectClasses,
-            Source.Funds,
-            Source.Goals,
-            Source.HumanResourceOrganizations,
-            Source.NationalPrograms,
-            Source.Objectives,
-            Source.Organizations,
-            Source.ResourcePlanningOffices,
-            Source.ProgramAreas,
-            Source.Projects,
-            Source.ProgramProjects,
-            Source.ProgramDescriptions,
-            Source.Providers,
-            Source.ResponsibilityCenters,
-            Source.InformationTechnology,
-            Source.WorkCodes,
-            Source.FiscalYears,
-            Source.AppropriationBills
-        };
-
-        /// <summary>
-        /// The authority sources
-        /// </summary>
-        public static readonly Source[ ] AuthoritySources =
-        {
-            Source.Allocations,
-            Source.Apportionments,
-            Source.AppropriationDocuments,
-            Source.BudgetDocuments,
-            Source.BudgetControls,
-            Source.CarryoverSurvey,
-            Source.FullTimeEquivalents,
-            Source.HeadquartersAuthority,
-            Source.PayrollAuthority,
-            Source.RegionalAuthority,
-            Source.Reprogrammings,
-            Source.ReimbursableAgreements,
-            Source.ReimbursableFunds,
-            Source.ReimbursableSurvey,
-            Source.SuperfundSites,
-            Source.SpecialAccounts,
-            Source.Transfers,
-            Source.UnobligatedAuthority
-        };
-
-        /// <summary>
-        /// The obligation sources
-        /// </summary>
-        public static readonly Source[ ] ObligationSources =
-        {
-            Source.BudgetOutlays,
-            Source.CarryoverOutlays,
-            Source.MonthlyOutlays,
-            Source.ProjectCostCodes,
-            Source.TravelActivity,
-            Source.PayrollCostCodes,
-            Source.PayrollActivity,
-            Source.Obligations,
-            Source.Deobligations,
-            Source.SiteActivity,
-            Source.DocumentControlNumbers,
-            Source.ProjectCostCodes,
-            Source.SiteProjectCodes
-        };
 
         /// <summary>
         /// The sources
@@ -234,7 +174,7 @@ namespace BudgetExecution
         public static readonly string[ ] Extensions = Enum.GetNames( typeof( EXT ) );
 
         /// <summary>
-        /// The image resources
+        /// The image folders
         /// </summary>
         public static readonly string[ ] ImageFolders = Enum.GetNames( typeof( ImageDirectory ) );
 

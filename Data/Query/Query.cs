@@ -1,257 +1,248 @@
-﻿// // <copyright file = "Query.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="Query.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   Query.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
-    using System.Data.Common;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// </summary>
-    /// <seealso cref = "IDisposable"/>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
+    /// <summary> </summary>
+    /// <seealso cref="IDisposable"/>
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public class Query : QueryBase, IQuery
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Query"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Query"/>
+        /// class.
         /// </summary>
-        public Query()
+        public Query( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Query"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Query"/>
+        /// class.
         /// </summary>
-        /// <param name = "source" >
-        /// The source.
-        /// </param>
-        /// <param name = "provider" >
-        /// The provider.
-        /// </param>
-        /// <param name = "commandType" >
-        /// The commandType.
-        /// </param>
-        public Query( Source source, Provider provider = Provider.SQLite,
-            SQL commandType = SQL.SELECT )
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="commandType"> The commandType. </param>
+        public Query( Source source, Provider provider = Provider.Access, 
+            SQL commandType = SQL.Selectall )
+            : base( source, provider, commandType )
         {
-            SetConnectionBuilder( source, provider );
-            ConnectionFactory = new ConnectionFactory( ConnectionBuilder );
-            SqlStatement = new SqlStatement( ConnectionBuilder, commandType );
-            CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
-            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter( );
-            IsDisposed = false;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Query"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Query"/>
+        /// class.
         /// </summary>
-        /// <param name = "source" >
-        /// The source Data.
-        /// </param>
-        /// <param name = "provider" >
-        /// The provider used.
-        /// </param>
-        /// <param name = "dict" >
-        /// The dictionary of parameters.
-        /// </param>
-        /// <param name = "commandType" >
-        /// The type of sql command.
-        /// </param>
-        public Query( Source source, Provider provider, IDictionary<string, object> dict,
+        /// <param name="source"> The source Data. </param>
+        /// <param name="provider"> The provider used. </param>
+        /// <param name="where"> The dictionary of parameters. </param>
+        /// <param name="commandType"> The type of sql command. </param>
+        public Query( Source source, Provider provider, IDictionary<string, object> where, 
             SQL commandType )
+            : base( source, provider, where, commandType )
         {
-            SetConnectionBuilder( source, provider );
-            ConnectionFactory = new ConnectionFactory( ConnectionBuilder );
-            SqlStatement = new SqlStatement( ConnectionBuilder, dict, commandType );
-            CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
-            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter( );
-            IsDisposed = false;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Query"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Query"/>
+        /// class.
         /// </summary>
-        /// <param name = "connectionBuilder" >
-        /// The connectionBuilder.
-        /// </param>
-        /// <param name = "sqlStatement" >
-        /// The sqlStatement.
-        /// </param>
-        public Query( IConnectionBuilder connectionBuilder, ISqlStatement sqlStatement )
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="updates"> </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public Query( Source source, Provider provider, IDictionary<string, object> updates, 
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            : base( source, provider, updates, where, commandType )
         {
-            ConnectionBuilder = connectionBuilder;
-            ConnectionFactory = new ConnectionFactory( ConnectionBuilder );
-            SqlStatement = sqlStatement;
-            CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
-            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter( );
-            IsDisposed = false;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Query"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Query"/>
+        /// class.
         /// </summary>
-        /// <param name = "source" >
-        /// The source.
-        /// </param>
-        /// <param name = "provider" >
-        /// The provider.
-        /// </param>
-        /// <param name = "dict" >
-        /// The dictionary.
-        /// </param>
-        public Query( Source source, Provider provider, IDictionary<string, object> dict )
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="where"> The criteria. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public Query( Source source, Provider provider, IEnumerable<string> columns, 
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            : base( source, provider, columns, where, commandType )
         {
-            SetConnectionBuilder( source, provider );
-            ConnectionFactory = new ConnectionFactory( ConnectionBuilder );
-            SqlStatement = new SqlStatement( ConnectionBuilder, dict, SQL.SELECT );
-            CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
-            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter( );
-            IsDisposed = false;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Query"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Query"/>
+        /// class.
         /// </summary>
-        /// <param name = "fullPath" >
-        /// The fullpath.
-        /// </param>
-        /// <param name = "commandType" >
-        /// The commandType.
-        /// </param>
-        public Query( string fullPath, SQL commandType = SQL.SELECT )
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="numerics"> The numerics. </param>
+        /// <param name="having"> The having. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public Query( Source source, Provider provider, IEnumerable<string> columns,
+            IEnumerable<string> numerics, IDictionary<string, object> having,
+            SQL commandType = SQL.SELECT )
+            : base( source, provider, columns, having, commandType )
         {
-            SetConnectionBuilder( fullPath );
-            ConnectionFactory = new ConnectionFactory( ConnectionBuilder );
-            SqlStatement = new SqlStatement( ConnectionBuilder, commandType );
-            CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
-            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter( );
-            IsDisposed = false;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Query"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Query"/>
+        /// class.
         /// </summary>
-        /// <param name = "fullPath" >
-        /// The fullpath.
-        /// </param>
-        /// <param name = "commandType" >
-        /// The commandType.
-        /// </param>
-        /// <param name = "dict" >
-        /// The dictionary.
-        /// </param>
-        public Query( string fullPath, SQL commandType, IDictionary<string, object> dict )
+        /// <param name="sqlStatement"> The sqlStatement. </param>
+        public Query( ISqlStatement sqlStatement )
+            : base( sqlStatement )
         {
-            SetConnectionBuilder( fullPath );
-            ConnectionFactory = new ConnectionFactory( ConnectionBuilder );
-            SqlStatement = new SqlStatement( ConnectionBuilder, dict, commandType );
-            CommandBuilder = new CommandBuilder( ConnectionBuilder, SqlStatement );
-            Adapter = new AdapterFactory( ConnectionBuilder, SqlStatement )?.GetAdapter( );
-            IsDisposed = false;
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Sets the Data reader.
-        /// </summary>
-        /// <param name = "command" >
-        /// The command.
-        /// </param>
-        /// <param name = "behavior" >
-        /// The behavior.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public DbDataReader GetDataReader( DbCommand command,
-            CommandBehavior behavior = CommandBehavior.CloseConnection )
-        {
-            if( Command?.Connection != null
-               && Verify.IsInput( command?.CommandText )
-               && Enum.IsDefined( typeof( CommandBehavior ), behavior ) )
-            {
-                try
-                {
-                    if( command?.Connection?.State != ConnectionState.Open )
-                    {
-                        command?.Connection?.Open( );
-                        return command?.ExecuteReader( CommandBehavior.CloseConnection );
-                    }
-
-                    if( command?.Connection?.State == ConnectionState.Open )
-                    {
-                        return command?.ExecuteReader( CommandBehavior.CloseConnection );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    if( command?.Connection?.State == ConnectionState.Open )
-                    {
-                        command?.Connection?.Close( );
-                    }
-
-                    Fail( ex );
-                    return default( DbDataReader );
-                }
-            }
-
-            return default( DbDataReader );
         }
 
         /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
+        /// Initializes a new instance of the
+        /// <see cref="Query"/>
+        /// class.
         /// </summary>
-        /// <param name = "disposing" >
-        /// <c>
-        /// true
-        /// </c>
-        /// to release both managed and unmanaged resources;
-        /// <c>
-        /// false
-        /// </c>
-        /// to release only unmanaged resources.
-        /// </param>
-        [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-        protected virtual void Dispose( bool disposing )
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="sqlText"> The SQL text. </param>
+        public Query( Source source, Provider provider, string sqlText )
+            : base( source, provider, sqlText )
         {
-            if( ConnectionFactory?.GetConnection( ) != null )
-            {
-                try
-                {
-                    ConnectionFactory?.GetConnection( )?.Close( );
-                    ConnectionFactory?.GetConnection( )?.Dispose( );
-                    IsDisposed = true;
-                }
-                catch( Exception ex )
-                {
-                    IsDisposed = false;
-                    Fail( ex );
-                }
-            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Query"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="where"> The dictionary. </param>
+        public Query( Source source, Provider provider, IDictionary<string, object> where )
+            : base( source, provider, where )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Query"/>
+        /// class.
+        /// </summary>
+        /// <param name="fullPath"> The fullpath. </param>
+        /// <param name="sqlText"> </param>
+        /// <param name="commandType"> The commandType. </param>
+        public Query( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
+            : base( fullPath, sqlText, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Query"/>
+        /// class.
+        /// </summary>
+        /// <param name="fullPath"> The fullpath. </param>
+        /// <param name="commandType"> The commandType. </param>
+        /// <param name="where"> The dictionary. </param>
+        public Query( string fullPath, SQL commandType, IDictionary<string, object> where )
+            : base( fullPath, commandType, where )
+        {
         }
 
         /// <inheritdoc/>
         /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or
-        /// resetting unmanaged resources.
+        /// Performs application-defined tasks associated with freeing,
+        /// releasing, or resetting unmanaged
+        /// resources.
         /// </summary>
-        public virtual void Dispose()
+        public virtual void Dispose( )
         {
             try
             {
                 Dispose( true );
                 GC.SuppressFinalize( this );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
                 IsDisposed = false;
-                Fail( ex );
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
+        /// <param name="disposing">
+        /// <c> true </c>
+        /// to release both managed and unmanaged resources;
+        /// <c> false </c>
+        /// to release only unmanaged resources.
+        /// </param>
+        protected virtual void Dispose( bool disposing )
+        {
+            if( ConnectionFactory?.Connection != null )
+            {
+                try
+                {
+                    ConnectionFactory?.Connection?.Close( );
+                    ConnectionFactory?.Connection?.Dispose( );
+                    IsDisposed = true;
+                }
+                catch( Exception _ex )
+                {
+                    IsDisposed = false;
+                    Fail( _ex );
+                }
             }
         }
     }

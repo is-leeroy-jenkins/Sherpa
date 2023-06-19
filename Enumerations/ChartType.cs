@@ -1,51 +1,89 @@
-﻿// <copyright file = "ChartType.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="ChartType.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   ChartType.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
+    using System;
+
     /// <summary>
-    /// Defines the ChartType
+    /// 
     /// </summary>
     public enum ChartType
     {
         /// <summary>
-        /// Defines the None
+        /// The ns
         /// </summary>
-        NS = 0,
+        Ns = 0,
 
         /// <summary>
-        /// Defines the Column
+        /// The column
         /// </summary>
         Column,
 
         /// <summary>
-        /// Defines the Area
+        /// The area
         /// </summary>
         Area,
 
         /// <summary>
-        /// Defines the Bar
+        /// The bar
         /// </summary>
         Bar,
 
         /// <summary>
-        /// Defines the BoxAndWhisker
+        /// The box and whisker
         /// </summary>
         BoxAndWhisker,
 
         /// <summary>
-        /// Defines the Bubble
+        /// The bubble
         /// </summary>
         Bubble,
 
         /// <summary>
-        /// Defines the Candle
+        /// The candle
         /// </summary>
         Candle,
 
         /// <summary>
-        /// Defines the ColumnRange
+        /// The column range
         /// </summary>
         ColumnRange,
 
@@ -60,132 +98,132 @@ namespace BudgetExecution
         RotatedSpline,
 
         /// <summary>
-        /// Defines the Funnel
+        /// The funnel
         /// </summary>
         Funnel,
 
         /// <summary>
-        /// Defines the HeatMap
+        /// The heat map
         /// </summary>
         HeatMap,
 
         /// <summary>
-        /// Defines the HiLo
+        /// The hi lo
         /// </summary>
         HiLo,
 
         /// <summary>
-        /// Defines the HiLoOpenClose
+        /// The hi lo open close
         /// </summary>
         HiLoOpenClose,
 
         /// <summary>
-        /// Defines the Histogram
+        /// The histogram
         /// </summary>
         Histogram,
 
         /// <summary>
-        /// Defines the Kagi
+        /// The kagi
         /// </summary>
         Kagi,
 
         /// <summary>
-        /// Defines the Line
+        /// The line
         /// </summary>
         Line,
 
         /// <summary>
-        /// Defines the Pie
+        /// The pie
         /// </summary>
         Pie,
 
         /// <summary>
-        /// Defines the PointAndFigure
+        /// The point and figure
         /// </summary>
         PointAndFigure,
 
         /// <summary>
-        /// Defines the Polar
+        /// The polar
         /// </summary>
         Polar,
 
         /// <summary>
-        /// Defines the Pyramid
+        /// The pyramid
         /// </summary>
         Pyramid,
 
         /// <summary>
-        /// Defines the Radar
+        /// The radar
         /// </summary>
         Radar,
 
         /// <summary>
-        /// Defines the RangeArea
+        /// The range area
         /// </summary>
         RangeArea,
 
         /// <summary>
-        /// Defines the Scatter
+        /// The scatter
         /// </summary>
         Scatter,
 
         /// <summary>
-        /// Defines the Spline
+        /// The spline
         /// </summary>
         Spline,
 
         /// <summary>
-        /// Defines the SplineArea
+        /// The spline area
         /// </summary>
         SplineArea,
 
         /// <summary>
-        /// Defines the StackingArea
+        /// The stacking area
         /// </summary>
         StackingArea,
 
         /// <summary>
-        /// Defines the StackingArea100
+        /// The stacking area100
         /// </summary>
         StackingArea100,
 
         /// <summary>
-        /// Defines the StackingBar
+        /// The stacking bar
         /// </summary>
         StackingBar,
 
         /// <summary>
-        /// Defines the StackingBar100
+        /// The stacking bar100
         /// </summary>
         StackingBar100,
 
         /// <summary>
-        /// Defines the StackingColumn
+        /// The stacking column
         /// </summary>
         StackingColumn,
 
         /// <summary>
-        /// Defines the StackingColumn100
+        /// The stacking column100
         /// </summary>
         StackingColumn100,
 
         /// <summary>
-        /// Defines the StepArea
+        /// The step area
         /// </summary>
         StepArea,
 
         /// <summary>
-        /// Defines the StepLine
+        /// The step line
         /// </summary>
         StepLine,
 
         /// <summary>
-        /// Defines the ThreeLineBreak
+        /// The three line break
         /// </summary>
         ThreeLineBreak,
 
         /// <summary>
-        /// Defines the Tornado
+        /// The tornado
         /// </summary>
         Tornado
     }

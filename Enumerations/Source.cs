@@ -1,73 +1,56 @@
-﻿// <copyright file = "ImageSource.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="Source.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   Source.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
+    using System;
+
     /// <summary>
     /// 
     /// </summary>
     public enum Source
     {
         /// <summary>
-        /// The ns
-        /// </summary>
-        NS = 0,
-
-        /// <summary>
-        /// The actuals
-        /// </summary>
-        Actuals,
-
-        /// <summary>
         /// The accounting events
         /// </summary>
         AccountingEvents,
-
-        /// <summary>
-        /// The appropriations
-        /// </summary>
-        Appropriations,
-
-        /// <summary>
-        /// The activity
-        /// </summary>
-        ActivityCodes,
-
-        /// <summary>
-        /// The administrative requests
-        /// </summary>
-        AdministrativeRequests,
-
-        /// <summary>
-        /// The appropriation bills
-        /// </summary>
-        AppropriationBills,
-
-        /// <summary>
-        /// The appropriation documents
-        /// </summary>
-        AppropriationDocuments,
-
-        /// <summary>
-        /// The allowance holders
-        /// </summary>
-        AllowanceHolders,
-
-        /// <summary>
-        /// The application tables
-        /// </summary>
-        ApplicationTables,
-
-        /// <summary>
-        /// The apportionments
-        /// </summary>
-        Apportionments,
-
-        /// <summary>
-        /// The allocations
-        /// </summary>
-        Allocations,
 
         /// <summary>
         /// The accounts
@@ -75,14 +58,89 @@ namespace BudgetExecution
         Accounts,
 
         /// <summary>
-        /// The arra
+        /// The activity codes
         /// </summary>
-        ARRA,
+        ActivityCodes,
 
         /// <summary>
-        /// The budget documents
+        /// The actuals
         /// </summary>
-        BudgetDocuments,
+        Actuals,
+
+        /// <summary>
+        /// The administrative requests
+        /// </summary>
+        AdministrativeRequests,
+
+        /// <summary>
+        /// The allocations
+        /// </summary>
+        Allocations,
+
+        /// <summary>
+        /// The allowance holders
+        /// </summary>
+        AllowanceHolders,
+
+        /// <summary>
+        /// The american rescue plan carryover estimates
+        /// </summary>
+        AmericanRescuePlanCarryoverEstimates,
+
+        /// <summary>
+        /// The annual carryover estimates
+        /// </summary>
+        AnnualCarryoverEstimates,
+
+        /// <summary>
+        /// The annual carryover survey
+        /// </summary>
+        AnnualCarryoverSurvey,
+
+        /// <summary>
+        /// The annual reimbursable estimates
+        /// </summary>
+        AnnualReimbursableEstimates,
+
+        /// <summary>
+        /// The annual reimbursable survey
+        /// </summary>
+        AnnualReimbursableSurvey,
+
+        /// <summary>
+        /// The application tables
+        /// </summary>
+        ApplicationTables,
+
+        /// <summary>
+        /// The apportionment data
+        /// </summary>
+        ApportionmentData,
+
+        /// <summary>
+        /// The appropriation available balances
+        /// </summary>
+        AppropriationAvailableBalances,
+
+        /// <summary>
+        /// The appropriation documents
+        /// </summary>
+        AppropriationDocuments,
+
+        /// <summary>
+        /// The appropriation level authority
+        /// </summary>
+        AppropriationLevelAuthority,
+
+        /// <summary>
+        /// The appropriations
+        /// </summary>
+        Appropriations,
+
+        /// <summary>
+        /// The budgetary resource execution
+        /// </summary>
+        BudgetaryResourceExecution,
 
         /// <summary>
         /// The budget controls
@@ -90,9 +148,9 @@ namespace BudgetExecution
         BudgetControls,
 
         /// <summary>
-        /// The budget outlays
+        /// The budget documents
         /// </summary>
-        BudgetOutlays,
+        BudgetDocuments,
 
         /// <summary>
         /// The budget object classes
@@ -100,24 +158,24 @@ namespace BudgetExecution
         BudgetObjectClasses,
 
         /// <summary>
-        /// The budget resource outlays
+        /// The budget outlays
         /// </summary>
-        BudgetResourceExecution,
+        BudgetOutlays,
+
+        /// <summary>
+        /// The capital planning investment codes
+        /// </summary>
+        CapitalPlanningInvestmentCodes,
+
+        /// <summary>
+        /// The carryover apportionments
+        /// </summary>
+        CarryoverApportionments,
 
         /// <summary>
         /// The carryover outlays
         /// </summary>
         CarryoverOutlays,
-
-        /// <summary>
-        /// The carryover estimates
-        /// </summary>
-        CarryoverEstimates,
-
-        /// <summary>
-        /// The carryover survey
-        /// </summary>
-        CarryoverSurvey,
 
         /// <summary>
         /// The carryover requests
@@ -130,14 +188,14 @@ namespace BudgetExecution
         Changes,
 
         /// <summary>
-        /// The congressional reprogrammings
+        /// The column schema
         /// </summary>
-        CongressionalReprogrammings,
+        ColumnSchema,
 
         /// <summary>
-        /// The cost areas
+        /// The compass errors
         /// </summary>
-        CostAreas,
+        CompassErrors,
 
         /// <summary>
         /// The compass levels
@@ -145,14 +203,29 @@ namespace BudgetExecution
         CompassLevels,
 
         /// <summary>
-        /// The cpic
+        /// The compass outlays
         /// </summary>
-        CPIC,
+        CompassOutlays,
+
+        /// <summary>
+        /// The congressional controls
+        /// </summary>
+        CongressionalControls,
+
+        /// <summary>
+        /// The congressional reprogrammings
+        /// </summary>
+        CongressionalReprogrammings,
 
         /// <summary>
         /// The contacts
         /// </summary>
         Contacts,
+
+        /// <summary>
+        /// The cost areas
+        /// </summary>
+        CostAreas,
 
         /// <summary>
         /// The data rule descriptions
@@ -165,19 +238,9 @@ namespace BudgetExecution
         Defactos,
 
         /// <summary>
-        /// The document control numbers
+        /// The deobligation activity
         /// </summary>
-        DocumentControlNumbers,
-
-        /// <summary>
-        /// The execution tables
-        /// </summary>
-        ExecutionTables,
-
-        /// <summary>
-        /// The federal holidays
-        /// </summary>
-        FederalHolidays,
+        DeobligationActivity,
 
         /// <summary>
         /// The deobligations
@@ -185,24 +248,44 @@ namespace BudgetExecution
         Deobligations,
 
         /// <summary>
+        /// The document control numbers
+        /// </summary>
+        DocumentControlNumbers,
+
+        /// <summary>
         /// The documents
         /// </summary>
         Documents,
 
         /// <summary>
+        /// The earmark codes
+        /// </summary>
+        EarmarkCodes,
+
+        /// <summary>
+        /// The earmarks
+        /// </summary>
+        Earmarks,
+
+        /// <summary>
+        /// The expenditures
+        /// </summary>
+        Expenditures,
+
+        /// <summary>
         /// The external
         /// </summary>
         External,
+        
+        /// <summary>
+        /// The federal holidays
+        /// </summary>
+        FederalHolidays,
 
         /// <summary>
-        /// The funds
+        /// The finance object classes
         /// </summary>
-        Funds,
-
-        /// <summary>
-        /// The full time equivalents
-        /// </summary>
-        FullTimeEquivalents,
+        FinanceObjectClasses,
 
         /// <summary>
         /// The fiscal years
@@ -210,9 +293,49 @@ namespace BudgetExecution
         FiscalYears,
 
         /// <summary>
-        /// The finance object class
+        /// The fiscal years back up
         /// </summary>
-        FinanceObjectClasses,
+        FiscalYearsBackUp,
+
+        /// <summary>
+        /// The full time equivalents
+        /// </summary>
+        FullTimeEquivalents,
+        
+        /// <summary>
+        /// The fund categories
+        /// </summary>
+        FundCategories,
+
+        /// <summary>
+        /// The funds
+        /// </summary>
+        Funds,
+
+        /// <summary>
+        /// The fund symbols
+        /// </summary>
+        FundSymbols,
+
+        /// <summary>
+        /// The general ledger accounts
+        /// </summary>
+        GeneralLedgerAccounts,
+
+        /// <summary>
+        /// The goals
+        /// </summary>
+        Goals,
+
+        /// <summary>
+        /// The gross authority
+        /// </summary>
+        GrossAuthority,
+
+        /// <summary>
+        /// The gross utilization
+        /// </summary>
+        GrossUtilization,
 
         /// <summary>
         /// The growth rates
@@ -220,7 +343,7 @@ namespace BudgetExecution
         GrowthRates,
 
         /// <summary>
-        /// The gs pay scale
+        /// The gs pay scales
         /// </summary>
         GsPayScales,
 
@@ -230,19 +353,9 @@ namespace BudgetExecution
         HeadquartersAuthority,
 
         /// <summary>
-        /// The images
+        /// The headquarters offices
         /// </summary>
-        Images,
-
-        /// <summary>
-        /// The messages
-        /// </summary>
-        Messages,
-
-        /// <summary>
-        /// The goals
-        /// </summary>
-        Goals,
+        HeadquartersOffices,
 
         /// <summary>
         /// The human resource organizations
@@ -250,19 +363,34 @@ namespace BudgetExecution
         HumanResourceOrganizations,
 
         /// <summary>
-        /// The information technology
+        /// The images
         /// </summary>
-        InformationTechnology,
+        Images,
 
         /// <summary>
-        /// The infrastructure accounts
+        /// The inflation reduction act carryover estimates
         /// </summary>
-        InfrastructureAccounts,
+        InflationReductionActCarryoverEstimates,
 
         /// <summary>
-        /// The regional authority
+        /// The jobs act carryover estimates
         /// </summary>
-        RegionalAuthority,
+        JobsActCarryoverEstimates,
+
+        /// <summary>
+        /// The messages
+        /// </summary>
+        Messages,
+
+        /// <summary>
+        /// The monthly actuals
+        /// </summary>
+        MonthlyActuals,
+
+        /// <summary>
+        /// The monthly ledger account balances
+        /// </summary>
+        MonthlyLedgerAccountBalances,
 
         /// <summary>
         /// The monthly outlays
@@ -275,14 +403,19 @@ namespace BudgetExecution
         NationalPrograms,
 
         /// <summary>
+        /// The object class outlays
+        /// </summary>
+        ObjectClassOutlays,
+
+        /// <summary>
         /// The objectives
         /// </summary>
         Objectives,
 
         /// <summary>
-        /// The organizations
+        /// The obligation activity
         /// </summary>
-        Organizations,
+        ObligationActivity,
 
         /// <summary>
         /// The obligations
@@ -290,9 +423,9 @@ namespace BudgetExecution
         Obligations,
 
         /// <summary>
-        /// The object class outlays
+        /// The open commitments
         /// </summary>
-        ObjectClassOutlays,
+        OpenCommitments,
 
         /// <summary>
         /// The operating plans
@@ -300,14 +433,24 @@ namespace BudgetExecution
         OperatingPlans,
 
         /// <summary>
+        /// The operating plan updates
+        /// </summary>
+        OperatingPlanUpdates,
+
+        /// <summary>
+        /// The organizations
+        /// </summary>
+        Organizations,
+
+        /// <summary>
+        /// The pay periods
+        /// </summary>
+        PayPeriods,
+
+        /// <summary>
         /// The payroll activity
         /// </summary>
         PayrollActivity,
-
-        /// <summary>
-        /// The program areas
-        /// </summary>
-        ProgramAreas,
 
         /// <summary>
         /// The payroll authority
@@ -325,9 +468,24 @@ namespace BudgetExecution
         PayrollRequests,
 
         /// <summary>
-        /// The project cost codes
+        /// The PRC
         /// </summary>
-        ProjectCostCodes,
+        PRC,
+
+        /// <summary>
+        /// The program areas
+        /// </summary>
+        ProgramAreas,
+
+        /// <summary>
+        /// The program financing schedule
+        /// </summary>
+        ProgramFinancingSchedule,
+
+        /// <summary>
+        /// The program project descriptions
+        /// </summary>
+        ProgramProjectDescriptions,
 
         /// <summary>
         /// The program projects
@@ -335,9 +493,9 @@ namespace BudgetExecution
         ProgramProjects,
 
         /// <summary>
-        /// The program descriptions
+        /// The project cost codes
         /// </summary>
-        ProgramDescriptions,
+        ProjectCostCodes,
 
         /// <summary>
         /// The projects
@@ -350,14 +508,9 @@ namespace BudgetExecution
         Providers,
 
         /// <summary>
-        /// The pay periods
+        /// The public laws
         /// </summary>
-        PayPeriods,
-
-        /// <summary>
-        /// The program finance schedule
-        /// </summary>
-        ProgramFinancingSchedule,
+        PublicLaws,
 
         /// <summary>
         /// The query definitions
@@ -365,9 +518,24 @@ namespace BudgetExecution
         QueryDefinitions,
 
         /// <summary>
-        /// The reimbursable funds
+        /// The recovery act
         /// </summary>
-        ReimbursableFunds,
+        RecoveryAct,
+
+        /// <summary>
+        /// The reference tables
+        /// </summary>
+        ReferenceTables,
+
+        /// <summary>
+        /// The regional authority
+        /// </summary>
+        RegionalAuthority,
+
+        /// <summary>
+        /// The regional offices
+        /// </summary>
+        RegionalOffices,
 
         /// <summary>
         /// The reimbursable agreements
@@ -375,9 +543,9 @@ namespace BudgetExecution
         ReimbursableAgreements,
 
         /// <summary>
-        /// The reimbursable survey
+        /// The reimbursable funds
         /// </summary>
-        ReimbursableSurvey,
+        ReimbursableFunds,
 
         /// <summary>
         /// The reports
@@ -385,9 +553,9 @@ namespace BudgetExecution
         Reports,
 
         /// <summary>
-        /// The requisitions
+        /// The reprogrammings
         /// </summary>
-        ReferenceTables,
+        Reprogrammings,
 
         /// <summary>
         /// The resource planning offices
@@ -395,54 +563,19 @@ namespace BudgetExecution
         ResourcePlanningOffices,
 
         /// <summary>
+        /// The resources
+        /// </summary>
+        Resources,
+
+        /// <summary>
         /// The responsibility centers
         /// </summary>
         ResponsibilityCenters,
 
         /// <summary>
-        /// The reprogrammings
-        /// </summary>
-        Reprogrammings,
-
-        /// <summary>
         /// The schema types
         /// </summary>
         SchemaTypes,
-
-        /// <summary>
-        /// The status of appropriations
-        /// </summary>
-        StatusOfAppropriations,
-
-        /// <summary>
-        /// The status of funds
-        /// </summary>
-        StatusOfFunds,
-
-        /// <summary>
-        /// The status of supplemental funing
-        /// </summary>
-        StatusOfSupplementalFuning,
-
-        /// <summary>
-        /// The status of jobs act funding
-        /// </summary>
-        StatusOfJobsActFunding,
-
-        /// <summary>
-        /// The spending rates
-        /// </summary>
-        SpendingRates,
-
-        /// <summary>
-        /// The state organizations
-        /// </summary>
-        StateOrganizations,
-
-        /// <summary>
-        /// The state grant obligations
-        /// </summary>
-        StateGrantObligations,
 
         /// <summary>
         /// The site activity
@@ -455,14 +588,94 @@ namespace BudgetExecution
         SiteProjectCodes,
 
         /// <summary>
+        /// The special accounts
+        /// </summary>
+        SpecialAccounts,
+
+        /// <summary>
+        /// The spending documents
+        /// </summary>
+        SpendingDocuments,
+
+        /// <summary>
+        /// The spending rates
+        /// </summary>
+        SpendingRates,
+
+        /// <summary>
+        /// The state grant obligations
+        /// </summary>
+        StateGrantObligations,
+
+        /// <summary>
+        /// The state organizations
+        /// </summary>
+        StateOrganizations,
+
+        /// <summary>
+        /// The status of american rescue plan funds
+        /// </summary>
+        StatusOfAmericanRescuePlanFunds,
+
+        /// <summary>
+        /// The status of appropriations
+        /// </summary>
+        StatusOfAppropriations,
+
+        /// <summary>
+        /// The status of budgetary resources
+        /// </summary>
+        StatusOfBudgetaryResources,
+
+        /// <summary>
+        /// The status of earmarks
+        /// </summary>
+        StatusOfEarmarks,
+
+        /// <summary>
+        /// The status of funds
+        /// </summary>
+        StatusOfFunds,
+
+        /// <summary>
+        /// The status of inflation reduction act funds
+        /// </summary>
+        StatusOfInflationReductionActFunds,
+
+        /// <summary>
+        /// The status of jobs act funds
+        /// </summary>
+        StatusOfJobsActFunds,
+
+        /// <summary>
+        /// The status of supplemental funds
+        /// </summary>
+        StatusOfSupplementalFunds,
+
+        /// <summary>
+        /// The sub appropriations
+        /// </summary>
+        SubAppropriations,
+
+        /// <summary>
         /// The superfund sites
         /// </summary>
         SuperfundSites,
 
         /// <summary>
-        /// The special accounts
+        /// The supplemental carryover estimates
         /// </summary>
-        SpecialAccounts,
+        SupplementalCarryoverEstimates,
+
+        /// <summary>
+        /// The supplemental reimburseable estimates
+        /// </summary>
+        SupplementalReimburseableEstimates,
+
+        /// <summary>
+        /// The transfer activity
+        /// </summary>
+        TransferActivity,
 
         /// <summary>
         /// The transfers
@@ -475,18 +688,33 @@ namespace BudgetExecution
         TransTypes,
 
         /// <summary>
-        /// The travel activity
+        /// The treasury symbols
         /// </summary>
-        TravelActivity,
+        TreasurySymbols,
 
         /// <summary>
-        /// The work codes
+        /// The unliquidated obligations
         /// </summary>
-        WorkCodes,
+        UnliquidatedObligations,
 
         /// <summary>
         /// The unobligated authority
         /// </summary>
-        UnobligatedAuthority
+        UnobligatedAuthority,
+
+        /// <summary>
+        /// The unobligated balances
+        /// </summary>
+        UnobligatedBalances,
+
+        /// <summary>
+        /// The URL
+        /// </summary>
+        Url,
+
+        /// <summary>
+        /// The work codes
+        /// </summary>
+        WorkCodes
     }
 }

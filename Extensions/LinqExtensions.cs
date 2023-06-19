@@ -1,6 +1,42 @@
-﻿// <copyright file = "LinqExtensions.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="LinqExtensions.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   LinqExtensions.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -10,62 +46,31 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     public static class LinqExtensions
     {
-        /// <summary>
-        /// Determines whether none of the elements of a sequence satisfy a condition.
-        /// </summary>
-        /// <typeparam name = "TSource" >
-        /// The type of the elements of <paramref name = "source"/> .
-        /// </typeparam>
-        /// <param name = "source" >
-        /// The <see cref = "IEnumerable{TSource}"/> to check for matches.
-        /// </param>
-        /// <param name = "predicate" >
-        /// The predicate to check each element against.
-        /// </param>
-        /// <returns>
-        /// <c>
-        /// true
-        /// </c>
-        /// if no element satisfies the specified condition; otherwise,
-        /// <c>
-        /// false
-        /// </c>
-        /// .
-        /// </returns>
-        public static bool None<TSource>( this IEnumerable<TSource> source, Func<TSource, bool> predicate )
+        /// <summary> The specified predicate. </summary>
+        /// <typeparam name="TSource"> The type of the source. </typeparam>
+        /// <param name="source"> The source. </param>
+        /// <param name="predicate"> The predicate. </param>
+        /// <returns> </returns>
+        public static bool None<TSource>( this IEnumerable<TSource> source, 
+            Func<TSource, bool> predicate )
         {
             return !source.Any( predicate );
         }
 
         /// <summary>
-        /// Determines whether the specified sequence's element count is equal to or
-        /// greater than <paramref name = "minCount"/> .
+        /// Determines whether [has at least] [the specified minimum count].
         /// </summary>
-        /// <typeparam name = "TSource" >
-        /// The type of the elements of <paramref name = "source"/> .
-        /// </typeparam>
-        /// <param name = "source" >
-        /// The <see cref = "IEnumerable{TSource}"/> whose elements to count.
-        /// </param>
-        /// <param name = "minCount" >
-        /// The minimum number of elements the specified sequence is expected to contain.
-        /// </param>
+        /// <typeparam name="TSource"> The type of the source. </typeparam>
+        /// <param name="source"> The source. </param>
+        /// <param name="minCount"> The minimum count. </param>
         /// <returns>
-        /// <c>
-        /// true
-        /// </c>
-        /// if the element count of <paramref name = "source"/> is equal to or greater than
-        /// <paramref name = "minCount"/> ; otherwise,
-        /// <c>
-        /// false
-        /// </c>
+        /// <c> true </c>
+        /// if [has at least] [the specified minimum count]; otherwise,
+        /// <c> false </c>
         /// .
         /// </returns>
         public static bool HasAtLeast<TSource>( this IEnumerable<TSource> source, int minCount )
@@ -74,34 +79,19 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Determines whether the specified sequence contains exactly
-        /// <paramref name = "minCount"/> or more elements satisfying a condition.
+        /// Determines whether [has at least] [the specified minimum count].
         /// </summary>
-        /// <typeparam name = "TSource" >
-        /// The type of the elements of <paramref name = "source"/> .
-        /// </typeparam>
-        /// <param name = "source" >
-        /// The <see cref = "IEnumerable{TSource}"/> whose elements to count.
-        /// </param>
-        /// <param name = "minCount" >
-        /// The minimum number of elements satisfying the specified condition the specified
-        /// sequence is expected to contain.
-        /// </param>
-        /// <param name = "predicate" >
-        /// A function to test each element for a condition.
-        /// </param>
+        /// <typeparam name="TSource"> The type of the source. </typeparam>
+        /// <param name="source"> The source. </param>
+        /// <param name="minCount"> The minimum count. </param>
+        /// <param name="predicate"> The predicate. </param>
         /// <returns>
-        /// <c>
-        /// true
-        /// </c>
-        /// if the element count of satisfying elements is equal to or greater than
-        /// <paramref name = "minCount"/> ; otherwise,
-        /// <c>
-        /// false
-        /// </c>
+        /// <c> true </c>
+        /// if [has at least] [the specified minimum count]; otherwise,
+        /// <c> false </c>
         /// .
         /// </returns>
-        public static bool HasAtLeast<TSource>( this IEnumerable<TSource> source, int minCount,
+        public static bool HasAtLeast<TSource>( this IEnumerable<TSource> source, int minCount, 
             Func<TSource, bool> predicate )
         {
             if( minCount == 0 )
@@ -110,17 +100,15 @@ namespace BudgetExecution
             }
 
             if( source is ICollection _sequence
-                && _sequence?.Count < minCount )
+               && ( _sequence?.Count < minCount ) )
             {
                 return false;
             }
 
             var _matches = 0;
-
             foreach( var _unused in source.Where( predicate ) )
             {
                 _matches++;
-
                 if( _matches >= minCount )
                 {
                     return true;
@@ -130,28 +118,14 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary>
-        /// Determines whether the specified sequence contains exactly the specified number
-        /// of elements.
-        /// </summary>
-        /// <typeparam name = "TSource" >
-        /// The type of the elements of <paramref name = "source"/> .
-        /// </typeparam>
-        /// <param name = "source" >
-        /// The <see cref = "IEnumerable{TSource}"/> to count.
-        /// </param>
-        /// <param name = "count" >
-        /// The number of elements the specified sequence is expected to contain.
-        /// </param>
+        /// <summary> Determines whether the specified count has exactly. </summary>
+        /// <typeparam name="TSource"> The type of the source. </typeparam>
+        /// <param name="source"> The source. </param>
+        /// <param name="count"> The count. </param>
         /// <returns>
-        /// <c>
-        /// true
-        /// </c>
-        /// if <paramref name = "source"/> contains exactly <paramref name = "count"/>
-        /// elements; otherwise,
-        /// <c>
-        /// false
-        /// </c>
+        /// <c> true </c>
+        /// if the specified count has exactly; otherwise,
+        /// <c> false </c>
         /// .
         /// </returns>
         public static bool HasExactly<TSource>( this IEnumerable<TSource> source, int count )
@@ -161,48 +135,30 @@ namespace BudgetExecution
                 : source.HasExactly( count, _ => true );
         }
 
-        /// <summary>
-        /// Determines whether the specified sequence contains exactly the specified number
-        /// of elements satisfying the specified condition.
-        /// </summary>
-        /// <typeparam name = "TSource" >
-        /// The type of the elements of <paramref name = "source"/> .
-        /// </typeparam>
-        /// <param name = "source" >
-        /// The <see cref = "IEnumerable{TSource}"/> to count satisfying elements.
-        /// </param>
-        /// <param name = "count" >
-        /// The number of matching elements the specified sequence is expected to contain.
-        /// </param>
-        /// <param name = "predicate" >
-        /// A function to test each element for a condition.
-        /// </param>
+        /// <summary> Determines whether the specified count has exactly. </summary>
+        /// <typeparam name="TSource"> The type of the source. </typeparam>
+        /// <param name="source"> The source. </param>
+        /// <param name="count"> The count. </param>
+        /// <param name="predicate"> The predicate. </param>
         /// <returns>
-        /// <c>
-        /// true
-        /// </c>
-        /// if <paramref name = "source"/> contains exactly <paramref name = "count"/>
-        /// elements satisfying the condition; otherwise,
-        /// <c>
-        /// false
-        /// </c>
+        /// <c> true </c>
+        /// if the specified count has exactly; otherwise,
+        /// <c> false </c>
         /// .
         /// </returns>
-        public static bool HasExactly<TSource>( this IEnumerable<TSource> source, int count,
+        public static bool HasExactly<TSource>( this IEnumerable<TSource> source, int count, 
             Func<TSource, bool> predicate )
         {
             if( source is ICollection _sequence
-                && _sequence.Count < count )
+               && ( _sequence.Count < count ) )
             {
                 return false;
             }
 
             var _matches = 0;
-
             foreach( var _unused in source.Where( predicate ) )
             {
                 ++_matches;
-
                 if( _matches > count )
                 {
                     return false;
@@ -212,28 +168,14 @@ namespace BudgetExecution
             return _matches == count;
         }
 
-        /// <summary>
-        /// Determines whether the specified sequence's element count is at most
-        /// <paramref name = "limit"/> .
-        /// </summary>
-        /// <typeparam name = "TSource" >
-        /// The type of the elements of <paramref name = "source"/> .
-        /// </typeparam>
-        /// <param name = "source" >
-        /// The <see cref = "IEnumerable{TSource}"/> whose elements to count.
-        /// </param>
-        /// <param name = "limit" >
-        /// The maximum number of elements the specified sequence is expected to contain.
-        /// </param>
+        /// <summary> Determines whether [has at most] [the specified limit]. </summary>
+        /// <typeparam name="TSource"> The type of the source. </typeparam>
+        /// <param name="source"> The source. </param>
+        /// <param name="limit"> The limit. </param>
         /// <returns>
-        /// <c>
-        /// true
-        /// </c>
-        /// if the element count of <paramref name = "source"/> is equal to or lower than
-        /// <paramref name = "limit"/> ; otherwise,
-        /// <c>
-        /// false
-        /// </c>
+        /// <c> true </c>
+        /// if [has at most] [the specified limit]; otherwise,
+        /// <c> false </c>
         /// .
         /// </returns>
         public static bool HasAtMost<TSource>( this IEnumerable<TSource> source, int limit )
@@ -241,49 +183,30 @@ namespace BudgetExecution
             return source.HasAtMost( limit, _ => true );
         }
 
-        /// <summary>
-        /// Determines whether the specified sequence contains at most
-        /// <paramref name = "limit"/> elements satisfying a condition.
-        /// </summary>
-        /// <typeparam name = "TSource" >
-        /// The type of the elements of <paramref name = "source"/> .
-        /// </typeparam>
-        /// <param name = "source" >
-        /// The <see cref = "IEnumerable{TSource}"/> whose elements to count.
-        /// </param>
-        /// <param name = "limit" >
-        /// The maximum number of elements satisfying the specified condition the specified
-        /// sequence is expected to contain.
-        /// </param>
-        /// <param name = "predicate" >
-        /// A function to test each element for a condition.
-        /// </param>
+        /// <summary> Determines whether [has at most] [the specified limit]. </summary>
+        /// <typeparam name="TSource"> The type of the source. </typeparam>
+        /// <param name="source"> The source. </param>
+        /// <param name="limit"> The limit. </param>
+        /// <param name="predicate"> The predicate. </param>
         /// <returns>
-        /// <c>
-        /// true
-        /// </c>
-        /// if the element count of satisfying elements is equal to or less than
-        /// <paramref name = "limit"/> ; otherwise,
-        /// <c>
-        /// false
-        /// </c>
+        /// <c> true </c>
+        /// if [has at most] [the specified limit]; otherwise,
+        /// <c> false </c>
         /// .
         /// </returns>
-        public static bool HasAtMost<TSource>( this IEnumerable<TSource> source, int limit,
+        public static bool HasAtMost<TSource>( this IEnumerable<TSource> source, int limit, 
             Func<TSource, bool> predicate )
         {
             if( source is ICollection _sequence
-                && _sequence.Count <= limit )
+               && ( _sequence.Count <= limit ) )
             {
                 return true;
             }
 
             var _matches = 0;
-
             foreach( var _unused in source.Where( predicate ) )
             {
                 _matches++;
-
                 if( _matches > limit )
                 {
                     return false;
@@ -291,6 +214,15 @@ namespace BudgetExecution
             }
 
             return true;
+        }
+
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
+        private static void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

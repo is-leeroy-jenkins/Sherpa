@@ -1,6 +1,42 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="SqlBase.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   SqlBase.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -12,327 +48,479 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class SqlBase
     {
         /// <summary>
-        /// The connection builder
+        /// Gets or sets the extension.
         /// </summary>
-        public IConnectionBuilder ConnectionBuilder { get; set; }
+        /// <value>
+        /// The extension.
+        /// </value>
+        public EXT Extension { get; set; }
 
         /// <summary>
-        /// The command type
+        /// Gets or sets the source.
         /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source { get; set; }
+
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
         public SQL CommandType { get; set; }
 
         /// <summary>
-        /// The arguments
+        /// Gets or sets the criteria.
         /// </summary>
-        public IDictionary<string, object> Args { get; set; }
+        /// <value>
+        /// The criteria.
+        /// </value>
+        public IDictionary<string, object> Criteria { get; set; }
 
         /// <summary>
-        /// The command text
+        /// Gets or sets the updates.
         /// </summary>
+        /// <value>
+        /// The updates.
+        /// </value>
+        public IDictionary<string, object> Updates { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        public IList<string> Fields { get; set; }
+
+        /// <summary>
+        /// Gets or sets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
+        public IList<string> Numerics { get; set; }
+
+        /// <summary>
+        /// Gets or sets the groups.
+        /// </summary>
+        /// <value>
+        /// The groups.
+        /// </value>
+        public IList<string> Groups { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the table.
+        /// </summary>
+        /// <value>
+        /// The name of the table.
+        /// </value>
+        public string TableName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the database path.
+        /// </summary>
+        /// <value>
+        /// The database path.
+        /// </value>
+        public string DbPath { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
+        public string FileName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the command text.
+        /// </summary>
+        /// <value>
+        /// The command text.
+        /// </value>
         public string CommandText { get; set; }
 
         /// <summary>
-        /// Sets the connection builder.
+        /// Initializes a new instance of the <see cref="SqlBase"/> class.
+        /// </summary>
+        protected SqlBase( )
+        {
+            Criteria = new Dictionary<string, object>( );
+            Fields = new List<string>( );
+            Numerics = new List<string>( );
+            Groups = new List<string>( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SqlBase"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
-        private protected void SetConnectionBuilder( Source source, Provider provider )
-        {
-            try
-            {
-                ConnectionBuilder = Validate.IsSource( source ) && Validate.IsProvider( provider )
-                    ? new ConnectionBuilder( source, provider )
-                    : default( ConnectionBuilder );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the arguments.
-        /// </summary>
-        /// <param name="dict">The dictionary.</param>
-        private protected void SetArgs( IDictionary<string, object> dict )
-        {
-            if( dict?.Any( ) == true )
-            {
-                try
-                {
-                    Args = dict?.Any( ) == true
-                        ? dict
-                        : new Dictionary<string, object>( );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the type of the command.
-        /// </summary>
         /// <param name="commandType">Type of the command.</param>
-        private protected void SetCommandType( SQL commandType )
+        protected SqlBase( Source source, Provider provider, SQL commandType = SQL.Selectall )
+            : this( )
         {
-            try
-            {
-                CommandType = Enum.IsDefined( typeof( SQL ), commandType )
-                    && Enum.GetNames( typeof( SQL ) ).Contains( commandType.ToString( ) )
-                        ? commandType
-                        : SQL.SELECT;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            CommandType = commandType;
+            Source = source;
+            TableName = source.ToString( );
+            Provider = provider;
+            CommandText = $"SELECT * FROM {source}";
         }
 
         /// <summary>
-        /// Sets the select statement.
+        /// Initializes a new instance of the <see cref="SqlBase"/> class.
         /// </summary>
-        private protected void SetSelectStatement()
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="sqlText">The SQL text.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected SqlBase( Source source, Provider provider, string sqlText, SQL commandType )
+            : this( )
         {
-            try
-            {
-                CommandText = Verify.IsInput( ConnectionBuilder?.ConnectionString )
-                    ? $"{SQL.SELECT} * FROM {ConnectionBuilder?.TableName};"
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            CommandType = commandType;
+            Source = source;
+            Provider = provider;
+            TableName = source.ToString( );
+            CommandText = sqlText;
         }
 
         /// <summary>
-        /// Sets the select statement.
+        /// Initializes a new instance of the <see cref="SqlBase"/> class.
         /// </summary>
-        /// <param name="dict">The dictionary.</param>
-        private protected void SetSelectStatement( IDictionary<string, object> dict )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected SqlBase( Source source, Provider provider, IDictionary<string, object> where,
+            SQL commandType = SQL.Selectall )
+            : this( )
         {
-            if( Verify.IsMap( dict ) )
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            CommandType = commandType;
+            Source = source;
+            Provider = provider;
+            TableName = source.ToString( );
+            Criteria = where;
+            CommandText = $"SELECT * FROM {source} WHERE {where.ToCriteria( )}";
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SqlBase"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="updates">The updates.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected SqlBase( Source source, Provider provider, IDictionary<string, object> updates, 
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            : this( )
+        {
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            CommandType = commandType;
+            Source = source;
+            Provider = provider;
+            TableName = source.ToString( );
+            Updates = updates;
+            Criteria = where;
+            Fields = updates.Keys.ToList( );
+            CommandText = GetCommandText( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SqlBase"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="columns">The columns.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected SqlBase( Source source, Provider provider, IEnumerable<string> columns, 
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            : this( )
+        {
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            CommandType = commandType;
+            Source = source;
+            Provider = provider;
+            TableName = source.ToString( );
+            Criteria = where;
+            Fields = columns.ToList( );
+            CommandText = GetCommandText( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SqlBase"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="having">The having.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected SqlBase( Source source, Provider provider, IEnumerable<string> fields,
+            IEnumerable<string> numerics, IDictionary<string, object> having, 
+            SQL commandType = SQL.SELECT )
+            : this( )
+        {
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            CommandType = commandType;
+            Source = source;
+            Provider = provider;
+            TableName = source.ToString( );
+            Criteria = having;
+            Fields = fields.ToList( );
+            Numerics = numerics.ToList( );
+            CommandText = GetCommandText( );
+        }
+
+        /// <summary>
+        /// Gets the command text.
+        /// </summary>
+        /// <returns></returns>
+        public string GetCommandText( )
+        {
+            if( Enum.IsDefined( typeof( SQL ), CommandType ) )
             {
                 try
                 {
-                    var _empty = string.Empty;
-
-                    foreach( var _kvp in dict )
+                    switch( CommandType )
                     {
-                        _empty += $" {_kvp.Key} = '{_kvp.Value}' AND";
+                        case SQL.SELECT:
+                        case SQL.Selectall:
+                        {
+                            return GetSelectStatement( );
+                        }
+                        case SQL.INSERT:
+                        {
+                            return GetInsertStatement( );
+                        }
+                        case SQL.UPDATE:
+                        {
+                            return GetUpdateStatement( );
+                        }
+                        case SQL.DELETE:
+                        {
+                            return GetDeleteStatement( );
+                        }
+                        default:
+                        {
+                            return GetSelectStatement( );
+                        }
                     }
-
-                    var _values = _empty.TrimEnd( " AND".ToCharArray( ) );
-                    var _tableName = ConnectionBuilder?.TableName;
-                    CommandText = $"{SQL.SELECT} * FROM {_tableName} WHERE {_values};";
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
-            else if( dict == null )
-            {
-                CommandText = $"{SQL.SELECT} * FROM {ConnectionBuilder?.TableName};";
-            }
+
+            return string.Empty;
         }
 
         /// <summary>
-        /// Sets the update statement.
+        /// Gets the select statement.
         /// </summary>
-        /// <param name="dict">The dictionary.</param>
-        private protected void SetUpdateStatement( IDictionary<string, object> dict )
+        /// <returns></returns>
+        private protected string GetSelectStatement( )
         {
-            if( Verify.IsMap( dict ) )
+            if( ( Fields?.Any( ) == true )
+               && ( Criteria?.Any( ) == true )
+               && ( Numerics?.Any( ) == true ) )
+            {
+                var _cols = string.Empty;
+                var _aggr = string.Empty;
+                foreach( var _name in Fields )
+                {
+                    _cols += $"{_name}, ";
+                }
+
+                foreach( var _metric in Numerics )
+                {
+                    _aggr += $"SUM({_metric}) AS {_metric}, ";
+                }
+
+                var _criteria = Criteria.ToCriteria( );
+                var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
+                return $"SELECT {_columns} FROM {Source} " 
+                    + $"WHERE {_criteria} " 
+                    + $"GROUP BY {_groups};";
+            }
+
+            if( ( Fields?.Any( ) == true )
+               && ( Criteria?.Any( ) == true )
+               && ( Numerics?.Any( ) == false ) )
+            {
+                var _cols = string.Empty;
+                foreach( var _name in Fields )
+                {
+                    _cols += $"{_name}, ";
+                }
+
+                var _criteria = Criteria.ToCriteria( );
+                var _columns = _cols.TrimEnd( ", ".ToCharArray( ) );
+                return $"SELECT {_columns} FROM {Source} " 
+                    + $"WHERE {_criteria} " 
+                    + $"GROUP BY {_columns};";
+            }
+            else if( ( Fields?.Any( ) == false )
+                    && ( Criteria?.Any( ) == true )
+                    && ( Numerics?.Any( ) == false ) )
+            {
+                var _criteria = Criteria.ToCriteria( );
+                return $"SELECT * FROM {Source} WHERE {_criteria};";
+            }
+            else if( ( Fields?.Any( ) == false )
+                    && ( Criteria?.Any( ) == false )
+                    && ( Numerics?.Any( ) == false ) )
+            {
+                return $"SELECT * FROM {Source};";
+            }
+
+            return default( string );
+        }
+
+        /// <summary>
+        /// Gets the update statement.
+        /// </summary>
+        /// <returns></returns>
+        private protected string GetUpdateStatement( )
+        {
+            if( ( Updates?.Any( ) == true )
+               && ( Criteria?.Any( ) == true )
+               && Enum.IsDefined( typeof( Source ), Source ) )
             {
                 try
                 {
                     var _update = string.Empty;
-
-                    foreach( var kvp in dict )
+                    if( Updates.Count == 1 )
                     {
-                        _update += $" {kvp.Key} = '{kvp.Value}' AND";
+                        foreach( var _kvp in Updates )
+                        {
+                            _update += $"{_kvp.Key} = '{_kvp.Value}'";
+                        }
+                    }
+                    else if( Updates.Count > 1 )
+                    {
+                        foreach( var _kvp in Updates )
+                        {
+                            _update += $"{_kvp.Key} = '{_kvp.Value}', ";
+                        }
                     }
 
-                    var _vals = _update.TrimEnd( " AND".ToCharArray( ) );
-                    CommandText = $"{SQL.UPDATE} {ConnectionBuilder?.TableName} SET {_vals};";
+                    var _criteria = Criteria.ToCriteria( );
+                    var _values = _update.TrimEnd( ", ".ToCharArray( ) );
+                    return $"UPDATE {Source} SET {_values} WHERE {_criteria};";
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
+                    return string.Empty;
                 }
             }
+
+            return string.Empty;
         }
 
         /// <summary>
-        /// Sets the insert statement.
+        /// Gets the insert statement.
         /// </summary>
-        /// <param name="dict">The dictionary.</param>
-        private protected void SetInsertStatement( IDictionary<string, object> dict )
+        /// <returns></returns>
+        private protected string GetInsertStatement( )
         {
-            if( Verify.IsMap( dict ) )
-            {
-                try
-                {
-                    var _table = ConnectionBuilder?.TableName;
-                    var _column = string.Empty;
-                    var _values = string.Empty;
-
-                    foreach( var kvp in dict )
-                    {
-                        _column += $"{kvp.Key}, ";
-                        _values += $"{kvp.Value}, ";
-                    }
-
-                    var values =
-                        $"({_column.TrimEnd( ", ".ToCharArray( ) )}) VALUES ({_values.TrimEnd( ", ".ToCharArray( ) )})";
-
-                    CommandText = $"{SQL.INSERT} INTO {_table} {values};";
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the delete statement.
-        /// </summary>
-        /// <param name="dict">The dictionary.</param>
-        private protected void SetDeleteStatement( IDictionary<string, object> dict )
-        {
-            if( Verify.IsMap( dict ) )
+            if( ( Updates?.Any( ) == true )
+               && Enum.IsDefined( typeof( Source ), Source ) )
             {
                 try
                 {
                     var _columns = string.Empty;
-
-                    foreach( var kvp in dict )
+                    var _values = string.Empty;
+                    if( Updates.Count == 1 )
                     {
-                        _columns += $" {kvp.Key} = '{kvp.Value}' AND";
+                        foreach( var _kvp in Updates )
+                        {
+                            _columns += $"{_kvp.Key}";
+                            _values += $"{_kvp.Value}";
+                        }
+                    }
+                    else if( Updates.Count > 1 )
+                    {
+                        foreach( var _kvp in Updates )
+                        {
+                            _columns += $"{_kvp.Key}, ";
+                            _values += $"{_kvp.Value}, ";
+                        }
                     }
 
-                    var _values = _columns.TrimEnd( " AND".ToCharArray( ) );
-                    var _table = ConnectionBuilder?.TableName;
-                    CommandText = $"{SQL.DELETE} FROM {_table} WHERE {_values};";
+                    var _columnValues = $"({_columns.TrimEnd( ", ".ToCharArray( ) )})" 
+                        + $" VALUES ({_values.TrimEnd( ", ".ToCharArray( ) )})";
+                    
+                    return $"INSERT INTO {Source} {_columnValues};";
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
+                    return string.Empty;
                 }
             }
-            else if( dict == null )
-            {
-                CommandText = $"{SQL.DELETE} * FROM {ConnectionBuilder?.TableName};";
-            }
+
+            return string.Empty;
         }
 
         /// <summary>
-        /// Sets the command text.
+        /// Gets the delete statement.
         /// </summary>
-        /// <param name="sql">The SQL.</param>
-        private protected void SetCommandText( string sql )
+        /// <returns></returns>
+        private protected string GetDeleteStatement( )
         {
-            try
-            {
-                CommandText = Verify.IsInput( sql )
-                    ? sql
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the command text.
-        /// </summary>
-        /// <param name="dict">The dictionary.</param>
-        /// <param name="commandType">Type of the command.</param>
-        public void SetCommandText( IDictionary<string, object> dict, SQL commandType = SQL.SELECT )
-        {
-            if( dict == null
-                && Verify.IsInput( ConnectionBuilder?.ConnectionString ) )
-            {
-                SetSelectStatement( );
-            }
-            else if( Verify.IsMap( dict ) )
+            if( Criteria?.Any( ) == true )
             {
                 try
                 {
-                    switch( commandType )
-                    {
-                        case SQL.SELECT:
-                        {
-                            SetSelectStatement( dict );
-                            break;
-                        }
-
-                        case SQL.UPDATE:
-                        {
-                            SetUpdateStatement( dict );
-                            break;
-                        }
-
-                        case SQL.INSERT:
-                        {
-                            SetInsertStatement( dict );
-                            break;
-                        }
-
-                        case SQL.DELETE:
-                        {
-                            SetDeleteStatement( dict );
-                            break;
-                        }
-                    }
+                    var _criteria = Criteria.ToCriteria( );
+                    return !string.IsNullOrEmpty( _criteria )
+                        ? $"DELETE FROM {Source} WHERE {_criteria};"
+                        : $"DELETE FROM {Source};";
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
+                    return string.Empty;
                 }
             }
+
+            return string.Empty;
         }
 
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
+        protected void Fail( Exception ex )
         {
-            using var _error = new Error( ex );
+            using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Converts to string.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
-        /// </returns>
-        public override string ToString()
-        {
-            try
-            {
-                return Verify.IsInput( CommandText )
-                    ? CommandText
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
         }
     }
 }

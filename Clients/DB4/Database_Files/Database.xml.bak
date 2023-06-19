@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DatabaseNET>
+  <mru type="Access" value="C:\Users\teppler\source\repos\Budget\Data\Database\Access\DataModels\Data.accdb" v="2" l="0" e="" a="" d="3/15/2023" b="" z="TABLES (131)|0|">
+  </mru>
+  <mru type="SQLite" value="C:\Users\teppler\source\repos\Budget\Data\Database\SQLite\DataModels\Data.db" v="2" l="0" e="" a="0" d="3/15/2023" b="" z="TABLES (95)|0|">
+  </mru>
+  <mru type="SQLCe" value="C:\Users\teppler\source\repos\Budget\Data\Database\SqlCe\DataModels\Data.sdf" v="2" l="0" e="" a="2" d="3/15/2023" b="" z="TABLES (115)|0|">
+  </mru>
+  <ConnectionProfileList2>
+    <item name="(LocalDB)\MSSQLLocalDB" selected="0" DBType="SQLServer" v="2" remember="False" runas="False">
+      <UseTrusted>True</UseTrusted>
+      <UserName>sa</UserName>
+      <Password>
+      </Password>
+      <ServerName>(LocalDB)\MSSQLLocalDB</ServerName>
+      <Database>C:\Users\teppler\source\repos\Budget\Data\Database\SqlServer\DataModels\Data.mdf</Database>
+      <Port>1433</Port>
+      <ConnectionString>iNA5zPhaV7N32zb/sLZU9TKOkeIa43JCSXn22VEE9lHMsEuOxf6kyIOcwlTNZi0b6lyRVfrHn38tFwVtkOpLl8Fvaku+NXwN1OdVn9VMxkUtsjsWx9c5Dg79tgSE18n39zWTG6qhC051cVEDXhUFykgq5tqqSgKBKWm8znapS8HfiFlL6E+1EVZmn66MhrhBegG6l9pqkHnmKctapI/IUQG4zFwbhbldDFNZt46HmaydMiRqlqjSY8PAjQ9Qb036ywPVi8pQV1FqeO1TYVqxBg==</ConnectionString>
+      <F_Tables Type="1">
+      </F_Tables>
+      <F_Views Type="1">
+      </F_Views>
+      <F_Procs Type="1">
+      </F_Procs>
+      <F_Funcs Type="1">
+      </F_Funcs>
+      <F_Seqs Type="1">
+      </F_Seqs>
+      <F_Packages Type="1">
+      </F_Packages>
+      <F_Macros Type="1">
+      </F_Macros>
+      <Scripts>
+      </Scripts>
+      <Schemas>
+      </Schemas>
+    </item>
+  </ConnectionProfileList2>
+  <mru type="SQLServer" value="(LocalDB)\MSSQLLocalDB" v="2" l="0" e="" a="0" d="3/15/2023" b="" z="TABLES (91)|0|C:\Users\teppler\source\repos\Budget\Data\Database\SqlServer\DataModels\Data.mdf">
+  </mru>
+  <License LicenseCode="" />
+  <Settings ResultsFont="Segoe UI" ResultsFontSize="8.25" DefaultFont="Segoe UI" DefaultFontSize="9" Language="english.xml" CheckDate="15" PaneColor2="-2302756" PaneColor3="-14803426" EditorFont="Source Code Pro" EditorFontSize="12" BatchSize="5000" CommandTimeout="10000" MaxTextSize="60000" MaxBlobSize="30000" MaxAnswerRows="0" MaxRows="500" CheckVersion="False" AntiAlias="True" LastTab="True" LastObj="False" RightNumeric="True" AutoCommit="True" IncludeConstraintName="False" UseQuotedIdentifiers2="True" AllowDrop="True" AutoInsertCurlyBracket="True" ColumnRuler="False" ColumnRulerRow="80" ConvertTabsToSpaces="False" EOL="False" Folding="True" HorizontalRuler="False" IndentStyle="2" InvalidLine="False" LineNumber="True" LineViewerStyle="0" ShowMatchingBracket="True" Space="False" Tab="False" TabIndent="4" CacheTimeOut="10" AutoCompleteMode="1" IntelliSense="True" AutoBraceCompletion="True" AutoAliases="False" InsertOwner="True" UseQuotedIdentifiers1="False" maxLineWidth="999" trailingCommas="False" spaceAfterExpandedComma="False" expandBetweenConditions="True" expandBooleanExpressions="True" expandCaseStatements="True" expandCommaLists="True" uppercaseKeywords="False" standardizeKeywords="False" statementBreaks="2" clauseBreaks="1" expandInLists="True" PaneColor6="-2302756" PaneColor7="-14342874" PaneColor8="-5658199" PaneColor9="854974131" PaneColor0="-2302756" PaneColor1="-14342874" PaneColor4="-5658199" Style="0" Style0="-7960954" TabBackColor0="-5658199" TabBackColor1="-5658199" TabBackColor2="-5658199" TabBackColor3="-5658199" TabBackColor4="-5658199" TabBackColor5="-5658199" TabBackColor6="-5658199" TabBackColor7="-5658199" TabBackColor8="-5658199" TabBackColor9="-5658199" TabBackColor10="-5658199" TabBackColor11="-5658199" TabBackColor12="-5658199" TabBackColor13="-5658199" TabBackColor14="-5658199" TabBackColor15="-5658199" TabBackColor16="-5658199" TabBackColor17="-5658199" TabBackColor18="-5658199" TabBackColor19="-5658199" TabBackColor20="-5658199" TabBackColor21="-5658199" CodeDir="Database_Files" ExecCount="0" LastAccessed="15" Maximize="True" Left="150" Top="25" Width="1300" Height="850" pnlCodeHeight="200" TabsMode="False" pnlControlLeftWidth="280" ToolStrip1Left="3" ToolStrip1Top="0" ToolStrip2Left="333" ToolStrip2Top="0" ToolStrip3Left="900" ToolStrip3Top="0" ToolStrip4Left="1080" ToolStrip4Top="0">
+    <Additional2FB DatabaseEngine="Embedded">
+    </Additional2FB>
+    <Additional2OLEDB>
+    </Additional2OLEDB>
+    <Additional2SQLCE>
+    </Additional2SQLCE>
+    <Additional2SQLITE>
+    </Additional2SQLITE>
+    <Additional2VISTADB>
+    </Additional2VISTADB>
+  </Settings>
+</DatabaseNET>

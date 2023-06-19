@@ -1,6 +1,42 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="SqlStatement.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   SqlStatement.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -8,196 +44,160 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="SqlConfig" />
-    /// <seealso cref="ISqlStatement" />
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    public class SqlStatement : SqlConfig, ISqlStatement
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.SqlBase"/>
+    /// <seealso cref="BudgetExecution.ISqlStatement"/>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class SqlStatement : SqlBase, ISqlStatement
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlStatement"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlStatement"/>
+        /// class.
         /// </summary>
-        public SqlStatement()
+        public SqlStatement( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlStatement"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlStatement"/>
+        /// class.
         /// </summary>
-        /// <param name="connectionBuilder">The connectionBuilder.</param>
-        /// <param name="commandType">The commandType.</param>
-        public SqlStatement( IConnectionBuilder connectionBuilder, SQL commandType = SQL.SELECT )
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public SqlStatement( Source source, Provider provider, SQL commandType = SQL.Selectall )
+            : base( source, provider, commandType )
         {
-            ConnectionBuilder = connectionBuilder;
-            SetCommandType( commandType );
-            Args = null;
-            SetCommandText( Args );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlStatement"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlStatement"/>
+        /// class.
         /// </summary>
-        /// <param name="connectionBuilder">The connectionBuilder.</param>
-        /// <param name="dict">The dictionary.</param>
-        public SqlStatement( IConnectionBuilder connectionBuilder, IDictionary<string, object> dict )
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="sqlText"> The SQL text. </param>
+        public SqlStatement( Source source, Provider provider, string sqlText )
+            : base( source, provider, sqlText, SQL.SELECT )
         {
-            ConnectionBuilder = connectionBuilder;
-            CommandType = SQL.SELECT;
-            SetArgs( dict );
-            SetCommandText( Args );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlStatement"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlStatement"/>
+        /// class.
         /// </summary>
-        /// <param name="connectionBuilder">The connectionBuilder.</param>
-        /// <param name="dict">The dictionary.</param>
-        /// <param name="commandType">Type of the commandType.</param>
-        public SqlStatement( IConnectionBuilder connectionBuilder, IDictionary<string, object> dict,
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="sqlText"> The SQL text. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public SqlStatement( Source source, Provider provider, string sqlText, SQL commandType )
+            : base( source, provider, sqlText, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlStatement"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="where"> </param>
+        /// <param name="commandType"> </param>
+        public SqlStatement( Source source, Provider provider, IDictionary<string, object> where, 
+            SQL commandType = SQL.Selectall )
+            : base( source, provider, where, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlStatement"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="updates"> </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public SqlStatement( Source source, Provider provider, IDictionary<string, object> updates,
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            : base( source, provider, updates, where, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlStatement"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        /// <param name="where"> The arguments. </param>
+        public SqlStatement( Source source, Provider provider, SQL commandType, 
+            IDictionary<string, object> where )
+            : base( source, provider, where, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlStatement"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="where"> The dictionary. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public SqlStatement( Source source, Provider provider, IEnumerable<string> columns, 
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            : base( source, provider, columns, where, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlStatement"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="fields"> The columns. </param>
+        /// <param name="numerics"> The aggregates. </param>
+        /// <param name="having"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public SqlStatement( Source source, Provider provider, IEnumerable<string> fields,
+            IEnumerable<string> numerics, IDictionary<string, object> having, 
             SQL commandType = SQL.SELECT )
+            : base( source, provider, fields, numerics, having,
+                commandType )
         {
-            ConnectionBuilder = connectionBuilder;
-            SetCommandType( commandType );
-            SetArgs( dict );
-            SetCommandText( Args );
         }
 
-        /// <summary>
-        /// Gets the type of the command.
-        /// </summary>
+        /// <summary> Converts to string. </summary>
         /// <returns>
-        /// SQL
+        /// A
+        /// <see cref="System.String"/>
+        /// that represents this instance.
         /// </returns>
-        public SQL GetCommandType()
-        {
-            return SQL.NS;
-        }
-
-        /// <summary>
-        /// Gets the select statement.
-        /// </summary>
-        /// <returns></returns>
-        public string GetSelectStatement()
-        {
-            if( Args != null )
-            {
-                try
-                {
-                    var _values = string.Empty;
-
-                    foreach( var kvp in Args )
-                    {
-                        _values += $"{kvp.Key} = '{kvp.Value}' AND ";
-                    }
-
-                    _values = _values.TrimEnd( " AND".ToCharArray( ) );
-                    var _table = ConnectionBuilder?.TableName;
-                    CommandText = $"{SQL.SELECT} * FROM {_table} WHERE {_values};";
-
-                    return Verify.IsInput( CommandText )
-                        ? CommandText
-                        : default( string );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( string );
-                }
-            }
-            else if( Args == null )
-            {
-                return $"{SQL.SELECT} * FROM {ConnectionBuilder?.TableName};";
-            }
-
-            return default( string );
-        }
-
-        /// <summary>
-        /// Gets the update statement.
-        /// </summary>
-        /// <returns></returns>
-        public string GetUpdateStatement()
-        {
-            if( Args != null )
-            {
-                try
-                {
-                    var _update = string.Empty;
-
-                    foreach( var kvp in Args )
-                    {
-                        _update += $" {kvp.Key} = '{kvp.Value}' AND";
-                    }
-
-                    var _values = _update.TrimEnd( " AND".ToCharArray( ) );
-                    CommandText = $"{SQL.UPDATE} {ConnectionBuilder?.TableName} SET {_values};";
-
-                    return Verify.IsInput( CommandText )
-                        ? CommandText
-                        : default( string );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( string );
-                }
-            }
-
-            return default( string );
-        }
-
-        /// <summary>
-        /// Gets the insert statement.
-        /// </summary>
-        /// <returns></returns>
-        public string GetInsertStatement()
+        public override string ToString( )
         {
             try
             {
-                var _table = ConnectionBuilder?.TableName;
-                var _columnName = string.Empty;
-                var _values = string.Empty;
-
-                foreach( var kvp in Args )
-                {
-                    _columnName += $"{kvp.Key}, ";
-                    _values += $"{kvp.Value}, ";
-                }
-
-                var values =
-                    $"({_columnName.TrimEnd( ", ".ToCharArray( ) )}) VALUES ({_values.TrimEnd( ", ".ToCharArray( ) )})";
-
-                CommandText = $"{SQL.INSERT} INTO {_table} {values};";
-
-                return Verify.IsInput( CommandText )
-                    ? CommandText
-                    : default( string );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( string );
-            }
-        }
-
-        /// <summary>
-        /// Gets the delete statement.
-        /// </summary>
-        /// <returns></returns>
-        public string GetDeleteStatement()
-        {
-            try
-            {
-                return Verify.IsMap( Args ) && Verify.IsInput( CommandText )
+                return !string.IsNullOrEmpty( CommandText )
                     ? CommandText
                     : string.Empty;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
-                return default( string );
+                Fail( _ex );
+                return string.Empty;
             }
         }
     }

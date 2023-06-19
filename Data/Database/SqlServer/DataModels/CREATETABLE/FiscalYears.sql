@@ -1,0 +1,25 @@
+CREATE TABLE FiscalYears 
+(
+	FiscalYearsId	INT NOT NULL IDENTITY(1,1),
+	BFY	NVARCHAR(80) NULL,
+	EFY	NVARCHAR(80) NULL,
+	StartDate	DATETIME NULL,
+	ColumbusDay	DATETIME NULL,
+	VeteransDay	DATETIME NULL,
+	ThanksgivingDay	DATETIME NULL,
+	ChristmasDay	DATETIME NULL,
+	NewYearsDay	DATETIME NULL,
+	MartinLutherKingDay	DATETIME NULL,
+	PresidentsDay	DATETIME NULL,
+	MemorialDay	DATETIME NULL,
+	JuneteenthDay	DATETIME NULL,
+	IndependenceDay	DATETIME NULL,
+	LaborDay	DATETIME NULL,
+	ExpiringYear	NVARCHAR(80) NULL,
+	ExpirationDate	NVARCHAR(80) NULL,
+	WorkDays	NVARCHAR(80) NULL,
+	WeekDays	NVARCHAR(80) NULL,
+	WeekEnds	NVARCHAR(80) NULL,
+	EndDate	NVARCHAR(80) NULL,
+	Availability NVARCHAR(80) NULL
+);

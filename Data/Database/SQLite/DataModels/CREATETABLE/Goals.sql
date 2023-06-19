@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS Goals
+(
+	GoalsId INTEGER NOT NULL,
+	Code TEXT(80) NULL,
+	Name TEXT(80) NULL,
+	Title TEXT(255) NULL,
+    CONSTRAINT PrimaryKeyGoals 
+        PRIMARY KEY(GoalsId AUTOINCREMENT)
+);
+

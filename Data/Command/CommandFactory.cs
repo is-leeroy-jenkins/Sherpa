@@ -1,481 +1,195 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="CommandFactory.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   CommandFactory.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
     using System.Data.Common;
-    using System.Data.OleDb;
-    using System.Data.SqlClient;
-    using System.Data.SQLite;
-    using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="ICommandFactory" />
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    public class CommandFactory : ICommandFactory
+    /// <summary> </summary>
+    /// <seealso cref="ICommand"/>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class CommandFactory : CommandBase, ICommandFactory
     {
         /// <summary>
-        /// The command builder
+        /// Initializes a new instance of the
+        /// <see cref="CommandFactory"/>
+        /// class.
         /// </summary>
-        public ICommandBuilder CommandBuilder { get; }
-
-        /// <summary>
-        /// Gets the connection builder.
-        /// </summary>
-        /// <value>
-        /// The connection builder.
-        /// </value>
-        public IConnectionBuilder ConnectionBuilder { get; }
-
-        /// <summary>
-        /// Gets the SQL statement.
-        /// </summary>
-        /// <value>
-        /// The SQL statement.
-        /// </value>
-        public ISqlStatement SqlStatement { get; set; }
-
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        public Provider Provider { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CommandFactory"/> class.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="dict">The dictionary.</param>
-        public CommandFactory( Source source, Provider provider, IDictionary<string, object> dict )
+        public CommandFactory( )
         {
-            Source = source;
-            Provider = provider;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
-            SqlStatement = new SqlStatement( ConnectionBuilder, dict );
-            CommandBuilder = new CommandBuilder( SqlStatement );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CommandFactory"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CommandFactory"/>
+        /// class.
         /// </summary>
-        /// <param name="commandBuilder">The command builder.</param>
-        public CommandFactory( ICommandBuilder commandBuilder )
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="sqlText"> The SQL text. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public CommandFactory( Source source, Provider provider, string sqlText, SQL commandType )
+            : base( source, provider, sqlText, commandType )
         {
-            CommandBuilder = commandBuilder;
-            Source = CommandBuilder.Source;
-            Provider = CommandBuilder.Provider;
-            ConnectionBuilder = CommandBuilder.ConnectionBuilder;
-            SqlStatement = CommandBuilder.SqlStatement;
         }
 
         /// <summary>
-        /// Gets the create table command.
+        /// Initializes a new instance of the
+        /// <see cref="CommandFactory"/>
+        /// class.
         /// </summary>
-        /// <param name="tableName">Name of the table.</param>
-        /// <param name="dataColumns">The Data columns.</param>
-        /// <returns></returns>
-        public DbCommand GetCreateTableCommand( string tableName, IEnumerable<DataColumn> dataColumns )
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="where"> The dictionary. </param>
+        /// <param name="commandType"> </param>
+        public CommandFactory( Source source, Provider provider, IDictionary<string, object> where, SQL commandType = SQL.Selectall )
+            : base( source, provider, where, commandType )
         {
-            if( Verify.IsInput( tableName )
-                && Verify.IsSequence( dataColumns ) )
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CommandFactory"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="update"> The updates. </param>
+        /// <param name="where"> The criteria. </param>
+        /// <param name="commandType"> </param>
+        public CommandFactory( Source source, Provider provider, IDictionary<string, object> update, IDictionary<string, object> where,
+            SQL commandType = SQL.UPDATE )
+            : base( source, provider, update, where, commandType )
+        {
+        }
+
+        /// <summary> </summary>
+        /// <param name="source"> </param>
+        /// <param name="provider"> </param>
+        /// <param name="columns"> </param>
+        /// <param name="where"> </param>
+        /// <param name="commandType"> </param>
+        public CommandFactory( Source source, Provider provider, IEnumerable<string> columns, IDictionary<string, object> where,
+            SQL commandType = SQL.SELECT )
+            : base( source, provider, columns, where, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CommandFactory"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="fields"> The fields. </param>
+        /// <param name="numerics"> The numerics. </param>
+        /// <param name="having"> The having. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public CommandFactory( Source source, Provider provider, IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> having, SQL commandType = SQL.SELECT )
+            : base( source, provider, fields, numerics, having,
+                commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CommandFactory"/>
+        /// class.
+        /// </summary>
+        /// <param name="sqlStatement"> The SQL statement. </param>
+        public CommandFactory( ISqlStatement sqlStatement )
+            : base( sqlStatement )
+        {
+        }
+
+        /// <summary>
+        /// Sets the command.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public DbCommand GetCommand( )
+        {
+            if( SqlStatement != null )
             {
                 try
                 {
-                    var _sql = $"CREATE TABLE {tableName}";
-
-                    if( Validate.IsProvider( Provider )
-                        && Verify.IsInput( _sql ) )
-                    {
-                        switch( Provider )
-                        {
-                            case Provider.SQLite:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new SQLiteCommand( _sql )
-                                    : default( SQLiteCommand );
-                            }
-
-                            case Provider.SqlCe:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new SqlCeCommand( _sql )
-                                    : default( SqlCeCommand );
-                            }
-
-                            case Provider.SqlServer:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new SqlCommand( _sql )
-                                    : default( SqlCommand );
-                            }
-
-                            case Provider.Excel:
-                            case Provider.CSV:
-                            case Provider.Access:
-                            case Provider.OleDb:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new OleDbCommand( _sql )
-                                    : default( OleDbCommand );
-                            }
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( DbCommand );
-                }
-            }
-
-            return default( DbCommand );
-        }
-
-        /// <summary>
-        /// Gets the create view command.
-        /// </summary>
-        /// <param name="viewName">Name of the view.</param>
-        /// <param name="dataColumns">The Data columns.</param>
-        /// <returns></returns>
-        public DbCommand GetCreateViewCommand( string viewName, IEnumerable<DataColumn> dataColumns )
-        {
-            if( Verify.IsInput( viewName )
-                && dataColumns?.Any( ) == true
-                && ConnectionBuilder != null
-                && ConnectionBuilder.Provider != Provider.SqlCe )
-            {
-                try
-                {
-                    var _sql = $"CREATE VIEW {viewName};";
-
-                    switch( Provider )
+                    switch( SqlStatement.Provider )
                     {
                         case Provider.SQLite:
                         {
-                            return Verify.IsInput( _sql )
-                                ? new SQLiteCommand( _sql )
-                                : default( SQLiteCommand );
+                            return GetSQLiteCommand( );
                         }
-
+                        case Provider.SqlCe:
+                        {
+                            return GetSqlCeCommand( );
+                        }
                         case Provider.SqlServer:
                         {
-                            return Verify.IsInput( _sql )
-                                ? new SqlCommand( _sql )
-                                : default( SqlCommand );
+                            return GetSqlCommand( );
                         }
-
                         case Provider.Excel:
                         case Provider.CSV:
                         case Provider.Access:
                         case Provider.OleDb:
                         {
-                            return Verify.IsInput( _sql )
-                                ? new OleDbCommand( _sql )
-                                : default( OleDbCommand );
+                            return GetOleDbCommand( );
                         }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( DbCommand );
-                }
-            }
-
-            return default( DbCommand );
-        }
-
-        /// <summary>
-        /// Gets the drop table command.
-        /// </summary>
-        /// <param name="dataTable">The Data table.</param>
-        /// <returns></returns>
-        public DbCommand GetDropTableCommand( DataTable dataTable )
-        {
-            if( dataTable != null
-                && ConnectionBuilder != null )
-            {
-                try
-                {
-                    var _sql = $"DROP {dataTable.TableName};";
-
-                    if( Verify.IsInput( _sql )
-                        && Enum.IsDefined( typeof( Provider ), Provider ) )
-                    {
-                        switch( Provider )
+                        default:
                         {
-                            case Provider.SQLite:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new SQLiteCommand( _sql )
-                                    : default( SQLiteCommand );
-                            }
-
-                            case Provider.SqlCe:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new SqlCeCommand( _sql )
-                                    : default( SqlCeCommand );
-                            }
-
-                            case Provider.SqlServer:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new SqlCommand( _sql )
-                                    : default( SqlCommand );
-                            }
-
-                            case Provider.Excel:
-                            case Provider.CSV:
-                            case Provider.Access:
-                            case Provider.OleDb:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new OleDbCommand( _sql )
-                                    : default( OleDbCommand );
-                            }
+                            return default( DbCommand );
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DbCommand );
                 }
             }
 
             return default( DbCommand );
-        }
-
-        /// <summary>
-        /// Gets the alter command.
-        /// </summary>
-        /// <param name="dataTable">The Data table.</param>
-        /// <param name="dataColumn">The Data column.</param>
-        /// <returns></returns>
-        public DbCommand GetAlterCommand( DataTable dataTable, DataColumn dataColumn )
-        {
-            if( dataTable != null
-                && dataColumn != null
-                && ConnectionBuilder != null )
-            {
-                try
-                {
-                    var _sql =
-                        $"ALTER TABLE {dataTable.TableName} ADD COLUMN {dataColumn.ColumnName};";
-
-                    if( Verify.IsInput( _sql )
-                        && Enum.IsDefined( typeof( Provider ), Provider ) )
-                    {
-                        switch( Provider )
-                        {
-                            case Provider.SQLite:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new SQLiteCommand( _sql )
-                                    : default( SQLiteCommand );
-                            }
-
-                            case Provider.SqlCe:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new SqlCeCommand( _sql )
-                                    : default( SqlCeCommand );
-                            }
-
-                            case Provider.SqlServer:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new SqlCommand( _sql )
-                                    : default( SqlCommand );
-                            }
-
-                            case Provider.Excel:
-                            case Provider.CSV:
-                            case Provider.Access:
-                            case Provider.OleDb:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new OleDbCommand( _sql )
-                                    : default( OleDbCommand );
-                            }
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( DbCommand );
-                }
-            }
-
-            return default( DbCommand );
-        }
-
-        /// <summary>
-        /// Gets the alter command.
-        /// </summary>
-        /// <param name="dataTable">The Data table.</param>
-        /// <param name="name">The name.</param>
-        /// <returns></returns>
-        public DbCommand GetAlterCommand( DataTable dataTable, string name )
-        {
-            if( dataTable != null
-                && Verify.IsInput( name )
-                && CommandBuilder != null )
-            {
-                try
-                {
-                    var _sql = $"ALTER TABLE {dataTable.TableName} RENAME {name};";
-
-                    if( Enum.IsDefined( typeof( Provider ), Provider )
-                        && Verify.IsInput( _sql ) )
-                    {
-                        switch( Provider )
-                        {
-                            case Provider.SQLite:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new SQLiteCommand( _sql )
-                                    : default( SQLiteCommand );
-                            }
-
-                            case Provider.SqlCe:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new SqlCeCommand( _sql )
-                                    : default( SqlCeCommand );
-                            }
-
-                            case Provider.SqlServer:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new SqlCommand( _sql )
-                                    : default( SqlCommand );
-                            }
-
-                            case Provider.Excel:
-                            case Provider.CSV:
-                            case Provider.Access:
-                            case Provider.OleDb:
-                            {
-                                return Verify.IsInput( _sql )
-                                    ? new OleDbCommand( _sql )
-                                    : default( OleDbCommand );
-                            }
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( DbCommand );
-                }
-            }
-
-            return default( DbCommand );
-        }
-
-        /// <summary>
-        /// Gets the select command.
-        /// </summary>
-        /// <returns></returns>
-        public DbCommand GetSelectCommand()
-        {
-            try
-            {
-                var _sql = new SqlStatement( ConnectionBuilder, SQL.SELECT );
-                return CommandBuilder?.GetSqlCommand( _sql );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( DbCommand );
-            }
-        }
-
-        /// <summary>
-        /// Gets the insert command.
-        /// </summary>
-        /// <returns></returns>
-        public DbCommand GetInsertCommand()
-        {
-            try
-            {
-                var _sql = new SqlStatement( ConnectionBuilder, SQL.INSERT );
-                return CommandBuilder?.GetSqlCommand( _sql );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( DbCommand );
-            }
-        }
-
-        /// <summary>
-        /// Gets the update commande.
-        /// </summary>
-        /// <returns></returns>
-        public DbCommand GetUpdateCommand()
-        {
-            try
-            {
-                var _sql = new SqlStatement( ConnectionBuilder, SQL.UPDATE );
-                return CommandBuilder?.GetSqlCommand( _sql );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( DbCommand );
-            }
-        }
-
-        /// <summary>
-        /// Gets the delete command.
-        /// </summary>
-        /// <returns></returns>
-        public DbCommand GetDeleteCommand()
-        {
-            try
-            {
-                var _sql = new SqlStatement( ConnectionBuilder, SQL.DELETE );
-                return CommandBuilder?.GetSqlCommand( _sql );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( DbCommand );
-            }
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

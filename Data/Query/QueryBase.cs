@@ -1,373 +1,387 @@
-﻿// <copyright file = "QueryBase.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="QueryBase.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   QueryBase.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
     using System.Data.Common;
+    using System.Data.OleDb;
+    using System.Data.SqlClient;
+    using System.Data.SQLite;
+    using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
-    using System.IO;
-    using System.Linq;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class QueryBase
     {
         /// <summary>
-        /// Gets the source.
-        /// </summary>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets the Provider
-        /// </summary>
-        public Provider Provider { get; set; }
-
-        /// <summary>
-        /// Gets the arguments.
+        /// Gets or sets the source.
         /// </summary>
         /// <value>
-        /// The arguments.
+        /// The source.
         /// </value>
-        public IDictionary<string, object> Args { get; set; }
+        public virtual Source Source { get; set; }
 
         /// <summary>
-        /// Gets the connection manager.
+        /// Gets or sets the provider.
         /// </summary>
         /// <value>
-        /// The connection manager.
+        /// The provider.
         /// </value>
-        public IConnectionBuilder ConnectionBuilder { get; set; }
+        public virtual Provider Provider { get; set; }
 
         /// <summary>
-        /// Gets the SQL statement.
+        /// Gets or sets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
+        public virtual SQL CommandType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the criteria.
+        /// </summary>
+        /// <value>
+        /// The criteria.
+        /// </value>
+        public virtual IDictionary<string, object> Criteria { get; set; }
+
+        /// <summary>
+        /// Gets or sets the SQL statement.
         /// </summary>
         /// <value>
         /// The SQL statement.
         /// </value>
-        public ISqlStatement SqlStatement { get; set; }
+        public virtual ISqlStatement SqlStatement { get; set; }
 
         /// <summary>
-        /// Gets the connector.
+        /// Gets or sets the connection factory.
         /// </summary>
         /// <value>
-        /// The connector.
+        /// The connection factory.
         /// </value>
-        public IConnectionFactory ConnectionFactory { get; set; }
+        public virtual IConnectionFactory ConnectionFactory { get; set; }
 
         /// <summary>
-        /// Gets the commander.
+        /// Gets or sets the data connection.
         /// </summary>
         /// <value>
-        /// The commander.
+        /// The data connection.
         /// </value>
-        public ICommandBuilder CommandBuilder { get; set; }
+        public virtual DbConnection DataConnection { get; set; }
 
         /// <summary>
-        /// Gets the command.
+        /// Gets or sets the data adapter.
         /// </summary>
         /// <value>
-        /// The command.
+        /// The data adapter.
         /// </value>
-        [SuppressMessage( "ReSharper", "UnassignedGetOnlyAutoProperty" )]
-        public DbCommand Command { get; set; }
-
-        /// <summary>
-        /// Gets the adapter.
-        /// </summary>
-        /// <value>
-        /// The adapter.
-        /// </value>
-        public DbDataAdapter Adapter { get; set; }
+        public virtual DbDataAdapter DataAdapter { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is disposed.
         /// </summary>
         /// <value>
-        /// <c>
-        /// true
-        /// </c>
-        /// if this instance is disposed; otherwise,
-        /// <c>
-        /// false
-        /// </c>
-        /// .
+        ///   <c>true</c> if this instance is disposed; otherwise, <c>false</c>.
         /// </value>
-        public bool IsDisposed { get; set; }
+        public virtual bool IsDisposed { get; set; }
 
         /// <summary>
-        /// Gets or sets the Data reader.
+        /// Gets or sets the data reader.
         /// </summary>
         /// <value>
-        /// The Data reader.
+        /// The data reader.
         /// </value>
-        public DbDataReader DataReader { get; set; }
+        public virtual DbDataReader DataReader { get; set; }
 
         /// <summary>
-        /// Gets the source.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        public Source GetSource()
+        protected QueryBase( )
         {
-            try
-            {
-                return ConnectionBuilder?.Source ?? default( Source );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( Source );
-            }
         }
 
         /// <summary>
-        /// Gets the provider.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        public Provider GetProvider()
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected QueryBase( Source source, Provider provider = Provider.Access, 
+            SQL commandType = SQL.Selectall )
         {
-            try
-            {
-                return ConnectionBuilder?.Provider ?? Provider.SQLite;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( Provider );
-            }
+            Source = source;
+            Provider = provider;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.GetConnection( );
+            SqlStatement = new SqlStatement( source, provider, commandType );
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
+            IsDisposed = false;
         }
 
         /// <summary>
-        /// Sets the arguments.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <param name = "dict" >
-        /// The dictionary.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        private protected IDictionary<string, object> SetArgs( IDictionary<string, object> dict )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected QueryBase( Source source, Provider provider, IDictionary<string, object> where, 
+            SQL commandType = SQL.Selectall )
         {
-            try
-            {
-                return dict?.Any( ) == true
-                    ? dict
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
-            }
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IDictionary<string, object> GetArgs()
-        {
-            try
-            {
-                return Verify.IsMap( Args )
-                    ? Args
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
-            }
+            Source = source;
+            Provider = provider;
+            Criteria = where;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.GetConnection( );
+            SqlStatement = new SqlStatement( source, provider, where, commandType );
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
+            IsDisposed = false;
         }
 
         /// <summary>
-        /// Sets the connection manager.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <param name = "source" >
-        /// The source.
-        /// </param>
-        /// <param name = "provider" >
-        /// The provider.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        private protected void SetConnectionBuilder( Source source, Provider provider )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="updates">The updates.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected QueryBase( Source source, Provider provider, IDictionary<string, object> updates, 
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
         {
-            if( Enum.IsDefined( typeof( Source ), source )
-                && Enum.IsDefined( typeof( Provider ), provider ) )
-            {
-                try
-                {
-                    ConnectionBuilder = new ConnectionBuilder( source, provider );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
+            Source = source;
+            Provider = provider;
+            Criteria = where;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.GetConnection( );
+            SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
+            IsDisposed = false;
         }
 
         /// <summary>
-        /// Sets the connection manager.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <param name = "fullPath" >
-        /// The fullPath.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        private protected void SetConnectionBuilder( string fullPath )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="columns">The columns.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected QueryBase( Source source, Provider provider, IEnumerable<string> columns, 
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
         {
-            if( Verify.IsInput( fullPath )
-                && File.Exists( fullPath ) )
-            {
-                try
-                {
-                    ConnectionBuilder = new ConnectionBuilder( fullPath );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Gets the connection manager.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IConnectionBuilder GetConnectionBuilder()
-        {
-            try
-            {
-                return ConnectionBuilder ?? default( IConnectionBuilder );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IConnectionBuilder );
-            }
+            Source = source;
+            Provider = provider;
+            Criteria = where;
+            CommandType = commandType;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.GetConnection( );
+            SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
+            IsDisposed = false;
         }
 
         /// <summary>
-        /// Gets the command builder.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        public ICommandBuilder GetCommandBuilder()
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="having">The having.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected QueryBase( Source source, Provider provider, IEnumerable<string> fields, 
+            IEnumerable<string> numerics, IDictionary<string, object> having, 
+            SQL commandType = SQL.SELECT )
         {
-            try
-            {
-                return CommandBuilder ?? default( ICommandBuilder );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( ICommandBuilder );
-            }
+            Source = source;
+            Provider = provider;
+            Criteria = having;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.GetConnection( );
+            SqlStatement = new SqlStatement( source, provider, fields, having, commandType );
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
+            IsDisposed = false;
         }
 
-        /// <inheritdoc/>
         /// <summary>
-        /// Gets the SQL statement.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        public ISqlStatement GetSqlStatement()
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="sqlText">The SQL text.</param>
+        protected QueryBase( Source source, Provider provider, string sqlText )
         {
-            try
-            {
-                return SqlStatement ?? default( ISqlStatement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( ISqlStatement );
-            }
+            Source = source;
+            Provider = provider;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.GetConnection( );
+            SqlStatement = new SqlStatement( source, provider, sqlText );
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
+            IsDisposed = false;
+            Criteria = null;
         }
 
-        /// <inheritdoc/>
         /// <summary>
-        /// Gets the connection.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        public DbConnection GetConnection()
+        /// <param name="fullPath">The full path.</param>
+        /// <param name="sqlText">The SQL text.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected QueryBase( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
         {
-            try
-            {
-                return ConnectionFactory?.GetConnection( ) ?? default( DbConnection );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( DbConnection );
-            }
+            Criteria = null;
+            ConnectionFactory = new ConnectionFactory( fullPath );
+            Provider = ConnectionFactory.Provider;
+            Source = ConnectionFactory.Source;
+            DataConnection = ConnectionFactory.GetConnection( );
+            SqlStatement = 
+                new SqlStatement( ConnectionFactory.Source, ConnectionFactory.Provider, sqlText );
+            
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
+            IsDisposed = false;
         }
 
-        /// <inheritdoc/>
         /// <summary>
-        /// Gets the command.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        public DbCommand GetCommand()
+        /// <param name="fullPath">The full path.</param>
+        /// <param name="commandType">Type of the command.</param>
+        /// <param name="where">The where.</param>
+        protected QueryBase( string fullPath, SQL commandType, IDictionary<string, object> where )
         {
-            if( SqlStatement != null
-                && CommandBuilder != null )
-            {
-                try
-                {
-                    var _commandFactory = new CommandFactory( CommandBuilder );
-
-                    return SqlStatement?.GetCommandType( ) switch
-                    {
-                        SQL.SELECT => _commandFactory?.GetSelectCommand( ),
-                        SQL.INSERT => _commandFactory?.GetSelectCommand( ),
-                        SQL.UPDATE => _commandFactory?.GetSelectCommand( ),
-                        SQL.DELETE => _commandFactory?.GetDeleteCommand( ),
-                        _ => default( DbCommand )
-                    };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-
-            return default( DbCommand );
+            ConnectionFactory = new ConnectionFactory( fullPath );
+            Criteria = where;
+            CommandType = commandType;
+            Source = ConnectionFactory.Source;
+            Provider = ConnectionFactory.Provider;
+            DataConnection = ConnectionFactory.GetConnection( );
+            SqlStatement = new SqlStatement( Source, Provider, where, commandType );
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
+            IsDisposed = false;
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
+        /// </summary>
+        /// <param name="sqlStatement">The SQL statement.</param>
+        protected QueryBase( ISqlStatement sqlStatement )
+        {
+            Source = sqlStatement.Source;
+            Provider = sqlStatement.Provider;
+            Criteria = sqlStatement.Criteria;
+            ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
+            DataConnection = ConnectionFactory.GetConnection( );
+            SqlStatement = sqlStatement;
+            DataAdapter = new AdapterFactory( sqlStatement ).GetAdapter( );
+            IsDisposed = false;
+        }
+
         /// <summary>
         /// Gets the adapter.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        public DbDataAdapter GetAdapter()
+        /// <returns></returns>
+        public virtual DbDataAdapter GetAdapter( )
         {
-            try
+            if( Enum.IsDefined( typeof( Provider ), Provider )
+               && ( SqlStatement != null ) )
             {
-                return Adapter ?? default( DbDataAdapter );
+                try
+                {
+                    switch( Provider )
+                    {
+                        case Provider.Excel:
+                        case Provider.CSV:
+                        case Provider.OleDb:
+                        case Provider.Access:
+                        {
+                            var _adapter = new AdapterFactory( SqlStatement );
+                            return _adapter?.GetAdapter( ) as OleDbDataAdapter;
+                        }
+                        case Provider.SQLite:
+                        {
+                            var _builder = new AdapterFactory( SqlStatement );
+                            return _builder?.GetAdapter( ) as SQLiteDataAdapter;
+                        }
+                        case Provider.SqlCe:
+                        {
+                            var _builder = new AdapterFactory( SqlStatement );
+                            return _builder?.GetAdapter( ) as SqlCeDataAdapter;
+                        }
+                        case Provider.SqlServer:
+                        {
+                            var _builder = new AdapterFactory( SqlStatement );
+                            return _builder?.GetAdapter( ) as SqlDataAdapter;
+                        }
+                        default:
+                        {
+                            var _builder = new AdapterFactory( SqlStatement );
+                            return _builder?.GetAdapter( ) as OleDbDataAdapter;
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( DbDataAdapter );
+                }
             }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( DbDataAdapter );
-            }
+
+            return default( DbDataAdapter );
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
+        protected static void Fail( Exception ex )
         {
-            using var _error = new Error( ex );
+            using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS Objectives
+(
+	ObjectivesId INTEGER NOT NULL,
+	Code TEXT(80) NULL DEFAULT NS,
+	Name TEXT(80) NULL DEFAULT NS,
+	Title TEXT(80) NULL DEFAULT NS,
+    CONSTRAINT ObjectivesPrimaryKey 
+        PRIMARY KEY(ObjectivesId AUTOINCREMENT)
+);
+

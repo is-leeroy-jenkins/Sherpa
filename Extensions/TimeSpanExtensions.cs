@@ -1,6 +1,42 @@
-﻿// <copyright file = "TimeSpanExtensions.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 03-24-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="TimeSpanExtensions.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   TimeSpanExtensions.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -8,169 +44,215 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
-    /// Defines the <see cref = "TimeSpanExtensions"/> .
+    /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "IntroduceOptionalParameters.Global" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public static class TimeSpanExtensions
     {
         /// <summary>
-        /// Defines the AvgDaysInAYear.
+        /// The average days in a year
         /// </summary>
         public const double AvgDaysInAYear = 365.2425d;
 
         /// <summary>
-        /// Defines the AvgDaysInAMonth.
+        /// The average days in a month
         /// </summary>
         public const double AvgDaysInAMonth = 30.436875d;
 
         /// <summary>
-        /// The GetYears.
+        /// Gets the years.
         /// </summary>
-        /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
-        /// </param>
-        /// <returns>
-        /// The <see cref = "int"/> .
-        /// </returns>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static int GetYears( this TimeSpan timeSpan )
         {
-            return (int)( timeSpan.TotalDays / AvgDaysInAYear );
+            try
+            {
+                return (int)( timeSpan.TotalDays / AvgDaysInAYear );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return -1;
+            }
         }
 
         /// <summary>
-        /// The GetTotalYears.
+        /// Gets the total years.
         /// </summary>
-        /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
-        /// </param>
-        /// <returns>
-        /// The <see cref = "double"/> .
-        /// </returns>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static double GetTotalYears( this TimeSpan timeSpan )
         {
-            return timeSpan.TotalDays / AvgDaysInAYear;
+            try
+            {
+                return timeSpan.TotalDays / AvgDaysInAYear;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return -1D;
+            }
         }
 
         /// <summary>
-        /// The GetMonths.
+        /// Gets the months.
         /// </summary>
-        /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
-        /// </param>
-        /// <returns>
-        /// The <see cref = "int"/> .
-        /// </returns>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static int GetMonths( this TimeSpan timeSpan )
         {
-            return (int)( timeSpan.TotalDays % AvgDaysInAYear / AvgDaysInAMonth );
+            try
+            {
+                return (int)( timeSpan.TotalDays % AvgDaysInAYear / AvgDaysInAMonth );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return -1;
+            }
         }
 
         /// <summary>
-        /// The GetTotalMonths.
+        /// Gets the total months.
         /// </summary>
-        /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
-        /// </param>
-        /// <returns>
-        /// The <see cref = "double"/> .
-        /// </returns>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static double GetTotalMonths( this TimeSpan timeSpan )
         {
-            return timeSpan.TotalDays / AvgDaysInAMonth;
+            try
+            {
+                return timeSpan.TotalDays / AvgDaysInAMonth;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return -1D;
+            }
         }
 
         /// <summary>
-        /// The GetWeeks.
+        /// Gets the weeks.
         /// </summary>
-        /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
-        /// </param>
-        /// <returns>
-        /// The <see cref = "int"/> .
-        /// </returns>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static int GetWeeks( this TimeSpan timeSpan )
         {
-            return (int)( timeSpan.TotalDays % AvgDaysInAYear % AvgDaysInAMonth / 7d );
+            try
+            {
+                return (int)( timeSpan.TotalDays % AvgDaysInAYear % AvgDaysInAMonth / 7d );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return -1;
+            }
         }
 
         /// <summary>
-        /// The GetTotalWeeks.
+        /// Gets the total weeks.
         /// </summary>
-        /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
-        /// </param>
-        /// <returns>
-        /// The <see cref = "double"/> .
-        /// </returns>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static double GetTotalWeeks( this TimeSpan timeSpan )
         {
-            return timeSpan.TotalDays / 7d;
+            try
+            {
+                return timeSpan.TotalDays / 7d;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return -1D;
+            }
         }
 
         /// <summary>
-        /// The GetDays.
+        /// Gets the days.
         /// </summary>
-        /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
-        /// </param>
-        /// <returns>
-        /// The <see cref = "int"/> .
-        /// </returns>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static int GetDays( this TimeSpan timeSpan )
         {
-            return (int)( timeSpan.TotalDays % 7d );
+            try
+            {
+                return (int)( timeSpan.TotalDays % 7d );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return -1;
+            }
         }
 
         /// <summary>
-        /// The GetMicroseconds.
+        /// Gets the microseconds.
         /// </summary>
-        /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
-        /// </param>
-        /// <returns>
-        /// The <see cref = "double"/> .
-        /// </returns>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static double GetMicroseconds( this TimeSpan timeSpan )
         {
-            return timeSpan.Ticks / 10d;
+            try
+            {
+                return timeSpan.Ticks / 10d;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return -1D;
+            }
         }
 
         /// <summary>
-        /// The GetNanoseconds.
+        /// Gets the nanoseconds.
         /// </summary>
-        /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
-        /// </param>
-        /// <returns>
-        /// The <see cref = "double"/> .
-        /// </returns>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static double GetNanoseconds( this TimeSpan timeSpan )
         {
-            return timeSpan.Ticks / 100d;
+            try
+            {
+                return timeSpan.Ticks / 100d;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return -1D;
+            }
         }
 
         /// <summary>
-        /// The Round.
+        /// Rounds the specified rounding interval.
         /// </summary>
-        /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
-        /// </param>
-        /// <param name = "roundinginterval" >
-        /// The roundingInterval <see cref = "TimeSpan"/> .
-        /// </param>
-        /// <param name = "roundingtype" >
-        /// The roundingType <see cref = "MidpointRounding"/> .
-        /// </param>
-        /// <returns>
-        /// The <see cref = "TimeSpan"/> .
-        /// </returns>
-        public static TimeSpan Round( this TimeSpan timeSpan, TimeSpan roundinginterval,
-            MidpointRounding roundingtype = MidpointRounding.ToEven )
+        /// <param name="timeSpan">The time span.</param>
+        /// <param name="interval">The rounding interval.</param>
+        /// <param name="rounding">The rounding type.</param>
+        /// <returns></returns>
+        public static TimeSpan Round( this TimeSpan timeSpan, TimeSpan interval, 
+            MidpointRounding rounding = MidpointRounding.ToEven )
         {
-            return new TimeSpan( Convert.ToInt64( Math.Round( timeSpan.Ticks / (double)roundinginterval.Ticks,
-                    roundingtype ) )
-                * roundinginterval.Ticks );
+            try
+            {
+                var _time = Math.Round( timeSpan.Ticks / (double)interval.Ticks, rounding ); 
+                return new TimeSpan( Convert.ToInt64( Math.Round( _time ) * interval.Ticks ) );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( TimeSpan );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private static void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }
