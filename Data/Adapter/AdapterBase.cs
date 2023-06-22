@@ -163,17 +163,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
-        /// <summary>
         /// Gets the sq lite adapter.
         /// </summary>
         /// <returns></returns>
@@ -336,5 +325,17 @@ namespace BudgetExecution
 
             return default( SqlCeDataAdapter );
         }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
+
     }
 }
