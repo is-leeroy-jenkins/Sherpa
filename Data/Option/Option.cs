@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        $CURRENT_MONTH$-$CURRENT_DAY$-$CURRENT_YEAR$
 // ******************************************************************************************
-// <copyright file="Some.cs" company="Terry D. Eppler">
+// <copyright file="Option.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the 
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  $CURRENT_YEAR$  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Some.cs
+//   Option.cs
 // </summary>
 // ******************************************************************************************
 
@@ -47,56 +47,34 @@ namespace BudgetExecution
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <seealso cref="T:BudgetExecution.IOption`1" />
-    public class Some<T> : IOption<T>
+    public abstract class Option<T> : IOption<T>
     {
+        /// <inheritdoc />
         /// <summary>
-        /// The data
+        /// Gets the value.
         /// </summary>
-        private readonly T _data;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Some{T}"/> class.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        private Some( T value )
-        {
-            _data = value;
-        }
-
-        /// <summary>
-        /// Ofs the specified value.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns></returns>
-        public static IOption<T> Of( T value )
-        {
-            return new Some<T>( value );
-        }
+        /// <value>
+        /// The value.
+        /// </value>
+        public abstract T Value { get; }
 
         /// <inheritdoc />
         /// <summary>
-        /// Matches the specified on some.
+        /// Gets a value indicating whether this instance is some.
         /// </summary>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="some">The on some.</param>
-        /// <param name="none">The on none.</param>
-        /// <returns></returns>
-        public TResult Match<TResult>( Func<T, TResult> some, Func<TResult> none )
-        {
-            return some( _data );
-        }
+        /// <value>
+        /// <c>true</c> if this instance is some; otherwise, <c>false</c>.
+        /// </value>
+        public abstract bool IsSome { get; }
 
         /// <inheritdoc />
         /// <summary>
-        /// Binds the specified f.
+        /// Gets a value indicating whether this instance is none.
         /// </summary>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="func">The f.</param>
-        /// <returns></returns>
-        public IOption<TResult> Bind<TResult>( Func<T, IOption<TResult>> func )
-        {
-            return func( _data );
-        }
+        /// <value>
+        /// <c>true</c> if this instance is none; otherwise, <c>false</c>.
+        /// </value>
+        public abstract bool IsNone { get; }
 
         /// <inheritdoc />
         /// <summary>
@@ -105,22 +83,28 @@ namespace BudgetExecution
         /// <typeparam name="TResult">The type of the result.</typeparam>
         /// <param name="func">The function.</param>
         /// <returns></returns>
-        public IOption<TResult> Map<TResult>( Func<T, TResult> func )
-        {
-            return new Some<TResult>( func( _data ) );
-        }
+        public abstract Option<TResult> Map<TResult>( Func<T, TResult> func );
 
         /// <inheritdoc />
         /// <summary>
-        /// Ors the specified a default.
+        /// Matches the specified some function.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns>
-        /// T
-        /// </returns>
-        public T Or( T value )
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <param name="someFunc">Some function.</param>
+        /// <param name="noneFunc">The none function.</param>
+        /// <returns></returns>
+        public abstract TResult Match<TResult>( Func<T, TResult> someFunc, 
+            Func<TResult> noneFunc );
+
+        /// <summary>
+        /// Fails the specified _ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        protected void Fail( Exception ex )
         {
-            return _data;
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

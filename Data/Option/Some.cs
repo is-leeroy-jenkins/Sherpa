@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        06-22-2023
 // ******************************************************************************************
-// <copyright file="None.cs" company="Terry D. Eppler">
+// <copyright file="Some.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,27 +34,44 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   None.cs
+//   Some.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <seealso cref="T:BudgetExecution.IOption`1" />
-    /// <seealso cref="T:BudgetExecution.IOption`1" />
-    public class None<T> : Option<T>
+    [ SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    public class Some<T> : Option<T>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="None{T}"/> class.
+        /// The value
         /// </summary>
-        public None( )
+        private readonly T _value;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Some{T}"/> class.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <exception cref="System.ArgumentNullException">value - Some value was null, use None instead</exception>
+        public Some( T value )
         {
+            if( value == null )
+            {
+                var _msg = "The value for 'Some' was null...use 'None' instead";
+                throw new ArgumentNullException( nameof( value ), _msg );
+            }
+
+            _value = value;
         }
 
         /// <inheritdoc />
@@ -64,10 +81,9 @@ namespace BudgetExecution
         /// <value>
         /// The value.
         /// </value>
-        /// <exception cref="T:System.NotSupportedException">There is no value</exception>
         public override T Value
         {
-            get { throw new NotSupportedException( "There is no value" ); }
+            get { return _value; }
         }
 
         /// <inheritdoc />
@@ -79,7 +95,7 @@ namespace BudgetExecution
         /// </value>
         public override bool IsSome
         {
-            get { return false; }
+            get { return true; }
         }
 
         /// <inheritdoc />
@@ -91,7 +107,7 @@ namespace BudgetExecution
         /// </value>
         public override bool IsNone
         {
-            get { return true; }
+            get { return false; }
         }
 
         /// <inheritdoc />
@@ -103,7 +119,15 @@ namespace BudgetExecution
         /// <returns></returns>
         public override Option<TResult> Map<TResult>( Func<T, TResult> func )
         {
-            return new None<TResult>( );
+            try
+            {
+                return new Some<TResult>( func( _value ) );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Option<TResult> );
+            }
         }
 
         /// <inheritdoc />
@@ -116,7 +140,15 @@ namespace BudgetExecution
         /// <returns></returns>
         public override TResult Match<TResult>( Func<T, TResult> someFunc, Func<TResult> noneFunc )
         {
-            return noneFunc( );
+            try
+            {
+                return someFunc( _value );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( TResult );
+            }
         }
     }
 }

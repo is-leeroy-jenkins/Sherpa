@@ -104,7 +104,8 @@ namespace BudgetExecution
         /// </param>
         /// <param name="predicate"> A function to test each element for a condition. </param>
         /// <returns> Those values that don't match the given predicate. </returns>
-        public static IEnumerable<T> WhereNot<T>( this IEnumerable<T> source, Func<T, bool> predicate )
+        public static IEnumerable<T> WhereNot<T>( this IEnumerable<T> source, 
+            Func<T, bool> predicate )
         {
             try
             {
@@ -136,7 +137,8 @@ namespace BudgetExecution
         /// the index of the source element.
         /// </param>
         /// <returns> Those values that don't match the given predicate. </returns>
-        public static IEnumerable<T> WhereNot<T>( this IEnumerable<T> source, Func<T, int, bool> predicate )
+        public static IEnumerable<T> WhereNot<T>( this IEnumerable<T> source, 
+            Func<T, int, bool> predicate )
         {
             try
             {
@@ -154,7 +156,8 @@ namespace BudgetExecution
         /// <param name="name"> The columnName. </param>
         /// <param name="value"> The filter. </param>
         /// <returns> </returns>
-        public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow, string name, string value )
+        public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow, 
+            string name, string value )
         {
             if( ( dataRow?.Any( ) == true )
                && !string.IsNullOrEmpty( name )
@@ -187,7 +190,8 @@ namespace BudgetExecution
         /// <param name="dataRow"> The data row. </param>
         /// <param name="where"> The dictionary. </param>
         /// <returns> </returns>
-        public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow, IDictionary<string, object> where )
+        public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow, 
+            IDictionary<string, object> where )
         {
             if( ( dataRow?.Any( ) == true )
                && ( where?.Any( ) == true ) )
@@ -218,7 +222,8 @@ namespace BudgetExecution
         /// <exception cref="Exception">
         /// Invalid file path. or Invalid file path. or No dataRow to export.
         /// </exception>
-        public static ExcelPackage ToExcel<T>( this IEnumerable<T> type, string path, TableStyles style = TableStyles.Light1 )
+        public static ExcelPackage ToExcel<T>( this IEnumerable<T> type, string path, 
+            TableStyles style = TableStyles.Light1 )
         {
             if( string.IsNullOrEmpty( path )
                && ( type?.Any( ) == true )
@@ -273,7 +278,8 @@ namespace BudgetExecution
         /// <c> sequence.Skip(startIndex).Take(count) </c>
         /// </para>
         /// </remarks>
-        public static IEnumerable<T> Slice<T>( this IEnumerable<T> sequence, int startIndex, int count )
+        public static IEnumerable<T> Slice<T>( this IEnumerable<T> sequence, 
+            int startIndex, int count )
         {
             return sequence switch
             {
