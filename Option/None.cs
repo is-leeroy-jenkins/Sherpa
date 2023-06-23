@@ -1,36 +1,36 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 $CREATED_MONTH$-$CREATED_DAY$-$CREATED_YEAR$
-//
+//     Created:                 06-19-2023
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        $CURRENT_MONTH$-$CURRENT_DAY$-$CURRENT_YEAR$
+//     Last Modified On:        06-22-2023
 // ******************************************************************************************
 // <copyright file="None.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the 
+//    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
-//    Copyright ©  $CURRENT_YEAR$  Terry Eppler
-//
-//    Permission is hereby granted, free of charge, to any person obtaining a copy 
-//    of this software and associated documentation files (the “Software”), 
-//    to deal in the Software without restriction, 
-//    including without limitation the rights to use, 
-//    copy, modify, merge, publish, distribute, sublicense, 
-//    and/or sell copies of the Software, 
-//    and to permit persons to whom the Software is furnished to do so, 
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//    
-//    The above copyright notice and this permission notice shall be included in all 
+// 
+//    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//    
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. 
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-//
+// 
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
@@ -42,58 +42,81 @@ namespace BudgetExecution
 {
     using System;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <seealso cref="BudgetExecution.IOption&lt;T&gt;" />
-    /// <seealso cref="BudgetExecution.IOption&lt;T&gt;" />
-    public class None<T> : IOption<T>
+    /// <seealso cref="T:BudgetExecution.IOption`1" />
+    /// <seealso cref="T:BudgetExecution.IOption`1" />
+    public class None<T> : Option<T>
     {
         /// <summary>
-        /// Matches the specified .
+        /// Initializes a new instance of the <see cref="None{T}"/> class.
         /// </summary>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="some">The .</param>
-        /// <param name="none">The none.</param>
-        /// <returns></returns>
-        public TResult Match<TResult>( Func<T, TResult> some, Func<TResult> none )
+        public None( )
         {
-            return none( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Binds the specified f.
+        /// Gets the value.
         /// </summary>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="func">The f.</param>
-        /// <returns></returns>
-        public IOption<TResult> Bind<TResult>( Func<T, IOption<TResult>> func )
+        /// <value>
+        /// The value.
+        /// </value>
+        /// <exception cref="T:System.NotSupportedException">There is no value</exception>
+        public override T Value
         {
-            return new None<TResult>( );
+            get { throw new NotSupportedException( "There is no value" ); }
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets a value indicating whether this instance is some.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is some; otherwise, <c>false</c>.
+        /// </value>
+        public override bool IsSome
+        {
+            get { return false; }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets a value indicating whether this instance is none.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is none; otherwise, <c>false</c>.
+        /// </value>
+        public override bool IsNone
+        {
+            get { return true; }
+        }
+
+        /// <inheritdoc />
         /// <summary>
         /// Maps the specified function.
         /// </summary>
         /// <typeparam name="TResult">The type of the result.</typeparam>
         /// <param name="func">The function.</param>
         /// <returns></returns>
-        public IOption<TResult> Map<TResult>( Func<T, TResult> func )
+        public override Option<TResult> Map<TResult>( Func<T, TResult> func )
         {
             return new None<TResult>( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Ors the specified a default.
+        /// Matches the specified some function.
         /// </summary>
-        /// <param name="value">a none value.</param>
-        /// <returns>
-        /// T
-        /// </returns>
-        public T Or( T value )
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <param name="someFunc">Some function.</param>
+        /// <param name="noneFunc">The none function.</param>
+        /// <returns></returns>
+        public override TResult Match<TResult>( Func<T, TResult> someFunc, Func<TResult> noneFunc )
         {
-            return value;
+            return noneFunc( );
         }
     }
 }
