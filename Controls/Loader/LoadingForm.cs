@@ -52,6 +52,8 @@ namespace BudgetExecution
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantEmptySwitchSection" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class LoadingForm : MetroForm
     {
         /// <summary>
@@ -96,8 +98,9 @@ namespace BudgetExecution
         /// </value>
         public Status Status { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoadingForm"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.LoadingForm" /> class.
         /// </summary>
         public LoadingForm( )
         {
@@ -129,8 +132,9 @@ namespace BudgetExecution
             CloseButton.Click += OnCloseButtonClicked;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoadingForm"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.LoadingForm" /> class.
         /// </summary>
         /// <param name="status">The status.</param>
         public LoadingForm( Status status )
@@ -151,9 +155,9 @@ namespace BudgetExecution
                 ShowImage( );
                 CloseButton.Text = "Close Window";
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -169,9 +173,9 @@ namespace BudgetExecution
                 Timer?.Stop( );
                 Close( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -193,9 +197,9 @@ namespace BudgetExecution
                     };
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -214,9 +218,9 @@ namespace BudgetExecution
                     Program.Windows.Remove( Name );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -231,9 +235,9 @@ namespace BudgetExecution
             {
                 Close( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -247,9 +251,9 @@ namespace BudgetExecution
             try
             {
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
