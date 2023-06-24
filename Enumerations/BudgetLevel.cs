@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="PicSize.cs" company="Terry D. Eppler">
+// <copyright file="Level.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   PicSize.cs
+//   Level.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,22 +42,54 @@ namespace BudgetExecution
 {
     using System;
 
-    /// <summary> </summary>
-    public enum PicSize
+    /// <summary>
+    /// 
+    /// </summary>
+    public enum BudgetLevel
     {
-        /// <summary> The none </summary>
-        Ns = 0,
+        /// <summary>
+        /// The treasury
+        /// </summary>
+        Treasury = 0,
 
-        /// <summary> The small </summary>
-        Small,
+        /// <summary>
+        /// The appropriation
+        /// </summary>
+        Appropriation = 1,
 
-        /// <summary> The medium </summary>
-        Medium,
+        /// <summary>
+        /// The apportionment
+        /// </summary>
+        Apportionment = 2,
 
-        /// <summary> The large </summary>
-        Large,
+        /// <summary>
+        /// The rpio
+        /// </summary>
+        RPIO = 3,
 
-        /// <summary> The huge </summary>
-        Huge
+        /// <summary>
+        /// The allowance holder
+        /// </summary>
+        AllowanceHolder = 4,
+
+        /// <summary>
+        /// The program area
+        /// </summary>
+        ProgramArea = 5,
+
+        /// <summary>
+        /// The program results code
+        /// </summary>
+        ProgramResultsCode = 6,
+
+        /// <summary>
+        /// The budget object class
+        /// </summary>
+        BudgetObjectClass = 7,
+
+        /// <summary>
+        /// The sub allocation
+        /// </summary>
+        SubAllocation = 8
     }
 }
