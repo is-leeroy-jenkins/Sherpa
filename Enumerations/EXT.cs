@@ -41,10 +41,12 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public enum EXT
     {
         /// <summary>
@@ -120,12 +122,12 @@ namespace BudgetExecution
         /// <summary>
         /// The DLL
         /// </summary>
-        Dll,
+        DLL,
 
         /// <summary>
         /// The executable
         /// </summary>
-        Exe,
+        EXE,
 
         /// <summary>
         /// The icon

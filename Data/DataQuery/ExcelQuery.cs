@@ -49,16 +49,21 @@ namespace BudgetExecution
     using System.Runtime.InteropServices;
     using System.Windows.Forms;
     using OfficeOpenXml;
+    using System.Diagnostics.CodeAnalysis;
 
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class ExcelQuery : Query
     {
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ExcelQuery" /> class.
         /// </summary>
         public ExcelQuery( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
@@ -68,6 +73,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
@@ -78,6 +84,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
@@ -89,6 +96,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
@@ -102,6 +110,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
@@ -115,6 +124,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
@@ -131,6 +141,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
@@ -140,6 +151,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
@@ -150,6 +162,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
@@ -161,6 +174,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
         /// </summary>
@@ -436,7 +450,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filePath = ConnectionFactory.DbPath;
+                var _filePath = ConnectionFactory.ClientPath;
                 var _stream = new FileInfo( _filePath );
                 var _application = new ExcelPackage( _stream );
                 var _workbook = _application.Workbook;
@@ -450,10 +464,11 @@ namespace BudgetExecution
                 {
                     for( var _j = 1; _j <= _columns; _j++ )
                     {
-                        if( ( _range[ _i, _j ].Address != null )
-                           && ( _range[ _i, _j ].Value != null ) )
+                        var _address = _range[ _i, _j ]?.Address;
+                        if( ( !string.IsNullOrEmpty( _address ) )
+                           && ( _range[ _i, _j ]?.Value != null ) )
                         {
-                            dataGrid.Rows[ _i - 1 ].Cells[ _j - 1 ].Value = _range[ _i, _j ].Address;
+                            dataGrid.Rows[ _i - 1 ].Cells[ _j - 1 ].Value = _address;
                         }
                     }
                 }

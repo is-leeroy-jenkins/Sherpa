@@ -45,9 +45,6 @@ namespace BudgetExecution
     /// <summary> </summary>
     public enum Status
     {
-        /// <summary> The ns </summary>
-        Ns = 0,
-
         /// <summary> The loading </summary>
         Loading = 1,
 

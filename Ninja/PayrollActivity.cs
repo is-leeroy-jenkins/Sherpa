@@ -198,7 +198,7 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "PayrollActivityId" ].ToString( ) ?? "0" );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -246,7 +246,7 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "PayrollActivityId" ].ToString( ) ?? "0" );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -295,7 +295,7 @@ namespace BudgetExecution
             ID = int.Parse( dataRow[ "PayrollActivityId" ].ToString( ) ?? "0" );
             BudgetLevel = dataRow[ "BudgetLevel" ].ToString( );
             BFY = dataRow[ "BFY" ].ToString( );
-            Efy = dataRow[ "EFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
             RpioCode = dataRow[ "RpioCode" ].ToString( );

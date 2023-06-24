@@ -87,7 +87,7 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             ID = int.Parse( Record[ "StatusOfFundsId" ].ToString( ) );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -125,7 +125,7 @@ namespace BudgetExecution
             Record = dataBuilder.Record;
             ID = int.Parse( Record[ "StatusOfFundsId" ].ToString( ) );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -162,7 +162,7 @@ namespace BudgetExecution
             Record = dataRow;
             ID = int.Parse( dataRow[ "StatusOfFundsId" ].ToString( ) );
             BFY = dataRow[ "BFY" ].ToString( );
-            Efy = dataRow[ "EFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
             RpioCode = dataRow[ "RpioCode" ].ToString( );
@@ -199,7 +199,7 @@ namespace BudgetExecution
             Record = new DataBuilder( Source, dict )?.Record;
             ID = int.Parse( Record[ "StatusOfFundsId" ].ToString( ) );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -229,7 +229,7 @@ namespace BudgetExecution
         {
             ID = prc.ID;
             BFY = prc.BFY;
-            Efy = prc.Efy;
+            EFY = prc.EFY;
             FundCode = prc.FundCode;
             FundName = prc.FundName;
             RpioCode = prc.RpioCode;

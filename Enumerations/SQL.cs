@@ -41,10 +41,12 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public enum SQL
     {
         /// <summary>
@@ -55,7 +57,7 @@ namespace BudgetExecution
         /// <summary>
         /// The selectall
         /// </summary>
-        Selectall,
+        SELECTALL,
 
         /// <summary>
         /// The insert
@@ -75,17 +77,17 @@ namespace BudgetExecution
         /// <summary>
         /// The createdatabase
         /// </summary>
-        Createdatabase,
+        CREATEDATABASE,
 
         /// <summary>
         /// The createtable
         /// </summary>
-        Createtable,
+        CREATETABLE,
 
         /// <summary>
         /// The createview
         /// </summary>
-        Createview,
+        CREATEVIEW,
 
         /// <summary>
         /// The drop
@@ -95,6 +97,6 @@ namespace BudgetExecution
         /// <summary>
         /// The altertable
         /// </summary>
-        Altertable
+        ALTERTABLE
     }
 }

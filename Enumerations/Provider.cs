@@ -45,7 +45,7 @@ namespace BudgetExecution
     public enum Provider
     {
         /// <summary>
-        /// The sq lite
+        /// The SQLite data provider
         /// </summary>
         SQLite = 0,
 
@@ -55,33 +55,33 @@ namespace BudgetExecution
         Excel = 1,
 
         /// <summary>
-        /// The SQL server
+        /// The SQL server data provider
         /// </summary>
         SqlServer = 2,
 
         /// <summary>
-        /// The SQL ce
+        /// The SQL Compact data provider
         /// </summary>
         SqlCe = 3,
 
         /// <summary>
-        /// The access
+        /// The MS Access data provider
         /// </summary>
         Access = 4,
 
         /// <summary>
-        /// The OLE database
+        /// The OLE DB data provider
         /// </summary>
         OleDb = 5,
 
         /// <summary>
-        /// The CSV
+        /// The CSV data provider
         /// </summary>
         CSV = 6,
 
         /// <summary>
-        /// The text
+        /// The TXT data provider
         /// </summary>
-        TXT = 7
+        Text = 7
     }
 }

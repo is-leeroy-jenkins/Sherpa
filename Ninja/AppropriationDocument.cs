@@ -274,7 +274,7 @@ namespace BudgetExecution
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             ID = int.Parse( Record[ "AppropriationDocumentsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             Fund = Record[ "Fund" ].ToString( );
             FundCode = Record[ "FundName" ].ToString( );
             DocumentType = Record[ "DocumentType" ].ToString( );
@@ -315,7 +315,7 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "AppropriationDocumentsId" ].ToString( ) ?? "0" );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             Fund = Record[ "Fund" ].ToString( );
             FundCode = Record[ "FundName" ].ToString( );
             DocumentType = Record[ "DocumentType" ].ToString( );
@@ -355,7 +355,7 @@ namespace BudgetExecution
             ID = int.Parse( dataRow[ "AppropriationDocumentsId" ].ToString( ) ?? "0" );
             BudgetLevel = dataRow[ "BudgetLevel" ].ToString( );
             BFY = dataRow[ "BFY" ].ToString( );
-            Efy = dataRow[ "EFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
             Fund = dataRow[ "Fund" ].ToString( );
             FundCode = dataRow[ "FundName" ].ToString( );
             DocumentType = dataRow[ "DocumentType" ].ToString( );
@@ -390,7 +390,7 @@ namespace BudgetExecution
         {
             ID = document.ID;
             BFY = document.BFY;
-            Efy = document.Efy;
+            EFY = document.EFY;
             Fund = document.Fund;
             FundCode = document.FundCode;
             DocumentType = document.DocumentType;

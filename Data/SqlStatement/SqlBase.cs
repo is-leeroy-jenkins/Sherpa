@@ -54,14 +54,6 @@ namespace BudgetExecution
     public abstract class SqlBase
     {
         /// <summary>
-        /// Gets or sets the extension.
-        /// </summary>
-        /// <value>
-        /// The extension.
-        /// </value>
-        public EXT Extension { get; set; }
-
-        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
@@ -84,6 +76,14 @@ namespace BudgetExecution
         /// The type of the command.
         /// </value>
         public SQL CommandType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the extension.
+        /// </summary>
+        /// <value>
+        /// The extension.
+        /// </value>
+        public EXT Extension { get; set; }
 
         /// <summary>
         /// Gets or sets the criteria.
@@ -168,16 +168,17 @@ namespace BudgetExecution
             Groups = new List<string>( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlBase"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlBase" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="commandType">Type of the command.</param>
-        protected SqlBase( Source source, Provider provider, SQL commandType = SQL.Selectall )
+        protected SqlBase( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
             : this( )
         {
-            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            DbPath = new ConnectionFactory( source, provider ).ClientPath;
             CommandType = commandType;
             Source = source;
             TableName = source.ToString( );
@@ -185,8 +186,9 @@ namespace BudgetExecution
             CommandText = $"SELECT * FROM {source}";
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlBase"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlBase" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -195,7 +197,7 @@ namespace BudgetExecution
         protected SqlBase( Source source, Provider provider, string sqlText, SQL commandType )
             : this( )
         {
-            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            DbPath = new ConnectionFactory( source, provider ).ClientPath;
             CommandType = commandType;
             Source = source;
             Provider = provider;
@@ -203,18 +205,19 @@ namespace BudgetExecution
             CommandText = sqlText;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlBase"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlBase" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
         protected SqlBase( Source source, Provider provider, IDictionary<string, object> where,
-            SQL commandType = SQL.Selectall )
+            SQL commandType = SQL.SELECTALL )
             : this( )
         {
-            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            DbPath = new ConnectionFactory( source, provider ).ClientPath;
             CommandType = commandType;
             Source = source;
             Provider = provider;
@@ -223,8 +226,9 @@ namespace BudgetExecution
             CommandText = $"SELECT * FROM {source} WHERE {where.ToCriteria( )}";
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlBase"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlBase" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -235,7 +239,7 @@ namespace BudgetExecution
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : this( )
         {
-            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            DbPath = new ConnectionFactory( source, provider ).ClientPath;
             CommandType = commandType;
             Source = source;
             Provider = provider;
@@ -246,8 +250,9 @@ namespace BudgetExecution
             CommandText = GetCommandText( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlBase"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlBase" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -258,7 +263,7 @@ namespace BudgetExecution
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : this( )
         {
-            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            DbPath = new ConnectionFactory( source, provider ).ClientPath;
             CommandType = commandType;
             Source = source;
             Provider = provider;
@@ -268,8 +273,9 @@ namespace BudgetExecution
             CommandText = GetCommandText( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlBase"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlBase" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -282,7 +288,7 @@ namespace BudgetExecution
             SQL commandType = SQL.SELECT )
             : this( )
         {
-            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            DbPath = new ConnectionFactory( source, provider ).ClientPath;
             CommandType = commandType;
             Source = source;
             Provider = provider;
@@ -306,7 +312,7 @@ namespace BudgetExecution
                     switch( CommandType )
                     {
                         case SQL.SELECT:
-                        case SQL.Selectall:
+                        case SQL.SELECTALL:
                         {
                             return GetSelectStatement( );
                         }

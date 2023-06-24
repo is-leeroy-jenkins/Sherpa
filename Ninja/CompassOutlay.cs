@@ -119,7 +119,7 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             AppropriationCode = Record[ "AppropriationCode" ].ToString( );
@@ -144,7 +144,7 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             AppropriationCode = Record[ "AppropriationCode" ].ToString( );
@@ -169,7 +169,7 @@ namespace BudgetExecution
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             AppropriationCode = Record[ "AppropriationCode" ].ToString( );
@@ -192,7 +192,7 @@ namespace BudgetExecution
         {
             ID = outlay.ID;
             BFY = outlay.BFY;
-            Efy = outlay.Efy;
+            EFY = outlay.EFY;
             FundCode = outlay.FundCode;
             FundName = outlay.FundName;
             AppropriationCode = outlay.AppropriationCode;

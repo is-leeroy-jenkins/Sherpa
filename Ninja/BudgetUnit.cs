@@ -48,6 +48,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class BudgetUnit : DataUnit, IBudgetUnit
     {
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the bfy.
         /// </summary>
@@ -56,14 +57,16 @@ namespace BudgetExecution
         /// </value>
         public virtual string BFY { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the efy.
         /// </summary>
         /// <value>
         /// The efy.
         /// </value>
-        public virtual string Efy { get; set; }
+        public virtual string EFY { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the fund code.
         /// </summary>
@@ -72,6 +75,7 @@ namespace BudgetExecution
         /// </value>
         public virtual string FundCode { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the name of the fund.
         /// </summary>
@@ -80,6 +84,7 @@ namespace BudgetExecution
         /// </value>
         public virtual string FundName { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the treasury account code.
         /// </summary>
@@ -88,6 +93,7 @@ namespace BudgetExecution
         /// </value>
         public virtual string TreasuryAccountCode { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the name of the treasury account.
         /// </summary>
@@ -96,6 +102,7 @@ namespace BudgetExecution
         /// </value>
         public virtual string TreasuryAccountName { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the budget account code.
         /// </summary>
@@ -104,6 +111,7 @@ namespace BudgetExecution
         /// </value>
         public virtual string BudgetAccountCode { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the name of the budget account.
         /// </summary>

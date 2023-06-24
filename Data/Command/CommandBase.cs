@@ -49,11 +49,11 @@ namespace BudgetExecution
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.ISource" />
-    /// <seealso cref="BudgetExecution.IProvider" />
+    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:BudgetExecution.IProvider" />
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -91,10 +91,12 @@ namespace BudgetExecution
         /// </value>
         public ISqlStatement SqlStatement { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// </summary>
         public Provider Provider { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the source.
         /// </summary>
@@ -131,7 +133,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
         protected CommandBase( Source source, Provider provider, IDictionary<string, object> where, 
-            SQL commandType = SQL.Selectall )
+            SQL commandType = SQL.SELECTALL )
         {
             Source = source;
             Provider = provider;
@@ -225,7 +227,7 @@ namespace BudgetExecution
                     var _connection = ConnectionFactory?.Connection as SQLiteConnection;
                     switch( SqlStatement?.CommandType )
                     {
-                        case SQL.Selectall:
+                        case SQL.SELECTALL:
                         case SQL.SELECT:
                         {
                             var _sql = SqlStatement?.GetCommandText( );
@@ -280,7 +282,7 @@ namespace BudgetExecution
                     var _connection = ConnectionFactory?.Connection as SqlCeConnection;
                     switch( SqlStatement?.CommandType )
                     {
-                        case SQL.Selectall:
+                        case SQL.SELECTALL:
                         case SQL.SELECT:
                         {
                             var _sql = SqlStatement?.GetCommandText( );
@@ -343,7 +345,7 @@ namespace BudgetExecution
                     var _connection = ConnectionFactory?.Connection as SqlConnection;
                     switch( SqlStatement?.CommandType )
                     {
-                        case SQL.Selectall:
+                        case SQL.SELECTALL:
                         case SQL.SELECT:
                         {
                             var _sql = SqlStatement?.GetCommandText( );
@@ -396,7 +398,7 @@ namespace BudgetExecution
                     var _connection = ConnectionFactory?.Connection as OleDbConnection;
                     switch( SqlStatement?.CommandType )
                     {
-                        case SQL.Selectall:
+                        case SQL.SELECTALL:
                         case SQL.SELECT:
                         {
                             var _sql = SqlStatement?.GetCommandText( );

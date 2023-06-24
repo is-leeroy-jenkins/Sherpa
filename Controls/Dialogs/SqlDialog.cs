@@ -53,10 +53,10 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Edit;
     using CheckState = MetroSet_UI.Enums.CheckState;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.EditBase" />
+    /// <seealso cref="T:BudgetExecution.EditBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -119,8 +119,9 @@ namespace BudgetExecution
         /// </value>
         public IDictionary<string, object> Statements { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlDialog"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlDialog" /> class.
         /// </summary>
         public SqlDialog( )
         {
@@ -139,6 +140,7 @@ namespace BudgetExecution
             MouseClick += OnRightClick;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="SqlDialog"/> class.
         /// </summary>
@@ -159,6 +161,7 @@ namespace BudgetExecution
             Statements = new Dictionary<string, object>( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="SqlDialog"/> class.
         /// </summary>
@@ -179,6 +182,7 @@ namespace BudgetExecution
             Current = BindingSource.GetCurrentDataRow( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="SqlDialog"/> class.
         /// </summary>
@@ -328,27 +332,27 @@ namespace BudgetExecution
                     for( var _i = 0; _i < list.Count; _i++ )
                     {
                         if( _commands.Contains( list[ _i ] )
-                           && list[ _i ].Equals( $"{SQL.Createdatabase}" ) )
+                           && list[ _i ].Equals( $"{SQL.CREATEDATABASE}" ) )
                         {
                             SqlComboBox.Items.Add( "CREATE DATABASE" );
                         }
                         else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.Createtable}" ) )
+                                && list[ _i ].Equals( $"{SQL.CREATETABLE}" ) )
                         {
                             SqlComboBox.Items.Add( "CREATE TABLE" );
                         }
                         else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.Altertable}" ) )
+                                && list[ _i ].Equals( $"{SQL.ALTERTABLE}" ) )
                         {
                             SqlComboBox.Items.Add( "ALTER TABLE" );
                         }
                         else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.Createview}" ) )
+                                && list[ _i ].Equals( $"{SQL.CREATEVIEW}" ) )
                         {
                             SqlComboBox.Items.Add( "CREATE VIEW" );
                         }
                         else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.Selectall}" ) )
+                                && list[ _i ].Equals( $"{SQL.SELECTALL}" ) )
                         {
                             SqlComboBox.Items.Add( "SELECT ALL" );
                         }

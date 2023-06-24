@@ -44,21 +44,25 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="IDisposable"/>
+    /// <seealso cref="T:System.IDisposable" />
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class Query : QueryBase, IQuery
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Query"/>
+        /// <see cref="T:BudgetExecution.Query" />
         /// class.
         /// </summary>
         public Query( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -68,11 +72,12 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="commandType"> The commandType. </param>
         public Query( Source source, Provider provider = Provider.Access, 
-            SQL commandType = SQL.Selectall )
+            SQL commandType = SQL.SELECTALL )
             : base( source, provider, commandType )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -88,6 +93,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -104,6 +110,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -120,6 +127,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -128,7 +136,7 @@ namespace BudgetExecution
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
         /// <param name="columns"> The columns. </param>
-        /// <param name="numerics"> The numerics. </param>
+        /// <param name="numerics"> The numeric field. </param>
         /// <param name="having"> The having. </param>
         /// <param name="commandType"> Type of the command. </param>
         public Query( Source source, Provider provider, IEnumerable<string> columns,
@@ -138,6 +146,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -149,6 +158,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -162,6 +172,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -175,6 +186,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -188,6 +200,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>

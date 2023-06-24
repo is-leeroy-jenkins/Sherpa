@@ -41,12 +41,12 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Specialized;
-    using System.Configuration;
     using System.Data.Common;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
+    using static System.Configuration.ConfigurationManager;
+    using static System.IO.Path;
 
     /// <summary>
     /// 
@@ -56,22 +56,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class ConnectionBase
     {
-        /// <summary>
-        /// Gets or sets the connection path.
-        /// </summary>
-        /// <value>
-        /// The connection path.
-        /// </value>
-        public ConnectionStringSettingsCollection ConnectionPath { get; set; }
-
-        /// <summary>
-        /// Gets or sets the database client path.
-        /// </summary>
-        /// <value>
-        /// The database client path.
-        /// </value>
-        public NameValueCollection DbClientPath { get; set; }
-
         /// <summary>
         /// Gets or sets the connection.
         /// </summary>
@@ -86,7 +70,7 @@ namespace BudgetExecution
         /// <value>
         /// The database path.
         /// </value>
-        public string DbPath { get; set; }
+        public string ClientPath { get; set; }
 
         /// <summary>
         /// Gets or sets the source.
@@ -153,16 +137,17 @@ namespace BudgetExecution
         public string ConnectionString { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConnectionBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ConnectionBase"/> class.
         /// </summary>
         protected ConnectionBase( )
         {
-            ConnectionPath = ConfigurationManager.ConnectionStrings;
-            DbClientPath = ConfigurationManager.AppSettings;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConnectionBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ConnectionBase" /> class.
         /// </summary>
         /// <param name="fullPath">The full path.</param>
         protected ConnectionBase( string fullPath )
@@ -170,20 +155,22 @@ namespace BudgetExecution
         {
             Source = Source.External;
             FilePath = fullPath;
-            FileName = Path.GetFileNameWithoutExtension( fullPath );
+            FileName = GetFileNameWithoutExtension( fullPath );
             TableName = FileName;
-            PathExtension = Path.GetExtension( fullPath )?.Replace( ".", "" );
+            PathExtension = GetExtension( fullPath )?.Replace( ".", "" );
             if( PathExtension != null )
             {
                 Extension = (EXT)Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
                 Provider = (Provider)Enum.Parse( typeof( Provider ), PathExtension.ToUpper( ) );
-                DbPath = DbClientPath[ Extension.ToString( ) ];
+                ClientPath = AppSettings[ Extension.ToString( ) ];
                 ConnectionString = GetConnectionString( Provider );
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConnectionBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ConnectionBase" /> class.
         /// </summary>
         /// <param name="fullPath">The full path.</param>
         /// <param name="provider">The provider.</param>
@@ -193,19 +180,21 @@ namespace BudgetExecution
             Source = Source.External;
             Provider = provider;
             FilePath = fullPath;
-            FileName = Path.GetFileNameWithoutExtension( fullPath );
+            FileName = GetFileNameWithoutExtension( fullPath );
             TableName = FileName;
-            PathExtension = Path.GetExtension( fullPath )?.Replace( ".", "" );
+            PathExtension = GetExtension( fullPath )?.Replace( ".", "" );
             if( PathExtension != null )
             {
                 Extension = (EXT)Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
-                DbPath = DbClientPath[ Extension.ToString( ) ];
+                ClientPath = AppSettings[ Extension.ToString( ) ];
                 ConnectionString = GetConnectionString( Provider );
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConnectionBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ConnectionBase" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -217,12 +206,12 @@ namespace BudgetExecution
             TableName = source.ToString( );
             ConnectionString = GetConnectionString( provider );
             FilePath = GetDbClientPath( provider );
-            PathExtension = Path.GetExtension( FilePath )?.Replace( ".", "" );
-            FileName = Path.GetFileNameWithoutExtension( FilePath );
+            PathExtension = GetExtension( FilePath )?.Replace( ".", "" );
+            FileName = GetFileNameWithoutExtension( FilePath );
             if( !string.IsNullOrEmpty( PathExtension ) )
             {
                 Extension = (EXT)Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
-                DbPath = DbClientPath[ Extension.ToString( ) ];
+                ClientPath = AppSettings[ Extension.ToString( ) ];
             }
         }
 
@@ -239,13 +228,14 @@ namespace BudgetExecution
                 {
                     return provider switch
                     {
-                        Provider.Access => DbClientPath[ "ACCDB" ],
-                        Provider.SQLite => DbClientPath[ "DB" ],
-                        Provider.SqlCe => DbClientPath[ "SDF" ],
-                        Provider.Excel => DbClientPath[ "XLSX" ],
-                        Provider.SqlServer => DbClientPath[ "MDF" ],
-                        Provider.CSV => DbClientPath[ "CSV" ],
-                        _ => DbClientPath[ "ACCDB" ]
+                        Provider.Access => AppSettings[ "ACCDB" ],
+                        Provider.SQLite => AppSettings[ "DB" ],
+                        Provider.SqlCe => AppSettings[ "SDF" ],
+                        Provider.Excel => AppSettings[ "XLSX" ],
+                        Provider.SqlServer => AppSettings[ "MDF" ],
+                        Provider.CSV => AppSettings[ "CSV" ],
+                        Provider.Text => AppSettings[ "TXT" ],
+                        _ => AppSettings[ "ACCDB" ]
                     };
                 }
                 catch( Exception _ex )
@@ -266,18 +256,21 @@ namespace BudgetExecution
         private protected string GetDbClientPath( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath )
-               && Path.HasExtension( filePath ) )
+               && HasExtension( filePath ) )
             {
                 try
                 {
-                    var _file = Path.GetExtension( filePath )?.Replace( ".", "" )?.ToUpper( );
+                    var _file = GetExtension( filePath )
+                        ?.Replace( ".", "" )
+                        ?.ToUpper( );
+
                     if( !string.IsNullOrEmpty( _file ) )
                     {
                         var _extension = (EXT)Enum.Parse( typeof( EXT ), _file );
                         var _names = Enum.GetNames( typeof( EXT ) );
                         if( _names?.Contains( _extension.ToString( ) ) == true )
                         {
-                            var _clientPath = DbClientPath[ $"{_extension}" ];
+                            var _clientPath = AppSettings[ $"{_extension}" ];
                             return !string.IsNullOrEmpty( _clientPath )
                                 ? _clientPath
                                 : string.Empty;
@@ -305,7 +298,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _connection = ConnectionPath[ provider.ToString( ) ]?.ConnectionString;
+                    var _connection = ConnectionStrings[ provider.ToString( ) ]?.ConnectionString;
                     return !string.IsNullOrEmpty( _connection )
                         ? _connection?.Replace( "{FilePath}", FilePath )
                         : string.Empty;
@@ -328,18 +321,21 @@ namespace BudgetExecution
         {
             if( !string.IsNullOrEmpty( filePath )
                && File.Exists( filePath )
-               && Path.HasExtension( filePath ) )
+               && HasExtension( filePath ) )
             {
                 try
                 {
-                    var _file = Path.GetExtension( filePath );
+                    var _file = GetExtension( filePath );
                     if( _file != null )
                     {
                         var _ext = (EXT)Enum.Parse( typeof( EXT ), _file.ToUpper( ) );
                         var _names = Enum.GetNames( typeof( EXT ) );
                         if( _names?.Contains( _ext.ToString( ) ) == true )
                         {
-                            var _connectionString = ConnectionPath[ $"{_ext}" ].ConnectionString;
+                            var _connectionString = 
+                                ConnectionStrings[ $"{_ext}" ]
+                                    ?.ConnectionString;
+
                             return !string.IsNullOrEmpty( _connectionString )
                                 ? _connectionString
                                 : string.Empty;

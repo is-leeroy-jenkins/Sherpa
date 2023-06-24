@@ -42,13 +42,16 @@ namespace BudgetExecution
 {
     using System;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    public class DataConfig
+    public class DataConfig : ISource, IProvider
     {
+        /// <inheritdoc />
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
         public Source Source { get; set; }
 
+        /// <inheritdoc />
         /// <summary> Gets or sets the provider. </summary>
         /// <value> The provider. </value>
         public Provider Provider { get; set; }
@@ -96,7 +99,7 @@ namespace BudgetExecution
         {
             try
             {
-                return $"{Source.ToString( )}";
+                return $"{Provider.ToString( )}";
             }
             catch( Exception _ex )
             {

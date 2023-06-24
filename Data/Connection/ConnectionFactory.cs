@@ -47,23 +47,29 @@ namespace BudgetExecution
     using System.Data.SQLite;
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
+    using static System.Configuration.ConfigurationManager;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="ConnectionBase"/>
-    /// <seealso cref="ISource"/>
-    /// <seealso cref="IProvider"/>
+    /// <seealso cref="T:BudgetExecution.ConnectionBase" />
+    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:BudgetExecution.IProvider" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class ConnectionFactory : ConnectionBase, ISource, IProvider, IConnectionFactory
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ConnectionFactory"/>
+        /// <see cref="T:BudgetExecution.ConnectionFactory" />
         /// class.
         /// </summary>
         public ConnectionFactory( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ConnectionFactory"/>
@@ -76,6 +82,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ConnectionFactory"/>
@@ -87,6 +94,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ConnectionFactory"/>
@@ -99,6 +107,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the connection.
         /// </summary>
@@ -109,7 +118,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _connectionString = ConnectionPath[ $"{Provider}" ]?.ConnectionString;
+                    var _connectionString = ConnectionStrings[ $"{Provider}" ]?.ConnectionString;
                     if( !string.IsNullOrEmpty( _connectionString ) )
                     {
                         switch( Provider )
@@ -128,6 +137,7 @@ namespace BudgetExecution
                             }
                             case Provider.Excel:
                             case Provider.CSV:
+                            case Provider.Text:
                             case Provider.Access:
                             case Provider.OleDb:
                             {

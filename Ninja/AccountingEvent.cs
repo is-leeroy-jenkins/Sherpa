@@ -55,8 +55,10 @@ namespace BudgetExecution
             Source = Source.AccountingEvents;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="AccountingEvent"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.AccountingEvent" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public AccountingEvent( IQuery query )

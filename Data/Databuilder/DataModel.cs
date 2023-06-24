@@ -55,8 +55,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class DataModel : ModelBase
+    public class DataModel : ModelBase, IDataModel
     {
+        /// <inheritdoc />
         /// <summary>
         /// Gets the data elements.
         /// </summary>
@@ -82,7 +83,7 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, SQL.Selectall );
+            SqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
             DataSetName = DataSet.DataSetName;
@@ -387,33 +388,6 @@ namespace BudgetExecution
             }
 
             return default( IEnumerable<string> );
-        }
-
-        /// <summary>
-        /// Creates the schema table.
-        /// </summary>
-        /// <param name="dataTable">The data table.</param>
-        /// <returns></returns>
-        public static DataTable CreateSchemaTable( DataTable dataTable )
-        {
-            if( dataTable?.Rows?.Count > 0 )
-            {
-                try
-                {
-                    using var _reader = new DataTableReader( dataTable );
-                    var _schema = _reader?.GetSchemaTable( );
-                    return _schema?.Rows?.Count > 0
-                        ? _schema
-                        : default( DataTable );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( DataTable );
-                }
-            }
-
-            return default( DataTable );
         }
 
         /// <summary>

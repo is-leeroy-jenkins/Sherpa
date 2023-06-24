@@ -48,7 +48,7 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the efy. </summary>
         /// <value> The efy. </value>
-        public string Efy { get; set; }
+        public string EFY { get; set; }
 
         /// <summary> Gets or sets the fund code. </summary>
         /// <value> The fund code. </value>

@@ -45,66 +45,114 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.PRC" />
+    /// <seealso cref="T:BudgetExecution.IStatusOfFunds" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class StatusOfFunds : PRC, IStatusOfFunds
     {
-
-        /// <summary> Gets or sets the amount. </summary>
-        /// <value> The amount. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the amount.
+        /// </summary>
+        /// <value>
+        /// The amount.
+        /// </value>
         public virtual double Amount { get; set; }
 
-        /// <summary> Gets or sets the budgeted. </summary>
-        /// <value> The budgeted. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the budgeted.
+        /// </summary>
+        /// <value>
+        /// The budgeted.
+        /// </value>
         public virtual double Budgeted { get; set; }
 
-        /// <summary> Gets or sets the posted. </summary>
-        /// <value> The posted. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the posted.
+        /// </summary>
+        /// <value>
+        /// The posted.
+        /// </value>
         public virtual double Posted { get; set; }
 
-        /// <summary> Gets or sets the open commitments. </summary>
-        /// <value> The open commitments. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the open commitments.
+        /// </summary>
+        /// <value>
+        /// The open commitments.
+        /// </value>
         public virtual double OpenCommitments { get; set; }
 
-        /// <summary> Gets or sets the ulo. </summary>
-        /// <value> The ulo. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the unliquidated obligations.
+        /// </summary>
+        /// <value>
+        /// The unliquidated obligations.
+        /// </value>
         public virtual double UnliquidatedObligations { get; set; }
 
-        /// <summary> Gets or sets the expenditures. </summary>
-        /// <value> The expenditures. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the expenditures.
+        /// </summary>
+        /// <value>
+        /// The expenditures.
+        /// </value>
         public virtual double Expenditures { get; set; }
 
-        /// <summary> Gets or sets the obligations. </summary>
-        /// <value> The obligations. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the obligations.
+        /// </summary>
+        /// <value>
+        /// The obligations.
+        /// </value>
         public virtual double Obligations { get; set; }
 
-        /// <summary> Gets or sets the used. </summary>
-        /// <value> The used. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the used.
+        /// </summary>
+        /// <value>
+        /// The used.
+        /// </value>
         public virtual double Used { get; set; }
 
-        /// <summary> Gets or sets the available. </summary>
-        /// <value> The available. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the available.
+        /// </summary>
+        /// <value>
+        /// The available.
+        /// </value>
         public virtual double Available { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfFunds"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
         /// </summary>
         public StatusOfFunds( )
         {
             Source = Source.StatusOfFunds;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfFunds"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public StatusOfFunds( IQuery query )
             : base( query )
         {
@@ -114,7 +162,7 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "StatusOfFundsId" ].ToString( ) ?? "0" );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -151,12 +199,12 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfFunds"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
         /// </summary>
-        /// <param name="dataBuilder"> The builder. </param>
+        /// <param name="dataBuilder">The data builder.</param>
         public StatusOfFunds( IDataModel dataBuilder )
             : base( dataBuilder )
         {
@@ -166,7 +214,7 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "StatusOfFundsId" ].ToString( ) ?? "0" );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -203,12 +251,12 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfFunds"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public StatusOfFunds( DataRow dataRow )
             : base( dataRow )
         {
@@ -218,7 +266,7 @@ namespace BudgetExecution
             ID = int.Parse( dataRow[ "StatusOfFundsId" ].ToString( ) ?? "0" );
             BudgetLevel = dataRow[ "BudgetLevel" ].ToString( );
             BFY = dataRow[ "BFY" ].ToString( );
-            Efy = dataRow[ "EFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
             RpioCode = dataRow[ "RpioCode" ].ToString( );
@@ -255,6 +303,12 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
+        /// </summary>
+        /// <param name="map">The map.</param>
         public StatusOfFunds( IDictionary<string, object> map )
             : base( map )
         {
@@ -263,7 +317,7 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "StatusOfFundsId" ].ToString( ) ?? "0" );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -300,12 +354,18 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
+        /// </summary>
+        /// <param name="status">The status.</param>
         public StatusOfFunds( IStatusOfFunds status )
         {
             ID = status.ID;
             BudgetLevel = status.BudgetLevel;
             BFY = status.BFY;
-            Efy = status.Efy;
+            EFY = status.EFY;
             FundCode = status.FundCode;
             FundName = status.FundName;
             RpioCode = status.RpioCode;

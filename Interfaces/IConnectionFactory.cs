@@ -41,8 +41,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Specialized;
-    using System.Configuration;
     using System.Data.Common;
 
     /// <summary>
@@ -50,22 +48,6 @@ namespace BudgetExecution
     /// </summary>
     public interface IConnectionFactory
     {
-        /// <summary>
-        /// Gets or sets the connection path.
-        /// </summary>
-        /// <value>
-        /// The connection path.
-        /// </value>
-        ConnectionStringSettingsCollection ConnectionPath { get; set; }
-
-        /// <summary>
-        /// Gets or sets the database client path.
-        /// </summary>
-        /// <value>
-        /// The database client path.
-        /// </value>
-        NameValueCollection DbClientPath { get; set; }
-
         /// <summary>
         /// Gets or sets the connection.
         /// </summary>
@@ -80,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The database path.
         /// </value>
-        string DbPath { get; set; }
+        string ClientPath { get; set; }
 
         /// <summary>
         /// Gets or sets the source.

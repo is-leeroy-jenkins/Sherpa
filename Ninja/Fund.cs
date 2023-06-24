@@ -77,7 +77,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "FundsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
             ShortName = Record[ "ShortName" ].ToString( );
@@ -124,7 +124,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "FundsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
             ShortName = Record[ "ShortName" ].ToString( );
@@ -171,7 +171,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "FundsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
             ShortName = Record[ "ShortName" ].ToString( );
@@ -218,7 +218,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "FundsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
             ShortName = Record[ "ShortName" ].ToString( );
@@ -266,7 +266,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "FundsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
             ShortName = Record[ "ShortName" ].ToString( );
@@ -304,7 +304,7 @@ namespace BudgetExecution
         {
             ID = fund.ID;
             BFY = fund.BFY;
-            Efy = fund.Efy;
+            EFY = fund.EFY;
             Code = fund.Code;
             Name = fund.Name;
             ShortName = fund.ShortName;

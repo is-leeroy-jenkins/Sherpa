@@ -45,20 +45,23 @@ namespace BudgetExecution
     using System.Data.Common;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="ICommand"/>
+    /// <seealso cref="T:BudgetExecution.ICommand" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class CommandFactory : CommandBase, ICommandFactory
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CommandFactory"/>
+        /// <see cref="T:BudgetExecution.CommandFactory" />
         /// class.
         /// </summary>
         public CommandFactory( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="CommandFactory"/>
@@ -73,6 +76,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="CommandFactory"/>
@@ -82,11 +86,12 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="where"> The dictionary. </param>
         /// <param name="commandType"> </param>
-        public CommandFactory( Source source, Provider provider, IDictionary<string, object> where, SQL commandType = SQL.Selectall )
+        public CommandFactory( Source source, Provider provider, IDictionary<string, object> where, SQL commandType = SQL.SELECTALL )
             : base( source, provider, where, commandType )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="CommandFactory"/>
@@ -103,6 +108,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary> </summary>
         /// <param name="source"> </param>
         /// <param name="provider"> </param>
@@ -115,6 +121,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="CommandFactory"/>
@@ -133,6 +140,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="CommandFactory"/>
@@ -144,6 +152,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Sets the command.
         /// </summary>
@@ -172,6 +181,7 @@ namespace BudgetExecution
                         case Provider.Excel:
                         case Provider.CSV:
                         case Provider.Access:
+                        case Provider.Text:
                         case Provider.OleDb:
                         {
                             return GetOleDbCommand( );

@@ -45,7 +45,6 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
-    using System.Linq;
 
     /// <inheritdoc />
     /// <summary>
@@ -59,7 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class DataBuilder : DataModel, IDataModel
+    public class DataBuilder : DataModel
     {
         /// <inheritdoc />
         /// <summary>
@@ -195,86 +194,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Filters the data.
-        /// </summary>
-        /// <param name="name">The name.</param>
-        /// <param name="value">The value.</param>
-        /// <returns></returns>
-        public IEnumerable<DataRow> FilterData( string name, string value )
-        {
-            if( ( DataTable != null )
-               && !string.IsNullOrEmpty( name )
-               && !string.IsNullOrEmpty( value ) )
-            {
-                try
-                {
-                    var _query = DataTable.AsEnumerable( )
-                        ?.Where( r => r.Field<string>( name ).Equals( value ) )
-                        ?.Select( r => r );
-                    
-                    return _query?.Any( ) == true
-                        ? _query.ToArray( )
-                        : default( DataRow[ ] );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IEnumerable<DataRow> );
-                }
-            }
-
-            return default( IEnumerable<DataRow> );
-        }
-
-        /// <summary>
-        /// Gets the series.
-        /// </summary>
-        /// <param name="name">The name.</param>
-        /// <param name="value">The value.</param>
-        /// <returns></returns>
-        [ SuppressMessage( "ReSharper", "BadParensLineBreaks" ) ]
-        public IDictionary<string, IEnumerable<string>> GetSeries( string name, string value )
-        {
-            if( ( DataTable != null )
-               && !string.IsNullOrEmpty( name )
-               && !string.IsNullOrEmpty( value ) )
-            {
-                try
-                {
-                    var _columns = DataTable.Columns;
-                    var _rows = DataTable.AsEnumerable( );
-                    var _dictionary = new Dictionary<string, IEnumerable<string>>( );
-                    var _values = GetValues( _rows, name, value );
-                    if( _values?.Any( ) == true )
-                    {
-                        for( var _i = 0; _i < _columns?.Count; _i++ )
-                        {
-                            var _columnName = _columns[ _i ].ColumnName;
-                            if( !string.IsNullOrEmpty( _columnName )
-                               && ( _columns[ _i ]?.DataType == typeof( string ) ) )
-                            {
-                                _dictionary.Add( _columns[ _i ].ColumnName, _values );
-                            }
-                        }
-
-                        return _dictionary?.Any( ) == true
-                            ? _dictionary
-                            : default( Dictionary<string, IEnumerable<string>> );
-                    }
-
-                    return default( IDictionary<string, IEnumerable<string>> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IDictionary<string, IEnumerable<string>> );
-                }
-            }
-
-            return default( IDictionary<string, IEnumerable<string>> );
-        }
-
-        /// <summary>
         /// Gets the provider.
         /// </summary>
         /// <param name="provider">The provider.</param>
@@ -406,35 +325,6 @@ namespace BudgetExecution
             }
 
             return default( Source );
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Filters the data.
-        /// </summary>
-        /// <param name="where">The dictionary.</param>
-        /// <returns></returns>
-        public IEnumerable<DataRow> FilterData( IDictionary<string, object> where )
-        {
-            if( ( where?.Any( ) == true )
-               && ( DataTable != null ) )
-            {
-                try
-                {
-                    var _criteria = where.ToCriteria( );
-                    var _data = DataTable.Select( _criteria );
-                    return _data?.Length > 0
-                        ? _data
-                        : default( IEnumerable<DataRow> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IEnumerable<DataRow> );
-                }
-            }
-
-            return default( IEnumerable<DataRow> );
         }
     }
 }

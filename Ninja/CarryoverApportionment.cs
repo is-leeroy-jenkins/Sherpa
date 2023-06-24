@@ -180,7 +180,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CarryoverApportionmentsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             Group = Record[ "Group" ].ToString( );
             Description = Record[ "Description" ].ToString( );
             LineName = Record[ "LineName" ].ToString( );
@@ -209,7 +209,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CarryoverApportionmentsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             Group = Record[ "Group" ].ToString( );
             Description = Record[ "Description" ].ToString( );
             LineName = Record[ "LineName" ].ToString( );
@@ -238,7 +238,7 @@ namespace BudgetExecution
             Data = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "CarryoverApportionmentsId" ].ToString( ) ?? "0" );
             BFY = dataRow[ "BFY" ].ToString( );
-            Efy = dataRow[ "EFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
             Group = dataRow[ "Group" ].ToString( );
             Description = dataRow[ "Description" ].ToString( );
             LineName = dataRow[ "LineName" ].ToString( );
@@ -265,7 +265,7 @@ namespace BudgetExecution
         {
             ID = carryover.ID;
             BFY = carryover.BFY;
-            Efy = carryover.Efy;
+            EFY = carryover.EFY;
             Group = carryover.Group;
             Description = carryover.Description;
             LineName = carryover.LineName;

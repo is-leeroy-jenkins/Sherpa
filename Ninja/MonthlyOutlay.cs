@@ -278,7 +278,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "MonthlyOutlaysId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             FiscalYear = Record[ "FiscalYear" ].ToString( );
             LineNumber = Record[ "LineNumber" ].ToString( );
             LineTitle = Record[ "LineTitle" ].ToString( );
@@ -316,7 +316,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "MonthlyOutlaysId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            Efy = Record[ "EFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             FiscalYear = Record[ "FiscalYear" ].ToString( );
             LineNumber = Record[ "LineNumber" ].ToString( );
             LineTitle = Record[ "LineTitle" ].ToString( );
@@ -354,7 +354,7 @@ namespace BudgetExecution
             Data = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "MonthlyOutlaysId" ].ToString( ) ?? "0" );
             BFY = dataRow[ "BFY" ].ToString( );
-            Efy = dataRow[ "EFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
             FiscalYear = dataRow[ "FiscalYear" ].ToString( );
             LineNumber = dataRow[ "LineNumber" ].ToString( );
             LineTitle = dataRow[ "LineTitle" ].ToString( );
@@ -389,7 +389,7 @@ namespace BudgetExecution
         {
             ID = outlays.ID;
             BFY = outlays.BFY;
-            Efy = outlays.Efy;
+            EFY = outlays.EFY;
             FiscalYear = outlays.FiscalYear;
             LineNumber = outlays.LineNumber;
             LineTitle = outlays.LineTitle;

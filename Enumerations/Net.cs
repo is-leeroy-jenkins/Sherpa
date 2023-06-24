@@ -42,19 +42,24 @@ namespace BudgetExecution
 {
     using System;
 
-    /// <summary> Defines the Net </summary>
-    public enum Net
+    /// <summary>
+    /// Defines the Net enumeration
+    /// </summary>
+    public enum NET
     {
-        /// <summary> The ns </summary>
-        Ns = 0,
-
-        /// <summary> Defines the Zero </summary>
+        /// <summary>
+        /// Defines the Zero
+        /// </summary>
         Zero = 1,
 
-        /// <summary> Defines the Increase </summary>
+        /// <summary>
+        /// Defines the Increase
+        /// </summary>
         Increase = 2,
 
-        /// <summary> Defines the Decrease </summary>
+        /// <summary>
+        /// Defines the Decrease
+        /// </summary>
         Decrease = 3
     }
 }

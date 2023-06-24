@@ -47,18 +47,22 @@ namespace BudgetExecution
     using System.IO;
     using System.Windows.Forms;
     using OfficeOpenXml;
+    using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.Query" />
+    /// <seealso cref="T:BudgetExecution.Query" />
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class CsvQuery : Query
     {
+        /// <inheritdoc />
         /// <summary>
         /// Gets the Provider
         /// </summary>
         public new Provider Provider { get; set; } = Provider.CSV;
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="CsvQuery"/> class.
         /// </summary>
@@ -66,6 +70,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="CsvQuery"/> class.
         /// </summary>
@@ -75,6 +80,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="CsvQuery"/> class.
         /// </summary>
@@ -85,6 +91,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="CsvQuery"/> class.
         /// </summary>
@@ -98,6 +105,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="CsvQuery"/> class.
         /// </summary>
@@ -112,6 +120,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="CsvQuery"/> class.
         /// </summary>
@@ -126,6 +135,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="CsvQuery"/> class.
         /// </summary>
@@ -135,6 +145,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="CsvQuery"/> class.
         /// </summary>
@@ -146,6 +157,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="CsvQuery"/> class.
         /// </summary>
@@ -157,6 +169,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="CsvQuery"/> class.
         /// </summary>
@@ -168,6 +181,7 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="CsvQuery"/> class.
         /// </summary>
@@ -356,7 +370,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _filePath = ConnectionFactory.DbPath;
+                    var _filePath = ConnectionFactory.ClientPath;
                     using var _excel = new ExcelPackage( new FileInfo( _filePath ) );
                     var _workbook = _excel.Workbook;
                     var _worksheet = _workbook.Worksheets[ 1 ];
