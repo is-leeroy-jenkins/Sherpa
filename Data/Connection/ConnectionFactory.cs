@@ -32,6 +32,7 @@
 //    DEALINGS IN THE SOFTWARE.
 // 
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+
 // </copyright>
 // <summary>
 //   ConnectionFactory.cs
@@ -114,46 +115,43 @@ namespace BudgetExecution
         /// <returns></returns>
         public DbConnection GetConnection( )
         {
-            if( Enum.IsDefined( typeof( Provider ), Provider ) )
+            try
             {
-                try
+                var _connectionString = ConnectionStrings[ $"{Provider}" ]?.ConnectionString;
+                if( !string.IsNullOrEmpty( _connectionString ) )
                 {
-                    var _connectionString = ConnectionStrings[ $"{Provider}" ]?.ConnectionString;
-                    if( !string.IsNullOrEmpty( _connectionString ) )
+                    switch( Provider )
                     {
-                        switch( Provider )
+                        case Provider.SQLite:
                         {
-                            case Provider.SQLite:
-                            {
-                                return new SQLiteConnection( _connectionString );
-                            }
-                            case Provider.SqlCe:
-                            {
-                                return new SqlCeConnection( _connectionString );
-                            }
-                            case Provider.SqlServer:
-                            {
-                                return new SqlConnection( _connectionString );
-                            }
-                            case Provider.Excel:
-                            case Provider.CSV:
-                            case Provider.Text:
-                            case Provider.Access:
-                            case Provider.OleDb:
-                            {
-                                return new OleDbConnection( _connectionString );
-                            }
+                            return new SQLiteConnection( _connectionString );
+                        }
+                        case Provider.SqlCe:
+                        {
+                            return new SqlCeConnection( _connectionString );
+                        }
+                        case Provider.SqlServer:
+                        {
+                            return new SqlConnection( _connectionString );
+                        }
+                        case Provider.Excel:
+                        case Provider.CSV:
+                        case Provider.Text:
+                        case Provider.Access:
+                        case Provider.OleDb:
+                        {
+                            return new OleDbConnection( _connectionString );
                         }
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( DbConnection );
-                }
-            }
 
-            return default( DbConnection );
+                return default( DbConnection );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( DbConnection );
+            }
         }
     }
 }

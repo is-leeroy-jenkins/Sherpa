@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Enumerations
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 06-09-2023
+//     Created:                 06-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-09-2023
+//     Last Modified On:        07-11-2023
 // ******************************************************************************************
 // <copyright file="DataConfig.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -42,20 +42,10 @@ namespace BudgetExecution
 {
     using System;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary> </summary>
     public class DataConfig : ISource, IProvider
     {
-        /// <inheritdoc />
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public Source Source { get; set; }
-
-        /// <inheritdoc />
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
-        public Provider Provider { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="DataConfig"/>
@@ -78,11 +68,19 @@ namespace BudgetExecution
             Provider = provider;
         }
 
-        /// <summary>
-        /// Deconstructs the specified source.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
+        public Provider Provider { get; set; }
+
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
+        public Source Source { get; set; }
+
+        /// <summary> Deconstructs the specified source. </summary>
+        /// <param name="source" > The source. </param>
+        /// <param name="provider" > The provider. </param>
         public void Deconstruct( out Source source, out Provider provider )
         {
             source = Source;

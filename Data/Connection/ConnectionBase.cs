@@ -158,12 +158,12 @@ namespace BudgetExecution
             FileName = GetFileNameWithoutExtension( fullPath );
             TableName = FileName;
             PathExtension = GetExtension( fullPath )?.Replace( ".", "" );
-            if( PathExtension != null )
+            if( !string.IsNullOrEmpty( PathExtension ) )
             {
                 Extension = (EXT)Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
                 Provider = (Provider)Enum.Parse( typeof( Provider ), PathExtension.ToUpper( ) );
                 ClientPath = AppSettings[ Extension.ToString( ) ];
-                ConnectionString = GetConnectionString( Provider );
+                ConnectionString = CreateConnectionString( Provider );
             }
         }
 
@@ -183,11 +183,11 @@ namespace BudgetExecution
             FileName = GetFileNameWithoutExtension( fullPath );
             TableName = FileName;
             PathExtension = GetExtension( fullPath )?.Replace( ".", "" );
-            if( PathExtension != null )
+            if( !string.IsNullOrEmpty( PathExtension ) )
             {
                 Extension = (EXT)Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
                 ClientPath = AppSettings[ Extension.ToString( ) ];
-                ConnectionString = GetConnectionString( Provider );
+                ConnectionString = CreateConnectionString( Provider );
             }
         }
 
@@ -204,7 +204,7 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             TableName = source.ToString( );
-            ConnectionString = GetConnectionString( provider );
+            ConnectionString = CreateConnectionString( provider );
             FilePath = GetDbClientPath( provider );
             PathExtension = GetExtension( FilePath )?.Replace( ".", "" );
             FileName = GetFileNameWithoutExtension( FilePath );
@@ -241,7 +241,6 @@ namespace BudgetExecution
                 catch( Exception _ex )
                 {
                     Fail( _ex );
-                    return string.Empty;
                 }
             }
 
@@ -291,7 +290,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="provider">The provider.</param>
         /// <returns></returns>
-        private protected virtual string GetConnectionString( Provider provider )
+        private protected virtual string CreateConnectionString( Provider provider )
         {
             if( Enum.IsDefined( typeof( Provider ), provider )
                && !string.IsNullOrEmpty( FilePath ) )
@@ -317,7 +316,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="filePath">The file path.</param>
         /// <returns></returns>
-        private protected virtual string GetConnectionString( string filePath )
+        private protected virtual string CreateConnectionString( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath )
                && File.Exists( filePath )
@@ -326,15 +325,14 @@ namespace BudgetExecution
                 try
                 {
                     var _file = GetExtension( filePath );
-                    if( _file != null )
+                    if( !string.IsNullOrEmpty( _file ) )
                     {
                         var _ext = (EXT)Enum.Parse( typeof( EXT ), _file.ToUpper( ) );
                         var _names = Enum.GetNames( typeof( EXT ) );
                         if( _names?.Contains( _ext.ToString( ) ) == true )
                         {
-                            var _connectionString = 
-                                ConnectionStrings[ $"{_ext}" ]
-                                    ?.ConnectionString;
+                            var _connectionString = ConnectionStrings[ $"{_ext}" ]
+                                ?.ConnectionString;
 
                             return !string.IsNullOrEmpty( _connectionString )
                                 ? _connectionString
