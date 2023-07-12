@@ -130,6 +130,8 @@
             UtilityPanel = new Layout( );
             DataManagementTable = new HeaderPanel( );
             DataManagementPanel = new Layout( );
+            ResourceTable = new HeaderPanel( );
+            ResourcePanel = new Layout( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             BrowserTable.SuspendLayout( );
             BrowserPanel.SuspendLayout( );
@@ -139,6 +141,8 @@
             UtilityPanel.SuspendLayout( );
             DataManagementTable.SuspendLayout( );
             DataManagementPanel.SuspendLayout( );
+            ResourceTable.SuspendLayout( );
+            ResourcePanel.SuspendLayout( );
             SuspendLayout( );
             // 
             // LookupTile
@@ -274,13 +278,13 @@
             GuidanceTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             GuidanceTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             GuidanceTile.HoverText = null;
-            GuidanceTile.Location = new System.Drawing.Point( 42, 152 );
+            GuidanceTile.Location = new System.Drawing.Point( 24, 14 );
             GuidanceTile.Margin = new System.Windows.Forms.Padding( 1 );
             GuidanceTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             GuidanceTile.Name = "GuidanceTile";
             GuidanceTile.ShowBanner = true;
             GuidanceTile.ShowBannerIcon = true;
-            GuidanceTile.Size = new System.Drawing.Size( 180, 80 );
+            GuidanceTile.Size = new System.Drawing.Size( 220, 80 );
             GuidanceTile.TabIndex = 2;
             textItem12.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem12.HubTile = GuidanceTile;
@@ -360,7 +364,7 @@
             CalculatorTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             CalculatorTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             CalculatorTile.HoverText = null;
-            CalculatorTile.Location = new System.Drawing.Point( 198, 25 );
+            CalculatorTile.Location = new System.Drawing.Point( 201, 9 );
             CalculatorTile.Margin = new System.Windows.Forms.Padding( 1 );
             CalculatorTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             CalculatorTile.Name = "CalculatorTile";
@@ -747,7 +751,7 @@
             CalendarTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             CalendarTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             CalendarTile.HoverText = null;
-            CalendarTile.Location = new System.Drawing.Point( 42, 25 );
+            CalendarTile.Location = new System.Drawing.Point( 22, 9 );
             CalendarTile.Margin = new System.Windows.Forms.Padding( 1 );
             CalendarTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             CalendarTile.Name = "CalendarTile";
@@ -833,13 +837,13 @@
             ProgramProjectTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             ProgramProjectTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             ProgramProjectTile.HoverText = null;
-            ProgramProjectTile.Location = new System.Drawing.Point( 308, 152 );
+            ProgramProjectTile.Location = new System.Drawing.Point( 272, 14 );
             ProgramProjectTile.Margin = new System.Windows.Forms.Padding( 1 );
             ProgramProjectTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             ProgramProjectTile.Name = "ProgramProjectTile";
             ProgramProjectTile.ShowBanner = true;
             ProgramProjectTile.ShowBannerIcon = true;
-            ProgramProjectTile.Size = new System.Drawing.Size( 180, 80 );
+            ProgramProjectTile.Size = new System.Drawing.Size( 230, 80 );
             ProgramProjectTile.TabIndex = 12;
             textItem64.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem64.HubTile = ProgramProjectTile;
@@ -876,7 +880,7 @@
             MessageTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             MessageTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             MessageTile.HoverText = null;
-            MessageTile.Location = new System.Drawing.Point( 372, 25 );
+            MessageTile.Location = new System.Drawing.Point( 384, 9 );
             MessageTile.Margin = new System.Windows.Forms.Padding( 1 );
             MessageTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             MessageTile.Name = "MessageTile";
@@ -1078,7 +1082,7 @@
             UtilityTable.RowCount = 2;
             UtilityTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 5.55555534F ) );
             UtilityTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 94.44444F ) );
-            UtilityTable.Size = new System.Drawing.Size( 530, 300 );
+            UtilityTable.Size = new System.Drawing.Size( 530, 139 );
             UtilityTable.TabIndex = 17;
             // 
             // UtilityPanel
@@ -1090,19 +1094,18 @@
             UtilityPanel.BorderThickness = 1;
             UtilityPanel.Children = null;
             UtilityPanel.Controls.Add( MessageTile );
-            UtilityPanel.Controls.Add( ProgramProjectTile );
             UtilityPanel.Controls.Add( CalendarTile );
-            UtilityPanel.Controls.Add( GuidanceTile );
             UtilityPanel.Controls.Add( CalculatorTile );
             UtilityPanel.DataFilter = null;
+            UtilityPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             UtilityPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             UtilityPanel.ForeColor = System.Drawing.Color.Transparent;
             UtilityPanel.HoverText = null;
             UtilityPanel.IsDerivedStyle = true;
-            UtilityPanel.Location = new System.Drawing.Point( 3, 34 );
+            UtilityPanel.Location = new System.Drawing.Point( 3, 25 );
             UtilityPanel.Name = "UtilityPanel";
             UtilityPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            UtilityPanel.Size = new System.Drawing.Size( 524, 263 );
+            UtilityPanel.Size = new System.Drawing.Size( 524, 111 );
             UtilityPanel.Style = MetroSet_UI.Enums.Style.Custom;
             UtilityPanel.StyleManager = null;
             UtilityPanel.TabIndex = 0;
@@ -1156,6 +1159,50 @@
             DataManagementPanel.ThemeName = "Budget Execution";
             DataManagementPanel.ToolTip = null;
             // 
+            // ResourceTable
+            // 
+            ResourceTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ResourceTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            ResourceTable.CaptionText = "Resources";
+            ResourceTable.ColumnCount = 1;
+            ResourceTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            ResourceTable.Controls.Add( ResourcePanel, 0, 1 );
+            ResourceTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ResourceTable.ForeColor = System.Drawing.Color.DarkGray;
+            ResourceTable.Location = new System.Drawing.Point( 707, 206 );
+            ResourceTable.Name = "ResourceTable";
+            ResourceTable.RowCount = 2;
+            ResourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 7.25806475F ) );
+            ResourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 92.7419357F ) );
+            ResourceTable.Size = new System.Drawing.Size( 530, 140 );
+            ResourceTable.TabIndex = 19;
+            // 
+            // ResourcePanel
+            // 
+            ResourcePanel.BackColor = System.Drawing.Color.Transparent;
+            ResourcePanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ResourcePanel.BindingSource = null;
+            ResourcePanel.BorderColor = System.Drawing.Color.Transparent;
+            ResourcePanel.BorderThickness = 1;
+            ResourcePanel.Children = null;
+            ResourcePanel.Controls.Add( ProgramProjectTile );
+            ResourcePanel.Controls.Add( GuidanceTile );
+            ResourcePanel.DataFilter = null;
+            ResourcePanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ResourcePanel.ForeColor = System.Drawing.Color.Transparent;
+            ResourcePanel.HoverText = null;
+            ResourcePanel.IsDerivedStyle = true;
+            ResourcePanel.Location = new System.Drawing.Point( 3, 28 );
+            ResourcePanel.Name = "ResourcePanel";
+            ResourcePanel.Padding = new System.Windows.Forms.Padding( 1 );
+            ResourcePanel.Size = new System.Drawing.Size( 524, 109 );
+            ResourcePanel.Style = MetroSet_UI.Enums.Style.Custom;
+            ResourcePanel.StyleManager = null;
+            ResourcePanel.TabIndex = 0;
+            ResourcePanel.ThemeAuthor = "Terry D. Eppler";
+            ResourcePanel.ThemeName = "Budget Execution";
+            ResourcePanel.ToolTip = null;
+            // 
             // MainForm
             // 
             BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
@@ -1168,6 +1215,7 @@
             CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             ClientSize = new System.Drawing.Size( 1338, 738 );
             ControlBox = false;
+            Controls.Add( ResourceTable );
             Controls.Add( DataManagementTable );
             Controls.Add( UtilityTable );
             Controls.Add( ClientTable );
@@ -1197,6 +1245,8 @@
             UtilityPanel.ResumeLayout( false );
             DataManagementTable.ResumeLayout( false );
             DataManagementPanel.ResumeLayout( false );
+            ResourceTable.ResumeLayout( false );
+            ResourcePanel.ResumeLayout( false );
             ResumeLayout( false );
         }
 
@@ -1232,5 +1282,7 @@
         public Tile SqlEditorTile;
         public Tile MessageTile;
         private Layout DataPanel;
+        public HeaderPanel ResourceTable;
+        public Layout ResourcePanel;
     }
 }

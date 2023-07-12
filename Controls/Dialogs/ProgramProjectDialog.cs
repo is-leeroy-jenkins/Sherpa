@@ -141,8 +141,10 @@ namespace BudgetExecution
         /// </value>
         public IEnumerable<string> ProgramCodes { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProgramProjectDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ProgramProjectDialog" /> class.
         /// </summary>
         public ProgramProjectDialog( )
         {
@@ -185,8 +187,10 @@ namespace BudgetExecution
             MouseClick += OnRightClick;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProgramProjectDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ProgramProjectDialog" /> class.
         /// </summary>
         /// <param name="code">The code.</param>
         public ProgramProjectDialog( string code )
@@ -199,7 +203,8 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
@@ -230,7 +235,8 @@ namespace BudgetExecution
         /// Called when [close button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try
@@ -247,7 +253,8 @@ namespace BudgetExecution
         /// Called when [search button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnSearchButtonClicked( object sender, EventArgs e )
         {
             try
@@ -298,7 +305,8 @@ namespace BudgetExecution
         /// Updates the header title.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void UpdateHeaderTitle( object sender, EventArgs e )
         {
             try
@@ -343,7 +351,8 @@ namespace BudgetExecution
         /// Called when [right click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
