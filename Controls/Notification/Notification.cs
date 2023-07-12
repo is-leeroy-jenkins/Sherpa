@@ -177,9 +177,9 @@ namespace BudgetExecution
 
                 base.Show( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -191,9 +191,9 @@ namespace BudgetExecution
                 FadeOutAndClose( );
                 Close( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -209,13 +209,13 @@ namespace BudgetExecution
             try
             {
                 base.OnPaint( e );
-                var g = e.Graphics;
-                using var pen = new Pen( BorderColor );
-                g.DrawRectangle( pen, 0, 0, Width - 1, Height - 1 );
+                var _g = e.Graphics;
+                using var _pen = new Pen( BorderColor );
+                _g.DrawRectangle( _pen, 0, 0, Width - 1, Height - 1 );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -234,9 +234,9 @@ namespace BudgetExecution
                 FadeIn( );
                 Timer.Start( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -259,9 +259,9 @@ namespace BudgetExecution
 
                 _timer.Start( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -285,9 +285,9 @@ namespace BudgetExecution
 
                 _timer.Start( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -307,9 +307,9 @@ namespace BudgetExecution
                     WindowState = FormWindowState.Normal;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

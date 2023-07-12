@@ -168,9 +168,9 @@ namespace BudgetExecution
                 {
                     ShowSplash( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -185,9 +185,9 @@ namespace BudgetExecution
             {
                 Size = size;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -202,9 +202,9 @@ namespace BudgetExecution
             {
                 Size = new Size( width, height );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -218,9 +218,9 @@ namespace BudgetExecution
             {
                 Text = text;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -234,9 +234,9 @@ namespace BudgetExecution
             {
                 BackColor = color;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -254,9 +254,9 @@ namespace BudgetExecution
                     var _stream = File.Open( path, FileMode.Open );
                     FormIcon = new Icon( _stream );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

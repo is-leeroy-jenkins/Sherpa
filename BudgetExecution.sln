@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33205.214
+# Visual Studio 15
+VisualStudioVersion = 15.0.33801.198
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetExecution", "BudgetExecution.csproj", "{C6009DE6-18A5-4292-B68B-7E969C652E0A}"
 EndProject
@@ -19,8 +19,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.BudgetExecution|Any CPU.ActiveCfg = Debug|Any CPU
 		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.BudgetExecution|Any CPU.Build.0 = Debug|Any CPU
-		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.BudgetExecution|x64.ActiveCfg = BudgetExecution|Any CPU
-		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.BudgetExecution|x64.Build.0 = BudgetExecution|Any CPU
+		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.BudgetExecution|x64.ActiveCfg = Release|Any CPU
+		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.BudgetExecution|x64.Build.0 = Release|Any CPU
 		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.Debug|x64.ActiveCfg = Debug|Any CPU

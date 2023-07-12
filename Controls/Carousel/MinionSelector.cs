@@ -56,6 +56,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class MinionSelector : MetroForm
     {
         /// <summary>
@@ -67,8 +69,10 @@ namespace BudgetExecution
         public string ImagePath { get; set; } =
             @"C:\Users\terry\source\repos\BudgetExecution\Resource\Images\Carousel\Minion";
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="MinionSelector"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.MinionSelector" /> class.
         /// </summary>
         public MinionSelector( )
         {
@@ -111,9 +115,10 @@ namespace BudgetExecution
             Load += OnLoad;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="MinionSelector"/>
+        /// <see cref="T:BudgetExecution.MinionSelector" />
         /// class.
         /// </summary>
         /// <param name="directoryPath"> The directory path. </param>
@@ -129,7 +134,8 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             if( !string.IsNullOrEmpty( ImagePath ) )
@@ -155,9 +161,9 @@ namespace BudgetExecution
 
                     Carousel.FilePath = ImagePath;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -179,25 +185,25 @@ namespace BudgetExecution
                     {
                         case Provider.SQLite:
                         {
-                            Minion.OpenSQLite( );
+                            Minion.RunSQLite( );
                             Close( );
                             break;
                         }
                         case Provider.SqlCe:
                         {
-                            Minion.OpenSqlCe( );
+                            Minion.RunSqlCe( );
                             Close( );
                             break;
                         }
                         case Provider.SqlServer:
                         {
-                            Minion.OpenSqlCe( );
+                            Minion.RunSqlCe( );
                             Close( );
                             break;
                         }
                         case Provider.Access:
                         {
-                            Minion.OpenAccess( );
+                            Minion.RunAccess( );
                             Close( );
                             break;
                         }
@@ -209,15 +215,15 @@ namespace BudgetExecution
                         }
                         default:
                         {
-                            Minion.OpenSQLite( );
+                            Minion.RunSQLite( );
                             Close( );
                             break;
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -235,9 +241,9 @@ namespace BudgetExecution
                 {
                     Close( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

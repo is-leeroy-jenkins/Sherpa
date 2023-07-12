@@ -176,9 +176,9 @@ namespace BudgetExecution
                 {
                     var _ = new SmallTip( this, text );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -193,9 +193,9 @@ namespace BudgetExecution
                 {
                     Text = text;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -210,9 +210,9 @@ namespace BudgetExecution
                 {
                     Tag = tag;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

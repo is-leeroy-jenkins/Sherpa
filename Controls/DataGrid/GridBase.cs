@@ -88,15 +88,15 @@ namespace BudgetExecution
                     {
                         BindingSource.DataSource = _binder.DataSource;
                     }
-                    catch( Exception ex )
+                    catch( Exception _ex )
                     {
-                        Fail( ex );
+                        Fail( _ex );
                     }
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -134,15 +134,15 @@ namespace BudgetExecution
                             BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray( ) );
                         }
                     }
-                    catch( Exception ex )
+                    catch( Exception _ex )
                     {
-                        Fail( ex );
+                        Fail( _ex );
                     }
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -157,9 +157,9 @@ namespace BudgetExecution
                 {
                     BindingSource.DataSource = data?.ToList( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -175,22 +175,22 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var filter = string.Empty;
-                    foreach( var kvp in dict )
+                    var _filter = string.Empty;
+                    foreach( var _kvp in dict )
                     {
-                        if( !string.IsNullOrEmpty( kvp.Key )
-                           && ( kvp.Value != null ) )
+                        if( !string.IsNullOrEmpty( _kvp.Key )
+                           && ( _kvp.Value != null ) )
                         {
-                            filter += $"{kvp.Key} = {kvp.Value} AND";
+                            _filter += $"{_kvp.Key} = {_kvp.Value} AND";
                         }
                     }
 
                     BindingSource.DataSource = data?.ToList( );
-                    BindingSource.Filter = filter.TrimEnd( " AND".ToCharArray( ) );
+                    BindingSource.Filter = _filter.TrimEnd( " AND".ToCharArray( ) );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -223,9 +223,9 @@ namespace BudgetExecution
                         BindingSource.DataMember = field.ToString( );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -251,9 +251,9 @@ namespace BudgetExecution
                         BindingSource.DataSource = data.ToList( );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -284,9 +284,9 @@ namespace BudgetExecution
                     BindingSource.DataSource = data?.ToList( );
                     BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray( ) );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -316,9 +316,9 @@ namespace BudgetExecution
                         BindingSource.DataMember = field.ToString( );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

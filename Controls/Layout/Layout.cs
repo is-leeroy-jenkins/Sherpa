@@ -173,9 +173,9 @@ namespace BudgetExecution
                 {
                     BorderColor = color;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -193,9 +193,9 @@ namespace BudgetExecution
                     BackColor = color;
                     BackgroundColor = color;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -216,9 +216,9 @@ namespace BudgetExecution
                         ? _list
                         : default( List<Control> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
 
@@ -237,9 +237,9 @@ namespace BudgetExecution
                     ? Children
                     : default( IEnumerable<Control> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IEnumerable<Control> );
             }
         }
@@ -256,9 +256,9 @@ namespace BudgetExecution
                 BackColor = Color.FromArgb( 20, 20, 20 );
                 BackgroundColor = Color.FromArgb( 20, 20, 20 );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

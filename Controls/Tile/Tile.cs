@@ -46,14 +46,16 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.TileBase"/>
+    /// <seealso cref="T:BudgetExecution.TileBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Tile : TileBase
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Tile"/>
+        /// <see cref="T:BudgetExecution.Tile" />
         /// class.
         /// </summary>
         public Tile( )
@@ -93,9 +95,10 @@ namespace BudgetExecution
             MouseLeave += OnMouseLeave;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Tile"/>
+        /// <see cref="T:BudgetExecution.Tile" />
         /// class.
         /// </summary>
         /// <param name="type"> The type. </param>
@@ -105,9 +108,10 @@ namespace BudgetExecution
             TileType = type;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Tile"/>
+        /// <see cref="T:BudgetExecution.Tile" />
         /// class.
         /// </summary>
         /// <param name="name"> The name. </param>
@@ -119,9 +123,10 @@ namespace BudgetExecution
             TileType = type;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Tile"/>
+        /// <see cref="T:BudgetExecution.Tile" />
         /// class.
         /// </summary>
         /// <param name="location"> The location. </param>
@@ -158,9 +163,9 @@ namespace BudgetExecution
                 Banner.TextColor = Color.White;
                 Refresh( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -187,9 +192,9 @@ namespace BudgetExecution
                 Banner.TextColor = Color.DarkGray;
                 Refresh( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
     }

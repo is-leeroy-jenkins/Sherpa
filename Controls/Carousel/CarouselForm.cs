@@ -138,9 +138,9 @@ namespace BudgetExecution
 
                     Carousel.FilePath = ImagePath;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -160,9 +160,9 @@ namespace BudgetExecution
                 {
                     var _tag = _carousel.ActiveImage?.Tag?.ToString( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

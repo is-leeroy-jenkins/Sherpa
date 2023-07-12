@@ -125,16 +125,16 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void OnMouseEnter( object sender, EventArgs e )
         {
-            if( sender is MetroSetToolStripMenuItem item )
+            if( sender is MetroSetToolStripMenuItem _item )
             {
                 try
                 {
-                    item.BackColor = Color.FromArgb( 50, 93, 129 );
-                    item.ForeColor = Color.White;
+                    _item.BackColor = Color.FromArgb( 50, 93, 129 );
+                    _item.ForeColor = Color.White;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -146,16 +146,16 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void OnMouseLeave( object sender, EventArgs e )
         {
-            if( sender is MetroSetToolStripMenuItem item )
+            if( sender is MetroSetToolStripMenuItem _item )
             {
                 try
                 {
-                    item.BackColor = Color.FromArgb( 30, 30, 30 );
-                    item.ForeColor = Color.White;
+                    _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                    _item.ForeColor = Color.White;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

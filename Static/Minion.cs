@@ -55,7 +55,7 @@ namespace BudgetExecution
         /// <summary>
         /// Opens the sql lite client
         /// </summary>
-        public static void OpenSQLite( )
+        public static void RunSQLite( )
         {
             try
             {
@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// <summary>
         /// Opens the SQL ce.
         /// </summary>
-        public static void OpenSqlCe( )
+        public static void RunSqlCe( )
         {
             try
             {
@@ -113,13 +113,15 @@ namespace BudgetExecution
         /// <summary>
         /// Opens the access.
         /// </summary>
-        public static void OpenAccess( )
+        public static void RunAccess( )
         {
             try
             {
                 var _app = AppSettings[ "AccessMinion" ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
                 if( !string.IsNullOrEmpty( _app ) )
                 {
                     _startInfo.FileName = _app;
@@ -143,6 +145,8 @@ namespace BudgetExecution
                 var _app = AppSettings[ "Reports" ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
                 if( !string.IsNullOrEmpty( _app ) )
                 {
                     _startInfo.FileName = _app;
@@ -182,13 +186,39 @@ namespace BudgetExecution
         /// <summary>
         /// Launches the edge.
         /// </summary>
-        public static void LaunchEdge( )
+        public static void RunEdge( )
+        {
+            try
+            {
+                var _path = AppSettings[ "Edge" ];
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                if( !string.IsNullOrEmpty( _path ) )
+                {
+                    _startInfo.FileName = _path;
+                }
+
+                Process.Start( _startInfo );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Runs the budget browser.
+        /// </summary>
+        public static void RunBudgetBrowser( )
         {
             try
             {
                 var _path = "";
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     _startInfo.FileName = _path;
@@ -205,13 +235,40 @@ namespace BudgetExecution
         /// <summary>
         /// Launches the chrome.
         /// </summary>
-        public static void LaunchChrome( )
+        public static void RunChrome( )
         {
             try
             {
-                var _path = "";
+                var _path = AppSettings[ "Chrome" ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                if( !string.IsNullOrEmpty( _path ) )
+                {
+                    _startInfo.FileName = _path;
+                }
+
+                Process.Start( _startInfo );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Runs the firefox.
+        /// </summary>
+        public static void RunFirefox( )
+        {
+            try
+            {
+                var _path = AppSettings[ "Firefox" ];
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     _startInfo.FileName = _path;

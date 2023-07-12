@@ -113,9 +113,9 @@ namespace BudgetExecution
                 ChartAreas[ 0 ].AxisY.MinorGrid.LineColor = _gray;
                 ChartAreas[ 0 ].AxisY.TextOrientation = TextOrientation.Auto;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -131,9 +131,9 @@ namespace BudgetExecution
                 Titles[ 0 ].BorderColor = Color.FromArgb( 20, 20, 20 );
                 Titles[ 0 ].ForeColor = Color.FromArgb( 0, 120, 212 );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -154,9 +154,9 @@ namespace BudgetExecution
                 Legends[ i ].TitleBackColor = Color.FromArgb( 20, 20, 20 );
                 Legends[ i ].Enabled = enabled;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -186,9 +186,9 @@ namespace BudgetExecution
                 Series[ i ].SmartLabelStyle.CalloutLineWidth = 0;
                 Series[ i ].SmartLabelStyle.CalloutLineAnchorCapStyle = LineAnchorCapStyle.Arrow;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -217,9 +217,9 @@ namespace BudgetExecution
 
                 PaletteCustomColors = _palette;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

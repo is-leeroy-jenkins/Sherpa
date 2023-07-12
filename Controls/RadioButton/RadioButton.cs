@@ -121,16 +121,16 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         public void OnCheckStateChanged( object sender )
         {
-            if( sender is RadioButton radioButton
-               && ( radioButton.Tag != null ) )
+            if( sender is RadioButton _radioButton
+               && ( _radioButton.Tag != null ) )
             {
                 try
                 {
-                    Result = radioButton.Tag?.ToString( );
+                    Result = _radioButton.Tag?.ToString( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -148,8 +148,8 @@ namespace BudgetExecution
                 if( _control is RadioButton _radioButton
                    && !string.IsNullOrEmpty( HoverText ) )
                 {
-                    var tip = new SmallTip( _radioButton, HoverText );
-                    ToolTip = tip;
+                    var _tip = new SmallTip( _radioButton, HoverText );
+                    ToolTip = _tip;
                 }
                 else
                 {
@@ -160,9 +160,9 @@ namespace BudgetExecution
                     }
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -181,9 +181,9 @@ namespace BudgetExecution
                     ToolTip = null;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

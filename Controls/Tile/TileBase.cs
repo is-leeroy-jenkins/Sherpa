@@ -121,9 +121,9 @@ namespace BudgetExecution
                 {
                     Location = new Point( x, y );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -142,9 +142,9 @@ namespace BudgetExecution
                 {
                     Size = new Size( width, height );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -164,9 +164,9 @@ namespace BudgetExecution
                     ImageTransitionSpeed = speed;
                     ImageSource = image;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -183,9 +183,9 @@ namespace BudgetExecution
                 {
                     TileType = type;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -203,9 +203,9 @@ namespace BudgetExecution
                 {
                     Title.Text = message;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -225,9 +225,9 @@ namespace BudgetExecution
                     Title.Font = font;
                     Title.TextColor = color;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -245,9 +245,9 @@ namespace BudgetExecution
                 {
                     Body.Text = message;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -267,9 +267,9 @@ namespace BudgetExecution
                     Body.Font = font;
                     Body.TextColor = color;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -288,9 +288,9 @@ namespace BudgetExecution
                 {
                     Banner.Text = message;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -313,9 +313,9 @@ namespace BudgetExecution
                     Banner.Font = font;
                     BannerColor = color;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -334,9 +334,9 @@ namespace BudgetExecution
                     ShowBannerIcon = true;
                     BannerIcon = image;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -353,9 +353,9 @@ namespace BudgetExecution
                 {
                     SlideTransition = direction;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

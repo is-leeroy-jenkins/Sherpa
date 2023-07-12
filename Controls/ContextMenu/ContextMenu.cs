@@ -113,9 +113,9 @@ namespace BudgetExecution
                 Items.Add( _item );
                 return _item;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( MetroSetToolStripMenuItem );
             }
         }
@@ -146,9 +146,9 @@ namespace BudgetExecution
                 Items.Add( _item );
                 return _item;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( MetroSetToolStripMenuItem );
             }
         }
@@ -177,9 +177,9 @@ namespace BudgetExecution
                 Items.Add( _item );
                 return _item;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( MetroSetToolStripMenuItem );
             }
         }
@@ -208,9 +208,9 @@ namespace BudgetExecution
                 Items.Add( _item );
                 return _item;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( MetroSetToolStripMenuItem );
             }
         }
@@ -239,9 +239,9 @@ namespace BudgetExecution
                 Items.Add( _item );
                 return _item;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( MetroSetToolStripMenuItem );
             }
         }
@@ -270,9 +270,9 @@ namespace BudgetExecution
                 Items.Add( _item );
                 return _item;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( MetroSetToolStripMenuItem );
             }
         }
@@ -301,9 +301,9 @@ namespace BudgetExecution
                 Items.Add( _item );
                 return _item;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( MetroSetToolStripMenuItem );
             }
         }
@@ -332,9 +332,9 @@ namespace BudgetExecution
                 Items.Add( _item );
                 return _item;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( MetroSetToolStripMenuItem );
             }
         }
@@ -346,12 +346,12 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void OnItemClicked( object sender, MouseEventArgs e )
         {
-            if( sender is MetroSetToolStripMenuItem item
+            if( sender is MetroSetToolStripMenuItem _item
                && ( e?.Button == MouseButtons.Left ) )
             {
                 try
                 {
-                    var _name = item.Tag.ToString( );
+                    var _name = _item.Tag.ToString( );
                     if( !string.IsNullOrEmpty( _name ) )
                     {
                         var _option = Enum.Parse( typeof( MenuOption ), _name );
@@ -449,9 +449,9 @@ namespace BudgetExecution
                         Close( );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

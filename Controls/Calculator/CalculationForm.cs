@@ -135,9 +135,9 @@ namespace BudgetExecution
                 {
                     ValueLabel.Text = Calculator.Value.ToString( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -158,9 +158,9 @@ namespace BudgetExecution
                 Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
                 CloseButton.HoverText = "Exit Calculator";
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -177,9 +177,9 @@ namespace BudgetExecution
             {
                 Close( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

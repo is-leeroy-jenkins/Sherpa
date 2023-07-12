@@ -153,9 +153,9 @@ namespace BudgetExecution
                     ? new Size( width, height )
                     : Size.Empty;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( Size );
             }
         }
@@ -174,9 +174,9 @@ namespace BudgetExecution
                 {
                     return size;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
 
@@ -195,12 +195,12 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var message = new Message( "NOT YET IMPLEMENTED" );
-                    message?.ShowDialog( );
+                    var _message = new Message( "NOT YET IMPLEMENTED" );
+                    _message?.ShowDialog( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

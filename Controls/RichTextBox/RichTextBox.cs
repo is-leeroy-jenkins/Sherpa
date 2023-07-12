@@ -184,9 +184,9 @@ namespace BudgetExecution
                 {
                     Text = text;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -205,9 +205,9 @@ namespace BudgetExecution
                     Font = new Font( fontFamily, fontSize );
                     ForeColor = fontColor;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -222,9 +222,9 @@ namespace BudgetExecution
                 {
                     BackColor = backColor;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

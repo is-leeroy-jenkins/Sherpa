@@ -189,9 +189,9 @@ namespace BudgetExecution
                 {
                     Text = text;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -208,9 +208,9 @@ namespace BudgetExecution
                 {
                     Tag = tag;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -243,9 +243,9 @@ namespace BudgetExecution
                     }
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -262,9 +262,9 @@ namespace BudgetExecution
                 {
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

@@ -142,9 +142,9 @@ namespace BudgetExecution
 
                     Carousel.FilePath = ImagePath;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -163,9 +163,9 @@ namespace BudgetExecution
                 try
                 {
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

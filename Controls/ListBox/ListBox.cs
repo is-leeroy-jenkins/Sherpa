@@ -208,9 +208,9 @@ namespace BudgetExecution
                 {
                     BorderColor = color;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -226,9 +226,9 @@ namespace BudgetExecution
             {
                 ItemHeight = 30;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -247,9 +247,9 @@ namespace BudgetExecution
                         Items.Add( _item );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -266,9 +266,9 @@ namespace BudgetExecution
                 {
                     Items.Add( item );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -285,9 +285,9 @@ namespace BudgetExecution
                 {
                     var _ = new SmallTip( this, text );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -304,9 +304,9 @@ namespace BudgetExecution
                 {
                     Text = text;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

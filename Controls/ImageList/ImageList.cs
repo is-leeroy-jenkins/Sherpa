@@ -113,9 +113,9 @@ namespace BudgetExecution
                 {
                     Images.Add( image );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -136,9 +136,9 @@ namespace BudgetExecution
                         Images.Add( _name, _image );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -164,9 +164,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -182,9 +182,9 @@ namespace BudgetExecution
                 {
                     Images.Remove( image );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -225,9 +225,9 @@ namespace BudgetExecution
             {
                 var _files = paths.ToList( );
                 var _list = new List<Image>( );
-                for( var i = 0; i < _files.Count; i++ )
+                for( var _i = 0; _i < _files.Count; _i++ )
                 {
-                    using var _stream = File.Open( _files[ i ], FileMode.Open );
+                    using var _stream = File.Open( _files[ _i ], FileMode.Open );
                     using var _img = new Bitmap( _stream );
                     _list.Add( _img );
                 }
