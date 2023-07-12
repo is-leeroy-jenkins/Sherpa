@@ -73,6 +73,16 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap AccessTile {
+            get {
+                object obj = ResourceManager.GetObject("AccessTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap AddColumn {
             get {
                 object obj = ResourceManager.GetObject("AddColumn", resourceCulture);
@@ -183,9 +193,29 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap BrowserTile {
+            get {
+                object obj = ResourceManager.GetObject("BrowserTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap CalculatorButton {
             get {
                 object obj = ResourceManager.GetObject("CalculatorButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap CalculatorTile {
+            get {
+                object obj = ResourceManager.GetObject("CalculatorTile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,6 +236,16 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap CalendarButton {
             get {
                 object obj = ResourceManager.GetObject("CalendarButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap CalendarTile {
+            get {
+                object obj = ResourceManager.GetObject("CalendarTile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -256,6 +296,26 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap ChartTile {
             get {
                 object obj = ResourceManager.GetObject("ChartTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ChromeTile {
+            get {
+                object obj = ResourceManager.GetObject("ChromeTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ClientTile {
+            get {
+                object obj = ResourceManager.GetObject("ClientTile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -433,6 +493,16 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap EdgeTile {
+            get {
+                object obj = ResourceManager.GetObject("EdgeTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap EditColumnButtnon {
             get {
                 object obj = ResourceManager.GetObject("EditColumnButtnon", resourceCulture);
@@ -556,6 +626,16 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap FilterButton {
             get {
                 object obj = ResourceManager.GetObject("FilterButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FirefoxTile {
+            get {
+                object obj = ResourceManager.GetObject("FirefoxTile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -743,6 +823,16 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap MessageTile {
+            get {
+                object obj = ResourceManager.GetObject("MessageTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap NextButton {
             get {
                 object obj = ResourceManager.GetObject("NextButton", resourceCulture);
@@ -826,6 +916,16 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap Processing {
             get {
                 object obj = ResourceManager.GetObject("Processing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ProgramTile {
+            get {
+                object obj = ResourceManager.GetObject("ProgramTile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -953,9 +1053,29 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap SpfxTile {
+            get {
+                object obj = ResourceManager.GetObject("SpfxTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap SqlCeData {
             get {
                 object obj = ResourceManager.GetObject("SqlCeData", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap SqlCeTile {
+            get {
+                object obj = ResourceManager.GetObject("SqlCeTile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1033,6 +1153,16 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap TableTile {
+            get {
+                object obj = ResourceManager.GetObject("TableTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap TextDialog {
             get {
                 object obj = ResourceManager.GetObject("TextDialog", resourceCulture);
@@ -1046,6 +1176,16 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap ToolsTile {
             get {
                 object obj = ResourceManager.GetObject("ToolsTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ToolsTile1 {
+            get {
+                object obj = ResourceManager.GetObject("ToolsTile1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

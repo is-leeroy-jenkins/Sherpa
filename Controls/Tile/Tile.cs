@@ -60,13 +60,13 @@ namespace BudgetExecution
         {
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightSteelBlue;
-            Size = new Size( 178, 108 );
-            MinimumSize = new Size( 100, 100 );
+            Size = new Size( 180, 80 );
+            MinimumSize = new Size( 100, 50 );
             Font = new Font( "Roboto", 9 );
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
             Dock = DockStyle.None;
             TileType = HubTileType.DefaultTile;
-            Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
+            Title.Font = new Font( "Roboto", 11, FontStyle.Regular );
             Title.TextColor = Color.FromArgb( 0, 120, 212 );
             Body.TextColor = Color.DarkGray;
             Body.Font = new Font( "Roboto", 9 );
@@ -75,7 +75,7 @@ namespace BudgetExecution
             SlideTransition = TransitionDirection.RightToLeft;
             ShowBanner = true;
             BannerColor = Color.Transparent;
-            BannerHeight = 30;
+            BannerHeight = 26;
             ShowBannerIcon = true;
             Banner.Font = new Font( "Roboto", 8 );
             Banner.TextColor = Color.DarkGray;

@@ -86,7 +86,8 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="where"> The dictionary. </param>
         /// <param name="commandType"> </param>
-        public CommandFactory( Source source, Provider provider, IDictionary<string, object> where, SQL commandType = SQL.SELECTALL )
+        public CommandFactory( Source source, Provider provider, IDictionary<string, object> where, 
+            SQL commandType = SQL.SELECTALL )
             : base( source, provider, where, commandType )
         {
         }
@@ -102,8 +103,8 @@ namespace BudgetExecution
         /// <param name="update"> The updates. </param>
         /// <param name="where"> The criteria. </param>
         /// <param name="commandType"> </param>
-        public CommandFactory( Source source, Provider provider, IDictionary<string, object> update, IDictionary<string, object> where,
-            SQL commandType = SQL.UPDATE )
+        public CommandFactory( Source source, Provider provider, IDictionary<string, object> update, 
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, provider, update, where, commandType )
         {
         }
@@ -115,8 +116,8 @@ namespace BudgetExecution
         /// <param name="columns"> </param>
         /// <param name="where"> </param>
         /// <param name="commandType"> </param>
-        public CommandFactory( Source source, Provider provider, IEnumerable<string> columns, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECT )
+        public CommandFactory( Source source, Provider provider, IEnumerable<string> columns, 
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, where, commandType )
         {
         }
@@ -133,8 +134,8 @@ namespace BudgetExecution
         /// <param name="numerics"> The numerics. </param>
         /// <param name="having"> The having. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public CommandFactory( Source source, Provider provider, IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> having, SQL commandType = SQL.SELECT )
+        public CommandFactory( Source source, Provider provider, IEnumerable<string> fields, 
+            IEnumerable<string> numerics, IDictionary<string, object> having, SQL commandType = SQL.SELECT )
             : base( source, provider, fields, numerics, having,
                 commandType )
         {
@@ -160,46 +161,41 @@ namespace BudgetExecution
         /// </returns>
         public DbCommand GetCommand( )
         {
-            if( SqlStatement != null )
+            try
             {
-                try
+                switch( SqlStatement.Provider )
                 {
-                    switch( SqlStatement.Provider )
+                    case Provider.SQLite:
                     {
-                        case Provider.SQLite:
-                        {
-                            return GetSQLiteCommand( );
-                        }
-                        case Provider.SqlCe:
-                        {
-                            return GetSqlCeCommand( );
-                        }
-                        case Provider.SqlServer:
-                        {
-                            return GetSqlCommand( );
-                        }
-                        case Provider.Excel:
-                        case Provider.CSV:
-                        case Provider.Access:
-                        case Provider.Text:
-                        case Provider.OleDb:
-                        {
-                            return GetOleDbCommand( );
-                        }
-                        default:
-                        {
-                            return default( DbCommand );
-                        }
+                        return GetSQLiteCommand( );
+                    }
+                    case Provider.SqlCe:
+                    {
+                        return GetSqlCeCommand( );
+                    }
+                    case Provider.SqlServer:
+                    {
+                        return GetSqlCommand( );
+                    }
+                    case Provider.Excel:
+                    case Provider.CSV:
+                    case Provider.Access:
+                    case Provider.Text:
+                    case Provider.OleDb:
+                    {
+                        return GetOleDbCommand( );
+                    }
+                    default:
+                    {
+                        return default( DbCommand );
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( DbCommand );
-                }
             }
-
-            return default( DbCommand );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( DbCommand );
+            }
         }
     }
 }

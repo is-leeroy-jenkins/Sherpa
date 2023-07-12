@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetExecution", "BudgetExecution.csproj", "{C6009DE6-18A5-4292-B68B-7E969C652E0A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetBrowser", "..\BudgetBrowser\BudgetBrowser.csproj", "{7542FA1F-BC01-47DF-BBA3-4087F2520A1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		BudgetExecution|Any CPU = BudgetExecution|Any CPU
@@ -27,6 +29,18 @@ Global
 		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.Release|x64.ActiveCfg = Release|Any CPU
 		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.Release|x64.Build.0 = Release|Any CPU
+		{7542FA1F-BC01-47DF-BBA3-4087F2520A1F}.BudgetExecution|Any CPU.ActiveCfg = Debug|Any CPU
+		{7542FA1F-BC01-47DF-BBA3-4087F2520A1F}.BudgetExecution|Any CPU.Build.0 = Debug|Any CPU
+		{7542FA1F-BC01-47DF-BBA3-4087F2520A1F}.BudgetExecution|x64.ActiveCfg = Debug|x64
+		{7542FA1F-BC01-47DF-BBA3-4087F2520A1F}.BudgetExecution|x64.Build.0 = Debug|x64
+		{7542FA1F-BC01-47DF-BBA3-4087F2520A1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7542FA1F-BC01-47DF-BBA3-4087F2520A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7542FA1F-BC01-47DF-BBA3-4087F2520A1F}.Debug|x64.ActiveCfg = Debug|x64
+		{7542FA1F-BC01-47DF-BBA3-4087F2520A1F}.Debug|x64.Build.0 = Debug|x64
+		{7542FA1F-BC01-47DF-BBA3-4087F2520A1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7542FA1F-BC01-47DF-BBA3-4087F2520A1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7542FA1F-BC01-47DF-BBA3-4087F2520A1F}.Release|x64.ActiveCfg = Release|x64
+		{7542FA1F-BC01-47DF-BBA3-4087F2520A1F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-17-2023
+//     Last Modified On:        07-11-2023
 // ******************************************************************************************
 // <copyright file="MainForm.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -48,26 +48,22 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    /// <summary> </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public partial class MainForm : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the tiles.
-        /// </summary>
-        /// <value>
-        /// The tiles.
-        /// </value>
+        /// <summary> Gets or sets the tiles. </summary>
+        /// <value> The tiles. </value>
         public IEnumerable<Tile> Tiles { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.MainForm" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.MainForm"/>
+        /// class.
         /// </summary>
         public MainForm( )
         {
@@ -104,12 +100,12 @@ namespace BudgetExecution
 
             // Event Wiring
             ExitButton.Click += null;
-            DatabaseTile.Click += OnDatabaseTileClicked;
-            UtilityTile.Click += OnUtilityTileClicked;
-            ReportingTile.Click += OnReportingTileClicked;
-            ClientTile.Click += OnClientTileClicked;
+            DataTile.Click += OnDatabaseTileClicked;
+            CalculatorTile.Click += OnCalculatorTileClicked;
+            ChartTile.Click += OnReportingTileClicked;
+            SqlServerTile.Click += OnClientTileClicked;
             GuidanceTile.Click += OnGuidanceTileClicked;
-            WebTile.Click += OnWebTileClicked;
+            BrowserTile.Click += OnWebTileClicked;
             ExitButton.Click += OnExitButtonClicked;
             TestButton.Click += OnTestButtonClick;
             Load += OnLoad;
@@ -117,11 +113,13 @@ namespace BudgetExecution
             MouseClick += OnRightClick;
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -135,10 +133,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the tiles.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the tiles. </summary>
+        /// <returns> </returns>
         private IEnumerable<Tile> GetTiles( )
         {
             try
@@ -146,7 +142,7 @@ namespace BudgetExecution
                 var _tiles = new List<Tile>( );
                 for( var _i = 0; _i < Controls.Count; _i++ )
                 {
-                    var _control = Controls[ _i ];
+                    var _control = Controls[_i];
                     if( _control.GetType( ) == typeof( Tile ) )
                     {
                         var _tile = _control as Tile;
@@ -165,31 +161,32 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the tile text.
-        /// </summary>
+        /// <summary> Sets the tile text. </summary>
         private void SetTileText( )
         {
             try
             {
-                DatabaseTile.Title.Text = "Data Management";
-                DatabaseTile.Body.Text = string.Empty;
-                DatabaseTile.Banner.Text = "Schema, Records";
-                UtilityTile.Title.Text = "Utilities";
-                UtilityTile.Body.Text = string.Empty;
-                UtilityTile.Banner.Text = "Calculator, Calendar";
-                ReportingTile.Title.Text = "Reporting";
-                ReportingTile.Body.Text = string.Empty;
-                ReportingTile.Banner.Text = "Charts, Graphs";
-                ClientTile.Title.Text = "DB Clients";
-                ClientTile.Body.Text = string.Empty;
-                ClientTile.Banner.Text = "SQLite, SQL Server, Access";
+                DataTile.Title.Text = "Data Management";
+                DataTile.Body.Text = string.Empty;
+                DataTile.Banner.Text = string.Empty;
+                CalculatorTile.Title.Text = "Calculator";
+                CalculatorTile.Body.Text = string.Empty;
+                CalculatorTile.Banner.Text = string.Empty;
+                ChartTile.Title.Text = "Visualizations";
+                ChartTile.Body.Text = string.Empty;
+                ChartTile.Banner.Text = string.Empty;
+                SqlServerTile.Title.Text = "SQL Server";
+                SqlServerTile.Body.Text = string.Empty;
+                SqlServerTile.Banner.Text = string.Empty;
                 GuidanceTile.Title.Text = "Guidance";
                 GuidanceTile.Body.Text = string.Empty;
-                GuidanceTile.Banner.Text = "RMDS 2520, OMB A-11";
-                WebTile.Title.Text = "Web Data";
-                WebTile.Body.Text = string.Empty;
-                WebTile.Banner.Text = "Web Clients, Browsers";
+                GuidanceTile.Banner.Text = string.Empty;
+                BrowserTile.Title.Text = "Web Browser";
+                BrowserTile.Body.Text = string.Empty;
+                BrowserTile.Banner.Text = string.Empty;
+                AccessTile.Title.Text = "Access DB";
+                AccessTile.Body.Text = string.Empty;
+                AccessTile.Banner.Text = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -197,9 +194,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the tile properties.
-        /// </summary>
+        /// <summary> Sets the tile properties. </summary>
         private void SetTileProperties( )
         {
             try
@@ -208,7 +203,7 @@ namespace BudgetExecution
                 {
                     foreach( var _tile in Tiles )
                     {
-                        _tile.Size = new Size( 249, 140 );
+                        _tile.Size = new Size( 120, 100 );
                         _tile.Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
                         _tile.Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
                         _tile.Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
@@ -223,9 +218,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Shows the selection dialog.
-        /// </summary>
+        /// <summary> Shows the selection dialog. </summary>
         private void ShowSelectionDialog( )
         {
             try
@@ -239,9 +232,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Opens the chart data form.
-        /// </summary>
+        /// <summary> Opens the chart data form. </summary>
         private void OpenChartDataForm( )
         {
             try
@@ -273,9 +264,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Opens the excel data form.
-        /// </summary>
+        /// <summary> Opens the excel data form. </summary>
         private void OpenExcelDataForm( )
         {
             try
@@ -307,9 +296,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Opens the WebBrowser.
-        /// </summary>
+        /// <summary> Opens the WebBrowser. </summary>
         private void OpenWebBrowser( )
         {
             try
@@ -328,9 +315,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Opens the PDF form.
-        /// </summary>
+        /// <summary> Opens the PDF form. </summary>
         private void OpenPdfForm( )
         {
             try
@@ -338,8 +323,7 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( Program.Windows.ContainsKey( "PdfForm" ) )
                 {
-                    var _pdfForm = (PdfForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( PdfForm ) )
+                    var _pdfForm = (PdfForm)_forms?.Where( f => f.GetType( ) == typeof( PdfForm ) )
                         ?.First( );
 
                     _pdfForm.Owner = this;
@@ -361,9 +345,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Opens the data grid form.
-        /// </summary>
+        /// <summary> Opens the data grid form. </summary>
         private void OpenDataGridForm( )
         {
             try
@@ -395,11 +377,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [database tile clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [database tile clicked]. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnDatabaseTileClicked( object sender, EventArgs e )
         {
             try
@@ -412,11 +396,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [reporting tile clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [reporting tile clicked]. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnReportingTileClicked( object sender, EventArgs e )
         {
             try
@@ -441,11 +427,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [client tile clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [client tile clicked]. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnClientTileClicked( object sender, EventArgs e )
         {
             try
@@ -458,12 +446,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [utility tile clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnUtilityTileClicked( object sender, EventArgs e )
+        /// <summary> Called when [utility tile clicked]. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnCalculatorTileClicked( object sender, EventArgs e )
         {
             try
             {
@@ -477,11 +467,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [guidance tile clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [guidance tile clicked]. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnGuidanceTileClicked( object sender, EventArgs e )
         {
             try
@@ -494,11 +486,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [exit button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [exit button clicked]. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnExitButtonClicked( object sender, EventArgs e )
         {
             try
@@ -511,11 +505,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [test button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [test button click]. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnTestButtonClick( object sender, EventArgs e )
         {
             try
@@ -530,11 +526,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [right click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [right click]. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="MouseEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -550,16 +548,18 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [shown]. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnShown( object sender, EventArgs e )
         {
             try
             {
-                Program.Windows[ "MainForm" ] = this;
+                Program.Windows["MainForm"] = this;
             }
             catch( Exception _ex )
             {
@@ -567,10 +567,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex" > The ex. </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
