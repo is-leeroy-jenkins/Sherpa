@@ -105,7 +105,7 @@ namespace BudgetExecution
             Tiles = GetTiles( );
 
             // Event Wiring
-            ExitButton.Click += null;
+            ExitButton.Click += OnExitButtonClick;
             LookupTile.Click += OnDataManagementTileClick;
             CalculatorTile.Click += OnCalculatorTileClick;
             CalendarTile.Click += OnCalendarTileClick;
@@ -159,7 +159,7 @@ namespace BudgetExecution
                 var _tiles = new List<Tile>( );
                 for( var _i = 0; _i < Controls.Count; _i++ )
                 {
-                    var _control = Controls[ _i ];
+                    var _control = Controls[_i];
                     if( _control.GetType( ) == typeof( Tile ) )
                     {
                         var _tile = _control as Tile;
@@ -254,7 +254,7 @@ namespace BudgetExecution
                 {
                     foreach( var _tile in Tiles )
                     {
-                        _tile.Title.Font = new Font( "Roboto", 10, FontStyle.Regular );
+                        _tile.Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
                         _tile.Title.TextColor = Color.DarkGray;
                         _tile.Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
                         _tile.Body.TextColor = Color.DarkGray;
@@ -262,6 +262,8 @@ namespace BudgetExecution
                         _tile.Footer.TextColor = Color.DarkGray;
                         _tile.Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
                         _tile.Banner.TextColor = Color.DarkGray;
+                        _tile.BackColor = Color.FromArgb( 27, 27, 27 );
+                        _tile.ImageSource = new Bitmap( _tile.ImageSource, 18, 22 );
                         _tile.TurnLiveTileOn = true;
                     }
                 }

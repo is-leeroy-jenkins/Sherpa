@@ -60,7 +60,7 @@ namespace BudgetExecution
         /// </summary>
         public Tile( )
         {
-            BackColor = Color.FromArgb( 20, 20, 20 );
+            BackColor = Color.FromArgb( 27, 27, 27);
             ForeColor = Color.LightSteelBlue;
             Size = new Size( 180, 80 );
             MinimumSize = new Size( 100, 50 );
@@ -153,13 +153,13 @@ namespace BudgetExecution
             {
                 BackColor = Color.FromArgb( 17, 53, 84 );
                 HoveredBorderColor = Color.FromArgb( 50, 93, 129 );
-                Title.Font = new Font( "Roboto", 10, FontStyle.Regular );
+                Title.Font = new Font( "Roboto", 11, FontStyle.Bold );
                 Title.TextColor = Color.White;
-                Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                Body.Font = new Font( "Roboto", 10, FontStyle.Bold );
                 Body.TextColor = Color.White;
-                Footer.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                Footer.Font = new Font( "Roboto", 10, FontStyle.Bold );
                 Footer.TextColor = Color.White;
-                Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
+                Banner.Font = new Font( "Roboto", 9, FontStyle.Bold );
                 Banner.TextColor = Color.White;
                 Refresh( );
             }
@@ -180,9 +180,9 @@ namespace BudgetExecution
         {
             try
             {
-                BackColor = Color.FromArgb( 20, 20, 20 );
+                BackColor = Color.FromArgb( 27, 27, 27);
                 HoveredBorderColor = Color.FromArgb( 50, 93, 129 );
-                Title.Font = new Font( "Roboto", 10, FontStyle.Regular );
+                Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
                 Title.TextColor = Color.DarkGray;
                 Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
                 Body.TextColor = Color.DarkGray;

@@ -148,7 +148,7 @@
             // LookupTile
             // 
             LookupTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            LookupTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            LookupTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem1.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem1.HubTile = LookupTile;
             textItem1.TextColor = System.Drawing.Color.DarkGray;
@@ -172,13 +172,13 @@
             LookupTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             LookupTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             LookupTile.HoverText = null;
-            LookupTile.Location = new System.Drawing.Point( 18, 29 );
+            LookupTile.Location = new System.Drawing.Point( 18, 19 );
             LookupTile.Margin = new System.Windows.Forms.Padding( 1 );
             LookupTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             LookupTile.Name = "LookupTile";
             LookupTile.ShowBanner = true;
             LookupTile.ShowBannerIcon = true;
-            LookupTile.Size = new System.Drawing.Size( 180, 80 );
+            LookupTile.Size = new System.Drawing.Size( 220, 80 );
             LookupTile.TabIndex = 0;
             textItem4.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem4.HubTile = LookupTile;
@@ -211,7 +211,7 @@
             // VisualizationTile
             // 
             VisualizationTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            VisualizationTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            VisualizationTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem5.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem5.HubTile = VisualizationTile;
             textItem5.TextColor = System.Drawing.Color.DarkGray;
@@ -235,13 +235,13 @@
             VisualizationTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             VisualizationTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             VisualizationTile.HoverText = null;
-            VisualizationTile.Location = new System.Drawing.Point( 262, 29 );
+            VisualizationTile.Location = new System.Drawing.Point( 266, 19 );
             VisualizationTile.Margin = new System.Windows.Forms.Padding( 1 );
             VisualizationTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             VisualizationTile.Name = "VisualizationTile";
             VisualizationTile.ShowBanner = true;
             VisualizationTile.ShowBannerIcon = true;
-            VisualizationTile.Size = new System.Drawing.Size( 180, 80 );
+            VisualizationTile.Size = new System.Drawing.Size( 220, 80 );
             VisualizationTile.TabIndex = 1;
             textItem8.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem8.HubTile = VisualizationTile;
@@ -254,7 +254,7 @@
             // GuidanceTile
             // 
             GuidanceTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            GuidanceTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            GuidanceTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem9.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem9.HubTile = GuidanceTile;
             textItem9.TextColor = System.Drawing.Color.DarkGray;
@@ -297,7 +297,7 @@
             // BrowserTile
             // 
             BrowserTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            BrowserTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BrowserTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem13.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem13.HubTile = BrowserTile;
             textItem13.TextColor = System.Drawing.Color.DarkGray;
@@ -321,13 +321,13 @@
             BrowserTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             BrowserTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             BrowserTile.HoverText = null;
-            BrowserTile.Location = new System.Drawing.Point( 29, 153 );
+            BrowserTile.Location = new System.Drawing.Point( 18, 184 );
             BrowserTile.Margin = new System.Windows.Forms.Padding( 1 );
             BrowserTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             BrowserTile.Name = "BrowserTile";
             BrowserTile.ShowBanner = true;
             BrowserTile.ShowBannerIcon = true;
-            BrowserTile.Size = new System.Drawing.Size( 180, 80 );
+            BrowserTile.Size = new System.Drawing.Size( 220, 80 );
             BrowserTile.TabIndex = 3;
             textItem16.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem16.HubTile = BrowserTile;
@@ -340,7 +340,7 @@
             // CalculatorTile
             // 
             CalculatorTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            CalculatorTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CalculatorTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem17.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem17.HubTile = CalculatorTile;
             textItem17.TextColor = System.Drawing.Color.DarkGray;
@@ -364,7 +364,7 @@
             CalculatorTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             CalculatorTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             CalculatorTile.HoverText = null;
-            CalculatorTile.Location = new System.Drawing.Point( 201, 9 );
+            CalculatorTile.Location = new System.Drawing.Point( 201, 17 );
             CalculatorTile.Margin = new System.Windows.Forms.Padding( 1 );
             CalculatorTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             CalculatorTile.Name = "CalculatorTile";
@@ -383,7 +383,7 @@
             // SqlServerTile
             // 
             SqlServerTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            SqlServerTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SqlServerTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem21.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem21.HubTile = SqlServerTile;
             textItem21.TextColor = System.Drawing.Color.DarkGray;
@@ -407,13 +407,13 @@
             SqlServerTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             SqlServerTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             SqlServerTile.HoverText = null;
-            SqlServerTile.Location = new System.Drawing.Point( 308, 149 );
+            SqlServerTile.Location = new System.Drawing.Point( 275, 148 );
             SqlServerTile.Margin = new System.Windows.Forms.Padding( 1 );
             SqlServerTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             SqlServerTile.Name = "SqlServerTile";
             SqlServerTile.ShowBanner = true;
             SqlServerTile.ShowBannerIcon = true;
-            SqlServerTile.Size = new System.Drawing.Size( 180, 80 );
+            SqlServerTile.Size = new System.Drawing.Size( 225, 80 );
             SqlServerTile.TabIndex = 5;
             textItem24.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem24.HubTile = SqlServerTile;
@@ -426,7 +426,7 @@
             // AccessTile
             // 
             AccessTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            AccessTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            AccessTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem25.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem25.HubTile = AccessTile;
             textItem25.TextColor = System.Drawing.Color.DarkGray;
@@ -450,13 +450,13 @@
             AccessTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             AccessTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             AccessTile.HoverText = null;
-            AccessTile.Location = new System.Drawing.Point( 42, 19 );
+            AccessTile.Location = new System.Drawing.Point( 27, 18 );
             AccessTile.Margin = new System.Windows.Forms.Padding( 1 );
             AccessTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             AccessTile.Name = "AccessTile";
             AccessTile.ShowBanner = true;
             AccessTile.ShowBannerIcon = true;
-            AccessTile.Size = new System.Drawing.Size( 180, 80 );
+            AccessTile.Size = new System.Drawing.Size( 220, 80 );
             AccessTile.TabIndex = 8;
             textItem28.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem28.HubTile = AccessTile;
@@ -469,7 +469,7 @@
             // SQLiteTile
             // 
             SQLiteTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            SQLiteTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SQLiteTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem29.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem29.HubTile = SQLiteTile;
             textItem29.TextColor = System.Drawing.Color.DarkGray;
@@ -493,13 +493,13 @@
             SQLiteTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             SQLiteTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             SQLiteTile.HoverText = null;
-            SQLiteTile.Location = new System.Drawing.Point( 42, 149 );
+            SQLiteTile.Location = new System.Drawing.Point( 27, 148 );
             SQLiteTile.Margin = new System.Windows.Forms.Padding( 1 );
             SQLiteTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             SQLiteTile.Name = "SQLiteTile";
             SQLiteTile.ShowBanner = true;
             SQLiteTile.ShowBannerIcon = true;
-            SQLiteTile.Size = new System.Drawing.Size( 180, 80 );
+            SQLiteTile.Size = new System.Drawing.Size( 220, 80 );
             SQLiteTile.TabIndex = 9;
             textItem32.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem32.HubTile = SQLiteTile;
@@ -512,7 +512,7 @@
             // ExcelDataTile
             // 
             ExcelDataTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            ExcelDataTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ExcelDataTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem33.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem33.HubTile = ExcelDataTile;
             textItem33.TextColor = System.Drawing.Color.DarkGray;
@@ -536,13 +536,13 @@
             ExcelDataTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             ExcelDataTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             ExcelDataTile.HoverText = null;
-            ExcelDataTile.Location = new System.Drawing.Point( 262, 150 );
+            ExcelDataTile.Location = new System.Drawing.Point( 266, 149 );
             ExcelDataTile.Margin = new System.Windows.Forms.Padding( 1 );
             ExcelDataTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             ExcelDataTile.Name = "ExcelDataTile";
             ExcelDataTile.ShowBanner = true;
             ExcelDataTile.ShowBannerIcon = true;
-            ExcelDataTile.Size = new System.Drawing.Size( 180, 80 );
+            ExcelDataTile.Size = new System.Drawing.Size( 220, 80 );
             ExcelDataTile.TabIndex = 10;
             textItem36.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem36.HubTile = ExcelDataTile;
@@ -555,7 +555,7 @@
             // SqlCeTile
             // 
             SqlCeTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            SqlCeTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SqlCeTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem37.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem37.HubTile = SqlCeTile;
             textItem37.TextColor = System.Drawing.Color.DarkGray;
@@ -579,13 +579,13 @@
             SqlCeTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             SqlCeTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             SqlCeTile.HoverText = null;
-            SqlCeTile.Location = new System.Drawing.Point( 308, 19 );
+            SqlCeTile.Location = new System.Drawing.Point( 275, 18 );
             SqlCeTile.Margin = new System.Windows.Forms.Padding( 1 );
             SqlCeTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             SqlCeTile.Name = "SqlCeTile";
             SqlCeTile.ShowBanner = true;
             SqlCeTile.ShowBannerIcon = true;
-            SqlCeTile.Size = new System.Drawing.Size( 180, 80 );
+            SqlCeTile.Size = new System.Drawing.Size( 225, 80 );
             SqlCeTile.TabIndex = 11;
             textItem40.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem40.HubTile = SqlCeTile;
@@ -598,7 +598,7 @@
             // ChromeTile
             // 
             ChromeTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            ChromeTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ChromeTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem41.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem41.HubTile = ChromeTile;
             textItem41.TextColor = System.Drawing.Color.DarkGray;
@@ -622,13 +622,13 @@
             ChromeTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             ChromeTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             ChromeTile.HoverText = null;
-            ChromeTile.Location = new System.Drawing.Point( 306, 152 );
+            ChromeTile.Location = new System.Drawing.Point( 266, 184 );
             ChromeTile.Margin = new System.Windows.Forms.Padding( 1 );
             ChromeTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             ChromeTile.Name = "ChromeTile";
             ChromeTile.ShowBanner = true;
             ChromeTile.ShowBannerIcon = true;
-            ChromeTile.Size = new System.Drawing.Size( 180, 80 );
+            ChromeTile.Size = new System.Drawing.Size( 220, 80 );
             ChromeTile.TabIndex = 12;
             textItem44.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem44.HubTile = ChromeTile;
@@ -641,7 +641,7 @@
             // EdgeTile
             // 
             EdgeTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            EdgeTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            EdgeTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem45.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem45.HubTile = EdgeTile;
             textItem45.TextColor = System.Drawing.Color.DarkGray;
@@ -665,13 +665,13 @@
             EdgeTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             EdgeTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             EdgeTile.HoverText = null;
-            EdgeTile.Location = new System.Drawing.Point( 29, 25 );
+            EdgeTile.Location = new System.Drawing.Point( 18, 15 );
             EdgeTile.Margin = new System.Windows.Forms.Padding( 1 );
             EdgeTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             EdgeTile.Name = "EdgeTile";
             EdgeTile.ShowBanner = true;
             EdgeTile.ShowBannerIcon = true;
-            EdgeTile.Size = new System.Drawing.Size( 180, 80 );
+            EdgeTile.Size = new System.Drawing.Size( 220, 80 );
             EdgeTile.TabIndex = 13;
             textItem48.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem48.HubTile = EdgeTile;
@@ -684,7 +684,7 @@
             // FirefoxTile
             // 
             FirefoxTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            FirefoxTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            FirefoxTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem49.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem49.HubTile = FirefoxTile;
             textItem49.TextColor = System.Drawing.Color.DarkGray;
@@ -708,13 +708,13 @@
             FirefoxTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             FirefoxTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             FirefoxTile.HoverText = null;
-            FirefoxTile.Location = new System.Drawing.Point( 306, 25 );
+            FirefoxTile.Location = new System.Drawing.Point( 266, 15 );
             FirefoxTile.Margin = new System.Windows.Forms.Padding( 1 );
             FirefoxTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             FirefoxTile.Name = "FirefoxTile";
             FirefoxTile.ShowBanner = true;
             FirefoxTile.ShowBannerIcon = true;
-            FirefoxTile.Size = new System.Drawing.Size( 180, 80 );
+            FirefoxTile.Size = new System.Drawing.Size( 220, 80 );
             FirefoxTile.TabIndex = 14;
             textItem52.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem52.HubTile = FirefoxTile;
@@ -727,7 +727,7 @@
             // CalendarTile
             // 
             CalendarTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            CalendarTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CalendarTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem53.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem53.HubTile = CalendarTile;
             textItem53.TextColor = System.Drawing.Color.DarkGray;
@@ -751,7 +751,7 @@
             CalendarTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             CalendarTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             CalendarTile.HoverText = null;
-            CalendarTile.Location = new System.Drawing.Point( 22, 9 );
+            CalendarTile.Location = new System.Drawing.Point( 22, 17 );
             CalendarTile.Margin = new System.Windows.Forms.Padding( 1 );
             CalendarTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             CalendarTile.Name = "CalendarTile";
@@ -770,7 +770,7 @@
             // SqlEditorTile
             // 
             SqlEditorTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            SqlEditorTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SqlEditorTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem57.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem57.HubTile = SqlEditorTile;
             textItem57.TextColor = System.Drawing.Color.DarkGray;
@@ -794,13 +794,13 @@
             SqlEditorTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             SqlEditorTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             SqlEditorTile.HoverText = null;
-            SqlEditorTile.Location = new System.Drawing.Point( 18, 150 );
+            SqlEditorTile.Location = new System.Drawing.Point( 18, 149 );
             SqlEditorTile.Margin = new System.Windows.Forms.Padding( 1 );
             SqlEditorTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             SqlEditorTile.Name = "SqlEditorTile";
             SqlEditorTile.ShowBanner = true;
             SqlEditorTile.ShowBannerIcon = true;
-            SqlEditorTile.Size = new System.Drawing.Size( 180, 80 );
+            SqlEditorTile.Size = new System.Drawing.Size( 220, 80 );
             SqlEditorTile.TabIndex = 2;
             textItem60.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem60.HubTile = SqlEditorTile;
@@ -813,7 +813,7 @@
             // ProgramProjectTile
             // 
             ProgramProjectTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            ProgramProjectTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ProgramProjectTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem61.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem61.HubTile = ProgramProjectTile;
             textItem61.TextColor = System.Drawing.Color.DarkGray;
@@ -856,7 +856,7 @@
             // MessageTile
             // 
             MessageTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            MessageTile.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            MessageTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             textItem65.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem65.HubTile = MessageTile;
             textItem65.TextColor = System.Drawing.Color.DarkGray;
@@ -880,7 +880,7 @@
             MessageTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             MessageTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             MessageTile.HoverText = null;
-            MessageTile.Location = new System.Drawing.Point( 384, 9 );
+            MessageTile.Location = new System.Drawing.Point( 384, 17 );
             MessageTile.Margin = new System.Windows.Forms.Padding( 1 );
             MessageTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             MessageTile.Name = "MessageTile";
@@ -982,14 +982,14 @@
             BrowserTable.ColumnCount = 1;
             BrowserTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             BrowserTable.Controls.Add( BrowserPanel, 0, 1 );
-            BrowserTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            BrowserTable.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             BrowserTable.ForeColor = System.Drawing.Color.DarkGray;
             BrowserTable.Location = new System.Drawing.Point( 63, 36 );
             BrowserTable.Name = "BrowserTable";
             BrowserTable.RowCount = 2;
-            BrowserTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 5.55555534F ) );
-            BrowserTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 94.44444F ) );
-            BrowserTable.Size = new System.Drawing.Size( 530, 300 );
+            BrowserTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 2.72108841F ) );
+            BrowserTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 97.27891F ) );
+            BrowserTable.Size = new System.Drawing.Size( 530, 310 );
             BrowserTable.TabIndex = 15;
             // 
             // BrowserPanel
@@ -1005,14 +1005,15 @@
             BrowserPanel.Controls.Add( BrowserTile );
             BrowserPanel.Controls.Add( ChromeTile );
             BrowserPanel.DataFilter = null;
+            BrowserPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             BrowserPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             BrowserPanel.ForeColor = System.Drawing.Color.Transparent;
             BrowserPanel.HoverText = null;
             BrowserPanel.IsDerivedStyle = true;
-            BrowserPanel.Location = new System.Drawing.Point( 3, 34 );
+            BrowserPanel.Location = new System.Drawing.Point( 3, 28 );
             BrowserPanel.Name = "BrowserPanel";
             BrowserPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            BrowserPanel.Size = new System.Drawing.Size( 524, 263 );
+            BrowserPanel.Size = new System.Drawing.Size( 524, 279 );
             BrowserPanel.Style = MetroSet_UI.Enums.Style.Custom;
             BrowserPanel.StyleManager = null;
             BrowserPanel.TabIndex = 0;
@@ -1028,7 +1029,7 @@
             ClientTable.ColumnCount = 1;
             ClientTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ClientTable.Controls.Add( ClientPanel, 0, 1 );
-            ClientTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ClientTable.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ClientTable.ForeColor = System.Drawing.Color.DarkGray;
             ClientTable.Location = new System.Drawing.Point( 704, 395 );
             ClientTable.Name = "ClientTable";
@@ -1056,10 +1057,10 @@
             ClientPanel.ForeColor = System.Drawing.Color.Transparent;
             ClientPanel.HoverText = null;
             ClientPanel.IsDerivedStyle = true;
-            ClientPanel.Location = new System.Drawing.Point( 3, 34 );
+            ClientPanel.Location = new System.Drawing.Point( 3, 36 );
             ClientPanel.Name = "ClientPanel";
             ClientPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            ClientPanel.Size = new System.Drawing.Size( 524, 263 );
+            ClientPanel.Size = new System.Drawing.Size( 524, 261 );
             ClientPanel.Style = MetroSet_UI.Enums.Style.Custom;
             ClientPanel.StyleManager = null;
             ClientPanel.TabIndex = 0;
@@ -1075,7 +1076,7 @@
             UtilityTable.ColumnCount = 1;
             UtilityTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             UtilityTable.Controls.Add( UtilityPanel, 0, 1 );
-            UtilityTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            UtilityTable.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             UtilityTable.ForeColor = System.Drawing.Color.DarkGray;
             UtilityTable.Location = new System.Drawing.Point( 704, 36 );
             UtilityTable.Name = "UtilityTable";
@@ -1102,10 +1103,10 @@
             UtilityPanel.ForeColor = System.Drawing.Color.Transparent;
             UtilityPanel.HoverText = null;
             UtilityPanel.IsDerivedStyle = true;
-            UtilityPanel.Location = new System.Drawing.Point( 3, 25 );
+            UtilityPanel.Location = new System.Drawing.Point( 3, 27 );
             UtilityPanel.Name = "UtilityPanel";
             UtilityPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            UtilityPanel.Size = new System.Drawing.Size( 524, 111 );
+            UtilityPanel.Size = new System.Drawing.Size( 524, 109 );
             UtilityPanel.Style = MetroSet_UI.Enums.Style.Custom;
             UtilityPanel.StyleManager = null;
             UtilityPanel.TabIndex = 0;
@@ -1121,7 +1122,7 @@
             DataManagementTable.ColumnCount = 1;
             DataManagementTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             DataManagementTable.Controls.Add( DataManagementPanel, 0, 1 );
-            DataManagementTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            DataManagementTable.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             DataManagementTable.ForeColor = System.Drawing.Color.DarkGray;
             DataManagementTable.Location = new System.Drawing.Point( 63, 395 );
             DataManagementTable.Name = "DataManagementTable";
@@ -1144,14 +1145,15 @@
             DataManagementPanel.Controls.Add( VisualizationTile );
             DataManagementPanel.Controls.Add( ExcelDataTile );
             DataManagementPanel.DataFilter = null;
+            DataManagementPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             DataManagementPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             DataManagementPanel.ForeColor = System.Drawing.Color.Transparent;
             DataManagementPanel.HoverText = null;
             DataManagementPanel.IsDerivedStyle = true;
-            DataManagementPanel.Location = new System.Drawing.Point( 3, 33 );
+            DataManagementPanel.Location = new System.Drawing.Point( 3, 35 );
             DataManagementPanel.Name = "DataManagementPanel";
             DataManagementPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            DataManagementPanel.Size = new System.Drawing.Size( 524, 264 );
+            DataManagementPanel.Size = new System.Drawing.Size( 524, 262 );
             DataManagementPanel.Style = MetroSet_UI.Enums.Style.Custom;
             DataManagementPanel.StyleManager = null;
             DataManagementPanel.TabIndex = 0;
@@ -1167,7 +1169,7 @@
             ResourceTable.ColumnCount = 1;
             ResourceTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ResourceTable.Controls.Add( ResourcePanel, 0, 1 );
-            ResourceTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ResourceTable.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ResourceTable.ForeColor = System.Drawing.Color.DarkGray;
             ResourceTable.Location = new System.Drawing.Point( 707, 206 );
             ResourceTable.Name = "ResourceTable";
@@ -1188,14 +1190,15 @@
             ResourcePanel.Controls.Add( ProgramProjectTile );
             ResourcePanel.Controls.Add( GuidanceTile );
             ResourcePanel.DataFilter = null;
+            ResourcePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             ResourcePanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ResourcePanel.ForeColor = System.Drawing.Color.Transparent;
             ResourcePanel.HoverText = null;
             ResourcePanel.IsDerivedStyle = true;
-            ResourcePanel.Location = new System.Drawing.Point( 3, 28 );
+            ResourcePanel.Location = new System.Drawing.Point( 3, 29 );
             ResourcePanel.Name = "ResourcePanel";
             ResourcePanel.Padding = new System.Windows.Forms.Padding( 1 );
-            ResourcePanel.Size = new System.Drawing.Size( 524, 109 );
+            ResourcePanel.Size = new System.Drawing.Size( 524, 108 );
             ResourcePanel.Style = MetroSet_UI.Enums.Style.Custom;
             ResourcePanel.StyleManager = null;
             ResourcePanel.TabIndex = 0;
