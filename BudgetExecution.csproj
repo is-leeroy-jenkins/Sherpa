@@ -50,8 +50,8 @@
   <ItemGroup>
     <PackageReference Include="CBComponents.HeaderTableLayoutPanel" Version="1.2.6307.23101" />
     <PackageReference Include="EPPlus" Version="6.2.6" />
-    <PackageReference Include="Google.Apis" Version="1.60.0" />
-    <PackageReference Include="Google.Apis.Core" Version="1.60.0" />
+    <PackageReference Include="Google.Apis" Version="1.61.0" />
+    <PackageReference Include="Google.Apis.Core" Version="1.61.0" />
     <PackageReference Include="Google.Apis.Customsearch.v1" Version="1.49.0.2084" />
     <PackageReference Include="Google.Cloud.ServiceUsage.V1" Version="2.1.0" />
     <PackageReference Include="LiveCharts" Version="0.9.7" />
@@ -66,7 +66,7 @@
     <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
     <PackageReference Include="MSChartExtension" Version="3.9.1" />
     <PackageReference Include="Ookii.Dialogs.WinForms" Version="4.0.0" />
-    <PackageReference Include="ScottPlot.WinForms" Version="4.1.64" />
+    <PackageReference Include="ScottPlot.WinForms" Version="4.1.65" />
     <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.8.0" />
     <PackageReference Include="WinFormsMapControl" Version="1.1.0" />
@@ -127,6 +127,9 @@
     <Reference Include="Syncfusion.Data.WinForms">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.Data.WinForms.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.DataSource.WinForms">
+      <HintPath>Libraries\Syncfusion.DataSource.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.Diagram.Base">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.Diagram.Base.dll</HintPath>
     </Reference>
@@ -151,6 +154,9 @@
     <Reference Include="Syncfusion.GridCommon.WinForms">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.GridCommon.WinForms.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.GridConverter.Windows">
+      <HintPath>Libraries\Syncfusion.Gridconverter.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.GridHelperClasses.Windows">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.GridHelperClasses.Windows.dll</HintPath>
     </Reference>
@@ -163,11 +169,17 @@
     <Reference Include="Syncfusion.HTMLUI.Windows">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.HTMLUI.Windows.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Licensing">
+      <HintPath>Libraries\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.Linq.Base">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.Linq.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Maps.Windows">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.Maps.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.MIME.Base">
+      <HintPath>Libraries\Syncfusion.MIME.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.OfficeChart.Base">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.OfficeChart.Base.dll</HintPath>
@@ -180,6 +192,9 @@
     </Reference>
     <Reference Include="Syncfusion.PivotAnalysis.Base">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.PivotAnalysis.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PivotAnalysis.Windows">
+      <HintPath>Libraries\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.PivotChart.Windows">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\21.1.35\precompiledassemblies\net6.0\Syncfusion.PivotChart.Windows.dll</HintPath>
