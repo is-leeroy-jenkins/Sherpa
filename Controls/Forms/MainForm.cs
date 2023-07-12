@@ -55,6 +55,8 @@ namespace BudgetExecution
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
     [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
     public partial class MainForm : MetroForm
     {
         /// <summary>
@@ -65,8 +67,9 @@ namespace BudgetExecution
         /// </value>
         public IEnumerable<Tile> Tiles { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainForm"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.MainForm" /> class.
         /// </summary>
         public MainForm( )
         {
@@ -103,13 +106,20 @@ namespace BudgetExecution
 
             // Event Wiring
             ExitButton.Click += null;
-            DataTile.Click += OnDatabaseTileClicked;
-            CalculatorTile.Click += OnCalculatorTileClicked;
-            ChartTile.Click += OnReportingTileClicked;
-            SqlServerTile.Click += OnClientTileClicked;
-            GuidanceTile.Click += OnGuidanceTileClicked;
-            BrowserTile.Click += OnWebTileClicked;
-            ExitButton.Click += OnExitButtonClicked;
+            LookupTile.Click += OnDataManagementTileClick;
+            CalculatorTile.Click += OnCalculatorTileClick;
+            CalendarTile.Click += OnCalendarTileClick;
+            ProgramProjectTile.Click += OnProgramProjectTileClick;
+            MessageTile.Click += OnMessageTileClick;
+            SqlEditorTile.Click += OnSqlEditorTileClick;
+            VisualizationTile.Click += OnVisualizationTileClick;
+            ExcelDataTile.Click += OnExcelDataTileClick;
+            SQLiteTile.Click += OnSQLiteTileClick;
+            SqlCeTile.Click += OnSqlCeTileClick;
+            SqlServerTile.Click += OnSqlCeTileClick;
+            GuidanceTile.Click += OnGuidanceTileClick;
+            BrowserTile.Click += OnBabyTileClick;
+            ExitButton.Click += OnExitButtonClick;
             TestButton.Click += OnTestButtonClick;
             Load += OnLoad;
             Shown += OnShown;
@@ -117,16 +127,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [load].
+        /// Notifies this instance.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnLoad( object sender, EventArgs e )
+        private void Notify( )
         {
             try
             {
-                SetTileProperties( );
-                SetTileText( );
+                var _message = "THIS IS NOT YET IMPLEMENTED!!";
+                var _notify = new Notification( _message );
+                _notify.Show( );
             }
             catch( Exception _ex )
             {
@@ -171,27 +180,57 @@ namespace BudgetExecution
         {
             try
             {
-                DataTile.Title.Text = "Data Management";
-                DataTile.Body.Text = string.Empty;
-                DataTile.Banner.Text = string.Empty;
-                CalculatorTile.Title.Text = "Calculator";
-                CalculatorTile.Body.Text = string.Empty;
-                CalculatorTile.Banner.Text = string.Empty;
-                ChartTile.Title.Text = "Visualizations";
-                ChartTile.Body.Text = string.Empty;
-                ChartTile.Banner.Text = string.Empty;
+                BrowserTile.Title.Text = "Baby";
+                BrowserTile.Body.Text = string.Empty;
+                BrowserTile.Banner.Text = string.Empty;
+                ChromeTile.Title.Text = "Chrome";
+                ChromeTile.Body.Text = string.Empty;
+                ChromeTile.Banner.Text = string.Empty;
+                EdgeTile.Title.Text = "Edge";
+                EdgeTile.Body.Text = string.Empty;
+                EdgeTile.Banner.Text = string.Empty;
+                FirefoxTile.Title.Text = "Firefox";
+                FirefoxTile.Body.Text = string.Empty;
+                FirefoxTile.Banner.Text = string.Empty;
+                AccessTile.Title.Text = "Access";
+                AccessTile.Body.Text = string.Empty;
+                AccessTile.Banner.Text = string.Empty;
+                SQLiteTile.Title.Text = "SQLite";
+                SQLiteTile.Body.Text = string.Empty;
+                SQLiteTile.Banner.Text = string.Empty;
+                SqlCeTile.Title.Text = "SQL Compact";
+                SqlCeTile.Body.Text = string.Empty;
+                SqlCeTile.Banner.Text = string.Empty;
                 SqlServerTile.Title.Text = "SQL Server";
                 SqlServerTile.Body.Text = string.Empty;
                 SqlServerTile.Banner.Text = string.Empty;
+                LookupTile.Title.Text = "Data Lookup";
+                LookupTile.Body.Text = string.Empty;
+                LookupTile.Banner.Text = string.Empty;
+                SqlEditorTile.Title.Text = "SQL Editor";
+                SqlEditorTile.Body.Text = string.Empty;
+                SqlEditorTile.Banner.Text = string.Empty;
+                VisualizationTile.Title.Text = "Data Visualizations";
+                VisualizationTile.Body.Text = string.Empty;
+                VisualizationTile.Banner.Text = string.Empty;
+                ExcelDataTile.Title.Text = "Excel Data";
+                ExcelDataTile.Body.Text = string.Empty;
+                ExcelDataTile.Banner.Text = string.Empty;
                 GuidanceTile.Title.Text = "Guidance";
                 GuidanceTile.Body.Text = string.Empty;
                 GuidanceTile.Banner.Text = string.Empty;
-                BrowserTile.Title.Text = "Web Browser";
-                BrowserTile.Body.Text = string.Empty;
-                BrowserTile.Banner.Text = string.Empty;
-                AccessTile.Title.Text = "Access DB";
-                AccessTile.Body.Text = string.Empty;
-                AccessTile.Banner.Text = string.Empty;
+                ProgramProjectTile.Title.Text = "Program Projects";
+                ProgramProjectTile.Body.Text = string.Empty;
+                ProgramProjectTile.Banner.Text = string.Empty;
+                CalculatorTile.Title.Text = "Calculator";
+                CalculatorTile.Body.Text = string.Empty;
+                CalculatorTile.Banner.Text = string.Empty;
+                CalendarTile.Title.Text = "Calendar";
+                CalendarTile.Body.Text = string.Empty;
+                CalendarTile.Banner.Text = string.Empty;
+                MessageTile.Title.Text = "Email";
+                MessageTile.Body.Text = string.Empty;
+                MessageTile.Banner.Text = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -210,8 +249,7 @@ namespace BudgetExecution
                 {
                     foreach( var _tile in Tiles )
                     {
-                        _tile.Size = new Size( 155, 80 );
-                        _tile.Title.Font = new Font( "Roboto", 11, FontStyle.Regular );
+                        _tile.Title.Font = new Font( "Roboto", 10, FontStyle.Regular );
                         _tile.Title.TextColor = Color.DarkGray;
                         _tile.Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
                         _tile.Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
@@ -251,6 +289,84 @@ namespace BudgetExecution
                 var _loader = new LoadingForm( Status.Processing );
                 _loader.StartPosition = FormStartPosition.CenterParent;
                 _loader.ShowDialog( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void ShowGuidanceDialog( )
+        {
+            try
+            {
+                var _guidance = new GuidanceDialog( );
+                _guidance.ShowDialog( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void ShowProgramProjectDialog( )
+        {
+            try
+            {
+                var _program = new ProgramProjectDialog( );
+                _program.ShowDialog( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void ShowEmailDialog( )
+        {
+            try
+            {
+                var _program = new ProgramProjectDialog( );
+                _program.ShowDialog( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void ShowEditDialog( )
+        {
+            try
+            {
+                var _editor = new EditDialog( );
+                _editor.ShowDialog( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void ShowLookupDialog( )
+        {
+            try
+            {
+                var _editor = new EditDialog( );
+                _editor.ShowDialog( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void ShowCalendarDialog( )
+        {
+            try
+            {
+                var _calendar = new CalendarDialog( );
+                _calendar.ShowDialog( this );
             }
             catch( Exception _ex )
             {
@@ -329,50 +445,11 @@ namespace BudgetExecution
         /// <summary>
         /// Opens the WebBrowser.
         /// </summary>
-        private void OpenWebBrowser( )
+        private void OpenBabyBrowser( )
         {
             try
             {
-                var _forms = Program.Windows.Values;
-                if( Program.Windows.ContainsKey( "WebBrowser" ) )
-                {
-                }
-                else
-                {
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the PDF form.
-        /// </summary>
-        private void OpenPdfForm( )
-        {
-            try
-            {
-                var _forms = Program.Windows.Values;
-                if( Program.Windows.ContainsKey( "PdfForm" ) )
-                {
-                    var _pdfForm = (PdfForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( PdfForm ) )
-                        ?.First( );
-
-                    _pdfForm.Owner = this;
-                    _pdfForm.Refresh( );
-                    _pdfForm.Visible = true;
-                    Visible = false;
-                }
-                else
-                {
-                    var _pdfForm = new PdfForm( );
-                    _pdfForm.Owner = this;
-                    _pdfForm.Show( );
-                    Visible = false;
-                }
+                Notify( );
             }
             catch( Exception _ex )
             {
@@ -428,15 +505,111 @@ namespace BudgetExecution
 
                 _calculator.Owner = this;
                 _calculator.Visible = true;
-                Visible = false;
             }
             else
             {
                 var _calculator = new CalculationForm( );
                 _calculator.Owner = this;
                 _calculator.Show( );
-                Visible = false;
             }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                SetTileProperties( );
+                SetTileText( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    ContextMenu.Show( this, e.Location );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                Program.Windows["MainForm"] = this;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnEdgeTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Minion.RunEdge( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnChromeTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Minion.RunChrome( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnFirefoxTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Minion.RunFirefox( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnBabyTileClick( object sender, EventArgs e )
+        {
+            Notify( );
         }
 
         /// <summary>
@@ -499,16 +672,24 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnDatabaseTileClicked( object sender, EventArgs e )
+        private void OnDataManagementTileClick( object sender, EventArgs e )
         {
-            try
-            {
-                OpenDataGridForm( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            OpenDataGridForm( );
+        }
+
+        private void OnExcelDataTileClick( object sender, EventArgs e )
+        {
+            OpenExcelDataForm( );
+        }
+
+        private void OnLookupTileClick( object sender, EventArgs e )
+        {
+            Notify( );
+        }
+
+        private void OnSqlEditorTileClick( object sender, EventArgs e )
+        {
+            Notify( );
         }
 
         /// <summary>
@@ -516,16 +697,9 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnReportingTileClicked( object sender, EventArgs e )
+        private void OnVisualizationTileClick( object sender, EventArgs e )
         {
-            try
-            {
-                OpenChartDataForm( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            OpenChartDataForm( );
         }
 
         /// <summary>
@@ -533,32 +707,9 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnWebTileClicked( object sender, EventArgs e )
+        private void OnProgramProjectTileClick( object sender, EventArgs e )
         {
-            try
-            {
-                OpenWebBrowser( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [client tile clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnClientTileClicked( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            ShowProgramProjectDialog( );
         }
 
         /// <summary>
@@ -566,34 +717,41 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnCalculatorTileClicked( object sender, EventArgs e )
+        private void OnCalculatorTileClick( object sender, EventArgs e )
         {
-            try
-            {
-                var _calculator = new CalculationForm( );
-                _calculator.Parent = this;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            OpenCalculatorForm( );
+        }
+
+        private void OnMessageTileClick( object sender, EventArgs e )
+        {
+            Notify( );
         }
 
         /// <summary>
         /// Called when [guidance tile clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnGuidanceTileClicked( object sender, EventArgs e )
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnGuidanceTileClick( object sender, EventArgs e )
         {
-            try
-            {
-                OpenPdfForm( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            ShowGuidanceDialog( );
+        }
+
+        private void OnCalendarTileClick( object sender, EventArgs e )
+        {
+            ShowCalendarDialog( );
+        }
+
+        /// <summary>
+        /// Called when [test button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTestButtonClick( object sender, EventArgs e )
+        {
+            ShowLoadingForm( );
         }
 
         /// <summary>
@@ -601,58 +759,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnExitButtonClicked( object sender, EventArgs e )
+        private void OnExitButtonClick( object sender, EventArgs e )
         {
             try
             {
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [test button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnTestButtonClick( object sender, EventArgs e )
-        {
-            ShowLoadingForm( );
-        }
-
-        /// <summary>
-        /// Called when [right click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
-        private void OnRightClick( object sender, MouseEventArgs e )
-        {
-            if( e.Button == MouseButtons.Right )
-            {
-                try
-                {
-                    ContextMenu.Show( this, e.Location );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnShown( object sender, EventArgs e )
-        {
-            try
-            {
-                Program.Windows["MainForm"] = this;
+                Application.Exit( );
             }
             catch( Exception _ex )
             {

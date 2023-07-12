@@ -1083,6 +1083,16 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap SqlEditorTile {
+            get {
+                object obj = ResourceManager.GetObject("SqlEditorTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap SQLiteData {
             get {
                 object obj = ResourceManager.GetObject("SQLiteData", resourceCulture);
@@ -1176,16 +1186,6 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap ToolsTile {
             get {
                 object obj = ResourceManager.GetObject("ToolsTile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap ToolsTile1 {
-            get {
-                object obj = ResourceManager.GetObject("ToolsTile1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

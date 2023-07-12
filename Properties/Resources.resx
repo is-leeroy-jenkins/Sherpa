@@ -362,10 +362,6 @@
     <value>..\Resource\Images\Tiles\SettingsTile.png;System.Drawing.Bitmap, System.Drawing,
             Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ToolsTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Tiles\ToolsTile.png;System.Drawing.Bitmap, System.Drawing,
-            Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="UtilityTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\Tiles\UtilityTile.png;System.Drawing.Bitmap, System.Drawing,
             Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -634,7 +630,10 @@
   <data name="TableTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\Tiles\Light\TableTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ToolsTile1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ToolsTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\Tiles\Light\ToolsTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SqlEditorTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\Light\SqlEditorTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
