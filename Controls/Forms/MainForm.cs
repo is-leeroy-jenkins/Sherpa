@@ -4,7 +4,7 @@
 //     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-11-2023
+//     Last Modified On:        07-12-2023
 // ******************************************************************************************
 // <copyright file="MainForm.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -50,19 +50,18 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class MainForm : MetroForm
     {
         /// <summary> Gets or sets the tiles. </summary>
         /// <value> The tiles. </value>
         public IEnumerable<Tile> Tiles { get; set; }
 
-        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MainForm"/>
+        /// <see cref="MainForm"/>
         /// class.
         /// </summary>
         public MainForm( )
@@ -142,7 +141,7 @@ namespace BudgetExecution
                 var _tiles = new List<Tile>( );
                 for( var _i = 0; _i < Controls.Count; _i++ )
                 {
-                    var _control = Controls[_i];
+                    var _control = Controls[ _i ];
                     if( _control.GetType( ) == typeof( Tile ) )
                     {
                         var _tile = _control as Tile;
@@ -203,8 +202,9 @@ namespace BudgetExecution
                 {
                     foreach( var _tile in Tiles )
                     {
-                        _tile.Size = new Size( 120, 100 );
-                        _tile.Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                        _tile.Size = new Size( 180, 80 );
+                        _tile.Title.Font = new Font( "Roboto", 11, FontStyle.Regular );
+                        _tile.Title.TextColor = Color.DarkGray;
                         _tile.Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
                         _tile.Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
                         _tile.Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
@@ -225,6 +225,21 @@ namespace BudgetExecution
             {
                 var _minion = new MinionSelector( );
                 _minion.ShowDialog( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Shows the loading form. </summary>
+        private void ShowLoadingForm( )
+        {
+            try
+            {
+                var _loader = new LoadingForm( Status.Processing );
+                _loader.StartPosition = FormStartPosition.CenterParent;
+                _loader.ShowDialog( );
             }
             catch( Exception _ex )
             {
@@ -415,6 +430,13 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary> Called when [web tile clicked]. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnWebTileClicked( object sender, EventArgs e )
         {
             try
@@ -446,7 +468,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [utility tile clicked]. </summary>
+        /// <summary> Called when [calculator tile clicked]. </summary>
         /// <param name="sender" > The sender. </param>
         /// <param name="e" >
         /// The
@@ -514,16 +536,7 @@ namespace BudgetExecution
         /// </param>
         private void OnTestButtonClick( object sender, EventArgs e )
         {
-            try
-            {
-                var _loader = new LoadingForm( Status.Processing );
-                _loader.StartPosition = FormStartPosition.CenterParent;
-                _loader.ShowDialog( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            ShowLoadingForm( );
         }
 
         /// <summary> Called when [right click]. </summary>
@@ -559,7 +572,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows["MainForm"] = this;
+                Program.Windows[ "MainForm" ] = this;
             }
             catch( Exception _ex )
             {
