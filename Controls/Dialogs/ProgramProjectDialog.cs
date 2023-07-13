@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-12-2023
 // ******************************************************************************************
 // <copyright file="ProgramProjectDialog.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -48,103 +48,63 @@ namespace BudgetExecution
     using System.Text;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using System.Diagnostics.Eventing.Reader;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    /// <summary> </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class ProgramProjectDialog : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         public Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
         public Provider Provider { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data model.
-        /// </summary>
-        /// <value>
-        /// The data model.
-        /// </value>
+        /// <summary> Gets or sets the data model. </summary>
+        /// <value> The data model. </value>
         public DataBuilder DataModel { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
+        /// <summary> Gets or sets the data table. </summary>
+        /// <value> The data table. </value>
         public DataTable DataTable { get; set; }
 
-        /// <summary>
-        /// Gets or sets the form filter.
-        /// </summary>
-        /// <value>
-        /// The form filter.
-        /// </value>
+        /// <summary> Gets or sets the form filter. </summary>
+        /// <value> The form filter. </value>
         public IDictionary<string, object> FormFilter { get; set; }
 
-        /// <summary>
-        /// Gets or sets the selected value.
-        /// </summary>
-        /// <value>
-        /// The selected value.
-        /// </value>
+        /// <summary> Gets or sets the selected value. </summary>
+        /// <value> The selected value. </value>
         public string SelectedValue { get; set; }
 
-        /// <summary>
-        /// Gets or sets the SQL query.
-        /// </summary>
-        /// <value>
-        /// The SQL query.
-        /// </value>
+        /// <summary> Gets or sets the SQL query. </summary>
+        /// <value> The SQL query. </value>
         public string SqlQuery { get; set; }
 
-        /// <summary>
-        /// Gets or sets the selected program.
-        /// </summary>
-        /// <value>
-        /// The selected program.
-        /// </value>
+        /// <summary> Gets or sets the selected program. </summary>
+        /// <value> The selected program. </value>
         public string SelectedProgram { get; set; }
 
-        /// <summary>
-        /// Gets or sets the current.
-        /// </summary>
-        /// <value>
-        /// The current.
-        /// </value>
+        /// <summary> Gets or sets the current. </summary>
+        /// <value> The current. </value>
         public DataRow Current { get; set; }
 
-        /// <summary>
-        /// Gets or sets the program codes.
-        /// </summary>
-        /// <value>
-        /// The program codes.
-        /// </value>
+        /// <summary> Gets or sets the program codes. </summary>
+        /// <value> The program codes. </value>
         public IEnumerable<string> ProgramCodes { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramProjectDialog" /> class.
+        /// <see cref="T:BudgetExecution.ProgramProjectDialog"/>
+        /// class.
         /// </summary>
         public ProgramProjectDialog( )
         {
@@ -182,48 +142,56 @@ namespace BudgetExecution
             // Event Wiring
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
-            BindingSource.CurrentChanged += UpdateHeaderTitle;
+            BindingSource.CurrentChanged += OnBindingSourceUpdated;
             SearchButton.Click += OnSearchButtonClicked;
+            ComboBox.SelectedValueChanged += OnComboBoxSelectionChanged;
             MouseClick += OnRightClick;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramProjectDialog" /> class.
+        /// <see cref="T:BudgetExecution.ProgramProjectDialog"/>
+        /// class.
         /// </summary>
-        /// <param name="code">The code.</param>
+        /// <param name="code" > The code. </param>
         public ProgramProjectDialog( string code )
             : this( )
         {
             SelectedProgram = code;
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        public void OnLoad( object sender, EventArgs e )
+        /// <summary> Binds the data. </summary>
+        private void BindData( )
+        {
+            if( BindingSource != null )
+            {
+                try
+                {
+                    var _programAreaName = new Binding( "Text", BindingSource, "ProgramAreaName" );
+                    ProgramAreaNameTextBox.DataBindings.Add( _programAreaName );
+                    var _programProjectName = new Binding( "Text", BindingSource, "Name" );
+                    ProgramProjectNameTextBox.DataBindings.Add( _programProjectName );
+                    var _laws = new Binding( "Text", BindingSource, "Laws" );
+                    StatutoryAuthorityTextBox.DataBindings.Add( _laws );
+                    var _description = new Binding( "Text", BindingSource, "Description" );
+                    ProgramDescriptionTextBox.DataBindings.Add( _description );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary> Clears the header text. </summary>
+        private void ClearHeaderText( )
         {
             try
             {
-                FormFilter = new Dictionary<string, object>( );
-                DataModel = new DataBuilder( Source, Provider );
-                DataTable = DataModel.DataTable;
-                BindingSource.DataSource = DataTable;
-                Current = BindingSource.GetCurrentDataRow( );
-                Header.ForeColor = Color.FromArgb( 0, 120, 212 );
-                Header.Text = Current["ProgramTitle"].ToString( );
-                if( !string.IsNullOrEmpty( SelectedProgram ) )
-                {
-                    FormFilter.Add( "Code", SelectedProgram );
-                    BindingSource.Filter = FormFilter.ToCriteria( );
-                }
-
-                DescriptionTable.CaptionText = "Program Description";
-                BindData( );
+                Header.Text = string.Empty;
+                ProgramAreaTable.CaptionText = "Program Area - ";
+                ProgramProjectTable.CaptionText = "Program Project - ";
             }
             catch( Exception _ex )
             {
@@ -232,11 +200,77 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [close button clicked].
+        /// Populates the ComboBox items.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        private void PopulateComboBoxItems( )
+        {
+            try
+            {
+                var _codes = DataModel.DataElements[ "Code" ];
+                ComboBox.Items.Clear( );
+                foreach( var _code in _codes )
+                {
+                    ComboBox.Items.Add( _code );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( SelectedProgram ) )
+                {
+                    FormFilter = new Dictionary<string, object>( );
+                    DataModel = new DataBuilder( Source, Provider );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
+                    Current = BindingSource.GetCurrentDataRow( );
+                    Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+                    Header.Text = Current[ "ProgramTitle" ].ToString( );
+                    if( !string.IsNullOrEmpty( SelectedProgram ) )
+                    {
+                        FormFilter.Add( "Code", SelectedProgram );
+                        BindingSource.Filter = FormFilter.ToCriteria( );
+                    }
+
+                    DescriptionTable.CaptionText = "Program Description";
+                    ComboBox.Visible = false;
+                    BindData( );
+                }
+                else
+                {
+                    Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+                    Header.Text = "Program Title";
+                    DescriptionTable.CaptionText = "Program Description";
+                    PopulateComboBoxItems( );
+                    ComboBox.Visible = true;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try
@@ -249,12 +283,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [search button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [search button clicked]. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnSearchButtonClicked( object sender, EventArgs e )
         {
             try
@@ -284,16 +319,18 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Clears the header text.
-        /// </summary>
-        private void ClearHeaderText( )
+        public void OnComboBoxSelectionChanged( object sender, EventArgs e )
         {
             try
             {
-                Header.Text = string.Empty;
-                ProgramAreaTable.CaptionText = "Program Area - ";
-                ProgramProjectTable.CaptionText = "Program Project - ";
+                FormFilter.Clear( );
+                SelectedProgram = ComboBox.SelectedItem.ToString( );
+                FormFilter.Add( "Code", SelectedProgram );
+                DataModel = new DataBuilder( Source, Provider );
+                DataTable = DataModel.DataTable;
+                BindingSource.DataSource = DataTable;
+                BindingSource.Filter = FormFilter.ToCriteria( );
+                Current = BindingSource.GetCurrentDataRow( );
             }
             catch( Exception _ex )
             {
@@ -301,20 +338,21 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Updates the header title.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void UpdateHeaderTitle( object sender, EventArgs e )
+        /// <summary> Updates the header title. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnBindingSourceUpdated( object sender, EventArgs e )
         {
             try
             {
                 var _data = BindingSource.GetCurrentDataRow( );
-                Header.Text = _data["ProgramTitle"].ToString( );
-                ProgramAreaTable.CaptionText = "Program Area - " + _data["ProgramAreaCode"];
-                ProgramProjectTable.CaptionText = "Program Project - " + _data["Code"];
+                Header.Text = _data[ "ProgramTitle" ].ToString( );
+                ProgramAreaTable.CaptionText = "Program Area - " + _data[ "ProgramAreaCode" ];
+                ProgramProjectTable.CaptionText = "Program Project - " + _data[ "Code" ];
             }
             catch( Exception _ex )
             {
@@ -322,37 +360,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Binds the data.
-        /// </summary>
-        private void BindData( )
-        {
-            if( BindingSource != null )
-            {
-                try
-                {
-                    var _programAreaName = new Binding( "Text", BindingSource, "ProgramAreaName" );
-                    ProgramAreaNameTextBox.DataBindings.Add( _programAreaName );
-                    var _programProjectName = new Binding( "Text", BindingSource, "Name" );
-                    ProgramProjectNameTextBox.DataBindings.Add( _programProjectName );
-                    var _laws = new Binding( "Text", BindingSource, "Laws" );
-                    StatutoryAuthorityTextBox.DataBindings.Add( _laws );
-                    var _description = new Binding( "Text", BindingSource, "Description" );
-                    ProgramDescriptionTextBox.DataBindings.Add( _description );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [right click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [right click]. </summary>
+        /// <param name="sender" > The sender. </param>
+        /// <param name="e" >
+        /// The
+        /// <see cref="MouseEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -368,10 +382,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex" > The ex. </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

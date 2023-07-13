@@ -52,6 +52,7 @@ partial class ProgramProjectDialog
         HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
         pictureBox1 = new System.Windows.Forms.PictureBox( );
         Header = new Label( );
+        ComboBox = new ComboBox( );
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
         DescriptionTable.SuspendLayout( );
         StatuteTable.SuspendLayout( );
@@ -401,6 +402,39 @@ partial class ProgramProjectDialog
         Header.ThemeName = "Budget Execution";
         Header.ToolTip = null;
         // 
+        // ComboBox
+        // 
+        ComboBox.AllowDrop = true;
+        ComboBox.ArrowColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        ComboBox.BackColor = System.Drawing.Color.Transparent;
+        ComboBox.BackgroundColor = System.Drawing.Color.FromArgb(   70  ,   70  ,   70   );
+        ComboBox.BindingSource = BindingSource;
+        ComboBox.BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        ComboBox.CausesValidation = false;
+        ComboBox.DataFilter = null;
+        ComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
+        ComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
+        ComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
+        ComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+        ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+        ComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        ComboBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        ComboBox.FormattingEnabled = true;
+        ComboBox.HoverText = "Select Code";
+        ComboBox.IsDerivedStyle = true;
+        ComboBox.ItemHeight = 24;
+        ComboBox.Location = new System.Drawing.Point( 731, 31 );
+        ComboBox.Name = "ComboBox";
+        ComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+        ComboBox.SelectedItemForeColor = System.Drawing.Color.White;
+        ComboBox.Size = new System.Drawing.Size( 142, 30 );
+        ComboBox.Style = MetroSet_UI.Enums.Style.Custom;
+        ComboBox.StyleManager = null;
+        ComboBox.TabIndex = 19;
+        ComboBox.ThemeAuthor = "Terry D. Eppler";
+        ComboBox.ThemeName = "Budget Execution";
+        ComboBox.ToolTip = ToolTip;
+        // 
         // ProgramProjectDialog
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -421,6 +455,7 @@ partial class ProgramProjectDialog
         captionImage1.Size = new System.Drawing.Size( 42, 16 );
         CaptionImages.Add( captionImage1 );
         ClientSize = new System.Drawing.Size( 896, 603 );
+        Controls.Add( ComboBox );
         Controls.Add( HeaderTable );
         Controls.Add( ProgramProjectTable );
         Controls.Add( ProgramAreaTable );
@@ -467,4 +502,5 @@ partial class ProgramProjectDialog
     public System.Windows.Forms.TableLayoutPanel HeaderTable;
     public System.Windows.Forms.PictureBox pictureBox1;
     private Label Header;
+    private ComboBox ComboBox;
 }
