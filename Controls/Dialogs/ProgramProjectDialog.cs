@@ -48,7 +48,6 @@ namespace BudgetExecution
     using System.Text;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using System.Diagnostics.Eventing.Reader;
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
