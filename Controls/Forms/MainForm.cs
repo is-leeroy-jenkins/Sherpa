@@ -323,8 +323,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _program = new ProgramProjectDialog( );
-                _program.ShowDialog( this );
+                var _programs = new ProgramProjectDialog( );
+                _programs.ShowDialog( this );
             }
             catch( Exception _ex )
             {
@@ -573,7 +573,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows["MainForm"] = this;
+                Program.Windows[ "MainForm" ] = this;
             }
             catch( Exception _ex )
             {

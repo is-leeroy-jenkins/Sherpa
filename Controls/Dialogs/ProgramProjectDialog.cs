@@ -4,7 +4,7 @@
 //     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-12-2023
+//     Last Modified On:        07-13-2023
 // ******************************************************************************************
 // <copyright file="ProgramProjectDialog.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -48,6 +48,8 @@ namespace BudgetExecution
     using System.Text;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Tools;
+    using System.Linq;
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
@@ -110,14 +112,14 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 908, 614 );
-            MaximumSize = new Size( 908, 614 );
-            MinimumSize = new Size( 908, 614 );
+            Size = new Size( 1066, 614 );
+            MaximumSize = new Size( 1066, 614 );
+            MinimumSize = new Size( 1066, 614 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
+            BorderThickness = 1;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             StartPosition = FormStartPosition.CenterParent;
             ShowIcon = false;
@@ -142,7 +144,7 @@ namespace BudgetExecution
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
             SearchButton.Click += OnSearchButtonClicked;
-            ListBox.SelectedValueChanged += OnListBoxSelectionChanged;
+            ComboBox.SelectedValueChanged += OnComboBoxSelectionChanged;
             MouseClick += OnRightClick;
         }
 
@@ -159,35 +161,12 @@ namespace BudgetExecution
             SelectedProgram = code;
         }
 
-        /// <summary> Binds the data. </summary>
-        private void BindData( )
-        {
-            if( BindingSource?.DataSource != null )
-            {
-                try
-                {
-                    var _programAreaName = new Binding( "Text", BindingSource.DataSource, "ProgramAreaName" );
-                    ProgramAreaNameTextBox.DataBindings.Add( _programAreaName );
-                    var _programProjectName = new Binding( "Text", BindingSource.DataSource, "Name" );
-                    ProgramProjectNameTextBox.DataBindings.Add( _programProjectName );
-                    var _laws = new Binding( "Text", BindingSource.DataSource, "Laws" );
-                    StatutoryAuthorityTextBox.DataBindings.Add( _laws );
-                    var _description = new Binding( "Text", BindingSource.DataSource, "Description" );
-                    ProgramDescriptionTextBox.DataBindings.Add( _description );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
         /// <summary> Clears the header text. </summary>
         private void ClearHeaderText( )
         {
             try
             {
-                Header.Text = string.Empty;
+                Header.Text = "Program Project Descriptions";
                 ProgramAreaTable.CaptionText = "Program Area - ";
                 ProgramProjectTable.CaptionText = "Program Project - ";
             }
@@ -197,19 +176,52 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the ComboBox items.
-        /// </summary>
-        private void PopulateListBoxItems( )
+        private void ClearProgramText( )
         {
             try
             {
-                ListBox.Items.Clear( );
-                var _codes = DataModel.DataElements["Code"];
-                foreach( var _code in _codes )
+                DescriptionTable.CaptionText = "Program Description";
+                StatutoryAuthorityTextBox.Text = string.Empty;
+                ProgramAreaNameTextBox.Text = string.Empty;
+                ProgramProjectNameTextBox.Text = string.Empty;
+                ProgramDescriptionTextBox.Text = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Populates the ComboBox items. </summary>
+        private void PopulateComboBoxItems( )
+        {
+            try
+            {
+                ComboBox.Items.Clear( );
+                DataModel = new DataBuilder( Source, Provider );
+                var _codes = DataModel.DataElements["ProgramTitle"];
+                foreach( var _item in _codes )
                 {
-                    ListBox.Items.Add( _code );
+                    ComboBox.Items.Add( _item );
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void BindData( )
+        {
+            try
+            {
+                Header.Text = Current["ProgramTitle"].ToString( );
+                ProgramAreaTable.CaptionText = "Program Area - " + Current["ProgramAreaCode"];
+                ProgramProjectTable.CaptionText = "Program Project - " + Current["Code"];
+                StatutoryAuthorityTextBox.Text = Current["Laws"].ToString( );
+                ProgramAreaNameTextBox.Text = Current["ProgramAreaName"].ToString( );
+                ProgramProjectNameTextBox.Text = Current["Name"].ToString( );
+                ProgramDescriptionTextBox.Text = Current["Description"].ToString( );
             }
             catch( Exception _ex )
             {
@@ -228,36 +240,32 @@ namespace BudgetExecution
         {
             try
             {
+                FormFilter = new Dictionary<string, object>( );
                 if( !string.IsNullOrEmpty( SelectedProgram ) )
                 {
-                    FormFilter = new Dictionary<string, object>( );
-                    DataModel = new DataBuilder( Source, Provider );
+                    FormFilter.Add( "Code", SelectedProgram );
+                    DataModel = new DataBuilder( Source, Provider, FormFilter );
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataTable;
-                    Current = BindingSource.GetCurrentDataRow( );
                     Header.ForeColor = Color.FromArgb( 0, 120, 212 );
-                    Header.Text = Current["ProgramTitle"].ToString( );
-                    if( !string.IsNullOrEmpty( SelectedProgram ) )
-                    {
-                        FormFilter.Add( "Code", SelectedProgram );
-                        BindingSource.Filter = FormFilter.ToCriteria( );
-                    }
-
+                    BindingSource.Filter = FormFilter.ToCriteria( );
+                    Current = BindingSource.GetCurrentDataRow( );
                     DescriptionTable.CaptionText = "Program Description";
-                    ListBox.Visible = false;
+                    ComboBox.Visible = false;
                     BindData( );
                 }
                 else
                 {
-                    FormFilter = new Dictionary<string, object>( );
                     DataModel = new DataBuilder( Source, Provider );
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataTable;
                     Header.ForeColor = Color.FromArgb( 0, 120, 212 );
                     Header.Text = "Program Title";
                     DescriptionTable.CaptionText = "Program Description";
-                    PopulateListBoxItems( );
-                    ListBox.Visible = true;
+                    PopulateComboBoxItems( );
+                    ClearHeaderText( );
+                    ClearProgramText( );
+                    ComboBox.Visible = true;
                 }
             }
             catch( Exception _ex )
@@ -275,14 +283,7 @@ namespace BudgetExecution
         /// </param>
         public void OnCloseButtonClicked( object sender, EventArgs e )
         {
-            try
-            {
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            Close( );
         }
 
         /// <summary> Called when [search button clicked]. </summary>
@@ -321,46 +322,47 @@ namespace BudgetExecution
             }
         }
 
-        public void OnListBoxSelectionChanged( object sender )
+        /// <summary>
+        /// Called when [ComboBox selection changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnComboBoxSelectionChanged( object sender, EventArgs e )
         {
-            if( sender is ListBox _listBox )
+            if( sender is ComboBox _comboBox )
             {
                 try
                 {
-                    FormFilter.Clear( );
-                    SelectedProgram = _listBox.SelectedItem.ToString( );
+                    if( FormFilter.Count > 0 )
+                    {
+                        FormFilter.Clear( );
+                    }
+
+                    var _selection = _comboBox.SelectedItem.ToString( );
+                    SelectedProgram = _selection?.Substring( 0, 2 );
                     FormFilter.Add( "Code", SelectedProgram );
                     DataModel = new DataBuilder( Source, Provider, FormFilter );
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataTable;
                     Current = BindingSource.GetCurrentDataRow( );
-                    Header.Text = Current["ProgramTitle"].ToString( );
-                    ProgramAreaTable.CaptionText = "Program Area - " + Current["ProgramAreaCode"];
-                    ProgramProjectTable.CaptionText = "Program Project - " + Current["Code"];
+                    if( Current != null )
+                    {
+                        BindData( );
+                    }
+                    else
+                    {
+                        ClearHeaderText( );
+                        ClearProgramText( );
+                    }
+
+                    PopulateComboBoxItems( );
+                    SearchButton.Focus( );
                 }
                 catch( Exception _ex )
                 {
                     Fail( _ex );
                 }
-            }
-        }
-
-        /// <summary> Updates the header title. </summary>
-        /// <param name="sender" > The sender. </param>
-        /// <param name="e" >
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnBindingSourceUpdated( object sender, EventArgs e )
-        {
-            try
-            {
-                Current = BindingSource.GetCurrentDataRow( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
             }
         }
 
@@ -385,7 +387,7 @@ namespace BudgetExecution
                 }
             }
         }
-
+        
         /// <summary> Fails the specified ex. </summary>
         /// <param name="ex" > The ex. </param>
         private void Fail( Exception ex )

@@ -52,7 +52,7 @@ partial class ProgramProjectDialog
         HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
         pictureBox1 = new System.Windows.Forms.PictureBox( );
         Header = new Label( );
-        ListBox = new ListBox( );
+        ComboBox = new ComboBox( );
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
         DescriptionTable.SuspendLayout( );
         StatuteTable.SuspendLayout( );
@@ -76,7 +76,7 @@ partial class ProgramProjectDialog
         CloseButton.HoverText = null;
         CloseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
         CloseButton.IsDerivedStyle = true;
-        CloseButton.Location = new System.Drawing.Point( 799, 565 );
+        CloseButton.Location = new System.Drawing.Point( 963, 565 );
         CloseButton.Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
         CloseButton.Name = "CloseButton";
         CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -105,18 +105,18 @@ partial class ProgramProjectDialog
         StatutoryAuthorityTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb(   155  ,   155  ,   155   );
         StatutoryAuthorityTextBox.DisabledForeColor = System.Drawing.Color.FromArgb(   136  ,   136  ,   136   );
         StatutoryAuthorityTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-        StatutoryAuthorityTextBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        StatutoryAuthorityTextBox.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         StatutoryAuthorityTextBox.HoverColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
         StatutoryAuthorityTextBox.HoverText = null;
         StatutoryAuthorityTextBox.IsDerivedStyle = true;
         StatutoryAuthorityTextBox.Lines = null;
-        StatutoryAuthorityTextBox.Location = new System.Drawing.Point( 4, 19 );
+        StatutoryAuthorityTextBox.Location = new System.Drawing.Point( 4, 23 );
         StatutoryAuthorityTextBox.Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
         StatutoryAuthorityTextBox.MaxLength = 32767;
         StatutoryAuthorityTextBox.Name = "StatutoryAuthorityTextBox";
         StatutoryAuthorityTextBox.Padding = new System.Windows.Forms.Padding( 4, 10, 4, 3 );
         StatutoryAuthorityTextBox.ReadOnly = false;
-        StatutoryAuthorityTextBox.Size = new System.Drawing.Size( 416, 161 );
+        StatutoryAuthorityTextBox.Size = new System.Drawing.Size( 506, 158 );
         StatutoryAuthorityTextBox.Style = MetroSet_UI.Enums.Style.Custom;
         StatutoryAuthorityTextBox.StyleManager = null;
         StatutoryAuthorityTextBox.TabIndex = 1;
@@ -136,18 +136,18 @@ partial class ProgramProjectDialog
         ProgramDescriptionTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb(   155  ,   155  ,   155   );
         ProgramDescriptionTextBox.DisabledForeColor = System.Drawing.Color.FromArgb(   136  ,   136  ,   136   );
         ProgramDescriptionTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-        ProgramDescriptionTextBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        ProgramDescriptionTextBox.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         ProgramDescriptionTextBox.HoverColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
         ProgramDescriptionTextBox.HoverText = null;
         ProgramDescriptionTextBox.IsDerivedStyle = true;
         ProgramDescriptionTextBox.Lines = null;
-        ProgramDescriptionTextBox.Location = new System.Drawing.Point( 4, 19 );
+        ProgramDescriptionTextBox.Location = new System.Drawing.Point( 4, 23 );
         ProgramDescriptionTextBox.Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
         ProgramDescriptionTextBox.MaxLength = 32767;
         ProgramDescriptionTextBox.Name = "ProgramDescriptionTextBox";
         ProgramDescriptionTextBox.Padding = new System.Windows.Forms.Padding( 4, 10, 4, 3 );
         ProgramDescriptionTextBox.ReadOnly = false;
-        ProgramDescriptionTextBox.Size = new System.Drawing.Size( 839, 227 );
+        ProgramDescriptionTextBox.Size = new System.Drawing.Size( 980, 218 );
         ProgramDescriptionTextBox.Style = MetroSet_UI.Enums.Style.Custom;
         ProgramDescriptionTextBox.StyleManager = null;
         ProgramDescriptionTextBox.TabIndex = 1;
@@ -167,18 +167,18 @@ partial class ProgramProjectDialog
         ProgramAreaNameTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb(   155  ,   155  ,   155   );
         ProgramAreaNameTextBox.DisabledForeColor = System.Drawing.Color.FromArgb(   136  ,   136  ,   136   );
         ProgramAreaNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-        ProgramAreaNameTextBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        ProgramAreaNameTextBox.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         ProgramAreaNameTextBox.HoverColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
         ProgramAreaNameTextBox.HoverText = null;
         ProgramAreaNameTextBox.IsDerivedStyle = true;
         ProgramAreaNameTextBox.Lines = null;
-        ProgramAreaNameTextBox.Location = new System.Drawing.Point( 4, 19 );
+        ProgramAreaNameTextBox.Location = new System.Drawing.Point( 4, 23 );
         ProgramAreaNameTextBox.Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
         ProgramAreaNameTextBox.MaxLength = 32767;
         ProgramAreaNameTextBox.Name = "ProgramAreaNameTextBox";
         ProgramAreaNameTextBox.Padding = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
         ProgramAreaNameTextBox.ReadOnly = false;
-        ProgramAreaNameTextBox.Size = new System.Drawing.Size( 398, 46 );
+        ProgramAreaNameTextBox.Size = new System.Drawing.Size( 444, 54 );
         ProgramAreaNameTextBox.Style = MetroSet_UI.Enums.Style.Custom;
         ProgramAreaNameTextBox.StyleManager = null;
         ProgramAreaNameTextBox.TabIndex = 1;
@@ -198,18 +198,18 @@ partial class ProgramProjectDialog
         ProgramProjectNameTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb(   155  ,   155  ,   155   );
         ProgramProjectNameTextBox.DisabledForeColor = System.Drawing.Color.FromArgb(   136  ,   136  ,   136   );
         ProgramProjectNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-        ProgramProjectNameTextBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        ProgramProjectNameTextBox.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         ProgramProjectNameTextBox.HoverColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
         ProgramProjectNameTextBox.HoverText = null;
         ProgramProjectNameTextBox.IsDerivedStyle = true;
         ProgramProjectNameTextBox.Lines = null;
-        ProgramProjectNameTextBox.Location = new System.Drawing.Point( 4, 19 );
+        ProgramProjectNameTextBox.Location = new System.Drawing.Point( 4, 23 );
         ProgramProjectNameTextBox.Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
         ProgramProjectNameTextBox.MaxLength = 32767;
         ProgramProjectNameTextBox.Name = "ProgramProjectNameTextBox";
         ProgramProjectNameTextBox.Padding = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
         ProgramProjectNameTextBox.ReadOnly = false;
-        ProgramProjectNameTextBox.Size = new System.Drawing.Size( 398, 52 );
+        ProgramProjectNameTextBox.Size = new System.Drawing.Size( 440, 63 );
         ProgramProjectNameTextBox.Style = MetroSet_UI.Enums.Style.Custom;
         ProgramProjectNameTextBox.StyleManager = null;
         ProgramProjectNameTextBox.TabIndex = 1;
@@ -233,7 +233,7 @@ partial class ProgramProjectDialog
         SearchButton.HoverText = null;
         SearchButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
         SearchButton.IsDerivedStyle = true;
-        SearchButton.Location = new System.Drawing.Point( 433, 565 );
+        SearchButton.Location = new System.Drawing.Point( 563, 565 );
         SearchButton.Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
         SearchButton.Name = "SearchButton";
         SearchButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -260,13 +260,13 @@ partial class ProgramProjectDialog
         DescriptionTable.ColumnCount = 1;
         DescriptionTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
         DescriptionTable.Controls.Add( ProgramDescriptionTextBox, 0, 0 );
-        DescriptionTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        DescriptionTable.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         DescriptionTable.ForeColor = System.Drawing.Color.DarkGray;
-        DescriptionTable.Location = new System.Drawing.Point( 30, 278 );
+        DescriptionTable.Location = new System.Drawing.Point( 34, 291 );
         DescriptionTable.Name = "DescriptionTable";
         DescriptionTable.RowCount = 1;
         DescriptionTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        DescriptionTable.Size = new System.Drawing.Size( 847, 249 );
+        DescriptionTable.Size = new System.Drawing.Size( 988, 244 );
         DescriptionTable.TabIndex = 14;
         // 
         // StatuteTable
@@ -277,13 +277,13 @@ partial class ProgramProjectDialog
         StatuteTable.ColumnCount = 1;
         StatuteTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
         StatuteTable.Controls.Add( StatutoryAuthorityTextBox, 0, 0 );
-        StatuteTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        StatuteTable.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         StatuteTable.ForeColor = System.Drawing.Color.DarkGray;
-        StatuteTable.Location = new System.Drawing.Point( 30, 78 );
+        StatuteTable.Location = new System.Drawing.Point( 34, 78 );
         StatuteTable.Name = "StatuteTable";
         StatuteTable.RowCount = 1;
         StatuteTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        StatuteTable.Size = new System.Drawing.Size( 424, 183 );
+        StatuteTable.Size = new System.Drawing.Size( 514, 184 );
         StatuteTable.TabIndex = 15;
         // 
         // ProgramAreaTable
@@ -294,13 +294,13 @@ partial class ProgramProjectDialog
         ProgramAreaTable.ColumnCount = 1;
         ProgramAreaTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
         ProgramAreaTable.Controls.Add( ProgramAreaNameTextBox, 0, 0 );
-        ProgramAreaTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        ProgramAreaTable.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         ProgramAreaTable.ForeColor = System.Drawing.Color.DarkGray;
-        ProgramAreaTable.Location = new System.Drawing.Point( 471, 78 );
+        ProgramAreaTable.Location = new System.Drawing.Point( 574, 78 );
         ProgramAreaTable.Name = "ProgramAreaTable";
         ProgramAreaTable.RowCount = 1;
         ProgramAreaTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        ProgramAreaTable.Size = new System.Drawing.Size( 406, 68 );
+        ProgramAreaTable.Size = new System.Drawing.Size( 452, 80 );
         ProgramAreaTable.TabIndex = 16;
         // 
         // ProgramProjectTable
@@ -311,13 +311,13 @@ partial class ProgramProjectDialog
         ProgramProjectTable.ColumnCount = 1;
         ProgramProjectTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
         ProgramProjectTable.Controls.Add( ProgramProjectNameTextBox, 0, 0 );
-        ProgramProjectTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        ProgramProjectTable.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         ProgramProjectTable.ForeColor = System.Drawing.Color.DarkGray;
-        ProgramProjectTable.Location = new System.Drawing.Point( 475, 184 );
+        ProgramProjectTable.Location = new System.Drawing.Point( 574, 173 );
         ProgramProjectTable.Name = "ProgramProjectTable";
         ProgramProjectTable.RowCount = 1;
         ProgramProjectTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        ProgramProjectTable.Size = new System.Drawing.Size( 406, 74 );
+        ProgramProjectTable.Size = new System.Drawing.Size( 448, 89 );
         ProgramProjectTable.TabIndex = 17;
         // 
         // ContextMenu
@@ -366,7 +366,7 @@ partial class ProgramProjectDialog
         HeaderTable.Name = "HeaderTable";
         HeaderTable.RowCount = 1;
         HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        HeaderTable.Size = new System.Drawing.Size( 896, 28 );
+        HeaderTable.Size = new System.Drawing.Size( 1054, 28 );
         HeaderTable.TabIndex = 18;
         // 
         // pictureBox1
@@ -388,11 +388,11 @@ partial class ProgramProjectDialog
         Header.Font = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
         Header.HoverText = null;
         Header.IsDerivedStyle = true;
-        Header.Location = new System.Drawing.Point( 40, 3 );
+        Header.Location = new System.Drawing.Point( 47, 3 );
         Header.Margin = new System.Windows.Forms.Padding( 3 );
         Header.Name = "Header";
         Header.Padding = new System.Windows.Forms.Padding( 1 );
-        Header.Size = new System.Drawing.Size( 853, 22 );
+        Header.Size = new System.Drawing.Size( 1004, 22 );
         Header.Style = MetroSet_UI.Enums.Style.Custom;
         Header.StyleManager = null;
         Header.TabIndex = 1;
@@ -402,40 +402,41 @@ partial class ProgramProjectDialog
         Header.ThemeName = "Budget Execution";
         Header.ToolTip = null;
         // 
-        // ListBox
+        // ComboBox
         // 
-        ListBox.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-        ListBox.BindingSource = null;
-        ListBox.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
-        ListBox.DataFilter = null;
-        ListBox.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-        ListBox.DisabledForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-        ListBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-        ListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-        ListBox.HoveredItemColor = System.Drawing.Color.White;
-        ListBox.HoverText = null;
-        ListBox.IsDerivedStyle = true;
-        ListBox.ItemHeight = 28;
-        ListBox.Location = new System.Drawing.Point( 699, 29 );
-        ListBox.Margin = new System.Windows.Forms.Padding( 1 );
-        ListBox.MultiSelect = true;
-        ListBox.Name = "ListBox";
-        ListBox.Padding = new System.Windows.Forms.Padding( 1 );
-        ListBox.SelectedIndex = -1;
-        ListBox.SelectedItem = null;
-        ListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        ListBox.SelectedItemColor = System.Drawing.Color.White;
-        ListBox.SelectedText = null;
-        ListBox.SelectedValue = null;
-        ListBox.ShowBorder = false;
-        ListBox.ShowScrollBar = false;
-        ListBox.Size = new System.Drawing.Size( 174, 45 );
-        ListBox.Style = MetroSet_UI.Enums.Style.Custom;
-        ListBox.StyleManager = null;
-        ListBox.TabIndex = 20;
-        ListBox.ThemeAuthor = "Terry D. Eppler";
-        ListBox.ThemeName = "Budget Execution";
-        ListBox.ToolTip = null;
+        ComboBox.AllowDrop = true;
+        ComboBox.ArrowColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        ComboBox.BackColor = System.Drawing.Color.Transparent;
+        ComboBox.BackgroundColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
+        ComboBox.BindingSource = null;
+        ComboBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+        ComboBox.CausesValidation = false;
+        ComboBox.DataFilter = null;
+        ComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
+        ComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
+        ComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
+        ComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+        ComboBox.DropDownHeight = 100;
+        ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+        ComboBox.DropDownWidth = 80;
+        ComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        ComboBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        ComboBox.FormattingEnabled = true;
+        ComboBox.HoverText = null;
+        ComboBox.IntegralHeight = false;
+        ComboBox.IsDerivedStyle = true;
+        ComboBox.ItemHeight = 24;
+        ComboBox.Location = new System.Drawing.Point( 159, 31 );
+        ComboBox.Name = "ComboBox";
+        ComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        ComboBox.SelectedItemForeColor = System.Drawing.Color.White;
+        ComboBox.Size = new System.Drawing.Size( 763, 30 );
+        ComboBox.Style = MetroSet_UI.Enums.Style.Custom;
+        ComboBox.StyleManager = null;
+        ComboBox.TabIndex = 19;
+        ComboBox.ThemeAuthor = "Terry D. Eppler";
+        ComboBox.ThemeName = "Budget Execution";
+        ComboBox.ToolTip = null;
         // 
         // ProgramProjectDialog
         // 
@@ -456,8 +457,8 @@ partial class ProgramProjectDialog
         captionImage1.Name = "CaptionImage1";
         captionImage1.Size = new System.Drawing.Size( 42, 16 );
         CaptionImages.Add( captionImage1 );
-        ClientSize = new System.Drawing.Size( 896, 603 );
-        Controls.Add( ListBox );
+        ClientSize = new System.Drawing.Size( 1054, 603 );
+        Controls.Add( ComboBox );
         Controls.Add( HeaderTable );
         Controls.Add( ProgramProjectTable );
         Controls.Add( ProgramAreaTable );
@@ -470,9 +471,9 @@ partial class ProgramProjectDialog
         FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
         Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
         Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
-        MaximumSize = new System.Drawing.Size( 908, 614 );
+        MaximumSize = new System.Drawing.Size( 1066, 614 );
         MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-        MinimumSize = new System.Drawing.Size( 908, 614 );
+        MinimumSize = new System.Drawing.Size( 1066, 614 );
         Name = "ProgramProjectDialog";
         ShowIcon = false;
         SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -504,5 +505,5 @@ partial class ProgramProjectDialog
     public System.Windows.Forms.TableLayoutPanel HeaderTable;
     public System.Windows.Forms.PictureBox pictureBox1;
     private Label Header;
-    private ListBox ListBox;
+    private ComboBox ComboBox;
 }
