@@ -226,6 +226,7 @@ namespace BudgetExecution
             {
                 Dispose( true );
                 GC.SuppressFinalize( this );
+                IsDisposed = true;
             }
             catch( Exception _ex )
             {

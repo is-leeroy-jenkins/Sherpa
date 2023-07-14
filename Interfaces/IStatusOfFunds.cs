@@ -190,7 +190,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        Source Source { get; set; }
+        Source Source { get; init; }
 
         /// <summary>
         /// Gets or sets the record.

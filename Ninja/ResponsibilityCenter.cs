@@ -57,7 +57,7 @@ namespace BudgetExecution
     public class ResponsibilityCenter : DataUnit, IResponsibilityCenter
     {
         /// <summary> The source </summary>
-        public override Source Source { get; set; } = Source.ResponsibilityCenters;
+        public override Source Source { get; init; } = Source.ResponsibilityCenters;
 
         /// <summary> Gets the record. </summary>
         /// <value> The record. </value>

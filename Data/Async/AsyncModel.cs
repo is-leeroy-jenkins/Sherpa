@@ -43,12 +43,19 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
-    public class AsyncModel : AsyncBase
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public class AsyncModel : AsyncData
     {
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
         /// <inheritdoc />
         /// <summary>
         /// Gets the data elements.
@@ -67,6 +74,7 @@ namespace BudgetExecution
         public bool IsBusy
         {
             get { return _busy; }
+            set { _busy = value; }
         }
 
         /// <summary>
@@ -91,18 +99,16 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
             Query = new Query( SqlStatement );
-            DataTable = GetTableAsync( );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
-            DataElements = CreateSeriesAsync( DataTable );
+            DataTable = GetDataTableAsync( );
+            DataElements = GetSeriesAsync( );
             DataColumns = GetColumnsAsync( );
-            ColumnNames = GetColumnNamesAsync( );
+            ColumnNames = GetNamesAsync( );
             Keys = GetPrimaryKeysAsync( );
             Fields = GetFieldsAsync( );
             Numerics = GetNumericsAsync( );
             Dates = GetDatesAsync( );
-            Record = GetDataAsync( )?.Result.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            Record = GetRecordAsync( );
+            Map = GetMapAsync( );
             EndInit( );
         }
 
@@ -121,18 +127,16 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, where );
             Query = new Query( SqlStatement );
-            DataTable = GetTableAsync( );
-            DataElements = CreateSeriesAsync( DataTable );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
+            DataTable = GetDataTableAsync( );
+            DataElements = GetSeriesAsync( );
             DataColumns = GetColumnsAsync( );
-            ColumnNames = GetColumnNamesAsync( );
+            ColumnNames = GetNamesAsync( );
             Keys = GetPrimaryKeysAsync( );
             Fields = GetFieldsAsync( );
             Numerics = GetNumericsAsync( );
             Dates = GetDatesAsync( );
-            Record = GetDataAsync( )?.Result.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            Record = GetRecordAsync( );
+            Map = GetMapAsync( );
             EndInit( );
         }
 
@@ -154,18 +158,16 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
             Query = new Query( SqlStatement );
-            DataTable = GetTableAsync( );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
+            DataTable = GetDataTableAsync( );
             DataColumns = GetColumnsAsync( );
-            ColumnNames = GetColumnNamesAsync( );
+            ColumnNames = GetNamesAsync( );
             Keys = GetPrimaryKeysAsync( );
             Fields = GetFieldsAsync( );
             Numerics = GetNumericsAsync( );
             Dates = GetDatesAsync( );
-            DataElements = CreateSeriesAsync( DataTable );
-            Record = GetDataAsync( )?.Result.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            DataElements = GetSeriesAsync( );
+            Record = GetRecordAsync( );
+            Map = GetMapAsync( );
             EndInit( );
         }
 
@@ -187,18 +189,16 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
             Query = new Query( SqlStatement );
-            DataTable = GetTableAsync( );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
+            DataTable = GetDataTableAsync( );
             DataColumns = GetColumnsAsync( );
-            ColumnNames = GetColumnNamesAsync( );
+            ColumnNames = GetNamesAsync( );
             Keys = GetPrimaryKeysAsync( );
             Fields = GetFieldsAsync( );
             Numerics = GetNumericsAsync( );
             Dates = GetDatesAsync( );
-            DataElements = CreateSeriesAsync( DataTable );
-            Record = GetDataAsync( )?.Result.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            DataElements = GetSeriesAsync( );
+            Record = GetRecordAsync( );
+            Map = GetMapAsync( );
             EndInit( );
         }
 
@@ -223,18 +223,16 @@ namespace BudgetExecution
                 commandType );
 
             Query = new Query( SqlStatement );
-            DataTable = GetTableAsync( );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
+            DataTable = GetDataTableAsync( );
             DataColumns = GetColumnsAsync( );
-            ColumnNames = GetColumnNamesAsync( );
+            ColumnNames = GetNamesAsync( );
             Keys = GetPrimaryKeysAsync( );
             Fields = GetFieldsAsync( );
             Numerics = GetNumericsAsync( );
             Dates = GetDatesAsync( );
-            DataElements = CreateSeriesAsync( DataTable );
-            Record = GetDataAsync( )?.Result.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            DataElements = GetSeriesAsync( );
+            Record = GetRecordAsync( );
+            Map = GetMapAsync( );
             EndInit( );
         }
 
@@ -252,18 +250,16 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, Provider.Access );
             SqlStatement = new SqlStatement( source, Provider.Access, where );
             Query = new Query( SqlStatement );
-            DataTable = GetTableAsync( );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
+            DataTable = GetDataTableAsync( );
             DataColumns = GetColumnsAsync( );
-            ColumnNames = GetColumnNamesAsync( );
+            ColumnNames = GetNamesAsync( );
             Keys = GetPrimaryKeysAsync( );
             Fields = GetFieldsAsync( );
             Numerics = GetNumericsAsync( );
             Dates = GetDatesAsync( );
-            DataElements = CreateSeriesAsync( DataTable );
-            Record = GetDataAsync( )?.Result.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            DataElements = GetSeriesAsync( );
+            Record = GetRecordAsync( );
+            Map = GetMapAsync( );
             EndInit( );
         }
 
@@ -282,18 +278,16 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, sqlText );
             Query = new Query( SqlStatement );
-            DataTable = GetTableAsync( );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
+            DataTable = GetDataTableAsync( );
             DataColumns = GetColumnsAsync( );
-            ColumnNames = GetColumnNamesAsync( );
+            ColumnNames = GetNamesAsync( );
             Fields = GetFieldsAsync( );
             Numerics = GetNumericsAsync( );
             Keys = GetPrimaryKeysAsync( );
             Dates = GetDatesAsync( );
-            DataElements = CreateSeriesAsync( DataTable );
-            Record = GetDataAsync( )?.Result.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            DataElements = GetSeriesAsync( );
+            Record = GetRecordAsync( );
+            Map = GetMapAsync( );
             EndInit( );
         }
 
@@ -312,18 +306,16 @@ namespace BudgetExecution
             Provider = ConnectionFactory.Provider;
             SqlStatement = new SqlStatement( Source, Provider, sqlText, commandType );
             Query = new Query( SqlStatement );
-            DataTable = GetTableAsync( );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
+            DataTable = GetDataTableAsync( );
             DataColumns = GetColumnsAsync( );
-            ColumnNames = GetColumnNamesAsync( );
+            ColumnNames = GetNamesAsync( );
             Keys = GetPrimaryKeysAsync( );
             Fields = GetFieldsAsync( );
             Numerics = GetNumericsAsync( );
             Dates = GetDatesAsync( );
-            DataElements = CreateSeriesAsync( DataTable );
-            Record = GetDataAsync( )?.Result.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            DataElements = GetSeriesAsync( );
+            Record = GetRecordAsync( );
+            Map = GetMapAsync( );
             EndInit( );
         }
 
@@ -340,70 +332,50 @@ namespace BudgetExecution
             Provider = query.Provider;
             ConnectionFactory = query.ConnectionFactory;
             SqlStatement = query.SqlStatement;
-            DataTable = GetTableAsync( );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
+            DataTable = GetDataTableAsync( );
             DataColumns = GetColumnsAsync( );
-            ColumnNames = GetColumnNamesAsync( );
+            ColumnNames = GetNamesAsync( );
             Keys = GetPrimaryKeysAsync( );
             Fields = GetFieldsAsync( );
             Numerics = GetNumericsAsync( );
             Dates = GetDatesAsync( );
-            DataElements = CreateSeriesAsync( DataTable );
-            Record = GetDataAsync( )?.Result.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            DataElements = GetSeriesAsync( );
+            Record = GetRecordAsync( );
+            Map = GetMapAsync( );
             EndInit( );
         }
 
         /// <summary>
-        /// Gets the values.
+        /// Begins the initialize.
         /// </summary>
-        /// <param name="dataRows">The data rows.</param>
-        /// <param name="column">The column.</param>
-        /// <returns></returns>
-        private IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string column )
+        protected void BeginInit( )
         {
-            if( ( dataRows?.Any( ) == true )
-               && !string.IsNullOrEmpty( column ) )
-            {
-                try
-                {
-                    var _query = dataRows
-                        ?.Select( v => v.Field<string>( column ) )
-                        ?.Distinct( );
+            _busy = true;
+        }
 
-                    return _query?.Any( ) == true
-                        ? _query
-                        : default( IEnumerable<string> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IEnumerable<string> );
-                }
-            }
-
-            return default( IEnumerable<string> );
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        protected void EndInit( )
+        {
+            _busy = false;
         }
 
         /// <summary>
         /// Gets the values.
         /// </summary>
         /// <param name="dataRows">The data rows.</param>
-        /// <param name="name">The name.</param>
-        /// <param name="value">The value.</param>
+        /// <param name="columnName">The column.</param>
         /// <returns></returns>
-        private IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string name,
-            string value )
+        private IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string columnName )
         {
             if( ( dataRows?.Any( ) == true )
-               && !string.IsNullOrEmpty( value ) )
+               && !string.IsNullOrEmpty( columnName ) )
             {
                 try
                 {
                     var _query = dataRows
-                        ?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
-                        ?.Select( v => v.Field<string>( $"{name}" ) )
+                        ?.Select( v => v.Field<string>( columnName ) )
                         ?.Distinct( );
 
                     return _query?.Any( ) == true
@@ -424,21 +396,21 @@ namespace BudgetExecution
         /// Gets the values asynchronous.
         /// </summary>
         /// <param name="dataRows">The data rows.</param>
-        /// <param name="name">The name.</param>
-        /// <param name="value">The value.</param>
+        /// <param name="columnName">The name.</param>
+        /// <param name="columnValue">The value.</param>
         /// <returns></returns>
-        public Task<IEnumerable<string>> GetValuesAsync( IEnumerable<DataRow> dataRows, string name,
-            string value )
+        public Task<IEnumerable<string>> GetValuesAsync( IEnumerable<DataRow> dataRows, string columnName,
+            string columnValue )
         {
             if( ( dataRows?.Any( ) == true )
-               && !string.IsNullOrEmpty( value ) )
+               && !string.IsNullOrEmpty( columnValue ) )
             {
                 var _tcs = new TaskCompletionSource<IEnumerable<string>>( );
                 try
                 {
                     var _query = dataRows
-                        ?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
-                        ?.Select( v => v.Field<string>( $"{name}" ) )
+                        ?.Where( v => v.Field<string>( $"{columnName}" ).Equals( columnValue ) )
+                        ?.Select( v => v.Field<string>( $"{columnName}" ) )
                         ?.Distinct( );
 
                     _tcs.SetResult( _query );
@@ -462,41 +434,37 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataTable">The data table.</param>
         /// <returns></returns>
-        private Task<IDictionary<string, IEnumerable<string>>> CreateSeriesAsync( Task<DataTable> dataTable )
+        private Task<IDictionary<string, IEnumerable<string>>> GetSeriesAsync( )
         {
-            if( dataTable != null )
+            var _tcs = new TaskCompletionSource<IDictionary<string, IEnumerable<string>>>( );
+            try
             {
-                var _tcs = new TaskCompletionSource<IDictionary<string, IEnumerable<string>>>( );
-                try
+                var _dataTable = GetDataTable( );
+                var _columns = _dataTable?.Columns;
+                var _rows = _dataTable?.AsEnumerable( );
+                var _dict = new Dictionary<string, IEnumerable<string>>( );
+                for( var _i = 0; _i < _columns?.Count; _i++ )
                 {
-                    var _dict = new Dictionary<string, IEnumerable<string>>( );
-                    var _columns = dataTable?.Result.Columns;
-                    var _rows = dataTable?.Result.AsEnumerable( );
-                    for( var _i = 0; _i < _columns?.Count; _i++ )
+                    var _colName = _columns[ _i ]?.ColumnName;
+                    if( !string.IsNullOrEmpty( _colName )
+                       && ( _columns[ _i ]?.DataType == typeof( string ) ) )
                     {
-                        var _colName = _columns[ _i ]?.ColumnName;
-                        if( !string.IsNullOrEmpty( _colName )
-                           && ( _columns[ _i ]?.DataType == typeof( string ) ) )
-                        {
-                            var _name = GetValues( _rows, _colName );
-                            _dict?.Add( _columns[ _i ]?.ColumnName, _name );
-                        }
+                        var _name = GetValues( _rows, _colName );
+                        _dict?.Add( _columns[ _i ]?.ColumnName, _name );
                     }
+                }
 
-                    _tcs.SetResult( _dict );
-                    return _dict?.Any( ) == true
-                        ? _tcs.Task
-                        : default( Task<IDictionary<string, IEnumerable<string>>> );
-                }
-                catch( Exception _ex )
-                {
-                    _tcs.SetException( _ex );
-                    Fail( _ex );
-                    return default( Task<IDictionary<string, IEnumerable<string>>> );
-                }
+                _tcs.SetResult( _dict );
+                return _dict?.Any( ) == true
+                    ? _tcs.Task
+                    : default( Task<IDictionary<string, IEnumerable<string>>> );
             }
-
-            return default( Task<IDictionary<string, IEnumerable<string>>> );
+            catch( Exception _ex )
+            {
+                _tcs.SetException( _ex );
+                Fail( _ex );
+                return default( Task<IDictionary<string, IEnumerable<string>>> );
+            }
         }
     }
 }

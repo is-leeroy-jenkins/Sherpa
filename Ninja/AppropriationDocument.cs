@@ -61,19 +61,23 @@ namespace BudgetExecution
         /// </value>
         public DateOnly LastDocumentDate { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the source.
         /// </summary>
-        public override Source Source { get; set; }
+        public override Source Source { get; init; }
 
+        /// <inheritdoc />
         /// <summary>
         /// </summary>
         public override Provider Provider { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// </summary>
         public override DataRow Record { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the data.
         /// </summary>
@@ -82,6 +86,7 @@ namespace BudgetExecution
         /// </value>
         public override IDictionary<string, object> Data { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// </summary>
         public override int ID { get; set; }
@@ -262,8 +267,10 @@ namespace BudgetExecution
             Source = Source.AppropriationDocuments;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="AppropriationDocument"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.AppropriationDocument" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public AppropriationDocument( IQuery query )
@@ -303,8 +310,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="AppropriationDocument"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.AppropriationDocument" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public AppropriationDocument( IDataModel builder )
@@ -345,7 +354,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AppropriationDocument"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="AppropriationDocument"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public AppropriationDocument( DataRow dataRow )
@@ -383,7 +393,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AppropriationDocument"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="AppropriationDocument"/> class.
         /// </summary>
         /// <param name="document">The document.</param>
         public AppropriationDocument( AppropriationDocument document )

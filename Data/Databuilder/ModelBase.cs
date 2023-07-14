@@ -51,12 +51,30 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="T:BudgetExecution.DataAccess" />
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public abstract class ModelBase : DataAccess
     {
         /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is busy; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsBusy
+        {
+            get { return _busy; }
+            private set { _busy = value; }
+        }
+
+        /// <summary>
         /// Begins the initialize.
         /// </summary>
-        protected void BeginInit( )
+        private protected void BeginInit( )
         {
             _busy = true;
         }
@@ -64,7 +82,7 @@ namespace BudgetExecution
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        protected void EndInit( )
+        private protected void EndInit( )
         {
             _busy = false;
         }

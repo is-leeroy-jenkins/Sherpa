@@ -43,11 +43,11 @@ namespace BudgetExecution
     using System;
     using System.Data.Common;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.ISource" />
-    /// <seealso cref="BudgetExecution.IProvider" />
+    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:BudgetExecution.IProvider" />
     public interface ICommandFactory : ISource, IProvider
     {
         /// <summary>

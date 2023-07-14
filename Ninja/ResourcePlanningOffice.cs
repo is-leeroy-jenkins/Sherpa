@@ -57,7 +57,7 @@ namespace BudgetExecution
     public class ResourcePlanningOffice : DataUnit, IResourcePlanningOffice
     {
         /// <summary> The source </summary>
-        public override Source Source { get; set; } = Source.ResourcePlanningOffices;
+        public override Source Source { get; init; } = Source.ResourcePlanningOffices;
 
         /// <summary> Gets the dataRow. </summary>
         /// <value> The dataRow. </value>

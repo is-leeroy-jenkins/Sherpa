@@ -57,11 +57,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public abstract class DataAccess : ISource, IProvider
     {
-        /// <summary>
-        /// The busy
-        /// </summary>
-        private protected bool _busy;
-
         /// <inheritdoc />
         /// <summary>
         /// Gets or sets the source.
@@ -175,15 +170,7 @@ namespace BudgetExecution
         /// The numeric fields.
         /// </value>
         public IList<string> Numerics { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the table.
-        /// </summary>
-        /// <value>
-        /// The name of the table.
-        /// </value>
-        public string TableName { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the data set.
         /// </summary>
@@ -192,14 +179,6 @@ namespace BudgetExecution
         /// </value>
         public DataSet DataSet { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the data set.
-        /// </summary>
-        /// <value>
-        /// The name of the data set.
-        /// </value>
-        public string DataSetName { get; set; }
-        
         /// <summary>
         /// Gets the data.
         /// </summary>
@@ -231,7 +210,6 @@ namespace BudgetExecution
             {
                 try
                 {
-                    _busy = true;
                     DataSet = new DataSet( $"{Provider}" );
                     DataTable = new DataTable( $"{Source}" );
                     DataTable.TableName = Source.ToString( );
@@ -239,7 +217,6 @@ namespace BudgetExecution
                     var _adapter = Query.DataAdapter;
                     _adapter.Fill( DataSet, DataTable.TableName );
                     SetColumnCaptions( DataTable );
-                    _busy = false;
                     return DataTable?.Rows?.Count > 0
                         ? DataTable
                         : default( DataTable );

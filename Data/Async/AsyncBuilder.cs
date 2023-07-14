@@ -43,6 +43,7 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Threading.Tasks;
 
     public class AsyncBuilder : AsyncModel
     {
@@ -177,16 +178,6 @@ namespace BudgetExecution
         public AsyncBuilder( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
             : base( fullPath, sqlText, commandType )
         {
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.AsyncBuilder" /> class.
-        /// </summary>
-        /// <param name="row">The row.</param>
-        public AsyncBuilder( DataRow row )
-        {
-            Record = row;
         }
     }
 }

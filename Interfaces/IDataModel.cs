@@ -62,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        Source Source { get; set; }
+        Source Source { get; init; }
 
         /// <summary>
         /// Gets or sets the provider.
@@ -129,29 +129,13 @@ namespace BudgetExecution
         IEnumerable<DataColumn> DataColumns { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the table.
-        /// </summary>
-        /// <value>
-        /// The name of the table.
-        /// </value>
-        string TableName { get; set; }
-
-        /// <summary>
         /// Gets or sets the data set.
         /// </summary>
         /// <value>
         /// The data set.
         /// </value>
         DataSet DataSet { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the data set.
-        /// </summary>
-        /// <value>
-        /// The name of the data set.
-        /// </value>
-        string DataSetName { get; set; }
-
+        
         /// <summary>
         /// Gets the ordinals.
         /// </summary>

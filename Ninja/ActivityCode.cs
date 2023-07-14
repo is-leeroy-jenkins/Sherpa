@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the source.
         /// </summary>
-        public override Source Source { get; set; }
+        public override Source Source { get; init; }
 
         /// <summary>
         /// </summary>

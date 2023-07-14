@@ -67,7 +67,7 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
-        public override Source Source { get; set; }
+        public override Source Source { get; init; }
 
         /// <summary> Gets or sets the Record property. </summary>
         /// <value> The data row. </value>

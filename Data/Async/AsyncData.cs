@@ -45,23 +45,39 @@ namespace BudgetExecution
     using System.Data;
     using System.Linq;
     using System.Threading.Tasks;
-
-    public abstract class AsyncBase : AsyncData
+    
+    public abstract class AsyncData : AsyncState
     {
         /// <summary>
-        /// Begins the initialize.
+        /// Gets the query asynchronous.
         /// </summary>
-        protected void BeginInit( )
+        /// <param name="sqlStatement">
+        /// The SQL statement.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        public Task<IQuery> GetQueryAsync( SqlStatement sqlStatement )
         {
-            _busy = true;
-        }
+            if( sqlStatement != null )
+            {
+                var _tcs = new TaskCompletionSource<IQuery>( );
+                try
+                {
+                    var _query = new Query( sqlStatement );
+                    _tcs.SetResult( _query );
+                    return _query != null
+                        ? _tcs.Task
+                        : default( Task<IQuery> );
+                }
+                catch( Exception _ex )
+                {
+                    _tcs.SetException( _ex );
+                    Fail( _ex );
+                    return default( Task<IQuery> );
+                }
+            }
 
-        /// <summary>
-        /// Ends the initialize.
-        /// </summary>
-        protected void EndInit( )
-        {
-            _busy = false;
+            return default( Task<IQuery> );
         }
 
         /// <summary>
@@ -73,11 +89,12 @@ namespace BudgetExecution
             var _tcs = new TaskCompletionSource<IEnumerable<int>>( );
             try
             {
-                var _columns = GetColumnsAsync( );
+                var _dataTable = GetDataTable( );
+                var _columns = _dataTable.Columns;
                 var _values = new List<int>( );
-                if( _columns != null )
+                if( _columns?.Count > 0 )
                 {
-                    foreach( DataColumn _column in _columns.Result )
+                    foreach( DataColumn _column in _columns )
                     {
                         _values?.Add( _column.Ordinal );
                     }
@@ -90,8 +107,35 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
+                _tcs.SetException( _ex );
                 Fail( _ex );
                 return default( Task<IEnumerable<int>> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the map asynchronous.
+        /// </summary>
+        /// <returns></returns>
+        public Task<IDictionary<string, object>> GetMapAsync( )
+        {
+            var _tcs = new TaskCompletionSource<IDictionary<string, object>>( );
+            try
+            {
+                var _dataTable = GetDataTable( );
+                var _rows = _dataTable.AsEnumerable( );
+                var _record = _rows.FirstOrDefault( );
+                var _map = _record.ToDictionary( );
+                _tcs.SetResult( _map );
+                return _map?.Any( ) == true
+                    ? _tcs.Task
+                    : default( Task<IDictionary<string, object>> );
+            }
+            catch( Exception _ex )
+            {
+                _tcs.SetException( _ex );
+                Fail( _ex );
+                return default( Task<IDictionary<string, object>> );
             }
         }
 
@@ -99,40 +143,37 @@ namespace BudgetExecution
         /// Gets the column schema.
         /// </summary>
         /// <returns></returns>
-        public Task<IDictionary<string, Type>> GetColumnSchema( )
+        public Task<IDictionary<string, Type>> GetSchemaAsync( )
         {
-            if( DataTable?.Result.Columns?.Count > 0 )
+            var _tcs = new TaskCompletionSource<IDictionary<string, Type>>( );
+            try
             {
-                var _tcs = new TaskCompletionSource<IDictionary<string, Type>>( );
-                try
+                var _dataTable = GetDataTable( );
+                var _columns = _dataTable.Columns;
+                if( _columns != null )
                 {
-                    var _columns = GetColumnsAsync( );
-                    if( _columns != null )
+                    var _schema = new Dictionary<string, Type>( );
+                    foreach( DataColumn _col in _columns )
                     {
-                        var _schema = new Dictionary<string, Type>( );
-                        foreach( DataColumn _col in _columns.Result )
-                        {
-                            _schema.Add( _col.ColumnName, _col.DataType );
-                        }
+                        _schema.Add( _col.ColumnName, _col.DataType );
+                    }
 
-                        _tcs.SetResult( _schema );
-                        return _schema?.Any( ) == true
-                            ? _tcs.Task
-                            : default( Task<IDictionary<string, Type>> );
-                    }
-                    else
-                    {
-                        return default( Task<IDictionary<string, Type>> );
-                    }
+                    _tcs.SetResult( _schema );
+                    return _schema?.Any( ) == true
+                        ? _tcs.Task
+                        : default( Task<IDictionary<string, Type>> );
                 }
-                catch( Exception _ex )
+                else
                 {
-                    Fail( _ex );
                     return default( Task<IDictionary<string, Type>> );
                 }
             }
-
-            return default( Task<IDictionary<string, Type>> );
+            catch( Exception _ex )
+            {
+                _tcs.SetException( _ex );
+                Fail( _ex );
+                return default( Task<IDictionary<string, Type>> );
+            }
         }
 
         /// <summary>
@@ -141,59 +182,56 @@ namespace BudgetExecution
         /// <returns></returns>
         public Task<IEnumerable<DataColumn>> GetColumnsAsync( )
         {
-            if( DataTable?.Result.Columns?.Count > 0 )
+            var _tcs = new TaskCompletionSource<IEnumerable<DataColumn>>( );
+            try
             {
-                var _tcs = new TaskCompletionSource<IEnumerable<DataColumn>>( );
-                try
+                var _data = GetDataTable( );
+                if( _data != null )
                 {
                     var _dataColumns = new List<DataColumn>( );
-                    var _data = DataTable?.Result.Columns;
-                    if( _data?.Count > 0 )
+                    foreach( DataColumn _column in _data?.Columns )
                     {
-                        foreach( DataColumn _column in _data )
+                        if( _column != null )
                         {
-                            if( _column != null )
-                            {
-                                _dataColumns.Add( _column );
-                            }
+                            _dataColumns.Add( _column );
                         }
+                    }
 
-                        _tcs.SetResult( _dataColumns );
-                        return _dataColumns?.Any( ) == true
-                            ? _tcs.Task
-                            : default( Task<IEnumerable<DataColumn>> );
-                    }
-                    else
-                    {
-                        return default( Task<IEnumerable<DataColumn>> );
-                    }
+                    _tcs.SetResult( _dataColumns );
+                    return _dataColumns?.Any( ) == true
+                        ? _tcs.Task
+                        : default( Task<IEnumerable<DataColumn>> );
                 }
-                catch( Exception _ex )
+                else
                 {
-                    Fail( _ex );
                     return default( Task<IEnumerable<DataColumn>> );
                 }
             }
-
-            return default( Task<IEnumerable<DataColumn>> );
+            catch( Exception _ex )
+            {
+                _tcs.SetException( _ex );
+                Fail( _ex );
+                return default( Task<IEnumerable<DataColumn>> );
+            }
         }
 
         /// <summary>
         /// Gets the column names.
         /// </summary>
         /// <returns></returns>
-        public Task<IEnumerable<string>> GetColumnNamesAsync( )
+        public Task<IEnumerable<string>> GetNamesAsync( )
         {
-            if( DataTable?.Result.Columns?.Count > 0 )
+            if( DataTable?.Result != null )
             {
                 var _tcs = new TaskCompletionSource<IEnumerable<string>>( );
                 try
                 {
-                    var _names = new List<string>( );
-                    var _data = DataTable?.Result.Columns;
-                    if( _data?.Count > 0 )
+                    var _dataTable = GetDataTable( );
+                    var _columns = _dataTable.Columns;
+                    if( _columns?.Count > 0 )
                     {
-                        foreach( DataColumn _column in _data )
+                        var _names = new List<string>( );
+                        foreach( DataColumn _column in _columns )
                         {
                             if( !string.IsNullOrEmpty( _column?.ColumnName ) )
                             {
@@ -212,6 +250,7 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
+                    _tcs.SetException( _ex );
                     Fail( _ex );
                     return default( Task<IEnumerable<string>> );
                 }

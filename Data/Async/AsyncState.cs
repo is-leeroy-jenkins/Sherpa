@@ -44,18 +44,16 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Data;
-    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Threading.Tasks;
 
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class AsyncData : ISource, IProvider
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:BudgetExecution.IProvider" />
+    public abstract class AsyncState : ISource, IProvider
     {
-        /// <summary>
-        /// The busy
-        /// </summary>
-        private protected bool _busy;
-
         /// <inheritdoc />
         /// <summary>
         /// Gets or sets the source.
@@ -83,14 +81,6 @@ namespace BudgetExecution
         public IConnectionFactory ConnectionFactory { get; set; }
 
         /// <summary>
-        /// Gets or sets the map.
-        /// </summary>
-        /// <value>
-        /// The map.
-        /// </value>
-        public IDictionary<string, object> Map { get; set; }
-
-        /// <summary>
         /// Gets or sets the SQL statement.
         /// </summary>
         /// <value>
@@ -112,7 +102,7 @@ namespace BudgetExecution
         /// <value>
         /// The record.
         /// </value>
-        public DataRow Record { get; set; }
+        public Task<DataRow> Record { get; set; }
 
         /// <summary>
         /// Gets or sets the data table.
@@ -171,29 +161,21 @@ namespace BudgetExecution
         public Task<IList<string>> Numerics { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the table.
+        /// Gets or sets the map.
         /// </summary>
         /// <value>
-        /// The name of the table.
+        /// The map.
         /// </value>
-        public string TableName { get; set; }
-
+        public Task<IDictionary<string, object>> Map { get; set; }
+        
         /// <summary>
         /// Gets or sets the data set.
         /// </summary>
         /// <value>
         /// The data set.
         /// </value>
-        public DataSet DataSet { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the data set.
-        /// </summary>
-        /// <value>
-        /// The name of the data set.
-        /// </value>
-        public string DataSetName { get; set; }
-
+        public Task<DataSet> DataSet { get; set; }
+        
         /// <summary>
         /// Gets the data table.
         /// </summary>
@@ -204,15 +186,13 @@ namespace BudgetExecution
             {
                 try
                 {
-                    _busy = true;
-                    DataSet = new DataSet( $"{Provider}" );
+                    var _dataSet = new DataSet( $"{Source}" );
                     var _dataTable = new DataTable( $"{Source}" );
                     _dataTable.TableName = Source.ToString( );
-                    DataSet.Tables.Add(_dataTable );
+                    _dataSet.Tables.Add( _dataTable );
                     var _adapter = Query.DataAdapter;
-                    _adapter.Fill( DataSet, _dataTable.TableName );
+                    _adapter.Fill( _dataSet, _dataTable.TableName );
                     SetColumnCaptions( _dataTable );
-                    _busy = false;
                     return _dataTable?.Rows?.Count > 0
                         ? _dataTable
                         : default( DataTable );
@@ -228,50 +208,60 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the data.
+        /// Gets the data set asynchronous.
         /// </summary>
         /// <returns></returns>
-        public Task<IEnumerable<DataRow>> GetDataAsync( )
+        private protected Task<DataSet> GetDataSetAsync( )
         {
-            var _tcs = new TaskCompletionSource<IEnumerable<DataRow>>( );
-            try
+            if( Query != null )
             {
-                _busy = true;
-                var _dataTable = GetDataTable( );
-                var _data = _dataTable?.AsEnumerable( );
-                _tcs.SetResult( _data );
-                _busy = false;
-                return _tcs.Task;
+                var _tcs = new TaskCompletionSource<DataSet>( );
+                try
+                {
+                    var _dataSet = new DataSet( $"{Source}" );
+                    var _dataTable = new DataTable( $"{Source}" );
+                    _dataTable.TableName = Source.ToString( );
+                    _dataSet.Tables.Add( _dataTable );
+                    var _adapter = Query.DataAdapter;
+                    _adapter.Fill( _dataSet, _dataTable.TableName );
+                    SetColumnCaptions( _dataTable );
+                    _tcs.SetResult( _dataSet );
+                    return _dataSet.Tables?.Count > 0
+                        ? _tcs.Task
+                        : default( Task<DataSet> );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( Task<DataSet> );
+                }
             }
-            catch( Exception _ex )
-            {
-                _tcs.SetException( _ex );
-                Fail( _ex );
-                return default( Task<IEnumerable<DataRow>> );
-            }
-        }
 
+            return default( Task<DataSet> );
+        }
+        
         /// <summary>
         /// Gets the table asynchronous.
         /// </summary>
         /// <returns></returns>
-        public Task<DataTable> GetTableAsync( )
+        public Task<DataTable> GetDataTableAsync( )
         {
             if( Query != null )
             {
                 var _tcs = new TaskCompletionSource<DataTable>( );
                 try
                 {
-                    _busy = true;
+                    var _dataSet = new DataSet( $"{Source}" );
                     var _dataTable = new DataTable( $"{Source}" );
                     _dataTable.TableName = Source.ToString( );
-                    DataSet.Tables.Add( _dataTable );
+                    _dataSet.Tables.Add( _dataTable );
                     var _adapter = Query.DataAdapter;
-                    _adapter.Fill( DataSet, _dataTable.TableName );
+                    _adapter.Fill( _dataSet, _dataTable.TableName );
                     SetColumnCaptions( _dataTable );
                     _tcs.SetResult( _dataTable );
-                    _busy = false;
-                    return _tcs.Task;
+                    return _dataTable.Rows.Count > 0
+                        ? _tcs.Task
+                        : default( Task<DataTable> );
                 }
                 catch( Exception _ex )
                 {
@@ -282,6 +272,31 @@ namespace BudgetExecution
             }
 
             return default( Task<DataTable> );
+        }
+
+        /// <summary>
+        /// Gets the record asynchronous.
+        /// </summary>
+        /// <returns></returns>
+        public Task<DataRow> GetRecordAsync( )
+        {
+            var _tcs = new TaskCompletionSource<DataRow>( );
+            try
+            {
+                var _dataTable = GetDataTable( );
+                var _data = _dataTable?.AsEnumerable( );
+                var _record = _data.FirstOrDefault( );
+                _tcs.SetResult( _record );
+                return _record?.ItemArray?.Length > 0
+                    ? _tcs.Task
+                    : default( Task<DataRow> );
+            }
+            catch( Exception _ex )
+            {
+                _tcs.SetException( _ex );
+                Fail( _ex );
+                return default( Task<DataRow> );
+            }
         }
 
         /// <summary>
@@ -316,34 +331,30 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected Task<IList<string>> GetFieldsAsync( )
         {
-            if( DataTable != null )
+            var _tcs = new TaskCompletionSource<IList<string>>( );
+            try
             {
-                var _tcs = new TaskCompletionSource<IList<string>>( );
-                try
+                var _fields = new List<string>( );
+                var _dataTable = GetDataTable( );
+                foreach( DataColumn _col in _dataTable.Columns )
                 {
-                    var _fields = new List<string>( );
-                    foreach( DataColumn _col in DataTable.Result.Columns )
+                    if( _col.DataType == typeof( string ) )
                     {
-                        if( _col.DataType == typeof( string ) )
-                        {
-                            _fields.Add( _col.ColumnName );
-                        }
+                        _fields.Add( _col.ColumnName );
                     }
+                }
 
-                    _tcs.SetResult( _fields );
-                    return _fields?.Any( ) == true
-                        ? _tcs.Task
-                        : default( Task<IList<string>> );
-                }
-                catch( Exception _ex )
-                {
-                    _tcs.SetException( _ex );
-                    Fail( _ex );
-                    return default( Task<IList<string>> );
-                }
+                _tcs.SetResult( _fields );
+                return _fields?.Any( ) == true
+                    ? _tcs.Task
+                    : default( Task<IList<string>> );
             }
-
-            return default( Task<IList<string>> );
+            catch( Exception _ex )
+            {
+                _tcs.SetException( _ex );
+                Fail( _ex );
+                return default( Task<IList<string>> );
+            }
         }
 
         /// <summary>
@@ -352,40 +363,36 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected Task<IList<string>> GetNumericsAsync( )
         {
-            if( DataTable != null )
+            var _tcs = new TaskCompletionSource<IList<string>>( );
+            try
             {
-                var _tcs = new TaskCompletionSource<IList<string>>( );
-                try
+                var _numerics = new List<string>( );
+                var _dataTable = GetDataTable( );
+                foreach( DataColumn _col in _dataTable?.Columns )
                 {
-                    var _numerics = new List<string>( );
-                    foreach( DataColumn _col in DataTable.Result.Columns )
+                    if( ( !_col.ColumnName.EndsWith( "Id" )
+                           && ( _col.Ordinal > 0 )
+                           && ( _col.DataType == typeof( double ) ) )
+                       || ( _col.DataType == typeof( short ) )
+                       || ( _col.DataType == typeof( long ) )
+                       || ( _col.DataType == typeof( decimal ) )
+                       || ( _col.DataType == typeof( float ) ) )
                     {
-                        if( ( !_col.ColumnName.EndsWith( "Id" )
-                               && ( _col.Ordinal > 0 )
-                               && ( _col.DataType == typeof( double ) ) )
-                           || ( _col.DataType == typeof( short ) )
-                           || ( _col.DataType == typeof( long ) )
-                           || ( _col.DataType == typeof( decimal ) )
-                           || ( _col.DataType == typeof( float ) ) )
-                        {
-                            _numerics.Add( _col.ColumnName );
-                        }
+                        _numerics.Add( _col.ColumnName );
                     }
+                }
 
-                    _tcs.SetResult( _numerics );
-                    return _numerics?.Any( ) == true
-                        ? _tcs.Task
-                        : default( Task<IList<string>> );
-                }
-                catch( Exception _ex )
-                {
-                    _tcs.SetException( _ex );
-                    Fail( _ex );
-                    return default( Task<IList<string>> );
-                }
+                _tcs.SetResult( _numerics );
+                return _numerics?.Any( ) == true
+                    ? _tcs.Task
+                    : default( Task<IList<string>> );
             }
-
-            return default( Task<IList<string>> );
+            catch( Exception _ex )
+            {
+                _tcs.SetException( _ex );
+                Fail( _ex );
+                return default( Task<IList<string>> );
+            }
         }
 
         /// <summary>
@@ -400,7 +407,8 @@ namespace BudgetExecution
                 try
                 {
                     var _dates = new List<string>( );
-                    foreach( DataColumn _col in DataTable.Result.Columns )
+                    var _dataTable = GetDataTable( );
+                    foreach( DataColumn _col in _dataTable.Columns )
                     {
                         if( ( _col.Ordinal > 0 )
                            && ( ( _col.DataType == typeof( DateTime ) )
@@ -440,7 +448,12 @@ namespace BudgetExecution
                 var _tcs = new TaskCompletionSource<IList<int>>( );
                 try
                 {
-                    var _values = DataTable.Result.GetIndexValues( );
+                    var _dataTable = GetDataTable( );
+                    var _values = _dataTable
+                        ?.AsEnumerable( )
+                        ?.Select( c => c.Field<int>( 0 ) )
+                        ?.Distinct( );
+
                     var _list = _values?.ToList( );
                     _tcs.SetResult( _list );
                     return _values?.Any( ) == true
