@@ -230,13 +230,13 @@ namespace BudgetExecution
             PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
             // Event Wiring
-            RemoveFiltersButton.Click += null;
-            TableButton.Click += null;
-            LookupButton.Click += null;
-            UploadButton.Click += null;
-            MenuButton.Click += null;
-            RemoveFiltersButton.Click += null;
             Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
+            Header.MouseClick += OnRightClick;
+            RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
+            LookupButton.Click += OnLookupButtonClicked;
+            MenuButton.Click += OnMainMenuButtonClicked;
+            UploadButton.Click += OnUploadButtonClicked;
+            BackButton.Click += OnBackButtonClicked;
             Load += OnLoad;
             Shown += OnShown;
             Closing += OnClose;
@@ -250,9 +250,11 @@ namespace BudgetExecution
         public ExcelDataForm( string filePath )
             : this( )
         {
-            Spreadsheet.Open( filePath );
             FilePath = filePath;
             FileName = Path.GetFileName( filePath );
+            RowCount = 51;
+            ColCount = 9;
+            Spreadsheet.Open( filePath );
         }
 
         /// <inheritdoc />
@@ -293,33 +295,6 @@ namespace BudgetExecution
             BindingSource.DataSource = dataTable;
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
-        }
-
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-                Header.ForeColor = Color.FromArgb( 0, 120, 212 );
-                Header.Font = new Font( "Roboto", 12, FontStyle.Bold );
-                Header.TextAlign = ContentAlignment.TopCenter;
-                Header.MouseClick += OnRightClick;
-                RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
-                LookupButton.Click += OnLookupButtonClicked;
-                MenuButton.Click += OnMainMenuButtonClicked;
-                UploadButton.Click += OnUploadButtonClicked;
-                BackButton.Click += OnBackButtonClicked;
-                Ribbon.Spreadsheet = Spreadsheet;
-                SetToolStripProperties( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
         }
 
         /// <summary>
@@ -618,6 +593,27 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+                Header.Font = new Font( "Roboto", 11, FontStyle.Regular );
+                Header.TextAlign = ContentAlignment.TopCenter;
+                Ribbon.Spreadsheet = Spreadsheet;
+                SetToolStripProperties( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [work book loaded].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -626,9 +622,17 @@ namespace BudgetExecution
         {
             try
             {
-                SetTableProperties( DataTable );
-                SetActiveGridProperties( );
-                SetWorksheetProperties( );
+                if( DataTable != null )
+                {
+                    SetTableProperties( DataTable );
+                    SetActiveGridProperties( );
+                    SetWorksheetProperties( );
+                }
+                else
+                {
+                    SetActiveGridProperties( );
+                    SetWorksheetProperties( );
+                }
             }
             catch( Exception _ex )
             {

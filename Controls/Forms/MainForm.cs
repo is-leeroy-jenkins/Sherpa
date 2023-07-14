@@ -47,6 +47,7 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using static System.Configuration.ConfigurationManager;
 
     /// <summary>
     /// 
@@ -458,7 +459,8 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    var _excelDataForm = new ExcelDataForm( );
+                    var _path = AppSettings[ "Reports" ];
+                    var _excelDataForm = new ExcelDataForm( _path );
                     _excelDataForm.Owner = this;
                     _excelDataForm.Show( );
                     Visible = false;
