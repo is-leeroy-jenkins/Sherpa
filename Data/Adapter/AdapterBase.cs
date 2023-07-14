@@ -50,12 +50,12 @@ namespace BudgetExecution
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="System.Data.Common.DbDataAdapter" />
-    /// <seealso cref="BudgetExecution.ISource" />
-    /// <seealso cref="BudgetExecution.IProvider" />
+    /// <seealso cref="T:System.Data.Common.DbDataAdapter" />
+    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:BudgetExecution.IProvider" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -110,17 +110,21 @@ namespace BudgetExecution
         /// </value>
         public virtual string CommandText { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// </summary>
         public virtual Provider Provider { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the source.
         /// </summary>
         public virtual Source Source { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="AdapterBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.AdapterBase" /> class.
         /// </summary>
         protected AdapterBase( )
         {
@@ -132,8 +136,10 @@ namespace BudgetExecution
             ReturnProviderSpecificTypes = true;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="AdapterBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.AdapterBase" /> class.
         /// </summary>
         /// <param name="commandFactory">The command factory.</param>
         protected AdapterBase( ICommandFactory commandFactory )
@@ -147,8 +153,10 @@ namespace BudgetExecution
             CommandText = CommandFactory.GetCommand( ).CommandText;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="AdapterBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.AdapterBase" /> class.
         /// </summary>
         /// <param name="sqlStatement">The SQL statement.</param>
         protected AdapterBase( ISqlStatement sqlStatement )
@@ -168,39 +176,33 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected SQLiteDataAdapter GetSQLiteAdapter( )
         {
-            if( ( DataConnection != null )
-               && !string.IsNullOrEmpty( CommandText ) )
+            try
             {
-                try
+                var _connection = DataConnection as SQLiteConnection;
+                var _adapter = new SQLiteDataAdapter( CommandText, _connection );
+                _adapter.ContinueUpdateOnError = true;
+                _adapter.AcceptChangesDuringFill = true;
+                _adapter.AcceptChangesDuringUpdate = true;
+                _adapter.ReturnProviderSpecificTypes = true;
+                if( CommandText.StartsWith( "SELECT *" )
+                   || CommandText.StartsWith( "SELECT ALL" ) )
                 {
-                    var _connection = DataConnection as SQLiteConnection;
-                    var _adapter = new SQLiteDataAdapter( CommandText, _connection );
-                    _adapter.ContinueUpdateOnError = true;
-                    _adapter.AcceptChangesDuringFill = true;
-                    _adapter.AcceptChangesDuringUpdate = true;
-                    _adapter.ReturnProviderSpecificTypes = true;
-                    if( CommandText.StartsWith( "SELECT *" )
-                       || CommandText.StartsWith( "SELECT ALL" ) )
-                    {
-                        var _builder = new SQLiteCommandBuilder( _adapter );
-                        _adapter.InsertCommand = _builder.GetInsertCommand( );
-                        _adapter.UpdateCommand = _builder.GetUpdateCommand( );
-                        _adapter.DeleteCommand = _builder.GetDeleteCommand( );
-                        return _adapter;
-                    }
-                    else
-                    {
-                        return _adapter;
-                    }
+                    var _builder = new SQLiteCommandBuilder( _adapter );
+                    _adapter.InsertCommand = _builder.GetInsertCommand( );
+                    _adapter.UpdateCommand = _builder.GetUpdateCommand( );
+                    _adapter.DeleteCommand = _builder.GetDeleteCommand( );
+                    return _adapter;
                 }
-                catch( Exception _ex )
+                else
                 {
-                    Fail( _ex );
-                    return default( SQLiteDataAdapter );
+                    return _adapter;
                 }
             }
-
-            return default( SQLiteDataAdapter );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( SQLiteDataAdapter );
+            }
         }
 
         /// <summary>
@@ -209,39 +211,33 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected SqlDataAdapter GetSqlAdapter( )
         {
-            if( ( DataConnection != null )
-               && !string.IsNullOrEmpty( CommandText ) )
+            try
             {
-                try
+                var _connection = DataConnection as SqlConnection;
+                var _adapter = new SqlDataAdapter( CommandText, _connection );
+                _adapter.ContinueUpdateOnError = true;
+                _adapter.AcceptChangesDuringFill = true;
+                _adapter.AcceptChangesDuringUpdate = true;
+                _adapter.ReturnProviderSpecificTypes = true;
+                if( CommandText.StartsWith( "SELECT *" )
+                   || CommandText.StartsWith( "SELECT ALL" ) )
                 {
-                    var _connection = DataConnection as SqlConnection;
-                    var _adapter = new SqlDataAdapter( CommandText, _connection );
-                    _adapter.ContinueUpdateOnError = true;
-                    _adapter.AcceptChangesDuringFill = true;
-                    _adapter.AcceptChangesDuringUpdate = true;
-                    _adapter.ReturnProviderSpecificTypes = true;
-                    if( CommandText.StartsWith( "SELECT *" )
-                       || CommandText.StartsWith( "SELECT ALL" ) )
-                    {
-                        var _builder = new SqlCommandBuilder( _adapter );
-                        _adapter.InsertCommand = _builder.GetInsertCommand( );
-                        _adapter.UpdateCommand = _builder.GetUpdateCommand( );
-                        _adapter.DeleteCommand = _builder.GetDeleteCommand( );
-                        return _adapter;
-                    }
-                    else
-                    {
-                        return _adapter;
-                    }
+                    var _builder = new SqlCommandBuilder( _adapter );
+                    _adapter.InsertCommand = _builder.GetInsertCommand( );
+                    _adapter.UpdateCommand = _builder.GetUpdateCommand( );
+                    _adapter.DeleteCommand = _builder.GetDeleteCommand( );
+                    return _adapter;
                 }
-                catch( Exception _ex )
+                else
                 {
-                    Fail( _ex );
-                    return default( SqlDataAdapter );
+                    return _adapter;
                 }
             }
-
-            return default( SqlDataAdapter );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( SqlDataAdapter );
+            }
         }
 
         /// <summary>
@@ -250,39 +246,33 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected OleDbDataAdapter GetOleDbAdapter( )
         {
-            if( ( DataConnection != null )
-               && !string.IsNullOrEmpty( CommandText ) )
+            try
             {
-                try
+                var _connection = DataConnection as OleDbConnection;
+                var _adapter = new OleDbDataAdapter( CommandText, _connection );
+                _adapter.ContinueUpdateOnError = true;
+                _adapter.AcceptChangesDuringFill = true;
+                _adapter.AcceptChangesDuringUpdate = true;
+                _adapter.ReturnProviderSpecificTypes = true;
+                if( CommandText.StartsWith( "SELECT *" )
+                   || CommandText.StartsWith( "SELECT ALL" ) )
                 {
-                    var _connection = DataConnection as OleDbConnection;
-                    var _adapter = new OleDbDataAdapter( CommandText, _connection );
-                    _adapter.ContinueUpdateOnError = true;
-                    _adapter.AcceptChangesDuringFill = true;
-                    _adapter.AcceptChangesDuringUpdate = true;
-                    _adapter.ReturnProviderSpecificTypes = true;
-                    if( CommandText.StartsWith( "SELECT *" )
-                       || CommandText.StartsWith( "SELECT ALL" ) )
-                    {
-                        var _builder = new OleDbCommandBuilder( _adapter );
-                        _adapter.InsertCommand = _builder.GetInsertCommand( );
-                        _adapter.UpdateCommand = _builder.GetUpdateCommand( );
-                        _adapter.DeleteCommand = _builder.GetDeleteCommand( );
-                        return _adapter;
-                    }
-                    else
-                    {
-                        return _adapter;
-                    }
+                    var _builder = new OleDbCommandBuilder( _adapter );
+                    _adapter.InsertCommand = _builder.GetInsertCommand( );
+                    _adapter.UpdateCommand = _builder.GetUpdateCommand( );
+                    _adapter.DeleteCommand = _builder.GetDeleteCommand( );
+                    return _adapter;
                 }
-                catch( Exception _ex )
+                else
                 {
-                    Fail( _ex );
-                    return default( OleDbDataAdapter );
+                    return _adapter;
                 }
             }
-
-            return default( OleDbDataAdapter );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( OleDbDataAdapter );
+            }
         }
 
         /// <summary>
@@ -291,39 +281,33 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected DbDataAdapter GetSqlCeAdapter( )
         {
-            if( ( DataConnection != null )
-               && !string.IsNullOrEmpty( CommandText ) )
+            try
             {
-                try
+                var _connection = DataConnection as SqlCeConnection;
+                var _adapter = new SqlCeDataAdapter( CommandText, _connection );
+                _adapter.ContinueUpdateOnError = true;
+                _adapter.AcceptChangesDuringFill = true;
+                _adapter.AcceptChangesDuringUpdate = true;
+                _adapter.ReturnProviderSpecificTypes = true;
+                if( CommandText.StartsWith( "SELECT *" )
+                   || CommandText.StartsWith( "SELECT ALL" ) )
                 {
-                    var _connection = DataConnection as SqlCeConnection;
-                    var _adapter = new SqlCeDataAdapter( CommandText, _connection );
-                    _adapter.ContinueUpdateOnError = true;
-                    _adapter.AcceptChangesDuringFill = true;
-                    _adapter.AcceptChangesDuringUpdate = true;
-                    _adapter.ReturnProviderSpecificTypes = true;
-                    if( CommandText.StartsWith( "SELECT *" )
-                       || CommandText.StartsWith( "SELECT ALL" ) )
-                    {
-                        var _builder = new SqlCeCommandBuilder( _adapter );
-                        _adapter.InsertCommand = _builder.GetInsertCommand( );
-                        _adapter.UpdateCommand = _builder.GetUpdateCommand( );
-                        _adapter.DeleteCommand = _builder.GetDeleteCommand( );
-                        return _adapter;
-                    }
-                    else
-                    {
-                        return _adapter;
-                    }
+                    var _builder = new SqlCeCommandBuilder( _adapter );
+                    _adapter.InsertCommand = _builder.GetInsertCommand( );
+                    _adapter.UpdateCommand = _builder.GetUpdateCommand( );
+                    _adapter.DeleteCommand = _builder.GetDeleteCommand( );
+                    return _adapter;
                 }
-                catch( Exception _ex )
+                else
                 {
-                    Fail( _ex );
-                    return default( SqlCeDataAdapter );
+                    return _adapter;
                 }
             }
-
-            return default( SqlCeDataAdapter );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( SqlCeDataAdapter );
+            }
         }
 
         /// <summary>
@@ -336,6 +320,5 @@ namespace BudgetExecution
             _error?.SetText( );
             _error?.ShowDialog( );
         }
-
     }
 }

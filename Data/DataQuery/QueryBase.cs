@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-14-2023
 // ******************************************************************************************
 // <copyright file="QueryBase.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -151,7 +151,7 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="commandType">Type of the command.</param>
-        protected QueryBase( Source source, Provider provider = Provider.Access, 
+        protected QueryBase( Source source, Provider provider = Provider.Access,
             SQL commandType = SQL.SELECTALL )
         {
             Source = source;
@@ -170,7 +170,7 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        protected QueryBase( Source source, Provider provider, IDictionary<string, object> where, 
+        protected QueryBase( Source source, Provider provider, IDictionary<string, object> where,
             SQL commandType = SQL.SELECTALL )
         {
             Source = source;
@@ -191,7 +191,7 @@ namespace BudgetExecution
         /// <param name="updates">The updates.</param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        protected QueryBase( Source source, Provider provider, IDictionary<string, object> updates, 
+        protected QueryBase( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
         {
             Source = source;
@@ -212,7 +212,7 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        protected QueryBase( Source source, Provider provider, IEnumerable<string> columns, 
+        protected QueryBase( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
         {
             Source = source;
@@ -235,8 +235,8 @@ namespace BudgetExecution
         /// <param name="numerics">The numerics.</param>
         /// <param name="having">The having.</param>
         /// <param name="commandType">Type of the command.</param>
-        protected QueryBase( Source source, Provider provider, IEnumerable<string> fields, 
-            IEnumerable<string> numerics, IDictionary<string, object> having, 
+        protected QueryBase( Source source, Provider provider, IEnumerable<string> fields,
+            IEnumerable<string> numerics, IDictionary<string, object> having,
             SQL commandType = SQL.SELECT )
         {
             Source = source;
@@ -280,9 +280,9 @@ namespace BudgetExecution
             Provider = ConnectionFactory.Provider;
             Source = ConnectionFactory.Source;
             DataConnection = ConnectionFactory.GetConnection( );
-            SqlStatement = 
-                new SqlStatement( ConnectionFactory.Source, ConnectionFactory.Provider, sqlText );
-            
+            SqlStatement = new SqlStatement( ConnectionFactory.Source, ConnectionFactory.Provider,
+                sqlText );
+
             DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
             IsDisposed = false;
         }

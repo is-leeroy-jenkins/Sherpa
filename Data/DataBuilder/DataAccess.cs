@@ -40,11 +40,14 @@
 
 namespace BudgetExecution
 {
+    using Microsoft.Office.Interop.Excel;
     using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading.Tasks;
+    using DataTable = System.Data.DataTable;
 
     /// <inheritdoc />
     /// <summary>
@@ -53,6 +56,11 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public abstract class DataAccess : ISource, IProvider
     {
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
         /// <inheritdoc />
         /// <summary>
         /// Gets or sets the source.
@@ -222,6 +230,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    _busy = true;
                     DataSet = new DataSet( $"{Provider}" );
                     DataTable = new DataTable( $"{Source}" );
                     DataTable.TableName = Source.ToString( );
@@ -241,6 +250,34 @@ namespace BudgetExecution
             }
 
             return default( DataTable );
+        }
+
+        private protected Task<DataTable> GetTableAsync( )
+        {
+            if( Query != null )
+            {
+                var _tcs = new TaskCompletionSource<DataTable>( );
+                try
+                {
+                    DataSet = new DataSet( $"{Provider}" );
+                    DataTable = new DataTable( $"{Source}" );
+                    DataTable.TableName = Source.ToString( );
+                    DataSet.Tables.Add( DataTable );
+                    var _adapter = Query.DataAdapter;
+                    _adapter.Fill( DataSet, DataTable.TableName );
+                    SetColumnCaptions( DataTable );
+                    _tcs.SetResult( DataTable );
+                    return _tcs.Task;
+                }
+                catch( Exception _ex )
+                {
+                    _tcs.SetException( _ex );
+                    Fail( _ex );
+                    return default( Task<DataTable> );
+                }
+            }
+
+            return default( Task<DataTable> );
         }
 
         /// <summary>

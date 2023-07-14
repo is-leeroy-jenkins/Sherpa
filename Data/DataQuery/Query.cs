@@ -243,7 +243,8 @@ namespace BudgetExecution
         /// </param>
         protected virtual void Dispose( bool disposing )
         {
-            if( ConnectionFactory?.Connection != null )
+            if( disposing 
+               && ( ConnectionFactory?.Connection != null ) )
             {
                 try
                 {

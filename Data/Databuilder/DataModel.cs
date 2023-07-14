@@ -67,6 +67,17 @@ namespace BudgetExecution
         public IDictionary<string, IEnumerable<string>> DataElements { get; }
 
         /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is busy; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsBusy
+        {
+            get { return _busy; }
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="DataModel"/> class.
         /// </summary>
         public DataModel( )

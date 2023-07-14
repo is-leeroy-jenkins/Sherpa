@@ -44,22 +44,28 @@ namespace BudgetExecution
     using System.Data.Common;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.AdapterBase" />
+    /// <seealso cref="T:BudgetExecution.AdapterBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class AdapterFactory : AdapterBase
     {
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="AdapterFactory"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.AdapterFactory" /> class.
         /// </summary>
         public AdapterFactory( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="AdapterFactory"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.AdapterFactory" /> class.
         /// </summary>
         /// <param name="commandFactory">The command factory.</param>
         public AdapterFactory( ICommandFactory commandFactory )
@@ -67,8 +73,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="AdapterFactory"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.AdapterFactory" /> class.
         /// </summary>
         /// <param name="sqlStatement">The SQL statement.</param>
         public AdapterFactory( ISqlStatement sqlStatement )

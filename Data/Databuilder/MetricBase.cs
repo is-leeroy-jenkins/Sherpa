@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 05-31-2023
+//     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-01-2023
+//     Last Modified On:        07-14-2023
 // ******************************************************************************************
 // <copyright file="MetricBase.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -460,13 +460,13 @@ namespace BudgetExecution
                     var _numerics = new List<string>( );
                     foreach( DataColumn _col in DataTable.Columns )
                     {
-                        if( ( !_col.ColumnName.EndsWith( "Id" ) && ( _col.Ordinal > 0 )
+                        if( ( !_col.ColumnName.EndsWith( "Id" )
+                               && ( _col.Ordinal > 0 )
                                && ( _col.DataType == typeof( double ) ) )
                            || ( _col.DataType == typeof( short ) )
                            || ( _col.DataType == typeof( long ) )
                            || ( _col.DataType == typeof( decimal ) )
                            || ( _col.DataType == typeof( float ) ) )
-
                         {
                             _numerics.Add( _col.ColumnName );
                         }
