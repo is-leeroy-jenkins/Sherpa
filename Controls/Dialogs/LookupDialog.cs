@@ -132,7 +132,7 @@ namespace BudgetExecution
         /// <summary>
         /// Clears the selections.
         /// </summary>
-        private void ClearData( )
+        public void ClearData( )
         {
             try
             {

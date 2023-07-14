@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-14-2023
 // ******************************************************************************************
 // <copyright file="ChartDataForm.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -303,6 +303,8 @@ namespace BudgetExecution
             Provider = Provider.Access;
             Metric = STAT.Total;
             ChartType = SeriesChartType.Column;
+            PictureBox.Size = new Size( 40, 18 );
+            PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
             // Event Wiring
             ExitButton.Click += null;
@@ -587,7 +589,7 @@ namespace BudgetExecution
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics, 
+        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
@@ -612,7 +614,9 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {SelectedTable} " + $"WHERE {_criteria} " + $"GROUP BY {_groups};";
+                    return $"SELECT {_columns} FROM {SelectedTable} "
+                        + $"WHERE {_criteria} "
+                        + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
                 {
@@ -630,7 +634,8 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
+        private string CreateSqlText( IEnumerable<string> columns,
+            IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
                && ( where?.Any( ) == true )
@@ -646,7 +651,9 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} " + $"GROUP BY {_names};";
+                    return $"SELECT {_names} FROM {SelectedTable} "
+                        + $"WHERE {_criteria} "
+                        + $"GROUP BY {_names};";
                 }
                 catch( Exception ex )
                 {
@@ -818,7 +825,7 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics, 
+        private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             if( ( where?.Any( ) == true )
@@ -1031,12 +1038,11 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
-                
+
                 if( _names?.Any( ) == true )
                 {
                     foreach( var name in _names )
@@ -1163,7 +1169,7 @@ namespace BudgetExecution
                     var _mainForm = (MainForm)_forms
                         ?.Where( f => f.GetType( ) == typeof( MainForm ) == true )
                         ?.First( );
-                    
+
                     var _excelDataForm = new ExcelDataForm( BindingSource );
                     _excelDataForm.Owner = _mainForm;
                     _excelDataForm.Show( );
@@ -1647,7 +1653,8 @@ namespace BudgetExecution
                 Chart.Series[ i ].SmartLabelStyle.CalloutStyle = LabelCalloutStyle.Box;
                 Chart.Series[ i ].SmartLabelStyle.CalloutLineColor = Color.Transparent;
                 Chart.Series[ i ].SmartLabelStyle.CalloutLineWidth = 0;
-                Chart.Series[ i ].SmartLabelStyle.CalloutLineAnchorCapStyle = LineAnchorCapStyle.Arrow;
+                Chart.Series[ i ].SmartLabelStyle.CalloutLineAnchorCapStyle =
+                    LineAnchorCapStyle.Arrow;
             }
             catch( Exception ex )
             {
@@ -1702,7 +1709,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [table ListBox item selected].
         /// </summary>
@@ -2292,7 +2299,9 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( _selection )
                    && _names.Contains( _selection ) )
                 {
-                    ChartType = (SeriesChartType)Enum.Parse( typeof( SeriesChartType ), _selection );
+                    ChartType =
+                        (SeriesChartType)Enum.Parse( typeof( SeriesChartType ), _selection );
+
                     _notify.Show( );
                 }
             }

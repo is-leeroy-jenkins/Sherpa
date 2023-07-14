@@ -4,7 +4,7 @@
 //     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-13-2023
+//     Last Modified On:        07-14-2023
 // ******************************************************************************************
 // <copyright file="ProgramProjectDialog.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -53,12 +53,12 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class ProgramProjectDialog : MetroForm
     {
         /// <summary> Gets or sets the source. </summary>
@@ -199,7 +199,7 @@ namespace BudgetExecution
             {
                 ComboBox.Items.Clear( );
                 DataModel = new DataBuilder( Source, Provider );
-                var _codes = DataModel.DataElements["ProgramTitle"];
+                var _codes = DataModel.DataElements[ "ProgramTitle" ];
                 foreach( var _item in _codes )
                 {
                     ComboBox.Items.Add( _item );
@@ -215,13 +215,13 @@ namespace BudgetExecution
         {
             try
             {
-                Header.Text = Current["ProgramTitle"].ToString( );
-                ProgramAreaTable.CaptionText = "Program Area - " + Current["ProgramAreaCode"];
-                ProgramProjectTable.CaptionText = "Program Project - " + Current["Code"];
-                StatutoryAuthorityTextBox.Text = Current["Laws"].ToString( );
-                ProgramAreaNameTextBox.Text = Current["ProgramAreaName"].ToString( );
-                ProgramProjectNameTextBox.Text = Current["Name"].ToString( );
-                ProgramDescriptionTextBox.Text = Current["Description"].ToString( );
+                Header.Text = Current[ "ProgramTitle" ].ToString( );
+                ProgramAreaTable.CaptionText = "Program Area - " + Current[ "ProgramAreaCode" ];
+                ProgramProjectTable.CaptionText = "Program Project - " + Current[ "Code" ];
+                StatutoryAuthorityTextBox.Text = Current[ "Laws" ].ToString( );
+                ProgramAreaNameTextBox.Text = Current[ "ProgramAreaName" ].ToString( );
+                ProgramProjectNameTextBox.Text = Current[ "Name" ].ToString( );
+                ProgramDescriptionTextBox.Text = Current[ "Description" ].ToString( );
             }
             catch( Exception _ex )
             {
@@ -387,7 +387,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary> Fails the specified ex. </summary>
         /// <param name="ex" > The ex. </param>
         private void Fail( Exception ex )

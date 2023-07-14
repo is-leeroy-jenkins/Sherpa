@@ -153,13 +153,13 @@ namespace BudgetExecution
             {
                 BackColor = Color.FromArgb( 17, 53, 84 );
                 HoveredBorderColor = Color.FromArgb( 50, 93, 129 );
-                Title.Font = new Font( "Roboto", 11, FontStyle.Bold );
+                Title.Font = new Font( "Roboto", 9, FontStyle.Bold );
                 Title.TextColor = Color.White;
-                Body.Font = new Font( "Roboto", 10, FontStyle.Bold );
+                Body.Font = new Font( "Roboto", 9, FontStyle.Bold );
                 Body.TextColor = Color.White;
-                Footer.Font = new Font( "Roboto", 10, FontStyle.Bold );
+                Footer.Font = new Font( "Roboto", 8, FontStyle.Bold );
                 Footer.TextColor = Color.White;
-                Banner.Font = new Font( "Roboto", 9, FontStyle.Bold );
+                Banner.Font = new Font( "Roboto", 8, FontStyle.Bold );
                 Banner.TextColor = Color.White;
                 Refresh( );
             }

@@ -124,7 +124,6 @@ namespace BudgetExecution
             FirefoxTile.Click += OnFirefoxTileClick;
             BrowserTile.Click += OnBabyTileClick;
             MessageTile.Click += OnMessageTileClick;
-            ExitButton.Click += OnExitButtonClick;
             TestButton.Click += OnTestButtonClick;
             Load += OnLoad;
             Shown += OnShown;
@@ -306,6 +305,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the guidance dialog.
+        /// </summary>
         private void ShowGuidanceDialog( )
         {
             try
@@ -319,6 +321,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the program project dialog.
+        /// </summary>
         private void ShowProgramProjectDialog( )
         {
             try
@@ -332,19 +337,9 @@ namespace BudgetExecution
             }
         }
 
-        private void ShowEmailDialog( )
-        {
-            try
-            {
-                var _program = new ProgramProjectDialog( );
-                _program.ShowDialog( this );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
+        /// <summary>
+        /// Shows the edit dialog.
+        /// </summary>
         private void ShowEditDialog( )
         {
             try
@@ -358,6 +353,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the lookup dialog.
+        /// </summary>
         private void ShowLookupDialog( )
         {
             try
@@ -371,12 +369,32 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the calendar dialog.
+        /// </summary>
         private void ShowCalendarDialog( )
         {
             try
             {
                 var _calendar = new CalendarDialog( );
                 _calendar.ShowDialog( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Shows the email dialog.
+        /// </summary>
+        private void ShowEmailDialog( )
+        {
+            try
+            {
+                var _emailDialog = new EmailDialog( );
+                _emailDialog.Owner = this;
+                _emailDialog.Show( );
             }
             catch( Exception _ex )
             {
@@ -504,7 +522,7 @@ namespace BudgetExecution
         /// <summary>
         /// Opens the calculator form.
         /// </summary>
-        private void OpenCalculatorForm( )
+        private void OpenCalculationForm( )
         {
             var _forms = Program.Windows.Values;
             if( Program.Windows.ContainsKey( "CalculationForm" ) )
@@ -573,7 +591,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows[ "MainForm" ] = this;
+                Program.Windows["MainForm"] = this;
             }
             catch( Exception _ex )
             {
@@ -729,14 +747,9 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnCalculatorTileClick( object sender, EventArgs e )
         {
-            OpenCalculatorForm( );
+            OpenCalculationForm( );
         }
-
-        private void OnMessageTileClick( object sender, EventArgs e )
-        {
-            Notify( );
-        }
-
+        
         /// <summary>
         /// Called when [guidance tile clicked].
         /// </summary>
@@ -762,6 +775,17 @@ namespace BudgetExecution
         private void OnTestButtonClick( object sender, EventArgs e )
         {
             ShowLoadingForm( );
+        }
+
+        /// <summary>
+        /// Called when [email tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnMessageTileClick( object sender, EventArgs e )
+        {
+            ShowEmailDialog( );
         }
 
         /// <summary>

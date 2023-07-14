@@ -60,78 +60,6 @@ namespace BudgetExecution
     [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public partial class EmailDialog : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the SQL query.
-        /// </summary>
-        /// <value>
-        /// The SQL query.
-        /// </value>
-        public string SqlQuery { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data model.
-        /// </summary>
-        /// <value>
-        /// The data model.
-        /// </value>
-        public DataBuilder DataModel { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
-        public DataTable DataTable { get; set; }
-
-        /// <summary>
-        /// Gets or sets the form filter.
-        /// </summary>
-        /// <value>
-        /// The form filter.
-        /// </value>
-        public IDictionary<string, object> FormFilter { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected columns.
-        /// </summary>
-        /// <value>
-        /// The selected columns.
-        /// </value>
-        public IList<string> SelectedColumns { get; set; }
-
-        /// <summary>
-        /// Gets or sets the numerics.
-        /// </summary>
-        /// <value>
-        /// The numerics.
-        /// </value>
-        public IList<string> Numerics { get; set; }
-
-        /// <summary>
-        /// Gets or sets the fields.
-        /// </summary>
-        /// <value>
-        /// The fields.
-        /// </value>
-        public IList<string> Fields { get; set; }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        public Provider Provider { get; set; }
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -170,33 +98,47 @@ namespace BudgetExecution
             // Event Wiring
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClick;
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.EmailDialog" /> class.
-        /// </summary>
-        /// <param name="bindingSource">The binding source.</param>
-        public EmailDialog( BindingSource bindingSource )
-            : this( )
-        {
-            BindingSource = bindingSource;
+            ClearButton.Click += OnClearButtonClick;
+            FirstTile.Click += OnFirstTileClick;
+            SecondTile.Click += OnSecondTileClick;
+            ThirdTile.Click += OnThirdTileClick;
+            FirstRadioButton.Click += OnFirstRadioButtonSelected;
+            SecondRadioButton.Click += OnSecondRadioButtonSelected;
+            ThirdRadioButton.Click += OnThirdRadioButtonSelected;
         }
 
         /// <summary>
-        /// Called when [second button clicked].
+        /// Notifies this instance.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnSecondButtonClicked( object sender, EventArgs e )
+        private void Notify( )
         {
             try
             {
-                UpdateHeaderText( );
+                var _message = "THIS IS NOT YET IMPLEMENTED!";
+                var _notification = new Notification( _message );
+                _notification.Show( );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the header text.
+        /// </summary>
+        public void UpdateTitleText( string text )
+        {
+            if( !string.IsNullOrEmpty( text ) )
+            {
+                try
+                {
+                    Title.Text = text;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
@@ -209,13 +151,10 @@ namespace BudgetExecution
         {
             try
             {
-                SelectedColumns = new List<string>( );
-                DataTable = (DataTable)BindingSource.DataSource;
-                Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-                DataModel = new DataBuilder( Source, Provider.Access );
-                Text = "Schema: " + DataTable.TableName.SplitPascal( );
-                Fields = DataModel.Fields;
-                Numerics = DataModel.Numerics;
+                Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+                Title.Text = "Message Viewer";
+                TabControl.SelectedIndex = 0;
+                FirstRadioButton.Checked = true;
             }
             catch( Exception _ex )
             {
@@ -224,23 +163,196 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Updates the header text.
+        /// Called when [first tile click].
         /// </summary>
-        private void UpdateHeaderText( )
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFirstTileClick( object sender, EventArgs e )
         {
             try
             {
-                var _text = string.Empty;
-                var _selections = string.Empty;
-                if( SelectedColumns?.Any( ) == true )
-                {
-                    foreach( var _item in SelectedColumns )
-                    {
-                        _selections += $"{_item}, ";
-                    }
+                Notify( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
 
-                    var _trimmed = _selections?.TrimEnd( ", ".ToCharArray( ) );
-                }
+        /// <summary>
+        /// Called when [second button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs" />
+        /// instance containing the event data.</param>
+        private void OnSecondTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Notify( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [third tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnThirdTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Notify( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [inbox RadioButton selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFirstRadioButtonSelected( object sender, EventArgs e )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [sent RadioButton selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSecondRadioButtonSelected( object sender, EventArgs e )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [deleted RadioButton selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnThirdRadioButtonSelected( object sender, EventArgs e )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 2;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [active tab changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnActiveTabChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                Notify( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [first ListBox selection changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFirstListBoxSelectionChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                Notify( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [second ListBox selection changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSecondListBoxSelectionChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                Notify( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [third ListBox selection changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnThirdListBoxSelectionChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                Notify( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [clear button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnClearButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Notify( );
             }
             catch( Exception _ex )
             {
