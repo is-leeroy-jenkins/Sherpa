@@ -663,6 +663,16 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap GmailTile {
+            get {
+                object obj = ResourceManager.GetObject("GmailTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap GoButton {
             get {
                 object obj = ResourceManager.GetObject("GoButton", resourceCulture);
@@ -846,6 +856,16 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap OMB {
             get {
                 object obj = ResourceManager.GetObject("OMB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap OutlookTile {
+            get {
+                object obj = ResourceManager.GetObject("OutlookTile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

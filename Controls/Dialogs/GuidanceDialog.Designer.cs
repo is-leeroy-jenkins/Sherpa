@@ -43,11 +43,12 @@ namespace BudgetExecution
             SelectButton = new Button( );
             CloseButton = new Button( );
             Picture = new Picture( );
-            HeaderLabel = new Label( );
-            BrowseButton = new Button( );
-            OpenFileDialog = new System.Windows.Forms.OpenFileDialog( );
+            Title = new Label( );
             ToolTip = new SmallTip( );
+            OpenFileDialog = new System.Windows.Forms.OpenFileDialog( );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
+            BrowseButton = new Button( );
+            PathLabel = new Label( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) Picture  ).BeginInit( );
             HeaderTable.SuspendLayout( );
@@ -134,7 +135,7 @@ namespace BudgetExecution
             SelectButton.HoverText = null;
             SelectButton.HoverTextColor = System.Drawing.Color.White;
             SelectButton.IsDerivedStyle = true;
-            SelectButton.Location = new System.Drawing.Point( 263, 379 );
+            SelectButton.Location = new System.Drawing.Point( 269, 379 );
             SelectButton.Name = "SelectButton";
             SelectButton.NormalBorderColor = System.Drawing.Color.Transparent;
             SelectButton.NormalColor = System.Drawing.Color.Transparent;
@@ -190,75 +191,38 @@ namespace BudgetExecution
             Picture.BindingSource = null;
             Picture.DataFilter = null;
             Picture.HoverText = null;
-            Picture.Image = Properties.Resources.GuidanceTile;
+            Picture.Image = Properties.Resources.USEPA;
             Picture.ImageList = null;
             Picture.Location = new System.Drawing.Point( 3, 3 );
             Picture.Name = "Picture";
             Picture.Padding = new System.Windows.Forms.Padding( 1 );
-            Picture.Size = new System.Drawing.Size( 24, 22 );
+            Picture.Size = new System.Drawing.Size( 25, 22 );
             Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Picture.TabIndex = 4;
             Picture.TabStop = false;
             Picture.ToolTip = null;
             // 
-            // HeaderLabel
+            // Title
             // 
-            HeaderLabel.BindingSource = null;
-            HeaderLabel.DataFilter = null;
-            HeaderLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            HeaderLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            HeaderLabel.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            HeaderLabel.HoverText = null;
-            HeaderLabel.IsDerivedStyle = true;
-            HeaderLabel.Location = new System.Drawing.Point( 59, 3 );
-            HeaderLabel.Margin = new System.Windows.Forms.Padding( 3 );
-            HeaderLabel.Name = "HeaderLabel";
-            HeaderLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            HeaderLabel.Size = new System.Drawing.Size( 429, 26 );
-            HeaderLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            HeaderLabel.StyleManager = null;
-            HeaderLabel.TabIndex = 5;
-            HeaderLabel.Text = "Guidance";
-            HeaderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            HeaderLabel.ThemeAuthor = "Terry D. Eppler";
-            HeaderLabel.ThemeName = "Budget Execution";
-            HeaderLabel.ToolTip = null;
-            // 
-            // BrowseButton
-            // 
-            BrowseButton.BindingSource = null;
-            BrowseButton.DataFilter = null;
-            BrowseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            BrowseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            BrowseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            BrowseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            BrowseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            BrowseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            BrowseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            BrowseButton.HoverText = null;
-            BrowseButton.HoverTextColor = System.Drawing.Color.White;
-            BrowseButton.IsDerivedStyle = true;
-            BrowseButton.Location = new System.Drawing.Point( 129, 379 );
-            BrowseButton.Name = "BrowseButton";
-            BrowseButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            BrowseButton.NormalColor = System.Drawing.Color.Transparent;
-            BrowseButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            BrowseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            BrowseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            BrowseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            BrowseButton.PressTextColor = System.Drawing.Color.White;
-            BrowseButton.Size = new System.Drawing.Size( 78, 26 );
-            BrowseButton.Style = MetroSet_UI.Enums.Style.Custom;
-            BrowseButton.StyleManager = null;
-            BrowseButton.TabIndex = 6;
-            BrowseButton.Text = "FromBrowser";
-            BrowseButton.ThemeAuthor = "Terry D. Eppler";
-            BrowseButton.ThemeName = "Budget Execution";
-            BrowseButton.ToolTip = null;
-            // 
-            // OpenFileDialog
-            // 
-            OpenFileDialog.Title = "Search for Document";
+            Title.BindingSource = null;
+            Title.DataFilter = null;
+            Title.Dock = System.Windows.Forms.DockStyle.Fill;
+            Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Title.HoverText = null;
+            Title.IsDerivedStyle = true;
+            Title.Location = new System.Drawing.Point( 46, 3 );
+            Title.Margin = new System.Windows.Forms.Padding( 3 );
+            Title.Name = "Title";
+            Title.Padding = new System.Windows.Forms.Padding( 1 );
+            Title.Size = new System.Drawing.Size( 442, 31 );
+            Title.Style = MetroSet_UI.Enums.Style.Custom;
+            Title.StyleManager = null;
+            Title.TabIndex = 5;
+            Title.Text = "Guidance";
+            Title.ThemeAuthor = "Terry D. Eppler";
+            Title.ThemeName = "Budget Execution";
+            Title.ToolTip = ToolTip;
             // 
             // ToolTip
             // 
@@ -280,21 +244,79 @@ namespace BudgetExecution
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
             // 
+            // OpenFileDialog
+            // 
+            OpenFileDialog.Title = "Search for Document";
+            // 
             // HeaderTable
             // 
             HeaderTable.ColumnCount = 3;
             HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 71.0843353F ) );
             HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 28.9156628F ) );
-            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 434F ) );
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 447F ) );
             HeaderTable.Controls.Add( Picture, 0, 0 );
-            HeaderTable.Controls.Add( HeaderLabel, 2, 0 );
+            HeaderTable.Controls.Add( Title, 2, 0 );
             HeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
             HeaderTable.Location = new System.Drawing.Point( 0, 0 );
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 491, 32 );
+            HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
+            HeaderTable.Size = new System.Drawing.Size( 491, 37 );
             HeaderTable.TabIndex = 8;
+            // 
+            // BrowseButton
+            // 
+            BrowseButton.BindingSource = null;
+            BrowseButton.DataFilter = null;
+            BrowseButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            BrowseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            BrowseButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            BrowseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            BrowseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            BrowseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            BrowseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            BrowseButton.HoverText = null;
+            BrowseButton.HoverTextColor = System.Drawing.Color.White;
+            BrowseButton.IsDerivedStyle = true;
+            BrowseButton.Location = new System.Drawing.Point( 139, 379 );
+            BrowseButton.Name = "BrowseButton";
+            BrowseButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            BrowseButton.NormalColor = System.Drawing.Color.Transparent;
+            BrowseButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            BrowseButton.Padding = new System.Windows.Forms.Padding( 1 );
+            BrowseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            BrowseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            BrowseButton.PressTextColor = System.Drawing.Color.White;
+            BrowseButton.Size = new System.Drawing.Size( 78, 26 );
+            BrowseButton.Style = MetroSet_UI.Enums.Style.Custom;
+            BrowseButton.StyleManager = null;
+            BrowseButton.TabIndex = 9;
+            BrowseButton.Text = "Browse";
+            BrowseButton.ThemeAuthor = "Terry D. Eppler";
+            BrowseButton.ThemeName = "Budget Execution";
+            BrowseButton.ToolTip = null;
+            // 
+            // PathLabel
+            // 
+            PathLabel.BindingSource = null;
+            PathLabel.DataFilter = null;
+            PathLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            PathLabel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            PathLabel.HoverText = null;
+            PathLabel.IsDerivedStyle = true;
+            PathLabel.Location = new System.Drawing.Point( 65, 325 );
+            PathLabel.Margin = new System.Windows.Forms.Padding( 3 );
+            PathLabel.Name = "PathLabel";
+            PathLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            PathLabel.Size = new System.Drawing.Size( 367, 31 );
+            PathLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            PathLabel.StyleManager = null;
+            PathLabel.TabIndex = 10;
+            PathLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            PathLabel.ThemeAuthor = "Terry D. Eppler";
+            PathLabel.ThemeName = "Budget Execution";
+            PathLabel.ToolTip = null;
             // 
             // GuidanceDialog
             // 
@@ -311,6 +333,7 @@ namespace BudgetExecution
             CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             ClientSize = new System.Drawing.Size( 491, 417 );
             ControlBox = false;
+            Controls.Add( PathLabel );
             Controls.Add( BrowseButton );
             Controls.Add( HeaderTable );
             Controls.Add( ClearButton );
@@ -344,15 +367,15 @@ namespace BudgetExecution
         public System.Windows.Forms.BindingSource BindingSource;
 
         public SmallTip ToolTip;
-
-        private Label HeaderLabel;
         private ListBox ListBox;
         private Button ClearButton;
         public Button SelectButton;
         private Button CloseButton;
-        private Button BrowseButton;
         public System.Windows.Forms.OpenFileDialog OpenFileDialog;
         public Picture Picture;
         public System.Windows.Forms.TableLayoutPanel HeaderTable;
+        public Button BrowseButton;
+        public Label PathLabel;
+        public Label Title;
     }
 }

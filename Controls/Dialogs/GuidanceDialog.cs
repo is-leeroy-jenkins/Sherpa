@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-14-2023
 // ******************************************************************************************
 // <copyright file="GuidanceDialog.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -48,15 +48,16 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using System.IO;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class GuidanceDialog : MetroForm
     {
         /// <summary>
@@ -92,28 +93,12 @@ namespace BudgetExecution
         public IDictionary<string, object> FormFilter { get; set; }
 
         /// <summary>
-        /// Gets or sets the selected columns.
+        /// Gets or sets the prefix.
         /// </summary>
         /// <value>
-        /// The selected columns.
+        /// The prefix.
         /// </value>
-        public IList<string> SelectedColumns { get; set; }
-
-        /// <summary>
-        /// Gets or sets the numerics.
-        /// </summary>
-        /// <value>
-        /// The numerics.
-        /// </value>
-        public IList<string> Numerics { get; set; }
-
-        /// <summary>
-        /// Gets or sets the fields.
-        /// </summary>
-        /// <value>
-        /// The fields.
-        /// </value>
-        public IList<string> Fields { get; set; }
+        public string Prefix { get; set; } = @"C:\\Users\terry\source\repos\BudgetExecution\";
 
         /// <summary>
         /// Gets or sets the source.
@@ -155,8 +140,10 @@ namespace BudgetExecution
         /// </value>
         public string SelectedItem { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="GuidanceDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.GuidanceDialog" /> class.
         /// </summary>
         public GuidanceDialog( )
         {
@@ -177,7 +164,7 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -188,13 +175,15 @@ namespace BudgetExecution
             MaximizeBox = false;
 
             // Label Properties
-            HeaderLabel.Font = new Font( "Roboto", 10 );
-            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-            HeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
-            HeaderLabel.FlatStyle = FlatStyle.Flat;
+            Title.Font = new Font( "Roboto", 10 );
+            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Title.TextAlign = ContentAlignment.MiddleLeft;
+            Title.FlatStyle = FlatStyle.Flat;
+            PathLabel.Font = new Font( "Roboto", 8 );
+            PathLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
 
             // Picture Properties
-            Picture.Size = new Size( 22, 20 );
+            Picture.Size = new Size( 25, 22 );
             Picture.SizeMode = PictureBoxSizeMode.StretchImage;
 
             // File Dialog Properties
@@ -211,106 +200,21 @@ namespace BudgetExecution
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
             SelectButton.Click += OnSelectButtonClicked;
-            ClearButton.Click += OnClearButtonClicked;
-            BrowseButton.Click += OnBrowseButtonClicked;
+            ClearButton.Click += OnClearButtonClick;
+            BrowseButton.Click += OnBrowseButtonClick;
+            ListBox.SelectedValueChanged += OnListBoxSelectedValueChanged;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GuidanceDialog"/> class.
+        /// Notifies this instance.
         /// </summary>
-        /// <param name="bindingSource">The binding source.</param>
-        public GuidanceDialog( BindingSource bindingSource )
-            : this( )
-        {
-            BindingSource = bindingSource;
-        }
-
-        /// <summary>
-        /// Called when [browse button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnBrowseButtonClicked( object sender, EventArgs e )
+        private void Notify( )
         {
             try
             {
-                OpenFileDialog.ShowDialog( );
-                SelectedPath = OpenFileDialog.SafeFileName;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [clear button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnClearButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
-                var _notification = new Notification( _msg );
+                var _message = "THIS IS NOT YET IMPLEMENTED!";
+                var _notification = new Notification( _message );
                 _notification.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [select button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnSelectButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
-                var _notification = new Notification( _msg );
-                _notification.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-                SelectedColumns = new List<string>( );
-                CloseButton.HoverText = "Close Window";
-                SelectButton.HoverText = "Open Selected Item";
-                ClearButton.HoverText = "Clear Selected Item";
-                BrowseButton.HoverText = "Search for File";
-                PopulateListBox( );
-                SetLabelText( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the label text.
-        /// </summary>
-        private void SetLabelText( )
-        {
-            try
-            {
             }
             catch( Exception _ex )
             {
@@ -329,10 +233,11 @@ namespace BudgetExecution
                 DataModel = new DataBuilder( Source, Provider );
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataModel.DataTable;
-                Fields = DataModel.Fields;
-                Numerics = DataModel.Numerics;
                 var _data = DataTable.AsEnumerable( );
-                var _names = _data?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )?.Select( r => r.Field<string>( "Caption" ) )?.ToList( );
+                var _names = _data?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
+                    ?.Select( r => r.Field<string>( "Caption" ) )
+                    ?.ToList( );
+
                 foreach( var _name in _names )
                 {
                     ListBox.Items.Add( _name );
@@ -345,12 +250,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Populates the second tab ListBox.
+        /// Updates the header text.
         /// </summary>
-        private void PopulateSecondTabListBox( )
+        private void UpdateTitleText( )
         {
             try
             {
+                Notify( );
             }
             catch( Exception _ex )
             {
@@ -359,12 +265,87 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Updates the header text.
+        /// Called when [browse button clicked].
         /// </summary>
-        private void UpdateHeaderText( )
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnBrowseButtonClick( object sender, EventArgs e )
         {
             try
             {
+                OpenFileDialog.ShowDialog( );
+                OpenFileDialog.Filter = "PDF Files | *.pdf";
+                SelectedPath = OpenFileDialog.SafeFileName;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [clear button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnClearButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( SelectedPath ) )
+                {
+                    SelectedPath = string.Empty;
+                }
+
+                ListBox.SelectedIndex = -1;
+                Title.Text = "Guidance";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [select button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnSelectButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( SelectedPath )
+                   && File.Exists( SelectedPath ) )
+                {
+                    Minion.RunEdge( SelectedPath );
+                    Close( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                CloseButton.HoverText = "Close Window";
+                SelectButton.HoverText = "Open Selected Item";
+                ClearButton.HoverText = "Clear Selected Item";
+                BrowseButton.HoverText = "Search File System";
+                PopulateListBox( );
             }
             catch( Exception _ex )
             {
@@ -376,14 +357,24 @@ namespace BudgetExecution
         /// Called when [ListView selected value changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        private void OnListViewSelectedValueChanged( object sender )
+        private void OnListBoxSelectedValueChanged( object sender )
         {
-            try
+            if( sender is ListBox _listBox )
             {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
+                try
+                {
+                    SelectedItem = _listBox.SelectedValue.ToString( );
+                    Title.Text = SelectedItem;
+                    var _filter = new Dictionary<string, object>( );
+                    _filter.Add( "Caption", SelectedItem );
+                    var _data = new DataBuilder( Source, Provider, _filter ).Record;
+                    var _path = _data[ "Location" ].ToString( );
+                    SelectedPath = Prefix + _path;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
@@ -391,7 +382,8 @@ namespace BudgetExecution
         /// Called when [close button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try

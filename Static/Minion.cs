@@ -209,6 +209,33 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Runs the edge.
+        /// </summary>
+        /// <param name="uri">The URI.</param>
+        public static void RunEdge( string uri )
+        {
+            try
+            {
+                var _path = AppSettings["Edge"];
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                _startInfo.ArgumentList.Add( uri );
+                if( !string.IsNullOrEmpty( _path ) )
+                {
+                    _startInfo.FileName = _path;
+                }
+
+                Process.Start( _startInfo );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Runs the budget browser.
         /// </summary>
         public static void RunBudgetBrowser( )
@@ -258,9 +285,62 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Runs the chrome.
+        /// </summary>
+        /// <param name="uri">The URI.</param>
+        public static void RunChrome( string uri )
+        {
+            try
+            {
+                var _path = AppSettings["Chrome"];
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                _startInfo.ArgumentList.Add( uri );
+                if( !string.IsNullOrEmpty( _path ) )
+                {
+                    _startInfo.FileName = _path;
+                }
+
+                Process.Start( _startInfo );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Runs the firefox.
         /// </summary>
         public static void RunFirefox( )
+        {
+            try
+            {
+                var _path = AppSettings["Firefox"];
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                if( !string.IsNullOrEmpty( _path ) )
+                {
+                    _startInfo.FileName = _path;
+                }
+
+                Process.Start( _startInfo );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Runs the firefox.
+        /// </summary>
+        /// <param name="uri">The URI.</param>
+        public static void RunFirefox( string uri )
         {
             try
             {
@@ -269,6 +349,7 @@ namespace BudgetExecution
                 _startInfo.UseShellExecute = true;
                 _startInfo.LoadUserProfile = true;
                 _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                _startInfo.ArgumentList.Add( uri );
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     _startInfo.FileName = _path;
