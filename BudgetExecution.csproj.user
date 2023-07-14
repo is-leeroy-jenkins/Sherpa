@@ -116,7 +116,7 @@
     <Compile Update="Controls\Dialogs\ProgramProjectDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\SchemaDialog.cs">
+    <Compile Update="Controls\Dialogs\EmailDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\SqlDialog.cs">

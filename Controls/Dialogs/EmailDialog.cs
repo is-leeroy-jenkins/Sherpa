@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-14-2023
 // ******************************************************************************************
-// <copyright file="SchemaDialog.cs" company="Terry D. Eppler">
+// <copyright file="EmailDialog.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SchemaDialog.cs
+//   EmailDialog.cs
 // </summary>
 // ******************************************************************************************
 
@@ -53,10 +53,12 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedVariable" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    public partial class SchemaDialog : MetroForm
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    public partial class EmailDialog : MetroForm
     {
         /// <summary>
         /// Gets or sets the SQL query.
@@ -130,17 +132,19 @@ namespace BudgetExecution
         /// </value>
         public Provider Provider { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SchemaDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.EmailDialog" /> class.
         /// </summary>
-        public SchemaDialog( )
+        public EmailDialog( )
         {
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
+            Size = new Size( 981, 750 );
+            MaximumSize = new Size( 981, 750 );
+            MinimumSize = new Size( 981, 750 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
@@ -167,11 +171,12 @@ namespace BudgetExecution
             Load += OnLoad;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SchemaDialog"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.EmailDialog" /> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
-        public SchemaDialog( BindingSource bindingSource )
+        public EmailDialog( BindingSource bindingSource )
             : this( )
         {
             BindingSource = bindingSource;
