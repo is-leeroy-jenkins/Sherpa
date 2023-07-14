@@ -40,15 +40,13 @@
 
 namespace BudgetExecution
 {
-    using Microsoft.Office.Interop.Excel;
     using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
 
-    public abstract class AsyncBase : AsyncAccess
+    public abstract class AsyncBase : AsyncData
     {
         /// <summary>
         /// Begins the initialize.
@@ -70,72 +68,71 @@ namespace BudgetExecution
         /// Gets the ordinals.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<int> GetOrdinals( )
+        public Task<IEnumerable<int>> GetOrdinalsAsync( )
         {
-            if( DataTable?.Result.Columns?.Count > 0 )
+            var _tcs = new TaskCompletionSource<IEnumerable<int>>( );
+            try
             {
-                try
+                var _columns = GetColumnsAsync( );
+                var _values = new List<int>( );
+                if( _columns != null )
                 {
-                    var _columns = DataTable.Result.Columns;
-                    var _values = new List<int>( );
-                    if( _columns?.Count > 0 )
+                    foreach( DataColumn _column in _columns.Result )
                     {
-                        foreach( DataColumn _column in _columns )
-                        {
-                            _values?.Add( _column.Ordinal );
-                        }
+                        _values?.Add( _column.Ordinal );
                     }
+                }
 
-                    return _values?.Any( ) == true
-                        ? _values
-                        : default( IEnumerable<int> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IEnumerable<int> );
-                }
+                _tcs.SetResult( _values );
+                return _values?.Any( ) == true
+                    ? _tcs.Task
+                    : default( Task<IEnumerable<int>> );
             }
-
-            return default( IEnumerable<int> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Task<IEnumerable<int>> );
+            }
         }
 
         /// <summary>
         /// Gets the column schema.
         /// </summary>
         /// <returns></returns>
-        public IDictionary<string, Type> GetColumnSchema( )
+        public Task<IDictionary<string, Type>> GetColumnSchema( )
         {
             if( DataTable?.Result.Columns?.Count > 0 )
             {
+                var _tcs = new TaskCompletionSource<IDictionary<string, Type>>( );
                 try
                 {
-                    var _columns = DataTable?.Result.Columns;
-                    if( _columns?.Count > 0 )
+                    var _columns = GetColumnsAsync( );
+                    if( _columns != null )
                     {
                         var _schema = new Dictionary<string, Type>( );
-                        foreach( DataColumn _col in _columns )
+                        foreach( DataColumn _col in _columns.Result )
                         {
                             _schema.Add( _col.ColumnName, _col.DataType );
                         }
 
+                        _tcs.SetResult( _schema );
                         return _schema?.Any( ) == true
-                            ? _schema
-                            : default( IDictionary<string, Type> );
+                            ? _tcs.Task
+                            : default( Task<IDictionary<string, Type>> );
                     }
                     else
                     {
-                        return default( IDictionary<string, Type> );
+                        return default( Task<IDictionary<string, Type>> );
                     }
                 }
                 catch( Exception _ex )
                 {
                     Fail( _ex );
-                    return default( IDictionary<string, Type> );
+                    return default( Task<IDictionary<string, Type>> );
                 }
             }
 
-            return default( IDictionary<string, Type> );
+            return default( Task<IDictionary<string, Type>> );
         }
 
         /// <summary>

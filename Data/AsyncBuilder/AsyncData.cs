@@ -46,12 +46,10 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
-    using System.Windows.Forms;
 
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class AsyncAccess : ISource, IProvider
+    public abstract class AsyncData : ISource, IProvider
     {
         /// <summary>
         /// The busy
@@ -213,7 +211,7 @@ namespace BudgetExecution
                     DataSet.Tables.Add(_dataTable );
                     var _adapter = Query.DataAdapter;
                     _adapter.Fill( DataSet, _dataTable.TableName );
-                    SetColumnCaptions( _dataTable);
+                    SetColumnCaptions( _dataTable );
                     _busy = false;
                     return _dataTable?.Rows?.Count > 0
                         ? _dataTable
@@ -257,7 +255,7 @@ namespace BudgetExecution
         /// Gets the table asynchronous.
         /// </summary>
         /// <returns></returns>
-        private protected Task<DataTable> GetTableAsync( )
+        public Task<DataTable> GetTableAsync( )
         {
             if( Query != null )
             {
