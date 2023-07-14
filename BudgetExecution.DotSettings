@@ -28,7 +28,7 @@
 	<s:Boolean x:Key="/Default/CodeEditing/StackTraceExplorer/WrapLines/@EntryValue">True</s:Boolean>
 	<s:String x:Key="/Default/CodeInspection/Highlighting/AnalysisEnabled/@EntryValue">SOLUTION</s:String>
 	<s:Boolean x:Key="/Default/CodeInspection/Highlighting/DoNotShowVsBulb/@EntryValue">False</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/Highlighting/ForceVsLightbulbSession/@EntryValue">False</s:Boolean>
+	
 	<s:Boolean x:Key="/Default/CodeInspection/Highlighting/IdentifierHighlightingEnabled/@EntryValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/Highlighting/IncludeWarningsInSwea/@EntryValue">True</s:Boolean>
 	<s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=ArgumentsStyleAnonymousFunction/@EntryIndexedValue">WARNING</s:String>
@@ -680,7 +680,7 @@
 	<s:String x:Key="/Default/CodeStyle/CSharpUsing/KeepImports/=System/@EntryIndexedValue">System</s:String>
 	<s:String x:Key="/Default/CodeStyle/CSharpUsing/MandatoryImports/=System/@EntryIndexedValue">System</s:String>
 	<s:Boolean x:Key="/Default/CodeStyle/EditorConfig/EnableClangFormatSupport/@EntryValue">False</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeStyle/EditorConfig/EnableStyleCopSupport/@EntryValue">False</s:Boolean>
+	
 	<s:Boolean x:Key="/Default/CodeStyle/EditorConfig/ShowEditorConfigStatusBarIndicator/@EntryValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeStyle/EditorConfig/SyncToVisualStudio/@EntryValue">True</s:Boolean>
 	<s:String x:Key="/Default/CodeStyle/FileHeader/FileHeaderText/@EntryValue"> &lt;copyright file=" &lt;File Name&gt; .cs" company="Terry D. Eppler"&gt;&#xD;
@@ -810,7 +810,7 @@
 	<s:Int64 x:Key="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue">5</s:Int64>
 	<s:String x:Key="/Default/Environment/InlayHints/CSharpOtherInlayHintsOptions/ShowMissingConstructHints/@EntryValue">Default</s:String>
 	<s:Boolean x:Key="/Default/Environment/InlayHintsOptions/ShowInlayHints/@EntryValue">False</s:Boolean>
-	<s:Boolean x:Key="/Default/Environment/IntraTextAdornmentsOptions/DisableVSParameterNameHints/@EntryValue">False</s:Boolean>
+	
 	<s:Boolean x:Key="/Default/Environment/MemoryUsageIndicator/IsVisible/@EntryValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/Environment/OpenDocument/OpenDocumentAfterModification/@EntryValue">True</s:Boolean>
 
@@ -851,7 +851,7 @@
 	<s:Boolean x:Key="/Default/Environment/TreeGridPresentableViewSearchBox/WasNoticeShown/@EntryValue">True</s:Boolean>
 	<s:String x:Key="/Default/Environment/UpdatesManger/LastUpdateCheck/@EntryValue">10/31/2019 14:39:10</s:String>
 	<s:Boolean x:Key="/Default/Environment/UserInterface/OpenReSharperMenuByAltR/@EntryValue">False</s:Boolean>
-	<s:Boolean x:Key="/Default/Environment/UserInterface/OverrideVsRefactorings/@EntryValue">True</s:Boolean>
+	
 
 
 	<s:String x:Key="/Default/Environment/UserInterface/ShortcutSchemeName/@EntryValue">VS</s:String>

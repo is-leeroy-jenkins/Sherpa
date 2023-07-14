@@ -91,6 +91,7 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         public DataModel( Source source, Provider provider = Provider.Access )
         {
+            BeginInit( );
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
@@ -108,6 +109,7 @@ namespace BudgetExecution
             Dates = GetDates( );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
+            EndInit( );
         }
 
         /// <summary>
@@ -118,6 +120,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         public DataModel( Source source, Provider provider, IDictionary<string, object> where )
         {
+            BeginInit( );
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
@@ -136,6 +139,7 @@ namespace BudgetExecution
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
+            EndInit( );
         }
 
         /// <summary>
@@ -149,6 +153,7 @@ namespace BudgetExecution
         public DataModel( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
         {
+            BeginInit( );
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
@@ -166,6 +171,7 @@ namespace BudgetExecution
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
+            EndInit( );
         }
 
         /// <summary>
@@ -179,6 +185,7 @@ namespace BudgetExecution
         public DataModel( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
         {
+            BeginInit( );
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
@@ -196,6 +203,7 @@ namespace BudgetExecution
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
+            EndInit( );
         }
 
         /// <summary>
@@ -210,6 +218,7 @@ namespace BudgetExecution
         public DataModel( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> where, SQL commandType )
         {
+            BeginInit( );
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
@@ -229,6 +238,7 @@ namespace BudgetExecution
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
+            EndInit( );
         }
 
         /// <summary>
@@ -238,6 +248,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         public DataModel( Source source, IDictionary<string, object> where )
         {
+            BeginInit( );
             Source = source;
             Provider = Provider.Access;
             ConnectionFactory = new ConnectionFactory( source, Provider.Access );
@@ -255,6 +266,7 @@ namespace BudgetExecution
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
+            EndInit( );
         }
 
         /// <summary>
@@ -265,6 +277,7 @@ namespace BudgetExecution
         /// <param name="sqlText">The SQL text.</param>
         public DataModel( Source source, Provider provider, string sqlText )
         {
+            BeginInit( );
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
@@ -282,6 +295,7 @@ namespace BudgetExecution
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
+            EndInit( );
         }
 
         /// <summary>
@@ -292,6 +306,7 @@ namespace BudgetExecution
         /// <param name="commandType">Type of the command.</param>
         public DataModel( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
         {
+            BeginInit( );
             ConnectionFactory = new ConnectionFactory( fullPath );
             Source = ConnectionFactory.Source;
             Provider = ConnectionFactory.Provider;
@@ -309,6 +324,7 @@ namespace BudgetExecution
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
+            EndInit( );
         }
 
         /// <summary>
@@ -317,6 +333,7 @@ namespace BudgetExecution
         /// <param name="query">The query.</param>
         public DataModel( IQuery query )
         {
+            BeginInit( );
             Query = query;
             Source = query.Source;
             Provider = query.Provider;
@@ -334,6 +351,7 @@ namespace BudgetExecution
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
+            EndInit( );
         }
 
         /// <summary>
