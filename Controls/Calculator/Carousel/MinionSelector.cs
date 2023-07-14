@@ -67,7 +67,7 @@ namespace BudgetExecution
         /// The image path.
         /// </value>
         public string ImagePath { get; set; } =
-            @"C:\Users\terry\source\repos\BudgetExecution\Resource\Images\Carousel\Minion";
+            @"C:\Users\terry\source\repos\BudgetExecution\Resource\Pictures\Carousel\Minion";
 
         /// <inheritdoc />
         /// <summary>

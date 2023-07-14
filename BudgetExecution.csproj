@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <UseWindowsForms>true</UseWindowsForms>
     <StartupObject>BudgetExecution.Program</StartupObject>
-    <ApplicationIcon>Resource\Images\Ninja\ico\BudExNinja.ico</ApplicationIcon>
+    <ApplicationIcon>Resource\Pictures\Ninja\BudExNinjaGrey.ico</ApplicationIcon>
     <Nullable>disable</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>BudExNinja.png</PackageIcon>
@@ -45,7 +45,7 @@
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Resource\Pictures\Ninja\ico\BudExNinja.ico" />
+    <Content Include="Resource\Pictures\Ninja\BudExNinjaGrey.ico" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CBComponents.HeaderTableLayoutPanel" Version="1.2.6307.23101" />

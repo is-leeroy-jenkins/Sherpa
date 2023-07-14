@@ -88,6 +88,7 @@ namespace BudgetExecution
             Numerics = GetNumerics( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Counts the values.
         /// </summary>
@@ -117,6 +118,7 @@ namespace BudgetExecution
             return -1;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Counts the values.
         /// </summary>
@@ -147,6 +149,7 @@ namespace BudgetExecution
             return -1;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Calculates the total.
         /// </summary>
@@ -176,6 +179,7 @@ namespace BudgetExecution
             return default( double );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Calculates the total.
         /// </summary>
@@ -206,6 +210,7 @@ namespace BudgetExecution
             return default( double );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Calculates the average.
         /// </summary>
@@ -236,6 +241,7 @@ namespace BudgetExecution
             return 0.0d;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Calculates the average.
         /// </summary>
@@ -267,6 +273,7 @@ namespace BudgetExecution
             return 0.0d;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Calculates the percentage.
         /// </summary>
@@ -296,6 +303,7 @@ namespace BudgetExecution
             return default( double );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Calculates the percentage.
         /// </summary>
@@ -327,6 +335,7 @@ namespace BudgetExecution
             return default( double );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Calculates the deviation.
         /// </summary>
@@ -357,6 +366,7 @@ namespace BudgetExecution
             return default( double );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Calculates the deviation.
         /// </summary>
@@ -389,6 +399,7 @@ namespace BudgetExecution
             return default( double );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Calculates the variance.
         /// </summary>
@@ -419,6 +430,7 @@ namespace BudgetExecution
             return -1.0d;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Calculates the variance.
         /// </summary>
@@ -451,6 +463,7 @@ namespace BudgetExecution
             return -1.0d;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the numeric columns.
         /// </summary>
@@ -469,7 +482,6 @@ namespace BudgetExecution
                        || ( _col.DataType == typeof( long ) )
                        || ( _col.DataType == typeof( decimal ) )
                        || ( _col.DataType == typeof( float ) ) )
-
                     {
                         _numerics.Add( _col.ColumnName );
                     }
@@ -486,6 +498,7 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the dates.
         /// </summary>
