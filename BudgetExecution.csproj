@@ -45,7 +45,7 @@
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Resource\Images\Ninja\ico\BudExNinja.ico" />
+    <Content Include="Resource\Pictures\Ninja\ico\BudExNinja.ico" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CBComponents.HeaderTableLayoutPanel" Version="1.2.6307.23101" />
@@ -330,7 +330,7 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Update="Resource\Images\Ninja\png\BudExNinja.png">
+    <None Update="Resource\Pictures\Ninja\png\BudExNinja.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
