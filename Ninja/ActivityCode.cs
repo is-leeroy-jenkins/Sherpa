@@ -45,10 +45,10 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.DataUnit" />
+    /// <seealso cref="T:BudgetExecution.DataUnit" />
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class ActivityCode : DataUnit 
@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the source.
         /// </summary>
-        public override Source Source { get; init; }
+        public override Source Source { get; set; }
 
         /// <summary>
         /// </summary>
@@ -71,7 +71,8 @@ namespace BudgetExecution
         public string Description { get; set; }
         
         /// <summary>
-        /// Initializes a new instance of the <see cref="ActivityCode"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ActivityCode"/> class.
         /// </summary>
         public ActivityCode( )
         {

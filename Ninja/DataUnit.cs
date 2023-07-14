@@ -46,24 +46,27 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.IDataUnit" />
-    /// <seealso cref="BudgetExecution.ISource" />
-    /// <seealso cref="BudgetExecution.IProvider" />
+    /// <seealso cref="T:BudgetExecution.IDataUnit" />
+    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:BudgetExecution.IProvider" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class DataUnit : IDataUnit, ISource, IProvider
     {
+        /// <inheritdoc />
         /// <summary>
         /// </summary>
         public virtual int ID { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the field.
         /// </summary>
         public virtual string Code { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// The name
         /// </summary>
@@ -77,14 +80,17 @@ namespace BudgetExecution
         /// </value>
         public virtual object Value { get; set; }
         
+        /// <inheritdoc />
         /// <summary>
         /// </summary>
         public virtual DataRow Record { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// </summary>
         public virtual Provider Provider { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the source.
         /// </summary>
@@ -130,6 +136,7 @@ namespace BudgetExecution
             return false;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Determines whether the specified dictionary is match.
         /// </summary>

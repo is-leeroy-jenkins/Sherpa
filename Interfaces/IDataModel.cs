@@ -62,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        Source Source { get; init; }
+        Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the provider.
