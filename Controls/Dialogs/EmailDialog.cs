@@ -53,11 +53,11 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public partial class EmailDialog : MetroForm
     {
         /// <summary>
@@ -142,9 +142,9 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 981, 750 );
-            MaximumSize = new Size( 981, 750 );
-            MinimumSize = new Size( 981, 750 );
+            Size = new Size( 981, 742 );
+            MaximumSize = new Size( 981, 742 );
+            MinimumSize = new Size( 981, 742 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
@@ -169,6 +169,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            CloseButton.Click += OnCloseButtonClick;
         }
 
         /// <inheritdoc />
@@ -252,7 +253,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnCloseButtonClicked( object sender, EventArgs e )
+        private void OnCloseButtonClick( object sender, EventArgs e )
         {
             try
             {

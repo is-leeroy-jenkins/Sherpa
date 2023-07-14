@@ -49,10 +49,10 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.EditBase" />
+    /// <seealso cref="T:BudgetExecution.EditBase" />
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -77,8 +77,10 @@ namespace BudgetExecution
         /// </value>
         public IEnumerable<Frame> Frames { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="EditDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.EditDialog" /> class.
         /// </summary>
         public EditDialog( )
         {
@@ -102,8 +104,10 @@ namespace BudgetExecution
             TabPage.MouseClick += OnRightClick;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="EditDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.EditDialog" /> class.
         /// </summary>
         /// <param name="tool">Type of the tool.</param>
         /// <param name="bindingSource">The binding source.</param>
@@ -121,8 +125,10 @@ namespace BudgetExecution
             Numerics = DataModel?.Numerics;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="EditDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.EditDialog" /> class.
         /// </summary>
         /// <param name="tool">Type of the tool.</param>
         /// <param name="dataModel">The data model.</param>
@@ -142,8 +148,10 @@ namespace BudgetExecution
             Numerics = DataModel?.Numerics;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="EditDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.EditDialog" /> class.
         /// </summary>
         /// <param name="tool">Type of the tool.</param>
         /// <param name="source">The source.</param>
