@@ -53,7 +53,6 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
@@ -230,8 +229,10 @@ namespace BudgetExecution
         /// </value>
         public ToolType ToolType { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="FilterDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.FilterDialog" /> class.
         /// </summary>
         public FilterDialog( )
         {
@@ -288,8 +289,9 @@ namespace BudgetExecution
             MouseClick += OnRightClick;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="FilterDialog"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.FilterDialog" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -306,6 +308,7 @@ namespace BudgetExecution
             Numerics = DataModel.Numerics;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="FilterDialog"/> class.
         /// </summary>
@@ -392,7 +395,7 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the fourth ComboBox items.
         /// </summary>
-        public void PopulateFourthComboBoxItems( )
+        private void PopulateFourthComboBoxItems( )
         {
             if( Fields?.Any( ) == true )
             {
@@ -424,7 +427,7 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the first ComboBox items.
         /// </summary>
-        public void PopulateFirstComboBoxItems( )
+        private void PopulateFirstComboBoxItems( )
         {
             if( Fields?.Any( ) == true )
             {
@@ -445,7 +448,7 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the table ListBox items.
         /// </summary>
-        public void PopulateTableListBoxItems( )
+        private void PopulateTableListBoxItems( )
         {
             try
             {
@@ -454,21 +457,32 @@ namespace BudgetExecution
                 MaintenanceListBox.Items.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var _name = _names[ _i ];
                     TableListBox.Items.Add( _name );
                 }
 
-                var _references = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                var _references = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+
                 for( var _i = 0; _i < _references?.Count - 1; _i++ )
                 {
                     var _name = _references[ _i ];
                     ReferenceListBox.Items.Add( _name );
                 }
 
-                var _mx = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                var _mx = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+
                 for( var _i = 0; _i < _mx?.Count - 1; _i++ )
                 {
                     var _name = _mx[ _i ];
@@ -482,10 +496,60 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                SqlQuery = string.Empty;
+                FormFilter = new Dictionary<string, object>( );
+                SelectedColumns = new List<string>( );
+                SelectedFields = new List<string>( );
+                SelectedNumerics = new List<string>( );
+                if( SelectedTable != null )
+                {
+                    ClearButton.Visible = !ClearButton.Visible;
+                    GroupButton.Visible = !GroupButton.Visible;
+                    SelectButton.Visible = !SelectButton.Visible;
+                    TabControl.SelectedTab = FilterTabPage;
+                    FilterTabPage.TabVisible = true;
+                    TableTabPage.TabVisible = false;
+                    Provider = DataModel.Provider;
+                    Source = DataModel.Source;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                    PopulateFirstComboBoxItems( );
+                }
+                else
+                {
+                    ClearButton.Visible = !ClearButton.Visible;
+                    GroupButton.Visible = !GroupButton.Visible;
+                    SelectButton.Visible = !SelectButton.Visible;
+                    TabControl.SelectedTab = TableTabPage;
+                    TableTabPage.TabVisible = true;
+                    FilterTabPage.TabVisible = false;
+                    CalendarTabPage.TabVisible = false;
+                    PopulateTableListBoxItems( );
+                    AccessRadioButton.Checked = true;
+                    Provider = Provider.Access;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [table ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public void OnTableListBoxItemSelected( object sender )
+        private void OnTableListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
             {
@@ -500,8 +564,9 @@ namespace BudgetExecution
                     SelectedTable = _listBox.SelectedValue?.ToString( );
                     if( !string.IsNullOrEmpty( SelectedTable ) )
                     {
+                        var _source = SelectedTable.Replace( " ", "" );
                         BindingSource.DataSource = null;
-                        Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+                        Source = (Source)Enum.Parse( typeof( Source ), _source );
                         DataModel = new DataBuilder( Source, Provider );
                         DataTable = DataModel.DataTable;
                         BindingSource.DataSource = DataModel.DataTable;
@@ -522,7 +587,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnFirstComboBoxItemSelected( object sender, EventArgs e )
+        private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
             {
@@ -567,7 +632,7 @@ namespace BudgetExecution
         /// Called when [first ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public void OnFirstListBoxItemSelected( object sender )
+        private void OnFirstListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
             {
@@ -593,8 +658,10 @@ namespace BudgetExecution
         /// Called when [second ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnSecondComboBoxItemSelected( object sender, EventArgs e )
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSecondComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
             {
@@ -638,7 +705,7 @@ namespace BudgetExecution
         /// Called when [second ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public void OnSecondListBoxItemSelected( object sender )
+        private void OnSecondListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
             {
@@ -665,8 +732,10 @@ namespace BudgetExecution
         /// Called when [third ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnThirdComboBoxItemSelected( object sender, EventArgs e )
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnThirdComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
             {
@@ -704,7 +773,7 @@ namespace BudgetExecution
         /// Called when [third ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public void OnThirdListBoxItemSelected( object sender )
+        private void OnThirdListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
             {
@@ -719,7 +788,9 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
-                    SqlQuery = $"SELECT * FROM {Source} " + $"WHERE {FormFilter.ToCriteria( )};";
+                    SqlQuery = $"SELECT * FROM {Source} " 
+                        + $"WHERE {FormFilter.ToCriteria( )};";
+
                     PopulateFourthComboBoxItems( );
                 }
                 catch( Exception _ex )
@@ -733,8 +804,10 @@ namespace BudgetExecution
         /// Called when [fourth ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnFourthComboBoxItemSelected( object sender, EventArgs e )
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFourthComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
             {
@@ -770,7 +843,7 @@ namespace BudgetExecution
         /// Called when [fourth ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public void OnFourthListBoxItemSelected( object sender )
+        private void OnFourthListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
             {
@@ -786,7 +859,8 @@ namespace BudgetExecution
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
                     FormFilter.Add( FourthCategory, FourthValue );
-                    SqlQuery = $"SELECT * FROM {Source} " + $"WHERE {FormFilter.ToCriteria( )};";
+                    SqlQuery = $"SELECT * FROM {Source} " 
+                        + $"WHERE {FormFilter.ToCriteria( )};";
                 }
                 catch( Exception _ex )
                 {
@@ -799,8 +873,9 @@ namespace BudgetExecution
         /// Called when [clear button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnClearButtonClick( object sender, EventArgs e )
+        /// <param name="e">The
+        /// <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnClearButtonClick( object sender, EventArgs e )
         {
             if( sender is Button _button )
             {
@@ -826,8 +901,10 @@ namespace BudgetExecution
         /// Called when [select button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnSelectButtonClick( object sender, EventArgs e )
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSelectButtonClick( object sender, EventArgs e )
         {
             if( sender is Button _button )
             {
@@ -848,8 +925,10 @@ namespace BudgetExecution
         /// Called when [group button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnGroupButtonClick( object sender, EventArgs e )
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnGroupButtonClick( object sender, EventArgs e )
         {
             if( sender is Button _button )
             {
@@ -870,8 +949,10 @@ namespace BudgetExecution
         /// Called when [close button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnCloseButtonClick( object sender, EventArgs e )
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCloseButtonClick( object sender, EventArgs e )
         {
             if( sender is Button _button )
             {
@@ -893,54 +974,6 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
-            }
-        }
-
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-                SqlQuery = string.Empty;
-                FormFilter = new Dictionary<string, object>( );
-                SelectedColumns = new List<string>( );
-                SelectedFields = new List<string>( );
-                SelectedNumerics = new List<string>( );
-                if( SelectedTable != null )
-                {
-                    ClearButton.Visible = !ClearButton.Visible;
-                    GroupButton.Visible = !GroupButton.Visible;
-                    SelectButton.Visible = !SelectButton.Visible;
-                    TabControl.SelectedTab = FilterTabPage;
-                    FilterTabPage.TabVisible = true;
-                    TableTabPage.TabVisible = false;
-                    Provider = DataModel.Provider;
-                    Source = DataModel.Source;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
-                    PopulateFirstComboBoxItems( );
-                }
-                else
-                {
-                    ClearButton.Visible = !ClearButton.Visible;
-                    GroupButton.Visible = !GroupButton.Visible;
-                    SelectButton.Visible = !SelectButton.Visible;
-                    TabControl.SelectedTab = TableTabPage;
-                    TableTabPage.TabVisible = true;
-                    FilterTabPage.TabVisible = false;
-                    CalendarTabPage.TabVisible = false;
-                    PopulateTableListBoxItems( );
-                    AccessRadioButton.Checked = true;
-                    Provider = Provider.Access;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
             }
         }
 
@@ -1170,7 +1203,8 @@ namespace BudgetExecution
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string GetSqlText( IEnumerable<string> fields, IEnumerable<string> numerics, IDictionary<string, object> where )
+        private string GetSqlText( IEnumerable<string> fields, IEnumerable<string> numerics, 
+            IDictionary<string, object> where )
         {
             if( ( where?.Any( ) == true )
                && ( fields?.Any( ) == true )
@@ -1467,7 +1501,9 @@ namespace BudgetExecution
         /// Called when [right click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The
+        /// <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -1511,7 +1547,8 @@ namespace BudgetExecution
         /// Called when [active tab changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnActiveTabChanged( object sender, EventArgs e )
         {
             try

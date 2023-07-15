@@ -70,7 +70,8 @@ namespace BudgetExecution
             Application.EnableVisualStyles( );
             Application.SetCompatibleTextRenderingDefault( false );
             Windows = new Dictionary<string, Form>( );
-            Application.Run( new MainForm( ) );
+            var _mainForm = new MainForm( );
+            Application.Run( _mainForm );
         }
     }
 }

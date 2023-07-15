@@ -109,6 +109,14 @@ namespace BudgetExecution
         public string SelectedTable { get; set; }
 
         /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
+        public string SqlQuery { get; set; }
+
+        /// <summary>
         /// Gets or sets the form filter.
         /// </summary>
         /// <value>
@@ -253,8 +261,6 @@ namespace BudgetExecution
         {
             FilePath = filePath;
             FileName = Path.GetFileName( filePath );
-            RowCount = 51;
-            ColCount = 9;
             Spreadsheet.Open( filePath );
         }
 
@@ -302,6 +308,23 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Notifies this instance.
+        /// </summary>
+        private void Notify( )
+        {
+            try
+            {
+                var _message = "THIS IS NOT YET IMPLEMENTED!!";
+                var _notify = new Notification( _message );
+                _notify.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Sets the tool strip properties.
         /// </summary>
         private void SetToolStripProperties( )
@@ -323,6 +346,49 @@ namespace BudgetExecution
                 ToolStripTextBox.ForeColor = Color.White;
                 ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
                 ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the table configuration.
+        /// </summary>
+        private void SetTableConfiguration( )
+        {
+            try
+            {
+                if( DataTable != null )
+                {
+                    SetTableProperties( DataTable );
+                }
+                else
+                {
+                    SetTableProperties( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the table properties.
+        /// </summary>
+        private void SetTableProperties( )
+        {
+            try
+            {
+                Spreadsheet?.SetActiveSheet( "Sheet1" );
+                Spreadsheet?.RenameSheet( "Sheet1", "Data" );
+                Spreadsheet?.SetZoomFactor( "Data", 100 );
+                Spreadsheet?.SetGridLinesVisibility( false );
+                var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
+                ToolStripTextBox.Text = $"  Rows: 0  Columns: 0";
+                Spreadsheet?.ActiveGrid?.InvalidateCells( );
             }
             catch( Exception _ex )
             {
@@ -371,6 +437,60 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the worksheet properties.
         /// </summary>
+        private void SetWorksheetConfiguration( )
+        {
+            try
+            {
+                if( DataTable != null )
+                {
+                    SetWorksheetProperties( DataTable );
+                }
+                else
+                {
+                    SetWorksheetProperties( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the worksheet properties.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        private void SetWorksheetProperties( DataTable dataTable )
+        {
+            if( dataTable != null )
+            {
+                try
+                {
+                    RowCount = dataTable.Rows.Count;
+                    ColCount = dataTable.Columns.Count;
+                    Spreadsheet.DisplayAlerts = false;
+                    Spreadsheet.Font = new Font( "Roboto", 10 );
+                    Spreadsheet.AllowCellContextMenu = true;
+                    Spreadsheet.CanApplyTheme = true;
+                    Spreadsheet.CanOverrideStyle = true;
+                    Spreadsheet.Margin = new Padding( 1 );
+                    Spreadsheet.Padding = new Padding( 1 );
+                    Spreadsheet.ForeColor = Color.Black;
+                    Spreadsheet.DefaultColumnCount = RowCount;
+                    Spreadsheet.DefaultRowCount = ColCount;
+                    Spreadsheet.AllowZooming = true;
+                    Spreadsheet.AllowFiltering = true;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the worksheet properties.
+        /// </summary>
         private void SetWorksheetProperties( )
         {
             try
@@ -383,8 +503,6 @@ namespace BudgetExecution
                 Spreadsheet.Margin = new Padding( 1 );
                 Spreadsheet.Padding = new Padding( 1 );
                 Spreadsheet.ForeColor = Color.Black;
-                Spreadsheet.DefaultColumnCount = RowCount;
-                Spreadsheet.DefaultRowCount = ColCount;
                 Spreadsheet.AllowZooming = true;
                 Spreadsheet.AllowFiltering = true;
             }
@@ -397,10 +515,76 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the active grid properties.
         /// </summary>
-        private void SetActiveGridProperties( )
+        private void SetActiveGridConfiguration( )
         {
             try
             {
+                if( DataTable != null )
+                {
+                    SetGridProperties( DataTable );
+                }
+                else
+                {
+                    SetGridProperties( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the grid properties.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        private void SetGridProperties( DataTable dataTable )
+        {
+            if( dataTable != null )
+            {
+                try
+                {
+                    RowCount = dataTable.Rows.Count;
+                    ColCount = dataTable.Columns.Count;
+                    var _blue = Color.FromArgb( 17, 69, 97 );
+                    Spreadsheet.ActiveGrid.ContextMenuStrip = ContextMenu;
+                    Spreadsheet.ActiveGrid.FrozenRows = 3;
+                    Spreadsheet.ActiveGrid.AllowSelection = true;
+                    Spreadsheet.ActiveGrid.CanOverrideStyle = true;
+                    Spreadsheet.ActiveGrid.CanApplyTheme = true;
+                    Spreadsheet.ActiveGrid.BackColor = SystemColors.GradientInactiveCaption;
+                    Spreadsheet.ActiveGrid.MetroScrollBars = true;
+                    Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
+                    Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground = SystemColors.ControlDarkDark;
+                    Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround = _blue;
+                    Spreadsheet.ActiveGrid.MetroColorTable.ArrowPushed = Color.Green;
+                    Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBorderColor = Color.Green;
+                    Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor = Color.LightSteelBlue;
+                    Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal = _blue;
+                    Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed = _blue;
+                    Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
+                    Spreadsheet.ActiveGrid.ForeColor = Color.Black;
+                    Spreadsheet.ActiveGrid.ColumnCount = RowCount;
+                    Spreadsheet.ActiveGrid.RowCount = ColCount;
+                    Spreadsheet.ActiveGrid.DefaultColumnWidth = 120;
+                    Spreadsheet.ActiveGrid.DefaultRowHeight = 22;
+                    Spreadsheet.ActiveGrid.CurrentCellActivated += OnCellEnter;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the grid properties.
+        /// </summary>
+        private void SetGridProperties( )
+        {
+            try
+            {
+                var _blue = Color.FromArgb( 17, 69, 97 );
                 Spreadsheet.ActiveGrid.ContextMenuStrip = ContextMenu;
                 Spreadsheet.ActiveGrid.FrozenRows = 3;
                 Spreadsheet.ActiveGrid.AllowSelection = true;
@@ -409,23 +593,15 @@ namespace BudgetExecution
                 Spreadsheet.ActiveGrid.BackColor = SystemColors.GradientInactiveCaption;
                 Spreadsheet.ActiveGrid.MetroScrollBars = true;
                 Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
-                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground =
-                    SystemColors.ControlDarkDark;
-
-                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround =
-                    Color.FromArgb( 17, 69, 97 );
-
+                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground = SystemColors.ControlDarkDark;
+                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround = _blue;
                 Spreadsheet.ActiveGrid.MetroColorTable.ArrowPushed = Color.Green;
                 Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBorderColor = Color.Green;
-                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor =
-                    Color.LightSteelBlue;
-
-                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal = Color.FromArgb( 17, 69, 97 );
-                Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed = Color.FromArgb( 17, 69, 97 );
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor = Color.LightSteelBlue;
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal = _blue;
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed = _blue;
                 Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
                 Spreadsheet.ActiveGrid.ForeColor = Color.Black;
-                Spreadsheet.ActiveGrid.ColumnCount = ColCount;
-                Spreadsheet.ActiveGrid.RowCount = RowCount;
                 Spreadsheet.ActiveGrid.DefaultColumnWidth = 120;
                 Spreadsheet.ActiveGrid.DefaultRowHeight = 22;
                 Spreadsheet.ActiveGrid.CurrentCellActivated += OnCellEnter;
@@ -443,8 +619,16 @@ namespace BudgetExecution
         {
             try
             {
-                var _group = new FilterDialog( );
-                _group.ShowDialog( this );
+                var _dialog = new FilterDialog( );
+                _dialog.ShowDialog( this );
+                Provider = _dialog.Provider;
+                Source = _dialog.Source;
+                SelectedTable = _dialog?.SelectedTable;
+                DataModel = new DataBuilder( Source, Provider );
+                DataTable = DataModel?.DataTable;
+                SetTableConfiguration( );
+                SetWorksheetConfiguration( );
+                SetActiveGridConfiguration( );
             }
             catch( Exception _ex )
             {
@@ -459,8 +643,34 @@ namespace BudgetExecution
         {
             try
             {
-                var _group = new FilterDialog( BindingSource );
-                _group.ShowDialog( this );
+                if( BindingSource.DataSource != null )
+                {
+                    var _group = new FilterDialog( BindingSource );
+                    _group.ShowDialog( this );
+                    Provider = _group.Provider;
+                    Source = _group.Source;
+                    SelectedTable = _group?.SelectedTable;
+                    FormFilter = _group?.FormFilter;
+                    SelectedColumns = _group?.SelectedColumns;
+                    SelectedFields = _group?.SelectedFields;
+                    SelectedNumerics = _group?.SelectedNumerics;
+                    SqlQuery = _group?.SqlQuery;
+                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                }
+                else
+                {
+                    var _group = new FilterDialog( );
+                    _group.ShowDialog( this );
+                    Provider = _group.Provider;
+                    Source = _group.Source;
+                    SelectedTable = _group?.SelectedTable;
+                    DataModel = new DataBuilder( Source, Provider );
+                }
+
+                DataTable = DataModel?.DataTable;
+                SetTableConfiguration( );
+                SetWorksheetConfiguration( );
+                SetActiveGridConfiguration( );
             }
             catch( Exception _ex )
             {
@@ -626,17 +836,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( DataTable != null )
-                {
-                    SetTableProperties( DataTable );
-                    SetActiveGridProperties( );
-                    SetWorksheetProperties( );
-                }
-                else
-                {
-                    SetActiveGridProperties( );
-                    SetWorksheetProperties( );
-                }
+                SetTableConfiguration( );
+                SetActiveGridConfiguration( );
+                SetWorksheetConfiguration( );
             }
             catch( Exception _ex )
             {

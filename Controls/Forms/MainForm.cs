@@ -70,7 +70,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.MainForm" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.MainForm" /> class.
         /// </summary>
         public MainForm( )
         {
@@ -459,10 +460,8 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    var _path = AppSettings[ "Reports" ];
-                    var _excelDataForm = new ExcelDataForm( _path );
-                    _excelDataForm.Owner = this;
-                    _excelDataForm.Show( );
+                    var _excelDataForm = new ExcelDataForm( );
+                    _excelDataForm.ShowDialog( this );
                     Visible = false;
                 }
             }
