@@ -48,11 +48,11 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.DataGridView" />
-    /// <seealso cref="BudgetExecution.IDataGrid" />
+    /// <seealso cref="T:System.Windows.Forms.DataGridView" />
+    /// <seealso cref="T:BudgetExecution.IDataGrid" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
@@ -93,8 +93,10 @@ namespace BudgetExecution
         /// </value>
         public IDictionary<string, object> DataFilter { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataGrid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataGrid" /> class.
         /// </summary>
         public DataGrid( )
         {
@@ -167,8 +169,10 @@ namespace BudgetExecution
             CellContentClick += OnCellContentClick;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataGrid"/> class.
+        /// Initializes a new instance of the
+        /// see cref="T:BudgetExecution.DataGrid" /> class.
         /// </summary>
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
@@ -179,8 +183,10 @@ namespace BudgetExecution
             Location = location;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataGrid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataGrid" /> class.
         /// </summary>
         /// <param name="dataGrid">The data grid.</param>
         public DataGrid( Control dataGrid )
@@ -188,8 +194,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataGrid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataGrid" /> class.
         /// </summary>
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>

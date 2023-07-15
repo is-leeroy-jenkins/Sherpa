@@ -231,7 +231,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.EditBase" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.EditBase" /> class.
         /// </summary>
         public EditBase( )
         {

@@ -190,7 +190,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.ExcelDataForm" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ExcelDataForm" /> class.
         /// </summary>
         public ExcelDataForm( )
         {
@@ -259,7 +260,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.ExcelDataForm" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ExcelDataForm" /> class.
         /// </summary>
         /// <param name="fileStream">The file stream.</param>
         public ExcelDataForm( Stream fileStream )
@@ -270,7 +272,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.ExcelDataForm" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ExcelDataForm" /> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         public ExcelDataForm( BindingSource bindingSource )
@@ -285,7 +288,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.ExcelDataForm" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ExcelDataForm" /> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
         public ExcelDataForm( DataTable dataTable )

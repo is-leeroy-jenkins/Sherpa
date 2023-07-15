@@ -61,13 +61,14 @@ namespace BudgetExecution
         /// Gets the source.
         /// </summary>
         /// <inheritdoc />
-        public override Source Source { get; set; } = Source.ResponsibilityCenters;
+        public override Source Source { get; set; }
 
         /// <summary>
         /// </summary>
         /// <inheritdoc />
         public override DataRow Record { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the data.
         /// </summary>
@@ -87,6 +88,7 @@ namespace BudgetExecution
         /// </summary>
         public ResponsibilityCenter( )
         {
+            Source = Source.ResponsibilityCenters;
         }
 
         /// <inheritdoc />
@@ -119,8 +121,9 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResponsibilityCenter"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.ResponsibilityCenter" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public ResponsibilityCenter( DataRow dataRow )
@@ -133,8 +136,9 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResponsibilityCenter"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.ResponsibilityCenter" /> class.
         /// </summary>
         /// <param name="rcCode">The rc code.</param>
         public ResponsibilityCenter( string rcCode )

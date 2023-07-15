@@ -1197,6 +1197,7 @@
             visualTextBox3.Multiline = false;
             visualTextBox3.Name = "visualTextBox3";
             visualTextBox3.ReadOnly = false;
+            visualTextBox3.SelectionLength = 0;
             visualTextBox3.Size = new System.Drawing.Size( 278, 25 );
             visualTextBox3.Style = MetroSet_UI.Enums.Style.Custom;
             visualTextBox3.StyleManager = null;
@@ -1524,7 +1525,7 @@
         public Frame Frame46;
         public Frame Frame47;
         public Frame Frame48;
-        public Frame Frame49;
         public ContextMenu ContextMenu;
+        protected Frame Frame49;
     }
 }

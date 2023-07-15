@@ -62,7 +62,8 @@ partial class Frame
         TextBox.Multiline = false;
         TextBox.Name = "TextBox";
         TextBox.ReadOnly = false;
-        TextBox.Size = new System.Drawing.Size( 118, 24 );
+        TextBox.SelectionLength = 0;
+        TextBox.Size = new System.Drawing.Size( 118, 26 );
         TextBox.Style = MetroSet_UI.Enums.Style.Custom;
         TextBox.StyleManager = null;
         TextBox.TabIndex = 0;

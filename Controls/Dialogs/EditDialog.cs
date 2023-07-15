@@ -53,12 +53,12 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref="T:BudgetExecution.EditBase" />
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public partial class EditDialog : EditBase
     {
         /// <summary>
@@ -184,7 +184,7 @@ namespace BudgetExecution
                     var _frames = Frames.ToArray( );
                     for( var _i = 0; _i < _frames.Length; _i++ )
                     {
-                        var _frame = _frames[ _i ];
+                        var _frame = _frames[_i];
                         if( _frame.Index >= _cols.Length )
                         {
                             _frame.Visible = false;
@@ -242,7 +242,7 @@ namespace BudgetExecution
                 var _frames = new List<Frame>( );
                 for( var _i = 0; _i < FrameTable.Controls.Count; _i++ )
                 {
-                    var _control = FrameTable.Controls[ _i ];
+                    var _control = FrameTable.Controls[_i];
                     if( _control.GetType( ) == typeof( Frame ) )
                     {
                         if( _control is Frame _frame )
@@ -268,7 +268,10 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -279,6 +282,7 @@ namespace BudgetExecution
                 SetFrameDockStyle( );
                 BindRecordData( );
                 SetFrameVisibility( );
+                WireUpFrameEvents( );
             }
             catch( Exception _ex )
             {
@@ -407,21 +411,21 @@ namespace BudgetExecution
                     var _cols = Columns.ToArray( );
                     for( var _i = 0; _i < _cols.Length; _i++ )
                     {
-                        _frames[ _i ].Label.Text = _cols[ _i ].SplitPascal( );
-                        var _text = _items[ _i ]?.ToString( );
-                        if( ( Numerics?.Contains( _cols[ _i ] ) == true )
+                        _frames[_i].Label.Text = _cols[_i].SplitPascal( );
+                        var _text = _items[_i]?.ToString( );
+                        if( ( Numerics?.Contains( _cols[_i] ) == true )
                            && !string.IsNullOrEmpty( _text ) )
                         {
                             var _value = double.Parse( _text );
-                            _frames[ _i ].TextBox.Font = new Font( "Roboto", 8 );
-                            _frames[ _i ].TextBox.Text = _value.ToString( "N2" );
-                            _frames[ _i ].TextBox.TextAlign = HorizontalAlignment.Right;
+                            _frames[_i].TextBox.Font = new Font( "Roboto", 8 );
+                            _frames[_i].TextBox.Text = _value.ToString( "N2" );
+                            _frames[_i].TextBox.TextAlign = HorizontalAlignment.Right;
                         }
                         else
                         {
-                            _frames[_i ].TextBox.Font = new Font( "Roboto", 8 );
-                            _frames[ _i ].TextBox.Text = _items[ _i ]?.ToString( );
-                            _frames[ _i ].TextBox.TextAlign = HorizontalAlignment.Left;
+                            _frames[_i].TextBox.Font = new Font( "Roboto", 8 );
+                            _frames[_i].TextBox.Text = _items[_i]?.ToString( );
+                            _frames[_i].TextBox.TextAlign = HorizontalAlignment.Left;
                         }
                     }
                 }
@@ -448,7 +452,76 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
+        /// <summary>
+        /// Wires up frame events.
+        /// </summary>
+        private void WireUpFrameEvents( )
+        {
+            if( Frames?.Any( ) == true )
+            {
+                foreach( var _frame in Frames )
+                {
+                    _frame.TextBox.MouseClick += OnContentClick;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [content click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnContentClick( object sender, MouseEventArgs e )
+        {
+            if( sender is TextBox _currentCell
+               && ( e.Button == MouseButtons.Left )
+               && !string.IsNullOrEmpty( _currentCell.Text ) )
+            {
+                try
+                {
+                    var _value = _currentCell.Text;
+                    if( !string.IsNullOrEmpty( _value )
+                       && ( _value.Length > 25 ) )
+                    {
+                        var _editDialog = new TextDialog( _value );
+                        _editDialog.ShowDialog( this );
+                    }
+                    else if( !string.IsNullOrEmpty( _value )
+                            && ( _value.Length >= 6 )
+                            && ( _value.Length <= 9 )
+                            && ( _value.Substring( 0, 3 ) == "000" ) )
+                    {
+                        var _code = _value.Substring( 4, 2 );
+                        var _dialog = new ProgramProjectDialog( _code );
+                        _dialog.ShowDialog( this );
+                    }
+                    else if( decimal.TryParse( _value, out var _decimal ) )
+                    {
+                        var _double = Convert.ToDouble( _decimal );
+                        var _calculator = new CalculationForm( _double );
+                        _calculator.ShowDialog( this );
+                    }
+                    else if( double.TryParse( _value, out var _double ) )
+                    {
+                        var _calculator = new CalculationForm( _double );
+                        _calculator.ShowDialog( this );
+                    }
+                    else if( DateTime.TryParse( _value, out var _dateTime ) )
+                    {
+                        var _form = new CalendarDialog( _dateTime );
+                        _form.ShowDialog( this );
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
         /// <summary>
         /// Called when [right click].
         /// </summary>

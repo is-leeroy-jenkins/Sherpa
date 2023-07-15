@@ -45,12 +45,12 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.UserControl" />
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    /// <seealso cref="T:System.Windows.Forms.UserControl" />
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public partial class Frame : UserControl
     {
         /// <summary>
@@ -69,8 +69,10 @@ namespace BudgetExecution
         /// </value>
         public BindingSource BindingSource { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Frame"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Frame" /> class.
         /// </summary>
         public Frame( )
         {
@@ -80,7 +82,7 @@ namespace BudgetExecution
             Table.BackColor = Color.Transparent;
             Table.ColumnCount = 1;
             Table.RowCount = 2;
-            Table.Font = new Font( "Roboto", 8 );
+            Table.Font = new Font( "Roboto", 9 );
             Table.ForeColor = Color.White;
 
             // TextBox Properties
@@ -88,13 +90,14 @@ namespace BudgetExecution
             TextBox.BorderColor = Color.FromArgb( 50, 93, 129 );
             TextBox.HoverColor = Color.FromArgb( 0, 120, 212 );
             TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
+            TextBox.Size = new Size( 118, 26 );
         }
 
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        protected static void Fail( Exception ex )
+        protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

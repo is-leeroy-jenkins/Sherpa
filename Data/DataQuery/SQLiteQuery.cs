@@ -47,13 +47,14 @@ namespace BudgetExecution
     using System.Data.OleDb;
     using System.Data.SQLite;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
     using System.Linq;
     using System.Windows.Forms;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.Query" />
+    /// <seealso cref="T:BudgetExecution.Query" />
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class SQLiteQuery : Query
     {
@@ -93,15 +94,19 @@ namespace BudgetExecution
             Blob
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SQLiteQuery" /> class.
         /// </summary>
         public SQLiteQuery( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SQLiteQuery" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         public SQLiteQuery( Source source )
@@ -109,8 +114,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SQLiteQuery" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="updates">The updates.</param>
@@ -119,8 +126,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="dict">The dictionary.</param>
@@ -130,8 +139,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="updates">The updates.</param>
@@ -143,8 +154,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="columns">The columns.</param>
@@ -156,8 +169,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
+        /// Initializes a new instance of the
+        /// see cref="SQLiteQuery"/> class.
         /// </summary>
         /// <param name="sqlStatement">The sqlStatement.</param>
         public SQLiteQuery( ISqlStatement sqlStatement )
@@ -165,8 +180,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="sqlText">The SQL text.</param>
@@ -175,8 +192,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/> class.
         /// </summary>
         /// <param name="fullPath">The fullpath.</param>
         /// <param name="sqlText"></param>
@@ -186,8 +205,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/> class.
         /// </summary>
         /// <param name="fullPath">The fullpath.</param>
         /// <param name="commandType">The commandType.</param>
@@ -206,7 +227,9 @@ namespace BudgetExecution
         {
             try
             {
-                return new SQLiteDataAdapter( command );
+                return command != null
+                    ? new SQLiteDataAdapter( command )
+                    : default( SQLiteDataAdapter );
             }
             catch( Exception _ex )
             {
@@ -216,28 +239,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the data reader.
-        /// </summary>
-        /// <param name="command">The command.</param>
-        /// <returns></returns>
-        public SQLiteDataReader GetDataReader( SQLiteCommand command )
-        {
-            try
-            {
-                return command.ExecuteReader( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( SQLiteDataReader );
-            }
-        }
-
-        /// <summary>
         /// Creates the table from excel file.
         /// </summary>
-        /// <param name="filePath">The file path.</param>
-        /// <param name="sheetName">Name of the sheet.</param>
+        /// <param name="filePath">
+        /// The file path.
+        /// </param>
+        /// <param name="sheetName">
+        /// Name of the sheet.
+        /// </param>
         /// <returns></returns>
         public DataTable CreateTableFromExcelFile( string filePath, ref string sheetName )
         {
@@ -296,9 +305,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _dataSet = new DataSet( );
-                    var _dataTable = new DataTable( );
-                    _dataSet.DataSetName = fileName;
+                    var _name = Path.GetFileNameWithoutExtension( fileName );
+                    var _dataSet = new DataSet( _name );
+                    var _dataTable = new DataTable( sheetName );
+                    _dataSet.DataSetName = _name;
                     _dataTable.TableName = sheetName;
                     _dataSet.Tables.Add( _dataTable );
                     var _sql = $"SELECT * FROM [{sheetName}]";
@@ -329,24 +339,31 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dict">The dictionary.</param>
         /// <returns></returns>
-        public IEnumerable<DbParameter> GetParameters( Dictionary<string, object> dict )
+        public IEnumerable<SQLiteParameter> GetParameters( Dictionary<string, object> dict )
         {
             if( dict?.Any( ) == true )
             {
                 try
                 {
-                    return dict.Keys.Any( )
-                        ? dict.ToSqlDbParameters( Provider )
-                        : default( IEnumerable<DbParameter> );
+                    var _parameters = dict.ToSqlDbParameters( Provider );
+                    var _params = new List<SQLiteParameter>( );
+                    foreach( var _prm in _parameters )
+                    {
+                        _params.Add( _prm as SQLiteParameter );
+                    }
+
+                    return _params?.Any( ) == true
+                        ? _params
+                        : default( IEnumerable<SQLiteParameter> );
                 }
                 catch( Exception _ex )
                 {
                     Fail( _ex );
-                    return default( IEnumerable<DbParameter> );
+                    return default( IEnumerable<SQLiteParameter> );
                 }
             }
 
-            return default( IEnumerable<DbParameter> );
+            return default( IEnumerable<SQLiteParameter> );
         }
 
         /// <summary>
@@ -358,7 +375,9 @@ namespace BudgetExecution
         {
             try
             {
-                return new SQLiteCommandBuilder( adapter );
+                return !string.IsNullOrEmpty( adapter.SelectCommand.CommandText )
+                    ? new SQLiteCommandBuilder( adapter )
+                    : default( SQLiteCommandBuilder );
             }
             catch( SystemException _ex )
             {
@@ -435,19 +454,24 @@ namespace BudgetExecution
                                       [Value] VARCHAR(2048)  NULL )";
 
             using var _connection = new SQLiteConnection( "Data source=databaseFile.db" );
-            var _cmd = new SQLiteCommand( _connection );
+            var _command = new SQLiteCommand( _connection );
             _connection.Open( );
-            _cmd.CommandText = _commandText;
-            _cmd.ExecuteNonQuery( );
-            _cmd.CommandText = "INSERT INTO MyTable ( Key,Value ) VALUES ( 'key one','value one' )";
-            _cmd.ExecuteNonQuery( );
-            _cmd.CommandText = "INSERT INTO MyTable ( Key,Value ) VALUES ( 'key two','value value' )";
-            _cmd.ExecuteNonQuery( );
-            _cmd.CommandText = "SELECT * FROM MyTable";
-            _cmd.ExecuteReader( );
+            _command.CommandText = _commandText;
+            _command.ExecuteNonQuery( );
+            _command.CommandText = 
+                "INSERT INTO MyTable ( Key,Value ) VALUES ( 'key one','value one' )";
+
+            _command.ExecuteNonQuery( );
+            _command.CommandText = 
+                "INSERT INTO MyTable ( Key,Value ) VALUES ( 'key two','value value' )";
+
+            _command.ExecuteNonQuery( );
+            _command.CommandText = "SELECT * FROM MyTable";
+            _command.ExecuteReader( );
             _connection.Close( );
         }
         
+        /// <inheritdoc />
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
         /// </summary>

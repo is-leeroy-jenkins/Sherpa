@@ -348,7 +348,7 @@ namespace BudgetExecution
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        protected void BeginInit( )
+        private protected void BeginInit( )
         {
             _busy = true;
         }
@@ -356,7 +356,7 @@ namespace BudgetExecution
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        protected void EndInit( )
+        private protected void EndInit( )
         {
             _busy = false;
         }
@@ -432,8 +432,8 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the series asynchronous.
         /// </summary>
-        /// <param name="dataTable">The data table.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private Task<IDictionary<string, IEnumerable<string>>> GetSeriesAsync( )
         {
             var _tcs = new TaskCompletionSource<IDictionary<string, IEnumerable<string>>>( );

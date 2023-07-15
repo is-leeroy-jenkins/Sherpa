@@ -104,6 +104,7 @@ namespace BudgetExecution
         /// </value>
         public virtual IDictionary<string, object> Data { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Determines whether the specified element is match.
         /// </summary>
@@ -204,9 +205,10 @@ namespace BudgetExecution
         {
             try
             {
-                return !string.IsNullOrEmpty( primaryKey ) && ( dataRow != null )
-                    ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) ?? "0" )
-                    : -1;
+                return !string.IsNullOrEmpty( primaryKey ) 
+                    && ( dataRow != null )
+                        ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) )
+                        : -1;
             }
             catch( Exception _ex )
             {

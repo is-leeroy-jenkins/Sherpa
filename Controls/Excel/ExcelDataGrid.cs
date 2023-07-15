@@ -47,11 +47,11 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Spreadsheet;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet" />
-    /// <seealso cref="BudgetExecution.ISpreadsheet" />
+    /// <seealso cref="T:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet" />
+    /// <seealso cref="T:BudgetExecution.ISpreadsheet" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class ExcelDataGrid : Spreadsheet, ISpreadsheet
@@ -80,8 +80,10 @@ namespace BudgetExecution
         /// </value>
         public BindingSource BindingSource { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExcelDataGrid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ExcelDataGrid" /> class.
         /// </summary>
         public ExcelDataGrid( )
         {
@@ -107,6 +109,7 @@ namespace BudgetExecution
             AllowFiltering = true;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Opens the file.
         /// </summary>
@@ -122,6 +125,7 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Displays the message box.
         /// </summary>
