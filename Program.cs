@@ -66,7 +66,10 @@ namespace BudgetExecution
         [ STAThread ]
         public static void Main( )
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense( "MjIyNzQwMEAzMjMxMmUzMTJlMzMzNWJ6Ylo1L05Bcm1yT0wyenJGMWhFM21xdUJlUERvMUdOUmE3MnBJUjJFbzQ9;MjIyNzQwMUAzMjMxMmUzMTJlMzMzNUZUcGV5Y29yQkkvS0lNVWl1RTBSTTArYmFJQ3Z0NHZMK1FYYm0zOFo1OGM9" );
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense( "MjIyNzQwMEAzMjMxMmUzMTJlMz" 
+                + "MzNWJ6Ylo1L05Bcm1yT0wyenJGMWhFM21xdUJlUERvMUdOUmE3MnBJUjJFbzQ9;MjIyNzQwMUAzMjMxMmUzMTJlMzMzNUZUcGV5Y29y" 
+                + "QkkvS0lNVWl1RTBSTTArYmFJQ3Z0NHZMK1FYYm0zOFo1OGM9" );
+
             Application.EnableVisualStyles( );
             Application.SetCompatibleTextRenderingDefault( false );
             Windows = new Dictionary<string, Form>( );

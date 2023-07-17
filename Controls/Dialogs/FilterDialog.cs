@@ -560,7 +560,6 @@ namespace BudgetExecution
                         FormFilter.Clear( );
                     }
 
-                    TabControl.SelectedTab = FilterTabPage;
                     SelectedTable = _listBox.SelectedValue?.ToString( );
                     if( !string.IsNullOrEmpty( SelectedTable ) )
                     {
@@ -573,6 +572,7 @@ namespace BudgetExecution
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
                         PopulateFirstComboBoxItems( );
+                        TabControl.SelectedIndex = 1;
                     }
                 }
                 catch( Exception _ex )

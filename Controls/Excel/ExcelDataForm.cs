@@ -629,6 +629,7 @@ namespace BudgetExecution
                 SetTableConfiguration( );
                 SetWorksheetConfiguration( );
                 SetActiveGridConfiguration( );
+                Refresh( );
             }
             catch( Exception _ex )
             {
@@ -643,34 +644,22 @@ namespace BudgetExecution
         {
             try
             {
-                if( BindingSource.DataSource != null )
-                {
-                    var _group = new FilterDialog( BindingSource );
-                    _group.ShowDialog( this );
-                    Provider = _group.Provider;
-                    Source = _group.Source;
-                    SelectedTable = _group?.SelectedTable;
-                    FormFilter = _group?.FormFilter;
-                    SelectedColumns = _group?.SelectedColumns;
-                    SelectedFields = _group?.SelectedFields;
-                    SelectedNumerics = _group?.SelectedNumerics;
-                    SqlQuery = _group?.SqlQuery;
-                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
-                }
-                else
-                {
-                    var _group = new FilterDialog( );
-                    _group.ShowDialog( this );
-                    Provider = _group.Provider;
-                    Source = _group.Source;
-                    SelectedTable = _group?.SelectedTable;
-                    DataModel = new DataBuilder( Source, Provider );
-                }
-
+                var _group = new FilterDialog( BindingSource );
+                _group.ShowDialog( this );
+                Provider = _group.Provider;
+                Source = _group.Source;
+                SelectedTable = _group?.SelectedTable ?? string.Empty;
+                FormFilter = _group?.FormFilter ?? default( IDictionary<string, object> );
+                SqlQuery = _group?.SqlQuery;
+                DataModel = _group?.DataModel;
+                SelectedColumns = _group?.SelectedColumns ?? default( IList<string> );
+                SelectedFields = _group?.SelectedFields ?? default( IList<string> );
+                SelectedNumerics = _group?.SelectedNumerics ?? default( IList<string> );
                 DataTable = DataModel?.DataTable;
                 SetTableConfiguration( );
                 SetWorksheetConfiguration( );
                 SetActiveGridConfiguration( );
+                Refresh( );
             }
             catch( Exception _ex )
             {

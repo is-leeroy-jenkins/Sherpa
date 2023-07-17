@@ -461,7 +461,8 @@ namespace BudgetExecution
                 else
                 {
                     var _excelDataForm = new ExcelDataForm( );
-                    _excelDataForm.ShowDialog( this );
+                    _excelDataForm.Owner = this;
+                    _excelDataForm.Show( );
                     Visible = false;
                 }
             }
