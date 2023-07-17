@@ -120,11 +120,11 @@ namespace BudgetExecution
             SqlCeTile.Click += OnSqlCeTileClick;
             SqlServerTile.Click += OnSqlCeTileClick;
             GuidanceTile.Click += OnGuidanceTileClick;
-            BrowserTile.Click += OnBabyTileClick;
+            BrowserTile.Click += OnBrowserTileClick;
             EdgeTile.Click += OnEdgeTileClick;
             ChromeTile.Click += OnChromeTileClick;
             FirefoxTile.Click += OnFirefoxTileClick;
-            BrowserTile.Click += OnBabyTileClick;
+            BrowserTile.Click += OnBrowserTileClick;
             MessageTile.Click += OnMessageTileClick;
             TestButton.Click += OnTestButtonClick;
             Load += OnLoad;
@@ -315,7 +315,9 @@ namespace BudgetExecution
             try
             {
                 var _guidance = new GuidanceDialog( );
-                _guidance.ShowDialog( this );
+                _guidance.StartPosition = FormStartPosition.CenterScreen;
+                _guidance.Owner = this;
+                _guidance.Show( );
             }
             catch( Exception _ex )
             {
@@ -331,7 +333,9 @@ namespace BudgetExecution
             try
             {
                 var _programs = new ProgramProjectDialog( );
-                _programs.ShowDialog( this );
+                _programs.StartPosition = FormStartPosition.CenterScreen;
+                _programs.Owner = this;
+                _programs.Show( );
             }
             catch( Exception _ex )
             {
@@ -395,6 +399,7 @@ namespace BudgetExecution
             try
             {
                 var _emailDialog = new EmailDialog( );
+                _emailDialog.StartPosition = FormStartPosition.CenterScreen;
                 _emailDialog.Owner = this;
                 _emailDialog.Show( );
             }
@@ -473,6 +478,39 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Opens the SQL editor.
+        /// </summary>
+        private void OpenSqlEditor( )
+        {
+            try
+            {
+                var _forms = Program.Windows.Values;
+                if( Program.Windows.ContainsKey( "SqlEditor" ) )
+                {
+                    var _sqlEditor = (SqlEditor)_forms
+                        ?.Where( f => f.GetType( ) == typeof( SqlEditor ) )
+                        ?.First( );
+
+                    _sqlEditor.Owner = this;
+                    _sqlEditor.Refresh( );
+                    _sqlEditor.Visible = true;
+                    Visible = false;
+                }
+                else
+                {
+                    var _excelDataForm = new SqlEditor( );
+                    _excelDataForm.Owner = this;
+                    _excelDataForm.Show( );
+                    Visible = false;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Opens the WebBrowser.
         /// </summary>
         private void OpenBabyBrowser( )
@@ -526,21 +564,15 @@ namespace BudgetExecution
         /// </summary>
         private void OpenCalculationForm( )
         {
-            var _forms = Program.Windows.Values;
-            if( Program.Windows.ContainsKey( "CalculationForm" ) )
-            {
-                var _calculator = (CalculationForm)_forms
-                    ?.Where( f => f.GetType( ) == typeof( CalculationForm ) )
-                    ?.First( );
-
-                _calculator.Owner = this;
-                _calculator.Visible = true;
-            }
-            else
+            try
             {
                 var _calculator = new CalculationForm( );
                 _calculator.Owner = this;
                 _calculator.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -593,7 +625,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows["MainForm"] = this;
+                Program.Windows[ "MainForm" ] = this;
             }
             catch( Exception _ex )
             {
@@ -637,7 +669,7 @@ namespace BudgetExecution
             }
         }
 
-        private void OnBabyTileClick( object sender, EventArgs e )
+        private void OnBrowserTileClick( object sender, EventArgs e )
         {
             Notify( );
         }
@@ -717,9 +749,16 @@ namespace BudgetExecution
             Notify( );
         }
 
+        /// <summary>
+        /// Called when [SQL editor tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSqlEditorTileClick( object sender, EventArgs e )
         {
-            Notify( );
+            OpenSqlEditor( );
         }
 
         /// <summary>

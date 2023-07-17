@@ -265,6 +265,28 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                CloseButton.HoverText = "Close Window";
+                SelectButton.HoverText = "Open Selected Item";
+                ClearButton.HoverText = "Clear Selected Item";
+                BrowseButton.HoverText = "Search File System";
+                PopulateListBox( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [browse button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -324,28 +346,6 @@ namespace BudgetExecution
                     Minion.RunEdge( SelectedPath );
                     Close( );
                 }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-                CloseButton.HoverText = "Close Window";
-                SelectButton.HoverText = "Open Selected Item";
-                ClearButton.HoverText = "Clear Selected Item";
-                BrowseButton.HoverText = "Search File System";
-                PopulateListBox( );
             }
             catch( Exception _ex )
             {
