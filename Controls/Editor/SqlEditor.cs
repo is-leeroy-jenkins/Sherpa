@@ -238,6 +238,8 @@ namespace BudgetExecution
             CommandComboBox.SelectedValueChanged += OnComboBoxItemSelected;
             QueryListBox.SelectedValueChanged += OnListBoxItemSelected;
             ClearButton.Click += OnClearButtonClick;
+            SaveButton.Click += OnSaveButtonClick;
+            ExecuteButton.Click += OnExecuteButtonClick;
             CloseButton.Click += OnCloseButtonClick;
 
             // Form Even Wiring
@@ -305,17 +307,29 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Notifies this instance.
+        /// </summary>
+        private void Notify( )
+        {
+            try
+            {
+                var _message = "THIS IS NOT IMPLEMENTED!!";
+                var _notification = new Notification( _message );
+                _notification.Show();
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Clears the selections.
         /// </summary>
         private void ClearSelections( )
         {
             try
             {
-                if( !string.IsNullOrEmpty( Editor.Text ) )
-                {
-                    Editor.Text = string.Empty;
-                }
-
                 Commands?.Clear( );
                 Statements?.Clear( );
                 Provider = Provider.Access;
@@ -750,6 +764,7 @@ namespace BudgetExecution
         {
             try
             {
+                TabControl.SelectedIndex = 0;
                 ClearSelections( );
             }
             catch( Exception _ex )
@@ -849,6 +864,35 @@ namespace BudgetExecution
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary>
+        /// Called when [execute button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnExecuteButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [save button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSaveButtonClick( object sender, EventArgs e )
+        {
+            Notify( );
         }
     }
 }
