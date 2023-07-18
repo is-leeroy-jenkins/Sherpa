@@ -40,7 +40,7 @@
 
 using System;
 
-namespace BudgetExecution 
+namespace BudgetExecution
 {
 
     partial class SqlEditor
@@ -72,7 +72,7 @@ namespace BudgetExecution
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
+            var config2 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new Picture( );
             Title = new Label( );
@@ -226,7 +226,7 @@ namespace BudgetExecution
             CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 90, 26 );
+            CloseButton.Size = new System.Drawing.Size( 100, 30 );
             CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
             CloseButton.StyleManager = null;
             CloseButton.TabIndex = 12;
@@ -258,7 +258,7 @@ namespace BudgetExecution
             SaveButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             SaveButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             SaveButton.PressTextColor = System.Drawing.Color.White;
-            SaveButton.Size = new System.Drawing.Size( 90, 26 );
+            SaveButton.Size = new System.Drawing.Size( 100, 30 );
             SaveButton.Style = MetroSet_UI.Enums.Style.Custom;
             SaveButton.StyleManager = null;
             SaveButton.TabIndex = 15;
@@ -290,7 +290,7 @@ namespace BudgetExecution
             ClearButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             ClearButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             ClearButton.PressTextColor = System.Drawing.Color.White;
-            ClearButton.Size = new System.Drawing.Size( 90, 26 );
+            ClearButton.Size = new System.Drawing.Size( 100, 30 );
             ClearButton.Style = MetroSet_UI.Enums.Style.Custom;
             ClearButton.StyleManager = null;
             ClearButton.TabIndex = 14;
@@ -322,7 +322,7 @@ namespace BudgetExecution
             ExecuteButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             ExecuteButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             ExecuteButton.PressTextColor = System.Drawing.Color.White;
-            ExecuteButton.Size = new System.Drawing.Size( 90, 26 );
+            ExecuteButton.Size = new System.Drawing.Size( 100, 30 );
             ExecuteButton.Style = MetroSet_UI.Enums.Style.Custom;
             ExecuteButton.StyleManager = null;
             ExecuteButton.TabIndex = 13;
@@ -354,7 +354,7 @@ namespace BudgetExecution
             BrowseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             BrowseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             BrowseButton.PressTextColor = System.Drawing.Color.White;
-            BrowseButton.Size = new System.Drawing.Size( 90, 26 );
+            BrowseButton.Size = new System.Drawing.Size( 100, 30 );
             BrowseButton.Style = MetroSet_UI.Enums.Style.Custom;
             BrowseButton.StyleManager = null;
             BrowseButton.TabIndex = 16;
@@ -388,7 +388,7 @@ namespace BudgetExecution
             TabControl.ActiveTabColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             TabControl.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.BeforeTouchSize = new System.Drawing.Size( 1338, 614 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 1338, 623 );
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.BorderWidth = 1;
             TabControl.CanOverrideStyle = true;
@@ -403,7 +403,7 @@ namespace BudgetExecution
             TabControl.Location = new System.Drawing.Point( 0, 32 );
             TabControl.Margin = new System.Windows.Forms.Padding( 1 );
             TabControl.Name = "TabControl";
-            TabControl.Size = new System.Drawing.Size( 1338, 614 );
+            TabControl.Size = new System.Drawing.Size( 1338, 623 );
             TabControl.TabIndex = 13;
             TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -434,7 +434,7 @@ namespace BudgetExecution
             TabPage.Name = "TabPage";
             TabPage.Padding = new System.Windows.Forms.Padding( 1 );
             TabPage.ShowCloseButton = true;
-            TabPage.Size = new System.Drawing.Size( 1338, 592 );
+            TabPage.Size = new System.Drawing.Size( 1338, 601 );
             TabPage.TabBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             TabPage.TabForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             TabPage.TabIndex = 8;
@@ -496,7 +496,7 @@ namespace BudgetExecution
             Editor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(   255  ,   238  ,   98   );
             Editor.CodeSnipptSize = new System.Drawing.Size( 100, 100 );
             Editor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            Editor.Configurator = config1;
+            Editor.Configurator = config2;
             Editor.ContextChoiceBackColor = System.Drawing.SystemColors.ControlLight;
             Editor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(   233  ,   166  ,   50   );
             Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
