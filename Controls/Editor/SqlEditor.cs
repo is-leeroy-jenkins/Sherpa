@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Enumerations
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
 //     Created:                 07-17-2023
 // 
@@ -50,21 +50,19 @@
 // </summary>
 // ******************************************************************************************
 
-namespace BudgetExecution
+using System;
+
+namespace BudgetExecution 
 {
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Edit;
-    using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
     using CheckState = MetroSet_UI.Enums.CheckState;
 
@@ -152,6 +150,12 @@ namespace BudgetExecution
         /// </value>
         public string DatabaseDirectory { get; set; } = @"Data\Database";
 
+        /// <summary>
+        /// Gets or sets the prefix.
+        /// </summary>
+        /// <value>
+        /// The prefix.
+        /// </value>
         public string Prefix { get; set; } = @"C:\Users\terry\source\repos\BudgetExecution\";
 
         /// <summary>
@@ -241,11 +245,9 @@ namespace BudgetExecution
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );
-
-            // Set PictureBox Size
             PictureBox.Size = new Size( 40, 20 );
 
-            // Event Wiring
+            // Control Event Wiring
             AccessRadioButton.Click += OnRadioButtonChecked;
             SQLiteRadioButton.Click += OnRadioButtonChecked;
             SqlCeRadioButton.Click += OnRadioButtonChecked;
@@ -254,7 +256,11 @@ namespace BudgetExecution
             QueryListBox.SelectedValueChanged += OnListBoxItemSelected;
             ClearButton.Click += OnClearButtonClick;
             CloseButton.Click += OnCloseButtonClick;
+
+            // Form Even Wiring
             Load += OnLoad;
+            Closing += OnClosing;
+            MouseClick += OnRightClick;
         }
 
         /// <summary>

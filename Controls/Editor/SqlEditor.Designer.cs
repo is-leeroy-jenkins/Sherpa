@@ -38,8 +38,11 @@
 // </summary>
 // ******************************************************************************************
 
-namespace BudgetExecution
+using System;
+
+namespace BudgetExecution 
 {
+
     partial class SqlEditor
     {
         /// <summary>

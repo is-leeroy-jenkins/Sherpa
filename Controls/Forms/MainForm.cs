@@ -38,15 +38,16 @@
 // </summary>
 // ******************************************************************************************
 
+
 namespace BudgetExecution
 {
-    using System;
+    using Syncfusion.Windows.Forms;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    using Syncfusion.Windows.Forms;
+    using System;
     using static System.Configuration.ConfigurationManager;
 
     /// <summary>
@@ -71,7 +72,7 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MainForm" /> class.
+        /// <see cref="T:BudgetExecution.Controls.Forms.MainForm" /> class.
         /// </summary>
         public MainForm( )
         {

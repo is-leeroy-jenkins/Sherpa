@@ -272,7 +272,7 @@
     <Compile Update="Data\Adapter\AdapterFactory.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="SqlEditor.cs">
+    <Compile Update="Controls\Editor\SqlEditor.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
