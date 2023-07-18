@@ -518,7 +518,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _browser = new WebBrowser( );
+                _browser.Show( );
             }
             catch( Exception _ex )
             {
@@ -670,9 +671,15 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [browser tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnBrowserTileClick( object sender, EventArgs e )
         {
-            Notify( );
+            Minion.RunBudgetBrowser( );
         }
 
         /// <summary>
