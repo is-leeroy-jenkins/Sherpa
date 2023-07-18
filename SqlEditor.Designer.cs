@@ -69,14 +69,17 @@ namespace BudgetExecution
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var config2 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
+            var config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new Picture( );
             Title = new Label( );
             ButtonTable = new System.Windows.Forms.TableLayoutPanel( );
             CloseButton = new Button( );
-            ExecuteButton = new Button( );
+            SaveButton = new Button( );
             ClearButton = new Button( );
+            ExecuteButton = new Button( );
+            BrowseButton = new Button( );
+            ToolTip = new SmallTip( );
             TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv( );
             TabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             EditorTable = new HeaderPanel( );
@@ -91,13 +94,12 @@ namespace BudgetExecution
             SqlCeRadioButton = new RadioButton( );
             CommandTable = new HeaderPanel( );
             CommandPanel = new Layout( );
-            SqlComboBox = new ComboBox( );
+            CommandComboBox = new ComboBox( );
             SqlStatementTable = new HeaderPanel( );
             TextPanel = new Layout( );
-            SqlListBox = new ListBox( );
+            QueryListBox = new ListBox( );
             ContextMenu = new ContextMenu( );
             BindingSource = new System.Windows.Forms.BindingSource( components );
-            ToolTip = new SmallTip( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             ButtonTable.SuspendLayout( );
@@ -186,14 +188,16 @@ namespace BudgetExecution
             ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
             ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
             ButtonTable.Controls.Add( CloseButton, 9, 0 );
-            ButtonTable.Controls.Add( ExecuteButton, 7, 0 );
+            ButtonTable.Controls.Add( SaveButton, 7, 0 );
             ButtonTable.Controls.Add( ClearButton, 5, 0 );
+            ButtonTable.Controls.Add( ExecuteButton, 3, 0 );
+            ButtonTable.Controls.Add( BrowseButton, 1, 0 );
             ButtonTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ButtonTable.Location = new System.Drawing.Point( 0, 654 );
+            ButtonTable.Location = new System.Drawing.Point( 0, 656 );
             ButtonTable.Name = "ButtonTable";
             ButtonTable.RowCount = 1;
             ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-            ButtonTable.Size = new System.Drawing.Size( 1338, 38 );
+            ButtonTable.Size = new System.Drawing.Size( 1338, 36 );
             ButtonTable.TabIndex = 12;
             // 
             // CloseButton
@@ -207,19 +211,19 @@ namespace BudgetExecution
             CloseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
             CloseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            CloseButton.HoverText = null;
+            CloseButton.HoverText = "Close Editor";
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
             CloseButton.Location = new System.Drawing.Point( 1200, 3 );
             CloseButton.Name = "CloseButton";
             CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            CloseButton.NormalColor = System.Drawing.Color.Transparent;
+            CloseButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             CloseButton.NormalTextColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
             CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
             CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 90, 30 );
+            CloseButton.Size = new System.Drawing.Size( 90, 26 );
             CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
             CloseButton.StyleManager = null;
             CloseButton.TabIndex = 12;
@@ -228,37 +232,37 @@ namespace BudgetExecution
             CloseButton.ThemeName = "Budget Execution";
             CloseButton.ToolTip = null;
             // 
-            // ExecuteButton
+            // SaveButton
             // 
-            ExecuteButton.BindingSource = null;
-            ExecuteButton.DataFilter = null;
-            ExecuteButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            ExecuteButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            ExecuteButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            ExecuteButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ExecuteButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ExecuteButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            ExecuteButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            ExecuteButton.HoverText = null;
-            ExecuteButton.HoverTextColor = System.Drawing.Color.White;
-            ExecuteButton.IsDerivedStyle = true;
-            ExecuteButton.Location = new System.Drawing.Point( 934, 3 );
-            ExecuteButton.Name = "ExecuteButton";
-            ExecuteButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            ExecuteButton.NormalColor = System.Drawing.Color.Transparent;
-            ExecuteButton.NormalTextColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            ExecuteButton.Padding = new System.Windows.Forms.Padding( 1 );
-            ExecuteButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ExecuteButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ExecuteButton.PressTextColor = System.Drawing.Color.White;
-            ExecuteButton.Size = new System.Drawing.Size( 90, 30 );
-            ExecuteButton.Style = MetroSet_UI.Enums.Style.Custom;
-            ExecuteButton.StyleManager = null;
-            ExecuteButton.TabIndex = 13;
-            ExecuteButton.Text = "Execute";
-            ExecuteButton.ThemeAuthor = "Terry D. Eppler";
-            ExecuteButton.ThemeName = "Budget Execution";
-            ExecuteButton.ToolTip = null;
+            SaveButton.BindingSource = null;
+            SaveButton.DataFilter = null;
+            SaveButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            SaveButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            SaveButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            SaveButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SaveButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            SaveButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            SaveButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            SaveButton.HoverText = "Save Changes";
+            SaveButton.HoverTextColor = System.Drawing.Color.White;
+            SaveButton.IsDerivedStyle = true;
+            SaveButton.Location = new System.Drawing.Point( 934, 3 );
+            SaveButton.Name = "SaveButton";
+            SaveButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            SaveButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            SaveButton.NormalTextColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            SaveButton.Padding = new System.Windows.Forms.Padding( 1 );
+            SaveButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            SaveButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            SaveButton.PressTextColor = System.Drawing.Color.White;
+            SaveButton.Size = new System.Drawing.Size( 90, 26 );
+            SaveButton.Style = MetroSet_UI.Enums.Style.Custom;
+            SaveButton.StyleManager = null;
+            SaveButton.TabIndex = 15;
+            SaveButton.Text = "Save";
+            SaveButton.ThemeAuthor = "Terry D. Eppler";
+            SaveButton.ThemeName = "Budget Execution";
+            SaveButton.ToolTip = null;
             // 
             // ClearButton
             // 
@@ -271,19 +275,19 @@ namespace BudgetExecution
             ClearButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             ClearButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
             ClearButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            ClearButton.HoverText = null;
+            ClearButton.HoverText = "Reset Changes";
             ClearButton.HoverTextColor = System.Drawing.Color.White;
             ClearButton.IsDerivedStyle = true;
             ClearButton.Location = new System.Drawing.Point( 668, 3 );
             ClearButton.Name = "ClearButton";
             ClearButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            ClearButton.NormalColor = System.Drawing.Color.Transparent;
+            ClearButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
             ClearButton.NormalTextColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
             ClearButton.Padding = new System.Windows.Forms.Padding( 1 );
             ClearButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             ClearButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             ClearButton.PressTextColor = System.Drawing.Color.White;
-            ClearButton.Size = new System.Drawing.Size( 96, 30 );
+            ClearButton.Size = new System.Drawing.Size( 90, 26 );
             ClearButton.Style = MetroSet_UI.Enums.Style.Custom;
             ClearButton.StyleManager = null;
             ClearButton.TabIndex = 14;
@@ -291,6 +295,90 @@ namespace BudgetExecution
             ClearButton.ThemeAuthor = "Terry D. Eppler";
             ClearButton.ThemeName = "Budget Execution";
             ClearButton.ToolTip = null;
+            // 
+            // ExecuteButton
+            // 
+            ExecuteButton.BindingSource = null;
+            ExecuteButton.DataFilter = null;
+            ExecuteButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            ExecuteButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            ExecuteButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            ExecuteButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ExecuteButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ExecuteButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            ExecuteButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            ExecuteButton.HoverText = "Execute Query";
+            ExecuteButton.HoverTextColor = System.Drawing.Color.White;
+            ExecuteButton.IsDerivedStyle = true;
+            ExecuteButton.Location = new System.Drawing.Point( 402, 3 );
+            ExecuteButton.Name = "ExecuteButton";
+            ExecuteButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            ExecuteButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            ExecuteButton.NormalTextColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            ExecuteButton.Padding = new System.Windows.Forms.Padding( 1 );
+            ExecuteButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ExecuteButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ExecuteButton.PressTextColor = System.Drawing.Color.White;
+            ExecuteButton.Size = new System.Drawing.Size( 90, 26 );
+            ExecuteButton.Style = MetroSet_UI.Enums.Style.Custom;
+            ExecuteButton.StyleManager = null;
+            ExecuteButton.TabIndex = 13;
+            ExecuteButton.Text = "Execute";
+            ExecuteButton.ThemeAuthor = "Terry D. Eppler";
+            ExecuteButton.ThemeName = "Budget Execution";
+            ExecuteButton.ToolTip = null;
+            // 
+            // BrowseButton
+            // 
+            BrowseButton.BindingSource = null;
+            BrowseButton.DataFilter = null;
+            BrowseButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            BrowseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            BrowseButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            BrowseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            BrowseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            BrowseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            BrowseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            BrowseButton.HoverText = "Browse for file";
+            BrowseButton.HoverTextColor = System.Drawing.Color.White;
+            BrowseButton.IsDerivedStyle = true;
+            BrowseButton.Location = new System.Drawing.Point( 136, 3 );
+            BrowseButton.Name = "BrowseButton";
+            BrowseButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            BrowseButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            BrowseButton.NormalTextColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            BrowseButton.Padding = new System.Windows.Forms.Padding( 1 );
+            BrowseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            BrowseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            BrowseButton.PressTextColor = System.Drawing.Color.White;
+            BrowseButton.Size = new System.Drawing.Size( 90, 26 );
+            BrowseButton.Style = MetroSet_UI.Enums.Style.Custom;
+            BrowseButton.StyleManager = null;
+            BrowseButton.TabIndex = 16;
+            BrowseButton.Text = "Browse";
+            BrowseButton.ThemeAuthor = "Terry D. Eppler";
+            BrowseButton.ThemeName = "Budget Execution";
+            BrowseButton.ToolTip = ToolTip;
+            // 
+            // ToolTip
+            // 
+            ToolTip.AutoPopDelay = 5000;
+            ToolTip.BackColor = System.Drawing.Color.FromArgb(   5  ,   5  ,   5   );
+            ToolTip.BindingSource = null;
+            ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
+            ToolTip.ForeColor = System.Drawing.Color.White;
+            ToolTip.InitialDelay = 500;
+            ToolTip.IsDerivedStyle = true;
+            ToolTip.Name = null;
+            ToolTip.OwnerDraw = true;
+            ToolTip.ReshowDelay = 100;
+            ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
+            ToolTip.StyleManager = null;
+            ToolTip.ThemeAuthor = "Terry D. Eppler";
+            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            ToolTip.TipText = null;
+            ToolTip.TipTitle = null;
             // 
             // TabControl
             // 
@@ -405,7 +493,7 @@ namespace BudgetExecution
             Editor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(   255  ,   238  ,   98   );
             Editor.CodeSnipptSize = new System.Drawing.Size( 100, 100 );
             Editor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            Editor.Configurator = config2;
+            Editor.Configurator = config1;
             Editor.ContextChoiceBackColor = System.Drawing.SystemColors.ControlLight;
             Editor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(   233  ,   166  ,   50   );
             Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
@@ -653,7 +741,7 @@ namespace BudgetExecution
             CommandPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
             CommandPanel.BorderThickness = 1;
             CommandPanel.Children = null;
-            CommandPanel.Controls.Add( SqlComboBox );
+            CommandPanel.Controls.Add( CommandComboBox );
             CommandPanel.DataFilter = null;
             CommandPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             CommandPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -671,39 +759,39 @@ namespace BudgetExecution
             CommandPanel.ThemeName = "Budget Execution";
             CommandPanel.ToolTip = null;
             // 
-            // SqlComboBox
+            // CommandComboBox
             // 
-            SqlComboBox.AllowDrop = true;
-            SqlComboBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
-            SqlComboBox.ArrowColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SqlComboBox.BackColor = System.Drawing.Color.Transparent;
-            SqlComboBox.BackgroundColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
-            SqlComboBox.BindingSource = null;
-            SqlComboBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
-            SqlComboBox.CausesValidation = false;
-            SqlComboBox.DataFilter = null;
-            SqlComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
-            SqlComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
-            SqlComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            SqlComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            SqlComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            SqlComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            SqlComboBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            SqlComboBox.FormattingEnabled = true;
-            SqlComboBox.HoverText = null;
-            SqlComboBox.IsDerivedStyle = true;
-            SqlComboBox.ItemHeight = 24;
-            SqlComboBox.Location = new System.Drawing.Point( 32, 28 );
-            SqlComboBox.Name = "SqlComboBox";
-            SqlComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SqlComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            SqlComboBox.Size = new System.Drawing.Size( 284, 30 );
-            SqlComboBox.Style = MetroSet_UI.Enums.Style.Custom;
-            SqlComboBox.StyleManager = null;
-            SqlComboBox.TabIndex = 0;
-            SqlComboBox.ThemeAuthor = "Terry D. Eppler";
-            SqlComboBox.ThemeName = "Budget Execution";
-            SqlComboBox.ToolTip = null;
+            CommandComboBox.AllowDrop = true;
+            CommandComboBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            CommandComboBox.ArrowColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CommandComboBox.BackColor = System.Drawing.Color.Transparent;
+            CommandComboBox.BackgroundColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
+            CommandComboBox.BindingSource = null;
+            CommandComboBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            CommandComboBox.CausesValidation = false;
+            CommandComboBox.DataFilter = null;
+            CommandComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
+            CommandComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
+            CommandComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
+            CommandComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            CommandComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            CommandComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            CommandComboBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CommandComboBox.FormattingEnabled = true;
+            CommandComboBox.HoverText = null;
+            CommandComboBox.IsDerivedStyle = true;
+            CommandComboBox.ItemHeight = 24;
+            CommandComboBox.Location = new System.Drawing.Point( 32, 28 );
+            CommandComboBox.Name = "CommandComboBox";
+            CommandComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CommandComboBox.SelectedItemForeColor = System.Drawing.Color.White;
+            CommandComboBox.Size = new System.Drawing.Size( 284, 30 );
+            CommandComboBox.Style = MetroSet_UI.Enums.Style.Custom;
+            CommandComboBox.StyleManager = null;
+            CommandComboBox.TabIndex = 0;
+            CommandComboBox.ThemeAuthor = "Terry D. Eppler";
+            CommandComboBox.ThemeName = "Budget Execution";
+            CommandComboBox.ToolTip = null;
             // 
             // SqlStatementTable
             // 
@@ -732,7 +820,7 @@ namespace BudgetExecution
             TextPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
             TextPanel.BorderThickness = 1;
             TextPanel.Children = null;
-            TextPanel.Controls.Add( SqlListBox );
+            TextPanel.Controls.Add( QueryListBox );
             TextPanel.DataFilter = null;
             TextPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             TextPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -750,41 +838,41 @@ namespace BudgetExecution
             TextPanel.ThemeName = "Budget Execution";
             TextPanel.ToolTip = null;
             // 
-            // SqlListBox
+            // QueryListBox
             // 
-            SqlListBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
-            SqlListBox.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            SqlListBox.BindingSource = null;
-            SqlListBox.BorderColor = System.Drawing.Color.FromArgb(   55  ,   55  ,   55   );
-            SqlListBox.DataFilter = null;
-            SqlListBox.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            SqlListBox.DisabledForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            SqlListBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            SqlListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            SqlListBox.HoveredItemColor = System.Drawing.Color.White;
-            SqlListBox.HoverText = null;
-            SqlListBox.IsDerivedStyle = true;
-            SqlListBox.ItemHeight = 28;
-            SqlListBox.Location = new System.Drawing.Point( 32, 17 );
-            SqlListBox.Margin = new System.Windows.Forms.Padding( 1 );
-            SqlListBox.MultiSelect = true;
-            SqlListBox.Name = "SqlListBox";
-            SqlListBox.Padding = new System.Windows.Forms.Padding( 1 );
-            SqlListBox.SelectedIndex = -1;
-            SqlListBox.SelectedItem = null;
-            SqlListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SqlListBox.SelectedItemColor = System.Drawing.Color.White;
-            SqlListBox.SelectedText = null;
-            SqlListBox.SelectedValue = null;
-            SqlListBox.ShowBorder = false;
-            SqlListBox.ShowScrollBar = false;
-            SqlListBox.Size = new System.Drawing.Size( 284, 256 );
-            SqlListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            SqlListBox.StyleManager = null;
-            SqlListBox.TabIndex = 0;
-            SqlListBox.ThemeAuthor = "Terry D. Eppler";
-            SqlListBox.ThemeName = "Budget Execution";
-            SqlListBox.ToolTip = null;
+            QueryListBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            QueryListBox.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            QueryListBox.BindingSource = null;
+            QueryListBox.BorderColor = System.Drawing.Color.FromArgb(   55  ,   55  ,   55   );
+            QueryListBox.DataFilter = null;
+            QueryListBox.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            QueryListBox.DisabledForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            QueryListBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            QueryListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            QueryListBox.HoveredItemColor = System.Drawing.Color.White;
+            QueryListBox.HoverText = null;
+            QueryListBox.IsDerivedStyle = true;
+            QueryListBox.ItemHeight = 28;
+            QueryListBox.Location = new System.Drawing.Point( 32, 17 );
+            QueryListBox.Margin = new System.Windows.Forms.Padding( 1 );
+            QueryListBox.MultiSelect = true;
+            QueryListBox.Name = "QueryListBox";
+            QueryListBox.Padding = new System.Windows.Forms.Padding( 1 );
+            QueryListBox.SelectedIndex = -1;
+            QueryListBox.SelectedItem = null;
+            QueryListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            QueryListBox.SelectedItemColor = System.Drawing.Color.White;
+            QueryListBox.SelectedText = null;
+            QueryListBox.SelectedValue = null;
+            QueryListBox.ShowBorder = false;
+            QueryListBox.ShowScrollBar = false;
+            QueryListBox.Size = new System.Drawing.Size( 284, 256 );
+            QueryListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            QueryListBox.StyleManager = null;
+            QueryListBox.TabIndex = 0;
+            QueryListBox.ThemeAuthor = "Terry D. Eppler";
+            QueryListBox.ThemeName = "Budget Execution";
+            QueryListBox.ToolTip = null;
             // 
             // ContextMenu
             // 
@@ -799,26 +887,6 @@ namespace BudgetExecution
             ContextMenu.StyleManager = null;
             ContextMenu.ThemeAuthor = "Terry Eppler";
             ContextMenu.ThemeName = "Budget Execution";
-            // 
-            // ToolTip
-            // 
-            ToolTip.AutoPopDelay = 5000;
-            ToolTip.BackColor = System.Drawing.Color.FromArgb(   5  ,   5  ,   5   );
-            ToolTip.BindingSource = null;
-            ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
-            ToolTip.ForeColor = System.Drawing.Color.White;
-            ToolTip.InitialDelay = 500;
-            ToolTip.IsDerivedStyle = true;
-            ToolTip.Name = null;
-            ToolTip.OwnerDraw = true;
-            ToolTip.ReshowDelay = 100;
-            ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
-            ToolTip.StyleManager = null;
-            ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
-            ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            ToolTip.TipText = null;
-            ToolTip.TipTitle = null;
             // 
             // SqlEditor
             // 
@@ -879,12 +947,14 @@ namespace BudgetExecution
         public RadioButton SqlCeRadioButton;
         public HeaderPanel CommandTable;
         public Layout CommandPanel;
-        public ComboBox SqlComboBox;
+        public ComboBox CommandComboBox;
         public HeaderPanel SqlStatementTable;
         public Layout TextPanel;
-        public ListBox SqlListBox;
+        public ListBox QueryListBox;
         public ContextMenu ContextMenu;
         public System.Windows.Forms.BindingSource BindingSource;
         public SmallTip ToolTip;
+        public Button SaveButton;
+        public Button BrowseButton;
     }
 }

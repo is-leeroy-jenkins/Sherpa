@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
 //     Created:                 07-17-2023
 // 
@@ -31,7 +31,12 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   SqlEditor.cs
+// </summary>
+// ******************************************************************************************
 
 // </copyright>
 // <summary>
@@ -145,7 +150,9 @@ namespace BudgetExecution
         /// <value>
         /// The database directory.
         /// </value>
-        public string DatabaseDirectory { get; set; }
+        public string DatabaseDirectory { get; set; } = @"Data\Database";
+
+        public string Prefix { get; set; } = @"C:\Users\terry\source\repos\BudgetExecution\";
 
         /// <summary>
         /// Gets or sets the selected command.
@@ -235,31 +242,72 @@ namespace BudgetExecution
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );
 
+            // Set PictureBox Size
+            PictureBox.Size = new Size( 40, 20 );
+
             // Event Wiring
             AccessRadioButton.Click += OnRadioButtonChecked;
             SQLiteRadioButton.Click += OnRadioButtonChecked;
             SqlCeRadioButton.Click += OnRadioButtonChecked;
             SqlServerRadioButton.Click += OnRadioButtonChecked;
-            SqlComboBox.SelectedValueChanged += OnComboBoxItemSelected;
-            SqlListBox.SelectedValueChanged += OnListBoxItemSelected;
+            CommandComboBox.SelectedValueChanged += OnComboBoxItemSelected;
+            QueryListBox.SelectedValueChanged += OnListBoxItemSelected;
             ClearButton.Click += OnClearButtonClick;
             CloseButton.Click += OnCloseButtonClick;
             Load += OnLoad;
         }
 
         /// <summary>
-        /// Called when [load].
+        /// Sets the editor configuration.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnLoad( object sender, EventArgs e )
+        private void InitEditor( )
         {
             try
             {
-                AccessRadioButton.Checked = true;
-                Commands = new List<string>( );
-                Statements = new Dictionary<string, object>( );
-                SetEditorConfiguration( );
+                Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                Editor.AlwaysShowScrollers = true;
+                Editor.BackColor = SystemColors.ControlLight;
+                Editor.ForeColor = Color.Black;
+                Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
+                Editor.BorderStyle = BorderStyle.FixedSingle;
+                Editor.CanOverrideStyle = true;
+                Editor.CanApplyTheme = true;
+                Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceForeColor = Color.Black;
+                Editor.ContextChoiceBackColor = SystemColors.ControlLight;
+                Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.ContextPromptBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+                Editor.ContextTooltipBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+                Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.EndOfLineBackColor = SystemColors.ControlLight;
+                Editor.EndOfLineForeColor = SystemColors.ControlLight;
+                Editor.HighlightCurrentLine = true;
+                Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
+                Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
+                Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
+                Editor.Font = new Font( "Roboto", 12 );
+                Editor.LineNumbersColor = Color.Black;
+                Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
+                Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
+                Editor.ScrollColorScheme = Office2007ColorScheme.Black;
+                Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
+                Editor.ShowEndOfLine = false;
+                Editor.Style = EditControlStyle.Office2016Black;
+                Editor.TabSize = 4;
+                Editor.TextAreaWidth = 400;
+                Editor.WordWrap = true;
+                Editor.WordWrapColumn = 100;
+                Editor.Dock = DockStyle.None;
+                Editor.Anchor = AnchorStyles.Top
+                    | AnchorStyles.Bottom
+                    | AnchorStyles.Left
+                    | AnchorStyles.Right;
             }
             catch( Exception _ex )
             {
@@ -398,38 +446,38 @@ namespace BudgetExecution
                 try
                 {
                     var _commands = Enum.GetNames( typeof( SQL ) );
-                    SqlComboBox.Items.Clear( );
-                    SqlListBox.Items.Clear( );
+                    CommandComboBox.Items.Clear( );
+                    QueryListBox.Items.Clear( );
                     for( var _i = 0; _i < list.Count; _i++ )
                     {
                         if( _commands.Contains( list[ _i ] )
                            && list[ _i ].Equals( $"{SQL.CREATEDATABASE}" ) )
                         {
-                            SqlComboBox.Items.Add( "CREATE DATABASE" );
+                            CommandComboBox.Items.Add( "CREATE DATABASE" );
                         }
                         else if( _commands.Contains( list[ _i ] )
                                 && list[ _i ].Equals( $"{SQL.CREATETABLE}" ) )
                         {
-                            SqlComboBox.Items.Add( "CREATE TABLE" );
+                            CommandComboBox.Items.Add( "CREATE TABLE" );
                         }
                         else if( _commands.Contains( list[ _i ] )
                                 && list[ _i ].Equals( $"{SQL.ALTERTABLE}" ) )
                         {
-                            SqlComboBox.Items.Add( "ALTER TABLE" );
+                            CommandComboBox.Items.Add( "ALTER TABLE" );
                         }
                         else if( _commands.Contains( list[ _i ] )
                                 && list[ _i ].Equals( $"{SQL.CREATEVIEW}" ) )
                         {
-                            SqlComboBox.Items.Add( "CREATE VIEW" );
+                            CommandComboBox.Items.Add( "CREATE VIEW" );
                         }
                         else if( _commands.Contains( list[ _i ] )
                                 && list[ _i ].Equals( $"{SQL.SELECTALL}" ) )
                         {
-                            SqlComboBox.Items.Add( "SELECT ALL" );
+                            CommandComboBox.Items.Add( "SELECT ALL" );
                         }
                         else if( _commands.Contains( list[ _i ] ) )
                         {
-                            SqlComboBox.Items.Add( list[ _i ] );
+                            CommandComboBox.Items.Add( list[ _i ] );
                         }
                     }
                 }
@@ -451,7 +499,10 @@ namespace BudgetExecution
             {
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
-                    var _path = DatabaseDirectory + @$"\{provider}\DataModels\";
+                    var _path = Prefix 
+                        + DatabaseDirectory 
+                        + @$"\{provider}\DataModels\";
+
                     var _names = Directory.GetDirectories( _path );
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
@@ -488,7 +539,10 @@ namespace BudgetExecution
             {
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
-                    var _path = DatabaseDirectory + @$"\{provider}\DataModels\";
+                    var _path = Prefix 
+                        + DatabaseDirectory 
+                        + @$"\{provider}\DataModels\";
+
                     var _names = Directory.GetDirectories( _path );
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
@@ -532,6 +586,26 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                Commands = CreateCommandList( Provider );
+                Statements = new Dictionary<string, object>( );
+                InitEditor( );
+                AccessRadioButton.Checked = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [RadioButton checked].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -557,64 +631,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the editor configuration.
-        /// </summary>
-        private void SetEditorConfiguration( )
-        {
-            try
-            {
-                Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                Editor.AlwaysShowScrollers = true;
-                Editor.BackColor = SystemColors.ControlLight;
-                Editor.ForeColor = Color.Black;
-                Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
-                Editor.BorderStyle = BorderStyle.FixedSingle;
-                Editor.CanOverrideStyle = true;
-                Editor.CanApplyTheme = true;
-                Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
-                Editor.ContextChoiceFont = new Font( "Roboto", 8 );
-                Editor.ContextChoiceForeColor = Color.Black;
-                Editor.ContextChoiceBackColor = SystemColors.ControlLight;
-                Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
-                Editor.ContextPromptBackgroundBrush =
-                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-
-                Editor.ContextTooltipBackgroundBrush =
-                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-
-                Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
-                Editor.EndOfLineBackColor = SystemColors.ControlLight;
-                Editor.EndOfLineForeColor = SystemColors.ControlLight;
-                Editor.HighlightCurrentLine = true;
-                Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
-                Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
-                Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
-                Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
-                Editor.Font = new Font( "Roboto", 12 );
-                Editor.LineNumbersColor = Color.Black;
-                Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
-                Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
-                Editor.ScrollColorScheme = Office2007ColorScheme.Black;
-                Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
-                Editor.ShowEndOfLine = false;
-                Editor.Style = EditControlStyle.Office2016Black;
-                Editor.TabSize = 4;
-                Editor.TextAreaWidth = 400;
-                Editor.WordWrap = true;
-                Editor.WordWrapColumn = 100;
-                Editor.Dock = DockStyle.None;
-                Editor.Anchor = AnchorStyles.Top
-                    | AnchorStyles.Bottom
-                    | AnchorStyles.Left
-                    | AnchorStyles.Right;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -627,11 +643,12 @@ namespace BudgetExecution
                 {
                     SelectedCommand = string.Empty;
                     var _selection = _comboBox.SelectedItem?.ToString( );
-                    SqlListBox.Items.Clear( );
+                    QueryListBox.Items.Clear( );
                     if( _selection?.Contains( " " ) == true )
                     {
                         SelectedCommand = _selection.Replace( " ", "" );
-                        var _path = DatabaseDirectory
+                        var _path = Prefix 
+                            + DatabaseDirectory 
                             + @$"\{Provider}\DataModels\{SelectedCommand}";
 
                         var _files = Directory.GetFiles( _path );
@@ -639,13 +656,14 @@ namespace BudgetExecution
                         {
                             var _item = Path.GetFileNameWithoutExtension( _files[ _i ] );
                             var _caption = _item?.SplitPascal( );
-                            SqlListBox.Items.Add( _caption );
+                            QueryListBox.Items.Add( _caption );
                         }
                     }
                     else
                     {
                         SelectedCommand = _comboBox.SelectedItem?.ToString( );
-                        var _path = DatabaseDirectory
+                        var _path = Prefix 
+                            + DatabaseDirectory
                             + @$"\{Provider}\DataModels\{SelectedCommand}";
 
                         var _names = Directory.GetFiles( _path );
@@ -653,7 +671,7 @@ namespace BudgetExecution
                         {
                             var _item = Path.GetFileNameWithoutExtension( _names[ _i ] );
                             var _caption = _item?.SplitPascal( );
-                            SqlListBox.Items.Add( _caption );
+                            QueryListBox.Items.Add( _caption );
                         }
                     }
                 }
@@ -681,7 +699,8 @@ namespace BudgetExecution
                     {
                         var _command = SelectedCommand?.Replace( " ", "" );
                         var _query = SelectedQuery?.Replace( " ", "" );
-                        var _filePath = DatabaseDirectory
+                        var _filePath = Prefix 
+                            + DatabaseDirectory
                             + @$"\{Provider}\DataModels\{_command}\{_query}.sql";
 
                         var _stream = File.OpenRead( _filePath );
@@ -691,7 +710,8 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        var _path = DatabaseDirectory
+                        var _path = Prefix 
+                            + DatabaseDirectory
                             + @$"\{Provider}\DataModels\{SelectedCommand}\{SelectedQuery}.sql";
 
                         var _stream = File.OpenRead( _path );
