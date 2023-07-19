@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-08-2023
+//     Last Modified On:        07-19-2023
 // ******************************************************************************************
 // <copyright file="ExcelDataForm.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -387,7 +387,9 @@ namespace BudgetExecution
                 Spreadsheet?.SetZoomFactor( "Data", 100 );
                 Spreadsheet?.SetGridLinesVisibility( false );
                 var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
-                ToolStripTextBox.Text = $"  Rows: 0  Columns: 0";
+                ToolStripTextBox.Text = $"  Rows: {_activeSheet.Rows.Length} " 
+                    + $"Columns: {_activeSheet.Columns.Length}";
+
                 Spreadsheet?.ActiveGrid?.InvalidateCells( );
             }
             catch( Exception _ex )
@@ -505,6 +507,9 @@ namespace BudgetExecution
                 Spreadsheet.ForeColor = Color.Black;
                 Spreadsheet.AllowZooming = true;
                 Spreadsheet.AllowFiltering = true;
+                var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
+                Spreadsheet.DefaultColumnCount = _activeSheet.Columns.Length;
+                Spreadsheet.DefaultRowCount = _activeSheet.Rows.Length;
             }
             catch( Exception _ex )
             {
@@ -555,11 +560,15 @@ namespace BudgetExecution
                     Spreadsheet.ActiveGrid.BackColor = SystemColors.GradientInactiveCaption;
                     Spreadsheet.ActiveGrid.MetroScrollBars = true;
                     Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
-                    Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground = SystemColors.ControlDarkDark;
+                    Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground =
+                        SystemColors.ControlDarkDark;
+
                     Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround = _blue;
                     Spreadsheet.ActiveGrid.MetroColorTable.ArrowPushed = Color.Green;
                     Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBorderColor = Color.Green;
-                    Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor = Color.LightSteelBlue;
+                    Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor =
+                        Color.LightSteelBlue;
+
                     Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal = _blue;
                     Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed = _blue;
                     Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
@@ -593,11 +602,15 @@ namespace BudgetExecution
                 Spreadsheet.ActiveGrid.BackColor = SystemColors.GradientInactiveCaption;
                 Spreadsheet.ActiveGrid.MetroScrollBars = true;
                 Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
-                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground = SystemColors.ControlDarkDark;
+                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground =
+                    SystemColors.ControlDarkDark;
+
                 Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround = _blue;
                 Spreadsheet.ActiveGrid.MetroColorTable.ArrowPushed = Color.Green;
                 Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBorderColor = Color.Green;
-                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor = Color.LightSteelBlue;
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor =
+                    Color.LightSteelBlue;
+
                 Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal = _blue;
                 Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed = _blue;
                 Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
@@ -989,7 +1002,8 @@ namespace BudgetExecution
         /// Raises the Close event.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnClose( object sender, EventArgs e )
         {
             try
@@ -1009,7 +1023,8 @@ namespace BudgetExecution
         /// Called when [filter button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnFilterButtonClick( object sender, EventArgs e )
         {
             try
@@ -1025,7 +1040,8 @@ namespace BudgetExecution
         /// Called when [group button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnGroupButtonClick( object sender, EventArgs e )
         {
             try
@@ -1041,7 +1057,8 @@ namespace BudgetExecution
         /// Called when [chart button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnChartButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1062,7 +1079,8 @@ namespace BudgetExecution
         /// Called when [right click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         public void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -1082,7 +1100,8 @@ namespace BudgetExecution
         /// Called when [lookup button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnLookupButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1099,7 +1118,8 @@ namespace BudgetExecution
         /// Called when [remove filter button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnRemoveFilterButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1116,7 +1136,8 @@ namespace BudgetExecution
         /// Called when [main menu button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1146,7 +1167,8 @@ namespace BudgetExecution
         /// Called when [upload button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnUploadButtonClicked( object sender, EventArgs e )
         {
             try

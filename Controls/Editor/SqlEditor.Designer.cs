@@ -48,7 +48,7 @@ namespace BudgetExecution
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -69,7 +69,7 @@ namespace BudgetExecution
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent( )
+        public void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
             var config2 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
@@ -81,18 +81,16 @@ namespace BudgetExecution
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new Picture( );
             Title = new Label( );
-            ButtonTable = new System.Windows.Forms.TableLayoutPanel( );
-            CloseButton = new Button( );
-            SaveButton = new Button( );
-            ClearButton = new Button( );
-            ExecuteButton = new Button( );
-            BrowseButton = new Button( );
             ToolTip = new SmallTip( );
             TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv( );
             EditorPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             EditorTable = new HeaderPanel( );
             EditorPanel = new Layout( );
             Editor = new Editor( );
+            GridPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            DataGridTable = new HeaderPanel( );
+            DataGridPanel = new Layout( );
+            DataGrid = new DataGrid( );
             SqlCommandTable = new System.Windows.Forms.TableLayoutPanel( );
             ProviderTable = new HeaderPanel( );
             SecondPanel = new Layout( );
@@ -108,19 +106,53 @@ namespace BudgetExecution
             QueryListBox = new ListBox( );
             ContextMenu = new ContextMenu( );
             BindingSource = new System.Windows.Forms.BindingSource( components );
-            GridPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
-            DataGridPanel = new Layout( );
-            DataGrid = new DataGrid( );
-            DataGridTable = new HeaderPanel( );
+            ToolStrip = new ToolStrip( );
+            CloseButton = new ToolStripButton( );
+            Separator1 = new ToolSeparator( );
+            NavigationLabel = new ToolStripLabel( );
+            Separator2 = new ToolSeparator( );
+            FirstButton = new ToolStripButton( );
+            Separator3 = new ToolSeparator( );
+            PreviousButton = new ToolStripButton( );
+            Separator4 = new ToolSeparator( );
+            NextButton = new ToolStripButton( );
+            Separator5 = new ToolSeparator( );
+            LastButton = new ToolStripButton( );
+            Separator6 = new ToolSeparator( );
+            DataLabel = new ToolStripLabel( );
+            Separator7 = new ToolSeparator( );
+            ExecuteButton = new ToolStripButton( );
+            Separator8 = new ToolSeparator( );
+            RefreshButton = new ToolStripButton( );
+            Separator9 = new ToolSeparator( );
+            EditColumnButton = new ToolStripButton( );
+            Separator10 = new ToolSeparator( );
+            AddDatabaseButton = new System.Windows.Forms.ToolStripButton( );
+            TableButton = new ToolStripButton( );
+            DataSearchButton = new ToolStripButton( );
+            SaveButton = new ToolStripButton( );
+            FileSystemLabel = new ToolStripLabel( );
+            BrowserButton = new ToolStripButton( );
+            Separator15 = new ToolSeparator( );
+            HomeButton = new ToolStripButton( );
+            Separator16 = new ToolSeparator( );
+            Separator11 = new ToolSeparator( );
+            Separator12 = new ToolSeparator( );
+            Separator13 = new ToolSeparator( );
+            Separator14 = new ToolSeparator( );
+            Separator17 = new ToolSeparator( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
-            ButtonTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) TabControl  ).BeginInit( );
             TabControl.SuspendLayout( );
             EditorPage.SuspendLayout( );
             EditorTable.SuspendLayout( );
             EditorPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) Editor  ).BeginInit( );
+            GridPage.SuspendLayout( );
+            DataGridTable.SuspendLayout( );
+            DataGridPanel.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
             SqlCommandTable.SuspendLayout( );
             ProviderTable.SuspendLayout( );
             SecondPanel.SuspendLayout( );
@@ -129,10 +161,7 @@ namespace BudgetExecution
             SqlStatementTable.SuspendLayout( );
             TextPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
-            GridPage.SuspendLayout( );
-            DataGridPanel.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
-            DataGridTable.SuspendLayout( );
+            ToolStrip.SuspendLayout( );
             SuspendLayout( );
             // 
             // HeaderTable
@@ -189,192 +218,6 @@ namespace BudgetExecution
             Title.ThemeAuthor = "Terry D. Eppler";
             Title.ThemeName = "Budget Execution";
             Title.ToolTip = null;
-            // 
-            // ButtonTable
-            // 
-            ButtonTable.ColumnCount = 10;
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-            ButtonTable.Controls.Add( CloseButton, 9, 0 );
-            ButtonTable.Controls.Add( SaveButton, 7, 0 );
-            ButtonTable.Controls.Add( ClearButton, 5, 0 );
-            ButtonTable.Controls.Add( ExecuteButton, 3, 0 );
-            ButtonTable.Controls.Add( BrowseButton, 1, 0 );
-            ButtonTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ButtonTable.Location = new System.Drawing.Point( 0, 656 );
-            ButtonTable.Name = "ButtonTable";
-            ButtonTable.RowCount = 1;
-            ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-            ButtonTable.Size = new System.Drawing.Size( 1338, 36 );
-            ButtonTable.TabIndex = 12;
-            // 
-            // CloseButton
-            // 
-            CloseButton.BindingSource = null;
-            CloseButton.DataFilter = null;
-            CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CloseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            CloseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            CloseButton.HoverText = "Close Editor";
-            CloseButton.HoverTextColor = System.Drawing.Color.White;
-            CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 1200, 3 );
-            CloseButton.Name = "CloseButton";
-            CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            CloseButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
-            CloseButton.NormalTextColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 100, 30 );
-            CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
-            CloseButton.StyleManager = null;
-            CloseButton.TabIndex = 12;
-            CloseButton.Text = "Close";
-            CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "Budget Execution";
-            CloseButton.ToolTip = null;
-            // 
-            // SaveButton
-            // 
-            SaveButton.BindingSource = null;
-            SaveButton.DataFilter = null;
-            SaveButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            SaveButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            SaveButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            SaveButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            SaveButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SaveButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            SaveButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            SaveButton.HoverText = "Save Changes";
-            SaveButton.HoverTextColor = System.Drawing.Color.White;
-            SaveButton.IsDerivedStyle = true;
-            SaveButton.Location = new System.Drawing.Point( 934, 3 );
-            SaveButton.Name = "SaveButton";
-            SaveButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            SaveButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
-            SaveButton.NormalTextColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            SaveButton.Padding = new System.Windows.Forms.Padding( 1 );
-            SaveButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SaveButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SaveButton.PressTextColor = System.Drawing.Color.White;
-            SaveButton.Size = new System.Drawing.Size( 100, 30 );
-            SaveButton.Style = MetroSet_UI.Enums.Style.Custom;
-            SaveButton.StyleManager = null;
-            SaveButton.TabIndex = 15;
-            SaveButton.Text = "Save";
-            SaveButton.ThemeAuthor = "Terry D. Eppler";
-            SaveButton.ThemeName = "Budget Execution";
-            SaveButton.ToolTip = null;
-            // 
-            // ClearButton
-            // 
-            ClearButton.BindingSource = null;
-            ClearButton.DataFilter = null;
-            ClearButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            ClearButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            ClearButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            ClearButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ClearButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ClearButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            ClearButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            ClearButton.HoverText = "Reset Changes";
-            ClearButton.HoverTextColor = System.Drawing.Color.White;
-            ClearButton.IsDerivedStyle = true;
-            ClearButton.Location = new System.Drawing.Point( 668, 3 );
-            ClearButton.Name = "ClearButton";
-            ClearButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            ClearButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
-            ClearButton.NormalTextColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            ClearButton.Padding = new System.Windows.Forms.Padding( 1 );
-            ClearButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ClearButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ClearButton.PressTextColor = System.Drawing.Color.White;
-            ClearButton.Size = new System.Drawing.Size( 100, 30 );
-            ClearButton.Style = MetroSet_UI.Enums.Style.Custom;
-            ClearButton.StyleManager = null;
-            ClearButton.TabIndex = 14;
-            ClearButton.Text = "Clear";
-            ClearButton.ThemeAuthor = "Terry D. Eppler";
-            ClearButton.ThemeName = "Budget Execution";
-            ClearButton.ToolTip = null;
-            // 
-            // ExecuteButton
-            // 
-            ExecuteButton.BindingSource = null;
-            ExecuteButton.DataFilter = null;
-            ExecuteButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            ExecuteButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            ExecuteButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            ExecuteButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ExecuteButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ExecuteButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            ExecuteButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            ExecuteButton.HoverText = "Execute Query";
-            ExecuteButton.HoverTextColor = System.Drawing.Color.White;
-            ExecuteButton.IsDerivedStyle = true;
-            ExecuteButton.Location = new System.Drawing.Point( 402, 3 );
-            ExecuteButton.Name = "ExecuteButton";
-            ExecuteButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            ExecuteButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
-            ExecuteButton.NormalTextColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            ExecuteButton.Padding = new System.Windows.Forms.Padding( 1 );
-            ExecuteButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ExecuteButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ExecuteButton.PressTextColor = System.Drawing.Color.White;
-            ExecuteButton.Size = new System.Drawing.Size( 100, 30 );
-            ExecuteButton.Style = MetroSet_UI.Enums.Style.Custom;
-            ExecuteButton.StyleManager = null;
-            ExecuteButton.TabIndex = 13;
-            ExecuteButton.Text = "Execute";
-            ExecuteButton.ThemeAuthor = "Terry D. Eppler";
-            ExecuteButton.ThemeName = "Budget Execution";
-            ExecuteButton.ToolTip = null;
-            // 
-            // BrowseButton
-            // 
-            BrowseButton.BindingSource = null;
-            BrowseButton.DataFilter = null;
-            BrowseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            BrowseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            BrowseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            BrowseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            BrowseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            BrowseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            BrowseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            BrowseButton.HoverText = "Browse for file";
-            BrowseButton.HoverTextColor = System.Drawing.Color.White;
-            BrowseButton.IsDerivedStyle = true;
-            BrowseButton.Location = new System.Drawing.Point( 136, 3 );
-            BrowseButton.Name = "BrowseButton";
-            BrowseButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            BrowseButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
-            BrowseButton.NormalTextColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            BrowseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            BrowseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            BrowseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            BrowseButton.PressTextColor = System.Drawing.Color.White;
-            BrowseButton.Size = new System.Drawing.Size( 100, 30 );
-            BrowseButton.Style = MetroSet_UI.Enums.Style.Custom;
-            BrowseButton.StyleManager = null;
-            BrowseButton.TabIndex = 16;
-            BrowseButton.Text = "Browse";
-            BrowseButton.ThemeAuthor = "Terry D. Eppler";
-            BrowseButton.ThemeName = "Budget Execution";
-            BrowseButton.ToolTip = ToolTip;
             // 
             // ToolTip
             // 
@@ -558,6 +401,125 @@ namespace BudgetExecution
             Editor.WordWrap = true;
             Editor.WordWrapColumn = 80;
             Editor.ZoomFactor = 1F;
+            // 
+            // GridPage
+            // 
+            GridPage.Controls.Add( DataGridTable );
+            GridPage.Image = null;
+            GridPage.ImageSize = new System.Drawing.Size( 16, 16 );
+            GridPage.Location = new System.Drawing.Point( 0, 22 );
+            GridPage.Name = "GridPage";
+            GridPage.ShowCloseButton = true;
+            GridPage.Size = new System.Drawing.Size( 971, 585 );
+            GridPage.TabIndex = 9;
+            GridPage.Text = "tabPageAdv1";
+            GridPage.ThemesEnabled = false;
+            // 
+            // DataGridTable
+            // 
+            DataGridTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            DataGridTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            DataGridTable.CaptionText = "Data Grid";
+            DataGridTable.ColumnCount = 1;
+            DataGridTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            DataGridTable.Controls.Add( DataGridPanel, 0, 1 );
+            DataGridTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            DataGridTable.ForeColor = System.Drawing.Color.DarkGray;
+            DataGridTable.Location = new System.Drawing.Point( 31, 3 );
+            DataGridTable.Name = "DataGridTable";
+            DataGridTable.RowCount = 2;
+            DataGridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.4678899F ) );
+            DataGridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.53211F ) );
+            DataGridTable.Size = new System.Drawing.Size( 908, 561 );
+            DataGridTable.TabIndex = 39;
+            // 
+            // DataGridPanel
+            // 
+            DataGridPanel.BackColor = System.Drawing.Color.Transparent;
+            DataGridPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            DataGridPanel.BindingSource = null;
+            DataGridPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            DataGridPanel.BorderThickness = 1;
+            DataGridPanel.Children = null;
+            DataGridPanel.Controls.Add( DataGrid );
+            DataGridPanel.DataFilter = null;
+            DataGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            DataGridPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            DataGridPanel.ForeColor = System.Drawing.Color.Transparent;
+            DataGridPanel.HoverText = null;
+            DataGridPanel.IsDerivedStyle = true;
+            DataGridPanel.Location = new System.Drawing.Point( 3, 27 );
+            DataGridPanel.Name = "DataGridPanel";
+            DataGridPanel.Padding = new System.Windows.Forms.Padding( 1 );
+            DataGridPanel.Size = new System.Drawing.Size( 902, 531 );
+            DataGridPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            DataGridPanel.StyleManager = null;
+            DataGridPanel.TabIndex = 47;
+            DataGridPanel.ThemeAuthor = "Terry D. Eppler";
+            DataGridPanel.ThemeName = "Budget Execution";
+            DataGridPanel.ToolTip = null;
+            // 
+            // DataGrid
+            // 
+            DataGrid.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(   50  ,   50  ,   50   );
+            dataGridViewCellStyle6.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            DataGrid.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            DataGrid.BackgroundColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            DataGrid.BindingSource = null;
+            DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            DataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGrid.DataFilter = null;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            dataGridViewCellStyle8.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            DataGrid.DefaultCellStyle = dataGridViewCellStyle8;
+            DataGrid.EnableHeadersVisualStyles = false;
+            DataGrid.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            DataGrid.GridColor = System.Drawing.Color.FromArgb(   141  ,   139  ,   138   );
+            DataGrid.HoverText = null;
+            DataGrid.Location = new System.Drawing.Point( 22, 19 );
+            DataGrid.MultiSelect = false;
+            DataGrid.Name = "DataGrid";
+            DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(   50  ,   50  ,   50   );
+            dataGridViewCellStyle9.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            DataGrid.RowHeadersWidth = 20;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            dataGridViewCellStyle10.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            DataGrid.Size = new System.Drawing.Size( 856, 492 );
+            DataGrid.TabIndex = 0;
+            DataGrid.ToolTip = null;
             // 
             // SqlCommandTable
             // 
@@ -903,124 +865,547 @@ namespace BudgetExecution
             ContextMenu.ThemeAuthor = "Terry Eppler";
             ContextMenu.ThemeName = "Budget Execution";
             // 
-            // GridPage
+            // ToolStrip
             // 
-            GridPage.Controls.Add( DataGridTable );
-            GridPage.Image = null;
-            GridPage.ImageSize = new System.Drawing.Size( 16, 16 );
-            GridPage.Location = new System.Drawing.Point( 0, 22 );
-            GridPage.Name = "GridPage";
-            GridPage.ShowCloseButton = true;
-            GridPage.Size = new System.Drawing.Size( 971, 585 );
-            GridPage.TabIndex = 9;
-            GridPage.Text = "tabPageAdv1";
-            GridPage.ThemesEnabled = false;
+            ToolStrip.AddButton = null;
+            ToolStrip.AddColumnButton = null;
+            ToolStrip.AddTableButton = null;
+            ToolStrip.BackColor = System.Drawing.Color.Transparent;
+            ToolStrip.BindingSource = null;
+            ToolStrip.BorderStyle = Syncfusion.Windows.Forms.Tools.ToolStripBorderStyle.StaticEdge;
+            ToolStrip.CalculatorButton = null;
+            ToolStrip.CanOverrideStyle = true;
+            ToolStrip.CaptionAlignment = Syncfusion.Windows.Forms.Tools.CaptionAlignment.Near;
+            ToolStrip.CaptionFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ToolStrip.CaptionStyle = Syncfusion.Windows.Forms.Tools.CaptionStyle.Top;
+            ToolStrip.CaptionTextStyle = Syncfusion.Windows.Forms.Tools.CaptionTextStyle.Plain;
+            ToolStrip.ChartButton = null;
+            ToolStrip.DataFilter = null;
+            ToolStrip.DeleteButton = null;
+            ToolStrip.DeleteColumnButton = null;
+            ToolStrip.DeleteRecordButton = null;
+            ToolStrip.DeleteTableButton = null;
+            ToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
+            ToolStrip.DropDown = null;
+            ToolStrip.EditButton = null;
+            ToolStrip.EditColumnButton = null;
+            ToolStrip.EditRecordButton = null;
+            ToolStrip.EditSqlButton = null;
+            ToolStrip.ExcelButton = null;
+            ToolStrip.FilterDataButton = null;
+            ToolStrip.FirstButton = null;
+            ToolStrip.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ToolStrip.ForeColor = System.Drawing.Color.MidnightBlue;
+            ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            ToolStrip.HomeButton = null;
+            ToolStrip.Image = null;
+            ToolStrip.ImageDirectory = null;
+            ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator1, NavigationLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, ExecuteButton, Separator8, RefreshButton, Separator9, EditColumnButton, Separator10, AddDatabaseButton, Separator11, TableButton, this.Separator12, DataSearchButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, BrowserButton, Separator16, HomeButton, Separator17 } );
+            ToolStrip.Label = null;
+            ToolStrip.LastButton = null;
+            ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
+            ToolStrip.Location = new System.Drawing.Point( 0, 646 );
+            ToolStrip.Margin = new System.Windows.Forms.Padding( 1 );
+            ToolStrip.Name = "ToolStrip";
+            ToolStrip.NextButton = null;
+            ToolStrip.Office12Mode = false;
+            ToolStrip.OfficeColorScheme = Syncfusion.Windows.Forms.Tools.ToolStripEx.ColorScheme.Black;
+            ToolStrip.Padding = new System.Windows.Forms.Padding( 1 );
+            ToolStrip.PreviousButton = null;
+            ToolStrip.ProgressBar = null;
+            ToolStrip.RefreshButton = null;
+            ToolStrip.SaveButton = null;
+            ToolStrip.SearchCriteriaLabel = null;
+            ToolStrip.SearchEngineLabel = null;
+            ToolStrip.Separators = null;
+            ToolStrip.ShowCaption = true;
+            ToolStrip.ShowLauncher = true;
+            ToolStrip.Size = new System.Drawing.Size( 1338, 46 );
+            ToolStrip.TabIndex = 14;
+            ToolStrip.TextBox = null;
+            ToolStrip.ThemeName = "Office2016DarkGray";
+            ToolStrip.ThemeStyle.ArrowColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ToolStrip.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
+            ToolStrip.ThemeStyle.BottomToolStripBackColor = System.Drawing.Color.Transparent;
+            ToolStrip.ThemeStyle.CaptionBackColor = System.Drawing.Color.FromArgb(   28  ,   28  ,   28   );
+            ToolStrip.ThemeStyle.CaptionForeColor = System.Drawing.Color.Black;
+            ToolStrip.ThemeStyle.ComboBoxStyle.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            ToolStrip.ThemeStyle.ComboBoxStyle.HoverBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ToolStrip.ThemeStyle.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            ToolStrip.ThemeStyle.HoverItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ToolStrip.ThemeStyle.HoverItemForeColor = System.Drawing.Color.White;
+            ToolStrip.VisualStyle = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray;
             // 
-            // DataGridPanel
+            // CloseButton
             // 
-            DataGridPanel.BackColor = System.Drawing.Color.Transparent;
-            DataGridPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            DataGridPanel.BindingSource = null;
-            DataGridPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
-            DataGridPanel.BorderThickness = 1;
-            DataGridPanel.Children = null;
-            DataGridPanel.Controls.Add( DataGrid );
-            DataGridPanel.DataFilter = null;
-            DataGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            DataGridPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            DataGridPanel.ForeColor = System.Drawing.Color.Transparent;
-            DataGridPanel.HoverText = null;
-            DataGridPanel.IsDerivedStyle = true;
-            DataGridPanel.Location = new System.Drawing.Point( 3, 27 );
-            DataGridPanel.Name = "DataGridPanel";
-            DataGridPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            DataGridPanel.Size = new System.Drawing.Size( 902, 531 );
-            DataGridPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            DataGridPanel.StyleManager = null;
-            DataGridPanel.TabIndex = 47;
-            DataGridPanel.ThemeAuthor = "Terry D. Eppler";
-            DataGridPanel.ThemeName = "Budget Execution";
-            DataGridPanel.ToolTip = null;
+            CloseButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            CloseButton.AutoToolTip = false;
+            CloseButton.BackColor = System.Drawing.Color.Transparent;
+            CloseButton.BindingSource = BindingSource;
+            CloseButton.DataFilter = null;
+            CloseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            CloseButton.Field = Field.AccountCode;
+            CloseButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CloseButton.ForeColor = System.Drawing.Color.LightGray;
+            CloseButton.HoverText = "Close Application";
+            CloseButton.Image = Properties.Resources.WebCloseButton;
+            CloseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            CloseButton.Margin = new System.Windows.Forms.Padding( 3 );
+            CloseButton.Name = "CloseButton";
+            CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
+            CloseButton.Size = new System.Drawing.Size( 23, 24 );
+            CloseButton.Text = "toolStripButton1";
+            CloseButton.ToolTip = ToolTip;
+            CloseButton.ToolType = ToolType.ExitButton;
             // 
-            // DataGrid
+            // Separator1
             // 
-            DataGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(   50  ,   50  ,   50   );
-            dataGridViewCellStyle6.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            DataGrid.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
-            DataGrid.BackgroundColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
-            DataGrid.BindingSource = null;
-            DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            DataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGrid.DataFilter = null;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
-            dataGridViewCellStyle8.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            DataGrid.DefaultCellStyle = dataGridViewCellStyle8;
-            DataGrid.EnableHeadersVisualStyles = false;
-            DataGrid.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            DataGrid.GridColor = System.Drawing.Color.FromArgb(   141  ,   139  ,   138   );
-            DataGrid.HoverText = null;
-            DataGrid.Location = new System.Drawing.Point( 22, 19 );
-            DataGrid.MultiSelect = false;
-            DataGrid.Name = "DataGrid";
-            DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(   50  ,   50  ,   50   );
-            dataGridViewCellStyle9.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            DataGrid.RowHeadersWidth = 20;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
-            dataGridViewCellStyle10.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle10;
-            DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            DataGrid.Size = new System.Drawing.Size( 856, 492 );
-            DataGrid.TabIndex = 0;
-            DataGrid.ToolTip = null;
+            Separator1.ForeColor = System.Drawing.Color.Black;
+            Separator1.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator1.Name = "Separator1";
+            Separator1.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator1.Size = new System.Drawing.Size( 6, 28 );
             // 
-            // DataGridTable
+            // NavigationLabel
             // 
-            DataGridTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            DataGridTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            DataGridTable.CaptionText = "Data Grid";
-            DataGridTable.ColumnCount = 1;
-            DataGridTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            DataGridTable.Controls.Add( DataGridPanel, 0, 1 );
-            DataGridTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            DataGridTable.ForeColor = System.Drawing.Color.DarkGray;
-            DataGridTable.Location = new System.Drawing.Point( 31, 3 );
-            DataGridTable.Name = "DataGridTable";
-            DataGridTable.RowCount = 2;
-            DataGridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.4678899F ) );
-            DataGridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.53211F ) );
-            DataGridTable.Size = new System.Drawing.Size( 908, 561 );
-            DataGridTable.TabIndex = 39;
+            NavigationLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            NavigationLabel.BindingSource = null;
+            NavigationLabel.DataFilter = null;
+            NavigationLabel.Field = Field.AccountCode;
+            NavigationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            NavigationLabel.ForeColor = System.Drawing.Color.Black;
+            NavigationLabel.HoverText = null;
+            NavigationLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            NavigationLabel.Name = "NavigationLabel";
+            NavigationLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            NavigationLabel.Size = new System.Drawing.Size( 96, 28 );
+            NavigationLabel.Tag = "";
+            NavigationLabel.Text = "        Record Navigation";
+            NavigationLabel.ToolTip = null;
+            // 
+            // Separator2
+            // 
+            Separator2.ForeColor = System.Drawing.Color.Black;
+            Separator2.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator2.Name = "Separator2";
+            Separator2.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator2.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // FirstButton
+            // 
+            FirstButton.AutoToolTip = false;
+            FirstButton.BackColor = System.Drawing.Color.Transparent;
+            FirstButton.BindingSource = BindingSource;
+            FirstButton.DataFilter = null;
+            FirstButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            FirstButton.Field = Field.AccountCode;
+            FirstButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstButton.ForeColor = System.Drawing.Color.LightGray;
+            FirstButton.HoverText = "Move First";
+            FirstButton.Image = Properties.Resources.FirstButton;
+            FirstButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            FirstButton.Margin = new System.Windows.Forms.Padding( 3 );
+            FirstButton.Name = "FirstButton";
+            FirstButton.Padding = new System.Windows.Forms.Padding( 1 );
+            FirstButton.Size = new System.Drawing.Size( 23, 24 );
+            FirstButton.Text = "toolStripButton1";
+            FirstButton.ToolTip = ToolTip;
+            FirstButton.ToolType = ToolType.FirstButton;
+            // 
+            // Separator3
+            // 
+            Separator3.ForeColor = System.Drawing.Color.Black;
+            Separator3.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator3.Name = "Separator3";
+            Separator3.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator3.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // PreviousButton
+            // 
+            PreviousButton.AutoToolTip = false;
+            PreviousButton.BackColor = System.Drawing.Color.Transparent;
+            PreviousButton.BindingSource = BindingSource;
+            PreviousButton.DataFilter = null;
+            PreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            PreviousButton.Field = Field.AccountCode;
+            PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            PreviousButton.ForeColor = System.Drawing.Color.LightGray;
+            PreviousButton.HoverText = "Move Previous";
+            PreviousButton.Image = Properties.Resources.WebPreviousButton;
+            PreviousButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            PreviousButton.Margin = new System.Windows.Forms.Padding( 3 );
+            PreviousButton.Name = "PreviousButton";
+            PreviousButton.Padding = new System.Windows.Forms.Padding( 1 );
+            PreviousButton.Size = new System.Drawing.Size( 23, 24 );
+            PreviousButton.Text = "toolStripButton1";
+            PreviousButton.ToolTip = ToolTip;
+            PreviousButton.ToolType = ToolType.PreviousButton;
+            // 
+            // Separator4
+            // 
+            Separator4.ForeColor = System.Drawing.Color.Black;
+            Separator4.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator4.Name = "Separator4";
+            Separator4.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator4.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // NextButton
+            // 
+            NextButton.AutoToolTip = false;
+            NextButton.BackColor = System.Drawing.Color.Transparent;
+            NextButton.BindingSource = BindingSource;
+            NextButton.DataFilter = null;
+            NextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            NextButton.Field = Field.AccountCode;
+            NextButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            NextButton.ForeColor = System.Drawing.Color.LightGray;
+            NextButton.HoverText = "Move Next";
+            NextButton.Image = Properties.Resources.WebNextButton;
+            NextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            NextButton.Margin = new System.Windows.Forms.Padding( 3 );
+            NextButton.Name = "NextButton";
+            NextButton.Padding = new System.Windows.Forms.Padding( 1 );
+            NextButton.Size = new System.Drawing.Size( 23, 24 );
+            NextButton.Text = "toolStripButton1";
+            NextButton.ToolTip = ToolTip;
+            NextButton.ToolType = ToolType.NextButton;
+            // 
+            // Separator5
+            // 
+            Separator5.ForeColor = System.Drawing.Color.Black;
+            Separator5.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator5.Name = "Separator5";
+            Separator5.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator5.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // LastButton
+            // 
+            LastButton.AutoToolTip = false;
+            LastButton.BackColor = System.Drawing.Color.Transparent;
+            LastButton.BindingSource = BindingSource;
+            LastButton.DataFilter = null;
+            LastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            LastButton.Field = Field.AccountCode;
+            LastButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            LastButton.ForeColor = System.Drawing.Color.LightGray;
+            LastButton.HoverText = "Move Last";
+            LastButton.Image = Properties.Resources.LastButton;
+            LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            LastButton.Margin = new System.Windows.Forms.Padding( 3 );
+            LastButton.Name = "LastButton";
+            LastButton.Padding = new System.Windows.Forms.Padding( 1 );
+            LastButton.Size = new System.Drawing.Size( 23, 24 );
+            LastButton.Text = "toolStripButton1";
+            LastButton.ToolTip = null;
+            LastButton.ToolType = ToolType.LastButton;
+            // 
+            // Separator6
+            // 
+            Separator6.ForeColor = System.Drawing.Color.Black;
+            Separator6.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator6.Name = "Separator6";
+            Separator6.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator6.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // DataLabel
+            // 
+            DataLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            DataLabel.BindingSource = null;
+            DataLabel.DataFilter = null;
+            DataLabel.Field = Field.AccountCode;
+            DataLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            DataLabel.ForeColor = System.Drawing.Color.Black;
+            DataLabel.HoverText = null;
+            DataLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            DataLabel.Name = "DataLabel";
+            DataLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            DataLabel.Size = new System.Drawing.Size( 106, 28 );
+            DataLabel.Tag = "";
+            DataLabel.Text = "            Data Management";
+            DataLabel.ToolTip = null;
+            // 
+            // Separator7
+            // 
+            Separator7.ForeColor = System.Drawing.Color.Black;
+            Separator7.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator7.Name = "Separator7";
+            Separator7.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator7.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // ExecuteButton
+            // 
+            ExecuteButton.AutoToolTip = false;
+            ExecuteButton.BackColor = System.Drawing.Color.Transparent;
+            ExecuteButton.BindingSource = BindingSource;
+            ExecuteButton.DataFilter = null;
+            ExecuteButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            ExecuteButton.Field = Field.AccountCode;
+            ExecuteButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ExecuteButton.ForeColor = System.Drawing.Color.LightGray;
+            ExecuteButton.HoverText = null;
+            ExecuteButton.Image = Properties.Resources.WebGoButton;
+            ExecuteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            ExecuteButton.Margin = new System.Windows.Forms.Padding( 3 );
+            ExecuteButton.Name = "ExecuteButton";
+            ExecuteButton.Padding = new System.Windows.Forms.Padding( 1 );
+            ExecuteButton.Size = new System.Drawing.Size( 23, 24 );
+            ExecuteButton.Text = "toolStripButton1";
+            ExecuteButton.ToolTip = null;
+            ExecuteButton.ToolType = ToolType.Ns;
+            // 
+            // Separator8
+            // 
+            Separator8.ForeColor = System.Drawing.Color.Black;
+            Separator8.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator8.Name = "Separator8";
+            Separator8.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator8.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // RefreshButton
+            // 
+            RefreshButton.AutoToolTip = false;
+            RefreshButton.BackColor = System.Drawing.Color.Transparent;
+            RefreshButton.BindingSource = null;
+            RefreshButton.DataFilter = null;
+            RefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            RefreshButton.Field = Field.AccountCode;
+            RefreshButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            RefreshButton.ForeColor = System.Drawing.Color.LightGray;
+            RefreshButton.HoverText = null;
+            RefreshButton.Image = Properties.Resources.RefreshButton;
+            RefreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            RefreshButton.Margin = new System.Windows.Forms.Padding( 3 );
+            RefreshButton.Name = "RefreshButton";
+            RefreshButton.Padding = new System.Windows.Forms.Padding( 1 );
+            RefreshButton.Size = new System.Drawing.Size( 23, 24 );
+            RefreshButton.Text = "toolStripButton1";
+            RefreshButton.ToolTip = null;
+            RefreshButton.ToolType = ToolType.Ns;
+            // 
+            // Separator9
+            // 
+            Separator9.ForeColor = System.Drawing.Color.Black;
+            Separator9.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator9.Name = "Separator9";
+            Separator9.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator9.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // EditColumnButton
+            // 
+            EditColumnButton.AutoToolTip = false;
+            EditColumnButton.BackColor = System.Drawing.Color.Transparent;
+            EditColumnButton.BindingSource = BindingSource;
+            EditColumnButton.DataFilter = null;
+            EditColumnButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            EditColumnButton.Field = Field.AccountCode;
+            EditColumnButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            EditColumnButton.ForeColor = System.Drawing.Color.LightGray;
+            EditColumnButton.HoverText = "Alter Column";
+            EditColumnButton.Image = Properties.Resources.EditColumnButtnon;
+            EditColumnButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            EditColumnButton.Margin = new System.Windows.Forms.Padding( 3 );
+            EditColumnButton.Name = "EditColumnButton";
+            EditColumnButton.Padding = new System.Windows.Forms.Padding( 1 );
+            EditColumnButton.Size = new System.Drawing.Size( 23, 24 );
+            EditColumnButton.Text = "toolStripButton1";
+            EditColumnButton.ToolTip = ToolTip;
+            EditColumnButton.ToolType = ToolType.EditTextButton;
+            // 
+            // Separator10
+            // 
+            Separator10.ForeColor = System.Drawing.Color.Black;
+            Separator10.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator10.Name = "Separator10";
+            Separator10.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator10.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // AddDatabaseButton
+            // 
+            AddDatabaseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            AddDatabaseButton.Image = Properties.Resources.AddDatabaseButton;
+            AddDatabaseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            AddDatabaseButton.Name = "AddDatabaseButton";
+            AddDatabaseButton.Size = new System.Drawing.Size( 23, 27 );
+            AddDatabaseButton.Text = "toolStripButton1";
+            // 
+            // TableButton
+            // 
+            TableButton.AutoToolTip = false;
+            TableButton.BackColor = System.Drawing.Color.Transparent;
+            TableButton.BindingSource = BindingSource;
+            TableButton.DataFilter = null;
+            TableButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            TableButton.Field = Field.AccountCode;
+            TableButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TableButton.ForeColor = System.Drawing.Color.LightGray;
+            TableButton.HoverText = "Edit Table";
+            TableButton.Image = Properties.Resources.TableButton;
+            TableButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            TableButton.Margin = new System.Windows.Forms.Padding( 3 );
+            TableButton.Name = "TableButton";
+            TableButton.Padding = new System.Windows.Forms.Padding( 1 );
+            TableButton.Size = new System.Drawing.Size( 23, 24 );
+            TableButton.Text = "toolStripButton1";
+            TableButton.ToolTip = ToolTip;
+            TableButton.ToolType = ToolType.TableButton;
+            // 
+            // DataSearchButton
+            // 
+            DataSearchButton.AutoToolTip = false;
+            DataSearchButton.BackColor = System.Drawing.Color.Transparent;
+            DataSearchButton.BindingSource = BindingSource;
+            DataSearchButton.DataFilter = null;
+            DataSearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            DataSearchButton.Field = Field.AccountCode;
+            DataSearchButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            DataSearchButton.ForeColor = System.Drawing.Color.LightGray;
+            DataSearchButton.HoverText = "Reset Data Source";
+            DataSearchButton.Image = Properties.Resources.DataSearchButton;
+            DataSearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            DataSearchButton.Margin = new System.Windows.Forms.Padding( 3 );
+            DataSearchButton.Name = "DataSearchButton";
+            DataSearchButton.Padding = new System.Windows.Forms.Padding( 1 );
+            DataSearchButton.Size = new System.Drawing.Size( 23, 24 );
+            DataSearchButton.Text = "toolStripButton1";
+            DataSearchButton.ToolTip = ToolTip;
+            DataSearchButton.ToolType = ToolType.SearchDataButton;
+            // 
+            // SaveButton
+            // 
+            SaveButton.AutoToolTip = false;
+            SaveButton.BackColor = System.Drawing.Color.Transparent;
+            SaveButton.BindingSource = BindingSource;
+            SaveButton.DataFilter = null;
+            SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            SaveButton.Field = Field.AccountCode;
+            SaveButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SaveButton.ForeColor = System.Drawing.Color.LightGray;
+            SaveButton.HoverText = "Save Changes";
+            SaveButton.Image = Properties.Resources.SaveButton;
+            SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            SaveButton.Margin = new System.Windows.Forms.Padding( 3 );
+            SaveButton.Name = "SaveButton";
+            SaveButton.Padding = new System.Windows.Forms.Padding( 1 );
+            SaveButton.Size = new System.Drawing.Size( 23, 24 );
+            SaveButton.Text = "toolStripButton1";
+            SaveButton.ToolTip = ToolTip;
+            SaveButton.ToolType = ToolType.SaveButton;
+            // 
+            // FileSystemLabel
+            // 
+            FileSystemLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            FileSystemLabel.BindingSource = null;
+            FileSystemLabel.DataFilter = null;
+            FileSystemLabel.Field = Field.AccountCode;
+            FileSystemLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FileSystemLabel.ForeColor = System.Drawing.Color.Black;
+            FileSystemLabel.HoverText = null;
+            FileSystemLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            FileSystemLabel.Name = "FileSystemLabel";
+            FileSystemLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            FileSystemLabel.Size = new System.Drawing.Size( 77, 28 );
+            FileSystemLabel.Tag = "";
+            FileSystemLabel.Text = "            File System";
+            FileSystemLabel.ToolTip = null;
+            // 
+            // BrowserButton
+            // 
+            BrowserButton.AutoToolTip = false;
+            BrowserButton.BackColor = System.Drawing.Color.Transparent;
+            BrowserButton.BindingSource = BindingSource;
+            BrowserButton.DataFilter = null;
+            BrowserButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            BrowserButton.Field = Field.AccountCode;
+            BrowserButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            BrowserButton.ForeColor = System.Drawing.Color.LightGray;
+            BrowserButton.HoverText = "Browse File System";
+            BrowserButton.Image = Properties.Resources.BrowseButton;
+            BrowserButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            BrowserButton.Margin = new System.Windows.Forms.Padding( 3 );
+            BrowserButton.Name = "BrowserButton";
+            BrowserButton.Padding = new System.Windows.Forms.Padding( 1 );
+            BrowserButton.Size = new System.Drawing.Size( 23, 24 );
+            BrowserButton.Text = "toolStripButton1";
+            BrowserButton.ToolTip = ToolTip;
+            BrowserButton.ToolType = ToolType.BrowseButton;
+            // 
+            // Separator15
+            // 
+            Separator15.ForeColor = System.Drawing.Color.Black;
+            Separator15.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator15.Name = "Separator15";
+            Separator15.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator15.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // HomeButton
+            // 
+            HomeButton.AutoToolTip = false;
+            HomeButton.BackColor = System.Drawing.Color.Transparent;
+            HomeButton.BindingSource = BindingSource;
+            HomeButton.DataFilter = null;
+            HomeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            HomeButton.Field = Field.AccountCode;
+            HomeButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            HomeButton.ForeColor = System.Drawing.Color.LightGray;
+            HomeButton.HoverText = null;
+            HomeButton.Image = Properties.Resources.WebHomeButton;
+            HomeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            HomeButton.Margin = new System.Windows.Forms.Padding( 3 );
+            HomeButton.Name = "HomeButton";
+            HomeButton.Padding = new System.Windows.Forms.Padding( 1 );
+            HomeButton.Size = new System.Drawing.Size( 23, 24 );
+            HomeButton.Text = "toolStripButton1";
+            HomeButton.ToolTip = ToolTip;
+            HomeButton.ToolType = ToolType.HomeButton;
+            // 
+            // Separator16
+            // 
+            Separator16.ForeColor = System.Drawing.Color.Black;
+            Separator16.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator16.Name = "Separator16";
+            Separator16.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator16.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // Separator11
+            // 
+            Separator11.ForeColor = System.Drawing.Color.Black;
+            Separator11.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator11.Name = "Separator11";
+            Separator11.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator11.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // Separator12
+            // 
+            Separator12.ForeColor = System.Drawing.Color.Black;
+            Separator12.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator12.Name = "Separator12";
+            Separator12.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator12.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // Separator13
+            // 
+            Separator13.ForeColor = System.Drawing.Color.Black;
+            Separator13.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator13.Name = "Separator13";
+            Separator13.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator13.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // Separator14
+            // 
+            Separator14.ForeColor = System.Drawing.Color.Black;
+            Separator14.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator14.Name = "Separator14";
+            Separator14.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator14.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // Separator17
+            // 
+            Separator17.ForeColor = System.Drawing.Color.Black;
+            Separator17.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator17.Name = "Separator17";
+            Separator17.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator17.Size = new System.Drawing.Size( 6, 28 );
             // 
             // SqlEditor
             // 
@@ -1033,21 +1418,24 @@ namespace BudgetExecution
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             ClientSize = new System.Drawing.Size( 1338, 692 );
+            Controls.Add( ToolStrip );
             Controls.Add( SqlCommandTable );
-            Controls.Add( ButtonTable );
             Controls.Add( TabControl );
             Controls.Add( HeaderTable );
             Name = "SqlEditor";
             Text = "SqlEditor";
             HeaderTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
-            ButtonTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) TabControl  ).EndInit( );
             TabControl.ResumeLayout( false );
             EditorPage.ResumeLayout( false );
             EditorTable.ResumeLayout( false );
             EditorPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) Editor  ).EndInit( );
+            GridPage.ResumeLayout( false );
+            DataGridTable.ResumeLayout( false );
+            DataGridPanel.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize) DataGrid  ).EndInit( );
             SqlCommandTable.ResumeLayout( false );
             ProviderTable.ResumeLayout( false );
             SecondPanel.ResumeLayout( false );
@@ -1056,25 +1444,20 @@ namespace BudgetExecution
             SqlStatementTable.ResumeLayout( false );
             TextPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
-            GridPage.ResumeLayout( false );
-            DataGridPanel.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) DataGrid  ).EndInit( );
-            DataGridTable.ResumeLayout( false );
+            ToolStrip.ResumeLayout( false );
+            ToolStrip.PerformLayout( );
             ResumeLayout( false );
+            PerformLayout( );
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel HeaderTable;
+        public System.Windows.Forms.TableLayoutPanel HeaderTable;
         public Picture PictureBox;
-        private Label Title;
-        public System.Windows.Forms.TableLayoutPanel ButtonTable;
-        public Button CloseButton;
-        public Button ExecuteButton;
-        public Button ClearButton;
+        public Label Title;
         public Syncfusion.Windows.Forms.Tools.TabControlAdv TabControl;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv EditorPage;
-        private HeaderPanel EditorTable;
+        public HeaderPanel EditorTable;
         public Layout EditorPanel;
         public Editor Editor;
         public System.Windows.Forms.TableLayoutPanel SqlCommandTable;
@@ -1093,11 +1476,44 @@ namespace BudgetExecution
         public ContextMenu ContextMenu;
         public System.Windows.Forms.BindingSource BindingSource;
         public SmallTip ToolTip;
-        public Button SaveButton;
-        public Button BrowseButton;
         public Layout DataGridPanel;
         public DataGrid DataGrid;
-        private HeaderPanel DataGridTable;
+        public HeaderPanel DataGridTable;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv GridPage;
+        public ToolStrip ToolStrip;
+        public ToolStripButton FirstButton;
+        public ToolStripButton PreviousButton;
+        public ToolStripButton NextButton;
+        public ToolStripButton LastButton;
+        public ToolSeparator Separator6;
+        public ToolStripButton ExecuteButton;
+        public ToolStripButton RefreshButton;
+        public ToolStripButton SaveButton;
+        public ToolStripButton BrowserButton;
+        public ToolStripButton HomeButton;
+        public ToolStripButton CloseButton;
+        public ToolSeparator Separator1;
+        public ToolStripLabel NavigationLabel;
+        public ToolSeparator Separator2;
+        public ToolSeparator Separator3;
+        public ToolSeparator Separator4;
+        public ToolSeparator Separator5;
+        public ToolSeparator Separator8;
+        public ToolSeparator Separator9;
+        public ToolSeparator Separator7;
+        public ToolSeparator Separator11;
+        public ToolSeparator Separator10;
+        public ToolSeparator Separator13;
+        public ToolSeparator Separator14;
+        public ToolSeparator Separator17;
+        public ToolStripButton EditColumnButton;
+        public ToolStripButton DataSearchButton;
+        public ToolStripLabel FileSystemLabel;
+        public System.Windows.Forms.ToolStripButton AddDatabaseButton;
+        public ToolSeparator Separator16;
+        public ToolStripLabel DataLabel;
+        public ToolStripButton TableButton;
+        public ToolSeparator Separator15;
+        public ToolSeparator Separator12;
     }
 }

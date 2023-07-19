@@ -45,6 +45,7 @@ namespace BudgetExecution
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Edit;
+    using Syncfusion.Windows.Forms.Tools;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -237,7 +238,7 @@ namespace BudgetExecution
             SqlServerRadioButton.Click += OnRadioButtonChecked;
             CommandComboBox.SelectedValueChanged += OnComboBoxItemSelected;
             QueryListBox.SelectedValueChanged += OnListBoxItemSelected;
-            ClearButton.Click += OnClearButtonClick;
+            RefreshButton.Click += OnClearButtonClick;
             SaveButton.Click += OnSaveButtonClick;
             ExecuteButton.Click += OnExecuteButtonClick;
             CloseButton.Click += OnCloseButtonClick;
@@ -307,6 +308,30 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the tool strip properties.
+        /// </summary>
+        private void InitToolStrip( )
+        {
+            try
+            {
+                ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ShowCaption = true;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Notifies this instance.
         /// </summary>
         private void Notify( )
@@ -315,7 +340,7 @@ namespace BudgetExecution
             {
                 var _message = "THIS IS NOT IMPLEMENTED!!";
                 var _notification = new Notification( _message );
-                _notification.Show();
+                _notification.Show( );
             }
             catch( Exception _ex )
             {
@@ -626,6 +651,7 @@ namespace BudgetExecution
                 Commands = CreateCommandList( Provider );
                 Statements = new Dictionary<string, object>( );
                 InitEditor( );
+                InitToolStrip( );
             }
             catch( Exception _ex )
             {
