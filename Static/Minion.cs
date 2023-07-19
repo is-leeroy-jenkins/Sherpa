@@ -292,7 +292,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = AppSettings["Chrome"];
+                var _path = AppSettings[ "Chrome" ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
                 _startInfo.LoadUserProfile = true;
@@ -318,7 +318,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = AppSettings["Firefox"];
+                var _path = AppSettings[ "Firefox" ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
                 _startInfo.LoadUserProfile = true;
