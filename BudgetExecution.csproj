@@ -303,6 +303,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Remove="bin\**" />
+    <Compile Remove="Clients\WebBrower\**" />
     <Compile Remove="Minions\SqlCe\C# Source code\**" />
     <Compile Remove="WebBrowser\**" />
   </ItemGroup>
@@ -313,8 +314,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Remove="bin\**" />
+    <EmbeddedResource Remove="Clients\WebBrower\**" />
     <EmbeddedResource Remove="Minions\SqlCe\C# Source code\**" />
     <EmbeddedResource Remove="WebBrowser\**" />
+    <None Remove="Clients\WebBrower\**" />
     <None Remove="WebBrowser\**" />
   </ItemGroup>
   <ItemGroup>
@@ -336,9 +339,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Clients\BudgetBrowser\storage\i18n_process.css" />
     <None Remove="Controls\TabControl\TabControl.cs~RFa766426.TMP" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Clients\WebBrower\" />
   </ItemGroup>
 </Project>
