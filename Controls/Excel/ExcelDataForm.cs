@@ -327,7 +327,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the tool strip properties.
         /// </summary>
-        private void SetToolStripProperties( )
+        private void InitToolStrip( )
         {
             try
             {
@@ -821,7 +821,7 @@ namespace BudgetExecution
                 Header.Font = new Font( "Roboto", 11, FontStyle.Regular );
                 Header.TextAlign = ContentAlignment.TopCenter;
                 Ribbon.Spreadsheet = Spreadsheet;
-                SetToolStripProperties( );
+                InitToolStrip( );
             }
             catch( Exception _ex )
             {
