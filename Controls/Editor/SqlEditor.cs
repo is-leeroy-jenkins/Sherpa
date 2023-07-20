@@ -210,7 +210,8 @@ namespace BudgetExecution
             SaveButton.Click += OnSaveButtonClick;
             GoButton.Click += OnGoButtonClick;
             CloseButton.Click += OnCloseButtonClick;
-            SchemaButton.Click += OnSchemaButtonClick;
+            EditSqlButton.Click += OnEditSqlButtonClick;
+            EditDataButton.Click += OnEditDataButtonClick;
             TableButton.Click += OnTableButtonClick;
             LookupButton.Click += OnLookupButtonClick;
             TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
@@ -777,6 +778,8 @@ namespace BudgetExecution
                     var _name = _names[_i];
                     TableListBox.Items.Add( _name );
                 }
+
+                SourceTable.CaptionText = $"Tables: {TableListBox.Items.Count}";
             }
             catch( Exception _ex )
             {
@@ -1353,7 +1356,61 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTableButtonClick( object sender, EventArgs e )
+        private void OnEditSqlButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [data source button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnEditDataButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 3;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [lookup button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLookupButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 2;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+        
+        /// <summary>
+        /// Called when [execute button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnGoButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -1365,25 +1422,7 @@ namespace BudgetExecution
             }
         }
 
-        private void OnSchemaButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                TabControl.SelectedIndex = 2;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [execute button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnGoButtonClick( object sender, EventArgs e )
+        private void OnTableButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -1425,24 +1464,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [lookup button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnLookupButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                TabControl.SelectedIndex = 2;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [table ListBox selection changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1450,9 +1471,9 @@ namespace BudgetExecution
         {
             try
             {
-                FormFilter.Clear( );
-                ColumnListBox.Items.Clear( );
-                ValueListBox.Items.Clear( );
+                FormFilter?.Clear( );
+                ColumnListBox.Items?.Clear( );
+                ValueListBox.Items?.Clear( );
                 ColumnTable.CaptionText = string.Empty;
                 ValueTable.CaptionText = string.Empty;
                 var _listBox = sender as ListBox;
@@ -1468,7 +1489,7 @@ namespace BudgetExecution
                         ColumnListBox.Items.Add( _col.ColumnName );
                     }
 
-                    ColumnTable.CaptionText = "Columns:  " + ColumnListBox.Items.Count;
+                    ColumnTable.CaptionText = $"Columns:  {ColumnListBox.Items.Count}";
                     ValueTable.CaptionText = "Values:  ";
                 }
             }
@@ -1498,7 +1519,7 @@ namespace BudgetExecution
                     }
                 }
 
-                ValueTable.CaptionText = "Values:  " + ValueListBox.Items.Count;
+                ValueTable.CaptionText = $"Values: {ValueListBox.Items.Count}";
             }
             catch( Exception _ex )
             {
