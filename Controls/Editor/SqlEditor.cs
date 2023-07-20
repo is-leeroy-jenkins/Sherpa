@@ -188,6 +188,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             PictureBox.Size = new Size( 40, 20 );
+            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
 
             // Default Provider
             Provider = Provider.Access;
@@ -214,6 +215,7 @@ namespace BudgetExecution
             EditDataButton.Click += OnEditDataButtonClick;
             TableButton.Click += OnTableButtonClick;
             LookupButton.Click += OnLookupButtonClick;
+            HomeButton.Click += OnMainMenuButtonClicked;
             TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
             ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
 
@@ -402,6 +404,7 @@ namespace BudgetExecution
                                 AccessRadioButton.Checked = true;
                                 Commands = CreateCommandList( Provider );
                                 PopulateSqlComboBox( Commands );
+                                PopulateDataTypeComboBoxItems( );
                                 break;
                             }
                             case Provider.SQLite:
@@ -410,6 +413,7 @@ namespace BudgetExecution
                                 SQLiteRadioButton.Checked = true;
                                 Commands = CreateCommandList( Provider );
                                 PopulateSqlComboBox( Commands );
+                                PopulateDataTypeComboBoxItems( );
                                 break;
                             }
                             case Provider.SqlCe:
@@ -418,6 +422,7 @@ namespace BudgetExecution
                                 SqlCeRadioButton.Checked = true;
                                 Commands = CreateCommandList( Provider );
                                 PopulateSqlComboBox( Commands );
+                                PopulateDataTypeComboBoxItems( );
                                 break;
                             }
                             case Provider.SqlServer:
@@ -426,6 +431,7 @@ namespace BudgetExecution
                                 SqlServerRadioButton.Checked = true;
                                 Commands = CreateCommandList( Provider );
                                 PopulateSqlComboBox( Commands );
+                                PopulateDataTypeComboBoxItems( );
                                 break;
                             }
                             default:
@@ -435,6 +441,7 @@ namespace BudgetExecution
                                 SetProvider( Provider.ToString( ) );
                                 Commands = CreateCommandList( Provider );
                                 PopulateSqlComboBox( Commands );
+                                PopulateDataTypeComboBoxItems( );
                                 break;
                             }
                         }
@@ -460,6 +467,7 @@ namespace BudgetExecution
                     DataTab.TabVisible = false;
                     LookupTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
+                    Title.Text = "SQL Editor";
                     break;
                 }
                 case 1:
@@ -468,6 +476,7 @@ namespace BudgetExecution
                     LookupTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
                     SqlTab.TabVisible = false;
+                    Title.Text = $"{Source.ToString( ).SplitPascal( )} Data Table";
                     break;
                 }
                 case 2:
@@ -477,6 +486,10 @@ namespace BudgetExecution
                     SchemaTab.TabVisible = false;
                     SqlTab.TabVisible = false;
                     PopulateTableListBoxItems( );
+                    Title.Text = "Data Look-Up";
+                    TableListBox.SelectedValue = string.Empty;
+                    ColumnListBox.SelectedValue = string.Empty;
+                    ValueListBox.SelectedValue = string.Empty;
                     break;
                 }
                 case 3:
@@ -485,7 +498,10 @@ namespace BudgetExecution
                     DataTab.TabVisible = false;
                     LookupTab.TabVisible = false;
                     SqlTab.TabVisible = false;
+                    PopulateTableComboBoxItems( );
+                    DataTypes = GetDataTypes( Provider );
                     PopulateDataTypeComboBoxItems( );
+                    Title.Text = "Schema Editor";
                     break;
                 }
             }
@@ -687,131 +703,6 @@ namespace BudgetExecution
             }
 
             return string.Empty;
-        }
-
-        /// <summary>
-        /// Populates the SQL ComboBox.
-        /// </summary>
-        /// <param name="list">The list.</param>
-        private void PopulateSqlComboBox( IList<string> list )
-        {
-            if( list?.Any( ) == true )
-            {
-                try
-                {
-                    var _commands = Enum.GetNames( typeof( SQL ) );
-                    CommandComboBox.Items.Clear( );
-                    QueryListBox.Items.Clear( );
-                    for( var _i = 0; _i < list.Count; _i++ )
-                    {
-                        if( _commands.Contains( list[_i] )
-                           && list[_i].Equals( $"{SQL.CREATEDATABASE}" ) )
-                        {
-                            CommandComboBox.Items.Add( "CREATE DATABASE" );
-                        }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.CREATETABLE}" ) )
-                        {
-                            CommandComboBox.Items.Add( "CREATE TABLE" );
-                        }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.ALTERTABLE}" ) )
-                        {
-                            CommandComboBox.Items.Add( "ALTER TABLE" );
-                        }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.CREATEVIEW}" ) )
-                        {
-                            CommandComboBox.Items.Add( "CREATE VIEW" );
-                        }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.SELECTALL}" ) )
-                        {
-                            CommandComboBox.Items.Add( "SELECT ALL" );
-                        }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.DELETE}" ) )
-                        {
-                            CommandComboBox.Items.Add( "DELETE" );
-                        }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.INSERT}" ) )
-                        {
-                            CommandComboBox.Items.Add( "INSERT" );
-                        }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.UPDATE}" ) )
-                        {
-                            CommandComboBox.Items.Add( "UPDATE" );
-                        }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.SELECT}" ) )
-                        {
-                            CommandComboBox.Items.Add( "SELECT" );
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Populates the table ComboBox items.
-        /// </summary>
-        public void PopulateTableListBoxItems( )
-        {
-            try
-            {
-                TableListBox.Items.Clear( );
-                TableListBox.SelectedItem = string.Empty;
-                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData( );
-                var _names = _data?.Select( dr => dr.Field<string>( "TableName" ) )
-                    ?.Distinct( )
-                    ?.ToList( );
-
-                for( var _i = 0; _i < _names?.Count - 1; _i++ )
-                {
-                    var _name = _names[_i];
-                    TableListBox.Items.Add( _name );
-                }
-
-                SourceTable.CaptionText = $"Tables: {TableListBox.Items.Count}";
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the data type ComboBox items.
-        /// </summary>
-        public void PopulateDataTypeComboBoxItems( )
-        {
-            if( DataTypes?.Any( ) == true )
-            {
-                try
-                {
-                    DataTypeComboBox.Items.Clear( );
-                    DataTypeComboBox.SelectedText = string.Empty;
-                    var _types = DataTypes.ToArray( );
-                    for( var _i = 0; _i < _types?.Length; _i++ )
-                    {
-                        if( !string.IsNullOrEmpty( _types[_i] ) )
-                        {
-                            DataTypeComboBox.Items.Add( _types[_i] );
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
         }
 
         /// <summary>
@@ -1083,6 +974,210 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Opens the main form.
+        /// </summary>
+        private void OpenMainForm( )
+        {
+            try
+            {
+                if( ( Owner != null )
+                   && ( Owner.Visible == false )
+                   && ( Owner.GetType( ) == typeof( MainForm ) ) )
+                {
+                    Owner.Visible = true;
+                    Visible = false;
+                }
+                else if( ( Owner != null )
+                        && ( Owner.Visible == false )
+                        && ( Owner.GetType( ) != typeof( MainForm ) ) )
+                {
+                    Owner.Close( );
+                    var _mainForm = (MainForm)Program.Windows["MainForm"];
+                    _mainForm.Refresh( );
+                    _mainForm.Visible = true;
+                    ResetData( );
+                    Visible = false;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+        
+        /// <summary>
+        /// Populates the SQL ComboBox.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        private void PopulateSqlComboBox( IList<string> list )
+        {
+            if( list?.Any( ) == true )
+            {
+                try
+                {
+                    var _commands = Enum.GetNames( typeof( SQL ) );
+                    CommandComboBox.Items?.Clear( );
+                    QueryListBox.Items?.Clear( );
+                    for( var _i = 0; _i < list.Count; _i++ )
+                    {
+                        if( _commands.Contains( list[_i] )
+                           && list[_i].Equals( $"{SQL.CREATEDATABASE}" ) )
+                        {
+                            CommandComboBox.Items.Add( "CREATE DATABASE" );
+                        }
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.CREATETABLE}" ) )
+                        {
+                            CommandComboBox.Items.Add( "CREATE TABLE" );
+                        }
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.ALTERTABLE}" ) )
+                        {
+                            CommandComboBox.Items.Add( "ALTER TABLE" );
+                        }
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.CREATEVIEW}" ) )
+                        {
+                            CommandComboBox.Items.Add( "CREATE VIEW" );
+                        }
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.SELECTALL}" ) )
+                        {
+                            CommandComboBox.Items.Add( "SELECT ALL" );
+                        }
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.DELETE}" ) )
+                        {
+                            CommandComboBox.Items.Add( "DELETE" );
+                        }
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.INSERT}" ) )
+                        {
+                            CommandComboBox.Items.Add( "INSERT" );
+                        }
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.UPDATE}" ) )
+                        {
+                            CommandComboBox.Items.Add( "UPDATE" );
+                        }
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.SELECT}" ) )
+                        {
+                            CommandComboBox.Items.Add( "SELECT" );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the table ComboBox items.
+        /// </summary>
+        public void PopulateTableListBoxItems( )
+        {
+            try
+            {
+                TableListBox.Items?.Clear( );
+                TableListBox.SelectedItem = string.Empty;
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData( );
+                var _names = _data?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.Distinct( )
+                    ?.ToList( );
+
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
+                {
+                    var _name = _names[_i];
+                    TableListBox.Items.Add( _name );
+                }
+
+                SourceTable.CaptionText = $"Tables: {TableListBox.Items.Count}";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the data type ComboBox items.
+        /// </summary>
+        public void PopulateDataTypeComboBoxItems( )
+        {
+            if( DataTypes?.Any( ) == true )
+            {
+                try
+                {
+                    DataTypeComboBox.Items?.Clear( );
+                    DataTypeComboBox.SelectedText = string.Empty;
+                    var _types = DataTypes.ToArray( );
+                    for( var _i = 0; _i < _types?.Length; _i++ )
+                    {
+                        if( !string.IsNullOrEmpty( _types[_i] ) )
+                        {
+                            DataTypeComboBox.Items.Add( _types[_i] );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        public void PopulateTableComboBoxItems( )
+        {
+            try
+            {
+                TableNameComboBox.Items?.Clear( );
+                TableNameComboBox.SelectedItem = string.Empty;
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData( );
+                var _names = _data
+                    ?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.Distinct( )
+                    ?.ToList( );
+
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
+                {
+                    var _name = _names[_i];
+                    TableNameComboBox.Items.Add( _name );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ResetData( )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                SelectedTable = string.Empty;
+                DataGrid.DataSource = null;
+                BindingSource.DataSource = null;
+                DataModel = null;
+                DataTable = null;
+                TabControl.SelectedIndex = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1123,7 +1218,10 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( _tag ) )
                     {
                         SetProvider( _tag );
+                        DataTypes = GetDataTypes( Provider );
                     }
+
+                    _button.Checked = true;
                 }
                 catch( Exception _ex )
                 {
@@ -1146,7 +1244,7 @@ namespace BudgetExecution
                 {
                     SelectedCommand = string.Empty;
                     var _selection = _comboBox.SelectedItem?.ToString( );
-                    QueryListBox.Items.Clear( );
+                    QueryListBox.Items?.Clear( );
                     if( _selection?.Contains( " " ) == true )
                     {
                         SelectedCommand = _selection.Replace( " ", "" );
@@ -1403,7 +1501,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [execute button click].
         /// </summary>
@@ -1507,7 +1605,7 @@ namespace BudgetExecution
         {
             try
             {
-                ValueListBox.Items.Clear( );
+                ValueListBox.Items?.Clear( );
                 var _listBox = sender as ListBox;
                 var _column = _listBox?.SelectedItem?.ToString( );
                 var _series = DataModel.DataElements;
@@ -1520,6 +1618,18 @@ namespace BudgetExecution
                 }
 
                 ValueTable.CaptionText = $"Values: {ValueListBox.Items.Count}";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnMainMenuButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenMainForm( );
             }
             catch( Exception _ex )
             {

@@ -299,7 +299,7 @@ namespace BudgetExecution
                         ?.First( );
 
                     _dataGridForm.Owner = this;
-                    _dataGridForm.ClearData( );
+                    _dataGridForm.ResetData( );
                     _dataGridForm.Refresh( );
                     _dataGridForm.Visible = true;
                     Visible = false;

@@ -405,7 +405,7 @@ namespace BudgetExecution
                 {
                     if( FirstComboBox.Items?.Count > 0 )
                     {
-                        FirstComboBox.Items.Clear( );
+                        FirstComboBox.Items?.Clear( );
                     }
 
                     if( FirstListBox.Items?.Count > 0 )
@@ -436,7 +436,7 @@ namespace BudgetExecution
                 {
                     if( SecondComboBox.Items?.Count > 0 )
                     {
-                        SecondComboBox.Items.Clear( );
+                        SecondComboBox.Items?.Clear( );
                     }
 
                     if( SecondListBox.Items?.Count > 0 )
@@ -473,7 +473,7 @@ namespace BudgetExecution
                 {
                     if( ThirdComboBox.Items?.Count > 0 )
                     {
-                        ThirdComboBox.Items.Clear( );
+                        ThirdComboBox.Items?.Clear( );
                     }
 
                     if( ThirdListBox.Items?.Count > 0 )
@@ -512,7 +512,7 @@ namespace BudgetExecution
                 {
                     if( FieldListBox.Items.Count > 0 )
                     {
-                        FieldListBox.Items.Clear( );
+                        FieldListBox.Items?.Clear( );
                     }
 
                     foreach( var _item in Fields )
@@ -538,7 +538,7 @@ namespace BudgetExecution
                 {
                     if( NumericListBox.Items.Count > 0 )
                     {
-                        NumericListBox.Items.Clear( );
+                        NumericListBox.Items?.Clear( );
                     }
 
                     for( var _i = 0; _i < Numerics.Count; _i++ )
@@ -646,7 +646,7 @@ namespace BudgetExecution
         /// <summary>
         /// Clears the data.
         /// </summary>
-        public void ClearData( )
+        public void ResetData( )
         {
             try
             {
@@ -676,8 +676,8 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( ThirdValue )
                    || ThirdTable.Visible )
                 {
-                    ThirdComboBox.Items.Clear( );
-                    ThirdListBox.Items.Clear( );
+                    ThirdComboBox.Items?.Clear( );
+                    ThirdListBox.Items?.Clear( );
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
                     ThirdTable.Visible = false;
@@ -686,8 +686,8 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( SecondValue )
                    || SecondTable.Visible )
                 {
-                    SecondComboBox.Items.Clear( );
-                    SecondListBox.Items.Clear( );
+                    SecondComboBox.Items?.Clear( );
+                    SecondListBox.Items?.Clear( );
                     SecondCategory = string.Empty;
                     SecondValue = string.Empty;
                     SecondTable.Visible = false;
@@ -696,8 +696,8 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( FirstValue )
                    || FirstTable.Visible )
                 {
-                    FirstComboBox.Items.Clear( );
-                    FirstListBox.Items.Clear( );
+                    FirstComboBox.Items?.Clear( );
+                    FirstListBox.Items?.Clear( );
                     FirstCategory = string.Empty;
                     FirstValue = string.Empty;
                     PopulateFirstComboBoxItems( );
@@ -750,12 +750,12 @@ namespace BudgetExecution
         {
             try
             {
-                TableListBox.Items.Clear( );
-                FirstListBox.Items.Clear( );
-                SecondListBox.Items.Clear( );
-                ThirdListBox.Items.Clear( );
-                FieldListBox.Items.Clear( );
-                NumericListBox.Items.Clear( );
+                TableListBox.Items?.Clear( );
+                FirstListBox.Items?.Clear( );
+                SecondListBox.Items?.Clear( );
+                ThirdListBox.Items?.Clear( );
+                FieldListBox.Items?.Clear( );
+                NumericListBox.Items?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -770,9 +770,9 @@ namespace BudgetExecution
         {
             try
             {
-                FirstComboBox.Items.Clear( );
-                SecondComboBox.Items.Clear( );
-                ThirdComboBox.Items.Clear( );
+                FirstComboBox.Items?.Clear( );
+                SecondComboBox.Items?.Clear( );
+                ThirdComboBox.Items?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -1224,7 +1224,7 @@ namespace BudgetExecution
                     var _mainForm = (MainForm)Program.Windows["MainForm"];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
-                    ClearData( );
+                    ResetData( );
                     Visible = false;
                 }
             }
@@ -1413,7 +1413,7 @@ namespace BudgetExecution
                     SecondValue = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
-                    FirstListBox.Items.Clear( );
+                    FirstListBox.Items?.Clear( );
                     FirstCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( FirstCategory ) )
                     {
@@ -1610,7 +1610,7 @@ namespace BudgetExecution
 
                     if( FieldListBox.Items.Count > 0 )
                     {
-                        FieldListBox.Items.Clear( );
+                        FieldListBox.Items?.Clear( );
                     }
 
                     ThirdValue = _listBox.SelectedValue?.ToString( );
@@ -2083,7 +2083,7 @@ namespace BudgetExecution
         {
             try
             {
-                ClearData( );
+                ResetData( );
             }
             catch( Exception _ex )
             {
@@ -2112,7 +2112,7 @@ namespace BudgetExecution
                     var _mainForm = (MainForm)Program.Windows["MainForm"];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
-                    ClearData( );
+                    ResetData( );
                     Owner = _mainForm;
                     Visible = false;
                 }
