@@ -55,6 +55,7 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
     using System.Windows.Forms;
+    using CheckState = MetroSet_UI.Enums.CheckState;
     using Control = System.Windows.Forms.Control;
 
     [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
@@ -201,10 +202,10 @@ namespace BudgetExecution
 
             // Control Event Wiring
             TabControl.SelectedIndexChanged += OnActiveTabChanged;
-            AccessRadioButton.Click += OnRadioButtonChecked;
-            SQLiteRadioButton.Click += OnRadioButtonChecked;
-            SqlCeRadioButton.Click += OnRadioButtonChecked;
-            SqlServerRadioButton.Click += OnRadioButtonChecked;
+            AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
             CommandComboBox.SelectedValueChanged += OnComboBoxItemSelected;
             QueryListBox.SelectedValueChanged += OnListBoxItemSelected;
             RefreshButton.Click += OnRefreshButtonClick;
@@ -401,7 +402,6 @@ namespace BudgetExecution
                             case Provider.Access:
                             {
                                 Provider = Provider.Access;
-                                AccessRadioButton.Checked = true;
                                 Commands = CreateCommandList( Provider );
                                 PopulateSqlComboBox( Commands );
                                 PopulateDataTypeComboBoxItems( );
@@ -410,7 +410,6 @@ namespace BudgetExecution
                             case Provider.SQLite:
                             {
                                 Provider = Provider.SQLite;
-                                SQLiteRadioButton.Checked = true;
                                 Commands = CreateCommandList( Provider );
                                 PopulateSqlComboBox( Commands );
                                 PopulateDataTypeComboBoxItems( );
@@ -419,7 +418,6 @@ namespace BudgetExecution
                             case Provider.SqlCe:
                             {
                                 Provider = Provider.SqlCe;
-                                SqlCeRadioButton.Checked = true;
                                 Commands = CreateCommandList( Provider );
                                 PopulateSqlComboBox( Commands );
                                 PopulateDataTypeComboBoxItems( );
@@ -428,7 +426,6 @@ namespace BudgetExecution
                             case Provider.SqlServer:
                             {
                                 Provider = Provider.SqlServer;
-                                SqlServerRadioButton.Checked = true;
                                 Commands = CreateCommandList( Provider );
                                 PopulateSqlComboBox( Commands );
                                 PopulateDataTypeComboBoxItems( );
@@ -437,7 +434,6 @@ namespace BudgetExecution
                             default:
                             {
                                 Provider = Provider.Access;
-                                AccessRadioButton.Checked = true;
                                 SetProvider( Provider.ToString( ) );
                                 Commands = CreateCommandList( Provider );
                                 PopulateSqlComboBox( Commands );
@@ -1208,20 +1204,23 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnRadioButtonChecked( object sender, EventArgs e )
+        private void OnRadioButtonChecked( object sender )
         {
             if( sender is RadioButton _button )
             {
                 try
                 {
+                    if( _button.Checked == false )
+                    {
+                        _button.CheckState = CheckState.Checked;
+                    }
+
                     var _tag = _button.Tag?.ToString( );
                     if( !string.IsNullOrEmpty( _tag ) )
                     {
                         SetProvider( _tag );
                         DataTypes = GetDataTypes( Provider );
                     }
-
-                    _button.Checked = true;
                 }
                 catch( Exception _ex )
                 {

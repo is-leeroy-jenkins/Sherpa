@@ -153,7 +153,7 @@ namespace BudgetExecution
         {
             try
             {
-                TableListBox.Items.Clear( );
+                TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _names = _model.GetData( )
                     ?.Select( r => r.Field<string>( "TableName" ) )
@@ -379,8 +379,8 @@ namespace BudgetExecution
             try
             {
                 FormFilter.Clear( );
-                ColumnListBox.Items.Clear( );
-                ValueListBox.Items.Clear( );
+                ColumnListBox.Items?.Clear( );
+                ValueListBox.Items?.Clear( );
                 ColumnTable.CaptionText = string.Empty;
                 ValueTable.CaptionText = string.Empty;
                 var _listBox = sender as ListBox;
@@ -414,7 +414,7 @@ namespace BudgetExecution
         {
             try
             {
-                ValueListBox.Items.Clear( );
+                ValueListBox.Items?.Clear( );
                 var _listBox = sender as ListBox;
                 var _column = _listBox?.SelectedItem?.ToString( );
                 var _series = DataModel.DataElements;

@@ -203,7 +203,7 @@ namespace BudgetExecution
             {
                 if( filePaths?.Any( ) == true )
                 {
-                    FileList.Items.Clear( );
+                    FileList.Items?.Clear( );
                     var _paths = filePaths.ToArray( );
                     for( var _i = 0; _i < _paths.Length; _i++ )
                     {

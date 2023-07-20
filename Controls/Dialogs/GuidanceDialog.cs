@@ -229,7 +229,7 @@ namespace BudgetExecution
         {
             try
             {
-                ListBox.Items.Clear( );
+                ListBox.Items?.Clear( );
                 DataModel = new DataBuilder( Source, Provider );
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataModel.DataTable;

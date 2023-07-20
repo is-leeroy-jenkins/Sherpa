@@ -374,7 +374,7 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( FirstValue )
                        && !string.IsNullOrEmpty( SecondValue ) )
                     {
-                        ThirdComboBox.Items.Clear( );
+                        ThirdComboBox.Items?.Clear( );
                         foreach( var _item in Fields )
                         {
                             if( !_item.Equals( FirstCategory )
@@ -405,7 +405,7 @@ namespace BudgetExecution
                        && !string.IsNullOrEmpty( SecondValue )
                        && !string.IsNullOrEmpty( ThirdValue ) )
                     {
-                        FourthComboBox.Items.Clear( );
+                        FourthComboBox.Items?.Clear( );
                         foreach( var _item in Fields )
                         {
                             if( !_item.Equals( FirstCategory )
@@ -452,9 +452,9 @@ namespace BudgetExecution
         {
             try
             {
-                TableListBox.Items.Clear( );
-                ReferenceListBox.Items.Clear( );
-                MaintenanceListBox.Items.Clear( );
+                TableListBox.Items?.Clear( );
+                ReferenceListBox.Items?.Clear( );
+                MaintenanceListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
                 var _names = _data
@@ -603,7 +603,7 @@ namespace BudgetExecution
                     FourthValue = string.Empty;
                     if( FirstListBox.Items?.Count > 0 )
                     {
-                        FirstListBox.Items.Clear( );
+                        FirstListBox.Items?.Clear( );
                     }
 
                     var _filter = _comboBox.SelectedItem?.ToString( );
@@ -676,7 +676,7 @@ namespace BudgetExecution
                     FourthValue = string.Empty;
                     if( SecondListBox.Items.Count > 0 )
                     {
-                        SecondListBox.Items.Clear( );
+                        SecondListBox.Items?.Clear( );
                     }
 
                     var _filter = _comboBox.SelectedItem?.ToString( );
@@ -749,7 +749,7 @@ namespace BudgetExecution
                     var _filter = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
-                        ThirdListBox.Items.Clear( );
+                        ThirdListBox.Items?.Clear( );
                         ThirdCategory = _filter;
                         var _data = DataModel.DataElements[ _filter ];
                         foreach( var _item in _data )
@@ -819,7 +819,7 @@ namespace BudgetExecution
                     var _filter = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
-                        FourthListBox.Items.Clear( );
+                        FourthListBox.Items?.Clear( );
                         FourthCategory = _filter;
                         var _data = DataModel.DataElements[ _filter ];
                         foreach( var _item in _data )
@@ -1097,8 +1097,8 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( FourthValue )
                    || FourthTable.Visible )
                 {
-                    FourthComboBox.Items.Clear( );
-                    FourthListBox.Items.Clear( );
+                    FourthComboBox.Items?.Clear( );
+                    FourthListBox.Items?.Clear( );
                     FourthCategory = string.Empty;
                     FourthValue = string.Empty;
                     ThirdTable.Visible = false;
@@ -1107,8 +1107,8 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( ThirdValue )
                    || ThirdTable.Visible )
                 {
-                    ThirdComboBox.Items.Clear( );
-                    ThirdListBox.Items.Clear( );
+                    ThirdComboBox.Items?.Clear( );
+                    ThirdListBox.Items?.Clear( );
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
                     ThirdTable.Visible = false;
@@ -1117,8 +1117,8 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( SecondValue )
                    || SecondTable.Visible )
                 {
-                    SecondComboBox.Items.Clear( );
-                    SecondListBox.Items.Clear( );
+                    SecondComboBox.Items?.Clear( );
+                    SecondListBox.Items?.Clear( );
                     SecondCategory = string.Empty;
                     SecondValue = string.Empty;
                     SecondTable.Visible = false;
@@ -1127,8 +1127,8 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( FirstValue )
                    || FirstTable.Visible )
                 {
-                    FirstComboBox.Items.Clear( );
-                    FirstListBox.Items.Clear( );
+                    FirstComboBox.Items?.Clear( );
+                    FirstListBox.Items?.Clear( );
                     FirstCategory = string.Empty;
                     FirstValue = string.Empty;
                     FirstTable.Visible = true;
@@ -1289,7 +1289,7 @@ namespace BudgetExecution
                 {
                     if( FieldListBox.Items.Count > 0 )
                     {
-                        FieldListBox.Items.Clear( );
+                        FieldListBox.Items?.Clear( );
                     }
 
                     foreach( var _item in Fields )
@@ -1315,7 +1315,7 @@ namespace BudgetExecution
                 {
                     if( NumericListBox.Items.Count > 0 )
                     {
-                        NumericListBox.Items.Clear( );
+                        NumericListBox.Items?.Clear( );
                     }
 
                     for( var _i = 0; _i < Numerics.Count; _i++ )

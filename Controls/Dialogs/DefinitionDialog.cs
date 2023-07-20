@@ -151,7 +151,7 @@ namespace BudgetExecution
         {
             try
             {
-                TableNameComboBox.Items.Clear( );
+                TableNameComboBox.Items?.Clear( );
                 TableNameComboBox.SelectedItem = string.Empty;
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
@@ -180,7 +180,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    DataTypeComboBox.Items.Clear( );
+                    DataTypeComboBox.Items?.Clear( );
                     DataTypeComboBox.SelectedText = string.Empty;
                     var _types = DataTypes.ToArray( );
                     for( var _i = 0; _i < _types?.Length; _i++ )

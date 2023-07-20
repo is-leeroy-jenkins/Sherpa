@@ -197,7 +197,7 @@ namespace BudgetExecution
         {
             try
             {
-                ComboBox.Items.Clear( );
+                ComboBox.Items?.Clear( );
                 DataModel = new DataBuilder( Source, Provider );
                 var _codes = DataModel.DataElements[ "ProgramTitle" ];
                 foreach( var _item in _codes )
