@@ -4,7 +4,7 @@
 //     Created:                 07-18-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-19-2023
+//     Last Modified On:        07-20-2023
 // ******************************************************************************************
 // <copyright file="SqlEditor.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -57,8 +57,8 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Control = System.Windows.Forms.Control;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
     public partial class SqlEditor : EditBase
     {
         /// <summary>
@@ -199,6 +199,7 @@ namespace BudgetExecution
             AccessRadioButton.Tag = "Access";
 
             // Control Event Wiring
+            TabControl.SelectedIndexChanged += OnActiveTabChanged;
             AccessRadioButton.Click += OnRadioButtonChecked;
             SQLiteRadioButton.Click += OnRadioButtonChecked;
             SqlCeRadioButton.Click += OnRadioButtonChecked;
@@ -209,6 +210,11 @@ namespace BudgetExecution
             SaveButton.Click += OnSaveButtonClick;
             GoButton.Click += OnGoButtonClick;
             CloseButton.Click += OnCloseButtonClick;
+            SchemaButton.Click += OnSchemaButtonClick;
+            TableButton.Click += OnTableButtonClick;
+            LookupButton.Click += OnLookupButtonClick;
+            TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
+            ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
 
             // Form Even Wiring
             Load += OnLoad;
@@ -441,6 +447,248 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the active tab controls.
+        /// </summary>
+        private void SetActiveTab( )
+        {
+            switch( TabControl.SelectedIndex )
+            {
+                case 0:
+                {
+                    SqlTab.TabVisible = true;
+                    DataTab.TabVisible = false;
+                    LookupTab.TabVisible = false;
+                    SchemaTab.TabVisible = false;
+                    break;
+                }
+                case 1:
+                {
+                    DataTab.TabVisible = true;
+                    LookupTab.TabVisible = false;
+                    SchemaTab.TabVisible = false;
+                    SqlTab.TabVisible = false;
+                    break;
+                }
+                case 2:
+                {
+                    DataTab.TabVisible = false;
+                    LookupTab.TabVisible = true;
+                    SchemaTab.TabVisible = false;
+                    SqlTab.TabVisible = false;
+                    PopulateTableListBoxItems( );
+                    break;
+                }
+                case 3:
+                {
+                    SchemaTab.TabVisible = true;
+                    DataTab.TabVisible = false;
+                    LookupTab.TabVisible = false;
+                    SqlTab.TabVisible = false;
+                    PopulateDataTypeComboBoxItems( );
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Resets the data.
+        /// </summary>
+        /// <param name="where">The where.</param>
+        private void ResetData( IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Resets the data.
+        /// </summary>
+        /// <param name="cols">The cols.</param>
+        /// <param name="where">The where.</param>
+        private void ResetData( IEnumerable<string> cols, IDictionary<string, object> where )
+        {
+            if( ( where?.Any( ) == true )
+               && ( cols?.Any( ) == true ) )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( cols, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Resets the data.
+        /// </summary>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> where )
+        {
+            if( ( where?.Any( ) == true )
+               && ( fields?.Any( ) == true ) )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( fields, numerics, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        private string CreateSqlText( IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true )
+            {
+                try
+                {
+                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="columns">The columns.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        private string CreateSqlText( IEnumerable<string> columns,
+            IDictionary<string, object> where )
+        {
+            if( ( where?.Any( ) == true )
+               && ( columns?.Any( ) == true )
+               && !string.IsNullOrEmpty( SelectedTable ) )
+            {
+                try
+                {
+                    var _cols = string.Empty;
+                    foreach( var _name in columns )
+                    {
+                        _cols += $"{_name}, ";
+                    }
+
+                    var _criteria = where.ToCriteria( );
+                    var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT {_names} FROM {SelectedTable} "
+                        + $"WHERE {_criteria} "
+                        + $"GROUP BY {_names} ;";
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> where )
+        {
+            if( ( where?.Any( ) == true )
+               && ( fields?.Any( ) == true )
+               && ( numerics?.Any( ) == true ) )
+            {
+                try
+                {
+                    var _cols = string.Empty;
+                    var _aggr = string.Empty;
+                    foreach( var _name in fields )
+                    {
+                        _cols += $"{_name}, ";
+                    }
+
+                    foreach( var _metric in numerics )
+                    {
+                        _aggr += $"SUM({_metric}) AS {_metric}, ";
+                    }
+
+                    var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
+                    var _criteria = where.ToCriteria( );
+                    var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT {_columns} FROM {Source} "
+                        + $"WHERE {_criteria} "
+                        + $"GROUP BY {_groups};";
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
         /// Populates the SQL ComboBox.
         /// </summary>
         /// <param name="list">The list.</param>
@@ -455,50 +703,104 @@ namespace BudgetExecution
                     QueryListBox.Items.Clear( );
                     for( var _i = 0; _i < list.Count; _i++ )
                     {
-                        if( _commands.Contains( list[ _i ] )
-                           && list[ _i ].Equals( $"{SQL.CREATEDATABASE}" ) )
+                        if( _commands.Contains( list[_i] )
+                           && list[_i].Equals( $"{SQL.CREATEDATABASE}" ) )
                         {
                             CommandComboBox.Items.Add( "CREATE DATABASE" );
                         }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.CREATETABLE}" ) )
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.CREATETABLE}" ) )
                         {
                             CommandComboBox.Items.Add( "CREATE TABLE" );
                         }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.ALTERTABLE}" ) )
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.ALTERTABLE}" ) )
                         {
                             CommandComboBox.Items.Add( "ALTER TABLE" );
                         }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.CREATEVIEW}" ) )
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.CREATEVIEW}" ) )
                         {
                             CommandComboBox.Items.Add( "CREATE VIEW" );
                         }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.SELECTALL}" ) )
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.SELECTALL}" ) )
                         {
                             CommandComboBox.Items.Add( "SELECT ALL" );
                         }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.DELETE}" ) )
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.DELETE}" ) )
                         {
                             CommandComboBox.Items.Add( "DELETE" );
                         }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.INSERT}" ) )
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.INSERT}" ) )
                         {
                             CommandComboBox.Items.Add( "INSERT" );
                         }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.UPDATE}" ) )
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.UPDATE}" ) )
                         {
                             CommandComboBox.Items.Add( "UPDATE" );
                         }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.SELECT}" ) )
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.SELECT}" ) )
                         {
                             CommandComboBox.Items.Add( "SELECT" );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the table ComboBox items.
+        /// </summary>
+        public void PopulateTableListBoxItems( )
+        {
+            try
+            {
+                TableListBox.Items.Clear( );
+                TableListBox.SelectedItem = string.Empty;
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData( );
+                var _names = _data?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.Distinct( )
+                    ?.ToList( );
+
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
+                {
+                    var _name = _names[_i];
+                    TableListBox.Items.Add( _name );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the data type ComboBox items.
+        /// </summary>
+        public void PopulateDataTypeComboBoxItems( )
+        {
+            if( DataTypes?.Any( ) == true )
+            {
+                try
+                {
+                    DataTypeComboBox.Items.Clear( );
+                    DataTypeComboBox.SelectedText = string.Empty;
+                    var _types = DataTypes.ToArray( );
+                    for( var _i = 0; _i < _types?.Length; _i++ )
+                    {
+                        if( !string.IsNullOrEmpty( _types[_i] ) )
+                        {
+                            DataTypeComboBox.Items.Add( _types[_i] );
                         }
                     }
                 }
@@ -525,7 +827,7 @@ namespace BudgetExecution
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
-                        var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
+                        var _folder = Directory.CreateDirectory( _names[_i] ).Name;
                         if( !string.IsNullOrEmpty( _folder ) )
                         {
                             _list.Add( _folder );
@@ -562,7 +864,7 @@ namespace BudgetExecution
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
-                        var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
+                        var _folder = Directory.CreateDirectory( _names[_i] ).Name;
                         if( !string.IsNullOrEmpty( _folder ) )
                         {
                             _list.Add( _folder );
@@ -638,7 +940,7 @@ namespace BudgetExecution
         /// <returns></returns>
         private IDictionary<string, TabPageAdv> GetTabPages( )
         {
-            if( TabControl.TabPages?.Count > 0 ) 
+            if( TabControl.TabPages?.Count > 0 )
             {
                 try
                 {
@@ -664,7 +966,7 @@ namespace BudgetExecution
 
             return default( IDictionary<string, TabPageAdv> );
         }
-        
+
         /// <summary>
         /// Gets the radio buttons.
         /// </summary>
@@ -758,7 +1060,7 @@ namespace BudgetExecution
             try
             {
                 var _listBoxes = new Dictionary<string, ListBox>( );
-                foreach( var _control in Controls )
+                foreach( var _control in GetControls( ) )
                 {
                     if( _control is ListBox _listBox )
                     {
@@ -852,7 +1154,7 @@ namespace BudgetExecution
                         var _files = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _files.Length; _i++ )
                         {
-                            var _item = Path.GetFileNameWithoutExtension( _files[ _i ] );
+                            var _item = Path.GetFileNameWithoutExtension( _files[_i] );
                             var _caption = _item?.SplitPascal( );
                             QueryListBox.Items.Add( _caption );
                         }
@@ -867,7 +1169,7 @@ namespace BudgetExecution
                         var _names = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _names.Length; _i++ )
                         {
-                            var _item = Path.GetFileNameWithoutExtension( _names[ _i ] );
+                            var _item = Path.GetFileNameWithoutExtension( _names[_i] );
                             var _caption = _item?.SplitPascal( );
                             QueryListBox.Items.Add( _caption );
                         }
@@ -975,7 +1277,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows[ "SqlEditor" ] = this;
+                Program.Windows["SqlEditor"] = this;
             }
             catch( Exception _ex )
             {
@@ -1051,9 +1353,28 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnDataSourceButtonClick( object sender, EventArgs e )
+        private void OnTableButtonClick( object sender, EventArgs e )
         {
-            Notify( );
+            try
+            {
+                TabControl.SelectedIndex = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnSchemaButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 2;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1075,6 +1396,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [active tab changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnActiveTabChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                SetActiveTab( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [save button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1083,6 +1422,88 @@ namespace BudgetExecution
         private void OnSaveButtonClick( object sender, EventArgs e )
         {
             Notify( );
+        }
+
+        /// <summary>
+        /// Called when [lookup button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLookupButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 2;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [table ListBox selection changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        public void OnTableListBoxSelectionChanged( object sender )
+        {
+            try
+            {
+                FormFilter.Clear( );
+                ColumnListBox.Items.Clear( );
+                ValueListBox.Items.Clear( );
+                ColumnTable.CaptionText = string.Empty;
+                ValueTable.CaptionText = string.Empty;
+                var _listBox = sender as ListBox;
+                var _value = _listBox?.SelectedItem.ToString( );
+                if( !string.IsNullOrEmpty( _value ) )
+                {
+                    var _source = (Source)Enum.Parse( typeof( Source ), _value );
+                    DataModel = new DataBuilder( _source, Provider.Access );
+                    BindingSource.DataSource = DataModel.DataTable;
+                    var _columns = DataModel.GetDataColumns( );
+                    foreach( var _col in _columns )
+                    {
+                        ColumnListBox.Items.Add( _col.ColumnName );
+                    }
+
+                    ColumnTable.CaptionText = "Columns:  " + ColumnListBox.Items.Count;
+                    ValueTable.CaptionText = "Values:  ";
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [column ListBox selection changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        public void OnColumnListBoxSelectionChanged( object sender )
+        {
+            try
+            {
+                ValueListBox.Items.Clear( );
+                var _listBox = sender as ListBox;
+                var _column = _listBox?.SelectedItem?.ToString( );
+                var _series = DataModel.DataElements;
+                if( !string.IsNullOrEmpty( _column ) )
+                {
+                    foreach( var _item in _series[_column] )
+                    {
+                        ValueListBox.Items.Add( _item );
+                    }
+                }
+
+                ValueTable.CaptionText = "Values:  " + ValueListBox.Items.Count;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
     }
 }

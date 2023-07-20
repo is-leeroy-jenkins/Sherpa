@@ -330,7 +330,7 @@ namespace BudgetExecution
             try
             {
                 var _listBoxes = new Dictionary<string, ListBox>( );
-                foreach( var _control in Controls )
+                foreach( var _control in GetControls( ) )
                 {
                     if( _control is ListBox _listBox )
                     {
