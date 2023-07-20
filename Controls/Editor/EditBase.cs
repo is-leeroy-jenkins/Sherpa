@@ -54,7 +54,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertTypeCheckPatternToNullCheck" ) ]
@@ -123,7 +123,7 @@ namespace BudgetExecution
         /// <value>
         /// The columns.
         /// </value>
-        public IEnumerable<string> Columns { get; set; }
+        public IList<string> Columns { get; set; }
 
         /// <summary>
         /// Gets or sets the fields.
@@ -237,23 +237,30 @@ namespace BudgetExecution
         public EditBase( )
         {
             InitializeComponent( );
-            Size = new Size( 1310, 648 );
+
+            // Base Properties
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             MetroColor = Color.FromArgb( 20, 20, 20 );
             BorderColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonHoverColor = Color.Red;
             CaptionAlign = HorizontalAlignment.Left;
-            CaptionBarHeight = 26;
+            CaptionBarHeight = 5;
             CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MinimizeBox = false;
+            MaximizeBox = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
             ShowIcon = false;
             ShowMouseOver = false;
-            ShowInTaskbar = false;
-            StartPosition = FormStartPosition.CenterParent;
+            ShowInTaskbar = true;
+            StartPosition = FormStartPosition.CenterScreen;
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
             Text = string.Empty;
@@ -264,7 +271,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="provider">The provider.</param>
         /// <returns></returns>
-        public IEnumerable<string> GetDataTypes( Provider provider )
+        private protected IEnumerable<string> GetDataTypes( Provider provider )
         {
             if( Enum.IsDefined( typeof( Provider ), provider ) )
             {
@@ -294,7 +301,7 @@ namespace BudgetExecution
         /// Gets the radio buttons.
         /// </summary>
         /// <returns></returns>
-        public IDictionary<string, RadioButton> GetRadioButtons( )
+        private protected IDictionary<string, RadioButton> GetRadioButtons( )
         {
             if( TabPages?.Count > 0 )
             {
@@ -339,7 +346,7 @@ namespace BudgetExecution
         /// Gets the combo boxes.
         /// </summary>
         /// <returns></returns>
-        public IDictionary<string, ComboBox> GetComboBoxes( )
+        private protected IDictionary<string, ComboBox> GetComboBoxes( )
         {
             if( TabPages?.Count > 0 )
             {
@@ -385,7 +392,7 @@ namespace BudgetExecution
         /// Gets the panels.
         /// </summary>
         /// <returns></returns>
-        public IDictionary<string, Layout> GetPanels( )
+        private protected IDictionary<string, Layout> GetPanels( )
         {
             if( TabPages?.Count > 0 )
             {
@@ -394,8 +401,9 @@ namespace BudgetExecution
                     var _panels = new Dictionary<string, Layout>( );
                     foreach( var _tabPage in TabPages.Values )
                     {
-                        foreach( var _control in _tabPage.Controls )
+                        for( var _i = 0; _i < _tabPage.Controls.Count; _i++ )
                         {
+                            var _control = _tabPage.Controls[ _i ];
                             if( _control is Layout _panel )
                             {
                                 _panels.Add( _panel.Name, _panel );
@@ -421,7 +429,7 @@ namespace BudgetExecution
         /// Gets the list boxes.
         /// </summary>
         /// <returns></returns>
-        public IDictionary<string, ListBox> GetListBoxes( )
+        private protected IDictionary<string, ListBox> GetListBoxes( )
         {
             if( TabPages?.Count > 0 )
             {
