@@ -194,11 +194,8 @@ namespace BudgetExecution
             // Default Provider
             Provider = Provider.Access;
 
-            // Tags
-            SQLiteRadioButton.Tag = "SQLite";
-            SqlCeRadioButton.Tag = "SqlCe";
-            SqlServerRadioButton.Tag = "SqlServer";
-            AccessRadioButton.Tag = "Access";
+            // Radio Buttons
+            AccessRadioButton.Checked = true;
 
             // Control Event Wiring
             TabControl.SelectedIndexChanged += OnActiveTabChanged;
@@ -206,7 +203,7 @@ namespace BudgetExecution
             SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
-            CommandComboBox.SelectedValueChanged += OnComboBoxItemSelected;
+            CommandComboBox.SelectedValueChanged += OnCommandComboBoxItemSelected;
             QueryListBox.SelectedValueChanged += OnListBoxItemSelected;
             RefreshButton.Click += OnRefreshButtonClick;
             SaveButton.Click += OnSaveButtonClick;
@@ -392,55 +389,14 @@ namespace BudgetExecution
                     var _provider = (Provider)Enum.Parse( typeof( Provider ), provider );
                     if( Enum.IsDefined( typeof( Provider ), _provider ) )
                     {
-                        if( Commands?.Any( ) == true )
+                        Provider = _provider switch
                         {
-                            Commands.Clear( );
-                        }
-
-                        switch( _provider )
-                        {
-                            case Provider.Access:
-                            {
-                                Provider = Provider.Access;
-                                Commands = CreateCommandList( Provider );
-                                PopulateSqlComboBox( Commands );
-                                PopulateDataTypeComboBoxItems( );
-                                break;
-                            }
-                            case Provider.SQLite:
-                            {
-                                Provider = Provider.SQLite;
-                                Commands = CreateCommandList( Provider );
-                                PopulateSqlComboBox( Commands );
-                                PopulateDataTypeComboBoxItems( );
-                                break;
-                            }
-                            case Provider.SqlCe:
-                            {
-                                Provider = Provider.SqlCe;
-                                Commands = CreateCommandList( Provider );
-                                PopulateSqlComboBox( Commands );
-                                PopulateDataTypeComboBoxItems( );
-                                break;
-                            }
-                            case Provider.SqlServer:
-                            {
-                                Provider = Provider.SqlServer;
-                                Commands = CreateCommandList( Provider );
-                                PopulateSqlComboBox( Commands );
-                                PopulateDataTypeComboBoxItems( );
-                                break;
-                            }
-                            default:
-                            {
-                                Provider = Provider.Access;
-                                SetProvider( Provider.ToString( ) );
-                                Commands = CreateCommandList( Provider );
-                                PopulateSqlComboBox( Commands );
-                                PopulateDataTypeComboBoxItems( );
-                                break;
-                            }
-                        }
+                            Provider.Access => Provider.Access,
+                            Provider.SQLite => Provider.SQLite,
+                            Provider.SqlCe => Provider.SqlCe,
+                            Provider.SqlServer => Provider.SqlServer,
+                            _ => Provider.Access
+                        };
                     }
                 }
                 catch( Exception _ex )
@@ -1210,16 +1166,19 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( _button.Checked == false )
-                    {
-                        _button.CheckState = CheckState.Checked;
-                    }
-
                     var _tag = _button.Tag?.ToString( );
                     if( !string.IsNullOrEmpty( _tag ) )
                     {
                         SetProvider( _tag );
                         DataTypes = GetDataTypes( Provider );
+                        Commands = CreateCommandList( Provider );
+                        PopulateSqlComboBox( Commands );
+                        PopulateDataTypeComboBoxItems( );
+                    }
+
+                    if( _button.CheckState == CheckState.Unchecked )
+                    {
+                        _button.CheckState = CheckState.Checked;
                     }
                 }
                 catch( Exception _ex )
@@ -1235,7 +1194,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnComboBoxItemSelected( object sender, EventArgs e )
+        private void OnCommandComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
             {
@@ -1274,6 +1233,11 @@ namespace BudgetExecution
                             QueryListBox.Items.Add( _caption );
                         }
                     }
+
+                    if( TabControl.SelectedIndex != 0 )
+                    {
+                        TabControl.SelectedIndex = 0;
+                    }
                 }
                 catch( Exception _ex )
                 {
@@ -1303,8 +1267,8 @@ namespace BudgetExecution
                             + DatabaseDirectory
                             + @$"\{Provider}\DataModels\{_command}\{_query}.sql";
 
-                        var _stream = File.OpenRead( _filePath );
-                        var _reader = new StreamReader( _stream );
+                        using var _stream = File.OpenRead( _filePath );
+                        using var _reader = new StreamReader( _stream );
                         var _text = _reader.ReadToEnd( );
                         Editor.Text = _text;
                     }
@@ -1314,8 +1278,8 @@ namespace BudgetExecution
                             + DatabaseDirectory
                             + @$"\{Provider}\DataModels\{SelectedCommand}\{SelectedQuery}.sql";
 
-                        var _stream = File.OpenRead( _path );
-                        var _reader = new StreamReader( _stream );
+                        using var _stream = File.OpenRead( _path );
+                        using var _reader = new StreamReader( _stream );
                         var _text = _reader.ReadToEnd( );
                         Editor.Text = _text;
                     }
