@@ -40,11 +40,14 @@
 
 namespace BudgetExecution
 {
+    using DocumentFormat.OpenXml.Office.CustomUI;
+    using Microsoft.Office.Interop.Access;
     using System;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Edit;
     using Syncfusion.Windows.Forms.Tools;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -52,6 +55,7 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
     using System.Windows.Forms;
+    using Control = System.Windows.Forms.Control;
 
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
@@ -188,6 +192,12 @@ namespace BudgetExecution
             // Default Provider
             Provider = Provider.Access;
 
+            // Tags
+            SQLiteRadioButton.Tag = "SQLite";
+            SqlCeRadioButton.Tag = "SqlCe";
+            SqlServerRadioButton.Tag = "SqlServer";
+            AccessRadioButton.Tag = "Access";
+
             // Control Event Wiring
             AccessRadioButton.Click += OnRadioButtonChecked;
             SQLiteRadioButton.Click += OnRadioButtonChecked;
@@ -204,12 +214,13 @@ namespace BudgetExecution
             Load += OnLoad;
             Closing += OnClosing;
             MouseClick += OnRightClick;
+            Shown += OnShown;
         }
 
         /// <summary>
         /// Sets the editor configuration.
         /// </summary>
-        private void InitEditor( )
+        private void InitializeEditor( )
         {
             try
             {
@@ -267,7 +278,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the tool strip properties.
         /// </summary>
-        private void InitToolStrip( )
+        private void InitializeToolStrip( )
         {
             try
             {
@@ -573,6 +584,38 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    foreach( Control _control in _collection )
+                    {
+                        _list.Add( _control );
+                        _queue.Enqueue( _control.Controls );
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( Control[ ] );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Control[ ] );
+            }
+        }
+
+        /// <summary>
         /// Gets the query text.
         /// </summary>
         /// <returns></returns>
@@ -590,6 +633,151 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the tab pages.
+        /// </summary>
+        /// <returns></returns>
+        private IDictionary<string, TabPageAdv> GetTabPages( )
+        {
+            if( TabControl.TabPages?.Count > 0 ) 
+            {
+                try
+                {
+                    var _tabPages = new Dictionary<string, TabPageAdv>( );
+                    foreach( var _control in GetControls( ) )
+                    {
+                        if( _control.GetType( ) == typeof( TabPageAdv ) )
+                        {
+                            _tabPages.Add( _control.Name, _control as TabPageAdv );
+                        }
+                    }
+
+                    return _tabPages?.Any( ) == true
+                        ? _tabPages
+                        : default( IDictionary<string, TabPageAdv> );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( IDictionary<string, TabPageAdv> );
+                }
+            }
+
+            return default( IDictionary<string, TabPageAdv> );
+        }
+        
+        /// <summary>
+        /// Gets the radio buttons.
+        /// </summary>
+        /// <returns></returns>
+        private IDictionary<string, RadioButton> GetRadioButtons( )
+        {
+            try
+            {
+                var _buttons = new Dictionary<string, RadioButton>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control.GetType( ) == typeof( RadioButton ) )
+                    {
+                        _buttons.Add( _control.Name, _control as RadioButton );
+                    }
+                }
+
+                return _buttons?.Any( ) == true
+                    ? _buttons
+                    : default( IDictionary<string, RadioButton> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, RadioButton> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the combo boxes.
+        /// </summary>
+        /// <returns></returns>
+        private IDictionary<string, ComboBox> GetComboBoxes( )
+        {
+            try
+            {
+                var _comboBoxes = new Dictionary<string, ComboBox>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control.GetType( ) == typeof( ComboBox ) )
+                    {
+                        _comboBoxes.Add( _control.Name, _control as ComboBox );
+                    }
+                }
+
+                return _comboBoxes?.Any( ) == true
+                    ? _comboBoxes
+                    : default( IDictionary<string, ComboBox> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, ComboBox> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the panels.
+        /// </summary>
+        /// <returns></returns>
+        private IDictionary<string, Layout> GetPanels( )
+        {
+            try
+            {
+                var _panels = new Dictionary<string, Layout>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control.GetType( ) == typeof( Layout ) )
+                    {
+                        _panels.Add( _control.Name, _control as Layout );
+                    }
+                }
+
+                return _panels?.Any( ) == true
+                    ? _panels
+                    : default( IDictionary<string, Layout> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, Layout> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the list boxes.
+        /// </summary>
+        /// <returns></returns>
+        private IDictionary<string, ListBox> GetListBoxes( )
+        {
+            try
+            {
+                var _listBoxes = new Dictionary<string, ListBox>( );
+                foreach( var _control in Controls )
+                {
+                    if( _control is ListBox _listBox )
+                    {
+                        _listBoxes.Add( _listBox.Name, _listBox );
+                    }
+                }
+
+                return _listBoxes?.Any( ) == true
+                    ? _listBoxes
+                    : default( IDictionary<string, ListBox> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, ListBox> );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -599,10 +787,14 @@ namespace BudgetExecution
         {
             try
             {
-                InitEditor( );
-                InitToolStrip( );
+                InitializeEditor( );
+                InitializeToolStrip( );
                 SetProvider( Provider.ToString( ) );
                 Commands = CreateCommandList( Provider );
+                TabPages = GetTabPages( );
+                Panels = GetPanels( );
+                RadioButtons = GetRadioButtons( );
+                ListBoxes = GetListBoxes( );
             }
             catch( Exception _ex )
             {
