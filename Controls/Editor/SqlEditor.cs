@@ -45,7 +45,6 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Edit;
     using Syncfusion.Windows.Forms.Tools;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -54,7 +53,6 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using CheckState = MetroSet_UI.Enums.CheckState;
-    using Control = System.Windows.Forms.Control;
 
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
@@ -561,7 +559,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} " 
+                        + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception _ex )
                 {
@@ -728,39 +727,7 @@ namespace BudgetExecution
                 return default( IList<string> );
             }
         }
-
-        /// <summary>
-        /// Gets the controls.
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerable<Control> GetControls( )
-        {
-            var _list = new List<Control>( );
-            var _queue = new Queue( );
-            try
-            {
-                _queue.Enqueue( Controls );
-                while( _queue.Count > 0 )
-                {
-                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
-                    foreach( Control _control in _collection )
-                    {
-                        _list.Add( _control );
-                        _queue.Enqueue( _control.Controls );
-                    }
-                }
-
-                return _list?.Any( ) == true
-                    ? _list.ToArray( )
-                    : default( Control[ ] );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( Control[ ] );
-            }
-        }
-
+        
         /// <summary>
         /// Gets the query text.
         /// </summary>
@@ -945,7 +912,7 @@ namespace BudgetExecution
                     var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
-                    BindData( );
+                    ClearData( );
                     Visible = false;
                 }
             }
@@ -1107,7 +1074,7 @@ namespace BudgetExecution
         /// <summary>
         /// Clears the data.
         /// </summary>
-        public void BindData( )
+        public void ClearData( )
         {
             try
             {
