@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 06-19-2023
+//     Created:                 07-18-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-12-2023
+//     Last Modified On:        07-21-2023
 // ******************************************************************************************
 // <copyright file="MainForm.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -37,7 +37,6 @@
 //   MainForm.cs
 // </summary>
 // ******************************************************************************************
-
 
 namespace BudgetExecution
 {
@@ -628,7 +627,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows[ "MainForm" ] = this;
+                Program.Windows["MainForm"] = this;
             }
             catch( Exception _ex )
             {
@@ -799,7 +798,7 @@ namespace BudgetExecution
         {
             OpenCalculationForm( );
         }
-        
+
         /// <summary>
         /// Called when [guidance tile clicked].
         /// </summary>
