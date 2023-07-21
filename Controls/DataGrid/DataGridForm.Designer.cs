@@ -249,7 +249,7 @@
             HomeButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             HomeButton.ForeColor = System.Drawing.Color.LightSteelBlue;
             HomeButton.HoverText = "Main Menu";
-            HomeButton.Image = Properties.Resources.HomeButton;
+            HomeButton.Image = Resources.Images.HomeButton;
             HomeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             HomeButton.Margin = new System.Windows.Forms.Padding( 1 );
             HomeButton.Name = "HomeButton";
@@ -1694,7 +1694,7 @@
             FirstButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             FirstButton.ForeColor = System.Drawing.Color.LightGray;
             FirstButton.HoverText = "First Record";
-            FirstButton.Image = Properties.Resources.FirstButton;
+            FirstButton.Image = Resources.Images.FirstButton;
             FirstButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             FirstButton.Margin = new System.Windows.Forms.Padding( 1 );
             FirstButton.Name = "FirstButton";
@@ -1722,7 +1722,7 @@
             PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             PreviousButton.ForeColor = System.Drawing.Color.LightGray;
             PreviousButton.HoverText = "Previous Button";
-            PreviousButton.Image = Properties.Resources.PreviousButton;
+            PreviousButton.Image = Resources.Images.PreviousButton;
             PreviousButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             PreviousButton.Margin = new System.Windows.Forms.Padding( 1 );
             PreviousButton.Name = "PreviousButton";
@@ -1751,7 +1751,7 @@
             NextButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             NextButton.ForeColor = System.Drawing.Color.LightGray;
             NextButton.HoverText = "Next Record";
-            NextButton.Image = Properties.Resources.NextButton;
+            NextButton.Image = Resources.Images.NextButton;
             NextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             NextButton.Margin = new System.Windows.Forms.Padding( 1 );
             NextButton.Name = "NextButton";
@@ -1780,7 +1780,7 @@
             LastButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             LastButton.ForeColor = System.Drawing.Color.LightGray;
             LastButton.HoverText = "Last Record";
-            LastButton.Image = Properties.Resources.LastButton;
+            LastButton.Image = Resources.Images.LastButton;
             LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             LastButton.Margin = new System.Windows.Forms.Padding( 1 );
             LastButton.Name = "LastButton";
@@ -1809,7 +1809,7 @@
             RemoveFiltersButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             RemoveFiltersButton.ForeColor = System.Drawing.Color.LightGray;
             RemoveFiltersButton.HoverText = "Reset Table Filters";
-            RemoveFiltersButton.Image = Properties.Resources.FilterButton;
+            RemoveFiltersButton.Image = Resources.Images.FilterButton;
             RemoveFiltersButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             RemoveFiltersButton.Margin = new System.Windows.Forms.Padding( 3 );
             RemoveFiltersButton.Name = "RemoveFiltersButton";
@@ -1846,7 +1846,7 @@
             EditColumnButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             EditColumnButton.ForeColor = System.Drawing.Color.LightGray;
             EditColumnButton.HoverText = "Edit Table Schema";
-            EditColumnButton.Image = Properties.Resources.EditColumnButtnon;
+            EditColumnButton.Image = Resources.Images.EditColumnButtnon;
             EditColumnButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             EditColumnButton.Margin = new System.Windows.Forms.Padding( 1 );
             EditColumnButton.Name = "EditColumnButton";
@@ -1875,7 +1875,7 @@
             EditRecordButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             EditRecordButton.ForeColor = System.Drawing.Color.LightGray;
             EditRecordButton.HoverText = "Edit Current Record";
-            EditRecordButton.Image = Properties.Resources.EditRecordButton;
+            EditRecordButton.Image = Resources.Images.EditRecordButton;
             EditRecordButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             EditRecordButton.Margin = new System.Windows.Forms.Padding( 1 );
             EditRecordButton.Name = "EditRecordButton";
@@ -1904,7 +1904,7 @@
             RefreshDataButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             RefreshDataButton.ForeColor = System.Drawing.Color.LightGray;
             RefreshDataButton.HoverText = "Reset Data Source";
-            RefreshDataButton.Image = Properties.Resources.RefreshDataButton;
+            RefreshDataButton.Image = Resources.Images.RefreshDataButton;
             RefreshDataButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             RefreshDataButton.Margin = new System.Windows.Forms.Padding( 1 );
             RefreshDataButton.Name = "RefreshDataButton";
@@ -1933,7 +1933,7 @@
             SaveButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             SaveButton.ForeColor = System.Drawing.Color.LightGray;
             SaveButton.HoverText = "Save Changes";
-            SaveButton.Image = Properties.Resources.SaveButton;
+            SaveButton.Image = Resources.Images.SaveButton;
             SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             SaveButton.Margin = new System.Windows.Forms.Padding( 1 );
             SaveButton.Name = "SaveButton";
@@ -1962,7 +1962,7 @@
             GroupButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             GroupButton.ForeColor = System.Drawing.Color.LightGray;
             GroupButton.HoverText = "Aggregate Columns";
-            GroupButton.Image = Properties.Resources.GroupButton;
+            GroupButton.Image = Resources.Images.GroupButton;
             GroupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             GroupButton.Margin = new System.Windows.Forms.Padding( 1 );
             GroupButton.Name = "GroupButton";
@@ -1991,7 +1991,7 @@
             ExcelExportButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ExcelExportButton.ForeColor = System.Drawing.Color.LightGray;
             ExcelExportButton.HoverText = "Export to Excel";
-            ExcelExportButton.Image = Properties.Resources.ExcelButton;
+            ExcelExportButton.Image = Resources.Images.ExcelButton;
             ExcelExportButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             ExcelExportButton.Margin = new System.Windows.Forms.Padding( 1 );
             ExcelExportButton.Name = "ExcelExportButton";
@@ -2020,7 +2020,7 @@
             EditSqlButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             EditSqlButton.ForeColor = System.Drawing.Color.LightGray;
             EditSqlButton.HoverText = "Open SQL Editor";
-            EditSqlButton.Image = Properties.Resources.EditSqlButton;
+            EditSqlButton.Image = Resources.Images.EditSqlButton;
             EditSqlButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             EditSqlButton.Margin = new System.Windows.Forms.Padding( 1 );
             EditSqlButton.Name = "EditSqlButton";
@@ -2049,7 +2049,7 @@
             ChartButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ChartButton.ForeColor = System.Drawing.Color.LightGray;
             ChartButton.HoverText = "See Visualizations";
-            ChartButton.Image = Properties.Resources.ChartButton;
+            ChartButton.Image = Resources.Images.ChartButton;
             ChartButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             ChartButton.Margin = new System.Windows.Forms.Padding( 1 );
             ChartButton.Name = "ChartButton";
@@ -2078,7 +2078,7 @@
             ExcelImportButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ExcelImportButton.ForeColor = System.Drawing.Color.LightGray;
             ExcelImportButton.HoverText = "Excel Import";
-            ExcelImportButton.Image = Properties.Resources.UploadButton;
+            ExcelImportButton.Image = Resources.Images.UploadButton;
             ExcelImportButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             ExcelImportButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             ExcelImportButton.Margin = new System.Windows.Forms.Padding( 1 );
@@ -2108,7 +2108,7 @@
             CalendarButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             CalendarButton.ForeColor = System.Drawing.Color.LightGray;
             CalendarButton.HoverText = "Date Picker";
-            CalendarButton.Image = Properties.Resources.CalendarButton;
+            CalendarButton.Image = Resources.Images.CalendarButton;
             CalendarButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             CalendarButton.Margin = new System.Windows.Forms.Padding( 1 );
             CalendarButton.Name = "CalendarButton";
@@ -2145,7 +2145,7 @@
             BrowseButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             BrowseButton.ForeColor = System.Drawing.Color.LightGray;
             BrowseButton.HoverText = "Search File System";
-            BrowseButton.Image = Properties.Resources.BrowseButton;
+            BrowseButton.Image = Resources.Images.BrowseButton;
             BrowseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             BrowseButton.Margin = new System.Windows.Forms.Padding( 1 );
             BrowseButton.Name = "BrowseButton";
@@ -2174,7 +2174,7 @@
             WebButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             WebButton.ForeColor = System.Drawing.Color.LightGray;
             WebButton.HoverText = "Search Web";
-            WebButton.Image = Properties.Resources.WebSearchButton;
+            WebButton.Image = Resources.Images.WebSearchButton;
             WebButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             WebButton.Margin = new System.Windows.Forms.Padding( 1 );
             WebButton.Name = "WebButton";
@@ -2211,7 +2211,7 @@
             BackButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             BackButton.ForeColor = System.Drawing.Color.LightGray;
             BackButton.HoverText = "Go Back";
-            BackButton.Image = Properties.Resources.BackButton;
+            BackButton.Image = Resources.Images.BackButton;
             BackButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             BackButton.Margin = new System.Windows.Forms.Padding( 1 );
             BackButton.Name = "BackButton";
@@ -2240,7 +2240,7 @@
             MenuButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             MenuButton.ForeColor = System.Drawing.Color.LightGray;
             MenuButton.HoverText = "Main Menu";
-            MenuButton.Image = Properties.Resources.HomeButton;
+            MenuButton.Image = Resources.Images.HomeButton;
             MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             MenuButton.Margin = new System.Windows.Forms.Padding( 1 );
             MenuButton.Name = "MenuButton";
@@ -2269,7 +2269,7 @@
             ExitButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ExitButton.ForeColor = System.Drawing.Color.LightGray;
             ExitButton.HoverText = "Exit Application";
-            ExitButton.Image = Properties.Resources.ShutdownButton;
+            ExitButton.Image = Resources.Images.ShutdownButton;
             ExitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             ExitButton.Margin = new System.Windows.Forms.Padding( 1 );
             ExitButton.Name = "ExitButton";

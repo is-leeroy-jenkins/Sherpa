@@ -9,18 +9,18 @@
                 A strongly-typed resource class, for looking up localized strings, etc.
             </summary>
         </member>
-        <member name="P:System.Data.SQLite.EF6.Properties.Resources.ResourceManager">
+        <member name="P:System.Data.SQLite.EF6.Resources.Images.ResourceManager">
             <summary>
                 Returns the cached ResourceManager instance used by this class.
             </summary>
         </member>
-        <member name="P:System.Data.SQLite.EF6.Properties.Resources.Culture">
+        <member name="P:System.Data.SQLite.EF6.Resources.Images.Culture">
             <summary>
                 Overrides the current thread's CurrentUICulture property for all
                 resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="P:System.Data.SQLite.EF6.Properties.Resources.SQL_CONSTRAINTCOLUMNS">
+        <member name="P:System.Data.SQLite.EF6.Resources.Images.SQL_CONSTRAINTCOLUMNS">
             <summary>
                 Looks up a localized string similar to CREATE TEMP VIEW SCHEMACONSTRAINTCOLUMNS AS
                 SELECT CONSTRAINT_CATALOG, NULL AS CONSTRAINT_SCHEMA, CONSTRAINT_NAME,
@@ -32,7 +32,7 @@
                 FROM TEMP.SCHEMAFOREIGNKEYS;.
             </summary>
         </member>
-        <member name="P:System.Data.SQLite.EF6.Properties.Resources.SQL_CONSTRAINTS">
+        <member name="P:System.Data.SQLite.EF6.Resources.Images.SQL_CONSTRAINTS">
             <summary>
                 Looks up a localized string similar to CREATE TEMP VIEW SCHEMACONSTRAINTS AS
                 SELECT INDEX_CATALOG AS CONSTRAINT_CATALOG, NULL AS CONSTRAINT_SCHEMA, INDEX_NAME AS

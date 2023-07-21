@@ -52,10 +52,14 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
     using System.Windows.Forms;
+    using static System.Configuration.ConfigurationManager;
+    using static System.IO.Directory;
+    using static System.IO.Path;
     using CheckState = MetroSet_UI.Enums.CheckState;
 
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public partial class SqlEditor : EditBase
     {
         /// <summary>
@@ -121,23 +125,7 @@ namespace BudgetExecution
         /// The current.
         /// </value>
         public DataRow Current { get; set; }
-
-        /// <summary>
-        /// Gets or sets the database directory.
-        /// </summary>
-        /// <value>
-        /// The database directory.
-        /// </value>
-        public string DatabaseDirectory { get; set; } = @"Data\Database";
-
-        /// <summary>
-        /// Gets or sets the prefix.
-        /// </summary>
-        /// <value>
-        /// The prefix.
-        /// </value>
-        public string PathPrefix { get; set; } = @"C:\Users\terry\source\repos\BudgetExecution\";
-
+        
         /// <summary>
         /// Gets or sets the selected command.
         /// </summary>
@@ -665,12 +653,14 @@ namespace BudgetExecution
             {
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
-                    var _path = PathPrefix + DatabaseDirectory + @$"\{provider}\DataModels\";
-                    var _names = Directory.GetDirectories( _path );
+                    var _prefix = AppSettings["PathPrefix"];
+                    var _dbpath = AppSettings["DatabaseDirectory"];
+                    var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
+                    var _names = GetDirectories( _path );
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
-                        var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
+                        var _folder = CreateDirectory( _names[ _i ] ).Name;
                         if( !string.IsNullOrEmpty( _folder ) )
                         {
                             _list.Add( _folder );
@@ -702,12 +692,14 @@ namespace BudgetExecution
             {
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
-                    var _path = PathPrefix + DatabaseDirectory + @$"\{provider}\DataModels\";
-                    var _names = Directory.GetDirectories( _path );
+                    var _prefix = AppSettings[ "PathPrefix" ];
+                    var _dbpath = AppSettings[ "DatabaseDirectory" ];
+                    var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
+                    var _names = GetDirectories( _path );
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
-                        var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
+                        var _folder = CreateDirectory( _names[ _i ] ).Name;
                         if( !string.IsNullOrEmpty( _folder ) )
                         {
                             _list.Add( _folder );
@@ -1164,20 +1156,22 @@ namespace BudgetExecution
             {
                 try
                 {
+                    var _prefix = AppSettings[ "PathPrefix" ];
+                    var _dbpath = AppSettings[ "DatabaseDirectory" ];
                     SelectedCommand = string.Empty;
                     var _selection = _comboBox.SelectedItem?.ToString( );
                     QueryListBox.Items?.Clear( );
                     if( _selection?.Contains( " " ) == true )
                     {
                         SelectedCommand = _selection.Replace( " ", "" );
-                        var _path = PathPrefix
-                            + DatabaseDirectory
+                        var _path = _prefix 
+                            + _dbpath 
                             + @$"\{Provider}\DataModels\{SelectedCommand}";
 
-                        var _files = Directory.GetFiles( _path );
+                        var _files = GetFiles( _path );
                         for( var _i = 0; _i < _files.Length; _i++ )
                         {
-                            var _item = Path.GetFileNameWithoutExtension( _files[ _i ] );
+                            var _item = GetFileNameWithoutExtension( _files[ _i ] );
                             var _caption = _item?.SplitPascal( );
                             QueryListBox.Items.Add( _caption );
                         }
@@ -1185,14 +1179,14 @@ namespace BudgetExecution
                     else
                     {
                         SelectedCommand = _comboBox.SelectedItem?.ToString( );
-                        var _path = PathPrefix
-                            + DatabaseDirectory
+                        var _path = _prefix 
+                            + _dbpath 
                             + @$"\{Provider}\DataModels\{SelectedCommand}";
 
-                        var _names = Directory.GetFiles( _path );
+                        var _names = GetFiles( _path );
                         for( var _i = 0; _i < _names.Length; _i++ )
                         {
-                            var _item = Path.GetFileNameWithoutExtension( _names[ _i ] );
+                            var _item = GetFileNameWithoutExtension( _names[ _i ] );
                             var _caption = _item?.SplitPascal( );
                             QueryListBox.Items.Add( _caption );
                         }
@@ -1220,6 +1214,8 @@ namespace BudgetExecution
             {
                 try
                 {
+                    var _prefix = AppSettings["PathPrefix"];
+                    var _dbpath = AppSettings["DatabaseDirectory"];
                     Editor.Text = string.Empty;
                     SelectedQuery = _listBox.SelectedItem?.ToString( );
                     if( ( SelectedQuery?.Contains( " " ) == true )
@@ -1227,8 +1223,8 @@ namespace BudgetExecution
                     {
                         var _command = SelectedCommand?.Replace( " ", "" );
                         var _query = SelectedQuery?.Replace( " ", "" );
-                        var _filePath = PathPrefix
-                            + DatabaseDirectory
+                        var _filePath = _prefix
+                            + _dbpath
                             + @$"\{Provider}\DataModels\{_command}\{_query}.sql";
 
                         using var _stream = File.OpenRead( _filePath );
@@ -1238,8 +1234,8 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        var _path = PathPrefix
-                            + DatabaseDirectory
+                        var _path = _prefix
+                            + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}\{SelectedQuery}.sql";
 
                         using var _stream = File.OpenRead( _path );

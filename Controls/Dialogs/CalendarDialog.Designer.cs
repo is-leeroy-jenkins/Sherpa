@@ -158,7 +158,7 @@
             // 
             // PictureBox
             // 
-            PictureBox.Image = Properties.Resources.Calendar;
+            PictureBox.Image = Resources.Images.Calendar;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Size = new System.Drawing.Size( 20, 20 );

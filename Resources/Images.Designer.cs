@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BudgetExecution.Properties {
+namespace BudgetExecution.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace BudgetExecution.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BudgetExecution.Properties.Images", typeof(Images).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BudgetExecution.Resources.Images", typeof(Images).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

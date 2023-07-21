@@ -441,7 +441,7 @@ namespace BudgetExecution
                     GetFolderPath( SpecialFolder.DesktopDirectory ),
                     GetFolderPath( SpecialFolder.Personal ),
                     GetFolderPath( SpecialFolder.Recent ),
-                    @"C:\Users\terry\source\repos\BudgetExecution\Resource\Documents",
+                    @"C:\Users\terry\source\repos\BudgetExecution\Resources\Documents",
                     _current
                 };
 

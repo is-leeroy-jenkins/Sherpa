@@ -45,7 +45,7 @@
             Picture.BindingSource =  null ;
             Picture.DataFilter =  null ;
             Picture.HoverText =  null ;
-            Picture.Image =  Properties.Resources.Error ;
+            Picture.Image =  Resources.Images.Error ;
             Picture.ImageList =  null ;
             Picture.Location =  new System.Drawing.Point( 3, 3 ) ;
             Picture.Name =  "Picture" ;

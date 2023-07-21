@@ -276,7 +276,7 @@ namespace BudgetExecution
             PictureBox.BindingSource = null;
             PictureBox.DataFilter = null;
             PictureBox.HoverText = null;
-            PictureBox.Image = Properties.Resources.TextDialog;
+            PictureBox.Image = Resources.Images.TextDialog;
             PictureBox.ImageList = null;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";

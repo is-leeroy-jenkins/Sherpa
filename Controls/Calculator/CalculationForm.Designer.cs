@@ -120,7 +120,7 @@ namespace BudgetExecution
             Image.BindingSource = null;
             Image.DataFilter = null;
             Image.HoverText = null;
-            Image.Image = Properties.Resources.Main;
+            Image.Image = Resources.Images.Main;
             Image.ImageList = null;
             Image.Location = new System.Drawing.Point( 3, 3 );
             Image.Name = "Image";

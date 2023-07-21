@@ -45,6 +45,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using static System.Configuration.ConfigurationManager;
 
     /// <summary>
     /// 
@@ -190,14 +191,17 @@ namespace BudgetExecution
         {
             try
             {
+                var _loading = AppSettings[ "Loading" ];
+                var _processing = AppSettings[ "Processing" ];
+                var _waiting = AppSettings[ "Waiting" ];
                 if( Enum.IsDefined( typeof( Status ), Status ) )
                 {
                     PictureBox.Image = Status switch
                     {
-                        Status.Loading => Image.FromFile( LoadingPath ),
-                        Status.Processing => Image.FromFile( ProcessingPath ),
-                        Status.Waiting => Image.FromFile( WaitingPath ),
-                        _ => Image.FromFile( LoadingPath )
+                        Status.Loading => Image.FromFile( _loading ),
+                        Status.Processing => Image.FromFile( _processing ),
+                        Status.Waiting => Image.FromFile( _waiting ),
+                        _ => Image.FromFile( _loading )
                     };
                 }
             }
@@ -211,7 +215,8 @@ namespace BudgetExecution
         /// Raises the Close event.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnClose( object sender, EventArgs e )
         {
             try
@@ -220,6 +225,11 @@ namespace BudgetExecution
                 if( Program.Windows.ContainsKey( Name ) )
                 {
                     Program.Windows.Remove( Name );
+                }
+
+                if( PictureBox?.Image != null )
+                {
+                    PictureBox.Image = null;
                 }
             }
             catch( Exception _ex )

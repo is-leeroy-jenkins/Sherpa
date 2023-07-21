@@ -145,7 +145,7 @@
             // 
             // PictureBox
             // 
-            PictureBox.Image = Properties.Resources.EPA;
+            PictureBox.Image = Resources.Images.EPA;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Size = new System.Drawing.Size( 40, 18 );

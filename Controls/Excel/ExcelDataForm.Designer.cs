@@ -241,7 +241,7 @@
             MenuButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             MenuButton.ForeColor = System.Drawing.Color.LightGray;
             MenuButton.HoverText = "Main Menu";
-            MenuButton.Image = Properties.Resources.HomeButton;
+            MenuButton.Image = Resources.Images.HomeButton;
             MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             MenuButton.Margin = new System.Windows.Forms.Padding( 1 );
             MenuButton.Name = "MenuButton";
@@ -363,7 +363,7 @@
             TableButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             TableButton.ForeColor = System.Drawing.Color.LightGray;
             TableButton.HoverText = "View Data Table";
-            TableButton.Image = Properties.Resources.TableButton;
+            TableButton.Image = Resources.Images.TableButton;
             TableButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             TableButton.Margin = new System.Windows.Forms.Padding( 3 );
             TableButton.Name = "TableButton";
@@ -392,7 +392,7 @@
             UploadButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             UploadButton.ForeColor = System.Drawing.Color.LightGray;
             UploadButton.HoverText = "Upload Local File";
-            UploadButton.Image = Properties.Resources.UploadButton;
+            UploadButton.Image = Resources.Images.UploadButton;
             UploadButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             UploadButton.Margin = new System.Windows.Forms.Padding( 1 );
             UploadButton.Name = "UploadButton";
@@ -421,7 +421,7 @@
             ChartButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ChartButton.ForeColor = System.Drawing.Color.LightGray;
             ChartButton.HoverText = "Visualizations";
-            ChartButton.Image = Properties.Resources.ChartButton;
+            ChartButton.Image = Resources.Images.ChartButton;
             ChartButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             ChartButton.Margin = new System.Windows.Forms.Padding( 1 );
             ChartButton.Name = "ChartButton";
@@ -493,7 +493,7 @@
             LookupButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             LookupButton.ForeColor = System.Drawing.Color.LightGray;
             LookupButton.HoverText = "Select Data Source";
-            LookupButton.Image = Properties.Resources.DataSearchButton;
+            LookupButton.Image = Resources.Images.DataSearchButton;
             LookupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             LookupButton.Margin = new System.Windows.Forms.Padding( 3 );
             LookupButton.Name = "LookupButton";
@@ -522,7 +522,7 @@
             RemoveFiltersButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             RemoveFiltersButton.ForeColor = System.Drawing.Color.LightGray;
             RemoveFiltersButton.HoverText = "Filter Data Source";
-            RemoveFiltersButton.Image = Properties.Resources.FilterButton;
+            RemoveFiltersButton.Image = Resources.Images.FilterButton;
             RemoveFiltersButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             RemoveFiltersButton.Margin = new System.Windows.Forms.Padding( 3 );
             RemoveFiltersButton.Name = "RemoveFiltersButton";
@@ -594,7 +594,7 @@
             BackButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             BackButton.ForeColor = System.Drawing.Color.LightGray;
             BackButton.HoverText = null;
-            BackButton.Image = Properties.Resources.BackButton;
+            BackButton.Image = Resources.Images.BackButton;
             BackButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             BackButton.Margin = new System.Windows.Forms.Padding( 3 );
             BackButton.Name = "BackButton";
@@ -698,7 +698,7 @@
             // 
             // PictureBox
             // 
-            PictureBox.Image = Properties.Resources.EPA;
+            PictureBox.Image = Resources.Images.EPA;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Size = new System.Drawing.Size( 40, 18 );

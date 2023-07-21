@@ -283,7 +283,7 @@
             FirstButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             FirstButton.ForeColor =  System.Drawing.Color.LightGray ;
             FirstButton.HoverText =  null ;
-            FirstButton.Image =  Properties.Resources.FirstButton ;
+            FirstButton.Image =  Resources.Images.FirstButton ;
             FirstButton.ImageTransparentColor =  System.Drawing.Color.Magenta ;
             FirstButton.Margin =  new Padding( 3 ) ;
             FirstButton.Name =  "FirstButton" ;
@@ -312,7 +312,7 @@
             PreviousButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             PreviousButton.ForeColor =  System.Drawing.Color.LightGray ;
             PreviousButton.HoverText =  null ;
-            PreviousButton.Image =  Properties.Resources.PreviousButton ;
+            PreviousButton.Image =  Resources.Images.PreviousButton ;
             PreviousButton.ImageTransparentColor =  System.Drawing.Color.Magenta ;
             PreviousButton.Margin =  new Padding( 3 ) ;
             PreviousButton.Name =  "PreviousButton" ;
@@ -341,7 +341,7 @@
             NextButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             NextButton.ForeColor =  System.Drawing.Color.LightGray ;
             NextButton.HoverText =  null ;
-            NextButton.Image =  Properties.Resources.NextButton ;
+            NextButton.Image =  Resources.Images.NextButton ;
             NextButton.ImageTransparentColor =  System.Drawing.Color.Magenta ;
             NextButton.Margin =  new Padding( 3 ) ;
             NextButton.Name =  "NextButton" ;
@@ -370,7 +370,7 @@
             LastButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             LastButton.ForeColor =  System.Drawing.Color.LightGray ;
             LastButton.HoverText =  null ;
-            LastButton.Image =  Properties.Resources.LastButton ;
+            LastButton.Image =  Resources.Images.LastButton ;
             LastButton.ImageTransparentColor =  System.Drawing.Color.Magenta ;
             LastButton.Margin =  new Padding( 3 ) ;
             LastButton.Name =  "LastButton" ;

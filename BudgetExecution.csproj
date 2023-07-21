@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <UseWindowsForms>true</UseWindowsForms>
     <StartupObject>BudgetExecution.Program</StartupObject>
-    <ApplicationIcon>Resource\Pictures\Ninja\BudExNinjaGrey.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Pictures\Ninja\BudExNinjaGrey.ico</ApplicationIcon>
     <Nullable>disable</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>BudExNinja.png</PackageIcon>
@@ -291,7 +291,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Properties\Images.Designer.cs">
+    <Compile Update="Resources\Images.Designer.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -308,8 +308,8 @@
     <Compile Remove="WebBrowser\**" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Properties\Images.resx">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    <EmbeddedResource Update="Resources\Images.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
     </EmbeddedResource>

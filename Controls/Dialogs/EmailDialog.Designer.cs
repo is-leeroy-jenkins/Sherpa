@@ -148,7 +148,7 @@ partial class EmailDialog
         FirstTile.Banner = textItem5;
         FirstTile.BannerColor = System.Drawing.Color.Transparent;
         FirstTile.BannerHeight = 26;
-        FirstTile.BannerIcon = Properties.Resources.OutlookTile;
+        FirstTile.BannerIcon = Resources.Images.OutlookTile;
         FirstTile.BindingSource = null;
         textItem6.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         textItem6.HubTile = FirstTile;
@@ -191,7 +191,7 @@ partial class EmailDialog
         SecondTile.Banner = textItem9;
         SecondTile.BannerColor = System.Drawing.Color.Transparent;
         SecondTile.BannerHeight = 26;
-        SecondTile.BannerIcon = Properties.Resources.GmailTile;
+        SecondTile.BannerIcon = Resources.Images.GmailTile;
         SecondTile.BindingSource = null;
         textItem10.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         textItem10.HubTile = SecondTile;
@@ -828,7 +828,7 @@ partial class EmailDialog
         // 
         // PictureBox
         // 
-        PictureBox.Image = Properties.Resources.EPA;
+        PictureBox.Image = Resources.Images.EPA;
         PictureBox.Location = new System.Drawing.Point( 3, 3 );
         PictureBox.Name = "PictureBox";
         PictureBox.Size = new System.Drawing.Size( 40, 18 );

@@ -118,7 +118,7 @@ namespace BudgetExecution
             ColumnConfigurationImage.BindingSource =  null ;
             ColumnConfigurationImage.DataFilter =  null ;
             ColumnConfigurationImage.HoverText =  null ;
-            ColumnConfigurationImage.Image =  Properties.Resources.ColumnConfiguration ;
+            ColumnConfigurationImage.Image =  Resources.Images.ColumnConfiguration ;
             ColumnConfigurationImage.ImageList =  null ;
             ColumnConfigurationImage.Location =  new System.Drawing.Point( 0, 5 ) ;
             ColumnConfigurationImage.Name =  "ColumnConfigurationImage" ;

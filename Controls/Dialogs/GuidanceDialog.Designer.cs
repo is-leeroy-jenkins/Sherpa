@@ -191,7 +191,7 @@ namespace BudgetExecution
             Picture.BindingSource = null;
             Picture.DataFilter = null;
             Picture.HoverText = null;
-            Picture.Image = Properties.Resources.USEPA;
+            Picture.Image = Resources.Images.USEPA;
             Picture.ImageList = null;
             Picture.Location = new System.Drawing.Point( 3, 3 );
             Picture.Name = "Picture";

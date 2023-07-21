@@ -27689,11 +27689,11 @@
             </summary>
         </member>
         <member
-            name="P:C1.Win.C1FlexGrid.Properties.Resources.ResourceManager">
+            name="P:C1.Win.C1FlexGrid.Resources.Images.ResourceManager">
             <summary>Returns the cached ResourceManager instance used by this class.</summary>
         </member>
         <member
-            name="P:C1.Win.C1FlexGrid.Properties.Resources.Culture">
+            name="P:C1.Win.C1FlexGrid.Resources.Images.Culture">
             <summary>
                 Overrides the current thread's CurrentUICulture property for all resource lookups
                 using this strongly typed resource
