@@ -125,6 +125,8 @@ namespace BudgetExecution
         {
             try
             {
+                TableListBox?.Clear( );
+                ColumnListBox?.Clear( );
             }
             catch( Exception _ex )
             {

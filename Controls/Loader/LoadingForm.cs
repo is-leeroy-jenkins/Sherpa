@@ -100,7 +100,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.LoadingForm" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.LoadingForm" /> class.
         /// </summary>
         public LoadingForm( )
         {
@@ -134,7 +135,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.LoadingForm" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.LoadingForm" /> class.
         /// </summary>
         /// <param name="status">The status.</param>
         public LoadingForm( Status status )
@@ -147,7 +149,8 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
@@ -165,7 +168,8 @@ namespace BudgetExecution
         /// Called when [tick].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnTick( object sender, EventArgs e )
         {
             try
