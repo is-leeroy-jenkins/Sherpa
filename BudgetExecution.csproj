@@ -45,7 +45,7 @@
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Resource\Pictures\Ninja\BudExNinjaGrey.ico" />
+    <Content Include="Resources\Pictures\Ninja\BudExNinjaGrey.ico" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CBComponents.HeaderTableLayoutPanel" Version="1.2.6307.23101" />
@@ -291,11 +291,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
+    <Compile Update="Properties\Images.Designer.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
+      <DependentUpon>Images.resx</DependentUpon>
     </Compile>
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -308,10 +308,10 @@
     <Compile Remove="WebBrowser\**" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
+    <EmbeddedResource Update="Properties\Images.resx">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Remove="bin\**" />
     <EmbeddedResource Remove="Clients\WebBrower\**" />
@@ -333,7 +333,7 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Update="Resource\Pictures\Ninja\png\BudExNinja.png">
+    <None Update="Resources\Pictures\Ninja\png\BudExNinja.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

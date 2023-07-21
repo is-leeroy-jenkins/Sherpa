@@ -265,7 +265,7 @@ namespace BudgetExecution
                         case ToolType.ExcelButton:
                         {
                             var _excel =
-                                @"C:\Users\terry\source\repos\BudgetExecution\Resource\Reports\Template.xlsx";
+                                @"C:\Users\terry\source\repos\BudgetExecution\Resources\Reports\Template.xlsx";
 
                             using var _excelForm = new ExcelDataForm( _excel );
                             _excelForm?.ShowDialog( );

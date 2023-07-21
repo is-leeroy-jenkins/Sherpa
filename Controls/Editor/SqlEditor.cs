@@ -40,8 +40,6 @@
 
 namespace BudgetExecution
 {
-    using DocumentFormat.OpenXml.Office.CustomUI;
-    using Microsoft.Office.Interop.Access;
     using System;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
@@ -58,8 +56,8 @@ namespace BudgetExecution
     using CheckState = MetroSet_UI.Enums.CheckState;
     using Control = System.Windows.Forms.Control;
 
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class SqlEditor : EditBase
     {
         /// <summary>
@@ -463,7 +461,7 @@ namespace BudgetExecution
         /// Resets the data.
         /// </summary>
         /// <param name="where">The where.</param>
-        private void ResetData( IDictionary<string, object> where )
+        private void BindData( IDictionary<string, object> where )
         {
             if( where?.Any( ) == true )
             {
@@ -493,7 +491,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="cols">The cols.</param>
         /// <param name="where">The where.</param>
-        private void ResetData( IEnumerable<string> cols, IDictionary<string, object> where )
+        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
             if( ( where?.Any( ) == true )
                && ( cols?.Any( ) == true ) )
@@ -525,7 +523,7 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             if( ( where?.Any( ) == true )
@@ -673,7 +671,7 @@ namespace BudgetExecution
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
-                        var _folder = Directory.CreateDirectory( _names[_i] ).Name;
+                        var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
                         if( !string.IsNullOrEmpty( _folder ) )
                         {
                             _list.Add( _folder );
@@ -710,7 +708,7 @@ namespace BudgetExecution
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
-                        var _folder = Directory.CreateDirectory( _names[_i] ).Name;
+                        var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
                         if( !string.IsNullOrEmpty( _folder ) )
                         {
                             _list.Add( _folder );
@@ -944,10 +942,10 @@ namespace BudgetExecution
                         && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
-                    var _mainForm = (MainForm)Program.Windows["MainForm"];
+                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
-                    ResetData( );
+                    BindData( );
                     Visible = false;
                 }
             }
@@ -956,7 +954,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Populates the SQL ComboBox.
         /// </summary>
@@ -972,48 +970,48 @@ namespace BudgetExecution
                     QueryListBox.Items?.Clear( );
                     for( var _i = 0; _i < list.Count; _i++ )
                     {
-                        if( _commands.Contains( list[_i] )
-                           && list[_i].Equals( $"{SQL.CREATEDATABASE}" ) )
+                        if( _commands.Contains( list[ _i ] )
+                           && list[ _i ].Equals( $"{SQL.CREATEDATABASE}" ) )
                         {
                             CommandComboBox.Items.Add( "CREATE DATABASE" );
                         }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.CREATETABLE}" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.CREATETABLE}" ) )
                         {
                             CommandComboBox.Items.Add( "CREATE TABLE" );
                         }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.ALTERTABLE}" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.ALTERTABLE}" ) )
                         {
                             CommandComboBox.Items.Add( "ALTER TABLE" );
                         }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.CREATEVIEW}" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.CREATEVIEW}" ) )
                         {
                             CommandComboBox.Items.Add( "CREATE VIEW" );
                         }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.SELECTALL}" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.SELECTALL}" ) )
                         {
                             CommandComboBox.Items.Add( "SELECT ALL" );
                         }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.DELETE}" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.DELETE}" ) )
                         {
                             CommandComboBox.Items.Add( "DELETE" );
                         }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.INSERT}" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.INSERT}" ) )
                         {
                             CommandComboBox.Items.Add( "INSERT" );
                         }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.UPDATE}" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.UPDATE}" ) )
                         {
                             CommandComboBox.Items.Add( "UPDATE" );
                         }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.SELECT}" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.SELECT}" ) )
                         {
                             CommandComboBox.Items.Add( "SELECT" );
                         }
@@ -1043,7 +1041,7 @@ namespace BudgetExecution
 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
-                    var _name = _names[_i];
+                    var _name = _names[ _i ];
                     TableListBox.Items.Add( _name );
                 }
 
@@ -1069,9 +1067,9 @@ namespace BudgetExecution
                     var _types = DataTypes.ToArray( );
                     for( var _i = 0; _i < _types?.Length; _i++ )
                     {
-                        if( !string.IsNullOrEmpty( _types[_i] ) )
+                        if( !string.IsNullOrEmpty( _types[ _i ] ) )
                         {
-                            DataTypeComboBox.Items.Add( _types[_i] );
+                            DataTypeComboBox.Items.Add( _types[ _i ] );
                         }
                     }
                 }
@@ -1090,14 +1088,13 @@ namespace BudgetExecution
                 TableNameComboBox.SelectedItem = string.Empty;
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Select( dr => dr.Field<string>( "TableName" ) )
+                var _names = _data?.Select( dr => dr.Field<string>( "TableName" ) )
                     ?.Distinct( )
                     ?.ToList( );
 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
-                    var _name = _names[_i];
+                    var _name = _names[ _i ];
                     TableNameComboBox.Items.Add( _name );
                 }
             }
@@ -1110,7 +1107,7 @@ namespace BudgetExecution
         /// <summary>
         /// Clears the data.
         /// </summary>
-        public void ResetData( )
+        public void BindData( )
         {
             try
             {
@@ -1213,7 +1210,7 @@ namespace BudgetExecution
                         var _files = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _files.Length; _i++ )
                         {
-                            var _item = Path.GetFileNameWithoutExtension( _files[_i] );
+                            var _item = Path.GetFileNameWithoutExtension( _files[ _i ] );
                             var _caption = _item?.SplitPascal( );
                             QueryListBox.Items.Add( _caption );
                         }
@@ -1228,7 +1225,7 @@ namespace BudgetExecution
                         var _names = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _names.Length; _i++ )
                         {
-                            var _item = Path.GetFileNameWithoutExtension( _names[_i] );
+                            var _item = Path.GetFileNameWithoutExtension( _names[ _i ] );
                             var _caption = _item?.SplitPascal( );
                             QueryListBox.Items.Add( _caption );
                         }
@@ -1341,7 +1338,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows["SqlEditor"] = this;
+                Program.Windows[ "SqlEditor" ] = this;
             }
             catch( Exception _ex )
             {
@@ -1574,7 +1571,7 @@ namespace BudgetExecution
                 var _series = DataModel.DataElements;
                 if( !string.IsNullOrEmpty( _column ) )
                 {
-                    foreach( var _item in _series[_column] )
+                    foreach( var _item in _series[ _column ] )
                     {
                         ValueListBox.Items.Add( _item );
                     }
