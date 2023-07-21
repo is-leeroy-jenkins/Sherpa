@@ -151,7 +151,7 @@ namespace BudgetExecution
             // LookupTile
             // 
             LookupTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            LookupTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            LookupTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem1.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem1.HubTile = LookupTile;
             textItem1.TextColor = System.Drawing.Color.DarkGray;
@@ -214,14 +214,14 @@ namespace BudgetExecution
             // VisualizationTile
             // 
             VisualizationTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            VisualizationTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            VisualizationTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem5.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem5.HubTile = VisualizationTile;
             textItem5.TextColor = System.Drawing.Color.DarkGray;
             VisualizationTile.Banner = textItem5;
             VisualizationTile.BannerColor = System.Drawing.Color.Transparent;
             VisualizationTile.BannerHeight = 30;
-            VisualizationTile.BannerIcon = Resources.Images.ChartTile;
+            VisualizationTile.BannerIcon = Resources.Images.VisualizationTile;
             VisualizationTile.BindingSource = null;
             textItem6.Font = new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem6.HubTile = VisualizationTile;
@@ -257,7 +257,7 @@ namespace BudgetExecution
             // GuidanceTile
             // 
             GuidanceTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            GuidanceTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            GuidanceTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem9.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem9.HubTile = GuidanceTile;
             textItem9.TextColor = System.Drawing.Color.DarkGray;
@@ -300,7 +300,7 @@ namespace BudgetExecution
             // BrowserTile
             // 
             BrowserTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            BrowserTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            BrowserTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem13.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem13.HubTile = BrowserTile;
             textItem13.TextColor = System.Drawing.Color.DarkGray;
@@ -343,7 +343,7 @@ namespace BudgetExecution
             // CalculatorTile
             // 
             CalculatorTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            CalculatorTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            CalculatorTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem17.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem17.HubTile = CalculatorTile;
             textItem17.TextColor = System.Drawing.Color.DarkGray;
@@ -367,13 +367,13 @@ namespace BudgetExecution
             CalculatorTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             CalculatorTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             CalculatorTile.HoverText = null;
-            CalculatorTile.Location = new System.Drawing.Point( 201, 17 );
+            CalculatorTile.Location = new System.Drawing.Point( 189, 16 );
             CalculatorTile.Margin = new System.Windows.Forms.Padding( 1 );
             CalculatorTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             CalculatorTile.Name = "CalculatorTile";
             CalculatorTile.ShowBanner = true;
             CalculatorTile.ShowBannerIcon = true;
-            CalculatorTile.Size = new System.Drawing.Size( 116, 80 );
+            CalculatorTile.Size = new System.Drawing.Size( 147, 80 );
             CalculatorTile.TabIndex = 4;
             textItem20.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem20.HubTile = CalculatorTile;
@@ -386,7 +386,7 @@ namespace BudgetExecution
             // SqlServerTile
             // 
             SqlServerTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            SqlServerTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            SqlServerTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem21.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem21.HubTile = SqlServerTile;
             textItem21.TextColor = System.Drawing.Color.DarkGray;
@@ -429,7 +429,7 @@ namespace BudgetExecution
             // AccessTile
             // 
             AccessTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            AccessTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            AccessTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem25.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem25.HubTile = AccessTile;
             textItem25.TextColor = System.Drawing.Color.DarkGray;
@@ -472,7 +472,7 @@ namespace BudgetExecution
             // SQLiteTile
             // 
             SQLiteTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            SQLiteTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            SQLiteTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem29.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem29.HubTile = SQLiteTile;
             textItem29.TextColor = System.Drawing.Color.DarkGray;
@@ -515,14 +515,14 @@ namespace BudgetExecution
             // ExcelDataTile
             // 
             ExcelDataTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            ExcelDataTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            ExcelDataTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem33.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem33.HubTile = ExcelDataTile;
             textItem33.TextColor = System.Drawing.Color.DarkGray;
             ExcelDataTile.Banner = textItem33;
             ExcelDataTile.BannerColor = System.Drawing.Color.Transparent;
             ExcelDataTile.BannerHeight = 30;
-            ExcelDataTile.BannerIcon = Resources.Images.ExcelTile;
+            ExcelDataTile.BannerIcon = Resources.Images.ExcelDataTile;
             ExcelDataTile.BindingSource = null;
             textItem34.Font = new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem34.HubTile = ExcelDataTile;
@@ -558,7 +558,7 @@ namespace BudgetExecution
             // SqlCeTile
             // 
             SqlCeTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            SqlCeTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            SqlCeTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem37.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem37.HubTile = SqlCeTile;
             textItem37.TextColor = System.Drawing.Color.DarkGray;
@@ -601,7 +601,7 @@ namespace BudgetExecution
             // ChromeTile
             // 
             ChromeTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            ChromeTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            ChromeTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem41.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem41.HubTile = ChromeTile;
             textItem41.TextColor = System.Drawing.Color.DarkGray;
@@ -644,7 +644,7 @@ namespace BudgetExecution
             // EdgeTile
             // 
             EdgeTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            EdgeTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            EdgeTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem45.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem45.HubTile = EdgeTile;
             textItem45.TextColor = System.Drawing.Color.DarkGray;
@@ -687,14 +687,14 @@ namespace BudgetExecution
             // FirefoxTile
             // 
             FirefoxTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            FirefoxTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            FirefoxTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem49.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem49.HubTile = FirefoxTile;
             textItem49.TextColor = System.Drawing.Color.DarkGray;
             FirefoxTile.Banner = textItem49;
             FirefoxTile.BannerColor = System.Drawing.Color.Transparent;
             FirefoxTile.BannerHeight = 30;
-            FirefoxTile.BannerIcon = Resources.Images.FirefoxTile;
+            FirefoxTile.BannerIcon = Resources.Images.FireFoxTile;
             FirefoxTile.BindingSource = null;
             textItem50.Font = new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem50.HubTile = FirefoxTile;
@@ -730,7 +730,7 @@ namespace BudgetExecution
             // CalendarTile
             // 
             CalendarTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            CalendarTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            CalendarTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem53.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem53.HubTile = CalendarTile;
             textItem53.TextColor = System.Drawing.Color.DarkGray;
@@ -760,7 +760,7 @@ namespace BudgetExecution
             CalendarTile.Name = "CalendarTile";
             CalendarTile.ShowBanner = true;
             CalendarTile.ShowBannerIcon = true;
-            CalendarTile.Size = new System.Drawing.Size( 116, 80 );
+            CalendarTile.Size = new System.Drawing.Size( 147, 80 );
             CalendarTile.TabIndex = 11;
             textItem56.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem56.HubTile = CalendarTile;
@@ -773,7 +773,7 @@ namespace BudgetExecution
             // SqlEditorTile
             // 
             SqlEditorTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            SqlEditorTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            SqlEditorTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem57.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem57.HubTile = SqlEditorTile;
             textItem57.TextColor = System.Drawing.Color.DarkGray;
@@ -816,7 +816,7 @@ namespace BudgetExecution
             // ProgramProjectTile
             // 
             ProgramProjectTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            ProgramProjectTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            ProgramProjectTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem61.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem61.HubTile = ProgramProjectTile;
             textItem61.TextColor = System.Drawing.Color.DarkGray;
@@ -859,14 +859,14 @@ namespace BudgetExecution
             // MessageTile
             // 
             MessageTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            MessageTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+            MessageTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             textItem65.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem65.HubTile = MessageTile;
             textItem65.TextColor = System.Drawing.Color.DarkGray;
             MessageTile.Banner = textItem65;
             MessageTile.BannerColor = System.Drawing.Color.Transparent;
             MessageTile.BannerHeight = 30;
-            MessageTile.BannerIcon = Resources.Images.MessageTile;
+            MessageTile.BannerIcon = Resources.Images.EmailTile;
             MessageTile.BindingSource = null;
             textItem66.Font = new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem66.HubTile = MessageTile;
@@ -883,13 +883,13 @@ namespace BudgetExecution
             MessageTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             MessageTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             MessageTile.HoverText = null;
-            MessageTile.Location = new System.Drawing.Point( 384, 17 );
+            MessageTile.Location = new System.Drawing.Point( 358, 16 );
             MessageTile.Margin = new System.Windows.Forms.Padding( 1 );
             MessageTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             MessageTile.Name = "MessageTile";
             MessageTile.ShowBanner = true;
             MessageTile.ShowBannerIcon = true;
-            MessageTile.Size = new System.Drawing.Size( 116, 80 );
+            MessageTile.Size = new System.Drawing.Size( 147, 80 );
             MessageTile.TabIndex = 13;
             textItem68.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem68.HubTile = MessageTile;

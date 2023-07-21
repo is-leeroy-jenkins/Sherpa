@@ -4330,3 +4330,34 @@ ResponseText: [{"command":"insert","method":"replaceWith","selector":".js-view-d
 [0719/063600.930:WARNING:browser_info.cc(309)] Returning a speculative frame for 25769803781 [6,5]
 [0719/063617.244:WARNING:sqlite_persistent_store_backend_base.cc(159)] Failed to post task from FlushAndNotifyInBackground@net\extras\sqlite\sqlite_persistent_store_backend_base.cc:207 to client_task_runner_.
 [0719/063617.244:WARNING:sqlite_persistent_store_backend_base.cc(159)] Failed to post task from FlushAndNotifyInBackground@net\extras\sqlite\sqlite_persistent_store_backend_base.cc:207 to client_task_runner_.
+[0721/130504.357:WARNING:chrome_browser_cloud_management_controller.cc(87)] Could not create policy manager as CBCM is not enabled.
+[0721/130504.436:WARNING:chrome_browser_cloud_management_controller.cc(87)] Could not create policy manager as CBCM is not enabled.
+[0721/130505.821:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0721/130505.852:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0721/130505.962:ERROR:disk_cache.cc(205)] Unable to create cache
+[0721/130505.962:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
+[0721/130505.962:ERROR:disk_cache.cc(205)] Unable to create cache
+[0721/130505.962:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
+[0721/130506.711:WARNING:value_store_frontend.cc(47)] Reading mhjfbmdgcfjbbpaeojofohoefgiehjai.alarms from  failed: IO error: .../LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0721/130508.836:ERROR:service_worker_storage.cc(2013)] Failed to delete the database: Database IO error
+[0721/130510.767:INFO:CONSOLE(0)] "Access to XMLHttpRequest at 'file:///C:/Users/terry/source/repos/BudgetBrowser/WebPages/menu.html' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: http, data, budgetbrowser, chrome-extension, chrome, https, chrome-untrusted.", source: file:///C:/Users/terry/source/repos/BudgetBrowser/WebPages/index.html (0)
+[0721/130510.767:INFO:CONSOLE(0)] "Access to XMLHttpRequest at 'file:///C:/Users/terry/source/repos/BudgetBrowser/WebPages/footer.html' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: http, data, budgetbrowser, chrome-extension, chrome, https, chrome-untrusted.", source: file:///C:/Users/terry/source/repos/BudgetBrowser/WebPages/index.html (0)
+[0721/130511.157:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0721/130511.158:ERROR:disk_cache.cc(205)] Unable to create cache
+[0721/130511.223:WARNING:browser_info.cc(309)] Returning a speculative frame for 25769803781 [6,5]
+[0721/130511.223:WARNING:browser_info.cc(309)] Returning a speculative frame for 25769803781 [6,5]
+[0721/130511.223:WARNING:browser_info.cc(309)] Returning a speculative frame for 25769803781 [6,5]
+[0721/130511.223:WARNING:browser_info.cc(309)] Returning a speculative frame for 25769803781 [6,5]
+[0721/130511.985:INFO:CONSOLE(0)] "Access to XMLHttpRequest at 'file:///C:/Users/terry/source/repos/BudgetBrowser/WebPages/menu.html' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: http, data, budgetbrowser, chrome-extension, chrome, https, chrome-untrusted.", source: file:///C:/Users/terry/source/repos/BudgetBrowser/WebPages/index.html (0)
+[0721/130511.985:INFO:CONSOLE(0)] "Access to XMLHttpRequest at 'file:///C:/Users/terry/source/repos/BudgetBrowser/WebPages/footer.html' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: http, data, budgetbrowser, chrome-extension, chrome, https, chrome-untrusted.", source: file:///C:/Users/terry/source/repos/BudgetBrowser/WebPages/index.html (0)
+[0721/130512.139:WARNING:browser_info.cc(309)] Returning a speculative frame for 25769803781 [6,5]
+[0721/130512.139:WARNING:browser_info.cc(309)] Returning a speculative frame for 25769803781 [6,5]
+[0721/130512.139:WARNING:browser_info.cc(309)] Returning a speculative frame for 25769803781 [6,5]
+[0721/130512.139:WARNING:browser_info.cc(309)] Returning a speculative frame for 25769803781 [6,5]
+[0721/130512.902:WARNING:browser_info.cc(309)] Returning a speculative frame for 25769803781 [6,5]
+[0721/130513.822:WARNING:browser_info.cc(309)] Returning a speculative frame for 25769803781 [6,5]
+[0721/130517.829:WARNING:sqlite_persistent_store_backend_base.cc(159)] Failed to post task from FlushAndNotifyInBackground@net\extras\sqlite\sqlite_persistent_store_backend_base.cc:207 to client_task_runner_.
+[0721/130517.829:WARNING:sqlite_persistent_store_backend_base.cc(159)] Failed to post task from FlushAndNotifyInBackground@net\extras\sqlite\sqlite_persistent_store_backend_base.cc:207 to client_task_runner_.
+[0721/130517.985:ERROR:command_buffer_proxy_impl.cc(325)] GPU state invalid after WaitForGetOffsetInRange.
+[0721/130520.718:WARNING:sqlite_persistent_store_backend_base.cc(159)] Failed to post task from FlushAndNotifyInBackground@net\extras\sqlite\sqlite_persistent_store_backend_base.cc:207 to client_task_runner_.
+[0721/130520.718:WARNING:sqlite_persistent_store_backend_base.cc(159)] Failed to post task from FlushAndNotifyInBackground@net\extras\sqlite\sqlite_persistent_store_backend_base.cc:207 to client_task_runner_.

@@ -264,8 +264,7 @@ namespace BudgetExecution
                         _tile.Footer.TextColor = Color.DarkGray;
                         _tile.Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
                         _tile.Banner.TextColor = Color.DarkGray;
-                        _tile.BackColor = Color.FromArgb( 27, 27, 27 );
-                        _tile.ImageSource = new Bitmap( _tile.ImageSource, 18, 22 );
+                        _tile.BackColor = Color.FromArgb( 40, 40, 40 );
                         _tile.TurnLiveTileOn = true;
                     }
                 }

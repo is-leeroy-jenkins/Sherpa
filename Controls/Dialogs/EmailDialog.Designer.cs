@@ -100,13 +100,13 @@ partial class EmailDialog
         // ThirdTile
         // 
         ThirdTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-        ThirdTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+        ThirdTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
         textItem1.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         textItem1.HubTile = ThirdTile;
         textItem1.TextColor = System.Drawing.Color.DarkGray;
         ThirdTile.Banner = textItem1;
         ThirdTile.BannerColor = System.Drawing.Color.Transparent;
-        ThirdTile.BannerHeight = 26;
+        ThirdTile.BannerHeight = 30;
         ThirdTile.BindingSource = null;
         textItem2.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         textItem2.HubTile = ThirdTile;
@@ -123,13 +123,13 @@ partial class EmailDialog
         ThirdTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
         ThirdTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
         ThirdTile.HoverText = null;
-        ThirdTile.Location = new System.Drawing.Point( 64, 159 );
+        ThirdTile.Location = new System.Drawing.Point( 51, 163 );
         ThirdTile.Margin = new System.Windows.Forms.Padding( 1 );
         ThirdTile.MinimumSize = new System.Drawing.Size( 100, 50 );
         ThirdTile.Name = "ThirdTile";
         ThirdTile.ShowBanner = true;
         ThirdTile.ShowBannerIcon = true;
-        ThirdTile.Size = new System.Drawing.Size( 107, 50 );
+        ThirdTile.Size = new System.Drawing.Size( 152, 50 );
         ThirdTile.TabIndex = 1;
         textItem4.Font = new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         textItem4.HubTile = ThirdTile;
@@ -141,13 +141,13 @@ partial class EmailDialog
         // FirstTile
         // 
         FirstTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-        FirstTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+        FirstTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
         textItem5.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         textItem5.HubTile = FirstTile;
         textItem5.TextColor = System.Drawing.Color.DarkGray;
         FirstTile.Banner = textItem5;
         FirstTile.BannerColor = System.Drawing.Color.Transparent;
-        FirstTile.BannerHeight = 26;
+        FirstTile.BannerHeight = 30;
         FirstTile.BannerIcon = Resources.Images.OutlookTile;
         FirstTile.BindingSource = null;
         textItem6.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -165,13 +165,13 @@ partial class EmailDialog
         FirstTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
         FirstTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
         FirstTile.HoverText = null;
-        FirstTile.Location = new System.Drawing.Point( 64, 21 );
+        FirstTile.Location = new System.Drawing.Point( 51, 25 );
         FirstTile.Margin = new System.Windows.Forms.Padding( 1 );
         FirstTile.MinimumSize = new System.Drawing.Size( 100, 50 );
         FirstTile.Name = "FirstTile";
         FirstTile.ShowBanner = true;
         FirstTile.ShowBannerIcon = true;
-        FirstTile.Size = new System.Drawing.Size( 107, 50 );
+        FirstTile.Size = new System.Drawing.Size( 152, 50 );
         FirstTile.TabIndex = 2;
         textItem8.Font = new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         textItem8.HubTile = FirstTile;
@@ -184,13 +184,13 @@ partial class EmailDialog
         // SecondTile
         // 
         SecondTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-        SecondTile.BackColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
+        SecondTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
         textItem9.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         textItem9.HubTile = SecondTile;
         textItem9.TextColor = System.Drawing.Color.DarkGray;
         SecondTile.Banner = textItem9;
         SecondTile.BannerColor = System.Drawing.Color.Transparent;
-        SecondTile.BannerHeight = 26;
+        SecondTile.BannerHeight = 30;
         SecondTile.BannerIcon = Resources.Images.GmailTile;
         SecondTile.BindingSource = null;
         textItem10.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -208,13 +208,13 @@ partial class EmailDialog
         SecondTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
         SecondTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
         SecondTile.HoverText = null;
-        SecondTile.Location = new System.Drawing.Point( 64, 92 );
+        SecondTile.Location = new System.Drawing.Point( 51, 96 );
         SecondTile.Margin = new System.Windows.Forms.Padding( 1 );
         SecondTile.MinimumSize = new System.Drawing.Size( 100, 50 );
         SecondTile.Name = "SecondTile";
         SecondTile.ShowBanner = true;
         SecondTile.ShowBannerIcon = true;
-        SecondTile.Size = new System.Drawing.Size( 100, 50 );
+        SecondTile.Size = new System.Drawing.Size( 152, 50 );
         SecondTile.TabIndex = 0;
         textItem12.Font = new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         textItem12.HubTile = SecondTile;
@@ -228,7 +228,7 @@ partial class EmailDialog
         // 
         EmailTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
         EmailTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-        EmailTable.CaptionText = "";
+        EmailTable.CaptionText = "Messages";
         EmailTable.ColumnCount = 1;
         EmailTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
         EmailTable.Controls.Add( TabControl, 0, 1 );
@@ -247,7 +247,7 @@ partial class EmailDialog
         TabControl.ActiveTabColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
         TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         TabControl.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-        TabControl.BeforeTouchSize = new System.Drawing.Size( 679, 257 );
+        TabControl.BeforeTouchSize = new System.Drawing.Size( 679, 241 );
         TabControl.BindingSource = null;
         TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
         TabControl.BorderWidth = 1;
@@ -262,10 +262,10 @@ partial class EmailDialog
         TabControl.ForeColor = System.Drawing.Color.LightGray;
         TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
         TabControl.InactiveTabColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-        TabControl.ItemSize = new System.Drawing.Size( 100, 30 );
-        TabControl.Location = new System.Drawing.Point( 3, 11 );
+        TabControl.ItemSize = new System.Drawing.Size( 100, 5 );
+        TabControl.Location = new System.Drawing.Point( 3, 27 );
         TabControl.Name = "TabControl";
-        TabControl.Size = new System.Drawing.Size( 679, 257 );
+        TabControl.Size = new System.Drawing.Size( 679, 241 );
         TabControl.TabIndex = 0;
         TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
         TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -286,13 +286,12 @@ partial class EmailDialog
         FirstTabPage.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         FirstTabPage.Image = null;
         FirstTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-        FirstTabPage.Location = new System.Drawing.Point( 0, 29 );
+        FirstTabPage.Location = new System.Drawing.Point( 0, 4 );
         FirstTabPage.Name = "FirstTabPage";
         FirstTabPage.ShowCloseButton = true;
-        FirstTabPage.Size = new System.Drawing.Size( 679, 228 );
+        FirstTabPage.Size = new System.Drawing.Size( 679, 237 );
         FirstTabPage.TabFont = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         FirstTabPage.TabIndex = 1;
-        FirstTabPage.Text = "Email ";
         FirstTabPage.ThemesEnabled = false;
         // 
         // FirstPanel
@@ -313,7 +312,7 @@ partial class EmailDialog
         FirstPanel.Location = new System.Drawing.Point( 0, 0 );
         FirstPanel.Name = "FirstPanel";
         FirstPanel.Padding = new System.Windows.Forms.Padding( 1 );
-        FirstPanel.Size = new System.Drawing.Size( 679, 228 );
+        FirstPanel.Size = new System.Drawing.Size( 679, 237 );
         FirstPanel.Style = MetroSet_UI.Enums.Style.Custom;
         FirstPanel.StyleManager = null;
         FirstPanel.TabIndex = 0;
@@ -323,6 +322,7 @@ partial class EmailDialog
         // 
         // FirstListBox
         // 
+        FirstListBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
         FirstListBox.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
         FirstListBox.BindingSource = null;
         FirstListBox.BorderColor = System.Drawing.Color.FromArgb(   55  ,   55  ,   55   );
@@ -348,7 +348,7 @@ partial class EmailDialog
         FirstListBox.SelectedValue = null;
         FirstListBox.ShowBorder = false;
         FirstListBox.ShowScrollBar = false;
-        FirstListBox.Size = new System.Drawing.Size( 650, 188 );
+        FirstListBox.Size = new System.Drawing.Size( 650, 197 );
         FirstListBox.Style = MetroSet_UI.Enums.Style.Custom;
         FirstListBox.StyleManager = null;
         FirstListBox.TabIndex = 0;
@@ -361,12 +361,11 @@ partial class EmailDialog
         SentTab.Controls.Add( SecondPanel );
         SentTab.Image = null;
         SentTab.ImageSize = new System.Drawing.Size( 16, 16 );
-        SentTab.Location = new System.Drawing.Point( 0, 29 );
+        SentTab.Location = new System.Drawing.Point( 0, 4 );
         SentTab.Name = "SentTab";
         SentTab.ShowCloseButton = true;
-        SentTab.Size = new System.Drawing.Size( 679, 228 );
+        SentTab.Size = new System.Drawing.Size( 679, 237 );
         SentTab.TabIndex = 3;
-        SentTab.Text = "Sent ";
         SentTab.ThemesEnabled = false;
         // 
         // SecondPanel
@@ -387,7 +386,7 @@ partial class EmailDialog
         SecondPanel.Location = new System.Drawing.Point( 0, 0 );
         SecondPanel.Name = "SecondPanel";
         SecondPanel.Padding = new System.Windows.Forms.Padding( 1 );
-        SecondPanel.Size = new System.Drawing.Size( 679, 228 );
+        SecondPanel.Size = new System.Drawing.Size( 679, 237 );
         SecondPanel.Style = MetroSet_UI.Enums.Style.Custom;
         SecondPanel.StyleManager = null;
         SecondPanel.TabIndex = 1;
@@ -397,6 +396,7 @@ partial class EmailDialog
         // 
         // SecondListBox
         // 
+        SecondListBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
         SecondListBox.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
         SecondListBox.BindingSource = null;
         SecondListBox.BorderColor = System.Drawing.Color.FromArgb(   55  ,   55  ,   55   );
@@ -409,7 +409,7 @@ partial class EmailDialog
         SecondListBox.HoverText = null;
         SecondListBox.IsDerivedStyle = true;
         SecondListBox.ItemHeight = 18;
-        SecondListBox.Location = new System.Drawing.Point( 16, 13 );
+        SecondListBox.Location = new System.Drawing.Point( 16, 22 );
         SecondListBox.Margin = new System.Windows.Forms.Padding( 1 );
         SecondListBox.MultiSelect = true;
         SecondListBox.Name = "SecondListBox";
@@ -422,7 +422,7 @@ partial class EmailDialog
         SecondListBox.SelectedValue = null;
         SecondListBox.ShowBorder = false;
         SecondListBox.ShowScrollBar = false;
-        SecondListBox.Size = new System.Drawing.Size( 639, 197 );
+        SecondListBox.Size = new System.Drawing.Size( 650, 197 );
         SecondListBox.Style = MetroSet_UI.Enums.Style.Custom;
         SecondListBox.StyleManager = null;
         SecondListBox.TabIndex = 0;
@@ -435,12 +435,11 @@ partial class EmailDialog
         ThirdTabPage.Controls.Add( ThirdPanel );
         ThirdTabPage.Image = null;
         ThirdTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-        ThirdTabPage.Location = new System.Drawing.Point( 0, 29 );
+        ThirdTabPage.Location = new System.Drawing.Point( 0, 4 );
         ThirdTabPage.Name = "ThirdTabPage";
         ThirdTabPage.ShowCloseButton = true;
-        ThirdTabPage.Size = new System.Drawing.Size( 679, 228 );
+        ThirdTabPage.Size = new System.Drawing.Size( 679, 237 );
         ThirdTabPage.TabIndex = 2;
-        ThirdTabPage.Text = "Trash";
         ThirdTabPage.ThemesEnabled = false;
         // 
         // ThirdPanel
@@ -453,14 +452,15 @@ partial class EmailDialog
         ThirdPanel.Children = null;
         ThirdPanel.Controls.Add( ThirdListBox );
         ThirdPanel.DataFilter = null;
+        ThirdPanel.Dock = System.Windows.Forms.DockStyle.Fill;
         ThirdPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         ThirdPanel.ForeColor = System.Drawing.Color.Transparent;
         ThirdPanel.HoverText = null;
         ThirdPanel.IsDerivedStyle = true;
-        ThirdPanel.Location = new System.Drawing.Point( 3, 3 );
+        ThirdPanel.Location = new System.Drawing.Point( 0, 0 );
         ThirdPanel.Name = "ThirdPanel";
         ThirdPanel.Padding = new System.Windows.Forms.Padding( 1 );
-        ThirdPanel.Size = new System.Drawing.Size( 667, 207 );
+        ThirdPanel.Size = new System.Drawing.Size( 679, 237 );
         ThirdPanel.Style = MetroSet_UI.Enums.Style.Custom;
         ThirdPanel.StyleManager = null;
         ThirdPanel.TabIndex = 2;
@@ -482,7 +482,7 @@ partial class EmailDialog
         ThirdListBox.HoverText = null;
         ThirdListBox.IsDerivedStyle = true;
         ThirdListBox.ItemHeight = 18;
-        ThirdListBox.Location = new System.Drawing.Point( 16, 13 );
+        ThirdListBox.Location = new System.Drawing.Point( 16, 22 );
         ThirdListBox.Margin = new System.Windows.Forms.Padding( 1 );
         ThirdListBox.MultiSelect = true;
         ThirdListBox.Name = "ThirdListBox";
@@ -495,7 +495,7 @@ partial class EmailDialog
         ThirdListBox.SelectedValue = null;
         ThirdListBox.ShowBorder = false;
         ThirdListBox.ShowScrollBar = false;
-        ThirdListBox.Size = new System.Drawing.Size( 639, 184 );
+        ThirdListBox.Size = new System.Drawing.Size( 650, 197 );
         ThirdListBox.Style = MetroSet_UI.Enums.Style.Custom;
         ThirdListBox.StyleManager = null;
         ThirdListBox.TabIndex = 0;
@@ -517,8 +517,8 @@ partial class EmailDialog
         TileTable.Location = new System.Drawing.Point( 703, 48 );
         TileTable.Name = "TileTable";
         TileTable.RowCount = 2;
-        TileTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 14.0221405F ) );
-        TileTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 85.97786F ) );
+        TileTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 11.4391146F ) );
+        TileTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 88.56088F ) );
         TileTable.Size = new System.Drawing.Size( 254, 271 );
         TileTable.TabIndex = 1;
         // 
@@ -539,10 +539,10 @@ partial class EmailDialog
         TilePanel.ForeColor = System.Drawing.Color.Transparent;
         TilePanel.HoverText = null;
         TilePanel.IsDerivedStyle = true;
-        TilePanel.Location = new System.Drawing.Point( 3, 41 );
+        TilePanel.Location = new System.Drawing.Point( 3, 34 );
         TilePanel.Name = "TilePanel";
         TilePanel.Padding = new System.Windows.Forms.Padding( 1 );
-        TilePanel.Size = new System.Drawing.Size( 248, 227 );
+        TilePanel.Size = new System.Drawing.Size( 248, 234 );
         TilePanel.Style = MetroSet_UI.Enums.Style.Custom;
         TilePanel.StyleManager = null;
         TilePanel.TabIndex = 0;
@@ -564,7 +564,7 @@ partial class EmailDialog
         RadioButtonTable.Name = "RadioButtonTable";
         RadioButtonTable.RowCount = 1;
         RadioButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        RadioButtonTable.Size = new System.Drawing.Size( 248, 32 );
+        RadioButtonTable.Size = new System.Drawing.Size( 248, 25 );
         RadioButtonTable.TabIndex = 1;
         // 
         // ThirdRadioButton
@@ -580,7 +580,7 @@ partial class EmailDialog
         ThirdRadioButton.Group = 0;
         ThirdRadioButton.HoverText = null;
         ThirdRadioButton.IsDerivedStyle = true;
-        ThirdRadioButton.Location = new System.Drawing.Point( 165, 12 );
+        ThirdRadioButton.Location = new System.Drawing.Point( 165, 5 );
         ThirdRadioButton.Name = "ThirdRadioButton";
         ThirdRadioButton.Result = null;
         ThirdRadioButton.Size = new System.Drawing.Size( 80, 17 );
@@ -605,7 +605,7 @@ partial class EmailDialog
         SecondRadioButton.Group = 0;
         SecondRadioButton.HoverText = null;
         SecondRadioButton.IsDerivedStyle = true;
-        SecondRadioButton.Location = new System.Drawing.Point( 84, 12 );
+        SecondRadioButton.Location = new System.Drawing.Point( 84, 5 );
         SecondRadioButton.Name = "SecondRadioButton";
         SecondRadioButton.Result = null;
         SecondRadioButton.Size = new System.Drawing.Size( 75, 17 );
@@ -630,7 +630,7 @@ partial class EmailDialog
         FirstRadioButton.Group = 0;
         FirstRadioButton.HoverText = null;
         FirstRadioButton.IsDerivedStyle = true;
-        FirstRadioButton.Location = new System.Drawing.Point( 3, 12 );
+        FirstRadioButton.Location = new System.Drawing.Point( 3, 5 );
         FirstRadioButton.Name = "FirstRadioButton";
         FirstRadioButton.Result = null;
         FirstRadioButton.Size = new System.Drawing.Size( 75, 17 );
@@ -681,8 +681,8 @@ partial class EmailDialog
         CloseButton.IsDerivedStyle = true;
         CloseButton.Location = new System.Drawing.Point( 867, 3 );
         CloseButton.Name = "CloseButton";
-        CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
-        CloseButton.NormalColor = System.Drawing.Color.Transparent;
+        CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        CloseButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
         CloseButton.NormalTextColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
         CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
         CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
@@ -713,8 +713,8 @@ partial class EmailDialog
         ClearButton.IsDerivedStyle = true;
         ClearButton.Location = new System.Drawing.Point( 675, 3 );
         ClearButton.Name = "ClearButton";
-        ClearButton.NormalBorderColor = System.Drawing.Color.Transparent;
-        ClearButton.NormalColor = System.Drawing.Color.Transparent;
+        ClearButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        ClearButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
         ClearButton.NormalTextColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
         ClearButton.Padding = new System.Windows.Forms.Padding( 1 );
         ClearButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
@@ -912,7 +912,6 @@ partial class EmailDialog
     private HeaderPanel EmailTable;
     private Button button2;
     private Layout layout1;
-    private ListBox FirstListBox;
     private Layout layout2;
     private Tile tile2;
     public Editor Editor;
@@ -920,17 +919,8 @@ partial class EmailDialog
     public Button ClearButton;
     public Layout TilePanel;
     public HeaderPanel TileTable;
-    public Layout FirstPanel;
     public HeaderPanel EditorTable;
     private TabControl tabControl1;
-    public Syncfusion.Windows.Forms.Tools.TabPageAdv FirstTabPage;
-    public Syncfusion.Windows.Forms.Tools.TabPageAdv SentTab;
-    public Syncfusion.Windows.Forms.Tools.TabPageAdv ThirdTabPage;
-    public TabControl TabControl;
-    public Layout SecondPanel;
-    public ListBox SecondListBox;
-    public Layout ThirdPanel;
-    public ListBox ThirdListBox;
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     public RadioButton ThirdRadioButton;
     public RadioButton SecondRadioButton;
@@ -943,4 +933,14 @@ partial class EmailDialog
     public System.Windows.Forms.TableLayoutPanel TitleTable;
     public System.Windows.Forms.PictureBox PictureBox;
     public Label Title;
+    public TabControl TabControl;
+    public Syncfusion.Windows.Forms.Tools.TabPageAdv FirstTabPage;
+    public Layout FirstPanel;
+    public Syncfusion.Windows.Forms.Tools.TabPageAdv SentTab;
+    public Layout SecondPanel;
+    public ListBox SecondListBox;
+    public Syncfusion.Windows.Forms.Tools.TabPageAdv ThirdTabPage;
+    public Layout ThirdPanel;
+    public ListBox ThirdListBox;
+    public ListBox FirstListBox;
 }
