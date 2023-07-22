@@ -399,6 +399,7 @@ namespace BudgetExecution
             {
                 var _mainForm = new MainForm( );
                 _mainForm.Show( );
+                Close( );
             }
             catch( Exception _ex )
             {
