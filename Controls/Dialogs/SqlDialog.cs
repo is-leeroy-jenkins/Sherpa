@@ -51,16 +51,17 @@ namespace BudgetExecution
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Edit;
+    using System.Configuration;
     using CheckState = MetroSet_UI.Enums.CheckState;
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
     /// <seealso cref="T:BudgetExecution.EditBase" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public partial class SqlDialog : EditBase
     {
         /// <summary>
@@ -121,7 +122,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlDialog" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SqlDialog" /> class.
         /// </summary>
         public SqlDialog( )
         {
@@ -132,7 +134,6 @@ namespace BudgetExecution
             TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
             FirstButton.Text = "Save";
             ThirdButton.Text = "Exit";
-            DatabaseDirectory = @"C:\Users\terry\source\repos\BudgetExecution\Data\Database\";
 
             // Event Wiring
             ThirdButton.Click += OnCloseButtonClicked;
@@ -168,7 +169,7 @@ namespace BudgetExecution
         /// <param name="tool">Type of the tool.</param>
         /// <param name="bindingSource">The binding source.</param>
         /// <param name="provider">The provider.</param>
-        public SqlDialog( ToolType tool, BindingSource bindingSource, 
+        public SqlDialog( ToolType tool, BindingSource bindingSource,
             Provider provider = Provider.Access )
             : this( )
         {
@@ -206,7 +207,8 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -221,7 +223,7 @@ namespace BudgetExecution
                 SqlComboBox.SelectedValueChanged += OnComboBoxItemSelected;
                 SqlListBox.SelectedValueChanged += OnListBoxItemSelected;
                 SecondButton.Click += OnClearButtonClick;
-                SetEditorConfiguration( );
+                InitializeEditor( );
             }
             catch( Exception _ex )
             {
@@ -236,7 +238,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlEditor.Text = string.Empty;
+                Editor.Text = string.Empty;
                 Commands?.Clear( );
                 Statements?.Clear( );
                 Provider = Provider.Access;
@@ -331,34 +333,34 @@ namespace BudgetExecution
                     SqlListBox.Items.Clear( );
                     for( var _i = 0; _i < list.Count; _i++ )
                     {
-                        if( _commands.Contains( list[ _i ] )
-                           && list[ _i ].Equals( $"{SQL.CREATEDATABASE}" ) )
+                        if( _commands.Contains( list[_i] )
+                           && list[_i].Equals( $"{SQL.CREATEDATABASE}" ) )
                         {
                             SqlComboBox.Items.Add( "CREATE DATABASE" );
                         }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.CREATETABLE}" ) )
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.CREATETABLE}" ) )
                         {
                             SqlComboBox.Items.Add( "CREATE TABLE" );
                         }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.ALTERTABLE}" ) )
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.ALTERTABLE}" ) )
                         {
                             SqlComboBox.Items.Add( "ALTER TABLE" );
                         }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.CREATEVIEW}" ) )
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.CREATEVIEW}" ) )
                         {
                             SqlComboBox.Items.Add( "CREATE VIEW" );
                         }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.SELECTALL}" ) )
+                        else if( _commands.Contains( list[_i] )
+                                && list[_i].Equals( $"{SQL.SELECTALL}" ) )
                         {
                             SqlComboBox.Items.Add( "SELECT ALL" );
                         }
-                        else if( _commands.Contains( list[ _i ] ) )
+                        else if( _commands.Contains( list[_i] ) )
                         {
-                            SqlComboBox.Items.Add( list[ _i ] );
+                            SqlComboBox.Items.Add( list[_i] );
                         }
                     }
                 }
@@ -380,12 +382,17 @@ namespace BudgetExecution
             {
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
-                    var _path = DatabaseDirectory + @$"\{provider}\DataModels\";
+                    var _prefix = ConfigurationManager.AppSettings["PathPrefix"];
+                    var _dbpath = ConfigurationManager.AppSettings["DatabaseDirectory"];
+                    var _path = _prefix
+                        + _dbpath
+                        + @$"\{provider}\DataModels\";
+
                     var _names = Directory.GetDirectories( _path );
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
-                        var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
+                        var _folder = Directory.CreateDirectory( _names[_i] ).Name;
                         if( !string.IsNullOrEmpty( _folder ) )
                         {
                             _list.Add( _folder );
@@ -417,12 +424,17 @@ namespace BudgetExecution
             {
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
-                    var _path = DatabaseDirectory + @$"\{provider}\DataModels\";
+                    var _prefix = ConfigurationManager.AppSettings["PathPrefix"];
+                    var _dbpath = ConfigurationManager.AppSettings["DatabaseDirectory"];
+                    var _path = _prefix
+                        + _dbpath
+                        + @$"\{provider}\DataModels\";
+
                     var _names = Directory.GetDirectories( _path );
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
-                        var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
+                        var _folder = Directory.CreateDirectory( _names[_i] ).Name;
                         if( !string.IsNullOrEmpty( _folder ) )
                         {
                             _list.Add( _folder );
@@ -487,52 +499,52 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the editor configuration.
         /// </summary>
-        private void SetEditorConfiguration( )
+        private void InitializeEditor( )
         {
             try
             {
-                SqlEditor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                SqlEditor.AlwaysShowScrollers = true;
-                SqlEditor.BackColor = SystemColors.ControlLight;
-                SqlEditor.ForeColor = Color.Black;
-                SqlEditor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
-                SqlEditor.BorderStyle = BorderStyle.FixedSingle;
-                SqlEditor.CanOverrideStyle = true;
-                SqlEditor.CanApplyTheme = true;
-                SqlEditor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
-                SqlEditor.ContextChoiceFont = new Font( "Roboto", 8 );
-                SqlEditor.ContextChoiceForeColor = Color.Black;
-                SqlEditor.ContextChoiceBackColor = SystemColors.ControlLight;
-                SqlEditor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
-                SqlEditor.ContextPromptBackgroundBrush = 
+                Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                Editor.AlwaysShowScrollers = true;
+                Editor.BackColor = SystemColors.ControlLight;
+                Editor.ForeColor = Color.Black;
+                Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
+                Editor.BorderStyle = BorderStyle.FixedSingle;
+                Editor.CanOverrideStyle = true;
+                Editor.CanApplyTheme = true;
+                Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceForeColor = Color.Black;
+                Editor.ContextChoiceBackColor = SystemColors.ControlLight;
+                Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.ContextPromptBackgroundBrush =
                     new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-                
-                SqlEditor.ContextTooltipBackgroundBrush = 
+
+                Editor.ContextTooltipBackgroundBrush =
                     new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-                
-                SqlEditor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
-                SqlEditor.EndOfLineBackColor = SystemColors.ControlLight;
-                SqlEditor.EndOfLineForeColor = SystemColors.ControlLight;
-                SqlEditor.HighlightCurrentLine = true;
-                SqlEditor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
-                SqlEditor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
-                SqlEditor.IndicatorMarginBackColor = SystemColors.ControlLight;
-                SqlEditor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
-                SqlEditor.Font = new Font( "Roboto", 12 );
-                SqlEditor.LineNumbersColor = Color.Black;
-                SqlEditor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
-                SqlEditor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
-                SqlEditor.ScrollColorScheme = Office2007ColorScheme.Black;
-                SqlEditor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
-                SqlEditor.ShowEndOfLine = false;
-                SqlEditor.Style = EditControlStyle.Office2016Black;
-                SqlEditor.TabSize = 4;
-                SqlEditor.TextAreaWidth = 400;
-                SqlEditor.WordWrap = true;
-                SqlEditor.WordWrapColumn = 100;
-                SqlEditor.Dock = DockStyle.None;
-                SqlEditor.Anchor = AnchorStyles.Top 
-                    | AnchorStyles.Bottom 
+
+                Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.EndOfLineBackColor = SystemColors.ControlLight;
+                Editor.EndOfLineForeColor = SystemColors.ControlLight;
+                Editor.HighlightCurrentLine = true;
+                Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
+                Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
+                Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
+                Editor.Font = new Font( "Roboto", 12 );
+                Editor.LineNumbersColor = Color.Black;
+                Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
+                Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
+                Editor.ScrollColorScheme = Office2007ColorScheme.Black;
+                Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
+                Editor.ShowEndOfLine = false;
+                Editor.Style = EditControlStyle.Office2016Black;
+                Editor.TabSize = 4;
+                Editor.TextAreaWidth = 400;
+                Editor.WordWrap = true;
+                Editor.WordWrapColumn = 100;
+                Editor.Dock = DockStyle.None;
+                Editor.Anchor = AnchorStyles.Top
+                    | AnchorStyles.Bottom
                     | AnchorStyles.Left
                     | AnchorStyles.Right;
             }
@@ -559,11 +571,16 @@ namespace BudgetExecution
                     if( _selection?.Contains( " " ) == true )
                     {
                         SelectedCommand = _selection.Replace( " ", "" );
-                        var _path = DatabaseDirectory + @$"\{Provider}\DataModels\{SelectedCommand}";
+                        var _prefix = ConfigurationManager.AppSettings["PathPrefix"];
+                        var _dbpath = ConfigurationManager.AppSettings["DatabaseDirectory"];
+                        var _path = _prefix
+                            + _dbpath
+                            + @$"\{Provider}\DataModels\{SelectedCommand}";
+
                         var _files = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _files.Length; _i++ )
                         {
-                            var _item = Path.GetFileNameWithoutExtension( _files[ _i ] );
+                            var _item = Path.GetFileNameWithoutExtension( _files[_i] );
                             var _caption = _item?.SplitPascal( );
                             SqlListBox.Items.Add( _caption );
                         }
@@ -571,11 +588,16 @@ namespace BudgetExecution
                     else
                     {
                         SelectedCommand = _comboBox.SelectedItem?.ToString( );
-                        var _path = DatabaseDirectory + @$"\{Provider}\DataModels\{SelectedCommand}";
+                        var _prefix = ConfigurationManager.AppSettings["PathPrefix"];
+                        var _dbpath = ConfigurationManager.AppSettings["DatabaseDirectory"];
+                        var _path = _prefix
+                            + _dbpath
+                            + @$"\{Provider}\DataModels\{SelectedCommand}";
+
                         var _names = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _names.Length; _i++ )
                         {
-                            var _item = Path.GetFileNameWithoutExtension( _names[ _i ] );
+                            var _item = Path.GetFileNameWithoutExtension( _names[_i] );
                             var _caption = _item?.SplitPascal( );
                             SqlListBox.Items.Add( _caption );
                         }
@@ -598,30 +620,36 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SqlEditor.Text = string.Empty;
+                    Editor.Text = string.Empty;
                     SelectedQuery = _listBox.SelectedItem?.ToString( );
                     if( ( SelectedQuery?.Contains( " " ) == true )
                        || ( SelectedCommand?.Contains( " " ) == true ) )
                     {
+                        var _prefix = ConfigurationManager.AppSettings["PathPrefix"];
+                        var _dbpath = ConfigurationManager.AppSettings["DatabaseDirectory"];
                         var _command = SelectedCommand?.Replace( " ", "" );
                         var _query = SelectedQuery?.Replace( " ", "" );
-                        var _filePath = DatabaseDirectory 
+                        var _filePath = _prefix
+                            + _dbpath
                             + @$"\{Provider}\DataModels\{_command}\{_query}.sql";
-                        
+
                         var _stream = File.OpenRead( _filePath );
                         var _reader = new StreamReader( _stream );
                         var _text = _reader.ReadToEnd( );
-                        SqlEditor.Text = _text;
+                        Editor.Text = _text;
                     }
                     else
                     {
-                        var _path = DatabaseDirectory 
+                        var _prefix = ConfigurationManager.AppSettings["PathPrefix"];
+                        var _dbpath = ConfigurationManager.AppSettings["DatabaseDirectory"];
+                        var _path = _prefix
+                            + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}\{SelectedQuery}.sql";
-                        
+
                         var _stream = File.OpenRead( _path );
                         var _reader = new StreamReader( _stream );
                         var _text = _reader.ReadToEnd( );
-                        SqlEditor.Text = _text;
+                        Editor.Text = _text;
                     }
                 }
                 catch( Exception _ex )
@@ -635,7 +663,8 @@ namespace BudgetExecution
         /// Called when [clear button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnClearButtonClick( object sender, EventArgs e )
         {
             try
@@ -652,7 +681,8 @@ namespace BudgetExecution
         /// Called when [right click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )

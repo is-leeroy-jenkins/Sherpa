@@ -798,6 +798,7 @@
             visualTextBox3.Multiline = false;
             visualTextBox3.Name = "visualTextBox3";
             visualTextBox3.ReadOnly = false;
+            visualTextBox3.SelectionLength = 0;
             visualTextBox3.Size = new System.Drawing.Size( 278, 23 );
             visualTextBox3.Style = MetroSet_UI.Enums.Style.Custom;
             visualTextBox3.StyleManager = null;
@@ -828,9 +829,9 @@
             SelectButton.Location = new System.Drawing.Point( 574, 598 );
             SelectButton.Margin = new System.Windows.Forms.Padding( 0 );
             SelectButton.Name = "SelectButton";
-            SelectButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            SelectButton.NormalColor = System.Drawing.Color.Transparent;
-            SelectButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            SelectButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            SelectButton.NormalTextColor = System.Drawing.Color.DarkGray;
             SelectButton.Padding = new System.Windows.Forms.Padding( 1 );
             SelectButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             SelectButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
@@ -862,9 +863,9 @@
             RefreshButton.Location = new System.Drawing.Point( 93, 598 );
             RefreshButton.Margin = new System.Windows.Forms.Padding( 0 );
             RefreshButton.Name = "RefreshButton";
-            RefreshButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            RefreshButton.NormalColor = System.Drawing.Color.Transparent;
-            RefreshButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            RefreshButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            RefreshButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            RefreshButton.NormalTextColor = System.Drawing.Color.DarkGray;
             RefreshButton.Padding = new System.Windows.Forms.Padding( 1 );
             RefreshButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             RefreshButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
@@ -897,9 +898,9 @@
             CloseButton.Location = new System.Drawing.Point( 1024, 598 );
             CloseButton.Margin = new System.Windows.Forms.Padding( 0 );
             CloseButton.Name = "CloseButton";
-            CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            CloseButton.NormalColor = System.Drawing.Color.Transparent;
-            CloseButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            CloseButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            CloseButton.NormalTextColor = System.Drawing.Color.DarkGray;
             CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
             CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
@@ -1019,7 +1020,6 @@
             BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             CaptionFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             ClientSize = new System.Drawing.Size( 1298, 636 );
             ControlBox = false;
             Controls.Add( SelectButton );

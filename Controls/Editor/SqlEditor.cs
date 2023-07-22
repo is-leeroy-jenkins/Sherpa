@@ -163,7 +163,7 @@ namespace BudgetExecution
         /// <see cref="SqlEditor"/> class.
         /// </summary>
         /// <inheritdoc />
-        public SqlEditor( )
+        public SqlEditor( ) 
         {
             InitializeComponent( );
 
@@ -205,7 +205,24 @@ namespace BudgetExecution
             Load += OnLoad;
             Closing += OnClosing;
             MouseClick += OnRightClick;
-            Shown += OnShown;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlEditor" /> class.
+        /// </summary>
+        /// <param name="provider">The provider.</param>
+        public SqlEditor( Provider provider ) 
+            : this( )
+        {
+            // Provider
+            Provider = provider;
+
+            // Radio Buttons
+            SqlServerRadioButton.Checked = true;
+            SqlServerRadioButton.CheckState = CheckState.Checked;
+            AccessRadioButton.Checked = false;
+            AccessRadioButton.CheckState = CheckState.Unchecked;
         }
 
         /// <summary>
@@ -318,8 +335,6 @@ namespace BudgetExecution
                 Statements?.Clear( );
                 Provider = Provider.Access;
                 AccessRadioButton.Checked = true;
-                Commands = CreateCommandList( Provider );
-                PopulateSqlComboBox( Commands );
             }
             catch( Exception _ex )
             {
@@ -404,6 +419,9 @@ namespace BudgetExecution
                     LookupTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
                     Title.Text = "SQL Editor";
+                    Title.TextAlign = ContentAlignment.TopLeft;
+                    Commands = CreateCommandList( Provider );
+                    PopulateSqlComboBox( Commands );
                     break;
                 }
                 case 1:
@@ -413,6 +431,9 @@ namespace BudgetExecution
                     SchemaTab.TabVisible = false;
                     SqlTab.TabVisible = false;
                     Title.Text = $"{Source.ToString( ).SplitPascal( )} Data Table";
+                    PopulateTableListBoxItems( );
+                    Commands = CreateCommandList( Provider );
+                    PopulateSqlComboBox( Commands );
                     break;
                 }
                 case 2:
@@ -994,7 +1015,8 @@ namespace BudgetExecution
                 TableListBox.SelectedItem = string.Empty;
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Select( dr => dr.Field<string>( "TableName" ) )
+                var _names = _data
+                    ?.Select( dr => dr.Field<string>( "TableName" ) )
                     ?.Distinct( )
                     ?.ToList( );
 
@@ -1047,7 +1069,8 @@ namespace BudgetExecution
                 TableNameComboBox.SelectedItem = string.Empty;
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Select( dr => dr.Field<string>( "TableName" ) )
+                var _names = _data
+                    ?.Select( dr => dr.Field<string>( "TableName" ) )
                     ?.Distinct( )
                     ?.ToList( );
 
@@ -1097,12 +1120,11 @@ namespace BudgetExecution
             {
                 InitializeEditor( );
                 InitializeToolStrip( );
-                SetProvider( Provider.ToString( ) );
-                Commands = CreateCommandList( Provider );
                 TabPages = GetTabPages( );
                 Panels = GetPanels( );
                 RadioButtons = GetRadioButtons( );
                 ListBoxes = GetListBoxes( );
+                TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {
@@ -1290,25 +1312,7 @@ namespace BudgetExecution
                 }
             }
         }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnShown( object sender, EventArgs e )
-        {
-            try
-            {
-                Program.Windows[ "SqlEditor" ] = this;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
+        
         /// <summary>
         /// Called when [closing].
         /// </summary>

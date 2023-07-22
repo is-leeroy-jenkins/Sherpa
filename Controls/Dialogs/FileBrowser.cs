@@ -56,8 +56,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public partial class FileBrowser
     {
         /// <summary>
@@ -116,8 +116,9 @@ namespace BudgetExecution
         /// </value>
         public string SelectedFile { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileBrowser"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.FileBrowser" /> class.
         /// </summary>
         public FileBrowser( )
         {
@@ -129,17 +130,15 @@ namespace BudgetExecution
             Size = new Size( 700, 480 );
             MaximumSize = new Size( 700, 480 );
             MinimumSize = new Size( 700, 480 );
-            Header.ForeColor = Color.FromArgb( 0, 120, 212 );
-            Header.TextAlign = ContentAlignment.TopLeft;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
+            BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
             InitialDirPaths = GetInitialDirPaths( );
             RadioButtons = GetRadioButtons( );
             FileExtension = "xlsx";
             Extension = EXT.XLSX;
-            Picture.Image = GetImage( );
+            PictureBox.Image = GetImage( );
             FilePaths = GetListViewPaths( );
             FileList.BackColor = Color.FromArgb( 40, 40, 40 );
             CaptionBarHeight = 5;
@@ -151,6 +150,10 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
 
+            // Title Properties
+            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Title.TextAlign = ContentAlignment.TopLeft;
+
             // Event Wiring
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
@@ -158,8 +161,9 @@ namespace BudgetExecution
             FindButton.Click += OnFindButtonClicked;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileBrowser"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.FileBrowser" /> class.
         /// </summary>
         /// <param name="extension">The extension.</param>
         public FileBrowser( EXT extension )
@@ -167,30 +171,6 @@ namespace BudgetExecution
         {
             Extension = extension;
             FileExtension = Extension.ToString( ).ToLower( );
-        }
-
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnLoad( object sender, EventArgs e )
-        {
-            if( FilePaths?.Any( ) == true )
-            {
-                try
-                {
-                    PopulateListBox( );
-                    FoundLabel.Text = "Found : " + FilePaths?.Count( );
-                    Header.Text = $"{Extension} File Search";
-                    ClearRadioButtons( );
-                    SetRadioButtonEvents( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
         }
 
         /// <summary>
@@ -207,7 +187,7 @@ namespace BudgetExecution
                     var _paths = filePaths.ToArray( );
                     for( var _i = 0; _i < _paths.Length; _i++ )
                     {
-                        var _path = _paths[ _i ];
+                        var _path = _paths[_i];
                         if( !string.IsNullOrEmpty( _path ) )
                         {
                             FileList?.Items.Add( _path );
@@ -231,14 +211,17 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _path = AppSettings[ "Extensions" ];
+                    var _path = AppSettings["Extensions"];
                     if( _path != null )
                     {
                         var _files = GetFiles( _path );
                         if( _files?.Any( ) == true )
                         {
                             var _extension = FileExtension.TrimStart( '.' ).ToUpper( );
-                            var _file = _files?.Where( f => f.Contains( _extension ) )?.First( );
+                            var _file = _files
+                                ?.Where( f => f.Contains( _extension ) )
+                                ?.First( );
+
                             using var _stream = File.Open( _file, FileMode.Open );
                             var _img = Image.FromStream( _stream );
                             return new Bitmap( _img, 22, 22 );
@@ -309,7 +292,7 @@ namespace BudgetExecution
                             ?.Where( f => f.EndsWith( FileExtension ) )
                             ?.Select( f => Path.GetFullPath( f ) )
                             ?.ToList( );
-                        
+
                         _list.AddRange( _first );
                         var _dirs = GetDirectories( _filePath );
                         foreach( var _dir in _dirs )
@@ -320,7 +303,7 @@ namespace BudgetExecution
                                     ?.Where( s => s.EndsWith( FileExtension ) )
                                     ?.Select( s => Path.GetFullPath( s ) )
                                     ?.ToList( );
-                                
+
                                 if( _second?.Any( ) == true )
                                 {
                                     _list.AddRange( _second );
@@ -329,14 +312,14 @@ namespace BudgetExecution
                                 var _subDir = GetDirectories( _dir );
                                 for( var _i = 0; _i < _subDir.Length; _i++ )
                                 {
-                                    var _path = _subDir[ _i ];
+                                    var _path = _subDir[_i];
                                     if( !string.IsNullOrEmpty( _path ) )
                                     {
                                         var _last = GetFiles( _path )
                                             ?.Where( l => l.EndsWith( FileExtension ) )
                                             ?.Select( l => Path.GetFullPath( l ) )
                                             ?.ToList( );
-                                        
+
                                         if( _last?.Any( ) == true )
                                         {
                                             _list.AddRange( _last );
@@ -376,13 +359,13 @@ namespace BudgetExecution
                     var _ext = _radioButton.Tag?.ToString( )
                         ?.Trim( ".".ToCharArray( ) )
                         ?.ToUpper( );
-                    
-                    Header.Text = $"{_ext} File Search";
+
+                    Title.Text = $"{_ext} File Search";
                     MessageLabel.Text = string.Empty;
                     FoundLabel.Text = string.Empty;
                     var _paths = GetListViewPaths( );
                     PopulateListBox( _paths );
-                    Picture.Image = GetImage( );
+                    PictureBox.Image = GetImage( );
                     FoundLabel.Text = "Found: " + _paths?.ToList( )?.Count ?? "0";
                 }
                 catch( Exception _ex )
@@ -469,6 +452,30 @@ namespace BudgetExecution
                     {
                         FileList.Items.Add( _path );
                     }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            if( FilePaths?.Any( ) == true )
+            {
+                try
+                {
+                    PopulateListBox( );
+                    FoundLabel.Text = "Found : " + FilePaths?.Count( );
+                    Title.Text = $"{Extension} File Search";
+                    ClearRadioButtons( );
+                    SetRadioButtonEvents( );
                 }
                 catch( Exception _ex )
                 {

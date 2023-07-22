@@ -2027,7 +2027,7 @@ namespace BudgetExecution
                 {
                     SetIcon( _button.ToolType );
                     var _dialog = new SqlDialog( BindingSource );
-                    _dialog.SqlEditor.Text = SqlQuery;
+                    _dialog.Editor.Text = SqlQuery;
                     _dialog.ShowDialog( this );
                     SetFormIcon( );
                 }

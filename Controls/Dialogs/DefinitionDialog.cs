@@ -54,8 +54,8 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref="T:BudgetExecution.EditBase" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public partial class DefinitionDialog : EditBase
     {
         /// <summary>
@@ -161,7 +161,7 @@ namespace BudgetExecution
 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
-                    var _name = _names[ _i ];
+                    var _name = _names[_i];
                     TableNameComboBox.Items.Add( _name );
                 }
             }
@@ -185,9 +185,9 @@ namespace BudgetExecution
                     var _types = DataTypes.ToArray( );
                     for( var _i = 0; _i < _types?.Length; _i++ )
                     {
-                        if( !string.IsNullOrEmpty( _types[ _i ] ) )
+                        if( !string.IsNullOrEmpty( _types[_i] ) )
                         {
-                            DataTypeComboBox.Items.Add( _types[ _i ] );
+                            DataTypeComboBox.Items.Add( _types[_i] );
                         }
                     }
                 }

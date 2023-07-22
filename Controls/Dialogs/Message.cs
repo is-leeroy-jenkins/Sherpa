@@ -47,10 +47,11 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
 
     /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public partial class Message : MetroForm
     {
+        /// <inheritdoc />
         /// <summary> </summary>
         public Message( )
         {
@@ -73,6 +74,9 @@ namespace BudgetExecution
             Enabled = true;
             Visible = true;
 
+            // Title Properties
+            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+
             // Control Properties
             CloseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             CloseButton.Text = "Close";
@@ -86,9 +90,10 @@ namespace BudgetExecution
             Load += OnLoad;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Message"/>
+        /// <see cref="T:BudgetExecution.Message" />
         /// class.
         /// </summary>
         /// <param name="text"> The text displayed by the control. </param>
@@ -99,6 +104,7 @@ namespace BudgetExecution
             CloseButton.Focus( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Message"/>
@@ -109,7 +115,7 @@ namespace BudgetExecution
         public Message( string text, string caption )
             : this( text )
         {
-            Header.Text = caption;
+            Title.Text = caption;
             CloseButton.Focus( );
         }
 
@@ -120,7 +126,7 @@ namespace BudgetExecution
         {
             try
             {
-                Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+                Title.ForeColor = Color.FromArgb( 0, 120, 212 );
             }
             catch( Exception _ex )
             {

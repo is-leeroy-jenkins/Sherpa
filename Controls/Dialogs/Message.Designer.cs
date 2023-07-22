@@ -39,13 +39,13 @@ namespace BudgetExecution
             var resources = new ComponentResourceManager( typeof( Message ) );
             BindingSource = new BindingSource( components );
             ToolTip = new SmallTip( );
-            CloseButton = new Button( );
             Label = new Label( );
             PictureBox = new Picture( );
-            Header = new Label( );
+            Title = new Label( );
             BackPanel = new Layout( );
             TextBox = new RichTextBox( );
             TitleTable = new TableLayoutPanel( );
+            CloseButton = new Button( );
             ( (ISupportInitialize) BindingSource  ).BeginInit( );
             ( (ISupportInitialize) PictureBox  ).BeginInit( );
             BackPanel.SuspendLayout( );
@@ -71,40 +71,6 @@ namespace BudgetExecution
             ToolTip.TipIcon = ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
-            // 
-            // CloseButton
-            // 
-            CloseButton.BackColor = System.Drawing.Color.Transparent;
-            CloseButton.BindingSource = null;
-            CloseButton.DataFilter = null;
-            CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            CloseButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CloseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            CloseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            CloseButton.HoverText = null;
-            CloseButton.HoverTextColor = System.Drawing.Color.White;
-            CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 601, 354 );
-            CloseButton.Margin = new Padding( 0 );
-            CloseButton.Name = "CloseButton";
-            CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            CloseButton.NormalColor = System.Drawing.Color.Transparent;
-            CloseButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.Padding = new Padding( 1 );
-            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 78, 26 );
-            CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
-            CloseButton.StyleManager = null;
-            CloseButton.TabIndex = 10;
-            CloseButton.Text = "Close";
-            CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "Budget Execution";
-            CloseButton.ToolTip = ToolTip;
             // 
             // Label
             // 
@@ -145,27 +111,27 @@ namespace BudgetExecution
             PictureBox.TabStop = false;
             PictureBox.ToolTip = null;
             // 
-            // Header
+            // Title
             // 
-            Header.BindingSource = null;
-            Header.DataFilter = null;
-            Header.FlatStyle = FlatStyle.Flat;
-            Header.Font = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
-            Header.HoverText = null;
-            Header.IsDerivedStyle = true;
-            Header.Location = new System.Drawing.Point( 43, 3 );
-            Header.Margin = new Padding( 3 );
-            Header.Name = "Header";
-            Header.Padding = new Padding( 1 );
-            Header.Size = new System.Drawing.Size( 586, 22 );
-            Header.Style = MetroSet_UI.Enums.Style.Custom;
-            Header.StyleManager = null;
-            Header.TabIndex = 14;
-            Header.Text = "Budget Execution Message";
-            Header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            Header.ThemeAuthor = "Terry D. Eppler";
-            Header.ThemeName = "BudgetExecution";
-            Header.ToolTip = null;
+            Title.BindingSource = null;
+            Title.DataFilter = null;
+            Title.FlatStyle = FlatStyle.Flat;
+            Title.Font = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Title.HoverText = null;
+            Title.IsDerivedStyle = true;
+            Title.Location = new System.Drawing.Point( 43, 3 );
+            Title.Margin = new Padding( 3 );
+            Title.Name = "Title";
+            Title.Padding = new Padding( 1 );
+            Title.Size = new System.Drawing.Size( 586, 22 );
+            Title.Style = MetroSet_UI.Enums.Style.Custom;
+            Title.StyleManager = null;
+            Title.TabIndex = 14;
+            Title.Text = "Budget Execution Message";
+            Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            Title.ThemeAuthor = "Terry D. Eppler";
+            Title.ThemeName = "BudgetExecution";
+            Title.ToolTip = null;
             // 
             // BackPanel
             // 
@@ -227,7 +193,7 @@ namespace BudgetExecution
             TitleTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 5.900621F ) );
             TitleTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 94.09938F ) );
             TitleTable.Controls.Add( PictureBox, 0, 0 );
-            TitleTable.Controls.Add( Header, 1, 0 );
+            TitleTable.Controls.Add( Title, 1, 0 );
             TitleTable.Dock = DockStyle.Top;
             TitleTable.Location = new System.Drawing.Point( 0, 0 );
             TitleTable.Name = "TitleTable";
@@ -235,6 +201,38 @@ namespace BudgetExecution
             TitleTable.RowStyles.Add( new RowStyle( SizeType.Percent, 50F ) );
             TitleTable.Size = new System.Drawing.Size( 688, 28 );
             TitleTable.TabIndex = 16;
+            // 
+            // CloseButton
+            // 
+            CloseButton.BindingSource = null;
+            CloseButton.DataFilter = null;
+            CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CloseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            CloseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            CloseButton.HoverText = null;
+            CloseButton.HoverTextColor = System.Drawing.Color.White;
+            CloseButton.IsDerivedStyle = true;
+            CloseButton.Location = new System.Drawing.Point( 586, 347 );
+            CloseButton.Name = "CloseButton";
+            CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            CloseButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            CloseButton.NormalTextColor = System.Drawing.Color.DarkGray;
+            CloseButton.Padding = new Padding( 1 );
+            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CloseButton.PressTextColor = System.Drawing.Color.White;
+            CloseButton.Size = new System.Drawing.Size( 90, 30 );
+            CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
+            CloseButton.StyleManager = null;
+            CloseButton.TabIndex = 17;
+            CloseButton.Text = "Close";
+            CloseButton.ThemeAuthor = "Terry D. Eppler";
+            CloseButton.ThemeName = "Budget Execution";
+            CloseButton.ToolTip = null;
             // 
             // Message
             // 
@@ -249,10 +247,10 @@ namespace BudgetExecution
             CaptionFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             ClientSize = new System.Drawing.Size( 688, 389 );
+            Controls.Add( CloseButton );
             Controls.Add( TitleTable );
             Controls.Add( BackPanel );
             Controls.Add( Label );
-            Controls.Add( CloseButton );
             DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ForeColor = System.Drawing.Color.LightSteelBlue;
@@ -277,14 +275,14 @@ namespace BudgetExecution
 
         #endregion
         public SmallTip ToolTip;
-        public Button CloseButton;
         public Label Label;
         public Picture PictureBox;
-        private Label Header;
+        private Label Title;
         public BindingSource BindingSource;
         private Layout BackPanel;
         private RichTextBox TextBox;
         public TableLayoutPanel TitleTable;
+        private Button CloseButton;
     }
 
 }

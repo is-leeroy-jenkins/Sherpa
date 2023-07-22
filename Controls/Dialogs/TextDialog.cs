@@ -49,8 +49,8 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public partial class TextDialog : MetroForm
     {
         public TextDialog( )
@@ -72,50 +72,7 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             Enabled = true;
-
-            // Editor SettingsEditor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            Editor.AlwaysShowScrollers = true;
-            Editor.BackColor = SystemColors.ControlLight;
-            Editor.ForeColor = Color.Black;
-            Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
-            Editor.BorderStyle = BorderStyle.FixedSingle;
-            Editor.CanOverrideStyle = true;
-            Editor.CanApplyTheme = true;
-            Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
-            Editor.ContextChoiceFont = new Font( "Roboto", 8 );
-            Editor.ContextChoiceForeColor = Color.Black;
-            Editor.ContextChoiceBackColor = SystemColors.ControlLight;
-            Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
-            Editor.ContextPromptBackgroundBrush =
-                new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-
-            Editor.ContextTooltipBackgroundBrush =
-                new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-
-            Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
-            Editor.EndOfLineBackColor = SystemColors.ControlLight;
-            Editor.EndOfLineForeColor = SystemColors.ControlLight;
-            Editor.HighlightCurrentLine = true;
-            Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
-            Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
-            Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
-            Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
-            Editor.Font = new Font( "Roboto", 9 );
-            Editor.LineNumbersColor = Color.Black;
-            Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
-            Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
-            Editor.ScrollColorScheme = Office2007ColorScheme.Black;
-            Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
-            Editor.ShowEndOfLine = false;
-            Editor.Style = EditControlStyle.Office2016Black;
-            Editor.TabSize = 4;
-            Editor.WordWrap = true;
-            Editor.WordWrapMarginVisible = true;
-            Editor.WordWrapMode = WordWrapMode.WordWrapMargin;
-            Editor.TextAreaWidth = 550;
-            Editor.UseXPStyle = false;
-            Editor.WordWrapColumn = 25;
-
+            
             // Wire Events
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClick;
@@ -138,6 +95,64 @@ namespace BudgetExecution
         {
             try
             {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the editor configuration.
+        /// </summary>
+        private void InitializeEditor( )
+        {
+            try
+            {
+                Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                Editor.AlwaysShowScrollers = true;
+                Editor.BackColor = SystemColors.ControlLight;
+                Editor.ForeColor = Color.Black;
+                Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
+                Editor.BorderStyle = BorderStyle.FixedSingle;
+                Editor.CanOverrideStyle = true;
+                Editor.CanApplyTheme = true;
+                Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceForeColor = Color.Black;
+                Editor.ContextChoiceBackColor = SystemColors.ControlLight;
+                Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.ContextPromptBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+                Editor.ContextTooltipBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+                Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.EndOfLineBackColor = SystemColors.ControlLight;
+                Editor.EndOfLineForeColor = SystemColors.ControlLight;
+                Editor.HighlightCurrentLine = true;
+                Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
+                Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
+                Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
+                Editor.Font = new Font( "Roboto", 12 );
+                Editor.LineNumbersColor = Color.Black;
+                Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
+                Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
+                Editor.ScrollColorScheme = Office2007ColorScheme.Black;
+                Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
+                Editor.ShowEndOfLine = false;
+                Editor.Style = EditControlStyle.Office2016Black;
+                Editor.TabSize = 4;
+                Editor.TextAreaWidth = 400;
+                Editor.WordWrap = true;
+                Editor.WordWrapColumn = 100;
+                Editor.Dock = DockStyle.None;
+                Editor.Anchor = AnchorStyles.Top
+                    | AnchorStyles.Bottom
+                    | AnchorStyles.Left
+                    | AnchorStyles.Right;
             }
             catch( Exception _ex )
             {
@@ -172,7 +187,7 @@ namespace BudgetExecution
         {
             try
             {
-                SetTitleProperties( );
+                InitializeEditor( );
             }
             catch( Exception _ex )
             {

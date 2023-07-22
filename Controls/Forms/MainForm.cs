@@ -49,6 +49,7 @@ namespace BudgetExecution
     using System;
     using MetroSet_UI;
     using static System.Configuration.ConfigurationManager;
+    using CheckState = MetroSet_UI.Enums.CheckState;
 
     /// <summary>
     /// 
@@ -109,7 +110,7 @@ namespace BudgetExecution
 
             // Event Wiring
             ExitButton.Click += OnExitButtonClick;
-            LookupTile.Click += OnDataManagementTileClick;
+            LookupTile.Click += OnLookupTileClick;
             CalculatorTile.Click += OnCalculatorTileClick;
             CalendarTile.Click += OnCalendarTileClick;
             ProgramProjectTile.Click += OnProgramProjectTileClick;
@@ -119,7 +120,6 @@ namespace BudgetExecution
             ExcelDataTile.Click += OnExcelDataTileClick;
             SQLiteTile.Click += OnSQLiteTileClick;
             SqlCeTile.Click += OnSqlCeTileClick;
-            SqlServerTile.Click += OnSqlCeTileClick;
             GuidanceTile.Click += OnGuidanceTileClick;
             BrowserTile.Click += OnBrowserTileClick;
             EdgeTile.Click += OnEdgeTileClick;
@@ -127,6 +127,7 @@ namespace BudgetExecution
             FirefoxTile.Click += OnFirefoxTileClick;
             BrowserTile.Click += OnBrowserTileClick;
             MessageTile.Click += OnMessageTileClick;
+            SqlServerTile.Click += OnSqlServerTileClick;
             TestButton.Click += OnTestButtonClick;
             Load += OnLoad;
             Shown += OnShown;
@@ -161,7 +162,7 @@ namespace BudgetExecution
                 var _tiles = new List<Tile>( );
                 for( var _i = 0; _i < Controls.Count; _i++ )
                 {
-                    var _control = Controls[_i];
+                    var _control = Controls[ _i ];
                     if( _control.GetType( ) == typeof( Tile ) )
                     {
                         var _tile = _control as Tile;
@@ -511,6 +512,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Opens the SQL server editor.
+        /// </summary>
+        private void OpenSqlServerEditor( )
+        {
+            try
+            {
+                var _sqlEditor = new SqlEditor( Provider.SqlServer );
+                _sqlEditor.Owner = this;
+                _sqlEditor.Show( );
+                Visible = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Opens the WebBrowser.
         /// </summary>
         private void OpenBabyBrowser( )
@@ -718,6 +737,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [SQL server tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSqlServerTileClick( object sender, EventArgs e )
+        {
+            OpenSqlEditor( );
+        }
+
+        /// <summary>
         /// Called when [access tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -736,26 +766,27 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [database tile clicked].
+        /// Called when [excel data tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnDataManagementTileClick( object sender, EventArgs e )
-        {
-            OpenDataGridForm( );
-        }
-
         private void OnExcelDataTileClick( object sender, EventArgs e )
         {
             OpenExcelDataForm( );
         }
 
+        /// <summary>
+        /// Called when [lookup tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnLookupTileClick( object sender, EventArgs e )
         {
-            Notify( );
+            OpenDataGridForm( );
         }
-
+        
         /// <summary>
         /// Called when [SQL editor tile click].
         /// </summary>

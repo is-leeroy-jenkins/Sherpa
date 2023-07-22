@@ -48,12 +48,14 @@ namespace BudgetExecution
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="MetroSet_UI.Controls.MetroSetButton" />
-    /// <seealso cref="BudgetExecution.IButton" />
+    /// <seealso cref="T:MetroSet_UI.Controls.MetroSetButton" />
+    /// <seealso cref="T:BudgetExecution.IButton" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class Button : MetroSetButton, IButton
     {
         /// <summary>
@@ -108,9 +110,9 @@ namespace BudgetExecution
             Enabled = true;
 
             // Normal Color Configuration
-            NormalColor = Color.Transparent;
-            NormalBorderColor = Color.Transparent;
-            NormalTextColor = Color.FromArgb( 50, 93, 129 );
+            NormalColor = Color.FromArgb( 40, 40, 40);
+            NormalBorderColor = Color.FromArgb( 40, 40, 40 );
+            NormalTextColor = Color.DarkGray;
 
             // Hover Color Configuration
             HoverBorderColor = Color.FromArgb( 50, 93, 129 );

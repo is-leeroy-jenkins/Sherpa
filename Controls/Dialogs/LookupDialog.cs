@@ -54,9 +54,9 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref="T:BudgetExecution.EditBase" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ] 
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
     public partial class LookupDialog : EditBase
     {
         /// <summary>
@@ -164,7 +164,7 @@ namespace BudgetExecution
 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
-                    var _name = _names[ _i ];
+                    var _name = _names[_i];
                     TableListBox.Items.Add( _name );
                 }
             }
@@ -173,7 +173,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Gets the controls.
         /// </summary>
@@ -422,7 +422,7 @@ namespace BudgetExecution
                 var _series = DataModel.DataElements;
                 if( !string.IsNullOrEmpty( _column ) )
                 {
-                    foreach( var _item in _series[ _column ] )
+                    foreach( var _item in _series[_column] )
                     {
                         ValueListBox.Items.Add( _item );
                     }

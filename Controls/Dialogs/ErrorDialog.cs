@@ -50,9 +50,9 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class ErrorDialog : MetroForm
     {
         /// <summary>
@@ -101,7 +101,7 @@ namespace BudgetExecution
             Text = string.Empty;
 
             // Header Label Properties
-            HeaderLabel.ForeColor = Color.Red;
+            Title.ForeColor = Color.Red;
 
             // TextBox Properties
             TextBox.Font = new Font( "Roboto", 8 );
@@ -146,8 +146,8 @@ namespace BudgetExecution
         {
             try
             {
-                HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
-                HeaderLabel.ForeColor = Color.Red;
+                Title.TextAlign = ContentAlignment.MiddleLeft;
+                Title.ForeColor = Color.Red;
                 if( Exception != null )
                 {
                     var _message = Exception.Message;
