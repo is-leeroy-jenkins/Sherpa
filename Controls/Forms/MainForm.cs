@@ -744,7 +744,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnSqlServerTileClick( object sender, EventArgs e )
         {
-            OpenSqlEditor( );
+            OpenSqlServerEditor( );
         }
 
         /// <summary>
