@@ -787,7 +787,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings["Providers"];
+                var _path = ConfigurationManager.AppSettings[ "Providers" ];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -818,7 +818,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings["Dialogs"];
+                var _path = ConfigurationManager.AppSettings[ "Dialogs" ];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -859,7 +859,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the tool strip properties.
         /// </summary>
-        private void SetToolStripProperties( )
+        private void InitializeToolStrip( )
         {
             try
             {
@@ -1324,7 +1324,7 @@ namespace BudgetExecution
                 ClearSelections( );
                 InitRadioButtons( );
                 SetFormIcon( );
-                SetToolStripProperties( );
+                InitializeToolStrip( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
