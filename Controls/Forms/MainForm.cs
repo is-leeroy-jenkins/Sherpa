@@ -379,12 +379,28 @@ namespace BudgetExecution
         /// <summary>
         /// Shows the calendar dialog.
         /// </summary>
-        private void ShowCalendarDialog( )
+        private void OpenFiscalYearForm( )
         {
             try
             {
-                var _calendar = new CalendarDialog( );
-                _calendar.ShowDialog( this );
+                var _forms = Program.Windows.Values;
+                if( Program.Windows.ContainsKey( "FiscalYearForm" ) )
+                {
+                    var _fiscalYear = (FiscalYearForm)_forms
+                        ?.Where( f => f.GetType( ) == typeof( FiscalYearForm ) )
+                        ?.First( );
+
+                    _fiscalYear.Owner = this;
+                    _fiscalYear.Refresh( );
+                    _fiscalYear.Visible = true;
+                    Visible = false;
+                }
+                else
+                {
+                    var _fiscalYear = new FiscalYearForm( );
+                    _fiscalYear.ShowDialog( this );
+                    Visible = false;
+                }
             }
             catch( Exception _ex )
             {
@@ -600,7 +616,8 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -645,7 +662,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows["MainForm"] = this;
+                Program.Windows[ "MainForm" ] = this;
             }
             catch( Exception _ex )
             {
@@ -653,6 +670,12 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [edge tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnEdgeTileClick( object sender, EventArgs e )
         {
             try
@@ -665,6 +688,12 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [chrome tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnChromeTileClick( object sender, EventArgs e )
         {
             try
@@ -677,6 +706,12 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [firefox tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnFirefoxTileClick( object sender, EventArgs e )
         {
             try
@@ -803,7 +838,8 @@ namespace BudgetExecution
         /// Called when [reporting tile clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnVisualizationTileClick( object sender, EventArgs e )
         {
             OpenChartDataForm( );
@@ -813,7 +849,8 @@ namespace BudgetExecution
         /// Called when [web tile clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnProgramProjectTileClick( object sender, EventArgs e )
         {
             ShowProgramProjectDialog( );
@@ -823,7 +860,8 @@ namespace BudgetExecution
         /// Called when [calculator tile clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnCalculatorTileClick( object sender, EventArgs e )
         {
             OpenCalculationForm( );
@@ -840,9 +878,15 @@ namespace BudgetExecution
             ShowGuidanceDialog( );
         }
 
+        /// <summary>
+        /// Called when [calendar tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnCalendarTileClick( object sender, EventArgs e )
         {
-            ShowCalendarDialog( );
+            OpenFiscalYearForm( );
         }
 
         /// <summary>
@@ -871,7 +915,8 @@ namespace BudgetExecution
         /// Called when [exit button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnExitButtonClick( object sender, EventArgs e )
         {
             try

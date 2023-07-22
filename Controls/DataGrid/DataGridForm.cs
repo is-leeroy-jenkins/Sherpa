@@ -332,7 +332,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataGridForm" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataGridForm" /> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         public DataGridForm( BindingSource bindingSource )
@@ -351,7 +352,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataGridForm" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataGridForm" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -1651,7 +1653,8 @@ namespace BudgetExecution
         /// Called when [exit button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnExitButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1668,7 +1671,8 @@ namespace BudgetExecution
         /// Called when [main menu button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1685,7 +1689,8 @@ namespace BudgetExecution
         /// Called when [remove filter button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRemoveFilterButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1719,7 +1724,8 @@ namespace BudgetExecution
         /// Called when [chart button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnChartButtonClicked( object sender, EventArgs e )
         {
             try

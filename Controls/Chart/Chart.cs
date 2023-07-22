@@ -47,10 +47,10 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using System.Windows.Forms.DataVisualization.Charting;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.ChartBase" />
+    /// <seealso cref="T:BudgetExecution.ChartBase" />
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Chart : ChartBase
     {
@@ -86,8 +86,9 @@ namespace BudgetExecution
         /// </value>
         public IEnumerable<DataRow> Data { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Chart"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.Chart" /> class.
         /// </summary>
         public Chart( )
         {
@@ -97,8 +98,9 @@ namespace BudgetExecution
             SetSeriesProperties( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Chart"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.Chart" /> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         /// <param name="category">The category.</param>

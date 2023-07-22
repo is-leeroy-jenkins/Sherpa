@@ -45,15 +45,17 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms.DataVisualization.Charting;
 
+    /// <inheritdoc />
     /// <summary>
-    ///  
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.DataVisualization.Charting.Chart" />
+    /// <seealso cref="T:System.Windows.Forms.DataVisualization.Charting.Chart" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class ChartBase : System.Windows.Forms.DataVisualization.Charting.Chart
     {
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ChartBase" /> class.
         /// </summary>
         protected ChartBase( )
         {
@@ -70,70 +72,76 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the area properties.
         /// </summary>
-        private protected void SetAreaProperties( )
+        private protected void SetAreaProperties( int i = 0, bool enabled = false )
         {
-            try
+            if( enabled )
             {
-                var _black = Color.FromArgb( 20, 20, 20 );
-                var _gray = Color.FromArgb( 65, 65, 65 );
-                var _transparent = Color.Transparent;
-                var _blue = Color.FromArgb( 0, 120, 212 );
-                var _darkBlue = Color.FromArgb( 24, 47, 66 );
+                try
+                {
+                    var _black = Color.FromArgb( 20, 20, 20 );
+                    var _gray = Color.FromArgb( 65, 65, 65 );
+                    var _transparent = Color.Transparent;
+                    var _blue = Color.FromArgb( 0, 120, 212 );
+                    var _darkBlue = Color.FromArgb( 24, 47, 66 );
 
-                // General Area Properties
-                ChartAreas[ 0 ].BackColor = _black;
-                ChartAreas[ 0 ].Area3DStyle.Enable3D = true;
-                ChartAreas[ 0 ].BorderColor = _darkBlue;
-                ChartAreas[ 0 ].BackSecondaryColor = _black;
-                ChartAreas[ 0 ].Area3DStyle.PointDepth = 150;
-                ChartAreas[ 0 ].Area3DStyle.Inclination = 35;
+                    // General Area Properties
+                    ChartAreas[ i ].BackColor = _black;
+                    ChartAreas[ i ].Area3DStyle.Enable3D = true;
+                    ChartAreas[ i ].BorderColor = _darkBlue;
+                    ChartAreas[ i ].BackSecondaryColor = _black;
+                    ChartAreas[ i ].Area3DStyle.PointDepth = 150;
+                    ChartAreas[ i ].Area3DStyle.Inclination = 35;
 
-                // Horizontal Axis Properties
-                ChartAreas[ 0 ].AxisX.IsLabelAutoFit = true;
-                ChartAreas[ 0 ].AxisX.InterlacedColor = _transparent;
-                ChartAreas[ 0 ].AxisX.LineColor = _darkBlue;
-                ChartAreas[ 0 ].AxisX.TitleFont = new Font( "Roboto", 8 );
-                ChartAreas[ 0 ].AxisX.TitleForeColor = _blue;
-                ChartAreas[ 0 ].AxisX.LabelStyle.Font = new Font( "Roboto", 7 );
-                ChartAreas[ 0 ].AxisX.LabelStyle.ForeColor = _blue;
-                ChartAreas[ 0 ].AxisX.MajorGrid.LineColor = _darkBlue;
-                ChartAreas[ 0 ].AxisX.MinorGrid.LineColor = _gray;
-                ChartAreas[ 0 ].AxisX.TextOrientation = TextOrientation.Auto;
+                    // Horizontal Axis Properties
+                    ChartAreas[ i ].AxisX.IsLabelAutoFit = true;
+                    ChartAreas[ i ].AxisX.InterlacedColor = _transparent;
+                    ChartAreas[ i ].AxisX.LineColor = _darkBlue;
+                    ChartAreas[ i ].AxisX.TitleFont = new Font( "Roboto", 8 );
+                    ChartAreas[ i ].AxisX.TitleForeColor = _blue;
+                    ChartAreas[ i ].AxisX.LabelStyle.Font = new Font( "Roboto", 7 );
+                    ChartAreas[ i ].AxisX.LabelStyle.ForeColor = _blue;
+                    ChartAreas[ i ].AxisX.MajorGrid.LineColor = _darkBlue;
+                    ChartAreas[ i ].AxisX.MinorGrid.LineColor = _gray;
+                    ChartAreas[ i ].AxisX.TextOrientation = TextOrientation.Auto;
 
-                // Vertical Axis Properties
-                ChartAreas[ 0 ].AxisY.IsLabelAutoFit = true;
-                ChartAreas[ 0 ].AxisY.InterlacedColor = _transparent;
-                ChartAreas[ 0 ].AxisY.LineColor = _darkBlue;
-                ChartAreas[ 0 ].AxisY.TitleFont = new Font( "Roboto", 8 );
-                ChartAreas[ 0 ].AxisY.TitleForeColor = _blue;
-                ChartAreas[ 0 ].AxisY.LabelStyle.Font = new Font( "Roboto", 7 );
-                ChartAreas[ 0 ].AxisY.LabelStyle.Format = "N0";
-                ChartAreas[ 0 ].AxisY.LabelStyle.ForeColor = _blue;
-                ChartAreas[ 0 ].AxisY.MajorGrid.LineColor = _darkBlue;
-                ChartAreas[ 0 ].AxisY.MinorGrid.LineColor = _gray;
-                ChartAreas[ 0 ].AxisY.TextOrientation = TextOrientation.Auto;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
+                    // Vertical Axis Properties
+                    ChartAreas[ i ].AxisY.IsLabelAutoFit = true;
+                    ChartAreas[ i ].AxisY.InterlacedColor = _transparent;
+                    ChartAreas[ i ].AxisY.LineColor = _darkBlue;
+                    ChartAreas[ i ].AxisY.TitleFont = new Font( "Roboto", 8 );
+                    ChartAreas[ i ].AxisY.TitleForeColor = _blue;
+                    ChartAreas[ i ].AxisY.LabelStyle.Font = new Font( "Roboto", 7 );
+                    ChartAreas[ i ].AxisY.LabelStyle.Format = "N0";
+                    ChartAreas[ i ].AxisY.LabelStyle.ForeColor = _blue;
+                    ChartAreas[ i ].AxisY.MajorGrid.LineColor = _darkBlue;
+                    ChartAreas[ i ].AxisY.MinorGrid.LineColor = _gray;
+                    ChartAreas[ i ].AxisY.TextOrientation = TextOrientation.Auto;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
         /// <summary>
         /// Sets the title properties.
         /// </summary>
-        private protected void SetTitleProperties( )
+        private protected void SetTitleProperties( int i = 0, bool enabled = false )
         {
-            try
+            if( enabled )
             {
-                Titles[ 0 ].Font = new Font( "Roboto", 10, FontStyle.Bold );
-                Titles[ 0 ].BackColor = Color.FromArgb( 20, 20, 20 );
-                Titles[ 0 ].BorderColor = Color.FromArgb( 20, 20, 20 );
-                Titles[ 0 ].ForeColor = Color.FromArgb( 0, 120, 212 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
+                try
+                {
+                    Titles[ i ].Font = new Font( "Roboto", 10, FontStyle.Bold );
+                    Titles[ i ].BackColor = Color.FromArgb( 20, 20, 20 );
+                    Titles[ i ].BorderColor = Color.FromArgb( 20, 20, 20 );
+                    Titles[ i ].ForeColor = Color.FromArgb( 0, 120, 212 );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
@@ -144,19 +152,22 @@ namespace BudgetExecution
         /// <param name="enabled">if set to <c>true</c> [enabled].</param>
         private protected void SetLegendProperties( int i = 0, bool enabled = false )
         {
-            try
+            if( enabled )
             {
-                Legends[ i ].HeaderSeparatorColor = Color.FromArgb( 20, 20, 20 );
-                Legends[ i ].ItemColumnSeparatorColor = Color.FromArgb( 20, 20, 20 );
-                Legends[ i ].BorderColor = Color.FromArgb( 20, 20, 20 );
-                Legends[ i ].TitleFont = new Font( "Roboto", 7 );
-                Legends[ i ].TitleForeColor = Color.FromArgb( 0, 120, 212 );
-                Legends[ i ].TitleBackColor = Color.FromArgb( 20, 20, 20 );
-                Legends[ i ].Enabled = enabled;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
+                try
+                {
+                    Legends[ i ].HeaderSeparatorColor = Color.FromArgb( 20, 20, 20 );
+                    Legends[ i ].ItemColumnSeparatorColor = Color.FromArgb( 20, 20, 20 );
+                    Legends[ i ].BorderColor = Color.FromArgb( 20, 20, 20 );
+                    Legends[ i ].TitleFont = new Font( "Roboto", 7 );
+                    Legends[ i ].TitleForeColor = Color.FromArgb( 0, 120, 212 );
+                    Legends[ i ].TitleBackColor = Color.FromArgb( 20, 20, 20 );
+                    Legends[ i ].Enabled = enabled;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
@@ -164,31 +175,35 @@ namespace BudgetExecution
         /// Sets the series properties.
         /// </summary>
         /// <param name="i">The i.</param>
-        private protected void SetSeriesProperties( int i = 0 )
+        /// <param name="enabled" > </param>
+        private protected void SetSeriesProperties( int i = 0, bool enabled = false )
         {
-            try
+            if( enabled )
             {
-                Series[ i ].ChartType = SeriesChartType.Column;
-                Series[ i ].IsValueShownAsLabel = true;
-                Series[ i ].IsVisibleInLegend = true;
-                Series[ i ].LabelBorderColor = Color.Transparent;
-                Series[ i ].LabelBackColor = Color.Transparent;
-                Series[ i ].LabelForeColor = Color.LightGray;
-                Series[ i ].LabelFormat = "N0";
-                Series[ i ].MarkerColor = Color.Yellow;
-                Series[ i ].MarkerStyle = MarkerStyle.Triangle;
-                Series[ i ].Font = new Font( "Roboto", 7 );
-                Series[ i ].XValueType = ChartValueType.Auto;
-                Series[ i ].YValueType = ChartValueType.Auto;
-                Series[ i ].SmartLabelStyle.CalloutBackColor = Color.Transparent;
-                Series[ i ].SmartLabelStyle.CalloutStyle = LabelCalloutStyle.Box;
-                Series[ i ].SmartLabelStyle.CalloutLineColor = Color.Transparent;
-                Series[ i ].SmartLabelStyle.CalloutLineWidth = 0;
-                Series[ i ].SmartLabelStyle.CalloutLineAnchorCapStyle = LineAnchorCapStyle.Arrow;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
+                try
+                {
+                    Series[ i ].ChartType = SeriesChartType.Column;
+                    Series[ i ].IsValueShownAsLabel = true;
+                    Series[ i ].IsVisibleInLegend = true;
+                    Series[ i ].LabelBorderColor = Color.Transparent;
+                    Series[ i ].LabelBackColor = Color.Transparent;
+                    Series[ i ].LabelForeColor = Color.LightGray;
+                    Series[ i ].LabelFormat = "N0";
+                    Series[ i ].MarkerColor = Color.Yellow;
+                    Series[ i ].MarkerStyle = MarkerStyle.Triangle;
+                    Series[ i ].Font = new Font( "Roboto", 7 );
+                    Series[ i ].XValueType = ChartValueType.Auto;
+                    Series[ i ].YValueType = ChartValueType.Auto;
+                    Series[ i ].SmartLabelStyle.CalloutBackColor = Color.Transparent;
+                    Series[ i ].SmartLabelStyle.CalloutStyle = LabelCalloutStyle.Box;
+                    Series[ i ].SmartLabelStyle.CalloutLineColor = Color.Transparent;
+                    Series[ i ].SmartLabelStyle.CalloutLineWidth = 0;
+                    Series[ i ].SmartLabelStyle.CalloutLineAnchorCapStyle = LineAnchorCapStyle.Arrow;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
