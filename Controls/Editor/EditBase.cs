@@ -229,44 +229,7 @@ namespace BudgetExecution
         /// The data types.
         /// </value>
         public IEnumerable<string> DataTypes { get; set; }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EditBase" /> class.
-        /// </summary>
-        public EditBase( )
-        {
-            InitializeComponent( );
-
-            // Base Properties
-            Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            BorderColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
-            CaptionButtonHoverColor = Color.Red;
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionBarHeight = 5;
-            CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            MinimizeBox = false;
-            MaximizeBox = false;
-            ShowMaximizeBox = false;
-            ShowMinimizeBox = false;
-            ShowIcon = false;
-            ShowMouseOver = false;
-            ShowInTaskbar = true;
-            StartPosition = FormStartPosition.CenterScreen;
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            Text = string.Empty;
-        }
-
+        
         /// <summary>
         /// Gets the data types.
         /// </summary>
