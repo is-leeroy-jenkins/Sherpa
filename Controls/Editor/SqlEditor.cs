@@ -977,24 +977,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( ( Owner != null )
-                   && ( Owner.Visible == false )
-                   && ( Owner.GetType( ) == typeof( MainForm ) ) )
-                {
-                    Owner.Visible = true;
-                    Visible = false;
-                }
-                else if( ( Owner != null )
-                        && ( Owner.Visible == false )
-                        && ( Owner.GetType( ) != typeof( MainForm ) ) )
-                {
-                    Owner.Close( );
-                    var _mainForm = (MainForm)Program.Windows["MainForm"];
-                    _mainForm.Refresh( );
-                    _mainForm.Visible = true;
-                    ClearData( );
-                    Visible = false;
-                }
+                var _mainForm = new MainForm( );
+                _mainForm.Show( );
+                Close( );
             }
             catch( Exception _ex )
             {

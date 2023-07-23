@@ -1215,19 +1215,15 @@ namespace BudgetExecution
                    && ( Owner.Visible == false )
                    && ( Owner.GetType( ) == typeof( MainForm ) ) )
                 {
-                    Owner.Visible = true;
-                    Visible = false;
+                    var _form = (MainForm)Program.Windows[nameof( MainForm )];
+                    _form.Visible = true;
+                    Close( );
                 }
-                else if( ( Owner != null )
-                        && ( Owner.Visible == false )
-                        && ( Owner.GetType( ) != typeof( MainForm ) ) )
+                else
                 {
-                    Owner.Close( );
-                    var _mainForm = (MainForm)Program.Windows["MainForm"];
-                    _mainForm.Refresh( );
-                    _mainForm.Visible = true;
-                    ResetData( );
-                    Visible = false;
+                    var _mainForm = new MainForm( );
+                    _mainForm.Show( );
+                    Close( );
                 }
             }
             catch( Exception _ex )
@@ -1243,30 +1239,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _forms = Program.Windows.Values;
-                if( Program.Windows.ContainsKey( "ExcelDataForm" ) )
-                {
-                    var _excelDataForm = (ExcelDataForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) )
-                        ?.First( );
-
-                    _excelDataForm.Owner = this;
-                    _excelDataForm = new ExcelDataForm( BindingSource );
-                    _excelDataForm.Visible = true;
-                    Visible = false;
-                }
-                else if( !Program.Windows.ContainsKey( "ExcelDataForm" )
-                        && Program.Windows.ContainsKey( "MainForm" ) )
-                {
-                    var _mainForm = (MainForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( MainForm ) )
-                        ?.First( );
-
-                    var _excelDataForm = new ExcelDataForm( BindingSource );
-                    _excelDataForm.Owner = _mainForm;
-                    _excelDataForm.Show( );
-                    Visible = false;
-                }
+                var _excelDataForm = new ExcelDataForm( BindingSource );
+                _excelDataForm.Show( );
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -1281,31 +1256,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _forms = Program.Windows.Values;
-                if( Program.Windows.ContainsKey( "ChartDataForm" ) )
-                {
-                    var _chartDataForm = (ChartDataForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
-                        ?.First( );
-
-                    _chartDataForm.Owner = this;
-                    _chartDataForm = new ChartDataForm( BindingSource );
-                    _chartDataForm.Refresh( );
-                    _chartDataForm.Visible = true;
-                    Visible = false;
-                }
-                else if( !Program.Windows.ContainsKey( "ChartDataForm" )
-                        && Program.Windows.ContainsKey( "MainForm" ) )
-                {
-                    var _mainForm = (MainForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( MainForm ) )
-                        ?.First( );
-
-                    var _chartDataForm = new ChartDataForm( BindingSource );
-                    _chartDataForm.Owner = _mainForm;
-                    _chartDataForm.Show( );
-                    Visible = false;
-                }
+                var _chartDataForm = new ChartDataForm( BindingSource );
+                _chartDataForm.Show( );
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -2162,7 +2115,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows["DataGridForm"] = this;
+                Program.Windows[ "DataGridForm" ] = this;
             }
             catch( Exception _ex )
             {

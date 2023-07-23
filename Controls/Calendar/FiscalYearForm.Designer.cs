@@ -102,7 +102,7 @@ namespace BudgetExecution
             SecondCalendar = new Syncfusion.WinForms.Input.SfCalendar( );
             ChartTable = new HeaderPanel( );
             ChartLayout = new Layout( );
-            Chart = new Chart( );
+            chart2 = new Chart( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
@@ -113,7 +113,7 @@ namespace BudgetExecution
             SecondCalendarPanel.SuspendLayout( );
             ChartTable.SuspendLayout( );
             ChartLayout.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) Chart  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize) chart2  ).BeginInit( );
             SuspendLayout( );
             // 
             // PictureBox
@@ -688,7 +688,7 @@ namespace BudgetExecution
             ChartLayout.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
             ChartLayout.BorderThickness = 1;
             ChartLayout.Children = null;
-            ChartLayout.Controls.Add( Chart );
+            ChartLayout.Controls.Add( chart2 );
             ChartLayout.DataFilter = null;
             ChartLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             ChartLayout.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -706,32 +706,42 @@ namespace BudgetExecution
             ChartLayout.ThemeName = "Budget Execution";
             ChartLayout.ToolTip = null;
             // 
-            // Chart
+            // chart2
             // 
-            Chart.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            Chart.BackSecondaryColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            Chart.BindingSource = null;
-            Chart.BorderlineColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            Chart.BorderSkin.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            Chart.BorderSkin.BackSecondaryColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            Chart.BorderSkin.BorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            Chart.BorderSkin.PageColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            chart2.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            chart2.BackSecondaryColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            chart2.BindingSource = null;
+            chart2.BorderlineColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            chart2.BorderSkin.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            chart2.BorderSkin.BackSecondaryColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            chart2.BorderSkin.BorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            chart2.BorderSkin.PageColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            chartArea1.BorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             chartArea1.Name = "ChartArea1";
-            Chart.ChartAreas.Add( chartArea1 );
-            Chart.Data = null;
-            Chart.DataTable = null;
+            chart2.ChartAreas.Add( chartArea1 );
+            chart2.Data = null;
+            chart2.DataTable = null;
+            legend1.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            legend1.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            legend1.ForeColor = System.Drawing.Color.DarkGray;
+            legend1.HeaderSeparatorColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            legend1.IsTextAutoFit = false;
+            legend1.ItemColumnSeparatorColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             legend1.Name = "Legend1";
-            Chart.Legends.Add( legend1 );
-            Chart.Location = new System.Drawing.Point( 22, 15 );
-            Chart.Name = "Chart";
-            Chart.PaletteCustomColors = new System.Drawing.Color[ ] { System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ), System.Drawing.Color.FromArgb(   180  ,   0  ,   120  ,   202   ), System.Drawing.Color.Maroon, System.Drawing.Color.FromArgb(   255  ,   65  ,   84   ), System.Drawing.Color.FromArgb(   0  ,   64  ,   0   ), System.Drawing.Color.FromArgb(   150  ,   0  ,   64  ,   0   ) };
+            legend1.TitleForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            legend1.TitleSeparatorColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            chart2.Legends.Add( legend1 );
+            chart2.Location = new System.Drawing.Point( 36, 15 );
+            chart2.Name = "chart2";
+            chart2.PaletteCustomColors = new System.Drawing.Color[ ] { System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ), System.Drawing.Color.FromArgb(   180  ,   0  ,   120  ,   202   ), System.Drawing.Color.Maroon, System.Drawing.Color.FromArgb(   255  ,   65  ,   84   ), System.Drawing.Color.FromArgb(   0  ,   64  ,   0   ), System.Drawing.Color.FromArgb(   150  ,   0  ,   64  ,   0   ) };
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            Chart.Series.Add( series1 );
-            Chart.Size = new System.Drawing.Size( 659, 529 );
-            Chart.TabIndex = 0;
-            Chart.Text = "chart2";
+            chart2.Series.Add( series1 );
+            chart2.Size = new System.Drawing.Size( 635, 529 );
+            chart2.TabIndex = 0;
+            chart2.Text = "chart2";
             // 
             // FiscalYearForm
             // 
@@ -775,7 +785,7 @@ namespace BudgetExecution
             SecondCalendarPanel.ResumeLayout( false );
             ChartTable.ResumeLayout( false );
             ChartLayout.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) Chart  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize) chart2  ).EndInit( );
             ResumeLayout( false );
             PerformLayout( );
         }
@@ -813,5 +823,6 @@ namespace BudgetExecution
         private Layout ChartLayout;
         private Chart chart1;
         public Chart Chart;
+        private Chart chart2;
     }
 }

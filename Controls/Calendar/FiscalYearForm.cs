@@ -51,7 +51,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms.DataVisualization.Charting;
 
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public sealed partial class FiscalYearForm : MetroForm
     {
         /// <summary>
@@ -139,7 +139,7 @@ namespace BudgetExecution
                 var _text = DataTable?.TableName?.SplitPascal( );
                 if( !string.IsNullOrEmpty( _text ) )
                 {
-                    //Chart.Titles[0].Text = _text;
+                    Chart.Titles[ 0 ].Text = _text;
                 }
             }
             catch( Exception _ex )
@@ -164,22 +164,22 @@ namespace BudgetExecution
                     _title += "   ";
                     for( var i = 1; i < _values.Length; i++ )
                     {
-                        var _split = _keys[i].SplitPascal( );
+                        var _split = _keys[ i ].SplitPascal( );
                         if( _split.EndsWith( "Name" ) )
                         {
                             var _key = _split.Replace( "Name", "" ).Trim( );
-                            _title += _key + " - " + _values[i];
+                            _title += _key + " - " + _values[ i ];
                             _title += "   ";
                         }
                         else if( _split.EndsWith( "Code" ) )
                         {
                             var _key = _split.Replace( "Code", "" ).Trim( );
-                            _title += _key + " - " + _values[i];
+                            _title += _key + " - " + _values[ i ];
                             _title += "   ";
                         }
                     }
 
-                    //Chart.ChartAreas[0].AxisX.Title = _title;
+                    Chart.ChartAreas[ 0 ].AxisX.Title = _title;
                 }
                 catch( Exception _ex )
                 {
@@ -195,9 +195,21 @@ namespace BudgetExecution
         {
             try
             {
-                var _mainForm = new MainForm( );
-                _mainForm.Show( );
-                Close( );
+                if( ( Owner != null )
+                   && ( Owner.Visible == false )
+                   && ( Owner.GetType( ) == typeof( MainForm ) ) )
+                {
+                    var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
+                    _form.Refresh( );
+                    _form.Visible = true;
+                    Close( );
+                }
+                else
+                {
+                    var _mainForm = new MainForm( );
+                    _mainForm.Show( );
+                    Close( );
+                }
             }
             catch( Exception _ex )
             {

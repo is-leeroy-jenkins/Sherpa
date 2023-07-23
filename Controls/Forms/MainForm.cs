@@ -334,9 +334,8 @@ namespace BudgetExecution
             try
             {
                 var _programs = new ProgramProjectDialog( );
-                _programs.StartPosition = FormStartPosition.CenterScreen;
-                _programs.Owner = this;
-                _programs.Show( );
+                _programs.ShowDialog( this );
+                Hide( );
             }
             catch( Exception _ex )
             {
@@ -353,6 +352,7 @@ namespace BudgetExecution
             {
                 var _editor = new EditDialog( );
                 _editor.ShowDialog( this );
+                Hide( );
             }
             catch( Exception _ex )
             {
@@ -369,6 +369,7 @@ namespace BudgetExecution
             {
                 var _editor = new EditDialog( );
                 _editor.ShowDialog( this );
+                Hide( );
             }
             catch( Exception _ex )
             {
@@ -383,24 +384,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _forms = Program.Windows.Values;
-                if( Program.Windows.ContainsKey( "FiscalYearForm" ) )
-                {
-                    var _fiscalYear = (FiscalYearForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( FiscalYearForm ) )
-                        ?.First( );
-
-                    _fiscalYear.Owner = this;
-                    _fiscalYear.Refresh( );
-                    _fiscalYear.Visible = true;
-                    Visible = false;
-                }
-                else
-                {
-                    var _fiscalYear = new FiscalYearForm( );
-                    _fiscalYear.ShowDialog( this );
-                    Visible = false;
-                }
+                var _form = new FiscalYearForm( );
+                _form.ShowDialog( this );
+                Hide( );
             }
             catch( Exception _ex )
             {
@@ -415,10 +401,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _emailDialog = new EmailDialog( );
-                _emailDialog.StartPosition = FormStartPosition.CenterScreen;
-                _emailDialog.Owner = this;
-                _emailDialog.Show( );
+                var _dialog = new EmailDialog( );
+                _dialog.Show( );
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -433,26 +418,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _forms = Program.Windows.Values;
-                if( Program.Windows.ContainsKey( "ChartDataForm" ) )
-                {
-                    var _chartDataForm = (ChartDataForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
-                        ?.First( );
-
-                    _chartDataForm.Owner = this;
-                    _chartDataForm.ClearData( );
-                    _chartDataForm.Refresh( );
-                    _chartDataForm.Visible = true;
-                    Visible = false;
-                }
-                else
-                {
-                    var _chartDataForm = new ChartDataForm( );
-                    _chartDataForm.Owner = this;
-                    _chartDataForm.Show( );
-                    Visible = false;
-                }
+                var _form = new ChartDataForm( );
+                _form.Owner = this;
+                _form.Show( );
+                Hide( );
             }
             catch( Exception _ex )
             {
@@ -467,26 +436,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _forms = Program.Windows.Values;
-                if( Program.Windows.ContainsKey( "ExcelDataForm" ) )
-                {
-                    var _excelDataForm = (ExcelDataForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) )
-                        ?.First( );
-
-                    _excelDataForm.Owner = this;
-                    _excelDataForm.ClearData( );
-                    _excelDataForm.Refresh( );
-                    _excelDataForm.Visible = true;
-                    Visible = false;
-                }
-                else
-                {
-                    var _excelDataForm = new ExcelDataForm( );
-                    _excelDataForm.Owner = this;
-                    _excelDataForm.Show( );
-                    Visible = false;
-                }
+                var _form = new ExcelDataForm( );
+                _form.Show( );
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -501,25 +453,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _forms = Program.Windows.Values;
-                if( Program.Windows.ContainsKey( "SqlEditor" ) )
-                {
-                    var _sqlEditor = (SqlEditor)_forms
-                        ?.Where( f => f.GetType( ) == typeof( SqlEditor ) )
-                        ?.First( );
-
-                    _sqlEditor.Owner = this;
-                    _sqlEditor.Refresh( );
-                    _sqlEditor.Visible = true;
-                    Visible = false;
-                }
-                else
-                {
-                    var _excelDataForm = new SqlEditor( );
-                    _excelDataForm.Owner = this;
-                    _excelDataForm.Show( );
-                    Visible = false;
-                }
+                var _sqlEditor = new SqlEditor( );
+                _sqlEditor.Show( );
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -535,9 +471,8 @@ namespace BudgetExecution
             try
             {
                 var _sqlEditor = new SqlEditor( Provider.SqlServer );
-                _sqlEditor.Owner = this;
                 _sqlEditor.Show( );
-                Visible = false;
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -568,26 +503,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _forms = Program.Windows.Values;
-                if( Program.Windows.ContainsKey( "DataGridForm" ) )
-                {
-                    var _dataGridForm = (DataGridForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( DataGridForm ) )
-                        ?.First( );
-
-                    _dataGridForm.Owner = this;
-                    _dataGridForm.ResetData( );
-                    _dataGridForm.Refresh( );
-                    _dataGridForm.Visible = true;
-                    Visible = false;
-                }
-                else
-                {
-                    var _dataGridForm = new DataGridForm( );
-                    _dataGridForm.Owner = this;
-                    _dataGridForm.Show( );
-                    Visible = false;
-                }
+                var _dataGridForm = new DataGridForm( );
+                _dataGridForm.Show( );
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -603,7 +521,6 @@ namespace BudgetExecution
             try
             {
                 var _calculator = new CalculationForm( );
-                _calculator.Owner = this;
                 _calculator.Show( );
             }
             catch( Exception _ex )
