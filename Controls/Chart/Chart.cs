@@ -44,8 +44,10 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
     using System.Windows.Forms;
     using System.Windows.Forms.DataVisualization.Charting;
+    using MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle;
 
     /// <inheritdoc />
     /// <summary>
@@ -88,14 +90,23 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.Chart" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Chart" /> class.
         /// </summary>
         public Chart( )
         {
-            SetLegendProperties( );
-            SetTitleProperties( );
-            SetAreaProperties( );
-            SetSeriesProperties( );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            BorderlineColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.BackColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.PageColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.BorderColor = Color.FromArgb( 20, 20, 20 );
+            InitializePalette( );
+            InitializeLegend( );
+            InitializeSeries( );
+            InitializeArea( );
         }
 
         /// <inheritdoc />

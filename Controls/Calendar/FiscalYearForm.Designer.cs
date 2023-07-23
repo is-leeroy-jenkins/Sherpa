@@ -708,32 +708,30 @@ namespace BudgetExecution
             // 
             // Chart
             // 
-            Chart.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
             Chart.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             Chart.BackSecondaryColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            Chart.BindingSource = BindingSource;
+            Chart.BindingSource = null;
             Chart.BorderlineColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             Chart.BorderSkin.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             Chart.BorderSkin.BackSecondaryColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             Chart.BorderSkin.BorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             Chart.BorderSkin.PageColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            chartArea1.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            chartArea1.BorderColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "ChartArea1";
             Chart.ChartAreas.Add( chartArea1 );
             Chart.Data = null;
             Chart.DataTable = null;
-            legend1.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             legend1.Name = "Legend1";
             Chart.Legends.Add( legend1 );
-            Chart.Location = new System.Drawing.Point( 52, 42 );
+            Chart.Location = new System.Drawing.Point( 22, 15 );
             Chart.Name = "Chart";
+            Chart.PaletteCustomColors = new System.Drawing.Color[ ] { System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ), System.Drawing.Color.FromArgb(   180  ,   0  ,   120  ,   202   ), System.Drawing.Color.Maroon, System.Drawing.Color.FromArgb(   255  ,   65  ,   84   ), System.Drawing.Color.FromArgb(   0  ,   64  ,   0   ), System.Drawing.Color.FromArgb(   150  ,   0  ,   64  ,   0   ) };
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             Chart.Series.Add( series1 );
-            Chart.Size = new System.Drawing.Size( 612, 480 );
+            Chart.Size = new System.Drawing.Size( 659, 529 );
             Chart.TabIndex = 0;
+            Chart.Text = "chart2";
             // 
             // FiscalYearForm
             // 
@@ -813,6 +811,7 @@ namespace BudgetExecution
         public Syncfusion.WinForms.Input.SfCalendar SecondCalendar;
         private HeaderPanel ChartTable;
         private Layout ChartLayout;
+        private Chart chart1;
         public Chart Chart;
     }
 }
