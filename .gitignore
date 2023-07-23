@@ -71,3 +71,4 @@ Clients/WebBrower/net6.0-windows/runtimes/win-x64/native/libcef.dll
 Clients/WebBrower/net6.0-windows/runtimes/win-x64/native/libcef.dll
 *.db
 .vs/Supercharger/BudgetExecution/codemap.dat
+*.sdf

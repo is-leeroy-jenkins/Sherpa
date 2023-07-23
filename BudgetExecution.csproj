@@ -49,7 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CBComponents.HeaderTableLayoutPanel" Version="1.2.6307.23101" />
-    <PackageReference Include="EPPlus" Version="6.2.6" />
+    <PackageReference Include="EPPlus" Version="7.0.0-preview2" />
     <PackageReference Include="Google.Apis" Version="1.61.0" />
     <PackageReference Include="Google.Apis.Core" Version="1.61.0" />
     <PackageReference Include="Google.Apis.Customsearch.v1" Version="1.49.0.2084" />
@@ -57,17 +57,17 @@
     <PackageReference Include="LiveCharts" Version="0.9.7" />
     <PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />
     <PackageReference Include="LiveCharts.WinForms.NetCore3" Version="0.9.7" />
-    <PackageReference Include="LiveChartsCore" Version="2.0.0-beta.710" />
-    <PackageReference Include="LiveChartsCore.SkiaSharpView" Version="2.0.0-beta.710" />
-    <PackageReference Include="LiveChartsCore.SkiaSharpView.WinForms" Version="2.0.0-beta.710" />
+    <PackageReference Include="LiveChartsCore" Version="2.0.0-beta.860" />
+    <PackageReference Include="LiveChartsCore.SkiaSharpView" Version="2.0.0-beta.860" />
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WinForms" Version="2.0.0-beta.860" />
     <PackageReference Include="MetroSet_UI" Version="2.0.0" />
     <PackageReference Include="Microsoft.Office.Interop.Access" Version="15.0.4420.1018" />
     <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
     <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
     <PackageReference Include="MSChartExtension" Version="3.9.1" />
     <PackageReference Include="Ookii.Dialogs.WinForms" Version="4.0.0" />
-    <PackageReference Include="ScottPlot.WinForms" Version="4.1.65" />
-    <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
+    <PackageReference Include="ScottPlot.WinForms" Version="5.0.6-beta" />
+    <PackageReference Include="System.Data.OleDb" Version="8.0.0-preview.6.23329.7" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.8.0" />
     <PackageReference Include="WinFormsMapControl" Version="1.1.0" />
     <PackageReference Include="Zeroit.Framework.BasicCharts" Version="1.0.0" />
