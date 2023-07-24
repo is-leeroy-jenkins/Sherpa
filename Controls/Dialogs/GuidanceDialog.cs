@@ -48,6 +48,7 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using System.Configuration;
     using System.IO;
 
     /// <summary>
@@ -98,7 +99,7 @@ namespace BudgetExecution
         /// <value>
         /// The prefix.
         /// </value>
-        public string Prefix { get; set; } = @"C:\\Users\terry\source\repos\BudgetExecution\";
+        public string Prefix { get; set; } 
 
         /// <summary>
         /// Gets or sets the source.
@@ -150,9 +151,9 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 526, 455 );
-            MaximumSize = new Size( 526, 455 );
-            MinimumSize = new Size( 526, 455 );
+            Size = new Size( 568, 483 );
+            MaximumSize = new Size( 568, 483 );
+            MinimumSize = new Size( 568, 483 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -175,19 +176,20 @@ namespace BudgetExecution
             MaximizeBox = false;
 
             // Label Properties
-            Title.Font = new Font( "Roboto", 11 );
+            Title.Font = new Font( "Roboto", 12 );
             Title.ForeColor = Color.FromArgb( 0, 120, 212 );
-            Title.TextAlign = ContentAlignment.MiddleLeft;
+            Title.TextAlign = ContentAlignment.TopLeft;
+            Title.Text = "Guidance Documents";
             Title.FlatStyle = FlatStyle.Flat;
             PathLabel.Font = new Font( "Roboto", 8 );
             PathLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
 
             // Picture Properties
-            Picture.Size = new Size( 29, 22 );
+            Picture.Size = new Size( 24, 22 );
             Picture.SizeMode = PictureBoxSizeMode.StretchImage;
 
             // File Dialog Properties
-            OpenFileDialog.Title = "Search for Document";
+            OpenFileDialog.Title = "Search for (*.pdf) Document";
             OpenFileDialog.CheckPathExists = true;
             OpenFileDialog.CheckFileExists = true;
 
@@ -295,6 +297,36 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                SelectedItem = string.Empty;
+                SelectedPath = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void InitializeListBox( )
+        {
+            try
+            {
+                ListBox.ItemHeight = 42;
+                ListBox.ShowScrollBar = true;
+                ListBox.Font = new Font( "Roboto", 10 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -304,6 +336,7 @@ namespace BudgetExecution
         {
             try
             {
+                InitializeListBox( );
                 PopulateListBox( );
             }
             catch( Exception _ex )
@@ -384,10 +417,16 @@ namespace BudgetExecution
             {
                 try
                 {
+                    Prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
                     SelectedItem = _listBox.SelectedValue.ToString( );
                     Title.Text = SelectedItem;
-                    var _filter = new Dictionary<string, object>( );
-                    _filter.Add( "Caption", SelectedItem );
+                    var _filter = new Dictionary<string, object>
+                    {
+                        {
+                            "Caption", SelectedItem
+                        }
+                    };
+
                     var _data = new DataBuilder( Source, Provider, _filter ).Record;
                     var _path = _data[ "Location" ].ToString( );
                     SelectedPath = Prefix + _path;
