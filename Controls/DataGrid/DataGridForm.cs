@@ -307,10 +307,7 @@ namespace BudgetExecution
             SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
-            ExcelExportButton.Click += OnExcelButtonClicked;
-            ChartButton.Click += OnChartButtonClicked;
             ExitButton.Click += OnExitButtonClicked;
-            BackButton.Click += OnBackButtonClicked;
             MenuButton.Click += OnMainMenuButtonClicked;
             RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
             RefreshDataButton.Click += OnRefreshDataButtonClicked;
@@ -1231,41 +1228,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
-        /// <summary>
-        /// Opens the excel data form.
-        /// </summary>
-        private void OpenExcelDataForm( )
-        {
-            try
-            {
-                var _excelDataForm = new ExcelDataForm( BindingSource );
-                _excelDataForm.Show( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the chart data form.
-        /// </summary>
-        private void OpenChartDataForm( )
-        {
-            try
-            {
-                var _chartDataForm = new ChartDataForm( BindingSource );
-                _chartDataForm.Show( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
+        
         /// <summary>
         /// Called when [load].
         /// </summary>
@@ -1672,50 +1635,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
-        /// <summary>
-        /// Called when [chart button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnChartButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( BindingSource.DataSource != null )
-                {
-                    OpenChartDataForm( );
-                    Visible = false;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [excel button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnExcelButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( BindingSource.DataSource != null )
-                {
-                    OpenExcelDataForm( );
-                    Visible = false;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
+        
         /// <summary>
         /// Called when [table ComboBox item selected].
         /// </summary>
@@ -2049,39 +1969,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
-        /// <summary>
-        /// Called when [back button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnBackButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( ( Owner != null )
-                   && ( Owner.Visible == false ) )
-                {
-                    Owner.Visible = true;
-                    Owner.Refresh( );
-                    Visible = false;
-                }
-                else
-                {
-                    var _mainForm = (MainForm)Program.Windows["MainForm"];
-                    _mainForm.Refresh( );
-                    _mainForm.Visible = true;
-                    ResetData( );
-                    Owner = _mainForm;
-                    Visible = false;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
+        
         /// <summary>
         /// Called when [RadioButton checked].
         /// </summary>

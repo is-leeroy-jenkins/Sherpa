@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
 //     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-14-2023
+//     Last Modified On:        07-23-2023
 // ******************************************************************************************
 // <copyright file="ChartDataForm.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -51,21 +51,21 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedVariable" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
-    [SuppressMessage( "ReSharper", "ArrangeModifiersOrder" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -312,12 +312,9 @@ namespace BudgetExecution
 
             // Event Wiring
             ExitButton.Click += null;
-            BackButton.Click += null;
             MenuButton.Click += null;
-            ExcelButton.Click += null;
             RefreshDataButton.Click += null;
             RemoveFiltersButton.Click += null;
-            TableButton.Click += null;
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
             FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
             FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
@@ -328,14 +325,11 @@ namespace BudgetExecution
             FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
             NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
             TabControl.SelectedIndexChanged += OnActiveTabChanged;
-            BackButton.Click += OnBackButtonClicked;
             ExitButton.Click += OnExitButtonClicked;
             MenuButton.Click += OnMainMenuButtonClicked;
             GroupButton.Click += OnGroupButtonClicked;
             RemoveFiltersButton.Click += OnRemoveFiltersButtonClicked;
             RefreshDataButton.Click += OnRefreshDataButtonClicked;
-            ExcelButton.Click += OnExcelExportButtonClicked;
-            TableButton.Click += OnTableButtonClick;
             ChartSeriesComboBox.SelectedIndexChanged += OnChartTypeSelected;
             MetricsComboBox.SelectedIndexChanged += OnMetricSelected;
             MouseClick += OnRightClick;
@@ -577,8 +571,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {SelectedTable} "
-                        + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {SelectedTable} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -688,18 +681,18 @@ namespace BudgetExecution
                 Numerics = DataModel.Numerics;
                 SqlQuery = DataModel.Query.SqlStatement.CommandText;
                 SqlHeader.Text = SqlQuery;
-                if( Chart.Series[0].Points.Count > 0 )
+                if( Chart.Series[ 0 ].Points.Count > 0 )
                 {
-                    Chart.Series[0].Points.Clear( );
+                    Chart.Series[ 0 ].Points.Clear( );
                 }
 
                 Chart.DataSource = BindingSource;
-                Chart.ChartAreas[0].RecalculateAxesScale( );
-                Chart.Series[0].XValueMember = Fields.Last( );
-                Chart.Series[0].IsXValueIndexed = true;
-                Chart.Series[0].YValueMembers = Numerics.First( );
-                Chart.Titles[0].Text = SelectedTable.SplitPascal( );
-                Chart.ChartAreas[0].AxisX.Title = string.Empty;
+                Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                Chart.Series[ 0 ].XValueMember = Fields.Last( );
+                Chart.Series[ 0 ].IsXValueIndexed = true;
+                Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                Chart.ChartAreas[ 0 ].AxisX.Title = string.Empty;
                 Chart.Refresh( );
             }
             catch( Exception ex )
@@ -725,18 +718,18 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
-                    if( Chart.Series[0].Points.Count > 0 )
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
-                        Chart.Series[0].Points.Clear( );
+                        Chart.Series[ 0 ].Points.Clear( );
                     }
 
-                    Chart.ChartAreas[0].RecalculateAxesScale( );
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
                     Chart.DataSource = BindingSource;
-                    Chart.Series[0].XValueMember = DataTable.Columns[0].ColumnName;
-                    Chart.Series[0].IsXValueIndexed = true;
-                    Chart.Series[0].YValueMembers = Numerics.First( );
-                    Chart.Titles[0].Text = SelectedTable.SplitPascal( );
-                    Chart.Update( );
+                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
+                    Chart.Series[ 0 ].IsXValueIndexed = true;
+                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                    Chart.Refresh( );
                 }
                 catch( Exception ex )
                 {
@@ -762,17 +755,17 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    if( Chart.Series[0].Points.Count > 0 )
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
-                        Chart.Series[0].Points.Clear( );
+                        Chart.Series[ 0 ].Points.Clear( );
                     }
 
                     Chart.DataSource = BindingSource;
-                    Chart.ChartAreas[0].RecalculateAxesScale( );
-                    Chart.Series[0].XValueMember = DataTable.Columns[0].ColumnName;
-                    Chart.Series[0].IsXValueIndexed = true;
-                    Chart.Series[0].YValueMembers = Numerics.First( );
-                    Chart.Titles[0].Text = SelectedTable.SplitPascal( );
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
+                    Chart.Series[ 0 ].IsXValueIndexed = true;
+                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Refresh( );
                 }
                 catch( Exception ex )
@@ -801,17 +794,17 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    if( Chart.Series[0].Points.Count > 0 )
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
-                        Chart.Series[0].Points.Clear( );
+                        Chart.Series[ 0 ].Points.Clear( );
                     }
 
                     Chart.DataSource = BindingSource;
-                    Chart.ChartAreas[0].RecalculateAxesScale( );
-                    Chart.Series[0].XValueMember = DataTable.Columns[0].ColumnName;
-                    Chart.Series[0].IsXValueIndexed = true;
-                    Chart.Series[0].YValueMembers = Numerics.First( );
-                    Chart.Titles[0].Text = SelectedTable.SplitPascal( );
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
+                    Chart.Series[ 0 ].IsXValueIndexed = true;
+                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Refresh( );
                 }
                 catch( Exception ex )
@@ -843,17 +836,17 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    if( Chart.Series[0].Points.Count > 0 )
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
-                        Chart.Series[0].Points.Clear( );
+                        Chart.Series[ 0 ].Points.Clear( );
                     }
 
                     Chart.DataSource = BindingSource;
-                    Chart.ChartAreas[0].RecalculateAxesScale( );
-                    Chart.Series[0].XValueMember = Fields.Last( );
-                    Chart.Series[0].IsXValueIndexed = false;
-                    Chart.Series[0].YValueMembers = Numerics.First( );
-                    Chart.Titles[0].Text = SelectedTable.SplitPascal( );
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                    Chart.Series[ 0 ].XValueMember = Fields.Last( );
+                    Chart.Series[ 0 ].IsXValueIndexed = false;
+                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Refresh( );
                 }
                 catch( Exception ex )
@@ -873,32 +866,32 @@ namespace BudgetExecution
                 if( ( SelectedFields?.Any( ) == true )
                    && ( SelectedNumerics?.Any( ) == true ) )
                 {
-                    if( Chart.Series[0].Points.Count > 0 )
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
-                        Chart.Series[0].Points.Clear( );
+                        Chart.Series[ 0 ].Points.Clear( );
                     }
 
-                    Chart.ChartAreas[0].RecalculateAxesScale( );
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
                     Chart.DataSource = BindingSource;
-                    Chart.Series[0].XValueMember = SelectedFields?.Last( );
-                    Chart.Series[0].IsXValueIndexed = false;
-                    Chart.Series[0].YValueMembers = SelectedNumerics?.First( );
-                    Chart.Titles[0].Text = SelectedTable.SplitPascal( );
+                    Chart.Series[ 0 ].XValueMember = SelectedFields?.Last( );
+                    Chart.Series[ 0 ].IsXValueIndexed = false;
+                    Chart.Series[ 0 ].YValueMembers = SelectedNumerics?.First( );
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Refresh( );
                 }
                 else
                 {
-                    if( Chart.Series[0].Points.Count > 0 )
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
-                        Chart.Series[0].Points.Clear( );
+                        Chart.Series[ 0 ].Points.Clear( );
                     }
 
-                    Chart.ChartAreas[0].RecalculateAxesScale( );
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
                     Chart.DataSource = BindingSource;
-                    Chart.Series[0].XValueMember = DataTable.Columns[0].ColumnName;
-                    Chart.Series[0].IsXValueIndexed = true;
-                    Chart.Series[0].YValueMembers = Numerics.First( );
-                    Chart.Titles[0].Text = SelectedTable.SplitPascal( );
+                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
+                    Chart.Series[ 0 ].IsXValueIndexed = true;
+                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Refresh( );
                 }
             }
@@ -1008,7 +1001,7 @@ namespace BudgetExecution
                 var _names = Enum.GetNames( typeof( SeriesChartType ) );
                 for( var i = 0; i < _names.Length; i++ )
                 {
-                    var _chart = _names[i];
+                    var _chart = _names[ i ];
                     ChartSeriesComboBox.Items.Add( _chart );
                 }
 
@@ -1016,7 +1009,7 @@ namespace BudgetExecution
                 var _metrics = Enum.GetNames( typeof( STAT ) );
                 for( var i = 0; i < _metrics.Length; i++ )
                 {
-                    var _measure = _metrics[i];
+                    var _measure = _metrics[ i ];
                     MetricsComboBox.Items.Add( _measure );
                 }
             }
@@ -1097,9 +1090,9 @@ namespace BudgetExecution
 
                     for( var i = 0; i < Numerics.Count; i++ )
                     {
-                        if( !string.IsNullOrEmpty( Numerics[i] ) )
+                        if( !string.IsNullOrEmpty( Numerics[ i ] ) )
                         {
-                            NumericListBox.Items.Add( Numerics[i] );
+                            NumericListBox.Items.Add( Numerics[ i ] );
                         }
                     }
                 }
@@ -1121,7 +1114,7 @@ namespace BudgetExecution
                    && ( Owner.Visible == false )
                    && ( Owner.GetType( ) == typeof( MainForm ) ) )
                 {
-                    var _form = (MainForm)Program.Windows[nameof( MainForm )];
+                    var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
                     _form.Refresh( );
                     _form.Visible = true;
                     Close( );
@@ -1136,40 +1129,6 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the excel data form.
-        /// </summary>
-        private void OpenExcelDataForm( )
-        {
-            try
-            {
-                var _excelDataForm = new ExcelDataForm( BindingSource );
-                _excelDataForm.Show( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the data grid form.
-        /// </summary>
-        private void OpenDataGridForm( )
-        {
-            try
-            {
-                var _dataGridForm = new DataGridForm( BindingSource );
-                _dataGridForm.Show( );
-                Close( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
             }
         }
 
@@ -1536,7 +1495,7 @@ namespace BudgetExecution
                     SecondCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( SecondCategory ) )
                     {
-                        var _data = DataModel.DataElements[SecondCategory];
+                        var _data = DataModel.DataElements[ SecondCategory ];
                         foreach( var item in _data )
                         {
                             SecondListBox.Items?.Add( item );
@@ -1608,7 +1567,7 @@ namespace BudgetExecution
                     ThirdCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( ThirdCategory ) )
                     {
-                        var _data = DataModel?.DataElements[ThirdCategory];
+                        var _data = DataModel?.DataElements[ ThirdCategory ];
                         if( _data?.Any( ) == true )
                         {
                             foreach( var item in _data )
@@ -1682,7 +1641,8 @@ namespace BudgetExecution
         /// Called when [main menu button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1696,28 +1656,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [excel export button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnExcelExportButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                OpenExcelDataForm( );
-                Visible = false;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [binding source changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnBindingSourceChanged( object sender, EventArgs e )
         {
             if( sender is BindingSource bindingSource )
@@ -1737,7 +1680,8 @@ namespace BudgetExecution
         /// Called when [first ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -1754,7 +1698,7 @@ namespace BudgetExecution
                     FirstCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( FirstCategory ) )
                     {
-                        var _data = DataModel.DataElements[FirstCategory];
+                        var _data = DataModel.DataElements[ FirstCategory ];
                         foreach( var item in _data )
                         {
                             FirstListBox.Items?.Add( item );
@@ -1853,7 +1797,8 @@ namespace BudgetExecution
         /// Called when [refresh data button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRefreshDataButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1877,7 +1822,8 @@ namespace BudgetExecution
         /// Called when [group button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnGroupButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1897,7 +1843,8 @@ namespace BudgetExecution
         /// Called when [remove filters button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRemoveFiltersButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1927,28 +1874,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [table button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnTableButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                OpenDataGridForm( );
-                Visible = false;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [right click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -1968,7 +1898,8 @@ namespace BudgetExecution
         /// Called when [back button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnBackButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1982,7 +1913,7 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    var _mainForm = (MainForm)Program.Windows["MainForm"];
+                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     ClearData( );
@@ -2000,7 +1931,8 @@ namespace BudgetExecution
         /// Called when [chart type selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnChartTypeSelected( object sender, EventArgs e )
         {
             try
@@ -2029,7 +1961,8 @@ namespace BudgetExecution
         /// Called when [measure selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnMetricSelected( object sender, EventArgs e )
         {
             try
@@ -2056,12 +1989,13 @@ namespace BudgetExecution
         /// Called when [shown].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnShown( object sender, EventArgs e )
         {
             try
             {
-                Program.Windows["ChartDataForm"] = this;
+                Program.Windows[ "ChartDataForm" ] = this;
             }
             catch( Exception ex )
             {
@@ -2073,7 +2007,8 @@ namespace BudgetExecution
         /// Raises the Close event.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnClosing( object sender, EventArgs e )
         {
             try

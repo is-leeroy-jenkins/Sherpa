@@ -319,6 +319,7 @@ namespace BudgetExecution
                 _guidance.StartPosition = FormStartPosition.CenterScreen;
                 _guidance.Owner = this;
                 _guidance.Show( );
+                Hide( );
             }
             catch( Exception _ex )
             {
@@ -402,8 +403,8 @@ namespace BudgetExecution
             try
             {
                 var _dialog = new EmailDialog( );
-                _dialog.Show( );
-                Close( );
+                _dialog.ShowDialog( this );
+                Hide( );
             }
             catch( Exception _ex )
             {
@@ -437,8 +438,9 @@ namespace BudgetExecution
             try
             {
                 var _form = new ExcelDataForm( );
+                _form.Owner = this;
                 _form.Show( );
-                Close( );
+                Hide( );
             }
             catch( Exception _ex )
             {
@@ -454,8 +456,9 @@ namespace BudgetExecution
             try
             {
                 var _sqlEditor = new SqlEditor( );
+                _sqlEditor.Owner = this;
                 _sqlEditor.Show( );
-                Close( );
+                Hide( );
             }
             catch( Exception _ex )
             {
@@ -471,8 +474,9 @@ namespace BudgetExecution
             try
             {
                 var _sqlEditor = new SqlEditor( Provider.SqlServer );
+                _sqlEditor.Owner = this;
                 _sqlEditor.Show( );
-                Close( );
+                Hide( );
             }
             catch( Exception _ex )
             {

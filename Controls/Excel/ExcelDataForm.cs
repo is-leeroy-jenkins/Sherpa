@@ -58,14 +58,14 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public partial class ExcelDataForm : MetroForm
     {
         /// <summary>
@@ -243,9 +243,8 @@ namespace BudgetExecution
             Header.MouseClick += OnRightClick;
             RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
             LookupButton.Click += OnLookupButtonClicked;
-            MenuButton.Click += OnMainMenuButtonClicked;
+            CloseButton.Click += OnMainMenuButtonClicked;
             UploadButton.Click += OnUploadButtonClicked;
-            BackButton.Click += OnBackButtonClicked;
             Load += OnLoad;
             Shown += OnShown;
             Closing += OnClose;
@@ -253,7 +252,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.ExcelDataForm" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ExcelDataForm" /> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
         public ExcelDataForm( string filePath )
@@ -387,7 +387,7 @@ namespace BudgetExecution
                 Spreadsheet?.SetZoomFactor( "Data", 100 );
                 Spreadsheet?.SetGridLinesVisibility( false );
                 var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
-                ToolStripTextBox.Text = $"  Rows: {_activeSheet.Rows.Length} " 
+                ToolStripTextBox.Text = $"  Rows: {_activeSheet.Rows.Length} "
                     + $"Columns: {_activeSheet.Columns.Length}";
 
                 Spreadsheet?.ActiveGrid?.InvalidateCells( );
@@ -421,7 +421,7 @@ namespace BudgetExecution
                     _usedRange.CellStyle.Font.Size = 10;
                     _usedRange.CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
                     _usedRange.CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
-                    var _topRow = _activeSheet?.Range[ 1, 1, 1, 60 ];
+                    var _topRow = _activeSheet?.Range[1, 1, 1, 60];
                     RowCount = DataTable.Rows.Count;
                     ColCount = DataTable.Columns.Count;
                     ToolStripTextBox.Text = $"  Rows: {RowCount}  Columns: {ColCount}";
@@ -709,19 +709,15 @@ namespace BudgetExecution
                    && ( Owner.Visible == false )
                    && ( Owner.GetType( ) == typeof( MainForm ) ) )
                 {
-                    Owner.Visible = true;
-                    Visible = false;
+                    var _form = (MainForm)Program.Windows[nameof( MainForm )];
+                    _form.Visible = true;
+                    Close( );
                 }
-                else if( ( Owner != null )
-                        && ( Owner.Visible == false )
-                        && ( Owner.GetType( ) != typeof( MainForm ) ) )
+                else
                 {
-                    Owner.Close( );
-                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
-                    _mainForm.Refresh( );
-                    _mainForm.Visible = true;
-                    ClearData( );
-                    Visible = false;
+                    var _mainForm = new MainForm( );
+                    _mainForm.Show( );
+                    Close( );
                 }
             }
             catch( Exception _ex )
@@ -729,85 +725,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
-        /// <summary>
-        /// Opens the data grid form.
-        /// </summary>
-        private void OpenDataGridForm( )
-        {
-            try
-            {
-                var _forms = Program.Windows.Values;
-                if( Program.Windows.ContainsKey( "DataGridForm" ) )
-                {
-                    var _dataGridForm = (DataGridForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( DataGridForm ) )
-                        ?.First( );
-
-                    _dataGridForm.Owner = this;
-                    _dataGridForm.ResetData( );
-                    _dataGridForm.Refresh( );
-                    _dataGridForm.Visible = true;
-                    Visible = false;
-                }
-                else if( !Program.Windows.ContainsKey( "DataGridForm" )
-                        && Program.Windows.ContainsKey( "MainForm" ) )
-                {
-                    var _mainForm = (MainForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( MainForm ) )
-                        ?.First( );
-
-                    var _dataGridForm = new DataGridForm( BindingSource );
-                    _dataGridForm.Owner = _mainForm;
-                    _dataGridForm.Show( );
-                    Visible = false;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the chart data form.
-        /// </summary>
-        private void OpenChartDataForm( )
-        {
-            try
-            {
-                var _forms = Program.Windows.Values;
-                if( Program.Windows.ContainsKey( "ChartDataForm" ) )
-                {
-                    var _chartDataForm = (ChartDataForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
-                        ?.First( );
-
-                    _chartDataForm.Owner = this;
-                    _chartDataForm = new ChartDataForm( BindingSource );
-                    _chartDataForm.Refresh( );
-                    _chartDataForm.Visible = true;
-                    Visible = false;
-                }
-                else if( !Program.Windows.ContainsKey( "ChartDataForm" )
-                        && Program.Windows.ContainsKey( "MainForm" ) )
-                {
-                    var _mainForm = (MainForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( MainForm ) )
-                        ?.First( );
-
-                    var _chartDataForm = new ChartDataForm( BindingSource );
-                    _chartDataForm.Owner = _mainForm;
-                    _chartDataForm.Show( );
-                    Visible = false;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
+        
         /// <summary>
         /// Called when [load].
         /// </summary>
@@ -855,7 +773,7 @@ namespace BudgetExecution
         /// <param name="e">The
         /// <see cref="EventArgs"/> instance containing the event data.
         /// </param>
-        [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+        [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
         public void OnCellEnter( object sender, CurrentCellActivatedEventArgs e )
         {
             try
@@ -910,60 +828,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
-        /// <summary>
-        /// Called when [table button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnTableButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                if( BindingSource.DataSource != null )
-                {
-                    OpenDataGridForm( );
-                    Visible = false;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [back button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnBackButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( ( Owner != null )
-                   && ( Owner.Visible == false ) )
-                {
-                    Owner.Visible = true;
-                    Owner.Refresh( );
-                    Visible = false;
-                }
-                else
-                {
-                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
-                    _mainForm.Refresh( );
-                    _mainForm.Visible = true;
-                    ClearData( );
-                    Owner = _mainForm;
-                    Visible = false;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
+        
         /// <summary>
         /// Called when [exit button click].
         /// </summary>
@@ -990,7 +855,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows[ "ExcelDataForm" ] = this;
+                Program.Windows["ExcelDataForm"] = this;
             }
             catch( Exception _ex )
             {
@@ -1052,29 +917,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
-        /// <summary>
-        /// Called when [chart button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        public void OnChartButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( BindingSource.DataSource != null )
-                {
-                    OpenChartDataForm( );
-                    Visible = false;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
+        
         /// <summary>
         /// Called when [right click].
         /// </summary>
@@ -1153,7 +996,7 @@ namespace BudgetExecution
                         && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
-                    var _mainForm = Program.Windows[ "Main" ];
+                    var _mainForm = Program.Windows["Main"];
                     _mainForm.Visible = true;
                 }
             }

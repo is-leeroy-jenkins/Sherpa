@@ -249,6 +249,8 @@ namespace BudgetExecution
                         case ToolType.ExcelExportButton:
                         case ToolType.ChartButton:
                         case ToolType.UploadButton:
+                        case ToolType.GuidanceButton:
+                        case ToolType.PdfButton:
                         {
                             break;
                         }
@@ -269,13 +271,6 @@ namespace BudgetExecution
 
                             using var _excelForm = new ExcelDataForm( _excel );
                             _excelForm?.ShowDialog( );
-                            break;
-                        }
-                        case ToolType.GuidanceButton:
-                        case ToolType.PdfButton:
-                        {
-                            using var _message = new PdfForm( );
-                            _message?.ShowDialog( );
                             break;
                         }
                         case ToolType.DeleteButton:

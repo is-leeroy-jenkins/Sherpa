@@ -387,33 +387,9 @@ namespace BudgetExecution
                             }
                             case MenuOption.Guidance:
                             {
-                                var _forms = Program.Windows.Values;
-                                var _mainForm = Program.Windows[ "MainForm" ];
-                                if( Program.Windows.ContainsKey( "PdfForm" ) )
-                                {
-                                    var _pdfForm = _forms
-                                        ?.Where( f => f.GetType( ) == typeof( PdfForm ) )
-                                        ?.First( );
-
-                                    _pdfForm.Owner = _mainForm;
-                                    _pdfForm.Refresh( );
-                                    _pdfForm.Visible = true;
-                                    if( _mainForm.Visible )
-                                    {
-                                        _mainForm.Visible = false;
-                                    }
-                                }
-                                else
-                                {
-                                    var _pdfForm = new PdfForm( );
-                                    _pdfForm.Owner = _mainForm;
-                                    _pdfForm.Show( );
-                                    if( _mainForm.Visible )
-                                    {
-                                        _mainForm.Visible = false;
-                                    }
-                                }
-                                
+                                var _msg = "NOT YET IMPLEMENTED!!";
+                                var _notification = new Notification( _msg );
+                                _notification.Show( );
                                 break;
                             }
                             case MenuOption.Save:
