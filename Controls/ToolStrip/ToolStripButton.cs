@@ -47,6 +47,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using static System.Configuration.ConfigurationManager;
 
+    /// <inheritdoc />
     /// <summary> </summary>
     [ Serializable ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
@@ -94,6 +95,7 @@ namespace BudgetExecution
             Click += OnClick;
         }
 
+        /// <inheritdoc />
         /// <summary> </summary>
         /// <param name="toolType"> </param>
         /// <param name="bindingSource"> </param>
@@ -103,6 +105,7 @@ namespace BudgetExecution
             BindingSource = bindingSource;
         }
 
+        /// <inheritdoc />
         /// <summary> Sets the button image. </summary>
         /// <returns> </returns>
         public Image GetImage( ToolType toolType )
@@ -131,11 +134,12 @@ namespace BudgetExecution
             return default( Image );
         }
 
+        /// <inheritdoc />
         /// <summary> Called when [mouse over]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
-        /// <see cref="EventArgs"/>
+        /// <see cref="T:System.EventArgs" />
         /// instance containing the event data.
         /// </param>
         public void OnMouseHover( object sender, EventArgs e )
@@ -165,11 +169,12 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary> Called when [mouse leave]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
-        /// <see cref="EventArgs"/>
+        /// <see cref="T:System.EventArgs" />
         /// instance containing the event data.
         /// </param>
         public void OnMouseLeave( object sender, EventArgs e )
@@ -188,11 +193,12 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary> Called when [click]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
-        /// <see cref="EventArgs"/>
+        /// <see cref="T:System.EventArgs" />
         /// instance containing the event data.
         /// </param>
         public virtual void OnClick( object sender, EventArgs e )
@@ -251,6 +257,7 @@ namespace BudgetExecution
                         case ToolType.UploadButton:
                         case ToolType.GuidanceButton:
                         case ToolType.PdfButton:
+                        case ToolType.ClientButton: 
                         {
                             break;
                         }
@@ -347,12 +354,6 @@ namespace BudgetExecution
                             break;
                         }
                         case ToolType.WebButton:
-                        {
-                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
-                            _notification.Show( );
-                            break;
-                        }
-                        default:
                         {
                             var _notification = new Notification( "NOT YET IMPLEMENTED!" );
                             _notification.Show( );

@@ -54,10 +54,10 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public partial class GuidanceDialog : MetroForm
     {
         /// <summary>
@@ -150,9 +150,9 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 503, 429 );
-            MaximumSize = new Size( 503, 429 );
-            MinimumSize = new Size( 503, 429 );
+            Size = new Size( 526, 455 );
+            MaximumSize = new Size( 526, 455 );
+            MinimumSize = new Size( 526, 455 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -175,7 +175,7 @@ namespace BudgetExecution
             MaximizeBox = false;
 
             // Label Properties
-            Title.Font = new Font( "Roboto", 10 );
+            Title.Font = new Font( "Roboto", 11 );
             Title.ForeColor = Color.FromArgb( 0, 120, 212 );
             Title.TextAlign = ContentAlignment.MiddleLeft;
             Title.FlatStyle = FlatStyle.Flat;
@@ -183,7 +183,7 @@ namespace BudgetExecution
             PathLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
 
             // Picture Properties
-            Picture.Size = new Size( 25, 22 );
+            Picture.Size = new Size( 29, 22 );
             Picture.SizeMode = PictureBoxSizeMode.StretchImage;
 
             // File Dialog Properties
@@ -199,7 +199,7 @@ namespace BudgetExecution
             // Event Wiring
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
-            SelectButton.Click += OnSelectButtonClicked;
+            MenuButton.Click += OnMenuButtonClicked;
             ClearButton.Click += OnClearButtonClick;
             BrowseButton.Click += OnBrowseButtonClick;
             ListBox.SelectedValueChanged += OnListBoxSelectedValueChanged;
@@ -234,13 +234,14 @@ namespace BudgetExecution
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataModel.DataTable;
                 var _data = DataTable.AsEnumerable( );
-                var _names = _data?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
                     ?.Select( r => r.Field<string>( "Caption" ) )
                     ?.ToList( );
 
                 foreach( var _name in _names )
                 {
-                    ListBox.Items.Add( _name );
+                    ListBox.Items?.Add( _name );
                 }
             }
             catch( Exception _ex )
@@ -265,6 +266,35 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Opens the main form.
+        /// </summary>
+        private void OpenMainForm( )
+        {
+            try
+            {
+                if( Owner != null
+                   && Owner.Visible == false
+                   && Owner.GetType( ) == typeof( MainForm ) )
+                {
+                    var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
+                    _form.Refresh( );
+                    _form.Visible = true;
+                    Close( );
+                }
+                else
+                {
+                    var _mainForm = new MainForm( );
+                    _mainForm.Show( );
+                    Close( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -274,10 +304,6 @@ namespace BudgetExecution
         {
             try
             {
-                CloseButton.HoverText = "Close Window";
-                SelectButton.HoverText = "Open Selected Item";
-                ClearButton.HoverText = "Clear Selected Item";
-                BrowseButton.HoverText = "Search File System";
                 PopulateListBox( );
             }
             catch( Exception _ex )
@@ -336,16 +362,11 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        public void OnSelectButtonClicked( object sender, EventArgs e )
+        public void OnMenuButtonClicked( object sender, EventArgs e )
         {
             try
             {
-                if( !string.IsNullOrEmpty( SelectedPath )
-                   && File.Exists( SelectedPath ) )
-                {
-                    Minion.RunEdge( SelectedPath );
-                    Close( );
-                }
+                OpenMainForm( );
             }
             catch( Exception _ex )
             {
@@ -370,6 +391,8 @@ namespace BudgetExecution
                     var _data = new DataBuilder( Source, Provider, _filter ).Record;
                     var _path = _data[ "Location" ].ToString( );
                     SelectedPath = Prefix + _path;
+                    Minion.RunEdge( SelectedPath );
+                    OpenMainForm( );
                 }
                 catch( Exception _ex )
                 {

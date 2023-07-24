@@ -72,11 +72,13 @@ partial class EmailDialog
         ButtonTable = new System.Windows.Forms.TableLayoutPanel( );
         CloseButton = new Button( );
         ClearButton = new Button( );
+        MenuButton = new Button( );
         EditorTable = new HeaderPanel( );
         Editor = new Editor( );
         TitleTable = new System.Windows.Forms.TableLayoutPanel( );
         PictureBox = new System.Windows.Forms.PictureBox( );
         Title = new Label( );
+        ToolTip = new SmallTip( );
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
         EmailTable.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize) TabControl  ).BeginInit( );
@@ -656,7 +658,8 @@ partial class EmailDialog
         ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
         ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
         ButtonTable.Controls.Add( CloseButton, 9, 0 );
-        ButtonTable.Controls.Add( ClearButton, 7, 0 );
+        ButtonTable.Controls.Add( ClearButton, 5, 0 );
+        ButtonTable.Controls.Add( MenuButton, 7, 0 );
         ButtonTable.Dock = System.Windows.Forms.DockStyle.Bottom;
         ButtonTable.Location = new System.Drawing.Point( 0, 695 );
         ButtonTable.Name = "ButtonTable";
@@ -676,7 +679,7 @@ partial class EmailDialog
         CloseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
         CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
         CloseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-        CloseButton.HoverText = null;
+        CloseButton.HoverText = "Close Application";
         CloseButton.HoverTextColor = System.Drawing.Color.White;
         CloseButton.IsDerivedStyle = true;
         CloseButton.Location = new System.Drawing.Point( 867, 3 );
@@ -695,7 +698,7 @@ partial class EmailDialog
         CloseButton.Text = "Close";
         CloseButton.ThemeAuthor = "Terry D. Eppler";
         CloseButton.ThemeName = "Budget Execution";
-        CloseButton.ToolTip = null;
+        CloseButton.ToolTip = ToolTip;
         // 
         // ClearButton
         // 
@@ -708,10 +711,10 @@ partial class EmailDialog
         ClearButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
         ClearButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
         ClearButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-        ClearButton.HoverText = null;
+        ClearButton.HoverText = "Clear Text";
         ClearButton.HoverTextColor = System.Drawing.Color.White;
         ClearButton.IsDerivedStyle = true;
-        ClearButton.Location = new System.Drawing.Point( 675, 3 );
+        ClearButton.Location = new System.Drawing.Point( 483, 3 );
         ClearButton.Name = "ClearButton";
         ClearButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
         ClearButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
@@ -727,7 +730,39 @@ partial class EmailDialog
         ClearButton.Text = "Clear";
         ClearButton.ThemeAuthor = "Terry D. Eppler";
         ClearButton.ThemeName = "Budget Execution";
-        ClearButton.ToolTip = null;
+        ClearButton.ToolTip = ToolTip;
+        // 
+        // MenuButton
+        // 
+        MenuButton.BindingSource = null;
+        MenuButton.DataFilter = null;
+        MenuButton.DisabledBackColor = System.Drawing.Color.Transparent;
+        MenuButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+        MenuButton.DisabledForeColor = System.Drawing.Color.Transparent;
+        MenuButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        MenuButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        MenuButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+        MenuButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+        MenuButton.HoverText = "Back To Main Menu";
+        MenuButton.HoverTextColor = System.Drawing.Color.White;
+        MenuButton.IsDerivedStyle = true;
+        MenuButton.Location = new System.Drawing.Point( 675, 3 );
+        MenuButton.Name = "MenuButton";
+        MenuButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        MenuButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        MenuButton.NormalTextColor = System.Drawing.Color.DarkGray;
+        MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
+        MenuButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        MenuButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        MenuButton.PressTextColor = System.Drawing.Color.White;
+        MenuButton.Size = new System.Drawing.Size( 90, 30 );
+        MenuButton.Style = MetroSet_UI.Enums.Style.Custom;
+        MenuButton.StyleManager = null;
+        MenuButton.TabIndex = 2;
+        MenuButton.Text = "Menu";
+        MenuButton.ThemeAuthor = "Terry D. Eppler";
+        MenuButton.ThemeName = "Budget Execution";
+        MenuButton.ToolTip = null;
         // 
         // EditorTable
         // 
@@ -859,6 +894,26 @@ partial class EmailDialog
         Title.ThemeName = "Budget Execution";
         Title.ToolTip = null;
         // 
+        // ToolTip
+        // 
+        ToolTip.AutoPopDelay = 5000;
+        ToolTip.BackColor = System.Drawing.Color.FromArgb(   5  ,   5  ,   5   );
+        ToolTip.BindingSource = null;
+        ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
+        ToolTip.ForeColor = System.Drawing.Color.White;
+        ToolTip.InitialDelay = 500;
+        ToolTip.IsDerivedStyle = true;
+        ToolTip.Name = null;
+        ToolTip.OwnerDraw = true;
+        ToolTip.ReshowDelay = 100;
+        ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
+        ToolTip.StyleManager = null;
+        ToolTip.ThemeAuthor = "Terry D. Eppler";
+        ToolTip.ThemeName = "Budget Execution";
+        ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
+        ToolTip.TipText = null;
+        ToolTip.TipTitle = null;
+        // 
         // EmailDialog
         // 
         BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
@@ -907,19 +962,13 @@ partial class EmailDialog
 
     #endregion
     public System.Windows.Forms.BindingSource BindingSource;
-    public SmallTip ToolTip;
-    private DataGrid DataGrid;
-    private HeaderPanel EmailTable;
-    private Button button2;
-    private Layout layout1;
-    private Layout layout2;
-    private Tile tile2;
+    public HeaderPanel EmailTable;
     public Editor Editor;
     public Layout TilePanel;
     public HeaderPanel TileTable;
     public HeaderPanel EditorTable;
-    private TabControl tabControl1;
-    private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+    public TabControl tabControl1;
+    public System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     public RadioButton ThirdRadioButton;
     public RadioButton SecondRadioButton;
     public RadioButton FirstRadioButton;
@@ -943,4 +992,6 @@ partial class EmailDialog
     public ListBox FirstListBox;
     public Button CloseButton;
     public Button ClearButton;
+    public Button MenuButton;
+    public SmallTip ToolTip;
 }

@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Enumerations
-//     Author:                  Terry D. Eppler
-//     Created:                 07-18-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                MainForm.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-21-2023
-// ******************************************************************************************
-// <copyright file="MainForm.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="MainForm.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   MainForm.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    MainForm.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -47,19 +50,16 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using System;
-    using MetroSet_UI;
-    using static System.Configuration.ConfigurationManager;
-    using CheckState = MetroSet_UI.Enums.CheckState;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class MainForm : MetroForm
     {
         /// <summary>
@@ -129,6 +129,7 @@ namespace BudgetExecution
             MessageTile.Click += OnMessageTileClick;
             SqlServerTile.Click += OnSqlServerTileClick;
             TestButton.Click += OnTestButtonClick;
+            AccessTile.Click += OnAccessTileClick;
             Load += OnLoad;
             Shown += OnShown;
             MouseClick += OnRightClick;
@@ -335,7 +336,8 @@ namespace BudgetExecution
             try
             {
                 var _programs = new ProgramProjectDialog( );
-                _programs.ShowDialog( this );
+                _programs.Owner = this;
+                _programs.Show( );
                 Hide( );
             }
             catch( Exception _ex )
@@ -352,7 +354,8 @@ namespace BudgetExecution
             try
             {
                 var _editor = new EditDialog( );
-                _editor.ShowDialog( this );
+                _editor.Owner = this;
+                _editor.Show( );
                 Hide( );
             }
             catch( Exception _ex )
@@ -386,7 +389,8 @@ namespace BudgetExecution
             try
             {
                 var _form = new FiscalYearForm( );
-                _form.ShowDialog( this );
+                _form.Owner = this;
+                _form.Show( );
                 Hide( );
             }
             catch( Exception _ex )
@@ -403,7 +407,8 @@ namespace BudgetExecution
             try
             {
                 var _dialog = new EmailDialog( );
-                _dialog.ShowDialog( this );
+                _dialog.Owner = this;
+                _dialog.Show( );
                 Hide( );
             }
             catch( Exception _ex )
@@ -455,7 +460,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _sqlEditor = new SqlEditor( );
+                var _sqlEditor = new SqlDataForm( );
                 _sqlEditor.Owner = this;
                 _sqlEditor.Show( );
                 Hide( );
@@ -508,8 +513,9 @@ namespace BudgetExecution
             try
             {
                 var _dataGridForm = new DataGridForm( );
+                _dataGridForm.Owner = this;
                 _dataGridForm.Show( );
-                Close( );
+                Hide( );
             }
             catch( Exception _ex )
             {
@@ -525,7 +531,7 @@ namespace BudgetExecution
             try
             {
                 var _calculator = new CalculationForm( );
-                _calculator.Show( );
+                _calculator.ShowDialog( this );
             }
             catch( Exception _ex )
             {
@@ -666,7 +672,10 @@ namespace BudgetExecution
         {
             try
             {
-                Minion.RunSqlCe( );
+                var _sqlEditor = new SqlEditor( Provider.SqlCe );
+                _sqlEditor.Owner = this;
+                _sqlEditor.Show( );
+                Hide( );
             }
             catch( Exception _ex )
             {
@@ -684,7 +693,10 @@ namespace BudgetExecution
         {
             try
             {
-                Minion.RunSQLite( );
+                var _sqlEditor = new SqlEditor( Provider.SQLite );
+                _sqlEditor.Owner = this;
+                _sqlEditor.Show( );
+                Hide( );
             }
             catch( Exception _ex )
             {
@@ -713,7 +725,10 @@ namespace BudgetExecution
         {
             try
             {
-                Minion.RunAccess( );
+                var _sqlEditor = new SqlEditor( Provider.Access );
+                _sqlEditor.Owner = this;
+                _sqlEditor.Show( );
+                Hide( );
             }
             catch( Exception _ex )
             {
@@ -742,7 +757,7 @@ namespace BudgetExecution
         {
             OpenDataGridForm( );
         }
-        
+
         /// <summary>
         /// Called when [SQL editor tile click].
         /// </summary>

@@ -36,13 +36,11 @@ partial class ProgramProjectDialog
         components = new System.ComponentModel.Container( );
         var captionImage1 = new Syncfusion.Windows.Forms.CaptionImage( );
         var resources = new System.ComponentModel.ComponentResourceManager( typeof( ProgramProjectDialog ) );
-        CloseButton = new Button( );
         StatutoryAuthorityTextBox = new RichTextBox( );
         BindingSource = new System.Windows.Forms.BindingSource( components );
         ProgramDescriptionTextBox = new RichTextBox( );
         ProgramAreaNameTextBox = new RichTextBox( );
         ProgramProjectNameTextBox = new RichTextBox( );
-        SearchButton = new Button( );
         DescriptionTable = new HeaderPanel( );
         StatuteTable = new HeaderPanel( );
         ProgramAreaTable = new HeaderPanel( );
@@ -53,6 +51,9 @@ partial class ProgramProjectDialog
         pictureBox1 = new System.Windows.Forms.PictureBox( );
         Header = new Label( );
         ComboBox = new ComboBox( );
+        MenuButton = new Button( );
+        CloseButton = new Button( );
+        SearchButton = new Button( );
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
         DescriptionTable.SuspendLayout( );
         StatuteTable.SuspendLayout( );
@@ -61,39 +62,6 @@ partial class ProgramProjectDialog
         HeaderTable.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize) pictureBox1  ).BeginInit( );
         SuspendLayout( );
-        // 
-        // CloseButton
-        // 
-        CloseButton.BindingSource = null;
-        CloseButton.DataFilter = null;
-        CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-        CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-        CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-        CloseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-        CloseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-        CloseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-        CloseButton.HoverText = null;
-        CloseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-        CloseButton.IsDerivedStyle = true;
-        CloseButton.Location = new System.Drawing.Point( 963, 565 );
-        CloseButton.Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
-        CloseButton.Name = "CloseButton";
-        CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
-        CloseButton.NormalColor = System.Drawing.Color.Transparent;
-        CloseButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
-        CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        CloseButton.PressTextColor = System.Drawing.Color.White;
-        CloseButton.Size = new System.Drawing.Size( 78, 26 );
-        CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
-        CloseButton.StyleManager = null;
-        CloseButton.TabIndex = 0;
-        CloseButton.Text = "Close";
-        CloseButton.ThemeAuthor = "Terry D. Eppler";
-        CloseButton.ThemeName = "Budget Execution";
-        CloseButton.ToolTip = null;
         // 
         // StatutoryAuthorityTextBox
         // 
@@ -218,39 +186,6 @@ partial class ProgramProjectDialog
         ProgramProjectNameTextBox.ThemeName = "Budget Execution";
         ProgramProjectNameTextBox.ToolTip = null;
         ProgramProjectNameTextBox.WordWrap = true;
-        // 
-        // SearchButton
-        // 
-        SearchButton.BindingSource = null;
-        SearchButton.DataFilter = null;
-        SearchButton.DisabledBackColor = System.Drawing.Color.Transparent;
-        SearchButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-        SearchButton.DisabledForeColor = System.Drawing.Color.Transparent;
-        SearchButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-        SearchButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        SearchButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-        SearchButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-        SearchButton.HoverText = null;
-        SearchButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-        SearchButton.IsDerivedStyle = true;
-        SearchButton.Location = new System.Drawing.Point( 563, 565 );
-        SearchButton.Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
-        SearchButton.Name = "SearchButton";
-        SearchButton.NormalBorderColor = System.Drawing.Color.Transparent;
-        SearchButton.NormalColor = System.Drawing.Color.Transparent;
-        SearchButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        SearchButton.Padding = new System.Windows.Forms.Padding( 1 );
-        SearchButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        SearchButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        SearchButton.PressTextColor = System.Drawing.Color.White;
-        SearchButton.Size = new System.Drawing.Size( 78, 26 );
-        SearchButton.Style = MetroSet_UI.Enums.Style.Custom;
-        SearchButton.StyleManager = null;
-        SearchButton.TabIndex = 13;
-        SearchButton.Text = "Search";
-        SearchButton.ThemeAuthor = "Terry D. Eppler";
-        SearchButton.ThemeName = "Budget Execution";
-        SearchButton.ToolTip = null;
         // 
         // DescriptionTable
         // 
@@ -438,6 +373,102 @@ partial class ProgramProjectDialog
         ComboBox.ThemeName = "Budget Execution";
         ComboBox.ToolTip = null;
         // 
+        // MenuButton
+        // 
+        MenuButton.BindingSource = null;
+        MenuButton.DataFilter = null;
+        MenuButton.DisabledBackColor = System.Drawing.Color.Transparent;
+        MenuButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+        MenuButton.DisabledForeColor = System.Drawing.Color.Transparent;
+        MenuButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        MenuButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        MenuButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+        MenuButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+        MenuButton.HoverText = "Back To Main Menu";
+        MenuButton.HoverTextColor = System.Drawing.Color.White;
+        MenuButton.IsDerivedStyle = true;
+        MenuButton.Location = new System.Drawing.Point( 578, 565 );
+        MenuButton.Name = "MenuButton";
+        MenuButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        MenuButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        MenuButton.NormalTextColor = System.Drawing.Color.DarkGray;
+        MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
+        MenuButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        MenuButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        MenuButton.PressTextColor = System.Drawing.Color.White;
+        MenuButton.Size = new System.Drawing.Size( 90, 30 );
+        MenuButton.Style = MetroSet_UI.Enums.Style.Custom;
+        MenuButton.StyleManager = null;
+        MenuButton.TabIndex = 20;
+        MenuButton.Text = "Main";
+        MenuButton.ThemeAuthor = "Terry D. Eppler";
+        MenuButton.ThemeName = "Budget Execution";
+        MenuButton.ToolTip = ToolTip;
+        // 
+        // CloseButton
+        // 
+        CloseButton.BindingSource = null;
+        CloseButton.DataFilter = null;
+        CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
+        CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+        CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
+        CloseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        CloseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+        CloseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+        CloseButton.HoverText = "Close Application";
+        CloseButton.HoverTextColor = System.Drawing.Color.White;
+        CloseButton.IsDerivedStyle = true;
+        CloseButton.Location = new System.Drawing.Point( 936, 565 );
+        CloseButton.Name = "CloseButton";
+        CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        CloseButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        CloseButton.NormalTextColor = System.Drawing.Color.DarkGray;
+        CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
+        CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        CloseButton.PressTextColor = System.Drawing.Color.White;
+        CloseButton.Size = new System.Drawing.Size( 90, 30 );
+        CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
+        CloseButton.StyleManager = null;
+        CloseButton.TabIndex = 21;
+        CloseButton.Text = "Close";
+        CloseButton.ThemeAuthor = "Terry D. Eppler";
+        CloseButton.ThemeName = "Budget Execution";
+        CloseButton.ToolTip = ToolTip;
+        // 
+        // SearchButton
+        // 
+        SearchButton.BindingSource = null;
+        SearchButton.DataFilter = null;
+        SearchButton.DisabledBackColor = System.Drawing.Color.Transparent;
+        SearchButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+        SearchButton.DisabledForeColor = System.Drawing.Color.Transparent;
+        SearchButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        SearchButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        SearchButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+        SearchButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+        SearchButton.HoverText = "Domain Search";
+        SearchButton.HoverTextColor = System.Drawing.Color.White;
+        SearchButton.IsDerivedStyle = true;
+        SearchButton.Location = new System.Drawing.Point( 251, 565 );
+        SearchButton.Name = "SearchButton";
+        SearchButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        SearchButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        SearchButton.NormalTextColor = System.Drawing.Color.DarkGray;
+        SearchButton.Padding = new System.Windows.Forms.Padding( 1 );
+        SearchButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        SearchButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        SearchButton.PressTextColor = System.Drawing.Color.White;
+        SearchButton.Size = new System.Drawing.Size( 90, 30 );
+        SearchButton.Style = MetroSet_UI.Enums.Style.Custom;
+        SearchButton.StyleManager = null;
+        SearchButton.TabIndex = 22;
+        SearchButton.Text = "Search";
+        SearchButton.ThemeAuthor = "Terry D. Eppler";
+        SearchButton.ThemeName = "Budget Execution";
+        SearchButton.ToolTip = ToolTip;
+        // 
         // ProgramProjectDialog
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -458,14 +489,15 @@ partial class ProgramProjectDialog
         captionImage1.Size = new System.Drawing.Size( 42, 16 );
         CaptionImages.Add( captionImage1 );
         ClientSize = new System.Drawing.Size( 1054, 603 );
+        Controls.Add( SearchButton );
+        Controls.Add( CloseButton );
+        Controls.Add( MenuButton );
         Controls.Add( ComboBox );
         Controls.Add( HeaderTable );
         Controls.Add( ProgramProjectTable );
         Controls.Add( ProgramAreaTable );
         Controls.Add( StatuteTable );
         Controls.Add( DescriptionTable );
-        Controls.Add( SearchButton );
-        Controls.Add( CloseButton );
         Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         ForeColor = System.Drawing.Color.LightGray;
         FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -490,9 +522,7 @@ partial class ProgramProjectDialog
 
     #endregion
     public System.Windows.Forms.BindingSource BindingSource;
-    public Button SearchButton;
     public RichTextBox ProgramDescriptionTextBox;
-    public Button CloseButton;
     private HeaderPanel DescriptionTable;
     public HeaderPanel StatuteTable;
     private HeaderPanel ProgramAreaTable;
@@ -506,4 +536,7 @@ partial class ProgramProjectDialog
     public System.Windows.Forms.PictureBox pictureBox1;
     private Label Header;
     private ComboBox ComboBox;
+    public Button MenuButton;
+    public Button CloseButton;
+    public Button SearchButton;
 }

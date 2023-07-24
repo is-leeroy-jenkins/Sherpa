@@ -55,11 +55,11 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertTypeCheckPatternToNullCheck" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
+    [SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" )]
+    [SuppressMessage( "ReSharper", "ConvertTypeCheckPatternToNullCheck" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
     public partial class EditBase : MetroForm
     {
         /// <summary>
@@ -229,7 +229,7 @@ namespace BudgetExecution
         /// The data types.
         /// </value>
         public IEnumerable<string> DataTypes { get; set; }
-        
+
         /// <summary>
         /// Gets the data types.
         /// </summary>
@@ -241,10 +241,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = "SELECT DISTINCT SchemaTypes.TypeName" 
-                        + " FROM SchemaTypes" 
+                    var _query = "SELECT DISTINCT SchemaTypes.TypeName"
+                        + " FROM SchemaTypes"
                         + $" WHERE SchemaTypes.Database = '{provider}'";
-                    
+
                     var _model = new DataBuilder( Source.SchemaTypes, Provider.Access, _query );
                     var _data = _model.DataTable.GetUniqueColumnValues( "TypeName" );
                     return _data?.Length > 0

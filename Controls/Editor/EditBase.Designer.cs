@@ -26,12 +26,32 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeComponent( )
         {
-            this.components = new System.ComponentModel.Container( );
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size( 800, 450 );
-            this.Text = "ConfigBase";
+            SuspendLayout( );
+            // 
+            // EditBase
+            // 
+            AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CaptionBarColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionBarHeight = 5;
+            CaptionButtonColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ClientSize = new System.Drawing.Size( 1338, 692 );
+            Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ForeColor = System.Drawing.Color.LightGray;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            MinimizeBox = false;
+            Name = "EditBase";
+            ShowIcon = false;
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            ResumeLayout( false );
         }
 
         #endregion

@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Enumerations
-//     Author:                  Terry D. Eppler
-//     Created:                 06-19-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:            ChartDataForm.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-23-2023
-// ******************************************************************************************
-// <copyright file="ChartDataForm.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="ChartDataForm.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   ChartDataForm.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    ChartDataForm.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -51,21 +54,21 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "ArrangeModifiersOrder" )]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -352,7 +355,7 @@ namespace BudgetExecution
             SelectedTable = DataTable.TableName;
             DataModel = new DataBuilder( Source, Provider );
             BindingSource.DataSource = DataModel.DataTable;
-            Chart.DataSource = BindingSource;
+            Chart.DataSource = DataModel.DataTable;
             ToolStrip.BindingSource = BindingSource;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
@@ -373,8 +376,9 @@ namespace BudgetExecution
             DataModel = new DataBuilder( source, provider );
             DataTable = DataModel.DataTable;
             SelectedTable = DataTable.TableName;
-            BindingSource.DataSource = DataTable;
+            BindingSource.DataSource = DataModel.DataTable;
             ToolStrip.BindingSource = BindingSource;
+            Chart.DataSource = DataModel.DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
         }
@@ -397,7 +401,8 @@ namespace BudgetExecution
             DataTable = DataModel.DataTable;
             SelectedTable = DataTable.TableName;
             BindingSource.DataSource = DataTable;
-            ToolStrip.BindingSource.DataSource = DataTable;
+            ToolStrip.BindingSource.DataSource = DataModel.DataTable;
+            Chart.DataSource = DataModel.DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
         }
@@ -424,7 +429,6 @@ namespace BudgetExecution
                 if( string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedIndex = 0;
-                    ChartTable.Visible = false;
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
@@ -437,7 +441,6 @@ namespace BudgetExecution
                     TableTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
                     LabelTable.Visible = true;
-                    ChartTable.Visible = true;
                     PopulateFirstComboBoxItems( );
                     ResetFilterTableVisibility( );
                     ResetData( );
@@ -567,7 +570,7 @@ namespace BudgetExecution
         private string CreateSqlText( IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
-               && ( where?.Any( ) == true ) )
+               && where?.Any( ) == true )
             {
                 try
                 {
@@ -594,9 +597,9 @@ namespace BudgetExecution
             IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
-               && ( where?.Any( ) == true )
-               && ( fields?.Any( ) == true )
-               && ( numerics?.Any( ) == true ) )
+               && where?.Any( ) == true
+               && fields?.Any( ) == true
+               && numerics?.Any( ) == true )
             {
                 try
                 {
@@ -639,8 +642,8 @@ namespace BudgetExecution
             IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
-               && ( where?.Any( ) == true )
-               && ( columns?.Any( ) == true ) )
+               && where?.Any( ) == true
+               && columns?.Any( ) == true )
             {
                 try
                 {
@@ -760,10 +763,10 @@ namespace BudgetExecution
                         Chart.Series[ 0 ].Points.Clear( );
                     }
 
-                    Chart.DataSource = BindingSource;
+                    Chart.DataSource = DataTable;
                     Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                    Chart.Series[ 0 ].IsXValueIndexed = false;
                     Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
-                    Chart.Series[ 0 ].IsXValueIndexed = true;
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Refresh( );
@@ -782,8 +785,8 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         private void ResetData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( cols?.Any( ) == true ) )
+            if( where?.Any( ) == true
+               && cols?.Any( ) == true )
             {
                 try
                 {
@@ -823,9 +826,9 @@ namespace BudgetExecution
         private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( numerics?.Any( ) == true )
-               && ( fields?.Any( ) == true ) )
+            if( where?.Any( ) == true
+               && numerics?.Any( ) == true
+               && fields?.Any( ) == true )
             {
                 try
                 {
@@ -863,8 +866,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( ( SelectedFields?.Any( ) == true )
-                   && ( SelectedNumerics?.Any( ) == true ) )
+                if( SelectedFields?.Any( ) == true
+                   && SelectedNumerics?.Any( ) == true )
                 {
                     if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
@@ -1110,9 +1113,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( ( Owner != null )
-                   && ( Owner.Visible == false )
-                   && ( Owner.GetType( ) == typeof( MainForm ) ) )
+                if( Owner != null
+                   && Owner.Visible == false
+                   && Owner.GetType( ) == typeof( MainForm ) )
                 {
                     var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
                     _form.Refresh( );
@@ -1452,17 +1455,13 @@ namespace BudgetExecution
                         GroupButton.Visible = true;
                     }
 
-                    if( Chart.Visible == false )
-                    {
-                        Chart.Visible = true;
-                        SqlHeader.Visible = true;
-                        MetricsTable.Visible = true;
-                    }
-
                     ResetData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
                     SqlHeader.Text = SqlQuery;
                     UpdateLabelText( );
+                    Chart.Visible = true;
+                    SqlHeader.Visible = true;
+                    MetricsTable.Visible = true;
                 }
                 catch( Exception ex )
                 {
@@ -1737,8 +1736,8 @@ namespace BudgetExecution
                     NumericTable.Visible = true;
                 }
 
-                if( ( SelectedFields.Count >= 2 )
-                   && ( SelectedNumerics.Count >= 1 ) )
+                if( SelectedFields.Count >= 2
+                   && SelectedNumerics.Count >= 1 )
                 {
                     ResetData( SelectedFields, SelectedNumerics, FormFilter );
                     SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
@@ -1904,8 +1903,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( ( Owner != null )
-                   && ( Owner.Visible == false ) )
+                if( Owner != null
+                   && Owner.Visible == false )
                 {
                     Owner.Visible = true;
                     Owner.Refresh( );

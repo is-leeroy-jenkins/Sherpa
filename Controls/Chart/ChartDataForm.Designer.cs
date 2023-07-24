@@ -70,7 +70,6 @@
             GroupButton = new ToolStripButton( );
             RemoveFiltersSeparator = new ToolSeparator( );
             FunctionSpacer = new ToolStripLabel( );
-            FunctionLabel = new ToolStripLabel( );
             EditSqlSeparator = new ToolSeparator( );
             ChartSeriesSpacer = new ToolStripLabel( );
             ChartSeriesComboBox = new ToolStripDropDown( );
@@ -82,12 +81,13 @@
             MetricsPostSeparator = new ToolSeparator( );
             ApplicationSpacer = new ToolStripLabel( );
             ApplicationLabel = new ToolStripLabel( );
-            LabelSeparator = new ToolSeparator( );
             BackSeparator = new ToolSeparator( );
             MenuButton = new ToolStripButton( );
             MenuSeparator = new ToolSeparator( );
             ExitButton = new ToolStripButton( );
             ExitSeparator = new ToolSeparator( );
+            FunctionLabel = new ToolStripLabel( );
+            LabelSeparator = new ToolSeparator( );
             ChartSeriesLabel = new ToolStripLabel( );
             DropDownSeparator = new ToolSeparator( );
             ExcelSeparator = new ToolSeparator( );
@@ -550,6 +550,7 @@
             ToolStrip.CaptionFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ToolStrip.CaptionStyle = Syncfusion.Windows.Forms.Tools.CaptionStyle.Top;
             ToolStrip.CaptionTextStyle = Syncfusion.Windows.Forms.Tools.CaptionTextStyle.Plain;
+            ToolStrip.ChartButton = null;
             ToolStrip.DataFilter = null;
             ToolStrip.DeleteButton = null;
             ToolStrip.DeleteColumnButton = null;
@@ -561,6 +562,7 @@
             ToolStrip.EditColumnButton = null;
             ToolStrip.EditRecordButton = null;
             ToolStrip.EditSqlButton = null;
+            ToolStrip.ExcelButton = null;
             ToolStrip.FilterDataButton = null;
             ToolStrip.FirstButton = FirstButton;
             ToolStrip.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -893,23 +895,6 @@
             FunctionSpacer.Text = "this is a";
             FunctionSpacer.ToolTip = null;
             // 
-            // FunctionLabel
-            // 
-            FunctionLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
-            FunctionLabel.BindingSource = null;
-            FunctionLabel.DataFilter = null;
-            FunctionLabel.Field = Field.AccountCode;
-            FunctionLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            FunctionLabel.ForeColor = System.Drawing.Color.Black;
-            FunctionLabel.HoverText = null;
-            FunctionLabel.Margin = new System.Windows.Forms.Padding( 1 );
-            FunctionLabel.Name = "FunctionLabel";
-            FunctionLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            FunctionLabel.Size = new System.Drawing.Size( 57, 28 );
-            FunctionLabel.Tag = "";
-            FunctionLabel.Text = "    Functions:";
-            FunctionLabel.ToolTip = null;
-            // 
             // EditSqlSeparator
             // 
             EditSqlSeparator.ForeColor = System.Drawing.Color.Black;
@@ -1066,14 +1051,6 @@
             ApplicationLabel.Text = "        Application:";
             ApplicationLabel.ToolTip = null;
             // 
-            // LabelSeparator
-            // 
-            LabelSeparator.ForeColor = System.Drawing.Color.Black;
-            LabelSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            LabelSeparator.Name = "LabelSeparator";
-            LabelSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            LabelSeparator.Size = new System.Drawing.Size( 6, 28 );
-            // 
             // BackSeparator
             // 
             BackSeparator.ForeColor = System.Drawing.Color.Black;
@@ -1141,6 +1118,31 @@
             ExitSeparator.Name = "ExitSeparator";
             ExitSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             ExitSeparator.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // FunctionLabel
+            // 
+            FunctionLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            FunctionLabel.BindingSource = null;
+            FunctionLabel.DataFilter = null;
+            FunctionLabel.Field = Field.AccountCode;
+            FunctionLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FunctionLabel.ForeColor = System.Drawing.Color.Black;
+            FunctionLabel.HoverText = null;
+            FunctionLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            FunctionLabel.Name = "FunctionLabel";
+            FunctionLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            FunctionLabel.Size = new System.Drawing.Size( 57, 28 );
+            FunctionLabel.Tag = "";
+            FunctionLabel.Text = "    Functions:";
+            FunctionLabel.ToolTip = null;
+            // 
+            // LabelSeparator
+            // 
+            LabelSeparator.ForeColor = System.Drawing.Color.Black;
+            LabelSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            LabelSeparator.Name = "LabelSeparator";
+            LabelSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            LabelSeparator.Size = new System.Drawing.Size( 6, 28 );
             // 
             // ChartSeriesLabel
             // 

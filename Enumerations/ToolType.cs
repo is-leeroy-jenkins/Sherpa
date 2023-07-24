@@ -128,6 +128,11 @@ namespace BudgetExecution
         CloseButton,
 
         /// <summary>
+        /// The client button
+        /// </summary>
+        ClientButton,
+
+        /// <summary>
         /// The CSV button
         /// </summary>
         CsvButton,

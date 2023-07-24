@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Enumerations
-//     Author:                  Terry D. Eppler
-//     Created:                 06-19-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                DataGridForm.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-15-2023
-// ******************************************************************************************
-// <copyright file="DataGridForm.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="DataGridForm.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   DataGridForm.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    DataGridForm.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -56,16 +59,17 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
-    [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -542,9 +546,9 @@ namespace BudgetExecution
 
                     for( var _i = 0; _i < Numerics.Count; _i++ )
                     {
-                        if( !string.IsNullOrEmpty( Numerics[_i] ) )
+                        if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
                         {
-                            NumericListBox.Items.Add( Numerics[_i] );
+                            NumericListBox.Items.Add( Numerics[ _i ] );
                         }
                     }
                 }
@@ -941,8 +945,8 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         private void ResetData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( cols?.Any( ) == true ) )
+            if( where?.Any( ) == true
+               && cols?.Any( ) == true )
             {
                 try
                 {
@@ -974,8 +978,8 @@ namespace BudgetExecution
         private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( fields?.Any( ) == true ) )
+            if( where?.Any( ) == true
+               && fields?.Any( ) == true )
             {
                 try
                 {
@@ -1030,8 +1034,8 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( columns?.Any( ) == true )
+            if( where?.Any( ) == true
+               && columns?.Any( ) == true
                && !string.IsNullOrEmpty( SelectedTable ) )
             {
                 try
@@ -1068,9 +1072,9 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( fields?.Any( ) == true )
-               && ( numerics?.Any( ) == true ) )
+            if( where?.Any( ) == true
+               && fields?.Any( ) == true
+               && numerics?.Any( ) == true )
             {
                 try
                 {
@@ -1208,11 +1212,11 @@ namespace BudgetExecution
         {
             try
             {
-                if( ( Owner != null )
-                   && ( Owner.Visible == false )
-                   && ( Owner.GetType( ) == typeof( MainForm ) ) )
+                if( Owner != null
+                   && Owner.Visible == false
+                   && Owner.GetType( ) == typeof( MainForm ) )
                 {
-                    var _form = (MainForm)Program.Windows[nameof( MainForm )];
+                    var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
                     _form.Visible = true;
                     Close( );
                 }
@@ -1228,7 +1232,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [load].
         /// </summary>
@@ -1292,7 +1296,11 @@ namespace BudgetExecution
                     ToolStrip.Visible = true;
                     var _title = _listBox.SelectedValue?.ToString( );
                     SelectedTable = _title?.Replace( " ", "" );
-                    Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+                    if( !string.IsNullOrEmpty( SelectedTable ) )
+                    {
+                        Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+                    }
+
                     DataModel = new DataBuilder( Source, Provider );
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataModel.DataTable;
@@ -1336,7 +1344,7 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( FirstCategory ) )
                     {
                         DataModel = new DataBuilder( Source, Provider );
-                        var _data = DataModel.DataElements[FirstCategory];
+                        var _data = DataModel.DataElements[ FirstCategory ];
                         foreach( var _item in _data )
                         {
                             FirstListBox.Items?.Add( _item );
@@ -1423,7 +1431,7 @@ namespace BudgetExecution
                     SecondCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( SecondCategory ) )
                     {
-                        var _data = DataModel.DataElements[SecondCategory];
+                        var _data = DataModel.DataElements[ SecondCategory ];
                         foreach( var _item in _data )
                         {
                             SecondListBox.Items?.Add( _item );
@@ -1494,7 +1502,7 @@ namespace BudgetExecution
                     ThirdCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( ThirdCategory ) )
                     {
-                        var _data = DataModel?.DataElements[ThirdCategory];
+                        var _data = DataModel?.DataElements[ ThirdCategory ];
                         if( _data?.Any( ) == true )
                         {
                             foreach( var _item in _data )
@@ -1635,7 +1643,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [table ComboBox item selected].
         /// </summary>
@@ -1969,7 +1977,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [RadioButton checked].
         /// </summary>

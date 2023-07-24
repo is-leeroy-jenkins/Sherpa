@@ -2051,7 +2051,7 @@ partial class FilterDialog
         EditorPanel.ThemeName =  "BudgetExecution" ;
         EditorPanel.ToolTip =  null ;
         // 
-        // SqlEditor
+        // SqlDataForm
         // 
         SqlEditor.AllowZoom =  false ;
         SqlEditor.AlwaysShowScrollers =  true ;
