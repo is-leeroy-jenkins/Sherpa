@@ -50,14 +50,17 @@ namespace BudgetExecution
             BrowseButton = new Button( );
             MenuButton = new Button( );
             CloseButton = new Button( );
+            ListBoxPanel = new Layout( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) Picture  ).BeginInit( );
             HeaderTable.SuspendLayout( );
             ButtonTable.SuspendLayout( );
+            ListBoxPanel.SuspendLayout( );
             SuspendLayout( );
             // 
             // ListBox
             // 
+            ListBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
             ListBox.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
             ListBox.BindingSource = BindingSource;
             ListBox.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
@@ -70,7 +73,7 @@ namespace BudgetExecution
             ListBox.HoverText = null;
             ListBox.IsDerivedStyle = true;
             ListBox.ItemHeight = 28;
-            ListBox.Location = new System.Drawing.Point( 54, 63 );
+            ListBox.Location = new System.Drawing.Point( 24, 19 );
             ListBox.Margin = new System.Windows.Forms.Padding( 1 );
             ListBox.MultiSelect = false;
             ListBox.Name = "ListBox";
@@ -83,7 +86,7 @@ namespace BudgetExecution
             ListBox.SelectedValue = null;
             ListBox.ShowBorder = false;
             ListBox.ShowScrollBar = true;
-            ListBox.Size = new System.Drawing.Size( 408, 270 );
+            ListBox.Size = new System.Drawing.Size( 425, 279 );
             ListBox.Style = MetroSet_UI.Enums.Style.Custom;
             ListBox.StyleManager = null;
             ListBox.TabIndex = 0;
@@ -97,7 +100,7 @@ namespace BudgetExecution
             Picture.BindingSource = null;
             Picture.DataFilter = null;
             Picture.HoverText = null;
-            Picture.Image = Resources.Images.GuidanceTile;
+            Picture.Image = Resources.Images.PDF;
             Picture.ImageList = null;
             Picture.Location = new System.Drawing.Point( 3, 3 );
             Picture.Name = "Picture";
@@ -117,11 +120,11 @@ namespace BudgetExecution
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 69, 3 );
+            Title.Location = new System.Drawing.Point( 56, 3 );
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 442, 31 );
+            Title.Size = new System.Drawing.Size( 497, 28 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 5;
@@ -158,9 +161,9 @@ namespace BudgetExecution
             // HeaderTable
             // 
             HeaderTable.ColumnCount = 3;
-            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 81.39535F ) );
-            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 18.60465F ) );
-            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 447F ) );
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 79.4117661F ) );
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 20.5882359F ) );
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 502F ) );
             HeaderTable.Controls.Add( Picture, 0, 0 );
             HeaderTable.Controls.Add( Title, 2, 0 );
             HeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
@@ -169,7 +172,7 @@ namespace BudgetExecution
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            HeaderTable.Size = new System.Drawing.Size( 514, 37 );
+            HeaderTable.Size = new System.Drawing.Size( 556, 34 );
             HeaderTable.TabIndex = 8;
             // 
             // PathLabel
@@ -180,11 +183,11 @@ namespace BudgetExecution
             PathLabel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             PathLabel.HoverText = null;
             PathLabel.IsDerivedStyle = true;
-            PathLabel.Location = new System.Drawing.Point( 69, 337 );
+            PathLabel.Location = new System.Drawing.Point( 54, 376 );
             PathLabel.Margin = new System.Windows.Forms.Padding( 3 );
             PathLabel.Name = "PathLabel";
             PathLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            PathLabel.Size = new System.Drawing.Size( 367, 31 );
+            PathLabel.Size = new System.Drawing.Size( 470, 31 );
             PathLabel.Style = MetroSet_UI.Enums.Style.Custom;
             PathLabel.StyleManager = null;
             PathLabel.TabIndex = 10;
@@ -208,11 +211,11 @@ namespace BudgetExecution
             ButtonTable.Controls.Add( MenuButton, 4, 0 );
             ButtonTable.Controls.Add( CloseButton, 6, 0 );
             ButtonTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ButtonTable.Location = new System.Drawing.Point( 0, 407 );
+            ButtonTable.Location = new System.Drawing.Point( 0, 435 );
             ButtonTable.Name = "ButtonTable";
             ButtonTable.RowCount = 1;
             ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ButtonTable.Size = new System.Drawing.Size( 514, 36 );
+            ButtonTable.Size = new System.Drawing.Size( 556, 36 );
             ButtonTable.TabIndex = 11;
             // 
             // ClearButton
@@ -261,7 +264,7 @@ namespace BudgetExecution
             BrowseButton.HoverText = null;
             BrowseButton.HoverTextColor = System.Drawing.Color.White;
             BrowseButton.IsDerivedStyle = true;
-            BrowseButton.Location = new System.Drawing.Point( 140, 3 );
+            BrowseButton.Location = new System.Drawing.Point( 182, 3 );
             BrowseButton.Name = "BrowseButton";
             BrowseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             BrowseButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
@@ -294,7 +297,7 @@ namespace BudgetExecution
             MenuButton.HoverText = "Back To Main Menu";
             MenuButton.HoverTextColor = System.Drawing.Color.White;
             MenuButton.IsDerivedStyle = true;
-            MenuButton.Location = new System.Drawing.Point( 294, 3 );
+            MenuButton.Location = new System.Drawing.Point( 336, 3 );
             MenuButton.Name = "MenuButton";
             MenuButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             MenuButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
@@ -327,7 +330,7 @@ namespace BudgetExecution
             CloseButton.HoverText = null;
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 421, 3 );
+            CloseButton.Location = new System.Drawing.Point( 463, 3 );
             CloseButton.Name = "CloseButton";
             CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             CloseButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
@@ -345,6 +348,31 @@ namespace BudgetExecution
             CloseButton.ThemeName = "Budget Execution";
             CloseButton.ToolTip = null;
             // 
+            // ListBoxPanel
+            // 
+            ListBoxPanel.BackColor = System.Drawing.Color.Transparent;
+            ListBoxPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ListBoxPanel.BindingSource = null;
+            ListBoxPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            ListBoxPanel.BorderThickness = 1;
+            ListBoxPanel.Children = null;
+            ListBoxPanel.Controls.Add( ListBox );
+            ListBoxPanel.DataFilter = null;
+            ListBoxPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
+            ListBoxPanel.HoverText = null;
+            ListBoxPanel.IsDerivedStyle = true;
+            ListBoxPanel.Location = new System.Drawing.Point( 54, 57 );
+            ListBoxPanel.Name = "ListBoxPanel";
+            ListBoxPanel.Padding = new System.Windows.Forms.Padding( 1 );
+            ListBoxPanel.Size = new System.Drawing.Size( 470, 313 );
+            ListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            ListBoxPanel.StyleManager = null;
+            ListBoxPanel.TabIndex = 12;
+            ListBoxPanel.ThemeAuthor = "Terry D. Eppler";
+            ListBoxPanel.ThemeName = "Budget Execution";
+            ListBoxPanel.ToolTip = null;
+            // 
             // GuidanceDialog
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -358,19 +386,18 @@ namespace BudgetExecution
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
             CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ClientSize = new System.Drawing.Size( 514, 443 );
+            ClientSize = new System.Drawing.Size( 556, 471 );
             ControlBox = false;
+            Controls.Add( ListBoxPanel );
             Controls.Add( ButtonTable );
             Controls.Add( PathLabel );
             Controls.Add( HeaderTable );
-            Controls.Add( ListBox );
             Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ForeColor = System.Drawing.Color.LightGray;
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
             Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
             MaximizeBox = false;
-            MaximumSize = new System.Drawing.Size( 526, 455 );
             MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 526, 455 );
@@ -384,6 +411,7 @@ namespace BudgetExecution
             ( (System.ComponentModel.ISupportInitialize) Picture  ).EndInit( );
             HeaderTable.ResumeLayout( false );
             ButtonTable.ResumeLayout( false );
+            ListBoxPanel.ResumeLayout( false );
             ResumeLayout( false );
         }
 
@@ -403,5 +431,6 @@ namespace BudgetExecution
         public Button MenuButton;
         public Button CloseButton;
         public ListBox ListBox;
+        public Layout ListBoxPanel;
     }
 }
