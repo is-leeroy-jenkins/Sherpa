@@ -229,6 +229,10 @@ namespace BudgetExecution
                 Label6.Text = $"Weekdays: ";
                 Label7.Text = $"Holidays: ";
                 Label8.Text = $"Weekends: ";
+                Label9.Visible = false;
+                Label10.Visible = false;
+                Label11.Visible = false;
+                Label12.Visible = false;
             }
             catch( Exception _ex )
             {
@@ -347,6 +351,27 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the pie chart.
+        /// </summary>
+        /// <param name="weekDays">The week days.</param>
+        /// <param name="weekEnds">The week ends.</param>
+        /// <param name="holidays">The holidays.</param>
+        private void SetPieChart( int weekDays, int weekEnds, int holidays )
+        {
+            try
+            {
+                Chart.Series[ 0 ].Points.AddY( weekDays );
+                Chart.Series[ 0 ].Points.AddY( weekEnds );
+                Chart.Series[ 0 ].Points.AddY( holidays );
+                Chart.Series[ 0 ].ChartType = SeriesChartType.Pie;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Opens the main form.
         /// </summary>
         private void OpenMainForm( )
@@ -452,6 +477,10 @@ namespace BudgetExecution
                 Label6.Text = $"Weekdays: ";
                 Label7.Text = $"Holidays: ";
                 Label8.Text = $"Weekends: ";
+                Label9.Visible = false;
+                Label10.Visible = false;
+                Label11.Visible = false;
+                Label12.Visible = false;
             }
             catch( Exception _ex )
             {
@@ -480,6 +509,7 @@ namespace BudgetExecution
                 var _totalWeeks = _timeSpan.GetTotalWeeks( );
                 var _weeks = _totalWeeks.ToString( "N1" );
                 var _holidays = StartDate.CountHolidays( EndDate );
+                SetPieChart( _weekdays, _weekends, _holidays );
                 Label1.Text = $"Start Date:  {StartDate.ToLongDateString( )}";
                 Label2.Text = $"End Date:  {EndDate.ToLongDateString( )}";
                 Label3.Text = $"Total Weeks: {_weeks}  ";
@@ -488,6 +518,10 @@ namespace BudgetExecution
                 Label6.Text = $"Weekdays: {_weekdays}  ";
                 Label7.Text = $"Holidays: {_holidays}  ";
                 Label8.Text = $"Weekends: {_weekends}  ";
+                Label9.Visible = false;
+                Label10.Visible = false;
+                Label11.Visible = false;
+                Label12.Visible = false;
             }
             catch( Exception _ex )
             {
