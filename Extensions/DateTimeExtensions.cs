@@ -46,6 +46,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [SuppressMessage("ReSharper", "ArrangeRedundantParentheses")]
     public static class DateTimeExtensions
     {
         /// <summary> Verifies if the object is a startDate </summary>
@@ -213,7 +214,8 @@ namespace BudgetExecution
         {
             try
             {
-                return ( dateTime.DayOfWeek != DayOfWeek.Saturday ) && ( dateTime.DayOfWeek != DayOfWeek.Sunday );
+                return ( dateTime.DayOfWeek != DayOfWeek.Saturday ) 
+                    && ( dateTime.DayOfWeek != DayOfWeek.Sunday );
             }
             catch( Exception _ex )
             {
@@ -231,7 +233,8 @@ namespace BudgetExecution
         {
             try
             {
-                return ( dateTime.DayOfWeek == DayOfWeek.Saturday ) || ( dateTime.DayOfWeek == DayOfWeek.Sunday );
+                return ( dateTime.DayOfWeek == DayOfWeek.Saturday ) 
+                    || ( dateTime.DayOfWeek == DayOfWeek.Sunday );
             }
             catch( Exception _ex )
             {
@@ -270,6 +273,12 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Adds the workdays.
+        /// </summary>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="days">The days.</param>
+        /// <returns></returns>
         public static DateTime AddWorkdays( this DateTime startDate, int days )
         {
             try
@@ -358,21 +367,35 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Diffs the specified startDate. </summary>
-        /// <param name="startDate"> The startDate one. </param>
-        /// <param name="endDate"> The startDate two. </param>
-        /// <returns> </returns>
-        public static TimeSpan DateDelta( this DateTime startDate, DateTime endDate )
+        /// <summary>
+        /// Counts the holidays.
+        /// </summary>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="endDate">The end date.</param>
+        /// <returns></returns>
+        public static int CountHolidays( this DateTime startDate, DateTime endDate )
         {
             try
             {
-                var _timeSpan = startDate.Subtract( endDate );
-                return _timeSpan;
+                var _timeSpan = endDate - startDate;
+                var _days = 0;
+                for( var _i = 0; _i < _timeSpan.Days; _i++ )
+                {
+                    var _dateTime = startDate.AddDays( _i );
+                    if( _dateTime.IsFederalHoliday( ) )
+                    {
+                        _days++;
+                    }
+                }
+
+                return _days > 0
+                    ? _days
+                    : 0;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( TimeSpan );
+                return 0;
             }
         }
 
@@ -393,7 +416,9 @@ namespace BudgetExecution
             var _thursday = _date == DayOfWeek.Thursday;
             var _friday = _date == DayOfWeek.Friday;
             var _monday = _date == DayOfWeek.Monday;
-            var _weekend = ( _date == DayOfWeek.Saturday ) || ( _date == DayOfWeek.Sunday );
+            var _weekend = ( _date == DayOfWeek.Saturday ) 
+                || ( _date == DayOfWeek.Sunday );
+
             switch( dateTime.Month )
             {
                 // New Years Day (Jan 1, or preceding Friday/following Monday if weekend)
@@ -409,6 +434,11 @@ namespace BudgetExecution
 
                 // MemorialDay Day (Last Monday in May)
                 case 5 when _monday && ( dateTime.AddDays( 7 ).Month == 6 ):
+
+                // Juneteenth (June 19)
+                case 6 when ( dateTime.Day == 18 ) && _friday:
+                case 6 when ( dateTime.Day == 19 ) && !_weekend:
+                case 6 when ( dateTime.Day == 20 ) && _monday:
 
                 // IndependenceDay Day (July 4, or preceding Friday/following Monday if weekend)
                 case 7 when ( dateTime.Day == 3 ) && _friday:

@@ -51,6 +51,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms.DataVisualization.Charting;
+    using ScottPlot.TickGenerators.TimeUnits;
 
     [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public sealed partial class FiscalYearForm : MetroForm
@@ -69,7 +70,7 @@ namespace BudgetExecution
         /// <value>
         /// The selected start date.
         /// </value>
-        public DateTime? StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         /// <summary>
         /// Gets or sets the selected end date.
@@ -77,7 +78,7 @@ namespace BudgetExecution
         /// <value>
         /// The selected end date.
         /// </value>
-        public DateTime? EndDate { get; set; }
+        public DateTime EndDate { get; set; }
 
         /// <summary>
         /// Gets or sets the selected start date.
@@ -171,6 +172,9 @@ namespace BudgetExecution
             MenuButton.Click += OnMenuButtonClicked;
             FirstCalendar.SelectionChanged += OnFirstCalendarSelectionChanged;
             SecondCalendar.SelectionChanged += OnSecondCalendarSelectionChanged;
+            ChartButton.Click += OnChartButtonClick;
+            TableButton.Click += OnTableButtonClick;
+            TabControl.SelectedIndexChanged += OnSecondCalendarSelectionChanged;
         }
 
         /// <summary>
@@ -206,6 +210,25 @@ namespace BudgetExecution
                 {
                     Chart.Titles[ 0 ].Text = text;
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void ResetLabelText( )
+        {
+            try
+            {
+                Label1.Text = $"Start Date: ";
+                Label2.Text = $"End Date: ";
+                Label3.Text = $"Total Weeks:  ";
+                Label4.Text = $"Total Days:  ";
+                Label5.Text = $"Total Hours: ";
+                Label6.Text = $"Weekdays: ";
+                Label7.Text = $"Holidays: ";
+                Label8.Text = $"Weekends: ";
             }
             catch( Exception _ex )
             {
@@ -296,6 +319,34 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the active tab.
+        /// </summary>
+        private void SetActiveTab( )
+        {
+            try
+            {
+                switch( TabControl.SelectedIndex )
+                {
+                    case 0:
+                    {
+                        BindingSource.DataSource = GetFiscalYears( );
+                        DataGrid.DataSource = BindingSource;
+                        ToolStrip.BindingSource = BindingSource;
+                        break;
+                    }
+                    case 1:
+                    {
+                        break;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Opens the main form.
         /// </summary>
         private void OpenMainForm( )
@@ -334,7 +385,10 @@ namespace BudgetExecution
         {
             try
             {
+                TabControl.SelectedIndex = 0;
                 InitializeToolStrip( );
+                SetActiveTab( );
+                ResetLabelText( );
             }
             catch( Exception _ex )
             {
@@ -388,9 +442,16 @@ namespace BudgetExecution
         {
             try
             {
-                StartDate = FirstCalendar.SelectedDate;
-                var _date = StartDate?.ToLongDateString( );
-                FirstCalendarTable.CaptionText = $"Start Date:  {_date}";
+                StartDate = DateTime.Parse( FirstCalendar.SelectedDate.ToString( ) );
+                var _date = StartDate.ToLongDateString( );
+                Label1.Text = $"Start Date: ";
+                Label2.Text = $"End Date: ";
+                Label3.Text = $"Total Weeks:  ";
+                Label4.Text = $"Total Days:  ";
+                Label5.Text = $"Total Hours: ";
+                Label6.Text = $"Weekdays: ";
+                Label7.Text = $"Holidays: ";
+                Label8.Text = $"Weekends: ";
             }
             catch( Exception _ex )
             {
@@ -408,18 +469,63 @@ namespace BudgetExecution
         {
             try
             {
-                EndDate = SecondCalendar.SelectedDate;
-                var _date = EndDate?.ToLongDateString( );
+                EndDate = DateTime.Parse( SecondCalendar.SelectedDate.ToString( ) );
+                var _date = EndDate.ToLongDateString( );
                 SecondCalendarTable.CaptionText = $"End Date:  {_date}";
                 var _timeSpan = EndDate - StartDate;
-                var _days = _timeSpan?.TotalDays;
-                var _hours = _timeSpan?.TotalHours.ToString( "N0" );
-                TimeSpanInformation.Text = $"{_days} days  {_hours} hrs";
+                var _days = _timeSpan.TotalDays;
+                var _hours = _timeSpan.TotalHours.ToString( "N0" );
+                var _weekdays = StartDate.CountWeekDays( EndDate );
+                var _weekends = StartDate.CountWeekEnds( EndDate );
+                var _totalWeeks = _timeSpan.GetTotalWeeks( );
+                var _weeks = _totalWeeks.ToString( "N1" );
+                var _holidays = StartDate.CountHolidays( EndDate );
+                Label1.Text = $"Start Date:  {StartDate.ToLongDateString( )}";
+                Label2.Text = $"End Date:  {EndDate.ToLongDateString( )}";
+                Label3.Text = $"Total Weeks: {_weeks}  ";
+                Label4.Text = $"Total Days: {_days}  ";
+                Label5.Text = $"Total Hours: {_hours}  ";
+                Label6.Text = $"Weekdays: {_weekdays}  ";
+                Label7.Text = $"Holidays: {_holidays}  ";
+                Label8.Text = $"Weekends: {_weekends}  ";
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary>
+        /// Called when [table button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTableButtonClick( object sender, EventArgs e )
+        {
+            TabControl.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// Called when [chart button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnChartButtonClick( object sender, EventArgs e )
+        {
+            TabControl.SelectedIndex = 1;
+        }
+
+        /// <summary>
+        /// Called when [selected tab changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSelectedTabChanged( object sender, EventArgs e )
+        {
+            SetActiveTab( );
         }
 
         /// <summary>

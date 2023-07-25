@@ -55,11 +55,11 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
     public partial class MainForm : MetroForm
     {
         /// <summary>
@@ -111,7 +111,6 @@ namespace BudgetExecution
             // Event Wiring
             ExitButton.Click += OnExitButtonClick;
             LookupTile.Click += OnLookupTileClick;
-            CalculatorTile.Click += OnCalculatorTileClick;
             CalendarTile.Click += OnCalendarTileClick;
             ProgramProjectTile.Click += OnProgramProjectTileClick;
             MessageTile.Click += OnMessageTileClick;
@@ -231,9 +230,6 @@ namespace BudgetExecution
                 ProgramProjectTile.Title.Text = "Program Projects";
                 ProgramProjectTile.Body.Text = string.Empty;
                 ProgramProjectTile.Banner.Text = string.Empty;
-                CalculatorTile.Title.Text = "Calculator";
-                CalculatorTile.Body.Text = string.Empty;
-                CalculatorTile.Banner.Text = string.Empty;
                 CalendarTile.Title.Text = "Calendar";
                 CalendarTile.Body.Text = string.Empty;
                 CalendarTile.Banner.Text = string.Empty;
