@@ -8,6 +8,7 @@
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
     using System.Linq;
@@ -18,6 +19,10 @@
     using static System.IO.File;
     using Image = System.Drawing.Image;
 
+    /// <inheritdoc />
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [SuppressMessage("ReSharper", "MemberCanBeInternal")]
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
     public partial class SqlEditor : EditBase
     {
         /// <summary>
@@ -116,6 +121,9 @@
         /// </value>
         public IDictionary<string, object> Statements { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SqlEditor"/> class.
+        /// </summary>
         public SqlEditor( )
         {
             InitializeComponent( );

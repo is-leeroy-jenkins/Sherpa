@@ -49,9 +49,10 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.ToolStripDropDownBase"/>
-    /// <seealso cref="IToolStripComboBox"/>
+    /// <seealso cref="T:BudgetExecution.ToolStripDropDownBase" />
+    /// <seealso cref="T:BudgetExecution.IToolStripComboBox" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -64,9 +65,10 @@ namespace BudgetExecution
         /// <value> The tool tip. </value>
         public SmallTip ToolTip { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ToolStripComboBoxEx"/>
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx" />
         /// class.
         /// </summary>
         public ToolStripDropDown( )
@@ -90,9 +92,10 @@ namespace BudgetExecution
             MouseLeave += OnMouseLeave;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ToolStripComboBoxEx"/>
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx" />
         /// class.
         /// </summary>
         /// <param name="data"> The data. </param>
@@ -102,9 +105,10 @@ namespace BudgetExecution
             BindingSource.DataSource = data?.ToList( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ToolStripComboBoxEx"/>
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx" />
         /// class.
         /// </summary>
         /// <param name="data"> The data. </param>
@@ -115,9 +119,10 @@ namespace BudgetExecution
             BindingSource.Filter = filter;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ToolStripComboBoxEx"/>
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx" />
         /// class.
         /// </summary>
         /// <param name="data"> The data. </param>
@@ -129,6 +134,7 @@ namespace BudgetExecution
             BindingSource.DataMember = filter;
         }
 
+        /// <inheritdoc />
         /// <summary> Sets the data source. </summary>
         /// <param name="bindingSource"> The binding source. </param>
         public void SetDataSource( BindingSource bindingSource )
@@ -146,11 +152,12 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary> Called when [mouse over]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
-        /// <see cref="EventArgs"/>
+        /// <see cref="T:System.EventArgs" />
         /// instance containing the event data.
         /// </param>
         public void OnMouseHover( object sender, EventArgs e )
@@ -178,11 +185,12 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary> Called when [item selected]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
-        /// <see cref="EventArgs"/>
+        /// <see cref="T:System.EventArgs" />
         /// instance containing the event data.
         /// </param>
         public void OnItemSelected( object sender, EventArgs e )

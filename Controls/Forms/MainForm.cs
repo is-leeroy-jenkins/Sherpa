@@ -80,7 +80,7 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Name = "Main";
+            Name = "MainForm";
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );

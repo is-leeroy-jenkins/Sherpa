@@ -97,8 +97,10 @@ namespace BudgetExecution
         /// </value>
         public DataBuilder DataModel { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="CalendarDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.CalendarDialog" /> class.
         /// </summary>
         public CalendarDialog( )
         {
@@ -148,7 +150,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CalendarDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CalendarDialog"/> class.
         /// </summary>
         /// <param name="dateTime">The date time.</param>
         public CalendarDialog( DateTime dateTime )
@@ -162,7 +165,8 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -172,6 +176,7 @@ namespace BudgetExecution
                 Calendar.SelectionChanged += OnSelectionChanged;
             }
             catch( Exception _ex )
+
             {
                 Fail( _ex );
             }
@@ -223,7 +228,8 @@ namespace BudgetExecution
         /// Called when [close button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try
@@ -240,7 +246,8 @@ namespace BudgetExecution
         /// Called when [selection changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSelectionChanged( object sender, EventArgs e )
         {
             try

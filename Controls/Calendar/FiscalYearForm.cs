@@ -42,6 +42,7 @@ namespace BudgetExecution
 {
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
+    using Syncfusion.WinForms.Input;
     using System;
     using System.Collections.Generic;
     using System.Data;
@@ -51,16 +52,80 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms.DataVisualization.Charting;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public sealed partial class FiscalYearForm : MetroForm
     {
         /// <summary>
-        /// Gets or sets the data table.
+        /// Gets or sets the date string.
         /// </summary>
         /// <value>
-        /// The data table.
+        /// The date string.
         /// </value>
-        public DataTable DataTable { get; set; }
+        public string DateString { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected start date.
+        /// </summary>
+        /// <value>
+        /// The selected start date.
+        /// </value>
+        public DateTime? StartDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected end date.
+        /// </summary>
+        /// <value>
+        /// The selected end date.
+        /// </value>
+        public DateTime? EndDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected start date.
+        /// </summary>
+        /// <value>
+        /// The selected start date.
+        /// </value>
+        public string SelectedStart { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected end date.
+        /// </summary>
+        /// <value>
+        /// The selected end date.
+        /// </value>
+        public string SelectedEnd { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
+        public DataSet Data { get; set; }
+
+        /// <summary>
+        /// Gets or sets the holidays.
+        /// </summary>
+        /// <value>
+        /// The holidays.
+        /// </value>
+        public DataTable Holidays { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fiscal years.
+        /// </summary>
+        /// <value>
+        /// The fiscal years.
+        /// </value>
+        public DataTable FiscalYears { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
+        public DataBuilder DataModel { get; set; }
 
         /// <inheritdoc />
         /// <summary>
@@ -72,7 +137,6 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Name = "Main";
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );
@@ -105,6 +169,8 @@ namespace BudgetExecution
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClick;
             MenuButton.Click += OnMenuButtonClicked;
+            FirstCalendar.SelectionChanged += OnFirstCalendarSelectionChanged;
+            SecondCalendar.SelectionChanged += OnSecondCalendarSelectionChanged;
         }
 
         /// <summary>
@@ -132,14 +198,13 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the title text.
         /// </summary>
-        private void SetTitleText( )
+        private void SetTitleText( string text )
         {
             try
             {
-                var _text = DataTable?.TableName?.SplitPascal( );
-                if( !string.IsNullOrEmpty( _text ) )
+                if( !string.IsNullOrEmpty( text ) )
                 {
-                    Chart.Titles[ 0 ].Text = _text;
+                    Chart.Titles[ 0 ].Text = text;
                 }
             }
             catch( Exception _ex )
@@ -189,6 +254,48 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the federal holidays.
+        /// </summary>
+        /// <returns></returns>
+        private DataTable GetFederalHolidays( )
+        {
+            try
+            {
+                var _data = new DataBuilder( Source.FederalHolidays, Provider.Access );
+                var _table = _data.DataTable;
+                return _table.Rows.Count > 0
+                    ? _table
+                    : default( DataTable );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( DataTable );
+            }
+        }
+
+        /// <summary>
+        /// Gets the fiscal years.
+        /// </summary>
+        /// <returns></returns>
+        private DataTable GetFiscalYears( )
+        {
+            try
+            {
+                var _data = new DataBuilder( Source.FiscalYears, Provider.Access );
+                var _table = _data.DataTable;
+                return _table.Rows.Count > 0
+                    ? _table
+                    : default( DataTable );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( DataTable );
+            }
+        }
+
+        /// <summary>
         /// Opens the main form.
         /// </summary>
         private void OpenMainForm( )
@@ -200,7 +307,6 @@ namespace BudgetExecution
                    && ( Owner.GetType( ) == typeof( MainForm ) ) )
                 {
                     var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
-                    _form.Refresh( );
                     _form.Visible = true;
                     Close( );
                 }
@@ -264,6 +370,48 @@ namespace BudgetExecution
             try
             {
                 Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [first calendar selection changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFirstCalendarSelectionChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                StartDate = FirstCalendar.SelectedDate;
+                var _date = StartDate?.ToLongDateString( );
+                FirstCalendarTable.CaptionText = $"Start Date:  {_date}";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [second calendar selection changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSecondCalendarSelectionChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                EndDate = SecondCalendar.SelectedDate;
+                var _date = EndDate?.ToLongDateString( );
+                SecondCalendarTable.CaptionText = $"End Date:  {_date}";
+                var _timeSpan = EndDate - StartDate;
+                TimeSpanInformation.Text = $"Delta - {_timeSpan} Days";
             }
             catch( Exception _ex )
             {

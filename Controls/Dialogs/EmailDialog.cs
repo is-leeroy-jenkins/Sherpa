@@ -487,13 +487,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnMenuButtonClick( object sender, EventArgs e )
         {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            OpenMainForm( );
         }
 
         /// <summary>
