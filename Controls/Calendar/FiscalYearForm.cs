@@ -308,6 +308,7 @@ namespace BudgetExecution
                 {
                     var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
                     _form.Visible = true;
+                    _form.Refresh( );
                     Close( );
                 }
                 else
@@ -411,7 +412,9 @@ namespace BudgetExecution
                 var _date = EndDate?.ToLongDateString( );
                 SecondCalendarTable.CaptionText = $"End Date:  {_date}";
                 var _timeSpan = EndDate - StartDate;
-                TimeSpanInformation.Text = $"Delta - {_timeSpan} Days";
+                var _days = _timeSpan?.TotalDays;
+                var _hours = _timeSpan?.TotalHours.ToString( "N0" );
+                TimeSpanInformation.Text = $"{_days} days  {_hours} hrs";
             }
             catch( Exception _ex )
             {

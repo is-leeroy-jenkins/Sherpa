@@ -95,6 +95,9 @@ namespace BudgetExecution
             CloseButton = new ToolStripButton( );
             Separator7 = new ToolSeparator( );
             MenuButton = new ToolStripButton( );
+            TimeSpanSeparator = new ToolSeparator( );
+            TimeSpanLabel = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
+            TimeSpanInformation = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
             FirstCalendarTable = new HeaderPanel( );
             FirstCalendarPanel = new Layout( );
             FirstCalendar = new Syncfusion.WinForms.Input.SfCalendar( );
@@ -104,9 +107,6 @@ namespace BudgetExecution
             ChartTable = new HeaderPanel( );
             ChartLayout = new Layout( );
             chart2 = new Chart( );
-            TimeSpanLabel = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
-            TimeSpanSeparator = new ToolSeparator( );
-            TimeSpanInformation = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
@@ -495,6 +495,31 @@ namespace BudgetExecution
             MenuButton.ToolTip = null;
             MenuButton.ToolType = ToolType.Ns;
             // 
+            // TimeSpanSeparator
+            // 
+            TimeSpanSeparator.ForeColor = System.Drawing.Color.Black;
+            TimeSpanSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            TimeSpanSeparator.Name = "TimeSpanSeparator";
+            TimeSpanSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            TimeSpanSeparator.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // TimeSpanLabel
+            // 
+            TimeSpanLabel.BackColor = System.Drawing.Color.Transparent;
+            TimeSpanLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TimeSpanLabel.ForeColor = System.Drawing.Color.Black;
+            TimeSpanLabel.Name = "TimeSpanLabel";
+            TimeSpanLabel.Size = new System.Drawing.Size( 123, 27 );
+            TimeSpanLabel.Text = "                               Duration:          ";
+            // 
+            // TimeSpanInformation
+            // 
+            TimeSpanInformation.BackColor = System.Drawing.Color.Transparent;
+            TimeSpanInformation.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TimeSpanInformation.ForeColor = System.Drawing.Color.Black;
+            TimeSpanInformation.Name = "TimeSpanInformation";
+            TimeSpanInformation.Size = new System.Drawing.Size( 0, 27 );
+            // 
             // FirstCalendarTable
             // 
             FirstCalendarTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
@@ -767,30 +792,6 @@ namespace BudgetExecution
             chart2.Size = new System.Drawing.Size( 635, 529 );
             chart2.TabIndex = 0;
             chart2.Text = "chart2";
-            // 
-            // TimeSpanLabel
-            // 
-            TimeSpanLabel.BackColor = System.Drawing.Color.Transparent;
-            TimeSpanLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            TimeSpanLabel.ForeColor = System.Drawing.Color.Black;
-            TimeSpanLabel.Name = "TimeSpanLabel";
-            TimeSpanLabel.Size = new System.Drawing.Size( 179, 27 );
-            TimeSpanLabel.Text = "                               Time Span Information:          ";
-            // 
-            // TimeSpanSeparator
-            // 
-            TimeSpanSeparator.ForeColor = System.Drawing.Color.Black;
-            TimeSpanSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            TimeSpanSeparator.Name = "TimeSpanSeparator";
-            TimeSpanSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            TimeSpanSeparator.Size = new System.Drawing.Size( 6, 28 );
-            // 
-            // TimeSpanInformation
-            // 
-            TimeSpanInformation.BackColor = System.Drawing.Color.Transparent;
-            TimeSpanInformation.ForeColor = System.Drawing.Color.Black;
-            TimeSpanInformation.Name = "TimeSpanInformation";
-            TimeSpanInformation.Size = new System.Drawing.Size( 0, 27 );
             // 
             // FiscalYearForm
             // 
