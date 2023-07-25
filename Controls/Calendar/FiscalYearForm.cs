@@ -40,6 +40,7 @@
 
 namespace BudgetExecution
 {
+    using Microsoft.Office.Interop.Outlook;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.WinForms.Input;
@@ -52,6 +53,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms.DataVisualization.Charting;
     using ScottPlot.TickGenerators.TimeUnits;
+    using Exception = System.Exception;
 
     [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public sealed partial class FiscalYearForm : MetroForm
@@ -165,6 +167,7 @@ namespace BudgetExecution
 
             // Title Properties
             Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Title.TextAlign = ContentAlignment.TopLeft;
 
             // Event Wiring
             Load += OnLoad;
@@ -174,7 +177,7 @@ namespace BudgetExecution
             SecondCalendar.SelectionChanged += OnSecondCalendarSelectionChanged;
             ChartButton.Click += OnChartButtonClick;
             TableButton.Click += OnTableButtonClick;
-            TabControl.SelectedIndexChanged += OnSecondCalendarSelectionChanged;
+            TabControl.SelectedIndexChanged += OnSelectedTabChanged;
         }
 
         /// <summary>
@@ -241,46 +244,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the axis title.
-        /// </summary>
-        /// <param name="filter">The filter.</param>
-        private void SetAxisTitle( IDictionary<string, object> filter )
-        {
-            if( filter?.Any( ) == true )
-            {
-                try
-                {
-                    var _keys = filter.Keys.ToArray( );
-                    var _values = filter.Values.ToArray( );
-                    var _title = _keys.First( ) + " - " + _values?.First( );
-                    _title += "   ";
-                    for( var i = 1; i < _values.Length; i++ )
-                    {
-                        var _split = _keys[ i ].SplitPascal( );
-                        if( _split.EndsWith( "Name" ) )
-                        {
-                            var _key = _split.Replace( "Name", "" ).Trim( );
-                            _title += _key + " - " + _values[ i ];
-                            _title += "   ";
-                        }
-                        else if( _split.EndsWith( "Code" ) )
-                        {
-                            var _key = _split.Replace( "Code", "" ).Trim( );
-                            _title += _key + " - " + _values[ i ];
-                            _title += "   ";
-                        }
-                    }
-
-                    Chart.ChartAreas[ 0 ].AxisX.Title = _title;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
         /// Gets the federal holidays.
         /// </summary>
         /// <returns></returns>
@@ -333,13 +296,13 @@ namespace BudgetExecution
                 {
                     case 0:
                     {
-                        BindingSource.DataSource = GetFiscalYears( );
-                        DataGrid.DataSource = BindingSource;
-                        ToolStrip.BindingSource = BindingSource;
                         break;
                     }
                     case 1:
                     {
+                        BindingSource.DataSource = GetFiscalYears( );
+                        DataGrid.DataSource = BindingSource;
+                        ToolStrip.BindingSource = BindingSource;
                         break;
                     }
                 }
@@ -360,10 +323,40 @@ namespace BudgetExecution
         {
             try
             {
-                Chart.Series[ 0 ].Points.AddY( weekDays );
-                Chart.Series[ 0 ].Points.AddY( weekEnds );
-                Chart.Series[ 0 ].Points.AddY( holidays );
+                var _data = new Dictionary<string, double>
+                {
+                    {
+                        "Weekdays", weekDays
+                    },
+                    {
+                        "Weekends", weekEnds
+                    },
+                    {
+                        "Holidays", holidays
+                    }
+                };
+
+                var _text = $"From {StartDate.ToLongDateString( )} "
+                    + $"Until {EndDate.ToLongDateString( )}";
+
+                Chart.Titles?.Clear( );
+                var _title = new Title( _text );
+                _title.ForeColor = Color.FromArgb( 0, 120, 212 );
+                _title.Font = new Font( "Roboto", 9 );
+                Chart.Titles?.Add( _title );
+                Chart.Series[ 0 ].Points?.Clear( );
                 Chart.Series[ 0 ].ChartType = SeriesChartType.Pie;
+                foreach( var _kvp in _data )
+                {
+                    var _point = new DataPoint( );
+                    _point.YValues = _data.Values.ToArray( );
+                    _point.IsVisibleInLegend = true;
+                    _point.AxisLabel = _kvp.Key;
+                    _point.Label = _kvp.Key;
+                    Chart.Series[ 0 ].Points?.Add( _point );
+                }
+
+                Chart.Refresh( );
             }
             catch( Exception _ex )
             {
@@ -468,7 +461,6 @@ namespace BudgetExecution
             try
             {
                 StartDate = DateTime.Parse( FirstCalendar.SelectedDate.ToString( ) );
-                var _date = StartDate.ToLongDateString( );
                 Label1.Text = $"Start Date: ";
                 Label2.Text = $"End Date: ";
                 Label3.Text = $"Total Weeks:  ";
@@ -499,8 +491,6 @@ namespace BudgetExecution
             try
             {
                 EndDate = DateTime.Parse( SecondCalendar.SelectedDate.ToString( ) );
-                var _date = EndDate.ToLongDateString( );
-                SecondCalendarTable.CaptionText = $"End Date:  {_date}";
                 var _timeSpan = EndDate - StartDate;
                 var _days = _timeSpan.TotalDays;
                 var _hours = _timeSpan.TotalHours.ToString( "N0" );
@@ -510,8 +500,8 @@ namespace BudgetExecution
                 var _weeks = _totalWeeks.ToString( "N1" );
                 var _holidays = StartDate.CountHolidays( EndDate );
                 SetPieChart( _weekdays, _weekends, _holidays );
-                Label1.Text = $"Start Date:  {StartDate.ToLongDateString( )}";
-                Label2.Text = $"End Date:  {EndDate.ToLongDateString( )}";
+                Label1.Text = $"Start Date:  {StartDate.ToShortDateString( )}";
+                Label2.Text = $"End Date:  {EndDate.ToShortDateString( )}";
                 Label3.Text = $"Total Weeks: {_weeks}  ";
                 Label4.Text = $"Total Days: {_days}  ";
                 Label5.Text = $"Total Hours: {_hours}  ";
@@ -537,7 +527,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTableButtonClick( object sender, EventArgs e )
         {
-            TabControl.SelectedIndex = 0;
+            TabControl.SelectedIndex = 1;
         }
 
         /// <summary>
@@ -548,7 +538,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnChartButtonClick( object sender, EventArgs e )
         {
-            TabControl.SelectedIndex = 1;
+            TabControl.SelectedIndex = 0;
         }
 
         /// <summary>

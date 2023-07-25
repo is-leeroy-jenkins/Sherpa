@@ -162,12 +162,12 @@ namespace BudgetExecution
             PictureBox.BindingSource = null;
             PictureBox.DataFilter = null;
             PictureBox.HoverText = null;
-            PictureBox.Image = Resources.Images.EPA;
+            PictureBox.Image = Resources.Images.CalendarTile;
             PictureBox.ImageList = null;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Padding = new System.Windows.Forms.Padding( 1 );
-            PictureBox.Size = new System.Drawing.Size( 34, 22 );
+            PictureBox.Size = new System.Drawing.Size( 32, 31 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -1098,7 +1098,7 @@ namespace BudgetExecution
             Label11.DataFilter = null;
             Label11.Dock = System.Windows.Forms.DockStyle.Fill;
             Label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label11.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Label11.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label11.HoverText = null;
             Label11.IsDerivedStyle = true;
             Label11.Location = new System.Drawing.Point( 363, 63 );
@@ -1121,7 +1121,7 @@ namespace BudgetExecution
             Label3.DataFilter = null;
             Label3.Dock = System.Windows.Forms.DockStyle.Fill;
             Label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label3.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Label3.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label3.HoverText = null;
             Label3.IsDerivedStyle = true;
             Label3.Location = new System.Drawing.Point( 363, 3 );
@@ -1144,7 +1144,7 @@ namespace BudgetExecution
             Label2.DataFilter = null;
             Label2.Dock = System.Windows.Forms.DockStyle.Fill;
             Label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label2.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Label2.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label2.HoverText = null;
             Label2.IsDerivedStyle = true;
             Label2.Location = new System.Drawing.Point( 183, 3 );
@@ -1167,7 +1167,7 @@ namespace BudgetExecution
             Label1.DataFilter = null;
             Label1.Dock = System.Windows.Forms.DockStyle.Fill;
             Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label1.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Label1.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label1.HoverText = null;
             Label1.IsDerivedStyle = true;
             Label1.Location = new System.Drawing.Point( 3, 3 );
@@ -1190,7 +1190,7 @@ namespace BudgetExecution
             Label4.DataFilter = null;
             Label4.Dock = System.Windows.Forms.DockStyle.Fill;
             Label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label4.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Label4.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label4.HoverText = null;
             Label4.IsDerivedStyle = true;
             Label4.Location = new System.Drawing.Point( 543, 3 );
@@ -1213,7 +1213,7 @@ namespace BudgetExecution
             Label5.DataFilter = null;
             Label5.Dock = System.Windows.Forms.DockStyle.Fill;
             Label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label5.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Label5.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label5.HoverText = null;
             Label5.IsDerivedStyle = true;
             Label5.Location = new System.Drawing.Point( 3, 35 );
@@ -1236,7 +1236,7 @@ namespace BudgetExecution
             Label6.DataFilter = null;
             Label6.Dock = System.Windows.Forms.DockStyle.Fill;
             Label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label6.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Label6.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label6.HoverText = null;
             Label6.IsDerivedStyle = true;
             Label6.Location = new System.Drawing.Point( 183, 35 );
@@ -1259,7 +1259,7 @@ namespace BudgetExecution
             Label7.DataFilter = null;
             Label7.Dock = System.Windows.Forms.DockStyle.Fill;
             Label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label7.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Label7.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label7.HoverText = null;
             Label7.IsDerivedStyle = true;
             Label7.Location = new System.Drawing.Point( 363, 35 );
@@ -1282,7 +1282,7 @@ namespace BudgetExecution
             Label8.DataFilter = null;
             Label8.Dock = System.Windows.Forms.DockStyle.Fill;
             Label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label8.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Label8.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label8.HoverText = null;
             Label8.IsDerivedStyle = true;
             Label8.Location = new System.Drawing.Point( 543, 35 );
@@ -1305,7 +1305,7 @@ namespace BudgetExecution
             Label9.DataFilter = null;
             Label9.Dock = System.Windows.Forms.DockStyle.Fill;
             Label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label9.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Label9.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label9.HoverText = null;
             Label9.IsDerivedStyle = true;
             Label9.Location = new System.Drawing.Point( 3, 63 );
@@ -1328,7 +1328,7 @@ namespace BudgetExecution
             Label12.DataFilter = null;
             Label12.Dock = System.Windows.Forms.DockStyle.Fill;
             Label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label12.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Label12.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label12.HoverText = null;
             Label12.IsDerivedStyle = true;
             Label12.Location = new System.Drawing.Point( 543, 63 );
@@ -1351,7 +1351,7 @@ namespace BudgetExecution
             Label10.DataFilter = null;
             Label10.Dock = System.Windows.Forms.DockStyle.Fill;
             Label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label10.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Label10.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label10.HoverText = null;
             Label10.IsDerivedStyle = true;
             Label10.Location = new System.Drawing.Point( 183, 63 );
