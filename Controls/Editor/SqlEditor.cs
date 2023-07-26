@@ -361,6 +361,8 @@
                 Commands?.Clear( );
                 Statements?.Clear( );
                 Editor.Text = string.Empty;
+                CommandComboBox.SelectedText = string.Empty;
+                QueryListBox.SelectedText = string.Empty;
                 Provider = Provider.Access;
             }
             catch( Exception _ex )
@@ -1282,7 +1284,8 @@
         /// instance containing the event data.</param>
         private void OnCommandComboBoxItemSelected( object sender, EventArgs e )
         {
-            if( sender is ComboBox _comboBox )
+            if( sender is ComboBox _comboBox 
+               && !string.IsNullOrEmpty( _comboBox.SelectedText ) )
             {
                 try
                 {
@@ -1340,7 +1343,8 @@
         /// <param name="sender">The sender.</param>
         private void OnQueryListBoxItemSelected( object sender )
         {
-            if( sender is ListBox _listBox )
+            if( sender is ListBox _listBox 
+               && !string.IsNullOrEmpty( _listBox.SelectedText ) )
             {
                 try
                 {
@@ -1391,9 +1395,9 @@
         {
             try
             {
-                TabControl.SelectedIndex = 0;
                 ClearSelections( );
                 ClearCollections( );
+                TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {
