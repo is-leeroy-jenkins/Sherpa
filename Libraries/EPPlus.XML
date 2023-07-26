@@ -9586,7 +9586,7 @@
                         using (var range = worksheet.Cells[1, 1, 1, 5])
                         { range.Style.Font.Bold = true; range.Style.Fill.PatternType =
                         ExcelFillStyle.Solid;
-                        range.Style.Fill.BackgroundColor.SetColor(Color.DarkBlue);
+                        range.Style.Fill.BackgroundColor.SetColor(Color.HoverDarkBlue);
                         range.Style.Font.Color.SetColor(Color.White); }
                         worksheet.Cells["A5:E5"].Style.Border.Top.Style = ExcelBorderStyle.Thin;
                         worksheet.Cells["A5:E5"].Style.Font.Bold =

@@ -45,6 +45,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using System.Configuration;
     using static System.Configuration.ConfigurationManager;
 
     /// <summary>
@@ -57,24 +58,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class LoadingForm : MetroForm
     {
-        /// <summary>
-        /// The loading path
-        /// </summary>
-        public readonly string LoadingPath = 
-            @"C:\Users\terry\source\repos\BudgetExecution\Resources\Pictures\Loader\Loading.gif";
-
-        /// <summary>
-        /// The processing path
-        /// </summary>
-        public readonly string ProcessingPath =
-            @"C:\Users\terry\source\repos\BudgetExecution\Resources\Pictures\Loader\Processing.gif";
-
-        /// <summary>
-        /// The waiting path
-        /// </summary>
-        public readonly string WaitingPath = 
-            @"C:\Users\terry\source\repos\BudgetExecution\Resources\Pictures\Loader\Waiting.gif";
-
         /// <summary>
         /// Gets or sets the picture.
         /// </summary>
@@ -191,9 +174,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _loading = AppSettings[ "Loading" ];
-                var _processing = AppSettings[ "Processing" ];
-                var _waiting = AppSettings[ "Waiting" ];
+                var _loading = AppSettings[ "PathPrefix" ] + AppSettings[ "Loading" ];
+                var _processing = AppSettings[ "PathPrefix" ] + AppSettings[ "Processing" ];
+                var _waiting = AppSettings[ "PathPrefix" ] + AppSettings[ "Waiting" ];
                 if( Enum.IsDefined( typeof( Status ), Status ) )
                 {
                     PictureBox.Image = Status switch
@@ -242,7 +225,8 @@ namespace BudgetExecution
         /// Called when [close button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try
@@ -259,7 +243,8 @@ namespace BudgetExecution
         /// Called when [shown].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnShown( object sender, EventArgs e )
         {
             try

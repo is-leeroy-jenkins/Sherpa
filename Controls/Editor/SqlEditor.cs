@@ -20,10 +20,10 @@
     using Image = System.Drawing.Image;
 
     /// <inheritdoc />
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
     public partial class SqlEditor : EditBase
     {
         /// <summary>
@@ -1284,8 +1284,7 @@
         /// instance containing the event data.</param>
         private void OnCommandComboBoxItemSelected( object sender, EventArgs e )
         {
-            if( sender is ComboBox _comboBox 
-               && !string.IsNullOrEmpty( _comboBox.SelectedText ) )
+            if( sender is ComboBox _comboBox )
             {
                 try
                 {
@@ -1343,7 +1342,7 @@
         /// <param name="sender">The sender.</param>
         private void OnQueryListBoxItemSelected( object sender )
         {
-            if( sender is ListBox _listBox 
+            if( sender is ListBox _listBox
                && !string.IsNullOrEmpty( _listBox.SelectedText ) )
             {
                 try
@@ -1439,6 +1438,15 @@
                 ClearSelections( );
                 ClearCollections( );
                 PictureBox.Image?.Dispose( );
+                if( DataModel != null )
+                {
+                    DataModel = null;
+                }
+
+                if( DataModel != null )
+                {
+                    DataTable = null;
+                }
             }
             catch( Exception _ex )
             {

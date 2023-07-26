@@ -401,7 +401,7 @@
             QueryListBox.ItemHeight = 28;
             QueryListBox.Location = new System.Drawing.Point( 25, 17 );
             QueryListBox.Margin = new System.Windows.Forms.Padding( 1 );
-            QueryListBox.MultiSelect = true;
+            QueryListBox.MultiSelect = false;
             QueryListBox.Name = "QueryListBox";
             QueryListBox.Padding = new System.Windows.Forms.Padding( 1 );
             QueryListBox.SelectedIndex = -1;

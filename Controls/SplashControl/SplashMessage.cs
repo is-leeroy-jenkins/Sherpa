@@ -48,6 +48,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Tools;
+    using System.Configuration;
     using Image = System.Drawing.Image;
 
     /// <summary>
@@ -55,8 +56,13 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.Tools.SplashPanel" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage("ReSharper", "MemberCanBeInternal")]
     public class SplashMessage : SplashPanel
     {
+        public string Prefix { get; } = ConfigurationManager.AppSettings[ "PathPrefix" ];
+
+        public string IconPath { get; } 
+
         /// <summary>
         /// Gets or sets the binding source.
         /// </summary>
@@ -89,12 +95,15 @@ namespace BudgetExecution
         /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SplashMessage"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SplashMessage" /> class.
         /// </summary>
         /// <remarks>
-        /// The default value for the <see cref="P:Syncfusion.Windows.Forms.Tools.SplashPanel.TimerInterval" /> is set to
-        /// 5000 milli seconds.
+        /// The default value for the
+        /// <see cref="P:Syncfusion.Windows.Forms.Tools.SplashPanel.TimerInterval" />
+        /// is set to 5000 milliseconds.
         /// The splash panel has animation turned and by default will appear in the
         /// middle of the screen.
         /// </remarks>
@@ -102,12 +111,13 @@ namespace BudgetExecution
         {
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            Size = new Size( 300, 150 );
+            Size = new Size( 650, 350 );
+            MinimumSize = new Size( 650, 350 );
+            MaximumSize = new Size( 650, 350 );
             BorderStyle = Border3DStyle.Flat;
-            BorderType = SplashBorderType.Border3D;
+            BorderType = SplashBorderType.None;
             BackgroundColor = new BrushInfo( GradientStyle.PathEllipse, 
-                Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 45, 45, 45 ) );
+                Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 70, 70, 70 ) );
             
             ShowAnimation = true;
             ShowAsTopMost = true;
@@ -120,13 +130,17 @@ namespace BudgetExecution
             TabIndex = 0;
             TimerInterval = 5000;
             CloseOnClick = true;
+            AllowMove = false;
             MarqueePosition = MarqueePosition.BottomRight;
             MarqueeDirection = SplashPanelMarqueeDirection.RightToLeft;
             SlideStyle = SlideStyle.FadeIn;
+            IconPath = Prefix + @"Resources\Pictures\Ninja\ico\BudExNinjaGrey.ico";
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SplashMessage"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SplashMessage" /> class.
         /// </summary>
         /// <param name="message">The message.</param>
         public SplashMessage( string message )
@@ -135,8 +149,10 @@ namespace BudgetExecution
             Text = message;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SplashMessage"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SplashMessage" /> class.
         /// </summary>
         /// <param name="toolTip">The tool tip.</param>
         public SplashMessage( SmallTip toolTip )
@@ -145,8 +161,10 @@ namespace BudgetExecution
             Text = toolTip?.TipText;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SplashMessage"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SplashMessage" /> class.
         /// </summary>
         /// <param name="control">The control.</param>
         /// <param name="message">The message.</param>
@@ -160,12 +178,13 @@ namespace BudgetExecution
         /// <summary>
         /// Shows the message.
         /// </summary>
-        public void ShowMessage( )
+        public void Notify( )
         {
             if( !string.IsNullOrEmpty( Text ) )
             {
                 try
                 {
+                    FormIcon = new Icon( IconPath );
                     ShowSplash( );
                 }
                 catch( Exception _ex )
@@ -196,27 +215,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public virtual void ReSize( int width = 300, int height = 150 )
+        public virtual void ReSize( int width = 650, int height = 350 )
         {
             try
             {
                 Size = new Size( width, height );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
-        /// <param name="text">The text.</param>
-        public virtual void SetText( string text )
-        {
-            try
-            {
-                Text = text;
             }
             catch( Exception _ex )
             {

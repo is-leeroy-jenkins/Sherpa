@@ -47,7 +47,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ColorConfig
     {
         /// <summary>
@@ -136,7 +136,7 @@ namespace BudgetExecution
         /// <value>
         /// The light steel blue.
         /// </value>
-        public Color LightSteelBlue { get; }
+        public Color LightBlue { get; }
 
         /// <summary>
         /// Gets the dark interior.
@@ -168,7 +168,23 @@ namespace BudgetExecution
         /// <value>
         /// The dark blue.
         /// </value>
-        public Color DarkBlue { get; }
+        public Color HoverDarkBlue { get; }
+
+        /// <summary>
+        /// Gets the dodger blue.
+        /// </summary>
+        /// <value>
+        /// The dodger blue.
+        /// </value>
+        public Color DodgerBlue { get; }
+
+        /// <summary>
+        /// Gets the blue text.
+        /// </summary>
+        /// <value>
+        /// The blue text.
+        /// </value>
+        public Color BlueText { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ColorConfig"/> class.
@@ -176,20 +192,22 @@ namespace BudgetExecution
         public ColorConfig( )
         {
             Blue = Color.FromArgb( 0, 120, 212 );
+            BlueText = Color.FromArgb( 75, 135, 200 );
             HoverBlue = Color.FromArgb( 50, 93, 129 );
+            HoverDarkBlue = Color.FromArgb( 24, 47, 66 );
             Transparent = Color.Transparent;
             HoverGray = Color.FromArgb( 70, 70, 70 );
-            DarkInterior = Color.FromArgb( 40, 40, 40 );
+            DarkInterior = Color.FromArgb( 70, 70, 70 );
             Black = Color.Black;
             White = Color.White;
             Red = Color.FromArgb( 192, 0, 0 );
             DarkBorder = Color.FromArgb( 65, 65, 65 );
             DarkBackground = Color.FromArgb( 20, 20, 20 );
-            DarkBlue = Color.FromArgb( 24, 47, 66 );
             Gray = Color.DarkGray;
             SteelBlue = Color.SteelBlue;
+            DodgerBlue = Color.DodgerBlue;
             Maroon = Color.Maroon;
-            LightSteelBlue = Color.LightSteelBlue;
+            LightBlue = Color.LightSteelBlue;
         }
 
         /// <summary>

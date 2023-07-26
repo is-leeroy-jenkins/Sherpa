@@ -378,6 +378,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Shows the splash message.
+        /// </summary>
+        private void ShowSplashMessage( )
+        {
+            try
+            {
+                var _message = "This is only a Test!";
+                var _splash = new SplashMessage( _message );
+                _splash.Notify( );
+            }
+            catch( Exception e )
+            {
+                Console.WriteLine( e );
+                throw;
+            }
+        }
+
+        /// <summary>
         /// Shows the calendar dialog.
         /// </summary>
         private void OpenFiscalYearForm( )
@@ -829,7 +847,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTestButtonClick( object sender, EventArgs e )
         {
-            ShowLoadingForm( );
+            ShowSplashMessage( );
         }
 
         /// <summary>

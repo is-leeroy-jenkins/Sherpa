@@ -10597,7 +10597,7 @@
             Gets a predefined <see cref="T:Syncfusion.Presentation.IColor"/> object that has an ARGB value of #FF00FFFF. Read-only.
             </summary>
         </member>
-        <member name="P:Syncfusion.Presentation.ColorObject.DarkBlue">
+        <member name="P:Syncfusion.Presentation.ColorObject.HoverDarkBlue">
             <summary>
             Gets a predefined <see cref="T:Syncfusion.Presentation.IColor"/> object that has an ARGB value of #FF00008B. Read-only.
             </summary>

@@ -54,6 +54,8 @@ namespace BudgetExecution
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage("ReSharper", "ClassCanBeSealed.Global")]
+    [SuppressMessage("ReSharper", "MemberCanBeInternal")]
     public partial class Notification : MetroForm
     {
         /// <summary> Gets or sets the time. </summary>
@@ -84,9 +86,10 @@ namespace BudgetExecution
         /// </value>
         public bool ShownWithoutActivation { get; } = true;
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Notification"/>
+        /// <see cref="T:BudgetExecution.Notification" />
         /// class.
         /// </summary>
         public Notification( )
@@ -98,16 +101,19 @@ namespace BudgetExecution
             Resize += OnResized;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Notification"/>
+        /// <see cref="T:BudgetExecution.Notification" />
         /// class.
         /// </summary>
         /// <param name="body"> The body. </param>
         /// <param name="duration"> The duration. </param>
         /// <param name="animation"> The animation. </param>
         /// <param name="direction"> The direction. </param>
-        public Notification( string body, int duration = 3, AnimationMethod animation = AnimationMethod.Fade, AnimationDirection direction = AnimationDirection.Up )
+        public Notification( string body, int duration = 3, 
+            AnimationMethod animation = AnimationMethod.Fade, 
+            AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
             Load += OnLoad;

@@ -278,6 +278,9 @@
     <Compile Update="Controls\Editor\SqlEditor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="SplashNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Clients\BudgetBrowser\net6.0-windows\Properties\Resources.resx">

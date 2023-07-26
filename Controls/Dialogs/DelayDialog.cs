@@ -45,6 +45,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using static System.Configuration.ConfigurationManager;
 
     /// <summary>
     /// 
@@ -54,25 +55,26 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage("ReSharper", "UnusedParameter.Global")]
     public partial class DelayDialog : MetroForm
     {
         /// <summary>
         /// The loading path
         /// </summary>
-        public readonly string LoadingPath = 
-            @"C:\Users\terry\source\repos\BudgetExecution\Resources\Pictures\Loader\Loading.gif";
+        public readonly string LoadingPath = AppSettings[ "PathPrefix" ] 
+            + AppSettings[ "Loading" ];
 
         /// <summary>
         /// The processing path
         /// </summary>
-        public readonly string ProcessingPath = 
-            @"C:\Users\terry\source\repos\BudgetExecution\Resources\Pictures\Loader\Processing.gif";
+        public readonly string ProcessingPath = AppSettings[ "PathPrefix" ]
+            + AppSettings[ "Processing" ];
 
         /// <summary>
         /// The waiting path
         /// </summary>
-        public readonly string WaitingPath = 
-            @"C:\Users\terry\source\repos\BudgetExecution\Resources\Pictures\Loader\Waiting.gif";
+        public readonly string WaitingPath = AppSettings[ "PathPrefix" ]
+            + AppSettings[ "Waiting" ];
 
         /// <summary>
         /// Gets or sets the picture.
@@ -98,8 +100,10 @@ namespace BudgetExecution
         /// </value>
         public Status Status { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DelayDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DelayDialog" /> class.
         /// </summary>
         public DelayDialog( )
         {
@@ -128,8 +132,10 @@ namespace BudgetExecution
             FormClosed += OnClose;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DelayDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DelayDialog" /> class.
         /// </summary>
         /// <param name="status">
         /// The status.
@@ -151,6 +157,7 @@ namespace BudgetExecution
         {
             try
             {
+                ShowImage( );
             }
             catch( Exception _ex )
             {
@@ -179,10 +186,38 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Shows the image.
+        /// </summary>
+        public void ShowImage( )
+        {
+            try
+            {
+                var _loading = AppSettings[ "PathPrefix" ] + AppSettings[ "Loading" ];
+                var _processing = AppSettings[ "PathPrefix" ] + AppSettings[ "Processing" ];
+                var _waiting = AppSettings[ "PathPrefix" ] + AppSettings[ "Waiting" ];
+                if( Enum.IsDefined( typeof( Status ), Status ) )
+                {
+                    PictureBox.Image = Status switch
+                    {
+                        Status.Loading => Image.FromFile( _loading ),
+                        Status.Processing => Image.FromFile( _processing ),
+                        Status.Waiting => Image.FromFile( _waiting ),
+                        _ => Image.FromFile( _loading )
+                    };
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Raises the Close event.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnClose( object sender, EventArgs e )
         {
             try
@@ -199,7 +234,8 @@ namespace BudgetExecution
         /// Called when [close button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try

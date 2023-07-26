@@ -1736,7 +1736,7 @@
         <member name="F:PdfSharp.Drawing.XKnownColor.Cyan">
             <summary>A pre-defined color.</summary>
         </member>
-        <member name="F:PdfSharp.Drawing.XKnownColor.DarkBlue">
+        <member name="F:PdfSharp.Drawing.XKnownColor.HoverDarkBlue">
             <summary>A pre-defined color.</summary>
         </member>
         <member name="F:PdfSharp.Drawing.XKnownColor.DarkCyan">
@@ -3039,7 +3039,7 @@
         <member name="P:PdfSharp.Drawing.XBrushes.Cyan">
             <summary>Gets a pre-defined XBrush object.</summary>
         </member>
-        <member name="P:PdfSharp.Drawing.XBrushes.DarkBlue">
+        <member name="P:PdfSharp.Drawing.XBrushes.HoverDarkBlue">
             <summary>Gets a pre-defined XBrush object.</summary>
         </member>
         <member name="P:PdfSharp.Drawing.XBrushes.DarkCyan">
@@ -3719,7 +3719,7 @@
         <member name="P:PdfSharp.Drawing.XColors.Cyan">
             <summary>Gets a predefined color.</summary>
         </member>
-        <member name="P:PdfSharp.Drawing.XColors.DarkBlue">
+        <member name="P:PdfSharp.Drawing.XColors.HoverDarkBlue">
             <summary>Gets a predefined color.</summary>
         </member>
         <member name="P:PdfSharp.Drawing.XColors.DarkCyan">
@@ -6740,7 +6740,7 @@
         <member name="P:PdfSharp.Drawing.XPens.Cyan">
             <summary>Gets a pre-defined XPen object.</summary>
         </member>
-        <member name="P:PdfSharp.Drawing.XPens.DarkBlue">
+        <member name="P:PdfSharp.Drawing.XPens.HoverDarkBlue">
             <summary>Gets a pre-defined XPen object.</summary>
         </member>
         <member name="P:PdfSharp.Drawing.XPens.DarkCyan">
