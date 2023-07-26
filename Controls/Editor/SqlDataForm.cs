@@ -62,10 +62,10 @@ namespace BudgetExecution
     using CheckState = MetroSet_UI.Enums.CheckState;
     using Image = System.Drawing.Image;
 
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class SqlDataForm : EditBase
     {
         /// <summary>
@@ -500,11 +500,11 @@ namespace BudgetExecution
             {
                 return Provider switch
                 {
-                    Provider.Access => $"MS Access ",
+                    Provider.Access => "MS Access ",
                     Provider.SQLite => "SQLite ",
                     Provider.SqlServer => "SQL Server (Local DB) ",
                     Provider.SqlCe => "SQL Server Compact ",
-                    _ => $"MS Access "
+                    _ => "MS Access "
                 };
             }
             catch( Exception _ex )
@@ -539,8 +539,8 @@ namespace BudgetExecution
                     LookupTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
                     SqlTab.TabVisible = false;
-                    Title.Text =
-                        GetTitlePrefix( ) + $"| {Source.ToString( ).SplitPascal( )} Data Table";
+                    Title.Text = GetTitlePrefix( )
+                        + $"| {Source.ToString( ).SplitPascal( )} Data Table";
 
                     PopulateTableListBoxItems( );
                     Commands = CreateCommandList( Provider );
@@ -1456,6 +1456,7 @@ namespace BudgetExecution
             {
                 TabControl.SelectedIndex = 0;
                 ClearSelections( );
+                ClearCollections( );
             }
             catch( Exception _ex )
             {

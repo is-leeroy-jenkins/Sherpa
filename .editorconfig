@@ -310,3 +310,9 @@ resharper_wrap_chained_binary_patterns = chop_if_long
 resharper_wrap_multiple_type_parameter_constraints_style = chop_always
 resharper_wrap_object_and_collection_initializer_style = chop_always
 resharper_wrap_parameters_style = wrap_if_long
+
+# CA1305: Specify IFormatProvider
+dotnet_diagnostic.CA1305.severity = none
+
+# CA1309: Use ordinal string comparison
+dotnet_diagnostic.CA1309.severity = none

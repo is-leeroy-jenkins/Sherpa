@@ -25,7 +25,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <NoWarn>1701;1702;2201;1051;1305;1822;CA1716</NoWarn>
+    <NoWarn>1701;1702;2201;1051;CA1305;1822;CA1716;CA1812</NoWarn>
     <OutputPath>C:\Users\terry\source\repos\BudgetExecution\bin\Debug\</OutputPath>
     <Deterministic>False</Deterministic>
     <Optimize>False</Optimize>
@@ -39,7 +39,7 @@
     <Optimize>True</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <NoWarn>1701;1702;2201;1051;1305;1822;CA1716</NoWarn>
+    <NoWarn>1701;1702;2201;1051;CA1305;1822;CA1716;CA1812</NoWarn>
     <Deterministic>False</Deterministic>
     <Optimize>False</Optimize>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>

@@ -460,7 +460,7 @@
             ToolStrip.Label = null;
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
-            ToolStrip.Location = new System.Drawing.Point( 0, 646 );
+            ToolStrip.Location = new System.Drawing.Point( 0, 693 );
             ToolStrip.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStrip.Name = "ToolStrip";
             ToolStrip.NextButton = null;
@@ -2032,7 +2032,7 @@
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ClientSize = new System.Drawing.Size( 1338, 692 );
+            ClientSize = new System.Drawing.Size( 1338, 739 );
             Controls.Add( TabControl );
             Controls.Add( ToolStrip );
             Controls.Add( SqlCommandTable );
@@ -2042,10 +2042,10 @@
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
             MaximizeBox = false;
-            MaximumSize = new System.Drawing.Size( 1350, 703 );
+            MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             MinimizeBox = false;
-            MinimumSize = new System.Drawing.Size( 1350, 703 );
+            MinimumSize = new System.Drawing.Size( 1350, 750 );
             Name = "SqlEditor";
             ShowIcon = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

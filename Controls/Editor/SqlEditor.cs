@@ -21,8 +21,9 @@
 
     /// <inheritdoc />
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [SuppressMessage("ReSharper", "MemberCanBeInternal")]
-    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public partial class SqlEditor : EditBase
     {
         /// <summary>
@@ -167,7 +168,7 @@
 
             // Control Event Wiring
             TabControl.SelectedIndexChanged += OnActiveTabChanged;
-            QueryListBox.SelectedValueChanged += OnListBoxItemSelected;
+            QueryListBox.SelectedValueChanged += OnQueryListBoxItemSelected;
             RefreshButton.Click += OnRefreshButtonClick;
             SaveButton.Click += OnSaveButtonClick;
             GoButton.Click += OnGoButtonClick;
@@ -180,6 +181,7 @@
             ClientButton.Click += OnClientButtonClick;
             TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
             ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
+            CommandComboBox.SelectedIndexChanged += OnCommandComboBoxItemSelected;
 
             //Default Provider
             Provider = Provider.Access;
@@ -358,6 +360,7 @@
             {
                 Commands?.Clear( );
                 Statements?.Clear( );
+                Editor.Text = string.Empty;
                 Provider = Provider.Access;
             }
             catch( Exception _ex )
@@ -478,8 +481,8 @@
                     LookupTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
                     SqlTab.TabVisible = false;
-                    Title.Text =
-                        GetTitlePrefix( ) + $"| {Source.ToString( ).SplitPascal( )} Data Table";
+                    Title.Text = GetTitlePrefix( )
+                        + $"| {Source.ToString( ).SplitPascal( )} Data Table";
 
                     PopulateTableListBoxItems( );
                     Commands = CreateCommandList( Provider );
@@ -1270,12 +1273,72 @@
                 }
             }
         }
-        
+
+        /// <summary>
+        /// Called when [ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCommandComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ComboBox _comboBox )
+            {
+                try
+                {
+                    var _prefix = AppSettings[ "PathPrefix" ];
+                    var _dbpath = AppSettings[ "DatabaseDirectory" ];
+                    SelectedCommand = string.Empty;
+                    var _selection = _comboBox.SelectedItem?.ToString( );
+                    QueryListBox.Items?.Clear( );
+                    if( _selection?.Contains( " " ) == true )
+                    {
+                        SelectedCommand = _selection.Replace( " ", "" );
+                        var _path = _prefix
+                            + _dbpath
+                            + @$"\{Provider}\DataModels\{SelectedCommand}";
+
+                        var _files = Directory.GetFiles( _path );
+                        for( var _i = 0; _i < _files.Length; _i++ )
+                        {
+                            var _item = Path.GetFileNameWithoutExtension( _files[ _i ] );
+                            var _caption = _item?.SplitPascal( );
+                            QueryListBox.Items?.Add( _caption );
+                        }
+                    }
+                    else
+                    {
+                        SelectedCommand = _comboBox.SelectedItem?.ToString( );
+                        var _path = _prefix
+                            + _dbpath
+                            + @$"\{Provider}\DataModels\{SelectedCommand}";
+
+                        var _names = Directory.GetFiles( _path );
+                        for( var _i = 0; _i < _names.Length; _i++ )
+                        {
+                            var _item = Path.GetFileNameWithoutExtension( _names[ _i ] );
+                            var _caption = _item?.SplitPascal( );
+                            QueryListBox.Items?.Add( _caption );
+                        }
+                    }
+
+                    if( TabControl.SelectedIndex != 0 )
+                    {
+                        TabControl.SelectedIndex = 0;
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
         /// <summary>
         /// Called when [ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        private void OnListBoxItemSelected( object sender )
+        private void OnQueryListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
             {
@@ -1330,6 +1393,7 @@
             {
                 TabControl.SelectedIndex = 0;
                 ClearSelections( );
+                ClearCollections( );
             }
             catch( Exception _ex )
             {
@@ -1635,3 +1699,5 @@
         }
     }
 }
+
+
