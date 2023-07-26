@@ -53,7 +53,7 @@ namespace BudgetExecution
     using Exception = System.Exception;
 
     [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public sealed partial class FiscalYearForm : MetroForm
     {
         /// <summary>
@@ -328,7 +328,7 @@ namespace BudgetExecution
                 var _weekends = start.CountWeekEnds( end );
                 var _workdays = start.CountWorkdays( end );
                 var _holidays = start.CountHolidays( end );
-                var _fte = ( ( _workdays * 8 ) / 2050 ).ToString( "N2" );
+                var _fte = ( ( _workdays * 8M ) / 2050M ).ToString( "N3" );
                 Label1.Text = $"Start:  {start.ToShortDateString( )}";
                 Label2.Text = $"End:  {end.ToShortDateString( )}";
                 Label3.Text = $"Days: {_days}";
