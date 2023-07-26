@@ -69,9 +69,6 @@ namespace BudgetExecution
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea( );
-            var legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend( );
-            var series1 = new System.Windows.Forms.DataVisualization.Charting.Series( );
             var dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle( );
             var dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle( );
             var dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle( );
@@ -117,7 +114,6 @@ namespace BudgetExecution
             TabControl = new TabControl( );
             ChartTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             ChartLayout = new Layout( );
-            Chart = new Chart( );
             DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             GridPanel = new Layout( );
             DataGrid = new DataGrid( );
@@ -147,8 +143,6 @@ namespace BudgetExecution
             ( (System.ComponentModel.ISupportInitialize) TabControl  ).BeginInit( );
             TabControl.SuspendLayout( );
             ChartTab.SuspendLayout( );
-            ChartLayout.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) Chart  ).BeginInit( );
             DataTab.SuspendLayout( );
             GridPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
@@ -822,7 +816,7 @@ namespace BudgetExecution
             ChartTable.RowCount = 3;
             ChartTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 0.392817169F ) );
             ChartTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 99.6071854F ) );
-            ChartTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 119F ) );
+            ChartTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 104F ) );
             ChartTable.Size = new System.Drawing.Size( 737, 592 );
             ChartTable.TabIndex = 7;
             // 
@@ -831,7 +825,7 @@ namespace BudgetExecution
             TabControl.ActiveTabColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             TabControl.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.BeforeTouchSize = new System.Drawing.Size( 731, 449 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 731, 464 );
             TabControl.BindingSource = null;
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.CanOverrideStyle = true;
@@ -847,7 +841,7 @@ namespace BudgetExecution
             TabControl.ItemSize = new System.Drawing.Size( 100, 1 );
             TabControl.Location = new System.Drawing.Point( 3, 20 );
             TabControl.Name = "TabControl";
-            TabControl.Size = new System.Drawing.Size( 731, 449 );
+            TabControl.Size = new System.Drawing.Size( 731, 464 );
             TabControl.TabIndex = 0;
             TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -870,7 +864,7 @@ namespace BudgetExecution
             ChartTab.Location = new System.Drawing.Point( 0, 0 );
             ChartTab.Name = "ChartTab";
             ChartTab.ShowCloseButton = true;
-            ChartTab.Size = new System.Drawing.Size( 731, 449 );
+            ChartTab.Size = new System.Drawing.Size( 731, 464 );
             ChartTab.TabIndex = 2;
             ChartTab.ThemesEnabled = false;
             // 
@@ -882,7 +876,6 @@ namespace BudgetExecution
             ChartLayout.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
             ChartLayout.BorderThickness = 1;
             ChartLayout.Children = null;
-            ChartLayout.Controls.Add( Chart );
             ChartLayout.DataFilter = null;
             ChartLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             ChartLayout.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -892,52 +885,13 @@ namespace BudgetExecution
             ChartLayout.Location = new System.Drawing.Point( 0, 0 );
             ChartLayout.Name = "ChartLayout";
             ChartLayout.Padding = new System.Windows.Forms.Padding( 1 );
-            ChartLayout.Size = new System.Drawing.Size( 731, 449 );
+            ChartLayout.Size = new System.Drawing.Size( 731, 464 );
             ChartLayout.Style = MetroSet_UI.Enums.Style.Custom;
             ChartLayout.StyleManager = null;
             ChartLayout.TabIndex = 0;
             ChartLayout.ThemeAuthor = "Terry D. Eppler";
             ChartLayout.ThemeName = "Budget Execution";
             ChartLayout.ToolTip = null;
-            // 
-            // Chart
-            // 
-            Chart.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
-            Chart.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            Chart.BackSecondaryColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            Chart.BindingSource = null;
-            Chart.BorderlineColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            Chart.BorderSkin.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            Chart.BorderSkin.BackSecondaryColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            Chart.BorderSkin.BorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            Chart.BorderSkin.PageColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            chartArea1.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            chartArea1.BorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            chartArea1.Name = "ChartArea1";
-            Chart.ChartAreas.Add( chartArea1 );
-            Chart.Data = null;
-            Chart.DataTable = null;
-            legend1.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            legend1.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            legend1.ForeColor = System.Drawing.Color.DarkGray;
-            legend1.HeaderSeparatorColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            legend1.IsTextAutoFit = false;
-            legend1.ItemColumnSeparatorColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            legend1.Name = "Legend1";
-            legend1.TitleForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            legend1.TitleSeparatorColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            Chart.Legends.Add( legend1 );
-            Chart.Location = new System.Drawing.Point( 15, 16 );
-            Chart.Name = "Chart";
-            Chart.PaletteCustomColors = new System.Drawing.Color[ ] { System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ), System.Drawing.Color.FromArgb(   180  ,   0  ,   120  ,   202   ), System.Drawing.Color.Maroon, System.Drawing.Color.FromArgb(   255  ,   65  ,   84   ), System.Drawing.Color.FromArgb(   0  ,   64  ,   0   ), System.Drawing.Color.FromArgb(   150  ,   0  ,   64  ,   0   ) };
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            Chart.Series.Add( series1 );
-            Chart.Size = new System.Drawing.Size( 697, 407 );
-            Chart.TabIndex = 0;
-            Chart.Text = "chart2";
             // 
             // DataTab
             // 
@@ -947,7 +901,7 @@ namespace BudgetExecution
             DataTab.Location = new System.Drawing.Point( 0, 0 );
             DataTab.Name = "DataTab";
             DataTab.ShowCloseButton = true;
-            DataTab.Size = new System.Drawing.Size( 731, 449 );
+            DataTab.Size = new System.Drawing.Size( 731, 464 );
             DataTab.TabIndex = 1;
             DataTab.ThemesEnabled = false;
             // 
@@ -969,7 +923,7 @@ namespace BudgetExecution
             GridPanel.Location = new System.Drawing.Point( 0, 0 );
             GridPanel.Name = "GridPanel";
             GridPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            GridPanel.Size = new System.Drawing.Size( 731, 449 );
+            GridPanel.Size = new System.Drawing.Size( 731, 464 );
             GridPanel.Style = MetroSet_UI.Enums.Style.Custom;
             GridPanel.StyleManager = null;
             GridPanel.TabIndex = 0;
@@ -1035,7 +989,7 @@ namespace BudgetExecution
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            DataGrid.Size = new System.Drawing.Size( 697, 407 );
+            DataGrid.Size = new System.Drawing.Size( 697, 422 );
             DataGrid.TabIndex = 1;
             DataGrid.ToolTip = null;
             // 
@@ -1053,10 +1007,10 @@ namespace BudgetExecution
             layout1.ForeColor = System.Drawing.Color.Transparent;
             layout1.HoverText = null;
             layout1.IsDerivedStyle = true;
-            layout1.Location = new System.Drawing.Point( 3, 475 );
+            layout1.Location = new System.Drawing.Point( 3, 490 );
             layout1.Name = "layout1";
             layout1.Padding = new System.Windows.Forms.Padding( 1 );
-            layout1.Size = new System.Drawing.Size( 731, 114 );
+            layout1.Size = new System.Drawing.Size( 731, 99 );
             layout1.Style = MetroSet_UI.Enums.Style.Custom;
             layout1.StyleManager = null;
             layout1.TabIndex = 1;
@@ -1083,13 +1037,14 @@ namespace BudgetExecution
             TimeSpanTable.Controls.Add( Label9, 0, 2 );
             TimeSpanTable.Controls.Add( Label12, 3, 2 );
             TimeSpanTable.Controls.Add( Label10, 1, 2 );
-            TimeSpanTable.Location = new System.Drawing.Point( 4, 7 );
+            TimeSpanTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            TimeSpanTable.Location = new System.Drawing.Point( 1, 1 );
             TimeSpanTable.Name = "TimeSpanTable";
             TimeSpanTable.RowCount = 3;
-            TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 53.57143F ) );
-            TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 46.42857F ) );
+            TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 31F ) );
-            TimeSpanTable.Size = new System.Drawing.Size( 723, 92 );
+            TimeSpanTable.Size = new System.Drawing.Size( 729, 97 );
             TimeSpanTable.TabIndex = 2;
             // 
             // Label11
@@ -1101,11 +1056,11 @@ namespace BudgetExecution
             Label11.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label11.HoverText = null;
             Label11.IsDerivedStyle = true;
-            Label11.Location = new System.Drawing.Point( 363, 63 );
+            Label11.Location = new System.Drawing.Point( 367, 69 );
             Label11.Margin = new System.Windows.Forms.Padding( 3 );
             Label11.Name = "Label11";
             Label11.Padding = new System.Windows.Forms.Padding( 1 );
-            Label11.Size = new System.Drawing.Size( 174, 26 );
+            Label11.Size = new System.Drawing.Size( 176, 25 );
             Label11.Style = MetroSet_UI.Enums.Style.Custom;
             Label11.StyleManager = null;
             Label11.TabIndex = 10;
@@ -1124,11 +1079,11 @@ namespace BudgetExecution
             Label3.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label3.HoverText = null;
             Label3.IsDerivedStyle = true;
-            Label3.Location = new System.Drawing.Point( 363, 3 );
+            Label3.Location = new System.Drawing.Point( 367, 3 );
             Label3.Margin = new System.Windows.Forms.Padding( 3 );
             Label3.Name = "Label3";
             Label3.Padding = new System.Windows.Forms.Padding( 1 );
-            Label3.Size = new System.Drawing.Size( 174, 26 );
+            Label3.Size = new System.Drawing.Size( 176, 27 );
             Label3.Style = MetroSet_UI.Enums.Style.Custom;
             Label3.StyleManager = null;
             Label3.TabIndex = 2;
@@ -1147,11 +1102,11 @@ namespace BudgetExecution
             Label2.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label2.HoverText = null;
             Label2.IsDerivedStyle = true;
-            Label2.Location = new System.Drawing.Point( 183, 3 );
+            Label2.Location = new System.Drawing.Point( 185, 3 );
             Label2.Margin = new System.Windows.Forms.Padding( 3 );
             Label2.Name = "Label2";
             Label2.Padding = new System.Windows.Forms.Padding( 1 );
-            Label2.Size = new System.Drawing.Size( 174, 26 );
+            Label2.Size = new System.Drawing.Size( 176, 27 );
             Label2.Style = MetroSet_UI.Enums.Style.Custom;
             Label2.StyleManager = null;
             Label2.TabIndex = 1;
@@ -1174,7 +1129,7 @@ namespace BudgetExecution
             Label1.Margin = new System.Windows.Forms.Padding( 3 );
             Label1.Name = "Label1";
             Label1.Padding = new System.Windows.Forms.Padding( 1 );
-            Label1.Size = new System.Drawing.Size( 174, 26 );
+            Label1.Size = new System.Drawing.Size( 176, 27 );
             Label1.Style = MetroSet_UI.Enums.Style.Custom;
             Label1.StyleManager = null;
             Label1.TabIndex = 0;
@@ -1193,11 +1148,11 @@ namespace BudgetExecution
             Label4.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label4.HoverText = null;
             Label4.IsDerivedStyle = true;
-            Label4.Location = new System.Drawing.Point( 543, 3 );
+            Label4.Location = new System.Drawing.Point( 549, 3 );
             Label4.Margin = new System.Windows.Forms.Padding( 3 );
             Label4.Name = "Label4";
             Label4.Padding = new System.Windows.Forms.Padding( 1 );
-            Label4.Size = new System.Drawing.Size( 177, 26 );
+            Label4.Size = new System.Drawing.Size( 177, 27 );
             Label4.Style = MetroSet_UI.Enums.Style.Custom;
             Label4.StyleManager = null;
             Label4.TabIndex = 3;
@@ -1216,11 +1171,11 @@ namespace BudgetExecution
             Label5.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label5.HoverText = null;
             Label5.IsDerivedStyle = true;
-            Label5.Location = new System.Drawing.Point( 3, 35 );
+            Label5.Location = new System.Drawing.Point( 3, 36 );
             Label5.Margin = new System.Windows.Forms.Padding( 3 );
             Label5.Name = "Label5";
             Label5.Padding = new System.Windows.Forms.Padding( 1 );
-            Label5.Size = new System.Drawing.Size( 174, 22 );
+            Label5.Size = new System.Drawing.Size( 176, 27 );
             Label5.Style = MetroSet_UI.Enums.Style.Custom;
             Label5.StyleManager = null;
             Label5.TabIndex = 4;
@@ -1239,11 +1194,11 @@ namespace BudgetExecution
             Label6.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label6.HoverText = null;
             Label6.IsDerivedStyle = true;
-            Label6.Location = new System.Drawing.Point( 183, 35 );
+            Label6.Location = new System.Drawing.Point( 185, 36 );
             Label6.Margin = new System.Windows.Forms.Padding( 3 );
             Label6.Name = "Label6";
             Label6.Padding = new System.Windows.Forms.Padding( 1 );
-            Label6.Size = new System.Drawing.Size( 174, 22 );
+            Label6.Size = new System.Drawing.Size( 176, 27 );
             Label6.Style = MetroSet_UI.Enums.Style.Custom;
             Label6.StyleManager = null;
             Label6.TabIndex = 5;
@@ -1262,11 +1217,11 @@ namespace BudgetExecution
             Label7.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label7.HoverText = null;
             Label7.IsDerivedStyle = true;
-            Label7.Location = new System.Drawing.Point( 363, 35 );
+            Label7.Location = new System.Drawing.Point( 367, 36 );
             Label7.Margin = new System.Windows.Forms.Padding( 3 );
             Label7.Name = "Label7";
             Label7.Padding = new System.Windows.Forms.Padding( 1 );
-            Label7.Size = new System.Drawing.Size( 174, 22 );
+            Label7.Size = new System.Drawing.Size( 176, 27 );
             Label7.Style = MetroSet_UI.Enums.Style.Custom;
             Label7.StyleManager = null;
             Label7.TabIndex = 6;
@@ -1285,11 +1240,11 @@ namespace BudgetExecution
             Label8.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label8.HoverText = null;
             Label8.IsDerivedStyle = true;
-            Label8.Location = new System.Drawing.Point( 543, 35 );
+            Label8.Location = new System.Drawing.Point( 549, 36 );
             Label8.Margin = new System.Windows.Forms.Padding( 3 );
             Label8.Name = "Label8";
             Label8.Padding = new System.Windows.Forms.Padding( 1 );
-            Label8.Size = new System.Drawing.Size( 177, 22 );
+            Label8.Size = new System.Drawing.Size( 177, 27 );
             Label8.Style = MetroSet_UI.Enums.Style.Custom;
             Label8.StyleManager = null;
             Label8.TabIndex = 7;
@@ -1308,11 +1263,11 @@ namespace BudgetExecution
             Label9.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label9.HoverText = null;
             Label9.IsDerivedStyle = true;
-            Label9.Location = new System.Drawing.Point( 3, 63 );
+            Label9.Location = new System.Drawing.Point( 3, 69 );
             Label9.Margin = new System.Windows.Forms.Padding( 3 );
             Label9.Name = "Label9";
             Label9.Padding = new System.Windows.Forms.Padding( 1 );
-            Label9.Size = new System.Drawing.Size( 174, 26 );
+            Label9.Size = new System.Drawing.Size( 176, 25 );
             Label9.Style = MetroSet_UI.Enums.Style.Custom;
             Label9.StyleManager = null;
             Label9.TabIndex = 8;
@@ -1331,11 +1286,11 @@ namespace BudgetExecution
             Label12.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label12.HoverText = null;
             Label12.IsDerivedStyle = true;
-            Label12.Location = new System.Drawing.Point( 543, 63 );
+            Label12.Location = new System.Drawing.Point( 549, 69 );
             Label12.Margin = new System.Windows.Forms.Padding( 3 );
             Label12.Name = "Label12";
             Label12.Padding = new System.Windows.Forms.Padding( 1 );
-            Label12.Size = new System.Drawing.Size( 177, 26 );
+            Label12.Size = new System.Drawing.Size( 177, 25 );
             Label12.Style = MetroSet_UI.Enums.Style.Custom;
             Label12.StyleManager = null;
             Label12.TabIndex = 11;
@@ -1354,11 +1309,11 @@ namespace BudgetExecution
             Label10.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Label10.HoverText = null;
             Label10.IsDerivedStyle = true;
-            Label10.Location = new System.Drawing.Point( 183, 63 );
+            Label10.Location = new System.Drawing.Point( 185, 69 );
             Label10.Margin = new System.Windows.Forms.Padding( 3 );
             Label10.Name = "Label10";
             Label10.Padding = new System.Windows.Forms.Padding( 1 );
-            Label10.Size = new System.Drawing.Size( 174, 26 );
+            Label10.Size = new System.Drawing.Size( 176, 25 );
             Label10.Style = MetroSet_UI.Enums.Style.Custom;
             Label10.StyleManager = null;
             Label10.TabIndex = 9;
@@ -1412,8 +1367,6 @@ namespace BudgetExecution
             ( (System.ComponentModel.ISupportInitialize) TabControl  ).EndInit( );
             TabControl.ResumeLayout( false );
             ChartTab.ResumeLayout( false );
-            ChartLayout.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) Chart  ).EndInit( );
             DataTab.ResumeLayout( false );
             GridPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).EndInit( );

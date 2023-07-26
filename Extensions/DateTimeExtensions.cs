@@ -40,6 +40,7 @@
 
 namespace BudgetExecution
 {
+    using Syncfusion.Lic.util.encoders;
     using System;
     using System.Diagnostics.CodeAnalysis;
 
@@ -47,6 +48,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [SuppressMessage("ReSharper", "ArrangeRedundantParentheses")]
+    [SuppressMessage("ReSharper", "MemberCanBeInternal")]
     public static class DateTimeExtensions
     {
         /// <summary> Verifies if the object is a startDate </summary>
@@ -258,7 +260,8 @@ namespace BudgetExecution
         /// <c> false </c>
         /// .
         /// </returns>
-        public static bool IsBetween( this DateTime dateTime, DateTime startDate, DateTime endDate, bool compareTime = false )
+        public static bool IsBetween( this DateTime dateTime, DateTime startDate, 
+            DateTime endDate, bool compareTime = false )
         {
             try
             {
@@ -358,6 +361,33 @@ namespace BudgetExecution
 
                 return _weekEnds > 0
                     ? _weekEnds
+                    : 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return 0;
+            }
+        }
+
+        public static int CountWorkdays( this DateTime startDate, DateTime endDate )
+        {
+            try
+            {
+                var _timeSpan = endDate - startDate;
+                var _days = 0;
+                for( var _i = 0; _i < _timeSpan.Days; _i++ )
+                {
+                    var _dateTime = startDate.AddDays( _i );
+                    if( _dateTime.IsFederalHoliday( ) 
+                       && !_dateTime.IsWeekEnd( ) )
+                    {
+                        _days++;
+                    }
+                }
+
+                return _days > 0
+                    ? _days
                     : 0;
             }
             catch( Exception _ex )

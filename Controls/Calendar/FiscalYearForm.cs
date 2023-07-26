@@ -40,19 +40,16 @@
 
 namespace BudgetExecution
 {
-    using Microsoft.Office.Interop.Outlook;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
-    using Syncfusion.WinForms.Input;
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms.DataVisualization.Charting;
-    using ScottPlot.TickGenerators.TimeUnits;
     using Exception = System.Exception;
 
     [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
@@ -224,14 +221,14 @@ namespace BudgetExecution
         {
             try
             {
-                Label1.Text = $"Start Date: ";
-                Label2.Text = $"End Date: ";
-                Label3.Text = $"Total Weeks:  ";
-                Label4.Text = $"Total Days:  ";
-                Label5.Text = $"Total Hours: ";
-                Label6.Text = $"Weekdays: ";
-                Label7.Text = $"Holidays: ";
-                Label8.Text = $"Weekends: ";
+                Label1.Text = $"Start: --";
+                Label2.Text = $"End: --";
+                Label3.Text = $"Weeks: 0.0 ";
+                Label4.Text = $"Days:  0.0";
+                Label5.Text = $"Hours: 0.0";
+                Label6.Text = $"Weekdays: 0.0";
+                Label7.Text = $"Holidays: 0.0";
+                Label8.Text = $"Weekends: 0.0";
                 Label9.Visible = false;
                 Label10.Visible = false;
                 Label11.Visible = false;
@@ -252,7 +249,7 @@ namespace BudgetExecution
             try
             {
                 var _data = new DataBuilder( Source.FederalHolidays, Provider.Access );
-                var _table = _data.DataTable;
+                var _table = _data?.DataTable;
                 return _table.Rows.Count > 0
                     ? _table
                     : default( DataTable );
@@ -273,7 +270,7 @@ namespace BudgetExecution
             try
             {
                 var _data = new DataBuilder( Source.FiscalYears, Provider.Access );
-                var _table = _data.DataTable;
+                var _table = _data?.DataTable;
                 return _table.Rows.Count > 0
                     ? _table
                     : default( DataTable );
@@ -314,48 +311,77 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the pie chart.
+        /// Updates the label text.
         /// </summary>
-        /// <param name="weekDays">The week days.</param>
-        /// <param name="weekEnds">The week ends.</param>
-        /// <param name="holidays">The holidays.</param>
-        private void SetPieChart( int weekDays, int weekEnds, int holidays )
+        /// <param name="start">The start.</param>
+        /// <param name="end">The end.</param>
+        private void UpdateLabelText( DateTime start, DateTime end )
         {
             try
             {
-                var _data = new Dictionary<string, double>
-                {
-                    {
-                        "Weekdays", weekDays
-                    },
-                    {
-                        "Weekends", weekEnds
-                    },
-                    {
-                        "Holidays", holidays
-                    }
-                };
+                var _timeSpan = end - start;
+                var _days = _timeSpan.TotalDays;
+                var _hours = _timeSpan.TotalHours.ToString( "N0" );
+                var _weekdays = start.CountWeekDays( end );
+                var _weekends = start.CountWeekEnds( end );
+                var _workDays = start.CountWorkdays( end );
+                var _totalWeeks = _timeSpan.GetTotalWeeks( );
+                var _weeks = _totalWeeks.ToString( "N1" );
+                var _holidays = start.CountHolidays( end );
+                Label1.Text = $"Start:  {start.ToShortDateString( )}";
+                Label2.Text = $"End:  {end.ToShortDateString( )}";
+                Label3.Text = $"Weeks: {_weeks}  ";
+                Label4.Text = $"Days: {_days}  ";
+                Label5.Text = $"Hours: {_hours}  ";
+                Label6.Text = $"Weekdays: {_weekdays}  ";
+                Label7.Text = $"Holidays: {_holidays}  ";
+                Label8.Text = $"Weekends: {_weekends}  ";
+                Label9.Text = $"Workdays: {_workDays}  ";
+                Label10.Visible = false;
+                Label11.Visible = false;
+                Label12.Visible = false;
 
-                var _text = $"From {StartDate.ToLongDateString( )} "
-                    + $"Until {EndDate.ToLongDateString( )}";
+                Chart.Refresh( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
 
-                Chart.Titles?.Clear( );
+        /// <summary>
+        /// Binds the column chart.
+        /// </summary>
+        /// <param name="start">The start.</param>
+        /// <param name="end">The end.</param>
+        private void BindColumnChart( DateTime start, DateTime end )
+        {
+            try
+            {
+                var _start = start.ToLongDateString( );
+                var _end = end.ToLongDateString( );
+                var _weekDays = start.CountWeekDays( end );
+                var _weekEnds = start.CountWeekEnds( end );
+                var _workDays = start.CountWorkdays( end );
+                var _holidays = start.CountHolidays( end );
+                var _total = ( end - start ).TotalDays;
+                var _data = new Dictionary<string, double>( );
+                _data.Add( "Weekdays", _weekDays );
+                _data.Add( "Weekends", _weekEnds );
+                _data.Add( "Holidays", _holidays );
+                _data.Add( "Workdays", _workDays );
+                var _text = $"From {_start} To {_end} ";
                 var _title = new Title( _text );
-                _title.ForeColor = Color.FromArgb( 0, 120, 212 );
-                _title.Font = new Font( "Roboto", 9 );
-                Chart.Titles?.Add( _title );
-                Chart.Series[ 0 ].Points?.Clear( );
-                Chart.Series[ 0 ].ChartType = SeriesChartType.Pie;
-                foreach( var _kvp in _data )
+                Chart.Titles.Add( _title );
+                var _values = _data.Values.ToArray( );
+                var _names = _data.Keys.ToArray( );
+                var _series = new Series( );
+                for( var _i = 0; _i < _data.Count; _i++ )
                 {
-                    var _point = new DataPoint( );
-                    _point.YValues = _data.Values.ToArray( );
-                    _point.IsVisibleInLegend = true;
-                    _point.AxisLabel = _kvp.Key;
-                    _point.Label = _kvp.Key;
-                    Chart.Series[ 0 ].Points?.Add( _point );
+                    _series.Points.AddXY( _names[ _i ], _values[ _i ] );
                 }
 
+                Chart.Series.Add( _series );
                 Chart.Refresh( );
             }
             catch( Exception _ex )
@@ -461,15 +487,15 @@ namespace BudgetExecution
             try
             {
                 StartDate = DateTime.Parse( FirstCalendar.SelectedDate.ToString( ) );
-                Label1.Text = $"Start Date: ";
-                Label2.Text = $"End Date: ";
-                Label3.Text = $"Total Weeks:  ";
-                Label4.Text = $"Total Days:  ";
-                Label5.Text = $"Total Hours: ";
-                Label6.Text = $"Weekdays: ";
-                Label7.Text = $"Holidays: ";
-                Label8.Text = $"Weekends: ";
-                Label9.Visible = false;
+                Label1.Text = $"Start: 0.0";
+                Label2.Text = $"End: 0.0";
+                Label3.Text = $"Weeks:  0.0";
+                Label4.Text = $"Days:  0.0";
+                Label5.Text = $"Hours: 0.0";
+                Label6.Text = $"Weekdays: 0.0";
+                Label7.Text = $"Holidays: 0.0";
+                Label8.Text = $"Weekends: 0.0";
+                Label9.Text = $"Workdays: 0.0";
                 Label10.Visible = false;
                 Label11.Visible = false;
                 Label12.Visible = false;
@@ -491,27 +517,8 @@ namespace BudgetExecution
             try
             {
                 EndDate = DateTime.Parse( SecondCalendar.SelectedDate.ToString( ) );
-                var _timeSpan = EndDate - StartDate;
-                var _days = _timeSpan.TotalDays;
-                var _hours = _timeSpan.TotalHours.ToString( "N0" );
-                var _weekdays = StartDate.CountWeekDays( EndDate );
-                var _weekends = StartDate.CountWeekEnds( EndDate );
-                var _totalWeeks = _timeSpan.GetTotalWeeks( );
-                var _weeks = _totalWeeks.ToString( "N1" );
-                var _holidays = StartDate.CountHolidays( EndDate );
-                SetPieChart( _weekdays, _weekends, _holidays );
-                Label1.Text = $"Start Date:  {StartDate.ToShortDateString( )}";
-                Label2.Text = $"End Date:  {EndDate.ToShortDateString( )}";
-                Label3.Text = $"Total Weeks: {_weeks}  ";
-                Label4.Text = $"Total Days: {_days}  ";
-                Label5.Text = $"Total Hours: {_hours}  ";
-                Label6.Text = $"Weekdays: {_weekdays}  ";
-                Label7.Text = $"Holidays: {_holidays}  ";
-                Label8.Text = $"Weekends: {_weekends}  ";
-                Label9.Visible = false;
-                Label10.Visible = false;
-                Label11.Visible = false;
-                Label12.Visible = false;
+                BindColumnChart( StartDate, EndDate );
+                UpdateLabelText( StartDate, EndDate );
             }
             catch( Exception _ex )
             {
