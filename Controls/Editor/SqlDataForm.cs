@@ -420,6 +420,9 @@ namespace BudgetExecution
                 Statements?.Clear( );
                 Provider = Provider.Access;
                 AccessRadioButton.Checked = true;
+                Editor.Text = string.Empty;
+                CommandComboBox.SelectedText = string.Empty;
+                QueryListBox.SelectedText = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -1345,7 +1348,8 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnCommandComboBoxItemSelected( object sender, EventArgs e )
         {
-            if( sender is ComboBox _comboBox )
+            if( sender is ComboBox _comboBox 
+               && !string.IsNullOrEmpty( _comboBox.SelectedText ) )
             {
                 try
                 {
@@ -1403,7 +1407,8 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         private void OnListBoxItemSelected( object sender )
         {
-            if( sender is ListBox _listBox )
+            if( sender is ListBox _listBox 
+               && !string.IsNullOrEmpty( _listBox.SelectedText ) )
             {
                 try
                 {
@@ -1498,6 +1503,15 @@ namespace BudgetExecution
                 ClearSelections( );
                 ClearCollections( );
                 PictureBox.Image?.Dispose( );
+                if( DataModel != null )
+                {
+                    DataModel = null;
+                }
+
+                if( DataModel != null )
+                {
+                    DataTable = null;
+                }
             }
             catch( Exception _ex )
             {
