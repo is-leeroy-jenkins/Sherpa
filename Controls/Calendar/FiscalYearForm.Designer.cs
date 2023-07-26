@@ -72,6 +72,7 @@ namespace BudgetExecution
             var chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea( );
             var legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend( );
             var series1 = new System.Windows.Forms.DataVisualization.Charting.Series( );
+            var title1 = new System.Windows.Forms.DataVisualization.Charting.Title( );
             var dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle( );
             var dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle( );
             var dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle( );
@@ -911,19 +912,25 @@ namespace BudgetExecution
             Chart.BorderSkin.BorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             Chart.BorderSkin.PageColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             chartArea1.Area3DStyle.Enable3D = true;
+            chartArea1.Area3DStyle.Rotation = 15;
             chartArea1.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
-            chartArea1.AxisX.IsLabelAutoFit = false;
             chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DarkGray;
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             chartArea1.AxisX.LineColor = System.Drawing.Color.FromArgb(   24  ,   47  ,   66   );
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(   24  ,   47  ,   66   );
+            chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            chartArea1.AxisX.MinorGrid.LineColor = System.Drawing.Color.FromArgb(   24  ,   47  ,   66   );
+            chartArea1.AxisX.MinorTickMark.LineColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             chartArea1.AxisX.TitleFont = new System.Drawing.Font( "Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             chartArea1.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             chartArea1.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
-            chartArea1.AxisY.IsLabelAutoFit = false;
-            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font( "Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             chartArea1.AxisY.LineColor = System.Drawing.Color.FromArgb(   24  ,   47  ,   66   );
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(   24  ,   47  ,   66   );
             chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            chartArea1.AxisY.MinorGrid.LineColor = System.Drawing.Color.FromArgb(   24  ,   47  ,   66   );
+            chartArea1.AxisY.MinorTickMark.LineColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             chartArea1.AxisY.TitleFont = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             chartArea1.AxisY.TitleForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             chartArea1.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
@@ -946,9 +953,10 @@ namespace BudgetExecution
             series1.BorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Color = System.Drawing.Color.DarkGray;
             series1.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             series1.IsValueShownAsLabel = true;
-            series1.LabelForeColor = System.Drawing.Color.DarkGray;
+            series1.LabelForeColor = System.Drawing.Color.White;
             series1.Legend = "Legend1";
             series1.MarkerColor = System.Drawing.Color.Lime;
             series1.Name = "Series1";
@@ -958,6 +966,12 @@ namespace BudgetExecution
             Chart.Size = new System.Drawing.Size( 672, 419 );
             Chart.TabIndex = 0;
             Chart.Text = "chart1";
+            title1.Alignment = System.Drawing.ContentAlignment.TopCenter;
+            title1.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            title1.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            title1.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            title1.Name = "Title1";
+            Chart.Titles.Add( title1 );
             // 
             // DataTab
             // 

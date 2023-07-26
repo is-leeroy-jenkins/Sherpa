@@ -53,6 +53,7 @@ namespace BudgetExecution
     using Exception = System.Exception;
 
     [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
     public sealed partial class FiscalYearForm : MetroForm
     {
         /// <summary>
@@ -174,6 +175,7 @@ namespace BudgetExecution
             SecondCalendar.SelectionChanged += OnSecondCalendarSelectionChanged;
             ChartButton.Click += OnChartButtonClick;
             TableButton.Click += OnTableButtonClick;
+            RefreshButton.Click += OnRefreshButtonClick;
             TabControl.SelectedIndexChanged += OnSelectedTabChanged;
         }
 
@@ -221,15 +223,15 @@ namespace BudgetExecution
         {
             try
             {
-                Label1.Text = $"Start: --";
-                Label2.Text = $"End: --";
-                Label3.Text = $"Weeks: 0.0 ";
-                Label4.Text = $"Days:  0.0";
-                Label5.Text = $"Hours: 0.0";
-                Label6.Text = $"Weekdays: 0.0";
-                Label7.Text = $"Holidays: 0.0";
-                Label8.Text = $"Weekends: 0.0";
-                Label9.Visible = false;
+                Label1.Text = $"Start: ";
+                Label2.Text = $"End: ";
+                Label3.Text = $"Weeks: ";
+                Label4.Text = $"Days:  ";
+                Label5.Text = $"Hours: ";
+                Label6.Text = $"Weekdays: ";
+                Label7.Text = $"Holidays: ";
+                Label8.Text = $"Weekends: ";
+                Label9.Text = $"Workdays: ";
                 Label10.Visible = false;
                 Label11.Visible = false;
                 Label12.Visible = false;
@@ -321,26 +323,24 @@ namespace BudgetExecution
             {
                 var _timeSpan = end - start;
                 var _days = _timeSpan.TotalDays;
-                var _hours = _timeSpan.TotalHours.ToString( "N0" );
+                var _hours = _timeSpan.TotalHours.ToString( "N2" );
                 var _weekdays = start.CountWeekDays( end );
                 var _weekends = start.CountWeekEnds( end );
-                var _workDays = start.CountWorkdays( end );
-                var _totalWeeks = _timeSpan.GetTotalWeeks( );
-                var _weeks = _totalWeeks.ToString( "N1" );
+                var _workdays = start.CountWorkdays( end );
                 var _holidays = start.CountHolidays( end );
+                var _fte = ( ( _workdays * 8 ) / 2050 ).ToString( "N2" );
                 Label1.Text = $"Start:  {start.ToShortDateString( )}";
                 Label2.Text = $"End:  {end.ToShortDateString( )}";
-                Label3.Text = $"Weeks: {_weeks}  ";
-                Label4.Text = $"Days: {_days}  ";
-                Label5.Text = $"Hours: {_hours}  ";
-                Label6.Text = $"Weekdays: {_weekdays}  ";
-                Label7.Text = $"Holidays: {_holidays}  ";
-                Label8.Text = $"Weekends: {_weekends}  ";
-                Label9.Text = $"Workdays: {_workDays}  ";
+                Label3.Text = $"Days: {_days}";
+                Label4.Text = $"Hours:  {_hours}";
+                Label5.Text = $"FTE: {_fte} ";
+                Label6.Text = $"Weekdays: {_weekdays}";
+                Label7.Text = $"Workdays: {_workdays}";
+                Label8.Text = $"Weekends: {_weekends}";
+                Label9.Text = $"Holidays: {_holidays}";
                 Label10.Visible = false;
                 Label11.Visible = false;
                 Label12.Visible = false;
-
                 Chart.Refresh( );
             }
             catch( Exception _ex )
@@ -360,20 +360,18 @@ namespace BudgetExecution
             {
                 var _start = start.ToLongDateString( );
                 var _end = end.ToLongDateString( );
-                var _weekDays = start.CountWeekDays( end );
-                var _weekEnds = start.CountWeekEnds( end );
-                var _workDays = start.CountWorkdays( end );
+                var _weekdays = start.CountWeekDays( end );
+                var _weekends = start.CountWeekEnds( end );
+                var _workdays = start.CountWorkdays( end );
                 var _holidays = start.CountHolidays( end );
                 var _total = ( end - start ).TotalDays;
                 var _data = new Dictionary<string, double>( );
-                _data.Add( "Weekdays", _weekDays );
-                _data.Add( "Weekends", _weekEnds );
+                _data.Add( "Weekdays", _weekdays );
+                _data.Add( "Workdays", _workdays );
+                _data.Add( "Weekends", _weekends );
                 _data.Add( "Holidays", _holidays );
-                _data.Add( "Workdays", _workDays );
-                Chart.Titles?.Clear( );
                 var _text = $"From {_start} To {_end} ";
-                var _title = new Title( _text );
-                Chart.Titles?.Add( _title );
+                Chart.Titles[ 0 ].Text = _text;
                 var _values = _data.Values.ToArray( );
                 var _names = _data.Keys.ToArray( );
                 Chart.Series[ 0 ].Points.Clear( );
@@ -489,15 +487,15 @@ namespace BudgetExecution
             try
             {
                 StartDate = DateTime.Parse( FirstCalendar.SelectedDate.ToString( ) );
-                Label1.Text = $"Start: 0.0";
-                Label2.Text = $"End: 0.0";
-                Label3.Text = $"Weeks:  0.0";
-                Label4.Text = $"Days:  0.0";
-                Label5.Text = $"Hours: 0.0";
-                Label6.Text = $"Weekdays: 0.0";
-                Label7.Text = $"Holidays: 0.0";
-                Label8.Text = $"Weekends: 0.0";
-                Label9.Text = $"Workdays: 0.0";
+                Label1.Text = $"Start: ";
+                Label2.Text = $"End: ";
+                Label3.Text = $"Weeks: ";
+                Label4.Text = $"Days:  ";
+                Label5.Text = $"Hours: ";
+                Label6.Text = $"Weekdays: ";
+                Label7.Text = $"Holidays: ";
+                Label8.Text = $"Weekends: ";
+                Label9.Text = $"Workdays: ";
                 Label10.Visible = false;
                 Label11.Visible = false;
                 Label12.Visible = false;
@@ -559,6 +557,25 @@ namespace BudgetExecution
         private void OnSelectedTabChanged( object sender, EventArgs e )
         {
             SetActiveTab( );
+        }
+
+        private void OnRefreshButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                ResetLabelText( );
+                StartDate = DateTime.Today;
+                EndDate = DateTime.Today;
+                FirstCalendar.SelectedDate = StartDate;
+                SecondCalendar.SelectedDate = EndDate;
+                Chart.Series[ 0 ].Points.Clear( );
+                Chart.Titles[ 0 ].Text = string.Empty;
+                TabControl.SelectedIndex = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

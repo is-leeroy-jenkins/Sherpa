@@ -42,7 +42,10 @@ namespace BudgetExecution
 {
     using Syncfusion.Lic.util.encoders;
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -69,140 +72,134 @@ namespace BudgetExecution
                 return false;
             }
         }
-
-        /// <summary> Returns a startDate in the past by days. </summary>
-        /// <param name="days"> The days. </param>
+        
+        /// <summary> Returns the weekdays between two dates. </summary>
+        /// <param name="startDate"> The start time. </param>
+        /// <param name="endDate"> The end time. </param>
         /// <returns> </returns>
-        public static DateTime DaysAgo( this int days )
+        public static IEnumerable<DateTime> GetWeekdays( this DateTime startDate, DateTime endDate )
         {
             try
             {
-                var _timeSpan = new TimeSpan( days, 0, 0, 0 );
-                return DateTime.Now.Subtract( _timeSpan );
+                var _timeSpan = endDate - startDate;
+                var _days = 0;
+                var _weekdays = new List<DateTime>( );
+                for( var _i = 0; _i < _timeSpan.Days; _i++ )
+                {
+                    var _dateTime = startDate.AddDays( _i );
+                    if( _dateTime.IsWeekDay( ) )
+                    {
+                        _weekdays.Add( _dateTime );
+                    }
+                }
+
+                return _weekdays?.Any( ) == true
+                    ? _weekdays
+                    : default( IEnumerable<DateTime> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( DateTime );
+                return default( IEnumerable<DateTime> );
             }
         }
 
-        /// <summary> Returns a startDate in the future by days. </summary>
-        /// <param name="days"> The days. </param>
-        /// <returns> </returns>
-        public static DateTime DaysFromNow( this int days )
+        /// <summary>
+        /// Gets the week ends until.
+        /// </summary>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="endDate">The end date.</param>
+        /// <returns></returns>
+        public static IEnumerable<DateTime> GetWeekends( this DateTime startDate, DateTime endDate )
         {
             try
             {
-                var _timeSpan = new TimeSpan( days, 0, 0, 0 );
-                return DateTime.Now.Add( _timeSpan );
+                var _timeSpan = endDate - startDate;
+                var _days = 0;
+                var _weekends = new List<DateTime>( );
+                for( var _i = 0; _i < _timeSpan.Days; _i++ )
+                {
+                    var _dateTime = startDate.AddDays( _i );
+                    if( _dateTime.IsWeekEnd( ) )
+                    {
+                        _weekends.Add( _dateTime );
+                    }
+                }
+
+                return _weekends?.Any( ) == true
+                    ? _weekends
+                    : default( IEnumerable<DateTime> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( DateTime );
+                return default( IEnumerable<DateTime> );
             }
         }
 
-        /// <summary> Returns a startDate in the past by hours. </summary>
-        /// <param name="hours"> The hours. </param>
-        /// <returns> </returns>
-        public static DateTime HoursAgo( this int hours )
+        /// <summary>
+        /// Gets the holidays until.
+        /// </summary>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="endDate">The end date.</param>
+        /// <returns></returns>
+        public static IEnumerable<DateTime> GetHolidays( this DateTime startDate, DateTime endDate )
         {
             try
             {
-                var _timeSpan = new TimeSpan( hours, 0, 0 );
-                return DateTime.Now.Subtract( _timeSpan );
+                var _timeSpan = endDate - startDate;
+                var _days = 0;
+                var _holidays = new List<DateTime>( );
+                for( var _i = 0; _i < _timeSpan.Days; _i++ )
+                {
+                    var _dateTime = startDate.AddDays( _i );
+                    if( _dateTime.IsFederalHoliday( ) )
+                    {
+                        _holidays.Add( _dateTime );
+                    }
+                }
+
+                return _holidays?.Any( ) == true
+                    ? _holidays
+                    : default( IEnumerable<DateTime> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( DateTime );
+                return default( IEnumerable<DateTime> );
             }
         }
-
-        /// <summary> Returns a startDate in the future by hours. </summary>
-        /// <param name="hours"> The hours. </param>
-        /// <returns> </returns>
-        public static DateTime HoursFromNow( this int hours )
+        
+        /// <summary>
+        /// Gets the workdays
+        /// </summary>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="endDate">The end date.</param>
+        /// <returns></returns>
+        public static IEnumerable<DateTime> GetWorkdays( this DateTime startDate, DateTime endDate )
         {
             try
             {
-                var _timeSpan = new TimeSpan( hours, 0, 0 );
-                return DateTime.Now.Add( _timeSpan );
+                var _timeSpan = endDate - startDate;
+                var _days = 0;
+                var _workdays = new List<DateTime>( );
+                for( var _i = 0; _i < _timeSpan.Days; _i++ )
+                {
+                    var _dateTime = startDate.AddDays( _i );
+                    if( !_dateTime.IsFederalHoliday( ) && !_dateTime.IsWeekEnd( ) )
+                    {
+                        _workdays.Add( _dateTime );
+                    }
+                }
+
+                return _workdays?.Any( ) == true
+                    ? _workdays
+                    : default( IEnumerable<DateTime> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( DateTime );
-            }
-        }
-
-        /// <summary> Returns a startDate in the past by minutes </summary>
-        /// <param name="minutes"> The minutes. </param>
-        /// <returns> </returns>
-        public static DateTime MinutesAgo( this int minutes )
-        {
-            try
-            {
-                var _timeSpan = new TimeSpan( 0, minutes, 0 );
-                return DateTime.Now.Subtract( _timeSpan );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( DateTime );
-            }
-        }
-
-        /// <summary> Returns a startDate in the future by minutes. </summary>
-        /// <param name="minutes"> The minutes. </param>
-        /// <returns> </returns>
-        public static DateTime MinutesFromNow( this int minutes )
-        {
-            try
-            {
-                var _timeSpan = new TimeSpan( 0, minutes, 0 );
-                return DateTime.Now.Add( _timeSpan );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( DateTime );
-            }
-        }
-
-        /// <summary> Gets a startDate in the past according to seconds </summary>
-        /// <param name="seconds"> The seconds. </param>
-        /// <returns> </returns>
-        public static DateTime SecondsAgo( this int seconds )
-        {
-            try
-            {
-                var _timeSpan = new TimeSpan( 0, 0, seconds );
-                return DateTime.Now.Subtract( _timeSpan );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( DateTime );
-            }
-        }
-
-        /// <summary> Gets a startDate in the future by seconds. </summary>
-        /// <param name="seconds"> The seconds. </param>
-        /// <returns> </returns>
-        public static DateTime SecondsFromNow( this int seconds )
-        {
-            try
-            {
-                var _timeSpan = new TimeSpan( 0, 0, seconds );
-                return DateTime.Now.Add( _timeSpan );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( DateTime );
+                return default( IEnumerable<DateTime> );
             }
         }
 
@@ -370,6 +367,12 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Counts the workdays.
+        /// </summary>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="endDate">The end date.</param>
+        /// <returns></returns>
         public static int CountWorkdays( this DateTime startDate, DateTime endDate )
         {
             try
@@ -379,7 +382,7 @@ namespace BudgetExecution
                 for( var _i = 0; _i < _timeSpan.Days; _i++ )
                 {
                     var _dateTime = startDate.AddDays( _i );
-                    if( _dateTime.IsFederalHoliday( ) 
+                    if( !_dateTime.IsFederalHoliday( ) 
                        && !_dateTime.IsWeekEnd( ) )
                     {
                         _days++;
