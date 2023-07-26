@@ -354,7 +354,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="start">The start.</param>
         /// <param name="end">The end.</param>
-        private void BindColumnChart( DateTime start, DateTime end )
+        private void BindChart( DateTime start, DateTime end )
         {
             try
             {
@@ -370,18 +370,20 @@ namespace BudgetExecution
                 _data.Add( "Weekends", _weekEnds );
                 _data.Add( "Holidays", _holidays );
                 _data.Add( "Workdays", _workDays );
+                Chart.Titles?.Clear( );
                 var _text = $"From {_start} To {_end} ";
                 var _title = new Title( _text );
-                Chart.Titles.Add( _title );
+                Chart.Titles?.Add( _title );
                 var _values = _data.Values.ToArray( );
                 var _names = _data.Keys.ToArray( );
-                var _series = new Series( );
+                Chart.Series[ 0 ].Points.Clear( );
+                Chart.Series[ 0 ].ChartType = SeriesChartType.Pie;
                 for( var _i = 0; _i < _data.Count; _i++ )
                 {
-                    _series.Points.AddXY( _names[ _i ], _values[ _i ] );
+                    Chart.Series[ 0 ].IsXValueIndexed = false;
+                    Chart.Series[ 0 ].Points.AddXY( _names[ _i ], _values[ _i ] );
                 }
 
-                Chart.Series.Add( _series );
                 Chart.Refresh( );
             }
             catch( Exception _ex )
@@ -517,7 +519,7 @@ namespace BudgetExecution
             try
             {
                 EndDate = DateTime.Parse( SecondCalendar.SelectedDate.ToString( ) );
-                BindColumnChart( StartDate, EndDate );
+                BindChart( StartDate, EndDate );
                 UpdateLabelText( StartDate, EndDate );
             }
             catch( Exception _ex )

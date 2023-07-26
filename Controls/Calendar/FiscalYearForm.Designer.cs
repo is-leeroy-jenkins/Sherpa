@@ -69,6 +69,9 @@ namespace BudgetExecution
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
+            var chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea( );
+            var legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend( );
+            var series1 = new System.Windows.Forms.DataVisualization.Charting.Series( );
             var dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle( );
             var dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle( );
             var dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle( );
@@ -114,6 +117,7 @@ namespace BudgetExecution
             TabControl = new TabControl( );
             ChartTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             ChartLayout = new Layout( );
+            Chart = new Chart( );
             DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             GridPanel = new Layout( );
             DataGrid = new DataGrid( );
@@ -143,6 +147,8 @@ namespace BudgetExecution
             ( (System.ComponentModel.ISupportInitialize) TabControl  ).BeginInit( );
             TabControl.SuspendLayout( );
             ChartTab.SuspendLayout( );
+            ChartLayout.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize) Chart  ).BeginInit( );
             DataTab.SuspendLayout( );
             GridPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
@@ -876,6 +882,7 @@ namespace BudgetExecution
             ChartLayout.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
             ChartLayout.BorderThickness = 1;
             ChartLayout.Children = null;
+            ChartLayout.Controls.Add( Chart );
             ChartLayout.DataFilter = null;
             ChartLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             ChartLayout.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -892,6 +899,65 @@ namespace BudgetExecution
             ChartLayout.ThemeAuthor = "Terry D. Eppler";
             ChartLayout.ThemeName = "Budget Execution";
             ChartLayout.ToolTip = null;
+            // 
+            // Chart
+            // 
+            Chart.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            Chart.BackSecondaryColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            Chart.BindingSource = null;
+            Chart.BorderlineColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            Chart.BorderSkin.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            Chart.BorderSkin.BackSecondaryColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            Chart.BorderSkin.BorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            Chart.BorderSkin.PageColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            chartArea1.Area3DStyle.Enable3D = true;
+            chartArea1.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DarkGray;
+            chartArea1.AxisX.LineColor = System.Drawing.Color.FromArgb(   24  ,   47  ,   66   );
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font( "Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            chartArea1.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            chartArea1.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
+            chartArea1.AxisY.IsLabelAutoFit = false;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font( "Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            chartArea1.AxisY.LineColor = System.Drawing.Color.FromArgb(   24  ,   47  ,   66   );
+            chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            chartArea1.AxisY.TitleFont = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            chartArea1.AxisY.TitleForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            chartArea1.BorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            chartArea1.Name = "ChartArea1";
+            Chart.ChartAreas.Add( chartArea1 );
+            Chart.Data = null;
+            Chart.DataTable = null;
+            legend1.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            legend1.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            legend1.ForeColor = System.Drawing.Color.DarkGray;
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            legend1.TitleBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            legend1.TitleForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            Chart.Legends.Add( legend1 );
+            Chart.Location = new System.Drawing.Point( 32, 25 );
+            Chart.Name = "Chart";
+            Chart.PaletteCustomColors = new System.Drawing.Color[ ] { System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ), System.Drawing.Color.FromArgb(   180  ,   0  ,   120  ,   202   ), System.Drawing.Color.Maroon, System.Drawing.Color.FromArgb(   255  ,   65  ,   84   ), System.Drawing.Color.FromArgb(   0  ,   64  ,   0   ), System.Drawing.Color.FromArgb(   150  ,   0  ,   64  ,   0   ) };
+            series1.BorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            series1.IsValueShownAsLabel = true;
+            series1.LabelForeColor = System.Drawing.Color.DarkGray;
+            series1.Legend = "Legend1";
+            series1.MarkerColor = System.Drawing.Color.Lime;
+            series1.Name = "Series1";
+            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
+            series1.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            Chart.Series.Add( series1 );
+            Chart.Size = new System.Drawing.Size( 672, 419 );
+            Chart.TabIndex = 0;
+            Chart.Text = "chart1";
             // 
             // DataTab
             // 
@@ -1367,6 +1433,8 @@ namespace BudgetExecution
             ( (System.ComponentModel.ISupportInitialize) TabControl  ).EndInit( );
             TabControl.ResumeLayout( false );
             ChartTab.ResumeLayout( false );
+            ChartLayout.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize) Chart  ).EndInit( );
             DataTab.ResumeLayout( false );
             GridPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).EndInit( );
@@ -1437,6 +1505,7 @@ namespace BudgetExecution
         public ToolStripButton TableButton;
         public ToolStripButton ChartButton;
         private Layout layout1;
+
         public Chart Chart;
     }
 }
