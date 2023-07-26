@@ -100,14 +100,14 @@ namespace BudgetExecution
             RefreshButton = new ToolStripButton( );
             CloseButton = new ToolStripButton( );
             Separator7 = new ToolSeparator( );
-            TimeSpanLabel = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
-            TimeSpanSeparator = new ToolSeparator( );
-            MenuButton = new ToolStripButton( );
-            toolSeparator1 = new ToolSeparator( );
+            NavigationLabel = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
+            NavigationSeparator = new ToolSeparator( );
             TimeSpanInformation = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
             TableButton = new ToolStripButton( );
-            toolSeparator2 = new ToolSeparator( );
+            Separator8 = new ToolSeparator( );
             ChartButton = new ToolStripButton( );
+            Separator9 = new ToolSeparator( );
+            MenuButton = new ToolStripButton( );
             FirstCalendarTable = new HeaderPanel( );
             FirstCalendarPanel = new Layout( );
             FirstCalendar = new Syncfusion.WinForms.Input.SfCalendar( );
@@ -122,7 +122,7 @@ namespace BudgetExecution
             DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             GridPanel = new Layout( );
             DataGrid = new DataGrid( );
-            layout1 = new Layout( );
+            TimeTableLayout = new Layout( );
             TimeSpanTable = new System.Windows.Forms.TableLayoutPanel( );
             Label11 = new Label( );
             Label3 = new Label( );
@@ -153,7 +153,7 @@ namespace BudgetExecution
             DataTab.SuspendLayout( );
             GridPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
-            layout1.SuspendLayout( );
+            TimeTableLayout.SuspendLayout( );
             TimeSpanTable.SuspendLayout( );
             SuspendLayout( );
             // 
@@ -282,7 +282,7 @@ namespace BudgetExecution
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { FirstSpacer, Separator1, FirstButton, Separator2, PreviousButton, Separator3, NextButton, Separator4, LastButton, Separator5, Separator6, RefreshButton, CloseButton, Separator7, TimeSpanLabel, TimeSpanSeparator, MenuButton, toolSeparator1, TimeSpanInformation, TableButton, toolSeparator2, ChartButton } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { FirstSpacer, Separator1, FirstButton, Separator2, PreviousButton, Separator3, NextButton, Separator4, LastButton, Separator5, Separator6, RefreshButton, CloseButton, Separator7, NavigationLabel, NavigationSeparator, TimeSpanInformation, TableButton, Separator8, ChartButton, Separator9, MenuButton } );
             ToolStrip.Label = null;
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
@@ -354,7 +354,7 @@ namespace BudgetExecution
             FirstButton.Size = new System.Drawing.Size( 23, 24 );
             FirstButton.Text = "toolStripButton1";
             FirstButton.ToolTip = ToolTip;
-            FirstButton.ToolType = ToolType.Ns;
+            FirstButton.ToolType = ToolType.FirstButton;
             // 
             // Separator2
             // 
@@ -383,7 +383,7 @@ namespace BudgetExecution
             PreviousButton.Size = new System.Drawing.Size( 23, 24 );
             PreviousButton.Text = "toolStripButton2";
             PreviousButton.ToolTip = ToolTip;
-            PreviousButton.ToolType = ToolType.Ns;
+            PreviousButton.ToolType = ToolType.PreviousButton;
             // 
             // Separator3
             // 
@@ -412,7 +412,7 @@ namespace BudgetExecution
             NextButton.Size = new System.Drawing.Size( 23, 24 );
             NextButton.Text = "toolStripButton3";
             NextButton.ToolTip = ToolTip;
-            NextButton.ToolType = ToolType.Ns;
+            NextButton.ToolType = ToolType.NextButton;
             // 
             // Separator4
             // 
@@ -441,7 +441,7 @@ namespace BudgetExecution
             LastButton.Size = new System.Drawing.Size( 23, 24 );
             LastButton.Text = "toolStripButton4";
             LastButton.ToolTip = ToolTip;
-            LastButton.ToolType = ToolType.Ns;
+            LastButton.ToolType = ToolType.LastButton;
             // 
             // Separator5
             // 
@@ -511,51 +511,22 @@ namespace BudgetExecution
             Separator7.Padding = new System.Windows.Forms.Padding( 1 );
             Separator7.Size = new System.Drawing.Size( 6, 28 );
             // 
-            // TimeSpanLabel
+            // NavigationLabel
             // 
-            TimeSpanLabel.BackColor = System.Drawing.Color.Transparent;
-            TimeSpanLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            TimeSpanLabel.ForeColor = System.Drawing.Color.Black;
-            TimeSpanLabel.Name = "TimeSpanLabel";
-            TimeSpanLabel.Size = new System.Drawing.Size( 131, 27 );
-            TimeSpanLabel.Text = "                               Navigation:          ";
+            NavigationLabel.BackColor = System.Drawing.Color.Transparent;
+            NavigationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            NavigationLabel.ForeColor = System.Drawing.Color.Black;
+            NavigationLabel.Name = "NavigationLabel";
+            NavigationLabel.Size = new System.Drawing.Size( 131, 27 );
+            NavigationLabel.Text = "                               Navigation:          ";
             // 
-            // TimeSpanSeparator
+            // NavigationSeparator
             // 
-            TimeSpanSeparator.ForeColor = System.Drawing.Color.Black;
-            TimeSpanSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            TimeSpanSeparator.Name = "TimeSpanSeparator";
-            TimeSpanSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            TimeSpanSeparator.Size = new System.Drawing.Size( 6, 28 );
-            // 
-            // MenuButton
-            // 
-            MenuButton.AutoToolTip = false;
-            MenuButton.BackColor = System.Drawing.Color.Transparent;
-            MenuButton.BindingSource = BindingSource;
-            MenuButton.DataFilter = null;
-            MenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            MenuButton.Field = Field.AccountCode;
-            MenuButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            MenuButton.ForeColor = System.Drawing.Color.LightGray;
-            MenuButton.HoverText = "Main Menu";
-            MenuButton.Image = Resources.Images.WebMenuButton;
-            MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            MenuButton.Margin = new System.Windows.Forms.Padding( 3 );
-            MenuButton.Name = "MenuButton";
-            MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
-            MenuButton.Size = new System.Drawing.Size( 23, 24 );
-            MenuButton.Text = "toolStripButton1";
-            MenuButton.ToolTip = null;
-            MenuButton.ToolType = ToolType.Ns;
-            // 
-            // toolSeparator1
-            // 
-            toolSeparator1.ForeColor = System.Drawing.Color.Black;
-            toolSeparator1.Margin = new System.Windows.Forms.Padding( 1 );
-            toolSeparator1.Name = "toolSeparator1";
-            toolSeparator1.Padding = new System.Windows.Forms.Padding( 1 );
-            toolSeparator1.Size = new System.Drawing.Size( 6, 28 );
+            NavigationSeparator.ForeColor = System.Drawing.Color.Black;
+            NavigationSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            NavigationSeparator.Name = "NavigationSeparator";
+            NavigationSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            NavigationSeparator.Size = new System.Drawing.Size( 6, 28 );
             // 
             // TimeSpanInformation
             // 
@@ -586,13 +557,13 @@ namespace BudgetExecution
             TableButton.ToolTip = ToolTip;
             TableButton.ToolType = ToolType.Ns;
             // 
-            // toolSeparator2
+            // Separator8
             // 
-            toolSeparator2.ForeColor = System.Drawing.Color.Black;
-            toolSeparator2.Margin = new System.Windows.Forms.Padding( 1 );
-            toolSeparator2.Name = "toolSeparator2";
-            toolSeparator2.Padding = new System.Windows.Forms.Padding( 1 );
-            toolSeparator2.Size = new System.Drawing.Size( 6, 28 );
+            Separator8.ForeColor = System.Drawing.Color.Black;
+            Separator8.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator8.Name = "Separator8";
+            Separator8.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator8.Size = new System.Drawing.Size( 6, 28 );
             // 
             // ChartButton
             // 
@@ -614,6 +585,35 @@ namespace BudgetExecution
             ChartButton.Text = "toolStripButton2";
             ChartButton.ToolTip = ToolTip;
             ChartButton.ToolType = ToolType.Ns;
+            // 
+            // Separator9
+            // 
+            Separator9.ForeColor = System.Drawing.Color.Black;
+            Separator9.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator9.Name = "Separator9";
+            Separator9.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator9.Size = new System.Drawing.Size( 6, 28 );
+            // 
+            // MenuButton
+            // 
+            MenuButton.AutoToolTip = false;
+            MenuButton.BackColor = System.Drawing.Color.Transparent;
+            MenuButton.BindingSource = BindingSource;
+            MenuButton.DataFilter = null;
+            MenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            MenuButton.Field = Field.AccountCode;
+            MenuButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MenuButton.ForeColor = System.Drawing.Color.LightGray;
+            MenuButton.HoverText = "Main Menu";
+            MenuButton.Image = Resources.Images.WebMenuButton;
+            MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            MenuButton.Margin = new System.Windows.Forms.Padding( 3 );
+            MenuButton.Name = "MenuButton";
+            MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
+            MenuButton.Size = new System.Drawing.Size( 23, 24 );
+            MenuButton.Text = "toolStripButton1";
+            MenuButton.ToolTip = null;
+            MenuButton.ToolType = ToolType.Ns;
             // 
             // FirstCalendarTable
             // 
@@ -815,7 +815,7 @@ namespace BudgetExecution
             ChartTable.ColumnCount = 1;
             ChartTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             ChartTable.Controls.Add( TabControl, 0, 1 );
-            ChartTable.Controls.Add( layout1, 0, 2 );
+            ChartTable.Controls.Add( TimeTableLayout, 0, 2 );
             ChartTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ChartTable.ForeColor = System.Drawing.Color.DarkGray;
             ChartTable.Location = new System.Drawing.Point( 589, 52 );
@@ -1022,7 +1022,7 @@ namespace BudgetExecution
             DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             DataGrid.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
             DataGrid.BackgroundColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
-            DataGrid.BindingSource = null;
+            DataGrid.BindingSource = BindingSource;
             DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             DataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -1073,30 +1073,30 @@ namespace BudgetExecution
             DataGrid.TabIndex = 1;
             DataGrid.ToolTip = null;
             // 
-            // layout1
+            // TimeTableLayout
             // 
-            layout1.BackColor = System.Drawing.Color.Transparent;
-            layout1.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            layout1.BindingSource = null;
-            layout1.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
-            layout1.BorderThickness = 1;
-            layout1.Children = null;
-            layout1.Controls.Add( TimeSpanTable );
-            layout1.DataFilter = null;
-            layout1.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            layout1.ForeColor = System.Drawing.Color.Transparent;
-            layout1.HoverText = null;
-            layout1.IsDerivedStyle = true;
-            layout1.Location = new System.Drawing.Point( 3, 490 );
-            layout1.Name = "layout1";
-            layout1.Padding = new System.Windows.Forms.Padding( 1 );
-            layout1.Size = new System.Drawing.Size( 731, 99 );
-            layout1.Style = MetroSet_UI.Enums.Style.Custom;
-            layout1.StyleManager = null;
-            layout1.TabIndex = 1;
-            layout1.ThemeAuthor = "Terry D. Eppler";
-            layout1.ThemeName = "Budget Execution";
-            layout1.ToolTip = null;
+            TimeTableLayout.BackColor = System.Drawing.Color.Transparent;
+            TimeTableLayout.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TimeTableLayout.BindingSource = null;
+            TimeTableLayout.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            TimeTableLayout.BorderThickness = 1;
+            TimeTableLayout.Children = null;
+            TimeTableLayout.Controls.Add( TimeSpanTable );
+            TimeTableLayout.DataFilter = null;
+            TimeTableLayout.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TimeTableLayout.ForeColor = System.Drawing.Color.Transparent;
+            TimeTableLayout.HoverText = null;
+            TimeTableLayout.IsDerivedStyle = true;
+            TimeTableLayout.Location = new System.Drawing.Point( 3, 490 );
+            TimeTableLayout.Name = "TimeTableLayout";
+            TimeTableLayout.Padding = new System.Windows.Forms.Padding( 1 );
+            TimeTableLayout.Size = new System.Drawing.Size( 731, 99 );
+            TimeTableLayout.Style = MetroSet_UI.Enums.Style.Custom;
+            TimeTableLayout.StyleManager = null;
+            TimeTableLayout.TabIndex = 1;
+            TimeTableLayout.ThemeAuthor = "Terry D. Eppler";
+            TimeTableLayout.ThemeName = "Budget Execution";
+            TimeTableLayout.ToolTip = null;
             // 
             // TimeSpanTable
             // 
@@ -1452,7 +1452,7 @@ namespace BudgetExecution
             DataTab.ResumeLayout( false );
             GridPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).EndInit( );
-            layout1.ResumeLayout( false );
+            TimeTableLayout.ResumeLayout( false );
             TimeSpanTable.ResumeLayout( false );
             ResumeLayout( false );
             PerformLayout( );
@@ -1469,7 +1469,6 @@ namespace BudgetExecution
         public ToolStrip ToolStrip;
         public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt FirstSpacer;
         public ToolStripButton FirstButton;
-        private ToolSeparator toolSeparator2;
         public ToolStripButton PreviousButton;
         public ToolStripButton NextButton;
         private ToolSeparator toolSeparator4;
@@ -1494,8 +1493,8 @@ namespace BudgetExecution
         public ToolSeparator Separator4;
         public ToolSeparator Separator5;
         public ToolSeparator Separator6;
-        public ToolSeparator TimeSpanSeparator;
-        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt TimeSpanLabel;
+        public ToolSeparator NavigationSeparator;
+        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt NavigationLabel;
         public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt TimeSpanInformation;
         public TabControl TabControl;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv DataTab;
@@ -1515,11 +1514,12 @@ namespace BudgetExecution
         public Label Label7;
         public Label Label8;
         public Label Label9;
-        private ToolSeparator toolSeparator1;
         public ToolStripButton TableButton;
         public ToolStripButton ChartButton;
-        private Layout layout1;
 
         public Chart Chart;
+        public ToolSeparator Separator9;
+        public ToolSeparator Separator8;
+        public Layout TimeTableLayout;
     }
 }
