@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                Notification.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="Notification.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="Notification.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   Notification.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    Notification.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -51,22 +54,33 @@ namespace BudgetExecution
     using static NativeMethods;
     using Timer = System.Windows.Forms.Timer;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [SuppressMessage("ReSharper", "ClassCanBeSealed.Global")]
-    [SuppressMessage("ReSharper", "MemberCanBeInternal")]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public partial class Notification : MetroForm
     {
-        /// <summary> Gets or sets the time. </summary>
-        /// <value> The time. </value>
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
         public int Time { get; set; }
 
-        /// <summary> Gets or sets the seconds. </summary>
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
         /// <value> The seconds. </value>
         public int Seconds { get; set; }
 
-        /// <summary> Gets or sets a value indicating whether [allow focus]. </summary>
+        /// <summary>
+        /// Gets or sets a value indicating whether [allow focus].
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if [allow focus]; otherwise,
@@ -96,8 +110,16 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             DoubleBuffered = true;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
+            Size = new Size( 400, 190 );
+            MinimumSize = new Size( 400, 190 );
+            MaximumSize = new Size( 400, 190 );
+            FormBorderStyle = FormBorderStyle.None;
+            Layout.BackColor = Color.FromArgb( 40, 40, 40 );
+            Layout.BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderColor = Color.Transparent;
+            BackColor = Color.FromArgb( 40, 40, 40 );
+            CaptionBarColor = Color.FromArgb( 40, 40, 40 );
+            Message.BackColor = Color.FromArgb( 40, 40, 40 );
             Resize += OnResized;
         }
 
@@ -111,8 +133,8 @@ namespace BudgetExecution
         /// <param name="duration"> The duration. </param>
         /// <param name="animation"> The animation. </param>
         /// <param name="direction"> The direction. </param>
-        public Notification( string body, int duration = 3, 
-            AnimationMethod animation = AnimationMethod.Fade, 
+        public Notification( string body, int duration = 3,
+            AnimationMethod animation = AnimationMethod.Fade,
             AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
@@ -123,17 +145,15 @@ namespace BudgetExecution
             Title.ForeColor = Color.FromArgb( 0, 120, 212 );
             Title.Text = "Budget Execution Notification";
             Message.Text = body;
-            Region = FromHrgn( CreateRoundRectRgn( 0, 0, Width - 5, Height - 5, 20,
-                20 ) );
-
             Click += ( s, e ) => Close( );
             Message.Click += ( s, e ) => Close( );
             Title.Click += ( s, e ) => Close( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Notification"/>
+        /// <see cref="T:BudgetExecution.Notification" />
         /// class.
         /// </summary>
         /// <param name="title"> The title. </param>
@@ -141,7 +161,8 @@ namespace BudgetExecution
         /// <param name="duration"> The duration. </param>
         /// <param name="animation"> The animation. </param>
         /// <param name="direction"> The direction. </param>
-        public Notification( string title, string body, int duration = 3, AnimationMethod animation = AnimationMethod.Fade,
+        public Notification( string title, string body, int duration = 3,
+            AnimationMethod animation = AnimationMethod.Fade,
             AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
@@ -152,15 +173,14 @@ namespace BudgetExecution
             Title.ForeColor = Color.FromArgb( 0, 120, 212 );
             Title.Text = title;
             Message.Text = body;
-            Region = FromHrgn( CreateRoundRectRgn( 0, 0, Width - 5, Height - 5, 20,
-                20 ) );
-
             Click += ( s, e ) => Close( );
             Message.Click += ( s, e ) => Close( );
             Title.Click += ( s, e ) => Close( );
         }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
@@ -176,7 +196,7 @@ namespace BudgetExecution
                         if( Time == Seconds )
                         {
                             Timer.Stop( );
-                            FadeOutAndClose( );
+                            FadeOut( );
                         }
                     };
                 }
@@ -189,44 +209,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Notifications the close. </summary>
-        public void OnClose( )
-        {
-            try
-            {
-                FadeOutAndClose( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [paint]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="PaintEventArgs"/>
-        /// instance containing the event data.
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
         /// </param>
-        protected override void OnPaint( PaintEventArgs e )
-        {
-            try
-            {
-                base.OnPaint( e );
-                var _g = e.Graphics;
-                using var _pen = new Pen( BorderColor );
-                _g.DrawRectangle( _pen, 0, 0, Width - 1, Height - 1 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
         /// <see cref="EventArgs"/>
@@ -236,7 +224,9 @@ namespace BudgetExecution
         {
             try
             {
-                Location = new Point( PrimaryScreen.WorkingArea.Width - Width - 5, PrimaryScreen.WorkingArea.Height - Height - 5 );
+                Location = new Point( PrimaryScreen.WorkingArea.Width - Width - 5,
+                    PrimaryScreen.WorkingArea.Height - Height - 5 );
+
                 FadeIn( );
                 Timer.Start( );
             }
@@ -246,7 +236,25 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the in. </summary>
+        /// <summary>
+        /// Notifications the close.
+        /// </summary>
+        public void OnClose( )
+        {
+            try
+            {
+                FadeOut( );
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
         private void FadeIn( )
         {
             try
@@ -271,8 +279,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the out and close. </summary>
-        private void FadeOutAndClose( )
+        /// <summary>
+        /// Fades the out and close.
+        /// </summary>
+        private void FadeOut( )
         {
             try
             {
@@ -297,8 +307,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [resized]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [resized].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         /// <param name="e">
         /// The
         /// <see cref="EventArgs"/>
@@ -319,8 +333,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Get ErrorDialog Dialog.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

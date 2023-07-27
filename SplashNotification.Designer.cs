@@ -30,66 +30,25 @@
         {
             components = new System.ComponentModel.Container( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( SplashNotification ) );
-            PictureBox = new Picture( );
-            Title = new Label( );
             BackPanel = new Layout( );
             Message = new RichTextBox( );
             Header = new System.Windows.Forms.TableLayoutPanel( );
-            picture1 = new Picture( );
-            label1 = new Label( );
+            PictureBox = new Picture( );
+            Title = new Label( );
             Timer = new System.Windows.Forms.Timer( components );
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
+            Layout = new Layout( );
             BackPanel.SuspendLayout( );
             Header.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) picture1  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
+            Layout.SuspendLayout( );
             SuspendLayout( );
-            // 
-            // PictureBox
-            // 
-            PictureBox.BackColor = System.Drawing.Color.Transparent;
-            PictureBox.BindingSource = null;
-            PictureBox.DataFilter = null;
-            PictureBox.HoverText = null;
-            PictureBox.Image = Resources.Images.SplashNotification;
-            PictureBox.ImageList = null;
-            PictureBox.InitialImage = null;
-            PictureBox.Location = new System.Drawing.Point( 3, 3 );
-            PictureBox.Name = "PictureBox";
-            PictureBox.Padding = new System.Windows.Forms.Padding( 1 );
-            PictureBox.Size = new System.Drawing.Size( 22, 22 );
-            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            PictureBox.TabIndex = 0;
-            PictureBox.TabStop = false;
-            PictureBox.ToolTip = null;
-            // 
-            // Title
-            // 
-            Title.BindingSource = null;
-            Title.DataFilter = null;
-            Title.Dock = System.Windows.Forms.DockStyle.Fill;
-            Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Title.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            Title.HoverText = null;
-            Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 35, 3 );
-            Title.Margin = new System.Windows.Forms.Padding( 3 );
-            Title.Name = "Title";
-            Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 600, 25 );
-            Title.Style = MetroSet_UI.Enums.Style.Custom;
-            Title.StyleManager = null;
-            Title.TabIndex = 1;
-            Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "Budget Execution";
-            Title.ToolTip = null;
             // 
             // BackPanel
             // 
             BackPanel.BackColor = System.Drawing.Color.Transparent;
-            BackPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BackPanel.BackgroundColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             BackPanel.BindingSource = null;
-            BackPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            BackPanel.BorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             BackPanel.BorderThickness = 1;
             BackPanel.Children = null;
             BackPanel.Controls.Add( Message );
@@ -113,7 +72,7 @@
             // 
             Message.AutoWordSelection = false;
             Message.BindingSource = null;
-            Message.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            Message.BorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             Message.DataFilter = null;
             Message.DisabledBackColor = System.Drawing.Color.FromArgb(   204  ,   204  ,   204   );
             Message.DisabledBorderColor = System.Drawing.Color.FromArgb(   155  ,   155  ,   155   );
@@ -144,101 +103,122 @@
             Header.ColumnCount = 2;
             Header.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 5.172414F ) );
             Header.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 94.82758F ) );
-            Header.Controls.Add( picture1, 0, 0 );
-            Header.Controls.Add( label1, 1, 0 );
-            Header.Dock = System.Windows.Forms.DockStyle.Top;
-            Header.Location = new System.Drawing.Point( 0, 0 );
+            Header.Controls.Add( PictureBox, 0, 0 );
+            Header.Controls.Add( Title, 1, 0 );
+            Header.Location = new System.Drawing.Point( 4, 4 );
             Header.Name = "Header";
             Header.RowCount = 1;
             Header.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            Header.Size = new System.Drawing.Size( 638, 31 );
+            Header.Size = new System.Drawing.Size( 622, 31 );
             Header.TabIndex = 2;
             // 
-            // picture1
+            // PictureBox
             // 
-            picture1.BackColor = System.Drawing.Color.Transparent;
-            picture1.BindingSource = null;
-            picture1.DataFilter = null;
-            picture1.HoverText = null;
-            picture1.Image = Resources.Images.SplashNotification;
-            picture1.ImageList = null;
-            picture1.Location = new System.Drawing.Point( 3, 3 );
-            picture1.Name = "picture1";
-            picture1.Padding = new System.Windows.Forms.Padding( 1 );
-            picture1.Size = new System.Drawing.Size( 27, 25 );
-            picture1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            picture1.TabIndex = 0;
-            picture1.TabStop = false;
-            picture1.ToolTip = null;
+            PictureBox.BackColor = System.Drawing.Color.Transparent;
+            PictureBox.BindingSource = null;
+            PictureBox.DataFilter = null;
+            PictureBox.HoverText = null;
+            PictureBox.Image = Resources.Images.SplashNotification;
+            PictureBox.ImageList = null;
+            PictureBox.Location = new System.Drawing.Point( 3, 3 );
+            PictureBox.Name = "PictureBox";
+            PictureBox.Padding = new System.Windows.Forms.Padding( 1 );
+            PictureBox.Size = new System.Drawing.Size( 26, 25 );
+            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            PictureBox.TabIndex = 0;
+            PictureBox.TabStop = false;
+            PictureBox.ToolTip = null;
             // 
-            // label1
+            // Title
             // 
-            label1.BindingSource = null;
-            label1.DataFilter = null;
-            label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            label1.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            label1.HoverText = null;
-            label1.IsDerivedStyle = true;
-            label1.Location = new System.Drawing.Point( 36, 3 );
-            label1.Margin = new System.Windows.Forms.Padding( 3 );
-            label1.Name = "label1";
-            label1.Padding = new System.Windows.Forms.Padding( 1 );
-            label1.Size = new System.Drawing.Size( 599, 25 );
-            label1.Style = MetroSet_UI.Enums.Style.Custom;
-            label1.StyleManager = null;
-            label1.TabIndex = 1;
-            label1.Text = "Notification";
-            label1.ThemeAuthor = "Terry D. Eppler";
-            label1.ThemeName = "Budget Execution";
-            label1.ToolTip = null;
+            Title.BindingSource = null;
+            Title.DataFilter = null;
+            Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Title.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Title.HoverText = null;
+            Title.IsDerivedStyle = true;
+            Title.Location = new System.Drawing.Point( 35, 3 );
+            Title.Margin = new System.Windows.Forms.Padding( 3 );
+            Title.Name = "Title";
+            Title.Padding = new System.Windows.Forms.Padding( 1 );
+            Title.Size = new System.Drawing.Size( 584, 25 );
+            Title.Style = MetroSet_UI.Enums.Style.Custom;
+            Title.StyleManager = null;
+            Title.TabIndex = 1;
+            Title.Text = "Notification";
+            Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Title.ThemeAuthor = "Terry D. Eppler";
+            Title.ThemeName = "Budget Execution";
+            Title.ToolTip = null;
             // 
-            // Timer
+            // Layout
             // 
-            Timer.Interval = 5000;
+            Layout.BackColor = System.Drawing.Color.Transparent;
+            Layout.BackgroundColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            Layout.BindingSource = null;
+            Layout.BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            Layout.BorderThickness = 1;
+            Layout.Children = null;
+            Layout.Controls.Add( Header );
+            Layout.DataFilter = null;
+            Layout.Dock = System.Windows.Forms.DockStyle.Fill;
+            Layout.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Layout.ForeColor = System.Drawing.Color.Transparent;
+            Layout.HoverText = null;
+            Layout.IsDerivedStyle = true;
+            Layout.Location = new System.Drawing.Point( 0, 0 );
+            Layout.Name = "Layout";
+            Layout.Padding = new System.Windows.Forms.Padding( 1 );
+            Layout.Size = new System.Drawing.Size( 650, 250 );
+            Layout.Style = MetroSet_UI.Enums.Style.Custom;
+            Layout.StyleManager = null;
+            Layout.TabIndex = 3;
+            Layout.ThemeAuthor = "Terry D. Eppler";
+            Layout.ThemeName = "Budget Execution";
+            Layout.ToolTip = null;
             // 
             // SplashNotification
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CaptionBarColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            BorderColor = System.Drawing.Color.Transparent;
+            CaptionBarColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             CaptionBarHeight = 5;
-            CaptionButtonColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionButtonColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ClientSize = new System.Drawing.Size( 638, 239 );
-            Controls.Add( Header );
+            ClientSize = new System.Drawing.Size( 650, 250 );
             Controls.Add( BackPanel );
+            Controls.Add( Layout );
             Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ForeColor = System.Drawing.Color.LightGray;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 650, 250 );
-            MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            MetroColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 650, 250 );
             Name = "SplashNotification";
             ShowIcon = false;
             Text = "SplashNotification";
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
             BackPanel.ResumeLayout( false );
             Header.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) picture1  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
+            Layout.ResumeLayout( false );
             ResumeLayout( false );
         }
 
         #endregion
 
-        public Picture PictureBox;
-        private Label Title;
         public Layout BackPanel;
         public RichTextBox Message;
         public System.Windows.Forms.TableLayoutPanel Header;
-        private Picture picture1;
-        private Label label1;
+        private Picture PictureBox;
+        private Label Title;
         public System.Windows.Forms.Timer Timer;
+        public Layout Layout;
     }
 }

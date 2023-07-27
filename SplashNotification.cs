@@ -43,13 +43,15 @@
 
 namespace BudgetExecution
 {
-    using Syncfusion.Windows.Forms;
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Linq;
     using System.Windows.Forms;
+    using Syncfusion.Windows.Forms;
+    using System.Collections.Generic;
+    using System.Linq;
+    using static System.Windows.Forms.Screen;
+    using Timer = System.Windows.Forms.Timer;
 
     /// <summary>
     /// 
@@ -94,7 +96,7 @@ namespace BudgetExecution
         /// <c> false </c>
         /// .
         /// </value>
-        public bool ShownWithoutActivation { get; } = true;
+        public bool ShownWithoutActivation { get; set; } = true;
 
         /// <summary>
         /// Gets or sets the lines.
@@ -117,11 +119,13 @@ namespace BudgetExecution
             Size = new Size( 650, 250 );
             MinimumSize = new Size( 650, 250 );
             MaximumSize = new Size( 650, 250 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            BorderColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            BackColor = Color.FromArgb( 40, 40, 40 );
+            MetroColor = Color.FromArgb( 40, 40, 40 );
+            BorderColor = Color.FromArgb( 40, 40, 40 );
+            CaptionBarColor = Color.FromArgb( 40, 40, 40 );
+            CaptionButtonColor = Color.FromArgb( 40, 40, 40 );
+            Layout.BackColor = Color.FromArgb( 40, 40, 40 );
+            Message.BackColor = Color.FromArgb( 40, 40, 40 );
             CaptionAlign = HorizontalAlignment.Left;
             CaptionBarHeight = 5;
             MinimizeBox = false;
@@ -131,12 +135,18 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowMouseOver = false;
             ShowInTaskbar = true;
-            PictureBox.Size = new Size( 22, 22 );
-            PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             StartPosition = FormStartPosition.CenterScreen;
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
+            DoubleBuffered = true;
+
+            // Wire Events
             Load += OnLoad;
+            Resize += OnResized;
+            Click += OnClick;
+            PictureBox.Click += OnClick;
+            Title.Click += OnClick;
+            Message.Click += OnClick;
         }
 
         /// <inheritdoc />
@@ -144,7 +154,9 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.SplashNotification" /> class.
         /// </summary>
-        /// <param name="message">The message.</param>
+        /// <param name="message">
+        /// The message.
+        /// </param>
         public SplashNotification( string message )
             : this( )
         {
@@ -156,23 +168,195 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.SplashNotification" /> class.
         /// </summary>
-        /// <param name="lines">The lines.</param>
+        /// <param name="lines">
+        /// The lines.
+        /// </param>
         public SplashNotification( IEnumerable<string> lines )
             : this( )
         {
             Lines = lines.ToList( );
-            Text = Lines[ 0 ];
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
+        public new void Show( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        Time++;
+                        if( Time == Seconds )
+                        {
+                            Timer.Stop( );
+                            FadeOut( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
+        private void FadeIn( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 1d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity += 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out and close.
+        /// </summary>
+        private void FadeOut( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 0d )
+                    {
+                        _timer.Stop( );
+                        Close( );
+                    }
+
+                    Opacity -= 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Notifications the close.
+        /// </summary>
+        public void OnClose( )
+        {
+            try
+            {
+                FadeOut( );
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OnClose( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
         /// Called when [load].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnLoad( object sender, EventArgs e )
         {
-            Message.Text = Text;
+            try
+            {
+                FadeIn( );
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [resized].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnResized( object sender, EventArgs e )
+        {
+            try
+            {
+                if( WindowState == FormWindowState.Minimized )
+                {
+                    WindowState = FormWindowState.Normal;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Get ErrorDialog Dialog.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
+        private protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }
