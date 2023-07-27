@@ -122,15 +122,15 @@ namespace BudgetExecution
             Size = new Size( 650, 250 );
             MinimumSize = new Size( 650, 250 );
             MaximumSize = new Size( 650, 250 );
-            BackColor = Color.FromArgb( 3, 3, 3 );
-            MetroColor = Color.FromArgb( 3, 3, 3 );
+            BackColor = Color.FromArgb( 0, 73, 112 );
+            MetroColor = Color.FromArgb( 0, 73, 112 );
             BorderColor = Color.Transparent;
             FormBorderStyle = FormBorderStyle.None;
-            CaptionBarColor = Color.FromArgb( 3, 3, 3 );
-            CaptionButtonColor = Color.FromArgb( 3, 3, 3 );
-            Message.BackColor = Color.FromArgb( 3, 3, 3 );
+            CaptionBarColor = Color.FromArgb( 0, 73, 112 );
+            CaptionButtonColor = Color.FromArgb( 0, 73, 112 );
+            Message.BackColor = Color.FromArgb( 0, 73, 112 );
             Message.ForeColor = Color.White;
-            Title.ForeColor = Color.FromArgb( 75, 135, 200 );
+            Title.ForeColor = Color.White;
             Layout.BorderColor = Color.FromArgb( 0, 120, 212 );
             Layout.Margin = new Padding( 0 );
             Layout.Padding = new Padding( 0 );
@@ -152,11 +152,11 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9 );
 
             // Wire Events
-            Load += OnLoad;
-            Click += OnClick;
             PictureBox.Click += OnClick;
             Title.Click += OnClick;
             Message.Click += OnClick;
+            Click += OnClick;
+            Load += OnLoad;
         }
 
         /// <inheritdoc />
