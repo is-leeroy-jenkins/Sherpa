@@ -385,7 +385,7 @@ namespace BudgetExecution
             try
             {
                 var _message = "This is only a Test!";
-                var _splash = new Notification( _message );
+                var _splash = new SplashNotification( _message );
                 _splash.Show( );
             }
             catch( Exception e )

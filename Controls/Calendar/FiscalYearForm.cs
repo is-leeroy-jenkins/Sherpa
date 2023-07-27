@@ -169,6 +169,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            Shown += OnShown;
             CloseButton.Click += OnCloseButtonClick;
             MenuButton.Click += OnMenuButtonClicked;
             FirstCalendar.SelectionChanged += OnFirstCalendarSelectionChanged;
@@ -235,6 +236,61 @@ namespace BudgetExecution
                 Label10.Visible = false;
                 Label11.Visible = false;
                 Label12.Visible = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
+        private void FadeIn( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 1d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity += 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out and close.
+        /// </summary>
+        private void FadeOut( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 0d )
+                    {
+                        _timer.Stop( );
+                        Close( );
+                    }
+
+                    Opacity -= 0.02d;
+                };
+
+                _timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -440,6 +496,18 @@ namespace BudgetExecution
             }
         }
 
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary>
         /// Called when [main menu button clicked].
         /// </summary>
@@ -468,6 +536,7 @@ namespace BudgetExecution
         {
             try
             {
+                FadeOut( );
                 Close( );
             }
             catch( Exception _ex )
@@ -577,7 +646,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

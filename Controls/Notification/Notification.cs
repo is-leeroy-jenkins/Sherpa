@@ -109,17 +109,33 @@ namespace BudgetExecution
         public Notification( )
         {
             InitializeComponent( );
+
+            // Form Properties
             DoubleBuffered = true;
             Size = new Size( 400, 190 );
             MinimumSize = new Size( 400, 190 );
             MaximumSize = new Size( 400, 190 );
+            MinimizeBox = false;
+            MaximizeBox = false;
+            ControlBox = false;
+            ShowMaximizeBox = false;
+            ShowMinimizeBox = false;
+            ShowIcon = false;
+            ShowMouseOver = false;
+            ShowInTaskbar = true;
             FormBorderStyle = FormBorderStyle.None;
-            Layout.BackColor = Color.FromArgb( 40, 40, 40 );
-            Layout.BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderColor = Color.Transparent;
-            BackColor = Color.FromArgb( 40, 40, 40 );
-            CaptionBarColor = Color.FromArgb( 40, 40, 40 );
-            Message.BackColor = Color.FromArgb( 40, 40, 40 );
+            SizeGripStyle = SizeGripStyle.Hide;
+            Padding = new Padding( 0 );
+            Layout.BackColor = Color.FromArgb( 0, 73, 112 );
+            Layout.BorderColor = Color.FromArgb( 0, 73, 112 );
+            Title.ForeColor = Color.White;
+            BorderColor = Color.FromArgb( 0, 73, 112 );
+            BackColor = Color.FromArgb( 0, 73, 112 );
+            CaptionBarColor = Color.FromArgb( 0, 73, 112 );
+            Message.BackColor = Color.FromArgb( 0, 73, 112 );
+            Message.ForeColor = Color.White;
+
+            // Event Wiring
             Resize += OnResized;
         }
 
@@ -133,7 +149,7 @@ namespace BudgetExecution
         /// <param name="duration"> The duration. </param>
         /// <param name="animation"> The animation. </param>
         /// <param name="direction"> The direction. </param>
-        public Notification( string body, int duration = 3,
+        public Notification( string body, int duration = 5,
             AnimationMethod animation = AnimationMethod.Fade,
             AnimationDirection direction = AnimationDirection.Up )
             : this( )
@@ -142,8 +158,7 @@ namespace BudgetExecution
             Time = 0;
             Seconds = duration;
             Timer.Interval = duration * 1000;
-            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
-            Title.Text = "Budget Execution Notification";
+            Title.Text = "Notification";
             Message.Text = body;
             Click += ( s, e ) => Close( );
             Message.Click += ( s, e ) => Close( );
@@ -161,7 +176,7 @@ namespace BudgetExecution
         /// <param name="duration"> The duration. </param>
         /// <param name="animation"> The animation. </param>
         /// <param name="direction"> The direction. </param>
-        public Notification( string title, string body, int duration = 3,
+        public Notification( string title, string body, int duration = 5,
             AnimationMethod animation = AnimationMethod.Fade,
             AnimationDirection direction = AnimationDirection.Up )
             : this( )
@@ -170,7 +185,6 @@ namespace BudgetExecution
             Time = 0;
             Seconds = duration;
             Timer.Interval = duration * 1000;
-            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
             Title.Text = title;
             Message.Text = body;
             Click += ( s, e ) => Close( );

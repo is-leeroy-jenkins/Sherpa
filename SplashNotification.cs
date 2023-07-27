@@ -50,7 +50,10 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using System.Collections.Generic;
     using System.Linq;
+    using static System.Drawing.Region;
     using static System.Windows.Forms.Screen;
+    using static FormAnimator;
+    using static NativeMethods;
     using Timer = System.Windows.Forms.Timer;
 
     /// <summary>
@@ -119,30 +122,37 @@ namespace BudgetExecution
             Size = new Size( 650, 250 );
             MinimumSize = new Size( 650, 250 );
             MaximumSize = new Size( 650, 250 );
-            BackColor = Color.FromArgb( 40, 40, 40 );
-            MetroColor = Color.FromArgb( 40, 40, 40 );
-            BorderColor = Color.FromArgb( 40, 40, 40 );
-            CaptionBarColor = Color.FromArgb( 40, 40, 40 );
-            CaptionButtonColor = Color.FromArgb( 40, 40, 40 );
-            Layout.BackColor = Color.FromArgb( 40, 40, 40 );
-            Message.BackColor = Color.FromArgb( 40, 40, 40 );
+            BackColor = Color.FromArgb( 3, 3, 3 );
+            MetroColor = Color.FromArgb( 3, 3, 3 );
+            BorderColor = Color.Transparent;
+            FormBorderStyle = FormBorderStyle.None;
+            CaptionBarColor = Color.FromArgb( 3, 3, 3 );
+            CaptionButtonColor = Color.FromArgb( 3, 3, 3 );
+            Message.BackColor = Color.FromArgb( 3, 3, 3 );
+            Message.ForeColor = Color.White;
+            Title.ForeColor = Color.FromArgb( 75, 135, 200 );
+            Layout.BorderColor = Color.FromArgb( 0, 120, 212 );
+            Layout.Margin = new Padding( 0 );
+            Layout.Padding = new Padding( 0 );
             CaptionAlign = HorizontalAlignment.Left;
             CaptionBarHeight = 5;
             MinimizeBox = false;
             MaximizeBox = false;
+            ControlBox = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
             ShowIcon = false;
             ShowMouseOver = false;
             ShowInTaskbar = true;
+            DoubleBuffered = true;
             StartPosition = FormStartPosition.CenterScreen;
+            SizeGripStyle = SizeGripStyle.Hide;
+            Padding = new Padding( 0 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
-            DoubleBuffered = true;
 
             // Wire Events
             Load += OnLoad;
-            Resize += OnResized;
             Click += OnClick;
             PictureBox.Click += OnClick;
             Title.Click += OnClick;
@@ -157,10 +167,19 @@ namespace BudgetExecution
         /// <param name="message">
         /// The message.
         /// </param>
-        public SplashNotification( string message )
+        /// <param name = "duration" > </param>
+        /// <param name = "animation" > </param>
+        /// <param name = "direction" > </param>
+        public SplashNotification( string message, int duration = 5,
+            AnimationMethod animation = AnimationMethod.Fade,
+            AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
-            Text = message;
+            Time = 0;
+            Seconds = duration;
+            Timer.Interval = duration * 1000;
+            Title.Text = "Notification";
+            Message.Text = message;
         }
 
         /// <inheritdoc />
@@ -171,10 +190,19 @@ namespace BudgetExecution
         /// <param name="lines">
         /// The lines.
         /// </param>
-        public SplashNotification( IEnumerable<string> lines )
+        /// <param name = "duration" > </param>
+        /// <param name = "animation" > </param>
+        /// <param name = "direction" > </param>
+        public SplashNotification( IEnumerable<string> lines, int duration = 5,
+            AnimationMethod animation = AnimationMethod.Fade,
+            AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
             Lines = lines.ToList( );
+            Time = 0;
+            Seconds = duration;
+            Timer.Interval = duration * 1000;
+            Title.Text = "Notification";
         }
 
         /// <summary>
@@ -313,32 +341,6 @@ namespace BudgetExecution
             {
                 FadeIn( );
                 Timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [resized].
-        /// </summary>
-        /// <param name="sender">
-        /// The sender.
-        /// </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnResized( object sender, EventArgs e )
-        {
-            try
-            {
-                if( WindowState == FormWindowState.Minimized )
-                {
-                    WindowState = FormWindowState.Normal;
-                }
             }
             catch( Exception _ex )
             {
