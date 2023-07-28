@@ -35,7 +35,7 @@
             Title = new System.Windows.Forms.Label( );
             Timer = new System.Windows.Forms.Timer( components );
             BackPanel = new Layout( );
-            Message = new System.Windows.Forms.RichTextBox( );
+            Message = new Label( );
             Header.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             BackPanel.SuspendLayout( );
@@ -90,7 +90,7 @@
             BackPanel.BackColor = System.Drawing.Color.Transparent;
             BackPanel.BackgroundColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
             BackPanel.BindingSource = null;
-            BackPanel.BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            BackPanel.BorderColor = System.Drawing.Color.FromArgb(   106  ,   189  ,   252   );
             BackPanel.BorderThickness = 1;
             BackPanel.Children = null;
             BackPanel.Controls.Add( Message );
@@ -115,14 +115,24 @@
             // 
             // Message
             // 
-            Message.BackColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
-            Message.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            Message.ForeColor = System.Drawing.Color.White;
-            Message.Location = new System.Drawing.Point( 87, 74 );
+            Message.BindingSource = null;
+            Message.DataFilter = null;
+            Message.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Message.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Message.HoverText = null;
+            Message.IsDerivedStyle = true;
+            Message.Location = new System.Drawing.Point( 152, 92 );
+            Message.Margin = new System.Windows.Forms.Padding( 3 );
             Message.Name = "Message";
-            Message.Size = new System.Drawing.Size( 586, 230 );
+            Message.Padding = new System.Windows.Forms.Padding( 1 );
+            Message.Size = new System.Drawing.Size( 433, 148 );
+            Message.Style = MetroSet_UI.Enums.Style.Custom;
+            Message.StyleManager = null;
             Message.TabIndex = 3;
-            Message.Text = "";
+            Message.Text = "label1";
+            Message.ThemeAuthor = "Terry D. Eppler";
+            Message.ThemeName = "Budget Execution";
+            Message.ToolTip = null;
             // 
             // SplashMessage
             // 
@@ -165,6 +175,6 @@
         public System.Windows.Forms.Timer Timer;
         public Layout BackPanel;
         public System.Windows.Forms.Label Title;
-        public System.Windows.Forms.RichTextBox Message;
+        public Label Message;
     }
 }

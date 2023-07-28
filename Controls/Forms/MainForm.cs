@@ -423,9 +423,9 @@ namespace BudgetExecution
                 var _splash = new SplashMessage( _message );
                 _splash.Show( );
             }
-            catch( Exception e )
+            catch( Exception _ex )
             {
-                Console.WriteLine( e );
+                Console.WriteLine( _ex );
                 throw;
             }
         }

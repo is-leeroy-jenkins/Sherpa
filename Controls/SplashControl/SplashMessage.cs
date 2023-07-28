@@ -43,7 +43,6 @@
 
 namespace BudgetExecution
 {
-    using Microsoft.Office.Interop.Outlook;
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
@@ -51,10 +50,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using System.Collections.Generic;
     using System.Linq;
-    using static System.Drawing.Region;
-    using static System.Windows.Forms.Screen;
     using static FormAnimator;
-    using static NativeMethods;
     using Exception = System.Exception;
     using Timer = System.Windows.Forms.Timer;
 
@@ -130,15 +126,17 @@ namespace BudgetExecution
             FormBorderStyle = FormBorderStyle.None;
             CaptionBarColor = Color.FromArgb( 0, 73, 112 );
             CaptionButtonColor = Color.FromArgb( 0, 73, 112 );
-            Message.BackColor = Color.FromArgb( 0, 73, 112 );
-            Message.ForeColor = Color.White;
-            Title.ForeColor = Color.White;
-            Title.TextAlign = ContentAlignment.TopLeft;
-            BackPanel.BorderColor = Color.FromArgb( 0, 120, 212 );
-            BackPanel.Margin = new Padding( 0 );
-            BackPanel.Padding = new Padding( 0 );
             CaptionAlign = HorizontalAlignment.Left;
             CaptionBarHeight = 5;
+            Title.ForeColor = Color.White;
+            Title.TextAlign = ContentAlignment.TopLeft;
+            BackPanel.BorderColor = Color.FromArgb( 106, 189, 252 );
+            BackPanel.Margin = new Padding( 0 );
+            BackPanel.Padding = new Padding( 0 );
+            Message.BackColor = Color.FromArgb( 0, 73, 112 );
+            Message.Font = new Font( "Roboto", 11 );
+            Message.ForeColor = Color.White;
+            Message.TextAlign = ContentAlignment.TopLeft;
             MinimizeBox = false;
             MaximizeBox = false;
             ControlBox = false;

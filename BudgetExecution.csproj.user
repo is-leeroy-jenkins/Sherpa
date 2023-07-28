@@ -278,6 +278,9 @@
     <Compile Update="Controls\SplashControl\SplashMessage.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="SplashControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Clients\BudgetBrowser\net6.0-windows\Properties\Resources.resx">
