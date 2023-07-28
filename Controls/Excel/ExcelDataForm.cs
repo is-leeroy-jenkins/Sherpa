@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Enumerations
-//     Author:                  Terry D. Eppler
-//     Created:                 06-19-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                ExcelDataForm.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-19-2023
-// ******************************************************************************************
-// <copyright file="ExcelDataForm.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="ExcelDataForm.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   ExcelDataForm.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    ExcelDataForm.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -53,19 +56,20 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.XlsIO;
+    using System.Collections;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class ExcelDataForm : MetroForm
     {
         /// <summary>
@@ -308,6 +312,38 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns></returns>
+        private protected IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    foreach( Control _control in _collection )
+                    {
+                        _list.Add( _control );
+                        _queue.Enqueue( _control.Controls );
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( Control[ ] );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Control[ ] );
+            }
+        }
+
+        /// <summary>
         /// Notifies this instance.
         /// </summary>
         private void Notify( )
@@ -315,7 +351,7 @@ namespace BudgetExecution
             try
             {
                 var _message = "THIS IS NOT YET IMPLEMENTED!!";
-                var _notify = new Notification( _message );
+                var _notify = new SplashMessage( _message );
                 _notify.Show( );
             }
             catch( Exception _ex )
@@ -362,11 +398,11 @@ namespace BudgetExecution
             {
                 if( DataTable != null )
                 {
-                    SetTableProperties( DataTable );
+                    InitializeTable( DataTable );
                 }
                 else
                 {
-                    SetTableProperties( );
+                    InitializeTable( );
                 }
             }
             catch( Exception _ex )
@@ -378,7 +414,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the table properties.
         /// </summary>
-        private void SetTableProperties( )
+        private void InitializeTable( )
         {
             try
             {
@@ -402,7 +438,7 @@ namespace BudgetExecution
         /// Sets the table properties.
         /// </summary>
         /// <param name="table">The table.</param>
-        private void SetTableProperties( DataTable table )
+        private void InitializeTable( DataTable table )
         {
             if( ( table != null )
                && ( table?.Rows?.Count > 0 ) )
@@ -421,7 +457,7 @@ namespace BudgetExecution
                     _usedRange.CellStyle.Font.Size = 10;
                     _usedRange.CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
                     _usedRange.CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
-                    var _topRow = _activeSheet?.Range[1, 1, 1, 60];
+                    var _topRow = _activeSheet?.Range[ 1, 1, 1, 60 ];
                     RowCount = DataTable.Rows.Count;
                     ColCount = DataTable.Columns.Count;
                     ToolStripTextBox.Text = $"  Rows: {RowCount}  Columns: {ColCount}";
@@ -445,11 +481,11 @@ namespace BudgetExecution
             {
                 if( DataTable != null )
                 {
-                    SetWorksheetProperties( DataTable );
+                    InitializeWorksheet( DataTable );
                 }
                 else
                 {
-                    SetWorksheetProperties( );
+                    InitializeWorksheet( );
                 }
             }
             catch( Exception _ex )
@@ -462,7 +498,7 @@ namespace BudgetExecution
         /// Sets the worksheet properties.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
-        private void SetWorksheetProperties( DataTable dataTable )
+        private void InitializeWorksheet( DataTable dataTable )
         {
             if( dataTable != null )
             {
@@ -493,7 +529,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the worksheet properties.
         /// </summary>
-        private void SetWorksheetProperties( )
+        private void InitializeWorksheet( )
         {
             try
             {
@@ -709,7 +745,7 @@ namespace BudgetExecution
                    && ( Owner.Visible == false )
                    && ( Owner.GetType( ) == typeof( MainForm ) ) )
                 {
-                    var _form = (MainForm)Program.Windows[nameof( MainForm )];
+                    var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
                     _form.Visible = true;
                     Close( );
                 }
@@ -725,7 +761,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [load].
         /// </summary>
@@ -773,7 +809,7 @@ namespace BudgetExecution
         /// <param name="e">The
         /// <see cref="EventArgs"/> instance containing the event data.
         /// </param>
-        [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
+        [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
         public void OnCellEnter( object sender, CurrentCellActivatedEventArgs e )
         {
             try
@@ -828,7 +864,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [exit button click].
         /// </summary>
@@ -855,7 +891,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows["ExcelDataForm"] = this;
+                Program.Windows[ "ExcelDataForm" ] = this;
             }
             catch( Exception _ex )
             {
@@ -917,7 +953,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [right click].
         /// </summary>
@@ -996,7 +1032,7 @@ namespace BudgetExecution
                         && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
-                    var _mainForm = Program.Windows["Main"];
+                    var _mainForm = Program.Windows[ "Main" ];
                     _mainForm.Visible = true;
                 }
             }

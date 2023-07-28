@@ -1,6 +1,6 @@
 ﻿namespace BudgetExecution
 {
-    public partial class SplashNotification
+    public partial class SplashMessage
     {
         /// <summary>
         /// Required designer variable.
@@ -29,16 +29,16 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( SplashNotification ) );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( SplashMessage ) );
             Header = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new Picture( );
-            Timer = new System.Windows.Forms.Timer( components );
-            Layout = new Layout( );
             Title = new System.Windows.Forms.Label( );
+            Timer = new System.Windows.Forms.Timer( components );
+            BackPanel = new Layout( );
             Message = new System.Windows.Forms.RichTextBox( );
             Header.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
-            Layout.SuspendLayout( );
+            BackPanel.SuspendLayout( );
             SuspendLayout( );
             // 
             // Header
@@ -72,34 +72,6 @@
             PictureBox.TabStop = false;
             PictureBox.ToolTip = null;
             // 
-            // Layout
-            // 
-            Layout.BackColor = System.Drawing.Color.Transparent;
-            Layout.BackgroundColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
-            Layout.BindingSource = null;
-            Layout.BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            Layout.BorderThickness = 1;
-            Layout.Children = null;
-            Layout.Controls.Add( Message );
-            Layout.Controls.Add( Header );
-            Layout.DataFilter = null;
-            Layout.Dock = System.Windows.Forms.DockStyle.Fill;
-            Layout.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            Layout.ForeColor = System.Drawing.Color.Transparent;
-            Layout.HoverText = null;
-            Layout.IsDerivedStyle = true;
-            Layout.Location = new System.Drawing.Point( 0, 0 );
-            Layout.Margin = new System.Windows.Forms.Padding( 0 );
-            Layout.Name = "Layout";
-            Layout.Padding = new System.Windows.Forms.Padding( 1 );
-            Layout.Size = new System.Drawing.Size( 735, 371 );
-            Layout.Style = MetroSet_UI.Enums.Style.Custom;
-            Layout.StyleManager = null;
-            Layout.TabIndex = 3;
-            Layout.ThemeAuthor = "Terry D. Eppler";
-            Layout.ThemeName = "Budget Execution";
-            Layout.ToolTip = null;
-            // 
             // Title
             // 
             Title.AutoSize = true;
@@ -113,6 +85,34 @@
             Title.Text = "Notification";
             Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // BackPanel
+            // 
+            BackPanel.BackColor = System.Drawing.Color.Transparent;
+            BackPanel.BackgroundColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
+            BackPanel.BindingSource = null;
+            BackPanel.BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            BackPanel.BorderThickness = 1;
+            BackPanel.Children = null;
+            BackPanel.Controls.Add( Message );
+            BackPanel.Controls.Add( Header );
+            BackPanel.DataFilter = null;
+            BackPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            BackPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            BackPanel.ForeColor = System.Drawing.Color.Transparent;
+            BackPanel.HoverText = null;
+            BackPanel.IsDerivedStyle = true;
+            BackPanel.Location = new System.Drawing.Point( 0, 0 );
+            BackPanel.Margin = new System.Windows.Forms.Padding( 0 );
+            BackPanel.Name = "BackPanel";
+            BackPanel.Padding = new System.Windows.Forms.Padding( 1 );
+            BackPanel.Size = new System.Drawing.Size( 735, 371 );
+            BackPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            BackPanel.StyleManager = null;
+            BackPanel.TabIndex = 3;
+            BackPanel.ThemeAuthor = "Terry D. Eppler";
+            BackPanel.ThemeName = "Budget Execution";
+            BackPanel.ToolTip = null;
+            // 
             // Message
             // 
             Message.BackColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
@@ -124,7 +124,7 @@
             Message.TabIndex = 3;
             Message.Text = "";
             // 
-            // SplashNotification
+            // SplashMessage
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -137,7 +137,7 @@
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             ClientSize = new System.Drawing.Size( 735, 371 );
-            Controls.Add( Layout );
+            Controls.Add( BackPanel );
             Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ForeColor = System.Drawing.Color.LightGray;
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -146,7 +146,7 @@
             MetroColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 650, 250 );
-            Name = "SplashNotification";
+            Name = "SplashMessage";
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
@@ -155,15 +155,15 @@
             Header.ResumeLayout( false );
             Header.PerformLayout( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
-            Layout.ResumeLayout( false );
+            BackPanel.ResumeLayout( false );
             ResumeLayout( false );
         }
 
         #endregion
         public System.Windows.Forms.TableLayoutPanel Header;
-        private Picture PictureBox;
+        public Picture PictureBox;
         public System.Windows.Forms.Timer Timer;
-        public Layout Layout;
+        public Layout BackPanel;
         public System.Windows.Forms.Label Title;
         public System.Windows.Forms.RichTextBox Message;
     }

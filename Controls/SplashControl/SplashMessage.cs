@@ -1,140 +1,166 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                SplashMessage.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="SplashMessage.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="SplashMessage.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   SplashMessage.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    SplashMessage.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
+    using Microsoft.Office.Interop.Outlook;
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.IO;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
-    using Syncfusion.Windows.Forms.Tools;
-    using System.Configuration;
-    using Image = System.Drawing.Image;
+    using Syncfusion.Windows.Forms;
+    using System.Collections.Generic;
+    using System.Linq;
+    using static System.Drawing.Region;
+    using static System.Windows.Forms.Screen;
+    using static FormAnimator;
+    using static NativeMethods;
+    using Exception = System.Exception;
+    using Timer = System.Windows.Forms.Timer;
 
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Tools.SplashPanel" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [SuppressMessage("ReSharper", "MemberCanBeInternal")]
-    public class SplashMessage : SplashPanel
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    public partial class SplashMessage : MetroForm
     {
-        public string Prefix { get; } = ConfigurationManager.AppSettings[ "PathPrefix" ];
-
-        public string IconPath { get; } 
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value> The time. </value>
+        public int Time { get; set; }
 
         /// <summary>
-        /// Gets or sets the binding source.
+        /// Gets or sets the seconds.
         /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
-        public virtual BindingSource BindingSource { get; set; }
+        /// <value> The seconds. </value>
+        public int Seconds { get; set; }
 
         /// <summary>
-        /// Gets or sets the images.
+        /// Gets or sets a value indicating whether [allow focus].
         /// </summary>
         /// <value>
-        /// The images.
+        /// <c> true </c>
+        /// if [allow focus]; otherwise,
+        /// <c> false </c>
+        /// .
         /// </value>
-        public virtual IEnumerable<Image> Images { get; set; }
+        public bool AllowFocus { get; set; }
 
         /// <summary>
-        /// Gets or sets the tool tip.
+        /// Gets a value indicating whether [shown without activation].
         /// </summary>
         /// <value>
-        /// The tool tip.
+        /// <c> true </c>
+        /// if [shown without activation]; otherwise,
+        /// <c> false </c>
+        /// .
         /// </value>
-        public virtual SmallTip ToolTip { get; set; }
+        public bool ShownWithoutActivation { get; set; } = true;
 
         /// <summary>
-        /// Gets or sets the data filter.
+        /// Gets or sets the lines.
         /// </summary>
         /// <value>
-        /// The data filter.
+        /// The lines.
         /// </value>
-        public virtual IDictionary<string, object> DataFilter { get; set; }
+        public List<string> Lines { get; set; }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.SplashMessage" /> class.
         /// </summary>
-        /// <remarks>
-        /// The default value for the
-        /// <see cref="P:Syncfusion.Windows.Forms.Tools.SplashPanel.TimerInterval" />
-        /// is set to 5000 milliseconds.
-        /// The splash panel has animation turned and by default will appear in the
-        /// middle of the screen.
-        /// </remarks>
         public SplashMessage( )
         {
-            BackColor = Color.FromArgb( 20, 20, 20 );
+            InitializeComponent( );
+
+            // Form Properties
+            Size = new Size( 650, 250 );
+            MinimumSize = new Size( 650, 250 );
+            MaximumSize = new Size( 650, 250 );
+            BackColor = Color.FromArgb( 0, 73, 112 );
+            MetroColor = Color.FromArgb( 0, 73, 112 );
+            BorderColor = Color.Transparent;
+            FormBorderStyle = FormBorderStyle.None;
+            CaptionBarColor = Color.FromArgb( 0, 73, 112 );
+            CaptionButtonColor = Color.FromArgb( 0, 73, 112 );
+            Message.BackColor = Color.FromArgb( 0, 73, 112 );
+            Message.ForeColor = Color.White;
+            Title.ForeColor = Color.White;
+            Title.TextAlign = ContentAlignment.TopLeft;
+            BackPanel.BorderColor = Color.FromArgb( 0, 120, 212 );
+            BackPanel.Margin = new Padding( 0 );
+            BackPanel.Padding = new Padding( 0 );
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionBarHeight = 5;
+            MinimizeBox = false;
+            MaximizeBox = false;
+            ControlBox = false;
+            ShowMaximizeBox = false;
+            ShowMinimizeBox = false;
+            ShowIcon = false;
+            ShowMouseOver = false;
+            ShowInTaskbar = true;
+            DoubleBuffered = true;
+            StartPosition = FormStartPosition.CenterScreen;
+            SizeGripStyle = SizeGripStyle.Hide;
+            Padding = new Padding( 0 );
             ForeColor = Color.LightGray;
-            Size = new Size( 650, 350 );
-            MinimumSize = new Size( 650, 350 );
-            MaximumSize = new Size( 650, 350 );
-            BorderStyle = Border3DStyle.Flat;
-            BorderType = SplashBorderType.None;
-            BackgroundColor = new BrushInfo( GradientStyle.PathEllipse, 
-                Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 70, 70, 70 ) );
-            
-            ShowAnimation = true;
-            ShowAsTopMost = true;
-            AnimationSpeed = 20;
-            AnimationSteps = 3;
-            AnimationDirection = AnimationDirection.Default;
-            DesktopAlignment = SplashAlignment.Center;
-            DiscreetLocation = new Point( 0, 0 );
-            SuspendAutoCloseWhenMouseOver = false;
-            TabIndex = 0;
-            TimerInterval = 5000;
-            CloseOnClick = true;
-            AllowMove = false;
-            MarqueePosition = MarqueePosition.BottomRight;
-            MarqueeDirection = SplashPanelMarqueeDirection.RightToLeft;
-            SlideStyle = SlideStyle.FadeIn;
-            IconPath = Prefix + @"Resources\Pictures\Ninja\ico\BudExNinjaGrey.ico";
+            Font = new Font( "Roboto", 9 );
+
+            // Wire Events
+            PictureBox.MouseClick += OnClick;
+            Title.MouseClick += OnClick;
+            Message.MouseClick += OnClick;
+            Header.MouseClick += OnClick;
+            MouseClick += OnClick;
+            Load += OnLoad;
         }
 
         /// <inheritdoc />
@@ -142,11 +168,22 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.SplashMessage" /> class.
         /// </summary>
-        /// <param name="message">The message.</param>
-        public SplashMessage( string message )
+        /// <param name="message">
+        /// The message.
+        /// </param>
+        /// <param name = "duration" > </param>
+        /// <param name = "animation" > </param>
+        /// <param name = "direction" > </param>
+        public SplashMessage( string message, int duration = 5,
+            AnimationMethod animation = AnimationMethod.Fade,
+            AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
-            Text = message;
+            Time = 0;
+            Seconds = duration;
+            Timer.Interval = duration * 1000;
+            Title.Text = "Notification";
+            Message.Text = message;
         }
 
         /// <inheritdoc />
@@ -154,38 +191,139 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.SplashMessage" /> class.
         /// </summary>
-        /// <param name="toolTip">The tool tip.</param>
-        public SplashMessage( SmallTip toolTip )
+        /// <param name="lines">
+        /// The lines.
+        /// </param>
+        /// <param name = "duration" > </param>
+        /// <param name = "animation" > </param>
+        /// <param name = "direction" > </param>
+        public SplashMessage( IEnumerable<string> lines, int duration = 5,
+            AnimationMethod animation = AnimationMethod.Fade,
+            AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
-            Text = toolTip?.TipText;
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SplashMessage" /> class.
-        /// </summary>
-        /// <param name="control">The control.</param>
-        /// <param name="message">The message.</param>
-        public SplashMessage( Control control, string message )
-            : this( )
-        {
-            Parent = control;
-            Text = message;
+            Lines = lines.ToList( );
+            Time = 0;
+            Seconds = duration;
+            Timer.Interval = duration * 1000;
+            Title.Text = "Notification";
         }
 
         /// <summary>
-        /// Shows the message.
+        /// Displays the control to the user.
         /// </summary>
-        public void Notify( )
+        public new void Show( )
         {
-            if( !string.IsNullOrEmpty( Text ) )
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        Time++;
+                        if( Time == Seconds )
+                        {
+                            Timer.Stop( );
+                            FadeOut( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
+        private void FadeIn( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 1d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity += 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out and close.
+        /// </summary>
+        private void FadeOut( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 0d )
+                    {
+                        _timer.Stop( );
+                        Close( );
+                    }
+
+                    Opacity -= 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Notifications the close.
+        /// </summary>
+        public void OnClose( )
+        {
+            try
+            {
+                FadeOut( );
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Left
+               || e.Button == MouseButtons.Right )
             {
                 try
                 {
-                    FormIcon = new Icon( IconPath );
-                    ShowSplash( );
+                    OnClose( );
                 }
                 catch( Exception _ex )
                 {
@@ -195,14 +333,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Res the size.
+        /// Called when [load].
         /// </summary>
-        /// <param name="size">The size.</param>
-        public virtual void ReSize( Size size )
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnLoad( object sender, EventArgs e )
         {
             try
             {
-                Size = size;
+                FadeIn( );
+                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -211,63 +357,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Res the size.
+        /// Get ErrorDialog Dialog.
         /// </summary>
-        /// <param name="width">The width.</param>
-        /// <param name="height">The height.</param>
-        public virtual void ReSize( int width = 650, int height = 350 )
-        {
-            try
-            {
-                Size = new Size( width, height );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the color of the back.
-        /// </summary>
-        /// <param name="color">The color.</param>
-        public virtual void SetBackColor( Color color )
-        {
-            try
-            {
-                BackColor = color;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Resets the icon.
-        /// </summary>
-        /// <param name="path">The path.</param>
-        public virtual void SetIcon( string path )
-        {
-            if( !string.IsNullOrEmpty( path )
-               && File.Exists( path ) )
-            {
-                try
-                {
-                    var _stream = File.Open( path, FileMode.Open );
-                    FormIcon = new Icon( _stream );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

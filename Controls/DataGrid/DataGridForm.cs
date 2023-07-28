@@ -54,6 +54,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
+    using System.Collections;
 
     /// <summary>
     /// 
@@ -395,6 +396,65 @@ namespace BudgetExecution
             Numerics = DataModel?.Numerics;
             DataGrid.DataSource = BindingSource?.DataSource;
             ToolStrip.BindingSource = BindingSource;
+        }
+
+        /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns></returns>
+        private protected IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    foreach( Control _control in _collection )
+                    {
+                        _list.Add( _control );
+                        _queue.Enqueue( _control.Controls );
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( Control[ ] );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Control[ ] );
+            }
+        }
+
+        /// <summary>
+        /// Gets the radio buttons.
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerable<RadioButton> GetRadioButtons( )
+        {
+            try
+            {
+                var _buttons = new List<RadioButton>
+                {
+                    SQLiteRadioButton,
+                    AccessRadioButton,
+                    SqlCeRadioButton,
+                    SqlServerRadioButton
+                };
+
+                return _buttons?.Any( ) == true
+                    ? _buttons
+                    : default( IEnumerable<RadioButton> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<RadioButton> );
+            }
         }
 
         /// <summary>
@@ -1132,33 +1192,6 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Gets the radio buttons.
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerable<RadioButton> GetRadioButtons( )
-        {
-            try
-            {
-                var _buttons = new List<RadioButton>
-                {
-                    SQLiteRadioButton,
-                    AccessRadioButton,
-                    SqlCeRadioButton,
-                    SqlServerRadioButton
-                };
-
-                return _buttons?.Any( ) == true
-                    ? _buttons
-                    : default( IEnumerable<RadioButton> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IEnumerable<RadioButton> );
             }
         }
 

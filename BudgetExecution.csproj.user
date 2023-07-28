@@ -200,9 +200,6 @@
     <Compile Update="Controls\RichTextBox\RichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\SplashControl\SplashMessage.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Controls\TabControl\TabControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -278,7 +275,7 @@
     <Compile Update="Controls\Editor\SqlEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="SplashNotification.cs">
+    <Compile Update="Controls\SplashControl\SplashMessage.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

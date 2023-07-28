@@ -53,6 +53,7 @@ namespace BudgetExecution
     using System.Windows.Forms.DataVisualization.Charting;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
+    using System.Collections;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
@@ -383,6 +384,38 @@ namespace BudgetExecution
             Numerics = DataModel?.Numerics;
         }
 
+        /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns></returns>
+        private protected IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    foreach( Control _control in _collection )
+                    {
+                        _list.Add( _control );
+                        _queue.Enqueue( _control.Controls );
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( Control[ ] );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Control[ ] );
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -405,54 +438,6 @@ namespace BudgetExecution
             Chart.DataSource = DataModel.DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
-        }
-
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        public void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-                SetToolStripProperties( );
-                FormFilter = new Dictionary<string, object>( );
-                SelectedColumns = new List<string>( );
-                SelectedFields = new List<string>( );
-                SelectedNumerics = new List<string>( );
-                NumericListBox.MultiSelect = true;
-                FieldListBox.MultiSelect = true;
-                Text = string.Empty;
-                ToolStrip.Visible = true;
-                if( string.IsNullOrEmpty( SelectedTable ) )
-                {
-                    TabControl.SelectedIndex = 0;
-                    TableTabPage.TabVisible = true;
-                    FilterTabPage.TabVisible = false;
-                    GroupTabPage.TabVisible = false;
-                    PopulateExecutionTables( );
-                }
-                else if( !string.IsNullOrEmpty( SelectedTable ) )
-                {
-                    TabControl.SelectedIndex = 1;
-                    FilterTabPage.TabVisible = true;
-                    TableTabPage.TabVisible = false;
-                    GroupTabPage.TabVisible = false;
-                    LabelTable.Visible = true;
-                    PopulateFirstComboBoxItems( );
-                    ResetFilterTableVisibility( );
-                    ResetData( );
-                    UpdateLabelText( );
-                }
-
-                PopulateToolBarDropDownItems( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
         }
 
         /// <summary>
@@ -668,7 +653,121 @@ namespace BudgetExecution
 
             return string.Empty;
         }
-        
+
+        /// <summary>
+        /// Clears the combo boxes.
+        /// </summary>
+        private void ClearComboBoxes( )
+        {
+            try
+            {
+                FirstComboBox.Items.Clear( );
+                SecondComboBox.Items.Clear( );
+                ThirdComboBox.Items.Clear( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the list boxes.
+        /// </summary>
+        private void ClearListBoxes( )
+        {
+            try
+            {
+                FirstListBox.Items.Clear( );
+                SecondListBox.Items.Clear( );
+                ThirdListBox.Items.Clear( );
+                FieldListBox.Items.Clear( );
+                NumericListBox.Items.Clear( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                if( FormFilter.Keys.Count > 0 )
+                {
+                    FormFilter.Clear( );
+                }
+
+                FourthCategory = string.Empty;
+                FourthValue = string.Empty;
+                ThirdCategory = string.Empty;
+                ThirdValue = string.Empty;
+                SecondCategory = string.Empty;
+                SecondValue = string.Empty;
+                FirstCategory = string.Empty;
+                FirstValue = string.Empty;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+                if( SelectedColumns?.Any( ) == true )
+                {
+                    SelectedColumns.Clear( );
+                }
+
+                if( SelectedFields?.Any( ) == true )
+                {
+                    SelectedFields.Clear( );
+                }
+
+                if( SelectedNumerics?.Any( ) == true )
+                {
+                    SelectedNumerics.Clear( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearData( )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                ClearComboBoxes( );
+                ClearListBoxes( );
+                SelectedTable = string.Empty;
+                DataModel = null;
+                DataTable = null;
+                TabControl.SelectedIndex = 0;
+                UpdateLabelText( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary>
         /// Resets the data.
         /// </summary>
@@ -1136,120 +1235,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Clears the combo boxes.
-        /// </summary>
-        private void ClearComboBoxes( )
-        {
-            try
-            {
-                FirstComboBox.Items.Clear( );
-                SecondComboBox.Items.Clear( );
-                ThirdComboBox.Items.Clear( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the list boxes.
-        /// </summary>
-        private void ClearListBoxes( )
-        {
-            try
-            {
-                FirstListBox.Items.Clear( );
-                SecondListBox.Items.Clear( );
-                ThirdListBox.Items.Clear( );
-                FieldListBox.Items.Clear( );
-                NumericListBox.Items.Clear( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the selections.
-        /// </summary>
-        private void ClearSelections( )
-        {
-            try
-            {
-                if( FormFilter.Keys.Count > 0 )
-                {
-                    FormFilter.Clear( );
-                }
-
-                FourthCategory = string.Empty;
-                FourthValue = string.Empty;
-                ThirdCategory = string.Empty;
-                ThirdValue = string.Empty;
-                SecondCategory = string.Empty;
-                SecondValue = string.Empty;
-                FirstCategory = string.Empty;
-                FirstValue = string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the collections.
-        /// </summary>
-        private void ClearCollections( )
-        {
-            try
-            {
-                if( SelectedColumns?.Any( ) == true )
-                {
-                    SelectedColumns.Clear( );
-                }
-
-                if( SelectedFields?.Any( ) == true )
-                {
-                    SelectedFields.Clear( );
-                }
-
-                if( SelectedNumerics?.Any( ) == true )
-                {
-                    SelectedNumerics.Clear( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the data.
-        /// </summary>
-        public void ClearData( )
-        {
-            try
-            {
-                ClearSelections( );
-                ClearCollections( );
-                ClearComboBoxes( );
-                ClearListBoxes( );
-                SelectedTable = string.Empty;
-                DataModel = null;
-                DataTable = null;
-                TabControl.SelectedIndex = 0;
-                UpdateLabelText( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Resets the filter table visibility.
         /// </summary>
         private void ResetFilterTableVisibility( )
@@ -1349,7 +1334,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the tool strip properties.
         /// </summary>
-        private void SetToolStripProperties( )
+        private void InitializeToolStrip( )
         {
             try
             {
@@ -1361,6 +1346,54 @@ namespace BudgetExecution
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                InitializeToolStrip( );
+                FormFilter = new Dictionary<string, object>( );
+                SelectedColumns = new List<string>( );
+                SelectedFields = new List<string>( );
+                SelectedNumerics = new List<string>( );
+                NumericListBox.MultiSelect = true;
+                FieldListBox.MultiSelect = true;
+                Text = string.Empty;
+                ToolStrip.Visible = true;
+                if( string.IsNullOrEmpty( SelectedTable ) )
+                {
+                    TabControl.SelectedIndex = 0;
+                    TableTabPage.TabVisible = true;
+                    FilterTabPage.TabVisible = false;
+                    GroupTabPage.TabVisible = false;
+                    PopulateExecutionTables( );
+                }
+                else if( !string.IsNullOrEmpty( SelectedTable ) )
+                {
+                    TabControl.SelectedIndex = 1;
+                    FilterTabPage.TabVisible = true;
+                    TableTabPage.TabVisible = false;
+                    GroupTabPage.TabVisible = false;
+                    LabelTable.Visible = true;
+                    PopulateFirstComboBoxItems( );
+                    ResetFilterTableVisibility( );
+                    ResetData( );
+                    UpdateLabelText( );
+                }
+
+                PopulateToolBarDropDownItems( );
             }
             catch( Exception ex )
             {
