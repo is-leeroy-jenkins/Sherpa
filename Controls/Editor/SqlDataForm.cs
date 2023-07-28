@@ -179,7 +179,7 @@ namespace BudgetExecution
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
-            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Title.ForeColor = Color.FromArgb( 106, 189, 252 );
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );
@@ -188,7 +188,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionForeColor = Color.FromArgb( 106, 189, 252 );
             CaptionButtonHoverColor = Color.Red;
             CaptionAlign = HorizontalAlignment.Left;
             CaptionBarHeight = 5;
@@ -1348,7 +1348,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnCommandComboBoxItemSelected( object sender, EventArgs e )
         {
-            if( sender is ComboBox _comboBox 
+            if( sender is ComboBox _comboBox
                && !string.IsNullOrEmpty( _comboBox.SelectedText ) )
             {
                 try
@@ -1407,7 +1407,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         private void OnListBoxItemSelected( object sender )
         {
-            if( sender is ListBox _listBox 
+            if( sender is ListBox _listBox
                && !string.IsNullOrEmpty( _listBox.SelectedText ) )
             {
                 try

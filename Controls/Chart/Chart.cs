@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 04-23-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                Chart.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="Chart.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="Chart.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   Chart.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    Chart.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -53,7 +56,7 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref="T:BudgetExecution.ChartBase" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Chart : ChartBase
     {
         /// <summary>
@@ -119,9 +122,8 @@ namespace BudgetExecution
         /// <param name="values">The values.</param>
         /// <param name="type">The type.</param>
         /// <param name="stat">The stat.</param>
-        public Chart( BindingSource bindingSource, string category, IEnumerable<string> values, 
-            SeriesChartType type = SeriesChartType.Column,
-            STAT stat = STAT.Total )
+        public Chart( BindingSource bindingSource, string category, IEnumerable<string> values,
+            SeriesChartType type = SeriesChartType.Column, STAT stat = STAT.Total )
             : this( )
         {
             DataTable = (DataTable)bindingSource.DataSource;
@@ -131,7 +133,7 @@ namespace BudgetExecution
             Series[ 0 ].ChartType = type;
             Measure = stat;
         }
-        
+
         /// <summary>
         /// Sets the area properties.
         /// </summary>
@@ -156,7 +158,7 @@ namespace BudgetExecution
                         ChartAreas[ _i ].AxisX.InterlacedColor = Color.Transparent;
                         ChartAreas[ _i ].AxisX.LineColor = Color.FromArgb( 24, 47, 66 );
                         ChartAreas[ _i ].AxisX.TitleFont = new Font( "Roboto", 8 );
-                        ChartAreas[ _i ].AxisX.TitleForeColor =Color.FromArgb( 0, 120, 212 );
+                        ChartAreas[ _i ].AxisX.TitleForeColor = Color.FromArgb( 0, 120, 212 );
                         ChartAreas[ _i ].AxisX.LabelStyle.Font = new Font( "Roboto", 7 );
                         ChartAreas[ _i ].AxisX.LabelStyle.ForeColor = Color.FromArgb( 0, 120, 212 );
                         ChartAreas[ _i ].AxisX.MajorGrid.LineColor = Color.FromArgb( 24, 47, 66 );
@@ -264,7 +266,8 @@ namespace BudgetExecution
                         Series[ _i ].SmartLabelStyle.CalloutStyle = LabelCalloutStyle.Box;
                         Series[ _i ].SmartLabelStyle.CalloutLineColor = Color.Transparent;
                         Series[ _i ].SmartLabelStyle.CalloutLineWidth = 0;
-                        Series[ _i ].SmartLabelStyle.CalloutLineAnchorCapStyle = LineAnchorCapStyle.Arrow;
+                        Series[ _i ].SmartLabelStyle.CalloutLineAnchorCapStyle =
+                            LineAnchorCapStyle.Arrow;
                     }
                 }
                 catch( Exception _ex )

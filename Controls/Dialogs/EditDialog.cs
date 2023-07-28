@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                EditDialog.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-07-2023
-// ******************************************************************************************
-// <copyright file="EditDialog.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="EditDialog.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   EditDialog.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    EditDialog.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -53,12 +56,12 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref="T:BudgetExecution.EditBase" />
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class EditDialog : EditBase
     {
         /// <summary>
@@ -184,7 +187,7 @@ namespace BudgetExecution
                     var _frames = Frames.ToArray( );
                     for( var _i = 0; _i < _frames.Length; _i++ )
                     {
-                        var _frame = _frames[_i];
+                        var _frame = _frames[ _i ];
                         if( _frame.Index >= _cols.Length )
                         {
                             _frame.Visible = false;
@@ -242,7 +245,7 @@ namespace BudgetExecution
                 var _frames = new List<Frame>( );
                 for( var _i = 0; _i < FrameTable.Controls.Count; _i++ )
                 {
-                    var _control = FrameTable.Controls[_i];
+                    var _control = FrameTable.Controls[ _i ];
                     if( _control.GetType( ) == typeof( Frame ) )
                     {
                         if( _control is Frame _frame )
@@ -367,8 +370,8 @@ namespace BudgetExecution
         /// </summary>
         private void SetTableLocation( )
         {
-            if( ( FrameTable != null )
-               && ( Columns?.Any( ) == true ) )
+            if( FrameTable != null
+               && Columns?.Any( ) == true )
             {
                 try
                 {
@@ -400,9 +403,9 @@ namespace BudgetExecution
         /// </summary>
         private void BindRecordData( )
         {
-            if( ( Current != null )
-               && ( Frames?.Any( ) == true )
-               && ( Columns?.Any( ) == true ) )
+            if( Current != null
+               && Frames?.Any( ) == true
+               && Columns?.Any( ) == true )
             {
                 try
                 {
@@ -411,21 +414,21 @@ namespace BudgetExecution
                     var _cols = Columns.ToArray( );
                     for( var _i = 0; _i < _cols.Length; _i++ )
                     {
-                        _frames[_i].Label.Text = _cols[_i].SplitPascal( );
-                        var _text = _items[_i]?.ToString( );
-                        if( ( Numerics?.Contains( _cols[_i] ) == true )
+                        _frames[ _i ].Label.Text = _cols[ _i ].SplitPascal( );
+                        var _text = _items[ _i ]?.ToString( );
+                        if( Numerics?.Contains( _cols[ _i ] ) == true
                            && !string.IsNullOrEmpty( _text ) )
                         {
                             var _value = double.Parse( _text );
-                            _frames[_i].TextBox.Font = new Font( "Roboto", 8 );
-                            _frames[_i].TextBox.Text = _value.ToString( "N2" );
-                            _frames[_i].TextBox.TextAlign = HorizontalAlignment.Right;
+                            _frames[ _i ].TextBox.Font = new Font( "Roboto", 8 );
+                            _frames[ _i ].TextBox.Text = _value.ToString( "N2" );
+                            _frames[ _i ].TextBox.TextAlign = HorizontalAlignment.Right;
                         }
                         else
                         {
-                            _frames[_i].TextBox.Font = new Font( "Roboto", 8 );
-                            _frames[_i].TextBox.Text = _items[_i]?.ToString( );
-                            _frames[_i].TextBox.TextAlign = HorizontalAlignment.Left;
+                            _frames[ _i ].TextBox.Font = new Font( "Roboto", 8 );
+                            _frames[ _i ].TextBox.Text = _items[ _i ]?.ToString( );
+                            _frames[ _i ].TextBox.TextAlign = HorizontalAlignment.Left;
                         }
                     }
                 }
@@ -477,22 +480,22 @@ namespace BudgetExecution
         private void OnContentClick( object sender, MouseEventArgs e )
         {
             if( sender is TextBox _currentCell
-               && ( e.Button == MouseButtons.Left )
+               && e.Button == MouseButtons.Left
                && !string.IsNullOrEmpty( _currentCell.Text ) )
             {
                 try
                 {
                     var _value = _currentCell.Text;
                     if( !string.IsNullOrEmpty( _value )
-                       && ( _value.Length > 25 ) )
+                       && _value.Length > 25 )
                     {
                         var _editDialog = new TextDialog( _value );
                         _editDialog.ShowDialog( this );
                     }
                     else if( !string.IsNullOrEmpty( _value )
-                            && ( _value.Length >= 6 )
-                            && ( _value.Length <= 9 )
-                            && ( _value.Substring( 0, 3 ) == "000" ) )
+                            && _value.Length >= 6
+                            && _value.Length <= 9
+                            && _value.Substring( 0, 3 ) == "000" )
                     {
                         var _code = _value.Substring( 4, 2 );
                         var _dialog = new ProgramProjectDialog( _code );

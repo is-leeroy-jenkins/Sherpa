@@ -55,10 +55,8 @@
             ThirdGridLabel = new Label( );
             SecondCalendarTable = new HeaderPanel( );
             SecondCalendarPanel = new Layout( );
-            SecondCalendar = new Syncfusion.WinForms.Input.SfCalendar( );
             FirstCalendarTable = new HeaderPanel( );
             FirstCalendarPanel = new Layout( );
-            FirstCalendar = new Syncfusion.WinForms.Input.SfCalendar( );
             NumericsTable = new HeaderPanel( );
             NumericPanel = new Layout( );
             NumericListBox = new ListBox( );
@@ -157,12 +155,9 @@
             FunctionalityLabel = new ToolStripLabel( );
             FunctionalitySpacer = new ToolSeparator( );
             LabelSpaceSeparator = new ToolSeparator( );
-            LabelSpacer = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
             ApplicationLabel = new ToolStripLabel( );
             ExitSeparator = new ToolSeparator( );
-            FilterSpacer = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
             NavigationSeparator = new ToolSeparator( );
-            toolStripMenuItemExt1 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
             ContextMenu = new ContextMenu( );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             HeaderLabel = new Label( );
@@ -173,9 +168,7 @@
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
             LabelTable.SuspendLayout( );
             SecondCalendarTable.SuspendLayout( );
-            SecondCalendarPanel.SuspendLayout( );
             FirstCalendarTable.SuspendLayout( );
-            FirstCalendarPanel.SuspendLayout( );
             NumericsTable.SuspendLayout( );
             NumericPanel.SuspendLayout( );
             FieldsTable.SuspendLayout( );
@@ -541,7 +534,6 @@
             SecondCalendarPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
             SecondCalendarPanel.BorderThickness = 1;
             SecondCalendarPanel.Children = null;
-            SecondCalendarPanel.Controls.Add( SecondCalendar );
             SecondCalendarPanel.DataFilter = null;
             SecondCalendarPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             SecondCalendarPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -558,57 +550,6 @@
             SecondCalendarPanel.ThemeAuthor = "Terry D. Eppler";
             SecondCalendarPanel.ThemeName = "Budget Execution";
             SecondCalendarPanel.ToolTip = null;
-            // 
-            // SecondCalendar
-            // 
-            SecondCalendar.CanOverrideStyle = true;
-            SecondCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            SecondCalendar.Location = new System.Drawing.Point( 21, 17 );
-            SecondCalendar.MinimumSize = new System.Drawing.Size( 196, 196 );
-            SecondCalendar.Name = "SecondCalendar";
-            SecondCalendar.SelectedDate = new System.DateTime( 2023, 3, 9, 0, 0, 0, 0 );
-            SecondCalendar.ShowToolTip = true;
-            SecondCalendar.Size = new System.Drawing.Size( 224, 196 );
-            SecondCalendar.Style.BorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            SecondCalendar.Style.Cell.BlackoutDatesBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            SecondCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            SecondCalendar.Style.Cell.BlackoutDatesForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            SecondCalendar.Style.Cell.CellBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            SecondCalendar.Style.Cell.CellFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            SecondCalendar.Style.Cell.CellForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SecondCalendar.Style.Cell.CellHoverBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SecondCalendar.Style.Cell.SelectedCellBackColor = System.Drawing.Color.SteelBlue;
-            SecondCalendar.Style.Cell.SelectedCellBorderColor = System.Drawing.Color.SteelBlue;
-            SecondCalendar.Style.Cell.SelectedCellFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
-            SecondCalendar.Style.Cell.SelectedCellForeColor = System.Drawing.Color.White;
-            SecondCalendar.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.SteelBlue;
-            SecondCalendar.Style.Cell.TodayBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            SecondCalendar.Style.Cell.TodayFont = new System.Drawing.Font( "Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
-            SecondCalendar.Style.Cell.TodayForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SecondCalendar.Style.Cell.TodayHoverBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SecondCalendar.Style.Cell.TrailingCellBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            SecondCalendar.Style.Cell.TrailingCellFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            SecondCalendar.Style.Cell.TrailingCellForeColor = System.Drawing.Color.SteelBlue;
-            SecondCalendar.Style.Cell.WeekNumberBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            SecondCalendar.Style.Cell.WeekNumberFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            SecondCalendar.Style.Cell.WeekNumberForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SecondCalendar.Style.Footer.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            SecondCalendar.Style.Footer.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SecondCalendar.Style.Footer.HoverBackColor = System.Drawing.Color.SteelBlue;
-            SecondCalendar.Style.Footer.HoverForeColor = System.Drawing.Color.White;
-            SecondCalendar.Style.Header.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            SecondCalendar.Style.Header.DayNamesBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            SecondCalendar.Style.Header.DayNamesFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            SecondCalendar.Style.Header.DayNamesForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SecondCalendar.Style.Header.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
-            SecondCalendar.Style.Header.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SecondCalendar.Style.Header.HoverForeColor = System.Drawing.Color.White;
-            SecondCalendar.Style.Header.NavigationButtonDisabledForeColor = System.Drawing.Color.DimGray;
-            SecondCalendar.Style.Header.NavigationButtonForeColor = System.Drawing.Color.SteelBlue;
-            SecondCalendar.Style.Header.NavigationButtonHoverForeColor = System.Drawing.Color.White;
-            SecondCalendar.Style.HorizontalSplitterColor = System.Drawing.Color.DimGray;
-            SecondCalendar.Style.VerticalSplitterColor = System.Drawing.Color.DimGray;
-            SecondCalendar.TabIndex = 3;
             // 
             // FirstCalendarTable
             // 
@@ -637,7 +578,6 @@
             FirstCalendarPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
             FirstCalendarPanel.BorderThickness = 1;
             FirstCalendarPanel.Children = null;
-            FirstCalendarPanel.Controls.Add( FirstCalendar );
             FirstCalendarPanel.DataFilter = null;
             FirstCalendarPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             FirstCalendarPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -654,57 +594,6 @@
             FirstCalendarPanel.ThemeAuthor = "Terry D. Eppler";
             FirstCalendarPanel.ThemeName = "Budget Execution";
             FirstCalendarPanel.ToolTip = null;
-            // 
-            // FirstCalendar
-            // 
-            FirstCalendar.CanOverrideStyle = true;
-            FirstCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            FirstCalendar.Location = new System.Drawing.Point( 21, 21 );
-            FirstCalendar.MinimumSize = new System.Drawing.Size( 196, 196 );
-            FirstCalendar.Name = "FirstCalendar";
-            FirstCalendar.SelectedDate = new System.DateTime( 2023, 3, 9, 0, 0, 0, 0 );
-            FirstCalendar.ShowToolTip = true;
-            FirstCalendar.Size = new System.Drawing.Size( 224, 196 );
-            FirstCalendar.Style.BorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            FirstCalendar.Style.Cell.BlackoutDatesBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            FirstCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            FirstCalendar.Style.Cell.BlackoutDatesForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            FirstCalendar.Style.Cell.CellBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            FirstCalendar.Style.Cell.CellFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            FirstCalendar.Style.Cell.CellForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            FirstCalendar.Style.Cell.CellHoverBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            FirstCalendar.Style.Cell.SelectedCellBackColor = System.Drawing.Color.SteelBlue;
-            FirstCalendar.Style.Cell.SelectedCellBorderColor = System.Drawing.Color.SteelBlue;
-            FirstCalendar.Style.Cell.SelectedCellFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
-            FirstCalendar.Style.Cell.SelectedCellForeColor = System.Drawing.Color.White;
-            FirstCalendar.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.SteelBlue;
-            FirstCalendar.Style.Cell.TodayBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            FirstCalendar.Style.Cell.TodayFont = new System.Drawing.Font( "Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
-            FirstCalendar.Style.Cell.TodayForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            FirstCalendar.Style.Cell.TodayHoverBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            FirstCalendar.Style.Cell.TrailingCellBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            FirstCalendar.Style.Cell.TrailingCellFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            FirstCalendar.Style.Cell.TrailingCellForeColor = System.Drawing.Color.SteelBlue;
-            FirstCalendar.Style.Cell.WeekNumberBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            FirstCalendar.Style.Cell.WeekNumberFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            FirstCalendar.Style.Cell.WeekNumberForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            FirstCalendar.Style.Footer.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            FirstCalendar.Style.Footer.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            FirstCalendar.Style.Footer.HoverBackColor = System.Drawing.Color.SteelBlue;
-            FirstCalendar.Style.Footer.HoverForeColor = System.Drawing.Color.White;
-            FirstCalendar.Style.Header.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            FirstCalendar.Style.Header.DayNamesBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            FirstCalendar.Style.Header.DayNamesFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            FirstCalendar.Style.Header.DayNamesForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            FirstCalendar.Style.Header.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
-            FirstCalendar.Style.Header.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            FirstCalendar.Style.Header.HoverForeColor = System.Drawing.Color.White;
-            FirstCalendar.Style.Header.NavigationButtonDisabledForeColor = System.Drawing.Color.DimGray;
-            FirstCalendar.Style.Header.NavigationButtonForeColor = System.Drawing.Color.SteelBlue;
-            FirstCalendar.Style.Header.NavigationButtonHoverForeColor = System.Drawing.Color.White;
-            FirstCalendar.Style.HorizontalSplitterColor = System.Drawing.Color.DimGray;
-            FirstCalendar.Style.VerticalSplitterColor = System.Drawing.Color.DimGray;
-            FirstCalendar.TabIndex = 2;
             // 
             // NumericsTable
             // 
@@ -2315,7 +2204,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { SchemaLabel, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastSeparator, NavigationSpacer, FilterLabel, FilterSpaceSeparator, RemoveFiltersButton, EditRecordSeparator, RefreshDataButton, EditColumnSeparator, GroupButton, RefreshDataSeparator, CommandSpacer, CommandLabel, CommandLabelSeparator, EditRecordButton, GroupSeparator, EditColumnButton, ColumnSeparator, EditSqlButton, EditSqlSeparator, SaveButton, SaveSeparator, FunctionSpacer, FunctionalityLabel, FunctionalitySpacer, ExcelExportButton, ExcelSeparator, ChartButton, ChartSeparator, ExcelImportButton, ExcelImportSeparator, CalendarButton, GuidanceSeparator, BrowseButton, BrowseSeparator, WebButton, LabelSpaceSeparator, LabelSpacer, ApplicationLabel, ComboBoxSeparator, BackButton, BackSeparator, MenuButton, MenuSeparator, ExitButton, ExitSeparator } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { SchemaLabel, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastSeparator, NavigationSpacer, FilterLabel, FilterSpaceSeparator, RemoveFiltersButton, EditRecordSeparator, RefreshDataButton, EditColumnSeparator, GroupButton, RefreshDataSeparator, CommandSpacer, CommandLabel, CommandLabelSeparator, EditRecordButton, GroupSeparator, EditColumnButton, ColumnSeparator, EditSqlButton, EditSqlSeparator, SaveButton, SaveSeparator, FunctionSpacer, FunctionalityLabel, FunctionalitySpacer, ExcelExportButton, ExcelSeparator, ChartButton, ChartSeparator, ExcelImportButton, ExcelImportSeparator, CalendarButton, GuidanceSeparator, BrowseButton, BrowseSeparator, WebButton, LabelSpaceSeparator, ApplicationLabel, ComboBoxSeparator, BackButton, BackSeparator, MenuButton, MenuSeparator, ExitButton, ExitSeparator } );
             ToolStrip.Label = null;
             ToolStrip.LastButton = LastButton;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
@@ -2508,14 +2397,6 @@
             LabelSpaceSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             LabelSpaceSeparator.Size = new System.Drawing.Size( 6, 28 );
             // 
-            // LabelSpacer
-            // 
-            LabelSpacer.BackColor = System.Drawing.Color.Transparent;
-            LabelSpacer.ForeColor = System.Drawing.Color.Transparent;
-            LabelSpacer.Name = "LabelSpacer";
-            LabelSpacer.Size = new System.Drawing.Size( 113, 27 );
-            LabelSpacer.Text = "this is a lable space";
-            // 
             // ApplicationLabel
             // 
             ApplicationLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
@@ -2542,14 +2423,6 @@
             ExitSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             ExitSeparator.Size = new System.Drawing.Size( 6, 28 );
             // 
-            // FilterSpacer
-            // 
-            FilterSpacer.BackColor = System.Drawing.Color.Transparent;
-            FilterSpacer.ForeColor = System.Drawing.Color.Transparent;
-            FilterSpacer.Name = "FilterSpacer";
-            FilterSpacer.Size = new System.Drawing.Size( 81, 27 );
-            FilterSpacer.Text = " this is a label";
-            // 
             // NavigationSeparator
             // 
             NavigationSeparator.ForeColor = System.Drawing.Color.Black;
@@ -2557,11 +2430,6 @@
             NavigationSeparator.Name = "NavigationSeparator";
             NavigationSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             NavigationSeparator.Size = new System.Drawing.Size( 6, 28 );
-            // 
-            // toolStripMenuItemExt1
-            // 
-            toolStripMenuItemExt1.Name = "toolStripMenuItemExt1";
-            toolStripMenuItemExt1.Size = new System.Drawing.Size( 32, 19 );
             // 
             // ContextMenu
             // 
@@ -2665,9 +2533,7 @@
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).EndInit( );
             LabelTable.ResumeLayout( false );
             SecondCalendarTable.ResumeLayout( false );
-            SecondCalendarPanel.ResumeLayout( false );
             FirstCalendarTable.ResumeLayout( false );
-            FirstCalendarPanel.ResumeLayout( false );
             NumericsTable.ResumeLayout( false );
             NumericPanel.ResumeLayout( false );
             FieldsTable.ResumeLayout( false );

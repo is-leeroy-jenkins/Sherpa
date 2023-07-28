@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 06-19-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                Button.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-19-2023
-// ******************************************************************************************
-// <copyright file="Button.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="Button.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   Button.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    Button.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -110,7 +113,7 @@ namespace BudgetExecution
             Enabled = true;
 
             // Normal Color Configuration
-            NormalColor = Color.FromArgb( 40, 40, 40);
+            NormalColor = Color.FromArgb( 40, 40, 40 );
             NormalBorderColor = Color.FromArgb( 40, 40, 40 );
             NormalTextColor = Color.DarkGray;
 
@@ -244,7 +247,7 @@ namespace BudgetExecution
             var _button = sender as Button;
             try
             {
-                if( ( _button != null )
+                if( _button != null
                    && !string.IsNullOrEmpty( HoverText ) )
                 {
                     if( !string.IsNullOrEmpty( HoverText ) )
@@ -320,8 +323,8 @@ namespace BudgetExecution
         /// <param name="y">The y.</param>
         public virtual void ReLocate( int x, int y )
         {
-            if( ( x > 0 )
-               && ( y > 0 ) )
+            if( x > 0
+               && y > 0 )
             {
                 try
                 {
@@ -344,8 +347,8 @@ namespace BudgetExecution
             try
             {
                 if( sender is Button _button
-                   && ( _button != null )
-                   && ( ToolTip?.Active == true ) )
+                   && _button != null
+                   && ToolTip?.Active == true )
                 {
                     ToolTip.RemoveAll( );
                 }

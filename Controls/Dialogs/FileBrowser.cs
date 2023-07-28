@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                FileBrowser.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="FileBrowser.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="FileBrowser.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   FileBrowser.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    FileBrowser.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -56,8 +59,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class FileBrowser
     {
         /// <summary>
@@ -187,7 +190,7 @@ namespace BudgetExecution
                     var _paths = filePaths.ToArray( );
                     for( var _i = 0; _i < _paths.Length; _i++ )
                     {
-                        var _path = _paths[_i];
+                        var _path = _paths[ _i ];
                         if( !string.IsNullOrEmpty( _path ) )
                         {
                             FileList?.Items.Add( _path );
@@ -211,16 +214,14 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _path = AppSettings["Extensions"];
+                    var _path = AppSettings[ "Extensions" ];
                     if( _path != null )
                     {
                         var _files = GetFiles( _path );
                         if( _files?.Any( ) == true )
                         {
                             var _extension = FileExtension.TrimStart( '.' ).ToUpper( );
-                            var _file = _files
-                                ?.Where( f => f.Contains( _extension ) )
-                                ?.First( );
+                            var _file = _files?.Where( f => f.Contains( _extension ) )?.First( );
 
                             using var _stream = File.Open( _file, FileMode.Open );
                             var _img = Image.FromStream( _stream );
@@ -312,7 +313,7 @@ namespace BudgetExecution
                                 var _subDir = GetDirectories( _dir );
                                 for( var _i = 0; _i < _subDir.Length; _i++ )
                                 {
-                                    var _path = _subDir[_i];
+                                    var _path = _subDir[ _i ];
                                     if( !string.IsNullOrEmpty( _path ) )
                                     {
                                         var _last = GetFiles( _path )

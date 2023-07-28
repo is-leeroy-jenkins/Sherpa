@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                FormAnimator.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="FormAnimator.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="FormAnimator.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   FormAnimator.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    FormAnimator.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -94,7 +97,7 @@ namespace BudgetExecution
             Form.Load += Form_Load;
             Form.VisibleChanged += Form_VisibleChanged;
             Form.Closing += Form_Closing;
-            Duration = DefaultDuration;
+            Duration = FormAnimator.DefaultDuration;
         }
 
         /// <summary>
@@ -117,7 +120,8 @@ namespace BudgetExecution
         /// <param name="method">The method.</param>
         /// <param name="direction">The direction.</param>
         /// <param name="duration">The duration.</param>
-        public FormAnimator( Form form, AnimationMethod method, AnimationDirection direction, int duration )
+        public FormAnimator( Form form, AnimationMethod method, AnimationDirection direction,
+            int duration )
             : this( form, method, duration )
         {
             Direction = direction;
@@ -145,10 +149,11 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Form_Load( object sender, EventArgs e )
         {
-            if( ( Form.MdiParent == null )
-               || ( Method != AnimationMethod.Fade ) )
+            if( Form.MdiParent == null
+               || Method != AnimationMethod.Fade )
             {
-                NativeMethods.AnimateWindow( Form.Handle, Duration, AwActivate | (int)Method | (int)Direction );
+                NativeMethods.AnimateWindow( Form.Handle, Duration,
+                    FormAnimator.AwActivate | (int)Method | (int)Direction );
             }
         }
 
@@ -164,11 +169,11 @@ namespace BudgetExecution
                 var flags = (int)Method | (int)Direction;
                 if( Form.Visible )
                 {
-                    flags |= AwActivate;
+                    flags |= FormAnimator.AwActivate;
                 }
                 else
                 {
-                    flags |= AwHide;
+                    flags |= FormAnimator.AwHide;
                 }
 
                 NativeMethods.AnimateWindow( Form.Handle, Duration, flags );
@@ -184,10 +189,11 @@ namespace BudgetExecution
         {
             if( !e.Cancel )
             {
-                if( ( Form.MdiParent == null )
-                   || ( Method != AnimationMethod.Fade ) )
+                if( Form.MdiParent == null
+                   || Method != AnimationMethod.Fade )
                 {
-                    NativeMethods.AnimateWindow( Form.Handle, Duration, AwHide | (int)Method | (int)Direction );
+                    NativeMethods.AnimateWindow( Form.Handle, Duration,
+                        FormAnimator.AwHide | (int)Method | (int)Direction );
                 }
             }
         }

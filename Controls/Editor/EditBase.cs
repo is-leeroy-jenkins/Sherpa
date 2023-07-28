@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                EditBase.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="EditBase.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="EditBase.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   EditBase.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    EditBase.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -44,7 +47,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
@@ -55,11 +57,11 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
-    [SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" )]
-    [SuppressMessage( "ReSharper", "ConvertTypeCheckPatternToNullCheck" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertTypeCheckPatternToNullCheck" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     public partial class EditBase : MetroForm
     {
         /// <summary>
@@ -141,6 +143,14 @@ namespace BudgetExecution
         /// The numerics.
         /// </value>
         public IList<string> Numerics { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dates.
+        /// </summary>
+        /// <value>
+        /// The dates.
+        /// </value>
+        public IList<DateTime> Dates { get; set; }
 
         /// <summary>
         /// Gets or sets the selected column.
@@ -230,6 +240,15 @@ namespace BudgetExecution
         /// </value>
         public IEnumerable<string> DataTypes { get; set; }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.EditBase" /> class.
+        /// </summary>
+        protected EditBase( )
+        {
+        }
+
         /// <summary>
         /// Gets the data types.
         /// </summary>
@@ -275,10 +294,13 @@ namespace BudgetExecution
                 while( _queue.Count > 0 )
                 {
                     var _collection = (Control.ControlCollection)_queue.Dequeue( );
-                    foreach( Control _control in _collection )
+                    if( _collection?.Count > 0 )
                     {
-                        _list.Add( _control );
-                        _queue.Enqueue( _control.Controls );
+                        foreach( Control _control in _collection )
+                        {
+                            _list.Add( _control );
+                            _queue.Enqueue( _control.Controls );
+                        }
                     }
                 }
 
@@ -294,12 +316,52 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sends the notification.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        private protected void SendNotification( string text )
+        {
+            if( !string.IsNullOrEmpty( text ) )
+            {
+                try
+                {
+                    var _notification = new Notification( text );
+                    _notification.Show( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sends the message.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        private protected void SendMessage( string text )
+        {
+            if( !string.IsNullOrEmpty( text ) )
+            {
+                try
+                {
+                    var _message = new SplashMessage( text );
+                    _message.Show( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
         /// Called when [close button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        protected virtual void OnCloseButtonClicked( object sender, EventArgs e )
+        private protected void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try
             {

@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                ToolFactory.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="ToolFactory.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="ToolFactory.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   ToolFactory.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    ToolFactory.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -58,7 +61,8 @@ namespace BudgetExecution
         /// <value>
         /// The image directory.
         /// </value>
-        public static string ImageDirectory { get; } = ConfigurationManager.AppSettings[ "ToolStrip" ];
+        public static string ImageDirectory { get; } =
+            ConfigurationManager.AppSettings[ "ToolStrip" ];
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ToolFactory"/> class.
@@ -80,7 +84,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolSeparator );
             }
         }
@@ -93,7 +97,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filename = ImageDirectory + "FirstButton.png";
+                var _filename = ToolFactory.ImageDirectory + "FirstButton.png";
                 var _firstButton = new ToolStripButton( );
                 _firstButton.Image = Image.FromFile( _filename );
                 _firstButton.HoverText = "First Record";
@@ -102,7 +106,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -115,7 +119,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filename = ImageDirectory + "PreviousButton.png";
+                var _filename = ToolFactory.ImageDirectory + "PreviousButton.png";
                 var _previousButton = new ToolStripButton( );
                 _previousButton.Image = Image.FromFile( _filename );
                 _previousButton.HoverText = "Previous Record";
@@ -124,7 +128,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -137,7 +141,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filename = ImageDirectory + "NextButton.png";
+                var _filename = ToolFactory.ImageDirectory + "NextButton.png";
                 var _nextButton = new ToolStripButton( );
                 _nextButton.Image = Image.FromFile( _filename );
                 _nextButton.HoverText = "Next Record";
@@ -146,7 +150,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -159,7 +163,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filename = ImageDirectory + "LastButton.png";
+                var _filename = ToolFactory.ImageDirectory + "LastButton.png";
                 var _lastButton = new ToolStripButton( );
                 _lastButton.Image = Image.FromFile( _filename );
                 _lastButton.HoverText = "Last Record";
@@ -168,7 +172,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -181,7 +185,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filename = ImageDirectory + "EditButton.png";
+                var _filename = ToolFactory.ImageDirectory + "EditButton.png";
                 var _editButton = new ToolStripButton( );
                 _editButton.Image = Image.FromFile( _filename );
                 _editButton.HoverText = "Edit Record";
@@ -190,7 +194,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -203,7 +207,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filename = ImageDirectory + "AddButton.png";
+                var _filename = ToolFactory.ImageDirectory + "AddButton.png";
                 var _addButton = new ToolStripButton( );
                 _addButton.Image = Image.FromFile( _filename );
                 _addButton.HoverText = "Add Record";
@@ -212,7 +216,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -225,7 +229,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filename = ImageDirectory + "DeleteButton.png";
+                var _filename = ToolFactory.ImageDirectory + "DeleteButton.png";
                 var _deleteButton = new ToolStripButton( );
                 _deleteButton.Image = Image.FromFile( _filename );
                 _deleteButton.HoverText = "Delete Record";
@@ -234,7 +238,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -247,7 +251,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filename = ImageDirectory + "RefreshButton.png";
+                var _filename = ToolFactory.ImageDirectory + "RefreshButton.png";
                 var _refreshButton = new ToolStripButton( );
                 _refreshButton.Image = Image.FromFile( _filename );
                 _refreshButton.HoverText = "Refresh Data";
@@ -256,7 +260,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -269,7 +273,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filename = ImageDirectory + "SaveButton.png";
+                var _filename = ToolFactory.ImageDirectory + "SaveButton.png";
                 var _saveButton = new ToolStripButton( );
                 _saveButton.Image = Image.FromFile( _filename );
                 _saveButton.HoverText = "Save Changes";
@@ -278,7 +282,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -291,7 +295,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filename = ImageDirectory + "PrintButton.png";
+                var _filename = ToolFactory.ImageDirectory + "PrintButton.png";
                 var _printButton = new ToolStripButton( );
                 _printButton.Image = Image.FromFile( _filename );
                 _printButton.HoverText = "Print Data";
@@ -300,7 +304,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -313,7 +317,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filename = ImageDirectory + "ExcelButton.png";
+                var _filename = ToolFactory.ImageDirectory + "ExcelButton.png";
                 var _excelButton = new ToolStripButton( );
                 _excelButton.Image = Image.FromFile( _filename );
                 _excelButton.HoverText = "Export to Excel";
@@ -322,7 +326,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -335,7 +339,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filename = ImageDirectory + "CalculatorButton.png";
+                var _filename = ToolFactory.ImageDirectory + "CalculatorButton.png";
                 var _calculatorButton = new ToolStripButton( );
                 _calculatorButton.Image = Image.FromFile( _filename );
                 _calculatorButton.HoverText = "Launch Calculator";
@@ -344,7 +348,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -357,7 +361,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filename = ImageDirectory + "HomeButton.png";
+                var _filename = ToolFactory.ImageDirectory + "HomeButton.png";
                 var _homeButton = new ToolStripButton( );
                 _homeButton.Image = Image.FromFile( _filename );
                 _homeButton.HoverText = "Main Menu";
@@ -366,7 +370,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -384,7 +388,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripLabel );
             }
         }
@@ -402,7 +406,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripComboBoxEx );
             }
         }
@@ -420,7 +424,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripProgressBar );
             }
         }
@@ -438,7 +442,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                ToolFactory.Fail( _ex );
                 return default( ToolStripTextBox );
             }
         }

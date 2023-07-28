@@ -338,8 +338,6 @@ namespace BudgetExecution
             MetricsComboBox.SelectedIndexChanged += OnMetricSelected;
             MouseClick += OnRightClick;
             Load += OnLoad;
-            Shown += OnShown;
-            Closing += OnClosing;
         }
 
         /// <inheritdoc />
@@ -2009,45 +2007,6 @@ namespace BudgetExecution
                 {
                     Metric = (STAT)Enum.Parse( typeof( STAT ), _selection );
                     _notify.Show( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnShown( object sender, EventArgs e )
-        {
-            try
-            {
-                Program.Windows[ "ChartDataForm" ] = this;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Raises the Close event.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                if( Program.Windows.ContainsKey( "ChartDataForm" ) )
-                {
-                    Program.Windows.Remove( "ChartDataForm" );
                 }
             }
             catch( Exception ex )

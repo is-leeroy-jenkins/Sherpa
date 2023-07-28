@@ -60,17 +60,17 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -266,7 +266,7 @@ namespace BudgetExecution
 
             // Header Properties
             HeaderLabel.Font = new Font( "Roboto", 10 );
-            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            HeaderLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
             HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
 
             // TabPage Properties
@@ -687,8 +687,7 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -843,7 +842,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Sets the form icon.
         /// </summary>
@@ -859,6 +858,7 @@ namespace BudgetExecution
                     {
                         var _extension = Provider.ToString( );
                         var _file = _files?.Where( f => f.Contains( _extension ) )?.First( );
+
                         if( !string.IsNullOrEmpty( _file )
                            && File.Exists( _file ) )
                         {
@@ -935,6 +935,33 @@ namespace BudgetExecution
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the radio buttons.
+        /// </summary>
+        private void InitializeRadioButtons( )
+        {
+            try
+            {
+                SQLiteRadioButton.Tag = "SQLite";
+                SQLiteRadioButton.Text = "SQLite";
+                SQLiteRadioButton.HoverText = "SQLite Provider";
+                AccessRadioButton.Tag = "Access";
+                AccessRadioButton.Text = "Access";
+                AccessRadioButton.HoverText = "MS Access Provider";
+                AccessRadioButton.Checked = true;
+                SqlCeRadioButton.Tag = "SqlCe";
+                SqlCeRadioButton.Text = "SQL CE";
+                SqlCeRadioButton.HoverText = "SQL Compact Provider";
+                SqlServerRadioButton.Tag = "SqlServer";
+                SqlServerRadioButton.Text = "MS SQL";
+                SqlServerRadioButton.HoverText = "Sql Server Provider";
             }
             catch( Exception _ex )
             {
@@ -1169,33 +1196,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the radio buttons.
-        /// </summary>
-        private void InitRadioButtons( )
-        {
-            try
-            {
-                SQLiteRadioButton.Tag = "SQLite";
-                SQLiteRadioButton.Text = "SQLite";
-                SQLiteRadioButton.HoverText = "SQLite Provider";
-                AccessRadioButton.Tag = "Access";
-                AccessRadioButton.Text = "MS Access";
-                AccessRadioButton.HoverText = "MS Access Provider";
-                AccessRadioButton.Checked = true;
-                SqlCeRadioButton.Tag = "SqlCe";
-                SqlCeRadioButton.Text = "SQL CE";
-                SqlCeRadioButton.HoverText = "SQL Compact Provider";
-                SqlServerRadioButton.Tag = "SqlServer";
-                SqlServerRadioButton.Text = "MS SQL";
-                SqlServerRadioButton.HoverText = "Sql Server Provider";
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Updates the label text.
         /// </summary>
         private void UpdateLabelText( )
@@ -1251,6 +1251,7 @@ namespace BudgetExecution
                    && Owner.GetType( ) == typeof( MainForm ) )
                 {
                     var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
+                    _form.Refresh( );
                     _form.Visible = true;
                     Close( );
                 }
@@ -1278,7 +1279,7 @@ namespace BudgetExecution
             try
             {
                 ClearSelections( );
-                InitRadioButtons( );
+                InitializeRadioButtons( );
                 SetFormIcon( );
                 InitializeToolStrip( );
                 FormFilter = new Dictionary<string, object>( );

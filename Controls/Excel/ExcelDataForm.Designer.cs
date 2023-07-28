@@ -57,8 +57,9 @@
             FilterSeparator = new ToolSeparator( );
             RemoveFiltersButton = new ToolStripButton( );
             SqlSeparator = new ToolSeparator( );
-            LastLabel = new ToolStripLabel( );
+            MenuButton = new ToolStripButton( );
             BackButtonSeparator = new ToolSeparator( );
+            LastLabel = new ToolStripLabel( );
             Separator10 = new ToolSeparator( );
             Label4 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
             Label6 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
@@ -69,7 +70,6 @@
             Header = new Label( );
             PictureBox = new System.Windows.Forms.PictureBox( );
             LabelSeparator = new ToolSeparator( );
-            MenuButton = new ToolStripButton( );
             ( (System.ComponentModel.ISupportInitialize) Ribbon  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ToolStrip.SuspendLayout( );
@@ -188,7 +188,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, Label2, Separator2, ToolStripTextBox, Separator3, Label3, FunctionLabel, Separator5, UploadButton, Separator7, FilterSpacer, FilterLabel, DataSourceSeparator, LookupButton, FilterSeparator, RemoveFiltersButton, SqlSeparator, LastLabel, Separator10, CloseButton, BackButtonSeparator, MenuButton } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, Label2, Separator2, ToolStripTextBox, Separator3, Label3, FunctionLabel, Separator5, UploadButton, Separator7, FilterSpacer, FilterLabel, DataSourceSeparator, LookupButton, FilterSeparator, RemoveFiltersButton, SqlSeparator, MenuButton, BackButtonSeparator, LastLabel, Separator10, CloseButton } );
             ToolStrip.Label = null;
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
@@ -302,7 +302,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 178, 28 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 174, 28 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -478,6 +478,34 @@
             SqlSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             SqlSeparator.Size = new System.Drawing.Size( 6, 28 );
             // 
+            // MenuButton
+            // 
+            MenuButton.AutoToolTip = false;
+            MenuButton.BackColor = System.Drawing.Color.Transparent;
+            MenuButton.BindingSource = BindingSource;
+            MenuButton.DataFilter = null;
+            MenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            MenuButton.Field = Field.AccountCode;
+            MenuButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MenuButton.ForeColor = System.Drawing.Color.LightGray;
+            MenuButton.HoverText = null;
+            MenuButton.Image = Resources.Images.WebMenuButton;
+            MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            MenuButton.Margin = new System.Windows.Forms.Padding( 3 );
+            MenuButton.Name = "MenuButton";
+            MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
+            MenuButton.Size = new System.Drawing.Size( 23, 24 );
+            MenuButton.ToolTip = ToolTip;
+            MenuButton.ToolType = ToolType.BackButton;
+            // 
+            // BackButtonSeparator
+            // 
+            BackButtonSeparator.ForeColor = System.Drawing.Color.Black;
+            BackButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            BackButtonSeparator.Name = "BackButtonSeparator";
+            BackButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            BackButtonSeparator.Size = new System.Drawing.Size( 6, 28 );
+            // 
             // LastLabel
             // 
             LastLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
@@ -494,15 +522,6 @@
             LastLabel.Tag = "";
             LastLabel.Text = "this is a label to provide this is a label to provide space";
             LastLabel.ToolTip = null;
-            // 
-            // BackButtonSeparator
-            // 
-            BackButtonSeparator.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            BackButtonSeparator.ForeColor = System.Drawing.Color.Black;
-            BackButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            BackButtonSeparator.Name = "BackButtonSeparator";
-            BackButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            BackButtonSeparator.Size = new System.Drawing.Size( 6, 28 );
             // 
             // Separator10
             // 
@@ -580,7 +599,7 @@
             Header.DataFilter = null;
             Header.Dock = System.Windows.Forms.DockStyle.Fill;
             Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Header.Font = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
+            Header.Font = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Header.HoverText = null;
             Header.IsDerivedStyle = true;
             Header.Location = new System.Drawing.Point( 64, 3 );
@@ -592,10 +611,10 @@
             Header.StyleManager = null;
             Header.TabIndex = 1;
             Header.Text = "Budget Execution";
-            Header.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            Header.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Header.ThemeAuthor = "Terry D. Eppler";
             Header.ThemeName = "Budget Execution";
-            Header.ToolTip = null;
+            Header.ToolTip = ToolTip;
             // 
             // PictureBox
             // 
@@ -614,27 +633,6 @@
             LabelSeparator.Name = "LabelSeparator";
             LabelSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             LabelSeparator.Size = new System.Drawing.Size( 6, 28 );
-            // 
-            // MenuButton
-            // 
-            MenuButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            MenuButton.AutoToolTip = false;
-            MenuButton.BackColor = System.Drawing.Color.Transparent;
-            MenuButton.BindingSource = BindingSource;
-            MenuButton.DataFilter = null;
-            MenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            MenuButton.Field = Field.AccountCode;
-            MenuButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            MenuButton.ForeColor = System.Drawing.Color.LightGray;
-            MenuButton.HoverText = null;
-            MenuButton.Image = Resources.Images.WebMenuButton;
-            MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            MenuButton.Margin = new System.Windows.Forms.Padding( 3 );
-            MenuButton.Name = "MenuButton";
-            MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
-            MenuButton.Size = new System.Drawing.Size( 23, 24 );
-            MenuButton.ToolTip = ToolTip;
-            MenuButton.ToolType = ToolType.BackButton;
             // 
             // ExcelDataForm
             // 

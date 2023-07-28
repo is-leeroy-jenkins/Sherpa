@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                SqlDialog.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="SqlDialog.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="SqlDialog.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   SqlDialog.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    SqlDialog.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -58,10 +61,10 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref="T:BudgetExecution.EditBase" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class SqlDialog : EditBase
     {
         /// <summary>
@@ -333,34 +336,34 @@ namespace BudgetExecution
                     SqlListBox.Items.Clear( );
                     for( var _i = 0; _i < list.Count; _i++ )
                     {
-                        if( _commands.Contains( list[_i] )
-                           && list[_i].Equals( $"{SQL.CREATEDATABASE}" ) )
+                        if( _commands.Contains( list[ _i ] )
+                           && list[ _i ].Equals( $"{SQL.CREATEDATABASE}" ) )
                         {
                             SqlComboBox.Items.Add( "CREATE DATABASE" );
                         }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.CREATETABLE}" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.CREATETABLE}" ) )
                         {
                             SqlComboBox.Items.Add( "CREATE TABLE" );
                         }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.ALTERTABLE}" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.ALTERTABLE}" ) )
                         {
                             SqlComboBox.Items.Add( "ALTER TABLE" );
                         }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.CREATEVIEW}" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.CREATEVIEW}" ) )
                         {
                             SqlComboBox.Items.Add( "CREATE VIEW" );
                         }
-                        else if( _commands.Contains( list[_i] )
-                                && list[_i].Equals( $"{SQL.SELECTALL}" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.SELECTALL}" ) )
                         {
                             SqlComboBox.Items.Add( "SELECT ALL" );
                         }
-                        else if( _commands.Contains( list[_i] ) )
+                        else if( _commands.Contains( list[ _i ] ) )
                         {
-                            SqlComboBox.Items.Add( list[_i] );
+                            SqlComboBox.Items.Add( list[ _i ] );
                         }
                     }
                 }
@@ -382,17 +385,15 @@ namespace BudgetExecution
             {
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
-                    var _prefix = ConfigurationManager.AppSettings["PathPrefix"];
-                    var _dbpath = ConfigurationManager.AppSettings["DatabaseDirectory"];
-                    var _path = _prefix
-                        + _dbpath
-                        + @$"\{provider}\DataModels\";
+                    var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                    var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
+                    var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
 
                     var _names = Directory.GetDirectories( _path );
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
-                        var _folder = Directory.CreateDirectory( _names[_i] ).Name;
+                        var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
                         if( !string.IsNullOrEmpty( _folder ) )
                         {
                             _list.Add( _folder );
@@ -424,17 +425,15 @@ namespace BudgetExecution
             {
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
-                    var _prefix = ConfigurationManager.AppSettings["PathPrefix"];
-                    var _dbpath = ConfigurationManager.AppSettings["DatabaseDirectory"];
-                    var _path = _prefix
-                        + _dbpath
-                        + @$"\{provider}\DataModels\";
+                    var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                    var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
+                    var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
 
                     var _names = Directory.GetDirectories( _path );
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
-                        var _folder = Directory.CreateDirectory( _names[_i] ).Name;
+                        var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
                         if( !string.IsNullOrEmpty( _folder ) )
                         {
                             _list.Add( _folder );
@@ -571,8 +570,8 @@ namespace BudgetExecution
                     if( _selection?.Contains( " " ) == true )
                     {
                         SelectedCommand = _selection.Replace( " ", "" );
-                        var _prefix = ConfigurationManager.AppSettings["PathPrefix"];
-                        var _dbpath = ConfigurationManager.AppSettings["DatabaseDirectory"];
+                        var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                        var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
                         var _path = _prefix
                             + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}";
@@ -580,7 +579,7 @@ namespace BudgetExecution
                         var _files = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _files.Length; _i++ )
                         {
-                            var _item = Path.GetFileNameWithoutExtension( _files[_i] );
+                            var _item = Path.GetFileNameWithoutExtension( _files[ _i ] );
                             var _caption = _item?.SplitPascal( );
                             SqlListBox.Items.Add( _caption );
                         }
@@ -588,8 +587,8 @@ namespace BudgetExecution
                     else
                     {
                         SelectedCommand = _comboBox.SelectedItem?.ToString( );
-                        var _prefix = ConfigurationManager.AppSettings["PathPrefix"];
-                        var _dbpath = ConfigurationManager.AppSettings["DatabaseDirectory"];
+                        var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                        var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
                         var _path = _prefix
                             + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}";
@@ -597,7 +596,7 @@ namespace BudgetExecution
                         var _names = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _names.Length; _i++ )
                         {
-                            var _item = Path.GetFileNameWithoutExtension( _names[_i] );
+                            var _item = Path.GetFileNameWithoutExtension( _names[ _i ] );
                             var _caption = _item?.SplitPascal( );
                             SqlListBox.Items.Add( _caption );
                         }
@@ -622,11 +621,11 @@ namespace BudgetExecution
                 {
                     Editor.Text = string.Empty;
                     SelectedQuery = _listBox.SelectedItem?.ToString( );
-                    if( ( SelectedQuery?.Contains( " " ) == true )
-                       || ( SelectedCommand?.Contains( " " ) == true ) )
+                    if( SelectedQuery?.Contains( " " ) == true
+                       || SelectedCommand?.Contains( " " ) == true )
                     {
-                        var _prefix = ConfigurationManager.AppSettings["PathPrefix"];
-                        var _dbpath = ConfigurationManager.AppSettings["DatabaseDirectory"];
+                        var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                        var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
                         var _command = SelectedCommand?.Replace( " ", "" );
                         var _query = SelectedQuery?.Replace( " ", "" );
                         var _filePath = _prefix
@@ -640,8 +639,8 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        var _prefix = ConfigurationManager.AppSettings["PathPrefix"];
-                        var _dbpath = ConfigurationManager.AppSettings["DatabaseDirectory"];
+                        var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                        var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
                         var _path = _prefix
                             + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}\{SelectedQuery}.sql";

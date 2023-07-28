@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                TileBase.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="TileBase.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="TileBase.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   TileBase.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    TileBase.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -51,7 +54,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.Tools.HubTile" />
-    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class TileBase : HubTile
     {
@@ -114,8 +117,8 @@ namespace BudgetExecution
         /// <param name="y">The y.</param>
         public virtual void SetLocation( int x = 1, int y = 1 )
         {
-            if( ( x > 0 )
-               && ( y > 0 ) )
+            if( x > 0
+               && y > 0 )
             {
                 try
                 {
@@ -135,8 +138,8 @@ namespace BudgetExecution
         /// <param name="height">The height.</param>
         public virtual void SetSize( int width = 140, int height = 140 )
         {
-            if( ( width > -1 )
-               && ( height > -1 ) )
+            if( width > -1
+               && height > -1 )
             {
                 try
                 {
@@ -156,8 +159,8 @@ namespace BudgetExecution
         /// <param name="speed">The speed.</param>
         public virtual void SetImageConfiguration( Image image, int speed = 1 )
         {
-            if( ( speed > 0 )
-               && ( image != null ) )
+            if( speed > 0
+               && image != null )
             {
                 try
                 {
@@ -197,7 +200,7 @@ namespace BudgetExecution
         public virtual void SetTitleText( string message )
         {
             if( !string.IsNullOrEmpty( message )
-               && ( Title != null ) )
+               && Title != null )
             {
                 try
                 {
@@ -217,8 +220,8 @@ namespace BudgetExecution
         /// <param name="color">The color.</param>
         public virtual void SetTitleConfiguration( Font font, Color color )
         {
-            if( ( font != null )
-               && ( color != Color.Empty ) )
+            if( font != null
+               && color != Color.Empty )
             {
                 try
                 {
@@ -239,7 +242,7 @@ namespace BudgetExecution
         public virtual void SetBodyText( string message )
         {
             if( !string.IsNullOrEmpty( message )
-               && ( Body != null ) )
+               && Body != null )
             {
                 try
                 {
@@ -259,8 +262,8 @@ namespace BudgetExecution
         /// <param name="color">The color.</param>
         public virtual void SetBodyConfiguration( Font font, Color color )
         {
-            if( ( font != null )
-               && ( color != Color.Empty ) )
+            if( font != null
+               && color != Color.Empty )
             {
                 try
                 {
@@ -281,7 +284,7 @@ namespace BudgetExecution
         public virtual void SetBannerText( string message )
         {
             if( !string.IsNullOrEmpty( message )
-               && ( Banner != null )
+               && Banner != null
                && ShowBanner )
             {
                 try
@@ -303,8 +306,8 @@ namespace BudgetExecution
         /// <param name="height">The height.</param>
         public virtual void SetBannerConfiguration( Font font, Color color, int height )
         {
-            if( ( font != null )
-               && ( color != Color.Empty ) )
+            if( font != null
+               && color != Color.Empty )
             {
                 try
                 {
@@ -326,8 +329,8 @@ namespace BudgetExecution
         /// <param name="image">The image.</param>
         public virtual void SetBannerIcon( Image image )
         {
-            if( ( image != null )
-               && ( Banner != null ) )
+            if( image != null
+               && Banner != null )
             {
                 try
                 {
@@ -345,7 +348,8 @@ namespace BudgetExecution
         /// Sets the slide transition.
         /// </summary>
         /// <param name="direction">The direction.</param>
-        public virtual void SetSlideTransition( TransitionDirection direction = TransitionDirection.RightToLeft )
+        public virtual void SetSlideTransition(
+            TransitionDirection direction = TransitionDirection.RightToLeft )
         {
             if( Enum.IsDefined( typeof( TransitionDirection ), direction ) )
             {

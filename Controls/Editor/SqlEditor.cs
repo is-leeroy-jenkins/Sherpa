@@ -162,8 +162,9 @@ namespace BudgetExecution
         /// </value>
         public IDictionary<string, object> Statements { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlEditor"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlEditor" /> class.
         /// </summary>
         public SqlEditor( )
         {
@@ -181,7 +182,7 @@ namespace BudgetExecution
             MinimumSize = new Size( 1350, 750 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            BorderColor = Color.FromArgb( 20, 20, 20 );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
@@ -1475,8 +1476,6 @@ namespace BudgetExecution
         {
             try
             {
-                ClearSelections( );
-                ClearCollections( );
                 PictureBox.Image?.Dispose( );
                 if( DataModel != null )
                 {

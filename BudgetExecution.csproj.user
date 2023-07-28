@@ -11,6 +11,9 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="Controls\Calendar\CalendarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\Button\Button.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -269,17 +272,17 @@
     <Compile Update="Controls\Dialogs\Message.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Calendar\FiscalYearForm.cs">
+    <Compile Update="Controls\Calendar\CalendarForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Editor\SqlEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\SplashControl\SplashMessage.cs">
+    <Compile Update="Controls\Splash\SplashMessage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="SplashControl.cs">
-      <SubType>UserControl</SubType>
+    <Compile Update="Controls\Tile\TilePanel.cs">
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

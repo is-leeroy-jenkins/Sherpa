@@ -209,7 +209,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
 
-            // Basic Properties
+            // Form Properties
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );
@@ -239,19 +239,25 @@ namespace BudgetExecution
 
             // Ribbon Properties
             Ribbon.Spreadsheet = Spreadsheet;
+
+            // Header Properties
+            Header.ForeColor = Color.FromArgb( 106, 189, 252 );
+            Header.Font = new Font( "Roboto", 11 );
+            Header.TextAlign = ContentAlignment.TopLeft;
+
+            // Picture Properties
             PictureBox.Size = new Size( 40, 18 );
             PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
             // Event Wiring
             Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
             Header.MouseClick += OnRightClick;
-            RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
+            RemoveFiltersButton.Click += OnRemoveFilterButtonClick;
             LookupButton.Click += OnLookupButtonClicked;
-            CloseButton.Click += OnMainMenuButtonClicked;
-            UploadButton.Click += OnUploadButtonClicked;
+            CloseButton.Click += OnCloseButtonClick;
+            UploadButton.Click += OnUploadButtonClick;
+            MenuButton.Click += OnMenuButtonClick;
             Load += OnLoad;
-            Shown += OnShown;
-            Closing += OnClose;
         }
 
         /// <inheritdoc />
@@ -504,8 +510,6 @@ namespace BudgetExecution
             {
                 try
                 {
-                    RowCount = dataTable.Rows.Count;
-                    ColCount = dataTable.Columns.Count;
                     Spreadsheet.DisplayAlerts = false;
                     Spreadsheet.Font = new Font( "Roboto", 10 );
                     Spreadsheet.AllowCellContextMenu = true;
@@ -514,6 +518,8 @@ namespace BudgetExecution
                     Spreadsheet.Margin = new Padding( 1 );
                     Spreadsheet.Padding = new Padding( 1 );
                     Spreadsheet.ForeColor = Color.Black;
+                    RowCount = dataTable.Rows.Count;
+                    ColCount = dataTable.Columns.Count;
                     Spreadsheet.DefaultColumnCount = RowCount;
                     Spreadsheet.DefaultRowCount = ColCount;
                     Spreadsheet.AllowZooming = true;
@@ -544,8 +550,10 @@ namespace BudgetExecution
                 Spreadsheet.AllowZooming = true;
                 Spreadsheet.AllowFiltering = true;
                 var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
-                Spreadsheet.DefaultColumnCount = _activeSheet.Columns.Length;
-                Spreadsheet.DefaultRowCount = _activeSheet.Rows.Length;
+                RowCount = _activeSheet.Rows.Length;
+                ColCount = _activeSheet.Columns.Length;
+                Spreadsheet.DefaultColumnCount = ColCount;
+                Spreadsheet.DefaultRowCount = RowCount;
             }
             catch( Exception _ex )
             {
@@ -741,11 +749,12 @@ namespace BudgetExecution
         {
             try
             {
-                if( ( Owner != null )
-                   && ( Owner.Visible == false )
-                   && ( Owner.GetType( ) == typeof( MainForm ) ) )
+                if( Owner != null
+                   && Owner.Visible == false
+                   && Owner.GetType( ) == typeof( MainForm ) )
                 {
                     var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
+                    _form.Refresh( );
                     _form.Visible = true;
                     Close( );
                 }
@@ -766,14 +775,15 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
             {
-                Header.ForeColor = Color.FromArgb( 0, 120, 212 );
-                Header.Font = new Font( "Roboto", 11, FontStyle.Regular );
-                Header.TextAlign = ContentAlignment.TopCenter;
+                Header.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Header.Font = new Font( "Roboto", 11 );
+                Header.TextAlign = ContentAlignment.TopLeft;
                 Ribbon.Spreadsheet = Spreadsheet;
                 InitToolStrip( );
             }
@@ -883,44 +893,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnShown( object sender, EventArgs e )
-        {
-            try
-            {
-                Program.Windows[ "ExcelDataForm" ] = this;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Raises the Close event.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnClose( object sender, EventArgs e )
-        {
-            try
-            {
-                if( Program.Windows.ContainsKey( "ExcelDataForm" ) )
-                {
-                    Program.Windows.Remove( "ExcelDataForm" );
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [filter button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -943,10 +915,11 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnGroupButtonClick( object sender, EventArgs e )
+        private void OnCloseButtonClick( object sender, EventArgs e )
         {
             try
             {
+                Application.Exit( );
             }
             catch( Exception _ex )
             {
@@ -999,7 +972,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        public void OnRemoveFilterButtonClicked( object sender, EventArgs e )
+        public void OnRemoveFilterButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -1017,29 +990,9 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        public void OnMainMenuButtonClicked( object sender, EventArgs e )
+        public void OnMenuButtonClick( object sender, EventArgs e )
         {
-            try
-            {
-                if( ( Owner != null )
-                   && ( Owner.Visible == false )
-                   && ( Owner.GetType( ) == typeof( MainForm ) ) )
-                {
-                    Owner.Visible = true;
-                }
-                else if( ( Owner != null )
-                        && ( Owner.Visible == false )
-                        && ( Owner.GetType( ) != typeof( MainForm ) ) )
-                {
-                    Owner.Close( );
-                    var _mainForm = Program.Windows[ "Main" ];
-                    _mainForm.Visible = true;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            OpenMainForm( );
         }
 
         /// <summary>
@@ -1048,7 +1001,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        public void OnUploadButtonClicked( object sender, EventArgs e )
+        public void OnUploadButtonClick( object sender, EventArgs e )
         {
             try
             {

@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 04-22-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                GridBase.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="GridBase.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="GridBase.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   GridBase.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    GridBase.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -82,7 +85,7 @@ namespace BudgetExecution
             try
             {
                 if( bindingSource is BindingSource _binder
-                   && ( _binder?.DataSource != null ) )
+                   && _binder?.DataSource != null )
                 {
                     try
                     {
@@ -111,8 +114,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( ( bindingList != null )
-                   && ( dict?.Any( ) == true ) )
+                if( bindingList != null
+                   && dict?.Any( ) == true )
                 {
                     try
                     {
@@ -121,14 +124,14 @@ namespace BudgetExecution
                         foreach( var _kvp in dict )
                         {
                             if( !string.IsNullOrEmpty( _kvp.Key )
-                               && ( _kvp.Value != null ) )
+                               && _kvp.Value != null )
                             {
                                 _filter += $"{_kvp.Key} = {_kvp.Value} AND";
                             }
                         }
 
-                        if( ( _filter?.Length > 0 )
-                           && ( _list?.DataSource != null ) )
+                        if( _filter?.Length > 0
+                           && _list?.DataSource != null )
                         {
                             BindingSource.DataSource = _list?.DataSource;
                             BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray( ) );
@@ -168,7 +171,8 @@ namespace BudgetExecution
         /// <typeparam name="T1"> The type of the 1. </typeparam>
         /// <param name="data"> The data. </param>
         /// <param name="dict"> The dictionary. </param>
-        public virtual void SetDataSource<T1>( IEnumerable<T1> data, IDictionary<string, object> dict )
+        public virtual void SetDataSource<T1>( IEnumerable<T1> data,
+            IDictionary<string, object> dict )
             where T1 : IEnumerable<DataRow>
         {
             if( data?.Any( ) == true )
@@ -179,7 +183,7 @@ namespace BudgetExecution
                     foreach( var _kvp in dict )
                     {
                         if( !string.IsNullOrEmpty( _kvp.Key )
-                           && ( _kvp.Value != null ) )
+                           && _kvp.Value != null )
                         {
                             _filter += $"{_kvp.Key} = {_kvp.Value} AND";
                         }
@@ -206,7 +210,7 @@ namespace BudgetExecution
             where T1 : IEnumerable<DataRow>
             where T2 : struct
         {
-            if( ( data?.Any( ) == true )
+            if( data?.Any( ) == true
                && Enum.IsDefined( typeof( Field ), field ) )
             {
                 try
@@ -266,8 +270,8 @@ namespace BudgetExecution
             where T1 : IEnumerable<DataRow>
             where T2 : IDictionary<string, object>
         {
-            if( ( data?.Any( ) == true )
-               && ( dict?.Any( ) == true ) )
+            if( data?.Any( ) == true
+               && dict?.Any( ) == true )
             {
                 try
                 {
@@ -275,7 +279,7 @@ namespace BudgetExecution
                     foreach( var _kvp in dict )
                     {
                         if( !string.IsNullOrEmpty( _kvp.Key )
-                           && ( _kvp.Value != null ) )
+                           && _kvp.Value != null )
                         {
                             _filter += $"{_kvp.Key} = {_kvp.Value} AND";
                         }
@@ -295,11 +299,12 @@ namespace BudgetExecution
         /// <param name="data"> The data. </param>
         /// <param name="field"> The field. </param>
         /// <param name="filter"> The filter. </param>
-        public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field, object filter = null )
+        public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field,
+            object filter = null )
             where T1 : IEnumerable<DataRow>
             where T2 : struct
         {
-            if( ( data?.Any( ) == true )
+            if( data?.Any( ) == true
                && Enum.IsDefined( typeof( Field ), field ) )
             {
                 try

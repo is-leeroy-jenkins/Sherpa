@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                FilterDialog.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="FilterDialog.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="FilterDialog.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   FilterDialog.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    FilterDialog.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -59,6 +62,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class FilterDialog : MetroForm
     {
         /// <summary>
@@ -260,9 +264,9 @@ namespace BudgetExecution
             Size = new Size( 1340, 674 );
 
             // Header Label Properties
-            SourceHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
-            FilterHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
-            GroupHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
+            SourceHeader.ForeColor = Color.FromArgb( 106, 189, 252 );
+            FilterHeader.ForeColor = Color.FromArgb( 106, 189, 252 );
+            GroupHeader.ForeColor = Color.FromArgb( 106, 189, 252 );
 
             // Event Wiring
             TabControl.TabIndexChanged += OnActiveTabChanged;
@@ -457,8 +461,7 @@ namespace BudgetExecution
                 MaintenanceListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
 
@@ -788,8 +791,7 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
-                    SqlQuery = $"SELECT * FROM {Source} " 
-                        + $"WHERE {FormFilter.ToCriteria( )};";
+                    SqlQuery = $"SELECT * FROM {Source} " + $"WHERE {FormFilter.ToCriteria( )};";
 
                     PopulateFourthComboBoxItems( );
                 }
@@ -859,8 +861,7 @@ namespace BudgetExecution
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
                     FormFilter.Add( FourthCategory, FourthValue );
-                    SqlQuery = $"SELECT * FROM {Source} " 
-                        + $"WHERE {FormFilter.ToCriteria( )};";
+                    SqlQuery = $"SELECT * FROM {Source} " + $"WHERE {FormFilter.ToCriteria( )};";
                 }
                 catch( Exception _ex )
                 {
@@ -962,8 +963,8 @@ namespace BudgetExecution
                     BindingSource.DataSource = null;
                     DataTable = null;
                     DataModel = null;
-                    if( ( Owner != null )
-                       && ( Owner.Visible == false ) )
+                    if( Owner != null
+                       && Owner.Visible == false )
                     {
                         Owner.Visible = true;
                     }
@@ -1203,12 +1204,12 @@ namespace BudgetExecution
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string GetSqlText( IEnumerable<string> fields, IEnumerable<string> numerics, 
+        private string GetSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( fields?.Any( ) == true )
-               && ( numerics?.Any( ) == true ) )
+            if( where?.Any( ) == true
+               && fields?.Any( ) == true
+               && numerics?.Any( ) == true )
             {
                 try
                 {
@@ -1227,8 +1228,8 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} " 
-                        + $"WHERE {_criteria} " 
+                    return $"SELECT {_columns} FROM {Source} "
+                        + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception _ex )
@@ -1247,11 +1248,10 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string GetSqlText( IEnumerable<string> columns, 
-            IDictionary<string, object> where )
+        private string GetSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( columns?.Any( ) == true )
+            if( where?.Any( ) == true
+               && columns?.Any( ) == true
                && !string.IsNullOrEmpty( SelectedTable ) )
             {
                 try
@@ -1264,8 +1264,8 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} " 
-                        + $"WHERE {_criteria} " 
+                    return $"SELECT {_names} FROM {SelectedTable} "
+                        + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
                 catch( Exception _ex )
@@ -1339,12 +1339,11 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="where">The where.</param>
-        private void BindData( Source source, Provider provider, 
-            IDictionary<string, object> where )
+        private void BindData( Source source, Provider provider, IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), source )
                && Enum.IsDefined( typeof( Provider ), provider )
-               && ( where?.Any( ) == true ) )
+               && where?.Any( ) == true )
             {
                 try
                 {
@@ -1372,8 +1371,8 @@ namespace BudgetExecution
         {
             if( Enum.IsDefined( typeof( Source ), Source )
                && Enum.IsDefined( typeof( Provider ), Provider )
-               && ( where?.Any( ) == true )
-               && ( cols?.Any( ) == true ) )
+               && where?.Any( ) == true
+               && cols?.Any( ) == true )
             {
                 try
                 {
@@ -1398,13 +1397,13 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics, 
+        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), Source )
                && Enum.IsDefined( typeof( Provider ), Provider )
-               && ( where?.Any( ) == true )
-               && ( fields?.Any( ) == true ) )
+               && where?.Any( ) == true
+               && fields?.Any( ) == true )
             {
                 try
                 {
@@ -1526,7 +1525,7 @@ namespace BudgetExecution
         private void OnRadioButtonChecked( object sender )
         {
             if( sender is RadioButton _radio
-               && ( _radio.Tag != null ) )
+               && _radio.Tag != null )
             {
                 try
                 {

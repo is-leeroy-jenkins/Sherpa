@@ -62,7 +62,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    [ SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Global") ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class MainForm : MetroForm
     {
         /// <summary>
@@ -437,7 +437,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = new FiscalYearForm( );
+                var _form = new CalendarForm( );
                 _form.Owner = this;
                 _form.Show( );
                 Hide( );
