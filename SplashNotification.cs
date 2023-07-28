@@ -43,6 +43,7 @@
 
 namespace BudgetExecution
 {
+    using Microsoft.Office.Interop.Outlook;
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
@@ -54,6 +55,7 @@ namespace BudgetExecution
     using static System.Windows.Forms.Screen;
     using static FormAnimator;
     using static NativeMethods;
+    using Exception = System.Exception;
     using Timer = System.Windows.Forms.Timer;
 
     /// <summary>
@@ -131,6 +133,7 @@ namespace BudgetExecution
             Message.BackColor = Color.FromArgb( 0, 73, 112 );
             Message.ForeColor = Color.White;
             Title.ForeColor = Color.White;
+            Title.TextAlign = ContentAlignment.TopLeft;
             Layout.BorderColor = Color.FromArgb( 0, 120, 212 );
             Layout.Margin = new Padding( 0 );
             Layout.Padding = new Padding( 0 );
@@ -152,10 +155,11 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9 );
 
             // Wire Events
-            PictureBox.Click += OnClick;
-            Title.Click += OnClick;
-            Message.Click += OnClick;
-            Click += OnClick;
+            PictureBox.MouseClick += OnClick;
+            Title.MouseClick += OnClick;
+            Message.MouseClick += OnClick;
+            Header.MouseClick += OnClick;
+            MouseClick += OnClick;
             Load += OnLoad;
         }
 
@@ -312,15 +316,19 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnClick( object sender, EventArgs e )
+        private void OnClick( object sender, MouseEventArgs e )
         {
-            try
+            if( e.Button == MouseButtons.Left
+               || e.Button == MouseButtons.Right )
             {
-                OnClose( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
+                try
+                {
+                    OnClose( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 

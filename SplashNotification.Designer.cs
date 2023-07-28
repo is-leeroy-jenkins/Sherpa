@@ -32,10 +32,10 @@
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( SplashNotification ) );
             Header = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new Picture( );
-            Title = new Label( );
             Timer = new System.Windows.Forms.Timer( components );
             Layout = new Layout( );
-            Message = new MetroSet_UI.Controls.MetroSetRichTextBox( );
+            Title = new System.Windows.Forms.Label( );
+            Message = new System.Windows.Forms.RichTextBox( );
             Header.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             Layout.SuspendLayout( );
@@ -72,28 +72,6 @@
             PictureBox.TabStop = false;
             PictureBox.ToolTip = null;
             // 
-            // Title
-            // 
-            Title.BindingSource = null;
-            Title.DataFilter = null;
-            Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Title.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
-            Title.HoverText = null;
-            Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 37, 3 );
-            Title.Margin = new System.Windows.Forms.Padding( 3 );
-            Title.Name = "Title";
-            Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 629, 25 );
-            Title.Style = MetroSet_UI.Enums.Style.Custom;
-            Title.StyleManager = null;
-            Title.TabIndex = 1;
-            Title.Text = "Notification";
-            Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "Budget Execution";
-            Title.ToolTip = null;
-            // 
             // Layout
             // 
             Layout.BackColor = System.Drawing.Color.Transparent;
@@ -122,30 +100,29 @@
             Layout.ThemeName = "Budget Execution";
             Layout.ToolTip = null;
             // 
+            // Title
+            // 
+            Title.AutoSize = true;
+            Title.Dock = System.Windows.Forms.DockStyle.Fill;
+            Title.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
+            Title.ForeColor = System.Drawing.Color.White;
+            Title.Location = new System.Drawing.Point( 37, 0 );
+            Title.Name = "Title";
+            Title.Size = new System.Drawing.Size( 629, 31 );
+            Title.TabIndex = 1;
+            Title.Text = "Notification";
+            Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Message
             // 
-            Message.AutoWordSelection = false;
-            Message.BorderColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
-            Message.DisabledBackColor = System.Drawing.Color.FromArgb(   80  ,   80  ,   80   );
-            Message.DisabledBorderColor = System.Drawing.Color.FromArgb(   109  ,   109  ,   109   );
-            Message.DisabledForeColor = System.Drawing.Color.FromArgb(   109  ,   109  ,   109   );
-            Message.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            Message.HoverColor = System.Drawing.Color.FromArgb(   170  ,   170  ,   170   );
-            Message.IsDerivedStyle = true;
-            Message.Lines = null;
-            Message.Location = new System.Drawing.Point( 91, 89 );
-            Message.Margin = new System.Windows.Forms.Padding( 0 );
-            Message.MaxLength = 32767;
+            Message.BackColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
+            Message.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            Message.ForeColor = System.Drawing.Color.White;
+            Message.Location = new System.Drawing.Point( 87, 74 );
             Message.Name = "Message";
-            Message.ReadOnly = false;
-            Message.Size = new System.Drawing.Size( 558, 229 );
-            Message.Style = MetroSet_UI.Enums.Style.Custom;
-            Message.StyleManager = null;
+            Message.Size = new System.Drawing.Size( 586, 230 );
             Message.TabIndex = 3;
-            Message.Text = "metroSetRichTextBox1";
-            Message.ThemeAuthor = "";
-            Message.ThemeName = "";
-            Message.WordWrap = true;
+            Message.Text = "";
             // 
             // SplashNotification
             // 
@@ -176,6 +153,7 @@
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             Text = "SplashNotification";
             Header.ResumeLayout( false );
+            Header.PerformLayout( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
             Layout.ResumeLayout( false );
             ResumeLayout( false );
@@ -184,9 +162,9 @@
         #endregion
         public System.Windows.Forms.TableLayoutPanel Header;
         private Picture PictureBox;
-        private Label Title;
         public System.Windows.Forms.Timer Timer;
         public Layout Layout;
-        public MetroSet_UI.Controls.MetroSetRichTextBox Message;
+        public System.Windows.Forms.Label Title;
+        public System.Windows.Forms.RichTextBox Message;
     }
 }
