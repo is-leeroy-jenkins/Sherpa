@@ -45,13 +45,11 @@ namespace BudgetExecution
 {
     using Syncfusion.Windows.Forms.Tools;
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
-    using System.Windows.Forms;
 
     /// <inheritdoc />
     /// <summary>
@@ -60,6 +58,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class LookupDialog : EditBase
     {
         /// <summary>
@@ -86,9 +86,42 @@ namespace BudgetExecution
         /// </value>
         public string ValuePrefix { get; set; } = " Values : ";
 
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
+        public string SqlQuery { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedColumns { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected fields.
+        /// </summary>
+        /// <value>
+        /// The selected fields.
+        /// </value>
+        public IList<string> SelectedFields { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected numerics.
+        /// </summary>
+        /// <value>
+        /// The selected numerics.
+        /// </value>
+        public IList<string> SelectedNumerics { get; set; }
+        
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.LookupDialog" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.LookupDialog" /> class.
         /// </summary>
         public LookupDialog( )
         {
@@ -101,10 +134,31 @@ namespace BudgetExecution
             TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
 
             // Wire Events
-            Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
             TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
             ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
+            Load += OnLoad;
+        }
+
+        /// <summary>
+        /// Captures the state.
+        /// </summary>
+        private void CaptureState( )
+        {
+            try
+            {
+                ViewState.Provider = Provider;
+                ViewState.Source = Source;
+                ViewState.DataFilter = FormFilter;
+                ViewState.SelectedTable = SelectedTable;
+                ViewState.SelectedFields = SelectedFields;
+                ViewState.SelectedNumerics = SelectedNumerics;
+                ViewState.SqlQuery = SqlQuery;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -114,6 +168,11 @@ namespace BudgetExecution
         {
             try
             {
+                SelectedColumns?.Clear( );
+                SelectedFields?.Clear( );
+                SelectedNumerics?.Clear( );
+                FormFilter?.Clear( );
+                SelectedTable = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -130,6 +189,7 @@ namespace BudgetExecution
             {
                 TableListBox?.Clear( );
                 ColumnListBox?.Clear( );
+                FormFilter?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -144,68 +204,13 @@ namespace BudgetExecution
         {
             try
             {
+                FormFilter?.Clear( );
+                DataTable = null;
+                BindingSource.DataSource = null;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the table ListBox items.
-        /// </summary>
-        public void PopulateTableListBoxItems( )
-        {
-            try
-            {
-                TableListBox.Items?.Clear( );
-                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _names = _model.GetData( )
-                    ?.Select( r => r.Field<string>( "TableName" ) )
-                    ?.Distinct( )
-                    ?.ToList( );
-
-                for( var _i = 0; _i < _names?.Count - 1; _i++ )
-                {
-                    var _name = _names[ _i ];
-                    TableListBox.Items.Add( _name );
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Gets the controls.
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerable<Control> GetControls( )
-        {
-            var _list = new List<Control>( );
-            var _queue = new Queue( );
-            try
-            {
-                _queue.Enqueue( Controls );
-                while( _queue.Count > 0 )
-                {
-                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
-                    foreach( Control _control in _collection )
-                    {
-                        _list.Add( _control );
-                        _queue.Enqueue( _control.Controls );
-                    }
-                }
-
-                return _list?.Any( ) == true
-                    ? _list.ToArray( )
-                    : default( Control[ ] );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( Control[ ] );
             }
         }
 
@@ -355,10 +360,37 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Populates the table ListBox items.
+        /// </summary>
+        public void PopulateTableListBoxItems( )
+        {
+            try
+            {
+                TableListBox.Items?.Clear( );
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _names = _model.GetData( )
+                    ?.Select( r => r.Field<string>( "TableName" ) )
+                    ?.Distinct( )
+                    ?.ToList( );
+
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
+                {
+                    var _name = _names[ _i ];
+                    TableListBox.Items?.Add( _name );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
@@ -398,10 +430,10 @@ namespace BudgetExecution
                     var _columns = DataModel.GetDataColumns( );
                     foreach( var _col in _columns )
                     {
-                        ColumnListBox.Items.Add( _col.ColumnName );
+                        ColumnListBox.Items?.Add( _col.ColumnName );
                     }
 
-                    ColumnTable.CaptionText = ColumnPrefix + ColumnListBox.Items.Count;
+                    ColumnTable.CaptionText = ColumnPrefix + ColumnListBox.Items?.Count;
                     ValueTable.CaptionText = ValuePrefix;
                 }
             }
@@ -427,11 +459,54 @@ namespace BudgetExecution
                 {
                     foreach( var _item in _series[ _column ] )
                     {
-                        ValueListBox.Items.Add( _item );
+                        ValueListBox.Items?.Add( _item );
                     }
                 }
 
-                ValueTable.CaptionText = ValuePrefix + ValueListBox.Items.Count;
+                ValueTable.CaptionText = ValuePrefix + ValueListBox.Items?.Count;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [clear button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnClearButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearListBoxItems( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [select button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSelectButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                ViewState.Provider = Provider;
+                ViewState.Source = Source;
+                ViewState.DataFilter = FormFilter;
+                ViewState.SelectedTable = SelectedTable;
+                ViewState.SelectedFields = SelectedFields;
+                ViewState.SelectedNumerics = SelectedNumerics;
+                ViewState.SqlQuery = SqlQuery;
             }
             catch( Exception _ex )
             {

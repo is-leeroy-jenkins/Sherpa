@@ -176,7 +176,7 @@ namespace BudgetExecution
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
-            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Title.ForeColor = Color.FromArgb( 106, 189, 252 );
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );

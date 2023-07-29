@@ -217,9 +217,18 @@ namespace BudgetExecution
         /// </value>
         public DataBuilder DataModel { get; set; }
 
+        /// <summary>
+        /// Gets or sets the state of the view.
+        /// </summary>
+        /// <value>
+        /// The state of the view.
+        /// </value>
+        public StateTransfer ViewState { get; set; }
+
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataGridForm" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataGridForm" /> class.
         /// </summary>
         public DataGridForm( )
         {
@@ -629,7 +638,8 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -658,7 +668,8 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -687,7 +698,8 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -722,6 +734,27 @@ namespace BudgetExecution
                 DataTable = null;
                 UpdateLabelText( );
                 TabControl.SelectedIndex = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Captures the state.
+        /// </summary>
+        private void CaptureState( )
+        {
+            try
+            {
+                ViewState.Provider = Provider;
+                ViewState.Source = Source;
+                ViewState.DataFilter = FormFilter;
+                ViewState.SelectedTable = SelectedTable;
+                ViewState.SelectedFields = SelectedFields;
+                ViewState.SelectedNumerics = SelectedNumerics;
+                ViewState.SqlQuery = SqlQuery;
             }
             catch( Exception _ex )
             {

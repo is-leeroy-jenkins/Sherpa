@@ -272,6 +272,14 @@ namespace BudgetExecution
         /// </value>
         public STAT Metric { get; set; }
 
+        /// <summary>
+        /// Gets or sets the state of the view.
+        /// </summary>
+        /// <value>
+        /// The state of the view.
+        /// </value>
+        public StateTransfer ViewState { get; set; }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -439,6 +447,28 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the tool strip properties.
+        /// </summary>
+        private void InitializeToolStrip( )
+        {
+            try
+            {
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Populates the first ComboBox items.
         /// </summary>
         public void PopulateFirstComboBoxItems( )
@@ -507,6 +537,119 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Populates the tool bar drop down items.
+        /// </summary>
+        private void PopulateToolBarDropDownItems( )
+        {
+            try
+            {
+                ChartSeriesComboBox.Items.Clear( );
+                var _names = Enum.GetNames( typeof( SeriesChartType ) );
+                for( var i = 0; i < _names.Length; i++ )
+                {
+                    var _chart = _names[ i ];
+                    ChartSeriesComboBox.Items.Add( _chart );
+                }
+
+                MetricsComboBox.Items.Clear( );
+                var _metrics = Enum.GetNames( typeof( STAT ) );
+                for( var i = 0; i < _metrics.Length; i++ )
+                {
+                    var _measure = _metrics[ i ];
+                    MetricsComboBox.Items.Add( _measure );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the execution tables.
+        /// </summary>
+        private void PopulateExecutionTables( )
+        {
+            try
+            {
+                TableListBox.Items?.Clear( );
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData( );
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.OrderBy( r => r.Field<string>( "Title" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+
+                if( _names?.Any( ) == true )
+                {
+                    foreach( var name in _names )
+                    {
+                        TableListBox.Items?.Add( name );
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the field ListBox.
+        /// </summary>
+        private void PopulateFieldListBox( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( FieldListBox.Items.Count > 0 )
+                    {
+                        FieldListBox.Items.Clear( );
+                    }
+
+                    foreach( var _item in Fields )
+                    {
+                        FieldListBox.Items.Add( _item );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the numeric ListBox.
+        /// </summary>
+        private void PopulateNumericListBox( )
+        {
+            if( Numerics?.Any( ) == true )
+            {
+                try
+                {
+                    if( NumericListBox.Items.Count > 0 )
+                    {
+                        NumericListBox.Items.Clear( );
+                    }
+
+                    for( var i = 0; i < Numerics.Count; i++ )
+                    {
+                        if( !string.IsNullOrEmpty( Numerics[ i ] ) )
+                        {
+                            NumericListBox.Items.Add( Numerics[ i ] );
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
         /// Populates the third ComboBox items.
         /// </summary>
         public void PopulateThirdComboBoxItems( )
@@ -546,6 +689,27 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Captures the state.
+        /// </summary>
+        private void CaptureState( )
+        {
+            try
+            {
+                ViewState.Provider = Provider;
+                ViewState.Source = Source;
+                ViewState.DataFilter = FormFilter;
+                ViewState.SelectedTable = SelectedTable;
+                ViewState.SelectedFields = SelectedFields;
+                ViewState.SelectedNumerics = SelectedNumerics;
+                ViewState.SqlQuery = SqlQuery;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Creates the SQL text.
         /// </summary>
         /// <param name="where">The where.</param>
@@ -557,7 +721,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {SelectedTable} " + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {SelectedTable} " 
+                        + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -1004,7 +1169,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the active tab controls.
         /// </summary>
-        private void SetActiveTabControls( )
+        private void SetActiveTab( )
         {
             switch( TabControl.SelectedIndex )
             {
@@ -1087,119 +1252,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the tool bar drop down items.
-        /// </summary>
-        private void PopulateToolBarDropDownItems( )
-        {
-            try
-            {
-                ChartSeriesComboBox.Items.Clear( );
-                var _names = Enum.GetNames( typeof( SeriesChartType ) );
-                for( var i = 0; i < _names.Length; i++ )
-                {
-                    var _chart = _names[ i ];
-                    ChartSeriesComboBox.Items.Add( _chart );
-                }
-
-                MetricsComboBox.Items.Clear( );
-                var _metrics = Enum.GetNames( typeof( STAT ) );
-                for( var i = 0; i < _metrics.Length; i++ )
-                {
-                    var _measure = _metrics[ i ];
-                    MetricsComboBox.Items.Add( _measure );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the execution tables.
-        /// </summary>
-        private void PopulateExecutionTables( )
-        {
-            try
-            {
-                TableListBox.Items?.Clear( );
-                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
-
-                if( _names?.Any( ) == true )
-                {
-                    foreach( var name in _names )
-                    {
-                        TableListBox.Items?.Add( name );
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the field ListBox.
-        /// </summary>
-        private void PopulateFieldListBox( )
-        {
-            if( Fields?.Any( ) == true )
-            {
-                try
-                {
-                    if( FieldListBox.Items.Count > 0 )
-                    {
-                        FieldListBox.Items.Clear( );
-                    }
-
-                    foreach( var _item in Fields )
-                    {
-                        FieldListBox.Items.Add( _item );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Populates the numeric ListBox.
-        /// </summary>
-        private void PopulateNumericListBox( )
-        {
-            if( Numerics?.Any( ) == true )
-            {
-                try
-                {
-                    if( NumericListBox.Items.Count > 0 )
-                    {
-                        NumericListBox.Items.Clear( );
-                    }
-
-                    for( var i = 0; i < Numerics.Count; i++ )
-                    {
-                        if( !string.IsNullOrEmpty( Numerics[ i ] ) )
-                        {
-                            NumericListBox.Items.Add( Numerics[ i ] );
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
             }
         }
 
@@ -1329,28 +1381,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the tool strip properties.
-        /// </summary>
-        private void InitializeToolStrip( )
-        {
-            try
-            {
-                ToolStrip.Visible = true;
-                ToolStrip.Text = string.Empty;
-                ToolStrip.Office12Mode = true;
-                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
-                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
-                ToolStrip.LauncherStyle = LauncherStyle.Office12;
-                ToolStrip.ImageSize = new Size( 16, 16 );
-                ToolStrip.ImageScalingSize = new Size( 16, 16 );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1408,7 +1438,7 @@ namespace BudgetExecution
         {
             try
             {
-                SetActiveTabControls( );
+                SetActiveTab( );
             }
             catch( Exception ex )
             {
@@ -1935,18 +1965,15 @@ namespace BudgetExecution
             {
                 if( Owner?.Visible == false )
                 {
-                    Owner.Visible = true;
-                    Owner.Refresh( );
-                    Visible = false;
-                }
-                else
-                {
                     var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
-                    ClearData( );
-                    Owner = _mainForm;
-                    Visible = false;
+                    Close( );
+                }
+                else
+                {
+                    var _mainForm = new MainForm( );
+                    _mainForm.Show( );
                 }
             }
             catch( Exception ex )

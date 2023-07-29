@@ -88,7 +88,7 @@
             // 
             TabControl.ActiveTabColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             TabControl.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.BeforeTouchSize = new System.Drawing.Size( 1298, 525 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 1298, 562 );
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.CanOverrideStyle = true;
             TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
@@ -102,7 +102,7 @@
             TabControl.ItemSize = new System.Drawing.Size( 158, 23 );
             TabControl.Location = new System.Drawing.Point( 0, 0 );
             TabControl.Name = "TabControl";
-            TabControl.Size = new System.Drawing.Size( 1298, 525 );
+            TabControl.Size = new System.Drawing.Size( 1298, 562 );
             TabControl.TabIndex = 8;
             TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -135,7 +135,7 @@
             LookupTabPage.Location = new System.Drawing.Point( 0, 22 );
             LookupTabPage.Name = "LookupTabPage";
             LookupTabPage.ShowCloseButton = true;
-            LookupTabPage.Size = new System.Drawing.Size( 1298, 503 );
+            LookupTabPage.Size = new System.Drawing.Size( 1298, 540 );
             LookupTabPage.TabBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             LookupTabPage.TabForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             LookupTabPage.TabIndex = 2;
@@ -152,12 +152,12 @@
             ColumnTable.Controls.Add( ColumnPanel, 0, 1 );
             ColumnTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ColumnTable.ForeColor = System.Drawing.Color.DarkGray;
-            ColumnTable.Location = new System.Drawing.Point( 188, 275 );
+            ColumnTable.Location = new System.Drawing.Point( 188, 295 );
             ColumnTable.Name = "ColumnTable";
             ColumnTable.RowCount = 2;
             ColumnTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 8.465609F ) );
             ColumnTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 91.53439F ) );
-            ColumnTable.Size = new System.Drawing.Size( 412, 205 );
+            ColumnTable.Size = new System.Drawing.Size( 412, 220 );
             ColumnTable.TabIndex = 16;
             // 
             // ColumnPanel
@@ -175,10 +175,10 @@
             ColumnPanel.ForeColor = System.Drawing.Color.Transparent;
             ColumnPanel.HoverText = null;
             ColumnPanel.IsDerivedStyle = true;
-            ColumnPanel.Location = new System.Drawing.Point( 3, 35 );
+            ColumnPanel.Location = new System.Drawing.Point( 3, 36 );
             ColumnPanel.Name = "ColumnPanel";
             ColumnPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            ColumnPanel.Size = new System.Drawing.Size( 406, 167 );
+            ColumnPanel.Size = new System.Drawing.Size( 406, 181 );
             ColumnPanel.Style = MetroSet_UI.Enums.Style.Custom;
             ColumnPanel.StyleManager = null;
             ColumnPanel.TabIndex = 8;
@@ -201,7 +201,7 @@
             ColumnListBox.HoverText = null;
             ColumnListBox.IsDerivedStyle = true;
             ColumnListBox.ItemHeight = 30;
-            ColumnListBox.Location = new System.Drawing.Point( 16, 13 );
+            ColumnListBox.Location = new System.Drawing.Point( 16, 14 );
             ColumnListBox.Margin = new System.Windows.Forms.Padding( 1 );
             ColumnListBox.MultiSelect = false;
             ColumnListBox.Name = "ColumnListBox";
@@ -214,7 +214,7 @@
             ColumnListBox.SelectedValue = null;
             ColumnListBox.ShowBorder = false;
             ColumnListBox.ShowScrollBar = false;
-            ColumnListBox.Size = new System.Drawing.Size( 375, 141 );
+            ColumnListBox.Size = new System.Drawing.Size( 375, 153 );
             ColumnListBox.Style = MetroSet_UI.Enums.Style.Custom;
             ColumnListBox.StyleManager = null;
             ColumnListBox.TabIndex = 2;
@@ -253,12 +253,12 @@
             ProviderTable.Controls.Add( ProviderPanel, 0, 1 );
             ProviderTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ProviderTable.ForeColor = System.Drawing.Color.DarkGray;
-            ProviderTable.Location = new System.Drawing.Point( 191, 41 );
+            ProviderTable.Location = new System.Drawing.Point( 191, 44 );
             ProviderTable.Name = "ProviderTable";
             ProviderTable.RowCount = 2;
             ProviderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 7.9365077F ) );
             ProviderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 92.06349F ) );
-            ProviderTable.Size = new System.Drawing.Size( 412, 205 );
+            ProviderTable.Size = new System.Drawing.Size( 412, 220 );
             ProviderTable.TabIndex = 15;
             // 
             // ProviderPanel
@@ -279,10 +279,10 @@
             ProviderPanel.ForeColor = System.Drawing.Color.Transparent;
             ProviderPanel.HoverText = null;
             ProviderPanel.IsDerivedStyle = true;
-            ProviderPanel.Location = new System.Drawing.Point( 3, 34 );
+            ProviderPanel.Location = new System.Drawing.Point( 3, 35 );
             ProviderPanel.Name = "ProviderPanel";
             ProviderPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            ProviderPanel.Size = new System.Drawing.Size( 406, 168 );
+            ProviderPanel.Size = new System.Drawing.Size( 406, 182 );
             ProviderPanel.Style = MetroSet_UI.Enums.Style.Custom;
             ProviderPanel.StyleManager = null;
             ProviderPanel.TabIndex = 5;
@@ -304,7 +304,7 @@
             SqlCeRadioButton.Group = 0;
             SqlCeRadioButton.HoverText = null;
             SqlCeRadioButton.IsDerivedStyle = true;
-            SqlCeRadioButton.Location = new System.Drawing.Point( 146, 124 );
+            SqlCeRadioButton.Location = new System.Drawing.Point( 146, 133 );
             SqlCeRadioButton.Name = "SqlCeRadioButton";
             SqlCeRadioButton.Result = null;
             SqlCeRadioButton.Size = new System.Drawing.Size( 140, 17 );
@@ -330,7 +330,7 @@
             SqliteRadioButton.Group = 0;
             SqliteRadioButton.HoverText = null;
             SqliteRadioButton.IsDerivedStyle = true;
-            SqliteRadioButton.Location = new System.Drawing.Point( 146, 22 );
+            SqliteRadioButton.Location = new System.Drawing.Point( 146, 24 );
             SqliteRadioButton.Name = "SqliteRadioButton";
             SqliteRadioButton.Result = null;
             SqliteRadioButton.Size = new System.Drawing.Size( 118, 17 );
@@ -356,7 +356,7 @@
             AccessRadioButton.Group = 0;
             AccessRadioButton.HoverText = null;
             AccessRadioButton.IsDerivedStyle = true;
-            AccessRadioButton.Location = new System.Drawing.Point( 146, 86 );
+            AccessRadioButton.Location = new System.Drawing.Point( 146, 92 );
             AccessRadioButton.Name = "AccessRadioButton";
             AccessRadioButton.Result = null;
             AccessRadioButton.Size = new System.Drawing.Size( 140, 17 );
@@ -382,7 +382,7 @@
             SqlServerRadioButton.Group = 0;
             SqlServerRadioButton.HoverText = null;
             SqlServerRadioButton.IsDerivedStyle = true;
-            SqlServerRadioButton.Location = new System.Drawing.Point( 146, 54 );
+            SqlServerRadioButton.Location = new System.Drawing.Point( 146, 58 );
             SqlServerRadioButton.Name = "SqlServerRadioButton";
             SqlServerRadioButton.Result = null;
             SqlServerRadioButton.Size = new System.Drawing.Size( 140, 17 );
@@ -404,12 +404,12 @@
             ValueTable.Controls.Add( ValuePanel, 0, 1 );
             ValueTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ValueTable.ForeColor = System.Drawing.Color.DarkGray;
-            ValueTable.Location = new System.Drawing.Point( 712, 275 );
+            ValueTable.Location = new System.Drawing.Point( 712, 295 );
             ValueTable.Name = "ValueTable";
             ValueTable.RowCount = 2;
             ValueTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 8.465609F ) );
             ValueTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 91.53439F ) );
-            ValueTable.Size = new System.Drawing.Size( 412, 205 );
+            ValueTable.Size = new System.Drawing.Size( 412, 220 );
             ValueTable.TabIndex = 14;
             // 
             // ValuePanel
@@ -427,10 +427,10 @@
             ValuePanel.ForeColor = System.Drawing.Color.Transparent;
             ValuePanel.HoverText = null;
             ValuePanel.IsDerivedStyle = true;
-            ValuePanel.Location = new System.Drawing.Point( 3, 35 );
+            ValuePanel.Location = new System.Drawing.Point( 3, 36 );
             ValuePanel.Name = "ValuePanel";
             ValuePanel.Padding = new System.Windows.Forms.Padding( 1 );
-            ValuePanel.Size = new System.Drawing.Size( 406, 167 );
+            ValuePanel.Size = new System.Drawing.Size( 406, 181 );
             ValuePanel.Style = MetroSet_UI.Enums.Style.Custom;
             ValuePanel.StyleManager = null;
             ValuePanel.TabIndex = 9;
@@ -452,7 +452,7 @@
             ValueListBox.HoverText = null;
             ValueListBox.IsDerivedStyle = true;
             ValueListBox.ItemHeight = 30;
-            ValueListBox.Location = new System.Drawing.Point( 15, 13 );
+            ValueListBox.Location = new System.Drawing.Point( 15, 14 );
             ValueListBox.Margin = new System.Windows.Forms.Padding( 1 );
             ValueListBox.MultiSelect = false;
             ValueListBox.Name = "ValueListBox";
@@ -465,7 +465,7 @@
             ValueListBox.SelectedValue = null;
             ValueListBox.ShowBorder = false;
             ValueListBox.ShowScrollBar = false;
-            ValueListBox.Size = new System.Drawing.Size( 375, 141 );
+            ValueListBox.Size = new System.Drawing.Size( 375, 151 );
             ValueListBox.Style = MetroSet_UI.Enums.Style.Custom;
             ValueListBox.StyleManager = null;
             ValueListBox.TabIndex = 2;
@@ -484,12 +484,12 @@
             SourceTable.Controls.Add( TablePanel, 0, 1 );
             SourceTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             SourceTable.ForeColor = System.Drawing.Color.DarkGray;
-            SourceTable.Location = new System.Drawing.Point( 712, 41 );
+            SourceTable.Location = new System.Drawing.Point( 712, 44 );
             SourceTable.Name = "SourceTable";
             SourceTable.RowCount = 2;
             SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 7.075472F ) );
             SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 92.92453F ) );
-            SourceTable.Size = new System.Drawing.Size( 412, 205 );
+            SourceTable.Size = new System.Drawing.Size( 412, 220 );
             SourceTable.TabIndex = 13;
             // 
             // TablePanel
@@ -507,10 +507,10 @@
             TablePanel.ForeColor = System.Drawing.Color.Transparent;
             TablePanel.HoverText = null;
             TablePanel.IsDerivedStyle = true;
-            TablePanel.Location = new System.Drawing.Point( 3, 32 );
+            TablePanel.Location = new System.Drawing.Point( 3, 33 );
             TablePanel.Name = "TablePanel";
             TablePanel.Padding = new System.Windows.Forms.Padding( 1 );
-            TablePanel.Size = new System.Drawing.Size( 406, 170 );
+            TablePanel.Size = new System.Drawing.Size( 406, 184 );
             TablePanel.Style = MetroSet_UI.Enums.Style.Custom;
             TablePanel.StyleManager = null;
             TablePanel.TabIndex = 7;
@@ -532,7 +532,7 @@
             TableListBox.HoverText = null;
             TableListBox.IsDerivedStyle = true;
             TableListBox.ItemHeight = 30;
-            TableListBox.Location = new System.Drawing.Point( 15, 15 );
+            TableListBox.Location = new System.Drawing.Point( 15, 16 );
             TableListBox.Margin = new System.Windows.Forms.Padding( 1 );
             TableListBox.MultiSelect = false;
             TableListBox.Name = "TableListBox";
@@ -545,7 +545,7 @@
             TableListBox.SelectedValue = null;
             TableListBox.ShowBorder = false;
             TableListBox.ShowScrollBar = false;
-            TableListBox.Size = new System.Drawing.Size( 375, 141 );
+            TableListBox.Size = new System.Drawing.Size( 375, 151 );
             TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
             TableListBox.StyleManager = null;
             TableListBox.TabIndex = 1;
@@ -826,7 +826,7 @@
             SelectButton.HoverText = "Not Yet Implemented!";
             SelectButton.HoverTextColor = System.Drawing.Color.White;
             SelectButton.IsDerivedStyle = true;
-            SelectButton.Location = new System.Drawing.Point( 574, 598 );
+            SelectButton.Location = new System.Drawing.Point( 625, 600 );
             SelectButton.Margin = new System.Windows.Forms.Padding( 0 );
             SelectButton.Name = "SelectButton";
             SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
@@ -836,7 +836,7 @@
             SelectButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             SelectButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             SelectButton.PressTextColor = System.Drawing.Color.White;
-            SelectButton.Size = new System.Drawing.Size( 78, 26 );
+            SelectButton.Size = new System.Drawing.Size( 78, 28 );
             SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
             SelectButton.StyleManager = null;
             SelectButton.TabIndex = 7;
@@ -860,7 +860,7 @@
             RefreshButton.HoverText = "Not Yet Implemented!";
             RefreshButton.HoverTextColor = System.Drawing.Color.White;
             RefreshButton.IsDerivedStyle = true;
-            RefreshButton.Location = new System.Drawing.Point( 93, 598 );
+            RefreshButton.Location = new System.Drawing.Point( 96, 600 );
             RefreshButton.Margin = new System.Windows.Forms.Padding( 0 );
             RefreshButton.Name = "RefreshButton";
             RefreshButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
@@ -870,7 +870,7 @@
             RefreshButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             RefreshButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             RefreshButton.PressTextColor = System.Drawing.Color.White;
-            RefreshButton.Size = new System.Drawing.Size( 78, 26 );
+            RefreshButton.Size = new System.Drawing.Size( 78, 28 );
             RefreshButton.Style = MetroSet_UI.Enums.Style.Custom;
             RefreshButton.StyleManager = null;
             RefreshButton.TabIndex = 5;
@@ -895,7 +895,7 @@
             CloseButton.HoverText = "Close Window";
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 1024, 598 );
+            CloseButton.Location = new System.Drawing.Point( 1108, 600 );
             CloseButton.Margin = new System.Windows.Forms.Padding( 0 );
             CloseButton.Name = "CloseButton";
             CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
@@ -905,7 +905,7 @@
             CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 78, 26 );
+            CloseButton.Size = new System.Drawing.Size( 78, 28 );
             CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
             CloseButton.StyleManager = null;
             CloseButton.TabIndex = 6;
@@ -1015,12 +1015,14 @@
             // 
             // LookupDialog
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
+            AutoScaleDimensions = new System.Drawing.SizeF( 7F, 15F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionBarColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             CaptionFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ClientSize = new System.Drawing.Size( 1298, 636 );
+            ClientSize = new System.Drawing.Size( 1298, 681 );
             ControlBox = false;
             Controls.Add( SelectButton );
             Controls.Add( TabControl );
@@ -1028,8 +1030,8 @@
             Controls.Add( CloseButton );
             ForeColor = System.Drawing.Color.LightSteelBlue;
             Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
-            MaximumSize = new System.Drawing.Size( 1310, 648 );
-            MinimumSize = new System.Drawing.Size( 1310, 646 );
+            MaximumSize = new System.Drawing.Size( 1310, 693 );
+            MinimumSize = new System.Drawing.Size( 1310, 691 );
             Name = "LookupDialog";
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
             ( (System.ComponentModel.ISupportInitialize) TabControl  ).EndInit( );

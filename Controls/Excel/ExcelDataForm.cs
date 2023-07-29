@@ -200,6 +200,14 @@ namespace BudgetExecution
         /// </value>
         public DataBuilder DataModel { get; set; }
 
+        /// <summary>
+        /// Gets or sets the state of the view.
+        /// </summary>
+        /// <value>
+        /// The state of the view.
+        /// </value>
+        public StateTransfer ViewState { get; set; }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -240,6 +248,9 @@ namespace BudgetExecution
             // Ribbon Properties
             Ribbon.Spreadsheet = Spreadsheet;
 
+            // Default Provider
+            Provider = Provider.Access;
+
             // Header Properties
             Header.ForeColor = Color.FromArgb( 106, 189, 252 );
             Header.Font = new Font( "Roboto", 11 );
@@ -270,20 +281,9 @@ namespace BudgetExecution
             : this( )
         {
             FilePath = filePath;
-            FileName = Path.GetFileName( filePath );
+            FileName = Path.GetFileNameWithoutExtension( filePath );
+            Header.Text = FileName;
             Spreadsheet.Open( filePath );
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ExcelDataForm" /> class.
-        /// </summary>
-        /// <param name="fileStream">The file stream.</param>
-        public ExcelDataForm( Stream fileStream )
-            : this( )
-        {
-            Spreadsheet.Open( fileStream );
         }
 
         /// <inheritdoc />
@@ -315,6 +315,45 @@ namespace BudgetExecution
             BindingSource.DataSource = dataTable;
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
+        }
+
+        /// <summary>
+        /// Captures the state.
+        /// </summary>
+        private void CaptureState( )
+        {
+            try
+            {
+                ViewState.Provider = Provider;
+                ViewState.Source = Source;
+                ViewState.DataFilter = FormFilter;
+                ViewState.SelectedTable = SelectedTable;
+                ViewState.SelectedFields = SelectedFields;
+                ViewState.SelectedNumerics = SelectedNumerics;
+                ViewState.SqlQuery = SqlQuery;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearData( )
+        {
+            try
+            {
+                SelectedTable = string.Empty;
+                DataModel = null;
+                DataTable = null;
+                Spreadsheet.ActiveSheet.ClearData( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -369,7 +408,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the tool strip properties.
         /// </summary>
-        private void InitToolStrip( )
+        private void InitializeToolStrip( )
         {
             try
             {
@@ -388,28 +427,6 @@ namespace BudgetExecution
                 ToolStripTextBox.ForeColor = Color.White;
                 ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
                 ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the table configuration.
-        /// </summary>
-        private void SetTableConfiguration( )
-        {
-            try
-            {
-                if( DataTable != null )
-                {
-                    InitializeTable( DataTable );
-                }
-                else
-                {
-                    InitializeTable( );
-                }
             }
             catch( Exception _ex )
             {
@@ -468,7 +485,9 @@ namespace BudgetExecution
                     ToolStripTextBox.Text = $"  Rows: {RowCount}  Columns: {ColCount}";
                     _topRow?.FreezePanes( );
                     _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
+                    var _title = table?.TableName.SplitPascal( );
                     Spreadsheet?.ActiveGrid?.InvalidateCells( );
+                    Header.Text = $"{_title} Data Table";
                 }
                 catch( Exception _ex )
                 {
@@ -491,6 +510,28 @@ namespace BudgetExecution
                 else
                 {
                     InitializeWorksheet( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the table configuration.
+        /// </summary>
+        private void SetTableConfiguration( )
+        {
+            try
+            {
+                if( DataTable != null )
+                {
+                    InitializeTable( DataTable );
+                }
+                else
+                {
+                    InitializeTable( );
                 }
             }
             catch( Exception _ex )
@@ -677,9 +718,9 @@ namespace BudgetExecution
             {
                 var _dialog = new FilterDialog( );
                 _dialog.ShowDialog( this );
-                Provider = _dialog.Provider;
-                Source = _dialog.Source;
-                SelectedTable = _dialog?.SelectedTable;
+                Provider = _dialog.ViewState.Provider;
+                Source = _dialog.ViewState.Source;
+                SelectedTable = _dialog.ViewState.SelectedTable;
                 DataModel = new DataBuilder( Source, Provider );
                 DataTable = DataModel?.DataTable;
                 SetTableConfiguration( );
@@ -700,40 +741,22 @@ namespace BudgetExecution
         {
             try
             {
-                var _group = new FilterDialog( BindingSource );
+                var _group = new FilterDialog( );
                 _group.ShowDialog( this );
-                Provider = _group.Provider;
-                Source = _group.Source;
-                SelectedTable = _group?.SelectedTable ?? string.Empty;
-                FormFilter = _group?.FormFilter ?? default( IDictionary<string, object> );
-                SqlQuery = _group?.SqlQuery;
-                DataModel = _group?.DataModel;
-                SelectedColumns = _group?.SelectedColumns ?? default( IList<string> );
-                SelectedFields = _group?.SelectedFields ?? default( IList<string> );
-                SelectedNumerics = _group?.SelectedNumerics ?? default( IList<string> );
-                DataTable = DataModel?.DataTable;
+                Provider = _group.ViewState.Provider;
+                Source = _group.ViewState.Source;
+                SelectedTable = _group.ViewState.SelectedTable ?? string.Empty;
+                FormFilter = _group.ViewState.DataFilter ?? default( IDictionary<string, object> );
+                SqlQuery = _group.ViewState.SqlQuery;
+                SelectedColumns = _group.ViewState.SelectedColumns ?? default( IList<string> );
+                SelectedFields = _group.ViewState.SelectedFields ?? default( IList<string> );
+                SelectedNumerics = _group.ViewState.SelectedNumerics ?? default( IList<string> );
+                DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                DataTable = DataModel.DataTable;
                 SetTableConfiguration( );
                 SetWorksheetConfiguration( );
                 SetActiveGridConfiguration( );
                 Refresh( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the data.
-        /// </summary>
-        public void ClearData( )
-        {
-            try
-            {
-                SelectedTable = string.Empty;
-                DataModel = null;
-                DataTable = null;
-                Spreadsheet.ActiveSheet.ClearData( );
             }
             catch( Exception _ex )
             {
@@ -783,7 +806,7 @@ namespace BudgetExecution
                 Header.Font = new Font( "Roboto", 11 );
                 Header.TextAlign = ContentAlignment.TopLeft;
                 Ribbon.Spreadsheet = Spreadsheet;
-                InitToolStrip( );
+                InitializeToolStrip( );
             }
             catch( Exception _ex )
             {

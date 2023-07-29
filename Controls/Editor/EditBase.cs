@@ -240,6 +240,14 @@ namespace BudgetExecution
         /// </value>
         public IEnumerable<string> DataTypes { get; set; }
 
+        /// <summary>
+        /// Gets or sets the state of the view.
+        /// </summary>
+        /// <value>
+        /// The state of the view.
+        /// </value>
+        public StateTransfer ViewState { get; set; }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
