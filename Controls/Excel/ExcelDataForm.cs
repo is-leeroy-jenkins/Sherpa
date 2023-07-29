@@ -446,8 +446,7 @@ namespace BudgetExecution
         /// <param name="table">The table.</param>
         private void InitializeTable( DataTable table )
         {
-            if( ( table != null )
-               && ( table?.Rows?.Count > 0 ) )
+            if( table?.Rows?.Count > 0 )
             {
                 try
                 {
@@ -749,8 +748,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false
+                if( Owner?.Visible == false 
                    && Owner.GetType( ) == typeof( MainForm ) )
                 {
                     var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];

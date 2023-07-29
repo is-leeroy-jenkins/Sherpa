@@ -114,7 +114,7 @@ namespace BudgetExecution
                 try
                 {
                     var _table = (DataTable)bindingSource.DataSource;
-                    return ( _table != null ) && ( _table.Rows.Count > 0 )
+                    return _table?.Rows.Count > 0
                         ? _table
                         : default( DataTable );
                 }

@@ -180,12 +180,12 @@ namespace BudgetExecution
 
             // Label Properties
             Title.Font = new Font( "Roboto", 12 );
-            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Title.ForeColor = Color.FromArgb( 106, 189, 252 );
             Title.TextAlign = ContentAlignment.TopLeft;
             Title.Text = "Guidance Documents";
             Title.FlatStyle = FlatStyle.Flat;
             PathLabel.Font = new Font( "Roboto", 8 );
-            PathLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            PathLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
 
             // Picture Properties
             Picture.Size = new Size( 24, 22 );
@@ -276,8 +276,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false
+                if( Owner?.Visible == false 
                    && Owner.GetType( ) == typeof( MainForm ) )
                 {
                     var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];

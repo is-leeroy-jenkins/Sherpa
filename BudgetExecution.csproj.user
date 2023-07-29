@@ -11,7 +11,7 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="Controls\Calendar\CalendarControl.cs">
+    <Compile Update="Controls\CalendarControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\Button\Button.cs">

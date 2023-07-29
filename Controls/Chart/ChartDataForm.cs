@@ -1210,8 +1210,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false
+                if( Owner?.Visible == false 
                    && Owner.GetType( ) == typeof( MainForm ) )
                 {
                     var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
@@ -1934,8 +1933,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false )
+                if( Owner?.Visible == false )
                 {
                     Owner.Visible = true;
                     Owner.Refresh( );

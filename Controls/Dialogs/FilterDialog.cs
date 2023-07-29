@@ -963,8 +963,7 @@ namespace BudgetExecution
                     BindingSource.DataSource = null;
                     DataTable = null;
                     DataModel = null;
-                    if( Owner != null
-                       && Owner.Visible == false )
+                    if( Owner?.Visible == false )
                     {
                         Owner.Visible = true;
                     }

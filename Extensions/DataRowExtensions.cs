@@ -66,8 +66,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public static IEnumerable<DbParameter> ToSqlDbParameters( this DataRow dataRow, Provider provider )
         {
-            if( ( dataRow != null )
-               && ( dataRow.ItemArray.Length > 0 )
+            if( dataRow?.ItemArray.Length > 0 
                && Enum.IsDefined( typeof( Provider ), provider ) )
             {
                 try
