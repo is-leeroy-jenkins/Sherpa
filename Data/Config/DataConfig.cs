@@ -41,11 +41,29 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc/>
     /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class DataConfig : ISource, IProvider
     {
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider { get; set; }
+
+        /// <inheritdoc/>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value> The source.
+        /// </value>
+        public Source Source { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="DataConfig"/>
@@ -60,27 +78,27 @@ namespace BudgetExecution
         /// <see cref="DataConfig"/>
         /// class.
         /// </summary>
-        /// <param name="source" > The source. </param>
-        /// <param name="provider" > The provider. </param>
+        /// <param name="source" >
+        /// The source.
+        /// </param>
+        /// <param name="provider" >
+        /// The provider.
+        /// </param>
         public DataConfig( Source source, Provider provider )
         {
             Source = source;
             Provider = provider;
         }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
-        public Provider Provider { get; set; }
-
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public Source Source { get; set; }
-
-        /// <summary> Deconstructs the specified source. </summary>
-        /// <param name="source" > The source. </param>
-        /// <param name="provider" > The provider. </param>
+        /// <summary>
+        /// Deconstructs the specified source.
+        /// </summary>
+        /// <param name="source" >
+        /// The source.
+        /// </param>
+        /// <param name="provider" >
+        /// The provider.
+        /// </param>
         public void Deconstruct( out Source source, out Provider provider )
         {
             source = Source;
@@ -106,8 +124,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex" > The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex" >
+        /// The ex.
+        /// </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

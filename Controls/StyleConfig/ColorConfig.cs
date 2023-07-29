@@ -190,7 +190,8 @@ namespace BudgetExecution
         public Color BlueText { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ColorConfig"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ColorConfig"/> class.
         /// </summary>
         public ColorConfig( )
         {

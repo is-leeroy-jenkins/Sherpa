@@ -55,6 +55,7 @@ namespace BudgetExecution
     /// <seealso cref="Syncfusion.Windows.Forms.Tools.SuperToolTip" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Global")]
     public class SuperTip : SuperToolTip
     {
         /// <summary>
@@ -63,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         /// The tip text.
         /// </value>
-        public virtual TextItem TipText { get; set; }
+        public TextItem TipText { get; set; }
 
         /// <summary>
         /// Gets or sets the tip information.
@@ -71,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The tip information.
         /// </value>
-        public virtual ToolTipInfo TipInfo { get; set; }
+        protected ToolTipInfo TipInfo { get; set; }
 
         /// <summary>
         /// Gets or sets the tip item.
@@ -79,7 +80,7 @@ namespace BudgetExecution
         /// <value>
         /// The tip item.
         /// </value>
-        public virtual ToolTipInfo.ToolTipItem TipItem { get; set; }
+        public ToolTipInfo.ToolTipItem TipItem { get; set; }
 
         /// <summary>
         /// Gets or sets the binding source.
@@ -87,10 +88,12 @@ namespace BudgetExecution
         /// <value>
         /// The binding source.
         /// </value>
-        public virtual BindingSource BindingSource { get; set; }
+        public BindingSource BindingSource { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SuperTip"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SuperTip" /> class.
         /// </summary>
         public SuperTip( )
         {
@@ -104,31 +107,33 @@ namespace BudgetExecution
 
             // TipInfo Properties
             TipInfo = new ToolTipInfo( );
-            TipInfo.BackColor = Color.FromArgb( 40, 40, 40 );
-            TipInfo.BorderColor = Color.FromArgb( 0, 120, 212 );
-            TipInfo.ForeColor = Color.LightGray;
+            TipInfo.BackColor = Color.FromArgb( 70, 70, 70 );
+            TipInfo.BorderColor = Color.FromArgb(106, 189, 252 );
+            TipInfo.ForeColor = Color.DarkGray;
             TipInfo.Separator = true;
 
             // Header Properties
-            TipInfo.Header.Font = new Font( "Roboto", 9 );
-            TipInfo.Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+            TipInfo.Header.Font = new Font( "Roboto", 10 );
+            TipInfo.Header.ForeColor = Color.FromArgb( 106, 189, 252 );
             TipInfo.Header.TextAlign = ContentAlignment.MiddleCenter;
             TipInfo.Header.ImageAlign = ContentAlignment.TopLeft;
             TipInfo.Header.ImageScalingSize = new Size( 10, 14 );
 
             // Body Properties
-            TipInfo.Body.Font = new Font( "Roboto", 8 );
+            TipInfo.Body.Font = new Font( "Roboto", 9 );
             TipInfo.Body.ForeColor = Color.LightGray;
             TipInfo.Body.TextAlign = ContentAlignment.MiddleCenter;
 
             // Footer Properties
             TipInfo.Footer.Font = new Font( "Roboto", 7 );
-            TipInfo.Footer.ForeColor = Color.FromArgb( 65, 65, 65 );
+            TipInfo.Footer.ForeColor = Color.DarkGray;
             TipInfo.Footer.TextAlign = ContentAlignment.BottomLeft;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SuperTip"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SuperTip" /> class.
         /// </summary>
         /// <param name="control">The control.</param>
         /// <param name="text">The text.</param>
@@ -138,10 +143,14 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SuperTip"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SuperTip" /> class.
         /// </summary>
-        /// <param name="toolItem">The tool item.</param>
+        /// <param name="toolItem">
+        /// The tool item.
+        /// </param>
         public SuperTip( ToolStripItem toolItem )
             : this( )
         {
@@ -150,8 +159,10 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the header text.
         /// </summary>
-        /// <param name="bodyText">The body text.</param>
-        public virtual void SetHeaderText( string bodyText )
+        /// <param name="bodyText">
+        /// The body text.
+        /// </param>
+        public void SetHeaderText( string bodyText )
         {
             try
             {
@@ -169,8 +180,10 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the body text.
         /// </summary>
-        /// <param name="bodyText">The body text.</param>
-        public virtual void SetBodyText( string bodyText )
+        /// <param name="bodyText">
+        /// The body text.
+        /// </param>
+        public void SetBodyText( string bodyText )
         {
             try
             {
@@ -188,7 +201,9 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the footer text.
         /// </summary>
-        /// <param name="footerText">The footer text.</param>
+        /// <param name="footerText">
+        /// The footer text.
+        /// </param>
         public virtual void SetFooterText( string footerText )
         {
             try
@@ -207,7 +222,9 @@ namespace BudgetExecution
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

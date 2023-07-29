@@ -91,7 +91,6 @@
             ShowMinimizeBox = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Load += FormBase_Load;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
             ResumeLayout( false );
         }

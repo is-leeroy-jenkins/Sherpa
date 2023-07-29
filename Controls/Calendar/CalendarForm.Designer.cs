@@ -40,7 +40,7 @@
 
 namespace BudgetExecution
 {
-    sealed partial class FiscalYearForm
+    sealed partial class CalendarForm
     {
         /// <summary>
         /// Required designer variable.
@@ -78,7 +78,7 @@ namespace BudgetExecution
             var dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle( );
             var dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle( );
             var dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( FiscalYearForm ) );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( CalendarForm ) );
             PictureBox = new Picture( );
             Title = new Label( );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );

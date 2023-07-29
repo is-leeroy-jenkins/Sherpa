@@ -41,52 +41,90 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Net.Mail;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+    [SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Global")]
     public class OutlookConfig
     {
-        /// <summary> Gets or sets the t os. </summary>
-        /// <value> The t os. </value>
-        public string[ ] Os { get; set; }
+        /// <summary>
+        /// Gets or sets the os.
+        /// </summary>
+        /// <value>
+        /// The os.
+        /// </value>
+        public IList<string> Recipient { get; set; }
 
-        /// <summary> Gets or sets the c cs. </summary>
-        /// <value> The c cs. </value>
-        public string[ ] CCs { get; set; }
+        /// <summary>
+        /// Gets or sets the c cs.
+        /// </summary>
+        /// <value>
+        /// The c cs.
+        /// </value>
+        public IList<string> CarbonCopy { get; set; }
 
-        /// <summary> Gets or sets from. </summary>
-        /// <value> From. </value>
-        public string From { get; set; }
+        /// <summary>
+        /// Gets or sets from.
+        /// </summary>
+        /// <value>
+        /// From.
+        /// </value>
+        public string Sender { get; set; }
 
-        /// <summary> Gets or sets from display name. </summary>
-        /// <value> From display name. </value>
+        /// <summary>
+        /// Gets or sets the display name.
+        /// </summary>
+        /// <value>
+        /// The display name.
+        /// </value>
         public string DisplayName { get; set; }
 
-        /// <summary> Gets or sets the subject. </summary>
-        /// <value> The subject. </value>
+        /// <summary>
+        /// Gets or sets the subject.
+        /// </summary>
+        /// <value>
+        /// The subject.
+        /// </value>
         public string Subject { get; set; }
 
-        /// <summary> Gets or sets the priority. </summary>
-        /// <value> The priority. </value>
+        /// <summary>
+        /// Gets or sets the priority.
+        /// </summary>
+        /// <value>
+        /// The priority.
+        /// </value>
         public MailPriority Priority { get; set; }
 
-        /// <summary> Gets or sets the name of the client credential user. </summary>
-        /// <value> The name of the client credential user. </value>
+        /// <summary>
+        /// Gets or sets the name of the user.
+        /// </summary>
+        /// <value>
+        /// The name of the user.
+        /// </value>
         public string UserName { get; set; }
 
-        /// <summary> Gets or sets the client credential password. </summary>
-        /// <value> The client credential password. </value>
+        /// <summary>
+        /// Gets or sets the password.
+        /// </summary>
+        /// <value>
+        /// The password.
+        /// </value>
         public string Password { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="OutlookConfig"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="OutlookConfig"/> class.
         /// </summary>
         public OutlookConfig( )
         {
+            Recipient = new List<string>( );
+            CarbonCopy = new List<string>( );
         }
     }
 }

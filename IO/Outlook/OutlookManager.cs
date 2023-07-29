@@ -58,7 +58,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class OutlookManager
     {
-        /// <summary> Gets or sets the name of the host. </summary>
+        /// <summary>
+        /// Gets or sets the name of the host.
+        /// </summary>
         /// <value> The name of the host. </value>
         public string HostName { get; set; }
 
@@ -76,16 +78,24 @@ namespace BudgetExecution
         /// <see cref="OutlookManager"/>
         /// class.
         /// </summary>
-        /// <param name="hostName"> Name of the host. </param>
+        /// <param name="hostName">
+        /// Name of the host.
+        /// </param>
         public OutlookManager( string hostName )
         {
             HostName = hostName;
         }
 
-        /// <summary> Sends the mail. </summary>
-        /// <param name="config"> The configuration. </param>
-        /// <param name="content"> The content. </param>
-        public void SendMail( OutlookConfig config, EmailContent content )
+        /// <summary>
+        /// Sends the mail.
+        /// </summary>
+        /// <param name="config">
+        /// The configuration.
+        /// </param>
+        /// <param name="content">
+        /// The content.
+        /// </param>
+        public void SendEmail( OutlookConfig config, EmailContent content )
         {
             if( ( config != null )
                && ( content != null ) )
@@ -93,7 +103,7 @@ namespace BudgetExecution
                 try
                 {
                     var _message = CreateMessage( config, content );
-                    Send( _message, config );
+                    SendEmail( _message, config );
                 }
                 catch( Exception _ex )
                 {
@@ -102,7 +112,44 @@ namespace BudgetExecution
             }
         }
 
-        private void ReadInboxItems( )
+        /// <summary>
+        /// Sends the specified message.
+        /// </summary>
+        /// <param name="message">
+        /// The message.
+        /// </param>
+        /// <param name="config">
+        /// The configuration.
+        /// </param>
+        public void SendEmail( MailMessage message, OutlookConfig config )
+        {
+            if( ( message != null )
+               && ( config != null ) )
+            {
+                try
+                {
+                    var _smtpClient = new SmtpClient( );
+                    _smtpClient.UseDefaultCredentials = false;
+                    _smtpClient.Credentials =
+                        new NetworkCredential( config.UserName, config.Password );
+
+                    _smtpClient.Host = HostName;
+                    _smtpClient.Port = 25;
+                    _smtpClient.EnableSsl = true;
+                    _smtpClient.Send( message );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    message.Dispose( );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reads the inbox items.
+        /// </summary>
+        public void ReadEmailInboxItems( )
         {
             Application _outlook = null;
             NameSpace _namespace = null;
@@ -139,11 +186,19 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Constructs the email message. </summary>
-        /// <param name="config"> The configuration. </param>
-        /// <param name="content"> The content. </param>
-        /// <returns> </returns>
-        private MailMessage CreateMessage( OutlookConfig config, EmailContent content )
+        /// <summary>
+        /// Constructs the email message.
+        /// </summary>
+        /// <param name="config">
+        /// The configuration.
+        /// </param>
+        /// <param name="content">
+        /// The content.
+        /// </param>
+        /// <returns>
+        /// MailMessage
+        /// </returns>
+        public MailMessage CreateMessage( OutlookConfig config, EmailContent content )
         {
             if( ( config != null )
                && ( content != null ) )
@@ -151,34 +206,38 @@ namespace BudgetExecution
                 try
                 {
                     var _message = new MailMessage( );
-                    for( var _j = 0; _j < config.Os.Length; _j++ )
+                    for( var _i = 0; _i < config.Recipient.Count; _i++ )
                     {
-                        var _to = config.Os[ _j ];
+                        var _to = config.Recipient[ _i ];
                         if( !string.IsNullOrEmpty( _to ) )
                         {
                             _message.To.Add( _to );
                         }
                     }
 
-                    for( var _i = 0; _i < config.CCs.Length; _i++ )
+                    for( var _h = 0; _h < config.CarbonCopy.Count; _h++ )
                     {
-                        var _cc = config.CCs[ _i ];
+                        var _cc = config.CarbonCopy[ _h ];
                         if( !string.IsNullOrEmpty( _cc ) )
                         {
                             _message.CC.Add( _cc );
                         }
                     }
 
-                    _message.From = new MailAddress( config.From, config.DisplayName, Encoding.UTF8 );
+                    _message.From = new MailAddress( config.Sender, 
+                        config.DisplayName, Encoding.UTF8 );
+
                     _message.IsBodyHtml = content.IsHtml;
-                    _message.Body = content.Content;
+                    _message.Body = content.Message;
                     _message.Priority = config.Priority;
                     _message.Subject = config.Subject;
                     _message.BodyEncoding = Encoding.UTF8;
                     _message.SubjectEncoding = Encoding.UTF8;
-                    if( content.AttachFileName != null )
+                    if( content.Attachment != null )
                     {
-                        var _data = new Attachment( content.AttachFileName, MediaTypeNames.Application.Zip );
+                        var _data = new Attachment( content.Attachment, 
+                            MediaTypeNames.Application.Zip );
+
                         _message.Attachments.Add( _data );
                     }
 
@@ -194,43 +253,27 @@ namespace BudgetExecution
             return default( MailMessage );
         }
 
-        /// <summary> Sends the specified message. </summary>
-        /// <param name="message"> The message. </param>
-        /// <param name="config"> The configuration. </param>
-        private void Send( MailMessage message, OutlookConfig config )
-        {
-            if( ( message != null )
-               && ( config != null ) )
-            {
-                try
-                {
-                    var _client = new SmtpClient( );
-                    _client.UseDefaultCredentials = false;
-                    _client.Credentials = new NetworkCredential( config.UserName, config.Password );
-                    _client.Host = HostName;
-                    _client.Port = 25;
-                    _client.EnableSsl = true;
-                    _client.Send( message );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    message.Dispose( );
-                }
-            }
-        }
-
+        /// <summary>
+        /// Releases the COM object.
+        /// </summary>
+        /// <param name="obj">
+        /// The object.
+        /// </param>
         private static void ReleaseComObject( object obj )
         {
-            if ( obj != null )
+            if( obj != null )
             {
                 Marshal.ReleaseComObject( obj );
                 obj = null;
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Get ErrorDialog Dialog.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

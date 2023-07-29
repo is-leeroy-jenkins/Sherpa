@@ -43,36 +43,119 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage("ReSharper", "ClassNeverInstantiated.Global") ]
+    [SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Global")]
     public class EmailContent
     {
         /// <summary>
         /// Gets or sets a value indicating whether this instance is HTML.
         /// </summary>
         /// <value>
-        /// <c> true </c>
-        /// if this instance is HTML; otherwise,
-        /// <c> false </c>
-        /// .
+        ///   <c>true</c> if this instance is HTML; otherwise, <c>false</c>.
         /// </value>
         public bool IsHtml { get; set; }
 
-        /// <summary> Gets or sets the content. </summary>
-        /// <value> The content. </value>
-        public string Content { get; set; }
+        /// <summary>
+        /// Gets or sets the content.
+        /// </summary>
+        /// <value>
+        /// The content.
+        /// </value>
+        public string Message { get; set; }
 
-        /// <summary> Gets or sets the name of the attach file. </summary>
-        /// <value> The name of the attach file. </value>
-        public string AttachFileName { get; set; }
+        /// <summary>
+        /// Gets or sets the name of the attach file.
+        /// </summary>
+        /// <value>
+        /// The name of the attach file.
+        /// </value>
+        public string Attachment { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="EmailContent"/>
-        /// class.
+        /// <see cref="EmailContent"/> class.
         /// </summary>
         public EmailContent( )
         {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="EmailContent"/> class.
+        /// </summary>
+        /// <param name="message">
+        /// The content.
+        /// </param>
+        /// <param name="filepath">
+        /// Name of the attachment.
+        /// </param>
+        /// <param name="isHtml">
+        /// if set to <c>true</c> [is HTML].
+        /// </param>
+        public EmailContent( string message, string filepath, bool isHtml = true )
+        {
+            Message = message;
+            IsHtml = isHtml;
+            Attachment = filepath;
+        }
+
+        /// <summary>
+        /// Deconstructs the specified is HTML.
+        /// </summary>
+        /// <param name="isHtml">
+        /// if set to <c>true</c> [is HTML].
+        /// </param>
+        /// <param name="message">
+        /// The content.
+        /// </param>
+        /// Name of the attach file.
+        /// </param>
+        /// <param name = "filepath" > </param>
+        public void Deconstruct( out bool isHtml, out string message, 
+            out string filepath )
+        {
+            isHtml = IsHtml;
+            message = Message;
+            filepath = Attachment;
+        }
+
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" />
+        /// that represents this instance.
+        /// </returns>
+        public override string ToString( )
+        {
+            try
+            {
+                return !string.IsNullOrEmpty( Message )
+                    ? Message
+                    : string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
+        private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

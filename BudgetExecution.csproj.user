@@ -101,7 +101,7 @@
     <Compile Update="Controls\Dialogs\ErrorDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\FileBrowser.cs">
+    <Compile Update="Controls\Browser\FileBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\FilterDialog.cs">
@@ -153,6 +153,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Graph\GraphBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\PivotChart\PivotChart.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\HeaderPanel\HeaderPanel.cs">
@@ -282,6 +285,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Tile\TilePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Browser\FolderBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Map\Map.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
