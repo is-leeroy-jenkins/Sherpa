@@ -179,13 +179,11 @@ namespace BudgetExecution
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
-            Title.ForeColor = Color.FromArgb( 106, 189, 252 );
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            BorderColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 106, 189, 252 );
@@ -492,12 +490,12 @@ namespace BudgetExecution
                 }
             }
         }
-
+        
         /// <summary>
         /// Gets the title prefix.
         /// </summary>
         /// <returns></returns>
-        private string GetTitlePrefix( )
+        private string GetTitleText( )
         {
             try
             {
@@ -530,7 +528,7 @@ namespace BudgetExecution
                     DataTab.TabVisible = false;
                     LookupTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
-                    Title.Text = GetTitlePrefix( ) + "| SQL Editor";
+                    Title.Text = GetTitleText( ) + "| SQL Editor";
                     Title.TextAlign = ContentAlignment.TopLeft;
                     Commands = CreateCommandList( Provider );
                     PopulateSqlComboBox( Commands );
@@ -542,7 +540,7 @@ namespace BudgetExecution
                     LookupTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
                     SqlTab.TabVisible = false;
-                    Title.Text = GetTitlePrefix( )
+                    Title.Text = GetTitleText( )
                         + $"| {Source.ToString( ).SplitPascal( )} Data Table";
 
                     PopulateTableListBoxItems( );
@@ -557,7 +555,7 @@ namespace BudgetExecution
                     SchemaTab.TabVisible = false;
                     SqlTab.TabVisible = false;
                     PopulateTableListBoxItems( );
-                    Title.Text = GetTitlePrefix( ) + "| Data Look-Up";
+                    Title.Text = GetTitleText( ) + "| Data Look-Up";
                     TableListBox.SelectedValue = string.Empty;
                     ColumnListBox.SelectedValue = string.Empty;
                     ValueListBox.SelectedValue = string.Empty;
@@ -572,7 +570,7 @@ namespace BudgetExecution
                     PopulateTableComboBoxItems( );
                     DataTypes = GetDataTypes( Provider );
                     PopulateDataTypeComboBoxItems( );
-                    Title.Text = GetTitlePrefix( ) + "| Schema Editor";
+                    Title.Text = GetTitleText( ) + "| Schema Editor";
                     break;
                 }
             }
@@ -1300,6 +1298,7 @@ namespace BudgetExecution
                 ListBoxes = GetListBoxes( );
                 TabControl.SelectedIndex = 0;
                 SetActiveTab( );
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
             }
             catch( Exception _ex )
             {
@@ -1325,6 +1324,8 @@ namespace BudgetExecution
                         Commands = CreateCommandList( Provider );
                         PopulateSqlComboBox( Commands );
                         PopulateDataTypeComboBoxItems( );
+                        Title.Text = GetTitleText( );
+                        SetFormIcon( );
                     }
 
                     if( _button.CheckState == CheckState.Unchecked )
