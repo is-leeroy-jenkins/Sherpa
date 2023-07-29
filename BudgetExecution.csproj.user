@@ -206,6 +206,9 @@
     <Compile Update="Controls\RichTextBox\RichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\Splash\SplashPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\TabControl\TabControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -291,6 +294,15 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Map\MapControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Hyperlink\Hyperlink.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\GridControl\GridControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ToggleButton\ToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

@@ -47,9 +47,10 @@ namespace BudgetExecution
             PathLabel = new Label( );
             ButtonTable = new System.Windows.Forms.TableLayoutPanel( );
             ClearButton = new Button( );
-            BrowseButton = new Button( );
             MenuButton = new Button( );
             CloseButton = new Button( );
+            BrowseButton = new Button( );
+            SelectButton = new Button( );
             ListBoxPanel = new Layout( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) Picture  ).BeginInit( );
@@ -100,7 +101,7 @@ namespace BudgetExecution
             Picture.BindingSource = null;
             Picture.DataFilter = null;
             Picture.HoverText = null;
-            Picture.Image = Resources.Images.PDF;
+            Picture.Image = Resources.Images.GuidanceTile;
             Picture.ImageList = null;
             Picture.Location = new System.Drawing.Point( 3, 3 );
             Picture.Name = "Picture";
@@ -198,23 +199,22 @@ namespace BudgetExecution
             // 
             // ButtonTable
             // 
-            ButtonTable.ColumnCount = 7;
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 89.1891861F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10.810811F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 122F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 13F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 115F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 8F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 118F ) );
+            ButtonTable.ColumnCount = 5;
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 20F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 20F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 20F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 20F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 20F ) );
             ButtonTable.Controls.Add( ClearButton, 0, 0 );
-            ButtonTable.Controls.Add( BrowseButton, 2, 0 );
-            ButtonTable.Controls.Add( MenuButton, 4, 0 );
-            ButtonTable.Controls.Add( CloseButton, 6, 0 );
+            ButtonTable.Controls.Add( BrowseButton, 1, 0 );
+            ButtonTable.Controls.Add( SelectButton, 2, 0 );
+            ButtonTable.Controls.Add( MenuButton, 3, 0 );
+            ButtonTable.Controls.Add( CloseButton, 4, 0 );
             ButtonTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             ButtonTable.Location = new System.Drawing.Point( 0, 435 );
             ButtonTable.Name = "ButtonTable";
             ButtonTable.RowCount = 1;
-            ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             ButtonTable.Size = new System.Drawing.Size( 556, 36 );
             ButtonTable.TabIndex = 11;
             // 
@@ -250,41 +250,8 @@ namespace BudgetExecution
             ClearButton.ThemeName = "Budget Execution";
             ClearButton.ToolTip = null;
             // 
-            // BrowseButton
-            // 
-            BrowseButton.BindingSource = null;
-            BrowseButton.DataFilter = null;
-            BrowseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            BrowseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            BrowseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            BrowseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            BrowseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            BrowseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            BrowseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            BrowseButton.HoverText = null;
-            BrowseButton.HoverTextColor = System.Drawing.Color.White;
-            BrowseButton.IsDerivedStyle = true;
-            BrowseButton.Location = new System.Drawing.Point( 182, 3 );
-            BrowseButton.Name = "BrowseButton";
-            BrowseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            BrowseButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            BrowseButton.NormalTextColor = System.Drawing.Color.DarkGray;
-            BrowseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            BrowseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            BrowseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            BrowseButton.PressTextColor = System.Drawing.Color.White;
-            BrowseButton.Size = new System.Drawing.Size( 90, 30 );
-            BrowseButton.Style = MetroSet_UI.Enums.Style.Custom;
-            BrowseButton.StyleManager = null;
-            BrowseButton.TabIndex = 1;
-            BrowseButton.Text = "Browse";
-            BrowseButton.ThemeAuthor = "Terry D. Eppler";
-            BrowseButton.ThemeName = "Budget Execution";
-            BrowseButton.ToolTip = null;
-            // 
             // MenuButton
             // 
-            MenuButton.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right  ;
             MenuButton.BindingSource = null;
             MenuButton.DataFilter = null;
             MenuButton.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -317,7 +284,6 @@ namespace BudgetExecution
             // 
             // CloseButton
             // 
-            CloseButton.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right  ;
             CloseButton.BindingSource = null;
             CloseButton.DataFilter = null;
             CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -330,7 +296,7 @@ namespace BudgetExecution
             CloseButton.HoverText = null;
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 463, 3 );
+            CloseButton.Location = new System.Drawing.Point( 447, 3 );
             CloseButton.Name = "CloseButton";
             CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             CloseButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
@@ -347,6 +313,70 @@ namespace BudgetExecution
             CloseButton.ThemeAuthor = "Terry D. Eppler";
             CloseButton.ThemeName = "Budget Execution";
             CloseButton.ToolTip = null;
+            // 
+            // BrowseButton
+            // 
+            BrowseButton.BindingSource = null;
+            BrowseButton.DataFilter = null;
+            BrowseButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            BrowseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            BrowseButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            BrowseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            BrowseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            BrowseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            BrowseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            BrowseButton.HoverText = null;
+            BrowseButton.HoverTextColor = System.Drawing.Color.White;
+            BrowseButton.IsDerivedStyle = true;
+            BrowseButton.Location = new System.Drawing.Point( 114, 3 );
+            BrowseButton.Name = "BrowseButton";
+            BrowseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            BrowseButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            BrowseButton.NormalTextColor = System.Drawing.Color.DarkGray;
+            BrowseButton.Padding = new System.Windows.Forms.Padding( 1 );
+            BrowseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            BrowseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            BrowseButton.PressTextColor = System.Drawing.Color.White;
+            BrowseButton.Size = new System.Drawing.Size( 90, 30 );
+            BrowseButton.Style = MetroSet_UI.Enums.Style.Custom;
+            BrowseButton.StyleManager = null;
+            BrowseButton.TabIndex = 1;
+            BrowseButton.Text = "Browse";
+            BrowseButton.ThemeAuthor = "Terry D. Eppler";
+            BrowseButton.ThemeName = "Budget Execution";
+            BrowseButton.ToolTip = null;
+            // 
+            // SelectButton
+            // 
+            SelectButton.BindingSource = null;
+            SelectButton.DataFilter = null;
+            SelectButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            SelectButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            SelectButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            SelectButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SelectButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            SelectButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            SelectButton.HoverText = null;
+            SelectButton.HoverTextColor = System.Drawing.Color.White;
+            SelectButton.IsDerivedStyle = true;
+            SelectButton.Location = new System.Drawing.Point( 225, 3 );
+            SelectButton.Name = "SelectButton";
+            SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            SelectButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            SelectButton.NormalTextColor = System.Drawing.Color.DarkGray;
+            SelectButton.Padding = new System.Windows.Forms.Padding( 1 );
+            SelectButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            SelectButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            SelectButton.PressTextColor = System.Drawing.Color.White;
+            SelectButton.Size = new System.Drawing.Size( 90, 30 );
+            SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
+            SelectButton.StyleManager = null;
+            SelectButton.TabIndex = 4;
+            SelectButton.Text = "Select";
+            SelectButton.ThemeAuthor = "Terry D. Eppler";
+            SelectButton.ThemeName = "Budget Execution";
+            SelectButton.ToolTip = null;
             // 
             // ListBoxPanel
             // 
@@ -432,5 +462,6 @@ namespace BudgetExecution
         public Button CloseButton;
         public ListBox ListBox;
         public Layout ListBoxPanel;
+        public Button SelectButton;
     }
 }

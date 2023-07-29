@@ -58,10 +58,10 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public partial class GuidanceDialog : MetroForm
     {
         /// <summary>
@@ -207,6 +207,7 @@ namespace BudgetExecution
             MenuButton.Click += OnMenuButtonClicked;
             ClearButton.Click += OnClearButtonClick;
             BrowseButton.Click += OnBrowseButtonClick;
+            SelectButton.Click += OnSelectButtonClick;
             ListBox.SelectedValueChanged += OnListBoxSelectedValueChanged;
         }
 
@@ -218,7 +219,7 @@ namespace BudgetExecution
             try
             {
                 var _message = "THIS IS NOT YET IMPLEMENTED!";
-                var _notification = new Notification( _message );
+                var _notification = new SplashMessage( _message );
                 _notification.Show( );
             }
             catch( Exception _ex )
@@ -239,7 +240,8 @@ namespace BudgetExecution
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataModel.DataTable;
                 var _data = DataTable.AsEnumerable( );
-                var _names = _data?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
                     ?.Select( r => r.Field<string>( "Caption" ) )
                     ?.ToList( );
 
@@ -276,7 +278,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner?.Visible == false 
+                if( Owner?.Visible == false
                    && Owner.GetType( ) == typeof( MainForm ) )
                 {
                     var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
@@ -313,6 +315,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Initializes the ListBox.
+        /// </summary>
         private void InitializeListBox( )
         {
             try
@@ -421,6 +426,32 @@ namespace BudgetExecution
                     Prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
                     SelectedItem = _listBox.SelectedValue.ToString( );
                     Title.Text = SelectedItem;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [select button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSelectButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                if( string.IsNullOrEmpty( SelectedItem ) )
+                {
+                    var _message = "Select a document to view!";
+                    var _notification = new SplashMessage( _message );
+                    _notification.Show( );
+                }
+                else
+                {
                     var _filter = new Dictionary<string, object>
                     {
                         {
@@ -434,10 +465,10 @@ namespace BudgetExecution
                     Minion.RunEdge( SelectedPath );
                     OpenMainForm( );
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 

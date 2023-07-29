@@ -1,13 +1,13 @@
 ﻿//  ******************************************************************************************
 //      Assembly:                Budget Execution
-//      Filename:                FolderBrowser.cs
+//      Filename:                Hyperlink.cs
 //      Author:                  Terry D. Eppler
 //      Created:                 05-31-2023
 // 
 //      Last Modified By:        Terry D. Eppler
 //      Last Modified On:        06-01-2023
 //  ******************************************************************************************
-//  <copyright file="FolderBrowser.cs" company="Terry D. Eppler">
+//  <copyright file="Hyperlink.cs" company="Terry D. Eppler">
 // 
 //     This is a Federal Budget, Finance, and Accounting application for the
 //     US Environmental Protection Agency (US EPA).
@@ -37,30 +37,53 @@
 // 
 //  </copyright>
 //  <summary>
-//    FolderBrowser.cs
+//    Hyperlink.cs
 //  </summary>
 //  ******************************************************************************************
 
 namespace BudgetExecution
 {
-    using Syncfusion.Windows.Forms;
+    using MetroSet_UI.Controls;
+    using MetroSet_UI.Enums;
     using System;
+    using System.Drawing;
+    using System.Windows.Forms;
 
-    /// <inheritdoc />
     /// <summary>
+    /// 
     /// </summary>
-    /// <seealso cref="T:Syncfusion.Windows.Forms.FolderBrowser" />
-    public class FolderBrowser : Syncfusion.Windows.Forms.FolderBrowser
+    /// <seealso cref="MetroSet_UI.Controls.MetroSetLink" />
+    public class Hyperlink : MetroSetLink
     {
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Hyperlink"/> class.
+        /// </summary>
+        public Hyperlink( )
+        {
+            Font = new Font( "Roboto", 9 );
+            ForeColor = Color.LightGray;
+            LinkColor = Color.FromArgb( 106, 189, 252 );
+            LinkBehavior = LinkBehavior.AlwaysUnderline;
+            Size = new Size( 100, 30 );
+            TextAlign = ContentAlignment.MiddleLeft;
+            Style = Style.Custom;
+            ThemeAuthor = "Terry D. Eppler";
+            ThemeName = "Budget Execution";
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FolderBrowser" /> class.
+        /// <see cref="T:BudgetExecution.Hyperlink" /> class.
         /// </summary>
-        public FolderBrowser( )
+        /// <param name="text">
+        /// The text displayed by the control.
+        /// </param>
+        public Hyperlink( string text )
+            : this( )
         {
-            Style = FolderBrowserStyles.RestrictToFilesystem;
-            StartLocation = FolderBrowserFolder.Desktop;
+            Text = text;
         }
     }
 }
