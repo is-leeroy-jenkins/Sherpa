@@ -4,9 +4,9 @@
     using System;
     using System.Drawing;
 
-    public class Map : Maps
+    public class MapControl : Maps
     {
-        public Map( )
+        public MapControl( )
         {
             // Control Properties
             Size = new Size( 400, 250 );
