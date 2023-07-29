@@ -76,7 +76,7 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Controls.Forms.MainForm" /> class.
+        /// <see cref="T:BudgetExecution.Forms.MainForm" /> class.
         /// </summary>
         public MainForm( )
         {
