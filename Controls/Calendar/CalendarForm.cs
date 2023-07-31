@@ -176,10 +176,6 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
 
-            // Title Properties
-            Title.ForeColor = Color.FromArgb( 106, 189, 252 );
-            Title.TextAlign = ContentAlignment.TopLeft;
-
             // Event Wiring
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClick;
@@ -207,6 +203,22 @@ namespace BudgetExecution
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the title.
+        /// </summary>
+        private void InitializeTitle( )
+        {
+            try
+            {
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Title.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )
             {
@@ -485,6 +497,7 @@ namespace BudgetExecution
                 ViewState = new StateTransfer( );
                 TabControl.SelectedIndex = 0;
                 InitializeToolStrip( );
+                InitializeTitle( );
                 SetActiveTab( );
                 ClearLabels( );
             }
