@@ -62,14 +62,14 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public partial class ExcelDataForm : MetroForm
     {
         /// <summary>
@@ -263,7 +263,7 @@ namespace BudgetExecution
             // Event Wiring
             Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
             Header.MouseClick += OnRightClick;
-            RemoveFiltersButton.Click += OnRemoveFilterButtonClick;
+            FiltersButton.Click += OnRemoveFilterButtonClick;
             LookupButton.Click += OnLookupButtonClicked;
             CloseButton.Click += OnCloseButtonClick;
             UploadButton.Click += OnUploadButtonClick;
@@ -723,6 +723,8 @@ namespace BudgetExecution
                 SelectedTable = _dialog.ViewState.SelectedTable;
                 DataModel = new DataBuilder( Source, Provider );
                 DataTable = DataModel?.DataTable;
+                FiltersButton.Visible = true;
+                FilterSeparator.Visible = true;
                 SetTableConfiguration( );
                 SetWorksheetConfiguration( );
                 SetActiveGridConfiguration( );
@@ -752,7 +754,7 @@ namespace BudgetExecution
                 SelectedFields = _group.ViewState.SelectedFields ?? default( IList<string> );
                 SelectedNumerics = _group.ViewState.SelectedNumerics ?? default( IList<string> );
                 DataModel = new DataBuilder( Source, Provider, SqlQuery );
-                DataTable = DataModel.DataTable;
+                DataTable = DataModel?.DataTable;
                 SetTableConfiguration( );
                 SetWorksheetConfiguration( );
                 SetActiveGridConfiguration( );
@@ -771,7 +773,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner?.Visible == false 
+                if( Owner?.Visible == false
                    && Owner.GetType( ) == typeof( MainForm ) )
                 {
                     var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
@@ -802,10 +804,13 @@ namespace BudgetExecution
         {
             try
             {
+                ViewState = new StateTransfer( );
                 Header.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Header.Font = new Font( "Roboto", 11 );
                 Header.TextAlign = ContentAlignment.TopLeft;
                 Ribbon.Spreadsheet = Spreadsheet;
+                FiltersButton.Visible = false;
+                FilterSeparator.Visible = false;
                 InitializeToolStrip( );
             }
             catch( Exception _ex )
@@ -840,7 +845,7 @@ namespace BudgetExecution
         /// <param name="e">The
         /// <see cref="EventArgs"/> instance containing the event data.
         /// </param>
-        [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+        [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
         public void OnCellEnter( object sender, CurrentCellActivatedEventArgs e )
         {
             try

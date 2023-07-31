@@ -395,6 +395,7 @@ namespace BudgetExecution
         {
             try
             {
+                ViewState = new StateTransfer( );
                 DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
                 BindingSource.DataSource = DataModel.DataTable;
                 PopulateTableListBoxItems( );
@@ -507,6 +508,24 @@ namespace BudgetExecution
                 ViewState.SelectedFields = SelectedFields;
                 ViewState.SelectedNumerics = SelectedNumerics;
                 ViewState.SqlQuery = SqlQuery;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [close button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private protected void OnCloseButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                Close( );
             }
             catch( Exception _ex )
             {

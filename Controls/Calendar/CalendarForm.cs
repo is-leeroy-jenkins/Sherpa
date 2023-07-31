@@ -133,6 +133,14 @@ namespace BudgetExecution
         /// </value>
         public DataBuilder DataModel { get; set; }
 
+        /// <summary>
+        /// Gets or sets the state of the view.
+        /// </summary>
+        /// <value>
+        /// The state of the view.
+        /// </value>
+        public StateTransfer ViewState { get; set; }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -474,6 +482,7 @@ namespace BudgetExecution
         {
             try
             {
+                ViewState = new StateTransfer( );
                 TabControl.SelectedIndex = 0;
                 InitializeToolStrip( );
                 SetActiveTab( );

@@ -486,8 +486,7 @@ namespace BudgetExecution
                 MaintenanceListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
 
@@ -508,8 +507,7 @@ namespace BudgetExecution
                     ReferenceListBox.Items?.Add( _name );
                 }
 
-                var _mx = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                var _mx = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
 
@@ -623,7 +621,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Clears the selections.
         /// </summary>
@@ -995,7 +993,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [load].
         /// </summary>
@@ -1012,11 +1010,9 @@ namespace BudgetExecution
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
+                ViewState = new StateTransfer( );
                 if( SelectedTable != null )
                 {
-                    ClearButton.Visible = !ClearButton.Visible;
-                    GroupButton.Visible = !GroupButton.Visible;
-                    SelectButton.Visible = !SelectButton.Visible;
                     TabControl.SelectedTab = FilterTabPage;
                     FilterTabPage.TabVisible = true;
                     TableTabPage.TabVisible = false;
@@ -1028,9 +1024,6 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    ClearButton.Visible = !ClearButton.Visible;
-                    GroupButton.Visible = !GroupButton.Visible;
-                    SelectButton.Visible = !SelectButton.Visible;
                     TabControl.SelectedTab = TableTabPage;
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
@@ -1412,6 +1405,7 @@ namespace BudgetExecution
                 {
                     SqlQuery = GetSqlText( SelectedFields, SelectedNumerics, FormFilter );
                     SqlTextBox.Text = SqlQuery;
+                    CaptureState( );
                     Close( );
                 }
                 catch( Exception _ex )
@@ -1642,7 +1636,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

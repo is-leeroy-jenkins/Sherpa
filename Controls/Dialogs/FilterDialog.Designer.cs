@@ -43,10 +43,7 @@ partial class FilterDialog
         ThirdComboBox = new ComboBox( );
         ThirdPanel = new Layout( );
         ThirdListBox = new ListBox( );
-        ClearButton = new Button( );
         ToolTip = new SmallTip( );
-        SelectButton = new Button( );
-        CloseButton = new Button( );
         TabControl = new TabControl( );
         TableTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
         SourceHeader = new Label( );
@@ -118,7 +115,10 @@ partial class FilterDialog
         CommandPanel = new Layout( );
         CommandQueryComboBox = new ComboBox( );
         ContextMenu = new ContextMenu( );
+        CloseButton = new Button( );
+        SelectButton = new Button( );
         GroupButton = new Button( );
+        ClearButton = new Button( );
         FirstPanel.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
         ThirdPanel.SuspendLayout( );
@@ -359,38 +359,6 @@ partial class FilterDialog
         ThirdListBox.ThemeName = "BudgetExecution";
         ThirdListBox.ToolTip = null;
         // 
-        // ClearButton
-        // 
-        ClearButton.BindingSource = null;
-        ClearButton.DataFilter = null;
-        ClearButton.DisabledBackColor = System.Drawing.Color.Transparent;
-        ClearButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-        ClearButton.DisabledForeColor = System.Drawing.Color.Transparent;
-        ClearButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-        ClearButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        ClearButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-        ClearButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-        ClearButton.HoverText = "Clear Selections";
-        ClearButton.HoverTextColor = System.Drawing.Color.White;
-        ClearButton.IsDerivedStyle = true;
-        ClearButton.Location = new System.Drawing.Point( 115, 550 );
-        ClearButton.Name = "ClearButton";
-        ClearButton.NormalBorderColor = System.Drawing.Color.Transparent;
-        ClearButton.NormalColor = System.Drawing.Color.Transparent;
-        ClearButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        ClearButton.Padding = new System.Windows.Forms.Padding( 1 );
-        ClearButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        ClearButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        ClearButton.PressTextColor = System.Drawing.Color.White;
-        ClearButton.Size = new System.Drawing.Size( 78, 26 );
-        ClearButton.Style = MetroSet_UI.Enums.Style.Custom;
-        ClearButton.StyleManager = null;
-        ClearButton.TabIndex = 9;
-        ClearButton.Text = "Clear";
-        ClearButton.ThemeAuthor = "Terry D. Eppler";
-        ClearButton.ThemeName = "BudgetExecution";
-        ClearButton.ToolTip = ToolTip;
-        // 
         // ToolTip
         // 
         ToolTip.AutoPopDelay = 5000;
@@ -410,70 +378,6 @@ partial class FilterDialog
         ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
         ToolTip.TipText = null;
         ToolTip.TipTitle = null;
-        // 
-        // SelectButton
-        // 
-        SelectButton.BindingSource = null;
-        SelectButton.DataFilter = null;
-        SelectButton.DisabledBackColor = System.Drawing.Color.Transparent;
-        SelectButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-        SelectButton.DisabledForeColor = System.Drawing.Color.Transparent;
-        SelectButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-        SelectButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-        SelectButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-        SelectButton.HoverText = null;
-        SelectButton.HoverTextColor = System.Drawing.Color.White;
-        SelectButton.IsDerivedStyle = true;
-        SelectButton.Location = new System.Drawing.Point( 783, 550 );
-        SelectButton.Name = "SelectButton";
-        SelectButton.NormalBorderColor = System.Drawing.Color.Transparent;
-        SelectButton.NormalColor = System.Drawing.Color.Transparent;
-        SelectButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        SelectButton.Padding = new System.Windows.Forms.Padding( 1 );
-        SelectButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        SelectButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        SelectButton.PressTextColor = System.Drawing.Color.White;
-        SelectButton.Size = new System.Drawing.Size( 78, 26 );
-        SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
-        SelectButton.StyleManager = null;
-        SelectButton.TabIndex = 10;
-        SelectButton.Text = "Select";
-        SelectButton.ThemeAuthor = "Terry D. Eppler";
-        SelectButton.ThemeName = "BudgetExecution";
-        SelectButton.ToolTip = ToolTip;
-        // 
-        // CloseButton
-        // 
-        CloseButton.BindingSource = null;
-        CloseButton.DataFilter = null;
-        CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-        CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-        CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-        CloseButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-        CloseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-        CloseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-        CloseButton.HoverText = "Exit Source Selection";
-        CloseButton.HoverTextColor = System.Drawing.Color.White;
-        CloseButton.IsDerivedStyle = true;
-        CloseButton.Location = new System.Drawing.Point( 1133, 550 );
-        CloseButton.Name = "CloseButton";
-        CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
-        CloseButton.NormalColor = System.Drawing.Color.Transparent;
-        CloseButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
-        CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-        CloseButton.PressTextColor = System.Drawing.Color.White;
-        CloseButton.Size = new System.Drawing.Size( 78, 26 );
-        CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
-        CloseButton.StyleManager = null;
-        CloseButton.TabIndex = 11;
-        CloseButton.Text = "Close";
-        CloseButton.ThemeAuthor = "Terry D. Eppler";
-        CloseButton.ThemeName = "BudgetExecution";
-        CloseButton.ToolTip = ToolTip;
         // 
         // TabControl
         // 
@@ -2304,6 +2208,70 @@ partial class FilterDialog
         ContextMenu.ThemeAuthor = "Terry D. Eppler";
         ContextMenu.ThemeName = "Budget Execution";
         // 
+        // CloseButton
+        // 
+        CloseButton.BindingSource = null;
+        CloseButton.DataFilter = null;
+        CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
+        CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+        CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
+        CloseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        CloseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+        CloseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+        CloseButton.HoverText = "Close Window";
+        CloseButton.HoverTextColor = System.Drawing.Color.White;
+        CloseButton.IsDerivedStyle = true;
+        CloseButton.Location = new System.Drawing.Point( 1108, 550 );
+        CloseButton.Name = "CloseButton";
+        CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        CloseButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        CloseButton.NormalTextColor = System.Drawing.Color.DarkGray;
+        CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
+        CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        CloseButton.PressTextColor = System.Drawing.Color.White;
+        CloseButton.Size = new System.Drawing.Size( 90, 30 );
+        CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
+        CloseButton.StyleManager = null;
+        CloseButton.TabIndex = 15;
+        CloseButton.Text = "Close";
+        CloseButton.ThemeAuthor = "Terry D. Eppler";
+        CloseButton.ThemeName = "Budget Execution";
+        CloseButton.ToolTip = ToolTip;
+        // 
+        // SelectButton
+        // 
+        SelectButton.BindingSource = null;
+        SelectButton.DataFilter = null;
+        SelectButton.DisabledBackColor = System.Drawing.Color.Transparent;
+        SelectButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+        SelectButton.DisabledForeColor = System.Drawing.Color.Transparent;
+        SelectButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        SelectButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+        SelectButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+        SelectButton.HoverText = "Choose Selected";
+        SelectButton.HoverTextColor = System.Drawing.Color.White;
+        SelectButton.IsDerivedStyle = true;
+        SelectButton.Location = new System.Drawing.Point( 789, 550 );
+        SelectButton.Name = "SelectButton";
+        SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        SelectButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        SelectButton.NormalTextColor = System.Drawing.Color.DarkGray;
+        SelectButton.Padding = new System.Windows.Forms.Padding( 1 );
+        SelectButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        SelectButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        SelectButton.PressTextColor = System.Drawing.Color.White;
+        SelectButton.Size = new System.Drawing.Size( 90, 30 );
+        SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
+        SelectButton.StyleManager = null;
+        SelectButton.TabIndex = 16;
+        SelectButton.Text = "Select";
+        SelectButton.ThemeAuthor = "Terry D. Eppler";
+        SelectButton.ThemeName = "Budget Execution";
+        SelectButton.ToolTip = null;
+        // 
         // GroupButton
         // 
         GroupButton.BindingSource = null;
@@ -2311,30 +2279,62 @@ partial class FilterDialog
         GroupButton.DisabledBackColor = System.Drawing.Color.Transparent;
         GroupButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         GroupButton.DisabledForeColor = System.Drawing.Color.Transparent;
-        GroupButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        GroupButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         GroupButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
         GroupButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
         GroupButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-        GroupButton.HoverText = "Aggregate Columns";
+        GroupButton.HoverText = "Group Selections";
         GroupButton.HoverTextColor = System.Drawing.Color.White;
         GroupButton.IsDerivedStyle = true;
-        GroupButton.Location = new System.Drawing.Point( 441, 550 );
+        GroupButton.Location = new System.Drawing.Point( 429, 550 );
         GroupButton.Name = "GroupButton";
-        GroupButton.NormalBorderColor = System.Drawing.Color.Transparent;
-        GroupButton.NormalColor = System.Drawing.Color.Transparent;
-        GroupButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        GroupButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        GroupButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        GroupButton.NormalTextColor = System.Drawing.Color.DarkGray;
         GroupButton.Padding = new System.Windows.Forms.Padding( 1 );
         GroupButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
         GroupButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
         GroupButton.PressTextColor = System.Drawing.Color.White;
-        GroupButton.Size = new System.Drawing.Size( 78, 26 );
+        GroupButton.Size = new System.Drawing.Size( 90, 30 );
         GroupButton.Style = MetroSet_UI.Enums.Style.Custom;
         GroupButton.StyleManager = null;
-        GroupButton.TabIndex = 14;
+        GroupButton.TabIndex = 17;
         GroupButton.Text = "Group";
         GroupButton.ThemeAuthor = "Terry D. Eppler";
         GroupButton.ThemeName = "Budget Execution";
-        GroupButton.ToolTip = ToolTip;
+        GroupButton.ToolTip = null;
+        // 
+        // ClearButton
+        // 
+        ClearButton.BindingSource = null;
+        ClearButton.DataFilter = null;
+        ClearButton.DisabledBackColor = System.Drawing.Color.Transparent;
+        ClearButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+        ClearButton.DisabledForeColor = System.Drawing.Color.Transparent;
+        ClearButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        ClearButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        ClearButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+        ClearButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+        ClearButton.HoverText = "Clear Selections";
+        ClearButton.HoverTextColor = System.Drawing.Color.White;
+        ClearButton.IsDerivedStyle = true;
+        ClearButton.Location = new System.Drawing.Point( 115, 550 );
+        ClearButton.Name = "ClearButton";
+        ClearButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        ClearButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        ClearButton.NormalTextColor = System.Drawing.Color.DarkGray;
+        ClearButton.Padding = new System.Windows.Forms.Padding( 1 );
+        ClearButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        ClearButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        ClearButton.PressTextColor = System.Drawing.Color.White;
+        ClearButton.Size = new System.Drawing.Size( 90, 30 );
+        ClearButton.Style = MetroSet_UI.Enums.Style.Custom;
+        ClearButton.StyleManager = null;
+        ClearButton.TabIndex = 18;
+        ClearButton.Text = "Clear";
+        ClearButton.ThemeAuthor = "Terry D. Eppler";
+        ClearButton.ThemeName = "Budget Execution";
+        ClearButton.ToolTip = null;
         // 
         // FilterDialog
         // 
@@ -2349,10 +2349,10 @@ partial class FilterDialog
         CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
         CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
         ClientSize = new System.Drawing.Size( 1328, 638 );
-        Controls.Add( GroupButton );
-        Controls.Add( CloseButton );
-        Controls.Add( SelectButton );
         Controls.Add( ClearButton );
+        Controls.Add( GroupButton );
+        Controls.Add( SelectButton );
+        Controls.Add( CloseButton );
         Controls.Add( TabControl );
         Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         ForeColor = System.Drawing.Color.LightGray;
@@ -2423,9 +2423,6 @@ partial class FilterDialog
     public ComboBox ThirdComboBox;
     public Layout ThirdPanel;
     public ListBox ThirdListBox;
-    public Button ClearButton;
-    public Button SelectButton;
-    public Button CloseButton;
     public System.Windows.Forms.BindingSource BindingSource;
     public SmallTip ToolTip;
     public TabControl TabControl;
@@ -2472,7 +2469,6 @@ partial class FilterDialog
     public HeaderPanel ThirdTable;
     public HeaderPanel SecondTable;
     public HeaderPanel FirstTable;
-    public Button GroupButton;
     public Syncfusion.Windows.Forms.Tools.TabPageAdv CalendarTabPage;
     public Label SourceHeader;
     public Label GroupHeader;
@@ -2503,4 +2499,8 @@ partial class FilterDialog
     public Label ThirdLabel;
     public Label FourthLabel;
     public Label FifthLable;
+    public Button CloseButton;
+    public Button SelectButton;
+    public Button GroupButton;
+    public Button ClearButton;
 }

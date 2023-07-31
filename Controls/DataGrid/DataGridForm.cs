@@ -1318,6 +1318,7 @@ namespace BudgetExecution
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
+                ViewState = new StateTransfer( );
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedIndex = 1;

@@ -55,7 +55,7 @@
             DataSourceSeparator = new ToolSeparator( );
             LookupButton = new ToolStripButton( );
             FilterSeparator = new ToolSeparator( );
-            RemoveFiltersButton = new ToolStripButton( );
+            FiltersButton = new ToolStripButton( );
             SqlSeparator = new ToolSeparator( );
             MenuButton = new ToolStripButton( );
             BackButtonSeparator = new ToolSeparator( );
@@ -188,7 +188,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, Label2, Separator2, ToolStripTextBox, Separator3, Label3, FunctionLabel, Separator5, UploadButton, Separator7, FilterSpacer, FilterLabel, DataSourceSeparator, LookupButton, FilterSeparator, RemoveFiltersButton, SqlSeparator, MenuButton, BackButtonSeparator, LastLabel, Separator10, CloseButton } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, Label2, Separator2, ToolStripTextBox, Separator3, Label3, FunctionLabel, Separator5, UploadButton, Separator7, FilterSpacer, FilterLabel, DataSourceSeparator, LookupButton, FilterSeparator, FiltersButton, SqlSeparator, MenuButton, BackButtonSeparator, LastLabel, Separator10, CloseButton } );
             ToolStrip.Label = null;
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
@@ -302,7 +302,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 174, 28 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 172, 28 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -430,7 +430,7 @@
             LookupButton.Field = Field.AccountCode;
             LookupButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             LookupButton.ForeColor = System.Drawing.Color.LightGray;
-            LookupButton.HoverText = "Select Data Source";
+            LookupButton.HoverText = "Select Data Table";
             LookupButton.Image = Resources.Images.DataSearchButton;
             LookupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             LookupButton.Margin = new System.Windows.Forms.Padding( 3 );
@@ -449,26 +449,26 @@
             FilterSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             FilterSeparator.Size = new System.Drawing.Size( 6, 28 );
             // 
-            // RemoveFiltersButton
+            // FiltersButton
             // 
-            RemoveFiltersButton.AutoToolTip = false;
-            RemoveFiltersButton.BackColor = System.Drawing.Color.Transparent;
-            RemoveFiltersButton.BindingSource = BindingSource;
-            RemoveFiltersButton.DataFilter = null;
-            RemoveFiltersButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            RemoveFiltersButton.Field = Field.AccountCode;
-            RemoveFiltersButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            RemoveFiltersButton.ForeColor = System.Drawing.Color.LightGray;
-            RemoveFiltersButton.HoverText = "Filter Data Source";
-            RemoveFiltersButton.Image = Resources.Images.FilterButton;
-            RemoveFiltersButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            RemoveFiltersButton.Margin = new System.Windows.Forms.Padding( 3 );
-            RemoveFiltersButton.Name = "RemoveFiltersButton";
-            RemoveFiltersButton.Padding = new System.Windows.Forms.Padding( 1 );
-            RemoveFiltersButton.Size = new System.Drawing.Size( 23, 24 );
-            RemoveFiltersButton.Text = "toolStripButton1";
-            RemoveFiltersButton.ToolTip = ToolTip;
-            RemoveFiltersButton.ToolType = ToolType.RemoveFiltersButton;
+            FiltersButton.AutoToolTip = false;
+            FiltersButton.BackColor = System.Drawing.Color.Transparent;
+            FiltersButton.BindingSource = BindingSource;
+            FiltersButton.DataFilter = null;
+            FiltersButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            FiltersButton.Field = Field.AccountCode;
+            FiltersButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FiltersButton.ForeColor = System.Drawing.Color.LightGray;
+            FiltersButton.HoverText = "Filter Data Table";
+            FiltersButton.Image = Resources.Images.FilterButton;
+            FiltersButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            FiltersButton.Margin = new System.Windows.Forms.Padding( 3 );
+            FiltersButton.Name = "FiltersButton";
+            FiltersButton.Padding = new System.Windows.Forms.Padding( 1 );
+            FiltersButton.Size = new System.Drawing.Size( 23, 24 );
+            FiltersButton.Text = "toolStripButton1";
+            FiltersButton.ToolTip = ToolTip;
+            FiltersButton.ToolType = ToolType.FilterButton;
             // 
             // SqlSeparator
             // 
@@ -704,7 +704,7 @@
         public ToolSeparator Separator1;
         public ToolSeparator Separator4;
         public ToolSeparator Separator7;
-        public ToolStripButton RemoveFiltersButton;
+        public ToolStripButton FiltersButton;
         public ToolSeparator FilterSeparator;
         public ToolSeparator Separator9;
         public ToolSeparator Separator10;

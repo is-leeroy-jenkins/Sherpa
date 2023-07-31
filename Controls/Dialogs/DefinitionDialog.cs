@@ -262,39 +262,7 @@ namespace BudgetExecution
                 }
             }
         }
-
-        /// <summary>
-        /// Gets the controls.
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerable<Control> GetControls( )
-        {
-            var _list = new List<Control>( );
-            var _queue = new Queue( );
-            try
-            {
-                _queue.Enqueue( Controls );
-                while( _queue.Count > 0 )
-                {
-                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
-                    foreach( Control _control in _collection )
-                    {
-                        _list.Add( _control );
-                        _queue.Enqueue( _control.Controls );
-                    }
-                }
-
-                return _list?.Any( ) == true
-                    ? _list.ToArray( )
-                    : default( Control[ ] );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( Control[ ] );
-            }
-        }
-
+        
         /// <summary>
         /// Gets the tab pages.
         /// </summary>
@@ -449,6 +417,7 @@ namespace BudgetExecution
         {
             try
             {
+                ViewState = new StateTransfer( );
                 CloseButton.Text = "Exit";
                 DataTypes = GetDataTypes( Provider );
                 PopulateTableComboBoxItems( );
@@ -488,10 +457,29 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [close button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private protected void OnCloseButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [right click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )

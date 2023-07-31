@@ -219,6 +219,7 @@ namespace BudgetExecution
                 AccessRadioButton.Checked = true;
                 Commands = new List<string>( );
                 Statements = new Dictionary<string, object>( );
+                ViewState = new StateTransfer( );
                 AccessRadioButton.Click += OnRadioButtonChecked;
                 SQLiteRadioButton.Click += OnRadioButtonChecked;
                 SqlCeRadioButton.Click += OnRadioButtonChecked;
@@ -694,6 +695,24 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [close button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private protected void OnCloseButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
     }
