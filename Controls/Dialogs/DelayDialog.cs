@@ -64,7 +64,8 @@ namespace BudgetExecution
         /// <summary>
         /// The loading path
         /// </summary>
-        public readonly string LoadingPath = AppSettings[ "PathPrefix" ] + AppSettings[ "Loading" ];
+        public readonly string LoadingPath = AppSettings[ "PathPrefix" ] 
+            + AppSettings[ "Loading" ];
 
         /// <summary>
         /// The processing path
@@ -75,7 +76,8 @@ namespace BudgetExecution
         /// <summary>
         /// The waiting path
         /// </summary>
-        public readonly string WaitingPath = AppSettings[ "PathPrefix" ] + AppSettings[ "Waiting" ];
+        public readonly string WaitingPath = AppSettings[ "PathPrefix" ] 
+            + AppSettings[ "Waiting" ];
 
         /// <summary>
         /// Gets or sets the picture.

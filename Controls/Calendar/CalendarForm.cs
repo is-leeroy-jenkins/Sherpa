@@ -244,6 +244,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Clears the labels.
+        /// </summary>
         private void ClearLabels( )
         {
             try

@@ -50,6 +50,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Windows.Forms;
 
     /// <inheritdoc />
     /// <summary>
@@ -128,7 +129,17 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 1310, 646 );
+            Size = new Size( 1340, 674 );
+            MaximumSize = new Size( 1340, 674 );
+            MinimumSize = new Size( 1340, 674 );
+            StartPosition = FormStartPosition.CenterParent;
+            FormBorderStyle = FormBorderStyle.None;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.DarkGray;
+            Font = new Font( "Roboto", 9 );
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
             Panels = GetPanels( );
             RadioButtons = GetRadioButtons( );
             TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );

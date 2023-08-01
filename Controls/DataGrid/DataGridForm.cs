@@ -273,11 +273,6 @@ namespace BudgetExecution
             FourthGridLabel.ForeColor = Color.DarkGray;
             FourthGridLabel.Text = string.Empty;
 
-            // Header Properties
-            HeaderLabel.Font = new Font( "Roboto", 10 );
-            HeaderLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
-            HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
-
             // TabPage Properties
             TabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
             TableTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
@@ -296,11 +291,8 @@ namespace BudgetExecution
             PictureBox.Size = new Size( 20, 20 );
 
             // Control Event Wiring
-            ExcelExportButton.Click += null;
             ExitButton.Click += null;
-            BackButton.Click += null;
             MenuButton.Click += null;
-            ChartButton.Click += null;
             EditSqlButton.Click += null;
             RefreshDataButton.Click += null;
             RemoveFiltersButton.Click += null;
@@ -405,6 +397,72 @@ namespace BudgetExecution
             Numerics = DataModel?.Numerics;
             DataGrid.DataSource = BindingSource?.DataSource;
             ToolStrip.BindingSource = BindingSource;
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeTitle( )
+        {
+            try
+            {
+                HeaderLabel.Font = new Font( "Roboto", 10 );
+                HeaderLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
+                HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the tool strip properties.
+        /// </summary>
+        private void InitializeToolStrip( )
+        {
+            try
+            {
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the radio buttons.
+        /// </summary>
+        private void InitializeRadioButtons( )
+        {
+            try
+            {
+                SQLiteRadioButton.Tag = "SQLite";
+                SQLiteRadioButton.Text = "SQLite";
+                SQLiteRadioButton.HoverText = "SQLite Provider";
+                AccessRadioButton.Tag = "Access";
+                AccessRadioButton.Text = "Access";
+                AccessRadioButton.HoverText = "MS Access Provider";
+                AccessRadioButton.Checked = true;
+                SqlCeRadioButton.Tag = "SqlCe";
+                SqlCeRadioButton.Text = "SQL CE";
+                SqlCeRadioButton.HoverText = "SQL Compact Provider";
+                SqlServerRadioButton.Tag = "SqlServer";
+                SqlServerRadioButton.Text = "MS SQL";
+                SqlServerRadioButton.HoverText = "Sql Server Provider";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -638,8 +696,7 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -668,8 +725,7 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -698,8 +754,7 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -721,7 +776,7 @@ namespace BudgetExecution
         /// <summary>
         /// Clears the data.
         /// </summary>
-        public void ResetData( )
+        public void BindData( )
         {
             try
             {
@@ -877,253 +932,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the form icon.
-        /// </summary>
-        private void SetFormIcon( )
-        {
-            try
-            {
-                var _path = ConfigurationManager.AppSettings[ "Providers" ];
-                if( !string.IsNullOrEmpty( _path ) )
-                {
-                    var _files = Directory.GetFiles( _path );
-                    if( _files?.Any( ) == true )
-                    {
-                        var _extension = Provider.ToString( );
-                        var _file = _files?.Where( f => f.Contains( _extension ) )?.First( );
-
-                        if( !string.IsNullOrEmpty( _file )
-                           && File.Exists( _file ) )
-                        {
-                            var _img = Image.FromFile( _file );
-                            PictureBox.Image = _img;
-                        }
-                    }
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the dialog icon.
-        /// </summary>
-        /// <param name="type">The type.</param>
-        private void SetIcon( ToolType type )
-        {
-            try
-            {
-                var _path = ConfigurationManager.AppSettings[ "Dialogs" ];
-                if( !string.IsNullOrEmpty( _path ) )
-                {
-                    var _files = Directory.GetFiles( _path );
-                    if( _files?.Any( ) == true )
-                    {
-                        switch( type )
-                        {
-                            case ToolType.EditTextButton:
-                            case ToolType.AddTableButton:
-                            case ToolType.DeleteTableButton:
-                            case ToolType.EditRecordButton:
-                            case ToolType.DeleteRecordButton:
-                            case ToolType.EditColumnButton:
-                            case ToolType.DeleteColumnButton:
-                            case ToolType.EditSqlButton:
-                            {
-                                var _tool = type.ToString( );
-                                var _file = _files?.Where( f => f.Contains( _tool ) )?.First( );
-                                if( !string.IsNullOrEmpty( _file )
-                                   && File.Exists( _file ) )
-                                {
-                                    var _img = Image.FromFile( _file );
-                                    PictureBox.Image = _img;
-                                }
-
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the tool strip properties.
-        /// </summary>
-        private void InitializeToolStrip( )
-        {
-            try
-            {
-                ToolStrip.Visible = true;
-                ToolStrip.Text = string.Empty;
-                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
-                ToolStrip.Office12Mode = true;
-                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
-                ToolStrip.LauncherStyle = LauncherStyle.Office12;
-                ToolStrip.ImageSize = new Size( 16, 16 );
-                ToolStrip.ImageScalingSize = new Size( 16, 16 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the radio buttons.
-        /// </summary>
-        private void InitializeRadioButtons( )
-        {
-            try
-            {
-                SQLiteRadioButton.Tag = "SQLite";
-                SQLiteRadioButton.Text = "SQLite";
-                SQLiteRadioButton.HoverText = "SQLite Provider";
-                AccessRadioButton.Tag = "Access";
-                AccessRadioButton.Text = "Access";
-                AccessRadioButton.HoverText = "MS Access Provider";
-                AccessRadioButton.Checked = true;
-                SqlCeRadioButton.Tag = "SqlCe";
-                SqlCeRadioButton.Text = "SQL CE";
-                SqlCeRadioButton.HoverText = "SQL Compact Provider";
-                SqlServerRadioButton.Tag = "SqlServer";
-                SqlServerRadioButton.Text = "MS SQL";
-                SqlServerRadioButton.HoverText = "Sql Server Provider";
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Resets the filter table visibility.
-        /// </summary>
-        private void ResetListBoxVisibility( )
-        {
-            try
-            {
-                if( FirstTable?.Visible == false )
-                {
-                    FirstTable.Visible = true;
-                }
-
-                if( SecondTable?.Visible == true )
-                {
-                    SecondTable.Visible = false;
-                }
-
-                if( ThirdTable?.Visible == true )
-                {
-                    ThirdTable.Visible = false;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Resets the data.
-        /// </summary>
-        /// <param name="where">The where.</param>
-        private void ResetData( IDictionary<string, object> where )
-        {
-            if( where?.Any( ) == true )
-            {
-                try
-                {
-                    var _sql = CreateSqlText( where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Resets the data.
-        /// </summary>
-        /// <param name="cols">The cols.</param>
-        /// <param name="where">The where.</param>
-        private void ResetData( IEnumerable<string> cols, IDictionary<string, object> where )
-        {
-            if( where?.Any( ) == true
-               && cols?.Any( ) == true )
-            {
-                try
-                {
-                    var _sql = CreateSqlText( cols, where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Resets the data.
-        /// </summary>
-        /// <param name="fields">The fields.</param>
-        /// <param name="numerics">The numerics.</param>
-        /// <param name="where">The where.</param>
-        private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> where )
-        {
-            if( where?.Any( ) == true
-               && fields?.Any( ) == true )
-            {
-                try
-                {
-                    var _sql = CreateSqlText( fields, numerics, where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
         /// Creates the SQL text.
         /// </summary>
         /// <param name="where">The where.</param>
@@ -1229,6 +1037,204 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the form icon.
+        /// </summary>
+        private void SetFormIcon( )
+        {
+            try
+            {
+                var _path = ConfigurationManager.AppSettings[ "Providers" ];
+                if( !string.IsNullOrEmpty( _path ) )
+                {
+                    var _files = Directory.GetFiles( _path );
+                    if( _files?.Any( ) == true )
+                    {
+                        var _extension = Provider.ToString( );
+                        var _file = _files?.Where( f => f.Contains( _extension ) )?.First( );
+
+                        if( !string.IsNullOrEmpty( _file )
+                           && File.Exists( _file ) )
+                        {
+                            var _img = Image.FromFile( _file );
+                            PictureBox.Image = _img;
+                        }
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the dialog icon.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        private void SetIcon( ToolType type )
+        {
+            try
+            {
+                var _path = ConfigurationManager.AppSettings[ "Dialogs" ];
+                if( !string.IsNullOrEmpty( _path ) )
+                {
+                    var _files = Directory.GetFiles( _path );
+                    if( _files?.Any( ) == true )
+                    {
+                        switch( type )
+                        {
+                            case ToolType.EditTextButton:
+                            case ToolType.AddTableButton:
+                            case ToolType.DeleteTableButton:
+                            case ToolType.EditRecordButton:
+                            case ToolType.DeleteRecordButton:
+                            case ToolType.EditColumnButton:
+                            case ToolType.DeleteColumnButton:
+                            case ToolType.EditSqlButton:
+                            {
+                                var _tool = type.ToString( );
+                                var _file = _files?.Where( f => f.Contains( _tool ) )?.First( );
+                                if( !string.IsNullOrEmpty( _file )
+                                   && File.Exists( _file ) )
+                                {
+                                    var _img = Image.FromFile( _file );
+                                    PictureBox.Image = _img;
+                                }
+
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Resets the filter table visibility.
+        /// </summary>
+        private void ResetListBoxVisibility( )
+        {
+            try
+            {
+                if( FirstTable?.Visible == false )
+                {
+                    FirstTable.Visible = true;
+                }
+
+                if( SecondTable?.Visible == true )
+                {
+                    SecondTable.Visible = false;
+                }
+
+                if( ThirdTable?.Visible == true )
+                {
+                    ThirdTable.Visible = false;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Resets the data.
+        /// </summary>
+        /// <param name="where">The where.</param>
+        private void BindData( IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Resets the data.
+        /// </summary>
+        /// <param name="cols">The cols.</param>
+        /// <param name="where">The where.</param>
+        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true
+               && cols?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( cols, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Resets the data.
+        /// </summary>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true
+               && fields?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( fields, numerics, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
         /// Updates the label text.
         /// </summary>
         private void UpdateLabelText( )
@@ -1314,6 +1320,7 @@ namespace BudgetExecution
                 InitializeRadioButtons( );
                 SetFormIcon( );
                 InitializeToolStrip( );
+                InitializeTitle( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
@@ -1463,7 +1470,7 @@ namespace BudgetExecution
                         GroupSeparator.Visible = true;
                     }
 
-                    ResetData( FormFilter );
+                    BindData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
                     SqlHeader.Text = SqlQuery;
@@ -1537,7 +1544,7 @@ namespace BudgetExecution
                         ThirdTable.Visible = true;
                     }
 
-                    ResetData( FormFilter );
+                    BindData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
                 }
@@ -1611,7 +1618,7 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
-                    ResetData( FormFilter );
+                    BindData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
                     SqlHeader.Text = SqlQuery;
@@ -1795,7 +1802,7 @@ namespace BudgetExecution
 
                 SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
                 SqlHeader.Text = SqlQuery;
-                ResetData( SelectedFields, SelectedNumerics, FormFilter );
+                BindData( SelectedFields, SelectedNumerics, FormFilter );
             }
             catch( Exception _ex )
             {
@@ -2038,7 +2045,7 @@ namespace BudgetExecution
         {
             try
             {
-                ResetData( );
+                BindData( );
             }
             catch( Exception _ex )
             {

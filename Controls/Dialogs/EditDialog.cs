@@ -90,7 +90,17 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 1310, 646 );
+            Size = new Size( 1340, 674 );
+            MaximumSize = new Size( 1340, 674 );
+            MinimumSize = new Size( 1340, 674 );
+            StartPosition = FormStartPosition.CenterParent;
+            FormBorderStyle = FormBorderStyle.None;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.DarkGray;
+            Font = new Font( "Roboto", 9 );
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
             TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
             TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
             SelectButton.Text = "Save";
@@ -268,32 +278,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-                SetActiveTab( );
-                SetTableLocation( );
-                SetFrameColors( );
-                SetFrameDockStyle( );
-                BindRecordData( );
-                SetFrameVisibility( );
-                WireUpFrameEvents( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Sets the active tab.
         /// </summary>
         private void SetActiveTab( )
@@ -401,7 +385,7 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the record data.
         /// </summary>
-        private void BindRecordData( )
+        private void BindRecord( )
         {
             if( Current != null
                && Frames?.Any( ) == true
@@ -467,6 +451,32 @@ namespace BudgetExecution
                 {
                     _frame.TextBox.MouseClick += OnContentClick;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                SetActiveTab( );
+                SetTableLocation( );
+                SetFrameColors( );
+                SetFrameDockStyle( );
+                BindRecord( );
+                SetFrameVisibility( );
+                WireUpFrameEvents( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 

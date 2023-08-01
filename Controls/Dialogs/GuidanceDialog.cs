@@ -179,11 +179,6 @@ namespace BudgetExecution
             MaximizeBox = false;
 
             // Label Properties
-            Title.Font = new Font( "Roboto", 12 );
-            Title.ForeColor = Color.FromArgb( 106, 189, 252 );
-            Title.TextAlign = ContentAlignment.TopLeft;
-            Title.Text = "Guidance Documents";
-            Title.FlatStyle = FlatStyle.Flat;
             PathLabel.Font = new Font( "Roboto", 8 );
             PathLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
 
@@ -209,6 +204,25 @@ namespace BudgetExecution
             BrowseButton.Click += OnBrowseButtonClick;
             SelectButton.Click += OnSelectButtonClick;
             ListBox.SelectedValueChanged += OnListBoxSelectedValueChanged;
+        }
+
+        /// <summary>
+        /// Initializes the title.
+        /// </summary>
+        private void InitializeTitle( )
+        {
+            try
+            {
+                Title.Font = new Font("Roboto", 12);
+                Title.ForeColor = Color.FromArgb(106, 189, 252);
+                Title.TextAlign = ContentAlignment.TopLeft;
+                Title.Text = "Guidance Documents";
+                Title.FlatStyle = FlatStyle.Flat;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -342,6 +356,7 @@ namespace BudgetExecution
         {
             try
             {
+                InitializeTitle( );
                 InitializeListBox( );
                 PopulateListBox( );
             }

@@ -264,12 +264,9 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             Size = new Size( 1340, 674 );
-
-            // Header Label Properties
-            SourceHeader.ForeColor = Color.FromArgb( 106, 189, 252 );
-            FilterHeader.ForeColor = Color.FromArgb( 106, 189, 252 );
-            GroupHeader.ForeColor = Color.FromArgb( 106, 189, 252 );
-
+            MaximumSize = new Size( 1340, 674 );
+            MinimumSize = new Size( 1340, 674 );
+            
             // Event Wiring
             TabControl.TabIndexChanged += OnActiveTabChanged;
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
@@ -335,187 +332,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Captures the state.
+        /// Initializes the labels.
         /// </summary>
-        private void CaptureState( )
+        private void InitializeLabels( )
         {
             try
             {
-                ViewState.Provider = Provider;
-                ViewState.Source = Source;
-                ViewState.DataFilter = FormFilter;
-                ViewState.SelectedTable = SelectedTable;
-                ViewState.SelectedFields = SelectedFields;
-                ViewState.SelectedNumerics = SelectedNumerics;
-                ViewState.SqlQuery = SqlQuery;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the second ComboBox items.
-        /// </summary>
-        public void PopulateSecondComboBoxItems( )
-        {
-            if( Fields?.Any( ) == true )
-            {
-                try
-                {
-                    if( !string.IsNullOrEmpty( FirstValue ) )
-                    {
-                        foreach( var _item in Fields )
-                        {
-                            if( !_item.Equals( FirstCategory ) )
-                            {
-                                SecondComboBox.Items.Add( _item );
-                            }
-                        }
-                    }
-                    else
-                    {
-                        foreach( var _item in Fields )
-                        {
-                            SecondComboBox.Items.Add( _item );
-                        }
-                    }
-
-                    SecondComboBox.SelectedIndex = -1;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Populates the third ComboBox items.
-        /// </summary>
-        public void PopulateThirdComboBoxItems( )
-        {
-            if( Fields?.Any( ) == true )
-            {
-                try
-                {
-                    if( !string.IsNullOrEmpty( FirstValue )
-                       && !string.IsNullOrEmpty( SecondValue ) )
-                    {
-                        ThirdComboBox.Items?.Clear( );
-                        foreach( var _item in Fields )
-                        {
-                            if( !_item.Equals( FirstCategory )
-                               && !_item.Equals( SecondCategory ) )
-                            {
-                                ThirdComboBox.Items.Add( _item );
-                            }
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Populates the fourth ComboBox items.
-        /// </summary>
-        private void PopulateFourthComboBoxItems( )
-        {
-            if( Fields?.Any( ) == true )
-            {
-                try
-                {
-                    if( !string.IsNullOrEmpty( FirstValue )
-                       && !string.IsNullOrEmpty( SecondValue )
-                       && !string.IsNullOrEmpty( ThirdValue ) )
-                    {
-                        FourthComboBox.Items?.Clear( );
-                        foreach( var _item in Fields )
-                        {
-                            if( !_item.Equals( FirstCategory )
-                               && !_item.Equals( SecondCategory )
-                               && !_item.Equals( ThirdCategory ) )
-                            {
-                                FourthComboBox.Items.Add( _item );
-                            }
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Populates the first ComboBox items.
-        /// </summary>
-        private void PopulateFirstComboBoxItems( )
-        {
-            if( Fields?.Any( ) == true )
-            {
-                try
-                {
-                    foreach( var _item in Fields )
-                    {
-                        FirstComboBox.Items.Add( _item );
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Populates the table ListBox items.
-        /// </summary>
-        private void PopulateTableListBoxItems( )
-        {
-            try
-            {
-                TableListBox.Items?.Clear( );
-                ReferenceListBox.Items?.Clear( );
-                MaintenanceListBox.Items?.Clear( );
-                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
-
-                for( var _i = 0; _i < _names?.Count - 1; _i++ )
-                {
-                    var _name = _names[ _i ];
-                    TableListBox.Items?.Add( _name );
-                }
-
-                var _references = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
-
-                for( var _i = 0; _i < _references?.Count - 1; _i++ )
-                {
-                    var _name = _references[ _i ];
-                    ReferenceListBox.Items?.Add( _name );
-                }
-
-                var _mx = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
-
-                for( var _i = 0; _i < _mx?.Count - 1; _i++ )
-                {
-                    var _name = _mx[ _i ];
-                    MaintenanceListBox.Items?.Add( _name );
-                }
+                SourceHeader.ForeColor = Color.FromArgb( 106, 189, 252 );
+                FilterHeader.ForeColor = Color.FromArgb( 106, 189, 252 );
+                GroupHeader.ForeColor = Color.FromArgb( 106, 189, 252 );
             }
             catch( Exception _ex )
             {
@@ -547,81 +372,115 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the RadioButton provider.
+        /// Binds the data.
         /// </summary>
-        /// <returns></returns>
-        private Provider GetRadioButtonProvider( )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="where">The where.</param>
+        private void BindData( Source source, Provider provider, IDictionary<string, object> where )
         {
-            try
+            if( Enum.IsDefined( typeof( Source ), source )
+               && Enum.IsDefined( typeof( Provider ), provider )
+               && where?.Any( ) == true )
             {
-                if( SQLiteRadioButton.Checked == true )
+                try
                 {
-                    Provider = Provider.SQLite;
+                    Source = source;
+                    Provider = provider;
+                    DataModel = new DataBuilder( source, provider, where );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataModel.DataTable;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
                 }
-                else if( SqlServerRadioButton.Checked == true )
+                catch( Exception _ex )
                 {
-                    Provider = Provider.SqlServer;
-                }
-                else if( AccessRadioButton.Checked == true )
-                {
-                    Provider = Provider.Access;
-                }
-                else if( SqlCeRadioButton.Checked == true )
-                {
-                    Provider = Provider.SqlCe;
-                }
-                else
-                {
-                    Provider = Provider.Access;
+                    Fail( _ex );
                 }
             }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return Provider.Access;
-            }
-
-            return Provider.Access;
         }
 
         /// <summary>
-        /// Sets the provider RadioButton.
+        /// Binds the data.
         /// </summary>
-        /// <param name="provider">The provider.</param>
-        private void SetProviderRadioButton( Provider provider )
+        /// <param name="cols">The cols.</param>
+        /// <param name="where">The where.</param>
+        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
+        {
+            if( Enum.IsDefined( typeof( Source ), Source )
+               && Enum.IsDefined( typeof( Provider ), Provider )
+               && where?.Any( ) == true
+               && cols?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( cols, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Binds the data.
+        /// </summary>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> where )
+        {
+            if( Enum.IsDefined( typeof( Source ), Source )
+               && Enum.IsDefined( typeof( Provider ), Provider )
+               && where?.Any( ) == true
+               && fields?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( fields, numerics, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Captures the state.
+        /// </summary>
+        private void CaptureState( )
         {
             try
             {
-                switch( provider )
-                {
-                    case Provider.SQLite:
-                    {
-                        SQLiteRadioButton.Checked = true;
-                        break;
-                    }
-                    case Provider.SqlServer:
-                    {
-                        SqlServerRadioButton.Checked = true;
-                        break;
-                    }
-                    case Provider.Access:
-                    {
-                        AccessRadioButton.Checked = true;
-                        break;
-                    }
-                    case Provider.SqlCe:
-                    {
-                        SqlCeRadioButton.Checked = true;
-                        break;
-                    }
-                }
+                ViewState.Provider = Provider;
+                ViewState.Source = Source;
+                ViewState.DataFilter = FormFilter;
+                ViewState.SelectedTable = SelectedTable;
+                ViewState.SelectedFields = SelectedFields;
+                ViewState.SelectedNumerics = SelectedNumerics;
+                ViewState.SqlQuery = SqlQuery;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Clears the selections.
         /// </summary>
@@ -749,7 +608,7 @@ namespace BudgetExecution
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string GetSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
@@ -793,7 +652,7 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string GetSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
+        private string CreateSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
                && columns?.Any( ) == true
@@ -821,6 +680,213 @@ namespace BudgetExecution
             }
 
             return string.Empty;
+        }
+
+        /// <summary>
+        /// Populates the second ComboBox items.
+        /// </summary>
+        private void PopulateSecondComboBoxItems( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( !string.IsNullOrEmpty( FirstValue ) )
+                    {
+                        foreach( var _item in Fields )
+                        {
+                            if( !_item.Equals( FirstCategory ) )
+                            {
+                                SecondComboBox.Items.Add( _item );
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach( var _item in Fields )
+                        {
+                            SecondComboBox.Items.Add( _item );
+                        }
+                    }
+
+                    SecondComboBox.SelectedIndex = -1;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the third ComboBox items.
+        /// </summary>
+        private void PopulateThirdComboBoxItems( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( !string.IsNullOrEmpty( FirstValue )
+                       && !string.IsNullOrEmpty( SecondValue ) )
+                    {
+                        ThirdComboBox.Items?.Clear( );
+                        foreach( var _item in Fields )
+                        {
+                            if( !_item.Equals( FirstCategory )
+                               && !_item.Equals( SecondCategory ) )
+                            {
+                                ThirdComboBox.Items.Add( _item );
+                            }
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the fourth ComboBox items.
+        /// </summary>
+        private void PopulateFourthComboBoxItems( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( !string.IsNullOrEmpty( FirstValue )
+                       && !string.IsNullOrEmpty( SecondValue )
+                       && !string.IsNullOrEmpty( ThirdValue ) )
+                    {
+                        FourthComboBox.Items?.Clear( );
+                        foreach( var _item in Fields )
+                        {
+                            if( !_item.Equals( FirstCategory )
+                               && !_item.Equals( SecondCategory )
+                               && !_item.Equals( ThirdCategory ) )
+                            {
+                                FourthComboBox.Items.Add( _item );
+                            }
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the first ComboBox items.
+        /// </summary>
+        private void PopulateFirstComboBoxItems( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    foreach( var _item in Fields )
+                    {
+                        FirstComboBox.Items.Add( _item );
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the table ListBox items.
+        /// </summary>
+        private void PopulateTableListBoxItems( )
+        {
+            try
+            {
+                TableListBox.Items?.Clear( );
+                ReferenceListBox.Items?.Clear( );
+                MaintenanceListBox.Items?.Clear( );
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
+                {
+                    var _name = _names[ _i ];
+                    TableListBox.Items?.Add( _name );
+                }
+
+                var _references = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+
+                for( var _i = 0; _i < _references?.Count - 1; _i++ )
+                {
+                    var _name = _references[ _i ];
+                    ReferenceListBox.Items?.Add( _name );
+                }
+
+                var _mx = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+
+                for( var _i = 0; _i < _mx?.Count - 1; _i++ )
+                {
+                    var _name = _mx[ _i ];
+                    MaintenanceListBox.Items?.Add( _name );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the RadioButton provider.
+        /// </summary>
+        /// <returns></returns>
+        private Provider GetProvider( )
+        {
+            try
+            {
+                if( SQLiteRadioButton.Checked == true )
+                {
+                    Provider = Provider.SQLite;
+                }
+                else if( SqlServerRadioButton.Checked == true )
+                {
+                    Provider = Provider.SqlServer;
+                }
+                else if( AccessRadioButton.Checked == true )
+                {
+                    Provider = Provider.Access;
+                }
+                else if( SqlCeRadioButton.Checked == true )
+                {
+                    Provider = Provider.SqlCe;
+                }
+                else
+                {
+                    Provider = Provider.Access;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return Provider.Access;
+            }
+
+            return Provider.Access;
         }
 
         /// <summary>
@@ -870,95 +936,6 @@ namespace BudgetExecution
                             NumericListBox.Items?.Add( Numerics[ _i ] );
                         }
                     }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Binds the data.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="where">The where.</param>
-        private void BindData( Source source, Provider provider, IDictionary<string, object> where )
-        {
-            if( Enum.IsDefined( typeof( Source ), source )
-               && Enum.IsDefined( typeof( Provider ), provider )
-               && where?.Any( ) == true )
-            {
-                try
-                {
-                    Source = source;
-                    Provider = provider;
-                    DataModel = new DataBuilder( source, provider, where );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataModel.DataTable;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Binds the data.
-        /// </summary>
-        /// <param name="cols">The cols.</param>
-        /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
-        {
-            if( Enum.IsDefined( typeof( Source ), Source )
-               && Enum.IsDefined( typeof( Provider ), Provider )
-               && where?.Any( ) == true
-               && cols?.Any( ) == true )
-            {
-                try
-                {
-                    var _sql = GetSqlText( cols, where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Binds the data.
-        /// </summary>
-        /// <param name="fields">The fields.</param>
-        /// <param name="numerics">The numerics.</param>
-        /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> where )
-        {
-            if( Enum.IsDefined( typeof( Source ), Source )
-               && Enum.IsDefined( typeof( Provider ), Provider )
-               && where?.Any( ) == true
-               && fields?.Any( ) == true )
-            {
-                try
-                {
-                    var _sql = GetSqlText( fields, numerics, where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
                 }
                 catch( Exception _ex )
                 {
@@ -1403,7 +1380,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SqlQuery = GetSqlText( SelectedFields, SelectedNumerics, FormFilter );
+                    SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
                     SqlTextBox.Text = SqlQuery;
                     CaptureState( );
                     Close( );
@@ -1485,7 +1462,7 @@ namespace BudgetExecution
                     SelectedColumns.Add( _selectedItem );
                 }
 
-                SqlQuery = GetSqlText( SelectedColumns, FormFilter );
+                SqlQuery = CreateSqlText( SelectedColumns, FormFilter );
                 SqlTextBox.Text = SqlQuery;
             }
             catch( Exception _ex )
@@ -1508,7 +1485,7 @@ namespace BudgetExecution
                     SelectedNumerics.Add( _selectedItem );
                 }
 
-                SqlQuery = GetSqlText( SelectedFields, SelectedNumerics, FormFilter );
+                SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
                 SqlTextBox.Text = SqlQuery;
             }
             catch( Exception _ex )

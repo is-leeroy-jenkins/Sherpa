@@ -54,7 +54,7 @@ namespace BudgetExecution
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Edit;
-    using System.Configuration;
+    using static System.Configuration.ConfigurationManager;
     using CheckState = MetroSet_UI.Enums.CheckState;
 
     /// <inheritdoc />
@@ -133,7 +133,17 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 1310, 646 );
+            Size = new Size( 1340, 674 );
+            MaximumSize = new Size( 1340, 674 );
+            MinimumSize = new Size( 1340, 674 );
+            StartPosition = FormStartPosition.CenterParent;
+            FormBorderStyle = FormBorderStyle.None;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.DarkGray;
+            Font = new Font( "Roboto", 9 );
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
             TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
             FirstButton.Text = "Save";
             ThirdButton.Text = "Exit";
@@ -207,27 +217,56 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [load].
+        /// Sets the editor configuration.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnLoad( object sender, EventArgs e )
+        private void InitializeEditor( )
         {
             try
             {
-                AccessRadioButton.Checked = true;
-                Commands = new List<string>( );
-                Statements = new Dictionary<string, object>( );
-                ViewState = new StateTransfer( );
-                AccessRadioButton.Click += OnRadioButtonChecked;
-                SQLiteRadioButton.Click += OnRadioButtonChecked;
-                SqlCeRadioButton.Click += OnRadioButtonChecked;
-                SqlServerRadioButton.Click += OnRadioButtonChecked;
-                SqlComboBox.SelectedValueChanged += OnComboBoxItemSelected;
-                SqlListBox.SelectedValueChanged += OnListBoxItemSelected;
-                SecondButton.Click += OnClearButtonClick;
-                InitializeEditor( );
+                Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                Editor.AlwaysShowScrollers = true;
+                Editor.BackColor = SystemColors.ControlLight;
+                Editor.ForeColor = Color.Black;
+                Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
+                Editor.BorderStyle = BorderStyle.FixedSingle;
+                Editor.CanOverrideStyle = true;
+                Editor.CanApplyTheme = true;
+                Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceForeColor = Color.Black;
+                Editor.ContextChoiceBackColor = SystemColors.ControlLight;
+                Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.ContextPromptBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+                Editor.ContextTooltipBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+                Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.EndOfLineBackColor = SystemColors.ControlLight;
+                Editor.EndOfLineForeColor = SystemColors.ControlLight;
+                Editor.HighlightCurrentLine = true;
+                Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
+                Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
+                Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
+                Editor.Font = new Font( "Roboto", 12 );
+                Editor.LineNumbersColor = Color.Black;
+                Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
+                Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
+                Editor.ScrollColorScheme = Office2007ColorScheme.Black;
+                Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
+                Editor.ShowEndOfLine = false;
+                Editor.Style = EditControlStyle.Office2016Black;
+                Editor.TabSize = 4;
+                Editor.TextAreaWidth = 400;
+                Editor.WordWrap = true;
+                Editor.WordWrapColumn = 100;
+                Editor.Dock = DockStyle.None;
+                Editor.Anchor = AnchorStyles.Top
+                    | AnchorStyles.Bottom
+                    | AnchorStyles.Left
+                    | AnchorStyles.Right;
             }
             catch( Exception _ex )
             {
@@ -376,6 +415,35 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                AccessRadioButton.Checked = true;
+                Commands = new List<string>( );
+                Statements = new Dictionary<string, object>( );
+                ViewState = new StateTransfer( );
+                AccessRadioButton.Click += OnRadioButtonChecked;
+                SQLiteRadioButton.Click += OnRadioButtonChecked;
+                SqlCeRadioButton.Click += OnRadioButtonChecked;
+                SqlServerRadioButton.Click += OnRadioButtonChecked;
+                SqlComboBox.SelectedValueChanged += OnComboBoxItemSelected;
+                SqlListBox.SelectedValueChanged += OnListBoxItemSelected;
+                SecondButton.Click += OnClearButtonClick;
+                InitializeEditor( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Creates the command list.
         /// </summary>
         /// <param name="provider">The provider.</param>
@@ -386,8 +454,8 @@ namespace BudgetExecution
             {
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
-                    var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
-                    var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
+                    var _prefix = AppSettings[ "PathPrefix" ];
+                    var _dbpath = AppSettings[ "DatabaseDirectory" ];
                     var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
 
                     var _names = Directory.GetDirectories( _path );
@@ -426,8 +494,8 @@ namespace BudgetExecution
             {
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
-                    var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
-                    var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
+                    var _prefix = AppSettings[ "PathPrefix" ];
+                    var _dbpath = AppSettings[ "DatabaseDirectory" ];
                     var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
 
                     var _names = Directory.GetDirectories( _path );
@@ -476,7 +544,8 @@ namespace BudgetExecution
         /// Called when [RadioButton checked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRadioButtonChecked( object sender, EventArgs e )
         {
             if( sender is RadioButton _button )
@@ -497,68 +566,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the editor configuration.
-        /// </summary>
-        private void InitializeEditor( )
-        {
-            try
-            {
-                Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                Editor.AlwaysShowScrollers = true;
-                Editor.BackColor = SystemColors.ControlLight;
-                Editor.ForeColor = Color.Black;
-                Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
-                Editor.BorderStyle = BorderStyle.FixedSingle;
-                Editor.CanOverrideStyle = true;
-                Editor.CanApplyTheme = true;
-                Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
-                Editor.ContextChoiceFont = new Font( "Roboto", 8 );
-                Editor.ContextChoiceForeColor = Color.Black;
-                Editor.ContextChoiceBackColor = SystemColors.ControlLight;
-                Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
-                Editor.ContextPromptBackgroundBrush =
-                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-
-                Editor.ContextTooltipBackgroundBrush =
-                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-
-                Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
-                Editor.EndOfLineBackColor = SystemColors.ControlLight;
-                Editor.EndOfLineForeColor = SystemColors.ControlLight;
-                Editor.HighlightCurrentLine = true;
-                Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
-                Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
-                Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
-                Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
-                Editor.Font = new Font( "Roboto", 12 );
-                Editor.LineNumbersColor = Color.Black;
-                Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
-                Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
-                Editor.ScrollColorScheme = Office2007ColorScheme.Black;
-                Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
-                Editor.ShowEndOfLine = false;
-                Editor.Style = EditControlStyle.Office2016Black;
-                Editor.TabSize = 4;
-                Editor.TextAreaWidth = 400;
-                Editor.WordWrap = true;
-                Editor.WordWrapColumn = 100;
-                Editor.Dock = DockStyle.None;
-                Editor.Anchor = AnchorStyles.Top
-                    | AnchorStyles.Bottom
-                    | AnchorStyles.Left
-                    | AnchorStyles.Right;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -571,8 +583,8 @@ namespace BudgetExecution
                     if( _selection?.Contains( " " ) == true )
                     {
                         SelectedCommand = _selection.Replace( " ", "" );
-                        var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
-                        var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
+                        var _prefix = AppSettings[ "PathPrefix" ];
+                        var _dbpath = AppSettings[ "DatabaseDirectory" ];
                         var _path = _prefix
                             + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}";
@@ -588,8 +600,8 @@ namespace BudgetExecution
                     else
                     {
                         SelectedCommand = _comboBox.SelectedItem?.ToString( );
-                        var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
-                        var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
+                        var _prefix = AppSettings[ "PathPrefix" ];
+                        var _dbpath = AppSettings[ "DatabaseDirectory" ];
                         var _path = _prefix
                             + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}";
@@ -625,8 +637,8 @@ namespace BudgetExecution
                     if( SelectedQuery?.Contains( " " ) == true
                        || SelectedCommand?.Contains( " " ) == true )
                     {
-                        var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
-                        var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
+                        var _prefix = AppSettings[ "PathPrefix" ];
+                        var _dbpath = AppSettings[ "DatabaseDirectory" ];
                         var _command = SelectedCommand?.Replace( " ", "" );
                         var _query = SelectedQuery?.Replace( " ", "" );
                         var _filePath = _prefix
@@ -640,8 +652,8 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
-                        var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
+                        var _prefix = AppSettings[ "PathPrefix" ];
+                        var _dbpath = AppSettings[ "DatabaseDirectory" ];
                         var _path = _prefix
                             + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}\{SelectedQuery}.sql";

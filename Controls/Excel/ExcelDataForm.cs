@@ -251,15 +251,6 @@ namespace BudgetExecution
             // Default Provider
             Provider = Provider.Access;
 
-            // Header Properties
-            Header.ForeColor = Color.FromArgb( 106, 189, 252 );
-            Header.Font = new Font( "Roboto", 11 );
-            Header.TextAlign = ContentAlignment.TopLeft;
-
-            // Picture Properties
-            PictureBox.Size = new Size( 40, 18 );
-            PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-
             // Event Wiring
             Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
             Header.MouseClick += OnRightClick;
@@ -427,6 +418,39 @@ namespace BudgetExecution
                 ToolStripTextBox.ForeColor = Color.White;
                 ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
                 ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the icon.
+        /// </summary>
+        private void InitializeIcon( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 40, 18 );
+                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the title.
+        /// </summary>
+        private void InitializeTitle( )
+        {
+            try
+            {
+                Header.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Header.Font = new Font( "Roboto", 11 );
+                Header.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )
             {
@@ -812,6 +836,8 @@ namespace BudgetExecution
                 FiltersButton.Visible = false;
                 FilterSeparator.Visible = false;
                 InitializeToolStrip( );
+                InitializeTitle( );
+                InitializeIcon( );
             }
             catch( Exception _ex )
             {

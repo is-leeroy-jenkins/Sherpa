@@ -59,6 +59,7 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.EditBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage("ReSharper", "ClassCanBeSealed.Global") ]
     public partial class DefinitionDialog : EditBase
     {
         /// <summary>
@@ -87,24 +88,33 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DefinitionDialog" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DefinitionDialog" /> class.
         /// </summary>
         public DefinitionDialog( )
         {
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 1310, 646 );
+            Size = new Size( 1340, 674 );
+            MaximumSize = new Size( 1340, 674 );
+            MinimumSize = new Size( 1340, 674 );
+            StartPosition = FormStartPosition.CenterParent;
+            FormBorderStyle = FormBorderStyle.None;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.DarkGray;
+            Font = new Font( "Roboto", 9 );
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
             SqliteRadioButton.Tag = "SQLite";
             SqlServerRadioButton.Tag = "SqlServer";
             AccessRadioButton.Tag = "Access";
-            TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
-            TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
-            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
             DataTypeComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
             TableNameComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
 
             // Populate Controls
+
             TabPages = GetTabPages( );
             Panels = GetPanels( );
             ListBoxes = GetListBoxes( );
@@ -122,7 +132,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DefinitionDialog" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DefinitionDialog" /> class.
         /// </summary>
         /// <param name="tool">Type of the tool.</param>
         public DefinitionDialog( ToolType tool )
@@ -133,7 +144,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DefinitionDialog" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DefinitionDialog" /> class.
         /// </summary>
         /// <param name="tool">Type of the tool.</param>
         /// <param name="bindingSource">The binding source.</param>
@@ -148,9 +160,26 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the tab control.
+        /// </summary>
+        private void InitializeTabControl( )
+        {
+            try
+            {
+                TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
+                TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
+                TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Populates the table ComboBox items.
         /// </summary>
-        public void PopulateTableComboBoxItems( )
+        private void PopulateTableComboBoxItems( )
         {
             try
             {
@@ -158,7 +187,8 @@ namespace BudgetExecution
                 TableNameComboBox.SelectedItem = string.Empty;
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data
+                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.Select( dr => dr.Field<string>( "TableName" ) )
                     ?.ToList( );
 
@@ -177,7 +207,7 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the data type ComboBox items.
         /// </summary>
-        public void PopulateDataTypeComboBoxItems( )
+        private void PopulateDataTypeComboBoxItems( )
         {
             if( DataTypes?.Any( ) == true )
             {
@@ -204,7 +234,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the active tab.
         /// </summary>
-        public void SetActiveTab( )
+        private void SetActiveTab( )
         {
             if( Enum.IsDefined( typeof( ToolType ), Tool ) )
             {
@@ -412,7 +442,8 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -434,7 +465,7 @@ namespace BudgetExecution
         /// Called when [provider button checked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public virtual void OnProviderButtonChecked( object sender )
+        private void OnProviderButtonChecked( object sender )
         {
             if( sender is RadioButton _button )
             {
@@ -462,7 +493,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private protected void OnCloseButtonClicked( object sender, EventArgs e )
+        private void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try
             {
