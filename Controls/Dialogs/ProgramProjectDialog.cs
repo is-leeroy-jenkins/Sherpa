@@ -269,7 +269,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner?.Visible == false 
+                if( Owner?.Visible == false
                    && Owner.GetType( ) == typeof( MainForm ) )
                 {
                     var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
@@ -328,7 +328,7 @@ namespace BudgetExecution
                     DataModel = new DataBuilder( Source, Provider, FormFilter );
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataTable;
-                    Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+                    Header.ForeColor = Color.FromArgb( 106, 189, 252 );
                     BindingSource.Filter = FormFilter.ToCriteria( );
                     Current = BindingSource.GetCurrentDataRow( );
                     DescriptionTable.CaptionText = "Program Description";
@@ -340,7 +340,7 @@ namespace BudgetExecution
                     DataModel = new DataBuilder( Source, Provider );
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataTable;
-                    Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+                    Header.ForeColor = Color.FromArgb( 106, 189, 252 );
                     Header.Text = "Program Title";
                     DescriptionTable.CaptionText = "Program Description";
                     PopulateComboBoxItems( );

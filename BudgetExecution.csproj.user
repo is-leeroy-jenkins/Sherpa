@@ -56,9 +56,6 @@
     <Compile Update="Controls\ContextMenu\MenuBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\CurrencyBox\CurrencyBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Controls\CurrencyBox\CurrencyBox.cs">
       <SubType>Component</SubType>
     </Compile>

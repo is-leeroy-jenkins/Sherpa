@@ -404,10 +404,13 @@ namespace BudgetExecution
                 while( _queue.Count > 0 )
                 {
                     var _collection = (Control.ControlCollection)_queue.Dequeue( );
-                    foreach( Control _control in _collection )
+                    if( _collection?.Count > 0 )
                     {
-                        _list.Add( _control );
-                        _queue.Enqueue( _control.Controls );
+                        foreach( Control _control in _collection )
+                        {
+                            _list.Add( _control );
+                            _queue.Enqueue( _control.Controls );
+                        }
                     }
                 }
 
@@ -575,7 +578,8 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -687,6 +691,241 @@ namespace BudgetExecution
                 }
             }
         }
+        
+        /// <summary>
+        /// Resets the data.
+        /// </summary>
+        private void BindData( )
+        {
+            try
+            {
+                DataModel = new DataBuilder( Source, Provider );
+                DataTable = DataModel.DataTable;
+                BindingSource.DataSource = DataTable;
+                ToolStrip.BindingSource = BindingSource;
+                Fields = DataModel.Fields;
+                Numerics = DataModel.Numerics;
+                SqlQuery = DataModel.Query.SqlStatement.CommandText;
+                SqlHeader.Text = SqlQuery;
+                if( Chart.Series[ 0 ].Points.Count > 0 )
+                {
+                    Chart.Series[ 0 ].Points.Clear( );
+                }
+
+                Chart.DataSource = BindingSource;
+                Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                Chart.Series[ 0 ].XValueMember = Fields.Last( );
+                Chart.Series[ 0 ].IsXValueIndexed = true;
+                Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                Chart.ChartAreas[ 0 ].AxisX.Title = string.Empty;
+                Chart.Refresh( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Resets the data.
+        /// </summary>
+        /// <param name="sqlText">The SQL text.</param>
+        private void BindData( string sqlText )
+        {
+            if( !string.IsNullOrEmpty( sqlText ) )
+            {
+                try
+                {
+                    SqlQuery = sqlText;
+                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataModel.DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
+                    {
+                        Chart.Series[ 0 ].Points.Clear( );
+                    }
+
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                    Chart.DataSource = BindingSource;
+                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
+                    Chart.Series[ 0 ].IsXValueIndexed = true;
+                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                    Chart.Refresh( );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Resets the data.
+        /// </summary>
+        /// <param name="where">The where.</param>
+        private void BindData( IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
+                    {
+                        Chart.Series[ 0 ].Points.Clear( );
+                    }
+
+                    Chart.DataSource = DataTable;
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                    Chart.Series[ 0 ].IsXValueIndexed = false;
+                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
+                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                    Chart.Refresh( );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Resets the data.
+        /// </summary>
+        /// <param name="cols">The cols.</param>
+        /// <param name="where">The where.</param>
+        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true
+               && cols?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( cols, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
+                    {
+                        Chart.Series[ 0 ].Points.Clear( );
+                    }
+
+                    Chart.DataSource = BindingSource;
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
+                    Chart.Series[ 0 ].IsXValueIndexed = true;
+                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                    Chart.Refresh( );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Resets the data.
+        /// </summary>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true
+               && numerics?.Any( ) == true
+               && fields?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( fields, numerics, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
+                    {
+                        Chart.Series[ 0 ].Points.Clear( );
+                    }
+
+                    Chart.DataSource = BindingSource;
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                    Chart.Series[ 0 ].XValueMember = Fields.Last( );
+                    Chart.Series[ 0 ].IsXValueIndexed = false;
+                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                    Chart.Refresh( );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Binds the chart.
+        /// </summary>
+        private void BindChart( )
+        {
+            try
+            {
+                if( SelectedFields?.Any( ) == true
+                   && SelectedNumerics?.Any( ) == true )
+                {
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
+                    {
+                        Chart.Series[ 0 ].Points.Clear( );
+                    }
+
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                    Chart.DataSource = BindingSource;
+                    Chart.Series[ 0 ].XValueMember = SelectedFields?.Last( );
+                    Chart.Series[ 0 ].IsXValueIndexed = false;
+                    Chart.Series[ 0 ].YValueMembers = SelectedNumerics?.First( );
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                    Chart.Refresh( );
+                }
+                else
+                {
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
+                    {
+                        Chart.Series[ 0 ].Points.Clear( );
+                    }
+
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                    Chart.DataSource = BindingSource;
+                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
+                    Chart.Series[ 0 ].IsXValueIndexed = true;
+                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                    Chart.Refresh( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
 
         /// <summary>
         /// Captures the state.
@@ -721,8 +960,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {SelectedTable} " 
-                        + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {SelectedTable} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -932,241 +1170,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Resets the data.
-        /// </summary>
-        private void ResetData( )
-        {
-            try
-            {
-                DataModel = new DataBuilder( Source, Provider );
-                DataTable = DataModel.DataTable;
-                BindingSource.DataSource = DataTable;
-                ToolStrip.BindingSource = BindingSource;
-                Fields = DataModel.Fields;
-                Numerics = DataModel.Numerics;
-                SqlQuery = DataModel.Query.SqlStatement.CommandText;
-                SqlHeader.Text = SqlQuery;
-                if( Chart.Series[ 0 ].Points.Count > 0 )
-                {
-                    Chart.Series[ 0 ].Points.Clear( );
-                }
-
-                Chart.DataSource = BindingSource;
-                Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                Chart.Series[ 0 ].XValueMember = Fields.Last( );
-                Chart.Series[ 0 ].IsXValueIndexed = true;
-                Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
-                Chart.ChartAreas[ 0 ].AxisX.Title = string.Empty;
-                Chart.Refresh( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Resets the data.
-        /// </summary>
-        /// <param name="sqlText">The SQL text.</param>
-        private void ResetData( string sqlText )
-        {
-            if( !string.IsNullOrEmpty( sqlText ) )
-            {
-                try
-                {
-                    SqlQuery = sqlText;
-                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataModel.DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                    if( Chart.Series[ 0 ].Points.Count > 0 )
-                    {
-                        Chart.Series[ 0 ].Points.Clear( );
-                    }
-
-                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.DataSource = BindingSource;
-                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
-                    Chart.Series[ 0 ].IsXValueIndexed = true;
-                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
-                    Chart.Refresh( );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Resets the data.
-        /// </summary>
-        /// <param name="where">The where.</param>
-        private void ResetData( IDictionary<string, object> where )
-        {
-            if( where?.Any( ) == true )
-            {
-                try
-                {
-                    var _sql = CreateSqlText( where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
-                    if( Chart.Series[ 0 ].Points.Count > 0 )
-                    {
-                        Chart.Series[ 0 ].Points.Clear( );
-                    }
-
-                    Chart.DataSource = DataTable;
-                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.Series[ 0 ].IsXValueIndexed = false;
-                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
-                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
-                    Chart.Refresh( );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Resets the data.
-        /// </summary>
-        /// <param name="cols">The cols.</param>
-        /// <param name="where">The where.</param>
-        private void ResetData( IEnumerable<string> cols, IDictionary<string, object> where )
-        {
-            if( where?.Any( ) == true
-               && cols?.Any( ) == true )
-            {
-                try
-                {
-                    var _sql = CreateSqlText( cols, where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
-                    if( Chart.Series[ 0 ].Points.Count > 0 )
-                    {
-                        Chart.Series[ 0 ].Points.Clear( );
-                    }
-
-                    Chart.DataSource = BindingSource;
-                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
-                    Chart.Series[ 0 ].IsXValueIndexed = true;
-                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
-                    Chart.Refresh( );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Resets the data.
-        /// </summary>
-        /// <param name="fields">The fields.</param>
-        /// <param name="numerics">The numerics.</param>
-        /// <param name="where">The where.</param>
-        private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> where )
-        {
-            if( where?.Any( ) == true
-               && numerics?.Any( ) == true
-               && fields?.Any( ) == true )
-            {
-                try
-                {
-                    var _sql = CreateSqlText( fields, numerics, where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
-                    if( Chart.Series[ 0 ].Points.Count > 0 )
-                    {
-                        Chart.Series[ 0 ].Points.Clear( );
-                    }
-
-                    Chart.DataSource = BindingSource;
-                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.Series[ 0 ].XValueMember = Fields.Last( );
-                    Chart.Series[ 0 ].IsXValueIndexed = false;
-                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
-                    Chart.Refresh( );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Binds the chart.
-        /// </summary>
-        private void BindChart( )
-        {
-            try
-            {
-                if( SelectedFields?.Any( ) == true
-                   && SelectedNumerics?.Any( ) == true )
-                {
-                    if( Chart.Series[ 0 ].Points.Count > 0 )
-                    {
-                        Chart.Series[ 0 ].Points.Clear( );
-                    }
-
-                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.DataSource = BindingSource;
-                    Chart.Series[ 0 ].XValueMember = SelectedFields?.Last( );
-                    Chart.Series[ 0 ].IsXValueIndexed = false;
-                    Chart.Series[ 0 ].YValueMembers = SelectedNumerics?.First( );
-                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
-                    Chart.Refresh( );
-                }
-                else
-                {
-                    if( Chart.Series[ 0 ].Points.Count > 0 )
-                    {
-                        Chart.Series[ 0 ].Points.Clear( );
-                    }
-
-                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.DataSource = BindingSource;
-                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
-                    Chart.Series[ 0 ].IsXValueIndexed = true;
-                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
-                    Chart.Refresh( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Sets the active tab controls.
         /// </summary>
         private void SetActiveTab( )
@@ -1262,7 +1265,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner?.Visible == false 
+                if( Owner?.Visible == false
                    && Owner.GetType( ) == typeof( MainForm ) )
                 {
                     var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
@@ -1347,7 +1350,8 @@ namespace BudgetExecution
                     var _types = Enum.GetNames( typeof( SeriesChartType ) );
                     if( _types?.Contains( type ) == true )
                     {
-                        ChartType = (SeriesChartType)Enum.Parse( typeof( SeriesChartType ), type );
+                        ChartType = 
+                            (SeriesChartType)Enum.Parse( typeof( SeriesChartType ), type );
                     }
                 }
                 catch( Exception ex )
@@ -1416,7 +1420,7 @@ namespace BudgetExecution
                     LabelTable.Visible = true;
                     PopulateFirstComboBoxItems( );
                     ResetFilterTableVisibility( );
-                    ResetData( );
+                    BindData( );
                     UpdateLabelText( );
                 }
 
@@ -1450,7 +1454,7 @@ namespace BudgetExecution
         /// Called when [table ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public void OnTableListBoxItemSelected( object sender )
+        private void OnTableListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
             {
@@ -1515,7 +1519,7 @@ namespace BudgetExecution
                         GroupButton.Visible = true;
                     }
 
-                    ResetData( FormFilter );
+                    BindData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
                     SqlHeader.Text = SqlQuery;
                     UpdateLabelText( );
@@ -1535,7 +1539,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnSecondComboBoxItemSelected( object sender, EventArgs e )
+        private void OnSecondComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
             {
@@ -1572,7 +1576,7 @@ namespace BudgetExecution
         /// Called when [second ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public void OnSecondListBoxItemSelected( object sender )
+        private void OnSecondListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
             {
@@ -1592,7 +1596,7 @@ namespace BudgetExecution
                         ThirdTable.Visible = true;
                     }
 
-                    ResetData( FormFilter );
+                    BindData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
                     SqlHeader.Text = SqlQuery;
                     UpdateLabelText( );
@@ -1609,7 +1613,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnThirdComboBoxItemSelected( object sender, EventArgs e )
+        private void OnThirdComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
             {
@@ -1647,7 +1651,7 @@ namespace BudgetExecution
         /// Called when [third ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public void OnThirdListBoxItemSelected( object sender )
+        private void OnThirdListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
             {
@@ -1667,7 +1671,7 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
-                    ResetData( FormFilter );
+                    BindData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
                     SqlHeader.Text = SqlQuery;
                     UpdateLabelText( );
@@ -1684,7 +1688,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnExitButtonClicked( object sender, EventArgs e )
+        private void OnExitButtonClicked( object sender, EventArgs e )
         {
             try
             {
@@ -1702,7 +1706,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        public void OnMainMenuButtonClicked( object sender, EventArgs e )
+        private void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
             {
@@ -1720,7 +1724,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        public void OnBindingSourceChanged( object sender, EventArgs e )
+        private void OnBindingSourceChanged( object sender, EventArgs e )
         {
             if( sender is BindingSource bindingSource )
             {
@@ -1799,14 +1803,14 @@ namespace BudgetExecution
                 if( SelectedFields.Count >= 2
                    && SelectedNumerics.Count >= 1 )
                 {
-                    ResetData( SelectedFields, SelectedNumerics, FormFilter );
+                    BindData( SelectedFields, SelectedNumerics, FormFilter );
                     SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
                     SqlHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 else
                 {
-                    ResetData( Fields, Numerics, FormFilter );
+                    BindData( Fields, Numerics, FormFilter );
                     SqlQuery = CreateSqlText( Fields, Numerics, FormFilter );
                     SqlHeader.Text = SqlQuery;
                     UpdateLabelText( );
@@ -1841,7 +1845,7 @@ namespace BudgetExecution
                     SelectedNumerics.Add( _selectedItem );
                 }
 
-                ResetData( SelectedFields, SelectedNumerics, FormFilter );
+                BindData( SelectedFields, SelectedNumerics, FormFilter );
                 SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
                 SqlHeader.Text = SqlQuery;
                 UpdateLabelText( );
@@ -1915,7 +1919,7 @@ namespace BudgetExecution
                     ClearSelections( );
                     ClearListBoxes( );
                     ClearComboBoxes( );
-                    ResetData( );
+                    BindData( );
                     TabControl.SelectedIndex = 1;
                     UpdateLabelText( );
                     if( Chart.Visible == true )

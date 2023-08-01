@@ -80,23 +80,7 @@ namespace BudgetExecution
         /// The calculator option.
         /// </value>
         public MetroSetToolStripMenuItem CalculatorOption { get; set; }
-
-        /// <summary>
-        /// Gets or sets the calendar option.
-        /// </summary>
-        /// <value>
-        /// The calendar option.
-        /// </value>
-        public MetroSetToolStripMenuItem CalendarOption { get; set; }
-
-        /// <summary>
-        /// Gets or sets the guidance option.
-        /// </summary>
-        /// <value>
-        /// The guidance option.
-        /// </value>
-        public MetroSetToolStripMenuItem GuidanceOption { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the save option.
         /// </summary>
@@ -125,7 +109,8 @@ namespace BudgetExecution
         /// Called when [mouse enter].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         protected void OnMouseEnter( object sender, EventArgs e )
         {
             if( sender is MetroSetToolStripMenuItem _item )
@@ -146,7 +131,8 @@ namespace BudgetExecution
         /// Called when [mouse leave].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         protected void OnMouseLeave( object sender, EventArgs e )
         {
             if( sender is MetroSetToolStripMenuItem _item )

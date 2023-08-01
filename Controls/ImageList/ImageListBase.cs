@@ -50,10 +50,10 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Tools.ImageListAdv" />
+    /// <seealso cref="T:Syncfusion.Windows.Forms.Tools.ImageListAdv" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class ImageListBase : ImageListAdv
     {

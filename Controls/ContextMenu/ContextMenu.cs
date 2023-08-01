@@ -51,33 +51,34 @@ namespace BudgetExecution
     using MetroSet_UI.Child;
     using MetroSet_UI.Enums;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.MenuBase" />
+    /// <seealso cref="T:BudgetExecution.MenuBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class ContextMenu : MenuBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContextMenu"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ContextMenu"/> class.
         /// </summary>
         public ContextMenu( )
         {
             BackColor = Color.FromArgb( 30, 30, 30 );
-            ContextMenu.BackgroundColor = Color.FromArgb( 30, 30, 30 );
+            BackgroundColor = Color.FromArgb( 30, 30, 30 );
             ForeColor = Color.White;
-            ContextMenu.ArrowColor = Color.FromArgb( 50, 93, 129 );
-            ContextMenu.SeparatorColor = Color.FromArgb( 65, 65, 65 );
+            ArrowColor = Color.FromArgb( 50, 93, 129 );
+            SeparatorColor = Color.FromArgb( 65, 65, 65 );
             AutoSize = false;
-            Size = new Size( 156, 264 );
+            Size = new Size( 140, 220 );
             IsDerivedStyle = false;
             RenderMode = ToolStripRenderMode.System;
             Style = Style.Custom;
             ShowCheckMargin = false;
             ShowImageMargin = true;
-            ContextMenu.SelectedItemBackColor = Color.FromArgb( 50, 93, 129 );
-            ContextMenu.SelectedItemColor = Color.White;
+            SelectedItemBackColor = Color.FromArgb( 50, 93, 129 ); 
+            SelectedItemColor = Color.White;
             ThemeAuthor = "Terry Eppler";
             ThemeName = "Budget Execution";
 
@@ -85,8 +86,6 @@ namespace BudgetExecution
             FileOption = CreateFileOption( );
             FolderOption = CreateFolderOption( );
             CalculatorOption = CreateCalculatorOption( );
-            CalendarOption = CreateCalendarOption( );
-            GuidanceOption = CreateGuidanceOption( );
             SaveOption = CreateSaveOption( );
             CloseOption = CreateCloseOption( );
             ExitOption = CreateExitOption( );
@@ -104,7 +103,7 @@ namespace BudgetExecution
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
                 _item.Name = MenuOption.File.ToString( );
-                _item.Size = new Size( 160, 30 );
+                _item.Size = new Size( 140, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
                 _item.ForeColor = Color.White;
                 _item.Text = $"{MenuOption.File}";
@@ -137,7 +136,7 @@ namespace BudgetExecution
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
                 _item.Name = MenuOption.Folder.ToString( );
-                _item.Size = new Size( 160, 30 );
+                _item.Size = new Size( 140, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
                 _item.ForeColor = Color.White;
                 _item.Text = $"{MenuOption.Folder}";
@@ -168,7 +167,7 @@ namespace BudgetExecution
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
                 _item.Name = MenuOption.Calculator.ToString( );
-                _item.Size = new Size( 160, 30 );
+                _item.Size = new Size( 140, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
                 _item.ForeColor = Color.White;
                 _item.Text = $"{MenuOption.Calculator}";
@@ -199,7 +198,7 @@ namespace BudgetExecution
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
                 _item.Name = MenuOption.Calendar.ToString( );
-                _item.Size = new Size( 160, 30 );
+                _item.Size = new Size( 140, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
                 _item.ForeColor = Color.White;
                 _item.Text = $"{MenuOption.Calendar}";
@@ -230,7 +229,7 @@ namespace BudgetExecution
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
                 _item.Name = MenuOption.Guidance.ToString( );
-                _item.Size = new Size( 160, 30 );
+                _item.Size = new Size( 140, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
                 _item.ForeColor = Color.White;
                 _item.Text = $"{MenuOption.Guidance}";
@@ -261,7 +260,7 @@ namespace BudgetExecution
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
                 _item.Name = MenuOption.Save.ToString( );
-                _item.Size = new Size( 160, 30 );
+                _item.Size = new Size( 140, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
                 _item.ForeColor = Color.White;
                 _item.Text = $"{MenuOption.Save}";
@@ -292,7 +291,7 @@ namespace BudgetExecution
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
                 _item.Name = MenuOption.Close.ToString( );
-                _item.Size = new Size( 160, 30 );
+                _item.Size = new Size( 140, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
                 _item.ForeColor = Color.White;
                 _item.Text = $"{MenuOption.Close}";
@@ -323,7 +322,7 @@ namespace BudgetExecution
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
                 _item.Name = MenuOption.Exit.ToString( );
-                _item.Size = new Size( 160, 30 );
+                _item.Size = new Size( 140, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
                 _item.ForeColor = Color.White;
                 _item.Text = $"{MenuOption.Exit}";

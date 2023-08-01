@@ -306,7 +306,7 @@ partial class ProgramProjectDialog
         // 
         // pictureBox1
         // 
-        pictureBox1.Image = Resources.Images.GuidanceTile;
+        pictureBox1.Image = Resources.Images.AppropriationTile;
         pictureBox1.Location = new System.Drawing.Point( 3, 3 );
         pictureBox1.Name = "pictureBox1";
         pictureBox1.Size = new System.Drawing.Size( 31, 22 );

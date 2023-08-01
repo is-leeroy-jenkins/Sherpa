@@ -775,7 +775,7 @@ namespace BudgetExecution
             ProgramProjectTile.Banner = textItem57;
             ProgramProjectTile.BannerColor = System.Drawing.Color.Transparent;
             ProgramProjectTile.BannerHeight = 30;
-            ProgramProjectTile.BannerIcon = Resources.Images.ProgramTile;
+            ProgramProjectTile.BannerIcon = Resources.Images.USEPA;
             ProgramProjectTile.BindingSource = null;
             textItem58.Font = new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem58.HubTile = ProgramProjectTile;
@@ -818,7 +818,7 @@ namespace BudgetExecution
             MessageTile.Banner = textItem61;
             MessageTile.BannerColor = System.Drawing.Color.Transparent;
             MessageTile.BannerHeight = 30;
-            MessageTile.BannerIcon = Resources.Images.EmailTile;
+            MessageTile.BannerIcon = Resources.Images.OutlookTile;
             MessageTile.BindingSource = null;
             textItem62.Font = new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem62.HubTile = MessageTile;
@@ -923,7 +923,7 @@ namespace BudgetExecution
             ContextMenu.IsDerivedStyle = false;
             ContextMenu.Name = "ContextMenu";
             ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            ContextMenu.Size = new System.Drawing.Size( 156, 264 );
+            ContextMenu.Size = new System.Drawing.Size( 140, 220 );
             ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
             ContextMenu.StyleManager = null;
             ContextMenu.ThemeAuthor = "Terry D. Eppler";

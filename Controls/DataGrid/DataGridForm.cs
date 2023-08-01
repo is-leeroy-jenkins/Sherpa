@@ -260,25 +260,6 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
 
-            // Label Properties
-            FirstGridLabel.Font = new Font( "Roboto", 8 );
-            FirstGridLabel.ForeColor = Color.DarkGray;
-            SecondGridLabel.Font = new Font( "Roboto", 8 );
-            SecondGridLabel.ForeColor = Color.DarkGray;
-            SecondGridLabel.Text = string.Empty;
-            ThirdGridLabel.Font = new Font( "Roboto", 8 );
-            ThirdGridLabel.ForeColor = Color.DarkGray;
-            ThirdGridLabel.Text = string.Empty;
-            FourthGridLabel.Font = new Font( "Roboto", 8 );
-            FourthGridLabel.ForeColor = Color.DarkGray;
-            FourthGridLabel.Text = string.Empty;
-
-            // TabPage Properties
-            TabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
-            TableTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
-            FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
-            GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
-
             // Table Layout Properties
             FirstTable.Visible = false;
             SecondTable.Visible = false;
@@ -397,6 +378,49 @@ namespace BudgetExecution
             Numerics = DataModel?.Numerics;
             DataGrid.DataSource = BindingSource?.DataSource;
             ToolStrip.BindingSource = BindingSource;
+        }
+
+        /// <summary>
+        /// Initializes the tab control.
+        /// </summary>
+        private void InitializeTabControl( )
+        {
+            try
+            {
+                TabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
+                TableTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+                FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+                GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                FirstGridLabel.Font = new Font( "Roboto", 8 );
+                FirstGridLabel.ForeColor = Color.DarkGray;
+                SecondGridLabel.Font = new Font( "Roboto", 8 );
+                SecondGridLabel.ForeColor = Color.DarkGray;
+                SecondGridLabel.Text = string.Empty;
+                ThirdGridLabel.Font = new Font( "Roboto", 8 );
+                ThirdGridLabel.ForeColor = Color.DarkGray;
+                ThirdGridLabel.Text = string.Empty;
+                FourthGridLabel.Font = new Font( "Roboto", 8 );
+                FourthGridLabel.ForeColor = Color.DarkGray;
+                FourthGridLabel.Text = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1321,6 +1345,8 @@ namespace BudgetExecution
                 SetFormIcon( );
                 InitializeToolStrip( );
                 InitializeTitle( );
+                InitializeLabels( );
+                InitializeTabControl( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
