@@ -58,6 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
     public class TextBox : MetroSetTextBox
     {
         /// <summary>

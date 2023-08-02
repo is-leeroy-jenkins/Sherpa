@@ -51,6 +51,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using System;
     using System.Collections;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// 
@@ -113,7 +114,7 @@ namespace BudgetExecution
 
             // Event Wiring
             ExitButton.Click += OnExitButtonClick;
-            LookupTile.Click += OnLookupTileClick;
+            LookupTile.Click += OnLookupTileClickAsync;
             CalendarTile.Click += OnCalendarTileClick;
             ProgramProjectTile.Click += OnProgramProjectTileClick;
             MessageTile.Click += OnMessageTileClick;
@@ -572,6 +573,25 @@ namespace BudgetExecution
             }
         }
 
+        private Task<Form> OpenDataGridAsync( )
+        {
+            var _tcs = new TaskCompletionSource<Form>( );
+            try
+            {
+                var _dataGridForm = new DataGridForm( );
+                _dataGridForm.Owner = this;
+                _tcs.SetResult( _dataGridForm );
+                _dataGridForm.Show( );
+                return _tcs.Task;
+            }
+            catch( Exception _ex )
+            {
+                _tcs.SetException( _ex );
+                Fail( _ex );
+                return default( Task<Form> );
+            }
+        }
+
         /// <summary>
         /// Opens the calculator form.
         /// </summary>
@@ -805,6 +825,26 @@ namespace BudgetExecution
         private void OnLookupTileClick( object sender, EventArgs e )
         {
             OpenDataGridForm( );
+        }
+
+        private void OnLookupTileClickAsync( object sender, EventArgs e )
+        {
+            try
+            {
+                var _loader = new LoadingForm( Status.Waiting );
+                _loader.Owner = this;
+                _loader.Show( );
+                var _task = OpenDataGridAsync( );
+                _task.Wait( TimeSpan.FromSeconds( 3 ) );
+                var _form = _task.Result;
+                _form.Owner = this;
+                _loader.Close( );
+                Hide( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

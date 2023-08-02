@@ -185,6 +185,7 @@ namespace BudgetExecution
             LookupTile.Title = textItem4;
             LookupTile.ToolTip = ToolTip;
             LookupTile.TurnLiveTileOn = true;
+
             // 
             // ToolTip
             // 

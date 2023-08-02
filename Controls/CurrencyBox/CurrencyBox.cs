@@ -54,8 +54,8 @@ namespace BudgetExecution
     /// <inheritdoc />
     /// <summary> </summary>
     /// <seealso cref="T:BudgetExecution.CurrencyBase" />
-    [SuppressMessage("ReSharper", "MemberCanBeInternal")]
-    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+    [ SuppressMessage("ReSharper", "MemberCanBeInternal") ]
+    [ SuppressMessage("ReSharper", "ClassNeverInstantiated.Global") ]
     public class CurrencyBox : CurrencyEdit
     {
         /// <summary>
@@ -106,6 +106,7 @@ namespace BudgetExecution
         public CurrencyBox( )
         {
             // Basic Properties
+            TextBox.Size = new Size( 180, 32 );
             Margin = new Padding( 1 );
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 9 );
@@ -142,7 +143,7 @@ namespace BudgetExecution
             ThemeStyle.BackColor = Color.FromArgb( 40, 40, 40 );
             ThemeStyle.BorderColor = Color.FromArgb( 50, 93, 129 );
             ThemeStyle.DisabledBackColor = Color.FromArgb( 40, 40, 40 );
-            ThemeStyle.DisabledBorderColor =Color.FromArgb( 40, 40, 40 );
+            ThemeStyle.DisabledBorderColor = Color.FromArgb( 40, 40, 40 );
             ThemeStyle.HoverBorderColor = Color.FromArgb( 0, 120, 212 );
             ThemeStyle.FocusedBorderColor = Color.FromArgb( 0, 120, 212 );
             ThemeStyle.PressedBorderColor = Color.FromArgb( 0, 120, 212 );

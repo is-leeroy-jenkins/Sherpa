@@ -103,20 +103,13 @@ namespace BudgetExecution
             CaptionBarColor = Color.Black;
             MetroColor = Color.Black;
             ForeColor = Color.Black;
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.None;
             BorderColor = Color.Transparent;
-
-            // Timer Configuration
-            Timer.Enabled = true;
-            Timer.Interval = 5000;
-            Timer.Tick += OnTick;
-            Timer.Start( );
 
             // Event Wiring
             Load += OnLoad;
             Closing += OnClose;
-            Shown += OnShown;
             CloseButton.Click += OnCloseButtonClicked;
         }
 
@@ -130,6 +123,52 @@ namespace BudgetExecution
             : this( )
         {
             Status = status;
+        }
+
+        /// <summary>
+        /// Initializes the timer.
+        /// </summary>
+        private void InitializeTimer( )
+        {
+            try
+            {
+                // Timer Properties
+                Timer.Enabled = true;
+                Timer.Interval = 5000;
+                Timer.Tick += OnTick;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Shows the image.
+        /// </summary>
+        public void ShowImage( )
+        {
+            try
+            {
+                var _loading = AppSettings[ "PathPrefix" ] + AppSettings[ "Loading" ];
+                var _processing = AppSettings[ "PathPrefix" ] + AppSettings[ "Processing" ];
+                var _waiting = AppSettings[ "PathPrefix" ] + AppSettings[ "Waiting" ];
+                if( Enum.IsDefined( typeof( Status ), Status ) )
+                {
+                    PictureBox.Image = Status switch
+                    {
+                        Status.Loading => Image.FromFile( _loading ),
+                        Status.Processing => Image.FromFile( _processing ),
+                        Status.Waiting => Image.FromFile( _waiting ),
+                        _ => Image.FromFile( _loading )
+                    };
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -163,33 +202,6 @@ namespace BudgetExecution
             {
                 Timer?.Stop( );
                 Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Shows the image.
-        /// </summary>
-        public void ShowImage( )
-        {
-            try
-            {
-                var _loading = AppSettings[ "PathPrefix" ] + AppSettings[ "Loading" ];
-                var _processing = AppSettings[ "PathPrefix" ] + AppSettings[ "Processing" ];
-                var _waiting = AppSettings[ "PathPrefix" ] + AppSettings[ "Waiting" ];
-                if( Enum.IsDefined( typeof( Status ), Status ) )
-                {
-                    PictureBox.Image = Status switch
-                    {
-                        Status.Loading => Image.FromFile( _loading ),
-                        Status.Processing => Image.FromFile( _processing ),
-                        Status.Waiting => Image.FromFile( _waiting ),
-                        _ => Image.FromFile( _loading )
-                    };
-                }
             }
             catch( Exception _ex )
             {
