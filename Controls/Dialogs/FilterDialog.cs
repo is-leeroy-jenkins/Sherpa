@@ -233,6 +233,12 @@ namespace BudgetExecution
         /// </value>
         public ToolType ToolType { get; set; }
 
+        /// <summary>
+        /// Gets or sets the state of the view.
+        /// </summary>
+        /// <value>
+        /// The state of the view.
+        /// </value>
         public StateTransfer ViewState { get; set; }
 
         /// <inheritdoc />

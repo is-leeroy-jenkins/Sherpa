@@ -114,7 +114,7 @@ namespace BudgetExecution
 
             // Event Wiring
             ExitButton.Click += OnExitButtonClick;
-            LookupTile.Click += OnLookupTileClickAsync;
+            LookupTile.Click += OnLookupClickAsync;
             CalendarTile.Click += OnCalendarTileClick;
             ProgramProjectTile.Click += OnProgramProjectTileClick;
             MessageTile.Click += OnMessageTileClick;
@@ -827,7 +827,7 @@ namespace BudgetExecution
             OpenDataGridForm( );
         }
 
-        private void OnLookupTileClickAsync( object sender, EventArgs e )
+        private void OnLookupClickAsync( object sender, EventArgs e )
         {
             try
             {
