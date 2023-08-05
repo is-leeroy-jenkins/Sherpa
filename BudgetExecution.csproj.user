@@ -137,7 +137,7 @@
     <Compile Update="Controls\Excel\RibbonBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Forms\FormBase.cs">
+    <Compile Update="Controls\Forms\BudgetForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Forms\MainForm.cs">
@@ -301,6 +301,9 @@
     </Compile>
     <Compile Update="Controls\ToggleButton\ToggleButton.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Splash\SplashForm.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

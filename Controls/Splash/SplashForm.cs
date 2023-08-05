@@ -1,13 +1,13 @@
 ﻿//  ******************************************************************************************
 //      Assembly:                Budget Execution
-//      Filename:                BudgetForm.cs
+//      Filename:                SplashForm.cs
 //      Author:                  Terry D. Eppler
 //      Created:                 05-31-2023
 // 
 //      Last Modified By:        Terry D. Eppler
 //      Last Modified On:        06-01-2023
 //  ******************************************************************************************
-//  <copyright file="BudgetForm.cs" company="Terry D. Eppler">
+//  <copyright file="SplashForm.cs" company="Terry D. Eppler">
 // 
 //     This is a Federal Budget, Finance, and Accounting application for the
 //     US Environmental Protection Agency (US EPA).
@@ -37,28 +37,34 @@
 // 
 //  </copyright>
 //  <summary>
-//    BudgetForm.cs
+//    SplashForm.cs
 //  </summary>
 //  ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using System.Diagnostics.CodeAnalysis;
+    using System.Collections.Generic;
+    using System.Linq;
+    using static FormAnimator;
+    using Exception = System.Exception;
+    using Timer = System.Windows.Forms.Timer;
 
     /// <summary>
+    /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" )]
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
     [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage("ReSharper", "MemberCanBeInternal")]
-    [SuppressMessage("ReSharper", "VirtualMemberNeverOverridden.Global")]
-    public partial class BudgetForm : MetroForm
+    public partial class SplashForm : MetroForm
     {
         /// <summary>
         /// Gets or sets the time.
@@ -75,12 +81,13 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetForm" />
-        /// class.
+        /// <see cref="T:BudgetExecution.SplashMessage" /> class.
         /// </summary>
-        public BudgetForm( )
+        public SplashForm( )
         {
             InitializeComponent( );
+
+            // Basic Properties
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );
@@ -98,11 +105,10 @@ namespace BudgetExecution
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             SizeGripStyle = SizeGripStyle.Hide;
-            AutoScaleMode = AutoScaleMode.Font;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
@@ -111,6 +117,7 @@ namespace BudgetExecution
             // Timer Properties
             Time = 0;
             Seconds = 5;
+            Timer.Interval = 5000;
 
             // Wire Events
             Load += OnLoad;
@@ -136,7 +143,7 @@ namespace BudgetExecution
         /// <summary>
         /// Displays the control to the user.
         /// </summary>
-        public new void Show( )
+        public new virtual void Show( )
         {
             try
             {

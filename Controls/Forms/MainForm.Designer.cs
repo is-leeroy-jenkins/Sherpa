@@ -130,6 +130,7 @@ namespace BudgetExecution
             DataManagementPanel = new Layout( );
             ResourceTable = new HeaderPanel( );
             ResourcePanel = new Layout( );
+            Timer = new System.Windows.Forms.Timer( components );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             BrowserTable.SuspendLayout( );
             BrowserPanel.SuspendLayout( );
@@ -185,7 +186,6 @@ namespace BudgetExecution
             LookupTile.Title = textItem4;
             LookupTile.ToolTip = ToolTip;
             LookupTile.TurnLiveTileOn = true;
-
             // 
             // ToolTip
             // 
@@ -1163,6 +1163,8 @@ namespace BudgetExecution
             // 
             // MainForm
             // 
+            AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             CaptionBarColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
@@ -1241,5 +1243,6 @@ namespace BudgetExecution
         private Layout DataPanel;
         public HeaderPanel ResourceTable;
         public Layout ResourcePanel;
+        public System.Windows.Forms.Timer Timer;
     }
 }

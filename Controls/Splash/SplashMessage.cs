@@ -234,7 +234,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the labels.
         /// </summary>
-        private protected void InitializeLabels( )
+        private protected virtual void InitializeLabels( )
         {
             try
             {
@@ -283,7 +283,7 @@ namespace BudgetExecution
         /// <summary>
         /// Fades the in.
         /// </summary>
-        private protected void FadeIn( )
+        private protected virtual void FadeIn( )
         {
             try
             {
@@ -310,7 +310,7 @@ namespace BudgetExecution
         /// <summary>
         /// Fades the out and close.
         /// </summary>
-        private protected void FadeOut( )
+        private void FadeOut( )
         {
             try
             {
@@ -357,7 +357,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private protected void OnClick( object sender, MouseEventArgs e )
+        private void OnClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Left
                || e.Button == MouseButtons.Right )
@@ -384,7 +384,7 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private protected void OnLoad( object sender, EventArgs e )
+        private void OnLoad( object sender, EventArgs e )
         {
             try
             {
