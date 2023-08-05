@@ -171,37 +171,28 @@ namespace BudgetExecution
             MinimumSize = new Size( 568, 483 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.DarkGray;
+            Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
+            CaptionBarHeight = 5;
+            CaptionAlign = HorizontalAlignment.Center;
+            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            SizeGripStyle = SizeGripStyle.Hide;
+            AutoScaleMode = AutoScaleMode.Font;
+            DoubleBuffered = true;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-
-            // Label Properties
-            PathLabel.Font = new Font( "Roboto", 8 );
-            PathLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
-
-            // Picture Properties
-            Picture.Size = new Size( 24, 22 );
-            Picture.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            // File Dialog Properties
-            OpenFileDialog.Title = "Search for (*.pdf) Document";
-            OpenFileDialog.CheckPathExists = true;
-            OpenFileDialog.CheckFileExists = true;
+            ControlBox = false;
 
             // Data Properties
             Source = Source.Resources;
@@ -221,15 +212,70 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the title.
         /// </summary>
-        private void InitializeTitle( )
+        private void InitializeLabels( )
         {
             try
             {
+                // Title Properties
                 Title.Font = new Font( "Roboto", 12 );
                 Title.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Title.TextAlign = ContentAlignment.TopLeft;
                 Title.Text = "Guidance Documents";
                 Title.FlatStyle = FlatStyle.Flat;
+
+                // Path Properties
+                PathLabel.Font = new Font( "Roboto", 8 );
+                PathLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializeFileDialog( )
+        {
+            try
+            {
+                OpenFileDialog.Title = "Search for (*.pdf) Document";
+                OpenFileDialog.CheckPathExists = true;
+                OpenFileDialog.CheckFileExists = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializePictureBox( )
+        {
+            try
+            {
+                Picture.Size = new Size( 24, 22 );
+                Picture.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the ListBox.
+        /// </summary>
+        private void InitializeListBox( )
+        {
+            try
+            {
+                ListBox.ItemHeight = 42;
+                ListBox.ShowScrollBar = true;
+                ListBox.Font = new Font( "Roboto", 10 );
             }
             catch( Exception _ex )
             {
@@ -351,7 +397,8 @@ namespace BudgetExecution
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataModel.DataTable;
                 var _data = DataTable.AsEnumerable( );
-                var _names = _data?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
                     ?.Select( r => r.Field<string>( "Caption" ) )
                     ?.ToList( );
 
@@ -423,23 +470,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the ListBox.
-        /// </summary>
-        private void InitializeListBox( )
-        {
-            try
-            {
-                ListBox.ItemHeight = 42;
-                ListBox.ShowScrollBar = true;
-                ListBox.Font = new Font( "Roboto", 10 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -449,9 +479,11 @@ namespace BudgetExecution
         {
             try
             {
-                InitializeTitle( );
+                InitializeLabels( );
                 InitializeListBox( );
                 PopulateListBox( );
+                InitializeFileDialog( );
+                InitializePictureBox( );
                 FadeIn( );
             }
             catch( Exception _ex )

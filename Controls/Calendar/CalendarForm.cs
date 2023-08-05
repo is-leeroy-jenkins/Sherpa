@@ -180,13 +180,16 @@ namespace BudgetExecution
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            SizeGripStyle = SizeGripStyle.Auto;
+            SizeGripStyle = SizeGripStyle.Hide;
+            AutoScaleMode = AutoScaleMode.Font;
+            DoubleBuffered = true;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
+            ControlBox = false;
 
             // Event Wiring
             Load += OnLoad;

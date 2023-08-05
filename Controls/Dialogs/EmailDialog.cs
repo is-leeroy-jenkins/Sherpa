@@ -101,22 +101,16 @@ namespace BudgetExecution
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            SizeGripStyle = SizeGripStyle.Auto;
+            SizeGripStyle = SizeGripStyle.Hide;
+            AutoScaleMode = AutoScaleMode.Font;
+            DoubleBuffered = true;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-
-            // Radio Buttons
-            FirstRadioButton.ForeColor = Color.FromArgb( 0, 120, 212 );
-            SecondRadioButton.ForeColor = Color.FromArgb( 0, 120, 212 );
-            ThirdRadioButton.ForeColor = Color.FromArgb( 0, 120, 212 );
-
-            // Buttons
-            ClearButton.ForeColor = Color.DarkGray;
-            CloseButton.ForeColor = Color.DarkGray;
+            ControlBox = false;
 
             // Event Wiring
             Load += OnLoad;
@@ -129,6 +123,113 @@ namespace BudgetExecution
             SecondRadioButton.Click += OnSecondRadioButtonSelected;
             ThirdRadioButton.Click += OnThirdRadioButtonSelected;
             MenuButton.Click += OnMainMenuButtonClicked;
+        }
+
+        /// <summary>
+        /// Sets the editor configuration.
+        /// </summary>
+        private void InitializeEditor( )
+        {
+            try
+            {
+                Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                Editor.AlwaysShowScrollers = true;
+                Editor.BackColor = SystemColors.ControlLight;
+                Editor.ForeColor = Color.Black;
+                Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
+                Editor.BorderStyle = BorderStyle.FixedSingle;
+                Editor.CanOverrideStyle = true;
+                Editor.CanApplyTheme = true;
+                Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceForeColor = Color.Black;
+                Editor.ContextChoiceBackColor = SystemColors.ControlLight;
+                Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.ContextPromptBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+                Editor.ContextTooltipBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+                Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.EndOfLineBackColor = SystemColors.ControlLight;
+                Editor.EndOfLineForeColor = SystemColors.ControlLight;
+                Editor.HighlightCurrentLine = true;
+                Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
+                Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
+                Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
+                Editor.Font = new Font( "Roboto", 12 );
+                Editor.LineNumbersColor = Color.Black;
+                Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
+                Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
+                Editor.ScrollColorScheme = Office2007ColorScheme.Black;
+                Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
+                Editor.ShowEndOfLine = false;
+                Editor.Style = EditControlStyle.Office2016Black;
+                Editor.TabSize = 4;
+                Editor.TextAreaWidth = 400;
+                Editor.WordWrap = true;
+                Editor.WordWrapColumn = 100;
+                Editor.Dock = DockStyle.None;
+                Editor.Anchor = AnchorStyles.Top
+                    | AnchorStyles.Bottom
+                    | AnchorStyles.Left
+                    | AnchorStyles.Right;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+                ClearButton.ForeColor = Color.DarkGray;
+                CloseButton.ForeColor = Color.DarkGray;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the radio buttons.
+        /// </summary>
+        private void InitializeRadioButtons( )
+        {
+            try
+            {
+                FirstRadioButton.ForeColor = Color.FromArgb( 0, 120, 212 );
+                SecondRadioButton.ForeColor = Color.FromArgb( 0, 120, 212 );
+                ThirdRadioButton.ForeColor = Color.FromArgb( 0, 120, 212 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+                Title.Text = "Email";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -224,7 +325,7 @@ namespace BudgetExecution
             try
             {
                 var _message = "THIS IS NOT YET IMPLEMENTED!";
-                var _notification = new Notification( _message );
+                var _notification = new SplashMessage( _message );
                 _notification.Show( );
             }
             catch( Exception _ex )
@@ -248,64 +349,6 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
-            }
-        }
-
-        /// <summary>
-        /// Sets the editor configuration.
-        /// </summary>
-        private void InitializeEditor( )
-        {
-            try
-            {
-                Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                Editor.AlwaysShowScrollers = true;
-                Editor.BackColor = SystemColors.ControlLight;
-                Editor.ForeColor = Color.Black;
-                Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
-                Editor.BorderStyle = BorderStyle.FixedSingle;
-                Editor.CanOverrideStyle = true;
-                Editor.CanApplyTheme = true;
-                Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
-                Editor.ContextChoiceFont = new Font( "Roboto", 8 );
-                Editor.ContextChoiceForeColor = Color.Black;
-                Editor.ContextChoiceBackColor = SystemColors.ControlLight;
-                Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
-                Editor.ContextPromptBackgroundBrush =
-                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-
-                Editor.ContextTooltipBackgroundBrush =
-                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-
-                Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
-                Editor.EndOfLineBackColor = SystemColors.ControlLight;
-                Editor.EndOfLineForeColor = SystemColors.ControlLight;
-                Editor.HighlightCurrentLine = true;
-                Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
-                Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
-                Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
-                Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
-                Editor.Font = new Font( "Roboto", 12 );
-                Editor.LineNumbersColor = Color.Black;
-                Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
-                Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
-                Editor.ScrollColorScheme = Office2007ColorScheme.Black;
-                Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
-                Editor.ShowEndOfLine = false;
-                Editor.Style = EditControlStyle.Office2016Black;
-                Editor.TabSize = 4;
-                Editor.TextAreaWidth = 400;
-                Editor.WordWrap = true;
-                Editor.WordWrapColumn = 100;
-                Editor.Dock = DockStyle.None;
-                Editor.Anchor = AnchorStyles.Top
-                    | AnchorStyles.Bottom
-                    | AnchorStyles.Left
-                    | AnchorStyles.Right;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
             }
         }
 
@@ -345,8 +388,9 @@ namespace BudgetExecution
             try
             {
                 InitializeEditor( );
-                Title.ForeColor = Color.FromArgb( 0, 120, 212 );
-                Title.Text = "Email";
+                InitializeButtons( );
+                InitializeRadioButtons( );
+                InitializeLabels( );
                 TabControl.SelectedIndex = 0;
                 FirstRadioButton.Checked = true;
                 FadeIn( );
