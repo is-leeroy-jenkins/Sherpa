@@ -128,15 +128,6 @@ namespace BudgetExecution
             CaptionButtonColor = Color.FromArgb( 0, 73, 112 );
             CaptionAlign = HorizontalAlignment.Left;
             CaptionBarHeight = 5;
-            Title.ForeColor = Color.White;
-            Title.TextAlign = ContentAlignment.TopLeft;
-            BackPanel.BorderColor = Color.FromArgb( 106, 189, 252 );
-            BackPanel.Margin = new Padding( 0 );
-            BackPanel.Padding = new Padding( 0 );
-            Message.BackColor = Color.FromArgb( 0, 73, 112 );
-            Message.Font = new Font( "Roboto", 11 );
-            Message.ForeColor = Color.White;
-            Message.TextAlign = ContentAlignment.TopLeft;
             MinimizeBox = false;
             MaximizeBox = false;
             ControlBox = false;
@@ -208,6 +199,57 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the title.
+        /// </summary>
+        private protected void InitializeTitle( )
+        {
+            try
+            {
+                Title.ForeColor = Color.White;
+                Title.TextAlign = ContentAlignment.TopLeft;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the panel.
+        /// </summary>
+        private protected void InitializePanel( )
+        {
+            try
+            {
+                BackPanel.BorderColor = Color.FromArgb( 106, 189, 252 );
+                BackPanel.Margin = new Padding( 0 );
+                BackPanel.Padding = new Padding( 0 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private protected void InitializeLabels( )
+        {
+            try
+            {
+                Message.BackColor = Color.FromArgb( 0, 73, 112 );
+                Message.Font = new Font( "Roboto", 11 );
+                Message.ForeColor = Color.White;
+                Message.TextAlign = ContentAlignment.TopLeft;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Displays the control to the user.
         /// </summary>
         public new void Show( )
@@ -241,7 +283,7 @@ namespace BudgetExecution
         /// <summary>
         /// Fades the in.
         /// </summary>
-        private void FadeIn( )
+        private protected void FadeIn( )
         {
             try
             {
@@ -268,7 +310,7 @@ namespace BudgetExecution
         /// <summary>
         /// Fades the out and close.
         /// </summary>
-        private void FadeOut( )
+        private protected void FadeOut( )
         {
             try
             {
@@ -315,7 +357,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnClick( object sender, MouseEventArgs e )
+        private protected void OnClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Left
                || e.Button == MouseButtons.Right )
@@ -342,10 +384,13 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnLoad( object sender, EventArgs e )
+        private protected void OnLoad( object sender, EventArgs e )
         {
             try
             {
+                InitializeLabels( );
+                InitializePanel( );
+                InitializeTitle( );
                 FadeIn( );
                 Timer.Start( );
             }
