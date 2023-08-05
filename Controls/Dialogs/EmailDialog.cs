@@ -62,6 +62,18 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class EmailDialog : MetroForm
     {
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value> The time. </value>
+        public int Time { get; set; }
+
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value> The seconds. </value>
+        public int Seconds { get; set; }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -116,7 +128,92 @@ namespace BudgetExecution
             FirstRadioButton.Click += OnFirstRadioButtonSelected;
             SecondRadioButton.Click += OnSecondRadioButtonSelected;
             ThirdRadioButton.Click += OnThirdRadioButtonSelected;
-            MenuButton.Click += OnMenuButtonClick;
+            MenuButton.Click += OnMainMenuButtonClicked;
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
+        public new void Show( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        Time++;
+                        if( Time == Seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
+        private void FadeIn( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 1d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity += 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out and close.
+        /// </summary>
+        private void FadeOut( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 0d )
+                    {
+                        _timer.Stop( );
+                        Close( );
+                    }
+
+                    Opacity -= 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -219,19 +316,16 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner?.Visible == false 
-                   && Owner.GetType( ) == typeof( MainForm ) )
+                if( Owner?.Visible == false )
                 {
-                    var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
+                    var _form = (MainForm)Program.Windows[ "MainForm" ];
                     _form.Refresh( );
                     _form.Visible = true;
-                    Close( );
                 }
                 else
                 {
                     var _mainForm = new MainForm( );
                     _mainForm.Show( );
-                    Close( );
                 }
             }
             catch( Exception _ex )
@@ -479,14 +573,23 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [menu button click].
+        /// Called when [main menu button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnMenuButtonClick( object sender, EventArgs e )
+        private void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
-            OpenMainForm( );
+            try
+            {
+                FadeOut( );
+                Close( );
+                OpenMainForm( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

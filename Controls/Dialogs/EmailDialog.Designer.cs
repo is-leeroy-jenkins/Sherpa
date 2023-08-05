@@ -71,6 +71,7 @@ partial class EmailDialog
         FirstRadioButton = new RadioButton( );
         ButtonTable = new System.Windows.Forms.TableLayoutPanel( );
         CloseButton = new Button( );
+        ToolTip = new SmallTip( );
         ClearButton = new Button( );
         MenuButton = new Button( );
         EditorTable = new HeaderPanel( );
@@ -78,7 +79,7 @@ partial class EmailDialog
         TitleTable = new System.Windows.Forms.TableLayoutPanel( );
         PictureBox = new System.Windows.Forms.PictureBox( );
         Title = new Label( );
-        ToolTip = new SmallTip( );
+        Timer = new System.Windows.Forms.Timer( components );
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
         EmailTable.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize) TabControl  ).BeginInit( );
@@ -700,6 +701,26 @@ partial class EmailDialog
         CloseButton.ThemeName = "Budget Execution";
         CloseButton.ToolTip = ToolTip;
         // 
+        // ToolTip
+        // 
+        ToolTip.AutoPopDelay = 5000;
+        ToolTip.BackColor = System.Drawing.Color.FromArgb(   5  ,   5  ,   5   );
+        ToolTip.BindingSource = null;
+        ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
+        ToolTip.ForeColor = System.Drawing.Color.White;
+        ToolTip.InitialDelay = 500;
+        ToolTip.IsDerivedStyle = true;
+        ToolTip.Name = null;
+        ToolTip.OwnerDraw = true;
+        ToolTip.ReshowDelay = 100;
+        ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
+        ToolTip.StyleManager = null;
+        ToolTip.ThemeAuthor = "Terry D. Eppler";
+        ToolTip.ThemeName = "Budget Execution";
+        ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
+        ToolTip.TipText = null;
+        ToolTip.TipTitle = null;
+        // 
         // ClearButton
         // 
         ClearButton.BindingSource = null;
@@ -894,26 +915,6 @@ partial class EmailDialog
         Title.ThemeName = "Budget Execution";
         Title.ToolTip = null;
         // 
-        // ToolTip
-        // 
-        ToolTip.AutoPopDelay = 5000;
-        ToolTip.BackColor = System.Drawing.Color.FromArgb(   5  ,   5  ,   5   );
-        ToolTip.BindingSource = null;
-        ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
-        ToolTip.ForeColor = System.Drawing.Color.White;
-        ToolTip.InitialDelay = 500;
-        ToolTip.IsDerivedStyle = true;
-        ToolTip.Name = null;
-        ToolTip.OwnerDraw = true;
-        ToolTip.ReshowDelay = 100;
-        ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
-        ToolTip.StyleManager = null;
-        ToolTip.ThemeAuthor = "Terry D. Eppler";
-        ToolTip.ThemeName = "Budget Execution";
-        ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
-        ToolTip.TipText = null;
-        ToolTip.TipTitle = null;
-        // 
         // EmailDialog
         // 
         BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
@@ -994,4 +995,5 @@ partial class EmailDialog
     public Button ClearButton;
     public Button MenuButton;
     public SmallTip ToolTip;
+    public System.Windows.Forms.Timer Timer;
 }

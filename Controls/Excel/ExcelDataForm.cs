@@ -62,16 +62,28 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class ExcelDataForm : MetroForm
     {
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value> The time. </value>
+        public int Time { get; set; }
+
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value> The seconds. </value>
+        public int Seconds { get; set; }
+
         /// <summary>
         /// Gets or sets the row count.
         /// </summary>
@@ -258,7 +270,7 @@ namespace BudgetExecution
             LookupButton.Click += OnLookupButtonClicked;
             CloseButton.Click += OnCloseButtonClick;
             UploadButton.Click += OnUploadButtonClick;
-            MenuButton.Click += OnMenuButtonClick;
+            MenuButton.Click += OnMainMenuButtonClicked;
             Load += OnLoad;
         }
 
@@ -322,6 +334,91 @@ namespace BudgetExecution
                 ViewState.SelectedFields = SelectedFields;
                 ViewState.SelectedNumerics = SelectedNumerics;
                 ViewState.SqlQuery = SqlQuery;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
+        public new void Show( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        Time++;
+                        if( Time == Seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
+        private void FadeIn( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 1d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity += 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out and close.
+        /// </summary>
+        private void FadeOut( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 0d )
+                    {
+                        _timer.Stop( );
+                        Close( );
+                    }
+
+                    Opacity -= 0.02d;
+                };
+
+                _timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -797,19 +894,16 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner?.Visible == false
-                   && Owner.GetType( ) == typeof( MainForm ) )
+                if( Owner?.Visible == false )
                 {
-                    var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
+                    var _form = (MainForm)Program.Windows[ "MainForm" ];
                     _form.Refresh( );
                     _form.Visible = true;
-                    Close( );
                 }
                 else
                 {
                     var _mainForm = new MainForm( );
                     _mainForm.Show( );
-                    Close( );
                 }
             }
             catch( Exception _ex )
@@ -838,6 +932,7 @@ namespace BudgetExecution
                 InitializeToolStrip( );
                 InitializeTitle( );
                 InitializeIcon( );
+                FadeIn( );
             }
             catch( Exception _ex )
             {
@@ -871,7 +966,7 @@ namespace BudgetExecution
         /// <param name="e">The
         /// <see cref="EventArgs"/> instance containing the event data.
         /// </param>
-        [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
+        [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
         public void OnCellEnter( object sender, CurrentCellActivatedEventArgs e )
         {
             try
@@ -1042,9 +1137,18 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        public void OnMenuButtonClick( object sender, EventArgs e )
+        private void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
-            OpenMainForm( );
+            try
+            {
+                FadeOut( );
+                Close( );
+                OpenMainForm( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
