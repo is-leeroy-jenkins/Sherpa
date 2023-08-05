@@ -186,36 +186,33 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Form Properties
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 1;
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.DarkGray;
+            Font = new Font( "Roboto", 9 );
+            ShowIcon = false;
+            ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 106, 189, 252 );
-            CaptionButtonHoverColor = Color.Red;
-            CaptionAlign = HorizontalAlignment.Left;
             CaptionBarHeight = 5;
-            CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
+            CaptionAlign = HorizontalAlignment.Center;
+            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            SizeGripStyle = SizeGripStyle.Hide;
+            AutoScaleMode = AutoScaleMode.Font;
+            DoubleBuffered = true;
+            ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            ShowMaximizeBox = false;
-            ShowMinimizeBox = false;
-            ShowIcon = false;
-            ShowMouseOver = false;
-            ShowInTaskbar = true;
-            PictureBox.Size = new Size( 24, 22 );
-            PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            StartPosition = FormStartPosition.CenterScreen;
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            Text = string.Empty;
+            ControlBox = false;
 
             // Default Provider
             Provider = Provider.Access;

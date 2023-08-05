@@ -95,17 +95,30 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Form Properties
-            Font = new Font( "Roboto", 9 );
             Size = new Size( 1345, 745 );
             MaximumSize = new Size( 1345, 745 );
             MinimumSize = new Size( 1345, 745 );
-            BackColor = Color.Black;
-            CaptionBarColor = Color.Black;
-            MetroColor = Color.Black;
-            ForeColor = Color.Black;
+            Font = new Font( "Roboto", 9 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.None;
+            CaptionBarHeight = 5;
+            CaptionAlign = HorizontalAlignment.Center;
+            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            CaptionBarColor = Color.Black;
+            BackColor = Color.Black;
+            MetroColor = Color.Black;
+            ForeColor = Color.Black;
             BorderColor = Color.Transparent;
+            BorderThickness = 1;
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            SizeGripStyle = SizeGripStyle.Hide;
+            AutoScaleMode = AutoScaleMode.Font;
+            DoubleBuffered = true;
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
+            ControlBox = false;
 
             // Event Wiring
             Load += OnLoad;

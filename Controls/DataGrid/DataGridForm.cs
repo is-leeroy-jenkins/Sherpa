@@ -265,22 +265,20 @@ namespace BudgetExecution
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            SizeGripStyle = SizeGripStyle.Auto;
+            SizeGripStyle = SizeGripStyle.Hide;
+            AutoScaleMode = AutoScaleMode.Font;
+            DoubleBuffered = true;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
+            ControlBox = false;
 
             // Timer Properties
             Time = 0;
             Seconds = 5;
-
-            // Table Layout Properties
-            FirstTable.Visible = false;
-            SecondTable.Visible = false;
-            ThirdTable.Visible = false;
 
             // Initialize Default Provider
             Provider = Provider.Access;
@@ -501,6 +499,24 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the layouts.
+        /// </summary>
+        private void InitializeLayouts( )
+        {
+            try
+            {
+                FirstTable.Visible = false;
+                SecondTable.Visible = false;
+                ThirdTable.Visible = false;
+            }
+            catch( Exception e )
+            {
+                Console.WriteLine( e );
+                throw;
             }
         }
 
@@ -900,7 +916,7 @@ namespace BudgetExecution
         /// <summary>
         /// Clears the data.
         /// </summary>
-        public void BindData( )
+        public void ClearData( )
         {
             try
             {
@@ -1444,6 +1460,7 @@ namespace BudgetExecution
                 InitializeTitle( );
                 InitializeLabels( );
                 InitializeTabControl( );
+                InitializeLayouts( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
@@ -2172,7 +2189,7 @@ namespace BudgetExecution
         {
             try
             {
-                BindData( );
+                ClearData( );
             }
             catch( Exception _ex )
             {
