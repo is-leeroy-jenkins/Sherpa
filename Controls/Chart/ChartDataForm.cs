@@ -55,23 +55,35 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
     using System.Collections;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "ArrangeModifiersOrder" )]
     public partial class ChartDataForm : MetroForm
     {
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value> The time. </value>
+        public int Time { get; set; }
+
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value> The seconds. </value>
+        public int Seconds { get; set; }
+
         /// <summary>
         /// Gets or sets the count.
         /// </summary>
@@ -472,6 +484,91 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
+        public new void Show( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        Time++;
+                        if( Time == Seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
+        private void FadeIn( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 1d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity += 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out and close.
+        /// </summary>
+        private void FadeOut( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 0d )
+                    {
+                        _timer.Stop( );
+                        Close( );
+                    }
+
+                    Opacity -= 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Populates the first ComboBox items.
         /// </summary>
         public void PopulateFirstComboBoxItems( )
@@ -691,7 +788,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Resets the data.
         /// </summary>
@@ -1265,19 +1362,16 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner?.Visible == false
-                   && Owner.GetType( ) == typeof( MainForm ) )
+                if( Owner?.Visible == false )
                 {
-                    var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
+                    var _form = (MainForm)Program.Windows[ "MainForm" ];
                     _form.Refresh( );
                     _form.Visible = true;
-                    Close( );
                 }
                 else
                 {
                     var _mainForm = new MainForm( );
                     _mainForm.Show( );
-                    Close( );
                 }
             }
             catch( Exception _ex )
@@ -1350,7 +1444,7 @@ namespace BudgetExecution
                     var _types = Enum.GetNames( typeof( SeriesChartType ) );
                     if( _types?.Contains( type ) == true )
                     {
-                        ChartType = 
+                        ChartType =
                             (SeriesChartType)Enum.Parse( typeof( SeriesChartType ), type );
                     }
                 }
@@ -1425,6 +1519,7 @@ namespace BudgetExecution
                 }
 
                 PopulateToolBarDropDownItems( );
+                FadeIn( );
             }
             catch( Exception ex )
             {
@@ -1692,6 +1787,7 @@ namespace BudgetExecution
         {
             try
             {
+                FadeOut( );
                 Application.Exit( );
             }
             catch( Exception ex )
@@ -1710,11 +1806,13 @@ namespace BudgetExecution
         {
             try
             {
+                FadeOut( );
+                Close( );
                 OpenMainForm( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

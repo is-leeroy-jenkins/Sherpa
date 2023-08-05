@@ -54,6 +54,7 @@ partial class ProgramProjectDialog
         MenuButton = new Button( );
         CloseButton = new Button( );
         SearchButton = new Button( );
+        Timer = new System.Windows.Forms.Timer( components );
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
         DescriptionTable.SuspendLayout( );
         StatuteTable.SuspendLayout( );
@@ -539,4 +540,5 @@ partial class ProgramProjectDialog
     public Button MenuButton;
     public Button CloseButton;
     public Button SearchButton;
+    public System.Windows.Forms.Timer Timer;
 }

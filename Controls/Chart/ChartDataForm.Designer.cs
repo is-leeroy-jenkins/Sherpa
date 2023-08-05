@@ -122,6 +122,7 @@
             ChartTable = new HeaderPanel( );
             ChartHeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new System.Windows.Forms.PictureBox( );
+            Timer = new System.Windows.Forms.Timer( components );
             AreaTable.SuspendLayout( );
             ChartAreaPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) Chart  ).BeginInit( );
@@ -2065,5 +2066,6 @@
         public ToolSeparator ChartSeriesSeparator;
         public ToolStripDropDown ChartSeriesComboBox;
         private System.Windows.Forms.TableLayoutPanel ChartSubTable;
+        public System.Windows.Forms.Timer Timer;
     }
 }

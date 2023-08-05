@@ -71,6 +71,7 @@ namespace BudgetExecution
     [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
     [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Global")]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -568,7 +569,7 @@ namespace BudgetExecution
             try
             {
                 var _timer = new Timer( );
-                _timer.Interval = 1000;
+                _timer.Interval = 10;
                 _timer.Tick += ( sender, args ) =>
                 {
                     if( Opacity == 0d )
@@ -1411,7 +1412,6 @@ namespace BudgetExecution
                 if( Owner?.Visible == false )
                 {
                     var _form = (MainForm)Program.Windows[ "MainForm" ];
-                    Close( );
                     _form.Refresh( );
                     _form.Visible = true;
                 }
@@ -1419,7 +1419,6 @@ namespace BudgetExecution
                 {
                     var _mainForm = new MainForm( );
                     _mainForm.Show( );
-                    Close( );
                 }
             }
             catch( Exception _ex )
@@ -1783,6 +1782,7 @@ namespace BudgetExecution
         {
             try
             {
+                FadeOut( );
                 Application.Exit( );
             }
             catch( Exception _ex )
@@ -1801,6 +1801,8 @@ namespace BudgetExecution
         {
             try
             {
+                FadeOut( );
+                Close( );
                 OpenMainForm( );
             }
             catch( Exception _ex )
@@ -2211,27 +2213,6 @@ namespace BudgetExecution
             {
                 ClearSelections( );
                 ClearCollections( );
-                FadeOut( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnCloseButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                FadeOut( );
-                Close( );
             }
             catch( Exception _ex )
             {

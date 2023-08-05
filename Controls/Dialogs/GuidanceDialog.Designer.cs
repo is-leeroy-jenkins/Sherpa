@@ -47,11 +47,12 @@ namespace BudgetExecution
             PathLabel = new Label( );
             ButtonTable = new System.Windows.Forms.TableLayoutPanel( );
             ClearButton = new Button( );
-            MenuButton = new Button( );
-            CloseButton = new Button( );
             BrowseButton = new Button( );
             SelectButton = new Button( );
+            MenuButton = new Button( );
+            CloseButton = new Button( );
             ListBoxPanel = new Layout( );
+            Timer = new System.Windows.Forms.Timer( components );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) Picture  ).BeginInit( );
             HeaderTable.SuspendLayout( );
@@ -250,70 +251,6 @@ namespace BudgetExecution
             ClearButton.ThemeName = "Budget Execution";
             ClearButton.ToolTip = null;
             // 
-            // MenuButton
-            // 
-            MenuButton.BindingSource = null;
-            MenuButton.DataFilter = null;
-            MenuButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            MenuButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            MenuButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            MenuButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            MenuButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            MenuButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            MenuButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            MenuButton.HoverText = "Back To Main Menu";
-            MenuButton.HoverTextColor = System.Drawing.Color.White;
-            MenuButton.IsDerivedStyle = true;
-            MenuButton.Location = new System.Drawing.Point( 336, 3 );
-            MenuButton.Name = "MenuButton";
-            MenuButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            MenuButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            MenuButton.NormalTextColor = System.Drawing.Color.DarkGray;
-            MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
-            MenuButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            MenuButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            MenuButton.PressTextColor = System.Drawing.Color.White;
-            MenuButton.Size = new System.Drawing.Size( 90, 30 );
-            MenuButton.Style = MetroSet_UI.Enums.Style.Custom;
-            MenuButton.StyleManager = null;
-            MenuButton.TabIndex = 2;
-            MenuButton.Text = "Menu";
-            MenuButton.ThemeAuthor = "Terry D. Eppler";
-            MenuButton.ThemeName = "Budget Execution";
-            MenuButton.ToolTip = null;
-            // 
-            // CloseButton
-            // 
-            CloseButton.BindingSource = null;
-            CloseButton.DataFilter = null;
-            CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CloseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            CloseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            CloseButton.HoverText = null;
-            CloseButton.HoverTextColor = System.Drawing.Color.White;
-            CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 447, 3 );
-            CloseButton.Name = "CloseButton";
-            CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            CloseButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            CloseButton.NormalTextColor = System.Drawing.Color.DarkGray;
-            CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 90, 30 );
-            CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
-            CloseButton.StyleManager = null;
-            CloseButton.TabIndex = 3;
-            CloseButton.Text = "Close";
-            CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "Budget Execution";
-            CloseButton.ToolTip = null;
-            // 
             // BrowseButton
             // 
             BrowseButton.BindingSource = null;
@@ -377,6 +314,70 @@ namespace BudgetExecution
             SelectButton.ThemeAuthor = "Terry D. Eppler";
             SelectButton.ThemeName = "Budget Execution";
             SelectButton.ToolTip = null;
+            // 
+            // MenuButton
+            // 
+            MenuButton.BindingSource = null;
+            MenuButton.DataFilter = null;
+            MenuButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            MenuButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            MenuButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            MenuButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MenuButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            MenuButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            MenuButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            MenuButton.HoverText = "Back To Main Menu";
+            MenuButton.HoverTextColor = System.Drawing.Color.White;
+            MenuButton.IsDerivedStyle = true;
+            MenuButton.Location = new System.Drawing.Point( 336, 3 );
+            MenuButton.Name = "MenuButton";
+            MenuButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            MenuButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            MenuButton.NormalTextColor = System.Drawing.Color.DarkGray;
+            MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
+            MenuButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            MenuButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            MenuButton.PressTextColor = System.Drawing.Color.White;
+            MenuButton.Size = new System.Drawing.Size( 90, 30 );
+            MenuButton.Style = MetroSet_UI.Enums.Style.Custom;
+            MenuButton.StyleManager = null;
+            MenuButton.TabIndex = 2;
+            MenuButton.Text = "Menu";
+            MenuButton.ThemeAuthor = "Terry D. Eppler";
+            MenuButton.ThemeName = "Budget Execution";
+            MenuButton.ToolTip = null;
+            // 
+            // CloseButton
+            // 
+            CloseButton.BindingSource = null;
+            CloseButton.DataFilter = null;
+            CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CloseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            CloseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            CloseButton.HoverText = null;
+            CloseButton.HoverTextColor = System.Drawing.Color.White;
+            CloseButton.IsDerivedStyle = true;
+            CloseButton.Location = new System.Drawing.Point( 447, 3 );
+            CloseButton.Name = "CloseButton";
+            CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            CloseButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            CloseButton.NormalTextColor = System.Drawing.Color.DarkGray;
+            CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
+            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CloseButton.PressTextColor = System.Drawing.Color.White;
+            CloseButton.Size = new System.Drawing.Size( 90, 30 );
+            CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
+            CloseButton.StyleManager = null;
+            CloseButton.TabIndex = 3;
+            CloseButton.Text = "Close";
+            CloseButton.ThemeAuthor = "Terry D. Eppler";
+            CloseButton.ThemeName = "Budget Execution";
+            CloseButton.ToolTip = null;
             // 
             // ListBoxPanel
             // 
@@ -463,5 +464,6 @@ namespace BudgetExecution
         public ListBox ListBox;
         public Layout ListBoxPanel;
         public Button SelectButton;
+        public System.Windows.Forms.Timer Timer;
     }
 }

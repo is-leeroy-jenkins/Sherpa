@@ -136,6 +136,7 @@ namespace BudgetExecution
             Label9 = new Label( );
             Label12 = new Label( );
             Label10 = new Label( );
+            Timer = new System.Windows.Forms.Timer( components );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
@@ -1403,7 +1404,7 @@ namespace BudgetExecution
             Label10.ThemeName = "Budget Execution";
             Label10.ToolTip = null;
             // 
-            // FiscalYearForm
+            // CalendarForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1429,7 +1430,7 @@ namespace BudgetExecution
             MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1350, 750 );
-            Name = "FiscalYearForm";
+            Name = "CalendarForm";
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
@@ -1521,5 +1522,6 @@ namespace BudgetExecution
         public ToolSeparator Separator9;
         public ToolSeparator Separator8;
         public Layout TimeTableLayout;
+        public System.Windows.Forms.Timer Timer;
     }
 }

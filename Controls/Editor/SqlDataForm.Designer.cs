@@ -168,6 +168,7 @@ namespace BudgetExecution
             Separator17 = new ToolSeparator( );
             SqlEditorButton = new ToolStripButton( );
             Separator10 = new ToolSeparator( );
+            Timer = new System.Windows.Forms.Timer( components );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) TabControl  ).BeginInit( );
@@ -2422,5 +2423,6 @@ namespace BudgetExecution
         public ToolSeparator TableSeparator;
         public ToolStripButton ClientButton;
         public ToolSeparator ClientSeparator;
+        public System.Windows.Forms.Timer Timer;
     }
 }

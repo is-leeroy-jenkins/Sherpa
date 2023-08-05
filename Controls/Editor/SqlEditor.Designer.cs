@@ -122,6 +122,7 @@
             SelectTableLabel = new Label( );
             TableNameComboBox = new ComboBox( );
             AddTableTextBox = new TextBox( );
+            Timer = new System.Windows.Forms.Timer( components );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
@@ -2175,5 +2176,6 @@
         public Label SelectTableLabel;
         public ComboBox TableNameComboBox;
         public TextBox AddTableTextBox;
+        public System.Windows.Forms.Timer Timer;
     }
 }
