@@ -114,7 +114,7 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
-            CloseButton.Click += OnClick;
+            CloseButton.Click += OnCloseButtonClick;
         }
 
         /// <summary>
@@ -240,7 +240,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private protected virtual void OnClick( object sender, EventArgs e )
+        private protected virtual void OnCloseButtonClick( object sender, EventArgs e )
         {
             try
             {

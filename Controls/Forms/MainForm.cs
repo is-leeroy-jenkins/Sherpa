@@ -51,7 +51,6 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using System;
     using System.Collections;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// 
@@ -128,7 +127,7 @@ namespace BudgetExecution
 
             // Event Wiring
             ExitButton.Click += OnExitButtonClick;
-            LookupTile.Click += OnLookupClickAsync;
+            LookupTile.Click += OnLookupTileClick;
             CalendarTile.Click += OnCalendarTileClick;
             ProgramProjectTile.Click += OnProgramProjectTileClick;
             MessageTile.Click += OnMessageTileClick;
@@ -467,6 +466,7 @@ namespace BudgetExecution
             try
             {
                 var _programs = new ProgramProjectDialog( );
+                _programs.StartPosition = FormStartPosition.CenterParent;
                 _programs.Owner = this;
                 _programs.Show( );
                 Hide( );
@@ -503,7 +503,8 @@ namespace BudgetExecution
             try
             {
                 var _editor = new EditDialog( );
-                _editor.ShowDialog( this );
+                _editor.Owner = this;
+                _editor.Show( );
                 Hide( );
             }
             catch( Exception _ex )
@@ -520,8 +521,9 @@ namespace BudgetExecution
             try
             {
                 var _splash = new BudgetForm( );
+                _splash.Owner = this;
                 _splash.Show( );
-                Close( );
+                Hide( );
             }
             catch( Exception _ex )
             {
@@ -668,25 +670,6 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-            }
-        }
-
-        private Task<Form> OpenDataGridAsync( )
-        {
-            var _tcs = new TaskCompletionSource<Form>( );
-            try
-            {
-                var _dataGridForm = new DataGridForm( );
-                _dataGridForm.Owner = this;
-                _tcs.SetResult( _dataGridForm );
-                _dataGridForm.Show( );
-                return _tcs.Task;
-            }
-            catch( Exception _ex )
-            {
-                _tcs.SetException( _ex );
-                Fail( _ex );
-                return default( Task<Form> );
             }
         }
 
@@ -926,26 +909,6 @@ namespace BudgetExecution
             OpenDataGridForm( );
         }
 
-        private void OnLookupClickAsync( object sender, EventArgs e )
-        {
-            try
-            {
-                var _loader = new LoadingForm( Status.Waiting );
-                _loader.Owner = this;
-                _loader.Show( );
-                var _task = OpenDataGridAsync( );
-                _task.Wait( TimeSpan.FromSeconds( 3 ) );
-                var _form = _task.Result;
-                _form.Owner = this;
-                _loader.Close( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
         /// <summary>
         /// Called when [SQL editor tile click].
         /// </summary>
@@ -1045,24 +1008,9 @@ namespace BudgetExecution
         {
             try
             {
-                OnClose( );
-                Application.Exit( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Notifications the close.
-        /// </summary>
-        public void OnClose( )
-        {
-            try
-            {
                 FadeOut( );
                 Close( );
+                Application.Exit( );
             }
             catch( Exception _ex )
             {

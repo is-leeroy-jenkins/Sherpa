@@ -151,14 +151,15 @@
             CommandLabelSeparator = new ToolSeparator( );
             FunctionSpacer = new ToolStripLabel( );
             FunctionalityLabel = new ToolStripLabel( );
+            ExitSeparator = new ToolSeparator( );
             FunctionalitySpacer = new ToolSeparator( );
             LabelSpaceSeparator = new ToolSeparator( );
-            ExitSeparator = new ToolSeparator( );
             NavigationSeparator = new ToolSeparator( );
             ContextMenu = new ContextMenu( );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             HeaderLabel = new Label( );
             PictureBox = new System.Windows.Forms.PictureBox( );
+            Timer = new System.Windows.Forms.Timer( components );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             GridTable.SuspendLayout( );
             DataGridPanel.SuspendLayout( );
@@ -2215,6 +2216,7 @@
             ToolStrip.CaptionFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ToolStrip.CaptionStyle = Syncfusion.Windows.Forms.Tools.CaptionStyle.Top;
             ToolStrip.CaptionTextStyle = Syncfusion.Windows.Forms.Tools.CaptionTextStyle.Plain;
+            ToolStrip.ChartButton = null;
             ToolStrip.DataFilter = null;
             ToolStrip.DeleteButton = null;
             ToolStrip.DeleteColumnButton = null;
@@ -2226,6 +2228,7 @@
             ToolStrip.EditColumnButton = EditColumnButton;
             ToolStrip.EditRecordButton = EditRecordButton;
             ToolStrip.EditSqlButton = EditSqlButton;
+            ToolStrip.ExcelButton = null;
             ToolStrip.FilterDataButton = null;
             ToolStrip.FirstButton = FirstButton;
             ToolStrip.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -2412,6 +2415,15 @@
             FunctionalityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             FunctionalityLabel.ToolTip = ToolTip;
             // 
+            // ExitSeparator
+            // 
+            ExitSeparator.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            ExitSeparator.ForeColor = System.Drawing.Color.Black;
+            ExitSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            ExitSeparator.Name = "ExitSeparator";
+            ExitSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            ExitSeparator.Size = new System.Drawing.Size( 6, 28 );
+            // 
             // FunctionalitySpacer
             // 
             FunctionalitySpacer.ForeColor = System.Drawing.Color.Black;
@@ -2427,15 +2439,6 @@
             LabelSpaceSeparator.Name = "LabelSpaceSeparator";
             LabelSpaceSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             LabelSpaceSeparator.Size = new System.Drawing.Size( 6, 28 );
-            // 
-            // ExitSeparator
-            // 
-            ExitSeparator.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            ExitSeparator.ForeColor = System.Drawing.Color.Black;
-            ExitSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            ExitSeparator.Name = "ExitSeparator";
-            ExitSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            ExitSeparator.Size = new System.Drawing.Size( 6, 28 );
             // 
             // NavigationSeparator
             // 
@@ -2709,5 +2712,6 @@
         public ToolStripLabel CommandSpacer;
         public ToolStripLabel FunctionSpacer;
         public DataGrid DataGrid;
+        public System.Windows.Forms.Timer Timer;
     }
 }

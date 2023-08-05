@@ -60,19 +60,31 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class DataGridForm : MetroForm
     {
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value> The time. </value>
+        public int Time { get; set; }
+
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value> The seconds. </value>
+        public int Seconds { get; set; }
+
         /// <summary>
         /// Gets or sets the selected table.
         /// </summary>
@@ -260,6 +272,10 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
 
+            // Timer Properties
+            Time = 0;
+            Seconds = 5;
+
             // Table Layout Properties
             FirstTable.Visible = false;
             SecondTable.Visible = false;
@@ -308,10 +324,8 @@ namespace BudgetExecution
 
             // Form Event Wiring
             Load += OnLoad;
-            Shown += OnShown;
             MouseClick += OnRightClick;
-            Closing += OnClosing;
-            FormClosed += OnFormClosed;
+            Closing += OnClose;
         }
 
         /// <inheritdoc />
@@ -482,6 +496,91 @@ namespace BudgetExecution
                 SqlServerRadioButton.Tag = "SqlServer";
                 SqlServerRadioButton.Text = "MS SQL";
                 SqlServerRadioButton.HoverText = "Sql Server Provider";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
+        public new void Show( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        Time++;
+                        if( Time == Seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
+        private void FadeIn( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 1d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity += 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out and close.
+        /// </summary>
+        private void FadeOut( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 1000;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 0d )
+                    {
+                        _timer.Stop( );
+                        Close( );
+                    }
+
+                    Opacity -= 0.02d;
+                };
+
+                _timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -1309,13 +1408,12 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner?.Visible == false
-                   && Owner.GetType( ) == typeof( MainForm ) )
+                if( Owner?.Visible == false )
                 {
-                    var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
+                    var _form = (MainForm)Program.Windows[ "MainForm" ];
+                    Close( );
                     _form.Refresh( );
                     _form.Visible = true;
-                    Close( );
                 }
                 else
                 {
@@ -1376,6 +1474,7 @@ namespace BudgetExecution
                 DataGrid.PascalizeHeaders( );
                 DataGrid.FormatColumns( );
                 UpdateLabelText( );
+                FadeIn( );
             }
             catch( Exception _ex )
             {
@@ -2104,33 +2203,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [shown].
+        /// Notifications the close.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnShown( object sender, EventArgs e )
-        {
-            try
-            {
-                Program.Windows[ "DataGridForm" ] = this;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [closing].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnClosing( object sender, EventArgs e )
+        public void OnClose( object sender, EventArgs e )
         {
             try
             {
                 ClearSelections( );
                 ClearCollections( );
+                FadeOut( );
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -2139,21 +2221,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [form closed].
+        /// Called when [click].
         /// </summary>
-        /// <param name="sender">The sender.
-        /// </param>
+        /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnFormClosed( object sender, EventArgs e )
+        /// instance containing the event data.</param>
+        private void OnCloseButtonClick( object sender, EventArgs e )
         {
             try
             {
-                if( Program.Windows.ContainsKey( "DataGridForm" ) )
-                {
-                    Program.Windows.Remove( "DataGridForm" );
-                }
+                FadeOut( );
+                Close( );
             }
             catch( Exception _ex )
             {
