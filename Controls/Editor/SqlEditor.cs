@@ -60,10 +60,10 @@ namespace BudgetExecution
     using Image = System.Drawing.Image;
 
     /// <inheritdoc />
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public partial class SqlEditor : EditBase
     {
         /// <summary>

@@ -349,6 +349,7 @@ namespace BudgetExecution
                 Title.Text = "Email";
                 TabControl.SelectedIndex = 0;
                 FirstRadioButton.Checked = true;
+                FadeIn( );
             }
             catch( Exception _ex )
             {

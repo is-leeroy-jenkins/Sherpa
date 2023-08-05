@@ -56,9 +56,9 @@ namespace BudgetExecution
     using System.Windows.Forms.DataVisualization.Charting;
     using Exception = System.Exception;
 
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     public sealed partial class CalendarForm : MetroForm
     {
         /// <summary>

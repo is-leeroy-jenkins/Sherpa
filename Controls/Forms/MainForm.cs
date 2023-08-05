@@ -520,10 +520,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _splash = new BudgetForm( );
+                var _message = "THIS IS A SPLASH MESSAGE TEST!!";
+                var _splash = new SplashMessage( _message );
                 _splash.Owner = this;
                 _splash.Show( );
-                Hide( );
             }
             catch( Exception _ex )
             {

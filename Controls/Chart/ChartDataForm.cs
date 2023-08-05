@@ -55,21 +55,21 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
     using System.Collections;
 
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedVariable" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
-    [SuppressMessage( "ReSharper", "ArrangeModifiersOrder" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -675,8 +675,7 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -1444,8 +1443,7 @@ namespace BudgetExecution
                     var _types = Enum.GetNames( typeof( SeriesChartType ) );
                     if( _types?.Contains( type ) == true )
                     {
-                        ChartType =
-                            (SeriesChartType)Enum.Parse( typeof( SeriesChartType ), type );
+                        ChartType = (SeriesChartType)Enum.Parse( typeof( SeriesChartType ), type );
                     }
                 }
                 catch( Exception ex )

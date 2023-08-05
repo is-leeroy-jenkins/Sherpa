@@ -57,11 +57,11 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class GuidanceDialog : MetroForm
     {
         /// <summary>
@@ -351,8 +351,7 @@ namespace BudgetExecution
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataModel.DataTable;
                 var _data = DataTable.AsEnumerable( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
                     ?.Select( r => r.Field<string>( "Caption" ) )
                     ?.ToList( );
 

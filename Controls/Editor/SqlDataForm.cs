@@ -62,10 +62,10 @@ namespace BudgetExecution
     using CheckState = MetroSet_UI.Enums.CheckState;
     using Image = System.Drawing.Image;
 
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class SqlDataForm : EditBase
     {
         /// <summary>
