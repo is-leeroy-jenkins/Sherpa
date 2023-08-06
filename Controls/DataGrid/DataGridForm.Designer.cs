@@ -714,7 +714,7 @@
             NumericsTable.RowCount = 2;
             NumericsTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 4.048583F ) );
             NumericsTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 95.951416F ) );
-            NumericsTable.Size = new System.Drawing.Size( 275, 263 );
+            NumericsTable.Size = new System.Drawing.Size( 275, 339 );
             NumericsTable.TabIndex = 2;
             // 
             // NumericPanel
@@ -732,10 +732,10 @@
             NumericPanel.ForeColor = System.Drawing.Color.Transparent;
             NumericPanel.HoverText = null;
             NumericPanel.IsDerivedStyle = true;
-            NumericPanel.Location = new System.Drawing.Point( 3, 29 );
+            NumericPanel.Location = new System.Drawing.Point( 3, 32 );
             NumericPanel.Name = "NumericPanel";
             NumericPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            NumericPanel.Size = new System.Drawing.Size( 269, 231 );
+            NumericPanel.Size = new System.Drawing.Size( 269, 304 );
             NumericPanel.Style = MetroSet_UI.Enums.Style.Custom;
             NumericPanel.StyleManager = null;
             NumericPanel.TabIndex = 6;
@@ -771,7 +771,7 @@
             NumericListBox.SelectedValue = null;
             NumericListBox.ShowBorder = false;
             NumericListBox.ShowScrollBar = false;
-            NumericListBox.Size = new System.Drawing.Size( 226, 180 );
+            NumericListBox.Size = new System.Drawing.Size( 226, 258 );
             NumericListBox.Style = MetroSet_UI.Enums.Style.Custom;
             NumericListBox.StyleManager = null;
             NumericListBox.TabIndex = 1;
