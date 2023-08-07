@@ -300,12 +300,33 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the tab control.
+        /// </summary>
+        private void InitializeTabControl( )
+        {
+            try
+            {
+                TabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
+                TableTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+                FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+                GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the labels.
         /// </summary>
         private void InitializeLabels( )
         {
             try
             {
+                Title.Font = new Font( "Roboto", 12 );
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Title.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )
             {
@@ -999,7 +1020,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _table = SelectedTable?.SplitPascal( ) ?? string.Empty;
+                Title.Text = _table;
             }
             catch( Exception _ex )
             {
@@ -1042,6 +1064,37 @@ namespace BudgetExecution
         {
             try
             {
+                ClearSelections( );
+                InitializeToolStrip( );
+                InitializeLabels( );
+                InitializeTabControl( );
+                FormFilter = new Dictionary<string, object>( );
+                SelectedColumns = new List<string>( );
+                SelectedFields = new List<string>( );
+                SelectedNumerics = new List<string>( );
+                ViewState = new StateTransfer( );
+                if( !string.IsNullOrEmpty( SelectedTable ) )
+                {
+                    TabControl.SelectedIndex = 1;
+                    FilterTabPage.TabVisible = true;
+                    TableTabPage.TabVisible = false;
+                    GroupTabPage.TabVisible = false;
+                    CalendarTabPage.TabVisible = false;
+                    PopulateFirstComboBoxItems( );
+                    ResetFilterTableVisibility( );
+                }
+                else if( string.IsNullOrEmpty( SelectedTable ) )
+                {
+                    TabControl.SelectedIndex = 0;
+                    TableTabPage.TabVisible = true;
+                    FilterTabPage.TabVisible = false;
+                    GroupTabPage.TabVisible = false;
+                    CalendarTabPage.TabVisible = false;
+                    TableComboBox.SelectionStart = 0;
+                }
+
+                UpdateLabelText( );
+                FadeIn( );
             }
             catch( Exception _ex )
             {
