@@ -57,11 +57,11 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public partial class Notification : MetroForm
     {
         /// <summary>
@@ -126,8 +126,8 @@ namespace BudgetExecution
             FormBorderStyle = FormBorderStyle.None;
             SizeGripStyle = SizeGripStyle.Hide;
             Padding = new Padding( 0 );
-            Layout.BackColor = Color.FromArgb( 0, 73, 112 );
-            Layout.BorderColor = Color.FromArgb( 0, 73, 112 );
+            Panel.BackColor = Color.FromArgb( 0, 73, 112 );
+            Panel.BorderColor = Color.FromArgb( 0, 73, 112 );
             Title.ForeColor = Color.White;
             BorderColor = Color.FromArgb( 0, 73, 112 );
             BackColor = Color.FromArgb( 0, 73, 112 );

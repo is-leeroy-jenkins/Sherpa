@@ -34,11 +34,11 @@
             Title = new Label( );
             Message = new Label( );
             Header = new System.Windows.Forms.TableLayoutPanel( );
-            Layout = new Layout( );
+            Panel = new Layout( );
             Timer = new System.Windows.Forms.Timer( components );
             ( (System.ComponentModel.ISupportInitialize) NotifyIcon  ).BeginInit( );
             Header.SuspendLayout( );
-            Layout.SuspendLayout( );
+            Panel.SuspendLayout( );
             SuspendLayout( );
             // 
             // NotifyIcon
@@ -111,31 +111,31 @@
             Header.Size = new System.Drawing.Size( 383, 35 );
             Header.TabIndex = 5;
             // 
-            // Layout
+            // Panel
             // 
-            Layout.BackColor = System.Drawing.Color.Transparent;
-            Layout.BackgroundColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
-            Layout.BindingSource = null;
-            Layout.BorderColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
-            Layout.BorderThickness = 1;
-            Layout.Children = null;
-            Layout.Controls.Add( Header );
-            Layout.DataFilter = null;
-            Layout.Dock = System.Windows.Forms.DockStyle.Fill;
-            Layout.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            Layout.ForeColor = System.Drawing.Color.Transparent;
-            Layout.HoverText = null;
-            Layout.IsDerivedStyle = true;
-            Layout.Location = new System.Drawing.Point( 0, 0 );
-            Layout.Name = "Layout";
-            Layout.Padding = new System.Windows.Forms.Padding( 1 );
-            Layout.Size = new System.Drawing.Size( 400, 190 );
-            Layout.Style = MetroSet_UI.Enums.Style.Custom;
-            Layout.StyleManager = null;
-            Layout.TabIndex = 6;
-            Layout.ThemeAuthor = "Terry D. Eppler";
-            Layout.ThemeName = "Budget Execution";
-            Layout.ToolTip = null;
+            Panel.BackColor = System.Drawing.Color.Transparent;
+            Panel.BackgroundColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
+            Panel.BindingSource = null;
+            Panel.BorderColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
+            Panel.BorderThickness = 1;
+            Panel.Children = null;
+            Panel.Controls.Add( Header );
+            Panel.DataFilter = null;
+            Panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            Panel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Panel.ForeColor = System.Drawing.Color.Transparent;
+            Panel.HoverText = null;
+            Panel.IsDerivedStyle = true;
+            Panel.Location = new System.Drawing.Point( 0, 0 );
+            Panel.Name = "Panel";
+            Panel.Padding = new System.Windows.Forms.Padding( 1 );
+            Panel.Size = new System.Drawing.Size( 400, 190 );
+            Panel.Style = MetroSet_UI.Enums.Style.Custom;
+            Panel.StyleManager = null;
+            Panel.TabIndex = 6;
+            Panel.ThemeAuthor = "Terry D. Eppler";
+            Panel.ThemeName = "Budget Execution";
+            Panel.ToolTip = null;
             // 
             // Notification
             // 
@@ -152,7 +152,7 @@
             ClientSize = new System.Drawing.Size( 400, 190 );
             ControlBox = false;
             Controls.Add( Message );
-            Controls.Add( Layout );
+            Controls.Add( Panel );
             Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ForeColor = System.Drawing.Color.LightGray;
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -172,16 +172,16 @@
             TopMost = true;
             ( (System.ComponentModel.ISupportInitialize) NotifyIcon  ).EndInit( );
             Header.ResumeLayout( false );
-            Layout.ResumeLayout( false );
+            Panel.ResumeLayout( false );
             ResumeLayout( false );
         }
 
         #endregion
         public System.Windows.Forms.PictureBox NotifyIcon;
-        private Label Title;
+        public Label Title;
         public Label Message;
-        private System.Windows.Forms.TableLayoutPanel Header;
-        public Layout Layout;
+        public System.Windows.Forms.TableLayoutPanel Header;
+        public Layout Panel;
         public System.Windows.Forms.Timer Timer;
     }
 }

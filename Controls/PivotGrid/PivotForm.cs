@@ -56,11 +56,11 @@ namespace BudgetExecution
 
     /// <summary>
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedVariable" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
     public partial class PivotForm : MetroForm
     {
         /// <summary>
@@ -562,8 +562,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} "
-                        + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception _ex )
                 {
@@ -781,8 +780,7 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -1106,7 +1104,8 @@ namespace BudgetExecution
         /// Called when [first ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -1144,7 +1143,9 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [first ListBox item selected].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         private void OnFirstListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
