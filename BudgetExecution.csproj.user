@@ -11,10 +11,10 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="Controls\Calendar\CalendarControl.cs">
-      <SubType>UserControl</SubType>
+    <Compile Update="Controls\Browser\FileBrowser.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Button\Button.cs">
+    <Compile Update="Controls\Browser\FolderBrowser.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Calculator\CalculationForm.cs">
@@ -33,6 +33,15 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Calculator\Carousel\WebSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Calendar\CalendarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\Button\Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Calendar\CalendarForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Chart\Chart.cs">
@@ -95,10 +104,10 @@
     <Compile Update="Controls\Dialogs\EditDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\ErrorDialog.cs">
+    <Compile Update="Controls\Dialogs\EmailDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Browser\FileBrowser.cs">
+    <Compile Update="Controls\Dialogs\ErrorDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\FilterDialog.cs">
@@ -110,10 +119,10 @@
     <Compile Update="Controls\Dialogs\LookupDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\ProgramProjectDialog.cs">
+    <Compile Update="Controls\Dialogs\Message.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\EmailDialog.cs">
+    <Compile Update="Controls\Dialogs\ProgramProjectDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\SqlDialog.cs">
@@ -127,6 +136,12 @@
     </Compile>
     <Compile Update="Controls\Editor\Editor.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\Editor\SqlDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Editor\SqlEditor.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Excel\ExcelDataForm.cs">
       <SubType>Form</SubType>
@@ -152,7 +167,7 @@
     <Compile Update="Controls\Graph\GraphBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\PivotChart\PivotChart.cs">
+    <Compile Update="Controls\GridControl\GridControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\HeaderPanel\HeaderPanel.cs">
@@ -182,10 +197,16 @@
     <Compile Update="Controls\Loader\LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Controls\Map\MapControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\Notification\Notification.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\PictureBox\Picture.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\PivotChart\PivotChart.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\PivotGrid\PivotForm.cs">
@@ -203,6 +224,12 @@
     <Compile Update="Controls\RichTextBox\RichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\Splash\SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Splash\SplashMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Controls\Splash\SplashPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -216,6 +243,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Tile\TileBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Tile\TilePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ToggleButton\ToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\ToolStrip\ToolButtonBase.cs">
@@ -269,41 +302,8 @@
     <Compile Update="Data\Adapter\AdapterFactory.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Editor\SqlDataForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\Dialogs\Message.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\Calendar\CalendarForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\Editor\SqlEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\Splash\SplashMessage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\Tile\TilePanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Browser\FolderBrowser.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Map\MapControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Controls\Hyperlink\Hyperlink.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\GridControl\GridControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\ToggleButton\ToggleButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Splash\SplashForm.cs">
-      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

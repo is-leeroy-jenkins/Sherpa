@@ -20850,43 +20850,43 @@
               A strongly-typed resource class, for looking up localized strings, etc.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.Resources.Images.ResourceManager">
+        <member name="P:Syncfusion.Windows.PdfViewer.Properties.Resources.ResourceManager">
             <summary>
               Returns the cached ResourceManager instance used by this class.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.Resources.Images.Culture">
+        <member name="P:Syncfusion.Windows.PdfViewer.Properties.Resources.Culture">
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.Resources.Images.Loader">
+        <member name="P:Syncfusion.Windows.PdfViewer.Properties.Resources.Loader">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.Resources.Images.Loader_Office2016BlackAndDarkGray">
+        <member name="P:Syncfusion.Windows.PdfViewer.Properties.Resources.Loader_Office2016BlackAndDarkGray">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.Resources.Images.Loader_Office2016ColorfulAndWhite">
+        <member name="P:Syncfusion.Windows.PdfViewer.Properties.Resources.Loader_Office2016ColorfulAndWhite">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.Resources.Images.PDF_viewer_icons">
+        <member name="P:Syncfusion.Windows.PdfViewer.Properties.Resources.PDF_viewer_icons">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.Resources.Images.pdfviewer">
+        <member name="P:Syncfusion.Windows.PdfViewer.Properties.Resources.pdfviewer">
             <summary>
               Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.Resources.Images.WF_Fabric">
+        <member name="P:Syncfusion.Windows.PdfViewer.Properties.Resources.WF_Fabric">
             <summary>
               Looks up a localized resource of type System.Byte[].
             </summary>

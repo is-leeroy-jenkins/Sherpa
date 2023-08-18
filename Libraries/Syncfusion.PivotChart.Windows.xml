@@ -3214,173 +3214,173 @@
               A strongly-typed resource class, for looking up localized strings, etc.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.ResourceManager">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.ResourceManager">
             <summary>
               Returns the cached ResourceManager instance used by this class.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.Culture">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.Culture">
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.arrow">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.arrow">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.az">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.az">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.black_calc">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.black_calc">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.black_calc_highDPI">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.black_calc_highDPI">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.black_column">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.black_column">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.black_column_highDPI">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.black_column_highDPI">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.black_filter">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.black_filter">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.black_filter_highDPI">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.black_filter_highDPI">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.black_row">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.black_row">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.black_row_highDPI">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.black_row_highDPI">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.check">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.check">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.darkgray_calc">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.darkgray_calc">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.darkgray_calc_highDPI">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.darkgray_calc_highDPI">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.darkgray_column">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.darkgray_column">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.darkgray_column_highDPI">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.darkgray_column_highDPI">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.darkgray_filter">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.darkgray_filter">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.darkgray_filter_highDPI">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.darkgray_filter_highDPI">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.darkgray_row">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.darkgray_row">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.darkgray_row_highDPI">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.darkgray_row_highDPI">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.delete">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.delete">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.dropdown">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.dropdown">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.fieldsettings">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.fieldsettings">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.PivotIcon">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.PivotIcon">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.white_calc">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.white_calc">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.white_calc_highDPI">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.white_calc_highDPI">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.white_column">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.white_column">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.white_column_highDPI">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.white_column_highDPI">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.white_filter">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.white_filter">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.white_filter_highDPI">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.white_filter_highDPI">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.white_row">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.white_row">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.white_row_highDPI">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.white_row_highDPI">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.PivotChart.Resources.Images.za">
+        <member name="P:Syncfusion.Windows.Forms.PivotChart.Properties.Resources.za">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
