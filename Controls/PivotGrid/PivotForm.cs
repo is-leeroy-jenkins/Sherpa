@@ -633,9 +633,9 @@ namespace BudgetExecution
                     ThirdTable.Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -656,9 +656,9 @@ namespace BudgetExecution
                     NumericTable.Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -922,7 +922,7 @@ namespace BudgetExecution
 
                     foreach( var _item in Fields )
                     {
-                        FieldListBox.Items.Add( _item );
+                        FieldListBox.Items?.Add( _item );
                     }
                 }
                 catch( Exception _ex )
@@ -950,7 +950,7 @@ namespace BudgetExecution
                     {
                         if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
                         {
-                            NumericListBox.Items.Add( Numerics[ _i ] );
+                            NumericListBox?.Items?.Add( Numerics[ _i ] );
                         }
                     }
                 }

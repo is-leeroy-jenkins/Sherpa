@@ -273,7 +273,7 @@ namespace BudgetExecution
                 _timer.Interval = 10;
                 _timer.Tick += ( sender, args ) =>
                 {
-                    if( Opacity == 1d )
+                    if( Opacity == 0d )
                     {
                         _timer.Stop( );
                     }
@@ -300,7 +300,7 @@ namespace BudgetExecution
                 _timer.Interval = 10;
                 _timer.Tick += ( sender, args ) =>
                 {
-                    if( Opacity == 0d )
+                    if( Opacity == 1d )
                     {
                         _timer.Stop( );
                         Close( );
