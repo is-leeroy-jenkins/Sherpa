@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS CarryoverApportionments
     AuthorityType TEXT(80) NULL DEFAULT NS,
     Request DOUBLE NULL DEFAULT 0.0,
     Balance DOUBLE NULL DEFAULT 0.0,
-    Deobligations DOUBLE NULL DEFAULT 0.0,
+    Recoveries DOUBLE NULL DEFAULT 0.0,
     Amount DOUBLE NULL DEFAULT 0.0,
     LineNumber TEXT(80) NULL DEFAULT NS,
     LineSplit TEXT(80) NULL DEFAULT NS,
