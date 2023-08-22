@@ -1,46 +1,48 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                DataAccess.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="DataConfig.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="DataAccess.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   DataConfig.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    DataAccess.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
-    using Microsoft.Office.Interop.Excel;
     using System;
     using System.Collections.Generic;
     using System.Data;
@@ -55,8 +57,26 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class DataAccess : ISource, IProvider
     {
+        /// <summary>
+        /// The query
+        /// </summary>
+        private protected IQuery _query;
+
+        /// <summary>
+        /// The data set
+        /// </summary>
+        private protected DataSet _dataSet;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private protected DataTable _dataTable;
+
         /// <inheritdoc />
         /// <summary>
         /// Gets or sets the source.
@@ -170,7 +190,7 @@ namespace BudgetExecution
         /// The numeric fields.
         /// </value>
         public IList<string> Numerics { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the data set.
         /// </summary>
@@ -187,15 +207,15 @@ namespace BudgetExecution
         {
             try
             {
-                var _dataTable = GetDataTable( );
-                var _data = _dataTable?.AsEnumerable( );
+                var _table = GetDataTable( );
+                var _data = _table?.AsEnumerable( );
                 return _data?.Any( ) == true
                     ? _data
                     : default( IEnumerable<DataRow> );
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                DataAccess.Fail( _ex );
                 return default( IEnumerable<DataRow> );
             }
         }
@@ -223,7 +243,7 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
-                    Fail( _ex );
+                    DataAccess.Fail( _ex );
                     return default( DataTable );
                 }
             }
@@ -246,12 +266,12 @@ namespace BudgetExecution
                     _adapter.Fill( DataSet, DataTable.TableName );
                     SetColumnCaptions( DataTable );
                     _tcs.SetResult( DataTable );
-                    return _tcs.Task;
+                    return _tcs?.Task;
                 }
                 catch( Exception _ex )
                 {
                     _tcs.SetException( _ex );
-                    Fail( _ex );
+                    DataAccess.Fail( _ex );
                     return default( Task<DataTable> );
                 }
             }
@@ -262,7 +282,9 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the column captions.
         /// </summary>
-        /// <param name="dataTable">The data table.</param>
+        /// <param name="dataTable">
+        /// The data table.
+        /// </param>
         private protected void SetColumnCaptions( DataTable dataTable )
         {
             if( dataTable?.Rows?.Count > 0 )
@@ -280,7 +302,7 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
-                    Fail( _ex );
+                    DataAccess.Fail( _ex );
                 }
             }
         }
@@ -310,7 +332,7 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
-                    Fail( _ex );
+                    DataAccess.Fail( _ex );
                     return default( IList<string> );
                 }
             }
@@ -332,12 +354,12 @@ namespace BudgetExecution
                     foreach( DataColumn _col in DataTable.Columns )
                     {
                         if( ( !_col.ColumnName.EndsWith( "Id" )
-                               && ( _col.Ordinal > 0 ) 
-                               && ( _col.DataType == typeof( double ) ) )
-                           || ( _col.DataType == typeof( short ) ) 
-                           || ( _col.DataType == typeof( long ) ) 
-                           || ( _col.DataType == typeof( decimal ) ) 
-                           || ( _col.DataType == typeof( float ) ) )
+                               && _col.Ordinal > 0
+                               && _col.DataType == typeof( double ) )
+                           || _col.DataType == typeof( short )
+                           || _col.DataType == typeof( long )
+                           || _col.DataType == typeof( decimal )
+                           || _col.DataType == typeof( float ) )
                         {
                             _numerics.Add( _col.ColumnName );
                         }
@@ -349,7 +371,7 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
-                    Fail( _ex );
+                    DataAccess.Fail( _ex );
                     return default( IList<string> );
                 }
             }
@@ -370,12 +392,12 @@ namespace BudgetExecution
                     var _dates = new List<string>( );
                     foreach( DataColumn _col in DataTable.Columns )
                     {
-                        if( ( _col.Ordinal > 0 )
-                           && ( ( _col.DataType == typeof( DateTime ) ) 
-                               || ( _col.DataType == typeof( DateOnly ) ) 
-                               || ( _col.DataType == typeof( DateTimeOffset ) ) 
-                               || ( _col.ColumnName.EndsWith( "Day" ) )   
-                               || ( _col.ColumnName.EndsWith( "Date" ) ) ) )
+                        if( _col.Ordinal > 0
+                           && ( _col.DataType == typeof( DateTime )
+                               || _col.DataType == typeof( DateOnly )
+                               || _col.DataType == typeof( DateTimeOffset )
+                               || _col.ColumnName.EndsWith( "Day" )
+                               || _col.ColumnName.EndsWith( "Date" ) ) )
                         {
                             _dates.Add( _col.ColumnName );
                         }
@@ -387,7 +409,7 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
-                    Fail( _ex );
+                    DataAccess.Fail( _ex );
                     return default( IList<string> );
                 }
             }
@@ -412,7 +434,7 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
-                    Fail( _ex );
+                    DataAccess.Fail( _ex );
                     return default( IList<int> );
                 }
             }
