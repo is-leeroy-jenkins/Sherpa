@@ -58,7 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public partial class BudgetForm : MetroForm
     {
         /// <summary>

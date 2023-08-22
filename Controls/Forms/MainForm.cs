@@ -467,7 +467,7 @@ namespace BudgetExecution
             try
             {
                 var _programs = new ProgramProjectDialog( );
-                _programs.StartPosition = FormStartPosition.CenterParent;
+                _programs.StartPosition = FormStartPosition.CenterScreen;
                 _programs.Owner = this;
                 _programs.Show( );
                 Hide( );
@@ -559,6 +559,7 @@ namespace BudgetExecution
             {
                 var _dialog = new EmailDialog( );
                 _dialog.Owner = this;
+                _dialog.StartPosition = FormStartPosition.CenterScreen;
                 _dialog.Show( );
                 Hide( );
             }
@@ -577,6 +578,7 @@ namespace BudgetExecution
             {
                 var _form = new ChartDataForm( );
                 _form.Owner = this;
+                _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.Show( );
                 Hide( );
             }
@@ -595,6 +597,7 @@ namespace BudgetExecution
             {
                 var _form = new ExcelDataForm( );
                 _form.Owner = this;
+                _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.Show( );
                 Hide( );
             }
@@ -613,6 +616,7 @@ namespace BudgetExecution
             {
                 var _sqlEditor = new SqlDataForm( );
                 _sqlEditor.Owner = this;
+                _sqlEditor.StartPosition = FormStartPosition.CenterScreen;
                 _sqlEditor.Show( );
                 Hide( );
             }
@@ -631,6 +635,7 @@ namespace BudgetExecution
             {
                 var _sqlEditor = new SqlEditor( Provider.SqlServer );
                 _sqlEditor.Owner = this;
+                _sqlEditor.StartPosition = FormStartPosition.CenterScreen;
                 _sqlEditor.Show( );
                 Hide( );
             }
@@ -665,6 +670,7 @@ namespace BudgetExecution
             {
                 var _dataGridForm = new DataGridForm( );
                 _dataGridForm.Owner = this;
+                _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
                 _dataGridForm.Show( );
                 Hide( );
             }

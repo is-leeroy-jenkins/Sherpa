@@ -173,6 +173,9 @@
     <Compile Update="Controls\HeaderPanel\HeaderPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\Hyperlink\Hyperlink.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\ImageList\ImageList.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -300,9 +303,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Data\Adapter\AdapterFactory.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Hyperlink\Hyperlink.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

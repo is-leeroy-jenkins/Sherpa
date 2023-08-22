@@ -1,10 +1,12 @@
 CREATE TABLE IF NOT EXISTS CarryoverApportionments
 (
     CarryoverApportionmentsId INTEGER NOT NULL UNIQUE,
-    BudgetAccount TEXT(80) NULL DEFAULT NS,
-    TreasuryAccount TEXT(80) NULL DEFAULT NS,
+    MainAccount TEXT(80) NULL DEFAULT NS,
+    TreasurySymbol TEXT(80) NULL DEFAULT NS,
+    FiscalYear  TEXT(80) NULL DEFAULT NS,
     BFY TEXT(80) NULL DEFAULT NS,
     EFY TEXT(80) NULL DEFAULT NS,
+    Year  TEXT(80) NULL DEFAULT NS,
     Grouping TEXT(80) NULL DEFAULT NS,
     Description TEXT(80) NULL DEFAULT NS,
     LineName TEXT(80) NULL DEFAULT NS,
@@ -22,4 +24,3 @@ CREATE TABLE IF NOT EXISTS CarryoverApportionments
     BudgetAccountName TEXT(80) NULL DEFAULT NS,
     PRIMARY KEY(CarryoverApportionmentsId AUTOINCREMENT)
 );
-
