@@ -67,6 +67,7 @@ namespace BudgetExecution
         /// Gets or sets the time.
         /// </summary>
         /// <value> The time. </value>
+        /// 
         public int Time { get; set; }
 
         /// <summary>
