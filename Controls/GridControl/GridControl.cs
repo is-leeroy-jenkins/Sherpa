@@ -43,16 +43,41 @@
 
 namespace BudgetExecution
 {
+    using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Grid;
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Windows.Forms;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Forms.Grid.GridControl" />
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class GridControl : Syncfusion.Windows.Forms.Grid.GridControl
     {
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.GridControl" /> class.
+        /// </summary>
         public GridControl( )
         {
             // Control Properties
             Font = new Font( "Roboto", 9 );
-            Size = new Size( 400, 200 );
+            Size = new Size( 750, 350 );
+            ThemesEnabled = true;
+            GridVisualStyles = GridVisualStyles.Office2016DarkGray;
+            DefaultColWidth = 100;
+            DefaultRowHeight = 28;
+            RowCount = 100;
+            ColCount = 50;
+            DefaultGridBorderStyle = GridBorderStyle.Dotted;
+            ColorStyles = ColorStyles.Office2016DarkGray;
+            ForeColor = Color.LightGray;
+            Office2016ScrollBars = true;
+            SizeGripStyle = SizeGripStyle.Hide;
         }
     }
 }

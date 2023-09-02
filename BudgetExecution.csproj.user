@@ -305,6 +305,9 @@
     <Compile Update="Data\Adapter\AdapterFactory.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="SpreadsheetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Clients\BudgetBrowser\net6.0-windows\Properties\Resources.resx">

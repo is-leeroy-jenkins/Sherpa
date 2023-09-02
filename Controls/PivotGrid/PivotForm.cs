@@ -563,7 +563,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} " 
+                        + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception _ex )
                 {

@@ -45,7 +45,7 @@
             // ContextMenu
             // 
             ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
             ContextMenu.ForeColor = System.Drawing.Color.White;
             ContextMenu.IsDerivedStyle = false;
             ContextMenu.Name = "ContextMenu";
@@ -59,7 +59,7 @@
             // ToolTip
             // 
             ToolTip.AutoPopDelay = 5000;
-            ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
+            ToolTip.BackColor = System.Drawing.Color.FromArgb(   5  ,   5  ,   5   );
             ToolTip.BindingSource = null;
             ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
             ToolTip.ForeColor = System.Drawing.Color.White;
@@ -125,27 +125,27 @@
             // 
             // CloseButton
             // 
-            CloseButton.Anchor =  System.Windows.Forms.AnchorStyles.Bottom  |  System.Windows.Forms.AnchorStyles.Right ;
+            CloseButton.Anchor =   System.Windows.Forms.AnchorStyles.Bottom  |  System.Windows.Forms.AnchorStyles.Right  ;
             CloseButton.BindingSource = null;
             CloseButton.DataFilter = null;
             CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
             CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
             CloseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CloseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            CloseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            CloseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
             CloseButton.HoverText = null;
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
             CloseButton.Location = new System.Drawing.Point( 1245, 707 );
             CloseButton.Name = "CloseButton";
-            CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-            CloseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            CloseButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
             CloseButton.NormalTextColor = System.Drawing.Color.DarkGray;
             CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             CloseButton.PressTextColor = System.Drawing.Color.White;
             CloseButton.Size = new System.Drawing.Size( 90, 30 );
             CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -158,12 +158,12 @@
             // 
             // BudgetForm
             // 
-            BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CaptionBarColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             CaptionBarHeight = 5;
-            CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             CaptionFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ClientSize = new System.Drawing.Size( 1338, 738 );
             ControlBox = false;
@@ -171,9 +171,10 @@
             Controls.Add( Header );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
-            MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1350, 750 );
+            Name = "BudgetForm";
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
