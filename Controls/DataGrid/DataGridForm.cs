@@ -396,7 +396,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the tab control.
         /// </summary>
-        private void InitializeTabControl( )
+        private void InitTabControl( )
         {
             try
             {
@@ -414,7 +414,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the labels.
         /// </summary>
-        private void InitializeLabels( )
+        private void InitLabels( )
         {
             try
             {
@@ -439,7 +439,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the labels.
         /// </summary>
-        private void InitializeTitle( )
+        private void InitTitle( )
         {
             try
             {
@@ -456,7 +456,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the tool strip properties.
         /// </summary>
-        private void InitializeToolStrip( )
+        private void InitToolStrip( )
         {
             try
             {
@@ -478,7 +478,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the radio buttons.
         /// </summary>
-        private void InitializeRadioButtons( )
+        private void InitRadioButtons( )
         {
             try
             {
@@ -505,7 +505,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the layouts.
         /// </summary>
-        private void InitializeLayouts( )
+        private void InitLayouts( )
         {
             try
             {
@@ -1454,13 +1454,13 @@ namespace BudgetExecution
             try
             {
                 ClearSelections( );
-                InitializeRadioButtons( );
+                InitRadioButtons( );
                 SetFormIcon( );
-                InitializeToolStrip( );
-                InitializeTitle( );
-                InitializeLabels( );
-                InitializeTabControl( );
-                InitializeLayouts( );
+                InitToolStrip( );
+                InitTitle( );
+                InitLabels( );
+                InitTabControl( );
+                InitLayouts( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );

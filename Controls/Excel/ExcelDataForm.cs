@@ -468,12 +468,12 @@ namespace BudgetExecution
 
                 return _list?.Any( ) == true
                     ? _list.ToArray( )
-                    : default( Control[ ] );
+                    : default( IEnumerable<Control> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( Control[ ] );
+                return default( IEnumerable<Control> );
             }
         }
 

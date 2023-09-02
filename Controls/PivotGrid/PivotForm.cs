@@ -281,7 +281,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the tool strip properties.
         /// </summary>
-        private void InitializeToolStrip( )
+        private void InitToolStrip( )
         {
             try
             {
@@ -303,7 +303,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the tab control.
         /// </summary>
-        private void InitializeTabControl( )
+        private void InitTabControl( )
         {
             try
             {
@@ -321,7 +321,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the labels.
         /// </summary>
-        private void InitializeLabels( )
+        private void InitLabels( )
         {
             try
             {
@@ -1064,9 +1064,9 @@ namespace BudgetExecution
             try
             {
                 ClearSelections( );
-                InitializeToolStrip( );
-                InitializeLabels( );
-                InitializeTabControl( );
+                InitToolStrip( );
+                InitLabels( );
+                InitTabControl( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
