@@ -45,6 +45,7 @@ namespace BudgetExecution
 {
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Grid;
+    using Syncfusion.Windows.Forms.Grid.Grouping;
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
@@ -78,6 +79,7 @@ namespace BudgetExecution
             ForeColor = Color.LightGray;
             Office2016ScrollBars = true;
             SizeGripStyle = SizeGripStyle.Hide;
+            GridLineColor = Color.FromArgb( 106, 189, 252 );
         }
     }
 }

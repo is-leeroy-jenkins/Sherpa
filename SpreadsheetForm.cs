@@ -1,4 +1,47 @@
-﻿namespace BudgetExecution
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                SpreadsheetForm.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
+// 
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="SpreadsheetForm.cs" company="Terry D. Eppler">
+// 
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
+// 
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
+// 
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
+// 
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    SpreadsheetForm.cs
+//  </summary>
+//  ******************************************************************************************
+
+namespace BudgetExecution
 {
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
@@ -7,8 +50,8 @@
     using System.Drawing;
     using System.Windows.Forms;
 
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class SpreadsheetForm : MetroForm
     {
         /// <summary>
@@ -23,6 +66,10 @@
         /// <value> The seconds. </value>
         public int Seconds { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SpreadsheetForm"/> class.
+        /// </summary>
         public SpreadsheetForm( )
         {
             InitializeComponent( );
@@ -46,6 +93,7 @@
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            Title.ForeColor = Color.FromArgb( 106, 189, 252 );
             SizeGripStyle = SizeGripStyle.Hide;
             AutoScaleMode = AutoScaleMode.Font;
             DoubleBuffered = true;
@@ -56,6 +104,8 @@
 
             // Event Wiring
             Load += OnLoad;
+            MenuButton.Click += OnMenuButtonClicked;
+            CloseButton.Click += OnExitButtonClicked;
         }
 
         /// <summary>
@@ -74,9 +124,9 @@
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -166,6 +216,23 @@
         }
 
         /// <summary>
+        /// Notifies this instance.
+        /// </summary>
+        private void Notify( )
+        {
+            try
+            {
+                var _message = "THIS IS NOT YET IMPLEMENTED!!";
+                var _notify = new Notification( _message );
+                _notify.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Opens the main form.
         /// </summary>
         private void OpenMainForm( )
@@ -205,9 +272,9 @@
                 ToolStrip.Visible = true;
                 FadeIn( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -226,9 +293,9 @@
                 FadeOut( );
                 Application.Exit( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
