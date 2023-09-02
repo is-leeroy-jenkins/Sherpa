@@ -251,6 +251,11 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
+        /// <summary>
+        /// Gets the table asynchronous.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private protected Task<DataTable> GetTableAsync( )
         {
             if( Query != null )

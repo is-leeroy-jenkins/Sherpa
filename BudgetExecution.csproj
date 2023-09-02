@@ -26,6 +26,7 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <BaseIntermediateOutputPath>Obj\</BaseIntermediateOutputPath>
     <BaseOutputPath>Bin\</BaseOutputPath>
+    <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051;CA1200;CA1310;CA1305;1822;CA1716;CA1812;CA1304</NoWarn>
