@@ -212,7 +212,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the title.
         /// </summary>
-        private void InitializeLabels( )
+        private void InitLabels( )
         {
             try
             {
@@ -236,7 +236,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the buttons.
         /// </summary>
-        private void InitializeFileDialog( )
+        private void InitFileDialog( )
         {
             try
             {
@@ -253,7 +253,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the buttons.
         /// </summary>
-        private void InitializePictureBox( )
+        private void InitPictureBox( )
         {
             try
             {
@@ -269,7 +269,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the ListBox.
         /// </summary>
-        private void InitializeListBox( )
+        private void InitListBox( )
         {
             try
             {
@@ -479,11 +479,11 @@ namespace BudgetExecution
         {
             try
             {
-                InitializeLabels( );
-                InitializeListBox( );
+                InitLabels( );
+                InitListBox( );
                 PopulateListBox( );
-                InitializeFileDialog( );
-                InitializePictureBox( );
+                InitFileDialog( );
+                InitPictureBox( );
                 FadeIn( );
             }
             catch( Exception _ex )

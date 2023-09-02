@@ -467,7 +467,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the tool strip properties.
         /// </summary>
-        private void InitializeToolStrip( )
+        private void InitToolStrip( )
         {
             try
             {
@@ -1491,7 +1491,7 @@ namespace BudgetExecution
         {
             try
             {
-                InitializeToolStrip( );
+                InitToolStrip( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );

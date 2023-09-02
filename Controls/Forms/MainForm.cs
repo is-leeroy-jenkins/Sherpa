@@ -381,7 +381,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the tile properties.
         /// </summary>
-        private void SetTileProperties( )
+        private void InitTiles( )
         {
             try
             {
@@ -706,7 +706,7 @@ namespace BudgetExecution
         {
             try
             {
-                SetTileProperties( );
+                InitTiles( );
                 SetTileText( );
                 FadeIn( );
             }

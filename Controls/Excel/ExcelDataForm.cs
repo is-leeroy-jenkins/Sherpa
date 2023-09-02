@@ -497,7 +497,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the tool strip properties.
         /// </summary>
-        private void InitializeToolStrip( )
+        private void InitToolStrip( )
         {
             try
             {
@@ -526,7 +526,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the icon.
         /// </summary>
-        private void InitializeIcon( )
+        private void InitIcon( )
         {
             try
             {
@@ -542,7 +542,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the title.
         /// </summary>
-        private void InitializeTitle( )
+        private void InitTitle( )
         {
             try
             {
@@ -559,7 +559,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the table properties.
         /// </summary>
-        private void InitializeTable( )
+        private void InitTable( )
         {
             try
             {
@@ -583,7 +583,7 @@ namespace BudgetExecution
         /// Sets the table properties.
         /// </summary>
         /// <param name="table">The table.</param>
-        private void InitializeTable( DataTable table )
+        private void InitTable( DataTable table )
         {
             if( table?.Rows?.Count > 0 )
             {
@@ -649,11 +649,11 @@ namespace BudgetExecution
             {
                 if( DataTable != null )
                 {
-                    InitializeTable( DataTable );
+                    InitTable( DataTable );
                 }
                 else
                 {
-                    InitializeTable( );
+                    InitTable( );
                 }
             }
             catch( Exception _ex )
@@ -930,9 +930,9 @@ namespace BudgetExecution
                 Ribbon.Spreadsheet = Spreadsheet;
                 FiltersButton.Visible = false;
                 FilterSeparator.Visible = false;
-                InitializeToolStrip( );
-                InitializeTitle( );
-                InitializeIcon( );
+                InitToolStrip( );
+                InitTitle( );
+                InitIcon( );
                 FadeIn( );
             }
             catch( Exception _ex )
