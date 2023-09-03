@@ -70,6 +70,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class ExcelDataForm : MetroForm
     {
         /// <summary>
@@ -258,6 +259,10 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
+            // Timer Properties
+            Time = 0;
+            Seconds = 5;
+
             // Ribbon Properties
             Ribbon.Spreadsheet = Spreadsheet;
 
@@ -353,7 +358,7 @@ namespace BudgetExecution
                 if( Seconds != 0 )
                 {
                     Timer = new Timer( );
-                    Timer.Interval = 1000;
+                    Timer.Interval = 10;
                     Timer.Tick += ( sender, args ) =>
                     {
                         Time++;

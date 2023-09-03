@@ -41,6 +41,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// 
@@ -160,7 +161,7 @@ namespace BudgetExecution
         /// <summary>
         /// The budget outlays
         /// </summary>
-        BudgetOutlays,
+        Outlays,
 
         /// <summary>
         /// The capital planning investment codes
@@ -171,11 +172,6 @@ namespace BudgetExecution
         /// The carryover apportionments
         /// </summary>
         CarryoverApportionments,
-
-        /// <summary>
-        /// The carryover outlays
-        /// </summary>
-        CarryoverOutlays,
 
         /// <summary>
         /// The carryover requests
@@ -203,24 +199,14 @@ namespace BudgetExecution
         CompassLevels,
 
         /// <summary>
-        /// The compass outlays
-        /// </summary>
-        CompassOutlays,
-
-        /// <summary>
         /// The congressional controls
         /// </summary>
         CongressionalControls,
 
         /// <summary>
-        /// The congressional reprogrammings
-        /// </summary>
-        CongressionalReprogrammings,
-
-        /// <summary>
         /// The contacts
         /// </summary>
-        Contacts,
+        BudgetContacts,
 
         /// <summary>
         /// The cost areas
@@ -236,11 +222,6 @@ namespace BudgetExecution
         /// The defactos
         /// </summary>
         Defactos,
-
-        /// <summary>
-        /// The deobligation activity
-        /// </summary>
-        DeobligationActivity,
 
         /// <summary>
         /// The deobligations
@@ -276,7 +257,7 @@ namespace BudgetExecution
         /// The external
         /// </summary>
         External,
-        
+
         /// <summary>
         /// The federal holidays
         /// </summary>
@@ -291,11 +272,6 @@ namespace BudgetExecution
         /// The fiscal years
         /// </summary>
         FiscalYears,
-
-        /// <summary>
-        /// The fiscal years back up
-        /// </summary>
-        FiscalYearsBackUp,
 
         /// <summary>
         /// The full time equivalents
@@ -328,21 +304,6 @@ namespace BudgetExecution
         Goals,
 
         /// <summary>
-        /// The gross authority
-        /// </summary>
-        GrossAuthority,
-
-        /// <summary>
-        /// The gross utilization
-        /// </summary>
-        GrossUtilization,
-
-        /// <summary>
-        /// The growth rates
-        /// </summary>
-        GrowthRates,
-
-        /// <summary>
         /// The gs pay scales
         /// </summary>
         GsPayScales,
@@ -357,11 +318,7 @@ namespace BudgetExecution
         /// </summary>
         HeadquartersOffices,
 
-        /// <summary>
-        /// The human resource organizations
-        /// </summary>
-        HumanResourceOrganizations,
-
+        /// 
         /// <summary>
         /// The images
         /// </summary>
@@ -403,11 +360,6 @@ namespace BudgetExecution
         NationalPrograms,
 
         /// <summary>
-        /// The object class outlays
-        /// </summary>
-        ObjectClassOutlays,
-
-        /// <summary>
         /// The objectives
         /// </summary>
         Objectives,
@@ -433,11 +385,6 @@ namespace BudgetExecution
         OperatingPlans,
 
         /// <summary>
-        /// The operating plan updates
-        /// </summary>
-        OperatingPlanUpdates,
-
-        /// <summary>
         /// The organizations
         /// </summary>
         Organizations,
@@ -448,19 +395,9 @@ namespace BudgetExecution
         PayPeriods,
 
         /// <summary>
-        /// The payroll activity
-        /// </summary>
-        PayrollActivity,
-
-        /// <summary>
         /// The payroll authority
         /// </summary>
         PayrollAuthority,
-
-        /// <summary>
-        /// The payroll cost codes
-        /// </summary>
-        PayrollCostCodes,
 
         /// <summary>
         /// The payroll requests
@@ -477,11 +414,7 @@ namespace BudgetExecution
         /// </summary>
         ProgramAreas,
 
-        /// <summary>
-        /// The program financing schedule
-        /// </summary>
-        ProgramFinancingSchedule,
-
+        ///
         /// <summary>
         /// The program project descriptions
         /// </summary>
@@ -491,11 +424,6 @@ namespace BudgetExecution
         /// The program projects
         /// </summary>
         ProgramProjects,
-
-        /// <summary>
-        /// The project cost codes
-        /// </summary>
-        ProjectCostCodes,
 
         /// <summary>
         /// The projects
@@ -523,11 +451,6 @@ namespace BudgetExecution
         RecoveryAct,
 
         /// <summary>
-        /// The reference tables
-        /// </summary>
-        ReferenceTables,
-
-        /// <summary>
         /// The regional authority
         /// </summary>
         RegionalAuthority,
@@ -553,11 +476,6 @@ namespace BudgetExecution
         Reports,
 
         /// <summary>
-        /// The reprogrammings
-        /// </summary>
-        Reprogrammings,
-
-        /// <summary>
         /// The resource planning offices
         /// </summary>
         ResourcePlanningOffices,
@@ -581,11 +499,6 @@ namespace BudgetExecution
         /// The site activity
         /// </summary>
         SiteActivity,
-
-        /// <summary>
-        /// The site project codes
-        /// </summary>
-        SiteProjectCodes,
 
         /// <summary>
         /// The special accounts
@@ -668,11 +581,6 @@ namespace BudgetExecution
         SupplementalCarryoverEstimates,
 
         /// <summary>
-        /// The supplemental reimburseable estimates
-        /// </summary>
-        SupplementalReimburseableEstimates,
-
-        /// <summary>
         /// The transfer activity
         /// </summary>
         TransferActivity,
@@ -698,11 +606,6 @@ namespace BudgetExecution
         UnliquidatedObligations,
 
         /// <summary>
-        /// The unobligated authority
-        /// </summary>
-        UnobligatedAuthority,
-
-        /// <summary>
         /// The unobligated balances
         /// </summary>
         UnobligatedBalances,
@@ -710,11 +613,7 @@ namespace BudgetExecution
         /// <summary>
         /// The URL
         /// </summary>
-        Url,
-
-        /// <summary>
-        /// The work codes
-        /// </summary>
-        WorkCodes
+        [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+        URL
     }
 }

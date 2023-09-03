@@ -56,7 +56,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="T:Syncfusion.Windows.Forms.Grid.GridControl" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage("ReSharper", "MemberCanBePrivate.Global") ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class GridControl : Syncfusion.Windows.Forms.Grid.GridControl
     {
         /// <summary>
@@ -78,22 +78,24 @@ namespace BudgetExecution
             CanApplyTheme = true;
             GridVisualStyles = GridVisualStyles.Office2016DarkGray;
             CanOverrideStyle = true;
-            DefaultColWidth = 100;
+            DefaultColWidth = 150;
             DefaultRowHeight = 28;
             RowCount = 100;
             ColCount = 50;
             DefaultGridBorderStyle = GridBorderStyle.Dotted;
-            GridLineColor = Color.FromArgb( 130, 130, 130 );
+            GridLineColor = Color.FromArgb( 120, 120, 120 );
             ColorStyles = ColorStyles.Office2016DarkGray;
-            ForeColor = Color.LightGray;
-            BackColor = Color.FromArgb( 70, 70, 70 );
+            ForeColor = Color.White;
+            BackColor = Color.FromArgb( 20, 20, 20 );
             Office2016ScrollBars = true;
             SizeGripStyle = SizeGripStyle.Hide;
-            GridStyle.BackColor = Color.FromArgb( 50, 50, 50 );
+            GridStyle.BackColor = Color.FromArgb( 60, 60, 60 );
             GridStyle.Interior = new BrushInfo( GradientStyle.None, ForeColor, 
-                Color.FromArgb( 50, 50, 50 ) );
+                Color.FromArgb( 60, 60, 60 ) );
 
             RangeStyles[ 0 ].StyleInfo = GridStyle;
+            BaseStylesMap[ "Row Header" ].StyleInfo.HorizontalAlignment =
+                GridHorizontalAlignment.Center;
         }
     }
 }

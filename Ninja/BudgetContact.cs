@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="SiteProjectCode.cs" company="Terry D. Eppler">
+// <copyright file="BudgetContact.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,164 +34,136 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SiteProjectCode.cs
+//   BudgetContact.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <inheritdoc />
     /// <summary>
+    /// 
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class SiteProjectCode : DataUnit
+    /// <seealso cref="BudgetExecution.DataUnit" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InheritdocConsiderUsage" ) ]
+    public class BudgetContact : DataUnit
     {
         /// <summary>
-        /// </summary>
-        /// <inheritdoc />
-        public override int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rpio code.
+        /// Gets or sets the first name.
         /// </summary>
         /// <value>
-        /// The rpio code.
+        /// The first name.
         /// </value>
-        public string RpioCode { get; set; }
+        public string FirstName { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the rpio.
+        /// Gets or sets the last name.
         /// </summary>
         /// <value>
-        /// The name of the rpio.
+        /// The last name.
         /// </value>
-        public string RpioName { get; set; }
+        public string LastName { get; set; }
 
         /// <summary>
-        /// Gets or sets the state.
+        /// Gets or sets the full name.
         /// </summary>
         /// <value>
-        /// The state.
+        /// The full name.
         /// </value>
-        public string State { get; set; }
+        public string FullName { get; set; }
 
         /// <summary>
-        /// Gets or sets the congressional district.
+        /// Gets or sets the email address.
         /// </summary>
         /// <value>
-        /// The congressional district.
+        /// The email address.
         /// </value>
-        public string CongressionalDistrict { get; set; }
+        public string EmailAddress { get; set; }
 
         /// <summary>
-        /// Gets or sets the epa site identifier.
+        /// Gets or sets the rpio.
         /// </summary>
         /// <value>
-        /// The epa site identifier.
+        /// The rpio.
         /// </value>
-        public string EpaSiteId { get; set; }
+        public string RPIO { get; set; }
 
         /// <summary>
-        /// The name
-        /// </summary>
-        /// <inheritdoc />
-        public override string Name { get; set; }
-
-        /// <summary>
-        /// Gets the field.
-        /// </summary>
-        /// <inheritdoc />
-        public override string Code { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ssid.
+        /// Gets or sets the section.
         /// </summary>
         /// <value>
-        /// The ssid.
+        /// The section.
         /// </value>
-        public string Ssid { get; set; }
+        public string Section { get; set; }
 
         /// <summary>
-        /// Gets or sets the action code.
+        /// Initializes a new instance of the <see cref="BudgetContact"/> class.
         /// </summary>
-        /// <value>
-        /// The action code.
-        /// </value>
-        public string ActionCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the operable unit.
-        /// </summary>
-        /// <value>
-        /// The operable unit.
-        /// </value>
-        public string OperableUnit { get; set; }
-
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <inheritdoc />
-        public override Source Source { get; set; }
-
-        /// <summary>
-        /// </summary>
-        /// <inheritdoc />
-        public override DataRow Record { get; set; }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SiteProjectCode"/> class.
-        /// </summary>
-        public SiteProjectCode( )
+        public BudgetContact( )
         {
+            Source = Source.BudgetContacts;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SiteProjectCode"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.BudgetContact" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public SiteProjectCode( IQuery query )
+        public BudgetContact( IQuery query )
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "ContactsId" ].ToString( ) ?? "0" );
+            FirstName = Record[ "FirstName" ].ToString( );
+            LastName = Record[ "LastName" ].ToString( );
+            FullName = Record[ "FullName" ].ToString( );
+            RPIO = Record[ "RPIO" ].ToString( );
+            EmailAddress = Record[ "EmailAddress" ].ToString( );
+            Section = Record[ "Section" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SiteProjectCode"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.BudgetContact" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public SiteProjectCode( IDataModel builder )
+        public BudgetContact( IDataModel builder )
+            : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "ContactsId" ].ToString( ) ?? "0" );
+            FirstName = Record[ "FirstName" ].ToString( );
+            LastName = Record[ "LastName" ].ToString( );
+            FullName = Record[ "FullName" ].ToString( );
+            RPIO = Record[ "RPIO" ].ToString( );
+            EmailAddress = Record[ "EmailAddress" ].ToString( );
+            Section = Record[ "Section" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SiteProjectCode"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.BudgetContact" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public SiteProjectCode( DataRow dataRow )
+        public BudgetContact( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "ContactsId" ].ToString( ) ?? "0" );
+            FirstName = dataRow[ "FirstName" ].ToString( );
+            LastName = dataRow[ "LastName" ].ToString( );
+            FullName = dataRow[ "FullName" ].ToString( );
+            RPIO = dataRow[ "RPIO" ].ToString( );
+            EmailAddress = dataRow[ "EmailAddress" ].ToString( );
+            Section = dataRow[ "Section" ].ToString( );
         }
     }
 }

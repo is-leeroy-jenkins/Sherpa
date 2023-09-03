@@ -46,6 +46,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
@@ -117,6 +118,10 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
+            // Timer Properties
+            Time = 0;
+            Seconds = 5;
+
             // Event Wiring
             Load += OnLoad;
             MenuButton.Click += OnMenuButtonClicked;
@@ -133,6 +138,8 @@ namespace BudgetExecution
             : this( )
         {
             DataTable = dataTable;
+            DataSheet.ColCount = dataTable.Columns.Count;
+            DataSheet.RowCount = dataTable.Rows.Count;
         }
 
         /// <summary>
@@ -145,11 +152,14 @@ namespace BudgetExecution
                 ToolStrip.Visible = true;
                 ToolStrip.Text = string.Empty;
                 ToolStrip.Office12Mode = true;
+                ToolStrip.ShowCaption = false;
                 ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
                 ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
+                ToolStripTextBox.Font = new Font( "Roboto", 8 );
+                ToolStripTextBox.ForeColor = Color.White;
             }
             catch( Exception _ex )
             {
@@ -168,7 +178,7 @@ namespace BudgetExecution
                 if( Seconds != 0 )
                 {
                     Timer = new Timer( );
-                    Timer.Interval = 1000;
+                    Timer.Interval = 10;
                     Timer.Tick += ( sender, args ) =>
                     {
                         Time++;
@@ -285,6 +295,28 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Populates the headers.
+        /// </summary>
+        private void PopulateHeaders( )
+        {
+            if( DataTable?.Rows?.Count > 0 )
+            {
+                try
+                {
+                    for( var _c = 1; _c <= DataTable.Columns.Count - 1; _c++ )
+                    {
+                        var _name = DataTable.Columns[ _c ].ColumnName;
+                        DataSheet.Model[ 0, _c ].CellValue = _name?.SplitPascal( );
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
         /// Populates the cells.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
@@ -294,21 +326,19 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _rows = DataTable.Rows.Count;
-                    var _columns = DataTable.Columns.Count;
-                    DataSheet.RowCount = _rows;
-                    DataSheet.ColCount = _columns;
-                    for( var _rowIndex = 1; _rowIndex <= DataTable.Rows.Count; _rowIndex++ )
+                    var _rows = DataTable.Rows.Count - 1;
+                    var _columns = DataTable.Columns.Count - 1;
+                    for( var _r = 1; _r <= _rows; _r++ )
                     {
-                        for( var _columnIndex = 1; _columnIndex <= DataTable.Columns.Count; _columnIndex++ )
+                        for( var _c = 1; _c <= _columns; _c++ )
                         {
-                            DataSheet.Model[ _rowIndex, _columnIndex ].CellValue = 
-                                $"{DataTable.Rows[ _rowIndex ][ _columnIndex ]}";
+                            DataSheet.Model[ _r, _c ].CellValue =
+                                $"{DataTable.Rows[ _r ][ _c ]}";
                         }
                     }
 
                     ToolStripTextBox.Text = $"Rows: {_rows} Columns: {_columns}";
-                    ToolStrip.Text = DataTable.TableName?.SplitPascal( );
+                    ToolStripLabel.Text = "Data Source:  " + DataTable.TableName?.SplitPascal( );
                 }
                 catch( Exception _ex )
                 {
@@ -333,7 +363,8 @@ namespace BudgetExecution
                 if( DataTable != null )
                 {
                     BindingSource.DataSource = DataTable;
-                    ToolStrip.BindingSource.DataSource = BindingSource;
+                    ToolStrip.BindingSource = BindingSource;
+                    PopulateHeaders( );
                     PopulateCells( );
                 }
                 else

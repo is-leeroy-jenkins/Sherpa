@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="CompassOutlay.cs" company="Terry D. Eppler">
+// <copyright file="Outlay.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   CompassOutlay.cs
+//   Outlay.cs
 // </summary>
 // ******************************************************************************************
 
@@ -51,7 +51,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class CompassOutlay : BudgetUnit 
+    public class Outlay : BudgetUnit 
     {
         /// <summary>
         /// Gets or sets the appropriation code.
@@ -102,18 +102,18 @@ namespace BudgetExecution
         public double ObligationsPaid { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassOutlay"/> class.
+        /// Initializes a new instance of the <see cref="Outlay"/> class.
         /// </summary>
-        public CompassOutlay( )
+        public Outlay( )
         {
-            Source = Source.CompassOutlays;
+            Source = Source.Outlays;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassOutlay"/> class.
+        /// Initializes a new instance of the <see cref="Outlay"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public CompassOutlay( IQuery query )
+        public Outlay( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query ).Record;
@@ -135,10 +135,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassOutlay"/> class.
+        /// Initializes a new instance of the <see cref="Outlay"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public CompassOutlay( IDataModel builder )
+        public Outlay( IDataModel builder )
             : this( )
         {
             Record = builder.Record;
@@ -159,11 +159,12 @@ namespace BudgetExecution
             UnliquidatedObligations = double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassOutlay"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.Outlay" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public CompassOutlay( DataRow dataRow )
+        public Outlay( DataRow dataRow )
             : this( )
         {
             Record = dataRow;
@@ -185,10 +186,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassOutlay"/> class.
+        /// Initializes a new instance of the <see cref="Outlay"/> class.
         /// </summary>
         /// <param name="outlay">The outlay.</param>
-        public CompassOutlay( CompassOutlay outlay )
+        public Outlay( Outlay outlay )
         {
             ID = outlay.ID;
             BFY = outlay.BFY;

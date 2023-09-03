@@ -36,7 +36,7 @@
             var gridCellInfo1 = new Syncfusion.Windows.Forms.Grid.GridCellInfo( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( SheetForm ) );
             Header = new System.Windows.Forms.TableLayoutPanel( );
-            pictureBox1 = new System.Windows.Forms.PictureBox( );
+            PictureBox = new System.Windows.Forms.PictureBox( );
             Title = new Label( );
             ToolStrip = new ToolStrip( );
             CloseButton = new ToolStripButton( );
@@ -61,7 +61,7 @@
             ContextMenu = new ContextMenu( );
             DataSheet = new GridControl( );
             Header.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) pictureBox1  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             ToolStrip.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) DataSheet  ).BeginInit( );
@@ -72,25 +72,25 @@
             Header.ColumnCount = 2;
             Header.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 3.2884903F ) );
             Header.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 96.71151F ) );
-            Header.Controls.Add( pictureBox1, 0, 0 );
+            Header.Controls.Add( PictureBox, 0, 0 );
             Header.Controls.Add( Title, 1, 0 );
             Header.Dock = System.Windows.Forms.DockStyle.Top;
             Header.Location = new System.Drawing.Point( 0, 0 );
             Header.Name = "Header";
             Header.RowCount = 1;
             Header.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            Header.Size = new System.Drawing.Size( 1338, 26 );
+            Header.Size = new System.Drawing.Size( 1338, 28 );
             Header.TabIndex = 0;
             // 
-            // pictureBox1
+            // PictureBox
             // 
-            pictureBox1.Image = Resources.Images.EPA;
-            pictureBox1.Location = new System.Drawing.Point( 3, 3 );
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size( 38, 20 );
-            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            PictureBox.Image = Resources.Images.EPA;
+            PictureBox.Location = new System.Drawing.Point( 3, 3 );
+            PictureBox.Name = "PictureBox";
+            PictureBox.Size = new System.Drawing.Size( 38, 20 );
+            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            PictureBox.TabIndex = 0;
+            PictureBox.TabStop = false;
             // 
             // Title
             // 
@@ -105,7 +105,7 @@
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1288, 20 );
+            Title.Size = new System.Drawing.Size( 1288, 22 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -197,7 +197,7 @@
             CloseButton.Field = Field.AccountCode;
             CloseButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             CloseButton.ForeColor = System.Drawing.Color.LightGray;
-            CloseButton.HoverText = null;
+            CloseButton.HoverText = "Close Window";
             CloseButton.Image = Resources.Images.WebCloseButton;
             CloseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             CloseButton.Margin = new System.Windows.Forms.Padding( 3 );
@@ -247,7 +247,7 @@
             MenuButton.Field = Field.AccountCode;
             MenuButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             MenuButton.ForeColor = System.Drawing.Color.LightGray;
-            MenuButton.HoverText = null;
+            MenuButton.HoverText = "Return to Main Menu";
             MenuButton.Image = Resources.Images.WebMenuButton;
             MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             MenuButton.Margin = new System.Windows.Forms.Padding( 3 );
@@ -277,9 +277,9 @@
             ToolStripLabel.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripLabel.Name = "ToolStripLabel";
             ToolStripLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripLabel.Size = new System.Drawing.Size( 110, 28 );
+            ToolStripLabel.Size = new System.Drawing.Size( 103, 28 );
             ToolStripLabel.Tag = "";
-            ToolStripLabel.Text = "Rows: -- Columns: ---";
+            ToolStripLabel.Text = "Data Source Name";
             ToolStripLabel.ToolTip = ToolTip;
             // 
             // Separator3
@@ -294,13 +294,13 @@
             // 
             FirstButton.AutoToolTip = false;
             FirstButton.BackColor = System.Drawing.Color.Transparent;
-            FirstButton.BindingSource = null;
+            FirstButton.BindingSource = BindingSource;
             FirstButton.DataFilter = null;
             FirstButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             FirstButton.Field = Field.AccountCode;
             FirstButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             FirstButton.ForeColor = System.Drawing.Color.LightGray;
-            FirstButton.HoverText = null;
+            FirstButton.HoverText = "First Record";
             FirstButton.Image = Resources.Images.FirstButton;
             FirstButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             FirstButton.Margin = new System.Windows.Forms.Padding( 3 );
@@ -308,7 +308,7 @@
             FirstButton.Padding = new System.Windows.Forms.Padding( 1 );
             FirstButton.Size = new System.Drawing.Size( 23, 24 );
             FirstButton.Text = "toolStripButton1";
-            FirstButton.ToolTip = null;
+            FirstButton.ToolTip = ToolTip;
             FirstButton.ToolType = ToolType.Ns;
             // 
             // Separator4
@@ -323,13 +323,13 @@
             // 
             PreviousButton.AutoToolTip = false;
             PreviousButton.BackColor = System.Drawing.Color.Transparent;
-            PreviousButton.BindingSource = null;
+            PreviousButton.BindingSource = BindingSource;
             PreviousButton.DataFilter = null;
             PreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             PreviousButton.Field = Field.AccountCode;
             PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             PreviousButton.ForeColor = System.Drawing.Color.LightGray;
-            PreviousButton.HoverText = null;
+            PreviousButton.HoverText = "Previous Record";
             PreviousButton.Image = Resources.Images.WebPreviousButton;
             PreviousButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             PreviousButton.Margin = new System.Windows.Forms.Padding( 3 );
@@ -337,7 +337,7 @@
             PreviousButton.Padding = new System.Windows.Forms.Padding( 1 );
             PreviousButton.Size = new System.Drawing.Size( 23, 24 );
             PreviousButton.Text = "toolStripButton2";
-            PreviousButton.ToolTip = null;
+            PreviousButton.ToolTip = ToolTip;
             PreviousButton.ToolType = ToolType.Ns;
             // 
             // Separator5
@@ -351,7 +351,7 @@
             // ToolStripTextBox
             // 
             ToolStripTextBox.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            ToolStripTextBox.BindingSource = null;
+            ToolStripTextBox.BindingSource = BindingSource;
             ToolStripTextBox.Field = Field.AccountCode;
             ToolStripTextBox.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ToolStripTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -359,9 +359,9 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 178, 28 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 160, 28 );
             ToolStripTextBox.Tag = "";
-            ToolStripTextBox.ToolTip = null;
+            ToolStripTextBox.ToolTip = ToolTip;
             // 
             // Separator6
             // 
@@ -381,7 +381,7 @@
             NextButton.Field = Field.AccountCode;
             NextButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             NextButton.ForeColor = System.Drawing.Color.LightGray;
-            NextButton.HoverText = null;
+            NextButton.HoverText = "Next Record";
             NextButton.Image = Resources.Images.WebNextButton;
             NextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             NextButton.Margin = new System.Windows.Forms.Padding( 3 );
@@ -410,7 +410,7 @@
             LastButton.Field = Field.AccountCode;
             LastButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             LastButton.ForeColor = System.Drawing.Color.LightGray;
-            LastButton.HoverText = null;
+            LastButton.HoverText = "Last Record";
             LastButton.Image = Resources.Images.LastButton;
             LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             LastButton.Margin = new System.Windows.Forms.Padding( 3 );
@@ -446,14 +446,14 @@
             // DataSheet
             // 
             DataSheet.AlphaBlendSelectionColor = System.Drawing.Color.FromArgb(   130  ,   80  ,   80  ,   80   );
-            DataSheet.BackColor = System.Drawing.Color.FromArgb(   70  ,   70  ,   70   );
+            DataSheet.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             gridBaseStyle1.Name = "Standard";
             gridBaseStyle1.StyleInfo.Font.Facename = "Tahoma";
             gridBaseStyle2.Name = "Column Header";
             gridBaseStyle2.StyleInfo.BaseStyle = "Header";
             gridBaseStyle2.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
-            gridBaseStyle3.Name = "Row Header";
-            gridBaseStyle3.StyleInfo.BaseStyle = "Header";
+            gridBaseStyle3.Name = "Header";
+            gridBaseStyle3.StyleInfo.CellType = "Header";
             gridBaseStyle3.StyleInfo.Font.Bold = true;
             gridBaseStyle3.StyleInfo.Font.Facename = "Segoe UI";
             gridBaseStyle3.StyleInfo.Font.Italic = false;
@@ -461,9 +461,9 @@
             gridBaseStyle3.StyleInfo.Font.Strikeout = false;
             gridBaseStyle3.StyleInfo.Font.Underline = false;
             gridBaseStyle3.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
-            gridBaseStyle3.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Left;
-            gridBaseStyle4.Name = "Header";
-            gridBaseStyle4.StyleInfo.CellType = "Header";
+            gridBaseStyle3.StyleInfo.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
+            gridBaseStyle4.Name = "Row Header";
+            gridBaseStyle4.StyleInfo.BaseStyle = "Header";
             gridBaseStyle4.StyleInfo.Font.Bold = true;
             gridBaseStyle4.StyleInfo.Font.Facename = "Segoe UI";
             gridBaseStyle4.StyleInfo.Font.Italic = false;
@@ -471,17 +471,17 @@
             gridBaseStyle4.StyleInfo.Font.Strikeout = false;
             gridBaseStyle4.StyleInfo.Font.Underline = false;
             gridBaseStyle4.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
-            gridBaseStyle4.StyleInfo.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
+            gridBaseStyle4.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
             DataSheet.BaseStylesMap.AddRange( new Syncfusion.Windows.Forms.Grid.GridBaseStyle[ ] { gridBaseStyle1, gridBaseStyle2, gridBaseStyle3, gridBaseStyle4 } );
             DataSheet.CanOverrideStyle = true;
             DataSheet.ColCount = 50;
             DataSheet.ColorStyles = Syncfusion.Windows.Forms.ColorStyles.Office2016DarkGray;
-            DataSheet.DefaultColWidth = 100;
+            DataSheet.DefaultColWidth = 150;
             DataSheet.DefaultGridBorderStyle = Syncfusion.Windows.Forms.Grid.GridBorderStyle.Solid;
             DataSheet.DefaultRowHeight = 28;
             DataSheet.Dock = System.Windows.Forms.DockStyle.Fill;
             DataSheet.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            DataSheet.ForeColor = System.Drawing.Color.LightGray;
+            DataSheet.ForeColor = System.Drawing.Color.White;
             gridCellInfo1.Col = -1;
             gridCellInfo1.Row = -1;
             gridCellInfo1.StyleInfo.Font.Bold = false;
@@ -494,15 +494,15 @@
             DataSheet.GridCells.AddRange( new Syncfusion.Windows.Forms.Grid.GridCellInfo[ ] { gridCellInfo1 } );
             DataSheet.GridOfficeScrollBars = Syncfusion.Windows.Forms.OfficeScrollBars.Office2016;
             DataSheet.GridVisualStyles = Syncfusion.Windows.Forms.GridVisualStyles.Office2016DarkGray;
-            DataSheet.Location = new System.Drawing.Point( 0, 26 );
+            DataSheet.Location = new System.Drawing.Point( 0, 28 );
             DataSheet.Name = "DataSheet";
             DataSheet.Office2016ScrollBars = true;
             DataSheet.Office2016ScrollBarsColorScheme = Syncfusion.Windows.Forms.ScrollBarOffice2016ColorScheme.DarkGray;
-            DataSheet.Properties.GridLineColor = System.Drawing.Color.FromArgb(   68  ,   68  ,   68   );
+            DataSheet.Properties.GridLineColor = System.Drawing.Color.FromArgb(   120  ,   120  ,   120   );
             DataSheet.RowCount = 100;
             DataSheet.RowHeightEntries.AddRange( new Syncfusion.Windows.Forms.Grid.GridRowHeight[ ] { new Syncfusion.Windows.Forms.Grid.GridRowHeight( 0, 32 ) } );
             DataSheet.SerializeCellsBehavior = Syncfusion.Windows.Forms.Grid.GridSerializeCellsBehavior.SerializeIntoCode;
-            DataSheet.Size = new System.Drawing.Size( 1338, 667 );
+            DataSheet.Size = new System.Drawing.Size( 1338, 665 );
             DataSheet.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             DataSheet.SmartSizeBox = false;
             DataSheet.TabIndex = 2;
@@ -574,7 +574,7 @@
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "SheetForm";
             Header.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) pictureBox1  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
@@ -586,7 +586,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel Header;
-        public System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox PictureBox;
         public ToolStrip ToolStrip;
         public System.Windows.Forms.Timer Timer;
         public SmallTip ToolTip;
@@ -609,6 +609,6 @@
         public ToolStripButton LastButton;
         public ToolSeparator Separator8;
         public ContextMenu ContextMenu;
-        private GridControl DataSheet;
+        public GridControl DataSheet;
     }
 }

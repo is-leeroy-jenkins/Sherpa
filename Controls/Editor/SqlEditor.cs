@@ -212,6 +212,10 @@ namespace BudgetExecution
             ControlBox = false;
             Text = string.Empty;
 
+            // Timer Properties
+            Time = 0;
+            Seconds = 5;
+
             // Picture Box Properties
 
             // Default Provider
@@ -428,7 +432,7 @@ namespace BudgetExecution
                 if( Seconds != 0 )
                 {
                     Timer = new Timer( );
-                    Timer.Interval = 1000;
+                    Timer.Interval = 10;
                     Timer.Tick += ( sender, args ) =>
                     {
                         Time++;

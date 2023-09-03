@@ -126,6 +126,10 @@ namespace BudgetExecution
             ExitButton.HoverText = "Exit Application";
             Tiles = GetTiles( );
 
+            // Timer Properties
+            Time = 0;
+            Seconds = 5;
+
             // Event Wiring
             ExitButton.Click += OnExitButtonClick;
             LookupTile.Click += OnLookupTileClick;
@@ -991,7 +995,11 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTestButtonClick( object sender, EventArgs e )
         {
-            ShowSplashMessage( );
+            var _data = new DataBuilder( Source.BudgetContacts );
+            var _table = _data.DataTable;
+            var _grid = new SheetForm( _table );
+            Hide( );
+            _grid.Show( );
         }
 
         /// <summary>
