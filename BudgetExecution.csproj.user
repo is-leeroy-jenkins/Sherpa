@@ -305,7 +305,7 @@
     <Compile Update="Data\Adapter\AdapterFactory.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="SpreadsheetForm.cs">
+    <Compile Update="Controls\GridSheet\SheetForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

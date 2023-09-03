@@ -1,13 +1,13 @@
 ﻿//  ******************************************************************************************
 //      Assembly:                Budget Execution
-//      Filename:                SpreadsheetForm.cs
+//      Filename:                SheetForm.cs
 //      Author:                  Terry D. Eppler
 //      Created:                 05-31-2023
 // 
 //      Last Modified By:        Terry D. Eppler
 //      Last Modified On:        06-01-2023
 //  ******************************************************************************************
-//  <copyright file="SpreadsheetForm.cs" company="Terry D. Eppler">
+//  <copyright file="SheetForm.cs" company="Terry D. Eppler">
 // 
 //     This is a Federal Budget, Finance, and Accounting application for the
 //     US Environmental Protection Agency (US EPA).
@@ -37,7 +37,7 @@
 // 
 //  </copyright>
 //  <summary>
-//    SpreadsheetForm.cs
+//    SheetForm.cs
 //  </summary>
 //  ******************************************************************************************
 
@@ -46,13 +46,19 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
     using System;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public partial class SpreadsheetForm : MetroForm
+    /// <summary>
+    /// SheetForm Class
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" )]
+    public partial class SheetForm : MetroForm
     {
         /// <summary>
         /// Gets or sets the time.
@@ -67,10 +73,19 @@ namespace BudgetExecution
         public int Seconds { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SpreadsheetForm"/> class.
+        /// Gets or sets the data table.
         /// </summary>
-        public SpreadsheetForm( )
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataTable DataTable { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SheetForm" /> class.
+        /// </summary>
+        public SheetForm( )
         {
             InitializeComponent( );
             Size = new Size( 1350, 750 );
@@ -106,6 +121,18 @@ namespace BudgetExecution
             Load += OnLoad;
             MenuButton.Click += OnMenuButtonClicked;
             CloseButton.Click += OnCloseButtonClicked;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SheetForm" /> class.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        public SheetForm( DataTable dataTable )
+            : this( )
+        {
+            DataTable = dataTable;
         }
 
         /// <summary>
@@ -258,6 +285,39 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Populates the cells.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        private void PopulateCells( )
+        {
+            if( DataTable?.Rows?.Count > 0 )
+            {
+                try
+                {
+                    var _rows = DataTable.Rows.Count;
+                    var _columns = DataTable.Columns.Count;
+                    DataSheet.RowCount = _rows;
+                    DataSheet.ColCount = _columns;
+                    for( var _rowIndex = 1; _rowIndex <= DataTable.Rows.Count; _rowIndex++ )
+                    {
+                        for( var _columnIndex = 1; _columnIndex <= DataTable.Columns.Count; _columnIndex++ )
+                        {
+                            DataSheet.Model[ _rowIndex, _columnIndex ].CellValue = 
+                                $"{DataTable.Rows[ _rowIndex ][ _columnIndex ]}";
+                        }
+                    }
+
+                    ToolStripTextBox.Text = $"Rows: {_rows} Columns: {_columns}";
+                    ToolStrip.Text = DataTable.TableName?.SplitPascal( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -270,6 +330,16 @@ namespace BudgetExecution
                 InitToolStrip( );
                 Text = string.Empty;
                 ToolStrip.Visible = true;
+                if( DataTable != null )
+                {
+                    BindingSource.DataSource = DataTable;
+                    ToolStrip.BindingSource.DataSource = BindingSource;
+                    PopulateCells( );
+                }
+                else
+                {
+                }
+
                 FadeIn( );
             }
             catch( Exception _ex )
