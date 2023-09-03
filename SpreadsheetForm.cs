@@ -105,7 +105,7 @@ namespace BudgetExecution
             // Event Wiring
             Load += OnLoad;
             MenuButton.Click += OnMenuButtonClicked;
-            CloseButton.Click += OnExitButtonClicked;
+            CloseButton.Click += OnCloseButtonClicked;
         }
 
         /// <summary>
@@ -286,12 +286,12 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnExitButtonClicked( object sender, EventArgs e )
+        private void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try
             {
                 FadeOut( );
-                Application.Exit( );
+                Close( );
             }
             catch( Exception _ex )
             {

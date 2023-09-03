@@ -43,6 +43,7 @@
 
 namespace BudgetExecution
 {
+    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Grid;
     using Syncfusion.Windows.Forms.Grid.Grouping;
@@ -56,8 +57,14 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="T:Syncfusion.Windows.Forms.Grid.GridControl" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
     public class GridControl : Syncfusion.Windows.Forms.Grid.GridControl
     {
+        /// <summary>
+        /// The grid information
+        /// </summary>
+        public readonly GridStyleInfo GridInfo = new GridStyleInfo( );
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -80,6 +87,9 @@ namespace BudgetExecution
             Office2016ScrollBars = true;
             SizeGripStyle = SizeGripStyle.Hide;
             GridLineColor = Color.FromArgb( 106, 189, 252 );
+            GridInfo.BackColor = Color.FromArgb( 80, 80, 80 );
+            GridInfo.Interior = new BrushInfo( Color.FromArgb( 80, 80, 80 ) );
+            RangeStyles[ 0 ].StyleInfo = GridInfo;
         }
     }
 }
