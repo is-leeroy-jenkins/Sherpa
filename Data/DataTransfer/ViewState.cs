@@ -1,13 +1,13 @@
 ﻿//  ******************************************************************************************
 //      Assembly:                Budget Execution
-//      Filename:                StateTransfer.cs
+//      Filename:                ViewState.cs
 //      Author:                  Terry D. Eppler
 //      Created:                 05-31-2023
 // 
 //      Last Modified By:        Terry D. Eppler
 //      Last Modified On:        06-01-2023
 //  ******************************************************************************************
-//  <copyright file="StateTransfer.cs" company="Terry D. Eppler">
+//  <copyright file="ViewState.cs" company="Terry D. Eppler">
 // 
 //     This is a Federal Budget, Finance, and Accounting application for the
 //     US Environmental Protection Agency (US EPA).
@@ -37,7 +37,7 @@
 // 
 //  </copyright>
 //  <summary>
-//    StateTransfer.cs
+//    ViewState.cs
 //  </summary>
 //  ******************************************************************************************
 
@@ -53,7 +53,9 @@ namespace BudgetExecution
     /// <inheritdoc />
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( " ReSharper", "ClassCanBeSealed.Global" ) ]
-    public class StateTransfer : StateData, IStateTransfer
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    public class ViewState : StateData, IStateTransfer
     {
         /// <inheritdoc />
         /// <summary>
@@ -138,9 +140,9 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StateTransfer"/> class.
+        /// <see cref="ViewState"/> class.
         /// </summary>
-        public StateTransfer( )
+        public ViewState( )
         {
         }
     }

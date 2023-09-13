@@ -226,7 +226,7 @@ namespace BudgetExecution
         /// <value>
         /// The state of the view.
         /// </value>
-        public StateTransfer ViewState { get; set; }
+        public ViewState ViewState { get; set; }
 
         /// <inheritdoc />
         /// <summary> </summary>
@@ -1076,7 +1076,7 @@ namespace BudgetExecution
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
-                ViewState = new StateTransfer( );
+                ViewState = new ViewState( );
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedIndex = 1;

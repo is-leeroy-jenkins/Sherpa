@@ -239,7 +239,7 @@ namespace BudgetExecution
         /// <value>
         /// The state of the view.
         /// </value>
-        public StateTransfer ViewState { get; set; }
+        public ViewState ViewState { get; set; }
 
         /// <inheritdoc />
         /// <summary>
@@ -993,7 +993,7 @@ namespace BudgetExecution
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
-                ViewState = new StateTransfer( );
+                ViewState = new ViewState( );
                 if( SelectedTable != null )
                 {
                     TabControl.SelectedTab = FilterTabPage;

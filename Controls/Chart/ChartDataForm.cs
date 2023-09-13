@@ -290,7 +290,7 @@ namespace BudgetExecution
         /// <value>
         /// The state of the view.
         /// </value>
-        public StateTransfer ViewState { get; set; }
+        public ViewState ViewState { get; set; }
 
         /// <inheritdoc />
         /// <summary>

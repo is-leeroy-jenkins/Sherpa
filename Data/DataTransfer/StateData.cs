@@ -46,6 +46,9 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class StateData
     {
         /// <summary>

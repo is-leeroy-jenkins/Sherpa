@@ -219,7 +219,7 @@ namespace BudgetExecution
         /// <value>
         /// The state of the view.
         /// </value>
-        public StateTransfer ViewState { get; set; }
+        public ViewState ViewState { get; set; }
 
         /// <inheritdoc />
         /// <summary>
@@ -928,7 +928,7 @@ namespace BudgetExecution
         {
             try
             {
-                ViewState = new StateTransfer( );
+                ViewState = new ViewState( );
                 Header.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Header.Font = new Font( "Roboto", 11 );
                 Header.TextAlign = ContentAlignment.TopLeft;

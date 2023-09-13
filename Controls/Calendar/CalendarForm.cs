@@ -151,7 +151,7 @@ namespace BudgetExecution
         /// <value>
         /// The state of the view.
         /// </value>
-        public StateTransfer ViewState { get; set; }
+        public ViewState ViewState { get; set; }
 
         /// <inheritdoc />
         /// <summary>
@@ -598,7 +598,7 @@ namespace BudgetExecution
         {
             try
             {
-                ViewState = new StateTransfer( );
+                ViewState = new ViewState( );
                 TabControl.SelectedIndex = 0;
                 InitializeToolStrip( );
                 InitializeTitle( );

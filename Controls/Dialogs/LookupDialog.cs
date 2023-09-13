@@ -406,7 +406,7 @@ namespace BudgetExecution
         {
             try
             {
-                ViewState = new StateTransfer( );
+                ViewState = new ViewState( );
                 DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
                 BindingSource.DataSource = DataModel.DataTable;
                 PopulateTableListBoxItems( );
