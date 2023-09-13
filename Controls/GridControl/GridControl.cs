@@ -79,7 +79,7 @@ namespace BudgetExecution
             GridVisualStyles = GridVisualStyles.Office2016DarkGray;
             CanOverrideStyle = true;
             DefaultColWidth = 150;
-            DefaultRowHeight = 28;
+            DefaultRowHeight = 22;
             RowCount = 100;
             ColCount = 50;
             DefaultGridBorderStyle = GridBorderStyle.Dotted;

@@ -46,7 +46,6 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
@@ -56,9 +55,11 @@ namespace BudgetExecution
     /// SheetForm Class
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class SheetForm : MetroForm
     {
         /// <summary>
@@ -332,8 +333,7 @@ namespace BudgetExecution
                     {
                         for( var _c = 1; _c <= _columns; _c++ )
                         {
-                            DataSheet.Model[ _r, _c ].CellValue =
-                                $"{DataTable.Rows[ _r ][ _c ]}";
+                            DataSheet.Model[ _r, _c ].CellValue = $"{DataTable.Rows[ _r ][ _c ]}";
                         }
                     }
 
