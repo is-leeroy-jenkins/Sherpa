@@ -46,10 +46,10 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    public abstract class StateData
+    public abstract class StateData : EventArgs
     {
         /// <summary>
         /// Gets or sets the selected table.
