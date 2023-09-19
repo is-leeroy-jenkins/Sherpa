@@ -74,8 +74,10 @@ namespace BudgetExecution
         /// </value>
         public virtual string IconPath { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ErrorDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ErrorDialog" /> class.
         /// </summary>
         public ErrorDialog( )
         {

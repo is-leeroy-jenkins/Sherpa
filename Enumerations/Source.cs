@@ -74,6 +74,11 @@ namespace BudgetExecution
         AdministrativeRequests,
 
         /// <summary>
+        /// The aggregate outlays
+        /// </summary>
+        AggregateOutlays,
+
+        /// <summary>
         /// The allocations
         /// </summary>
         Allocations,
@@ -333,6 +338,11 @@ namespace BudgetExecution
         /// The jobs act carryover estimates
         /// </summary>
         JobsActCarryoverEstimates,
+
+        /// <summary>
+        /// The marginal outlays
+        /// </summary>
+        MarginalOutlays,
 
         /// <summary>
         /// The messages

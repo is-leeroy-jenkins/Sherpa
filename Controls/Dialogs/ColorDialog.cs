@@ -41,6 +41,7 @@
 //  </summary>
 //  ******************************************************************************************
 
+// ReSharper disable All
 namespace BudgetExecution
 {
     using System;
@@ -54,9 +55,10 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class ColorDialog : MetroForm
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ColorDialog"/>
+        /// <see cref="T:BudgetExecution.ColorDialog" />
         /// class.
         /// </summary>
         public ColorDialog( )

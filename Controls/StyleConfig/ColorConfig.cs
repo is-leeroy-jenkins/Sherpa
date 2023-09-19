@@ -187,7 +187,7 @@ namespace BudgetExecution
         /// <value>
         /// The blue text.
         /// </value>
-        public Color BlueText { get; }
+        public Color BlueHighlight { get; }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -196,7 +196,7 @@ namespace BudgetExecution
         public ColorConfig( )
         {
             Blue = Color.FromArgb( 0, 120, 212 );
-            BlueText = Color.FromArgb( 106, 189, 252 );
+            BlueHighlight = Color.FromArgb( 106, 189, 252 );
             HoverBlue = Color.FromArgb( 50, 93, 129 );
             HoverDarkBlue = Color.FromArgb( 24, 47, 66 );
             Transparent = Color.Transparent;
