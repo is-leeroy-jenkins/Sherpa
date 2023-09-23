@@ -44,14 +44,17 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class BudgetControlValue : BudgetControl
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "BudgetControlValue"/>
+        /// <see cref="T:BudgetExecution.BudgetControlValue" />
         /// class.
         /// </summary>
         public BudgetControlValue( )
@@ -59,12 +62,13 @@ namespace BudgetExecution
             Source = Source.BudgetControls;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "BudgetControlValue"/>
+        /// <see cref="T:BudgetExecution.BudgetControlValue" />
         /// class.
         /// </summary>
-        /// <param name = "query"> The query. </param>
+        /// <param name="query"> The query. </param>
         public BudgetControlValue( IQuery query )
             : this( )
         {
@@ -110,12 +114,13 @@ namespace BudgetExecution
             AuthorityDistributionControl = Record?[ "AuthorityDistributionControl" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "BudgetControlValue"/>
+        /// <see cref="T:BudgetExecution.BudgetControlValue" />
         /// class.
         /// </summary>
-        /// <param name = "builder"> The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public BudgetControlValue( IDataModel builder )
             : this( )
         {
@@ -161,12 +166,13 @@ namespace BudgetExecution
             AuthorityDistributionControl = Record[ "AuthorityDistributionControl" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "BudgetControlValue"/>
+        /// <see cref="T:BudgetExecution.BudgetControlValue" />
         /// class.
         /// </summary>
-        /// <param name = "row"> The data row. </param>
+        /// <param name="row"> The data row. </param>
         public BudgetControlValue( DataRow row )
             : this( )
         {
@@ -212,6 +218,12 @@ namespace BudgetExecution
             AuthorityDistributionControl = row[ "AuthorityDistributionControl" ].ToString( );
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.BudgetControlValue" /> class.
+        /// </summary>
+        /// <param name="control">The control.</param>
         public BudgetControlValue( BudgetControl control )
         {
             ID = control.ID;

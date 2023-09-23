@@ -44,8 +44,10 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class Appropriation : DataUnit 
     {
         /// <summary>
@@ -58,9 +60,10 @@ namespace BudgetExecution
             Source = Source.Appropriations;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Appropriation"/>
+        /// <see cref="T:BudgetExecution.Appropriation" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -75,9 +78,10 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Appropriation"/>
+        /// <see cref="T:BudgetExecution.Appropriation" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -92,9 +96,10 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Appropriation"/>
+        /// <see cref="T:BudgetExecution.Appropriation" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -109,6 +114,11 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Appropriation"/> class.
+        /// </summary>
+        /// <param name="appropriation">The appropriation.</param>
         public Appropriation( Appropriation appropriation )
         {
             ID = appropriation.ID;
