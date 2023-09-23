@@ -425,7 +425,8 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the primary keys.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private protected IList<int> GetPrimaryKeys( )
         {
             if( DataTable != null )

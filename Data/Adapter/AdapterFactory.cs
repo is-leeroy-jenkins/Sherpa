@@ -87,7 +87,9 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the adapter.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// DbDataAdapter
+        /// </returns>
         public DbDataAdapter GetAdapter( )
         {
             if( Enum.IsDefined( typeof( Provider ), Provider )

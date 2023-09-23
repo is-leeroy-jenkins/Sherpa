@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                DateTimeExtensions.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="DateTimeExtensions.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="DateTimeExtensions.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   DateTimeExtensions.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    DateTimeExtensions.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -50,8 +53,8 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [SuppressMessage("ReSharper", "ArrangeRedundantParentheses")]
-    [SuppressMessage("ReSharper", "MemberCanBeInternal")]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class DateTimeExtensions
     {
         /// <summary> Verifies if the object is a startDate </summary>
@@ -68,11 +71,11 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                DateTimeExtensions.Fail( _ex );
                 return false;
             }
         }
-        
+
         /// <summary> Returns the weekdays between two dates. </summary>
         /// <param name="startDate"> The start time. </param>
         /// <param name="endDate"> The end time. </param>
@@ -99,7 +102,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                DateTimeExtensions.Fail( _ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -132,7 +135,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                DateTimeExtensions.Fail( _ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -165,17 +168,22 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                DateTimeExtensions.Fail( _ex );
                 return default( IEnumerable<DateTime> );
             }
         }
-        
+
         /// <summary>
         /// Gets the workdays
         /// </summary>
-        /// <param name="startDate">The start date.</param>
-        /// <param name="endDate">The end date.</param>
-        /// <returns></returns>
+        /// <param name="startDate">
+        /// The start date.
+        /// </param>
+        /// <param name="endDate">
+        /// The end date.
+        /// </param>
+        /// <returns>
+        /// </returns>
         public static IEnumerable<DateTime> GetWorkdays( this DateTime startDate, DateTime endDate )
         {
             try
@@ -186,7 +194,8 @@ namespace BudgetExecution
                 for( var _i = 0; _i < _timeSpan.Days; _i++ )
                 {
                     var _dateTime = startDate.AddDays( _i );
-                    if( !_dateTime.IsFederalHoliday( ) && !_dateTime.IsWeekEnd( ) )
+                    if( !_dateTime.IsFederalHoliday( )
+                       && !_dateTime.IsWeekEnd( ) )
                     {
                         _workdays.Add( _dateTime );
                     }
@@ -198,7 +207,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                DateTimeExtensions.Fail( _ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -213,12 +222,12 @@ namespace BudgetExecution
         {
             try
             {
-                return ( dateTime.DayOfWeek != DayOfWeek.Saturday ) 
+                return ( dateTime.DayOfWeek != DayOfWeek.Saturday )
                     && ( dateTime.DayOfWeek != DayOfWeek.Sunday );
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                DateTimeExtensions.Fail( _ex );
                 return false;
             }
         }
@@ -232,12 +241,12 @@ namespace BudgetExecution
         {
             try
             {
-                return ( dateTime.DayOfWeek == DayOfWeek.Saturday ) 
+                return ( dateTime.DayOfWeek == DayOfWeek.Saturday )
                     || ( dateTime.DayOfWeek == DayOfWeek.Sunday );
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                DateTimeExtensions.Fail( _ex );
                 return false;
             }
         }
@@ -257,8 +266,8 @@ namespace BudgetExecution
         /// <c> false </c>
         /// .
         /// </returns>
-        public static bool IsBetween( this DateTime dateTime, DateTime startDate, 
-            DateTime endDate, bool compareTime = false )
+        public static bool IsBetween( this DateTime dateTime, DateTime startDate, DateTime endDate,
+            bool compareTime = false )
         {
             try
             {
@@ -268,7 +277,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                DateTimeExtensions.Fail( _ex );
                 return false;
             }
         }
@@ -302,7 +311,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                DateTimeExtensions.Fail( _ex );
                 return default( DateTime );
             }
         }
@@ -332,7 +341,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                DateTimeExtensions.Fail( _ex );
                 return 0;
             }
         }
@@ -362,7 +371,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                DateTimeExtensions.Fail( _ex );
                 return 0;
             }
         }
@@ -382,7 +391,7 @@ namespace BudgetExecution
                 for( var _i = 0; _i < _timeSpan.Days; _i++ )
                 {
                     var _dateTime = startDate.AddDays( _i );
-                    if( !_dateTime.IsFederalHoliday( ) 
+                    if( !_dateTime.IsFederalHoliday( )
                        && !_dateTime.IsWeekEnd( ) )
                     {
                         _days++;
@@ -395,7 +404,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                DateTimeExtensions.Fail( _ex );
                 return 0;
             }
         }
@@ -427,7 +436,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
+                DateTimeExtensions.Fail( _ex );
                 return 0;
             }
         }
@@ -449,8 +458,7 @@ namespace BudgetExecution
             var _thursday = _date == DayOfWeek.Thursday;
             var _friday = _date == DayOfWeek.Friday;
             var _monday = _date == DayOfWeek.Monday;
-            var _weekend = ( _date == DayOfWeek.Saturday ) 
-                || ( _date == DayOfWeek.Sunday );
+            var _weekend = ( _date == DayOfWeek.Saturday ) || ( _date == DayOfWeek.Sunday );
 
             switch( dateTime.Month )
             {

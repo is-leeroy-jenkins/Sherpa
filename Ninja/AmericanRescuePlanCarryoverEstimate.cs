@@ -44,13 +44,16 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class AmericanRescuePlanCarryoverEstimate : AnnualCarryoverEstimate 
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AmericanRescuePlanCarryoverEstimate"/>
+        /// <see cref="T:BudgetExecution.AmericanRescuePlanCarryoverEstimate" />
         /// class.
         /// </summary>
         public AmericanRescuePlanCarryoverEstimate( )
@@ -58,9 +61,10 @@ namespace BudgetExecution
             Source = Source.AmericanRescuePlanCarryoverEstimates;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AmericanRescuePlanCarryoverEstimate"/>
+        /// <see cref="T:BudgetExecution.AmericanRescuePlanCarryoverEstimate" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -86,9 +90,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AmericanRescuePlanCarryoverEstimate"/>
+        /// <see cref="T:BudgetExecution.AmericanRescuePlanCarryoverEstimate" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -115,9 +120,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AmericanRescuePlanCarryoverEstimate"/>
+        /// <see cref="T:BudgetExecution.AmericanRescuePlanCarryoverEstimate" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -143,6 +149,13 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.AmericanRescuePlanCarryoverEstimate" /> class.
+        /// </summary>
+        /// <param name="carryover">The carryover.
+        /// </param>
         public AmericanRescuePlanCarryoverEstimate( AmericanRescuePlanCarryoverEstimate carryover )
             : this( )
         {

@@ -44,10 +44,10 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.AdministrativeRequest" />
+    /// <seealso cref="T:BudgetExecution.AdministrativeRequest" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class CarryoverRequest : AdministrativeRequest
@@ -69,7 +69,8 @@ namespace BudgetExecution
         public DateOnly LastActivityDate { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CarryoverRequest"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CarryoverRequest"/> class.
         /// </summary>
         public CarryoverRequest( )
         {
@@ -77,7 +78,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CarryoverRequest"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CarryoverRequest"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public CarryoverRequest( IQuery query )
@@ -97,7 +99,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CarryoverRequest"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CarryoverRequest"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public CarryoverRequest( IDataModel builder )
@@ -117,7 +120,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CarryoverRequest"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CarryoverRequest"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public CarryoverRequest( DataRow dataRow )
@@ -136,6 +140,11 @@ namespace BudgetExecution
             LastActivityDate = DateOnly.Parse( dataRow[ "LastActivityDate" ].ToString( ) ?? "" );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CarryoverRequest"/> class.
+        /// </summary>
+        /// <param name="request">The request.</param>
         public CarryoverRequest( CarryoverRequest request )
         {
             ID = request.ID;

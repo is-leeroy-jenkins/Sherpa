@@ -42,6 +42,9 @@ namespace BudgetExecution
 {
     using System;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public enum Provider
     {
         /// <summary>

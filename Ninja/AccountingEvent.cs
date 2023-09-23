@@ -44,11 +44,17 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class AccountingEvent : DataUnit 
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AccountingEvent"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="AccountingEvent"/> class.
         /// </summary>
         public AccountingEvent( )
         {
@@ -71,8 +77,10 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="AccountingEvent"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.AccountingEvent" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public AccountingEvent( IDataModel builder )
@@ -85,8 +93,10 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="AccountingEvent"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.AccountingEvent" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public AccountingEvent( DataRow dataRow )
@@ -100,7 +110,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AccountingEvent"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="AccountingEvent"/> class.
         /// </summary>
         /// <param name="accountingEvent">The accounting event.</param>
         public AccountingEvent( AccountingEvent accountingEvent )

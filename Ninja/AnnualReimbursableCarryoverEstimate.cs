@@ -44,13 +44,17 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class AnnualReimbursableCarryoverEstimate : AnnualCarryoverEstimate 
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AnnualReimbursableCarryoverEstimate"/>
+        /// <see cref="T:BudgetExecution.AnnualReimbursableCarryoverEstimate" />
         /// class.
         /// </summary>
         public AnnualReimbursableCarryoverEstimate( ) 
@@ -59,9 +63,10 @@ namespace BudgetExecution
             Source = Source.AnnualReimbursableEstimates;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AnnualReimbursableCarryoverEstimate"/>
+        /// <see cref="T:BudgetExecution.AnnualReimbursableCarryoverEstimate" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -88,12 +93,15 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AnnualReimbursableCarryoverEstimate"/>
+        /// <see cref="T:BudgetExecution.AnnualReimbursableCarryoverEstimate" />
         /// class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">
+        /// The builder.
+        /// </param>
         public AnnualReimbursableCarryoverEstimate( IDataModel builder )
             : this( )
         {
@@ -117,12 +125,15 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AnnualReimbursableCarryoverEstimate"/>
+        /// <see cref="T:BudgetExecution.AnnualReimbursableCarryoverEstimate" />
         /// class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">
+        /// The data row.
+        /// </param>
         public AnnualReimbursableCarryoverEstimate( DataRow dataRow )
             : this( )
         {
@@ -146,6 +157,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// </summary>
+        /// <param name="carryover"></param>
         public AnnualReimbursableCarryoverEstimate( AnnualReimbursableCarryoverEstimate carryover )
             : this( )
         {
