@@ -90,6 +90,7 @@ namespace BudgetExecution
         /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets/Sets HubTile Font
         /// </summary>
@@ -199,17 +200,14 @@ namespace BudgetExecution
         /// <param name="message">The message.</param>
         public virtual void SetTitleText( string message )
         {
-            if( !string.IsNullOrEmpty( message )
-               && Title != null )
+            try
             {
-                try
-                {
-                    Title.Text = message;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.NullOrEmpty( message, "message" );
+                Title.Text = message;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 

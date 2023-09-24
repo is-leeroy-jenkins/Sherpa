@@ -52,13 +52,9 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.DataAccess" />
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeAccessorOwnerBody" ) ]
     public abstract class ModelBase : DataAccess
     {
-        /// <summary>
-        /// The busy
-        /// </summary>
-        private protected bool _busy;
-
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
@@ -91,154 +87,130 @@ namespace BudgetExecution
         /// Gets the ordinals.
         /// </summary>
         /// <returns></returns>
-        public virtual IEnumerable<int> GetOrdinals( )
+        private protected virtual IEnumerable<int> GetOrdinals( )
         {
-            if( DataTable?.Columns?.Count > 0 )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
+                var _columns = _dataTable.Columns;
+                var _values = new List<int>( );
+                if( _columns?.Count > 0 )
                 {
-                    var _columns = DataTable.Columns;
-                    var _values = new List<int>( );
-                    if( _columns?.Count > 0 )
+                    foreach( DataColumn _column in _columns )
                     {
-                        foreach( DataColumn _column in _columns )
-                        {
-                            _values?.Add( _column.Ordinal );
-                        }
+                        _values?.Add( _column.Ordinal );
                     }
+                }
 
-                    return _values?.Any( ) == true
-                        ? _values
-                        : default( IEnumerable<int> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IEnumerable<int> );
-                }
+                return _values?.Any( ) == true
+                    ? _values
+                    : default( IEnumerable<int> );
             }
-
-            return default( IEnumerable<int> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<int> );
+            }
         }
 
         /// <summary>
         /// Gets the column schema.
         /// </summary>
         /// <returns></returns>
-        public IDictionary<string, Type> GetColumnSchema( )
+        private protected IDictionary<string, Type> GetColumnSchema( )
         {
-            if( DataTable?.Columns?.Count > 0 )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
+                var _columns = _dataTable?.Columns;
+                var _schema = new Dictionary<string, Type>( );
+                if( _columns?.Count > 0 )
                 {
-                    var _columns = DataTable?.Columns;
-                    if( _columns?.Count > 0 )
+                    foreach( DataColumn _col in _columns )
                     {
-                        var _schema = new Dictionary<string, Type>( );
-                        foreach( DataColumn _col in _columns )
-                        {
-                            _schema.Add( _col.ColumnName, _col.DataType );
-                        }
+                        _schema.Add( _col.ColumnName, _col.DataType );
+                    }
+                }
 
-                        return _schema?.Any( ) == true
-                            ? _schema
-                            : default( IDictionary<string, Type> );
-                    }
-                    else
-                    {
-                        return default( IDictionary<string, Type> );
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IDictionary<string, Type> );
-                }
+                return _schema?.Any( ) == true
+                    ? _schema
+                    : default( IDictionary<string, Type> );
             }
-
-            return default( IDictionary<string, Type> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, Type> );
+            }
         }
 
         /// <summary>
         /// Gets the data columns.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<DataColumn> GetDataColumns( )
+        private protected IEnumerable<DataColumn> GetDataColumns( )
         {
-            if( DataTable?.Columns?.Count > 0 )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
+                var _dataColumns = new List<DataColumn>( );
+                var _data = _dataTable?.Columns;
+                if( _data?.Count > 0 )
                 {
-                    var _dataColumns = new List<DataColumn>( );
-                    var _data = DataTable?.Columns;
-                    if( _data?.Count > 0 )
+                    foreach( DataColumn _column in _data )
                     {
-                        foreach( DataColumn _column in _data )
+                        if( _column != null )
                         {
-                            if( _column != null )
-                            {
-                                _dataColumns.Add( _column );
-                            }
+                            _dataColumns.Add( _column );
                         }
+                    }
+                }
 
-                        return _dataColumns?.Any( ) == true
-                            ? _dataColumns
-                            : default( IEnumerable<DataColumn> );
-                    }
-                    else
-                    {
-                        return default( IEnumerable<DataColumn> );
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IEnumerable<DataColumn> );
-                }
+                return _dataColumns?.Any( ) == true
+                    ? _dataColumns
+                    : default( IEnumerable<DataColumn> );
             }
-
-            return default( IEnumerable<DataColumn> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<DataColumn> );
+            }
         }
 
         /// <summary>
         /// Gets the column names.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<string> GetColumnNames( )
+        private protected IEnumerable<string> GetColumnNames( )
         {
-            if( DataTable?.Columns?.Count > 0 )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
+                var _names = new List<string>( );
+                var _data = _dataTable?.Columns;
+                if( _data?.Count > 0 )
                 {
-                    var _names = new List<string>( );
-                    var _data = DataTable?.Columns;
-                    if( _data?.Count > 0 )
+                    foreach( DataColumn _column in _data )
                     {
-                        foreach( DataColumn _column in _data )
+                        if( !string.IsNullOrEmpty( _column?.ColumnName ) )
                         {
-                            if( !string.IsNullOrEmpty( _column?.ColumnName ) )
-                            {
-                                _names.Add( _column.ColumnName );
-                            }
+                            _names.Add( _column.ColumnName );
                         }
+                    }
 
-                        return _names?.Any( ) == true
-                            ? _names
-                            : default( IEnumerable<string> );
-                    }
-                    else
-                    {
-                        return default( IEnumerable<string> );
-                    }
+                    return _names?.Any( ) == true
+                        ? _names
+                        : default( IEnumerable<string> );
                 }
-                catch( Exception _ex )
+                else
                 {
-                    Fail( _ex );
                     return default( IEnumerable<string> );
                 }
             }
-
-            return default( IEnumerable<string> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<string> );
+            }
         }
     }
 }

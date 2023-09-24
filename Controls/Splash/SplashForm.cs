@@ -48,9 +48,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using System.Collections.Generic;
-    using System.Linq;
-    using static FormAnimator;
     using Exception = System.Exception;
     using Timer = System.Windows.Forms.Timer;
 

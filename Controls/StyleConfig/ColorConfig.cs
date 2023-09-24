@@ -190,6 +190,14 @@ namespace BudgetExecution
         public Color BlueHighlight { get; }
 
         /// <summary>
+        /// Gets the color of the notification.
+        /// </summary>
+        /// <value>
+        /// The color of the notification.
+        /// </value>
+        public Color NotificationColor { get; }
+
+        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ColorConfig"/> class.
         /// </summary>
@@ -212,6 +220,7 @@ namespace BudgetExecution
             DodgerBlue = Color.DodgerBlue;
             Maroon = Color.Maroon;
             LightBlue = Color.LightSteelBlue;
+            NotificationColor = Color.FromArgb( 0, 73, 112 );
         }
 
         /// <summary>

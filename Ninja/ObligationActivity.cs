@@ -109,7 +109,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public ObligationActivity( IDataModel builder )
-            : this( builder.Query )
+            : base( builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -186,6 +186,11 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ObligationActivity"/> class.
+        /// </summary>
+        /// <param name="obligation">The obligation.</param>
         public ObligationActivity( Obligation obligation )
         {
             ID = obligation.ID;

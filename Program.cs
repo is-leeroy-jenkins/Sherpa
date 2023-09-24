@@ -42,6 +42,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
 
@@ -66,10 +67,8 @@ namespace BudgetExecution
         [ STAThread ]
         public static void Main( )
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense( "MjIyNzQwMEAzMjMxMmUzMTJlMz" 
-                + "MzNWJ6Ylo1L05Bcm1yT0wyenJGMWhFM21xdUJlUERvMUdOUmE3MnBJUjJFbzQ9;MjIyNzQwMUAzMjMxMmUzMTJlMzMzNUZUcGV5Y29y" 
-                + "QkkvS0lNVWl1RTBSTTArYmFJQ3Z0NHZMK1FYYm0zOFo1OGM9" );
-
+            var _key = ConfigurationManager.AppSettings[ "Syncfusion" ];
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense( _key );
             Application.EnableVisualStyles( );
             Application.SetCompatibleTextRenderingDefault( false );
             Windows = new Dictionary<string, Form>( );

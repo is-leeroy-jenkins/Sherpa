@@ -809,7 +809,7 @@ namespace BudgetExecution
                 ToolStrip.BindingSource = BindingSource;
                 Fields = DataModel.Fields;
                 Numerics = DataModel.Numerics;
-                SqlQuery = DataModel.Query.SqlStatement.CommandText;
+                SqlQuery = DataModel.SqlStatement.CommandText;
                 SqlHeader.Text = SqlQuery;
                 if( Chart.Series[ 0 ].Points.Count > 0 )
                 {

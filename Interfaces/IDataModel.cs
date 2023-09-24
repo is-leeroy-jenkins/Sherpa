@@ -40,6 +40,7 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
 
@@ -97,12 +98,12 @@ namespace BudgetExecution
         ISqlStatement SqlStatement { get; set; }
 
         /// <summary>
-        /// Gets or sets the query.
+        /// Gets or sets the duration.
         /// </summary>
         /// <value>
-        /// The query.
+        /// The duration.
         /// </value>
-        IQuery Query { get; set; }
+        TimeSpan Duration { get; set; }
 
         /// <summary>
         /// Gets or sets the record.
@@ -136,18 +137,6 @@ namespace BudgetExecution
         /// </value>
         DataSet DataSet { get; set; }
         
-        /// <summary>
-        /// Gets the ordinals.
-        /// </summary>
-        /// <returns></returns>
-        IEnumerable<int> GetOrdinals( );
-
-        /// <summary>
-        /// Gets the data columns.
-        /// </summary>
-        /// <returns></returns>
-        IEnumerable<DataColumn> GetDataColumns( );
-
         /// <summary>
         /// Gets the data.
         /// </summary>

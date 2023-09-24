@@ -582,27 +582,24 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         private void SetProvider( string provider )
         {
-            if( !string.IsNullOrEmpty( provider ) )
+            try
             {
-                try
+                var _provider = (Provider)Enum.Parse( typeof( Provider ), provider );
+                if( Enum.IsDefined( typeof( Provider ), _provider ) )
                 {
-                    var _provider = (Provider)Enum.Parse( typeof( Provider ), provider );
-                    if( Enum.IsDefined( typeof( Provider ), _provider ) )
+                    Provider = _provider switch
                     {
-                        Provider = _provider switch
-                        {
-                            Provider.Access => Provider.Access,
-                            Provider.SQLite => Provider.SQLite,
-                            Provider.SqlCe => Provider.SqlCe,
-                            Provider.SqlServer => Provider.SqlServer,
-                            _ => Provider.Access
-                        };
-                    }
+                        Provider.Access => Provider.Access,
+                        Provider.SQLite => Provider.SQLite,
+                        Provider.SqlCe => Provider.SqlCe,
+                        Provider.SqlServer => Provider.SqlServer,
+                        _ => Provider.Access
+                    };
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -727,57 +724,53 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         private void BindData( IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true )
+            try
             {
-                try
-                {
-                    var _sql = CreateSqlText( where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.NullOrEmpty( where, "where" );
+                var _sql = CreateSqlText( where );
+                DataModel = new DataBuilder( Source, Provider, _sql );
+                DataTable = DataModel?.DataTable;
+                SelectedTable = DataTable?.TableName;
+                BindingSource.DataSource = DataTable;
+                DataGrid.DataSource = BindingSource;
+                DataGrid.PascalizeHeaders( );
+                DataGrid.FormatColumns( );
+                ToolStrip.BindingSource = BindingSource;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
         /// <summary>
         /// Resets the data.
         /// </summary>
-        /// <param name="cols">The cols.</param>
+        /// <param name="columns">The cols.</param>
         /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
+        private void BindData( IEnumerable<string> columns, IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && cols?.Any( ) == true )
+            try
             {
-                try
-                {
-                    var _sql = CreateSqlText( cols, where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.NullOrEmpty( columns, "columns" );
+                ThrowIf.NullOrEmpty( where, "where" );
+                var _sql = CreateSqlText( columns, where );
+                DataModel = new DataBuilder( Source, Provider, _sql );
+                DataTable = DataModel?.DataTable;
+                SelectedTable = DataTable?.TableName;
+                BindingSource.DataSource = DataTable;
+                DataGrid.DataSource = BindingSource;
+                DataGrid.PascalizeHeaders( );
+                DataGrid.FormatColumns( );
+                ToolStrip.BindingSource = BindingSource;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -790,27 +783,26 @@ namespace BudgetExecution
         private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && fields?.Any( ) == true )
+            try
             {
-                try
-                {
-                    var _sql = CreateSqlText( fields, numerics, where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.NullOrEmpty( numerics, "numerics" );
+                ThrowIf.NullOrEmpty( fields, "fields" );
+                ThrowIf.NullOrEmpty( where, "where" );
+                var _sql = CreateSqlText( fields, numerics, where );
+                DataModel = new DataBuilder( Source, Provider, _sql );
+                DataTable = DataModel?.DataTable;
+                SelectedTable = DataTable?.TableName;
+                BindingSource.DataSource = DataTable;
+                DataGrid.DataSource = BindingSource;
+                DataGrid.PascalizeHeaders( );
+                DataGrid.FormatColumns( );
+                ToolStrip.BindingSource = BindingSource;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -821,20 +813,17 @@ namespace BudgetExecution
         /// <returns></returns>
         private string CreateSqlText( IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true )
+            try
             {
-                try
-                {
-                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return string.Empty;
-                }
+                ThrowIf.NullOrEmpty( where, "where" );
+                return $"SELECT * FROM {Source} " 
+                    + $"WHERE {where.ToCriteria( )};";
             }
-
-            return string.Empty;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
         }
 
         /// <summary>
@@ -846,32 +835,27 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && columns?.Any( ) == true
-               && !string.IsNullOrEmpty( SelectedTable ) )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( columns, "columns" );
+                ThrowIf.NullOrEmpty( where, "where" );
+                var _cols = string.Empty;
+                foreach( var _name in columns )
                 {
-                    var _cols = string.Empty;
-                    foreach( var _name in columns )
-                    {
-                        _cols += $"{_name}, ";
-                    }
+                    _cols += $"{_name}, ";
+                }
 
-                    var _criteria = where.ToCriteria( );
-                    var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} "
-                        + $"WHERE {_criteria} "
-                        + $"GROUP BY {_names} ;";
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return string.Empty;
-                }
+                var _criteria = where.ToCriteria( );
+                var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
+                return $"SELECT {_names} FROM {SelectedTable} "
+                    + $"WHERE {_criteria} "
+                    + $"GROUP BY {_names} ;";
             }
-
-            return string.Empty;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
         }
 
         /// <summary>
@@ -884,39 +868,35 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && fields?.Any( ) == true
-               && numerics?.Any( ) == true )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( fields, "fields" );
+                ThrowIf.NullOrEmpty( numerics, "numerics" );
+                ThrowIf.NullOrEmpty( where, "where" );
+                var _cols = string.Empty;
+                var _aggr = string.Empty;
+                foreach( var _name in fields )
                 {
-                    var _cols = string.Empty;
-                    var _aggr = string.Empty;
-                    foreach( var _name in fields )
-                    {
-                        _cols += $"{_name}, ";
-                    }
-
-                    foreach( var _metric in numerics )
-                    {
-                        _aggr += $"SUM({_metric}) AS {_metric}, ";
-                    }
-
-                    var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    var _criteria = where.ToCriteria( );
-                    var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} "
-                        + $"WHERE {_criteria} "
-                        + $"GROUP BY {_groups};";
+                    _cols += $"{_name}, ";
                 }
-                catch( Exception _ex )
+
+                foreach( var _metric in numerics )
                 {
-                    Fail( _ex );
-                    return string.Empty;
+                    _aggr += $"SUM({_metric}) AS {_metric}, ";
                 }
+
+                var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
+                var _criteria = where.ToCriteria( );
+                var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                return $"SELECT {_columns} FROM {Source} "
+                    + $"WHERE {_criteria} "
+                    + $"GROUP BY {_groups};";
             }
-
-            return string.Empty;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
         }
 
         /// <summary>
@@ -928,28 +908,23 @@ namespace BudgetExecution
         {
             try
             {
-                if( Enum.IsDefined( typeof( Provider ), provider ) )
+                var _prefix = AppSettings[ "PathPrefix" ];
+                var _dbpath = AppSettings[ "DatabaseDirectory" ];
+                var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
+                var _names = Directory.GetDirectories( _path );
+                var _list = new List<string>( );
+                for( var _i = 0; _i < _names.Length; _i++ )
                 {
-                    var _prefix = AppSettings[ "PathPrefix" ];
-                    var _dbpath = AppSettings[ "DatabaseDirectory" ];
-                    var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
-                    var _names = Directory.GetDirectories( _path );
-                    var _list = new List<string>( );
-                    for( var _i = 0; _i < _names.Length; _i++ )
+                    var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
+                    if( !string.IsNullOrEmpty( _folder ) )
                     {
-                        var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
-                        if( !string.IsNullOrEmpty( _folder ) )
-                        {
-                            _list.Add( _folder );
-                        }
+                        _list.Add( _folder );
                     }
-
-                    return _list?.Count > 0
-                        ? _list
-                        : default( IList<string> );
                 }
 
-                return default( IList<string> );
+                return _list?.Count > 0
+                    ? _list
+                    : default( IList<string> );
             }
             catch( Exception _ex )
             {
@@ -1312,6 +1287,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Populates the table ComboBox items.
+        /// </summary>
         public void PopulateTableComboBoxItems( )
         {
             try
@@ -1320,7 +1298,8 @@ namespace BudgetExecution
                 TableNameComboBox.SelectedItem = string.Empty;
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Select( dr => dr.Field<string>( "TableName" ) )
+                var _names = _data
+                    ?.Select( dr => dr.Field<string>( "TableName" ) )
                     ?.Distinct( )
                     ?.ToList( );
 
@@ -1799,7 +1778,7 @@ namespace BudgetExecution
                     var _source = (Source)Enum.Parse( typeof( Source ), _value );
                     DataModel = new DataBuilder( _source, Provider.Access );
                     BindingSource.DataSource = DataModel.DataTable;
-                    var _columns = DataModel.GetDataColumns( );
+                    var _columns = DataModel.DataColumns;
                     foreach( var _col in _columns )
                     {
                         ColumnListBox.Items?.Add( _col.ColumnName );

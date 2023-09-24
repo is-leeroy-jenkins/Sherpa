@@ -93,7 +93,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public SupplementalCarryoverEstimate( IDataModel builder )
-            : base( builder.Query )
+            : base( builder )
         {
             Source = Source.SupplementalCarryoverEstimates;
             Record = builder.Record;

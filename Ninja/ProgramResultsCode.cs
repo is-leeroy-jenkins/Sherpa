@@ -113,14 +113,15 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ProgramResultsCode"/>
+        /// <see cref="T:BudgetExecution.ProgramResultsCode" />
         /// class.
         /// </summary>
         /// <param name="dataBuilder"> The builder. </param>
         public ProgramResultsCode( IDataModel dataBuilder )
-            : this( dataBuilder.Query )
+            : base( dataBuilder )
         {
             Record = dataBuilder.Record;
             ID = int.Parse( Record[ "StatusOfFundsId" ].ToString( ) );

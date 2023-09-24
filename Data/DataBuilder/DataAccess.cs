@@ -49,6 +49,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Threading.Tasks;
+    using System.Diagnostics;
     using DataTable = System.Data.DataTable;
 
     /// <inheritdoc />
@@ -63,9 +64,14 @@ namespace BudgetExecution
     public abstract class DataAccess : ISource, IProvider
     {
         /// <summary>
-        /// The query
+        /// The busy
         /// </summary>
-        private protected IQuery _query;
+        private protected bool _busy;
+
+        /// <summary>
+        /// The duration
+        /// </summary>
+        private protected TimeSpan _duration;
 
         /// <summary>
         /// The data set
@@ -120,12 +126,12 @@ namespace BudgetExecution
         public ISqlStatement SqlStatement { get; set; }
 
         /// <summary>
-        /// Gets or sets the query.
+        /// Gets or sets the duration.
         /// </summary>
         /// <value>
-        /// The query.
+        /// The duration.
         /// </value>
-        public IQuery Query { get; set; }
+        public TimeSpan Duration { get; set; }
 
         /// <summary>
         /// Gets or sets the record.
@@ -215,7 +221,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DataAccess.Fail( _ex );
+                Fail( _ex );
                 return default( IEnumerable<DataRow> );
             }
         }
@@ -226,29 +232,28 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected DataTable GetDataTable( )
         {
-            if( Query != null )
+            try
             {
-                try
-                {
-                    DataSet = new DataSet( $"{Provider}" );
-                    DataTable = new DataTable( $"{Source}" );
-                    DataTable.TableName = Source.ToString( );
-                    DataSet.Tables.Add( DataTable );
-                    var _adapter = Query.DataAdapter;
-                    _adapter.Fill( DataSet, DataTable.TableName );
-                    SetColumnCaptions( DataTable );
-                    return DataTable?.Rows?.Count > 0
-                        ? DataTable
-                        : default( DataTable );
-                }
-                catch( Exception _ex )
-                {
-                    DataAccess.Fail( _ex );
-                    return default( DataTable );
-                }
+                var _clock = Stopwatch.StartNew( );
+                ThrowIf.NullOrEmpty( SqlStatement, "SqlStatement" );
+                _dataSet = new DataSet( $"{Provider}" );
+                _dataTable = new DataTable( $"{Source}" );
+                _dataTable.TableName = Source.ToString( );
+                _dataSet.Tables.Add( _dataTable );
+                var _query = new Query( SqlStatement );
+                var _adapter = _query.DataAdapter;
+                _adapter.Fill( _dataSet, _dataTable.TableName );
+                SetColumnCaptions( _dataTable );
+                _duration = _clock.Elapsed;
+                return _dataTable?.Rows?.Count > 0
+                    ? _dataTable
+                    : default( DataTable );
             }
-
-            return default( DataTable );
+            catch( ArgumentNullException _ex )
+            {
+                Fail( _ex );
+                return default( DataTable );
+            }
         }
 
         /// <summary>
@@ -258,30 +263,29 @@ namespace BudgetExecution
         /// </returns>
         private protected Task<DataTable> GetTableAsync( )
         {
-            if( Query != null )
+            ThrowIf.NullOrEmpty( SqlStatement, "SqlStatement" );
+            var _tcs = new TaskCompletionSource<DataTable>( );
+            try
             {
-                var _tcs = new TaskCompletionSource<DataTable>( );
-                try
-                {
-                    DataSet = new DataSet( $"{Provider}" );
-                    DataTable = new DataTable( $"{Source}" );
-                    DataTable.TableName = Source.ToString( );
-                    DataSet.Tables.Add( DataTable );
-                    var _adapter = Query.DataAdapter;
-                    _adapter.Fill( DataSet, DataTable.TableName );
-                    SetColumnCaptions( DataTable );
-                    _tcs.SetResult( DataTable );
-                    return _tcs?.Task;
-                }
-                catch( Exception _ex )
-                {
-                    _tcs.SetException( _ex );
-                    DataAccess.Fail( _ex );
-                    return default( Task<DataTable> );
-                }
+                var _clock = Stopwatch.StartNew( );
+                _dataSet = new DataSet( $"{Provider}" );
+                _dataTable = new DataTable( $"{Source}" );
+                _dataTable.TableName = Source.ToString( );
+                _dataSet.Tables.Add( _dataTable );
+                var _query = new Query( SqlStatement );
+                var _adapter = _query.DataAdapter;
+                _adapter.Fill( _dataSet, _dataTable.TableName );
+                SetColumnCaptions( _dataTable );
+                _tcs.SetResult( _dataTable );
+                _duration = _clock.Elapsed;
+                return _tcs?.Task;
             }
-
-            return default( Task<DataTable> );
+            catch( Exception _ex )
+            {
+                _tcs.SetException( _ex );
+                Fail( _ex );
+                return default( Task<DataTable> );
+            }
         }
 
         /// <summary>
@@ -292,23 +296,21 @@ namespace BudgetExecution
         /// </param>
         private protected void SetColumnCaptions( DataTable dataTable )
         {
-            if( dataTable?.Rows?.Count > 0 )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( dataTable, dataTable.TableName );
+                foreach( DataColumn _column in dataTable?.Columns )
                 {
-                    foreach( DataColumn _column in dataTable.Columns )
+                    if( _column != null )
                     {
-                        if( _column != null )
-                        {
-                            var _caption = _column.ColumnName.SplitPascal( );
-                            _column.Caption = _caption;
-                        }
+                        var _caption = _column.ColumnName.SplitPascal( );
+                        _column.Caption = _caption;
                     }
                 }
-                catch( Exception _ex )
-                {
-                    DataAccess.Fail( _ex );
-                }
+            }
+            catch( ArgumentException _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -318,31 +320,27 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected IList<string> GetFields( )
         {
-            if( DataTable != null )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
+                var _fields = new List<string>( );
+                foreach( DataColumn _col in _dataTable.Columns )
                 {
-                    var _fields = new List<string>( );
-                    foreach( DataColumn _col in DataTable.Columns )
+                    if( _col.DataType == typeof( string ) )
                     {
-                        if( _col.DataType == typeof( string ) )
-                        {
-                            _fields.Add( _col.ColumnName );
-                        }
+                        _fields.Add( _col.ColumnName );
                     }
+                }
 
-                    return _fields?.Any( ) == true
-                        ? _fields
-                        : default( IList<string> );
-                }
-                catch( Exception _ex )
-                {
-                    DataAccess.Fail( _ex );
-                    return default( IList<string> );
-                }
+                return _fields?.Any( ) == true
+                    ? _fields
+                    : default( IList<string> );
             }
-
-            return default( IList<string> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
+            }
         }
 
         /// <summary>
@@ -351,37 +349,33 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected IList<string> GetNumerics( )
         {
-            if( DataTable != null )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
+                var _numerics = new List<string>( );
+                foreach( DataColumn _col in _dataTable.Columns )
                 {
-                    var _numerics = new List<string>( );
-                    foreach( DataColumn _col in DataTable.Columns )
+                    if( ( !_col.ColumnName.EndsWith( "Id" )
+                           && _col.Ordinal > 0
+                           && _col.DataType == typeof( double ) )
+                       || _col.DataType == typeof( short )
+                       || _col.DataType == typeof( long )
+                       || _col.DataType == typeof( decimal )
+                       || _col.DataType == typeof( float ) )
                     {
-                        if( ( !_col.ColumnName.EndsWith( "Id" )
-                               && _col.Ordinal > 0
-                               && _col.DataType == typeof( double ) )
-                           || _col.DataType == typeof( short )
-                           || _col.DataType == typeof( long )
-                           || _col.DataType == typeof( decimal )
-                           || _col.DataType == typeof( float ) )
-                        {
-                            _numerics.Add( _col.ColumnName );
-                        }
+                        _numerics.Add( _col.ColumnName );
                     }
+                }
 
-                    return _numerics?.Any( ) == true
-                        ? _numerics
-                        : default( IList<string> );
-                }
-                catch( Exception _ex )
-                {
-                    DataAccess.Fail( _ex );
-                    return default( IList<string> );
-                }
+                return _numerics?.Any( ) == true
+                    ? _numerics
+                    : default( IList<string> );
             }
-
-            return default( IList<string> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
+            }
         }
 
         /// <summary>
@@ -390,36 +384,32 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected IList<string> GetDates( )
         {
-            if( DataTable != null )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
+                var _dates = new List<string>( );
+                foreach( DataColumn _col in _dataTable.Columns )
                 {
-                    var _dates = new List<string>( );
-                    foreach( DataColumn _col in DataTable.Columns )
+                    if( _col.Ordinal > 0
+                       && ( _col.DataType == typeof( DateTime )
+                           || _col.DataType == typeof( DateOnly )
+                           || _col.DataType == typeof( DateTimeOffset )
+                           || _col.ColumnName.EndsWith( "Day" )
+                           || _col.ColumnName.EndsWith( "Date" ) ) )
                     {
-                        if( _col.Ordinal > 0
-                           && ( _col.DataType == typeof( DateTime )
-                               || _col.DataType == typeof( DateOnly )
-                               || _col.DataType == typeof( DateTimeOffset )
-                               || _col.ColumnName.EndsWith( "Day" )
-                               || _col.ColumnName.EndsWith( "Date" ) ) )
-                        {
-                            _dates.Add( _col.ColumnName );
-                        }
+                        _dates.Add( _col.ColumnName );
                     }
+                }
 
-                    return _dates?.Any( ) == true
-                        ? _dates
-                        : default( IList<string> );
-                }
-                catch( Exception _ex )
-                {
-                    DataAccess.Fail( _ex );
-                    return default( IList<string> );
-                }
+                return _dates?.Any( ) == true
+                    ? _dates
+                    : default( IList<string> );
             }
-
-            return default( IList<string> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
+            }
         }
 
         /// <summary>
@@ -429,23 +419,19 @@ namespace BudgetExecution
         /// </returns>
         private protected IList<int> GetPrimaryKeys( )
         {
-            if( DataTable != null )
+            try
             {
-                try
-                {
-                    var _values = DataTable.GetIndexValues( );
-                    return _values?.Any( ) == true
-                        ? _values.ToList( )
-                        : default( IList<int> );
-                }
-                catch( Exception _ex )
-                {
-                    DataAccess.Fail( _ex );
-                    return default( IList<int> );
-                }
+                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
+                var _values = _dataTable.GetIndexValues( );
+                return _values?.Any( ) == true
+                    ? _values.ToList( )
+                    : default( IList<int> );
             }
-
-            return default( IList<int> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<int> );
+            }
         }
 
         /// <summary>

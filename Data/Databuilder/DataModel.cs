@@ -55,6 +55,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [SuppressMessage("ReSharper", "ArrangeRedundantParentheses")]
     public class DataModel : ModelBase, IDataModel
     {
         /// <inheritdoc />
@@ -85,7 +86,6 @@ namespace BudgetExecution
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
-            Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
             DataElements = CreateSeries( DataTable );
             DataColumns = GetDataColumns( );
@@ -112,7 +112,6 @@ namespace BudgetExecution
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, where );
-            Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
             DataElements = CreateSeries( DataTable );
             DataColumns = GetDataColumns( );
@@ -143,7 +142,6 @@ namespace BudgetExecution
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
-            Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
@@ -173,7 +171,6 @@ namespace BudgetExecution
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
-            Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
@@ -206,7 +203,6 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, provider, fields, numerics, where,
                 commandType );
 
-            Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
@@ -232,7 +228,6 @@ namespace BudgetExecution
             Provider = Provider.Access;
             ConnectionFactory = new ConnectionFactory( source, Provider.Access );
             SqlStatement = new SqlStatement( source, Provider.Access, where );
-            Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
@@ -259,7 +254,6 @@ namespace BudgetExecution
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, sqlText );
-            Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
@@ -286,7 +280,6 @@ namespace BudgetExecution
             Source = ConnectionFactory.Source;
             Provider = ConnectionFactory.Provider;
             SqlStatement = new SqlStatement( Source, Provider, sqlText, commandType );
-            Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
@@ -307,7 +300,6 @@ namespace BudgetExecution
         public DataModel( IQuery query )
         {
             BeginInit( );
-            Query = query;
             Source = query.Source;
             Provider = query.Provider;
             ConnectionFactory = query.ConnectionFactory;
@@ -333,27 +325,23 @@ namespace BudgetExecution
         /// <returns></returns>
         public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string column )
         {
-            if( ( dataRows?.Any( ) == true )
-               && !string.IsNullOrEmpty( column ) )
+            try
             {
-                try
-                {
-                    var _query = dataRows
-                        ?.Select( v => v.Field<string>( column ) )
-                        ?.Distinct( );
+                ThrowIf.NullOrEmpty( dataRows, "dataRows" );
+                ThrowIf.NullOrEmpty( column, "column" );
+                var _query = dataRows
+                    ?.Select( v => v.Field<string>( column ) )
+                    ?.Distinct( );
                     
-                    return _query?.Any( ) == true
-                        ? _query
-                        : default( IEnumerable<string> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IEnumerable<string> );
-                }
+                return _query?.Any( ) == true
+                    ? _query
+                    : default( IEnumerable<string> );
             }
-
-            return default( IEnumerable<string> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<string> );
+            }
         }
 
         /// <summary>
@@ -366,28 +354,25 @@ namespace BudgetExecution
         public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string name,
             string value )
         {
-            if( ( dataRows?.Any( ) == true )
-               && !string.IsNullOrEmpty( value ) )
+            try
             {
-                try
-                {
-                    var _query = dataRows
-                        ?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
-                        ?.Select( v => v.Field<string>( $"{name}" ) )
-                        ?.Distinct( );
+                ThrowIf.NullOrEmpty( dataRows, "dataRows" );
+                ThrowIf.NullOrEmpty( name, "name" );
+                ThrowIf.NullOrEmpty( value, "value" );
+                var _query = dataRows
+                    ?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
+                    ?.Select( v => v.Field<string>( $"{name}" ) )
+                    ?.Distinct( );
 
-                    return _query?.Any( ) == true
-                        ? _query
-                        : default( IEnumerable<string> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IEnumerable<string> );
-                }
+                return _query?.Any( ) == true
+                    ? _query
+                    : default( IEnumerable<string> );
             }
-
-            return default( IEnumerable<string> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<string> );
+            }
         }
 
         /// <summary>
@@ -398,51 +383,48 @@ namespace BudgetExecution
         /// <returns></returns>
         public static DataTable CreateTableFromWorksheet( string filePath, bool header = true )
         {
-            if( !string.IsNullOrEmpty( filePath )
-               && Exists( filePath ) )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( filePath, "filePath" );
+                using var _package = new ExcelPackage( );
+                using var _stream = OpenRead( filePath );
+                _package.Load( _stream );
+                var _sheet = _package?.Workbook?.Worksheets?.First( );
+                var _table = new DataTable( _sheet?.Name );
+                if( _sheet?.Cells != null )
                 {
-                    using var _package = new ExcelPackage( );
-                    using var _stream = OpenRead( filePath );
-                    _package.Load( _stream );
-                    var _sheet = _package?.Workbook?.Worksheets?.First( );
-                    var _table = new DataTable( _sheet?.Name );
-                    if( _sheet?.Cells != null )
+                    var _lastColumn = _sheet.Dimension.End.Column;
+                    var _lastRow = _sheet.Dimension.End.Row;
+                    foreach( var _cell in _sheet?.Cells[ 1, 1, 1, _lastColumn ] )
                     {
-                        var _lastColumn = _sheet.Dimension.End.Column;
-                        var _lastRow = _sheet.Dimension.End.Row;
-                        foreach( var _cell in _sheet?.Cells[ 1, 1, 1, _lastColumn ] )
-                        {
-                            _table?.Columns?.Add( header
-                                ? _cell.Text
-                                : $"Column {_cell.Start.Column}" );
-                        }
-
-                        var _start = header
-                            ? 2
-                            : 1;
-
-                        for( var _row = _start; _row <= _lastRow; _row++ )
-                        {
-                            var _range = _sheet.Cells[ _row, 1, _row, _lastColumn ];
-                            var _data = _table.Rows?.Add( );
-                            foreach( var _cell in _range )
-                            {
-                                _data[ _cell.Start.Column - 1 ] = _cell?.Text;
-                            }
-                        }
-
-                        return _table?.Rows?.Count > 0
-                            ? _table
-                            : default( DataTable );
+                        _table?.Columns?.Add( header
+                            ? _cell.Text
+                            : $"Column {_cell.Start.Column}" );
                     }
+
+                    var _start = header
+                        ? 2
+                        : 1;
+
+                    for( var _row = _start; _row <= _lastRow; _row++ )
+                    {
+                        var _range = _sheet.Cells[ _row, 1, _row, _lastColumn ];
+                        var _data = _table.Rows?.Add( );
+                        foreach( var _cell in _range )
+                        {
+                            _data[ _cell.Start.Column - 1 ] = _cell?.Text;
+                        }
+                    }
+
+                    return _table?.Rows?.Count > 0
+                        ? _table
+                        : default( DataTable );
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( DataTable );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( DataTable );
             }
 
             return default( DataTable );
@@ -455,35 +437,31 @@ namespace BudgetExecution
         /// <returns></returns>
         private static IDictionary<string, IEnumerable<string>> CreateSeries( DataTable dataTable )
         {
-            if( dataTable?.Rows?.Count > 0 )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( dataTable, dataTable.TableName );
+                var _dict = new Dictionary<string, IEnumerable<string>>( );
+                var _columns = dataTable?.Columns;
+                var _rows = dataTable?.AsEnumerable( );
+                for( var _i = 0; _i < _columns?.Count; _i++ )
                 {
-                    var _dict = new Dictionary<string, IEnumerable<string>>( );
-                    var _columns = dataTable?.Columns;
-                    var _rows = dataTable?.AsEnumerable( );
-                    for( var _i = 0; _i < _columns?.Count; _i++ )
+                    if( !string.IsNullOrEmpty( _columns[ _i ]?.ColumnName )
+                       && ( _columns[ _i ]?.DataType == typeof( string ) ) )
                     {
-                        if( !string.IsNullOrEmpty( _columns[ _i ]?.ColumnName )
-                           && ( _columns[ _i ]?.DataType == typeof( string ) ) )
-                        {
-                            var _name = GetValues( _rows, _columns[ _i ]?.ColumnName );
-                            _dict?.Add( _columns[ _i ]?.ColumnName, _name );
-                        }
+                        var _name = GetValues( _rows, _columns[ _i ]?.ColumnName );
+                        _dict?.Add( _columns[ _i ]?.ColumnName, _name );
                     }
+                }
 
-                    return _dict?.Any( ) == true
-                        ? _dict
-                        : default( Dictionary<string, IEnumerable<string>> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IDictionary<string, IEnumerable<string>> );
-                }
+                return _dict?.Any( ) == true
+                    ? _dict
+                    : default( Dictionary<string, IEnumerable<string>> );
             }
-
-            return default( IDictionary<string, IEnumerable<string>> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, IEnumerable<string>> );
+            }
         }
     }
 }

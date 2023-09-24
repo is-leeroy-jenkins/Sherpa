@@ -130,6 +130,7 @@
             Message.StyleManager = null;
             Message.TabIndex = 3;
             Message.Text = "label1";
+            Message.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Message.ThemeAuthor = "Terry D. Eppler";
             Message.ThemeName = "Budget Execution";
             Message.ToolTip = null;
@@ -153,9 +154,10 @@
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
             MaximizeBox = false;
+            MaximumSize = new System.Drawing.Size( 735, 371 );
             MetroColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
             MinimizeBox = false;
-            MinimumSize = new System.Drawing.Size( 650, 250 );
+            MinimumSize = new System.Drawing.Size( 735, 371 );
             Name = "SplashMessage";
             ShowIcon = false;
             ShowMaximizeBox = false;

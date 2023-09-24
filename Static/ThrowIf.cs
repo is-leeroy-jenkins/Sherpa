@@ -41,51 +41,120 @@
 namespace BudgetExecution
 {
     using System;
+    using System.CodeDom;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class ThrowIf
     {
-        /// <summary> </summary>
-        public static class Argument
+        /// <summary>
+        /// Determines whether the specified string
+        /// argument is null or empty.
+        /// </summary>
+        /// <param name="argument">
+        /// The string argument.
+        /// </param>
+        /// <param name = "paramName" >
+        /// The name of the string argument.
+        /// </param>
+        /// <exception cref="System.ArgumentNullException">
+        /// </exception>
+        public static void NullOrEmpty( string argument, string paramName )
         {
-            /// <summary> Determines whether the specified argument is null. </summary>
-            /// <param name="argument"> The argument. </param>
-            /// <param name="argumentName"> Name of the argument. </param>
-            /// <exception cref="System.ArgumentNullException"> </exception>
-            public static void IsNull( object argument, string argumentName )
+            if( string.IsNullOrEmpty( argument )
+               && !string.IsNullOrEmpty( paramName ) )
             {
-                if( argument == null )
+                var _message = @$"string {paramName} can't be null or empty!";
+                throw new ArgumentNullException( paramName, _message );
+            }
+        }
+
+        /// <summary>
+        /// Nulls the specified argument.
+        /// </summary>
+        /// <param name="argument">The argument.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        public static void NullOrEmpty( object argument, string paramName )
+        {
+            if( !string.IsNullOrEmpty( paramName ) )
+            {
+                switch( argument )
                 {
-                    throw new ArgumentNullException( argumentName );
+                    case string _args when string.IsNullOrEmpty( _args ):
+
+                    {
+                        var _message = @$"string {paramName} can't be null or empty!";
+                        throw new ArgumentNullException( _message );
+                    }
+                    case IListSource _listSource when _listSource == null:
+
+                    {
+                        throw new ArgumentNullException( paramName );
+                    }
+                    case IEnumerable<DataRow> _list when _list == null:
+
+                    {
+                        throw new ArgumentNullException( paramName );
+                    }
+                    case ICollection _collection when _collection == null:
+                    {
+                        throw new ArgumentNullException( paramName );
+                    }
+                    case IList<string> _stringList when _stringList == null:
+                    {
+                        throw new ArgumentNullException( paramName );
+                    }
                 }
             }
+        }
 
-            /// <summary> Determines whether the specified argument is negative. </summary>
-            /// <param name="argument"> The argument. </param>
-            /// <param name="argumentName"> Name of the argument. </param>
-            /// <exception cref="System.ArgumentOutOfRangeException"> </exception>
-            public static void IsNegative( int argument, string argumentName )
+        /// <summary>
+        /// Determines whether the specified argument is negative.
+        /// </summary>
+        /// <param name="argument">
+        /// The argument.
+        /// </param>
+        /// <param name = "paramName" >
+        /// The argument's name.
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// </exception>
+        public static void Negative( int argument, string paramName )
+        {
+            if( argument < 0 )
             {
-                if( argument < 0 )
-                {
-                    var _message = $"{argumentName} Must Be Greater Than Zero.";
-                    throw new ArgumentOutOfRangeException( argumentName, _message );
-                }
+                var _message = @$"{paramName} can't be less than zero!";
+                throw new ArgumentOutOfRangeException( paramName, _message );
             }
+        }
 
-            /// <summary>
-            /// Determines whether [is zero or negative] [the specified argument].
-            /// </summary>
-            /// <param name="argument"> The argument. </param>
-            /// <param name="argumentName"> Name of the argument. </param>
-            /// <exception cref="System.ArgumentOutOfRangeException"> </exception>
-            public static void IsZeroOrNegative( int argument, string argumentName )
+        /// <summary>
+        /// Throws out of range exception if argument is less than zero
+        /// </summary>
+        /// <param name="argument">
+        /// The argument.</param>
+        /// <param name="paramName">
+        /// Name of the parameter.
+        /// </param>
+        /// <returns>
+        /// Throws Out of Range Exception
+        /// </returns>
+        /// <exception cref="ArgumentOutOfRangeException">paramName, _message</exception>
+        public static void NegativeOrZero( int argument, string paramName )
+        {
+            if( argument < 0 )
             {
-                if( argument <= 0 )
-                {
-                    var _message = $"{argumentName} Must Be Greater Than Zero.";
-                    throw new ArgumentOutOfRangeException( argumentName, _message );
-                }
+                var _message = @$"{paramName} can't be less than zero!";
+                throw new ArgumentOutOfRangeException( paramName, _message );
             }
         }
     }

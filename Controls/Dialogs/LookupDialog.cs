@@ -439,7 +439,7 @@ namespace BudgetExecution
                     var _source = (Source)Enum.Parse( typeof( Source ), _value );
                     DataModel = new DataBuilder( _source, Provider.Access );
                     BindingSource.DataSource = DataModel.DataTable;
-                    var _columns = DataModel.GetDataColumns( );
+                    var _columns = DataModel.DataColumns;
                     foreach( var _col in _columns )
                     {
                         ColumnListBox.Items?.Add( _col.ColumnName );

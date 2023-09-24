@@ -223,7 +223,7 @@ namespace BudgetExecution
             SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
-            CommandComboBox.SelectedValueChanged += OnCommandComboBoxItemSelected;
+            CommandComboBox.SelectedIndexChanged += OnCommandComboBoxItemSelected;
             QueryListBox.SelectedValueChanged += OnListBoxItemSelected;
             RefreshButton.Click += OnRefreshButtonClick;
             SaveButton.Click += OnSaveButtonClick;
@@ -1440,56 +1440,53 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnCommandComboBoxItemSelected( object sender, EventArgs e )
         {
-            if( sender is ComboBox _comboBox
-               && !string.IsNullOrEmpty( _comboBox.SelectedText ) )
+            try
             {
-                try
+                var _comboBox = sender as ComboBox;
+                var _prefix = AppSettings[ "PathPrefix" ];
+                var _dbpath = AppSettings[ "DatabaseDirectory" ];
+                SelectedCommand = string.Empty;
+                var _selection = _comboBox?.SelectedItem?.ToString( );
+                QueryListBox.Items?.Clear( );
+                if( _selection?.Contains( " " ) == true )
                 {
-                    var _prefix = AppSettings[ "PathPrefix" ];
-                    var _dbpath = AppSettings[ "DatabaseDirectory" ];
-                    SelectedCommand = string.Empty;
-                    var _selection = _comboBox.SelectedItem?.ToString( );
-                    QueryListBox.Items?.Clear( );
-                    if( _selection?.Contains( " " ) == true )
-                    {
-                        SelectedCommand = _selection.Replace( " ", "" );
-                        var _path = _prefix
-                            + _dbpath
-                            + @$"\{Provider}\DataModels\{SelectedCommand}";
+                    SelectedCommand = _selection.Replace( " ", "" );
+                    var _path = _prefix
+                        + _dbpath
+                        + @$"\{Provider}\DataModels\{SelectedCommand}";
 
-                        var _files = GetFiles( _path );
-                        for( var _i = 0; _i < _files.Length; _i++ )
-                        {
-                            var _item = GetFileNameWithoutExtension( _files[ _i ] );
-                            var _caption = _item?.SplitPascal( );
-                            QueryListBox.Items?.Add( _caption );
-                        }
-                    }
-                    else
+                    var _files = GetFiles( _path );
+                    for( var _i = 0; _i < _files.Length; _i++ )
                     {
-                        SelectedCommand = _comboBox.SelectedItem?.ToString( );
-                        var _path = _prefix
-                            + _dbpath
-                            + @$"\{Provider}\DataModels\{SelectedCommand}";
-
-                        var _names = GetFiles( _path );
-                        for( var _i = 0; _i < _names.Length; _i++ )
-                        {
-                            var _item = GetFileNameWithoutExtension( _names[ _i ] );
-                            var _caption = _item?.SplitPascal( );
-                            QueryListBox.Items?.Add( _caption );
-                        }
-                    }
-
-                    if( TabControl.SelectedIndex != 0 )
-                    {
-                        TabControl.SelectedIndex = 0;
+                        var _item = GetFileNameWithoutExtension( _files[ _i ] );
+                        var _caption = _item?.SplitPascal( );
+                        QueryListBox.Items?.Add( _caption );
                     }
                 }
-                catch( Exception _ex )
+                else
                 {
-                    Fail( _ex );
+                    SelectedCommand = _comboBox.SelectedItem?.ToString( );
+                    var _path = _prefix
+                        + _dbpath
+                        + @$"\{Provider}\DataModels\{SelectedCommand}";
+
+                    var _names = GetFiles( _path );
+                    for( var _i = 0; _i < _names.Length; _i++ )
+                    {
+                        var _item = GetFileNameWithoutExtension( _names[ _i ] );
+                        var _caption = _item?.SplitPascal( );
+                        QueryListBox.Items?.Add( _caption );
+                    }
                 }
+
+                if( TabControl.SelectedIndex != 0 )
+                {
+                    TabControl.SelectedIndex = 0;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -1788,7 +1785,7 @@ namespace BudgetExecution
                     var _source = (Source)Enum.Parse( typeof( Source ), _value );
                     DataModel = new DataBuilder( _source, Provider.Access );
                     BindingSource.DataSource = DataModel.DataTable;
-                    var _columns = DataModel.GetDataColumns( );
+                    var _columns = DataModel.DataColumns;
                     foreach( var _col in _columns )
                     {
                         ColumnListBox.Items?.Add( _col.ColumnName );

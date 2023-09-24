@@ -101,14 +101,15 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Deobligation"/>
+        /// <see cref="T:BudgetExecution.Deobligation" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public Deobligation( IDataModel builder )
-            : base( builder.Query )
+            : base( builder )
         {
             Source = Source.Deobligations;
             Record = builder.Record;

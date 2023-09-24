@@ -44,15 +44,17 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.BudgetUnit" />
+    /// <seealso cref="T:BudgetExecution.BudgetUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class BudgetDocument : BudgetUnit
     {
+        /// <inheritdoc />
         /// <summary>
         /// </summary>
         public override int ID { get; set; }
@@ -145,8 +147,10 @@ namespace BudgetExecution
             Source = Source.BudgetDocuments;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetDocument"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.BudgetDocument" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public BudgetDocument( IQuery query )
@@ -174,12 +178,14 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetDocument"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.BudgetDocument" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public BudgetDocument( IDataModel builder )
-            : this( builder.Query )
+            : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -203,8 +209,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetDocument"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.BudgetDocument" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public BudgetDocument( DataRow dataRow )
@@ -229,6 +237,34 @@ namespace BudgetExecution
             TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="BudgetDocument"/> class.
+        /// </summary>
+        /// <param name="budgetDocument">The budget document.</param>
+        public BudgetDocument( BudgetDocument budgetDocument )
+        {
+            Record = budgetDocument.Record;
+            Data = budgetDocument.Data;
+            BudgetLevel = budgetDocument.BudgetLevel;
+            BFY = budgetDocument.BFY;
+            EFY = budgetDocument.EFY;
+            FundCode = budgetDocument.FundCode;
+            FundName = budgetDocument.FundName;
+            DocumentType = budgetDocument.DocumentType;
+            DocumentDate = budgetDocument.DocumentDate;
+            Budgeted = budgetDocument.Budgeted;
+            Posted = budgetDocument.Posted;
+            CarryoverOut = budgetDocument.CarryoverOut;
+            CarryoverIn = budgetDocument.CarryoverIn;
+            Recoveries = budgetDocument.Recoveries;
+            Reimbursements = budgetDocument.Reimbursements;
+            TreasuryAccountCode = budgetDocument.TreasuryAccountCode;
+            TreasuryAccountName = budgetDocument.TreasuryAccountName;
+            BudgetAccountCode = budgetDocument.BudgetAccountCode;
+            BudgetAccountName = budgetDocument.BudgetAccountName;
         }
     }
 }

@@ -33,7 +33,7 @@
 //     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //     DEALINGS IN THE SOFTWARE.
 // 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//     You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // 
 //  </copyright>
 //  <summary>
@@ -50,9 +50,11 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
 
     /// <inheritdoc />
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     /// <seealso cref="T:BudgetExecution.TileBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage("ReSharper", "ClassCanBeSealed.Global" ) ]
     public class Tile : TileBase
     {
         /// <inheritdoc />
