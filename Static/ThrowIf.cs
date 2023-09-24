@@ -47,12 +47,14 @@ namespace BudgetExecution
     using System.ComponentModel;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
 
     /// <summary>
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertTypeCheckPatternToNullCheck" ) ]
     public static class ThrowIf
     {
         /// <summary>
@@ -87,32 +89,10 @@ namespace BudgetExecution
         {
             if( !string.IsNullOrEmpty( paramName ) )
             {
-                switch( argument )
+                var _message = @$"{paramName} can't be null or empty!";
+                if( argument == null )
                 {
-                    case string _args when string.IsNullOrEmpty( _args ):
-
-                    {
-                        var _message = @$"string {paramName} can't be null or empty!";
-                        throw new ArgumentNullException( _message );
-                    }
-                    case IListSource _listSource when _listSource == null:
-
-                    {
-                        throw new ArgumentNullException( paramName );
-                    }
-                    case IEnumerable<DataRow> _list when _list == null:
-
-                    {
-                        throw new ArgumentNullException( paramName );
-                    }
-                    case ICollection _collection when _collection == null:
-                    {
-                        throw new ArgumentNullException( paramName );
-                    }
-                    case IList<string> _stringList when _stringList == null:
-                    {
-                        throw new ArgumentNullException( paramName );
-                    }
+                    throw new ArgumentNullException( paramName, _message );
                 }
             }
         }
