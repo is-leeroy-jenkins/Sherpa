@@ -57,6 +57,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public abstract class ExcelConfig
     {
         /// <summary>
@@ -245,17 +246,14 @@ namespace BudgetExecution
         /// <param name="filePath">The file path.</param>
         public void SetFileName( string filePath )
         {
-            if( !string.IsNullOrEmpty( filePath )
-               && File.Exists( filePath ) )
+            try
             {
-                try
-                {
-                    FilePath = GetFileNameWithoutExtension( filePath );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.NullOrEmpty( filePath, "filePath" );
+                FilePath = GetFileNameWithoutExtension( filePath );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -268,6 +266,8 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.NullOrEmpty( filePath, "filePath" );
+                ThrowIf.NotFile( filePath, "filePath" );
                 var _path = GetExtension( filePath );
                 if( _path != null )
                 {
@@ -294,40 +294,37 @@ namespace BudgetExecution
         /// <returns></returns>
         public string GetConnectionString( string extension, string filePath )
         {
-            if( !string.IsNullOrEmpty( extension )
-               && !string.IsNullOrEmpty( filePath ) )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( extension, "extension" );
+                ThrowIf.NotFile( filePath, "filePath" );
+                switch( extension?.ToUpper( ) )
                 {
-                    switch( extension?.ToUpper( ) )
+                    case ".XLS":
                     {
-                        case ".XLS":
-                        {
-                            return @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" 
-                                + filePath 
-                                + ";Extended Properties=\"Excel 8.0;HDR=YES;\"";
-                        }
-                        case ".XLSX":
-                        {
-                            return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" 
-                                + filePath 
-                                + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
-                        }
-                        default:
-                        {
-                            return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" 
-                                + filePath 
-                                + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
-                        }
+                        return @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" 
+                            + filePath 
+                            + ";Extended Properties=\"Excel 8.0;HDR=YES;\"";
+                    }
+                    case ".XLSX":
+                    {
+                        return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" 
+                            + filePath 
+                            + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
+                    }
+                    default:
+                    {
+                        return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" 
+                            + filePath 
+                            + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
             }
-
-            return string.Empty;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
         }
 
         /// <summary>

@@ -45,6 +45,7 @@ namespace BudgetExecution
     using System.ComponentModel;
     using System.Drawing;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
     using System.Linq;
 
     /// <summary>
@@ -170,6 +171,29 @@ namespace BudgetExecution
                 if( argument == null )
                 {
                     throw new ArgumentNullException( _message );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Nulls the specified argument.
+        /// </summary>
+        /// <param name="argument">The argument.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        public static void NotFile( string argument, string paramName )
+        {
+            if( !string.IsNullOrEmpty( paramName ) )
+            {
+                var _message = @$"'{paramName}' is not a file!";
+                if( !string.IsNullOrEmpty( argument ) 
+                   && !File.Exists( argument ) )
+                {
+                    throw new ArgumentNullException( _message );
+                }
+                else if( string.IsNullOrEmpty( argument ) )
+                {
+                    throw new ArgumentException( _message, paramName );
                 }
             }
         }
