@@ -146,18 +146,16 @@ namespace BudgetExecution
         /// <param name="width">The width.</param>
         public void SetColumnWidth( Grid grid, double width )
         {
-            if( ( grid?.Worksheet != null )
-               && ( width > 0d ) )
+            try
             {
-                try
-                {
-                    using var _range = grid.Range;
-                    _range.AutoFitColumns( width );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.NullOrEmpty( grid, "grid" );
+                ThrowIf.NegativeOrZero( width, "width" );
+                using var _range = grid.Range;
+                _range.AutoFitColumns( width );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -168,21 +166,18 @@ namespace BudgetExecution
         /// <param name="color">The color.</param>
         public void SetBackgroundColor( Grid grid, Color color )
         {
-            if( ( grid?.Worksheet != null )
-               && ( grid?.Range != null )
-               && ( color != Color.Empty ) )
+            try
             {
-                try
-                {
-                    using var _range = grid.Range;
-                    _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    _range.Style.Fill.BackgroundColor.SetColor( color );
-                    _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.NullOrEmpty( grid, "grid" );
+                ThrowIf.NullOrEmpty( color, "color" );
+                using var _range = grid.Range;
+                _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                _range.Style.Fill.BackgroundColor.SetColor( color );
+                _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -193,19 +188,16 @@ namespace BudgetExecution
         /// <param name="font">The font.</param>
         public void SetRangeFont( Grid grid, Font font )
         {
-            if( ( grid?.Worksheet != null )
-               && ( grid?.Range != null )
-               && ( font != null ) )
+            try
             {
-                try
-                {
-                    using var _range = grid.Range;
-                    _range.Style.Font.SetFromFont( font.Name, font.Size );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.NullOrEmpty( grid, "grid" );
+                ThrowIf.NullOrEmpty( font, "font" );
+                using var _range = grid.Range;
+                _range.Style.Font.SetFromFont( font.Name, font.Size );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -216,20 +208,17 @@ namespace BudgetExecution
         /// <param name="color">The color.</param>
         public void SetFontColor( Grid grid, Color color )
         {
-            if( ( grid?.Worksheet != null )
-               && ( grid?.Range != null )
-               && ( color != Color.Empty ) )
+            try
             {
-                try
-                {
-                    using var _range = grid.Range;
-                    _range.Style.Font.Color.SetColor( color );
-                    _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.NullOrEmpty( grid, "grid" );
+                ThrowIf.NullOrEmpty( color, "color" );
+                using var _range = grid.Range;
+                _range.Style.Font.Color.SetColor( color );
+                _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -336,18 +325,15 @@ namespace BudgetExecution
         /// <param name="grid">The grid.</param>
         public void MergeCells( Grid grid )
         {
-            if( ( grid?.Worksheet != null )
-               && ( grid?.Range != null ) )
+            try
             {
-                try
-                {
-                    using var _range = grid.Range;
-                    _range.Merge = true;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.NullOrEmpty( grid, "grid" );
+                using var _range = grid.Range;
+                _range.Merge = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
     }

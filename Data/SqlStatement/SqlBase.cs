@@ -440,8 +440,8 @@ namespace BudgetExecution
             {
                 var _criteria = Criteria.ToCriteria( );
                 return !string.IsNullOrEmpty( _criteria )
-                    ? $"DELETE FROM {Source} WHERE {_criteria};"
-                    : $"DELETE FROM {Source};";
+                    ? $"DELETE * FROM {Source} WHERE {_criteria};"
+                    : $"DELETE * FROM {Source};";
             }
             catch( Exception _ex )
             {

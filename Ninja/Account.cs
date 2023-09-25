@@ -57,6 +57,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
     public class Account : PRC
     {
         /// <summary>
@@ -226,23 +227,19 @@ namespace BudgetExecution
         /// </returns>
         private protected IDictionary<string, object> GetArgs( string code )
         {
-            if( !string.IsNullOrEmpty( code ) )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( code, "code" );
+                return new Dictionary<string, object>
                 {
-                    return new Dictionary<string, object>
-                    {
-                        [ $"{Field.Code}" ] = code
-                    };
-                }
-                catch( Exception _ex )
-                {
-                    Account.Fail( _ex );
-                    return default( IDictionary<string, object> );
-                }
+                    [ "Code" ] = code
+                };
             }
-
-            return default( IDictionary<string, object> );
+            catch( Exception _ex )
+            {
+                Account.Fail( _ex );
+                return default( IDictionary<string, object> );
+            }
         }
     }
 }

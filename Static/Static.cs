@@ -50,7 +50,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public static class Static
     {
@@ -107,11 +107,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( connection == null )
-                {
-                    throw new ArgumentNullException( nameof( connection ) );
-                }
-
+                ThrowIf.None( sql, "sql" );
                 var _command = connection?.CreateCommand( );
                 _command.CommandText = sql;
                 return !string.IsNullOrEmpty( _command?.CommandText )
@@ -133,21 +129,17 @@ namespace BudgetExecution
         /// <returns></returns>
         public static int ExecuteNonQuery( this IDbConnection connection, string sql )
         {
-            if( !string.IsNullOrEmpty( sql ) )
+            try
             {
-                try
-                {
-                    using var _command = connection?.CreateCommand( sql );
-                    return _command?.ExecuteNonQuery( ) ?? 0;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( int );
-                }
+                ThrowIf.None( sql, "sql" );
+                using var _command = connection?.CreateCommand( sql );
+                return _command?.ExecuteNonQuery( ) ?? 0;
             }
-
-            return -1;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( int );
+            }
         }
 
         /// <summary>
@@ -160,68 +152,62 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.None( message, "message" );
                 var _stringBuilder = new StringBuilder( );
-                if( !string.IsNullOrEmpty( message ) )
+                _stringBuilder.Append( message );
+                _stringBuilder.Append( Environment.NewLine );
+                var _exception = ex;
+                _stringBuilder.Append( "Exception:" );
+                _stringBuilder.Append( Environment.NewLine );
+                while( _exception != null )
                 {
-                    _stringBuilder.Append( message );
+                    _stringBuilder.Append( _exception.Message );
                     _stringBuilder.Append( Environment.NewLine );
+                    _exception = _exception.InnerException;
                 }
 
-                if( ex != null )
+                if( ex.Data != null )
                 {
-                    var _exception = ex;
-                    _stringBuilder.Append( "Exception:" );
-                    _stringBuilder.Append( Environment.NewLine );
-                    while( _exception != null )
+                    foreach( var _i in ex.Data )
                     {
-                        _stringBuilder.Append( _exception.Message );
+                        _stringBuilder.Append( "Data :" );
+                        _stringBuilder.Append( _i );
                         _stringBuilder.Append( Environment.NewLine );
-                        _exception = _exception.InnerException;
-                    }
-
-                    if( ex.Data != null )
-                    {
-                        foreach( var _i in ex.Data )
-                        {
-                            _stringBuilder.Append( "Data :" );
-                            _stringBuilder.Append( _i );
-                            _stringBuilder.Append( Environment.NewLine );
-                        }
-                    }
-
-                    if( ex.StackTrace != null )
-                    {
-                        _stringBuilder.Append( "StackTrace:" );
-                        _stringBuilder.Append( Environment.NewLine );
-                        _stringBuilder.Append( ex.StackTrace );
-                        _stringBuilder.Append( Environment.NewLine );
-                    }
-
-                    if( ex.Source != null )
-                    {
-                        _stringBuilder.Append( "ErrorSource:" );
-                        _stringBuilder.Append( Environment.NewLine );
-                        _stringBuilder.Append( ex.Source );
-                        _stringBuilder.Append( Environment.NewLine );
-                    }
-
-                    if( ex.TargetSite != null )
-                    {
-                        _stringBuilder.Append( "TargetSite:" );
-                        _stringBuilder.Append( Environment.NewLine );
-                        _stringBuilder.Append( ex.TargetSite );
-                        _stringBuilder.Append( Environment.NewLine );
-                    }
-
-                    var _baseException = ex.GetBaseException( );
-                    if( _baseException != null )
-                    {
-                        _stringBuilder.Append( "BaseException:" );
-                        _stringBuilder.Append( Environment.NewLine );
-                        _stringBuilder.Append( ex.GetBaseException( ) );
                     }
                 }
 
+                if( ex.StackTrace != null )
+                {
+                    _stringBuilder.Append( "StackTrace:" );
+                    _stringBuilder.Append( Environment.NewLine );
+                    _stringBuilder.Append( ex.StackTrace );
+                    _stringBuilder.Append( Environment.NewLine );
+                }
+
+                if( ex.Source != null )
+                {
+                    _stringBuilder.Append( "ErrorSource:" );
+                    _stringBuilder.Append( Environment.NewLine );
+                    _stringBuilder.Append( ex.Source );
+                    _stringBuilder.Append( Environment.NewLine );
+                }
+
+                if( ex.TargetSite != null )
+                {
+                    _stringBuilder.Append( "TargetSite:" );
+                    _stringBuilder.Append( Environment.NewLine );
+                    _stringBuilder.Append( ex.TargetSite );
+                    _stringBuilder.Append( Environment.NewLine );
+                }
+
+                var _baseException = ex.GetBaseException( );
+                if( _baseException != null )
+                {
+                    _stringBuilder.Append( "BaseException:" );
+                    _stringBuilder.Append( Environment.NewLine );
+                    _stringBuilder.Append( ex.GetBaseException( ) );
+                }
+                
                 return _stringBuilder.ToString( );
             }
             catch( Exception _ex )

@@ -43,6 +43,7 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Drawing;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
@@ -52,6 +53,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertTypeCheckPatternToNullCheck" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InternalOrPrivateMemberNotDocumented" ) ]
     public static class ThrowIf
     {
         /// <summary>
@@ -88,6 +91,46 @@ namespace BudgetExecution
             {
                 var _message = @$"Object '{paramName}' is null or empty!";
                 if( argument == null )
+                {
+                    throw new ArgumentNullException( _message );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Nulls the specified argument.
+        /// </summary>
+        /// <param name="argument">The argument.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        public static void NullOrEmpty( IDictionary<string, object> argument, string paramName )
+        {
+            if( !string.IsNullOrEmpty( paramName ) )
+            {
+                var _message = @$"Dictionary '{paramName}' is null of empty!";
+                if( ( argument == null )
+                   || ( argument.Any( ) == false )  )
+                {
+                    throw new ArgumentNullException( _message );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Nulls the specified argument.
+        /// </summary>
+        /// <param name="argument">The argument.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        public static void NullOrEmpty( Color argument, string paramName )
+        {
+            if( !string.IsNullOrEmpty( paramName ) )
+            {
+                var _message = @$"Color '{paramName}' is empty or undefined!";
+                if( argument.IsEmpty 
+                   || ( !argument.IsKnownColor 
+                       && !argument.IsNamedColor 
+                       && !argument.IsSystemColor ) )
                 {
                     throw new ArgumentNullException( _message );
                 }
@@ -155,6 +198,53 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Determines whether the specified argument is negative.
+        /// </summary>
+        /// <param name="argument">
+        /// The argument.
+        /// </param>
+        /// <param name = "paramName" >
+        /// The argument's name.
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// </exception>
+        public static void Negative( double argument, string paramName )
+        {
+            if( !string.IsNullOrEmpty( paramName ) )
+            {
+                if( argument < 0 )
+                {
+                    var _message = @$"Value '{paramName}' is negative!";
+                    throw new ArgumentOutOfRangeException( paramName, _message );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Throws out of range exception if argument is less than zero
+        /// </summary>
+        /// <param name="argument">
+        /// The argument.</param>
+        /// <param name="paramName">
+        /// Name of the parameter.
+        /// </param>
+        /// <returns>
+        /// Throws Out of Range Exception
+        /// </returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static void NegativeOrZero( int argument, string paramName )
+        {
+            if( !string.IsNullOrEmpty( paramName ) )
+            {
+                if( argument < 0 )
+                {
+                    var _message = @$"Value '{paramName}' is zero or negative!";
+                    throw new ArgumentOutOfRangeException( paramName, _message );
+                }
+            }
+        }
+
+        /// <summary>
         /// Throws out of range exception if argument is less than zero
         /// </summary>
         /// <param name="argument">
@@ -166,7 +256,7 @@ namespace BudgetExecution
         /// Throws Out of Range Exception
         /// </returns>
         /// <exception cref="ArgumentOutOfRangeException">paramName, _message</exception>
-        public static void NegativeOrZero( int argument, string paramName )
+        public static void NegativeOrZero( double argument, string paramName )
         {
             if( !string.IsNullOrEmpty( paramName ) )
             {
