@@ -731,7 +731,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( where, "where" );
+                ThrowIf.NoItems( where, "where" );
                 var _sql = CreateSqlText( where );
                 DataModel = new DataBuilder( Source, Provider, _sql );
                 DataTable = DataModel?.DataTable;
