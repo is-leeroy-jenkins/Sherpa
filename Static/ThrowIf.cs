@@ -41,13 +41,10 @@
 namespace BudgetExecution
 {
     using System;
-    using System.CodeDom;
-    using System.Collections;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.IO;
+    using System.Linq;
 
     /// <summary>
     /// 
@@ -74,8 +71,8 @@ namespace BudgetExecution
             if( string.IsNullOrEmpty( argument )
                && !string.IsNullOrEmpty( paramName ) )
             {
-                var _message = @$"string {paramName} can't be null or empty!";
-                throw new ArgumentNullException( paramName, _message );
+                var _message = @$"String '{paramName}' is null or empty!";
+                throw new ArgumentNullException( _message );
             }
         }
 
@@ -89,10 +86,47 @@ namespace BudgetExecution
         {
             if( !string.IsNullOrEmpty( paramName ) )
             {
-                var _message = @$"{paramName} can't be null or empty!";
+                var _message = @$"Object '{paramName}' is null or empty!";
                 if( argument == null )
                 {
-                    throw new ArgumentNullException( paramName, _message );
+                    throw new ArgumentNullException( _message );
+                }
+            }
+        }
+
+        /// <summary>
+        /// None throws exception if 'argument' has no elements.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="argument">The argument.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        public static void None<T>( IEnumerable<T> argument, string paramName )
+        {
+            if( !string.IsNullOrEmpty( paramName ) )
+            {
+                var _message = @$"Enumerable '{paramName}' is null or empty!";
+                if( !argument.Any( ) )
+                {
+                    throw new ArgumentNullException( _message );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Noes the data.
+        /// </summary>
+        /// <param name="argument">The argument.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        public static void NoData( IListSource argument, string paramName )
+        {
+            if( !string.IsNullOrEmpty( paramName ) )
+            {
+                var _message = @$"ListSource '{paramName}' is null or empty!";
+                if( argument == null )
+                {
+                    throw new ArgumentNullException( _message );
                 }
             }
         }
@@ -110,10 +144,13 @@ namespace BudgetExecution
         /// </exception>
         public static void Negative( int argument, string paramName )
         {
-            if( argument < 0 )
+            if( !string.IsNullOrEmpty( paramName ) )
             {
-                var _message = @$"{paramName} can't be less than zero!";
-                throw new ArgumentOutOfRangeException( paramName, _message );
+                if( argument < 0 )
+                {
+                    var _message = @$"Value '{paramName}' is negative!";
+                    throw new ArgumentOutOfRangeException( paramName, _message );
+                }
             }
         }
 
@@ -131,10 +168,13 @@ namespace BudgetExecution
         /// <exception cref="ArgumentOutOfRangeException">paramName, _message</exception>
         public static void NegativeOrZero( int argument, string paramName )
         {
-            if( argument < 0 )
+            if( !string.IsNullOrEmpty( paramName ) )
             {
-                var _message = @$"{paramName} can't be less than zero!";
-                throw new ArgumentOutOfRangeException( paramName, _message );
+                if( argument < 0 )
+                {
+                    var _message = @$"Value '{paramName}' is zero or negative!";
+                    throw new ArgumentOutOfRangeException( paramName, _message );
+                }
             }
         }
     }

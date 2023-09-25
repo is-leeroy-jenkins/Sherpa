@@ -74,6 +74,40 @@ namespace BudgetExecution
         private protected TimeSpan _duration;
 
         /// <summary>
+        /// The fields
+        /// </summary>
+        private protected IList<string> _fields;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private protected IList<string> _numerics;
+
+        /// <summary>
+        /// The dates
+        /// </summary>
+        private protected IList<string> _dates;
+
+        /// <summary>
+        /// The column names
+        /// </summary>
+        private protected IEnumerable<string> _columnNames;
+
+        /// <summary>
+        /// The data columns
+        /// </summary>
+        private protected IEnumerable<string> _dataColumns;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the data elements.
+        /// </summary>
+        /// <value>
+        /// The data elements.
+        /// </value>
+        private protected IDictionary<string, IEnumerable<string>> _elements;
+
+        /// <summary>
         /// The data set
         /// </summary>
         private protected DataSet _dataSet;
@@ -82,6 +116,11 @@ namespace BudgetExecution
         /// The data table
         /// </summary>
         private protected DataTable _dataTable;
+
+        /// <summary>
+        /// The record
+        /// </summary>
+        private protected DataRow _record;
 
         /// <inheritdoc />
         /// <summary>
@@ -124,30 +163,6 @@ namespace BudgetExecution
         /// The SQL statement.
         /// </value>
         public ISqlStatement SqlStatement { get; set; }
-
-        /// <summary>
-        /// Gets or sets the duration.
-        /// </summary>
-        /// <value>
-        /// The duration.
-        /// </value>
-        public TimeSpan Duration { get; set; }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
-        public DataTable DataTable { get; set; }
 
         /// <summary>
         /// Gets or sets the data columns.
@@ -198,14 +213,6 @@ namespace BudgetExecution
         public IList<string> Numerics { get; set; }
 
         /// <summary>
-        /// Gets or sets the data set.
-        /// </summary>
-        /// <value>
-        /// The data set.
-        /// </value>
-        public DataSet DataSet { get; set; }
-
-        /// <summary>
         /// Gets the data.
         /// </summary>
         /// <returns></returns>
@@ -213,8 +220,12 @@ namespace BudgetExecution
         {
             try
             {
-                var _table = GetDataTable( );
-                var _data = _table?.AsEnumerable( );
+                if( _dataTable == null )
+                {
+                    _dataTable = GetDataTable( );
+                }
+
+                var _data = _dataTable?.AsEnumerable( );
                 return _data?.Any( ) == true
                     ? _data
                     : default( IEnumerable<DataRow> );
@@ -234,8 +245,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _clock = Stopwatch.StartNew( );
                 ThrowIf.NullOrEmpty( SqlStatement, "SqlStatement" );
+                var _clock = Stopwatch.StartNew( );
                 _dataSet = new DataSet( $"{Provider}" );
                 _dataTable = new DataTable( $"{Source}" );
                 _dataTable.TableName = Source.ToString( );
@@ -322,18 +333,22 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
-                var _fields = new List<string>( );
+                var _list = new List<string>( );
+                if( _dataTable != null )
+                {
+                    _dataTable = GetDataTable( );
+                }
+
                 foreach( DataColumn _col in _dataTable.Columns )
                 {
                     if( _col.DataType == typeof( string ) )
                     {
-                        _fields.Add( _col.ColumnName );
+                        _list.Add( _col.ColumnName );
                     }
                 }
 
-                return _fields?.Any( ) == true
-                    ? _fields
+                return _list?.Any( ) == true
+                    ? _list
                     : default( IList<string> );
             }
             catch( Exception _ex )
@@ -351,8 +366,12 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
-                var _numerics = new List<string>( );
+                var _list = new List<string>( );
+                if( _dataTable != null )
+                {
+                    _dataTable = GetDataTable( );
+                }
+
                 foreach( DataColumn _col in _dataTable.Columns )
                 {
                     if( ( !_col.ColumnName.EndsWith( "Id" )
@@ -363,12 +382,12 @@ namespace BudgetExecution
                        || _col.DataType == typeof( decimal )
                        || _col.DataType == typeof( float ) )
                     {
-                        _numerics.Add( _col.ColumnName );
+                        _list.Add( _col.ColumnName );
                     }
                 }
 
-                return _numerics?.Any( ) == true
-                    ? _numerics
+                return _list?.Any( ) == true
+                    ? _list
                     : default( IList<string> );
             }
             catch( Exception _ex )
@@ -386,8 +405,12 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
-                var _dates = new List<string>( );
+                var _list = new List<string>( );
+                if( _dataTable != null )
+                {
+                    _dataTable = GetDataTable( );
+                }
+
                 foreach( DataColumn _col in _dataTable.Columns )
                 {
                     if( _col.Ordinal > 0
@@ -397,12 +420,12 @@ namespace BudgetExecution
                            || _col.ColumnName.EndsWith( "Day" )
                            || _col.ColumnName.EndsWith( "Date" ) ) )
                     {
-                        _dates.Add( _col.ColumnName );
+                        _list.Add( _col.ColumnName );
                     }
                 }
 
-                return _dates?.Any( ) == true
-                    ? _dates
+                return _list?.Any( ) == true
+                    ? _list
                     : default( IList<string> );
             }
             catch( Exception _ex )
@@ -421,7 +444,11 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
+                if( _dataTable != null )
+                {
+                    _dataTable = GetDataTable( );
+                }
+
                 var _values = _dataTable.GetIndexValues( );
                 return _values?.Any( ) == true
                     ? _values.ToList( )

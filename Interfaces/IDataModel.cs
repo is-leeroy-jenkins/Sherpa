@@ -50,14 +50,6 @@ namespace BudgetExecution
     public interface IDataModel
     {
         /// <summary>
-        /// Gets the data elements.
-        /// </summary>
-        /// <value>
-        /// The data elements.
-        /// </value>
-        IDictionary<string, IEnumerable<string>> DataElements { get; }
-
-        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
@@ -98,30 +90,6 @@ namespace BudgetExecution
         ISqlStatement SqlStatement { get; set; }
 
         /// <summary>
-        /// Gets or sets the duration.
-        /// </summary>
-        /// <value>
-        /// The duration.
-        /// </value>
-        TimeSpan Duration { get; set; }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
-        DataTable DataTable { get; set; }
-
-        /// <summary>
         /// Gets or sets the data columns.
         /// </summary>
         /// <value>
@@ -130,13 +98,13 @@ namespace BudgetExecution
         IEnumerable<DataColumn> DataColumns { get; set; }
 
         /// <summary>
-        /// Gets or sets the data set.
+        /// Gets the record.
         /// </summary>
         /// <value>
-        /// The data set.
+        /// The record.
         /// </value>
-        DataSet DataSet { get; set; }
-        
+        DataRow Record { get; }
+
         /// <summary>
         /// Gets the data.
         /// </summary>

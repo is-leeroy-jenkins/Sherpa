@@ -679,7 +679,7 @@ namespace BudgetExecution
                     DataTab.TabVisible = false;
                     LookupTab.TabVisible = false;
                     SqlTab.TabVisible = false;
-                    PopulateTableComboBoxItems( );
+                    PopulateTableComboBoxItems( ); 
                     DataTypes = GetDataTypes( Provider );
                     PopulateDataTypeComboBoxItems( );
                     Title.Text = GetTitlePrefix( ) + "| Schema Editor";
@@ -693,6 +693,7 @@ namespace BudgetExecution
         /// </summary>
         private void SetImage( )
         {
+            Image _img = null;
             try
             {
                 var _path = AppSettings[ "Providers" ];
@@ -702,11 +703,14 @@ namespace BudgetExecution
                     if( _files?.Any( ) == true )
                     {
                         var _name = Provider.ToString( );
-                        var _file = _files?.Where( f => f.Contains( _name ) )?.First( );
+                        var _file = _files
+                            ?.Where( f => f.Contains( _name ) )
+                            ?.First( );
+
                         if( !string.IsNullOrEmpty( _file )
                            && Exists( _file ) )
                         {
-                            var _img = Image.FromFile( _file );
+                            _img = Image.FromFile( _file );
                             PictureBox.Image = _img;
                         }
                     }
@@ -715,6 +719,7 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+                _img?.Dispose( );
             }
         }
 

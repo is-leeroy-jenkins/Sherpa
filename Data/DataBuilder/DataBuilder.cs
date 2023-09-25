@@ -58,8 +58,108 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class DataBuilder : DataModel
+    [ SuppressMessage( "ReSharper", "ArrangeAccessorOwnerBody" ) ]
+    [SuppressMessage("ReSharper", "PropertyCanBeMadeInitOnly.Local")]
+    public class DataBuilder : DataModel, IDataModel
     {
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the duration.
+        /// </summary>
+        /// <value>
+        /// The duration.
+        /// </value>
+        public TimeSpan Duration
+        {
+            get
+            {
+                return _duration;
+            }
+
+            private set
+            {
+                _duration = value; 
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the record.
+        /// </summary>
+        /// <value>
+        /// The record.
+        /// </value>
+        public DataRow Record
+        {
+            get
+            {
+                return _record;
+            }
+
+            private set
+            {
+                _record = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataTable DataTable
+        {
+            get
+            {
+                return _dataTable;
+            }
+
+            private set
+            {
+                _dataTable = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the data set.
+        /// </summary>
+        /// <value>
+        /// The data set.
+        /// </value>
+        public DataSet DataSet
+        {
+            get
+            {
+                return _dataSet;
+            }
+
+            private set
+            {
+                _dataSet = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the data elements.
+        /// </summary>
+        /// <value>
+        /// The data elements.
+        /// </value>
+        /// <inheritdoc />
+        public IDictionary<string, IEnumerable<string>> DataElements
+        {
+            get
+            {
+                return _elements;
+            }
+
+            private set
+            {
+                _elements = value;
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
@@ -200,71 +300,23 @@ namespace BudgetExecution
         /// <returns></returns>
         public static Provider GetProvider( string provider )
         {
-            if( !string.IsNullOrEmpty( provider ) )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( provider, "provider" );
+                if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
-                    if( Enum.IsDefined( typeof( Provider ), provider ) )
-                    {
-                        return (Provider)Enum.Parse( typeof( Provider ), provider );
-                    }
-                    else if( Path.HasExtension( provider ) )
-                    {
-                        var _path = Path.GetExtension( provider );
-                        var _ext = (EXT)Enum.Parse( typeof( EXT ), _path );
-                        switch( _ext )
-                        {
-                            case EXT.MDB:
-                            case EXT.XLS:
-                            case EXT.XLSX:
-                            case EXT.CSV:
-                            case EXT.ACCDB:
-                            {
-                                return Provider.Access;
-                            }
-                            case EXT.SDF:
-                            {
-                                return Provider.SqlCe;
-                            }
-                            case EXT.MDF:
-                            {
-                                return Provider.SqlServer;
-                            }
-                            case EXT.DB:
-                            {
-                                return Provider.SQLite;
-                            }
-                            default:
-                            {
-                                return Provider.Access;
-                            }
-                        }
-                    }
+                    return (Provider)Enum.Parse( typeof( Provider ), provider );
                 }
-                catch( Exception _ex )
+                else if( Path.HasExtension( provider ) )
                 {
-                    Fail( _ex );
-                    return default( Provider );
-                }
-            }
-
-            return default( Provider );
-        }
-
-        /// <summary>
-        /// Gets the provider.
-        /// </summary>
-        /// <param name="ext">The ext.</param>
-        /// <returns></returns>
-        public static Provider GetProvider( EXT ext )
-        {
-            if( Enum.IsDefined( typeof( EXT ), ext ) )
-            {
-                try
-                {
-                    switch( ext )
+                    var _path = Path.GetExtension( provider );
+                    var _ext = (EXT)Enum.Parse( typeof( EXT ), _path );
+                    switch( _ext )
                     {
                         case EXT.MDB:
+                        case EXT.XLS:
+                        case EXT.XLSX:
+                        case EXT.CSV:
                         case EXT.ACCDB:
                         {
                             return Provider.Access;
@@ -287,14 +339,57 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception _ex )
+                else
                 {
-                    Fail( _ex );
-                    return default( Provider );
+                    return Provider.Access;
                 }
             }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Provider );
+            }
+        }
 
-            return default( Provider );
+        /// <summary>
+        /// Gets the provider.
+        /// </summary>
+        /// <param name="ext">The ext.</param>
+        /// <returns></returns>
+        public static Provider GetProvider( EXT ext )
+        {
+            try
+            {
+                switch( ext )
+                {
+                    case EXT.MDB:
+                    case EXT.ACCDB:
+                    {
+                        return Provider.Access;
+                    }
+                    case EXT.SDF:
+                    {
+                        return Provider.SqlCe;
+                    }
+                    case EXT.MDF:
+                    {
+                        return Provider.SqlServer;
+                    }
+                    case EXT.DB:
+                    {
+                        return Provider.SQLite;
+                    }
+                    default:
+                    {
+                        return Provider.Access;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Provider );
+            }
         }
 
         /// <summary>
@@ -304,27 +399,25 @@ namespace BudgetExecution
         /// <returns></returns>
         public static Source GetSource( string tableName )
         {
-            if( !string.IsNullOrEmpty( tableName ) )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( tableName, "tableName" );
+                var _names = Enum.GetNames( typeof( Source ) );
+                foreach( var _name in _names )
                 {
-                    var _names = Enum.GetNames( typeof( Source ) );
-                    foreach( var _name in _names )
+                    if( _name.Equals( tableName ) )
                     {
-                        if( _name.Equals( tableName ) )
-                        {
-                            return (Source)Enum.Parse( typeof( Source ), tableName );
-                        }
+                        return (Source)Enum.Parse( typeof( Source ), tableName );
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( Source );
-                }
-            }
 
-            return default( Source );
+                return default( Source );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Source );
+            }
         }
     }
 }

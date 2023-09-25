@@ -87,18 +87,25 @@ namespace BudgetExecution
         /// Gets the ordinals.
         /// </summary>
         /// <returns></returns>
-        private protected virtual IEnumerable<int> GetOrdinals( )
+        private protected IEnumerable<int> GetOrdinals( )
         {
             try
             {
-                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
-                var _columns = _dataTable.Columns;
+                if( _dataTable != null )
+                {
+                    _dataTable = GetDataTable( );
+                }
+
+                var _columns = _dataTable?.Columns;
                 var _values = new List<int>( );
                 if( _columns?.Count > 0 )
                 {
                     foreach( DataColumn _column in _columns )
                     {
-                        _values?.Add( _column.Ordinal );
+                        if( _column != null )
+                        {
+                            _values?.Add( _column.Ordinal );
+                        }
                     }
                 }
 
@@ -121,7 +128,11 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
+                if( _dataTable != null )
+                {
+                    _dataTable = GetDataTable( );
+                }
+
                 var _columns = _dataTable?.Columns;
                 var _schema = new Dictionary<string, Type>( );
                 if( _columns?.Count > 0 )
@@ -151,8 +162,12 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
-                var _dataColumns = new List<DataColumn>( );
+                if( _dataTable != null )
+                {
+                    _dataTable = GetDataTable( );
+                }
+
+                var _list = new List<DataColumn>( );
                 var _data = _dataTable?.Columns;
                 if( _data?.Count > 0 )
                 {
@@ -160,13 +175,13 @@ namespace BudgetExecution
                     {
                         if( _column != null )
                         {
-                            _dataColumns.Add( _column );
+                            _list.Add( _column );
                         }
                     }
                 }
 
-                return _dataColumns?.Any( ) == true
-                    ? _dataColumns
+                return _list?.Any( ) == true
+                    ? _list
                     : default( IEnumerable<DataColumn> );
             }
             catch( Exception _ex )
@@ -184,8 +199,12 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( _dataTable, _dataTable.TableName );
-                var _names = new List<string>( );
+                if( _dataTable != null )
+                {
+                    _dataTable = GetDataTable( );
+                }
+
+                var _list = new List<string>( );
                 var _data = _dataTable?.Columns;
                 if( _data?.Count > 0 )
                 {
@@ -193,12 +212,12 @@ namespace BudgetExecution
                     {
                         if( !string.IsNullOrEmpty( _column?.ColumnName ) )
                         {
-                            _names.Add( _column.ColumnName );
+                            _list.Add( _column.ColumnName );
                         }
                     }
 
-                    return _names?.Any( ) == true
-                        ? _names
+                    return _list?.Any( ) == true
+                        ? _list
                         : default( IEnumerable<string> );
                 }
                 else

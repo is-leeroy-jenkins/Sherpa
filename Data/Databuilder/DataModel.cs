@@ -55,18 +55,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [SuppressMessage("ReSharper", "ArrangeRedundantParentheses")]
-    public class DataModel : ModelBase, IDataModel
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    public class DataModel : ModelBase
     {
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the data elements.
-        /// </summary>
-        /// <value>
-        /// The data elements.
-        /// </value>
-        public IDictionary<string, IEnumerable<string>> DataElements { get; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="DataModel"/> class.
         /// </summary>
@@ -86,16 +77,16 @@ namespace BudgetExecution
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
-            DataTable = GetDataTable( );
-            DataElements = CreateSeries( DataTable );
+            _dataTable = GetDataTable( );
+            _elements = CreateSeries( _dataTable );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            _record = GetData( )?.FirstOrDefault( );
+            Map = _record?.ToDictionary( );
             EndInit( );
         }
 
@@ -112,17 +103,17 @@ namespace BudgetExecution
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, where );
-            DataTable = GetDataTable( );
-            DataElements = CreateSeries( DataTable );
+            _dataTable = GetDataTable( );
+            _elements = CreateSeries( _dataTable );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            _elements = CreateSeries( _dataTable );
+            _record = GetData( )?.FirstOrDefault( );
+            Map = _record?.ToDictionary( );
             EndInit( );
         }
 
@@ -142,16 +133,16 @@ namespace BudgetExecution
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
-            DataTable = GetDataTable( );
+            _dataTable = GetDataTable( );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            _elements = CreateSeries( _dataTable );
+            _record = GetData( )?.FirstOrDefault( );
+            Map = _record?.ToDictionary( );
             EndInit( );
         }
 
@@ -171,16 +162,16 @@ namespace BudgetExecution
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
-            DataTable = GetDataTable( );
+            _dataTable = GetDataTable( );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            _elements = CreateSeries( _dataTable );
+            _record = GetData( )?.FirstOrDefault( );
+            Map = _record?.ToDictionary( );
             EndInit( );
         }
 
@@ -203,16 +194,16 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, provider, fields, numerics, where,
                 commandType );
 
-            DataTable = GetDataTable( );
+            _dataTable = GetDataTable( );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            _elements = CreateSeries( _dataTable );
+            _record = GetData( )?.FirstOrDefault( );
+            Map = _record?.ToDictionary( );
             EndInit( );
         }
 
@@ -228,16 +219,16 @@ namespace BudgetExecution
             Provider = Provider.Access;
             ConnectionFactory = new ConnectionFactory( source, Provider.Access );
             SqlStatement = new SqlStatement( source, Provider.Access, where );
-            DataTable = GetDataTable( );
+            _dataTable = GetDataTable( );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            _elements = CreateSeries( _dataTable );
+            _record = GetData( )?.FirstOrDefault( );
+            Map = _record?.ToDictionary( );
             EndInit( );
         }
 
@@ -254,16 +245,16 @@ namespace BudgetExecution
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, sqlText );
-            DataTable = GetDataTable( );
+            _dataTable = GetDataTable( );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Keys = GetPrimaryKeys( );
             Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            _elements = CreateSeries( _dataTable );
+            _record = GetData( )?.FirstOrDefault( );
+            Map = _record?.ToDictionary( );
             EndInit( );
         }
 
@@ -280,16 +271,16 @@ namespace BudgetExecution
             Source = ConnectionFactory.Source;
             Provider = ConnectionFactory.Provider;
             SqlStatement = new SqlStatement( Source, Provider, sqlText, commandType );
-            DataTable = GetDataTable( );
+            _dataTable = GetDataTable( );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            _elements = CreateSeries( _dataTable );
+            _record = GetData( )?.FirstOrDefault( );
+            Map = _record?.ToDictionary( );
             EndInit( );
         }
 
@@ -304,16 +295,16 @@ namespace BudgetExecution
             Provider = query.Provider;
             ConnectionFactory = query.ConnectionFactory;
             SqlStatement = query.SqlStatement;
-            DataTable = GetDataTable( );
+            _dataTable = GetDataTable( );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
+            _elements = CreateSeries( _dataTable );
+            _record = GetData( )?.FirstOrDefault( );
+            Map = _record?.ToDictionary( );
             EndInit( );
         }
 
