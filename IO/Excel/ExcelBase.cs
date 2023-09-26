@@ -50,10 +50,10 @@ namespace BudgetExecution
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.ExcelConfig" />
+    /// <seealso cref="T:BudgetExecution.ExcelConfig" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -148,7 +148,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( grid, "grid" );
+                ThrowIf.Null( grid, "grid" );
                 ThrowIf.NegativeOrZero( width, "width" );
                 using var _range = grid.Range;
                 _range.AutoFitColumns( width );
@@ -168,7 +168,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( grid, "grid" );
+                ThrowIf.Null( grid, "grid" );
                 ThrowIf.NullOrEmpty( color, "color" );
                 using var _range = grid.Range;
                 _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
@@ -190,8 +190,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( grid, "grid" );
-                ThrowIf.NullOrEmpty( font, "font" );
+                ThrowIf.Null( grid, "grid" );
+                ThrowIf.Null( font, "font" );
                 using var _range = grid.Range;
                 _range.Style.Font.SetFromFont( font.Name, font.Size );
             }
@@ -210,7 +210,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( grid, "grid" );
+                ThrowIf.Null( grid, "grid" );
                 ThrowIf.NullOrEmpty( color, "color" );
                 using var _range = grid.Range;
                 _range.Style.Font.Color.SetColor( color );
@@ -327,7 +327,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( grid, "grid" );
+                ThrowIf.Null( grid, "grid" );
                 using var _range = grid.Range;
                 _range.Merge = true;
             }

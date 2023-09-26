@@ -759,8 +759,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( columns, "columns" );
-                ThrowIf.NullOrEmpty( where, "where" );
+                ThrowIf.Null( columns, "columns" );
+                ThrowIf.Null( where, "where" );
                 var _sql = CreateSqlText( columns, where );
                 DataModel = new DataBuilder( Source, Provider, _sql );
                 DataTable = DataModel?.DataTable;
@@ -790,9 +790,9 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( numerics, "numerics" );
-                ThrowIf.NullOrEmpty( fields, "fields" );
-                ThrowIf.NullOrEmpty( where, "where" );
+                ThrowIf.Null( numerics, "numerics" );
+                ThrowIf.Null( fields, "fields" );
+                ThrowIf.Null( where, "where" );
                 var _sql = CreateSqlText( fields, numerics, where );
                 DataModel = new DataBuilder( Source, Provider, _sql );
                 DataTable = DataModel?.DataTable;
@@ -820,7 +820,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( where, "where" );
+                ThrowIf.Null( where, "where" );
                 return $"SELECT * FROM {Source} " 
                     + $"WHERE {where.ToCriteria( )};";
             }
@@ -842,8 +842,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( columns, "columns" );
-                ThrowIf.NullOrEmpty( where, "where" );
+                ThrowIf.Null( columns, "columns" );
+                ThrowIf.Null( where, "where" );
                 var _cols = string.Empty;
                 foreach( var _name in columns )
                 {
@@ -875,9 +875,9 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( fields, "fields" );
-                ThrowIf.NullOrEmpty( numerics, "numerics" );
-                ThrowIf.NullOrEmpty( where, "where" );
+                ThrowIf.Null( fields, "fields" );
+                ThrowIf.Null( numerics, "numerics" );
+                ThrowIf.Null( where, "where" );
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
                 foreach( var _name in fields )

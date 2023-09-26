@@ -77,23 +77,19 @@ namespace BudgetExecution
         /// <returns></returns>
         public bool CreateExcelDocument<T>( IEnumerable<T> data, string path )
         {
-            if( ( data != null )
-               && !string.IsNullOrEmpty( path ) )
+            try
             {
-                try
-                {
-                    var _dataSet = new DataSet( );
-                    _dataSet?.Tables?.Add( ListToDataTable( data ) );
-                    return CreateExcelDocument( _dataSet, path );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return false;
-                }
+                ThrowIf.None( data, "para" );
+                ThrowIf.NullOrEmpty( path, "path" );
+                var _dataSet = new DataSet( );
+                _dataSet?.Tables?.Add( ListToDataTable( data ) );
+                return CreateExcelDocument( _dataSet, path );
             }
-
-            return false;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return false;
+            }
         }
 
         /// <summary>
@@ -104,26 +100,21 @@ namespace BudgetExecution
         /// <returns></returns>
         public bool CreateExcelDocument( DataTable dataTable, string path )
         {
-            if( !string.IsNullOrEmpty( path )
-               && ( dataTable?.Rows?.Count > 0 )
-               && ( dataTable?.Columns?.Count > 0 ) )
+            try
             {
-                try
-                {
-                    var _dataSet = new DataSet( );
-                    _dataSet.Tables.Add( dataTable );
-                    var _document = CreateExcelDocument( _dataSet, path );
-                    _dataSet.Tables.Remove( dataTable );
-                    return _document;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( bool );
-                }
+                ThrowIf.NoData( dataTable, "dataTable" );
+                ThrowIf.NullOrEmpty( path, "path" );
+                var _dataSet = new DataSet( );
+                _dataSet.Tables.Add( dataTable );
+                var _document = CreateExcelDocument( _dataSet, path );
+                _dataSet.Tables.Remove( dataTable );
+                return _document;
             }
-
-            return false;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( bool );
+            }
         }
 
         /// <summary>
@@ -134,27 +125,23 @@ namespace BudgetExecution
         /// <returns></returns>
         public bool CreateExcelDocument( DataSet dataSet, string fileName )
         {
-            if( !string.IsNullOrEmpty( fileName )
-               && ( dataSet != null ) )
+            try
             {
-                try
+                ThrowIf.NoData( dataSet, "dataSet" );
+                ThrowIf.NullOrEmpty( fileName, "fileName" );
+                using( var _document = Create( fileName, SpreadsheetDocumentType.Workbook ) )
                 {
-                    using( var _document = Create( fileName, SpreadsheetDocumentType.Workbook ) )
-                    {
-                        WriteExcelFile( dataSet, _document );
-                    }
+                    WriteExcelFile( dataSet, _document );
+                }
 
-                    Trace.WriteLine( "Successfully created: " + fileName );
-                    return true;
-                }
-                catch( Exception _ex )
-                {
-                    Trace.WriteLine( "Failed, exception thrown: " + _ex.Message );
-                    return false;
-                }
+                Trace.WriteLine( "Successfully created: " + fileName );
+                return true;
             }
-
-            return false;
+            catch( Exception _ex )
+            {
+                Trace.WriteLine( "Failed, exception thrown: " + _ex.Message );
+                return false;
+            }
         }
 
         /// <summary>
@@ -165,39 +152,35 @@ namespace BudgetExecution
         /// <returns></returns>
         public DataTable ListToDataTable<T>( IEnumerable<T> data )
         {
-            if( data?.Any( ) == true )
+            try
             {
-                try
+                ThrowIf.None( data, "data" );
+                var _table = new DataTable( );
+                foreach( var _info in typeof( T ).GetProperties( ) )
                 {
-                    var _table = new DataTable( );
+                    _table?.Columns?.Add( new DataColumn( _info.Name, GetNullableType( _info.PropertyType ) ) );
+                }
+
+                foreach( var _t in data )
+                {
+                    var _row = _table.NewRow( );
                     foreach( var _info in typeof( T ).GetProperties( ) )
                     {
-                        _table?.Columns?.Add( new DataColumn( _info.Name, GetNullableType( _info.PropertyType ) ) );
+                        _row[ _info.Name ] = !IsNullableType( _info.PropertyType )
+                            ? _info.GetValue( _t, null )
+                            : _info.GetValue( _t, null ) ?? DBNull.Value;
                     }
 
-                    foreach( var _t in data )
-                    {
-                        var _row = _table.NewRow( );
-                        foreach( var _info in typeof( T ).GetProperties( ) )
-                        {
-                            _row[ _info.Name ] = !IsNullableType( _info.PropertyType )
-                                ? _info.GetValue( _t, null )
-                                : _info.GetValue( _t, null ) ?? DBNull.Value;
-                        }
-
-                        _table.Rows.Add( _row );
-                    }
-
-                    return _table;
+                    _table.Rows.Add( _row );
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( DataTable );
-                }
+
+                return _table;
             }
-
-            return default( DataTable );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( DataTable );
+            }
         }
 
         /// <summary>
@@ -231,10 +214,14 @@ namespace BudgetExecution
         /// <param name="cellReference">The cell reference.</param>
         /// <param name="cellStringValue">The cell string value.</param>
         /// <param name="excelRow">The excel row.</param>
-        public void AppendTextCell( string cellReference, string cellStringValue, OpenXmlElement excelRow )
+        public void AppendTextCell( string cellReference, string cellStringValue,
+            OpenXmlElement excelRow )
         {
             try
             {
+                ThrowIf.NullOrEmpty( cellReference, "cellReference" );
+                ThrowIf.NullOrEmpty( cellStringValue, "cellStringValue" );
+                ThrowIf.Null( excelRow, "excelRow" );
                 var _cell = new Cell( );
                 _cell.CellReference = cellReference;
                 _cell.DataType = CellValues.String;
@@ -255,25 +242,24 @@ namespace BudgetExecution
         /// <param name="cellReference">The cell reference.</param>
         /// <param name="cellStringValue">The cell string value.</param>
         /// <param name="excelRow">The excel row.</param>
-        public void AppendNumericCell( string cellReference, string cellStringValue, OpenXmlElement excelRow )
+        public void AppendNumericCell( string cellReference, string cellStringValue, 
+            OpenXmlElement excelRow )
         {
-            if( !string.IsNullOrEmpty( cellReference )
-               && !string.IsNullOrEmpty( cellStringValue )
-               && ( excelRow != null ) )
+            try
             {
-                try
-                {
-                    var _cell = new Cell( );
-                    _cell.CellReference = cellReference;
-                    var _cellValue = new CellValue( );
-                    _cellValue.Text = cellStringValue;
-                    _cell.Append( _cellValue );
-                    excelRow.Append( _cell );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.NullOrEmpty( cellReference, "cellReference" );
+                ThrowIf.NullOrEmpty( cellStringValue, "cellStringValue" );
+                ThrowIf.Null( excelRow, "excelRow" );
+                var _cell = new Cell( );
+                _cell.CellReference = cellReference;
+                var _cellValue = new CellValue( );
+                _cellValue.Text = cellStringValue;
+                _cell.Append( _cellValue );
+                excelRow.Append( _cell );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -286,6 +272,7 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.Negative( columnIndex, "columnIndex" );
                 if( columnIndex < 26 )
                 {
                     return ( (char)( 'A' + columnIndex ) ).ToString( );
@@ -309,53 +296,50 @@ namespace BudgetExecution
         /// <param name="spreadSheet">The spread sheet.</param>
         public void WriteExcelFile( DataSet dataSet, SpreadsheetDocument spreadSheet )
         {
-            if( ( dataSet != null )
-               && ( spreadSheet != null ) )
+            try
             {
-                try
+                ThrowIf.NoData( dataSet, "dataSet" );
+                ThrowIf.Null( spreadSheet, "spreadSheet" );
+                spreadSheet.AddWorkbookPart( );
+                spreadSheet.WorkbookPart.Workbook = 
+                    new DocumentFormat.OpenXml.Spreadsheet.Workbook( );
+
+                spreadSheet.WorkbookPart.Workbook?.Append( new BookViews( new WorkbookView( ) ) );
+                var _styles = spreadSheet.WorkbookPart.AddNewPart<WorkbookStylesPart>( "Styles" );
+                var _stylesheet = new Stylesheet( );
+                _styles.Stylesheet = _stylesheet;
+                uint _id = 1;
+                foreach( DataTable _dataTable in dataSet.Tables )
                 {
-                    spreadSheet.AddWorkbookPart( );
-                    if( spreadSheet.WorkbookPart != null )
+                    var _part = spreadSheet?.WorkbookPart?.AddNewPart<WorksheetPart>( );
+                    if( _part != null )
                     {
-                        spreadSheet.WorkbookPart.Workbook = new DocumentFormat.OpenXml.Spreadsheet.Workbook( );
-                        spreadSheet.WorkbookPart.Workbook?.Append( new BookViews( new WorkbookView( ) ) );
-                        var _styles = spreadSheet.WorkbookPart.AddNewPart<WorkbookStylesPart>( "rIdStyles" );
-                        var _stylesheet = new Stylesheet( );
-                        _styles.Stylesheet = _stylesheet;
-                        uint _id = 1;
-                        foreach( DataTable _dataTable in dataSet.Tables )
+                        _part.Worksheet = new Worksheet( );
+                        _part.Worksheet.AppendChild( new SheetData( ) );
+                        WriteDataTableToExcelWorksheet( _dataTable, _part );
+                        _part.Worksheet.Save( );
+                        if( _id == 1 )
                         {
-                            var _part = spreadSheet?.WorkbookPart?.AddNewPart<WorksheetPart>( );
-                            if( _part != null )
-                            {
-                                _part.Worksheet = new Worksheet( );
-                                _part.Worksheet.AppendChild( new SheetData( ) );
-                                WriteDataTableToExcelWorksheet( _dataTable, _part );
-                                _part.Worksheet.Save( );
-                                if( _id == 1 )
-                                {
-                                    spreadSheet?.WorkbookPart?.Workbook?.AppendChild( new Sheets( ) );
-                                }
-
-                                spreadSheet.WorkbookPart?.Workbook?.GetFirstChild<Sheets>( )
-                                    ?.AppendChild( new Sheet
-                                    {
-                                        Id = spreadSheet.WorkbookPart.GetIdOfPart( _part ),
-                                        SheetId = _id,
-                                        Name = _dataTable.TableName
-                                    } );
-                            }
-
-                            _id++;
+                            spreadSheet?.WorkbookPart?.Workbook?.AppendChild( new Sheets( ) );
                         }
 
-                        spreadSheet.WorkbookPart?.Workbook?.Save( );
+                        spreadSheet.WorkbookPart?.Workbook?.GetFirstChild<Sheets>( )
+                            ?.AppendChild( new Sheet
+                            {
+                                Id = spreadSheet.WorkbookPart.GetIdOfPart( _part ),
+                                SheetId = _id,
+                                Name = _dataTable.TableName
+                            } );
                     }
+
+                    _id++;
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+
+                spreadSheet.WorkbookPart?.Workbook?.Save( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -364,64 +348,62 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataTable">The data table.</param>
         /// <param name="workSheetPart">The work sheet part.</param>
-        public void WriteDataTableToExcelWorksheet( DataTable dataTable, WorksheetPart workSheetPart )
+        public void WriteDataTableToExcelWorksheet( DataTable dataTable,
+            WorksheetPart workSheetPart )
         {
-            if( ( dataTable?.Rows.Count > 0 )
-               && ( dataTable.Columns.Count > 0 )
-               && ( workSheetPart != null ) )
+            try
             {
-                try
+                ThrowIf.NoData( dataTable, "dataTable" );
+                ThrowIf.Null( workSheetPart, "workSheetPart" );
+                var _worksheet = workSheetPart.Worksheet;
+                var _data = _worksheet?.GetFirstChild<SheetData>( );
+                var _columns = dataTable.Columns.Count;
+                var _isNumeric = new bool[ _columns ];
+                var _names = new string[ _columns ];
+                for( var _n = 0; _n < _columns; _n++ )
                 {
-                    var _worksheet = workSheetPart.Worksheet;
-                    var _data = _worksheet?.GetFirstChild<SheetData>( );
-                    var _columns = dataTable.Columns.Count;
-                    var _isNumeric = new bool[ _columns ];
-                    var _names = new string[ _columns ];
-                    for( var _n = 0; _n < _columns; _n++ )
-                    {
-                        _names[ _n ] = GetExcelColumnName( _n );
-                    }
+                    _names[ _n ] = GetExcelColumnName( _n );
+                }
 
-                    uint _rowIndex = 1;
-                    var _row = new Row( );
-                    _row.RowIndex = _rowIndex;
-                    _data?.Append( _row );
-                    for( var _colinx = 0; _colinx < _columns; _colinx++ )
-                    {
-                        var _column = dataTable.Columns[ _colinx ];
-                        AppendTextCell( _names[ _colinx ] + "1", _column.ColumnName, _row );
-                        _isNumeric[ _colinx ] = ( _column.DataType.FullName == "System.Decimal" ) 
-                            || ( _column.DataType.FullName == "System.Int32" );
-                    }
+                uint _rowIndex = 1;
+                var _row = new Row( );
+                _row.RowIndex = _rowIndex;
+                _data?.Append( _row );
+                for( var _colinx = 0; _colinx < _columns; _colinx++ )
+                {
+                    var _column = dataTable.Columns[ _colinx ];
+                    AppendTextCell( _names[ _colinx ] + "1", _column.ColumnName, _row );
+                    _isNumeric[ _colinx ] = ( _column.DataType.FullName == "System.Decimal" ) 
+                        || ( _column.DataType.FullName == "System.Int32" );
+                }
 
-                    foreach( DataRow _dataRow in dataTable.Rows )
+                foreach( DataRow _dataRow in dataTable.Rows )
+                {
+                    ++_rowIndex;
+                    var _excelRow = new Row( );
+                    _excelRow.RowIndex = _rowIndex;
+                    _data?.Append( _excelRow );
+                    for( var _i = 0; _i < _columns; _i++ )
                     {
-                        ++_rowIndex;
-                        var _excelRow = new Row( );
-                        _excelRow.RowIndex = _rowIndex;
-                        _data?.Append( _excelRow );
-                        for( var _i = 0; _i < _columns; _i++ )
+                        var _value = _dataRow?.ItemArray[ _i ]?.ToString( );
+                        if( _isNumeric[ _i ] )
                         {
-                            var _value = _dataRow?.ItemArray[ _i ]?.ToString( );
-                            if( _isNumeric[ _i ] )
+                            if( double.TryParse( _value, out var _cellNumericValue ) )
                             {
-                                if( double.TryParse( _value, out var _cellNumericValue ) )
-                                {
-                                    _value = _cellNumericValue.ToString( );
-                                    AppendNumericCell( _names[ _i ] + _rowIndex, _value, _excelRow );
-                                }
+                                _value = _cellNumericValue.ToString( );
+                                AppendNumericCell( _names[ _i ] + _rowIndex, _value, _excelRow );
                             }
-                            else
-                            {
-                                AppendTextCell( _names[ _i ] + _rowIndex, _value, _excelRow );
-                            }
+                        }
+                        else
+                        {
+                            AppendTextCell( _names[ _i ] + _rowIndex, _value, _excelRow );
                         }
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 

@@ -97,18 +97,16 @@ namespace BudgetExecution
         /// </param>
         public void SendEmail( OutlookConfig config, EmailContent content )
         {
-            if( ( config != null )
-               && ( content != null ) )
+            try
             {
-                try
-                {
-                    var _message = CreateMessage( config, content );
-                    SendEmail( _message, config );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( config, "config" );
+                ThrowIf.Null( content, "content" );
+                var _message = CreateMessage( config, content );
+                SendEmail( _message, config );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -123,26 +121,24 @@ namespace BudgetExecution
         /// </param>
         public void SendEmail( MailMessage message, OutlookConfig config )
         {
-            if( ( message != null )
-               && ( config != null ) )
+            try
             {
-                try
-                {
-                    var _smtpClient = new SmtpClient( );
-                    _smtpClient.UseDefaultCredentials = false;
-                    _smtpClient.Credentials =
-                        new NetworkCredential( config.UserName, config.Password );
+                ThrowIf.Null( message, "message" );
+                ThrowIf.Null( config, "config" );
+                var _smtpClient = new SmtpClient( );
+                _smtpClient.UseDefaultCredentials = false;
+                _smtpClient.Credentials =
+                    new NetworkCredential( config.UserName, config.Password );
 
-                    _smtpClient.Host = HostName;
-                    _smtpClient.Port = 25;
-                    _smtpClient.EnableSsl = true;
-                    _smtpClient.Send( message );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    message.Dispose( );
-                }
+                _smtpClient.Host = HostName;
+                _smtpClient.Port = 25;
+                _smtpClient.EnableSsl = true;
+                _smtpClient.Send( message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                message.Dispose( );
             }
         }
 
@@ -200,57 +196,53 @@ namespace BudgetExecution
         /// </returns>
         public MailMessage CreateMessage( OutlookConfig config, EmailContent content )
         {
-            if( ( config != null )
-               && ( content != null ) )
+            try
             {
-                try
+                ThrowIf.Null( config, "config" );
+                ThrowIf.Null( content, "content" );
+                var _message = new MailMessage( );
+                for( var _i = 0; _i < config.Recipient.Count; _i++ )
                 {
-                    var _message = new MailMessage( );
-                    for( var _i = 0; _i < config.Recipient.Count; _i++ )
+                    var _to = config.Recipient[ _i ];
+                    if( !string.IsNullOrEmpty( _to ) )
                     {
-                        var _to = config.Recipient[ _i ];
-                        if( !string.IsNullOrEmpty( _to ) )
-                        {
-                            _message.To.Add( _to );
-                        }
+                        _message.To.Add( _to );
                     }
-
-                    for( var _h = 0; _h < config.CarbonCopy.Count; _h++ )
-                    {
-                        var _cc = config.CarbonCopy[ _h ];
-                        if( !string.IsNullOrEmpty( _cc ) )
-                        {
-                            _message.CC.Add( _cc );
-                        }
-                    }
-
-                    _message.From = new MailAddress( config.Sender, 
-                        config.DisplayName, Encoding.UTF8 );
-
-                    _message.IsBodyHtml = content.IsHtml;
-                    _message.Body = content.Message;
-                    _message.Priority = config.Priority;
-                    _message.Subject = config.Subject;
-                    _message.BodyEncoding = Encoding.UTF8;
-                    _message.SubjectEncoding = Encoding.UTF8;
-                    if( content.Attachment != null )
-                    {
-                        var _data = new Attachment( content.Attachment, 
-                            MediaTypeNames.Application.Zip );
-
-                        _message.Attachments.Add( _data );
-                    }
-
-                    return _message;
                 }
-                catch( Exception _ex )
+
+                for( var _h = 0; _h < config.CarbonCopy.Count; _h++ )
                 {
-                    Fail( _ex );
-                    return default( MailMessage );
+                    var _cc = config.CarbonCopy[ _h ];
+                    if( !string.IsNullOrEmpty( _cc ) )
+                    {
+                        _message.CC.Add( _cc );
+                    }
                 }
+
+                _message.From = new MailAddress( config.Sender, 
+                    config.DisplayName, Encoding.UTF8 );
+
+                _message.IsBodyHtml = content.IsHtml;
+                _message.Body = content.Message;
+                _message.Priority = config.Priority;
+                _message.Subject = config.Subject;
+                _message.BodyEncoding = Encoding.UTF8;
+                _message.SubjectEncoding = Encoding.UTF8;
+                if( content.Attachment != null )
+                {
+                    var _data = new Attachment( content.Attachment, 
+                        MediaTypeNames.Application.Zip );
+
+                    _message.Attachments.Add( _data );
+                }
+
+                return _message;
             }
-
-            return default( MailMessage );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( MailMessage );
+            }
         }
 
         /// <summary>

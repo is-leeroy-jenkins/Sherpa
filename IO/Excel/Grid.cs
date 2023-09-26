@@ -45,20 +45,22 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using OfficeOpenXml;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="OfficeOpenXml.ExcelCellBase" />
-    /// <seealso cref="BudgetExecution.IGrid" />
+    /// <seealso cref="T:OfficeOpenXml.ExcelCellBase" />
+    /// <seealso cref="T:BudgetExecution.IGrid" />
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class Grid : ExcelCellBase, IGrid
     {
+        /// <inheritdoc />
         /// <summary>
         /// The range
         /// </summary>
         public ExcelRange Range { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// The workSheet
         /// </summary>
@@ -69,6 +71,7 @@ namespace BudgetExecution
         /// </summary>
         public ExcelAddress Address { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets from.
         /// </summary>
@@ -77,6 +80,7 @@ namespace BudgetExecution
         /// </value>
         public ( int Row, int Column ) From { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets to.
         /// </summary>
@@ -182,6 +186,7 @@ namespace BudgetExecution
         /// <param name="from">From.</param>
         public Grid( ExcelWorksheet workSheet, (int Row, int Column) from )
         {
+            ThrowIf.Null( workSheet, "workSheet" );
             Worksheet = workSheet;
             Range = Worksheet.Cells[ from.Row, from.Column ];
             Address = new ExcelAddress( Range.Start.Row, Range.Start.Column, 
@@ -191,6 +196,7 @@ namespace BudgetExecution
             To = From;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Counts the cells.
         /// </summary>
@@ -200,6 +206,7 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.Null( range, "range" );
                 return range?.Rows * range?.Columns ?? default( int );
             }
             catch( Exception _ex )
@@ -209,6 +216,7 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the row count.
         /// </summary>
@@ -228,6 +236,7 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the column count.
         /// </summary>

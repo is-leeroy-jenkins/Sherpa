@@ -318,7 +318,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( dataRows, "dataRows" );
+                ThrowIf.Null( dataRows, "dataRows" );
                 ThrowIf.NullOrEmpty( column, "column" );
                 var _query = dataRows
                     ?.Select( v => v.Field<string>( column ) )
@@ -347,7 +347,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( dataRows, "dataRows" );
+                ThrowIf.Null( dataRows, "dataRows" );
                 ThrowIf.NullOrEmpty( name, "name" );
                 ThrowIf.NullOrEmpty( value, "value" );
                 var _query = dataRows
@@ -430,7 +430,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( dataTable, dataTable.TableName );
+                ThrowIf.Null( dataTable, dataTable.TableName );
                 var _dict = new Dictionary<string, IEnumerable<string>>( );
                 var _columns = dataTable?.Columns;
                 var _rows = dataTable?.AsEnumerable( );

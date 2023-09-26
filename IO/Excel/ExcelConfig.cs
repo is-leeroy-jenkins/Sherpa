@@ -226,17 +226,14 @@ namespace BudgetExecution
         /// <param name="filePath">The file path.</param>
         public void SetFilePath( string filePath )
         {
-            if( !string.IsNullOrEmpty( filePath )
-               && File.Exists( filePath ) )
+            try
             {
-                try
-                {
-                    FilePath = GetFileName( filePath );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.NotFile( filePath, "filePath" );
+                FilePath = GetFileName( filePath );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -266,7 +263,6 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( filePath, "filePath" );
                 ThrowIf.NotFile( filePath, "filePath" );
                 var _path = GetExtension( filePath );
                 if( _path != null )
@@ -334,30 +330,28 @@ namespace BudgetExecution
         /// <param name="text">The text.</param>
         public void AddComment( Grid grid, string text )
         {
-            if( ( grid != null )
-               && !string.IsNullOrEmpty( text ) )
+            try
             {
-                try
+                ThrowIf.Null( grid, "grid" );
+                ThrowIf.NullOrEmpty( text, "text" );
+                using var _range = grid?.Range;
+                var _excelComment = _range?.AddComment( text, "Budget" );
+                if( _excelComment != null )
                 {
-                    using var _range = grid?.Range;
-                    var _excelComment = _range?.AddComment( text, "Budget" );
-                    if( _excelComment != null )
-                    {
-                        _excelComment.From.Row = _range.Start.Row;
-                        _excelComment.From.Column = _range.Start.Column;
-                        _excelComment.To.Row = _range.End.Row;
-                        _excelComment.To.Column = _range.End.Column;
-                        _excelComment.BackgroundColor = Color.FromArgb( 15, 15, 15 );
-                        _excelComment.Font.FontName = "Roboto";
-                        _excelComment.Font.Size = 8;
-                        _excelComment.Font.Color = Color.Black;
-                        _excelComment.Text = text;
-                    }
+                    _excelComment.From.Row = _range.Start.Row;
+                    _excelComment.From.Column = _range.Start.Column;
+                    _excelComment.To.Row = _range.End.Row;
+                    _excelComment.To.Column = _range.End.Column;
+                    _excelComment.BackgroundColor = Color.FromArgb( 15, 15, 15 );
+                    _excelComment.Font.FontName = "Roboto";
+                    _excelComment.Font.Size = 8;
+                    _excelComment.Font.Color = Color.Black;
+                    _excelComment.Text = text;
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -367,25 +361,23 @@ namespace BudgetExecution
         /// <param name="grid">The grid.</param>
         public void SetCaptionText( Grid grid )
         {
-            if( grid != null )
+            try
             {
-                try
-                {
-                    using var _sheet = grid.Worksheet;
-                    var _row = grid.Range.Start.Row;
-                    var _column = grid.Range.Start.Column;
-                    _sheet.Cells[ _row, _column ].Value = "Account";
-                    _sheet.Cells[ _row, _column + 1 ].Value = "SuperfundSite";
-                    _sheet.Cells[ _row, _column + 2 ].Value = "Travel";
-                    _sheet.Cells[ _row, _column + 3 ].Value = "Expenses";
-                    _sheet.Cells[ _row, _column + 4 ].Value = "Contracts";
-                    _sheet.Cells[ _row, _column + 5 ].Value = "Grants";
-                    _sheet.Cells[ _row, _column + 6 ].Value = "Total";
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( grid, "grid" );
+                using var _sheet = grid.Worksheet;
+                var _row = grid.Range.Start.Row;
+                var _column = grid.Range.Start.Column;
+                _sheet.Cells[ _row, _column ].Value = "Account";
+                _sheet.Cells[ _row, _column + 1 ].Value = "SuperfundSite";
+                _sheet.Cells[ _row, _column + 2 ].Value = "Travel";
+                _sheet.Cells[ _row, _column + 3 ].Value = "Expenses";
+                _sheet.Cells[ _row, _column + 4 ].Value = "Contracts";
+                _sheet.Cells[ _row, _column + 5 ].Value = "Grants";
+                _sheet.Cells[ _row, _column + 6 ].Value = "Total";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -396,28 +388,25 @@ namespace BudgetExecution
         /// <param name="text">The text.</param>
         public void SetText( Grid grid, IEnumerable<string> text )
         {
-            if( ( grid != null )
-               && ( text?.Any( ) == true )
-               && grid.Range.Any( ) )
+            try
             {
-                try
+                ThrowIf.Null( grid, "grid" );
+                ThrowIf.None( text, "text" );
+                foreach( var _cell in grid.Range )
                 {
-                    foreach( var _cell in grid.Range )
+                    foreach( var _caption in text )
                     {
-                        foreach( var _caption in text )
+                        if( ( _cell != null )
+                           && !string.IsNullOrEmpty( _caption ) )
                         {
-                            if( ( _cell != null )
-                               && !string.IsNullOrEmpty( _caption ) )
-                            {
-                                _cell.Value = _caption;
-                            }
+                            _cell.Value = _caption;
                         }
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 

@@ -75,7 +75,7 @@ namespace BudgetExecution
             if( string.IsNullOrEmpty( argument )
                && !string.IsNullOrEmpty( paramName ) )
             {
-                var _message = @$"String '{paramName}' is null or empty!";
+                var _message = @$"The string '{paramName}' is null or empty!";
                 throw new ArgumentNullException( _message );
             }
         }
@@ -86,15 +86,13 @@ namespace BudgetExecution
         /// <param name="argument">The argument.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <exception cref="System.ArgumentNullException"></exception>
-        public static void NullOrEmpty( object argument, string paramName )
+        public static void Null( object argument, string paramName )
         {
-            if( !string.IsNullOrEmpty( paramName ) )
+            if( !string.IsNullOrEmpty( paramName ) 
+               && argument == null )
             {
-                var _message = @$"Object '{paramName}' is null or empty!";
-                if( argument == null )
-                {
-                    throw new ArgumentNullException( _message );
-                }
+                var _message = @$"The object '{paramName}' is null or empty!";
+                throw new ArgumentNullException( _message );
             }
         }
 
@@ -104,13 +102,13 @@ namespace BudgetExecution
         /// <param name="argument">The argument.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <exception cref="System.ArgumentNullException"></exception>
-        public static void NullOrEmpty( IDictionary<string, object> argument, string paramName )
+        public static void NoItems( IDictionary<string, object> argument, string paramName )
         {
             if( !string.IsNullOrEmpty( paramName ) )
             {
-                var _message = @$"Dictionary '{paramName}' is null of empty!";
+                var _message = @$"The dictionary '{paramName}' is null of empty!";
                 if( ( argument == null )
-                   || ( argument.Any( ) == false )  )
+                   || ( argument.Any( ) == false ) )
                 {
                     throw new ArgumentNullException( _message );
                 }
@@ -127,7 +125,7 @@ namespace BudgetExecution
         {
             if( !string.IsNullOrEmpty( paramName ) )
             {
-                var _message = @$"Color '{paramName}' is empty or undefined!";
+                var _message = @$"The color '{paramName}' is empty or undefined!";
                 if( argument.IsEmpty 
                    || ( !argument.IsKnownColor 
                        && !argument.IsNamedColor 
@@ -149,8 +147,8 @@ namespace BudgetExecution
         {
             if( !string.IsNullOrEmpty( paramName ) )
             {
-                var _message = @$"Enumerable '{paramName}' is null or empty!";
-                if( !argument.Any( ) )
+                var _message = @$"Sequence '{paramName}' is null or empty!";
+                if( !argument.Any( ) | argument == null )
                 {
                     throw new ArgumentNullException( _message );
                 }
@@ -165,13 +163,11 @@ namespace BudgetExecution
         /// <exception cref="System.ArgumentNullException"></exception>
         public static void NoData( IListSource argument, string paramName )
         {
-            if( !string.IsNullOrEmpty( paramName ) )
+            if( !string.IsNullOrEmpty( paramName ) 
+               && argument == null )
             {
                 var _message = @$"ListSource '{paramName}' is null or empty!";
-                if( argument == null )
-                {
-                    throw new ArgumentNullException( _message );
-                }
+                throw new ArgumentNullException( _message );
             }
         }
 
@@ -183,18 +179,30 @@ namespace BudgetExecution
         /// <exception cref="System.ArgumentNullException"></exception>
         public static void NotFile( string argument, string paramName )
         {
-            if( !string.IsNullOrEmpty( paramName ) )
+            if( !string.IsNullOrEmpty( paramName )
+               && !string.IsNullOrEmpty( argument )
+               && !File.Exists( argument ) )
             {
-                var _message = @$"'{paramName}' is not a file!";
-                if( !string.IsNullOrEmpty( argument ) 
-                   && !File.Exists( argument ) )
                 {
+                    var _message = @$"'{paramName}' is not a file!";
                     throw new ArgumentNullException( _message );
                 }
-                else if( string.IsNullOrEmpty( argument ) )
-                {
-                    throw new ArgumentException( _message, paramName );
-                }
+            }
+        }
+
+        /// <summary>
+        /// Throws exception if 'argument' 
+        /// </summary>
+        /// <param name="argument">The argument.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        public static void NotEnum( Enum argument, string paramName )
+        {
+            if( !string.IsNullOrEmpty( paramName ) 
+               && ( argument.GetType( ) != typeof( Enum ) ) )
+            {
+                var _message = @$"'{paramName}' is not an Enum!";
+                throw new ArgumentNullException( _message );
             }
         }
 

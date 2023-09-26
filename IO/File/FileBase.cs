@@ -45,22 +45,26 @@ namespace BudgetExecution
     using System.IO;
     using System.Security.AccessControl;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.PathBase" />
+    /// <seealso cref="T:BudgetExecution.PathBase" />
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     public abstract class FileBase : PathBase
     {
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.FileBase" /> class.
         /// </summary>
         public FileBase( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.FileBase" /> class.
         /// </summary>
         /// <param name="input">The input.</param>
         public FileBase( string input )
@@ -75,17 +79,15 @@ namespace BudgetExecution
         /// <param name="filePath">The file path.</param>
         public virtual void Move( string filePath )
         {
-            if( !string.IsNullOrEmpty( filePath ) )
+            try
             {
-                try
-                {
-                    var _source = new FileInfo( FullPath );
-                    _source.MoveTo( filePath );
-                }
-                catch( IOException _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.NotFile( filePath, "filePath" );
+                var _source = new FileInfo( FullPath );
+                _source.MoveTo( filePath );
+            }
+            catch( IOException _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -97,12 +99,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( !string.IsNullOrEmpty( filePath )
-                   && File.Exists( filePath ) )
-                {
-                    var _source = new FileInfo( FullPath );
-                    _source.CopyTo( filePath );
-                }
+                ThrowIf.NotFile( filePath, "filePath" );
+                var _source = new FileInfo( FullPath );
+                _source.CopyTo( filePath );
             }
             catch( IOException _ex )
             {

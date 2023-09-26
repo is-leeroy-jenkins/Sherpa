@@ -44,11 +44,12 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.Grid" />
+    /// <seealso cref="T:BudgetExecution.Grid" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class Heading : Grid
     {
         /// <summary>
@@ -75,15 +76,17 @@ namespace BudgetExecution
         /// </value>
         public IDictionary<int, string> Caption { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Heading"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.Heading" /> class.
         /// </summary>
         public Heading( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Heading"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.Heading" /> class.
         /// </summary>
         /// <param name="grid">The grid.</param>
         public Heading( IGrid grid )
@@ -96,8 +99,9 @@ namespace BudgetExecution
             Anchor = ( From.Row, From.Column );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Heading"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.Heading" /> class.
         /// </summary>
         /// <param name="grid">The grid.</param>
         /// <param name="caption">The caption.</param>
