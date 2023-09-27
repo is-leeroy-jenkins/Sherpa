@@ -59,10 +59,22 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public partial class FileBrowser
     {
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value> The time. </value>
+        public int Time { get; set; }
+
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value> The seconds. </value>
+        public int Seconds { get; set; }
+
         /// <summary>
         /// Gets or sets the extension.
         /// </summary>
@@ -156,6 +168,10 @@ namespace BudgetExecution
             // Title Properties
             Title.ForeColor = Color.FromArgb( 0, 120, 212 );
             Title.TextAlign = ContentAlignment.TopLeft;
+
+            // Timer Properties
+            Time = 0;
+            Seconds = 5;
 
             // Event Wiring
             Load += OnLoad;

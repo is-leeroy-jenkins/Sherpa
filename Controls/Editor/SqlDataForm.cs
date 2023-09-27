@@ -242,8 +242,9 @@ namespace BudgetExecution
             TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
             ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
 
-            //Default Provider
-            Provider = Provider.Access;
+            // Timer Properties
+            Time = 0;
+            Seconds = 5;
 
             // Form Even Wiring
             Load += OnLoad;
@@ -474,7 +475,6 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
-                        Close( );
                     }
 
                     Opacity -= 0.02d;

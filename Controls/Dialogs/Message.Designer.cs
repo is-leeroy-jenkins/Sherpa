@@ -46,6 +46,7 @@ namespace BudgetExecution
             TextBox = new RichTextBox( );
             TitleTable = new TableLayoutPanel( );
             CloseButton = new Button( );
+            Timer = new System.Windows.Forms.Timer( components );
             ( (ISupportInitialize) BindingSource  ).BeginInit( );
             ( (ISupportInitialize) PictureBox  ).BeginInit( );
             BackPanel.SuspendLayout( );
@@ -283,6 +284,7 @@ namespace BudgetExecution
         private RichTextBox TextBox;
         public TableLayoutPanel TitleTable;
         private Button CloseButton;
+        public System.Windows.Forms.Timer Timer;
     }
 
 }

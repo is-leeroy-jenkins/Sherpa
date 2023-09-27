@@ -561,7 +561,6 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
-                        Close( );
                     }
 
                     Opacity -= 0.02d;

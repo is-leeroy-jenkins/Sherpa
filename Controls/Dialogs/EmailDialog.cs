@@ -112,6 +112,10 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
+            // Timer Properties
+            Time = 0;
+            Seconds = 5;
+
             // Event Wiring
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClick;
@@ -303,7 +307,6 @@ namespace BudgetExecution
                     if( Opacity == 1d )
                     {
                         _timer.Stop( );
-                        Close( );
                     }
 
                     Opacity -= 0.02d;

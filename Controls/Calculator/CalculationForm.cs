@@ -52,19 +52,33 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public partial class CalculationForm : MetroForm
     {
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value> The time. </value>
+        public int Time { get; set; }
+
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value> The seconds. </value>
+        public int Seconds { get; set; }
+
         /// <summary> Gets or sets the initial value. </summary>
         /// <value> The initial value. </value>
         public double InitialValue { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CalculationForm"/>
+        /// <see cref="T:BudgetExecution.CalculationForm" />
         /// class.
         /// </summary>
         public CalculationForm( )
@@ -104,14 +118,19 @@ namespace BudgetExecution
             ValueLabel.ForeColor = Color.White;
             ValueLabel.TextAlign = ContentAlignment.MiddleCenter;
 
+            // Timer Properties
+            Time = 0;
+            Seconds = 5;
+
             // Event Wiring
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClick;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CalculationForm"/>
+        /// <see cref="T:BudgetExecution.CalculationForm" />
         /// class.
         /// </summary>
         /// <param name="initial"> The initial. </param>
@@ -121,6 +140,90 @@ namespace BudgetExecution
             InitialValue = initial;
             Calculator.Value = new CalculatorValue( InitialValue );
             ValueLabel.Text = Calculator.Value.ToString( );
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
+        public new void Show( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 10;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        Time++;
+                        if( Time == Seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
+        private void FadeIn( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 1d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity += 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out and close.
+        /// </summary>
+        private void FadeOut( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 0d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity -= 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary> Called when [calculation value changed]. </summary>
@@ -156,6 +259,7 @@ namespace BudgetExecution
         {
             try
             {
+                FadeIn( );
                 Calculator.ValueCalculated += OnCalculationValueChanged;
                 Calculator.BorderStyle = Border3DStyle.Adjust;
                 Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
@@ -178,6 +282,7 @@ namespace BudgetExecution
         {
             try
             {
+                FadeOut( );
                 Close( );
             }
             catch( Exception _ex )

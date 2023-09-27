@@ -65,6 +65,7 @@ namespace BudgetExecution
             CloseButton = new Button( );
             FindButton = new Button( );
             SelectButton = new Button( );
+            Timer = new System.Windows.Forms.Timer( components );
             TextBoxLayout.SuspendLayout( );
             CheckBoxLayout.SuspendLayout( );
             TopTablePanel.SuspendLayout( );
@@ -772,6 +773,7 @@ namespace BudgetExecution
         public Button CloseButton;
         public Button FindButton;
         public Button SelectButton;
+        public System.Windows.Forms.Timer Timer;
     }
 
 }

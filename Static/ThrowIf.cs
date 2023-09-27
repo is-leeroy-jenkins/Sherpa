@@ -72,8 +72,7 @@ namespace BudgetExecution
         /// </exception>
         public static void NullOrEmpty( string argument, string paramName )
         {
-            if( string.IsNullOrEmpty( argument )
-               && !string.IsNullOrEmpty( paramName ) )
+            if( string.IsNullOrEmpty( argument ) )
             {
                 var _message = @$"The string '{paramName}' is null or empty!";
                 throw new ArgumentNullException( _message );
@@ -88,10 +87,9 @@ namespace BudgetExecution
         /// <exception cref="System.ArgumentNullException"></exception>
         public static void Null( object argument, string paramName )
         {
-            if( !string.IsNullOrEmpty( paramName ) 
-               && argument == null )
+            if( argument == null )
             {
-                var _message = @$"The object '{paramName}' is null or empty!";
+                var _message = @$"The object '{paramName}' is null!";
                 throw new ArgumentNullException( _message );
             }
         }
@@ -104,14 +102,10 @@ namespace BudgetExecution
         /// <exception cref="System.ArgumentNullException"></exception>
         public static void NoItems( IDictionary<string, object> argument, string paramName )
         {
-            if( !string.IsNullOrEmpty( paramName ) )
+            if( argument.Any( ) != true )
             {
-                var _message = @$"The dictionary '{paramName}' is null of empty!";
-                if( ( argument == null )
-                   || ( argument.Any( ) == false ) )
-                {
-                    throw new ArgumentNullException( _message );
-                }
+                var _message = @$"The dictionary '{paramName}' is null or empty!";
+                throw new ArgumentNullException( _message );
             }
         }
 
@@ -123,16 +117,10 @@ namespace BudgetExecution
         /// <exception cref="System.ArgumentNullException"></exception>
         public static void NullOrEmpty( Color argument, string paramName )
         {
-            if( !string.IsNullOrEmpty( paramName ) )
+            if( argument.IsEmpty )
             {
-                var _message = @$"The color '{paramName}' is empty or undefined!";
-                if( argument.IsEmpty 
-                   || ( !argument.IsKnownColor 
-                       && !argument.IsNamedColor 
-                       && !argument.IsSystemColor ) )
-                {
-                    throw new ArgumentNullException( _message );
-                }
+                var _message = @$"The color '{paramName}' is empty or uninitialized!";
+                throw new ArgumentNullException( _message );
             }
         }
 
@@ -145,13 +133,10 @@ namespace BudgetExecution
         /// <exception cref="System.ArgumentNullException"></exception>
         public static void None<T>( IEnumerable<T> argument, string paramName )
         {
-            if( !string.IsNullOrEmpty( paramName ) )
+            if( argument.Any( ) != true )
             {
-                var _message = @$"Sequence '{paramName}' is null or empty!";
-                if( !argument.Any( ) | argument == null )
-                {
-                    throw new ArgumentNullException( _message );
-                }
+                var _message = @$"The enumerable '{paramName}' is empty!";
+                throw new ArgumentNullException( _message );
             }
         }
 
@@ -163,10 +148,9 @@ namespace BudgetExecution
         /// <exception cref="System.ArgumentNullException"></exception>
         public static void NoData( IListSource argument, string paramName )
         {
-            if( !string.IsNullOrEmpty( paramName ) 
-               && argument == null )
+            if( argument == null )
             {
-                var _message = @$"ListSource '{paramName}' is null or empty!";
+                var _message = @$"The data source '{paramName}' is null!";
                 throw new ArgumentNullException( _message );
             }
         }
@@ -179,14 +163,10 @@ namespace BudgetExecution
         /// <exception cref="System.ArgumentNullException"></exception>
         public static void NotFile( string argument, string paramName )
         {
-            if( !string.IsNullOrEmpty( paramName )
-               && !string.IsNullOrEmpty( argument )
-               && !File.Exists( argument ) )
+            if( !File.Exists( argument ) )
             {
-                {
-                    var _message = @$"'{paramName}' is not a file!";
-                    throw new ArgumentNullException( _message );
-                }
+                var _message = @$"The file '{paramName}' does not exist!";
+                throw new ArgumentNullException( _message );
             }
         }
 
@@ -198,8 +178,7 @@ namespace BudgetExecution
         /// <exception cref="System.ArgumentNullException"></exception>
         public static void NotEnum( Enum argument, string paramName )
         {
-            if( !string.IsNullOrEmpty( paramName ) 
-               && ( argument.GetType( ) != typeof( Enum ) ) )
+            if( argument.GetType( ) != typeof( Enum ) )
             {
                 var _message = @$"'{paramName}' is not an Enum!";
                 throw new ArgumentNullException( _message );
@@ -219,13 +198,10 @@ namespace BudgetExecution
         /// </exception>
         public static void Negative( int argument, string paramName )
         {
-            if( !string.IsNullOrEmpty( paramName ) )
+            if( argument < 0 )
             {
-                if( argument < 0 )
-                {
-                    var _message = @$"Value '{paramName}' is negative!";
-                    throw new ArgumentOutOfRangeException( paramName, _message );
-                }
+                var _message = @$"The value '{paramName}' is negative!";
+                throw new ArgumentOutOfRangeException( paramName, _message );
             }
         }
 
@@ -242,13 +218,10 @@ namespace BudgetExecution
         /// </exception>
         public static void Negative( double argument, string paramName )
         {
-            if( !string.IsNullOrEmpty( paramName ) )
+            if( argument < 0 )
             {
-                if( argument < 0 )
-                {
-                    var _message = @$"Value '{paramName}' is negative!";
-                    throw new ArgumentOutOfRangeException( paramName, _message );
-                }
+                var _message = @$"The value '{paramName}' is negative!";
+                throw new ArgumentOutOfRangeException( paramName, _message );
             }
         }
 
@@ -266,13 +239,10 @@ namespace BudgetExecution
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static void NegativeOrZero( int argument, string paramName )
         {
-            if( !string.IsNullOrEmpty( paramName ) )
+            if( argument < 0 )
             {
-                if( argument < 0 )
-                {
-                    var _message = @$"Value '{paramName}' is zero or negative!";
-                    throw new ArgumentOutOfRangeException( paramName, _message );
-                }
+                var _message = @$"The value '{paramName}' is zero or negative!";
+                throw new ArgumentOutOfRangeException( paramName, _message );
             }
         }
 
@@ -290,13 +260,10 @@ namespace BudgetExecution
         /// <exception cref="ArgumentOutOfRangeException">paramName, _message</exception>
         public static void NegativeOrZero( double argument, string paramName )
         {
-            if( !string.IsNullOrEmpty( paramName ) )
+            if( argument < 0 )
             {
-                if( argument < 0 )
-                {
-                    var _message = @$"Value '{paramName}' is zero or negative!";
-                    throw new ArgumentOutOfRangeException( paramName, _message );
-                }
+                var _message = @$"Value '{paramName}' is zero or negative!";
+                throw new ArgumentOutOfRangeException( paramName, _message );
             }
         }
     }

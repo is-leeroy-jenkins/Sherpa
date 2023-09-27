@@ -199,6 +199,10 @@ namespace BudgetExecution
             Provider = Provider.Access;
             Extenstion = EXT.PDF;
 
+            // Timer Properties
+            Time = 0;
+            Seconds = 5;
+
             // Event Wiring
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
@@ -354,7 +358,6 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
-                        Close( );
                     }
 
                     Opacity -= 0.02d;

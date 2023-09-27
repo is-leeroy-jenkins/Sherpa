@@ -32,6 +32,7 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeComponent( )
         {
+            components = new System.ComponentModel.Container( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( CalculationForm ) );
             TopPanel = new Layout( );
             TopTable = new System.Windows.Forms.TableLayoutPanel( );
@@ -42,6 +43,7 @@ namespace BudgetExecution
             CloseButton = new Button( );
             CalculatorTable = new System.Windows.Forms.TableLayoutPanel( );
             ButtonTable = new System.Windows.Forms.TableLayoutPanel( );
+            Timer = new System.Windows.Forms.Timer( components );
             TopPanel.SuspendLayout( );
             TopTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) Image  ).BeginInit( );
@@ -289,6 +291,7 @@ namespace BudgetExecution
         private System.Windows.Forms.TableLayoutPanel CalculatorTable;
         private System.Windows.Forms.TableLayoutPanel TopTable;
         private System.Windows.Forms.TableLayoutPanel ButtonTable;
+        public System.Windows.Forms.Timer Timer;
     }
 }
 

@@ -227,7 +227,6 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
-                        Close( );
                     }
 
                     Opacity -= 0.02d;
@@ -529,6 +528,24 @@ namespace BudgetExecution
                 var _splash = new SplashMessage( _message );
                 _splash.Owner = this;
                 _splash.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Shows the sheet form.
+        /// </summary>
+        private void ShowSheetForm( )
+        {
+            try
+            {
+                var _data = new DataBuilder( Source.BudgetContacts );
+                var _table = _data.DataTable;
+                var _grid = new SheetForm( _table );
+                _grid.Show( );
             }
             catch( Exception _ex )
             {
@@ -995,11 +1012,8 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTestButtonClick( object sender, EventArgs e )
         {
-            var _data = new DataBuilder( Source.BudgetContacts );
-            var _table = _data.DataTable;
-            var _grid = new SheetForm( _table );
-            Hide( );
-            _grid.Show( );
+            ShowSheetForm( );
+            FadeOut( );
         }
 
         /// <summary>

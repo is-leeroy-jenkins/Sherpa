@@ -56,6 +56,7 @@ namespace BudgetExecution
     using System.Windows.Forms.DataVisualization.Charting;
     using Exception = System.Exception;
 
+    /// <inheritdoc />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]

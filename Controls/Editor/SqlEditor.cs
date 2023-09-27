@@ -64,6 +64,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class SqlEditor : EditBase
     {
         /// <summary>
@@ -176,7 +177,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlEditor" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SqlEditor" /> class.
         /// </summary>
         public SqlEditor( )
         {
@@ -215,8 +217,6 @@ namespace BudgetExecution
             // Timer Properties
             Time = 0;
             Seconds = 5;
-
-            // Picture Box Properties
 
             // Default Provider
             Provider = Provider.Access;
@@ -492,7 +492,6 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
-                        Close( );
                     }
 
                     Opacity -= 0.02d;
