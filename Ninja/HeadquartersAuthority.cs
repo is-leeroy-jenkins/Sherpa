@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   HeadquartersAuthority.cs
@@ -44,15 +44,18 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class HeadquartersAuthority : StatusOfFunds
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="HeadquartersAuthority"/>
+        /// <see cref="T:BudgetExecution.HeadquartersAuthority" />
         /// class.
         /// </summary>
         public HeadquartersAuthority( )
@@ -60,9 +63,10 @@ namespace BudgetExecution
             Source = Source.HeadquartersAuthority;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="HeadquartersAuthority"/>
+        /// <see cref="T:BudgetExecution.HeadquartersAuthority" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -108,9 +112,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="HeadquartersAuthority"/>
+        /// <see cref="T:BudgetExecution.HeadquartersAuthority" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -156,9 +161,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="HeadquartersAuthority"/>
+        /// <see cref="T:BudgetExecution.HeadquartersAuthority" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -204,6 +210,12 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.HeadquartersAuthority" /> class.
+        /// </summary>
+        /// <param name="allocation">The allocation.</param>
         public HeadquartersAuthority( HeadquartersAuthority allocation )
             : this( )
         {

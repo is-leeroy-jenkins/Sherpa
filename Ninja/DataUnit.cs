@@ -117,24 +117,24 @@ namespace BudgetExecution
         /// </returns>
         public virtual bool IsMatch( IDataUnit unit )
         {
-            if( unit != null )
+            try
             {
-                try
+                ThrowIf.Null( unit, "unit" );
+                if( ( unit.Code?.Equals( Code ) == true )
+                   && unit.Name.Equals( Name ) )
                 {
-                    if( ( unit.Code?.Equals( Code ) == true )
-                       && unit.Name.Equals( Name ) )
-                    {
-                        return true;
-                    }
+                    return true;
                 }
-                catch( Exception _ex )
+                else
                 {
-                    Fail( _ex );
                     return false;
                 }
             }
-
-            return false;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return false;
+            }
         }
 
         /// <inheritdoc />
@@ -150,22 +150,18 @@ namespace BudgetExecution
         /// </returns>
         public virtual bool IsMatch( IDictionary<string, object> dict )
         {
-            if( dict?.Any( ) == true )
+            try
             {
-                try
-                {
-                    var _name = dict.Keys?.First( );
-                    var _value = dict[ _name ];
-                    return _value.Equals( Code ) && _name.Equals( Name );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return false;
-                }
+                ThrowIf.NoItems( dict, "dict" );
+                var _name = dict.Keys?.First( );
+                var _value = dict[ _name ];
+                return _value.Equals( Code ) && _name.Equals( Name );
             }
-
-            return false;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return false;
+            }
         }
 
         /// <summary>
@@ -176,7 +172,7 @@ namespace BudgetExecution
         /// <returns>
         ///   <c>true</c> if the specified primary is match; otherwise, <c>false</c>.
         /// </returns>
-        public static bool IsMatch( IDataUnit primary, IDataUnit secondary )
+        public virtual bool IsMatch( IDataUnit primary, IDataUnit secondary )
         {
             try
             {

@@ -44,6 +44,7 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
     /// Full-time equivalent (FullTimeEquivalents) or whole time equivalent (WTE) is a unit that indicates
     /// the workload of an employed person (or student) in a way that makes workloads or class loads
@@ -52,14 +53,16 @@ namespace BudgetExecution
     /// FullTimeEquivalent of 1.0 is equivalent to a full-time worker or student, while an
     /// FullTimeEquivalent of 0.5 signals half of a full work or school load.
     /// </summary>
-    /// <seealso cref="ProgramResultsCode"/>
+    /// <seealso cref="T:BudgetExecution.ProgramResultsCode" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class FullTimeEquivalent : OperatingPlan
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FullTimeEquivalent"/>
+        /// <see cref="T:BudgetExecution.FullTimeEquivalent" />
         /// class.
         /// </summary>
         public FullTimeEquivalent( )
@@ -67,9 +70,10 @@ namespace BudgetExecution
             Source = Source.FullTimeEquivalents;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="FullTimeEquivalent"/>
+        /// <see cref="T:BudgetExecution.FullTimeEquivalent" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -110,9 +114,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="FullTimeEquivalent"/>
+        /// <see cref="T:BudgetExecution.FullTimeEquivalent" />
         /// class.
         /// </summary>
         /// <param name="builder"> The databuilder. </param>
@@ -153,9 +158,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="FullTimeEquivalent"/>
+        /// <see cref="T:BudgetExecution.FullTimeEquivalent" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The dataRow. </param>
@@ -196,6 +202,10 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// </summary>
+        /// <param name="allocation"></param>
         public FullTimeEquivalent( IAllocation allocation )
         {
             ID = allocation.ID;
@@ -226,8 +236,12 @@ namespace BudgetExecution
             BudgetAccountName = allocation.BudgetAccountName;
         }
 
-        /// <summary> Gets the ProgramResultCodes identifier. </summary>
-        /// <returns> </returns>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the ProgramResultCodes identifier.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         public override int GetId( DataRow dataRow )
         {
             try
