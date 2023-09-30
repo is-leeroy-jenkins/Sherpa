@@ -120,7 +120,7 @@ namespace BudgetExecution
             if( argument.IsEmpty )
             {
                 var _message = @$"The color '{paramName}' is empty or uninitialized!";
-                throw new ArgumentNullException( _message );
+                throw new ArgumentException( _message );
             }
         }
 
@@ -131,12 +131,12 @@ namespace BudgetExecution
         /// <param name="argument">The argument.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <exception cref="System.ArgumentNullException"></exception>
-        public static void None<T>( IEnumerable<T> argument, string paramName )
+        public static void NoElements<T>( IEnumerable<T> argument, string paramName )
         {
             if( argument.Any( ) != true )
             {
                 var _message = @$"The enumerable '{paramName}' is empty!";
-                throw new ArgumentNullException( _message );
+                throw new ArgumentException( _message );
             }
         }
 
@@ -151,7 +151,7 @@ namespace BudgetExecution
             if( argument == null )
             {
                 var _message = @$"The data source '{paramName}' is null!";
-                throw new ArgumentNullException( _message );
+                throw new ArgumentException( _message );
             }
         }
 
@@ -166,7 +166,7 @@ namespace BudgetExecution
             if( !File.Exists( argument ) )
             {
                 var _message = @$"The file '{paramName}' does not exist!";
-                throw new ArgumentNullException( _message );
+                throw new ArgumentException( _message );
             }
         }
 
@@ -181,7 +181,37 @@ namespace BudgetExecution
             if( argument.GetType( ) != typeof( Enum ) )
             {
                 var _message = @$"'{paramName}' is not an Enum!";
-                throw new ArgumentNullException( _message );
+                throw new ArgumentException( _message );
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="paramName"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void NotDate( DateTime argument, string paramName )
+        {
+            if( argument.GetType( ) != typeof( DateTime ) )
+            {
+                var _message = @$"'{paramName}' is not a DateTime!";
+                throw new ArgumentException( _message );
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="paramName"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void NotDateOnly( DateOnly argument, string paramName )
+        {
+            if( argument.GetType( ) != typeof( DateOnly ) )
+            {
+                var _message = @$"'{paramName}' is not a DateOnly!";
+                throw new ArgumentException( _message );
             }
         }
 
@@ -200,7 +230,7 @@ namespace BudgetExecution
         {
             if( argument < 0 )
             {
-                var _message = @$"The value '{paramName}' is negative!";
+                var _message = @$"'{paramName}' is negative!";
                 throw new ArgumentOutOfRangeException( paramName, _message );
             }
         }
@@ -220,7 +250,7 @@ namespace BudgetExecution
         {
             if( argument < 0 )
             {
-                var _message = @$"The value '{paramName}' is negative!";
+                var _message = @$"'{paramName}' is negative!";
                 throw new ArgumentOutOfRangeException( paramName, _message );
             }
         }
@@ -241,7 +271,7 @@ namespace BudgetExecution
         {
             if( argument < 0 )
             {
-                var _message = @$"The value '{paramName}' is zero or negative!";
+                var _message = @$"'{paramName}' is zero or negative!";
                 throw new ArgumentOutOfRangeException( paramName, _message );
             }
         }
@@ -262,7 +292,7 @@ namespace BudgetExecution
         {
             if( argument < 0 )
             {
-                var _message = @$"Value '{paramName}' is zero or negative!";
+                var _message = @$"'{paramName}' is zero or negative!";
                 throw new ArgumentOutOfRangeException( paramName, _message );
             }
         }

@@ -79,7 +79,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.None( data, "para" );
+                ThrowIf.NoElements( data, "data" );
                 ThrowIf.NullOrEmpty( path, "path" );
                 var _dataSet = new DataSet( );
                 _dataSet?.Tables?.Add( ListToDataTable( data ) );
@@ -154,11 +154,12 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.None( data, "data" );
+                ThrowIf.NoElements( data, "data" );
                 var _table = new DataTable( );
                 foreach( var _info in typeof( T ).GetProperties( ) )
                 {
-                    _table?.Columns?.Add( new DataColumn( _info.Name, GetNullableType( _info.PropertyType ) ) );
+                    var _col = new DataColumn( _info.Name, GetNullableType( _info.PropertyType ) );
+                    _table?.Columns?.Add( _col );
                 }
 
                 foreach( var _t in data )

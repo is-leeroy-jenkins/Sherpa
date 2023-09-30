@@ -44,8 +44,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.IO;
-    using System.Linq;
     using OfficeOpenXml.Style;
     using static System.IO.Path;
 
@@ -391,7 +389,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( grid, "grid" );
-                ThrowIf.None( text, "text" );
+                ThrowIf.NoElements( text, "text" );
                 foreach( var _cell in grid.Range )
                 {
                     foreach( var _caption in text )

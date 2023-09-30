@@ -43,10 +43,7 @@
 
 namespace BudgetExecution
 {
-    using Google.Apis.Util;
-    using Syncfusion.Lic.util.encoders;
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -86,6 +83,7 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 var _days = 0;
                 var _weekdays = new List<DateTime>( );
@@ -119,6 +117,7 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 var _days = 0;
                 var _weekends = new List<DateTime>( );
@@ -152,6 +151,7 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 var _days = 0;
                 var _holidays = new List<DateTime>( );
@@ -190,6 +190,7 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 var _days = 0;
                 var _workdays = new List<DateTime>( );
@@ -273,6 +274,8 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.NotDate( startDate, "startDate" );
+                ThrowIf.NotDate( endDate, "endDate" );
                 return compareTime
                     ? ( dateTime >= startDate ) && ( dateTime <= endDate )
                     : ( dateTime.Date >= startDate.Date ) && ( dateTime.Date <= endDate.Date );
@@ -326,6 +329,7 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 var _days = 0;
                 for( var _i = 0; _i < _timeSpan.Days; _i++ )
@@ -356,6 +360,7 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 var _weekEnds = 0;
                 for( var _i = 0; _i < _timeSpan.Days; _i++ )
@@ -388,6 +393,7 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 var _days = 0;
                 for( var _i = 0; _i < _timeSpan.Days; _i++ )
@@ -421,6 +427,7 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 var _days = 0;
                 for( var _i = 0; _i < _timeSpan.Days; _i++ )
@@ -461,7 +468,6 @@ namespace BudgetExecution
             var _friday = _date == DayOfWeek.Friday;
             var _monday = _date == DayOfWeek.Monday;
             var _weekend = ( _date == DayOfWeek.Saturday ) || ( _date == DayOfWeek.Sunday );
-
             switch( dateTime.Month )
             {
                 // New Years Day (Jan 1, or preceding Friday/following Monday if weekend)
