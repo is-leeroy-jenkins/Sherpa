@@ -43,12 +43,14 @@
 
 namespace BudgetExecution
 {
+    using Google.Apis.Util;
     using Syncfusion.Lic.util.encoders;
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using static DateTimeExtensions;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -71,7 +73,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DateTimeExtensions.Fail( _ex );
+                Fail( _ex );
                 return false;
             }
         }
@@ -102,7 +104,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DateTimeExtensions.Fail( _ex );
+                Fail( _ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -135,7 +137,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DateTimeExtensions.Fail( _ex );
+                Fail( _ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -168,7 +170,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DateTimeExtensions.Fail( _ex );
+                Fail( _ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -207,7 +209,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DateTimeExtensions.Fail( _ex );
+                Fail( _ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -227,7 +229,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DateTimeExtensions.Fail( _ex );
+                Fail( _ex );
                 return false;
             }
         }
@@ -246,7 +248,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DateTimeExtensions.Fail( _ex );
+                Fail( _ex );
                 return false;
             }
         }
@@ -277,7 +279,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DateTimeExtensions.Fail( _ex );
+                Fail( _ex );
                 return false;
             }
         }
@@ -311,7 +313,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DateTimeExtensions.Fail( _ex );
+                Fail( _ex );
                 return default( DateTime );
             }
         }
@@ -341,7 +343,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DateTimeExtensions.Fail( _ex );
+                Fail( _ex );
                 return 0;
             }
         }
@@ -371,7 +373,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DateTimeExtensions.Fail( _ex );
+                Fail( _ex );
                 return 0;
             }
         }
@@ -404,7 +406,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DateTimeExtensions.Fail( _ex );
+                Fail( _ex );
                 return 0;
             }
         }
@@ -436,7 +438,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DateTimeExtensions.Fail( _ex );
+                Fail( _ex );
                 return 0;
             }
         }

@@ -41,12 +41,30 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class SqlConfig
     {
+        /// <summary>
+        /// Gets or sets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
+        public SQL CommandType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the extension.
+        /// </summary>
+        /// <value>
+        /// The extension.
+        /// </value>
+        public EXT Extension { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SqlConfig"/> class.
@@ -66,22 +84,6 @@ namespace BudgetExecution
             CommandType = command;
             Extension = extension;
         }
-
-        /// <summary>
-        /// Gets or sets the type of the command.
-        /// </summary>
-        /// <value>
-        /// The type of the command.
-        /// </value>
-        public SQL CommandType { get; set; }
-
-        /// <summary>
-        /// Gets or sets the extension.
-        /// </summary>
-        /// <value>
-        /// The extension.
-        /// </value>
-        public EXT Extension { get; set; }
 
         /// <summary>
         /// Deconstructs the specified command type.
