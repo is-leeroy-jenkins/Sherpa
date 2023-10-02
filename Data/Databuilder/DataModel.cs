@@ -318,7 +318,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( dataRows, "dataRows" );
+                ThrowIf.NoElements( dataRows, "dataRows" );
                 ThrowIf.NullOrEmpty( column, "column" );
                 var _query = dataRows
                     ?.Select( v => v.Field<string>( column ) )
@@ -347,7 +347,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( dataRows, "dataRows" );
+                ThrowIf.NoElements( dataRows, "dataRows" );
                 ThrowIf.NullOrEmpty( name, "name" );
                 ThrowIf.NullOrEmpty( value, "value" );
                 var _query = dataRows
@@ -376,7 +376,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( filePath, "filePath" );
+                ThrowIf.NotFile( filePath, "filePath" );
                 using var _package = new ExcelPackage( );
                 using var _stream = OpenRead( filePath );
                 _package.Load( _stream );
@@ -430,7 +430,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( dataTable, dataTable.TableName );
+                ThrowIf.Null( dataTable, "dataTable" );
                 var _dict = new Dictionary<string, IEnumerable<string>>( );
                 var _columns = dataTable?.Columns;
                 var _rows = dataTable?.AsEnumerable( );
