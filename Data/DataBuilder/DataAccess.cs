@@ -50,7 +50,6 @@ namespace BudgetExecution
     using System.Linq;
     using System.Threading.Tasks;
     using System.Diagnostics;
-    using DataTable = System.Data.DataTable;
 
     /// <inheritdoc />
     /// <summary>
@@ -164,6 +163,8 @@ namespace BudgetExecution
         /// The SQL statement.
         /// </value>
         public ISqlStatement SqlStatement { get; set; }
+
+        public DataTable DataTable { get; private set; }
 
         /// <summary>
         /// Gets or sets the data columns.
