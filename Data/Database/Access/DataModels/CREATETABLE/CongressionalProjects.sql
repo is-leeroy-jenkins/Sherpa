@@ -1,0 +1,16 @@
+CREATE TABLE CongressionalProjects 
+(
+	CongressionalProjectsId  AUTOINCREMENT NOT NULL UNIQUE,
+	BFY	TEXT(80) NULL DEFAULT NS,
+	EFY	TEXT(80) NULL DEFAULT NS,
+	FundCode	TEXT(80) NULL DEFAULT NS,
+	FundName	TEXT(80) NULL DEFAULT NS,
+	RpioCode	TEXT(80) NULL DEFAULT NS,
+	RpioName	TEXT(80) NULL DEFAULT NS,
+	StateCode	TEXT(80) NULL DEFAULT NS,
+	StateName	TEXT(80) NULL DEFAULT NS,
+	CongressionalProject	TEXT(80) NULL DEFAULT NS,
+	Amount	DOUBLE NULL DEFAULT 0.0,
+    CONSTRAINT CongressionalProjectsPrimaryKey
+	    PRIMARY KEY(CongressionalProjectsId)
+);
