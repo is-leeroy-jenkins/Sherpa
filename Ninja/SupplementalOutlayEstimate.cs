@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:              05-10-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        05-10-2023
 // ******************************************************************************************
-// <copyright file="SupplementalCarryoverEstimate.cs" company="Terry D. Eppler">
+// <copyright file="SupplementalOutlayEstimate.cs.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SupplementalCarryoverEstimate.cs
+//   Eppler, Terry.cs
 // </summary>
 // ******************************************************************************************
 
@@ -46,28 +46,28 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class SupplementalCarryoverEstimate : AnnualCarryoverEstimate 
+    public class SupplementalOutlayEstimate : AnnualCarryoverEstimate 
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SupplementalCarryoverEstimate"/>
+        /// <see cref="SupplementalOutlayEstimate"/>
         /// class.
         /// </summary>
-        public SupplementalCarryoverEstimate( )
+        public SupplementalOutlayEstimate( )
         {
-            Source = Source.SupplementalCarryoverEstimates;
+            Source = Source.SupplementalOutlayEstimates;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SupplementalCarryoverEstimate"/>
+        /// <see cref="SupplementalOutlayEstimate"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public SupplementalCarryoverEstimate( IQuery query )
+        public SupplementalOutlayEstimate( IQuery query )
             : base( query )
         {
-            Source = Source.SupplementalCarryoverEstimates;
+            Source = Source.SupplementalOutlayEstimates;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
@@ -88,14 +88,14 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SupplementalCarryoverEstimate"/>
+        /// <see cref="SupplementalOutlayEstimate"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public SupplementalCarryoverEstimate( IDataModel builder )
+        public SupplementalOutlayEstimate( IDataModel builder )
             : base( builder )
         {
-            Source = Source.SupplementalCarryoverEstimates;
+            Source = Source.SupplementalOutlayEstimates;
             Record = builder.Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
@@ -116,14 +116,14 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SupplementalCarryoverEstimate"/>
+        /// <see cref="SupplementalOutlayEstimate"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public SupplementalCarryoverEstimate( DataRow dataRow )
+        public SupplementalOutlayEstimate( DataRow dataRow )
             : base( dataRow )
         {
-            Source = Source.SupplementalCarryoverEstimates;
+            Source = Source.SupplementalOutlayEstimates;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
@@ -146,7 +146,7 @@ namespace BudgetExecution
         /// 
         /// </summary>
         /// <param name="carryover"></param>
-        public SupplementalCarryoverEstimate( SupplementalCarryoverEstimate carryover )
+        public SupplementalOutlayEstimate( SupplementalOutlayEstimate carryover )
             : this( )
         {
             ID = carryover.ID;

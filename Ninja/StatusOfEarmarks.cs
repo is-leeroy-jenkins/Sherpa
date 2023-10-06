@@ -192,6 +192,10 @@ namespace BudgetExecution
             ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="map"></param>
         public StatusOfEarmarks( IDictionary<string, object> map )
         {
             Record = new DataBuilder( Source, map )?.Record;
@@ -230,13 +234,17 @@ namespace BudgetExecution
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
         }
 
-        public StatusOfEarmarks( IAllocation allocation )
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="allocation"></param>
+        public StatusOfEarmarks( StatusOfEarmarks allocation )
             : this( )
         {
             ID = allocation.ID;
             BudgetLevel = allocation.BudgetLevel;
             BFY = allocation.BFY;
-            EFY = allocation.Efy;
+            EFY = allocation.EFY;
             FundCode = allocation.FundCode;
             FundName = allocation.FundName;
             RpioCode = allocation.RpioCode;
