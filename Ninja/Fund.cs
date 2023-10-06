@@ -44,6 +44,7 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
@@ -64,9 +65,10 @@ namespace BudgetExecution
             Source = Source.Funds;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Fund"/>
+        /// <see cref="T:BudgetExecution.Fund" />
         /// class.
         /// </summary>
         /// <param name="fundCode"> The fundCode. </param>
@@ -111,9 +113,10 @@ namespace BudgetExecution
             ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Fund"/>
+        /// <see cref="T:BudgetExecution.Fund" />
         /// class.
         /// </summary>
         /// <param name="code"> The code. </param>
@@ -158,9 +161,10 @@ namespace BudgetExecution
             ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Fund"/>
+        /// <see cref="T:BudgetExecution.Fund" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -205,9 +209,10 @@ namespace BudgetExecution
             ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Fund"/>
+        /// <see cref="T:BudgetExecution.Fund" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -252,9 +257,10 @@ namespace BudgetExecution
             ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Fund"/>
+        /// <see cref="T:BudgetExecution.Fund" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The Data. </param>
@@ -300,6 +306,11 @@ namespace BudgetExecution
             ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Fund"/> class.
+        /// </summary>
+        /// <param name="fund">The fund.</param>
         public Fund( Fund fund )
         {
             ID = fund.ID;
