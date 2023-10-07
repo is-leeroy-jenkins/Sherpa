@@ -55,21 +55,24 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
     using System.Collections;
 
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedVariable" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
-    [SuppressMessage( "ReSharper", "ArrangeModifiersOrder" )]
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -290,7 +293,7 @@ namespace BudgetExecution
         /// <value>
         /// The state of the view.
         /// </value>
-        public ViewState ViewState { get; set; }
+        public DataArgs DataArgs { get; set; }
 
         /// <inheritdoc />
         /// <summary>
@@ -1037,13 +1040,13 @@ namespace BudgetExecution
         {
             try
             {
-                ViewState.Provider = Provider;
-                ViewState.Source = Source;
-                ViewState.DataFilter = FormFilter;
-                ViewState.SelectedTable = SelectedTable;
-                ViewState.SelectedFields = SelectedFields;
-                ViewState.SelectedNumerics = SelectedNumerics;
-                ViewState.SqlQuery = SqlQuery;
+                DataArgs.Provider = Provider;
+                DataArgs.Source = Source;
+                DataArgs.DataFilter = FormFilter;
+                DataArgs.SelectedTable = SelectedTable;
+                DataArgs.SelectedFields = SelectedFields;
+                DataArgs.SelectedNumerics = SelectedNumerics;
+                DataArgs.SqlQuery = SqlQuery;
             }
             catch( Exception _ex )
             {
@@ -1063,8 +1066,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {SelectedTable} "
-                        + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {SelectedTable} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {

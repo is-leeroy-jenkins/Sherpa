@@ -158,13 +158,13 @@ namespace BudgetExecution
         {
             try
             {
-                ViewState.Provider = Provider;
-                ViewState.Source = Source;
-                ViewState.DataFilter = FormFilter;
-                ViewState.SelectedTable = SelectedTable;
-                ViewState.SelectedFields = SelectedFields;
-                ViewState.SelectedNumerics = SelectedNumerics;
-                ViewState.SqlQuery = SqlQuery;
+                DataArgs.Provider = Provider;
+                DataArgs.Source = Source;
+                DataArgs.DataFilter = FormFilter;
+                DataArgs.SelectedTable = SelectedTable;
+                DataArgs.SelectedFields = SelectedFields;
+                DataArgs.SelectedNumerics = SelectedNumerics;
+                DataArgs.SqlQuery = SqlQuery;
             }
             catch( Exception _ex )
             {
@@ -406,7 +406,7 @@ namespace BudgetExecution
         {
             try
             {
-                ViewState = new ViewState( );
+                DataArgs = new DataArgs( );
                 DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
                 BindingSource.DataSource = DataModel.DataTable;
                 PopulateTableListBoxItems( );
@@ -512,13 +512,13 @@ namespace BudgetExecution
         {
             try
             {
-                ViewState.Provider = Provider;
-                ViewState.Source = Source;
-                ViewState.DataFilter = FormFilter;
-                ViewState.SelectedTable = SelectedTable;
-                ViewState.SelectedFields = SelectedFields;
-                ViewState.SelectedNumerics = SelectedNumerics;
-                ViewState.SqlQuery = SqlQuery;
+                DataArgs.Provider = Provider;
+                DataArgs.Source = Source;
+                DataArgs.DataFilter = FormFilter;
+                DataArgs.SelectedTable = SelectedTable;
+                DataArgs.SelectedFields = SelectedFields;
+                DataArgs.SelectedNumerics = SelectedNumerics;
+                DataArgs.SqlQuery = SqlQuery;
             }
             catch( Exception _ex )
             {

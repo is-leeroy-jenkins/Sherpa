@@ -236,7 +236,7 @@ namespace BudgetExecution
         /// <value>
         /// The state of the view.
         /// </value>
-        public ViewState DataArgs { get; set; }
+        public DataArgs DataArgs { get; set; }
 
         /// <inheritdoc />
         /// <summary>
@@ -1464,7 +1464,7 @@ namespace BudgetExecution
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
-                DataArgs = new ViewState( );
+                DataArgs = new DataArgs( );
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedIndex = 1;

@@ -47,7 +47,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using static DateTimeExtensions;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -85,11 +84,11 @@ namespace BudgetExecution
             {
                 ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
-                var _days = 0;
+                int _days;
                 var _weekdays = new List<DateTime>( );
-                for( var _i = 0; _i < _timeSpan.Days; _i++ )
+                for( _days = 0; _days < _timeSpan.Days; _days++ )
                 {
-                    var _dateTime = startDate.AddDays( _i );
+                    var _dateTime = startDate.AddDays( _days );
                     if( _dateTime.IsWeekDay( ) )
                     {
                         _weekdays.Add( _dateTime );
@@ -119,11 +118,11 @@ namespace BudgetExecution
             {
                 ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
-                var _days = 0;
+                int _days;
                 var _weekends = new List<DateTime>( );
-                for( var _i = 0; _i < _timeSpan.Days; _i++ )
+                for( _days = 0; _days < _timeSpan.Days; _days++ )
                 {
-                    var _dateTime = startDate.AddDays( _i );
+                    var _dateTime = startDate.AddDays( _days );
                     if( _dateTime.IsWeekEnd( ) )
                     {
                         _weekends.Add( _dateTime );
@@ -153,11 +152,11 @@ namespace BudgetExecution
             {
                 ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
-                var _days = 0;
+                int _days = 0;
                 var _holidays = new List<DateTime>( );
-                for( var _i = 0; _i < _timeSpan.Days; _i++ )
+                for( _days = 0; _days < _timeSpan.Days; _days++ )
                 {
-                    var _dateTime = startDate.AddDays( _i );
+                    var _dateTime = startDate.AddDays( _days );
                     if( _dateTime.IsFederalHoliday( ) )
                     {
                         _holidays.Add( _dateTime );
@@ -192,11 +191,11 @@ namespace BudgetExecution
             {
                 ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
-                var _days = 0;
+                int _days;
                 var _workdays = new List<DateTime>( );
-                for( var _i = 0; _i < _timeSpan.Days; _i++ )
+                for( _days = 0; _days < _timeSpan.Days; _days++ )
                 {
-                    var _dateTime = startDate.AddDays( _i );
+                    var _dateTime = startDate.AddDays( _days );
                     if( !_dateTime.IsFederalHoliday( )
                        && !_dateTime.IsWeekEnd( ) )
                     {
@@ -331,10 +330,10 @@ namespace BudgetExecution
             {
                 ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
-                var _days = 0;
-                for( var _i = 0; _i < _timeSpan.Days; _i++ )
+                int _days;
+                for( _days = 0; _days < _timeSpan.Days; _days++ )
                 {
-                    var _dateTime = startDate.AddDays( _i );
+                    var _dateTime = startDate.AddDays( _days );
                     if( _dateTime.IsWeekDay( ) )
                     {
                         _days++;
@@ -395,10 +394,10 @@ namespace BudgetExecution
             {
                 ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
-                var _days = 0;
-                for( var _i = 0; _i < _timeSpan.Days; _i++ )
+                int _days;
+                for( _days = 0; _days < _timeSpan.Days; _days++ )
                 {
-                    var _dateTime = startDate.AddDays( _i );
+                    var _dateTime = startDate.AddDays( _days );
                     if( !_dateTime.IsFederalHoliday( )
                        && !_dateTime.IsWeekEnd( ) )
                     {
@@ -429,10 +428,10 @@ namespace BudgetExecution
             {
                 ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
-                var _days = 0;
-                for( var _i = 0; _i < _timeSpan.Days; _i++ )
+                int _days;
+                for( _days = 0; _days < _timeSpan.Days; _days++ )
                 {
-                    var _dateTime = startDate.AddDays( _i );
+                    var _dateTime = startDate.AddDays( _days );
                     if( _dateTime.IsFederalHoliday( ) )
                     {
                         _days++;

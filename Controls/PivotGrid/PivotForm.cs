@@ -226,7 +226,7 @@ namespace BudgetExecution
         /// <value>
         /// The state of the view.
         /// </value>
-        public ViewState ViewState { get; set; }
+        public DataArgs DataArgs { get; set; }
 
         /// <inheritdoc />
         /// <summary> </summary>
@@ -346,13 +346,13 @@ namespace BudgetExecution
         {
             try
             {
-                ViewState.Provider = Provider;
-                ViewState.Source = Source;
-                ViewState.DataFilter = FormFilter;
-                ViewState.SelectedTable = SelectedTable;
-                ViewState.SelectedFields = SelectedFields;
-                ViewState.SelectedNumerics = SelectedNumerics;
-                ViewState.SqlQuery = SqlQuery;
+                DataArgs.Provider = Provider;
+                DataArgs.Source = Source;
+                DataArgs.DataFilter = FormFilter;
+                DataArgs.SelectedTable = SelectedTable;
+                DataArgs.SelectedFields = SelectedFields;
+                DataArgs.SelectedNumerics = SelectedNumerics;
+                DataArgs.SqlQuery = SqlQuery;
             }
             catch( Exception _ex )
             {
@@ -1076,7 +1076,7 @@ namespace BudgetExecution
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
-                ViewState = new ViewState( );
+                DataArgs = new DataArgs( );
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedIndex = 1;

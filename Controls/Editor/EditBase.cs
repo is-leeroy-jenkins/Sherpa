@@ -246,7 +246,7 @@ namespace BudgetExecution
         /// <value>
         /// The state of the view.
         /// </value>
-        public ViewState ViewState { get; set; }
+        public DataArgs DataArgs { get; set; }
 
         /// <inheritdoc />
         /// <summary>

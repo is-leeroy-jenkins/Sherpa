@@ -448,7 +448,7 @@ namespace BudgetExecution
         {
             try
             {
-                ViewState = new ViewState( );
+                DataArgs = new DataArgs( );
                 CloseButton.Text = "Exit";
                 DataTypes = GetDataTypes( Provider );
                 PopulateTableComboBoxItems( );

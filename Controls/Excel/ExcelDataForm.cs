@@ -219,7 +219,7 @@ namespace BudgetExecution
         /// <value>
         /// The state of the view.
         /// </value>
-        public ViewState ViewState { get; set; }
+        public DataArgs DataArgs { get; set; }
 
         /// <inheritdoc />
         /// <summary>
@@ -333,13 +333,13 @@ namespace BudgetExecution
         {
             try
             {
-                ViewState.Provider = Provider;
-                ViewState.Source = Source;
-                ViewState.DataFilter = FormFilter;
-                ViewState.SelectedTable = SelectedTable;
-                ViewState.SelectedFields = SelectedFields;
-                ViewState.SelectedNumerics = SelectedNumerics;
-                ViewState.SqlQuery = SqlQuery;
+                DataArgs.Provider = Provider;
+                DataArgs.Source = Source;
+                DataArgs.DataFilter = FormFilter;
+                DataArgs.SelectedTable = SelectedTable;
+                DataArgs.SelectedFields = SelectedFields;
+                DataArgs.SelectedNumerics = SelectedNumerics;
+                DataArgs.SqlQuery = SqlQuery;
             }
             catch( Exception _ex )
             {
@@ -844,9 +844,9 @@ namespace BudgetExecution
             {
                 var _dialog = new FilterDialog( );
                 _dialog.ShowDialog( this );
-                Provider = _dialog.ViewState.Provider;
-                Source = _dialog.ViewState.Source;
-                SelectedTable = _dialog.ViewState.SelectedTable;
+                Provider = _dialog.DataArgs.Provider;
+                Source = _dialog.DataArgs.Source;
+                SelectedTable = _dialog.DataArgs.SelectedTable;
                 DataModel = new DataBuilder( Source, Provider );
                 DataTable = DataModel?.DataTable;
                 FiltersButton.Visible = true;
@@ -871,14 +871,14 @@ namespace BudgetExecution
             {
                 var _group = new FilterDialog( );
                 _group.ShowDialog( this );
-                Provider = _group.ViewState.Provider;
-                Source = _group.ViewState.Source;
-                SelectedTable = _group.ViewState.SelectedTable ?? string.Empty;
-                FormFilter = _group.ViewState.DataFilter ?? default( IDictionary<string, object> );
-                SqlQuery = _group.ViewState.SqlQuery;
-                SelectedColumns = _group.ViewState.SelectedColumns ?? default( IList<string> );
-                SelectedFields = _group.ViewState.SelectedFields ?? default( IList<string> );
-                SelectedNumerics = _group.ViewState.SelectedNumerics ?? default( IList<string> );
+                Provider = _group.DataArgs.Provider;
+                Source = _group.DataArgs.Source;
+                SelectedTable = _group.DataArgs.SelectedTable ?? string.Empty;
+                FormFilter = _group.DataArgs.DataFilter ?? default( IDictionary<string, object> );
+                SqlQuery = _group.DataArgs.SqlQuery;
+                SelectedColumns = _group.DataArgs.SelectedColumns ?? default( IList<string> );
+                SelectedFields = _group.DataArgs.SelectedFields ?? default( IList<string> );
+                SelectedNumerics = _group.DataArgs.SelectedNumerics ?? default( IList<string> );
                 DataModel = new DataBuilder( Source, Provider, SqlQuery );
                 DataTable = DataModel?.DataTable;
                 SetTableConfiguration( );
@@ -927,7 +927,7 @@ namespace BudgetExecution
         {
             try
             {
-                ViewState = new ViewState( );
+                DataArgs = new DataArgs( );
                 Header.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Header.Font = new Font( "Roboto", 11 );
                 Header.TextAlign = ContentAlignment.TopLeft;

@@ -152,7 +152,7 @@ namespace BudgetExecution
         /// <value>
         /// The state of the view.
         /// </value>
-        public ViewState ViewState { get; set; }
+        public DataArgs DataArgs { get; set; }
 
         /// <inheritdoc />
         /// <summary>
@@ -599,7 +599,7 @@ namespace BudgetExecution
         {
             try
             {
-                ViewState = new ViewState( );
+                DataArgs = new DataArgs( );
                 TabControl.SelectedIndex = 0;
                 InitializeToolStrip( );
                 InitializeTitle( );

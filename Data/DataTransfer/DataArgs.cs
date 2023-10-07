@@ -1,13 +1,13 @@
 ﻿//  ******************************************************************************************
 //      Assembly:                Budget Execution
-//      Filename:                ViewState.cs
+//      Filename:                DataArgs.cs
 //      Author:                  Terry D. Eppler
 //      Created:                 05-31-2023
 // 
 //      Last Modified By:        Terry D. Eppler
 //      Last Modified On:        06-01-2023
 //  ******************************************************************************************
-//  <copyright file="ViewState.cs" company="Terry D. Eppler">
+//  <copyright file="DataArgs.cs" company="Terry D. Eppler">
 // 
 //     This is a Federal Budget, Finance, and Accounting application for the
 //     US Environmental Protection Agency (US EPA).
@@ -37,7 +37,7 @@
 // 
 //  </copyright>
 //  <summary>
-//    ViewState.cs
+//    DataArgs.cs
 //  </summary>
 //  ******************************************************************************************
 
@@ -55,7 +55,7 @@ namespace BudgetExecution
     [ SuppressMessage( " ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class ViewState : StateData, IStateTransfer
+    public class DataArgs : StateData, IStateTransfer
     {
         /// <inheritdoc />
         /// <summary>
@@ -140,9 +140,9 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ViewState"/> class.
+        /// <see cref="DataArgs"/> class.
         /// </summary>
-        public ViewState( )
+        public DataArgs( )
         {
         }
     }

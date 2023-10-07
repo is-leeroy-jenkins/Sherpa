@@ -427,7 +427,7 @@ namespace BudgetExecution
                 AccessRadioButton.Checked = true;
                 Commands = new List<string>( );
                 Statements = new Dictionary<string, object>( );
-                ViewState = new ViewState( );
+                DataArgs = new DataArgs( );
                 AccessRadioButton.Click += OnRadioButtonChecked;
                 SQLiteRadioButton.Click += OnRadioButtonChecked;
                 SqlCeRadioButton.Click += OnRadioButtonChecked;
