@@ -487,7 +487,7 @@ namespace BudgetExecution
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
             }
-            catch( Exception ex )
+            catch( Exception ex ) 
             {
                 Fail( ex );
             }
