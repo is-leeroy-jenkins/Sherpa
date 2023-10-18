@@ -49,6 +49,11 @@ namespace BudgetExecution
     public enum Source
     {
         /// <summary>
+        /// The ATB
+        /// </summary>
+        AdjustedTrialBalance,
+        
+        /// <summary>
         /// The accounting events
         /// </summary>
         AccountingEvents,
