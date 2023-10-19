@@ -405,6 +405,11 @@ namespace BudgetExecution
         Organizations,
 
         /// <summary>
+        /// The patitions
+        /// </summary>
+        Partitions,
+        
+        /// <summary>
         /// The pay periods
         /// </summary>
         PayPeriods,

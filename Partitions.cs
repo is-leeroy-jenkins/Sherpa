@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:              19-10-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        19-10-2023
 // ******************************************************************************************
-// <copyright file="Messages.cs" company="Terry D. Eppler">
+// <copyright file="Partitions.cs.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,99 +34,117 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Messages.cs
+//   Eppler, Terry.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
-    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-
+    
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class Messages
+    public class Partitions
     {
         /// <summary>
-        /// Gets or sets the identifier.
+        /// Gets or sets the 
         /// </summary>
         /// <value>
-        /// The identifier.
+        ///  
         /// </value>
-        public int ID { get; set; }
+        public string FiscalYear { get; set; }
 
         /// <summary>
-        /// Gets or sets the content.
+        /// Gets or sets the 
         /// </summary>
         /// <value>
-        /// The content.
+        ///  
         /// </value>
-        public string Content { get; set; }
+        public string BFY { get; set; }
 
         /// <summary>
-        /// Gets or sets the source.
+        /// Gets or sets the 
         /// </summary>
         /// <value>
-        /// The source.
+        ///  
+        /// </value>
+        public string EFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the 
+        /// </summary>
+        /// <value>
+        ///  
+        /// </value>
+        public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or sets the 
+        /// </summary>
+        /// <value>
+        ///  
         /// </value>
         public Source Source { get; set; }
 
         /// <summary>
-        /// Gets or sets the record.
+        /// Gets or sets the 
         /// </summary>
         /// <value>
-        /// The record.
+        ///  
+        /// </value>
+        public Provider Provider { get; set; }
+
+        /// <summary>
+        /// Gets or sets the 
+        /// </summary>
+        /// <value>
+        ///  
         /// </value>
         public DataRow Record { get; set; }
 
         /// <summary>
-        /// Gets or sets the data.
+        /// Gets or sets the 
         /// </summary>
         /// <value>
-        /// The data.
+        ///  
         /// </value>
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Messages"/> class.
+        /// 
         /// </summary>
-        public Messages( )
+        public Partitions( )
+        {
+            Source = Source.Partitions;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query"></param>
+        public Partitions( IQuery query )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Messages"/> class.
+        /// 
         /// </summary>
-        /// <param name="query">The query.</param>
-        public Messages( IQuery query )
+        /// <param name="dataBuilder"></param>
+        public Partitions( IDataModel dataBuilder )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Messages"/> class.
+        /// 
         /// </summary>
-        /// <param name="builder">The builder.</param>
-        public Messages( IDataModel builder )
+        /// <param name="dataRow"></param>
+        public Partitions( DataRow dataRow )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Messages"/> class.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        public Messages( DataRow dataRow )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
         }
     }
 }
