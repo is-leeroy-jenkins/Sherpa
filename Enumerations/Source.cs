@@ -345,9 +345,9 @@ namespace BudgetExecution
         JobsActCarryoverEstimates,
 
         /// <summary>
-        /// The marginal outlays
+        /// The OMB Main Accounts
         /// </summary>
-        MarginalOutlays,
+        MainAccounts,
 
         /// <summary>
         /// The messages
@@ -544,6 +544,11 @@ namespace BudgetExecution
         /// The status of budgetary resources
         /// </summary>
         StatusOfBudgetaryResources,
+
+        /// <summary>
+        /// The SF 133
+        /// </summary>
+        StatusOfBudgetExecution,
 
         /// <summary>
         /// The status of earmarks
