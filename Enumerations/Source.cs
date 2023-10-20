@@ -164,6 +164,11 @@ namespace BudgetExecution
         BudgetDocuments,
 
         /// <summary>
+        /// 
+        /// </summary>
+        BudgetLines,
+        
+        /// <summary>
         /// The budget object classes
         /// </summary>
         BudgetObjectClasses,
@@ -465,6 +470,11 @@ namespace BudgetExecution
         /// </summary>
         QueryDefinitions,
 
+        /// <summary>
+        /// 
+        /// </summary>
+        ReconciliationLines,
+        
         /// <summary>
         /// The recovery act
         /// </summary>

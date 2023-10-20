@@ -1,12 +1,12 @@
-﻿// ******************************************************************************************
+﻿// ***********************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:              19-10-2023
+//     Created:              20-10-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        19-10-2023
-// ******************************************************************************************
-// <copyright file="Partitions.cs.cs" company="Terry D. Eppler">
+//     Last Modified On:        20-10-2023
+// ***********************************************************************************************
+// <copyright file="ReconciliationLines.cs.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -36,20 +36,20 @@
 // <summary>
 //   Eppler, Terry.cs
 // </summary>
-// ******************************************************************************************
+// ***********************************************************************************************
 
 namespace BudgetExecution
 {
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    
+
     /// <summary>
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class Partitions
+    public class ReconciliationLines
     {
         /// <summary>
         /// Gets or sets the 
@@ -57,7 +57,7 @@ namespace BudgetExecution
         /// <value>
         ///  
         /// </value>
-        public string FiscalYear { get; set; }
+        public int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the 
@@ -65,7 +65,7 @@ namespace BudgetExecution
         /// <value>
         ///  
         /// </value>
-        public string BFY { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the 
@@ -73,15 +73,7 @@ namespace BudgetExecution
         /// <value>
         ///  
         /// </value>
-        public string EFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the 
-        /// </summary>
-        /// <value>
-        ///  
-        /// </value>
-        public string Type { get; set; }
+        public string Number { get; set; }
 
         /// <summary>
         /// Gets or sets the 
@@ -118,33 +110,51 @@ namespace BudgetExecution
         /// <summary>
         /// 
         /// </summary>
-        public Partitions( )
+        public ReconciliationLines( )
         {
-            Source = Source.Partitions;
+            Source = Source.ReconciliationLines;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="query"></param>
-        public Partitions( IQuery query )
+        public ReconciliationLines( IQuery query ) 
+            : this( )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "ReconciliationLinesId" ].ToString( ) );
+            Number = Record[ "Number" ].ToString(  );
+            Name = Record[ "Name" ].ToString(  );
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="dataBuilder"></param>
-        public Partitions( IDataModel dataBuilder )
+        public ReconciliationLines( IDataModel dataBuilder )
+            : this( )
         {
+            Record = dataBuilder.Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "ReconciliationLinesId" ].ToString( ) );
+            Number = Record[ "Number" ].ToString(  );
+            Name = Record[ "Name" ].ToString(  );
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="dataRow"></param>
-        public Partitions( DataRow dataRow )
+        public ReconciliationLines( DataRow dataRow )
+            : this( )
         {
+            Record = dataRow;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "ReconciliationLinesId" ].ToString( ) );
+            Number = Record[ "Number" ].ToString(  );
+            Name = Record[ "Name" ].ToString(  );
         }
     }
 }
