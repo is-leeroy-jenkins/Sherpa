@@ -60,7 +60,7 @@ namespace BudgetExecution
         public int ID { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// 
         /// </summary>
         /// <value>
         ///  
@@ -68,7 +68,7 @@ namespace BudgetExecution
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// 
         /// </summary>
         /// <value>
         ///  
