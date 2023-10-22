@@ -114,5 +114,29 @@ namespace BudgetExecution
         {
             Source = Source.StatusOfBudgetExecution;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query"></param>
+        public StatusOfBudgetExecution( IQuery query )
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataBuilder"></param>
+        public StatusOfBudgetExecution( IDataModel dataBuilder )
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataRow"></param>
+        public StatusOfBudgetExecution( DataRow dataRow )
+        {
+        }
     }
 }
