@@ -50,7 +50,7 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.AdministrativeRequest" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class CarryoverRequest : AdministrativeRequest
+    public class CarryoverRequest : AdministrativeRequests
     {
         /// <summary>
         /// Gets or sets the original request date.

@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="BudgetaryResourceExecution.cs" company="Terry D. Eppler">
+// <copyright file="StatusOfBudgetaryResources.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   BudgetaryResourceExecution.cs
+//   StatusOfBudgetaryResources.cs
 // </summary>
 // ******************************************************************************************
 
@@ -44,13 +44,14 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.BudgetUnit" />
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    /// <seealso cref="T:BudgetExecution.BudgetUnit" />
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class BudgetaryResourceExecution : BudgetUnit 
     {
         /// <summary>
@@ -198,36 +199,36 @@ namespace BudgetExecution
         public double October { get; set; }
 
         /// <summary>
-        /// Gets or sets the amount1.
+        /// Gets or sets the march.
         /// </summary>
         /// <value>
-        /// The amount1.
+        /// The march.
         /// </value>
-        public double Amount1 { get; set; }
+        public double March { get; set; }
 
         /// <summary>
-        /// Gets or sets the amount2.
+        /// Gets or sets the july.
         /// </summary>
         /// <value>
-        /// The amount2.
+        /// The july.
         /// </value>
-        public double Amount2 { get; set; }
+        public double July { get; set; }
 
         /// <summary>
-        /// Gets or sets the amount3.
+        /// Gets or sets the september.
         /// </summary>
         /// <value>
-        /// The amount3.
+        /// The september.
         /// </value>
-        public double Amount3 { get; set; }
+        public double September { get; set; }
 
         /// <summary>
-        /// Gets or sets the amount4.
+        /// Gets or sets the december.
         /// </summary>
         /// <value>
-        /// The amount4.
+        /// The december.
         /// </value>
-        public double Amount4 { get; set; }
+        public double December { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BudgetaryResourceExecution"/> class.
@@ -270,10 +271,10 @@ namespace BudgetExecution
             June = double.Parse( Record[ "June" ].ToString( ) ?? "0" );
             August = double.Parse( Record[ "August" ].ToString( ) ?? "0" );
             October = double.Parse( Record[ "October" ].ToString( ) ?? "0" );
-            Amount1 = double.Parse( Record[ "Amount1" ].ToString( ) ?? "0" );
-            Amount2 = double.Parse( Record[ "Amount2" ].ToString( ) ?? "0" );
-            Amount3 = double.Parse( Record[ "Amount3" ].ToString( ) ?? "0" );
-            Amount4 = double.Parse( Record[ "Amount4" ].ToString( ) ?? "0" );
+            March = double.Parse( Record[ "March" ].ToString( ) ?? "0" );
+            July = double.Parse( Record[ "July" ].ToString( ) ?? "0" );
+            September = double.Parse( Record[ "September" ].ToString( ) ?? "0" );
+            December = double.Parse( Record[ "December" ].ToString( ) ?? "0" );
         }
 
         /// <summary>
@@ -309,10 +310,10 @@ namespace BudgetExecution
             June = double.Parse( Record[ "June" ].ToString( ) ?? "0" );
             August = double.Parse( Record[ "August" ].ToString( ) ?? "0" );
             October = double.Parse( Record[ "October" ].ToString( ) ?? "0" );
-            Amount1 = double.Parse( Record[ "Amount1" ].ToString( ) ?? "0" );
-            Amount2 = double.Parse( Record[ "Amount2" ].ToString( ) ?? "0" );
-            Amount3 = double.Parse( Record[ "Amount3" ].ToString( ) ?? "0" );
-            Amount4 = double.Parse( Record[ "Amount4" ].ToString( ) ?? "0" );
+            March = double.Parse( Record[ "March" ].ToString( ) ?? "0" );
+            July = double.Parse( Record[ "July" ].ToString( ) ?? "0" );
+            September = double.Parse( Record[ "September" ].ToString( ) ?? "0" );
+            December = double.Parse( Record[ "December" ].ToString( ) ?? "0" );
         }
 
         /// <summary>
@@ -348,10 +349,10 @@ namespace BudgetExecution
             June = double.Parse( Record[ "June" ].ToString( ) ?? "0" );
             August = double.Parse( Record[ "August" ].ToString( ) ?? "0" );
             October = double.Parse( Record[ "October" ].ToString( ) ?? "0" );
-            Amount1 = double.Parse( Record[ "Amount1" ].ToString( ) ?? "0" );
-            Amount2 = double.Parse( Record[ "Amount2" ].ToString( ) ?? "0" );
-            Amount3 = double.Parse( Record[ "Amount3" ].ToString( ) ?? "0" );
-            Amount4 = double.Parse( Record[ "Amount4" ].ToString( ) ?? "0" );
+            March = double.Parse( Record[ "March" ].ToString( ) ?? "0" );
+            July = double.Parse( Record[ "July" ].ToString( ) ?? "0" );
+            September = double.Parse( Record[ "September" ].ToString( ) ?? "0" );
+            December = double.Parse( Record[ "December" ].ToString( ) ?? "0" );
         }
 
         /// <summary>
@@ -386,10 +387,10 @@ namespace BudgetExecution
             June = budget.June;
             August = budget.August;
             October = budget.October;
-            Amount1 = budget.Amount1;
-            Amount2 = budget.Amount2;
-            Amount3 = budget.Amount3;
-            Amount4 = budget.Amount4;
+            March = budget.March;
+            July = budget.July;
+            September = budget.September;
+            December = budget.December;
         }
     }
 }

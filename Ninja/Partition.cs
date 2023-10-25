@@ -43,160 +43,161 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    
+
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class Partition
     {
         /// <summary>
-        /// The id
+        /// Gets or sets the identifier.
         /// </summary>
         /// <value>
-        ///  
+        /// The identifier.
         /// </value>
         public int ID { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// Gets or sets the fiscal year.
         /// </summary>
         /// <value>
-        ///  
+        /// The fiscal year.
         /// </value>
         public string FiscalYear { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// Gets or sets the bfy.
         /// </summary>
         /// <value>
-        ///  
+        /// The bfy.
         /// </value>
         public string BFY { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// Gets or sets the efy.
         /// </summary>
         /// <value>
-        ///  
+        /// The efy.
         /// </value>
         public string EFY { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// Gets or sets the type.
         /// </summary>
         /// <value>
-        ///  
+        /// The type.
         /// </value>
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// Gets or sets the fund code.
         /// </summary>
         /// <value>
-        ///  
+        /// The fund code.
         /// </value>
         public string FundCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// Gets or sets the name of the program.
         /// </summary>
         /// <value>
-        ///  
+        /// The name of the program.
         /// </value>
         public string ProgramName { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// Gets or sets the name of the program area.
         /// </summary>
         /// <value>
-        ///  
+        /// The name of the program area.
         /// </value>
         public string ProgramAreaName { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// Gets or sets the amount.
         /// </summary>
         /// <value>
-        ///  
+        /// The amount.
         /// </value>
         public double Amount { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// Gets or sets the main account.
         /// </summary>
         /// <value>
-        ///  
+        /// The main account.
         /// </value>
         public string MainAccount { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// Gets or sets the treasury account code.
         /// </summary>
         /// <value>
-        ///  
+        /// The treasury account code.
         /// </value>
         public string TreasuryAccountCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// Gets or sets the budget account code.
         /// </summary>
         /// <value>
-        ///  
+        /// The budget account code.
         /// </value>
         public string BudgetAccountCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// Gets or sets the source.
         /// </summary>
         /// <value>
-        ///  
+        /// The source.
         /// </value>
         public Source Source { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// Gets or sets the provider.
         /// </summary>
         /// <value>
-        ///  
+        /// The provider.
         /// </value>
         public Provider Provider { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// Gets or sets the record.
         /// </summary>
         /// <value>
-        ///  
+        /// The record.
         /// </value>
         public DataRow Record { get; set; }
 
         /// <summary>
-        /// Gets or sets the 
+        /// Gets or sets the data.
         /// </summary>
         /// <value>
-        ///  
+        /// The data.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="Partition"/> class.
         /// </summary>
         public Partition( )
         {
             Source = Source.Partitions;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// 
+        /// <see cref="T:BudgetExecution.Partition" /> class.
         /// </summary>
-        /// <param name="query"></param>
+        /// <param name="query">The query.</param>
         public Partition( IQuery query ) 
             : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "PartitionsId" ].ToString( ) );
+            ID = int.Parse( Record[ "PartitionsId" ].ToString( ) ?? string.Empty );
             FiscalYear = Record[ "FiscalYear" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -204,22 +205,24 @@ namespace BudgetExecution
             Type = Record[ "Type" ].ToString( );
             ProgramName = Record[ "ProgramName" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? string.Empty );
             MainAccount = Record[ "MainAccount" ].ToString( );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// 
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Partition" /> class.
         /// </summary>
-        /// <param name="dataBuilder"></param>
+        /// <param name="dataBuilder">The data builder.</param>
         public Partition( IDataModel dataBuilder )
             : this( )
         {
             Record = dataBuilder.Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "PartitionsId" ].ToString( ) );
+            ID = int.Parse( Record[ "PartitionsId" ].ToString( ) ?? string.Empty );
             FiscalYear = Record[ "FiscalYear" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -227,22 +230,24 @@ namespace BudgetExecution
             Type = Record[ "Type" ].ToString( );
             ProgramName = Record[ "ProgramName" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? string.Empty );
             MainAccount = Record[ "MainAccount" ].ToString( );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// 
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Partition" /> class.
         /// </summary>
-        /// <param name="dataRow"></param>
+        /// <param name="dataRow">The data row.</param>
         public Partition( DataRow dataRow )
             : this( )
         {
             Record = dataRow;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "PartitionsId" ].ToString( ) );
+            ID = int.Parse( Record[ "PartitionsId" ].ToString( ) ?? string.Empty );
             FiscalYear = Record[ "FiscalYear" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -250,7 +255,7 @@ namespace BudgetExecution
             Type = Record[ "Type" ].ToString( );
             ProgramName = Record[ "ProgramName" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? string.Empty );
             MainAccount = Record[ "MainAccount" ].ToString( );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );

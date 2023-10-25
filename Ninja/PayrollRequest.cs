@@ -47,10 +47,10 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.AdministrativeRequest" />
+    /// <seealso cref="BudgetExecution.AdministrativeRequests" />
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class PayrollRequest : AdministrativeRequest
+    public class PayrollRequest : AdministrativeRequests
     {
         /// <summary>
         /// Gets or sets the original request date.
