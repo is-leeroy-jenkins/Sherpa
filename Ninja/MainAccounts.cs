@@ -218,7 +218,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.MainAccounts" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.MainAccounts" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public MainAccounts( DataRow dataRow )
