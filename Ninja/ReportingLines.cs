@@ -76,6 +76,30 @@ namespace BudgetExecution
         public string Number { get; set; }
 
         /// <summary>
+        /// Gets or sets the caption.
+        /// </summary>
+        /// <value>
+        /// The caption.
+        /// </value>
+        public string Caption { get; set; }
+
+        /// <summary>
+        /// Gets or sets the category.
+        /// </summary>
+        /// <value>
+        /// The category.
+        /// </value>
+        public string Category { get; set; }
+
+        /// <summary>
+        /// Gets or sets the range.
+        /// </summary>
+        /// <value>
+        /// The range.
+        /// </value>
+        public string Range { get; set; }
+
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
@@ -130,6 +154,9 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "ReportingLinesId" ].ToString( ) ?? string.Empty );
             Number = Record[ "Number" ].ToString( );
             Name = Record[ "Name" ].ToString( );
+            Caption = Record[ "Caption" ].ToString( );
+            Category = Record[ "Category" ].ToString( );
+            Range = Record[ "Range" ].ToString( );
         }
 
         /// <inheritdoc />
@@ -146,6 +173,9 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "ReportingLinesId" ].ToString( ) ?? string.Empty );
             Number = Record[ "Number" ].ToString( );
             Name = Record[ "Name" ].ToString( );
+            Caption = Record[ "Caption" ].ToString( );
+            Category = Record[ "Category" ].ToString( );
+            Range = Record[ "Range" ].ToString( );
         }
 
         /// <inheritdoc />
@@ -162,6 +192,9 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "ReportingLinesId" ].ToString( ) ?? string.Empty );
             Number = Record[ "Number" ].ToString( );
             Name = Record[ "Name" ].ToString( );
+            Caption = Record[ "Caption" ].ToString( );
+            Category = Record[ "Category" ].ToString( );
+            Range = Record[ "Range" ].ToString( );
         }
     }
 }
