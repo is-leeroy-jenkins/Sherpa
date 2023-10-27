@@ -43,9 +43,10 @@
 
 namespace BudgetExecution
 {
-    using Syncfusion.Windows.Forms.Tools;
     using System;
     using System.Drawing;
+    using System.Threading;
+    using Syncfusion.Windows.Forms.Tools;
 
     public class ToggleButton : Syncfusion.Windows.Forms.Tools.ToggleButton
     {

@@ -40,77 +40,50 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class StatusOfBudgetExecution
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
+        /// <summary> Gets or sets the identifier. </summary>
+        /// <value> The identifier. </value>
         public int ID { get; set; }
 
-        /// <summary>
-        /// Gets or sets the treasury account code.
-        /// </summary>
-        /// <value>
-        /// The treasury account code.
-        /// </value>
+        /// <summary> Gets or sets the treasury account code. </summary>
+        /// <value> The treasury account code. </value>
         public string TreasuryAccountCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the treasury account.
-        /// </summary>
-        /// <value>
-        /// The name of the treasury account.
-        /// </value>
+        /// <summary> Gets or sets the name of the treasury account. </summary>
+        /// <value> The name of the treasury account. </value>
         public string TreasuryAccountName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         public Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
         public Provider Provider { get; set; }
 
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
+        /// <summary> Gets or sets the record. </summary>
+        /// <value> The record. </value>
         public DataRow Record { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
+        /// <summary> Gets or sets the data. </summary>
+        /// <value> The data. </value>
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfBudgetExecution"/> class.
+        /// <see cref="StatusOfBudgetExecution"/>
+        /// class.
         /// </summary>
         public StatusOfBudgetExecution( )
         {
@@ -119,27 +92,30 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfBudgetExecution"/> class.
+        /// <see cref="StatusOfBudgetExecution"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public StatusOfBudgetExecution( IQuery query )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfBudgetExecution"/> class.
+        /// <see cref="StatusOfBudgetExecution"/>
+        /// class.
         /// </summary>
-        /// <param name="dataBuilder">The data builder.</param>
+        /// <param name="dataBuilder"> The data builder. </param>
         public StatusOfBudgetExecution( IDataModel dataBuilder )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfBudgetExecution"/> class.
+        /// <see cref="StatusOfBudgetExecution"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public StatusOfBudgetExecution( DataRow dataRow )
         {
         }

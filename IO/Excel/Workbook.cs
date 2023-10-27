@@ -45,13 +45,13 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
+    using System.Threading;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.ExcelBase" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.ExcelBase"/>
     [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -59,93 +59,59 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class Workbook : ExcelBase
     {
-        /// <summary>
-        /// Gets or sets the color of the font.
-        /// </summary>
-        /// <value>
-        /// The color of the font.
-        /// </value>
+        /// <summary> Gets or sets the color of the font. </summary>
+        /// <value> The color of the font. </value>
         public Color FontColor { get; set; } = Color.Black;
 
-        /// <summary>
-        /// Gets or sets the font.
-        /// </summary>
-        /// <value>
-        /// The font.
-        /// </value>
-        public Font Font { get; set; } = new Font( "Roboto", 8, FontStyle.Regular );
+        /// <summary> Gets or sets the font. </summary>
+        /// <value> The font. </value>
+        public Font Font { get; set; } = new Font ( "Roboto", 8, FontStyle.Regular );
 
-        /// <summary>
-        /// Gets or sets the title font.
-        /// </summary>
-        /// <value>
-        /// The title font.
-        /// </value>
-        public Font TitleFont { get; set; } = new Font( "Roboto", 10, FontStyle.Bold );
+        /// <summary> Gets or sets the title font. </summary>
+        /// <value> The title font. </value>
+        public Font TitleFont { get; set; } = new Font ( "Roboto", 10, FontStyle.Bold );
 
-        /// <summary>
-        /// Gets or sets the width of the header image.
-        /// </summary>
-        /// <value>
-        /// The width of the header image.
-        /// </value>
+        /// <summary> Gets or sets the width of the header image. </summary>
+        /// <value> The width of the header image. </value>
         public double HeaderImageWidth { get; set; } = 1.75;
 
-        /// <summary>
-        /// Gets or sets the height of the header image.
-        /// </summary>
-        /// <value>
-        /// The height of the header image.
-        /// </value>
+        /// <summary> Gets or sets the height of the header image. </summary>
+        /// <value> The height of the header image. </value>
         public double HeaderImageHeight { get; set; } = 0.75;
 
-        /// <summary>
-        /// Gets or sets the width of the footer image.
-        /// </summary>
-        /// <value>
-        /// The width of the footer image.
-        /// </value>
+        /// <summary> Gets or sets the width of the footer image. </summary>
+        /// <value> The width of the footer image. </value>
         public double FooterImageWidth { get; set; } = 2.04;
 
-        /// <summary>
-        /// Gets or sets the height of the footer image.
-        /// </summary>
-        /// <value>
-        /// The height of the footer image.
-        /// </value>
+        /// <summary> Gets or sets the height of the footer image. </summary>
+        /// <value> The height of the footer image. </value>
         public double FooterImageHeight { get; set; } = 0.70;
 
-        /// <summary>
-        /// Gets or sets the header image.
-        /// </summary>
-        /// <value>
-        /// The header image.
-        /// </value>
+        /// <summary> Gets or sets the header image. </summary>
+        /// <value> The header image. </value>
         public Image HeaderImage { get; set; }
 
-        /// <summary>
-        /// Gets or sets the footer image.
-        /// </summary>
-        /// <value>
-        /// The footer image.
-        /// </value>
+        /// <summary> Gets or sets the footer image. </summary>
+        /// <value> The footer image. </value>
         public Image FooterImage { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Workbook"/> class.
+        /// <see cref="Workbook"/>
+        /// class.
         /// </summary>
         public Workbook( )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Workbook" /> class.
+        /// <see cref="T:BudgetExecution.Workbook"/>
+        /// class.
         /// </summary>
-        /// <param name="filePath">The file path.</param>
-        public Workbook( string filePath ) 
+        /// <param name="filePath"> The file path. </param>
+        public Workbook( string filePath )
             : this( )
         {
             FileInfo = new FileInfo( filePath );
@@ -153,12 +119,13 @@ namespace BudgetExecution
             Workbook = Application.Workbook;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Workbook" /> class.
+        /// <see cref="T:BudgetExecution.Workbook"/>
+        /// class.
         /// </summary>
-        /// <param name="dataTable">The data table.</param>
+        /// <param name="dataTable"> The data table. </param>
         public Workbook( DataTable dataTable )
             : this( )
         {
@@ -183,10 +150,8 @@ namespace BudgetExecution
             Worksheet.HeaderFooter.ScaleWithDocument = true;
         }
 
-        /// <summary>
-        /// Sets the header format.
-        /// </summary>
-        /// <param name="grid">The grid.</param>
+        /// <summary> Sets the header format. </summary>
+        /// <param name="grid"> The grid. </param>
         public void SetHeaderFormat( Grid grid )
         {
             try
@@ -205,10 +170,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the header text.
-        /// </summary>
-        /// <param name="grid">The grid.</param>
+        /// <summary> Sets the header text. </summary>
+        /// <param name="grid"> The grid. </param>
         public void SetHeaderText( Grid grid )
         {
             try
@@ -235,10 +198,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the dark color row.
-        /// </summary>
-        /// <param name="range">The excel range.</param>
+        /// <summary> Sets the dark color row. </summary>
+        /// <param name="range"> The excel range. </param>
         public void SetDarkColorRow( ExcelRange range )
         {
             try
@@ -258,10 +219,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the light color row.
-        /// </summary>
-        /// <param name="range">The range.</param>
+        /// <summary> Sets the light color row. </summary>
+        /// <param name="range"> The range. </param>
         public void SetLightColorRow( ExcelRange range )
         {
             try
@@ -281,26 +240,24 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the color of the alternating row.
-        /// </summary>
-        /// <param name="range">The range.</param>
+        /// <summary> Sets the color of the alternating row. </summary>
+        /// <param name="range"> The range. </param>
         public void SetAlternatingRowColor( ExcelRange range )
         {
             try
             {
                 ThrowIf.Null( range, "range" );
-                var _prc = Worksheet.Cells[ range.Start.Row, range.Start.Column, 
-                    range.End.Row, range.End.Column ];
-                    
+                var _prc = Worksheet.Cells[ range.Start.Row, range.Start.Column, range.End.Row,
+                    range.End.Column ];
+
                 for( var _i = range.Start.Row; _i < range.End.Row; _i++ )
                 {
-                    if( _i % 2 == 0 )
+                    if( ( _i % 2 ) == 0 )
                     {
                         SetLightColorRow( _prc );
                     }
 
-                    if( _i % 2 != 0 )
+                    if( ( _i % 2 ) != 0 )
                     {
                         SetDarkColorRow( _prc );
                     }
@@ -314,10 +271,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the numeric row format.
-        /// </summary>
-        /// <param name="range">The range.</param>
+        /// <summary> Sets the numeric row format. </summary>
+        /// <param name="range"> The range. </param>
         public void SetNumericRowFormat( ExcelRange range )
         {
             try
@@ -335,10 +290,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the table format.
-        /// </summary>
-        /// <param name="grid">The grid.</param>
+        /// <summary> Sets the table format. </summary>
+        /// <param name="grid"> The grid. </param>
         public void SetTableFormat( Grid grid )
         {
             try
@@ -358,21 +311,19 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the total row format.
-        /// </summary>
-        /// <param name="range">The range.</param>
+        /// <summary> Sets the total row format. </summary>
+        /// <param name="range"> The range. </param>
         public void SetTotalRowFormat( ExcelRange range )
         {
             try
             {
                 ThrowIf.Null( range, "range" );
-                var _total = Worksheet.Cells[ range.Start.Row, range.Start.Column, 
+                var _total = Worksheet.Cells[ range.Start.Row, range.Start.Column, range.Start.Row,
+                    range.Start.Column + 6 ];
+
+                var _range = Worksheet.Cells[ range.Start.Row, range.Start.Column + 1,
                     range.Start.Row, range.Start.Column + 6 ];
-                    
-                var _range = Worksheet.Cells[ range.Start.Row, range.Start.Column + 1, 
-                    range.Start.Row, range.Start.Column + 6 ];
-                    
+
                 _total.Style.Fill.PatternType = ExcelFillStyle.Solid;
                 _total.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
                 _range.Style.Border.Bottom.Style = ExcelBorderStyle.Double;
@@ -383,12 +334,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
-        /// </summary>
-        /// <param name="disposing"><c>true</c>
+        /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
+        /// <param name="disposing">
+        /// <c> true </c>
         /// to release both managed and unmanaged resources;
-        /// <c>false</c> to release only unmanaged resources.
+        /// <c> false </c>
+        /// to release only unmanaged resources.
         /// </param>
         public void Dispose( bool disposing )
         {
@@ -403,9 +354,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
-        /// </summary>
+        /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
         public virtual void Dispose( )
         {
             try

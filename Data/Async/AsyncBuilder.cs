@@ -42,139 +42,149 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
-    using System.Threading.Tasks;
+    using System.Threading;
 
     public class AsyncBuilder : AsyncModel
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder" /> class.
+        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// class.
         /// </summary>
         public AsyncBuilder( )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder" /> class.
+        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
         public AsyncBuilder( Source source, Provider provider = Provider.Access )
             : base( source, provider )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder" /> class.
+        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="where">The where.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="where"> The where. </param>
         public AsyncBuilder( Source source, Provider provider, IDictionary<string, object> where )
             : base( source, provider, where )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder" /> class.
+        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="dict"></param>
+        /// <param name="source"> The source. </param>
+        /// <param name="dict"> </param>
         public AsyncBuilder( Source source, IDictionary<string, object> dict )
             : base( source, dict )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder" /> class.
+        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="updates">The updates.</param>
-        /// <param name="where">The where.</param>
-        /// <param name="commandType">Type of the command.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="updates"> The updates. </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
         public AsyncBuilder( Source source, Provider provider, IDictionary<string, object> updates,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+                             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder" /> class.
+        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="columns">The columns.</param>
-        /// <param name="where">The where.</param>
-        /// <param name="commandType">Type of the command.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
         public AsyncBuilder( Source source, Provider provider, IEnumerable<string> columns,
-            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+                             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, where, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder" /> class.
+        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="fields">The fields.</param>
-        /// <param name="numerics">The numerics.</param>
-        /// <param name="where">The where.</param>
-        /// <param name="commandType">Type of the command.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="fields"> The fields. </param>
+        /// <param name="numerics"> The numerics. </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
         public AsyncBuilder( Source source, Provider provider, IEnumerable<string> fields,
-            IEnumerable<string> numerics, IDictionary<string, object> where, SQL commandType )
+                             IEnumerable<string> numerics, IDictionary<string, object> where,
+                             SQL commandType )
             : base( source, provider, fields, numerics, where,
                 commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder" /> class.
+        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="sqlText">The SQL text.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="sqlText"> The SQL text. </param>
         public AsyncBuilder( Source source, Provider provider, string sqlText )
             : base( source, provider, sqlText )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder" /> class.
+        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public AsyncBuilder( IQuery query )
             : base( query )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AsyncBuilder" /> class.
+        /// <see cref="T:BudgetExecution.AsyncBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="fullPath">The full path.</param>
-        /// <param name="sqlText">The SQL text.</param>
-        /// <param name="commandType">Type of the command.</param>
+        /// <param name="fullPath"> The full path. </param>
+        /// <param name="sqlText"> The SQL text. </param>
+        /// <param name="commandType"> Type of the command. </param>
         public AsyncBuilder( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
             : base( fullPath, sqlText, commandType )
         {

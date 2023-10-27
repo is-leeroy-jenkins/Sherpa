@@ -41,520 +41,315 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     public enum ToolType
     {
-        /// <summary>
-        /// The ns
-        /// </summary>
+        /// <summary> The ns </summary>
         Ns = 0,
 
-        /// <summary>
-        /// The account button
-        /// </summary>
+        /// <summary> The account button </summary>
         AccountButton,
 
-        /// <summary>
-        /// The access button
-        /// </summary>
+        /// <summary> The access button </summary>
         AccessButton,
 
-        /// <summary>
-        /// The add button
-        /// </summary>
+        /// <summary> The add button </summary>
         AddButton,
 
-        /// <summary>
-        /// The add column button
-        /// </summary>
+        /// <summary> The add column button </summary>
         AddColumnButton,
 
-        /// <summary>
-        /// The add record button
-        /// </summary>
+        /// <summary> The add record button </summary>
         AddRecordButton,
 
-        /// <summary>
-        /// The add table button
-        /// </summary>
+        /// <summary> The add table button </summary>
         AddTableButton,
 
-        /// <summary>
-        /// The add database button
-        /// </summary>
+        /// <summary> The add database button </summary>
         AddDatabaseButton,
 
-        /// <summary>
-        /// The back button
-        /// </summary>
+        /// <summary> The back button </summary>
         BackButton,
 
-        /// <summary>
-        /// The blue tooth button
-        /// </summary>
+        /// <summary> The blue tooth button </summary>
         BlueToothButton,
 
-        /// <summary>
-        /// The browse button
-        /// </summary>
+        /// <summary> The browse button </summary>
         BrowseButton,
 
-        /// <summary>
-        /// The chart button
-        /// </summary>
+        /// <summary> The chart button </summary>
         ChartButton,
 
-        /// <summary>
-        /// The cancel request button
-        /// </summary>
+        /// <summary> The cancel request button </summary>
         CancelRequestButton,
 
-        /// <summary>
-        /// The calculator button
-        /// </summary>
+        /// <summary> The calculator button </summary>
         CalculatorButton,
 
-        /// <summary>
-        /// The calendar button
-        /// </summary>
+        /// <summary> The calendar button </summary>
         CalendarButton,
 
-        /// <summary>
-        /// The close button
-        /// </summary>
+        /// <summary> The close button </summary>
         CloseButton,
 
-        /// <summary>
-        /// The client button
-        /// </summary>
+        /// <summary> The client button </summary>
         ClientButton,
 
-        /// <summary>
-        /// The CSV button
-        /// </summary>
+        /// <summary> The CSV button </summary>
         CsvButton,
 
-        /// <summary>
-        /// The CSV import button
-        /// </summary>
+        /// <summary> The CSV import button </summary>
         CsvImportButton,
 
-        /// <summary>
-        /// The CSV export button
-        /// </summary>
+        /// <summary> The CSV export button </summary>
         CsvExportButton,
 
-        /// <summary>
-        /// The copy button
-        /// </summary>
+        /// <summary> The copy button </summary>
         CopyButton,
 
-        /// <summary>
-        /// The database button
-        /// </summary>
+        /// <summary> The database button </summary>
         DatabaseButton,
 
-        /// <summary>
-        /// The database settings button
-        /// </summary>
+        /// <summary> The database settings button </summary>
         DatabaseSettingsButton,
 
-        /// <summary>
-        /// The data configuration button
-        /// </summary>
+        /// <summary> The data configuration button </summary>
         DataConfigButton,
 
-        /// <summary>
-        /// The delete column button
-        /// </summary>
+        /// <summary> The delete column button </summary>
         DeleteColumnButton,
 
-        /// <summary>
-        /// The delete record button
-        /// </summary>
+        /// <summary> The delete record button </summary>
         DeleteRecordButton,
 
-        /// <summary>
-        /// The delete button
-        /// </summary>
+        /// <summary> The delete button </summary>
         DeleteButton,
 
-        /// <summary>
-        /// The data row button
-        /// </summary>
+        /// <summary> The data row button </summary>
         DataRowButton,
 
-        /// <summary>
-        /// The delete table button
-        /// </summary>
+        /// <summary> The delete table button </summary>
         DeleteTableButton,
 
-        /// <summary>
-        /// The delete database button
-        /// </summary>
+        /// <summary> The delete database button </summary>
         DeleteDatabaseButton,
 
-        /// <summary>
-        /// The download button
-        /// </summary>
+        /// <summary> The download button </summary>
         DownloadButton,
 
-        /// <summary>
-        /// The download data button
-        /// </summary>
+        /// <summary> The download data button </summary>
         DownloadDataButton,
 
-        /// <summary>
-        /// The exit button
-        /// </summary>
+        /// <summary> The exit button </summary>
         ExitButton,
 
-        /// <summary>
-        /// The email button
-        /// </summary>
+        /// <summary> The email button </summary>
         EmailButton,
 
-        /// <summary>
-        /// The export button
-        /// </summary>
+        /// <summary> The export button </summary>
         ExportButton,
 
-        /// <summary>
-        /// The export database button
-        /// </summary>
+        /// <summary> The export database button </summary>
         ExportDatabaseButton,
 
-        /// <summary>
-        /// The excel button
-        /// </summary>
+        /// <summary> The excel button </summary>
         ExcelButton,
 
-        /// <summary>
-        /// The edit button
-        /// </summary>
+        /// <summary> The edit button </summary>
         EditButton,
 
-        /// <summary>
-        /// The edit record button
-        /// </summary>
+        /// <summary> The edit record button </summary>
         EditRecordButton,
 
-        /// <summary>
-        /// The edit column button
-        /// </summary>
+        /// <summary> The edit column button </summary>
         EditColumnButton,
 
-        /// <summary>
-        /// The edit button
-        /// </summary>
+        /// <summary> The edit button </summary>
         EditTextButton,
 
-        /// <summary>
-        /// The encrypt data button
-        /// </summary>
+        /// <summary> The encrypt data button </summary>
         EncryptDataButton,
 
-        /// <summary>
-        /// The excel import button
-        /// </summary>
+        /// <summary> The excel import button </summary>
         ExcelImportButton,
 
-        /// <summary>
-        /// The excel export button
-        /// </summary>
+        /// <summary> The excel export button </summary>
         ExcelExportButton,
 
-        /// <summary>
-        /// The filter data button
-        /// </summary>
+        /// <summary> The filter data button </summary>
         FilterDataButton,
 
-        /// <summary>
-        /// The filter button
-        /// </summary>
+        /// <summary> The filter button </summary>
         FilterButton,
 
-        /// <summary>
-        /// The forward button
-        /// </summary>
+        /// <summary> The forward button </summary>
         ForwardButton,
 
-        /// <summary>
-        /// The first button
-        /// </summary>
+        /// <summary> The first button </summary>
         FirstButton,
 
-        /// <summary>
-        /// The grid button
-        /// </summary>
+        /// <summary> The grid button </summary>
         GridButton,
 
-        /// <summary>
-        /// The group button
-        /// </summary>
+        /// <summary> The group button </summary>
         GroupButton,
 
-        /// <summary>
-        /// The guidance button
-        /// </summary>
+        /// <summary> The guidance button </summary>
         GuidanceButton,
 
-        /// <summary>
-        /// The google button
-        /// </summary>
+        /// <summary> The google button </summary>
         GoogleButton,
 
-        /// <summary>
-        /// The go button
-        /// </summary>
+        /// <summary> The go button </summary>
         GoButton,
 
-        /// <summary>
-        /// The home button
-        /// </summary>
+        /// <summary> The home button </summary>
         HomeButton,
 
-        /// <summary>
-        /// The insert button
-        /// </summary>
+        /// <summary> The insert button </summary>
         InsertButton,
 
-        /// <summary>
-        /// The import button
-        /// </summary>
+        /// <summary> The import button </summary>
         ImportButton,
 
-        /// <summary>
-        /// The import database button
-        /// </summary>
+        /// <summary> The import database button </summary>
         ImportDatabaseButton,
 
-        /// <summary>
-        /// The last button
-        /// </summary>
+        /// <summary> The last button </summary>
         LastButton,
 
-        /// <summary>
-        /// The logout button
-        /// </summary>
+        /// <summary> The logout button </summary>
         LogoutButton,
 
-        /// <summary>
-        /// The lookup button
-        /// </summary>
+        /// <summary> The lookup button </summary>
         LookupButton,
 
-        /// <summary>
-        /// The previous button
-        /// </summary>
+        /// <summary> The previous button </summary>
         PreviousButton,
 
-        /// <summary>
-        /// The menu button
-        /// </summary>
+        /// <summary> The menu button </summary>
         MenuButton,
 
-        /// <summary>
-        /// The metrics button
-        /// </summary>
+        /// <summary> The metrics button </summary>
         MetricsButton,
 
-        /// <summary>
-        /// The next button
-        /// </summary>
+        /// <summary> The next button </summary>
         NextButton,
 
-        /// <summary>
-        /// The navigation button
-        /// </summary>
+        /// <summary> The navigation button </summary>
         NavigationButton,
 
-        /// <summary>
-        /// The pause button
-        /// </summary>
+        /// <summary> The pause button </summary>
         PauseButton,
 
-        /// <summary>
-        /// The play button
-        /// </summary>
+        /// <summary> The play button </summary>
         PlayButton,
 
-        /// <summary>
-        /// The power point button
-        /// </summary>
+        /// <summary> The power point button </summary>
         PowerPointButton,
 
-        /// <summary>
-        /// The print button
-        /// </summary>
+        /// <summary> The print button </summary>
         PrintButton,
 
-        /// <summary>
-        /// The printer button
-        /// </summary>
+        /// <summary> The printer button </summary>
         PrinterButton,
 
-        /// <summary>
-        /// The PDF button
-        /// </summary>
+        /// <summary> The PDF button </summary>
         PdfButton,
 
-        /// <summary>
-        /// The PDF import button
-        /// </summary>
+        /// <summary> The PDF import button </summary>
         PdfImportButton,
 
-        /// <summary>
-        /// The PDF export button
-        /// </summary>
+        /// <summary> The PDF export button </summary>
         PdfExportButton,
 
-        /// <summary>
-        /// The refresh button
-        /// </summary>
+        /// <summary> The refresh button </summary>
         RefreshButton,
 
-        /// <summary>
-        /// The refresh data button
-        /// </summary>
+        /// <summary> The refresh data button </summary>
         RefreshDataButton,
 
-        /// <summary>
-        /// The redo button
-        /// </summary>
+        /// <summary> The redo button </summary>
         RedoButton,
 
-        /// <summary>
-        /// The remove button
-        /// </summary>
+        /// <summary> The remove button </summary>
         RemoveButton,
 
-        /// <summary>
-        /// The remove filters button
-        /// </summary>
+        /// <summary> The remove filters button </summary>
         RemoveFiltersButton,
 
-        /// <summary>
-        /// The rewind button
-        /// </summary>
+        /// <summary> The rewind button </summary>
         RewindButton,
 
-        /// <summary>
-        /// The save button
-        /// </summary>
+        /// <summary> The save button </summary>
         SaveButton,
 
-        /// <summary>
-        /// The save as button
-        /// </summary>
+        /// <summary> The save as button </summary>
         SaveAsButton,
 
-        /// <summary>
-        /// The search data button
-        /// </summary>
+        /// <summary> The search data button </summary>
         SearchDataButton,
 
-        /// <summary>
-        /// The settings button
-        /// </summary>
+        /// <summary> The settings button </summary>
         SettingsButton,
 
-        /// <summary>
-        /// The skip button
-        /// </summary>
+        /// <summary> The skip button </summary>
         SkipButton,
 
-        /// <summary>
-        /// The stop button
-        /// </summary>
+        /// <summary> The stop button </summary>
         StopButton,
 
-        /// <summary>
-        /// The edit SQL button
-        /// </summary>
+        /// <summary> The edit SQL button </summary>
         EditSqlButton,
 
-        /// <summary>
-        /// The SQL server button
-        /// </summary>
+        /// <summary> The SQL server button </summary>
         SqlServerButton,
 
-        /// <summary>
-        /// The shutdown button
-        /// </summary>
+        /// <summary> The shutdown button </summary>
         ShutdownButton,
 
-        /// <summary>
-        /// The table button
-        /// </summary>
+        /// <summary> The table button </summary>
         TableButton,
 
-        /// <summary>
-        /// The table settings button
-        /// </summary>
+        /// <summary> The table settings button </summary>
         TableSettingsButton,
 
-        /// <summary>
-        /// The trash button
-        /// </summary>
+        /// <summary> The trash button </summary>
         TrashButton,
 
-        /// <summary>
-        /// The transfer button
-        /// </summary>
+        /// <summary> The transfer button </summary>
         TransferButton,
 
-        /// <summary>
-        /// The transfer in button
-        /// </summary>
+        /// <summary> The transfer in button </summary>
         TransferInButton,
 
-        /// <summary>
-        /// The transfer out button
-        /// </summary>
+        /// <summary> The transfer out button </summary>
         TransferOutButton,
 
-        /// <summary>
-        /// The update button
-        /// </summary>
+        /// <summary> The update button </summary>
         UpdateButton,
 
-        /// <summary>
-        /// The undo button
-        /// </summary>
+        /// <summary> The undo button </summary>
         UndoButton,
 
-        /// <summary>
-        /// The upload button
-        /// </summary>
+        /// <summary> The upload button </summary>
         UploadButton,
 
-        /// <summary>
-        /// The upload data button
-        /// </summary>
+        /// <summary> The upload data button </summary>
         UploadDataButton,
 
-        /// <summary>
-        /// The verify button
-        /// </summary>
+        /// <summary> The verify button </summary>
         VerifyButton,
 
-        /// <summary>
-        /// The verify data button
-        /// </summary>
+        /// <summary> The verify data button </summary>
         VerifyDataButton,
 
-        /// <summary>
-        /// The web button
-        /// </summary>
+        /// <summary> The web button </summary>
         WebButton,
 
-        /// <summary>
-        /// The word button
-        /// </summary>
+        /// <summary> The word button </summary>
         WordButton
     }
 }

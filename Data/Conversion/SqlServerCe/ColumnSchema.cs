@@ -41,6 +41,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Threading;
 
     /// <summary> Contains the schema of a single DB column. </summary>
     public class ColumnSchema

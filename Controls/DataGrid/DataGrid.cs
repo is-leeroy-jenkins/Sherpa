@@ -49,13 +49,13 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:System.Windows.Forms.DataGridView" />
-    /// <seealso cref="T:BudgetExecution.IDataGrid" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:System.Windows.Forms.DataGridView"/>
+    /// <seealso cref="T:BudgetExecution.IDataGrid"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
@@ -64,42 +64,27 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class DataGrid : DataGridView
     {
-        /// <summary>
-        /// Gets or sets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
+        /// <summary> Gets or sets the hover text. </summary>
+        /// <value> The hover text. </value>
         public string HoverText { get; set; }
 
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
+        /// <summary> Gets or sets the tool tip. </summary>
+        /// <value> The tool tip. </value>
         public SmallTip ToolTip { get; set; }
 
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data filter.
-        /// </summary>
-        /// <value>
-        /// The data filter.
-        /// </value>
+        /// <summary> Gets or sets the data filter. </summary>
+        /// <value> The data filter. </value>
         public IDictionary<string, object> DataFilter { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataGrid" /> class.
+        /// <see cref="T:BudgetExecution.DataGrid"/>
+        /// class.
         /// </summary>
         public DataGrid( )
         {
@@ -172,13 +157,12 @@ namespace BudgetExecution
             CellContentClick += OnCellContentClick;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the
-        /// see cref="T:BudgetExecution.DataGrid" /> class.
+        /// Initializes a new instance of the see cref="T:BudgetExecution.DataGrid" /> class.
         /// </summary>
-        /// <param name="size">The size.</param>
-        /// <param name="location">The location.</param>
+        /// <param name="size"> The size. </param>
+        /// <param name="location"> The location. </param>
         public DataGrid( Size size, Point location )
             : this( )
         {
@@ -186,36 +170,36 @@ namespace BudgetExecution
             Location = location;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataGrid" /> class.
+        /// <see cref="T:BudgetExecution.DataGrid"/>
+        /// class.
         /// </summary>
-        /// <param name="dataGrid">The data grid.</param>
+        /// <param name="dataGrid"> The data grid. </param>
         public DataGrid( Control dataGrid )
             : this( dataGrid.Size, dataGrid.Location )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataGrid" /> class.
+        /// <see cref="T:BudgetExecution.DataGrid"/>
+        /// class.
         /// </summary>
-        /// <param name="size">The size.</param>
-        /// <param name="location">The location.</param>
-        /// <param name="parent">The parent.</param>
+        /// <param name="size"> The size. </param>
+        /// <param name="location"> The location. </param>
+        /// <param name="parent"> The parent. </param>
         public DataGrid( Size size, Point location, Control parent )
             : this( size, location )
         {
             Parent = parent;
         }
 
-        /// <summary>
-        /// Gets the filter values.
-        /// </summary>
-        /// <param name="dict">The dictionary.</param>
-        /// <returns></returns>
+        /// <summary> Gets the filter values. </summary>
+        /// <param name="dict"> The dictionary. </param>
+        /// <returns> </returns>
         public string GetFilterValues( IDictionary<string, object> dict )
         {
             {
@@ -242,10 +226,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the current data row.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the current data row. </summary>
+        /// <returns> </returns>
         public DataRow GetCurrentDataRow( )
         {
             if( BindingSource.DataSource != null )
@@ -267,13 +249,13 @@ namespace BudgetExecution
             return default( DataRow );
         }
 
-        /// <summary>
-        /// Called when [right click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="DataGridViewCellMouseEventArgs" />
-        /// instance containing the event data.</param>
+        /// <summary> Called when [right click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="DataGridViewCellMouseEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnColumnHeaderClick( object sender, DataGridViewCellMouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -298,11 +280,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [cell enter].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="DataGridViewCellEventArgs"/>
+        /// <summary> Called when [cell enter]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="DataGridViewCellEventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnCellContentClick( object sender, DataGridViewCellEventArgs e )
@@ -320,9 +302,9 @@ namespace BudgetExecution
                             _editDialog.ShowDialog( );
                             CurrentCell.Value = _editDialog.Editor.Text;
                         }
-                        else if( _value.Length >= 6
-                                && _value.Length <= 9
-                                && _value.Substring( 0, 3 ) == "000" )
+                        else if( ( _value.Length >= 6 )
+                                && ( _value.Length <= 9 )
+                                && ( _value.Substring( 0, 3 ) == "000" ) )
                         {
                             var _code = _value.Substring( 4, 2 );
                             var _dialog = new ProgramProjectDialog( _code );
@@ -365,10 +347,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

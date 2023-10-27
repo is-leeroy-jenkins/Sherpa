@@ -44,159 +44,177 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Data.OleDb;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
+    using System.Threading;
     using System.Windows.Forms;
     using OfficeOpenXml;
-    using System.Diagnostics.CodeAnalysis;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.Query" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.Query"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class CsvQuery : Query
     {
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the Provider
-        /// </summary>
+        /// <inheritdoc/>
+        /// <summary> Gets the Provider </summary>
         public new Provider Provider { get; set; } = Provider.CSV;
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="CsvQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CsvQuery"/>
+        /// class.
         /// </summary>
         public CsvQuery( )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="CsvQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CsvQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
+        /// <param name="source"> The source. </param>
         public CsvQuery( Source source )
             : base( source, Provider.Access, SQL.SELECT )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="CsvQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CsvQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="dict">The dictionary.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="dict"> The dictionary. </param>
         public CsvQuery( Source source, IDictionary<string, object> dict )
             : base( source, Provider.Access, dict, SQL.SELECT )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="CsvQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CsvQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source Data.</param>
-        /// <param name="provider">The provider used.</param>
-        /// <param name="dict"></param>
-        /// <param name="commandType">The type of sql command.</param>
-        public CsvQuery( Source source, Provider provider, IDictionary<string, object> dict, 
-            SQL commandType )
+        /// <param name="source"> The source Data. </param>
+        /// <param name="provider"> The provider used. </param>
+        /// <param name="dict"> </param>
+        /// <param name="commandType"> The type of sql command. </param>
+        public CsvQuery( Source source, Provider provider, IDictionary<string, object> dict,
+                         SQL commandType )
             : base( source, provider, dict, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="CsvQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CsvQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="updates"></param>
-        /// <param name="where">The where.</param>
-        /// <param name="commandType">Type of the command.</param>
-        public CsvQuery( Source source, Provider provider, IDictionary<string, object> updates, 
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="updates"> </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public CsvQuery( Source source, Provider provider, IDictionary<string, object> updates,
+                         IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="CsvQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CsvQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="columns">The columns.</param>
-        /// <param name="criteria"></param>
-        /// <param name="commandType">Type of the command.</param>
-        public CsvQuery( Source source, Provider provider, IEnumerable<string> columns, 
-            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="criteria"> </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public CsvQuery( Source source, Provider provider, IEnumerable<string> columns,
+                         IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, criteria, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="CsvQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CsvQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="sqlStatement">The sqlStatement.</param>
+        /// <param name="sqlStatement"> The sqlStatement. </param>
         public CsvQuery( ISqlStatement sqlStatement )
             : base( sqlStatement )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="CsvQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CsvQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="sqlText">The SQL text.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="sqlText"> The SQL text. </param>
         public CsvQuery( Source source, Provider provider, string sqlText )
             : base( source, provider, sqlText )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="CsvQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CsvQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="dict"></param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="dict"> </param>
         public CsvQuery( Source source, Provider provider, IDictionary<string, object> dict )
             : base( source, provider, dict )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="CsvQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CsvQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="fullPath">The fullpath.</param>
-        /// <param name="sqlText"></param>
-        /// <param name="commandType">The commandType.</param>
+        /// <param name="fullPath"> The fullpath. </param>
+        /// <param name="sqlText"> </param>
+        /// <param name="commandType"> The commandType. </param>
         public CsvQuery( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
             : base( fullPath, sqlText, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="CsvQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CsvQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="fullPath">The fullpath.</param>
-        /// <param name="commandType">The commandType.</param>
-        /// <param name="dict"></param>
+        /// <param name="fullPath"> The fullpath. </param>
+        /// <param name="commandType"> The commandType. </param>
+        /// <param name="dict"> </param>
         public CsvQuery( string fullPath, SQL commandType, IDictionary<string, object> dict )
             : base( fullPath, commandType, dict )
         {
         }
 
-        /// <summary>
-        /// Saves the file.
-        /// </summary>
-        /// <param name="workBook">The work book.</param>
+        /// <summary> Saves the file. </summary>
+        /// <param name="workBook"> The work book. </param>
         public void SaveFile( ExcelPackage workBook )
         {
             if( workBook != null )
@@ -224,11 +242,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// CSVs the import.
-        /// </summary>
-        /// <param name="sheetName">Name of the sheet.</param>
-        /// <returns></returns>
+        /// <summary> CSVs the import. </summary>
+        /// <param name="sheetName"> Name of the sheet. </param>
+        /// <returns> </returns>
         public DataTable CsvImport( ref string sheetName )
         {
             if( !string.IsNullOrEmpty( sheetName )
@@ -239,7 +255,7 @@ namespace BudgetExecution
                     using var _dataSet = new DataSet( );
                     var _sql = "SELECT * FROM [" + sheetName + "]";
                     var _connectionString = $@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={
-                        Path.GetDirectoryName( sheetName )};" 
+                        Path.GetDirectoryName( sheetName )};"
                         + "Extended Properties='Text;HDR=YES;FMT=Delimited'";
 
                     using var _connection = new OleDbConnection( _connectionString );
@@ -272,12 +288,10 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary>
-        /// CSVs the import.
-        /// </summary>
-        /// <param name="fileName">Name of the file.</param>
-        /// <param name="sheetName">Name of the sheet.</param>
-        /// <returns></returns>
+        /// <summary> CSVs the import. </summary>
+        /// <param name="fileName"> Name of the file. </param>
+        /// <param name="sheetName"> Name of the sheet. </param>
+        /// <returns> </returns>
         public DataTable CsvImport( string fileName, ref string sheetName )
         {
             if( !string.IsNullOrEmpty( fileName )
@@ -321,11 +335,9 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary>
-        /// CSVs the export.
-        /// </summary>
-        /// <param name="table">The table.</param>
-        /// <param name="filePath">The file path.</param>
+        /// <summary> CSVs the export. </summary>
+        /// <param name="table"> The table. </param>
+        /// <param name="filePath"> The file path. </param>
         public void CsvExport( DataTable table, string filePath )
         {
             if( ( table?.Columns.Count > 0 )
@@ -348,7 +360,8 @@ namespace BudgetExecution
                     {
                         for( var _col = 0; _col < _columns; _col++ )
                         {
-                            _sheet.Cells[ _row + 1, _col + 1 ].Value = table.Rows[ _row - 1 ][ _col ];
+                            _sheet.Cells[ _row + 1, _col + 1 ].Value =
+                                table.Rows[ _row - 1 ][ _col ];
                         }
                     }
                 }
@@ -359,10 +372,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// CSVs the export.
-        /// </summary>
-        /// <param name="dataGrid">The data grid.</param>
+        /// <summary> CSVs the export. </summary>
+        /// <param name="dataGrid"> The data grid. </param>
         public void CsvExport( DataGridView dataGrid )
         {
             if( ( dataGrid?.DataSource != null )
@@ -397,11 +408,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the CSV file.
-        /// </summary>
-        /// <param name="filePath">The file path.</param>
-        /// <returns></returns>
+        /// <summary> Creates the CSV file. </summary>
+        /// <param name="filePath"> The file path. </param>
+        /// <returns> </returns>
         public ExcelPackage CreateCsvFile( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath ) )
@@ -421,10 +430,8 @@ namespace BudgetExecution
             return default( ExcelPackage );
         }
 
-        /// <summary>
-        /// Gets the CSV file.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the CSV file. </summary>
+        /// <returns> </returns>
         public string GetCsvFile( )
         {
             try
@@ -453,12 +460,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sheets the exists.
-        /// </summary>
-        /// <param name="sheetName">Name of the sheet.</param>
-        /// <param name="dataTable">The data table.</param>
-        /// <returns></returns>
+        /// <summary> Sheets the exists. </summary>
+        /// <param name="sheetName"> Name of the sheet. </param>
+        /// <param name="dataTable"> The data table. </param>
+        /// <returns> </returns>
         private bool SheetExists( string sheetName, DataTable dataTable )
         {
             if( !string.IsNullOrEmpty( sheetName )

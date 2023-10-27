@@ -42,33 +42,25 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class SqlConfig
     {
-        /// <summary>
-        /// Gets or sets the type of the command.
-        /// </summary>
-        /// <value>
-        /// The type of the command.
-        /// </value>
+        /// <summary> Gets or sets the type of the command. </summary>
+        /// <value> The type of the command. </value>
         public SQL CommandType { get; set; }
 
-        /// <summary>
-        /// Gets or sets the extension.
-        /// </summary>
-        /// <value>
-        /// The extension.
-        /// </value>
+        /// <summary> Gets or sets the extension. </summary>
+        /// <value> The extension. </value>
         public EXT Extension { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlConfig"/> class.
+        /// <see cref="SqlConfig"/>
+        /// class.
         /// </summary>
         public SqlConfig( )
         {
@@ -76,32 +68,31 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlConfig"/> class.
+        /// <see cref="SqlConfig"/>
+        /// class.
         /// </summary>
-        /// <param name="command">The command.</param>
-        /// <param name="extension">The extension.</param>
+        /// <param name="command"> The command. </param>
+        /// <param name="extension"> The extension. </param>
         public SqlConfig( SQL command, EXT extension )
         {
             CommandType = command;
             Extension = extension;
         }
 
-        /// <summary>
-        /// Deconstructs the specified command type.
-        /// </summary>
-        /// <param name="commandType">Type of the command.</param>
-        /// <param name="extension">The extension.</param>
+        /// <summary> Deconstructs the specified command type. </summary>
+        /// <param name="commandType"> Type of the command. </param>
+        /// <param name="extension"> The extension. </param>
         public void Deconstruct( out SQL commandType, out EXT extension )
         {
             commandType = CommandType;
             extension = Extension;
         }
 
-        /// <summary>
-        /// Converts to string.
-        /// </summary>
+        /// <summary> Converts to string. </summary>
         /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
+        /// A
+        /// <see cref="System.String"/>
+        /// that represents this instance.
         /// </returns>
         public override string ToString( )
         {
@@ -116,10 +107,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

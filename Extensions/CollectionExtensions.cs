@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
@@ -58,7 +59,8 @@ namespace BudgetExecution
         /// <param name="predicate"> The predicate. </param>
         /// <param name="value"> The value. </param>
         /// <returns> </returns>
-        public static bool AddIf<T>( this ICollection<T> collection, Func<T, bool> predicate, T value )
+        public static bool AddIf<T>( this ICollection<T> collection, Func<T, bool> predicate,
+                                     T value )
         {
             if( ( collection?.Count > 0 )
                && predicate( value ) )

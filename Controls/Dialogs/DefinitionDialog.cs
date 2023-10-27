@@ -49,47 +49,35 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
-    using System.Collections;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.EditBase" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.EditBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage("ReSharper", "ClassCanBeSealed.Global") ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class DefinitionDialog : EditBase
     {
-        /// <summary>
-        /// Gets or sets the selected provider.
-        /// </summary>
-        /// <value>
-        /// The selected provider.
-        /// </value>
+        /// <summary> Gets or sets the selected provider. </summary>
+        /// <value> The selected provider. </value>
         public Provider SelectedProvider { get; set; }
 
-        /// <summary>
-        /// Gets or sets the type of the selected.
-        /// </summary>
-        /// <value>
-        /// The type of the selected.
-        /// </value>
+        /// <summary> Gets or sets the type of the selected. </summary>
+        /// <value> The type of the selected. </value>
         public string SelectedType { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the column.
-        /// </summary>
-        /// <value>
-        /// The name of the column.
-        /// </value>
+        /// <summary> Gets or sets the name of the column. </summary>
+        /// <value> The name of the column. </value>
         public string ColumnName { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DefinitionDialog" /> class.
+        /// <see cref="T:BudgetExecution.DefinitionDialog"/>
+        /// class.
         /// </summary>
         public DefinitionDialog( )
         {
@@ -114,7 +102,6 @@ namespace BudgetExecution
             TableNameComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
 
             // Populate Controls
-
             TabPages = GetTabPages( );
             Panels = GetPanels( );
             ListBoxes = GetListBoxes( );
@@ -130,38 +117,38 @@ namespace BudgetExecution
             TabPage.MouseClick += OnRightClick;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DefinitionDialog" /> class.
+        /// <see cref="T:BudgetExecution.DefinitionDialog"/>
+        /// class.
         /// </summary>
-        /// <param name="tool">Type of the tool.</param>
+        /// <param name="tool"> Type of the tool. </param>
         public DefinitionDialog( ToolType tool )
             : this( )
         {
             Tool = tool;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DefinitionDialog" /> class.
+        /// <see cref="T:BudgetExecution.DefinitionDialog"/>
+        /// class.
         /// </summary>
-        /// <param name="tool">Type of the tool.</param>
-        /// <param name="bindingSource">The binding source.</param>
+        /// <param name="tool"> Type of the tool. </param>
+        /// <param name="bindingSource"> The binding source. </param>
         public DefinitionDialog( ToolType tool, BindingSource bindingSource )
             : this( tool )
         {
             BindingSource = bindingSource;
-            DataTable = (DataTable)bindingSource.DataSource;
+            DataTable = (DataTable) bindingSource.DataSource;
             BindingSource.DataSource = DataTable;
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            Source = (Source) Enum.Parse( typeof( Source ), DataTable.TableName );
             Columns = DataTable.GetColumnNames( );
         }
 
-        /// <summary>
-        /// Initializes the tab control.
-        /// </summary>
+        /// <summary> Initializes the tab control. </summary>
         private void InitializeTabControl( )
         {
             try
@@ -176,9 +163,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the table ComboBox items.
-        /// </summary>
+        /// <summary> Populates the table ComboBox items. </summary>
         private void PopulateTableComboBoxItems( )
         {
             try
@@ -187,12 +172,11 @@ namespace BudgetExecution
                 TableNameComboBox.SelectedItem = string.Empty;
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.Select( dr => dr.Field<string>( "TableName" ) )
                     ?.ToList( );
 
-                for( var _i = 0; _i < _names?.Count - 1; _i++ )
+                for( var _i = 0; _i < ( _names?.Count - 1 ); _i++ )
                 {
                     var _name = _names[ _i ];
                     TableNameComboBox.Items.Add( _name );
@@ -204,9 +188,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the data type ComboBox items.
-        /// </summary>
+        /// <summary> Populates the data type ComboBox items. </summary>
         private void PopulateDataTypeComboBoxItems( )
         {
             if( DataTypes?.Any( ) == true )
@@ -231,9 +213,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the active tab.
-        /// </summary>
+        /// <summary> Sets the active tab. </summary>
         private void SetActiveTab( )
         {
             if( Enum.IsDefined( typeof( ToolType ), Tool ) )
@@ -243,42 +223,55 @@ namespace BudgetExecution
                     switch( Tool )
                     {
                         case ToolType.AddDatabaseButton:
+
                         {
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
+
                         case ToolType.AddTableButton:
+
                         {
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
+
                         case ToolType.EditColumnButton:
+
                         {
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
+
                         case ToolType.DeleteColumnButton:
+
                         {
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
+
                         case ToolType.DeleteTableButton:
+
                         {
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
+
                         case ToolType.DeleteDatabaseButton:
+
                         {
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
+
                         default:
+
                         {
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
@@ -292,11 +285,9 @@ namespace BudgetExecution
                 }
             }
         }
-        
-        /// <summary>
-        /// Gets the tab pages.
-        /// </summary>
-        /// <returns></returns>
+
+        /// <summary> Gets the tab pages. </summary>
+        /// <returns> </returns>
         private IDictionary<string, TabPageAdv> GetTabPages( )
         {
             if( TabControl.TabPages?.Count > 0 )
@@ -326,10 +317,8 @@ namespace BudgetExecution
             return default( IDictionary<string, TabPageAdv> );
         }
 
-        /// <summary>
-        /// Gets the radio buttons.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the radio buttons. </summary>
+        /// <returns> </returns>
         private IDictionary<string, RadioButton> GetRadioButtons( )
         {
             try
@@ -354,10 +343,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the combo boxes.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the combo boxes. </summary>
+        /// <returns> </returns>
         private IDictionary<string, ComboBox> GetComboBoxes( )
         {
             try
@@ -382,10 +369,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the panels.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the panels. </summary>
+        /// <returns> </returns>
         private IDictionary<string, Layout> GetPanels( )
         {
             try
@@ -410,10 +395,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the list boxes.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the list boxes. </summary>
+        /// <returns> </returns>
         private IDictionary<string, ListBox> GetListBoxes( )
         {
             try
@@ -438,12 +421,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -461,10 +445,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [provider button checked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <summary> Called when [provider button checked]. </summary>
+        /// <param name="sender"> The sender. </param>
         private void OnProviderButtonChecked( object sender )
         {
             if( sender is RadioButton _button )
@@ -474,7 +456,7 @@ namespace BudgetExecution
                     var _name = _button.Tag?.ToString( );
                     if( !string.IsNullOrEmpty( _name ) )
                     {
-                        Provider = (Provider)Enum.Parse( typeof( Provider ), _name );
+                        Provider = (Provider) Enum.Parse( typeof( Provider ), _name );
                         DataTypes = GetDataTypes( Provider );
                         PopulateDataTypeComboBoxItems( );
                         PopulateTableComboBoxItems( );
@@ -487,12 +469,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [close button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try
@@ -505,12 +488,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [right click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [right click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="MouseEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )

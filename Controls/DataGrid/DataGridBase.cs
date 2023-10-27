@@ -46,24 +46,25 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Grid;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:Syncfusion.Windows.Forms.Grid.GridDataBoundGrid" />
+    /// <seealso cref="T:Syncfusion.Windows.Forms.Grid.GridDataBoundGrid"/>
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     public abstract class DataGridBase : GridDataBoundGrid
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataGridBase" />
+        /// <see cref="T:BudgetExecution.DataGridBase"/>
         /// class.
         /// </summary>
         /// <overload>
         /// Initializes a new instance of
-        /// <see cref="T:Syncfusion.Windows.Forms.Grid.GridDataBoundGrid" />
+        /// <see cref="T:Syncfusion.Windows.Forms.Grid.GridDataBoundGrid"/>
         /// .
         /// </overload>
         public DataGridBase( )

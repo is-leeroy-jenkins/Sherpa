@@ -43,6 +43,7 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -88,7 +89,9 @@ namespace BudgetExecution
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            UnliquidatedObligations = double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
+            UnliquidatedObligations =
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
+
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) );
             Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) );
             Used = double.Parse( Record[ "Used" ].ToString( ) );
@@ -134,7 +137,9 @@ namespace BudgetExecution
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            UnliquidatedObligations = double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
+            UnliquidatedObligations =
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
+
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) );
             Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) );
             Used = double.Parse( Record[ "Used" ].ToString( ) );
@@ -180,7 +185,9 @@ namespace BudgetExecution
             Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0" );
             Posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0" );
             OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
-            UnliquidatedObligations = double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) );
+            UnliquidatedObligations =
+                double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) );
+
             Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
             Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) ?? "0" );
             Used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0" );
@@ -197,12 +204,16 @@ namespace BudgetExecution
             ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
         }
 
-        public StatusOfSupplementalFunds( IAllocation allocation )
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="allocation"></param>
+        public StatusOfSupplementalFunds( Allocation allocation )
         {
             ID = allocation.ID;
             BudgetLevel = allocation.BudgetLevel;
             BFY = allocation.BFY;
-            EFY = allocation.Efy;
+            EFY = allocation.EFY;
             FundCode = allocation.FundCode;
             FundName = allocation.FundName;
             RpioCode = allocation.RpioCode;

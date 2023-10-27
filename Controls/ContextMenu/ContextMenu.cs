@@ -46,22 +46,22 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
     using MetroSet_UI.Child;
     using MetroSet_UI.Enums;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.MenuBase" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.MenuBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class ContextMenu : MenuBase
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ContextMenu"/> class.
+        /// <see cref="ContextMenu"/>
+        /// class.
         /// </summary>
         public ContextMenu( )
         {
@@ -77,7 +77,7 @@ namespace BudgetExecution
             Style = Style.Custom;
             ShowCheckMargin = false;
             ShowImageMargin = true;
-            SelectedItemBackColor = Color.FromArgb( 50, 93, 129 ); 
+            SelectedItemBackColor = Color.FromArgb( 50, 93, 129 );
             SelectedItemColor = Color.White;
             ThemeAuthor = "Terry Eppler";
             ThemeName = "Budget Execution";
@@ -91,10 +91,8 @@ namespace BudgetExecution
             ExitOption = CreateExitOption( );
         }
 
-        /// <summary>
-        /// Creates the file option.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the file option. </summary>
+        /// <returns> </returns>
         private MetroSetToolStripMenuItem CreateFileOption( )
         {
             try
@@ -122,12 +120,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the folder option.
-        /// </summary>
-        /// <returns>
-        /// MetroSetToolStripMenuItem
-        /// </returns>
+        /// <summary> Creates the folder option. </summary>
+        /// <returns> MetroSetToolStripMenuItem </returns>
         private MetroSetToolStripMenuItem CreateFolderOption( )
         {
             try
@@ -155,10 +149,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the calculator option.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the calculator option. </summary>
+        /// <returns> </returns>
         private MetroSetToolStripMenuItem CreateCalculatorOption( )
         {
             try
@@ -186,10 +178,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the calendar option.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the calendar option. </summary>
+        /// <returns> </returns>
         private MetroSetToolStripMenuItem CreateCalendarOption( )
         {
             try
@@ -217,10 +207,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the guidance option.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the guidance option. </summary>
+        /// <returns> </returns>
         private MetroSetToolStripMenuItem CreateGuidanceOption( )
         {
             try
@@ -248,10 +236,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the save option.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the save option. </summary>
+        /// <returns> </returns>
         private MetroSetToolStripMenuItem CreateSaveOption( )
         {
             try
@@ -279,10 +265,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the close option.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the close option. </summary>
+        /// <returns> </returns>
         private MetroSetToolStripMenuItem CreateCloseOption( )
         {
             try
@@ -310,10 +294,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the exit option.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the exit option. </summary>
+        /// <returns> </returns>
         private MetroSetToolStripMenuItem CreateExitOption( )
         {
             try
@@ -341,15 +323,17 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [item clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [item clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="MouseEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnItemClicked( object sender, MouseEventArgs e )
         {
             if( sender is MetroSetToolStripMenuItem _item
-               && e?.Button == MouseButtons.Left )
+               && ( e?.Button == MouseButtons.Left ) )
             {
                 try
                 {
@@ -360,62 +344,79 @@ namespace BudgetExecution
                         switch( _option )
                         {
                             case MenuOption.File:
+
                             {
                                 var _file = new FileBrowser( );
                                 _file.Location = e.Location;
                                 _file.Show( );
                                 break;
                             }
+
                             case MenuOption.Folder:
+
                             {
                                 var _file = new FileBrowser( );
                                 _file.Location = e.Location;
                                 _file.Show( );
                                 break;
                             }
+
                             case MenuOption.Calculator:
+
                             {
                                 var _form = new CalculationForm( );
                                 _form.Location = e.Location;
                                 _form.ShowDialog( );
                                 break;
                             }
+
                             case MenuOption.Calendar:
+
                             {
                                 var _form = new CalendarDialog( );
                                 _form.Location = e.Location;
                                 _form.ShowDialog( );
                                 break;
                             }
+
                             case MenuOption.Guidance:
+
                             {
                                 var _msg = "NOT YET IMPLEMENTED!!";
                                 var _notification = new Notification( _msg );
                                 _notification.Show( );
                                 break;
                             }
+
                             case MenuOption.Save:
+
                             {
                                 var _msg = "NOT YET IMPLEMENTED!!";
                                 var _notification = new Notification( _msg );
                                 _notification.Show( );
                                 break;
                             }
+
                             case MenuOption.Close:
+
                             {
                                 var _msg = "NOT YET IMPLEMENTED!!";
                                 var _notification = new Notification( _msg );
                                 _notification.Show( );
                                 break;
                             }
+
                             case MenuOption.Exit:
+
                             {
                                 var _msg = "NOT YET IMPLEMENTED!!";
                                 var _notification = new Notification( _msg );
                                 _notification.Show( );
                                 break;
                             }
+
                             default:
+
                             {
                                 var _msg = "NOT YET IMPLEMENTED!!";
                                 var _notification = new Notification( _msg );

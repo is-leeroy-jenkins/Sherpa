@@ -47,14 +47,13 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <summary> </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -63,19 +62,16 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class MinionSelector : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the image path.
-        /// </summary>
-        /// <value>
-        /// The image path.
-        /// </value>
+        /// <summary> Gets or sets the image path. </summary>
+        /// <value> The image path. </value>
         public string ImagePath { get; set; } =
             @"C:\Users\terry\source\repos\BudgetExecution\Resources\Pictures\Carousel\Minion";
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MinionSelector" /> class.
+        /// <see cref="T:BudgetExecution.MinionSelector"/>
+        /// class.
         /// </summary>
         public MinionSelector( )
         {
@@ -118,10 +114,10 @@ namespace BudgetExecution
             Load += OnLoad;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MinionSelector" />
+        /// <see cref="T:BudgetExecution.MinionSelector"/>
         /// class.
         /// </summary>
         /// <param name="directoryPath"> The directory path. </param>
@@ -133,12 +129,13 @@ namespace BudgetExecution
             Load += OnLoad;
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnLoad( object sender, EventArgs e )
         {
             if( !string.IsNullOrEmpty( ImagePath ) )
@@ -171,11 +168,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [item selected]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnItemSelected( object sender, EventArgs e )
         {
             if( sender is Selector _carousel )
@@ -187,36 +186,47 @@ namespace BudgetExecution
                     switch( _provider )
                     {
                         case Provider.SQLite:
+
                         {
                             Minion.RunSQLite( );
                             Close( );
                             break;
                         }
+
                         case Provider.SqlCe:
+
                         {
                             Minion.RunSqlCe( );
                             Close( );
                             break;
                         }
+
                         case Provider.SqlServer:
+
                         {
                             Minion.RunSqlCe( );
                             Close( );
                             break;
                         }
+
                         case Provider.Access:
+
                         {
                             Minion.RunAccess( );
                             Close( );
                             break;
                         }
+
                         case Provider.Excel:
+
                         {
                             Minion.OpenExcel( );
                             Close( );
                             break;
                         }
+
                         default:
+
                         {
                             Minion.RunSQLite( );
                             Close( );
@@ -231,11 +241,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [close button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnCloseButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button _button )
@@ -251,10 +263,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

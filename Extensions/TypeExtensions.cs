@@ -45,20 +45,17 @@ namespace BudgetExecution
     using System.IO;
     using System.Runtime.Serialization.Json;
     using System.Text;
+    using System.Threading;
     using System.Xml.Serialization;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    [SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
+    /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
     public static class TypeExtensions
     {
-        /// <summary>
-        /// Converts to json.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="type">The type.</param>
-        /// <returns></returns>
+        /// <summary> Converts to json. </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="type"> The type. </param>
+        /// <returns> </returns>
         public static string ToJson<T>( this T type )
         {
             if( type != null )
@@ -82,12 +79,10 @@ namespace BudgetExecution
             return default( string );
         }
 
-        /// <summary>
-        /// Javas the script serialize.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="type">The type.</param>
-        /// <returns></returns>
+        /// <summary> Javas the script serialize. </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="type"> The type. </param>
+        /// <returns> </returns>
         public static string JavaScriptSerialize<T>( this T type )
         {
             if( type != null )
@@ -111,12 +106,10 @@ namespace BudgetExecution
             return default( string );
         }
 
-        /// <summary>
-        /// XMLs the serialize.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="type">The type.</param>
-        /// <returns></returns>
+        /// <summary> XMLs the serialize. </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="type"> The type. </param>
+        /// <returns> </returns>
         public static string XmlSerialize<T>( this T type )
         {
             if( type != null )
@@ -140,10 +133,8 @@ namespace BudgetExecution
             return default( string );
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

@@ -45,21 +45,22 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataAccess" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.DataAccess"/>
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeAccessorOwnerBody" ) ]
     public abstract class ModelBase : DataAccess
     {
-        /// <summary>
-        /// Gets a value indicating whether this instance is busy.
-        /// </summary>
+        /// <summary> Gets a value indicating whether this instance is busy. </summary>
         /// <value>
-        ///   <c>true</c> if this instance is busy; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// .
         /// </value>
         public bool IsBusy
         {
@@ -67,26 +68,20 @@ namespace BudgetExecution
             private set { _busy = value; }
         }
 
-        /// <summary>
-        /// Begins the initialize.
-        /// </summary>
+        /// <summary> Begins the initialize. </summary>
         private protected void BeginInit( )
         {
             _busy = true;
         }
 
-        /// <summary>
-        /// Ends the initialize.
-        /// </summary>
+        /// <summary> Ends the initialize. </summary>
         private protected void EndInit( )
         {
             _busy = false;
         }
 
-        /// <summary>
-        /// Gets the ordinals.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the ordinals. </summary>
+        /// <returns> </returns>
         private protected IEnumerable<int> GetOrdinals( )
         {
             try
@@ -120,10 +115,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the column schema.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the column schema. </summary>
+        /// <returns> </returns>
         private protected IDictionary<string, Type> GetColumnSchema( )
         {
             try
@@ -154,10 +147,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the data columns.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the data columns. </summary>
+        /// <returns> </returns>
         private protected IEnumerable<DataColumn> GetDataColumns( )
         {
             try
@@ -191,10 +182,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the column names.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the column names. </summary>
+        /// <returns> </returns>
         private protected IEnumerable<string> GetColumnNames( )
         {
             try

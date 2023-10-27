@@ -43,109 +43,66 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.StatusOfFunds" />
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.StatusOfFunds"/>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
-    public class Obligation : StatusOfFunds 
+    public class Obligation : StatusOfFunds
     {
-        /// <summary>
-        /// Gets or sets the type of the document.
-        /// </summary>
-        /// <value>
-        /// The type of the document.
-        /// </value>
+        /// <summary> Gets or sets the type of the document. </summary>
+        /// <value> The type of the document. </value>
         public virtual string DocumentType { get; set; }
 
-        /// <summary>
-        /// Gets or sets the document number.
-        /// </summary>
-        /// <value>
-        /// The document number.
-        /// </value>
+        /// <summary> Gets or sets the document number. </summary>
+        /// <value> The document number. </value>
         public virtual string DocumentNumber { get; set; }
 
-        /// <summary>
-        /// Gets or sets the document control number.
-        /// </summary>
-        /// <value>
-        /// The document control number.
-        /// </value>
+        /// <summary> Gets or sets the document control number. </summary>
+        /// <value> The document control number. </value>
         public virtual string DocumentControlNumber { get; set; }
 
-        /// <summary>
-        /// Gets or sets the reference document number.
-        /// </summary>
-        /// <value>
-        /// The reference document number.
-        /// </value>
+        /// <summary> Gets or sets the reference document number. </summary>
+        /// <value> The reference document number. </value>
         public virtual string ReferenceDocumentNumber { get; set; }
 
-        /// <summary>
-        /// Gets or sets the processed date.
-        /// </summary>
-        /// <value>
-        /// The processed date.
-        /// </value>
+        /// <summary> Gets or sets the processed date. </summary>
+        /// <value> The processed date. </value>
         public virtual DateOnly ProcessedDate { get; set; }
 
-        /// <summary>
-        /// Gets or sets the last activity date.
-        /// </summary>
-        /// <value>
-        /// The last activity date.
-        /// </value>
+        /// <summary> Gets or sets the last activity date. </summary>
+        /// <value> The last activity date. </value>
         public virtual DateOnly LastActivityDate { get; set; }
 
-        /// <summary>
-        /// Gets or sets the age.
-        /// </summary>
-        /// <value>
-        /// The age.
-        /// </value>
+        /// <summary> Gets or sets the age. </summary>
+        /// <value> The age. </value>
         public virtual int Age { get; set; }
 
-        /// <summary>
-        /// Gets or sets the foc code.
-        /// </summary>
-        /// <value>
-        /// The foc code.
-        /// </value>
+        /// <summary> Gets or sets the foc code. </summary>
+        /// <value> The foc code. </value>
         public virtual string FocCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the foc.
-        /// </summary>
-        /// <value>
-        /// The name of the foc.
-        /// </value>
+        /// <summary> Gets or sets the name of the foc. </summary>
+        /// <value> The name of the foc. </value>
         public virtual string FocName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the vendor code.
-        /// </summary>
-        /// <value>
-        /// The vendor code.
-        /// </value>
+        /// <summary> Gets or sets the vendor code. </summary>
+        /// <value> The vendor code. </value>
         public virtual string VendorCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the vendor.
-        /// </summary>
-        /// <value>
-        /// The name of the vendor.
-        /// </value>
+        /// <summary> Gets or sets the name of the vendor. </summary>
+        /// <value> The name of the vendor. </value>
         public virtual string VendorName { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Obligation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Obligation"/>
+        /// class.
         /// </summary>
         public Obligation( )
         {
@@ -153,9 +110,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Obligation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Obligation"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public Obligation( IQuery query )
             : base( query )
         {
@@ -193,9 +152,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Obligation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Obligation"/>
+        /// class.
         /// </summary>
-        /// <param name="builder"></param>
+        /// <param name="builder"> </param>
         public Obligation( IDataModel builder )
             : base( builder )
         {
@@ -233,9 +194,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Obligation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Obligation"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public Obligation( DataRow dataRow )
             : base( dataRow )
         {
@@ -273,9 +236,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Obligation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Obligation"/>
+        /// class.
         /// </summary>
-        /// <param name="obligation">The obligation.</param>
+        /// <param name="obligation"> The obligation. </param>
         public Obligation( Obligation obligation )
         {
             BFY = obligation.BFY;

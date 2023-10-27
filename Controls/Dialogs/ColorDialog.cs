@@ -42,11 +42,13 @@
 //  ******************************************************************************************
 
 // ReSharper disable All
+
 namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
@@ -55,10 +57,10 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class ColorDialog : MetroForm
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ColorDialog" />
+        /// <see cref="T:BudgetExecution.ColorDialog"/>
         /// class.
         /// </summary>
         public ColorDialog( )

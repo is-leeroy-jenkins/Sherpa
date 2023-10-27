@@ -40,113 +40,75 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class ReportingLines
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
+        /// <summary> Gets or sets the identifier. </summary>
+        /// <value> The identifier. </value>
         public int ID { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
+        /// <summary> Gets or sets the name. </summary>
+        /// <value> The name. </value>
         public string Name { get; set; }
 
-        /// <summary>
-        /// Gets or sets the number.
-        /// </summary>
-        /// <value>
-        /// The number.
-        /// </value>
+        /// <summary> Gets or sets the number. </summary>
+        /// <value> The number. </value>
         public string Number { get; set; }
 
-        /// <summary>
-        /// Gets or sets the caption.
-        /// </summary>
-        /// <value>
-        /// The caption.
-        /// </value>
+        /// <summary> Gets or sets the caption. </summary>
+        /// <value> The caption. </value>
         public string Caption { get; set; }
 
-        /// <summary>
-        /// Gets or sets the category.
-        /// </summary>
-        /// <value>
-        /// The category.
-        /// </value>
+        /// <summary> Gets or sets the category. </summary>
+        /// <value> The category. </value>
         public string Category { get; set; }
 
-        /// <summary>
-        /// Gets or sets the range.
-        /// </summary>
-        /// <value>
-        /// The range.
-        /// </value>
+        /// <summary> Gets or sets the range. </summary>
+        /// <value> The range. </value>
         public string Range { get; set; }
 
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         public Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
         public Provider Provider { get; set; }
 
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
+        /// <summary> Gets or sets the record. </summary>
+        /// <value> The record. </value>
         public DataRow Record { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
+        /// <summary> Gets or sets the data. </summary>
+        /// <value> The data. </value>
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ReportingLines"/> class.
+        /// <see cref="ReportingLines"/>
+        /// class.
         /// </summary>
         public ReportingLines( )
         {
             Source = Source.ReconciliationLines;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ReportingLines" /> class.
+        /// <see cref="T:BudgetExecution.ReportingLines"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
-        public ReportingLines( IQuery query ) 
+        /// <param name="query"> The query. </param>
+        public ReportingLines( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query ).Record;
@@ -159,12 +121,13 @@ namespace BudgetExecution
             Range = Record[ "Range" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ReportingLines" /> class.
+        /// <see cref="T:BudgetExecution.ReportingLines"/>
+        /// class.
         /// </summary>
-        /// <param name="dataBuilder">The data builder.</param>
+        /// <param name="dataBuilder"> The data builder. </param>
         public ReportingLines( IDataModel dataBuilder )
             : this( )
         {
@@ -178,12 +141,13 @@ namespace BudgetExecution
             Range = Record[ "Range" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ReportingLines" /> class.
+        /// <see cref="T:BudgetExecution.ReportingLines"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public ReportingLines( DataRow dataRow )
             : this( )
         {

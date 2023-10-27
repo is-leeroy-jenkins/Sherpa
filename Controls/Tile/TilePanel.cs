@@ -43,21 +43,22 @@
 
 namespace BudgetExecution
 {
-    using Syncfusion.Windows.Forms.Tools;
     using System;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
+    using Syncfusion.Windows.Forms.Tools;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:Syncfusion.Windows.Forms.Tools.TileLayout" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Forms.Tools.TileLayout"/>
     public class TilePanel : TileLayout
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.TilePanel" /> class.
+        /// <see cref="T:BudgetExecution.TilePanel"/>
+        /// class.
         /// </summary>
         public TilePanel( )
         {
@@ -78,10 +79,8 @@ namespace BudgetExecution
             ThemeStyle.DisabledBorderColor = Color.FromArgb( 20, 20, 20 );
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="_ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="_ex"> The ex. </param>
         private void Fail( Exception _ex )
         {
             using var _error = new ErrorDialog( _ex );

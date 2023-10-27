@@ -43,6 +43,7 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -83,7 +84,23 @@ namespace BudgetExecution
                 _columnName = " NEW." + foreignKey.ColumnName + " IS NOT NULL AND";
             }
 
-            _schema.Body = "SELECT RAISE(ROLLBACK, 'insert on table " + foreignKey.TableName + " violates foreign key constraint " + _schema.Name + "')" + " WHERE" + _columnName + " (SELECT " + foreignKey.ForeignColumnName + " FROM " + foreignKey.ForeignTableName + " WHERE " + foreignKey.ForeignColumnName + " = NEW." + foreignKey.ColumnName + ") IS NULL; ";
+            _schema.Body = "SELECT RAISE(ROLLBACK, 'insert on table "
+                + foreignKey.TableName
+                + " violates foreign key constraint "
+                + _schema.Name
+                + "')"
+                + " WHERE"
+                + _columnName
+                + " (SELECT "
+                + foreignKey.ForeignColumnName
+                + " FROM "
+                + foreignKey.ForeignTableName
+                + " WHERE "
+                + foreignKey.ForeignColumnName
+                + " = NEW."
+                + foreignKey.ColumnName
+                + ") IS NULL; ";
+
             return _schema;
         }
 
@@ -107,7 +124,23 @@ namespace BudgetExecution
                 _empty = " NEW." + foreignKey.ColumnName + " IS NOT NULL AND";
             }
 
-            _schema.Body = "SELECT RAISE(ROLLBACK, 'update on table " + foreignKey.TableName + " violates foreign key constraint " + _schemaName + "')" + " WHERE" + _empty + " (SELECT " + foreignKey.ForeignColumnName + " FROM " + foreignKey.ForeignTableName + " WHERE " + foreignKey.ForeignColumnName + " = NEW." + foreignKey.ColumnName + ") IS NULL; ";
+            _schema.Body = "SELECT RAISE(ROLLBACK, 'update on table "
+                + foreignKey.TableName
+                + " violates foreign key constraint "
+                + _schemaName
+                + "')"
+                + " WHERE"
+                + _empty
+                + " (SELECT "
+                + foreignKey.ForeignColumnName
+                + " FROM "
+                + foreignKey.ForeignTableName
+                + " WHERE "
+                + foreignKey.ForeignColumnName
+                + " = NEW."
+                + foreignKey.ColumnName
+                + ") IS NULL; ";
+
             return _schema;
         }
 
@@ -126,8 +159,27 @@ namespace BudgetExecution
 
             var _schemaName = _schema.Name;
             _schema.Body = !foreignKey.CascadeOnDelete
-                ? "SELECT RAISE(ROLLBACK, 'delete on table " + foreignKey.ForeignTableName + " violates foreign key constraint " + _schemaName + "')" + " WHERE (SELECT " + foreignKey.ColumnName + " FROM " + foreignKey.TableName + " WHERE " + foreignKey.ColumnName + " = OLD." + foreignKey.ForeignColumnName + ") IS NOT NULL; "
-                : "DELETE FROM [" + foreignKey.TableName + "] WHERE " + foreignKey.ColumnName + " = OLD." + foreignKey.ForeignColumnName + "; ";
+                ? "SELECT RAISE(ROLLBACK, 'delete on table "
+                + foreignKey.ForeignTableName
+                + " violates foreign key constraint "
+                + _schemaName
+                + "')"
+                + " WHERE (SELECT "
+                + foreignKey.ColumnName
+                + " FROM "
+                + foreignKey.TableName
+                + " WHERE "
+                + foreignKey.ColumnName
+                + " = OLD."
+                + foreignKey.ForeignColumnName
+                + ") IS NOT NULL; "
+                : "DELETE FROM ["
+                + foreignKey.TableName
+                + "] WHERE "
+                + foreignKey.ColumnName
+                + " = OLD."
+                + foreignKey.ForeignColumnName
+                + "; ";
 
             return _schema;
         }
@@ -138,7 +190,15 @@ namespace BudgetExecution
         /// <returns> </returns>
         private static string MakeTriggerName( ForeignKeySchema foreignKey, string prefix )
         {
-            return prefix + "" + foreignKey.TableName + "" + foreignKey.ColumnName + "" + foreignKey.ForeignTableName + "" + foreignKey.ForeignColumnName;
+            return prefix
+                + ""
+                + foreignKey.TableName
+                + ""
+                + foreignKey.ColumnName
+                + ""
+                + foreignKey.ForeignTableName
+                + ""
+                + foreignKey.ForeignColumnName;
         }
     }
 }

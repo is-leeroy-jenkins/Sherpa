@@ -41,55 +41,36 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     public enum BudgetLevel
     {
-        /// <summary>
-        /// The treasury
-        /// </summary>
+        /// <summary> The treasury </summary>
         Treasury = 0,
 
-        /// <summary>
-        /// The appropriation
-        /// </summary>
+        /// <summary> The appropriation </summary>
         Appropriation = 1,
 
-        /// <summary>
-        /// The apportionment
-        /// </summary>
+        /// <summary> The apportionment </summary>
         Apportionment = 2,
 
-        /// <summary>
-        /// The rpio
-        /// </summary>
+        /// <summary> The rpio </summary>
         RPIO = 3,
 
-        /// <summary>
-        /// The allowance holder
-        /// </summary>
+        /// <summary> The allowance holder </summary>
         AllowanceHolder = 4,
 
-        /// <summary>
-        /// The program area
-        /// </summary>
+        /// <summary> The program area </summary>
         ProgramArea = 5,
 
-        /// <summary>
-        /// The program results code
-        /// </summary>
+        /// <summary> The program results code </summary>
         ProgramResultsCode = 6,
 
-        /// <summary>
-        /// The budget object class
-        /// </summary>
+        /// <summary> The budget object class </summary>
         BudgetObjectClass = 7,
 
-        /// <summary>
-        /// The sub allocation
-        /// </summary>
+        /// <summary> The sub allocation </summary>
         SubAllocation = 8
     }
 }

@@ -44,6 +44,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -55,17 +56,11 @@ namespace BudgetExecution
         /// <value> The identifier. </value>
         public int ID { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary> </summary>
         public string FiscalYear { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
+
+        /// <summary> Gets or sets the bfy. </summary>
+        /// <value> The bfy. </value>
         public string BFY { get; set; }
 
         /// <summary> Gets or sets the efy. </summary>
@@ -100,9 +95,7 @@ namespace BudgetExecution
         /// <value> The state. </value>
         public string StateCode { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary> </summary>
         public string StateName { get; set; }
 
         /// <summary> Gets or sets the city. </summary>
@@ -117,28 +110,16 @@ namespace BudgetExecution
         /// <value> The type of the project. </value>
         public string ZipCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the Obligations.
-        /// </summary>
-        /// <value>
-        /// The Obligations.
-        /// </value>
+        /// <summary> Gets or sets the Obligations. </summary>
+        /// <value> The Obligations. </value>
         public double Obligations { get; set; }
 
-        /// <summary>
-        /// Gets or sets the Deobligations.
-        /// </summary>
-        /// <value>
-        /// The Deobligations.
-        /// </value>
+        /// <summary> Gets or sets the Deobligations. </summary>
+        /// <value> The Deobligations. </value>
         public double Deobligations { get; set; }
 
-        /// <summary>
-        /// Gets or sets the Expenditures.
-        /// </summary>
-        /// <value>
-        /// The Expenditures.
-        /// </value>
+        /// <summary> Gets or sets the Expenditures. </summary>
+        /// <value> The Expenditures. </value>
         public double Expenditures { get; set; }
 
         /// <summary> Gets or sets the source. </summary>
@@ -176,21 +157,21 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "StatusOfSuperfundSitesId" ].ToString(  ) );
             FiscalYear = Record[ "FiscalYear" ].ToString(  );
             BFY = Record[ "BFY" ].ToString(  );
-            EFY = Record[ "EFY" ].ToString(  ); 
-            RpioCode = Record[ "RpioCode" ].ToString(  ); 
-            RpioName = Record[ "RpioName" ].ToString(  ); 
-            FundCode = Record[ "FundCode" ].ToString(  ); 
-            FundName = Record[ "FundName" ].ToString(  ); 
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString(  ); 
-            ProgramProjectName = Record[ "ProgramProjectName" ].ToString(  ); 
-            StateCode = Record[ "StateCode" ].ToString(  ); 
-            StateName = Record[ "StateName" ].ToString(  ); 
-            City = Record[ "City" ].ToString(  ); 
-            StreetAddress = Record[ "StreetAddress" ].ToString(  ); 
-            ZipCode = Record[ "ZipCode" ].ToString(  ); 
-            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) ); 
-            Deobligations = double.Parse( Record[ "Deobligations" ].ToString(  ) );  
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );  
+            EFY = Record[ "EFY" ].ToString(  );
+            RpioCode = Record[ "RpioCode" ].ToString(  );
+            RpioName = Record[ "RpioName" ].ToString(  );
+            FundCode = Record[ "FundCode" ].ToString(  );
+            FundName = Record[ "FundName" ].ToString(  );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString(  );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString(  );
+            StateCode = Record[ "StateCode" ].ToString(  );
+            StateName = Record[ "StateName" ].ToString(  );
+            City = Record[ "City" ].ToString(  );
+            StreetAddress = Record[ "StreetAddress" ].ToString(  );
+            ZipCode = Record[ "ZipCode" ].ToString(  );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) );
+            Deobligations = double.Parse( Record[ "Deobligations" ].ToString(  ) );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );
         }
 
         /// <summary>
@@ -220,7 +201,7 @@ namespace BudgetExecution
             ZipCode = Record[ "ZipCode" ].ToString(  );
             Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) );
             Deobligations = double.Parse( Record[ "Deobligations" ].ToString(  ) );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );   
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );
         }
 
         /// <summary>
@@ -250,13 +231,11 @@ namespace BudgetExecution
             ZipCode = Record[ "ZipCode" ].ToString(  );
             Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) );
             Deobligations = double.Parse( Record[ "Deobligations" ].ToString(  ) );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );  
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="site"></param>
+        /// <summary> </summary>
+        /// <param name="site"> </param>
         public StatusOfSuperfundSites( StatusOfSuperfundSites site )
         {
             ID = site.ID;

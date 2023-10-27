@@ -47,63 +47,43 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <summary> </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class CalendarDialog : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the date string.
-        /// </summary>
-        /// <value>
-        /// The date string.
-        /// </value>
+        /// <summary> Gets or sets the date string. </summary>
+        /// <value> The date string. </value>
         public string DateString { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
+        /// <summary> Gets or sets the data. </summary>
+        /// <value> The data. </value>
         public DataSet Data { get; set; }
 
-        /// <summary>
-        /// Gets or sets the holidays.
-        /// </summary>
-        /// <value>
-        /// The holidays.
-        /// </value>
+        /// <summary> Gets or sets the holidays. </summary>
+        /// <value> The holidays. </value>
         public DataTable Holidays { get; set; }
 
-        /// <summary>
-        /// Gets or sets the fiscal years.
-        /// </summary>
-        /// <value>
-        /// The fiscal years.
-        /// </value>
+        /// <summary> Gets or sets the fiscal years. </summary>
+        /// <value> The fiscal years. </value>
         public DataTable FiscalYears { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data model.
-        /// </summary>
-        /// <value>
-        /// The data model.
-        /// </value>
+        /// <summary> Gets or sets the data model. </summary>
+        /// <value> The data model. </value>
         public DataBuilder DataModel { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CalendarDialog" /> class.
+        /// <see cref="T:BudgetExecution.CalendarDialog"/>
+        /// class.
         /// </summary>
         public CalendarDialog( )
         {
@@ -154,9 +134,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CalendarDialog"/> class.
+        /// <see cref="CalendarDialog"/>
+        /// class.
         /// </summary>
-        /// <param name="dateTime">The date time.</param>
+        /// <param name="dateTime"> The date time. </param>
         public CalendarDialog( DateTime dateTime )
             : this( )
         {
@@ -164,12 +145,13 @@ namespace BudgetExecution
             DateString = Calendar.SelectedDate.ToString( );
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -179,16 +161,13 @@ namespace BudgetExecution
                 Calendar.SelectionChanged += OnSelectionChanged;
             }
             catch( Exception _ex )
-
             {
                 Fail( _ex );
             }
         }
 
-        /// <summary>
-        /// Gets the federal holidays.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the federal holidays. </summary>
+        /// <returns> </returns>
         private DataTable GetFederalHolidays( )
         {
             try
@@ -206,10 +185,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the fiscal years.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the fiscal years. </summary>
+        /// <returns> </returns>
         private DataTable GetFiscalYears( )
         {
             try
@@ -227,12 +204,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [close button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try
@@ -245,12 +223,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [selection changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [selection changed]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnSelectionChanged( object sender, EventArgs e )
         {
             try
@@ -264,10 +243,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

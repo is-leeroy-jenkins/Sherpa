@@ -44,6 +44,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     /// <seealso cref="ISource"/>
@@ -53,7 +54,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class Goal : DataUnit 
+    public class Goal : DataUnit
     {
         /// <summary>
         /// Initializes a new instance of the

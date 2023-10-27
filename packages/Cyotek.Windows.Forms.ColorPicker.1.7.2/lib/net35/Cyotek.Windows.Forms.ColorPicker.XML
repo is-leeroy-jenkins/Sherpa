@@ -877,7 +877,7 @@
         <member name="M:Cyotek.Windows.Forms.ColorCollection.ClearItems">
             <summary>
                 Removes all elements from the<see
-                    cref="T:System.Collections.ObjectModel.Collection`1"/>.
+		            cref="T:System.Collections.ObjectModel.Collection`1"/>.
             </summary>
         </member>
         <member name="M:Cyotek.Windows.Forms.ColorCollection.InsertItem(System.Int32,System.Drawing.Color)">
@@ -895,7 +895,7 @@
         <member name="M:Cyotek.Windows.Forms.ColorCollection.RemoveItem(System.Int32)">
             <summary>
                 Removes the element at the specified index of the<see
-                    cref="T:System.Collections.ObjectModel.Collection`1"/>.
+		            cref="T:System.Collections.ObjectModel.Collection`1"/>.
             </summary>
             <param name="index">The zero-based index of the element to remove.</param>
         </member>
@@ -908,10 +908,10 @@
         </member>
         <member name="M:Cyotek.Windows.Forms.ColorCollection.AddRange(System.Collections.Generic.IEnumerable{System.Drawing.Color})">
             <summary>Adds the elements of the specified collection to the end of the<see
-                    cref="T:Cyotek.Windows.Forms.ColorCollection"/>.
+		            cref="T:Cyotek.Windows.Forms.ColorCollection"/>.
             </summary>
             <param name="colors">The collection whose elements should be added to the end of the<see
-                    cref="T:Cyotek.Windows.Forms.ColorCollection"/>.
+		            cref="T:Cyotek.Windows.Forms.ColorCollection"/>.
             </param>
         </member>
         <member name="M:Cyotek.Windows.Forms.ColorCollection.Clone">
@@ -957,7 +957,7 @@
                 occurrence within the entire<see cref="T:Cyotek.Windows.Forms.ColorCollection"/>.
             </summary>
             <param name="item">The ARGB color to locate in the<see
-                    cref="T:Cyotek.Windows.Forms.ColorCollection"/>.
+		            cref="T:Cyotek.Windows.Forms.ColorCollection"/>.
             </param>
             <returns>The zero-based index of the first occurrence of <c>item</c> within the entire
                 <see cref="T:Cyotek.Windows.Forms.ColorCollection"/>, if found; otherwise, –1.
@@ -1252,19 +1252,19 @@
         <member name="P:Cyotek.Windows.Forms.ColorEditorManager.ColorEditor">
             <summary>
                 Gets or sets the linked<see
-                    cref="P:Cyotek.Windows.Forms.ColorEditorManager.ColorEditor"/>.
+		            cref="P:Cyotek.Windows.Forms.ColorEditorManager.ColorEditor"/>.
             </summary>
         </member>
         <member name="P:Cyotek.Windows.Forms.ColorEditorManager.ColorGrid">
             <summary>
                 Gets or sets the linked<see
-                    cref="P:Cyotek.Windows.Forms.ColorEditorManager.ColorGrid"/>.
+		            cref="P:Cyotek.Windows.Forms.ColorEditorManager.ColorGrid"/>.
             </summary>
         </member>
         <member name="P:Cyotek.Windows.Forms.ColorEditorManager.ColorWheel">
             <summary>
                 Gets or sets the linked<see
-                    cref="P:Cyotek.Windows.Forms.ColorEditorManager.ColorWheel"/>.
+		            cref="P:Cyotek.Windows.Forms.ColorEditorManager.ColorWheel"/>.
             </summary>
         </member>
         <member name="P:Cyotek.Windows.Forms.ColorEditorManager.HslColor">
@@ -1276,13 +1276,13 @@
         <member name="P:Cyotek.Windows.Forms.ColorEditorManager.LightnessColorSlider">
             <summary>
                 Gets or sets the linked<see
-                    cref="P:Cyotek.Windows.Forms.ColorEditorManager.LightnessColorSlider"/>.
+		            cref="P:Cyotek.Windows.Forms.ColorEditorManager.LightnessColorSlider"/>.
             </summary>
         </member>
         <member name="P:Cyotek.Windows.Forms.ColorEditorManager.ScreenColorPicker">
             <summary>
                 Gets or sets the linked<see
-                    cref="P:Cyotek.Windows.Forms.ColorEditorManager.ScreenColorPicker"/>.
+		            cref="P:Cyotek.Windows.Forms.ColorEditorManager.ScreenColorPicker"/>.
             </summary>
         </member>
         <member name="P:Cyotek.Windows.Forms.ColorEditorManager.LockUpdates">
@@ -1385,7 +1385,7 @@
         <member name="M:Cyotek.Windows.Forms.ColorEditorManager.Synchronize(Cyotek.Windows.Forms.IColorEditor)">
             <summary>
                 Synchronizes linked components with the specified<see
-                    cref="T:Cyotek.Windows.Forms.IColorEditor"/>.
+		            cref="T:Cyotek.Windows.Forms.IColorEditor"/>.
             </summary>
             <param name="sender">The
                 <see cref="T:Cyotek.Windows.Forms.IColorEditor"/>
@@ -2714,10 +2714,10 @@
         <member name="P:Cyotek.Windows.Forms.PaletteSerializer.DefaultOpenFilter">
             <summary>
                 Returns a filter suitable for use with the<see
-                    cref="T:System.Windows.Forms.OpenFileDialog"/>.
+		            cref="T:System.Windows.Forms.OpenFileDialog"/>.
             </summary>
             <value>A filter suitable for use with the<see
-                    cref="T:System.Windows.Forms.OpenFileDialog"/>.
+		            cref="T:System.Windows.Forms.OpenFileDialog"/>.
             </value>
             <remarks>This filter does not include any serializers that cannot read source data.
             </remarks>
@@ -2725,10 +2725,10 @@
         <member name="P:Cyotek.Windows.Forms.PaletteSerializer.DefaultSaveFilter">
             <summary>
                 Returns a filter suitable for use with the<see
-                    cref="T:System.Windows.Forms.SaveFileDialog"/>.
+		            cref="T:System.Windows.Forms.SaveFileDialog"/>.
             </summary>
             <value>A filter suitable for use with the<see
-                    cref="T:System.Windows.Forms.SaveFileDialog"/>.
+		            cref="T:System.Windows.Forms.SaveFileDialog"/>.
             </value>
             <remarks>This filter does not include any serializers that cannot write destination
                 data.

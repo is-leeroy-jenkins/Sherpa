@@ -45,11 +45,10 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
     using LinqStatistics;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
@@ -58,35 +57,21 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Global" ) ]
     public abstract class MetricBase
     {
-        /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
+        /// <summary> Gets or sets the data table. </summary>
+        /// <value> The data table. </value>
         public DataTable DataTable { get; set; }
 
-        /// <summary>
-        /// Gets or sets the numerics.
-        /// </summary>
-        /// <value>
-        /// The numerics.
-        /// </value>
+        /// <summary> Gets or sets the numerics. </summary>
+        /// <value> The numerics. </value>
         public IList<string> Numerics { get; set; }
 
-        /// <summary>
-        /// Gets or sets the values.
-        /// </summary>
-        /// <value>
-        /// The values.
-        /// </value>
+        /// <summary> Gets or sets the values. </summary>
+        /// <value> The values. </value>
         public IDictionary<string, double> Values { get; set; }
 
-        /// <summary>
-        /// Counts the values.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
+        /// <summary> Counts the values. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <returns> </returns>
         public virtual int CountValues( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -111,12 +96,10 @@ namespace BudgetExecution
             return -1;
         }
 
-        /// <summary>
-        /// Counts the values.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <summary> Counts the values. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <param name="where"> The where. </param>
+        /// <returns> </returns>
         public virtual int CountValues( string numeric, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -141,11 +124,9 @@ namespace BudgetExecution
             return -1;
         }
 
-        /// <summary>
-        /// Calculates the total.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
+        /// <summary> Calculates the total. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <returns> </returns>
         public virtual double CalculateTotal( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -170,12 +151,10 @@ namespace BudgetExecution
             return default( double );
         }
 
-        /// <summary>
-        /// Calculates the total.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <summary> Calculates the total. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <param name="where"> The where. </param>
+        /// <returns> </returns>
         public virtual double CalculateTotal( string numeric, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -200,11 +179,9 @@ namespace BudgetExecution
             return default( double );
         }
 
-        /// <summary>
-        /// Calculates the average.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
+        /// <summary> Calculates the average. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <returns> </returns>
         public virtual double CalculateAverage( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -230,12 +207,10 @@ namespace BudgetExecution
             return 0.0d;
         }
 
-        /// <summary>
-        /// Calculates the average.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <summary> Calculates the average. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <param name="where"> The where. </param>
+        /// <returns> </returns>
         public virtual double CalculateAverage( string numeric, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -261,11 +236,9 @@ namespace BudgetExecution
             return 0.0d;
         }
 
-        /// <summary>
-        /// Calculates the percentage.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
+        /// <summary> Calculates the percentage. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <returns> </returns>
         public virtual double CalculatePercentage( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -290,14 +263,12 @@ namespace BudgetExecution
             return default( double );
         }
 
-        /// <summary>
-        /// Calculates the percentage.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <summary> Calculates the percentage. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <param name="where"> The where. </param>
+        /// <returns> </returns>
         public virtual double CalculatePercentage( string numeric,
-            IDictionary<string, object> where )
+                                                   IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
                && ( where?.Any( ) == true ) )
@@ -321,11 +292,9 @@ namespace BudgetExecution
             return default( double );
         }
 
-        /// <summary>
-        /// Calculates the deviation.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
+        /// <summary> Calculates the deviation. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <returns> </returns>
         public virtual double CalculateDeviation( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -351,14 +320,12 @@ namespace BudgetExecution
             return default( double );
         }
 
-        /// <summary>
-        /// Calculates the deviation.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <summary> Calculates the deviation. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <param name="where"> The where. </param>
+        /// <returns> </returns>
         public virtual double CalculateDeviation( string numeric,
-            IDictionary<string, object> where )
+                                                  IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
                && ( where?.Any( ) == true ) )
@@ -383,11 +350,9 @@ namespace BudgetExecution
             return default( double );
         }
 
-        /// <summary>
-        /// Calculates the variance.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
+        /// <summary> Calculates the variance. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <returns> </returns>
         public virtual double CalculateVariance( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -413,12 +378,10 @@ namespace BudgetExecution
             return -1.0d;
         }
 
-        /// <summary>
-        /// Calculates the variance.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <summary> Calculates the variance. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <param name="where"> The where. </param>
+        /// <returns> </returns>
         public virtual double CalculateVariance( string numeric, IDictionary<string, object> where )
         {
             if( ( DataTable != null )
@@ -446,11 +409,8 @@ namespace BudgetExecution
             return -1.0d;
         }
 
-        /// <summary>
-        /// Gets the numeric columns.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <summary> Gets the numeric columns. </summary>
+        /// <returns> </returns>
         public virtual IList<string> GetNumerics( )
         {
             if( DataTable != null )
@@ -486,10 +446,8 @@ namespace BudgetExecution
             return default( IList<string> );
         }
 
-        /// <summary>
-        /// Gets the dates.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the dates. </summary>
+        /// <returns> </returns>
         private protected virtual IList<string> GetDates( )
         {
             if( DataTable != null )
@@ -524,10 +482,8 @@ namespace BudgetExecution
             return default( IList<string> );
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

@@ -47,14 +47,13 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Chart;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Chart.ChartControl" />
+    /// <summary> </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.Chart.ChartControl"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
@@ -63,41 +62,23 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public abstract class GraphBase : ChartControl
     {
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
+        /// <summary> Gets or sets the tool tip. </summary>
+        /// <value> The tool tip. </value>
         public virtual ToolTip ToolTip { get; set; }
 
-        /// <summary>
-        /// Gets or sets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
+        /// <summary> Gets or sets the hover text. </summary>
+        /// <value> The hover text. </value>
         public virtual string HoverText { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data filter.
-        /// </summary>
-        /// <value>
-        /// The data filter.
-        /// </value>
+        /// <summary> Gets or sets the data filter. </summary>
+        /// <value> The data filter. </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary>
-        /// Sets the area properties.
-        /// </summary>
+        /// <summary> Sets the area properties. </summary>
         private protected void SetAreaProperties( )
         {
             try
@@ -120,9 +101,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the title properties.
-        /// </summary>
+        /// <summary> Sets the title properties. </summary>
         private protected void SetTitleProperties( )
         {
             try
@@ -137,12 +116,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the legend.
-        /// </summary>
-        /// <param name="font">The font.</param>
-        /// <param name="size">The size.</param>
-        /// <param name="backColor">Color of the back.</param>
+        /// <summary> Sets the legend. </summary>
+        /// <param name="font"> The font. </param>
+        /// <param name="size"> The size. </param>
+        /// <param name="backColor"> Color of the back. </param>
         private protected void SetLegend( Font font, Size size, Color backColor )
         {
             try
@@ -167,11 +144,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the legend properties.
-        /// </summary>
-        /// <param name="i">The i.</param>
-        /// <param name="enabled">if set to <c>true</c> [enabled].</param>
+        /// <summary> Sets the legend properties. </summary>
+        /// <param name="i"> The i. </param>
+        /// <param name="enabled">
+        /// if set to
+        /// <c> true </c>
+        /// [enabled].
+        /// </param>
         private protected void SetLegendProperties( int i = 0, bool enabled = false )
         {
             try
@@ -183,10 +162,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the series properties.
-        /// </summary>
-        /// <param name="i">The i.</param>
+        /// <summary> Sets the series properties. </summary>
+        /// <param name="i"> The i. </param>
         private protected void SetSeriesProperties( int i = 0 )
         {
             try
@@ -198,9 +175,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the chart palette colors.
-        /// </summary>
+        /// <summary> Sets the chart palette colors. </summary>
         private protected void SetPaletteColors( )
         {
             try
@@ -227,10 +202,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

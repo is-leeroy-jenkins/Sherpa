@@ -43,26 +43,27 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:System.IDisposable" />
+    /// <seealso cref="T:System.IDisposable"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class Query : QueryBase, IQuery
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Query" />
+        /// <see cref="T:BudgetExecution.Query"/>
         /// class.
         /// </summary>
         public Query( )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -71,13 +72,13 @@ namespace BudgetExecution
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
         /// <param name="commandType"> The commandType. </param>
-        public Query( Source source, Provider provider = Provider.Access, 
-            SQL commandType = SQL.SELECTALL )
+        public Query( Source source, Provider provider = Provider.Access,
+                      SQL commandType = SQL.SELECTALL )
             : base( source, provider, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -87,13 +88,13 @@ namespace BudgetExecution
         /// <param name="provider"> The provider used. </param>
         /// <param name="where"> The dictionary of parameters. </param>
         /// <param name="commandType"> The type of sql command. </param>
-        public Query( Source source, Provider provider, IDictionary<string, object> where, 
-            SQL commandType )
+        public Query( Source source, Provider provider, IDictionary<string, object> where,
+                      SQL commandType )
             : base( source, provider, where, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -104,13 +105,13 @@ namespace BudgetExecution
         /// <param name="updates"> </param>
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public Query( Source source, Provider provider, IDictionary<string, object> updates, 
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+        public Query( Source source, Provider provider, IDictionary<string, object> updates,
+                      IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -121,13 +122,13 @@ namespace BudgetExecution
         /// <param name="columns"> The columns. </param>
         /// <param name="where"> The criteria. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public Query( Source source, Provider provider, IEnumerable<string> columns, 
-            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+        public Query( Source source, Provider provider, IEnumerable<string> columns,
+                      IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, where, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -140,13 +141,13 @@ namespace BudgetExecution
         /// <param name="having"> The having. </param>
         /// <param name="commandType"> Type of the command. </param>
         public Query( Source source, Provider provider, IEnumerable<string> columns,
-            IEnumerable<string> numerics, IDictionary<string, object> having,
-            SQL commandType = SQL.SELECT )
+                      IEnumerable<string> numerics, IDictionary<string, object> having,
+                      SQL commandType = SQL.SELECT )
             : base( source, provider, columns, having, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -158,7 +159,7 @@ namespace BudgetExecution
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -172,7 +173,7 @@ namespace BudgetExecution
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -186,7 +187,7 @@ namespace BudgetExecution
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -200,7 +201,7 @@ namespace BudgetExecution
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -216,8 +217,7 @@ namespace BudgetExecution
 
         /// <inheritdoc/>
         /// <summary>
-        /// Performs application-defined tasks associated with freeing,
-        /// releasing, or resetting unmanaged
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged
         /// resources.
         /// </summary>
         public virtual void Dispose( )
@@ -244,8 +244,7 @@ namespace BudgetExecution
         /// </param>
         protected virtual void Dispose( bool disposing )
         {
-            if( disposing 
-               && ( ConnectionFactory?.Connection != null ) )
+            if( disposing && ( ConnectionFactory?.Connection != null ) )
             {
                 try
                 {

@@ -47,13 +47,12 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <summary> </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -61,40 +60,26 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class ColumnConfiguration : MetroForm
     {
-        /// <summary>
-        /// Gets the grid.
-        /// </summary>
-        /// <value>
-        /// The grid.
-        /// </value>
+        /// <summary> Gets the grid. </summary>
+        /// <value> The grid. </value>
         public DataGridView Grid { get; }
 
-        /// <summary>
-        /// Gets or sets the column names.
-        /// </summary>
-        /// <value>
-        /// The column names.
-        /// </value>
+        /// <summary> Gets or sets the column names. </summary>
+        /// <value> The column names. </value>
         public IEnumerable<string> ColumnNames { get; set; }
 
-        /// <summary>
-        /// Gets the pop up.
-        /// </summary>
-        /// <value>
-        /// The pop up.
-        /// </value>
+        /// <summary> Gets the pop up. </summary>
+        /// <value> The pop up. </value>
         public System.Windows.Forms.ToolStripDropDown PopUp { get; }
 
-        /// <summary>
-        /// Gets or sets the host.
-        /// </summary>
-        /// <value>
-        /// The host.
-        /// </value>
+        /// <summary> Gets or sets the host. </summary>
+        /// <value> The host. </value>
         public ToolStripControlHost Host { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ColumnConfiguration"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ColumnConfiguration"/>
+        /// class.
         /// </summary>
         public ColumnConfiguration( )
         {
@@ -121,9 +106,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ColumnConfiguration"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ColumnConfiguration"/>
+        /// class.
         /// </summary>
-        /// <param name="dataGrid">The data grid.</param>
+        /// <param name="dataGrid"> The data grid. </param>
         public ColumnConfiguration( DataGridView dataGrid )
             : this( )
         {
@@ -137,15 +124,17 @@ namespace BudgetExecution
             Load += OnLoad;
         }
 
-        /// <summary>
-        /// Called when [data grid right click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="DataGridViewCellMouseEventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [data grid right click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="DataGridViewCellMouseEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnDataGridRightClick( object sender, DataGridViewCellMouseEventArgs e )
         {
-            if( e.Button == MouseButtons.Right
-               && Grid?.Columns != null )
+            if( ( e.Button == MouseButtons.Right )
+               && ( Grid?.Columns != null ) )
             {
                 try
                 {
@@ -169,15 +158,13 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
-                    ColumnConfiguration.Fail( _ex );
+                    Fail( _ex );
                 }
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
@@ -185,11 +172,13 @@ namespace BudgetExecution
             _error?.ShowDialog( );
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -197,15 +186,13 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ColumnConfiguration.Fail( _ex );
+                Fail( _ex );
             }
         }
 
-        /// <summary>
-        /// Gets the control host.
-        /// </summary>
-        /// <param name="listBox">The list box.</param>
-        /// <returns></returns>
+        /// <summary> Gets the control host. </summary>
+        /// <param name="listBox"> The list box. </param>
+        /// <returns> </returns>
         private ToolStripControlHost GetControlHost( Control listBox )
         {
             if( listBox != null )
@@ -220,7 +207,7 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
-                    ColumnConfiguration.Fail( _ex );
+                    Fail( _ex );
                     return default( ToolStripControlHost );
                 }
             }
@@ -228,11 +215,13 @@ namespace BudgetExecution
             return default( ToolStripControlHost );
         }
 
-        /// <summary>
-        /// Called when [list item checked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="ItemCheckEventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [list item checked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="ItemCheckEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnListItemChecked( object sender, ItemCheckEventArgs e )
         {
             if( e != null )
@@ -243,16 +232,18 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
-                    ColumnConfiguration.Fail( _ex );
+                    Fail( _ex );
                 }
             }
         }
 
-        /// <summary>
-        /// Called when [close button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [close button click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnCloseButtonClick( object sender, EventArgs e )
         {
             if( sender is Button )
@@ -263,7 +254,7 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
-                    ColumnConfiguration.Fail( _ex );
+                    Fail( _ex );
                 }
             }
         }

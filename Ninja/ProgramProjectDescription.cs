@@ -43,25 +43,28 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ProgramProjectDescription : DescriptionBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProgramProjectDescription"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ProgramProjectDescription"/>
+        /// class.
         /// </summary>
         public ProgramProjectDescription( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProgramProjectDescription"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ProgramProjectDescription"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public ProgramProjectDescription( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -78,9 +81,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProgramProjectDescription"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ProgramProjectDescription"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name="builder"> The builder. </param>
         public ProgramProjectDescription( IDataModel builder )
         {
             Record = builder.Record;
@@ -97,9 +102,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProgramProjectDescription"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ProgramProjectDescription"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public ProgramProjectDescription( DataRow dataRow )
         {
             Record = dataRow;

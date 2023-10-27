@@ -44,36 +44,29 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.StatusOfFunds" />
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.StatusOfFunds"/>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class Allocation : StatusOfFunds 
+    public class Allocation : StatusOfFunds
     {
-        /// <summary>
-        /// Gets or sets the appropriation code.
-        /// </summary>
-        /// <value>
-        /// The appropriation code.
-        /// </value>
+        /// <summary> Gets or sets the appropriation code. </summary>
+        /// <value> The appropriation code. </value>
         public virtual string AppropriationCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the appropriation.
-        /// </summary>
-        /// <value>
-        /// The name of the appropriation.
-        /// </value>
+        /// <summary> Gets or sets the name of the appropriation. </summary>
+        /// <value> The name of the appropriation. </value>
         public virtual string AppropriationName { get; set; }
-        
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="Allocation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Allocation"/>
+        /// class.
         /// </summary>
         public Allocation( )
         {
@@ -81,9 +74,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Allocation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Allocation"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public Allocation( IQuery query )
             : base( query )
         {
@@ -121,9 +116,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Allocation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Allocation"/>
+        /// class.
         /// </summary>
-        /// <param name="builder"></param>
+        /// <param name="builder"> </param>
         public Allocation( IDataModel builder )
         {
             Record = builder.Record;
@@ -160,9 +157,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Allocation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Allocation"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public Allocation( DataRow dataRow )
             : base( dataRow )
         {
@@ -200,9 +199,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Allocation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Allocation"/>
+        /// class.
         /// </summary>
-        /// <param name="map">The map.</param>
+        /// <param name="map"> The map. </param>
         public Allocation( IDictionary<string, object> map )
             : base( map )
         {
@@ -240,9 +241,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Allocation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Allocation"/>
+        /// class.
         /// </summary>
-        /// <param name="allocation">The allocation.</param>
+        /// <param name="allocation"> The allocation. </param>
         public Allocation( Allocation allocation )
         {
             ID = allocation.ID;

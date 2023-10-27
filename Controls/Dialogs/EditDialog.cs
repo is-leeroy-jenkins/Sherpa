@@ -49,13 +49,13 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.EditBase" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.EditBase"/>
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -64,26 +64,19 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class EditDialog : EditBase
     {
-        /// <summary>
-        /// Gets or sets the current.
-        /// </summary>
-        /// <value>
-        /// The current.
-        /// </value>
+        /// <summary> Gets or sets the current. </summary>
+        /// <value> The current. </value>
         public DataRow Current { get; set; }
 
-        /// <summary>
-        /// Gets or sets the frames.
-        /// </summary>
-        /// <value>
-        /// The frames.
-        /// </value>
+        /// <summary> Gets or sets the frames. </summary>
+        /// <value> The frames. </value>
         public IEnumerable<Frame> Frames { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EditDialog" /> class.
+        /// <see cref="T:BudgetExecution.EditDialog"/>
+        /// class.
         /// </summary>
         public EditDialog( )
         {
@@ -117,20 +110,21 @@ namespace BudgetExecution
             TabPage.MouseClick += OnRightClick;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EditDialog" /> class.
+        /// <see cref="T:BudgetExecution.EditDialog"/>
+        /// class.
         /// </summary>
-        /// <param name="tool">Type of the tool.</param>
-        /// <param name="bindingSource">The binding source.</param>
+        /// <param name="tool"> Type of the tool. </param>
+        /// <param name="bindingSource"> The binding source. </param>
         public EditDialog( ToolType tool, BindingSource bindingSource )
             : this( )
         {
             Tool = tool;
             BindingSource = bindingSource;
             DataTable = BindingSource.GetDataTable( );
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            Source = (Source) Enum.Parse( typeof( Source ), DataTable.TableName );
             DataModel = new DataBuilder( Source, Provider );
             Columns = DataTable.GetColumnNames( );
             Current = BindingSource.GetCurrentDataRow( );
@@ -138,13 +132,14 @@ namespace BudgetExecution
             Numerics = DataModel?.Numerics;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EditDialog" /> class.
+        /// <see cref="T:BudgetExecution.EditDialog"/>
+        /// class.
         /// </summary>
-        /// <param name="tool">Type of the tool.</param>
-        /// <param name="dataModel">The data model.</param>
+        /// <param name="tool"> Type of the tool. </param>
+        /// <param name="dataModel"> The data model. </param>
         public EditDialog( ToolType tool, DataBuilder dataModel )
             : this( )
         {
@@ -161,14 +156,15 @@ namespace BudgetExecution
             Numerics = DataModel?.Numerics;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EditDialog" /> class.
+        /// <see cref="T:BudgetExecution.EditDialog"/>
+        /// class.
         /// </summary>
-        /// <param name="tool">Type of the tool.</param>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
+        /// <param name="tool"> Type of the tool. </param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
         public EditDialog( ToolType tool, Source source, Provider provider = Provider.Access )
             : this( )
         {
@@ -184,9 +180,7 @@ namespace BudgetExecution
             Numerics = DataModel?.Numerics;
         }
 
-        /// <summary>
-        /// Sets the frame visibility.
-        /// </summary>
+        /// <summary> Sets the frame visibility. </summary>
         public void SetFrameVisibility( )
         {
             if( Frames?.Any( ) == true )
@@ -211,10 +205,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the tab pages.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the tab pages. </summary>
+        /// <returns> </returns>
         public IDictionary<string, TabPageAdv> GetTabPages( )
         {
             if( TabControl?.TabPages?.Count > 0 )
@@ -244,10 +236,8 @@ namespace BudgetExecution
             return default( IDictionary<string, TabPageAdv> );
         }
 
-        /// <summary>
-        /// Gets the frames.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the frames. </summary>
+        /// <returns> </returns>
         public IEnumerable<Frame> GetFrames( )
         {
             try
@@ -277,9 +267,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the active tab.
-        /// </summary>
+        /// <summary> Sets the active tab. </summary>
         private void SetActiveTab( )
         {
             if( Enum.IsDefined( typeof( ToolType ), Tool ) )
@@ -289,32 +277,43 @@ namespace BudgetExecution
                     switch( Tool )
                     {
                         case ToolType.CopyButton:
+
                         {
                             ActiveTab = TabPage;
                             break;
                         }
+
                         case ToolType.AddRecordButton:
+
                         {
                             ActiveTab = TabPage;
                             break;
                         }
+
                         case ToolType.AddButton:
+
                         {
                             ActiveTab = TabPage;
                             break;
                         }
+
                         case ToolType.EditRecordButton:
+
                         {
                             ActiveTab = TabPage;
                             break;
                         }
+
                         case ToolType.DeleteRecordButton:
+
                         {
                             ActiveTab = TabPage;
                             SelectButton.Text = "Delete";
                             break;
                         }
+
                         default:
+
                         {
                             ActiveTab = TabPage;
                             break;
@@ -328,9 +327,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the frame dock style.
-        /// </summary>
+        /// <summary> Sets the frame dock style. </summary>
         private void SetFrameDockStyle( )
         {
             if( Frames?.Any( ) == true )
@@ -349,13 +346,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the table location.
-        /// </summary>
+        /// <summary> Sets the table location. </summary>
         private void SetTableLocation( )
         {
-            if( FrameTable != null
-               && Columns?.Any( ) == true )
+            if( ( FrameTable != null )
+               && ( Columns?.Any( ) == true ) )
             {
                 try
                 {
@@ -364,6 +359,7 @@ namespace BudgetExecution
                     {
                         case >= 43:
                         case < 43 and >= 35:
+
                             FrameTable.Location = new Point( 12, 25 );
                             break;
                         case < 35 and >= 28:
@@ -371,6 +367,7 @@ namespace BudgetExecution
                         case < 21 and >= 14:
                         case < 14 and > 7:
                         case <= 7:
+
                             FrameTable.Location = new Point( 12, 81 );
                             break;
                     }
@@ -382,14 +379,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Binds the record data.
-        /// </summary>
+        /// <summary> Binds the record data. </summary>
         private void BindRecord( )
         {
-            if( Current != null
-               && Frames?.Any( ) == true
-               && Columns?.Any( ) == true )
+            if( ( Current != null )
+               && ( Frames?.Any( ) == true )
+               && ( Columns?.Any( ) == true ) )
             {
                 try
                 {
@@ -400,7 +395,7 @@ namespace BudgetExecution
                     {
                         _frames[ _i ].Label.Text = _cols[ _i ].SplitPascal( );
                         var _text = _items[ _i ]?.ToString( );
-                        if( Numerics?.Contains( _cols[ _i ] ) == true
+                        if( ( Numerics?.Contains( _cols[ _i ] ) == true )
                            && !string.IsNullOrEmpty( _text ) )
                         {
                             var _value = double.Parse( _text );
@@ -423,9 +418,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the frame colors.
-        /// </summary>
+        /// <summary> Sets the frame colors. </summary>
         private void SetFrameColors( )
         {
             if( Frames?.Any( ) == true )
@@ -440,9 +433,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Wires up frame events.
-        /// </summary>
+        /// <summary> Wires up frame events. </summary>
         private void WireUpFrameEvents( )
         {
             if( Frames?.Any( ) == true )
@@ -454,11 +445,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
@@ -480,32 +470,32 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [content click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
+        /// <summary> Called when [content click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
         /// <see cref="MouseEventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnContentClick( object sender, MouseEventArgs e )
         {
             if( sender is TextBox _currentCell
-               && e.Button == MouseButtons.Left
+               && ( e.Button == MouseButtons.Left )
                && !string.IsNullOrEmpty( _currentCell.Text ) )
             {
                 try
                 {
                     var _value = _currentCell.Text;
                     if( !string.IsNullOrEmpty( _value )
-                       && _value.Length > 25 )
+                       && ( _value.Length > 25 ) )
                     {
                         var _editDialog = new TextDialog( _value );
                         _editDialog.ShowDialog( this );
                     }
                     else if( !string.IsNullOrEmpty( _value )
-                            && _value.Length >= 6
-                            && _value.Length <= 9
-                            && _value.Substring( 0, 3 ) == "000" )
+                            && ( _value.Length >= 6 )
+                            && ( _value.Length <= 9 )
+                            && ( _value.Substring( 0, 3 ) == "000" ) )
                     {
                         var _code = _value.Substring( 4, 2 );
                         var _dialog = new ProgramProjectDialog( _code );
@@ -535,11 +525,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [right click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [right click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="MouseEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -555,12 +547,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [close button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private protected void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try

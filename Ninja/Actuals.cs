@@ -43,75 +43,48 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.PRC" />
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.PRC"/>
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public class Actual : PRC 
+    public class Actual : PRC
     {
-        /// <summary>
-        /// Gets or sets the appropriation code.
-        /// </summary>
-        /// <value>
-        /// The appropriation code.
-        /// </value>
+        /// <summary> Gets or sets the appropriation code. </summary>
+        /// <value> The appropriation code. </value>
         public virtual string AppropriationCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the appropriation.
-        /// </summary>
-        /// <value>
-        /// The name of the appropriation.
-        /// </value>
+        /// <summary> Gets or sets the name of the appropriation. </summary>
+        /// <value> The name of the appropriation. </value>
         public virtual string AppropriationName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the sub appropriation code.
-        /// </summary>
-        /// <value>
-        /// The sub appropriation code.
-        /// </value>
+        /// <summary> Gets or sets the sub appropriation code. </summary>
+        /// <value> The sub appropriation code. </value>
         public virtual string SubAppropriationCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the sub appropriation.
-        /// </summary>
-        /// <value>
-        /// The name of the sub appropriation.
-        /// </value>
+        /// <summary> Gets or sets the name of the sub appropriation. </summary>
+        /// <value> The name of the sub appropriation. </value>
         public virtual string SubAppropriationName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the commitments.
-        /// </summary>
-        /// <value>
-        /// The commitments.
-        /// </value>
+        /// <summary> Gets or sets the commitments. </summary>
+        /// <value> The commitments. </value>
         public virtual double Commitments { get; set; }
 
-        /// <summary>
-        /// Gets or sets the obligations.
-        /// </summary>
-        /// <value>
-        /// The obligations.
-        /// </value>
+        /// <summary> Gets or sets the obligations. </summary>
+        /// <value> The obligations. </value>
         public virtual double Obligations { get; set; }
 
-        /// <summary>
-        /// Gets or sets the balance.
-        /// </summary>
-        /// <value>
-        /// The balance.
-        /// </value>
+        /// <summary> Gets or sets the balance. </summary>
+        /// <value> The balance. </value>
         public virtual double Balance { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actual"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Actual"/>
+        /// class.
         /// </summary>
         public Actual( )
         {
@@ -119,9 +92,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actual"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Actual"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public Actual( IQuery query )
             : this( )
         {
@@ -165,9 +140,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actual"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Actual"/>
+        /// class.
         /// </summary>
-        /// <param name="builder"></param>
+        /// <param name="builder"> </param>
         public Actual( IDataModel builder )
             : this( )
         {
@@ -211,9 +188,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actual"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Actual"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public Actual( DataRow dataRow )
             : this( )
         {
@@ -258,9 +237,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actual"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Actual"/>
+        /// class.
         /// </summary>
-        /// <param name="actual">The actual.</param>
+        /// <param name="actual"> The actual. </param>
         public Actual( Actual actual )
         {
             Source = Source.Actuals;

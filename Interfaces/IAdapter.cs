@@ -40,7 +40,9 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Data.Common;
+    using System.Threading;
 
     /// <summary> </summary>
     public interface IAdapter

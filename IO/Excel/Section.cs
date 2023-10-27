@@ -42,65 +42,48 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.Grid" />
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.Grid"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Section : Grid
     {
-        /// <summary>
-        /// Gets or sets the anchor.
-        /// </summary>
-        /// <value>
-        /// The anchor.
-        /// </value>
+        /// <summary> Gets or sets the anchor. </summary>
+        /// <value> The anchor. </value>
         public (int Row, int Column) Anchor { get; set; }
 
-        /// <summary>
-        /// Gets or sets the span.
-        /// </summary>
-        /// <value>
-        /// The span.
-        /// </value>
+        /// <summary> Gets or sets the span. </summary>
+        /// <value> The span. </value>
         public int Span { get; set; }
 
-        /// <summary>
-        /// Gets or sets the depth.
-        /// </summary>
-        /// <value>
-        /// The depth.
-        /// </value>
+        /// <summary> Gets or sets the depth. </summary>
+        /// <value> The depth. </value>
         public int Depth { get; set; }
 
-        /// <summary>
-        /// Gets or sets the area.
-        /// </summary>
-        /// <value>
-        /// The area.
-        /// </value>
+        /// <summary> Gets or sets the area. </summary>
+        /// <value> The area. </value>
         public (int Depth, int Span) Area { get; set; }
 
-        /// <summary>
-        /// Gets the grid.
-        /// </summary>
-        /// <value>
-        /// The grid.
-        /// </value>
+        /// <summary> Gets the grid. </summary>
+        /// <value> The grid. </value>
         private IGrid Grid { get;  }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Section"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Section"/>
+        /// class.
         /// </summary>
         public Section( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Section"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Section"/>
+        /// class.
         /// </summary>
-        /// <param name="grid">The grid.</param>
+        /// <param name="grid"> The grid. </param>
         public Section( IGrid grid )
 
         {
@@ -115,10 +98,8 @@ namespace BudgetExecution
             Area = ( Depth, Span );
         }
 
-        /// <summary>
-        /// Gets the anchor.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the anchor. </summary>
+        /// <returns> </returns>
         public (int Row, int Column) GetAnchor( )
         {
             try
@@ -132,10 +113,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the span.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the span. </summary>
+        /// <returns> </returns>
         public int GetSpan( )
         {
             try
@@ -149,10 +128,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the depth.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the depth. </summary>
+        /// <returns> </returns>
         public int GetDepth( )
         {
             try
@@ -166,10 +143,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the area.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the area. </summary>
+        /// <returns> </returns>
         public (int Depth, int Span) GetArea( )
         {
             try

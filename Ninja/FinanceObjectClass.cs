@@ -44,54 +44,45 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.DataUnit" />
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.DataUnit"/>
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
     [ SuppressMessage( "ReSharper", "UnassignedReadonlyField" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class FinanceObjectClass : DataUnit 
+    public class FinanceObjectClass : DataUnit
     {
-        /// <summary>
-        /// Gets or sets the boc code.
-        /// </summary>
-        /// <value>
-        /// The boc code.
-        /// </value>
+        /// <summary> Gets or sets the boc code. </summary>
+        /// <value> The boc code. </value>
         public string BocCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the boc.
-        /// </summary>
-        /// <value>
-        /// The name of the boc.
-        /// </value>
+        /// <summary> Gets or sets the name of the boc. </summary>
+        /// <value> The name of the boc. </value>
         public string BocName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the category.
-        /// </summary>
-        /// <value>
-        /// The category.
-        /// </value>
+        /// <summary> Gets or sets the category. </summary>
+        /// <value> The category. </value>
         public BOC Category { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="FinanceObjectClass"/>
+        /// class.
         /// </summary>
         public FinanceObjectClass( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="FinanceObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public FinanceObjectClass( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
@@ -102,9 +93,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="FinanceObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name="builder"> The builder. </param>
         public FinanceObjectClass( IDataModel builder )
         {
             Record = builder?.Record;
@@ -115,9 +108,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="FinanceObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public FinanceObjectClass( DataRow dataRow )
         {
             Record = dataRow;
@@ -128,9 +123,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="FinanceObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name="focCode">The foc code.</param>
+        /// <param name="focCode"> The foc code. </param>
         public FinanceObjectClass( string focCode )
         {
             Record = new DataBuilder( Source, GetArgs( focCode ) )?.Record;
@@ -141,9 +138,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="FinanceObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name="foc">The foc.</param>
+        /// <param name="foc"> The foc. </param>
         public FinanceObjectClass( FinanceObjectClass foc )
         {
             ID = foc.ID;
@@ -154,11 +153,9 @@ namespace BudgetExecution
             BocName = foc.BocName;
         }
 
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <param name="code">The code.</param>
-        /// <returns></returns>
+        /// <summary> Gets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
         private IDictionary<string, object> GetArgs( string code )
         {
             if( !string.IsNullOrEmpty( code ) )

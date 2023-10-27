@@ -43,30 +43,32 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.DataUnit"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class AccountingEvent : DataUnit 
+    public class AccountingEvent : DataUnit
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AccountingEvent"/> class.
+        /// <see cref="AccountingEvent"/>
+        /// class.
         /// </summary>
         public AccountingEvent( )
         {
             Source = Source.AccountingEvents;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AccountingEvent" /> class.
+        /// <see cref="T:BudgetExecution.AccountingEvent"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public AccountingEvent( IQuery query )
             : this( )
         {
@@ -77,12 +79,13 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AccountingEvent" /> class.
+        /// <see cref="T:BudgetExecution.AccountingEvent"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name="builder"> The builder. </param>
         public AccountingEvent( IDataModel builder )
             : this( )
         {
@@ -93,12 +96,13 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AccountingEvent" /> class.
+        /// <see cref="T:BudgetExecution.AccountingEvent"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public AccountingEvent( DataRow dataRow )
             : this( )
         {
@@ -111,9 +115,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AccountingEvent"/> class.
+        /// <see cref="AccountingEvent"/>
+        /// class.
         /// </summary>
-        /// <param name="accountingEvent">The accounting event.</param>
+        /// <param name="accountingEvent"> The accounting event. </param>
         public AccountingEvent( AccountingEvent accountingEvent )
         {
             ID = accountingEvent.ID;

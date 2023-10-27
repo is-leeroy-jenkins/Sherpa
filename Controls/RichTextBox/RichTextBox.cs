@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
@@ -201,7 +202,7 @@ namespace BudgetExecution
         public void SetFontStyle( string fontFamily, Color fontColor, int fontSize = 10 )
         {
             if( !string.IsNullOrEmpty( fontFamily )
-               && fontColor != Color.Empty )
+               && ( fontColor != Color.Empty ) )
             {
                 try
                 {

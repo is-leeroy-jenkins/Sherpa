@@ -47,11 +47,10 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.PRC" />
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.PRC"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
@@ -60,30 +59,28 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
     public class Account : PRC
     {
-        /// <summary>
-        /// Gets or sets the agency activity.
-        /// </summary>
-        /// <value>
-        /// The agency activity.
-        /// </value>
+        /// <summary> Gets or sets the agency activity. </summary>
+        /// <value> The agency activity. </value>
         public string AgencyActivity { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Account" /> class.
+        /// <see cref="T:BudgetExecution.Account"/>
+        /// class.
         /// </summary>
         public Account( )
         {
             Source = Source.Accounts;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Account" /> class.
+        /// <see cref="T:BudgetExecution.Account"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public Account( IQuery query )
             : base( query )
         {
@@ -100,11 +97,13 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.Account" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Account"/>
+        /// class.
         /// </summary>
-        /// <param name="dataBuilder">The data builder.</param>
+        /// <param name="dataBuilder"> The data builder. </param>
         public Account( IDataModel dataBuilder )
             : base( dataBuilder )
         {
@@ -126,11 +125,13 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.Account" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Account"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public Account( DataRow dataRow )
         {
             Source = Source.Accounts;
@@ -151,12 +152,13 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Account" /> class.
+        /// <see cref="T:BudgetExecution.Account"/>
+        /// class.
         /// </summary>
-        /// <param name="code">The code.</param>
+        /// <param name="code"> The code. </param>
         public Account( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
@@ -176,12 +178,13 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Account" /> class.
+        /// <see cref="T:BudgetExecution.Account"/>
+        /// class.
         /// </summary>
-        /// <param name="account">The account.</param>
+        /// <param name="account"> The account. </param>
         public Account( Account account )
         {
             ID = account.ID;
@@ -199,32 +202,24 @@ namespace BudgetExecution
             ProgramAreaName = account.ProgramAreaName;
         }
 
-        /// <summary>
-        /// Gets the account.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <summary> Gets the account. </summary>
+        /// <returns> </returns>
         public Account GetAccount( )
         {
             try
             {
-                return (Account)MemberwiseClone( );
+                return (Account) MemberwiseClone( );
             }
             catch( Exception _ex )
             {
-                Account.Fail( _ex );
+                Fail( _ex );
                 return default( Account );
             }
         }
 
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <param name="code">
-        /// The code.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <summary> Gets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
         private protected IDictionary<string, object> GetArgs( string code )
         {
             try
@@ -237,7 +232,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Account.Fail( _ex );
+                Fail( _ex );
                 return default( IDictionary<string, object> );
             }
         }

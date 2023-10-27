@@ -45,64 +45,45 @@ namespace BudgetExecution
 {
     using System;
     using System.ComponentModel;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using MetroSet_UI.Components;
     using MetroSet_UI.Enums;
-    using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="MetroSet_UI.Components.MetroSetSetToolTip" />
+    /// <summary> </summary>
+    /// <seealso cref="MetroSet_UI.Components.MetroSetSetToolTip"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "InheritdocConsiderUsage" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class SmallTip : MetroSetSetToolTip
     {
-        /// <summary>
-        /// Gets or sets the tip icon.
-        /// </summary>
-        /// <value>
-        /// The tip icon.
-        /// </value>
+        /// <summary> Gets or sets the tip icon. </summary>
+        /// <value> The tip icon. </value>
         public virtual ToolTipIcon TipIcon { get; set; } = ToolTipIcon.Info;
 
-        /// <summary>
-        /// Gets or sets the tip title.
-        /// </summary>
-        /// <value>
-        /// The tip title.
-        /// </value>
+        /// <summary> Gets or sets the tip title. </summary>
+        /// <value> The tip title. </value>
         public virtual string TipTitle { get; set; }
 
-        /// <summary>
-        /// Gets or sets the tip text.
-        /// </summary>
-        /// <value>
-        /// The tip text.
-        /// </value>
+        /// <summary> Gets or sets the tip text. </summary>
+        /// <value> The tip text. </value>
         public virtual string TipText { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
+        /// <summary> Gets or sets the name. </summary>
+        /// <value> The name. </value>
         public virtual string Name { get; set; }
 
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
         public virtual BindingSource BindingSource { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmallTip"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SmallTip"/>
+        /// class.
         /// </summary>
         public SmallTip( )
         {
@@ -122,11 +103,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmallTip"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SmallTip"/>
+        /// class.
         /// </summary>
-        /// <param name="control">The control.</param>
-        /// <param name="text">The text.</param>
-        /// <param name="title">The title.</param>
+        /// <param name="control"> The control. </param>
+        /// <param name="text"> The text. </param>
+        /// <param name="title"> The title. </param>
         public SmallTip( Control control, string text, string title = "" )
             : this( )
         {
@@ -136,11 +119,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmallTip"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SmallTip"/>
+        /// class.
         /// </summary>
-        /// <param name="component">The component.</param>
-        /// <param name="text">The text.</param>
-        /// <param name="title">The title.</param>
+        /// <param name="component"> The component. </param>
+        /// <param name="text"> The text. </param>
+        /// <param name="title"> The title. </param>
         public SmallTip( Component component, string text, string title = "" )
             : this( )
         {
@@ -150,9 +135,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmallTip"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SmallTip"/>
+        /// class.
         /// </summary>
-        /// <param name="toolItem">The tool item.</param>
+        /// <param name="toolItem"> The tool item. </param>
         public SmallTip( ToolStripItem toolItem )
             : this( )
         {
@@ -160,19 +147,23 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmallTip"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SmallTip"/>
+        /// class.
         /// </summary>
-        /// <param name="control">The control.</param>
+        /// <param name="control"> The control. </param>
         public SmallTip( Control control )
             : this( )
         {
             SetText( control );
         }
 
-        /// <summary>
-        /// Sets the animation.
-        /// </summary>
-        /// <param name="animate">if set to <c>true</c> [animate].</param>
+        /// <summary> Sets the animation. </summary>
+        /// <param name="animate">
+        /// if set to
+        /// <c> true </c>
+        /// [animate].
+        /// </param>
         public virtual void SetAnimation( bool animate )
         {
             try
@@ -186,10 +177,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the automatic delay.
-        /// </summary>
-        /// <param name="delay">The delay.</param>
+        /// <summary> Sets the automatic delay. </summary>
+        /// <param name="delay"> The delay. </param>
         public virtual void SetAutomaticDelay( int delay = 500 )
         {
             if( delay > 0 )
@@ -205,10 +194,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Resets the duration.
-        /// </summary>
-        /// <param name="time">The time.</param>
+        /// <summary> Resets the duration. </summary>
+        /// <param name="time"> The time. </param>
         public virtual void ResetDuration( int time = 5000 )
         {
             if( time > 0 )
@@ -224,10 +211,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the initial delay.
-        /// </summary>
-        /// <param name="delay">The delay.</param>
+        /// <summary> Sets the initial delay. </summary>
+        /// <param name="delay"> The delay. </param>
         public virtual void SetInitialDelay( int delay = 500 )
         {
             if( delay > 0 )
@@ -243,10 +228,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Resets the delay.
-        /// </summary>
-        /// <param name="reshow">The reshow.</param>
+        /// <summary> Resets the delay. </summary>
+        /// <param name="reshow"> The reshow. </param>
         public virtual void ResetDelay( int reshow = 100 )
         {
             if( reshow > 0 )
@@ -262,10 +245,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Res the tag.
-        /// </summary>
-        /// <param name="tag">The tag.</param>
+        /// <summary> Res the tag. </summary>
+        /// <param name="tag"> The tag. </param>
         public virtual void ReTag( object tag )
         {
             if( tag != null )
@@ -281,10 +262,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
-        /// <param name="control">The control.</param>
+        /// <summary> Sets the text. </summary>
+        /// <param name="control"> The control. </param>
         public virtual void SetText( Control control )
         {
             if( !string.IsNullOrEmpty( control?.Tag?.ToString( ) ) )
@@ -302,14 +281,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
-        /// <param name="control">The control.</param>
-        /// <param name="caption">The caption.</param>
+        /// <summary> Sets the text. </summary>
+        /// <param name="control"> The control. </param>
+        /// <param name="caption"> The caption. </param>
         public virtual void SetText( Control control, string caption )
         {
-            if( control != null
+            if( ( control != null )
                && !string.IsNullOrEmpty( caption ) )
             {
                 try
@@ -324,14 +301,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
-        /// <param name="item">The item.</param>
+        /// <summary> Sets the text. </summary>
+        /// <param name="item"> The item. </param>
         public virtual void SetText( ToolStripItem item )
         {
-            if( item.GetCurrentParent( ) != null
-               && item != null )
+            if( ( item.GetCurrentParent( ) != null )
+               && ( item != null ) )
             {
                 try
                 {
@@ -350,10 +325,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
-        /// <param name="component">The component.</param>
+        /// <summary> Sets the text. </summary>
+        /// <param name="component"> The component. </param>
         public virtual void SetText( Component component )
         {
             if( component is Control _control )
@@ -374,14 +347,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
-        /// <param name="component">The component.</param>
-        /// <param name="caption">The caption.</param>
+        /// <summary> Sets the text. </summary>
+        /// <param name="component"> The component. </param>
+        /// <param name="caption"> The caption. </param>
         public virtual void SetText( Component component, string caption )
         {
-            if( component != null
+            if( ( component != null )
                && !string.IsNullOrEmpty( caption ) )
             {
                 try
@@ -399,9 +370,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Clears the text.
-        /// </summary>
+        /// <summary> Clears the text. </summary>
         public virtual void ClearText( )
         {
             try
@@ -416,10 +385,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

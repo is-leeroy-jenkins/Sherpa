@@ -43,6 +43,7 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
@@ -214,9 +215,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayrollAuthority"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="PayrollAuthority"/>
+        /// class.
         /// </summary>
-        /// <param name="pay">The pay.</param>
+        /// <param name="pay"> The pay. </param>
         public PayrollAuthority( PayrollAuthority pay )
         {
             ID = pay.ID;

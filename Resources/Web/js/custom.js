@@ -1,44 +1,44 @@
 ﻿/**************************************************************************************************
-*     File Name:               custom.js
-*     Assembly:                Budget Execution
-*     Author:                  Terry D. Eppler
-*     Created:                 03-24-2023
-* 
-*     Last Modified By:        Terry D. Eppler
-*     Last Modified On:        05-31-2023
-*
-* <copyright file="custom.js" company="Terry Eppler">
-*    This is a Federal Budget, Finance, and Accounting application for the
-*    US Environmental Protection Agency (US EPA).
-*    Copyright ©  2023  Terry Eppler
-* 
-*    Permission is hereby granted, free of charge, to any person obtaining a copy
-*    of this software and associated documentation files (the “Software”),
-*    to deal in the Software without restriction,
-*    including without limitation the rights to use,
-*    copy, modify, merge, publish, distribute, sublicense,
-*    and/or sell copies of the Software,
-*    and to permit persons to whom the Software is furnished to do so,
-*    subject to the following conditions:
-* 
-*    The above copyright notice and this permission notice shall be included in all
-*    copies or substantial portions of the Software.
-* 
-*    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-*    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-*    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-*    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-*    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-*    DEALINGS IN THE SOFTWARE.
-* 
-*    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
-* </copyright>
-* <summary>
-*   custom.js
-* </summary>
-**************************************************************************************************/
-( function( )
+ *     File Name:               custom.js
+ *     Assembly:                Budget Execution
+ *     Author:                  Terry D. Eppler
+ *     Created:                 03-24-2023
+ *
+ *     Last Modified By:        Terry D. Eppler
+ *     Last Modified On:        05-31-2023
+ *
+ * <copyright file="custom.js" company="Terry Eppler">
+ *    This is a Federal Budget, Finance, and Accounting application for the
+ *    US Environmental Protection Agency (US EPA).
+ *    Copyright ©  2023  Terry Eppler
+ *
+ *    Permission is hereby granted, free of charge, to any person obtaining a copy
+ *    of this software and associated documentation files (the “Software”),
+ *    to deal in the Software without restriction,
+ *    including without limitation the rights to use,
+ *    copy, modify, merge, publish, distribute, sublicense,
+ *    and/or sell copies of the Software,
+ *    and to permit persons to whom the Software is furnished to do so,
+ *    subject to the following conditions:
+ *
+ *    The above copyright notice and this permission notice shall be included in all
+ *    copies or substantial portions of the Software.
+ *
+ *    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ *    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+ *    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ *    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ *    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ *    DEALINGS IN THE SOFTWARE.
+ *
+ *    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+ * </copyright>
+ * <summary>
+ *   custom.js
+ * </summary>
+ **************************************************************************************************/
+(function ()
 {
     //"use strict";
     // The widget object
@@ -52,45 +52,45 @@
      * @param {string} credit - the credit of the photo.
      * @returns {Object} - a jQuery DOM object.
      */
-    function createMasonryItemHTML( caption, imageSrc, credit )
+    function createMasonryItemHTML(caption, imageSrc, credit)
     {
         // This is a hack for Firefox, since Firefox does not respect the CSS "break-inside" and "page-break-inside"
         // We have to set the CSS display to "inline-flex" to prevent Firefox from breaking the figure in the middle
         // But, setting display to inline-flex will cause another problem in Chrome, where the columns will not be balanced
         // So we want Chrome to use "display: flex", and we want Firefox to use "display: inline-flex"
         var html = '<figure style="display: none;">';
-        if( edaplotjs.Util.isFirefox( ) )
+        if (edaplotjs.Util.isFirefox())
         {
             html = '<figure style="display: inline-flex">';
         }
-        var figCaptionElement = `<figcaption>${ caption }</figcaption>`;
-        if( typeof caption === "undefined" || caption == "" )
+        var figCaptionElement = `<figcaption>${caption}</figcaption>`;
+        if (typeof caption === "undefined" || caption == "")
         {
             figCaptionElement = "";
         }
-        var figCreditElement = `<div>${ credit }</div>`;
-        if( typeof credit === "undefined" || credit == "" )
+        var figCreditElement = `<div>${credit}</div>`;
+        if (typeof credit === "undefined" || credit == "")
         {
             figCreditElement = "";
         }
-        var figImageElement = `<img src="${ imageSrc }">`;
-        if( typeof imageSrc === "undefined" || imageSrc == "" )
+        var figImageElement = `<img src="${imageSrc}">`;
+        if (typeof imageSrc === "undefined" || imageSrc == "")
         {
             figImageElement = "";
         }
         html += figImageElement + figCreditElement + figCaptionElement + "</figure>";
-        const $html = $( html );
-        $html.find( "img" )
-            .one( "load",
-                function( )
+        const $html = $(html);
+        $html.find("img")
+            .one("load",
+                function ()
                 {
                     // Only show the figure when the image is loaded
-                    $( this ).parent( ).show( );
-                } );
+                    $(this).parent().show();
+                });
         return $html;
     }
 
-    function createMasonry( )
+    function createMasonry()
     {
         const data = [
             {
@@ -155,203 +155,203 @@
                 "caption": "Vestibulum purus quam, scelerisque ut."
             }
         ];
-        const $container = $( "#masonry" );
-        for( let i = 0; i < data.length; i++ )
+        const $container = $("#masonry");
+        for (let i = 0; i < data.length; i++)
         {
-            const v = data[ i ];
-            const $t = createMasonryItemHTML( v[ "caption" ], v[ "src" ], v[ "credit" ] );
-            $t.attr( "id", `masonry-id-${ v[ "id" ] }` );
-            $container.append( $t );
+            const v = data[i];
+            const $t = createMasonryItemHTML(v["caption"], v["src"], v["credit"]);
+            $t.attr("id", `masonry-id-${v["id"]}`);
+            $container.append($t);
         }
     }
 
-    function createShareButtonAndDialog( )
+    function createShareButtonAndDialog()
     {
-        var $share_url_copy_prompt = $( "#share-url-copy-prompt" );
+        var $share_url_copy_prompt = $("#share-url-copy-prompt");
         // Create the share dialog
-        var $share_dialog = widgets.createCustomDialog( {
+        var $share_dialog = widgets.createCustomDialog({
             selector: "#share-dialog",
             full_width_button: true,
             action_text: "Copy to clipboard",
             close_dialog_on_action: false,
             show_cancel_btn: false,
-            action_callback: function( )
+            action_callback: function ()
             {
-                widgets.copyText( "share-url" );
-                $share_url_copy_prompt.show( );
+                widgets.copyText("share-url");
+                $share_url_copy_prompt.show();
             }
-        } );
-        $share_dialog.on( "dialogclose",
-            function( )
+        });
+        $share_dialog.on("dialogclose",
+            function ()
             {
-                $share_url_copy_prompt.hide( );
-            } );
+                $share_url_copy_prompt.hide();
+            });
         // Set the event of the share url textbox
-        const $share_url = $( "#share-url" );
-        $share_url.focus( function( )
+        const $share_url = $("#share-url");
+        $share_url.focus(function ()
+        {
+            $(this).select();
+        })
+            .click(function ()
             {
-                $( this ).select( );
-            } )
-            .click( function( )
+                $(this).select();
+            })
+            .mouseup(function (e)
             {
-                $( this ).select( );
-            } )
-            .mouseup( function( e )
-            {
-                e.preventDefault( );
-            } );
+                e.preventDefault();
+            });
         // Set the event of the share button
-        $( "#share-btn" )
-            .on( "click",
-                function( )
+        $("#share-btn")
+            .on("click",
+                function ()
                 {
-                    $share_dialog.dialog( "open" );
-                } );
+                    $share_dialog.dialog("open");
+                });
     }
 
-    function init( )
+    function init()
     {
         // Create the widget object
-        widgets = new edaplotjs.Widgets( );
+        widgets = new edaplotjs.Widgets();
         // Set custom dropdown
-        widgets.setCustomDropdown( $( "#custom-dropdown" ),
+        widgets.setCustomDropdown($("#custom-dropdown"),
             {
                 items: [
                     "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"
                 ],
                 //init_index: 0, // You can use this parameter to set the initial item for displaying
                 init_text: "Dropdown Menu (With JavaScript)",
-                on_item_click_callback: function( $ui )
+                on_item_click_callback: function ($ui)
                 {
-                    console.log( $ui.text( ) );
+                    console.log($ui.text());
                 }
-            } );
-        widgets.setCustomDropdown( $( "#custom-dropdown-large" ),
+            });
+        widgets.setCustomDropdown($("#custom-dropdown-large"),
             {
                 items: [
                     "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"
                 ],
                 //init_index: 0, // You can use this parameter to set the initial item for displaying
                 init_text: "Large Dropdown Menu (With JavaScript)",
-                on_item_click_callback: function( $ui )
+                on_item_click_callback: function ($ui)
                 {
-                    console.log( $ui.text( ) );
+                    console.log($ui.text());
                 }
-            } );
+            });
         // Set custom radio
-        $( "input:radio[name='playback-speed']" )
-            .on( "change",
-                function( )
+        $("input:radio[name='playback-speed']")
+            .on("change",
+                function ()
                 {
-                    console.log( $( this ).val( ) );
-                } );
+                    console.log($(this).val());
+                });
         // Set custom dialog type 1
-        var _dialog1 = widgets.createCustomDialog( {
+        var _dialog1 = widgets.createCustomDialog({
             selector: "#dialog-1",
             full_width_button: true
-        } );
-        $( "#dialog-btn-1" )
-            .on( "click",
-                function( )
+        });
+        $("#dialog-btn-1")
+            .on("click",
+                function ()
                 {
-                    _dialog1.dialog( "open" );
-                } );
+                    _dialog1.dialog("open");
+                });
         // Set custom dialog type 2
-        var _dialog2 = widgets.createCustomDialog( {
+        var _dialog2 = widgets.createCustomDialog({
             selector: "#dialog-2",
-            action_callback: function( )
+            action_callback: function ()
             {
-                console.log( "confirm" );
+                console.log("confirm");
             },
-            cancel_callback: function( )
+            cancel_callback: function ()
             {
-                console.log( "cancel" );
+                console.log("cancel");
             }
-        } );
-        $( "#dialog-btn-2" )
-            .on( "click",
-                function( )
+        });
+        $("#dialog-btn-2")
+            .on("click",
+                function ()
                 {
-                    _dialog2.dialog( "open" );
-                } );
+                    _dialog2.dialog("open");
+                });
         // Set custom dialog type 3
-        var _dialog3 = widgets.createCustomDialog( {
+        var _dialog3 = widgets.createCustomDialog({
             selector: "#dialog-3",
-            parent: $( ".content" ),
+            parent: $(".content"),
             show_cancel_btn: false,
-            cancel_callback: function( )
+            cancel_callback: function ()
             {
-                console.log( "cancel" );
+                console.log("cancel");
             },
-        } );
-        $( "#dialog-btn-3" )
-            .on( "click",
-                function( )
+        });
+        $("#dialog-btn-3")
+            .on("click",
+                function ()
                 {
-                    _dialog3.dialog( "open" );
-                } );
+                    _dialog3.dialog("open");
+                });
         // Set custom dialog type 4
-        const _dialog4 = widgets.createCustomDialog( {
+        const _dialog4 = widgets.createCustomDialog({
             selector: "#dialog-4",
             action_text: "Action",
             reverse_button_positions: true,
             full_width_button: true,
-            action_callback: function( )
+            action_callback: function ()
             {
-                console.log( "action" );
+                console.log("action");
             },
             cancel_text: "Back",
-            cancel_callback: function( )
+            cancel_callback: function ()
             {
-                console.log( "back" );
+                console.log("back");
             }
-        } );
-        $( "#dialog-btn-4" )
-            .on( "click",
-                function( )
+        });
+        $("#dialog-btn-4")
+            .on("click",
+                function ()
                 {
-                    _dialog.dialog( "open" );
-                } );
+                    _dialog.dialog("open");
+                });
         // Create the share button and dialog
-        createShareButtonAndDialog( );
+        createShareButtonAndDialog();
         // Create the Unsplash photo picker
         // To make this work, you need to code a backend API to serve Unsplash photos
         // For python flask, an example is "https://github.com/yenchiah/COCTEAU-TUD/blob/main/back-end/www/controllers/photos_controller.py"
         // You need to change photoURL your API URL, such as "http://localhost:5000/photos/random?count=30"
         const photoURL = undefined; // for demo, the photo picker will load "file/photo.json"
-        var $photoPickerDialog = widgets.createUnsplashPhotoPickerDialog( "dialog-photo-picker",
+        var $photoPickerDialog = widgets.createUnsplashPhotoPickerDialog("dialog-photo-picker",
             undefined,
             photoURL,
-            function( d )
+            function (d)
             {
-                $( "#vision-image" ).data( "raw", d ).prop( "src", d[ "urls" ][ "regular" ] );
-            } );
-        $( "#vision-image-frame" )
-            .on( "click",
-                function( )
+                $("#vision-image").data("raw", d).prop("src", d["urls"]["regular"]);
+            });
+        $("#vision-image-frame")
+            .on("click",
+                function ()
                 {
-                    $photoPickerDialog.dialog( "open" );
-                } );
+                    $photoPickerDialog.dialog("open");
+                });
         // Create the masonry
-        createMasonry( );
+        createMasonry();
         // Create the gallery
         // In practice, these images urls may come from your server via http ajax requests.
-        const $gallery = $( "#gallery" );
-        for( let i = 0; i < 8; i++ )
+        const $gallery = $("#gallery");
+        for (let i = 0; i < 8; i++)
         {
             const item = '<a href="javascript:void(0)" class="flex-column">' +
                 '<img src="img/dummay-img.png">' +
                 "<div>Image Caption</div>" +
                 "</a>";
-            $gallery.append( $( item ) );
+            $gallery.append($(item));
         }
         // Create custom tabs
-        widgets.createCustomTab( {
+        widgets.createCustomTab({
             selector: "#custom-tab"
-        } );
+        });
         // Set the custom legend
-        widgets.setCustomLegend( $( "#custom-legend" ) );
+        widgets.setCustomLegend($("#custom-legend"));
     }
 
-    $( init );
-} )( );
+    $(init);
+})();

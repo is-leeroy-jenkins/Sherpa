@@ -43,11 +43,12 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class Deobligation : Obligation 
+    public class Deobligation : Obligation
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -101,10 +102,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Deobligation" />
+        /// <see cref="T:BudgetExecution.Deobligation"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>

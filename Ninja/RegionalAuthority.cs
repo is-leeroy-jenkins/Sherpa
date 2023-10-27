@@ -43,6 +43,7 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -203,13 +204,17 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public RegionalAuthority( IAllocation allocation )
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="allocation"></param>
+        public RegionalAuthority( Allocation allocation )
             : this( )
         {
             ID = allocation.ID;
             BudgetLevel = allocation.BudgetLevel;
             BFY = allocation.BFY;
-            EFY = allocation.Efy;
+            EFY = allocation.EFY;
             FundCode = allocation.FundCode;
             FundName = allocation.FundName;
             RpioCode = allocation.RpioCode;

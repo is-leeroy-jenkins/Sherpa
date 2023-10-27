@@ -48,29 +48,30 @@ namespace BudgetExecution
     using System.Data.SQLite;
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
     using static System.Configuration.ConfigurationManager;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.ConnectionBase" />
-    /// <seealso cref="T:BudgetExecution.ISource" />
-    /// <seealso cref="T:BudgetExecution.IProvider" />
+    /// <seealso cref="T:BudgetExecution.ConnectionBase"/>
+    /// <seealso cref="T:BudgetExecution.ISource"/>
+    /// <seealso cref="T:BudgetExecution.IProvider"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class ConnectionFactory : ConnectionBase, ISource, IProvider, IConnectionFactory
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ConnectionFactory" />
+        /// <see cref="T:BudgetExecution.ConnectionFactory"/>
         /// class.
         /// </summary>
         public ConnectionFactory( )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ConnectionFactory"/>
@@ -83,7 +84,7 @@ namespace BudgetExecution
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ConnectionFactory"/>
@@ -95,7 +96,7 @@ namespace BudgetExecution
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ConnectionFactory"/>
@@ -108,11 +109,9 @@ namespace BudgetExecution
         {
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the connection.
-        /// </summary>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Gets the connection. </summary>
+        /// <returns> </returns>
         public DbConnection GetConnection( )
         {
             try
@@ -123,22 +122,29 @@ namespace BudgetExecution
                     switch( Provider )
                     {
                         case Provider.SQLite:
+
                         {
                             return new SQLiteConnection( _connectionString );
                         }
+
                         case Provider.SqlCe:
+
                         {
                             return new SqlCeConnection( _connectionString );
                         }
+
                         case Provider.SqlServer:
+
                         {
                             return new SqlConnection( _connectionString );
                         }
+
                         case Provider.Excel:
                         case Provider.CSV:
                         case Provider.Text:
                         case Provider.Access:
                         case Provider.OleDb:
+
                         {
                             return new OleDbConnection( _connectionString );
                         }

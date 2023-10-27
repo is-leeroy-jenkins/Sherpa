@@ -43,186 +43,156 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Data;
-    using System.Data.Common;
     using System.Data.OleDb;
     using System.Data.SQLite;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.Query" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.Query"/>
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class SQLiteQuery : Query
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public enum ColDataType
-        {
-            /// <summary>
-            /// The default
-            /// </summary>
-            Default,
 
-            /// <summary>
-            /// The text
-            /// </summary>
-            Text,
-
-            /// <summary>
-            /// The date time
-            /// </summary>
-            DateTime,
-
-            /// <summary>
-            /// The integer
-            /// </summary>
-            Integer,
-
-            /// <summary>
-            /// The decimal
-            /// </summary>
-            Decimal,
-
-            /// <summary>
-            /// The BLOB
-            /// </summary>
-            Blob
-        }
-
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SQLiteQuery" /> class.
+        /// <see cref="T:BudgetExecution.SQLiteQuery"/>
+        /// class.
         /// </summary>
         public SQLiteQuery( )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SQLiteQuery" /> class.
+        /// <see cref="T:BudgetExecution.SQLiteQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
+        /// <param name="source"> The source. </param>
         public SQLiteQuery( Source source )
             : base( source, Provider.SQLite, SQL.SELECT )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SQLiteQuery" /> class.
+        /// <see cref="T:BudgetExecution.SQLiteQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="updates">The updates.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="updates"> The updates. </param>
         public SQLiteQuery( Source source, IDictionary<string, object> updates )
             : base( source, Provider.SQLite, updates, SQL.SELECT )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/> class.
+        /// <see cref="SQLiteQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="dict">The dictionary.</param>
-        /// <param name="commandType">Type of the command.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="dict"> The dictionary. </param>
+        /// <param name="commandType"> Type of the command. </param>
         public SQLiteQuery( Source source, IDictionary<string, object> dict, SQL commandType )
             : base( source, Provider.SQLite, dict, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/> class.
+        /// <see cref="SQLiteQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="updates">The updates.</param>
-        /// <param name="where">The where.</param>
-        /// <param name="commandType">Type of the command.</param>
-        public SQLiteQuery( Source source, IDictionary<string, object> updates, 
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+        /// <param name="source"> The source. </param>
+        /// <param name="updates"> The updates. </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public SQLiteQuery( Source source, IDictionary<string, object> updates,
+                            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, Provider.SQLite, updates, where, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/> class.
+        /// <see cref="SQLiteQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="columns">The columns.</param>
-        /// <param name="criteria">The criteria.</param>
-        /// <param name="commandType">Type of the command.</param>
-        public SQLiteQuery( Source source, IEnumerable<string> columns, 
-            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+        /// <param name="source"> The source. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="criteria"> The criteria. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public SQLiteQuery( Source source, IEnumerable<string> columns,
+                            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
             : base( source, Provider.SQLite, columns, criteria, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the
-        /// see cref="SQLiteQuery"/> class.
+        /// Initializes a new instance of the see cref="SQLiteQuery"/> class.
         /// </summary>
-        /// <param name="sqlStatement">The sqlStatement.</param>
+        /// <param name="sqlStatement"> The sqlStatement. </param>
         public SQLiteQuery( ISqlStatement sqlStatement )
             : base( sqlStatement )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/> class.
+        /// <see cref="SQLiteQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="sqlText">The SQL text.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="sqlText"> The SQL text. </param>
         public SQLiteQuery( Source source, string sqlText )
             : base( source, Provider.SQLite, sqlText )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/> class.
+        /// <see cref="SQLiteQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="fullPath">The fullpath.</param>
-        /// <param name="sqlText"></param>
-        /// <param name="commandType">The commandType.</param>
+        /// <param name="fullPath"> The fullpath. </param>
+        /// <param name="sqlText"> </param>
+        /// <param name="commandType"> The commandType. </param>
         public SQLiteQuery( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
             : base( fullPath, sqlText, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/> class.
+        /// <see cref="SQLiteQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="fullPath">The fullpath.</param>
-        /// <param name="commandType">The commandType.</param>
-        /// <param name="dict"></param>
+        /// <param name="fullPath"> The fullpath. </param>
+        /// <param name="commandType"> The commandType. </param>
+        /// <param name="dict"> </param>
         public SQLiteQuery( string fullPath, SQL commandType, IDictionary<string, object> dict )
             : base( fullPath, commandType, dict )
         {
         }
 
-        /// <summary>
-        /// Gets the data adapter.
-        /// </summary>
-        /// <param name="command">The command.</param>
-        /// <returns></returns>
+        /// <summary> Gets the data adapter. </summary>
+        /// <param name="command"> The command. </param>
+        /// <returns> </returns>
         public SQLiteDataAdapter GetDataAdapter( SQLiteCommand command )
         {
             try
@@ -238,16 +208,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the table from excel file.
-        /// </summary>
-        /// <param name="filePath">
-        /// The file path.
-        /// </param>
-        /// <param name="sheetName">
-        /// Name of the sheet.
-        /// </param>
-        /// <returns></returns>
+        /// <summary> Creates the table from excel file. </summary>
+        /// <param name="filePath"> The file path. </param>
+        /// <param name="sheetName"> Name of the sheet. </param>
+        /// <returns> </returns>
         public DataTable CreateTableFromExcelFile( string filePath, ref string sheetName )
         {
             if( !string.IsNullOrEmpty( filePath )
@@ -292,12 +256,10 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary>
-        /// Creates the table from CSV file.
-        /// </summary>
-        /// <param name="fileName">Name of the file.</param>
-        /// <param name="sheetName">Name of the sheet.</param>
-        /// <returns></returns>
+        /// <summary> Creates the table from CSV file. </summary>
+        /// <param name="fileName"> Name of the file. </param>
+        /// <param name="sheetName"> Name of the sheet. </param>
+        /// <returns> </returns>
         public DataTable CreateTableFromCsvFile( string fileName, ref string sheetName )
         {
             if( !string.IsNullOrEmpty( fileName )
@@ -334,11 +296,9 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary>
-        /// Gets the parameters.
-        /// </summary>
-        /// <param name="dict">The dictionary.</param>
-        /// <returns></returns>
+        /// <summary> Gets the parameters. </summary>
+        /// <param name="dict"> The dictionary. </param>
+        /// <returns> </returns>
         public IEnumerable<SQLiteParameter> GetParameters( Dictionary<string, object> dict )
         {
             if( dict?.Any( ) == true )
@@ -366,11 +326,27 @@ namespace BudgetExecution
             return default( IEnumerable<SQLiteParameter> );
         }
 
-        /// <summary>
-        /// Gets the command builder.
-        /// </summary>
-        /// <param name="adapter">The adapter.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
+        /// <param name="disposing">
+        /// <c> true </c>
+        /// to release both managed and unmanaged resources;
+        /// <c> false </c>
+        /// to release only unmanaged resources.
+        /// </param>
+        protected override void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                base.Dispose( disposing );
+            }
+
+            IsDisposed = true;
+        }
+
+        /// <summary> Gets the command builder. </summary>
+        /// <param name="adapter"> The adapter. </param>
+        /// <returns> </returns>
         private SQLiteCommandBuilder GetCommandBuilder( SQLiteDataAdapter adapter )
         {
             try
@@ -386,10 +362,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the excel file path.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the excel file path. </summary>
+        /// <returns> </returns>
         private string GetExcelFilePath( )
         {
             try
@@ -418,16 +392,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Checks if sheet name exists.
-        /// </summary>
-        /// <param name="sheetName">Name of the sheet.</param>
-        /// <param name="dataSchema">The data schema.</param>
-        /// <returns></returns>
+        /// <summary> Checks if sheet name exists. </summary>
+        /// <param name="sheetName"> Name of the sheet. </param>
+        /// <param name="dataSchema"> The data schema. </param>
+        /// <returns> </returns>
         private bool CheckIfSheetNameExists( string sheetName, DataTable dataSchema )
         {
-            if( !string.IsNullOrEmpty( sheetName ) 
-               && dataSchema?.Columns.Count > 0 )
+            if( !string.IsNullOrEmpty( sheetName )
+               && ( dataSchema?.Columns.Count > 0 ) )
             {
                 for( var _i = 0; _i < dataSchema.Rows.Count; _i++ )
                 {
@@ -442,9 +414,7 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary>
-        /// Creates the database.
-        /// </summary>
+        /// <summary> Creates the database. </summary>
         private void CreateDatabase( )
         {
             var _commandText = @"CREATE TABLE IF NOT EXISTS [MyTable] 
@@ -457,11 +427,11 @@ namespace BudgetExecution
             _connection.Open( );
             _command.CommandText = _commandText;
             _command.ExecuteNonQuery( );
-            _command.CommandText = 
+            _command.CommandText =
                 "INSERT INTO MyTable ( Key,Value ) VALUES ( 'key one','value one' )";
 
             _command.ExecuteNonQuery( );
-            _command.CommandText = 
+            _command.CommandText =
                 "INSERT INTO MyTable ( Key,Value ) VALUES ( 'key two','value value' )";
 
             _command.ExecuteNonQuery( );
@@ -469,23 +439,27 @@ namespace BudgetExecution
             _command.ExecuteReader( );
             _connection.Close( );
         }
-        
-        /// <inheritdoc />
-        /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
-        /// </summary>
-        /// <param name="disposing"><c> true </c>
-        /// to release both managed and unmanaged resources;
-        /// <c> false </c>
-        /// to release only unmanaged resources.</param>
-        protected override void Dispose( bool disposing )
-        {
-            if( disposing )
-            {
-                base.Dispose( disposing );
-            }
 
-            IsDisposed = true;
+        /// <summary> </summary>
+        public enum ColDataType
+        {
+            /// <summary> The default </summary>
+            Default,
+
+            /// <summary> The text </summary>
+            Text,
+
+            /// <summary> The date time </summary>
+            DateTime,
+
+            /// <summary> The integer </summary>
+            Integer,
+
+            /// <summary> The decimal </summary>
+            Decimal,
+
+            /// <summary> The BLOB </summary>
+            Blob
         }
     }
 }

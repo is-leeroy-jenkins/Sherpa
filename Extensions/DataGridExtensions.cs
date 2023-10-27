@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>
@@ -207,13 +208,21 @@ namespace BudgetExecution
                     var _list = new List<string>( );
                     foreach( var _row in dataGridView.Rows )
                     {
-                        if( !( (DataGridViewRow)_row )?.IsNewRow == true )
+                        if( !( (DataGridViewRow) _row )?.IsNewRow == true )
                         {
-                            var _cells = ( (DataGridViewRow)_row )?.Cells?.Cast<DataGridViewCell>( )?.ToArray( );
-                            var _array = ( (DataGridViewRow)_row )?.Cells?.Cast<DataGridViewCell>( )?.ToArray( );
+                            var _cells = ( (DataGridViewRow) _row )?.Cells
+                                ?.Cast<DataGridViewCell>( )
+                                ?.ToArray( );
+
+                            var _array = ( (DataGridViewRow) _row )?.Cells
+                                ?.Cast<DataGridViewCell>( )
+                                ?.ToArray( );
+
                             if( _cells?.Any( ) == true )
                             {
-                                var _item = string.Join( ",", Array.ConvertAll( _array, c => c.Value?.ToString( ) ) );
+                                var _item = string.Join( ",",
+                                    Array.ConvertAll( _array, c => c.Value?.ToString( ) ) );
+
                                 if( !string.IsNullOrEmpty( _item ) )
                                 {
                                     _list?.Add( _item );
@@ -245,7 +254,8 @@ namespace BudgetExecution
         /// The fileName
         /// <see cref="string"/>
         /// </param>
-        public static void ExportToCommaDelimitedFile( this DataGridView dataGridView, string fileName )
+        public static void ExportToCommaDelimitedFile( this DataGridView dataGridView,
+                                                       string fileName )
         {
             if( !string.IsNullOrEmpty( fileName )
                && ( dataGridView != null ) )

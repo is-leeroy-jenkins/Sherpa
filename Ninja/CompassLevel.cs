@@ -43,106 +43,63 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.PRC" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.PRC"/>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class CompassLevel : PRC 
+    public class CompassLevel : PRC
     {
-        /// <summary>
-        /// Gets or sets the type of the document.
-        /// </summary>
-        /// <value>
-        /// The type of the document.
-        /// </value>
+        /// <summary> Gets or sets the type of the document. </summary>
+        /// <value> The type of the document. </value>
         public string DocumentType { get; set; }
 
-        /// <summary>
-        /// Gets or sets the document date.
-        /// </summary>
-        /// <value>
-        /// The document date.
-        /// </value>
+        /// <summary> Gets or sets the document date. </summary>
+        /// <value> The document date. </value>
         public DateOnly DocumentDate { get; set; }
 
-        /// <summary>
-        /// Gets or sets the appropriation code.
-        /// </summary>
-        /// <value>
-        /// The appropriation code.
-        /// </value>
+        /// <summary> Gets or sets the appropriation code. </summary>
+        /// <value> The appropriation code. </value>
         public string AppropriationCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the sub appropriation code.
-        /// </summary>
-        /// <value>
-        /// The sub appropriation code.
-        /// </value>
+        /// <summary> Gets or sets the sub appropriation code. </summary>
+        /// <value> The sub appropriation code. </value>
         public string SubAppropriationCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the appropriation.
-        /// </summary>
-        /// <value>
-        /// The name of the appropriation.
-        /// </value>
+        /// <summary> Gets or sets the name of the appropriation. </summary>
+        /// <value> The name of the appropriation. </value>
         public string AppropriationName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the treasury symbol.
-        /// </summary>
-        /// <value>
-        /// The treasury symbol.
-        /// </value>
+        /// <summary> Gets or sets the treasury symbol. </summary>
+        /// <value> The treasury symbol. </value>
         public string TreasurySymbol { get; set; }
 
-        /// <summary>
-        /// Gets or sets the authority.
-        /// </summary>
-        /// <value>
-        /// The authority.
-        /// </value>
+        /// <summary> Gets or sets the authority. </summary>
+        /// <value> The authority. </value>
         public double Authority { get; set; }
 
-        /// <summary>
-        /// Gets or sets the carryover in.
-        /// </summary>
-        /// <value>
-        /// The carryover in.
-        /// </value>
+        /// <summary> Gets or sets the carryover in. </summary>
+        /// <value> The carryover in. </value>
         public double CarryoverIn { get; set; }
 
-        /// <summary>
-        /// Gets or sets the carryover out.
-        /// </summary>
-        /// <value>
-        /// The carryover out.
-        /// </value>
+        /// <summary> Gets or sets the carryover out. </summary>
+        /// <value> The carryover out. </value>
         public double CarryoverOut { get; set; }
 
-        /// <summary>
-        /// Gets or sets the recoveries.
-        /// </summary>
-        /// <value>
-        /// The recoveries.
-        /// </value>
+        /// <summary> Gets or sets the recoveries. </summary>
+        /// <value> The recoveries. </value>
         public double Recoveries { get; set; }
 
-        /// <summary>
-        /// Gets or sets the reimbursements.
-        /// </summary>
-        /// <value>
-        /// The reimbursements.
-        /// </value>
+        /// <summary> Gets or sets the reimbursements. </summary>
+        /// <value> The reimbursements. </value>
         public double Reimbursements { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CompassLevel"/>
+        /// class.
         /// </summary>
         public CompassLevel( )
         {
@@ -150,9 +107,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CompassLevel"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public CompassLevel( IQuery query )
             : base( query )
         {
@@ -182,9 +141,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CompassLevel"/>
+        /// class.
         /// </summary>
-        /// <param name="builder"></param>
+        /// <param name="builder"> </param>
         public CompassLevel( IDataModel builder )
             : base( builder )
         {
@@ -214,9 +175,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CompassLevel"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public CompassLevel( DataRow dataRow )
             : base( dataRow )
         {
@@ -246,9 +209,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CompassLevel"/>
+        /// class.
         /// </summary>
-        /// <param name="level">The compass level.</param>
+        /// <param name="level"> The compass level. </param>
         public CompassLevel( CompassLevel level )
         {
             ID = level.ID;

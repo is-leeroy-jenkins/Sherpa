@@ -47,66 +47,45 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="System.Windows.Forms.ToolStripLabel" />
+    /// <summary> </summary>
+    /// <seealso cref="System.Windows.Forms.ToolStripLabel"/>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class ToolStripLabelBase : System.Windows.Forms.ToolStripLabel
     {
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
+        /// <summary> Gets or sets the tool tip. </summary>
+        /// <value> The tool tip. </value>
         public virtual SmallTip ToolTip { get; set; }
 
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary>
-        /// Gets or sets the field.
-        /// </summary>
-        /// <value>
-        /// The field.
-        /// </value>
+        /// <summary> Gets or sets the field. </summary>
+        /// <value> The field. </value>
         public virtual Field Field { get; set; }
 
-        /// <summary>
-        /// Gets or sets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
+        /// <summary> Gets or sets the hover text. </summary>
+        /// <value> The hover text. </value>
         public virtual string HoverText { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data filter.
-        /// </summary>
-        /// <value>
-        /// The data filter.
-        /// </value>
+        /// <summary> Gets or sets the data filter. </summary>
+        /// <value> The data filter. </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolStripLabelBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripLabelBase"/>
+        /// class.
         /// </summary>
         protected ToolStripLabelBase( )
         {
         }
 
-        /// <summary>
-        /// Sets the font.
-        /// </summary>
-        /// <param name="font">The font.</param>
+        /// <summary> Sets the font. </summary>
+        /// <param name="font"> The font. </param>
         public virtual void SetFont( Font font )
         {
             try
@@ -119,10 +98,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the color of the fore.
-        /// </summary>
-        /// <param name="color">The color.</param>
+        /// <summary> Sets the color of the fore. </summary>
+        /// <param name="color"> The color. </param>
         public virtual void SetForeColor( Color color )
         {
             try
@@ -137,10 +114,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the color of the back.
-        /// </summary>
-        /// <param name="color">The color.</param>
+        /// <summary> Sets the color of the back. </summary>
+        /// <param name="color"> The color. </param>
         public virtual void SetBackColor( Color color )
         {
             try
@@ -155,10 +130,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
-        /// <param name="text">The text.</param>
+        /// <summary> Sets the text. </summary>
+        /// <param name="text"> The text. </param>
         public virtual void SetText( string text )
         {
             try
@@ -173,10 +146,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the tag.
-        /// </summary>
-        /// <param name="tag">The tag.</param>
+        /// <summary> Sets the tag. </summary>
+        /// <param name="tag"> The tag. </param>
         public virtual void SetTag( object tag )
         {
             try
@@ -189,10 +160,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

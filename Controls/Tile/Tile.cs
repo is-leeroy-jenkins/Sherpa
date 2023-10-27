@@ -46,21 +46,21 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.TileBase" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.TileBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage("ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class Tile : TileBase
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Tile" />
+        /// <see cref="T:BudgetExecution.Tile"/>
         /// class.
         /// </summary>
         public Tile( )
@@ -100,10 +100,10 @@ namespace BudgetExecution
             MouseLeave += OnMouseLeave;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Tile" />
+        /// <see cref="T:BudgetExecution.Tile"/>
         /// class.
         /// </summary>
         /// <param name="type"> The type. </param>
@@ -113,10 +113,10 @@ namespace BudgetExecution
             TileType = type;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Tile" />
+        /// <see cref="T:BudgetExecution.Tile"/>
         /// class.
         /// </summary>
         /// <param name="name"> The name. </param>
@@ -128,10 +128,10 @@ namespace BudgetExecution
             TileType = type;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Tile" />
+        /// <see cref="T:BudgetExecution.Tile"/>
         /// class.
         /// </summary>
         /// <param name="location"> The location. </param>

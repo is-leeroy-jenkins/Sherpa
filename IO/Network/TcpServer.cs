@@ -49,6 +49,7 @@ namespace BudgetExecution.IO.Network
     using System.Net;
     using System.Net.Sockets;
     using System.Text;
+    using System.Threading;
 
     [ SuppressMessage( "ReSharper", "ConvertConstructorToMemberInitializers" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
@@ -57,57 +58,34 @@ namespace BudgetExecution.IO.Network
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class TcpServer
     {
-        /// <summary>
-        /// Gets or sets the count.
-        /// </summary>
-        /// <value>
-        /// The count.
-        /// </value>
+        /// <summary> Gets or sets the count. </summary>
+        /// <value> The count. </value>
         public int Bytes { get; set; }
 
-        /// <summary>
-        /// Gets or sets the buffer.
-        /// </summary>
-        /// <value>
-        /// The buffer.
-        /// </value>
+        /// <summary> Gets or sets the buffer. </summary>
+        /// <value> The buffer. </value>
         public byte[ ] Buffer { get; set; }
 
-        /// <summary>
-        /// Gets or sets the local end point.
-        /// </summary>
-        /// <value>
-        /// The local end point.
-        /// </value>
+        /// <summary> Gets or sets the local end point. </summary>
+        /// <value> The local end point. </value>
         public IPEndPoint Local { get; set; }
 
-        /// <summary>
-        /// Gets or sets the server.
-        /// </summary>
-        /// <value>
-        /// The server.
-        /// </value>
+        /// <summary> Gets or sets the server. </summary>
+        /// <value> The server. </value>
         public Socket Server { get; set; }
 
-        /// <summary>
-        /// Gets or sets the client.
-        /// </summary>
-        /// <value>
-        /// The client.
-        /// </value>
+        /// <summary> Gets or sets the client. </summary>
+        /// <value> The client. </value>
         public Socket Client { get; set; }
 
-        /// <summary>
-        /// Gets or sets the remote end point.
-        /// </summary>
-        /// <value>
-        /// The remote end point.
-        /// </value>
+        /// <summary> Gets or sets the remote end point. </summary>
+        /// <value> The remote end point. </value>
         public IPEndPoint Remote { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="TcpServer"/> class.
+        /// <see cref="TcpServer"/>
+        /// class.
         /// </summary>
         public TcpServer( )
         {
@@ -116,9 +94,7 @@ namespace BudgetExecution.IO.Network
             Server = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
         }
 
-        /// <summary>
-        /// Connects this instance.
-        /// </summary>
+        /// <summary> Connects this instance. </summary>
         public void Connect( )
         {
             Client = Server.Accept( );
@@ -143,9 +119,7 @@ namespace BudgetExecution.IO.Network
             Server.Listen( 10 );
         }
 
-        /// <summary>
-        /// Notifies this instance.
-        /// </summary>
+        /// <summary> Notifies this instance. </summary>
         private void Notify( )
         {
             try
@@ -160,10 +134,8 @@ namespace BudgetExecution.IO.Network
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

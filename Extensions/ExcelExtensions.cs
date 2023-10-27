@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
     using Syncfusion.Linq;
@@ -55,21 +56,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class ExcelExtensions
     {
-        /// <summary> </summary>
-        public enum InsertMode
-        {
-            /// <summary> The row before </summary>
-            RowBefore,
-
-            /// <summary> The row after </summary>
-            RowAfter,
-
-            /// <summary> The column right </summary>
-            ColumnRight,
-
-            /// <summary> The column left </summary>
-            ColumnLeft
-        }
 
         /// <summary> Converts to data set. </summary>
         /// <param name="excelPackage"> The excelPackage. </param>
@@ -107,7 +93,8 @@ namespace BudgetExecution
             {
                 if( header < 0 )
                 {
-                    throw new ArgumentOutOfRangeException( nameof( header ), header, "Must be 0 or greater." );
+                    throw new ArgumentOutOfRangeException( nameof( header ), header,
+                        "Must be 0 or greater." );
                 }
 
                 var _result = new DataSet( );
@@ -125,9 +112,11 @@ namespace BudgetExecution
                         _start = header;
                     }
 
-                    var _columns = from _cell in _worksheet?.Cells[ _start, 1, _start, _worksheet.Dimension.End.Column ] select new DataColumn( header > 0
-                        ? _cell?.Value?.ToString( )
-                        : $"Column {_cell?.Start?.Column}" );
+                    var _columns =
+                        from _cell in _worksheet?.Cells[ _start, 1, _start,
+                            _worksheet.Dimension.End.Column ] select new DataColumn( header > 0
+                            ? _cell?.Value?.ToString( )
+                            : $"Column {_cell?.Start?.Column}" );
 
                     _table.Columns.AddRange( _columns?.ToArray( ) );
                     var _i = header > 0
@@ -136,7 +125,9 @@ namespace BudgetExecution
 
                     for( var _index = _i; _index <= _worksheet?.Dimension.End.Row; _index++ )
                     {
-                        var _range = _worksheet.Cells[ _index, 1, _index, _worksheet.Dimension.End.Column ];
+                        var _range = _worksheet.Cells[ _index, 1, _index,
+                            _worksheet.Dimension.End.Column ];
+
                         var _row = _table.Rows?.Add( );
                         foreach( var _cell in _range )
                         {
@@ -212,7 +203,10 @@ namespace BudgetExecution
                 {
                     var _first = width >= 1.0
                         ? Math.Round( ( Math.Round( 7.0 * ( width - 0.0 ), 0 ) - 5.0 ) / 7.0, 2 )
-                        : Math.Round( ( Math.Round( 12.0 * ( width - 0.0 ), 0 ) - Math.Round( 5.0 * width, 0 ) ) / 12.0, 2 );
+                        : Math.Round(
+                            ( Math.Round( 12.0 * ( width - 0.0 ), 0 )
+                                - Math.Round( 5.0 * width, 0 ) )
+                            / 12.0, 2 );
 
                     var _second = width - _first;
                     var _third = width >= 1.0
@@ -349,7 +343,8 @@ namespace BudgetExecution
         /// <summary> All the borders. </summary>
         /// <param name="range"> The range. </param>
         /// <param name="borderStyle"> </param>
-        public static void AllBorder( this ExcelRange range, ExcelBorderStyle borderStyle = ExcelBorderStyle.Thin )
+        public static void AllBorder( this ExcelRange range,
+                                      ExcelBorderStyle borderStyle = ExcelBorderStyle.Thin )
         {
             try
             {
@@ -365,7 +360,8 @@ namespace BudgetExecution
         /// <param name="range"> The range. </param>
         /// <param name="color"> The color. </param>
         /// <param name="fillStyle"> </param>
-        public static void BackgroundColor( this ExcelRange range, Color color, ExcelFillStyle fillStyle = ExcelFillStyle.Solid )
+        public static void BackgroundColor( this ExcelRange range, Color color,
+                                            ExcelFillStyle fillStyle = ExcelFillStyle.Solid )
         {
             if( color != Color.Empty )
             {
@@ -388,6 +384,22 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary> </summary>
+        public enum InsertMode
+        {
+            /// <summary> The row before </summary>
+            RowBefore,
+
+            /// <summary> The row after </summary>
+            RowAfter,
+
+            /// <summary> The column right </summary>
+            ColumnRight,
+
+            /// <summary> The column left </summary>
+            ColumnLeft
         }
     }
 }

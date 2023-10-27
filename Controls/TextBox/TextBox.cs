@@ -45,64 +45,45 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
-    using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="MetroSet_UI.Controls.MetroSetTextBox" />
+    /// <summary> </summary>
+    /// <seealso cref="MetroSet_UI.Controls.MetroSetTextBox"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
-    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class TextBox : MetroSetTextBox
     {
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
+        /// <summary> Gets or sets the tool tip. </summary>
+        /// <value> The tool tip. </value>
         public SmallTip ToolTip { get; set; }
 
-        /// <summary>
-        /// Gets or sets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
+        /// <summary> Gets or sets the hover text. </summary>
+        /// <value> The hover text. </value>
         public string HoverText { get; set; }
 
-        /// <summary>
-        /// Gets or sets the length of the selection.
-        /// </summary>
-        /// <value>
-        /// The length of the selection.
-        /// </value>
+        /// <summary> Gets or sets the length of the selection. </summary>
+        /// <value> The length of the selection. </value>
         public int SelectionLength { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data filter.
-        /// </summary>
-        /// <value>
-        /// The data filter.
-        /// </value>
+        /// <summary> Gets or sets the data filter. </summary>
+        /// <value> The data filter. </value>
         public IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TextBox"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="TextBox"/>
+        /// class.
         /// </summary>
         public TextBox( )
         {
@@ -137,7 +118,7 @@ namespace BudgetExecution
         public virtual void OnMouseDown( object sender, MouseEventArgs e )
         {
             if( !string.IsNullOrEmpty( Text )
-               && e.Button == MouseButtons.Left )
+               && ( e.Button == MouseButtons.Left ) )
             {
                 try
                 {
@@ -147,9 +128,9 @@ namespace BudgetExecution
                         _textDialog.ShowDialog( );
                         Text = _textDialog.Editor.Text;
                     }
-                    else if( Text.Length >= 6
-                            && Text.Length <= 9
-                            && Text.Substring( 0, 3 ) == "000" )
+                    else if( ( Text.Length >= 6 )
+                            && ( Text.Length <= 9 )
+                            && ( Text.Substring( 0, 3 ) == "000" ) )
                     {
                         var _code = Text.Substring( 4, 2 );
                         var _dialog = new ProgramProjectDialog( _code );
@@ -199,10 +180,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

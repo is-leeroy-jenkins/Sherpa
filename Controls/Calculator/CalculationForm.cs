@@ -46,28 +46,26 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
+    using Timer = System.Windows.Forms.Timer;
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class CalculationForm : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
+        /// <summary> Gets or sets the time. </summary>
         /// <value> The time. </value>
         public int Time { get; set; }
 
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
+        /// <summary> Gets or sets the seconds. </summary>
         /// <value> The seconds. </value>
         public int Seconds { get; set; }
 
@@ -75,10 +73,10 @@ namespace BudgetExecution
         /// <value> The initial value. </value>
         public double InitialValue { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CalculationForm" />
+        /// <see cref="T:BudgetExecution.CalculationForm"/>
         /// class.
         /// </summary>
         public CalculationForm( )
@@ -127,10 +125,10 @@ namespace BudgetExecution
             CloseButton.Click += OnCloseButtonClick;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CalculationForm" />
+        /// <see cref="T:BudgetExecution.CalculationForm"/>
         /// class.
         /// </summary>
         /// <param name="initial"> The initial. </param>
@@ -142,9 +140,7 @@ namespace BudgetExecution
             ValueLabel.Text = Calculator.Value.ToString( );
         }
 
-        /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
+        /// <summary> Displays the control to the user. </summary>
         public new void Show( )
         {
             try
@@ -172,9 +168,29 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
+        /// <summary> Called when [calculation value changed]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="CalculatorValueCalculatedEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnCalculationValueChanged( object sender, CalculatorValueCalculatedEventArgs e )
+        {
+            if( sender != null )
+            {
+                try
+                {
+                    ValueLabel.Text = Calculator.Value.ToString( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary> Fades the in. </summary>
         private void FadeIn( )
         {
             try
@@ -199,9 +215,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fades the out and close.
-        /// </summary>
+        /// <summary> Fades the out and close. </summary>
         private void FadeOut( )
         {
             try
@@ -223,28 +237,6 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [calculation value changed]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="CalculatorValueCalculatedEventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnCalculationValueChanged( object sender, CalculatorValueCalculatedEventArgs e )
-        {
-            if( sender != null )
-            {
-                try
-                {
-                    ValueLabel.Text = Calculator.Value.ToString( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
             }
         }
 

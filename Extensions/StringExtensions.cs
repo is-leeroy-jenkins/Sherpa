@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System.Net.Mail;
     using System.Text;
     using System.Text.RegularExpressions;
+    using System.Threading;
     using System.Xml;
 
     /// <summary> </summary>
@@ -65,7 +66,9 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( text )
                    && ( text.Length > 4 ) )
                 {
-                    var _pascal = Regex.Replace( text, "([A-Z])", " $1", RegexOptions.Compiled )?.Trim( );
+                    var _pascal = Regex.Replace( text, "([A-Z])", " $1", RegexOptions.Compiled )
+                        ?.Trim( );
+
                     if( _pascal.StartsWith( "Rpio " ) )
                     {
                         return _pascal?.Replace( "Rpio ", "RPIO " );
@@ -398,7 +401,7 @@ namespace BudgetExecution
         /// <param name="server"> The server from which the email will be sent. </param>
         /// <returns> A boolean value indicating the success of the email send. </returns>
         public static bool Email( this string body, string subject, string sender, string recipient,
-            string server )
+                                  string server )
         {
             try
             {

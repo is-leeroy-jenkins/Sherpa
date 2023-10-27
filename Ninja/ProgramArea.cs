@@ -44,13 +44,14 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class ProgramArea : DataUnit, IProgramArea
+    public class ProgramArea : DataUnit
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -122,7 +123,7 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        public ProgramArea( IProgramArea area )
+        public ProgramArea( ProgramArea area )
         {
             ID = area.ID;
             Code = area.Code;
@@ -131,7 +132,7 @@ namespace BudgetExecution
 
         /// <summary> Gets the program area. </summary>
         /// <returns> </returns>
-        public IProgramArea GetProgramArea( )
+        public ProgramArea GetProgramArea( )
         {
             try
             {

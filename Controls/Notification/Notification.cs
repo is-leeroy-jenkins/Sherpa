@@ -46,16 +46,14 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using static System.Drawing.Region;
     using static System.Windows.Forms.Screen;
     using static FormAnimator;
-    using static NativeMethods;
     using Timer = System.Windows.Forms.Timer;
 
-    /// <summary>
-    /// </summary>
+    /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
@@ -64,23 +62,15 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class Notification : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
+        /// <summary> Gets or sets the time. </summary>
+        /// <value> The time. </value>
         public int Time { get; set; }
 
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
+        /// <summary> Gets or sets the seconds. </summary>
         /// <value> The seconds. </value>
         public int Seconds { get; set; }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether [allow focus].
-        /// </summary>
+        /// <summary> Gets or sets a value indicating whether [allow focus]. </summary>
         /// <value>
         /// <c> true </c>
         /// if [allow focus]; otherwise,
@@ -100,10 +90,10 @@ namespace BudgetExecution
         /// </value>
         public bool ShownWithoutActivation { get; } = true;
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Notification" />
+        /// <see cref="T:BudgetExecution.Notification"/>
         /// class.
         /// </summary>
         public Notification( )
@@ -139,10 +129,10 @@ namespace BudgetExecution
             Resize += OnResized;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Notification" />
+        /// <see cref="T:BudgetExecution.Notification"/>
         /// class.
         /// </summary>
         /// <param name="body"> The body. </param>
@@ -150,8 +140,8 @@ namespace BudgetExecution
         /// <param name="animation"> The animation. </param>
         /// <param name="direction"> The direction. </param>
         public Notification( string body, int duration = 5,
-            AnimationMethod animation = AnimationMethod.Fade,
-            AnimationDirection direction = AnimationDirection.Up )
+                             AnimationMethod animation = AnimationMethod.Fade,
+                             AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
             Load += OnLoad;
@@ -161,14 +151,16 @@ namespace BudgetExecution
             Title.Text = "Notification";
             Message.Text = body;
             Click += ( s, e ) => Close( );
+
             Message.Click += ( s, e ) => Close( );
+
             Title.Click += ( s, e ) => Close( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Notification" />
+        /// <see cref="T:BudgetExecution.Notification"/>
         /// class.
         /// </summary>
         /// <param name="title"> The title. </param>
@@ -177,8 +169,8 @@ namespace BudgetExecution
         /// <param name="animation"> The animation. </param>
         /// <param name="direction"> The direction. </param>
         public Notification( string title, string body, int duration = 5,
-            AnimationMethod animation = AnimationMethod.Fade,
-            AnimationDirection direction = AnimationDirection.Up )
+                             AnimationMethod animation = AnimationMethod.Fade,
+                             AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
             Load += OnLoad;
@@ -188,13 +180,13 @@ namespace BudgetExecution
             Title.Text = title;
             Message.Text = body;
             Click += ( s, e ) => Close( );
+
             Message.Click += ( s, e ) => Close( );
+
             Title.Click += ( s, e ) => Close( );
         }
 
-        /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
+        /// <summary> Displays the control to the user. </summary>
         public new void Show( )
         {
             try
@@ -223,12 +215,22 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">
-        /// The sender.
-        /// </param>
+        /// <summary> Notifications the close. </summary>
+        public void OnClose( )
+        {
+            try
+            {
+                FadeOut( );
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
         /// <see cref="EventArgs"/>
@@ -250,25 +252,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Notifications the close.
-        /// </summary>
-        public void OnClose( )
-        {
-            try
-            {
-                FadeOut( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
+        /// <summary> Fades the in. </summary>
         private void FadeIn( )
         {
             try
@@ -293,9 +277,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fades the out and close.
-        /// </summary>
+        /// <summary> Fades the out and close. </summary>
         private void FadeOut( )
         {
             try
@@ -321,12 +303,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [resized].
-        /// </summary>
-        /// <param name="sender">
-        /// The sender.
-        /// </param>
+        /// <summary> Called when [resized]. </summary>
+        /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
         /// <see cref="EventArgs"/>
@@ -347,12 +325,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Get ErrorDialog Dialog.
-        /// </summary>
-        /// <param name="ex">
-        /// The ex.
-        /// </param>
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

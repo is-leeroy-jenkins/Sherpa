@@ -45,12 +45,11 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.FederalHoliday" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.FederalHoliday"/>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
@@ -58,41 +57,33 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class HolidayFactory : FederalHoliday
     {
-        /// <summary>
-        /// Gets or sets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
+        /// <summary> Gets or sets the arguments. </summary>
+        /// <value> The arguments. </value>
         public IDictionary<string, object> Args { get; set; }
 
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         public Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
+        /// <summary> Gets or sets the record. </summary>
+        /// <value> The record. </value>
         public DataRow Record { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HolidayFactory"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="HolidayFactory"/>
+        /// class.
         /// </summary>
         public HolidayFactory( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HolidayFactory"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="HolidayFactory"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public HolidayFactory( DataRow dataRow )
         {
             Record = dataRow;
@@ -109,11 +100,9 @@ namespace BudgetExecution
             Args = Record?.ToDictionary( );
         }
 
-        /// <summary>
-        /// Gets the federal holidays.
-        /// </summary>
-        /// <param name="dict">The dictionary.</param>
-        /// <returns></returns>
+        /// <summary> Gets the federal holidays. </summary>
+        /// <param name="dict"> The dictionary. </param>
+        /// <returns> </returns>
         public IDictionary<string, DateTime> GetFederalHolidays( IDictionary<string, string> dict )
         {
             try
@@ -135,11 +124,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the national holidays.
-        /// </summary>
-        /// <param name="dict">The dictionary.</param>
-        /// <returns></returns>
+        /// <summary> Gets the national holidays. </summary>
+        /// <param name="dict"> The dictionary. </param>
+        /// <returns> </returns>
         public IDictionary<string, DateTime> GetNationalHolidays( IDictionary<string, string> dict )
         {
             try
@@ -161,10 +148,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Converts to dictionary. </summary>
+        /// <returns> </returns>
         public IDictionary<string, object> ToDictionary( )
         {
             try

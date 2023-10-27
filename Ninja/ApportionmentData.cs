@@ -43,82 +43,49 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.BudgetUnit" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.BudgetUnit"/>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class ApportionmentData : BudgetUnit 
+    public class ApportionmentData : BudgetUnit
     {
-        /// <summary>
-        /// Gets or sets the fiscal year.
-        /// </summary>
-        /// <value>
-        /// The fiscal year.
-        /// </value>
+        /// <summary> Gets or sets the fiscal year. </summary>
+        /// <value> The fiscal year. </value>
         public string FiscalYear { get; set; }
 
-        /// <summary>
-        /// Gets or sets the apportionment account code.
-        /// </summary>
-        /// <value>
-        /// The apportionment account code.
-        /// </value>
+        /// <summary> Gets or sets the apportionment account code. </summary>
+        /// <value> The apportionment account code. </value>
         public string ApportionmentAccountCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the apportionment account.
-        /// </summary>
-        /// <value>
-        /// The name of the apportionment account.
-        /// </value>
+        /// <summary> Gets or sets the name of the apportionment account. </summary>
+        /// <value> The name of the apportionment account. </value>
         public string ApportionmentAccountName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the type of the availability.
-        /// </summary>
-        /// <value>
-        /// The type of the availability.
-        /// </value>
+        /// <summary> Gets or sets the type of the availability. </summary>
+        /// <value> The type of the availability. </value>
         public string AvailabilityType { get; set; }
 
-        /// <summary>
-        /// Gets or sets the approval date.
-        /// </summary>
-        /// <value>
-        /// The approval date.
-        /// </value>
+        /// <summary> Gets or sets the approval date. </summary>
+        /// <value> The approval date. </value>
         public DateOnly ApprovalDate { get; set; }
 
-        /// <summary>
-        /// Gets or sets the line number.
-        /// </summary>
-        /// <value>
-        /// The line number.
-        /// </value>
+        /// <summary> Gets or sets the line number. </summary>
+        /// <value> The line number. </value>
         public string LineNumber { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the line.
-        /// </summary>
-        /// <value>
-        /// The name of the line.
-        /// </value>
+        /// <summary> Gets or sets the name of the line. </summary>
+        /// <value> The name of the line. </value>
         public string LineName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the amount.
-        /// </summary>
-        /// <value>
-        /// The amount.
-        /// </value>
+        /// <summary> Gets or sets the amount. </summary>
+        /// <value> The amount. </value>
         public double Amount { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApportionmentData" />
+        /// <see cref="ApportionmentData"/>
         /// class.
         /// </summary>
         public ApportionmentData( )
@@ -128,10 +95,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApportionmentData" />
+        /// <see cref="ApportionmentData"/>
         /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public ApportionmentData( IQuery query )
             : this( )
         {
@@ -153,10 +120,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApportionmentData" />
+        /// <see cref="ApportionmentData"/>
         /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name="builder"> The builder. </param>
         public ApportionmentData( IDataModel builder )
             : this( )
         {
@@ -178,10 +145,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApportionmentData" />
+        /// <see cref="ApportionmentData"/>
         /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public ApportionmentData( DataRow dataRow )
             : this( )
         {
@@ -202,9 +169,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApportionmentData"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ApportionmentData"/>
+        /// class.
         /// </summary>
-        /// <param name="omb">The omb.</param>
+        /// <param name="omb"> The omb. </param>
         public ApportionmentData( ApportionmentData omb )
         {
             ID = omb.ID;

@@ -43,72 +43,41 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     public interface IDataModel
     {
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
         Provider Provider { get; set; }
 
-        /// <summary>
-        /// Gets or sets the connection factory.
-        /// </summary>
-        /// <value>
-        /// The connection factory.
-        /// </value>
+        /// <summary> Gets or sets the connection factory. </summary>
+        /// <value> The connection factory. </value>
         IConnectionFactory ConnectionFactory { get; set; }
 
-        /// <summary>
-        /// Gets or sets the map.
-        /// </summary>
-        /// <value>
-        /// The map.
-        /// </value>
+        /// <summary> Gets or sets the map. </summary>
+        /// <value> The map. </value>
         IDictionary<string, object> Map { get; set; }
 
-        /// <summary>
-        /// Gets or sets the SQL statement.
-        /// </summary>
-        /// <value>
-        /// The SQL statement.
-        /// </value>
+        /// <summary> Gets or sets the SQL statement. </summary>
+        /// <value> The SQL statement. </value>
         ISqlStatement SqlStatement { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data columns.
-        /// </summary>
-        /// <value>
-        /// The data columns.
-        /// </value>
+        /// <summary> Gets or sets the data columns. </summary>
+        /// <value> The data columns. </value>
         IEnumerable<DataColumn> DataColumns { get; set; }
 
-        /// <summary>
-        /// Gets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
+        /// <summary> Gets the record. </summary>
+        /// <value> The record. </value>
         DataRow Record { get; }
 
-        /// <summary>
-        /// Gets the data.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the data. </summary>
+        /// <returns> </returns>
         IEnumerable<DataRow> GetData( );
     }
 }

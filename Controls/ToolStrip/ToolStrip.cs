@@ -47,53 +47,37 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.ToolStripBase" />
-    /// <seealso cref="BudgetExecution.IToolStrip" />
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.ToolStripBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    public class ToolStrip : ToolStripBase, IToolStrip
+    public class ToolStrip : ToolStripBase
     {
-        /// <summary>
-        /// Gets or sets the image directory.
-        /// </summary>
-        /// <value>
-        /// The image directory.
-        /// </value>
+        /// <summary> Gets or sets the image directory. </summary>
+        /// <value> The image directory. </value>
         public virtual string ImageDirectory { get; set; }
 
-        /// <summary>
-        /// Gets or sets the filter.
-        /// </summary>
-        /// <value>
-        /// The filter.
-        /// </value>
+        /// <summary> Gets or sets the filter. </summary>
+        /// <value> The filter. </value>
         public IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary>
-        /// Gets the buttons.
-        /// </summary>
-        /// <value>
-        /// The buttons.
-        /// </value>
+        /// <summary> Gets the buttons. </summary>
+        /// <value> The buttons. </value>
         public IDictionary<string, ToolStripButton> Buttons { get; }
 
-        /// <summary>
-        /// Gets or sets the size of the image.
-        /// </summary>
-        /// <value>
-        /// The size of the image.
-        /// </value>
+        /// <summary> Gets or sets the size of the image. </summary>
+        /// <value> The size of the image. </value>
         public Size ImageSize { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolStrip"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ToolStrip"/>
+        /// class.
         /// </summary>
         public ToolStrip( )
         {
@@ -134,10 +118,8 @@ namespace BudgetExecution
             Buttons = GetButtons( );
         }
 
-        /// <summary>
-        /// Gets the buttons.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the buttons. </summary>
+        /// <returns> </returns>
         public IDictionary<string, ToolStripButton> GetButtons( )
         {
             var _buttons = new SortedList<string, ToolStripButton>( );
@@ -162,11 +144,13 @@ namespace BudgetExecution
             return default( IDictionary<string, ToolStripButton> );
         }
 
-        /// <summary>
-        /// Called when [visible].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [visible]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public virtual void OnVisible( object sender, EventArgs e )
         {
             if( sender is ToolStrip _toolStrip )

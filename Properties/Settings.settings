@@ -1,6 +1,9 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BudgetExecution.Properties" GeneratedClassName="Settings">
-  <Profiles />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings"
+              CurrentProfile="(Default)"
+              GeneratedClassNamespace="BudgetExecution.Properties"
+              GeneratedClassName="Settings">
+  <Profiles/>
   <Settings>
     <Setting Name="ACCDB" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;

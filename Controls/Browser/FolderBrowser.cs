@@ -43,19 +43,20 @@
 
 namespace BudgetExecution
 {
-    using Syncfusion.Windows.Forms;
     using System;
+    using System.Threading;
+    using Syncfusion.Windows.Forms;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:Syncfusion.Windows.Forms.FolderBrowser" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Forms.FolderBrowser"/>
     public class FolderBrowser : Syncfusion.Windows.Forms.FolderBrowser
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FolderBrowser" /> class.
+        /// <see cref="T:BudgetExecution.FolderBrowser"/>
+        /// class.
         /// </summary>
         public FolderBrowser( )
         {

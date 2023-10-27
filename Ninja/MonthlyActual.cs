@@ -43,13 +43,14 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     /// <seealso cref="BudgetExecution.Actual"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class MonthlyActual : Actual 
+    public class MonthlyActual : Actual
     {
         /// <summary> Gets or sets the balance. </summary>
         /// <value> The balance. </value>

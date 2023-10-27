@@ -43,30 +43,31 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.SqlBase" />
-    /// <seealso cref="T:BudgetExecution.ISqlStatement" />
+    /// <seealso cref="T:BudgetExecution.SqlBase"/>
+    /// <seealso cref="T:BudgetExecution.ISqlStatement"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class SqlStatement : SqlBase, ISqlStatement
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement" />
+        /// <see cref="T:BudgetExecution.SqlStatement"/>
         /// class.
         /// </summary>
         public SqlStatement( )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement" />
+        /// <see cref="T:BudgetExecution.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -77,10 +78,10 @@ namespace BudgetExecution
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement" />
+        /// <see cref="T:BudgetExecution.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -91,10 +92,10 @@ namespace BudgetExecution
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement" />
+        /// <see cref="T:BudgetExecution.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -106,26 +107,26 @@ namespace BudgetExecution
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement" />
+        /// <see cref="T:BudgetExecution.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
         /// <param name="where"> </param>
         /// <param name="commandType"> </param>
-        public SqlStatement( Source source, Provider provider, IDictionary<string, object> where, 
-            SQL commandType = SQL.SELECTALL )
+        public SqlStatement( Source source, Provider provider, IDictionary<string, object> where,
+                             SQL commandType = SQL.SELECTALL )
             : base( source, provider, where, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement" />
+        /// <see cref="T:BudgetExecution.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -134,31 +135,31 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SqlStatement( Source source, Provider provider, IDictionary<string, object> updates,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+                             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement" />
+        /// <see cref="T:BudgetExecution.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
         /// <param name="commandType"> Type of the command. </param>
         /// <param name="where"> The arguments. </param>
-        public SqlStatement( Source source, Provider provider, SQL commandType, 
-            IDictionary<string, object> where )
+        public SqlStatement( Source source, Provider provider, SQL commandType,
+                             IDictionary<string, object> where )
             : base( source, provider, where, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement" />
+        /// <see cref="T:BudgetExecution.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -166,16 +167,16 @@ namespace BudgetExecution
         /// <param name="columns"> The columns. </param>
         /// <param name="where"> The dictionary. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public SqlStatement( Source source, Provider provider, IEnumerable<string> columns, 
-            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+        public SqlStatement( Source source, Provider provider, IEnumerable<string> columns,
+                             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, where, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlStatement" />
+        /// <see cref="T:BudgetExecution.SqlStatement"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -185,8 +186,8 @@ namespace BudgetExecution
         /// <param name="having"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SqlStatement( Source source, Provider provider, IEnumerable<string> fields,
-            IEnumerable<string> numerics, IDictionary<string, object> having, 
-            SQL commandType = SQL.SELECT )
+                             IEnumerable<string> numerics, IDictionary<string, object> having,
+                             SQL commandType = SQL.SELECT )
             : base( source, provider, fields, numerics, having,
                 commandType )
         {

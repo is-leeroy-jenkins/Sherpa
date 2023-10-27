@@ -46,54 +46,38 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Tools.SuperToolTip" />
+    /// <summary> </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.Tools.SuperToolTip"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Global")]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class SuperTip : SuperToolTip
     {
-        /// <summary>
-        /// Gets or sets the tip text.
-        /// </summary>
-        /// <value>
-        /// The tip text.
-        /// </value>
+        /// <summary> Gets or sets the tip text. </summary>
+        /// <value> The tip text. </value>
         public TextItem TipText { get; set; }
 
-        /// <summary>
-        /// Gets or sets the tip information.
-        /// </summary>
-        /// <value>
-        /// The tip information.
-        /// </value>
-        protected ToolTipInfo TipInfo { get; set; }
-
-        /// <summary>
-        /// Gets or sets the tip item.
-        /// </summary>
-        /// <value>
-        /// The tip item.
-        /// </value>
+        /// <summary> Gets or sets the tip item. </summary>
+        /// <value> The tip item. </value>
         public ToolTipInfo.ToolTipItem TipItem { get; set; }
 
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <inheritdoc />
+        /// <summary> Gets or sets the tip information. </summary>
+        /// <value> The tip information. </value>
+        protected ToolTipInfo TipInfo { get; set; }
+
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SuperTip" /> class.
+        /// <see cref="T:BudgetExecution.SuperTip"/>
+        /// class.
         /// </summary>
         public SuperTip( )
         {
@@ -108,7 +92,7 @@ namespace BudgetExecution
             // TipInfo Properties
             TipInfo = new ToolTipInfo( );
             TipInfo.BackColor = Color.FromArgb( 70, 70, 70 );
-            TipInfo.BorderColor = Color.FromArgb(106, 189, 252 );
+            TipInfo.BorderColor = Color.FromArgb( 106, 189, 252 );
             TipInfo.ForeColor = Color.DarkGray;
             TipInfo.Separator = true;
 
@@ -130,38 +114,34 @@ namespace BudgetExecution
             TipInfo.Footer.TextAlign = ContentAlignment.BottomLeft;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SuperTip" /> class.
+        /// <see cref="T:BudgetExecution.SuperTip"/>
+        /// class.
         /// </summary>
-        /// <param name="control">The control.</param>
-        /// <param name="text">The text.</param>
-        /// <param name="title">The title.</param>
+        /// <param name="control"> The control. </param>
+        /// <param name="text"> The text. </param>
+        /// <param name="title"> The title. </param>
         public SuperTip( Control control, string text, string title = "" )
             : this( )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SuperTip" /> class.
+        /// <see cref="T:BudgetExecution.SuperTip"/>
+        /// class.
         /// </summary>
-        /// <param name="toolItem">
-        /// The tool item.
-        /// </param>
+        /// <param name="toolItem"> The tool item. </param>
         public SuperTip( ToolStripItem toolItem )
             : this( )
         {
         }
 
-        /// <summary>
-        /// Sets the header text.
-        /// </summary>
-        /// <param name="bodyText">
-        /// The body text.
-        /// </param>
+        /// <summary> Sets the header text. </summary>
+        /// <param name="bodyText"> The body text. </param>
         public void SetHeaderText( string bodyText )
         {
             try
@@ -177,12 +157,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the body text.
-        /// </summary>
-        /// <param name="bodyText">
-        /// The body text.
-        /// </param>
+        /// <summary> Sets the body text. </summary>
+        /// <param name="bodyText"> The body text. </param>
         public void SetBodyText( string bodyText )
         {
             try
@@ -198,12 +174,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the footer text.
-        /// </summary>
-        /// <param name="footerText">
-        /// The footer text.
-        /// </param>
+        /// <summary> Sets the footer text. </summary>
+        /// <param name="footerText"> The footer text. </param>
         public virtual void SetFooterText( string footerText )
         {
             try
@@ -219,12 +191,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">
-        /// The ex.
-        /// </param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

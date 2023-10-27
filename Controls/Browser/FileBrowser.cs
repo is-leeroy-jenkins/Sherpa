@@ -49,91 +49,60 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
     using static System.Configuration.ConfigurationManager;
     using static System.Environment;
     using static System.IO.Directory;
     using CheckState = MetroSet_UI.Enums.CheckState;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    /// <summary> </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class FileBrowser
     {
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
+        /// <summary> Gets or sets the time. </summary>
         /// <value> The time. </value>
         public int Time { get; set; }
 
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
+        /// <summary> Gets or sets the seconds. </summary>
         /// <value> The seconds. </value>
         public int Seconds { get; set; }
 
-        /// <summary>
-        /// Gets or sets the extension.
-        /// </summary>
-        /// <value>
-        /// The extension.
-        /// </value>
+        /// <summary> Gets or sets the extension. </summary>
+        /// <value> The extension. </value>
         public EXT Extension { get; set; }
 
-        /// <summary>
-        /// Gets or sets the file extension.
-        /// </summary>
-        /// <value>
-        /// The file extension.
-        /// </value>
+        /// <summary> Gets or sets the file extension. </summary>
+        /// <value> The file extension. </value>
         public string FileExtension { get; set; }
 
-        /// <summary>
-        /// Gets or sets the initial dir paths.
-        /// </summary>
-        /// <value>
-        /// The initial dir paths.
-        /// </value>
+        /// <summary> Gets or sets the initial dir paths. </summary>
+        /// <value> The initial dir paths. </value>
         public IEnumerable<string> InitialDirPaths { get; set; }
 
-        /// <summary>
-        /// Gets or sets the file paths.
-        /// </summary>
-        /// <value>
-        /// The file paths.
-        /// </value>
+        /// <summary> Gets or sets the file paths. </summary>
+        /// <value> The file paths. </value>
         public IEnumerable<string> FilePaths { get; set; }
 
-        /// <summary>
-        /// Gets or sets the radio buttons.
-        /// </summary>
-        /// <value>
-        /// The radio buttons.
-        /// </value>
+        /// <summary> Gets or sets the radio buttons. </summary>
+        /// <value> The radio buttons. </value>
         public IEnumerable<RadioButton> RadioButtons { get; set; }
 
-        /// <summary>
-        /// Gets or sets the selected path.
-        /// </summary>
-        /// <value>
-        /// The selected path.
-        /// </value>
+        /// <summary> Gets or sets the selected path. </summary>
+        /// <value> The selected path. </value>
         public string SelectedPath { get; set; }
 
-        /// <summary>
-        /// Gets or sets the selected file.
-        /// </summary>
-        /// <value>
-        /// The selected file.
-        /// </value>
+        /// <summary> Gets or sets the selected file. </summary>
+        /// <value> The selected file. </value>
         public string SelectedFile { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.FileBrowser" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.FileBrowser"/>
+        /// class.
         /// </summary>
         public FileBrowser( )
         {
@@ -180,11 +149,13 @@ namespace BudgetExecution
             FindButton.Click += OnFindButtonClicked;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.FileBrowser" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.FileBrowser"/>
+        /// class.
         /// </summary>
-        /// <param name="extension">The extension.</param>
+        /// <param name="extension"> The extension. </param>
         public FileBrowser( EXT extension )
             : this( )
         {
@@ -192,10 +163,8 @@ namespace BudgetExecution
             FileExtension = Extension.ToString( ).ToLower( );
         }
 
-        /// <summary>
-        /// Populates the ListBox.
-        /// </summary>
-        /// <param name="filePaths">The file paths.</param>
+        /// <summary> Populates the ListBox. </summary>
+        /// <param name="filePaths"> The file paths. </param>
         public virtual void PopulateListBox( IEnumerable<string> filePaths )
         {
             try
@@ -220,10 +189,43 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the image.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            if( FilePaths?.Any( ) == true )
+            {
+                try
+                {
+                    PopulateListBox( );
+                    FoundLabel.Text = "Found : " + FilePaths?.Count( );
+                    Title.Text = $"{Extension} File Search";
+                    ClearRadioButtons( );
+                    SetRadioButtonEvents( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
+        private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
+
+        /// <summary> Gets the image. </summary>
+        /// <returns> </returns>
         private protected Image GetImage( )
         {
             if( !string.IsNullOrEmpty( FileExtension ) )
@@ -238,7 +240,6 @@ namespace BudgetExecution
                         {
                             var _extension = FileExtension.TrimStart( '.' ).ToUpper( );
                             var _file = _files?.Where( f => f.Contains( _extension ) )?.First( );
-
                             using var _stream = File.Open( _file, FileMode.Open );
                             var _img = Image.FromStream( _stream );
                             return new Bitmap( _img, 22, 22 );
@@ -255,9 +256,7 @@ namespace BudgetExecution
             return default( Bitmap );
         }
 
-        /// <summary>
-        /// Clears the radio buttons.
-        /// </summary>
+        /// <summary> Clears the radio buttons. </summary>
         private protected void ClearRadioButtons( )
         {
             try
@@ -274,9 +273,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the RadioButton events.
-        /// </summary>
+        /// <summary> Sets the RadioButton events. </summary>
         private protected void SetRadioButtonEvents( )
         {
             try
@@ -292,10 +289,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the ListView paths.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the ListView paths. </summary>
+        /// <returns> </returns>
         private protected IEnumerable<string> GetListViewPaths( )
         {
             if( InitialDirPaths?.Any( ) == true )
@@ -361,10 +356,8 @@ namespace BudgetExecution
             return default( IEnumerable<string> );
         }
 
-        /// <summary>
-        /// Called when [RadioButton selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <summary> Called when [RadioButton selected]. </summary>
+        /// <param name="sender"> The sender. </param>
         private protected virtual void OnRadioButtonSelected( object sender )
         {
             if( sender is RadioButton _radioButton
@@ -392,10 +385,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the radio buttons.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the radio buttons. </summary>
+        /// <returns> </returns>
         private protected virtual IEnumerable<RadioButton> GetRadioButtons( )
         {
             try
@@ -427,10 +418,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the initial dir paths.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the initial dir paths. </summary>
+        /// <returns> </returns>
         private protected virtual IEnumerable<string> GetInitialDirPaths( )
         {
             try
@@ -456,9 +445,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the ListBox.
-        /// </summary>
+        /// <summary> Populates the ListBox. </summary>
         private protected virtual void PopulateListBox( )
         {
             if( FilePaths?.Any( ) == true )
@@ -477,34 +464,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnLoad( object sender, EventArgs e )
-        {
-            if( FilePaths?.Any( ) == true )
-            {
-                try
-                {
-                    PopulateListBox( );
-                    FoundLabel.Text = "Found : " + FilePaths?.Count( );
-                    Title.Text = $"{Extension} File Search";
-                    ClearRadioButtons( );
-                    SetRadioButtonEvents( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [path selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <summary> Called when [path selected]. </summary>
+        /// <param name="sender"> The sender. </param>
         private protected virtual void OnPathSelected( object sender )
         {
             if( sender is ListBox _listBox
@@ -522,11 +483,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [find button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [find button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private protected virtual void OnFindButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button )
@@ -556,11 +519,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [close button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private protected virtual void OnCloseButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button )
@@ -574,17 +539,6 @@ namespace BudgetExecution
                     Fail( _ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

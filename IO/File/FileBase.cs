@@ -44,39 +44,39 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Security.AccessControl;
+    using System.Threading;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.PathBase" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.PathBase"/>
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     public abstract class FileBase : PathBase
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FileBase" /> class.
+        /// <see cref="T:BudgetExecution.FileBase"/>
+        /// class.
         /// </summary>
         public FileBase( )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FileBase" /> class.
+        /// <see cref="T:BudgetExecution.FileBase"/>
+        /// class.
         /// </summary>
-        /// <param name="input">The input.</param>
+        /// <param name="input"> The input. </param>
         public FileBase( string input )
             : base( input )
 
         {
         }
 
-        /// <summary>
-        /// Moves the specified file path.
-        /// </summary>
-        /// <param name="filePath">The file path.</param>
+        /// <summary> Moves the specified file path. </summary>
+        /// <param name="filePath"> The file path. </param>
         public virtual void Move( string filePath )
         {
             try
@@ -91,10 +91,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Copies the specified file path.
-        /// </summary>
-        /// <param name="filePath">The file path.</param>
+        /// <summary> Copies the specified file path. </summary>
+        /// <param name="filePath"> The file path. </param>
         public virtual void Copy( string filePath )
         {
             try
@@ -109,9 +107,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Deletes this instance.
-        /// </summary>
+        /// <summary> Deletes this instance. </summary>
         public virtual void Delete( )
         {
             try
@@ -129,10 +125,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the file security.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the file security. </summary>
+        /// <returns> </returns>
         public FileSecurity GetFileSecurity( )
         {
             try
@@ -146,10 +140,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the base stream.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the base stream. </summary>
+        /// <returns> </returns>
         public FileStream GetBaseStream( )
         {
             try
@@ -166,11 +158,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Converts to string.
-        /// </summary>
+        /// <summary> Converts to string. </summary>
         /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
+        /// A
+        /// <see cref="System.String"/>
+        /// that represents this instance.
         /// </returns>
         public override string ToString( )
         {

@@ -45,12 +45,12 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
+    using System.Threading;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataModel" />
-    /// <seealso cref="T:BudgetExecution.IDataModel" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.DataModel"/>
+    /// <seealso cref="T:BudgetExecution.IDataModel"/>
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -59,16 +59,12 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeAccessorOwnerBody" ) ]
-    [SuppressMessage("ReSharper", "PropertyCanBeMadeInitOnly.Local")]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     public class DataBuilder : DataModel, IDataModel
     {
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the duration.
-        /// </summary>
-        /// <value>
-        /// The duration.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the duration. </summary>
+        /// <value> The duration. </value>
         public TimeSpan Duration
         {
             get
@@ -78,17 +74,13 @@ namespace BudgetExecution
 
             private set
             {
-                _duration = value; 
+                _duration = value;
             }
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets the record. </summary>
+        /// <value> The record. </value>
         public DataRow Record
         {
             get
@@ -102,12 +94,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
+        /// <summary> Gets or sets the data table. </summary>
+        /// <value> The data table. </value>
         public DataTable DataTable
         {
             get
@@ -121,12 +109,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the data set.
-        /// </summary>
-        /// <value>
-        /// The data set.
-        /// </value>
+        /// <summary> Gets the data set. </summary>
+        /// <value> The data set. </value>
         public DataSet DataSet
         {
             get
@@ -140,13 +124,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the data elements.
-        /// </summary>
-        /// <value>
-        /// The data elements.
-        /// </value>
-        /// <inheritdoc />
+        /// <summary> Gets the data elements. </summary>
+        /// <value> The data elements. </value>
+        /// <inheritdoc/>
         public IDictionary<string, IEnumerable<string>> DataElements
         {
             get
@@ -160,144 +140,165 @@ namespace BudgetExecution
             }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder"/>
+        /// class.
         /// </summary>
         public DataBuilder( )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
         public DataBuilder( Source source, Provider provider = Provider.Access )
             : base( source, provider )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="where">The dictionary.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="where"> The dictionary. </param>
         public DataBuilder( Source source, Provider provider, IDictionary<string, object> where )
             : base( source, provider, where )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="dict"></param>
+        /// <param name="source"> The source. </param>
+        /// <param name="dict"> </param>
         public DataBuilder( Source source, IDictionary<string, object> dict )
             : base( source, dict )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="updates">The updates.</param>
-        /// <param name="where">The where.</param>
-        /// <param name="commandType">Type of the command.</param>
-        public DataBuilder( Source source, Provider provider, IDictionary<string, object> updates, 
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="updates"> The updates. </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public DataBuilder( Source source, Provider provider, IDictionary<string, object> updates,
+                            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="columns">The columns.</param>
-        /// <param name="where">The criteria.</param>
-        /// <param name="commandType">Type of the command.</param>
-        public DataBuilder( Source source, Provider provider, IEnumerable<string> columns, 
-            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="where"> The criteria. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public DataBuilder( Source source, Provider provider, IEnumerable<string> columns,
+                            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, where, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="fields">The columns.</param>
-        /// <param name="numerics">The numerics.</param>
-        /// <param name="where">The where.</param>
-        /// <param name="commandType">Type of the command.</param>
-        public DataBuilder( Source source, Provider provider, IEnumerable<string> fields, 
-            IEnumerable<string> numerics, IDictionary<string, object> where, SQL commandType )
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="fields"> The columns. </param>
+        /// <param name="numerics"> The numerics. </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public DataBuilder( Source source, Provider provider, IEnumerable<string> fields,
+                            IEnumerable<string> numerics, IDictionary<string, object> where,
+                            SQL commandType )
             : base( source, provider, fields, numerics, where,
                 commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="sqlText">The SQL text.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="sqlText"> The SQL text. </param>
         public DataBuilder( Source source, Provider provider, string sqlText )
             : base( source, provider, sqlText )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public DataBuilder( IQuery query )
             : base( query )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="fullPath">The full path.</param>
-        /// <param name="sqlText">The SQL text.</param>
-        /// <param name="commandType">Type of the command.</param>
+        /// <param name="fullPath"> The full path. </param>
+        /// <param name="sqlText"> The SQL text. </param>
+        /// <param name="commandType"> Type of the command. </param>
         public DataBuilder( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
             : base( fullPath, sqlText, commandType )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder"/>
+        /// class.
         /// </summary>
-        /// <param name="row">The row.</param>
+        /// <param name="row"> The row. </param>
         public DataBuilder( DataRow row )
         {
             Record = row;
         }
 
-        /// <summary>
-        /// Gets the provider.
-        /// </summary>
-        /// <param name="provider">The provider.</param>
-        /// <returns></returns>
+        /// <summary> Gets the provider. </summary>
+        /// <param name="provider"> The provider. </param>
+        /// <returns> </returns>
         public static Provider GetProvider( string provider )
         {
             try
@@ -305,12 +306,12 @@ namespace BudgetExecution
                 ThrowIf.NullOrEmpty( provider, "provider" );
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
-                    return (Provider)Enum.Parse( typeof( Provider ), provider );
+                    return (Provider) Enum.Parse( typeof( Provider ), provider );
                 }
                 else if( Path.HasExtension( provider ) )
                 {
                     var _path = Path.GetExtension( provider );
-                    var _ext = (EXT)Enum.Parse( typeof( EXT ), _path );
+                    var _ext = (EXT) Enum.Parse( typeof( EXT ), _path );
                     switch( _ext )
                     {
                         case EXT.MDB:
@@ -318,22 +319,31 @@ namespace BudgetExecution
                         case EXT.XLSX:
                         case EXT.CSV:
                         case EXT.ACCDB:
+
                         {
                             return Provider.Access;
                         }
+
                         case EXT.SDF:
+
                         {
                             return Provider.SqlCe;
                         }
+
                         case EXT.MDF:
+
                         {
                             return Provider.SqlServer;
                         }
+
                         case EXT.DB:
+
                         {
                             return Provider.SQLite;
                         }
+
                         default:
+
                         {
                             return Provider.Access;
                         }
@@ -351,11 +361,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the provider.
-        /// </summary>
-        /// <param name="ext">The ext.</param>
-        /// <returns></returns>
+        /// <summary> Gets the provider. </summary>
+        /// <param name="ext"> The ext. </param>
+        /// <returns> </returns>
         public static Provider GetProvider( EXT ext )
         {
             try
@@ -364,22 +372,31 @@ namespace BudgetExecution
                 {
                     case EXT.MDB:
                     case EXT.ACCDB:
+
                     {
                         return Provider.Access;
                     }
+
                     case EXT.SDF:
+
                     {
                         return Provider.SqlCe;
                     }
+
                     case EXT.MDF:
+
                     {
                         return Provider.SqlServer;
                     }
+
                     case EXT.DB:
+
                     {
                         return Provider.SQLite;
                     }
+
                     default:
+
                     {
                         return Provider.Access;
                     }
@@ -392,11 +409,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <param name="tableName">Name of the table.</param>
-        /// <returns></returns>
+        /// <summary> Gets the source. </summary>
+        /// <param name="tableName"> Name of the table. </param>
+        /// <returns> </returns>
         public static Source GetSource( string tableName )
         {
             try
@@ -407,7 +422,7 @@ namespace BudgetExecution
                 {
                     if( _name.Equals( tableName ) )
                     {
-                        return (Source)Enum.Parse( typeof( Source ), tableName );
+                        return (Source) Enum.Parse( typeof( Source ), tableName );
                     }
                 }
 

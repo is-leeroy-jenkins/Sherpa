@@ -45,205 +45,79 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
+    using System.Threading;
     using System.Threading.Tasks;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.ISource" />
-    /// <seealso cref="T:BudgetExecution.IProvider" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.ISource"/>
+    /// <seealso cref="T:BudgetExecution.IProvider"/>
     public abstract class AsyncState : ISource, IProvider
     {
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         public Source Source { get; set; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
         public Provider Provider { get; set; }
 
-        /// <summary>
-        /// Gets or sets the connection factory.
-        /// </summary>
-        /// <value>
-        /// The connection factory.
-        /// </value>
+        /// <summary> Gets or sets the connection factory. </summary>
+        /// <value> The connection factory. </value>
         public IConnectionFactory ConnectionFactory { get; set; }
 
-        /// <summary>
-        /// Gets or sets the SQL statement.
-        /// </summary>
-        /// <value>
-        /// The SQL statement.
-        /// </value>
+        /// <summary> Gets or sets the SQL statement. </summary>
+        /// <value> The SQL statement. </value>
         public ISqlStatement SqlStatement { get; set; }
 
-        /// <summary>
-        /// Gets or sets the query.
-        /// </summary>
-        /// <value>
-        /// The query.
-        /// </value>
+        /// <summary> Gets or sets the query. </summary>
+        /// <value> The query. </value>
         public IQuery Query { get; set; }
 
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
+        /// <summary> Gets or sets the record. </summary>
+        /// <value> The record. </value>
         public Task<DataRow> Record { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
+        /// <summary> Gets or sets the data table. </summary>
+        /// <value> The data table. </value>
         public Task<DataTable> DataTable { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data columns.
-        /// </summary>
-        /// <value>
-        /// The data columns.
-        /// </value>
+        /// <summary> Gets or sets the data columns. </summary>
+        /// <value> The data columns. </value>
         public Task<IEnumerable<DataColumn>> DataColumns { get; set; }
 
-        /// <summary>
-        /// Gets or sets the column names.
-        /// </summary>
-        /// <value>
-        /// The column names.
-        /// </value>
+        /// <summary> Gets or sets the column names. </summary>
+        /// <value> The column names. </value>
         public Task<IEnumerable<string>> ColumnNames { get; set; }
 
-        /// <summary>
-        /// Gets or sets the keys.
-        /// </summary>
-        /// <value>
-        /// The keys.
-        /// </value>
+        /// <summary> Gets or sets the keys. </summary>
+        /// <value> The keys. </value>
         public Task<IList<int>> Keys { get; set; }
 
-        /// <summary>
-        /// Gets or sets the fields.
-        /// </summary>
-        /// <value>
-        /// The fields.
-        /// </value>
+        /// <summary> Gets or sets the fields. </summary>
+        /// <value> The fields. </value>
         public Task<IList<string>> Fields { get; set; }
 
-        /// <summary>
-        /// Gets or sets the dates.
-        /// </summary>
-        /// <value>
-        /// The dates.
-        /// </value>
+        /// <summary> Gets or sets the dates. </summary>
+        /// <value> The dates. </value>
         public Task<IList<string>> Dates { get; set; }
 
-        /// <summary>
-        /// Gets or sets the numeric fields.
-        /// </summary>
-        /// <value>
-        /// The numeric fields.
-        /// </value>
+        /// <summary> Gets or sets the numeric fields. </summary>
+        /// <value> The numeric fields. </value>
         public Task<IList<string>> Numerics { get; set; }
 
-        /// <summary>
-        /// Gets or sets the map.
-        /// </summary>
-        /// <value>
-        /// The map.
-        /// </value>
+        /// <summary> Gets or sets the map. </summary>
+        /// <value> The map. </value>
         public Task<IDictionary<string, object>> Map { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the data set.
-        /// </summary>
-        /// <value>
-        /// The data set.
-        /// </value>
+
+        /// <summary> Gets or sets the data set. </summary>
+        /// <value> The data set. </value>
         public Task<DataSet> DataSet { get; set; }
-        
-        /// <summary>
-        /// Gets the data table.
-        /// </summary>
-        /// <returns></returns>
-        private protected DataTable GetDataTable( )
-        {
-            if( Query != null )
-            {
-                try
-                {
-                    var _dataSet = new DataSet( $"{Source}" );
-                    var _dataTable = new DataTable( $"{Source}" );
-                    _dataTable.TableName = Source.ToString( );
-                    _dataSet.Tables.Add( _dataTable );
-                    var _adapter = Query.DataAdapter;
-                    _adapter.Fill( _dataSet, _dataTable.TableName );
-                    SetColumnCaptions( _dataTable );
-                    return _dataTable?.Rows?.Count > 0
-                        ? _dataTable
-                        : default( DataTable );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( DataTable );
-                }
-            }
 
-            return default( DataTable );
-        }
-
-        /// <summary>
-        /// Gets the data set asynchronous.
-        /// </summary>
-        /// <returns></returns>
-        private protected Task<DataSet> GetDataSetAsync( )
-        {
-            if( Query != null )
-            {
-                var _tcs = new TaskCompletionSource<DataSet>( );
-                try
-                {
-                    var _dataSet = new DataSet( $"{Source}" );
-                    var _dataTable = new DataTable( $"{Source}" );
-                    _dataTable.TableName = Source.ToString( );
-                    _dataSet.Tables.Add( _dataTable );
-                    var _adapter = Query.DataAdapter;
-                    _adapter.Fill( _dataSet, _dataTable.TableName );
-                    SetColumnCaptions( _dataTable );
-                    _tcs.SetResult( _dataSet );
-                    return _dataSet.Tables?.Count > 0
-                        ? _tcs.Task
-                        : default( Task<DataSet> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( Task<DataSet> );
-                }
-            }
-
-            return default( Task<DataSet> );
-        }
-        
-        /// <summary>
-        /// Gets the table asynchronous.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the table asynchronous. </summary>
+        /// <returns> </returns>
         public Task<DataTable> GetDataTableAsync( )
         {
             if( Query != null )
@@ -274,10 +148,8 @@ namespace BudgetExecution
             return default( Task<DataTable> );
         }
 
-        /// <summary>
-        /// Gets the record asynchronous.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the record asynchronous. </summary>
+        /// <returns> </returns>
         public Task<DataRow> GetRecordAsync( )
         {
             var _tcs = new TaskCompletionSource<DataRow>( );
@@ -299,10 +171,68 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the column captions.
-        /// </summary>
-        /// <param name="dataTable">The data table.</param>
+        /// <summary> Gets the data table. </summary>
+        /// <returns> </returns>
+        private protected DataTable GetDataTable( )
+        {
+            if( Query != null )
+            {
+                try
+                {
+                    var _dataSet = new DataSet( $"{Source}" );
+                    var _dataTable = new DataTable( $"{Source}" );
+                    _dataTable.TableName = Source.ToString( );
+                    _dataSet.Tables.Add( _dataTable );
+                    var _adapter = Query.DataAdapter;
+                    _adapter.Fill( _dataSet, _dataTable.TableName );
+                    SetColumnCaptions( _dataTable );
+                    return _dataTable?.Rows?.Count > 0
+                        ? _dataTable
+                        : default( DataTable );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( DataTable );
+                }
+            }
+
+            return default( DataTable );
+        }
+
+        /// <summary> Gets the data set asynchronous. </summary>
+        /// <returns> </returns>
+        private protected Task<DataSet> GetDataSetAsync( )
+        {
+            if( Query != null )
+            {
+                var _tcs = new TaskCompletionSource<DataSet>( );
+                try
+                {
+                    var _dataSet = new DataSet( $"{Source}" );
+                    var _dataTable = new DataTable( $"{Source}" );
+                    _dataTable.TableName = Source.ToString( );
+                    _dataSet.Tables.Add( _dataTable );
+                    var _adapter = Query.DataAdapter;
+                    _adapter.Fill( _dataSet, _dataTable.TableName );
+                    SetColumnCaptions( _dataTable );
+                    _tcs.SetResult( _dataSet );
+                    return _dataSet.Tables?.Count > 0
+                        ? _tcs.Task
+                        : default( Task<DataSet> );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( Task<DataSet> );
+                }
+            }
+
+            return default( Task<DataSet> );
+        }
+
+        /// <summary> Sets the column captions. </summary>
+        /// <param name="dataTable"> The data table. </param>
         private protected void SetColumnCaptions( DataTable dataTable )
         {
             if( dataTable?.Rows?.Count > 0 )
@@ -325,10 +255,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the fields.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the fields. </summary>
+        /// <returns> </returns>
         private protected Task<IList<string>> GetFieldsAsync( )
         {
             var _tcs = new TaskCompletionSource<IList<string>>( );
@@ -357,10 +285,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the numerics.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the numerics. </summary>
+        /// <returns> </returns>
         private protected Task<IList<string>> GetNumericsAsync( )
         {
             var _tcs = new TaskCompletionSource<IList<string>>( );
@@ -395,10 +321,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the dates.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the dates. </summary>
+        /// <returns> </returns>
         private protected Task<IList<string>> GetDatesAsync( )
         {
             if( DataTable != null )
@@ -437,10 +361,8 @@ namespace BudgetExecution
             return default( Task<IList<string>> );
         }
 
-        /// <summary>
-        /// Gets the primary keys.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the primary keys. </summary>
+        /// <returns> </returns>
         private protected Task<IList<int>> GetPrimaryKeysAsync( )
         {
             if( DataTable != null )
@@ -449,8 +371,7 @@ namespace BudgetExecution
                 try
                 {
                     var _dataTable = GetDataTable( );
-                    var _values = _dataTable
-                        ?.AsEnumerable( )
+                    var _values = _dataTable?.AsEnumerable( )
                         ?.Select( c => c.Field<int>( 0 ) )
                         ?.Distinct( );
 
@@ -470,10 +391,8 @@ namespace BudgetExecution
             return default( Task<IList<int>> );
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

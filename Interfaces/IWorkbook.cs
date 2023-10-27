@@ -40,11 +40,13 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Data.OleDb;
     using System.Drawing;
     using System.IO;
+    using System.Threading;
     using System.Windows.Forms;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
@@ -178,86 +180,86 @@ namespace BudgetExecution
         int ZoomLevel { get; set; }
 
         /// <summary> Sets the width of the column. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "width" > The width. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="width"> The width. </param>
         void SetColumnWidth( Grid grid, double width );
 
         /// <summary> Sets the color of the backgroud. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "color" > The color. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="color"> The color. </param>
         void SetBackgroundColor( Grid grid, Color color );
 
         /// <summary> Sets the range font. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "font" > The font. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="font"> The font. </param>
         void SetRangeFont( Grid grid, Font font );
 
         /// <summary> Sets the color of the font. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "color" > The color. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="color"> The color. </param>
         void SetFontColor( Grid grid, Color color );
 
         /// <summary> Sets the border style. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "side" > The side. </param>
-        /// <param name = "style" > The style. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="side"> The side. </param>
+        /// <param name="style"> The style. </param>
         void SetBorderStyle( Grid grid, ExcelConfig.BorderSide side, ExcelBorderStyle style );
 
         /// <summary> Sets the horizontal aligment. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "align" > The align. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="align"> The align. </param>
         void SetHorizontalAlignment( Grid grid, ExcelHorizontalAlignment align );
 
         /// <summary> Sets the vertical aligment. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "align" > The align. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="align"> The align. </param>
         void SetVerticalAligment( Grid grid, ExcelVerticalAlignment align );
 
         /// <summary> Merges the cells. </summary>
-        /// <param name = "grid" > The grid. </param>
+        /// <param name="grid"> The grid. </param>
         void MergeCells( Grid grid );
 
         /// <summary> Sets the file path. </summary>
-        /// <param name = "filePath" > The file path. </param>
+        /// <param name="filePath"> The file path. </param>
         void SetFilePath( string filePath );
 
         /// <summary> Sets the name of the file. </summary>
-        /// <param name = "filePath" > The file path. </param>
+        /// <param name="filePath"> The file path. </param>
         void SetFileName( string filePath );
 
         /// <summary> Gets the file extension. </summary>
-        /// <param name = "filePath" > The file path. </param>
+        /// <param name="filePath"> The file path. </param>
         /// <returns> </returns>
         EXT GetFileExtension( string filePath );
 
         /// <summary> Gets the connection string. </summary>
-        /// <param name = "extension" > The extension. </param>
-        /// <param name = "filePath" > The file path. </param>
+        /// <param name="extension"> The extension. </param>
+        /// <param name="filePath"> The file path. </param>
         /// <returns> </returns>
         string GetConnectionString( string extension, string filePath );
 
         /// <summary> Sets the excel form. </summary>
-        /// <param name = "spreadSheet" > The spread sheet. </param>
-        /// <param name = "dataTable" > The data table. </param>
+        /// <param name="spreadSheet"> The spread sheet. </param>
+        /// <param name="dataTable"> The data table. </param>
         void SetExcelForm( Spreadsheet spreadSheet, DataTable dataTable );
 
         /// <summary> Sets the excel form. </summary>
-        /// <param name = "spreadSheet" > The spread sheet. </param>
-        /// <param name = "dataGrid" > The data grid. </param>
+        /// <param name="spreadSheet"> The spread sheet. </param>
+        /// <param name="dataGrid"> The data grid. </param>
         void SetExcelForm( Spreadsheet spreadSheet, DataGridView dataGrid );
 
         /// <summary> Adds the comment. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "text" > The text. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="text"> The text. </param>
         void AddComment( Grid grid, string text );
 
         /// <summary> Sets the caption text. </summary>
-        /// <param name = "grid" > The grid. </param>
+        /// <param name="grid"> The grid. </param>
         void SetCaptionText( Grid grid );
 
         /// <summary> Sets the text. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "text" > The text. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="text"> The text. </param>
         void SetText( Grid grid, IEnumerable<string> text );
     }
 }

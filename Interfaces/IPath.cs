@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="IDataPath.cs" company="Terry D. Eppler">
+// <copyright file="IPath.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,18 +34,21 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   IDataPath.cs
+//   IPath.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Security.AccessControl;
+    using System.Threading;
 
     /// <summary> </summary>
-    public interface IDataPath
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    public interface IPath
     {
         /// <summary> The path </summary>
         string Buffer { get; set; }
@@ -70,7 +73,9 @@ namespace BudgetExecution
         /// <value> The extension. </value>
         string Extension { get; set; }
 
-        /// <summary> Gets or sets a value indicating whether this instance has parent. </summary>
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance has parent.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance has parent { get; set; } otherwise,

@@ -42,6 +42,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Threading;
 
     /// <summary> </summary>
     /// <seealso cref="Query"/>
@@ -101,8 +102,8 @@ namespace BudgetExecution
         /// <param name="updates"> </param>
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public SqlServerQuery( Source source, IDictionary<string, object> updates, 
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+        public SqlServerQuery( Source source, IDictionary<string, object> updates,
+                               IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, Provider.SqlServer, updates, where, commandType )
         {
         }
@@ -116,8 +117,8 @@ namespace BudgetExecution
         /// <param name="columns"> The columns. </param>
         /// <param name="criteria"> The criteria. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public SqlServerQuery( Source source, IEnumerable<string> columns, 
-            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+        public SqlServerQuery( Source source, IEnumerable<string> columns,
+                               IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
             : base( source, Provider.SqlServer, columns, criteria, commandType )
         {
         }

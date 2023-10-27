@@ -5,55 +5,37 @@ namespace BudgetExecution.IO.Network
     using System.Diagnostics.CodeAnalysis;
     using System.Net;
     using System.Net.Sockets;
+    using System.Threading;
 
-    [SuppressMessage("ReSharper", "UnusedType.Global")]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class TcpClient
     {
-        /// <summary>
-        /// Gets or sets the count.
-        /// </summary>
-        /// <value>
-        /// The count.
-        /// </value>
+        /// <summary> Gets or sets the count. </summary>
+        /// <value> The count. </value>
         public int Bytes { get; set; }
 
         public string Input { get; set; }
 
-        /// <summary>
-        /// Gets or sets the buffer.
-        /// </summary>
-        /// <value>
-        /// The buffer.
-        /// </value>
+        /// <summary> Gets or sets the buffer. </summary>
+        /// <value> The buffer. </value>
         public byte[ ] Buffer { get; set; }
 
-        /// <summary>
-        /// Gets or sets the local end point.
-        /// </summary>
-        /// <value>
-        /// The local end point.
-        /// </value>
+        /// <summary> Gets or sets the local end point. </summary>
+        /// <value> The local end point. </value>
         public IPEndPoint Local { get; set; }
 
-        /// <summary>
-        /// Gets or sets the server.
-        /// </summary>
-        /// <value>
-        /// The server.
-        /// </value>
+        /// <summary> Gets or sets the server. </summary>
+        /// <value> The server. </value>
         public Socket Server { get; set; }
 
-        /// <summary>
-        /// Gets or sets the client.
-        /// </summary>
-        /// <value>
-        /// The client.
-        /// </value>
+        /// <summary> Gets or sets the client. </summary>
+        /// <value> The client. </value>
         public Socket Client { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="TcpClient"/> class.
+        /// <see cref="TcpClient"/>
+        /// class.
         /// </summary>
         public TcpClient( )
         {
@@ -62,9 +44,7 @@ namespace BudgetExecution.IO.Network
             Server = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
         }
 
-        /// <summary>
-        /// Notifies this instance.
-        /// </summary>
+        /// <summary> Notifies this instance. </summary>
         private void Notify( )
         {
             try
@@ -79,10 +59,8 @@ namespace BudgetExecution.IO.Network
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

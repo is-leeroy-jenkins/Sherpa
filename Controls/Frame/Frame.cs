@@ -46,36 +46,29 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:System.Windows.Forms.UserControl" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:System.Windows.Forms.UserControl"/>
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class Frame : UserControl
     {
-        /// <summary>
-        /// Gets or sets the index.
-        /// </summary>
-        /// <value>
-        /// The index.
-        /// </value>
+        /// <summary> Gets or sets the index. </summary>
+        /// <value> The index. </value>
         public int Index { get; set; }
 
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Frame" /> class.
+        /// <see cref="T:BudgetExecution.Frame"/>
+        /// class.
         /// </summary>
         public Frame( )
         {
@@ -96,10 +89,8 @@ namespace BudgetExecution
             TextBox.Size = new Size( 118, 26 );
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

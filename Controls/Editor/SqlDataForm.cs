@@ -44,147 +44,96 @@
 namespace BudgetExecution
 {
     using System;
-    using Syncfusion.Drawing;
-    using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.Edit;
-    using Syncfusion.Windows.Forms.Tools;
     using System.Collections.Generic;
-    using System.Configuration;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
+    using Syncfusion.Drawing;
+    using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Edit;
+    using Syncfusion.Windows.Forms.Tools;
     using static System.Configuration.ConfigurationManager;
     using static System.IO.Directory;
     using static System.IO.Path;
     using CheckState = MetroSet_UI.Enums.CheckState;
     using Image = System.Drawing.Image;
+    using Timer = System.Windows.Forms.Timer;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.EditBase" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.EditBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class SqlDataForm : EditBase
     {
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
+        /// <summary> Gets or sets the time. </summary>
         /// <value> The time. </value>
         public int Time { get; set; }
 
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
+        /// <summary> Gets or sets the seconds. </summary>
         /// <value> The seconds. </value>
         public int Seconds { get; set; }
 
-        /// <summary>
-        /// Gets or sets the first category.
-        /// </summary>
-        /// <value>
-        /// The first category.
-        /// </value>
+        /// <summary> Gets or sets the first category. </summary>
+        /// <value> The first category. </value>
         public string FirstCategory { get; set; }
 
-        /// <summary>
-        /// Gets or sets the first value.
-        /// </summary>
-        /// <value>
-        /// The first value.
-        /// </value>
+        /// <summary> Gets or sets the first value. </summary>
+        /// <value> The first value. </value>
         public string FirstValue { get; set; }
 
-        /// <summary>
-        /// Gets or sets the second category.
-        /// </summary>
-        /// <value>
-        /// The second category.
-        /// </value>
+        /// <summary> Gets or sets the second category. </summary>
+        /// <value> The second category. </value>
         public string SecondCategory { get; set; }
 
-        /// <summary>
-        /// Gets or sets the second value.
-        /// </summary>
-        /// <value>
-        /// The second value.
-        /// </value>
+        /// <summary> Gets or sets the second value. </summary>
+        /// <value> The second value. </value>
         public string SecondValue { get; set; }
 
-        /// <summary>
-        /// Gets or sets the third category.
-        /// </summary>
-        /// <value>
-        /// The third category.
-        /// </value>
+        /// <summary> Gets or sets the third category. </summary>
+        /// <value> The third category. </value>
         public string ThirdCategory { get; set; }
 
-        /// <summary>
-        /// Gets or sets the third value.
-        /// </summary>
-        /// <value>
-        /// The third value.
-        /// </value>
+        /// <summary> Gets or sets the third value. </summary>
+        /// <value> The third value. </value>
         public string ThirdValue { get; set; }
 
-        /// <summary>
-        /// Gets or sets the SQL query.
-        /// </summary>
-        /// <value>
-        /// The SQL query.
-        /// </value>
+        /// <summary> Gets or sets the SQL query. </summary>
+        /// <value> The SQL query. </value>
         public string SqlQuery { get; set; }
 
-        /// <summary>
-        /// Gets or sets the current.
-        /// </summary>
-        /// <value>
-        /// The current.
-        /// </value>
+        /// <summary> Gets or sets the current. </summary>
+        /// <value> The current. </value>
         public DataRow Current { get; set; }
 
-        /// <summary>
-        /// Gets or sets the selected command.
-        /// </summary>
-        /// <value>
-        /// The selected command.
-        /// </value>
+        /// <summary> Gets or sets the selected command. </summary>
+        /// <value> The selected command. </value>
         public string SelectedCommand { get; set; }
 
-        /// <summary>
-        /// Gets or sets the selected query.
-        /// </summary>
-        /// <value>
-        /// The selected query.
-        /// </value>
+        /// <summary> Gets or sets the selected query. </summary>
+        /// <value> The selected query. </value>
         public string SelectedQuery { get; set; }
 
-        /// <summary>
-        /// Gets or sets the commands.
-        /// </summary>
-        /// <value>
-        /// The commands.
-        /// </value>
+        /// <summary> Gets or sets the commands. </summary>
+        /// <value> The commands. </value>
         public IList<string> Commands { get; set; }
 
-        /// <summary>
-        /// Gets or sets the statements.
-        /// </summary>
-        /// <value>
-        /// The statements.
-        /// </value>
+        /// <summary> Gets or sets the statements. </summary>
+        /// <value> The statements. </value>
         public IDictionary<string, object> Statements { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlDataForm"/> class.
+        /// <see cref="SqlDataForm"/>
+        /// class.
         /// </summary>
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public SqlDataForm( )
         {
             InitializeComponent( );
@@ -252,12 +201,13 @@ namespace BudgetExecution
             MouseClick += OnRightClick;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlDataForm" /> class.
+        /// <see cref="T:BudgetExecution.SqlDataForm"/>
+        /// class.
         /// </summary>
-        /// <param name="provider">The provider.</param>
+        /// <param name="provider"> The provider. </param>
         public SqlDataForm( Provider provider )
             : this( )
         {
@@ -265,9 +215,202 @@ namespace BudgetExecution
             Provider = provider;
         }
 
-        /// <summary>
-        /// Sets the editor configuration.
-        /// </summary>
+        /// <summary> Displays the control to the user. </summary>
+        public new void Show( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 10;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        Time++;
+                        if( Time == Seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Populates the table ComboBox items. </summary>
+        public void PopulateTableListBoxItems( )
+        {
+            try
+            {
+                TableListBox.Items?.Clear( );
+                TableListBox.SelectedItem = string.Empty;
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData( );
+                var _names = _data?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.Distinct( )
+                    ?.ToList( );
+
+                for( var _i = 0; _i < ( _names?.Count - 1 ); _i++ )
+                {
+                    var _name = _names[ _i ];
+                    TableListBox.Items?.Add( _name );
+                }
+
+                if( TableListBox.Items?.Count > 0 )
+                {
+                    SourceTable.CaptionText = $"Tables: {TableListBox.Items.Count}";
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Populates the data type ComboBox items. </summary>
+        public void PopulateDataTypeComboBoxItems( )
+        {
+            if( DataTypes?.Any( ) == true )
+            {
+                try
+                {
+                    DataTypeComboBox.Items?.Clear( );
+                    DataTypeComboBox.SelectedText = string.Empty;
+                    var _types = DataTypes.ToArray( );
+                    for( var _i = 0; _i < _types?.Length; _i++ )
+                    {
+                        if( !string.IsNullOrEmpty( _types[ _i ] ) )
+                        {
+                            DataTypeComboBox.Items.Add( _types[ _i ] );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary> Populates the table ComboBox items. </summary>
+        public void PopulateTableComboBoxItems( )
+        {
+            try
+            {
+                TableNameComboBox.Items?.Clear( );
+                TableNameComboBox.SelectedItem = string.Empty;
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData( );
+                var _names = _data?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.Distinct( )
+                    ?.ToList( );
+
+                for( var _i = 0; _i < ( _names?.Count - 1 ); _i++ )
+                {
+                    var _name = _names[ _i ];
+                    TableNameComboBox.Items.Add( _name );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Clears the data. </summary>
+        public void ClearData( )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                SelectedTable = string.Empty;
+                DataGrid.DataSource = null;
+                BindingSource.DataSource = null;
+                DataModel = null;
+                DataTable = null;
+                TabControl.SelectedIndex = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Called when [table ListBox selection changed]. </summary>
+        /// <param name="sender"> The sender. </param>
+        public void OnTableListBoxSelectionChanged( object sender )
+        {
+            try
+            {
+                FormFilter?.Clear( );
+                ColumnListBox.Items?.Clear( );
+                ValueListBox.Items?.Clear( );
+                ColumnTable.CaptionText = string.Empty;
+                ValueTable.CaptionText = string.Empty;
+                var _listBox = sender as ListBox;
+                var _value = _listBox?.SelectedItem.ToString( );
+                if( !string.IsNullOrEmpty( _value ) )
+                {
+                    var _source = (Source) Enum.Parse( typeof( Source ), _value );
+                    DataModel = new DataBuilder( _source, Provider.Access );
+                    BindingSource.DataSource = DataModel.DataTable;
+                    var _columns = DataModel.DataColumns;
+                    foreach( var _col in _columns )
+                    {
+                        ColumnListBox.Items?.Add( _col.ColumnName );
+                    }
+
+                    if( ColumnListBox.Items?.Count > 0 )
+                    {
+                        ColumnTable.CaptionText = $"Columns:  {ColumnListBox.Items.Count}";
+                    }
+
+                    ValueTable.CaptionText = "Values:  ";
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Called when [column ListBox selection changed]. </summary>
+        /// <param name="sender"> The sender. </param>
+        public void OnColumnListBoxSelectionChanged( object sender )
+        {
+            try
+            {
+                ValueListBox.Items?.Clear( );
+                var _listBox = sender as ListBox;
+                var _column = _listBox?.SelectedItem?.ToString( );
+                var _series = DataModel.DataElements;
+                if( !string.IsNullOrEmpty( _column ) )
+                {
+                    foreach( var _item in _series[ _column ] )
+                    {
+                        ValueListBox.Items?.Add( _item );
+                    }
+                }
+
+                if( ValueListBox.Items?.Count > 0 )
+                {
+                    ValueTable.CaptionText = $"Values: {ValueListBox.Items.Count}";
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Sets the editor configuration. </summary>
         private void InitializeEditor( )
         {
             try
@@ -323,9 +466,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the tool strip properties.
-        /// </summary>
+        /// <summary> Sets the tool strip properties. </summary>
         private void InitializeToolStrip( )
         {
             try
@@ -347,9 +488,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Initializes the radio buttons.
-        /// </summary>
+        /// <summary> Initializes the radio buttons. </summary>
         private void InitializeButtons( )
         {
             try
@@ -357,6 +496,7 @@ namespace BudgetExecution
                 switch( Provider )
                 {
                     case Provider.SQLite:
+
                     {
                         SQLiteRadioButton.Checked = true;
                         SQLiteRadioButton.CheckState = CheckState.Checked;
@@ -364,7 +504,9 @@ namespace BudgetExecution
                         ClientSeparator.Visible = true;
                         break;
                     }
+
                     case Provider.Access:
+
                     {
                         AccessRadioButton.Checked = true;
                         AccessRadioButton.CheckState = CheckState.Checked;
@@ -372,7 +514,9 @@ namespace BudgetExecution
                         ClientSeparator.Visible = true;
                         break;
                     }
+
                     case Provider.SqlServer:
+
                     {
                         SqlServerRadioButton.Checked = true;
                         SqlServerRadioButton.CheckState = CheckState.Checked;
@@ -380,7 +524,9 @@ namespace BudgetExecution
                         ClientSeparator.Visible = false;
                         break;
                     }
+
                     case Provider.SqlCe:
+
                     {
                         SqlCeRadioButton.Checked = true;
                         SqlCeRadioButton.CheckState = CheckState.Checked;
@@ -388,7 +534,9 @@ namespace BudgetExecution
                         ClientSeparator.Visible = true;
                         break;
                     }
+
                     default:
+
                     {
                         AccessRadioButton.Checked = true;
                         AccessRadioButton.CheckState = CheckState.Checked;
@@ -404,39 +552,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
-        public new void Show( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( Seconds != 0 )
-                {
-                    Timer = new Timer( );
-                    Timer.Interval = 10;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        Time++;
-                        if( Time == Seconds )
-                        {
-                            Timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
+        /// <summary> Fades the in. </summary>
         private void FadeIn( )
         {
             try
@@ -461,9 +577,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fades the out and close.
-        /// </summary>
+        /// <summary> Fades the out and close. </summary>
         private void FadeOut( )
         {
             try
@@ -488,9 +602,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Notifies this instance.
-        /// </summary>
+        /// <summary> Notifies this instance. </summary>
         private void Notify( )
         {
             try
@@ -505,9 +617,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Clears the selections.
-        /// </summary>
+        /// <summary> Clears the selections. </summary>
         private void ClearSelections( )
         {
             try
@@ -526,9 +636,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Clears the collections.
-        /// </summary>
+        /// <summary> Clears the collections. </summary>
         private void ClearCollections( )
         {
             try
@@ -559,16 +667,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the provider.
-        /// </summary>
-        /// <param name="provider">The provider.</param>
+        /// <summary> Sets the provider. </summary>
+        /// <param name="provider"> The provider. </param>
         private void SetProvider( string provider )
         {
             try
             {
                 ThrowIf.NullOrEmpty( provider, "provider" );
-                var _provider = (Provider)Enum.Parse( typeof( Provider ), provider );
+                var _provider = (Provider) Enum.Parse( typeof( Provider ), provider );
                 if( Enum.IsDefined( typeof( Provider ), _provider ) )
                 {
                     Provider = _provider switch
@@ -587,10 +693,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the title prefix.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the title prefix. </summary>
+        /// <returns> </returns>
         private string GetTitleText( )
         {
             try
@@ -611,14 +715,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the active tab controls.
-        /// </summary>
+        /// <summary> Sets the active tab controls. </summary>
         private void SetActiveTab( )
         {
             switch( TabControl.SelectedIndex )
             {
                 case 0:
+
                 {
                     SqlTab.TabVisible = true;
                     DataTab.TabVisible = false;
@@ -630,7 +733,9 @@ namespace BudgetExecution
                     PopulateSqlComboBox( Commands );
                     break;
                 }
+
                 case 1:
+
                 {
                     DataTab.TabVisible = true;
                     LookupTab.TabVisible = false;
@@ -644,7 +749,9 @@ namespace BudgetExecution
                     PopulateSqlComboBox( Commands );
                     break;
                 }
+
                 case 2:
+
                 {
                     DataTab.TabVisible = false;
                     LookupTab.TabVisible = true;
@@ -657,7 +764,9 @@ namespace BudgetExecution
                     ValueListBox.SelectedValue = string.Empty;
                     break;
                 }
+
                 case 3:
+
                 {
                     SchemaTab.TabVisible = true;
                     DataTab.TabVisible = false;
@@ -672,24 +781,19 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the form icon.
-        /// </summary>
+        /// <summary> Sets the form icon. </summary>
         private void SetFormIcon( )
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings[ "Providers" ];
+                var _path = AppSettings[ "Providers" ];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
-                    var _files = Directory.GetFiles( _path );
+                    var _files = GetFiles( _path );
                     if( _files?.Any( ) == true )
                     {
                         var _name = Provider.ToString( );
-                        var _file = _files
-                            ?.Where( f => f.Contains( _name ) )
-                            ?.First( );
-
+                        var _file = _files?.Where( f => f.Contains( _name ) )?.First( );
                         if( !string.IsNullOrEmpty( _file )
                            && File.Exists( _file ) )
                         {
@@ -705,10 +809,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Resets the data.
-        /// </summary>
-        /// <param name="where">The where.</param>
+        /// <summary> Resets the data. </summary>
+        /// <param name="where"> The where. </param>
         private void BindData( IDictionary<string, object> where )
         {
             try
@@ -732,11 +834,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Resets the data.
-        /// </summary>
-        /// <param name="columns">The columns.</param>
-        /// <param name="where">The where.</param>
+        /// <summary> Resets the data. </summary>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="where"> The where. </param>
         private void BindData( IEnumerable<string> columns, IDictionary<string, object> where )
         {
             try
@@ -761,14 +861,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Resets the data.
-        /// </summary>
-        /// <param name="fields">The fields.</param>
-        /// <param name="numerics">The numerics.</param>
-        /// <param name="where">The where.</param>
+        /// <summary> Resets the data. </summary>
+        /// <param name="fields"> The fields. </param>
+        /// <param name="numerics"> The numerics. </param>
+        /// <param name="where"> The where. </param>
         private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> where )
+                               IDictionary<string, object> where )
         {
             try
             {
@@ -793,18 +891,15 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the SQL text.
-        /// </summary>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <summary> Creates the SQL text. </summary>
+        /// <param name="where"> The where. </param>
+        /// <returns> </returns>
         private string CreateSqlText( IDictionary<string, object> where )
         {
             try
             {
                 ThrowIf.Null( where, "where" );
-                return $"SELECT * FROM {Source} " 
-                    + $"WHERE {where.ToCriteria( )};";
+                return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
             }
             catch( Exception _ex )
             {
@@ -813,14 +908,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the SQL text.
-        /// </summary>
-        /// <param name="columns">The columns.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <summary> Creates the SQL text. </summary>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="where"> The where. </param>
+        /// <returns> </returns>
         private string CreateSqlText( IEnumerable<string> columns,
-            IDictionary<string, object> where )
+                                      IDictionary<string, object> where )
         {
             try
             {
@@ -845,15 +938,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the SQL text.
-        /// </summary>
-        /// <param name="fields">The fields.</param>
-        /// <param name="numerics">The numerics.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <summary> Creates the SQL text. </summary>
+        /// <param name="fields"> The fields. </param>
+        /// <param name="numerics"> The numerics. </param>
+        /// <param name="where"> The where. </param>
+        /// <returns> </returns>
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> where )
+                                      IDictionary<string, object> where )
         {
             try
             {
@@ -886,11 +977,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the command list.
-        /// </summary>
-        /// <param name="provider">The provider.</param>
-        /// <returns></returns>
+        /// <summary> Creates the command list. </summary>
+        /// <param name="provider"> The provider. </param>
+        /// <returns> </returns>
         private IList<string> CreateCommandList( Provider provider )
         {
             try
@@ -925,11 +1014,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the query list.
-        /// </summary>
-        /// <param name="provider">The provider.</param>
-        /// <returns></returns>
+        /// <summary> Creates the query list. </summary>
+        /// <param name="provider"> The provider. </param>
+        /// <returns> </returns>
         private IList<string> CreateQueryList( Provider provider )
         {
             try
@@ -964,10 +1051,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the query text.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the query text. </summary>
+        /// <returns> </returns>
         private string GetQueryText( )
         {
             try
@@ -981,10 +1066,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the tab pages.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the tab pages. </summary>
+        /// <returns> </returns>
         private IDictionary<string, TabPageAdv> GetTabPages( )
         {
             if( TabControl.TabPages?.Count > 0 )
@@ -1014,10 +1097,8 @@ namespace BudgetExecution
             return default( IDictionary<string, TabPageAdv> );
         }
 
-        /// <summary>
-        /// Gets the radio buttons.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the radio buttons. </summary>
+        /// <returns> </returns>
         private IDictionary<string, RadioButton> GetRadioButtons( )
         {
             try
@@ -1042,10 +1123,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the combo boxes.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the combo boxes. </summary>
+        /// <returns> </returns>
         private IDictionary<string, ComboBox> GetComboBoxes( )
         {
             try
@@ -1070,10 +1149,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the panels.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the panels. </summary>
+        /// <returns> </returns>
         private IDictionary<string, Layout> GetPanels( )
         {
             try
@@ -1098,10 +1175,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the list boxes.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the list boxes. </summary>
+        /// <returns> </returns>
         private IDictionary<string, ListBox> GetListBoxes( )
         {
             try
@@ -1126,16 +1201,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Opens the main form.
-        /// </summary>
+        /// <summary> Opens the main form. </summary>
         private void OpenMainForm( )
         {
             try
             {
                 if( Owner?.Visible == false )
                 {
-                    var _form = (MainForm)Program.Windows[ "MainForm" ];
+                    var _form = (MainForm) Program.Windows[ "MainForm" ];
                     _form.Refresh( );
                     _form.Visible = true;
                 }
@@ -1151,10 +1224,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the SQL ComboBox.
-        /// </summary>
-        /// <param name="list">The list.</param>
+        /// <summary> Populates the SQL ComboBox. </summary>
+        /// <param name="list"> The list. </param>
         private void PopulateSqlComboBox( IList<string> list )
         {
             try
@@ -1218,118 +1289,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the table ComboBox items.
-        /// </summary>
-        public void PopulateTableListBoxItems( )
-        {
-            try
-            {
-                TableListBox.Items?.Clear( );
-                TableListBox.SelectedItem = string.Empty;
-                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData( );
-                var _names = _data?.Select( dr => dr.Field<string>( "TableName" ) )
-                    ?.Distinct( )
-                    ?.ToList( );
-
-                for( var _i = 0; _i < _names?.Count - 1; _i++ )
-                {
-                    var _name = _names[ _i ];
-                    TableListBox.Items?.Add( _name );
-                }
-
-                if( TableListBox.Items?.Count > 0 )
-                {
-                    SourceTable.CaptionText = $"Tables: {TableListBox.Items.Count}";
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the data type ComboBox items.
-        /// </summary>
-        public void PopulateDataTypeComboBoxItems( )
-        {
-            if( DataTypes?.Any( ) == true )
-            {
-                try
-                {
-                    DataTypeComboBox.Items?.Clear( );
-                    DataTypeComboBox.SelectedText = string.Empty;
-                    var _types = DataTypes.ToArray( );
-                    for( var _i = 0; _i < _types?.Length; _i++ )
-                    {
-                        if( !string.IsNullOrEmpty( _types[ _i ] ) )
-                        {
-                            DataTypeComboBox.Items.Add( _types[ _i ] );
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Populates the table ComboBox items.
-        /// </summary>
-        public void PopulateTableComboBoxItems( )
-        {
-            try
-            {
-                TableNameComboBox.Items?.Clear( );
-                TableNameComboBox.SelectedItem = string.Empty;
-                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData( );
-                var _names = _data
-                    ?.Select( dr => dr.Field<string>( "TableName" ) )
-                    ?.Distinct( )
-                    ?.ToList( );
-
-                for( var _i = 0; _i < _names?.Count - 1; _i++ )
-                {
-                    var _name = _names[ _i ];
-                    TableNameComboBox.Items.Add( _name );
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the data.
-        /// </summary>
-        public void ClearData( )
-        {
-            try
-            {
-                ClearSelections( );
-                ClearCollections( );
-                SelectedTable = string.Empty;
-                DataGrid.DataSource = null;
-                BindingSource.DataSource = null;
-                DataModel = null;
-                DataTable = null;
-                TabControl.SelectedIndex = 0;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Runs the client application.
-        /// </summary>
+        /// <summary> Runs the client application. </summary>
         private void RunClientApplication( )
         {
             try
@@ -1337,16 +1297,21 @@ namespace BudgetExecution
                 switch( Provider )
                 {
                     case Provider.Access:
+
                     {
                         Minion.RunAccess( );
                         break;
                     }
+
                     case Provider.SqlCe:
+
                     {
                         Minion.RunSqlCe( );
                         break;
                     }
+
                     case Provider.SQLite:
+
                     {
                         Minion.RunSQLite( );
                         break;
@@ -1359,12 +1324,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -1388,10 +1354,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [RadioButton checked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>]
+        /// <summary> Called when [RadioButton checked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// ]
         private void OnRadioButtonChecked( object sender )
         {
             if( sender is RadioButton _button )
@@ -1422,12 +1387,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [ComboBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [ComboBox item selected]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnCommandComboBoxItemSelected( object sender, EventArgs e )
         {
             try
@@ -1441,10 +1407,7 @@ namespace BudgetExecution
                 if( _selection?.Contains( " " ) == true )
                 {
                     SelectedCommand = _selection.Replace( " ", "" );
-                    var _path = _prefix
-                        + _dbpath
-                        + @$"\{Provider}\DataModels\{SelectedCommand}";
-
+                    var _path = _prefix + _dbpath + @$"\{Provider}\DataModels\{SelectedCommand}";
                     var _files = GetFiles( _path );
                     for( var _i = 0; _i < _files.Length; _i++ )
                     {
@@ -1456,10 +1419,7 @@ namespace BudgetExecution
                 else
                 {
                     SelectedCommand = _comboBox?.SelectedItem?.ToString( );
-                    var _path = _prefix
-                        + _dbpath
-                        + @$"\{Provider}\DataModels\{SelectedCommand}";
-
+                    var _path = _prefix + _dbpath + @$"\{Provider}\DataModels\{SelectedCommand}";
                     var _names = GetFiles( _path );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
@@ -1480,10 +1440,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <summary> Called when [ListBox item selected]. </summary>
+        /// <param name="sender"> The sender. </param>
         private void OnListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox
@@ -1495,8 +1453,8 @@ namespace BudgetExecution
                     var _dbpath = AppSettings[ "DatabaseDirectory" ];
                     Editor.Text = string.Empty;
                     SelectedQuery = _listBox.SelectedItem?.ToString( );
-                    if( SelectedQuery?.Contains( " " ) == true
-                       || SelectedCommand?.Contains( " " ) == true )
+                    if( ( SelectedQuery?.Contains( " " ) == true )
+                       || ( SelectedCommand?.Contains( " " ) == true ) )
                     {
                         var _command = SelectedCommand?.Replace( " ", "" );
                         var _query = SelectedQuery?.Replace( " ", "" );
@@ -1528,12 +1486,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [clear button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [clear button click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnRefreshButtonClick( object sender, EventArgs e )
         {
             try
@@ -1548,12 +1507,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [right click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [right click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="MouseEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -1569,12 +1529,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [closing].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [closing]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnClosing( object sender, EventArgs e )
         {
             try
@@ -1598,14 +1559,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [close button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
+        /// <summary> Called when [close button click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
         /// <see cref="System.EventArgs"/>
-        /// instance containing the event data.</param>
-        /// <returns></returns>
+        /// instance containing the event data.
+        /// </param>
+        /// <returns> </returns>
         private void OnCloseButtonClick( object sender, EventArgs e )
         {
             try
@@ -1619,12 +1580,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [form closed].
-        /// </summary>
-        /// <param name="sender">The sender.
-        /// </param>
-        /// <param name="e">The <see cref="EventArgs"/>
+        /// <summary> Called when [form closed]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnFormClosed( object sender, EventArgs e )
@@ -1642,12 +1602,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [data source button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [data source button click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnEditSqlButtonClick( object sender, EventArgs e )
         {
             try
@@ -1660,12 +1621,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [data source button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [data source button click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnEditDataButtonClick( object sender, EventArgs e )
         {
             try
@@ -1678,12 +1640,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [lookup button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [lookup button click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnLookupButtonClick( object sender, EventArgs e )
         {
             try
@@ -1696,12 +1659,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [execute button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [execute button click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnGoButtonClick( object sender, EventArgs e )
         {
             try
@@ -1726,12 +1690,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [active tab changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [active tab changed]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnActiveTabChanged( object sender, EventArgs e )
         {
             try
@@ -1744,94 +1709,25 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [save button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [save button click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnSaveButtonClick( object sender, EventArgs e )
         {
             Notify( );
         }
 
-        /// <summary>
-        /// Called when [table ListBox selection changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        public void OnTableListBoxSelectionChanged( object sender )
-        {
-            try
-            {
-                FormFilter?.Clear( );
-                ColumnListBox.Items?.Clear( );
-                ValueListBox.Items?.Clear( );
-                ColumnTable.CaptionText = string.Empty;
-                ValueTable.CaptionText = string.Empty;
-                var _listBox = sender as ListBox;
-                var _value = _listBox?.SelectedItem.ToString( );
-                if( !string.IsNullOrEmpty( _value ) )
-                {
-                    var _source = (Source)Enum.Parse( typeof( Source ), _value );
-                    DataModel = new DataBuilder( _source, Provider.Access );
-                    BindingSource.DataSource = DataModel.DataTable;
-                    var _columns = DataModel.DataColumns;
-                    foreach( var _col in _columns )
-                    {
-                        ColumnListBox.Items?.Add( _col.ColumnName );
-                    }
-
-                    if( ColumnListBox.Items?.Count > 0 )
-                    {
-                        ColumnTable.CaptionText = $"Columns:  {ColumnListBox.Items.Count}";
-                    }
-
-                    ValueTable.CaptionText = "Values:  ";
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [column ListBox selection changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        public void OnColumnListBoxSelectionChanged( object sender )
-        {
-            try
-            {
-                ValueListBox.Items?.Clear( );
-                var _listBox = sender as ListBox;
-                var _column = _listBox?.SelectedItem?.ToString( );
-                var _series = DataModel.DataElements;
-                if( !string.IsNullOrEmpty( _column ) )
-                {
-                    foreach( var _item in _series[ _column ] )
-                    {
-                        ValueListBox.Items?.Add( _item );
-                    }
-                }
-
-                if( ValueListBox.Items?.Count > 0 )
-                {
-                    ValueTable.CaptionText = $"Values: {ValueListBox.Items.Count}";
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [main menu button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [main menu button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1846,12 +1742,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [client button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [client button click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnClientButtonClick( object sender, EventArgs e )
         {
             RunClientApplication( );

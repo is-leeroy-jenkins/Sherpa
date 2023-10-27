@@ -43,10 +43,11 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class SupplementalCarryoverEstimate : AnnualCarryoverEstimate 
+    public class SupplementalCarryoverEstimate : AnnualCarryoverEstimate
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -142,10 +143,8 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="carryover"></param>
+        /// <summary> </summary>
+        /// <param name="carryover"> </param>
         public SupplementalCarryoverEstimate( SupplementalCarryoverEstimate carryover )
             : this( )
         {

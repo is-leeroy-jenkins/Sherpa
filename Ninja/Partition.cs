@@ -40,159 +40,98 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class Partition
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
+        /// <summary> Gets or sets the identifier. </summary>
+        /// <value> The identifier. </value>
         public int ID { get; set; }
 
-        /// <summary>
-        /// Gets or sets the fiscal year.
-        /// </summary>
-        /// <value>
-        /// The fiscal year.
-        /// </value>
+        /// <summary> Gets or sets the fiscal year. </summary>
+        /// <value> The fiscal year. </value>
         public string FiscalYear { get; set; }
 
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
+        /// <summary> Gets or sets the bfy. </summary>
+        /// <value> The bfy. </value>
         public string BFY { get; set; }
 
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
+        /// <summary> Gets or sets the efy. </summary>
+        /// <value> The efy. </value>
         public string EFY { get; set; }
 
-        /// <summary>
-        /// Gets or sets the type.
-        /// </summary>
-        /// <value>
-        /// The type.
-        /// </value>
+        /// <summary> Gets or sets the type. </summary>
+        /// <value> The type. </value>
         public string Type { get; set; }
 
-        /// <summary>
-        /// Gets or sets the fund code.
-        /// </summary>
-        /// <value>
-        /// The fund code.
-        /// </value>
+        /// <summary> Gets or sets the fund code. </summary>
+        /// <value> The fund code. </value>
         public string FundCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the program.
-        /// </summary>
-        /// <value>
-        /// The name of the program.
-        /// </value>
+        /// <summary> Gets or sets the name of the program. </summary>
+        /// <value> The name of the program. </value>
         public string ProgramName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the program area.
-        /// </summary>
-        /// <value>
-        /// The name of the program area.
-        /// </value>
+        /// <summary> Gets or sets the name of the program area. </summary>
+        /// <value> The name of the program area. </value>
         public string ProgramAreaName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the amount.
-        /// </summary>
-        /// <value>
-        /// The amount.
-        /// </value>
+        /// <summary> Gets or sets the amount. </summary>
+        /// <value> The amount. </value>
         public double Amount { get; set; }
 
-        /// <summary>
-        /// Gets or sets the main account.
-        /// </summary>
-        /// <value>
-        /// The main account.
-        /// </value>
+        /// <summary> Gets or sets the main account. </summary>
+        /// <value> The main account. </value>
         public string MainAccount { get; set; }
 
-        /// <summary>
-        /// Gets or sets the treasury account code.
-        /// </summary>
-        /// <value>
-        /// The treasury account code.
-        /// </value>
+        /// <summary> Gets or sets the treasury account code. </summary>
+        /// <value> The treasury account code. </value>
         public string TreasuryAccountCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the budget account code.
-        /// </summary>
-        /// <value>
-        /// The budget account code.
-        /// </value>
+        /// <summary> Gets or sets the budget account code. </summary>
+        /// <value> The budget account code. </value>
         public string BudgetAccountCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         public Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
         public Provider Provider { get; set; }
 
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
+        /// <summary> Gets or sets the record. </summary>
+        /// <value> The record. </value>
         public DataRow Record { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
+        /// <summary> Gets or sets the data. </summary>
+        /// <value> The data. </value>
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Partition"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Partition"/>
+        /// class.
         /// </summary>
         public Partition( )
         {
             Source = Source.Partitions;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// <see cref="T:BudgetExecution.Partition" /> class.
+        /// <see cref="T:BudgetExecution.Partition"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
-        public Partition( IQuery query ) 
+        /// <param name="query"> The query. </param>
+        public Partition( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query ).Record;
@@ -211,12 +150,13 @@ namespace BudgetExecution
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Partition" /> class.
+        /// <see cref="T:BudgetExecution.Partition"/>
+        /// class.
         /// </summary>
-        /// <param name="dataBuilder">The data builder.</param>
+        /// <param name="dataBuilder"> The data builder. </param>
         public Partition( IDataModel dataBuilder )
             : this( )
         {
@@ -236,12 +176,13 @@ namespace BudgetExecution
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Partition" /> class.
+        /// <see cref="T:BudgetExecution.Partition"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public Partition( DataRow dataRow )
             : this( )
         {

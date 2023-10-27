@@ -43,17 +43,18 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.StatusOfFunds" />
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.StatusOfFunds"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class StatusOfInflationReductionActFunds : StatusOfFunds
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfInflationReductionActFunds"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="StatusOfInflationReductionActFunds"/>
+        /// class.
         /// </summary>
         public StatusOfInflationReductionActFunds( )
         {
@@ -61,9 +62,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfInflationReductionActFunds"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="StatusOfInflationReductionActFunds"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public StatusOfInflationReductionActFunds( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -86,7 +89,9 @@ namespace BudgetExecution
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            UnliquidatedObligations = double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
+            UnliquidatedObligations =
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
+
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
             Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
             Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
@@ -108,9 +113,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfInflationReductionActFunds"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="StatusOfInflationReductionActFunds"/>
+        /// class.
         /// </summary>
-        /// <param name="builder"></param>
+        /// <param name="builder"> </param>
         public StatusOfInflationReductionActFunds( IDataModel builder )
         {
             Record = builder.Record;
@@ -133,7 +140,9 @@ namespace BudgetExecution
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            UnliquidatedObligations = double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
+            UnliquidatedObligations =
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
+
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
             Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
             Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
@@ -155,9 +164,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfInflationReductionActFunds"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="StatusOfInflationReductionActFunds"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public StatusOfInflationReductionActFunds( DataRow dataRow )
         {
             Record = dataRow;
@@ -180,7 +191,9 @@ namespace BudgetExecution
             Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0" );
             Posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0" );
             OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
-            UnliquidatedObligations = double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) );
+            UnliquidatedObligations =
+                double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) );
+
             Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
             Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) ?? "0" );
             Used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0" );
@@ -202,9 +215,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfInflationReductionActFunds"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="StatusOfInflationReductionActFunds"/>
+        /// class.
         /// </summary>
-        /// <param name="account">The allocation.</param>
+        /// <param name="account"> The allocation. </param>
         public StatusOfInflationReductionActFunds( StatusOfInflationReductionActFunds account )
         {
             ID = account.ID;

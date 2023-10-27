@@ -44,6 +44,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     /// <seealso cref="BudgetExecution.DescriptionBase"/>
@@ -51,7 +52,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class ProgramProject : DescriptionBase 
+    public class ProgramProject : DescriptionBase
     {
         /// <summary>
         /// Initializes a new instance of the

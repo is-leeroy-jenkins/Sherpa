@@ -43,88 +43,62 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class ReconciliationLines
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
+        /// <summary> Gets or sets the identifier. </summary>
+        /// <value> The identifier. </value>
         public int ID { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
+        /// <summary> Gets or sets the name. </summary>
+        /// <value> The name. </value>
         public string Name { get; set; }
 
-        /// <summary>
-        /// Gets or sets the number.
-        /// </summary>
-        /// <value>
-        /// The number.
-        /// </value>
+        /// <summary> Gets or sets the number. </summary>
+        /// <value> The number. </value>
         public string Number { get; set; }
 
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         public Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
         public Provider Provider { get; set; }
 
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
+        /// <summary> Gets or sets the record. </summary>
+        /// <value> The record. </value>
         public DataRow Record { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
+        /// <summary> Gets or sets the data. </summary>
+        /// <value> The data. </value>
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ReconciliationLines"/> class.
+        /// <see cref="ReconciliationLines"/>
+        /// class.
         /// </summary>
         public ReconciliationLines( )
         {
             Source = Source.ReconciliationLines;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ReconciliationLines" /> class.
+        /// <see cref="T:BudgetExecution.ReconciliationLines"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public ReconciliationLines( IQuery query )
             : this( )
         {
@@ -135,11 +109,13 @@ namespace BudgetExecution
             Name = Record[ "Name" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.ReconciliationLines" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ReconciliationLines"/>
+        /// class.
         /// </summary>
-        /// <param name="dataBuilder">The data builder.</param>
+        /// <param name="dataBuilder"> The data builder. </param>
         public ReconciliationLines( IDataModel dataBuilder )
             : this( )
         {
@@ -150,11 +126,13 @@ namespace BudgetExecution
             Name = Record[ "Name" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.ReconciliationLines" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ReconciliationLines"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public ReconciliationLines( DataRow dataRow )
             : this( )
         {

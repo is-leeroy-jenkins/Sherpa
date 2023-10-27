@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="IDataFile.cs" company="Terry D. Eppler">
+// <copyright file="IFile.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,25 +34,29 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   IDataFile.cs
+//   IFile.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Security.AccessControl;
+    using System.Threading;
 
     /// <summary> </summary>
-    public interface IDataFile : IDataPath
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    public interface IFile
     {
         /// <summary> Transfers the specified folder. </summary>
-        /// <param name = "folder" > The folder. </param>
+        /// <param name="folder"> The folder. </param>
         void Transfer( DirectoryInfo folder );
 
         /// <summary> Determines whether this instance contains the object. </summary>
-        /// <param name = "search" > The search. </param>
+        /// <param name="search"> The search. </param>
         /// <returns>
         /// <c> true </c>
         /// if [contains] [the specified search]; otherwise,
@@ -62,7 +66,7 @@ namespace BudgetExecution
         bool Contains( string search );
 
         /// <summary> Searches the specified pattern. </summary>
-        /// <param name = "pattern" > The pattern. </param>
+        /// <param name="pattern"> The pattern. </param>
         /// <returns> </returns>
         IEnumerable<FileInfo> Search( string pattern );
 
@@ -71,11 +75,11 @@ namespace BudgetExecution
         string GetParentDirectory( );
 
         /// <summary> Moves the specified destination. </summary>
-        /// <param name = "filePath" > The destination. </param>
+        /// <param name="filePath"> The destination. </param>
         void Move( string filePath );
 
         /// <summary> Copies the specified filePath. </summary>
-        /// <param name = "filePath" > The filePath. </param>
+        /// <param name="filePath"> The filePath. </param>
         void Copy( string filePath );
 
         /// <summary> Deletes this instance. </summary>
@@ -92,7 +96,7 @@ namespace BudgetExecution
         /// <summary> Converts to string. </summary>
         /// <returns>
         /// A
-        /// <see cref = "System.String"/>
+        /// <see cref="System.String"/>
         /// that represents this instance.
         /// </returns>
         string ToString( );

@@ -47,6 +47,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Drawing.Drawing2D;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Chart;
@@ -150,8 +151,8 @@ namespace BudgetExecution
         /// <param name="height"> The height. </param>
         public void SetSize( int width = 600, int height = 400 )
         {
-            if( width > 0
-               && height > 0 )
+            if( ( width > 0 )
+               && ( height > 0 ) )
             {
                 try
                 {

@@ -49,29 +49,30 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.ToolStripDropDownBase" />
-    /// <seealso cref="T:BudgetExecution.IToolStripComboBox" />
+    /// <seealso cref="T:BudgetExecution.ToolStripDropDownBase"/>
+    /// <seealso cref="T:BudgetExecution.IToolStripComboBox"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class ToolStripDropDown : ToolStripDropDownBase, IToolStripComboBox
+    public class ToolStripDropDown : ToolStripDropDownBase
     {
         /// <summary> Gets or sets the tool tip. </summary>
         /// <value> The tool tip. </value>
         public SmallTip ToolTip { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx" />
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx"/>
         /// class.
         /// </summary>
         public ToolStripDropDown( )
@@ -95,10 +96,10 @@ namespace BudgetExecution
             MouseLeave += OnMouseLeave;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx" />
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx"/>
         /// class.
         /// </summary>
         /// <param name="data"> The data. </param>
@@ -108,10 +109,10 @@ namespace BudgetExecution
             BindingSource.DataSource = data?.ToList( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx" />
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx"/>
         /// class.
         /// </summary>
         /// <param name="data"> The data. </param>
@@ -122,10 +123,10 @@ namespace BudgetExecution
             BindingSource.Filter = filter;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx" />
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx"/>
         /// class.
         /// </summary>
         /// <param name="data"> The data. </param>
@@ -137,7 +138,7 @@ namespace BudgetExecution
             BindingSource.DataMember = filter;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary> Sets the data source. </summary>
         /// <param name="bindingSource"> The binding source. </param>
         public void SetDataSource( BindingSource bindingSource )
@@ -155,12 +156,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary> Called when [mouse over]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
-        /// <see cref="T:System.EventArgs" />
+        /// <see cref="T:System.EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnMouseHover( object sender, EventArgs e )
@@ -188,18 +189,18 @@ namespace BudgetExecution
             }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary> Called when [item selected]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
-        /// <see cref="T:System.EventArgs" />
+        /// <see cref="T:System.EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnItemSelected( object sender, EventArgs e )
         {
-            if( sender != null
-               && e != null )
+            if( ( sender != null )
+               && ( e != null ) )
             {
                 try
                 {
@@ -217,7 +218,7 @@ namespace BudgetExecution
         /// <returns> </returns>
         public object GetSelectedItem( )
         {
-            if( Selected && SelectedIndex > -1 )
+            if( Selected && ( SelectedIndex > -1 ) )
             {
                 try
                 {

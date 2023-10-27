@@ -188,9 +188,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ObligationActivity"/> class.
+        /// <see cref="ObligationActivity"/>
+        /// class.
         /// </summary>
-        /// <param name="obligation">The obligation.</param>
+        /// <param name="obligation"> The obligation. </param>
         public ObligationActivity( Obligation obligation )
         {
             ID = obligation.ID;

@@ -43,31 +43,30 @@
 
 namespace BudgetExecution
 {
-    using Syncfusion.Drawing;
-    using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.Grid;
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
+    using Syncfusion.Drawing;
+    using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Grid;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:Syncfusion.Windows.Forms.Grid.GridControl" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Forms.Grid.GridControl"/>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class GridControl : Syncfusion.Windows.Forms.Grid.GridControl
     {
-        /// <summary>
-        /// The grid information
-        /// </summary>
-        public readonly GridStyleInfo GridStyle = new GridStyleInfo( );
+        /// <summary> The grid information </summary>
+        public readonly GridStyleInfo GridStyle = new GridStyleInfo ( );
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GridControl" /> class.
+        /// <see cref="T:BudgetExecution.GridControl"/>
+        /// class.
         /// </summary>
         public GridControl( )
         {
@@ -90,7 +89,7 @@ namespace BudgetExecution
             Office2016ScrollBars = true;
             SizeGripStyle = SizeGripStyle.Hide;
             GridStyle.BackColor = Color.FromArgb( 60, 60, 60 );
-            GridStyle.Interior = new BrushInfo( GradientStyle.None, ForeColor, 
+            GridStyle.Interior = new BrushInfo( GradientStyle.None, ForeColor,
                 Color.FromArgb( 60, 60, 60 ) );
 
             RangeStyles[ 0 ].StyleInfo = GridStyle;

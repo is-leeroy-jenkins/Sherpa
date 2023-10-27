@@ -43,20 +43,20 @@
 
 namespace BudgetExecution
 {
-    using Syncfusion.Windows.Forms.Maps;
     using System;
     using System.Drawing;
+    using System.Threading;
+    using Syncfusion.Windows.Forms.Maps;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Maps.Maps" />
+    /// <summary> </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.Maps.Maps"/>
     public class MapControl : Maps
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MapControl" /> class.
+        /// <see cref="T:BudgetExecution.MapControl"/>
+        /// class.
         /// </summary>
         public MapControl( )
         {

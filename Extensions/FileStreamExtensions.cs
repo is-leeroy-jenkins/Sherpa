@@ -44,6 +44,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.IO;
     using System.Text;
+    using System.Threading;
 
     /// <summary> </summary>
     public static class FileStreamExtensions
@@ -293,8 +294,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _memory = new MemoryStream( (int)stream.Length );
-                    stream.CopyTo( _memory, (int)stream.Length );
+                    using var _memory = new MemoryStream( (int) stream.Length );
+                    stream.CopyTo( _memory, (int) stream.Length );
                     return _memory;
                 }
                 catch( Exception _ex )

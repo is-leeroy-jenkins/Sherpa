@@ -43,34 +43,27 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.AdministrativeRequest" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.AdministrativeRequest"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class CarryoverRequest : AdministrativeRequests
     {
-        /// <summary>
-        /// Gets or sets the original request date.
-        /// </summary>
-        /// <value>
-        /// The original request date.
-        /// </value>
+        /// <summary> Gets or sets the original request date. </summary>
+        /// <value> The original request date. </value>
         public DateOnly OriginalRequestDate { get; set; }
 
-        /// <summary>
-        /// Gets or sets the last activity date.
-        /// </summary>
-        /// <value>
-        /// The last activity date.
-        /// </value>
+        /// <summary> Gets or sets the last activity date. </summary>
+        /// <value> The last activity date. </value>
         public DateOnly LastActivityDate { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CarryoverRequest"/> class.
+        /// <see cref="CarryoverRequest"/>
+        /// class.
         /// </summary>
         public CarryoverRequest( )
         {
@@ -79,9 +72,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CarryoverRequest"/> class.
+        /// <see cref="CarryoverRequest"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public CarryoverRequest( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -94,15 +88,18 @@ namespace BudgetExecution
             Status = Record[ "Status" ].ToString( );
             BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString( );
             Comments = Record[ "Comments" ].ToString( );
-            OriginalRequestDate = DateOnly.Parse( Record[ "OriginalRequestDate" ].ToString( ) ?? "" );
+            OriginalRequestDate =
+                DateOnly.Parse( Record[ "OriginalRequestDate" ].ToString( ) ?? "" );
+
             LastActivityDate = DateOnly.Parse( Record[ "LastActivityDate" ].ToString( ) ?? "" );
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CarryoverRequest"/> class.
+        /// <see cref="CarryoverRequest"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name="builder"> The builder. </param>
         public CarryoverRequest( IDataModel builder )
         {
             Record = builder.Record;
@@ -115,15 +112,18 @@ namespace BudgetExecution
             Status = Record[ "Status" ].ToString( );
             BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString( );
             Comments = Record[ "Comments" ].ToString( );
-            OriginalRequestDate = DateOnly.Parse( Record[ "OriginalRequestDate" ].ToString( ) ?? "" );
+            OriginalRequestDate =
+                DateOnly.Parse( Record[ "OriginalRequestDate" ].ToString( ) ?? "" );
+
             LastActivityDate = DateOnly.Parse( Record[ "LastActivityDate" ].ToString( ) ?? "" );
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CarryoverRequest"/> class.
+        /// <see cref="CarryoverRequest"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public CarryoverRequest( DataRow dataRow )
         {
             Record = dataRow;
@@ -136,15 +136,18 @@ namespace BudgetExecution
             Status = dataRow[ "Status" ].ToString( );
             BudgetFormulationSystem = dataRow[ "BudgetFormulationSystem" ].ToString( );
             Comments = dataRow[ "Comments" ].ToString( );
-            OriginalRequestDate = DateOnly.Parse( dataRow[ "OriginalRequestDate" ].ToString( ) ?? "" );
+            OriginalRequestDate =
+                DateOnly.Parse( dataRow[ "OriginalRequestDate" ].ToString( ) ?? "" );
+
             LastActivityDate = DateOnly.Parse( dataRow[ "LastActivityDate" ].ToString( ) ?? "" );
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CarryoverRequest"/> class.
+        /// <see cref="CarryoverRequest"/>
+        /// class.
         /// </summary>
-        /// <param name="request">The request.</param>
+        /// <param name="request"> The request. </param>
         public CarryoverRequest( CarryoverRequest request )
         {
             ID = request.ID;

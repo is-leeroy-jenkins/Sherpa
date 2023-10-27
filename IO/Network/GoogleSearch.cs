@@ -46,12 +46,11 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
     using Google.Apis.Customsearch.v1;
     using Google.Apis.Services;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -59,24 +58,18 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Global" ) ]
     public class GoogleSearch
     {
-        /// <summary>
-        /// Gets the configuration.
-        /// </summary>
-        /// <value>
-        /// The configuration.
-        /// </value>
+        /// <summary> Gets the configuration. </summary>
+        /// <value> The configuration. </value>
         public NameValueCollection Config { get; }
 
-        /// <summary>
-        /// Gets or sets the query.
-        /// </summary>
-        /// <value>
-        /// The query.
-        /// </value>
+        /// <summary> Gets or sets the query. </summary>
+        /// <value> The query. </value>
         public string Query { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GoogleSearch"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="GoogleSearch"/>
+        /// class.
         /// </summary>
         public GoogleSearch( )
         {
@@ -84,19 +77,19 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GoogleSearch"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="GoogleSearch"/>
+        /// class.
         /// </summary>
-        /// <param name="keywords">The keywords.</param>
+        /// <param name="keywords"> The keywords. </param>
         public GoogleSearch( string keywords )
         {
             Config = ConfigurationManager.AppSettings;
             Query = keywords;
         }
 
-        /// <summary>
-        /// Gets the results.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the results. </summary>
+        /// <returns> </returns>
         public List<ResultData> GetResults( )
         {
             if( !string.IsNullOrEmpty( Query ) )
@@ -137,10 +130,8 @@ namespace BudgetExecution
             return default( List<ResultData> );
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

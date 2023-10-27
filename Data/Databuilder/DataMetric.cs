@@ -45,11 +45,10 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
     using LinqStatistics;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
@@ -59,18 +58,20 @@ namespace BudgetExecution
     public class DataMetric : MetricBase
     {
         /// <summary>
-        /// Initializes a new
-        /// instance of the <see cref="DataMetric"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="DataMetric"/>
+        /// class.
         /// </summary>
         public DataMetric( )
         {
         }
 
         /// <summary>
-        /// Initializes a new
-        /// instance of the <see cref="DataMetric"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="DataMetric"/>
+        /// class.
         /// </summary>
-        /// <param name="dataTable">The data table.</param>
+        /// <param name="dataTable"> The data table. </param>
         public DataMetric( DataTable dataTable )
         {
             DataTable = dataTable;
@@ -78,22 +79,21 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="DataMetric"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="DataMetric"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public DataMetric( IEnumerable<DataRow> dataRow )
         {
             DataTable = dataRow.CopyToDataTable( );
             Numerics = GetNumerics( );
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Counts the values.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Counts the values. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <returns> </returns>
         public override int CountValues( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -118,13 +118,11 @@ namespace BudgetExecution
             return -1;
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Counts the values.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Counts the values. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <param name="where"> The where. </param>
+        /// <returns> </returns>
         public override int CountValues( string numeric, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -149,12 +147,10 @@ namespace BudgetExecution
             return -1;
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Calculates the total.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Calculates the total. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <returns> </returns>
         public override double CalculateTotal( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -179,13 +175,11 @@ namespace BudgetExecution
             return default( double );
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Calculates the total.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Calculates the total. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <param name="where"> The where. </param>
+        /// <returns> </returns>
         public override double CalculateTotal( string numeric, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -210,12 +204,10 @@ namespace BudgetExecution
             return default( double );
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Calculates the average.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Calculates the average. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <returns> </returns>
         public override double CalculateAverage( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -241,13 +233,11 @@ namespace BudgetExecution
             return 0.0d;
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Calculates the average.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Calculates the average. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <param name="where"> The where. </param>
+        /// <returns> </returns>
         public override double CalculateAverage( string numeric, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -273,12 +263,10 @@ namespace BudgetExecution
             return 0.0d;
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Calculates the percentage.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Calculates the percentage. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <returns> </returns>
         public override double CalculatePercentage( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -303,15 +291,13 @@ namespace BudgetExecution
             return default( double );
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Calculates the percentage.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Calculates the percentage. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <param name="where"> The where. </param>
+        /// <returns> </returns>
         public override double CalculatePercentage( string numeric,
-            IDictionary<string, object> where )
+                                                    IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
                && ( where?.Any( ) == true ) )
@@ -335,12 +321,10 @@ namespace BudgetExecution
             return default( double );
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Calculates the deviation.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Calculates the deviation. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <returns> </returns>
         public override double CalculateDeviation( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -366,15 +350,13 @@ namespace BudgetExecution
             return default( double );
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Calculates the deviation.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Calculates the deviation. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <param name="where"> The where. </param>
+        /// <returns> </returns>
         public override double CalculateDeviation( string numeric,
-            IDictionary<string, object> where )
+                                                   IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
                && ( where?.Any( ) == true ) )
@@ -399,12 +381,10 @@ namespace BudgetExecution
             return default( double );
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Calculates the variance.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Calculates the variance. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <returns> </returns>
         public override double CalculateVariance( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
@@ -430,15 +410,13 @@ namespace BudgetExecution
             return -1.0d;
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Calculates the variance.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Calculates the variance. </summary>
+        /// <param name="numeric"> The numeric. </param>
+        /// <param name="where"> The where. </param>
+        /// <returns> </returns>
         public override double CalculateVariance( string numeric,
-            IDictionary<string, object> where )
+                                                  IDictionary<string, object> where )
         {
             if( string.IsNullOrEmpty( numeric )
                && ( where?.Any( ) == true ) )
@@ -463,12 +441,9 @@ namespace BudgetExecution
             return -1.0d;
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the numeric columns.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <inheritdoc/>
+        /// <summary> Gets the numeric columns. </summary>
+        /// <returns> </returns>
         public override IList<string> GetNumerics( )
         {
             try
@@ -476,7 +451,8 @@ namespace BudgetExecution
                 var _numerics = new List<string>( );
                 foreach( DataColumn _col in DataTable.Columns )
                 {
-                    if( ( !_col.ColumnName.EndsWith( "Id" ) && ( _col.Ordinal > 0 )
+                    if( ( !_col.ColumnName.EndsWith( "Id" )
+                           && ( _col.Ordinal > 0 )
                            && ( _col.DataType == typeof( double ) ) )
                        || ( _col.DataType == typeof( short ) )
                        || ( _col.DataType == typeof( long ) )
@@ -498,11 +474,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the dates.
-        /// </summary>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Gets the dates. </summary>
+        /// <returns> </returns>
         private protected override IList<string> GetDates( )
         {
             if( DataTable != null )

@@ -44,51 +44,32 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public enum Day
     {
-        /// <summary>
-        /// The sunday
-        /// </summary>
+        /// <summary> The sunday </summary>
         Sunday = 0,
 
-        /// <summary>
-        /// The monday
-        /// </summary>
+        /// <summary> The monday </summary>
         Monday,
 
-        /// <summary>
-        /// The tuesday
-        /// </summary>
+        /// <summary> The tuesday </summary>
         Tuesday,
 
-        /// <summary>
-        /// The wednesday
-        /// </summary>
+        /// <summary> The wednesday </summary>
         Wednesday,
 
-        /// <summary>
-        /// The thursday
-        /// </summary>
+        /// <summary> The thursday </summary>
         Thursday,
 
-        /// <summary>
-        /// The friday
-        /// </summary>
+        /// <summary> The friday </summary>
         Friday,
 
-        /// <summary>
-        /// The saturday
-        /// </summary>
+        /// <summary> The saturday </summary>
         Saturday
     }
 }

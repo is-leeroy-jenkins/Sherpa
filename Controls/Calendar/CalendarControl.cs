@@ -43,34 +43,25 @@
 
 namespace BudgetExecution
 {
+    using System;
+    using System.Drawing;
+    using System.Threading;
+    using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Grid;
     using Syncfusion.Windows.Forms.Tools;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Drawing;
-    using System.Linq;
-    using System.Security.RightsManagement;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Windows.Forms;
 
     public partial class CalendarControl : UserControl
     {
-        /// <summary>
-        /// Gets or sets the selected date.
-        /// </summary>
-        /// <value>
-        /// The selected date.
-        /// </value>
+        /// <summary> Gets or sets the selected date. </summary>
+        /// <value> The selected date. </value>
         public DateTime SelectedDate { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CalendarControl" /> class.
+        /// <see cref="T:BudgetExecution.CalendarControl"/>
+        /// class.
         /// </summary>
         public CalendarControl( )
         {
@@ -106,12 +97,13 @@ namespace BudgetExecution
             Calendar.DateSelected += OnSelectedDateChanged;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CalendarControl" /> class.
+        /// <see cref="T:BudgetExecution.CalendarControl"/>
+        /// class.
         /// </summary>
-        /// <param name="dateTime">The date time.</param>
+        /// <param name="dateTime"> The date time. </param>
         public CalendarControl( DateTime dateTime )
             : this( )
         {
@@ -123,16 +115,17 @@ namespace BudgetExecution
             SelectedDate = Calendar.SelectedDates[ 0 ];
         }
 
-        /// <summary>
-        /// Called when [selected date changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [selected date changed]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnSelectedDateChanged( object sender, EventArgs e )
         {
             if( sender is MonthCalendarAdv _calendar
-               && _calendar.SelectedDates.Length > 0 )
+               && ( _calendar.SelectedDates.Length > 0 ) )
             {
                 try
                 {
@@ -145,10 +138,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

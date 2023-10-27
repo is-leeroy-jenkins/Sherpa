@@ -43,142 +43,90 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class MainAccounts
     {
-        /// <summary>
-        /// Gets or sets the main accounts identifier.
-        /// </summary>
-        /// <value>
-        /// The main accounts identifier.
-        /// </value>
+        /// <summary> Gets or sets the main accounts identifier. </summary>
+        /// <value> The main accounts identifier. </value>
         public int MainAccountsId { get; set; }
 
-        /// <summary>
-        /// Gets or sets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
+        /// <summary> Gets or sets the code. </summary>
+        /// <value> The code. </value>
         public string Code { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
+        /// <summary> Gets or sets the name. </summary>
+        /// <value> The name. </value>
         public string Name { get; set; }
 
-        /// <summary>
-        /// Gets or sets the sub function code.
-        /// </summary>
-        /// <value>
-        /// The sub function code.
-        /// </value>
+        /// <summary> Gets or sets the sub function code. </summary>
+        /// <value> The sub function code. </value>
         public string SubFunctionCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the sub function.
-        /// </summary>
-        /// <value>
-        /// The name of the sub function.
-        /// </value>
+        /// <summary> Gets or sets the name of the sub function. </summary>
+        /// <value> The name of the sub function. </value>
         public string SubFunctionName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the budget account code.
-        /// </summary>
-        /// <value>
-        /// The budget account code.
-        /// </value>
+        /// <summary> Gets or sets the budget account code. </summary>
+        /// <value> The budget account code. </value>
         public string BudgetAccountCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the budget account.
-        /// </summary>
-        /// <value>
-        /// The name of the budget account.
-        /// </value>
+        /// <summary> Gets or sets the name of the budget account. </summary>
+        /// <value> The name of the budget account. </value>
         public string BudgetAccountName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the treasury account code.
-        /// </summary>
-        /// <value>
-        /// The treasury account code.
-        /// </value>
+        /// <summary> Gets or sets the treasury account code. </summary>
+        /// <value> The treasury account code. </value>
         public string TreasuryAccountCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the treasury account.
-        /// </summary>
-        /// <value>
-        /// The name of the treasury account.
-        /// </value>
+        /// <summary> Gets or sets the name of the treasury account. </summary>
+        /// <value> The name of the treasury account. </value>
         public string TreasuryAccountName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the budget enforcement act category.
-        /// </summary>
-        /// <value>
-        /// The budget enforcement act category.
-        /// </value>
+        /// <summary> Gets or sets the budget enforcement act category. </summary>
+        /// <value> The budget enforcement act category. </value>
         public string BudgetEnforcementActCategory { get; set; }
 
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         public Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
         public Provider Provider { get; set; }
 
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
+        /// <summary> Gets or sets the record. </summary>
+        /// <value> The record. </value>
         public DataRow Record { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
+        /// <summary> Gets or sets the data. </summary>
+        /// <value> The data. </value>
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainAccounts"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="MainAccounts"/>
+        /// class.
         /// </summary>
         public MainAccounts( )
         {
             Source = Source.MainAccounts;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.MainAccounts" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.MainAccounts"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public MainAccounts( IQuery query )
             : this( )
         {
@@ -195,11 +143,13 @@ namespace BudgetExecution
             BudgetEnforcementActCategory = Record[ "BudgetEnforcementActCategory" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.MainAccounts" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.MainAccounts"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name="builder"> The builder. </param>
         public MainAccounts( IDataModel builder )
             : this( )
         {
@@ -216,12 +166,13 @@ namespace BudgetExecution
             BudgetEnforcementActCategory = Record[ "BudgetEnforcementActCategory" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MainAccounts" /> class.
+        /// <see cref="T:BudgetExecution.MainAccounts"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public MainAccounts( DataRow dataRow )
             : this( )
         {

@@ -43,18 +43,15 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
     using static System.Configuration.ConfigurationManager;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class Minion
     {
-        /// <summary>
-        /// Opens the sql lite client
-        /// </summary>
+        /// <summary> Opens the sql lite client </summary>
         public static void RunSQLite( )
         {
             try
@@ -81,9 +78,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Opens the SQL ce.
-        /// </summary>
+        /// <summary> Opens the SQL ce. </summary>
         public static void RunSqlCe( )
         {
             try
@@ -110,9 +105,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Opens the access.
-        /// </summary>
+        /// <summary> Opens the access. </summary>
         public static void RunAccess( )
         {
             try
@@ -135,9 +128,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Opens the excel.
-        /// </summary>
+        /// <summary> Opens the excel. </summary>
         public static void OpenExcel( )
         {
             try
@@ -160,9 +151,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Opens the PDF document.
-        /// </summary>
+        /// <summary> Opens the PDF document. </summary>
         public static void OpenPdfDocument( )
         {
             try
@@ -183,9 +172,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Launches the edge.
-        /// </summary>
+        /// <summary> Launches the edge. </summary>
         public static void RunEdge( )
         {
             try
@@ -208,15 +195,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Runs the edge.
-        /// </summary>
-        /// <param name="uri">The URI.</param>
+        /// <summary> Runs the edge. </summary>
+        /// <param name="uri"> The URI. </param>
         public static void RunEdge( string uri )
         {
             try
             {
-                var _path = AppSettings["Edge"];
+                var _path = AppSettings[ "Edge" ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
                 _startInfo.LoadUserProfile = true;
@@ -235,9 +220,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Runs the budget browser.
-        /// </summary>
+        /// <summary> Runs the budget browser. </summary>
         public static void RunBudgetBrowser( )
         {
             try
@@ -259,9 +242,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Launches the chrome.
-        /// </summary>
+        /// <summary> Launches the chrome. </summary>
         public static void RunChrome( )
         {
             try
@@ -284,10 +265,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Runs the chrome.
-        /// </summary>
-        /// <param name="uri">The URI.</param>
+        /// <summary> Runs the chrome. </summary>
+        /// <param name="uri"> The URI. </param>
         public static void RunChrome( string uri )
         {
             try
@@ -311,9 +290,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Runs the firefox.
-        /// </summary>
+        /// <summary> Runs the firefox. </summary>
         public static void RunFirefox( )
         {
             try
@@ -336,10 +313,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Runs the firefox.
-        /// </summary>
-        /// <param name="uri">The URI.</param>
+        /// <summary> Runs the firefox. </summary>
+        /// <param name="uri"> The URI. </param>
         public static void RunFirefox( string uri )
         {
             try
@@ -363,10 +338,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

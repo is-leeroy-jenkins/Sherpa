@@ -47,11 +47,12 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    public class ListView : ListViewBase, IListView
+    public class ListView : ListViewBase 
     {
         /// <summary> Gets or sets the binding source. </summary>
         /// <value> The binding source. </value>

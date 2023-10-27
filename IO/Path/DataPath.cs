@@ -42,27 +42,28 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.PathBase" />
+    /// <seealso cref="T:BudgetExecution.PathBase"/>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class DataPath : PathBase, IDataPath
+    public class DataPath : PathBase, IPath
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataPath" />
+        /// <see cref="T:BudgetExecution.DataPath"/>
         /// class.
         /// </summary>
         public DataPath( )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DataPath" />
+        /// <see cref="T:BudgetExecution.DataPath"/>
         /// class.
         /// </summary>
         /// <param name="input"> The input. </param>

@@ -44,18 +44,14 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
+    using System.Threading;
     using System.Threading.Tasks;
-    
+
     public abstract class AsyncData : AsyncState
     {
-        /// <summary>
-        /// Gets the query asynchronous.
-        /// </summary>
-        /// <param name="sqlStatement">
-        /// The SQL statement.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <summary> Gets the query asynchronous. </summary>
+        /// <param name="sqlStatement"> The SQL statement. </param>
+        /// <returns> </returns>
         public Task<IQuery> GetQueryAsync( SqlStatement sqlStatement )
         {
             if( sqlStatement != null )
@@ -80,10 +76,8 @@ namespace BudgetExecution
             return default( Task<IQuery> );
         }
 
-        /// <summary>
-        /// Gets the ordinals.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the ordinals. </summary>
+        /// <returns> </returns>
         public Task<IEnumerable<int>> GetOrdinalsAsync( )
         {
             var _tcs = new TaskCompletionSource<IEnumerable<int>>( );
@@ -113,10 +107,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the map asynchronous.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the map asynchronous. </summary>
+        /// <returns> </returns>
         public Task<IDictionary<string, object>> GetMapAsync( )
         {
             var _tcs = new TaskCompletionSource<IDictionary<string, object>>( );
@@ -139,10 +131,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the column schema.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the column schema. </summary>
+        /// <returns> </returns>
         public Task<IDictionary<string, Type>> GetSchemaAsync( )
         {
             var _tcs = new TaskCompletionSource<IDictionary<string, Type>>( );
@@ -176,10 +166,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the data columns.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the data columns. </summary>
+        /// <returns> </returns>
         public Task<IEnumerable<DataColumn>> GetColumnsAsync( )
         {
             var _tcs = new TaskCompletionSource<IEnumerable<DataColumn>>( );
@@ -215,10 +203,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the column names.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the column names. </summary>
+        /// <returns> </returns>
         public Task<IEnumerable<string>> GetNamesAsync( )
         {
             if( DataTable?.Result != null )

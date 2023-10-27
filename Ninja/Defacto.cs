@@ -46,17 +46,18 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class Defacto : StatusOfFunds
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Defacto" />
+        /// <see cref="T:BudgetExecution.Defacto"/>
         /// class.
         /// </summary>
         public Defacto( )
@@ -64,10 +65,10 @@ namespace BudgetExecution
             Source = Source.Defactos;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Defacto" />
+        /// <see cref="T:BudgetExecution.Defacto"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -118,10 +119,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Defacto" />
+        /// <see cref="T:BudgetExecution.Defacto"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -172,10 +173,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Defacto" />
+        /// <see cref="T:BudgetExecution.Defacto"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -226,12 +227,13 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Defacto" /> class.
+        /// <see cref="T:BudgetExecution.Defacto"/>
+        /// class.
         /// </summary>
-        /// <param name="defacto">The defacto.</param>
+        /// <param name="defacto"> The defacto. </param>
         public Defacto( Defacto defacto )
         {
             ID = defacto.ID;

@@ -40,67 +40,39 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Data.Common;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     public interface IConnection
     {
-        /// <summary>
-        /// Gets or sets the connection.
-        /// </summary>
-        /// <value>
-        /// The connection.
-        /// </value>
+        /// <summary> Gets or sets the connection. </summary>
+        /// <value> The connection. </value>
         DbConnection Connection { get; set; }
 
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
         Provider Provider { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the file.
-        /// </summary>
-        /// <value>
-        /// The name of the file.
-        /// </value>
+        /// <summary> Gets or sets the name of the file. </summary>
+        /// <value> The name of the file. </value>
         string FileName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the client path.
-        /// </summary>
-        /// <value>
-        /// The client path.
-        /// </value>
+        /// <summary> Gets or sets the client path. </summary>
+        /// <value> The client path. </value>
         string ClientPath { get; set; }
 
-        /// <summary>
-        /// Gets or sets the connection string.
-        /// </summary>
-        /// <value>
-        /// The connection string.
-        /// </value>
+        /// <summary> Gets or sets the connection string. </summary>
+        /// <value> The connection string. </value>
         string ConnectionString { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the table.
-        /// </summary>
-        /// <value>
-        /// The name of the table.
-        /// </value>
+        /// <summary> Gets or sets the name of the table. </summary>
+        /// <value> The name of the table. </value>
         string TableName { get; set; }
     }
 }

@@ -43,6 +43,7 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -70,7 +71,9 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            ID = int.Parse(
+                Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -99,7 +102,9 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            ID = int.Parse(
+                Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -127,7 +132,9 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            ID = int.Parse(
+                Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
@@ -145,10 +152,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InflationReductionActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="InflationReductionActCarryoverEstimate"/>
+        /// class.
         /// </summary>
-        /// <param name="carryover">The carryover.</param>
-        public InflationReductionActCarryoverEstimate( InflationReductionActCarryoverEstimate carryover )
+        /// <param name="carryover"> The carryover. </param>
+        public InflationReductionActCarryoverEstimate(
+            InflationReductionActCarryoverEstimate carryover )
             : this( )
         {
             ID = carryover.ID;

@@ -45,34 +45,27 @@ namespace BudgetExecution
 {
     using System;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.PivotAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl" />
+    /// <summary> </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>
     public class PivotGrid : PivotGridControl
     {
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
+        /// <summary> Gets or sets the tool tip. </summary>
+        /// <value> The tool tip. </value>
         public virtual SmallTip ToolTip { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PivotGrid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="PivotGrid"/>
+        /// class.
         /// </summary>
         public PivotGrid( )
         {

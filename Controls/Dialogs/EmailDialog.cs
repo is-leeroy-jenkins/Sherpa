@@ -43,18 +43,18 @@
 
 namespace BudgetExecution
 {
-    using Syncfusion.Drawing;
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
+    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Edit;
+    using Timer = System.Windows.Forms.Timer;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <summary> </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -62,22 +62,19 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class EmailDialog : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
+        /// <summary> Gets or sets the time. </summary>
         /// <value> The time. </value>
         public int Time { get; set; }
 
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
+        /// <summary> Gets or sets the seconds. </summary>
         /// <value> The seconds. </value>
         public int Seconds { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EmailDialog" /> class.
+        /// <see cref="T:BudgetExecution.EmailDialog"/>
+        /// class.
         /// </summary>
         public EmailDialog( )
         {
@@ -129,9 +126,51 @@ namespace BudgetExecution
             MenuButton.Click += OnMainMenuButtonClicked;
         }
 
-        /// <summary>
-        /// Sets the editor configuration.
-        /// </summary>
+        /// <summary> Displays the control to the user. </summary>
+        public new void Show( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        Time++;
+                        if( Time == Seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Updates the header text. </summary>
+        public void UpdateTitleText( string text )
+        {
+            if( !string.IsNullOrEmpty( text ) )
+            {
+                try
+                {
+                    Title.Text = text;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary> Sets the editor configuration. </summary>
         private void InitializeEditor( )
         {
             try
@@ -187,9 +226,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Initializes the buttons.
-        /// </summary>
+        /// <summary> Initializes the buttons. </summary>
         private void InitializeButtons( )
         {
             try
@@ -203,9 +240,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Initializes the radio buttons.
-        /// </summary>
+        /// <summary> Initializes the radio buttons. </summary>
         private void InitializeRadioButtons( )
         {
             try
@@ -220,9 +255,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Initializes the labels.
-        /// </summary>
+        /// <summary> Initializes the labels. </summary>
         private void InitializeLabels( )
         {
             try
@@ -236,39 +269,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
-        public new void Show( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( Seconds != 0 )
-                {
-                    Timer = new Timer( );
-                    Timer.Interval = 1000;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        Time++;
-                        if( Time == Seconds )
-                        {
-                            Timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
+        /// <summary> Fades the in. </summary>
         private void FadeIn( )
         {
             try
@@ -293,9 +294,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fades the out and close.
-        /// </summary>
+        /// <summary> Fades the out and close. </summary>
         private void FadeOut( )
         {
             try
@@ -320,9 +319,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Notifies this instance.
-        /// </summary>
+        /// <summary> Notifies this instance. </summary>
         private void Notify( )
         {
             try
@@ -337,34 +334,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Updates the header text.
-        /// </summary>
-        public void UpdateTitleText( string text )
-        {
-            if( !string.IsNullOrEmpty( text ) )
-            {
-                try
-                {
-                    Title.Text = text;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Opens the main form.
-        /// </summary>
+        /// <summary> Opens the main form. </summary>
         private void OpenMainForm( )
         {
             try
             {
                 if( Owner?.Visible == false )
                 {
-                    var _form = (MainForm)Program.Windows[ "MainForm" ];
+                    var _form = (MainForm) Program.Windows[ "MainForm" ];
                     _form.Refresh( );
                     _form.Visible = true;
                 }
@@ -380,12 +357,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -404,12 +382,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [first tile click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [first tile click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnFirstTileClick( object sender, EventArgs e )
         {
             try
@@ -422,12 +401,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [second button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs" />
-        /// instance containing the event data.</param>
+        /// <summary> Called when [second button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnSecondTileClick( object sender, EventArgs e )
         {
             try
@@ -440,12 +420,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [third tile click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [third tile click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnThirdTileClick( object sender, EventArgs e )
         {
             try
@@ -458,12 +439,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [inbox RadioButton selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [inbox RadioButton selected]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnFirstRadioButtonSelected( object sender, EventArgs e )
         {
             try
@@ -476,12 +458,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [sent RadioButton selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [sent RadioButton selected]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnSecondRadioButtonSelected( object sender, EventArgs e )
         {
             try
@@ -494,12 +477,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [deleted RadioButton selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [deleted RadioButton selected]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnThirdRadioButtonSelected( object sender, EventArgs e )
         {
             try
@@ -512,12 +496,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [active tab changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [active tab changed]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnActiveTabChanged( object sender, EventArgs e )
         {
             try
@@ -530,12 +515,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [first ListBox selection changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [first ListBox selection changed]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnFirstListBoxSelectionChanged( object sender, EventArgs e )
         {
             try
@@ -548,12 +534,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [second ListBox selection changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [second ListBox selection changed]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnSecondListBoxSelectionChanged( object sender, EventArgs e )
         {
             try
@@ -566,12 +553,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [third ListBox selection changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [third ListBox selection changed]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnThirdListBoxSelectionChanged( object sender, EventArgs e )
         {
             try
@@ -584,12 +572,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [clear button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [clear button click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnClearButtonClick( object sender, EventArgs e )
         {
             try
@@ -602,12 +591,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [close button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnCloseButtonClick( object sender, EventArgs e )
         {
             try
@@ -620,12 +610,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [main menu button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [main menu button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
@@ -640,10 +631,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

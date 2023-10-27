@@ -45,20 +45,17 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.DataUnit" />
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.DataUnit"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class BudgetObjectClass : DataUnit 
+    public class BudgetObjectClass : DataUnit
     {
-        /// <summary>
-        /// The codes
-        /// </summary>
+        /// <summary> The codes </summary>
         public readonly IEnumerable<string> Codes = new[ ]
         {
             "10",
@@ -70,17 +67,15 @@ namespace BudgetExecution
             "38",
             "41"
         };
-        
-        /// <summary>
-        /// Gets or sets the category.
-        /// </summary>
-        /// <value>
-        /// The category.
-        /// </value>
+
+        /// <summary> Gets or sets the category. </summary>
+        /// <value> The category. </value>
         public BOC Category { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="BudgetObjectClass"/>
+        /// class.
         /// </summary>
         public BudgetObjectClass( )
         {
@@ -88,9 +83,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="BudgetObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name="boc">The boc.</param>
+        /// <param name="boc"> The boc. </param>
         public BudgetObjectClass( BOC boc )
             : this( )
         {
@@ -103,9 +100,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="BudgetObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name="code">The code.</param>
+        /// <param name="code"> The code. </param>
         public BudgetObjectClass( string code )
             : this( )
         {
@@ -116,14 +115,16 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
             if( Name != null )
             {
-                Category = (BOC)Enum.Parse( typeof( BOC ), Name );
+                Category = (BOC) Enum.Parse( typeof( BOC ), Name );
             }
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="BudgetObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public BudgetObjectClass( IQuery query )
             : this( )
         {
@@ -134,14 +135,16 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
             if( Name != null )
             {
-                Category = (BOC)Enum.Parse( typeof( BOC ), Name );
+                Category = (BOC) Enum.Parse( typeof( BOC ), Name );
             }
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="BudgetObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name="builder"> The builder. </param>
         public BudgetObjectClass( IDataModel builder )
             : this( )
         {
@@ -152,14 +155,16 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
             if( Name != null )
             {
-                Category = (BOC)Enum.Parse( typeof( BOC ), Name );
+                Category = (BOC) Enum.Parse( typeof( BOC ), Name );
             }
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="BudgetObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public BudgetObjectClass( DataRow dataRow )
             : this( )
         {
@@ -170,14 +175,16 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
             if( Name != null )
             {
-                Category = (BOC)Enum.Parse( typeof( BOC ), Name );
+                Category = (BOC) Enum.Parse( typeof( BOC ), Name );
             }
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="BudgetObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name="boc">The boc.</param>
+        /// <param name="boc"> The boc. </param>
         public BudgetObjectClass( BudgetObjectClass boc )
         {
             ID = boc.ID;
@@ -186,10 +193,8 @@ namespace BudgetExecution
             Category = boc.Category;
         }
 
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Converts to dictionary. </summary>
+        /// <returns> </returns>
         public IDictionary<string, object> ToDictionary( )
         {
             try
@@ -205,11 +210,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the amount.
-        /// </summary>
-        /// <param name="prc">The PRC.</param>
-        /// <returns></returns>
+        /// <summary> Gets the amount. </summary>
+        /// <param name="prc"> The PRC. </param>
+        /// <returns> </returns>
         public double GetAmount( IProgramResultsCode prc )
         {
             try
@@ -226,10 +229,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the amount.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the amount. </summary>
+        /// <returns> </returns>
         public double GetAmount( )
         {
             try
@@ -245,16 +246,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the category.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the category. </summary>
+        /// <returns> </returns>
         public BOC GetCategory( )
         {
             try
             {
                 return !string.IsNullOrEmpty( Name ) && Enum.IsDefined( typeof( BOC ), Name )
-                    ? (BOC)Enum.Parse( typeof( BOC ), Name )
+                    ? (BOC) Enum.Parse( typeof( BOC ), Name )
                     : default( BOC );
             }
             catch( Exception _ex )
@@ -264,11 +263,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the arguments.
-        /// </summary>
-        /// <param name="code">The code.</param>
-        /// <returns></returns>
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
         private IDictionary<string, object> SetArgs( string code )
         {
             if( !string.IsNullOrEmpty( code )
@@ -303,11 +300,9 @@ namespace BudgetExecution
             return default( IDictionary<string, object> );
         }
 
-        /// <summary>
-        /// Sets the arguments.
-        /// </summary>
-        /// <param name="boc">The boc.</param>
-        /// <returns></returns>
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="boc"> The boc. </param>
+        /// <returns> </returns>
         private IDictionary<string, object> SetArgs( BOC boc )
         {
             if( !string.IsNullOrEmpty( boc.ToString( ) )

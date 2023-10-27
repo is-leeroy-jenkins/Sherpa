@@ -44,12 +44,13 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class Objective : DataUnit 
+    public class Objective : DataUnit
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -123,9 +124,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Objective"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Objective"/>
+        /// class.
         /// </summary>
-        /// <param name="objective">The objective.</param>
+        /// <param name="objective"> The objective. </param>
         public Objective( Objective objective )
         {
             ID = objective.ID;

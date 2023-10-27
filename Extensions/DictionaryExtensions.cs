@@ -50,6 +50,7 @@ namespace BudgetExecution
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
@@ -64,8 +65,8 @@ namespace BudgetExecution
         /// <param name="key"> The key. </param>
         /// <param name="value"> The value. </param>
         /// <returns> </returns>
-        public static TValue AddOrUpdate<TKey, TValue>( this IDictionary<TKey, TValue> dict, 
-            TKey key, TValue value )
+        public static TValue AddOrUpdate<TKey, TValue>( this IDictionary<TKey, TValue> dict,
+                                                        TKey key, TValue value )
         {
             if( !dict.ContainsKey( key ) )
             {
@@ -100,7 +101,8 @@ namespace BudgetExecution
                     if( dict.HasPrimaryKey( ) )
                     {
                         var _key = dict.GetPrimaryKey( );
-                        if( !string.IsNullOrEmpty( _key.Key ) & int.Parse( _key.Value.ToString( ) ) > -1 )
+                        if( !string.IsNullOrEmpty( _key.Key )
+                           & int.Parse( _key.Value.ToString( ) ) > -1 )
                         {
                             foreach( var _kvp in dict )
                             {
@@ -142,7 +144,8 @@ namespace BudgetExecution
         /// <typeparam name="TValue"> The type of the value. </typeparam>
         /// <param name="nvc"> The this. </param>
         /// <returns> </returns>
-        public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>( this IDictionary<TKey, TValue> nvc )
+        public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>(
+            this IDictionary<TKey, TValue> nvc )
         {
             try
             {
@@ -158,7 +161,8 @@ namespace BudgetExecution
         /// <summary> Converts to bindinglist. </summary>
         /// <param name="nvc"> The NVC. </param>
         /// <returns> </returns>
-        public static BindingList<KeyValuePair<string, object>> ToBindingList( this IDictionary<string, object> nvc )
+        public static BindingList<KeyValuePair<string, object>> ToBindingList(
+            this IDictionary<string, object> nvc )
         {
             try
             {
@@ -184,7 +188,8 @@ namespace BudgetExecution
         /// <typeparam name="TValue"> The type of the value. </typeparam>
         /// <param name="dict"> The dictionary. </param>
         /// <returns> </returns>
-        public static SortedList<TKey, TValue> ToSortedList<TKey, TValue>( this IDictionary<TKey, TValue> dict )
+        public static SortedList<TKey, TValue> ToSortedList<TKey, TValue>(
+            this IDictionary<TKey, TValue> dict )
         {
             try
             {
@@ -201,7 +206,8 @@ namespace BudgetExecution
         /// <param name="dict"> The dictionary. </param>
         /// <param name="provider"> The provider. </param>
         /// <returns> </returns>
-        public static IEnumerable<DbParameter> ToSqlDbParameters( this IDictionary<string, object> dict, Provider provider )
+        public static IEnumerable<DbParameter> ToSqlDbParameters(
+            this IDictionary<string, object> dict, Provider provider )
         {
             if( ( dict?.Keys?.Count > 0 )
                && Enum.IsDefined( typeof( Provider ), provider ) )
@@ -213,6 +219,7 @@ namespace BudgetExecution
                     switch( provider )
                     {
                         case Provider.SQLite:
+
                         {
                             var _sqlite = new List<SQLiteParameter>( );
                             for( var _i = 0; _i < _columns.Length; _i++ )
@@ -230,7 +237,9 @@ namespace BudgetExecution
                                 ? _sqlite.ToArray( )
                                 : default( List<DbParameter> );
                         }
+
                         case Provider.SqlCe:
+
                         {
                             var _sqlce = new List<SqlCeParameter>( );
                             for( var _i = 0; _i < _columns.Length; _i++ )
@@ -248,9 +257,11 @@ namespace BudgetExecution
                                 ? _sqlce.ToArray( )
                                 : default( List<DbParameter> );
                         }
+
                         case Provider.OleDb:
                         case Provider.Excel:
                         case Provider.Access:
+
                         {
                             var _oledb = new List<OleDbParameter>( );
                             for( var _i = 0; _i < _columns.Length; _i++ )
@@ -268,7 +279,9 @@ namespace BudgetExecution
                                 ? _oledb.ToArray( )
                                 : default( List<DbParameter> );
                         }
+
                         case Provider.SqlServer:
+
                         {
                             var _sqlserver = new List<SqlParameter>( );
                             for( var _i = 0; _i < _columns.Length; _i++ )
@@ -341,7 +354,8 @@ namespace BudgetExecution
         /// <summary> Gets the primary key. </summary>
         /// <param name="dict"> The dictionary. </param>
         /// <returns> </returns>
-        public static KeyValuePair<string, object> GetPrimaryKey( this IDictionary<string, object> dict )
+        public static KeyValuePair<string, object> GetPrimaryKey(
+            this IDictionary<string, object> dict )
         {
             if( ( dict?.Any( ) == true )
                && dict.HasPrimaryKey( ) )
@@ -371,7 +385,8 @@ namespace BudgetExecution
         /// <typeparam name="T"> </typeparam>
         /// <param name="dict"> The dictionary. </param>
         /// <returns> </returns>
-        public static BindingList<string> ToKeyBindingList<T>( this IDictionary<string, object> dict )
+        public static BindingList<string> ToKeyBindingList<T>(
+            this IDictionary<string, object> dict )
         {
             if( dict?.Any( ) == true )
             {
@@ -401,7 +416,8 @@ namespace BudgetExecution
         /// <typeparam name="T"> </typeparam>
         /// <param name="dict"> The dictionary. </param>
         /// <returns> </returns>
-        public static BindingList<object> ToValueBindingList<T>( this IDictionary<string, object> dict )
+        public static BindingList<object> ToValueBindingList<T>(
+            this IDictionary<string, object> dict )
         {
             if( dict?.Any( ) == true )
             {

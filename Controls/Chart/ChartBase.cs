@@ -46,18 +46,15 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Windows.Forms.DataVisualization.Charting;
+    using System.Threading;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:System.Windows.Forms.DataVisualization.Charting.Chart" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:System.Windows.Forms.DataVisualization.Charting.Chart"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class ChartBase : System.Windows.Forms.DataVisualization.Charting.Chart
     {
-        /// <summary>
-        /// Sets the chart palette colors.
-        /// </summary>
+        /// <summary> Sets the chart palette colors. </summary>
         protected void InitializePalette( )
         {
             try
@@ -86,10 +83,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

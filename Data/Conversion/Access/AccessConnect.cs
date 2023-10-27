@@ -45,6 +45,7 @@ namespace BudgetExecution
     using System.Data;
     using System.Data.OleDb;
     using System.Linq;
+    using System.Threading;
 
     /// <summary> </summary>
     public class AccessConnect : IDisposable
@@ -60,7 +61,10 @@ namespace BudgetExecution
         /// <param name="path"> The path. </param>
         public AccessConnect( string path )
         {
-            var _connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data source=" + path + ";Jet OLEDB:Database Password=;";
+            var _connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data source="
+                + path
+                + ";Jet OLEDB:Database Password=;";
+
             _connection = new OleDbConnection( _connectionString );
             _connection?.Open( );
         }

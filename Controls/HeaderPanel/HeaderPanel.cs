@@ -45,11 +45,11 @@ namespace BudgetExecution
 {
     using System;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using CBComponents;
 
-    /// <summary>
-    /// </summary>
+    /// <summary> </summary>
     /// <seealso cref="CBComponents.HeaderTableLayoutPanel"/>
     public class HeaderPanel : HeaderTableLayoutPanel
     {

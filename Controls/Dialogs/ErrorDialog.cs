@@ -46,38 +46,30 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <summary> </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class ErrorDialog : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the exception.
-        /// </summary>
-        /// <value>
-        /// The exception.
-        /// </value>
+        /// <summary> Gets or sets the exception. </summary>
+        /// <value> The exception. </value>
         public virtual Exception Exception { get; set; }
 
-        /// <summary>
-        /// Gets or sets the icon path.
-        /// </summary>
-        /// <value>
-        /// The icon path.
-        /// </value>
+        /// <summary> Gets or sets the icon path. </summary>
+        /// <value> The icon path. </value>
         public virtual string IconPath { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ErrorDialog" /> class.
+        /// <see cref="T:BudgetExecution.ErrorDialog"/>
+        /// class.
         /// </summary>
         public ErrorDialog( )
         {
@@ -121,9 +113,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ErrorDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ErrorDialog"/>
+        /// class.
         /// </summary>
-        /// <param name="ext">The ext.</param>
+        /// <param name="ext"> The ext. </param>
         public ErrorDialog( Exception ext )
             : this( )
         {
@@ -132,9 +126,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ErrorDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ErrorDialog"/>
+        /// class.
         /// </summary>
-        /// <param name="message">The message.</param>
+        /// <param name="message"> The message. </param>
         public ErrorDialog( string message )
             : this( )
         {
@@ -142,11 +138,13 @@ namespace BudgetExecution
             TextBox.Text = message;
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
@@ -165,9 +163,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
+        /// <summary> Sets the text. </summary>
         public void SetText( )
         {
             try
@@ -181,10 +177,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
-        /// <param name="exc">The exc.</param>
+        /// <summary> Sets the text. </summary>
+        /// <param name="exc"> The exc. </param>
         public void SetText( Exception exc )
         {
             try
@@ -198,20 +192,20 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
-        /// <param name="msg">The MSG.</param>
+        /// <summary> Sets the text. </summary>
+        /// <param name="msg"> The MSG. </param>
         public void SetText( string msg = "" )
         {
             TextBox.Text = msg;
         }
 
-        /// <summary>
-        /// Called when [close button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [close button click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnCloseButtonClick( object sender, EventArgs e )
         {
             if( sender is Button )
@@ -227,10 +221,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private void Fail( Exception ex )
         {
             Console.WriteLine( ex.Message );

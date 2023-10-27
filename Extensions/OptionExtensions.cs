@@ -43,48 +43,41 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     public static class OptionExtensions
     {
-        /// <summary>
-        /// Firsts the or none.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="enumerable">The enumerable.</param>
-        /// <returns></returns>
+        /// <summary> Firsts the or none. </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="enumerable"> The enumerable. </param>
+        /// <returns> </returns>
         public static Option<T> FirstOrNone<T>( this IEnumerable<T> enumerable )
         {
-            return enumerable.Select( x => (Option<T>)new Some<T>( x ) ).FirstOrDefault( );
+            return enumerable.Select( x => (Option<T>) new Some<T>( x ) ).FirstOrDefault( );
         }
 
-        /// <summary>
-        /// Firsts the or none.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="enumerable">The enumerable.</param>
-        /// <param name="predicate">The predicate.</param>
-        /// <returns></returns>
+        /// <summary> Firsts the or none. </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="enumerable"> The enumerable. </param>
+        /// <param name="predicate"> The predicate. </param>
+        /// <returns> </returns>
         public static Option<T> FirstOrNone<T>( this IEnumerable<T> enumerable,
-            Func<T, bool> predicate )
+                                                Func<T, bool> predicate )
         {
             return enumerable.Where( predicate ).FirstOrNone( );
         }
 
-        /// <summary>
-        /// Selects the optional.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="enumerable">The enumerable.</param>
-        /// <param name="map">The map.</param>
-        /// <returns></returns>
-        public static IEnumerable<TResult> SelectOptional<T, TResult>( this IEnumerable<T> enumerable, 
-            Func<T, Option<TResult>> map )
+        /// <summary> Selects the optional. </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <typeparam name="TResult"> The type of the result. </typeparam>
+        /// <param name="enumerable"> The enumerable. </param>
+        /// <param name="map"> The map. </param>
+        /// <returns> </returns>
+        public static IEnumerable<TResult> SelectOptional<T, TResult>(
+            this IEnumerable<T> enumerable, Func<T, Option<TResult>> map )
         {
-            return (IEnumerable<TResult>)enumerable.Select( map )
+            return (IEnumerable<TResult>) enumerable.Select( map )
                 .OfType<Some<TResult>>( )
                 .Select( s => s.IsSome );
         }

@@ -46,19 +46,20 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.ToolStripProgressBase" />
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.ToolStripProgressBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class ToolStripProgressBar : ToolStripProgressBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolStripProgressBar"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripProgressBar"/>
+        /// class.
         /// </summary>
         public ToolStripProgressBar( )
         {
@@ -81,10 +82,8 @@ namespace BudgetExecution
             MouseHover += OnMouseHover;
         }
 
-        /// <summary>
-        /// Increases the by.
-        /// </summary>
-        /// <param name="increment">The increment.</param>
+        /// <summary> Increases the by. </summary>
+        /// <param name="increment"> The increment. </param>
         public void IncreaseBy( int increment )
         {
             if( increment > 0 )
@@ -100,10 +99,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Progresses the by step.
-        /// </summary>
-        /// <param name="step">The step.</param>
+        /// <summary> Progresses the by step. </summary>
+        /// <param name="step"> The step. </param>
         public void ProgressByStep( int step = 10 )
         {
             try
@@ -117,10 +114,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the hover text.
-        /// </summary>
-        /// <param name="text">The text.</param>
+        /// <summary> Sets the hover text. </summary>
+        /// <param name="text"> The text. </param>
         public void SetHoverText( string text )
         {
             try
@@ -135,15 +130,17 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [mouse hover].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [mouse hover]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnMouseHover( object sender, EventArgs e )
         {
             if( sender is ToolStripProgressBar _progress
-               && _progress != null )
+               && ( _progress != null ) )
             {
                 try
                 {

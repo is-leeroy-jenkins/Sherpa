@@ -43,9 +43,10 @@
 
 namespace BudgetExecution
 {
-    using Syncfusion.Drawing;
     using System;
     using System.Drawing;
+    using System.Threading;
+    using Syncfusion.Drawing;
 
     public class SplashPanel : Syncfusion.Windows.Forms.Tools.SplashPanel
     {

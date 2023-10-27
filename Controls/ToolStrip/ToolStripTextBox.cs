@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>
@@ -54,7 +55,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class ToolStripTextBox : ToolStripTextBase, IToolStripTextBox
+    public class ToolStripTextBox : ToolStripTextBase
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -149,7 +150,7 @@ namespace BudgetExecution
             try
             {
                 var _button = sender as ToolStripTextBox;
-                if( _button != null
+                if( ( _button != null )
                    && !string.IsNullOrEmpty( HoverText ) )
                 {
                     _button.Tag = HoverText;

@@ -50,23 +50,21 @@ namespace BudgetExecution
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class DataRowExtensions
     {
-        /// <summary>
-        /// Converts to sql db parameters.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="provider">The provider.</param>
-        /// <returns></returns>
-        public static IEnumerable<DbParameter> ToSqlDbParameters( this DataRow dataRow, Provider provider )
+        /// <summary> Converts to sql db parameters. </summary>
+        /// <param name="dataRow"> The data row. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <returns> </returns>
+        public static IEnumerable<DbParameter> ToSqlDbParameters( this DataRow dataRow,
+                                                                  Provider provider )
         {
-            if( dataRow?.ItemArray.Length > 0 
+            if( ( dataRow?.ItemArray.Length > 0 )
                && Enum.IsDefined( typeof( Provider ), provider ) )
             {
                 try
@@ -78,6 +76,7 @@ namespace BudgetExecution
                         switch( provider )
                         {
                             case Provider.SQLite:
+
                             {
                                 var _sqlite = new List<SQLiteParameter>( );
                                 for( var _i = 0; _i < _columns?.Count; _i++ )
@@ -92,7 +91,9 @@ namespace BudgetExecution
                                     ? _sqlite
                                     : default( IList<DbParameter> );
                             }
+
                             case Provider.SqlCe:
+
                             {
                                 var _sqlce = new List<SqlCeParameter>( );
                                 for( var _i = 0; _i < _columns?.Count; _i++ )
@@ -107,9 +108,11 @@ namespace BudgetExecution
                                     ? _sqlce
                                     : default( IList<DbParameter> );
                             }
+
                             case Provider.OleDb:
                             case Provider.Excel:
                             case Provider.Access:
+
                             {
                                 var _oledb = new List<OleDbParameter>( );
                                 for( var _i = 0; _i < _columns?.Count; _i++ )
@@ -124,7 +127,9 @@ namespace BudgetExecution
                                     ? _oledb
                                     : default( IList<DbParameter> );
                             }
+
                             case Provider.SqlServer:
+
                             {
                                 var _sqlserver = new List<SqlParameter>( );
                                 for( var _i = 0; _i < _columns?.Count; _i++ )
@@ -154,11 +159,9 @@ namespace BudgetExecution
             return default( IList<DbParameter> );
         }
 
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <returns></returns>
+        /// <summary> Converts to dictionary. </summary>
+        /// <param name="dataRow"> The data row. </param>
+        /// <returns> </returns>
         public static IDictionary<string, object> ToDictionary( this DataRow dataRow )
         {
             try
@@ -173,7 +176,8 @@ namespace BudgetExecution
                     {
                         if( !string.IsNullOrEmpty( _column[ _i ]?.ColumnName ) )
                         {
-                            _dictionary?.Add( _column[ _i ].ColumnName, _items[ _i ] ?? default( object ) );
+                            _dictionary?.Add( _column[ _i ].ColumnName,
+                                _items[ _i ] ?? default( object ) );
                         }
                     }
 
@@ -191,12 +195,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the bytes.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="columnName">Name of the column.</param>
-        /// <returns></returns>
+        /// <summary> Gets the bytes. </summary>
+        /// <param name="dataRow"> The data row. </param>
+        /// <param name="columnName"> Name of the column. </param>
+        /// <returns> </returns>
         public static IEnumerable<byte> GetBytes( this DataRow dataRow, string columnName )
         {
             try
@@ -210,10 +212,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

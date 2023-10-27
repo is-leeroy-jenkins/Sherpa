@@ -40,6 +40,8 @@
 
 namespace BudgetExecution
 {
+    using System;
+    using System.Threading;
     using OfficeOpenXml;
 
     public interface IGrid
@@ -62,7 +64,7 @@ namespace BudgetExecution
         ( int Row, int Column ) To { get; set; }
 
         /// <summary> Counts the cells. </summary>
-        /// <param name = "range" > The range. </param>
+        /// <param name="range"> The range. </param>
         /// <returns> </returns>
         int CountCells( ExcelRange range );
 

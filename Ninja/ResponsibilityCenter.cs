@@ -44,59 +44,53 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
-    /// <seealso cref="T:BudgetExecution.IResponsibilityCenter" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.DataUnit"/>
+    /// <seealso cref="T:BudgetExecution.IResponsibilityCenter"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class ResponsibilityCenter : DataUnit, IResponsibilityCenter
+    public class ResponsibilityCenter : DataUnit
     {
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <inheritdoc />
+        /// <summary> Gets the source. </summary>
+        /// <inheritdoc/>
         public override Source Source { get; set; }
 
-        /// <summary>
-        /// </summary>
-        /// <inheritdoc />
+        /// <summary> </summary>
+        /// <inheritdoc/>
         public override DataRow Record { get; set; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the data. </summary>
+        /// <value> The data. </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary>
-        /// </summary>
-        /// <inheritdoc />
+        /// <summary> </summary>
+        /// <inheritdoc/>
         public override int ID { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ResponsibilityCenter"/> class.
+        /// <see cref="ResponsibilityCenter"/>
+        /// class.
         /// </summary>
         public ResponsibilityCenter( )
         {
             Source = Source.ResponsibilityCenters;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ResponsibilityCenter" /> class.
+        /// <see cref="T:BudgetExecution.ResponsibilityCenter"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public ResponsibilityCenter( IQuery query )
             : this( )
         {
@@ -109,9 +103,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ResponsibilityCenter"/> class.
+        /// <see cref="ResponsibilityCenter"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name="builder"> The builder. </param>
         public ResponsibilityCenter( IDataModel builder )
         {
             Record = builder?.Record;
@@ -121,11 +116,13 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.ResponsibilityCenter" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ResponsibilityCenter"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public ResponsibilityCenter( DataRow dataRow )
             : this( )
         {
@@ -136,11 +133,13 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.ResponsibilityCenter" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ResponsibilityCenter"/>
+        /// class.
         /// </summary>
-        /// <param name="rcCode">The rc code.</param>
+        /// <param name="rcCode"> The rc code. </param>
         public ResponsibilityCenter( string rcCode )
             : this( )
         {
@@ -151,11 +150,9 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        /// <summary>
-        /// Sets the arguments.
-        /// </summary>
-        /// <param name="code">The code.</param>
-        /// <returns></returns>
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
         private IDictionary<string, object> SetArgs( string code )
         {
             if( !string.IsNullOrEmpty( code ) )

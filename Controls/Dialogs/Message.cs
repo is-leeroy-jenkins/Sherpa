@@ -46,27 +46,25 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Timer = System.Windows.Forms.Timer;
 
     /// <summary> </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class Message : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
+        /// <summary> Gets or sets the time. </summary>
         /// <value> The time. </value>
         public int Time { get; set; }
 
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
+        /// <summary> Gets or sets the seconds. </summary>
         /// <value> The seconds. </value>
         public int Seconds { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary> </summary>
         public Message( )
         {
@@ -109,10 +107,10 @@ namespace BudgetExecution
             Load += OnLoad;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Message" />
+        /// <see cref="T:BudgetExecution.Message"/>
         /// class.
         /// </summary>
         /// <param name="text"> The text displayed by the control. </param>
@@ -123,7 +121,7 @@ namespace BudgetExecution
             CloseButton.Focus( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Message"/>
@@ -138,9 +136,7 @@ namespace BudgetExecution
             CloseButton.Focus( );
         }
 
-        /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
+        /// <summary> Displays the control to the user. </summary>
         public new void Show( )
         {
             try
@@ -168,9 +164,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
+        /// <summary> Fades the in. </summary>
         private void FadeIn( )
         {
             try
@@ -195,9 +189,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fades the out and close.
-        /// </summary>
+        /// <summary> Fades the out and close. </summary>
         private void FadeOut( )
         {
             try
@@ -220,6 +212,15 @@ namespace BudgetExecution
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
 
         /// <summary> Called when [load]. </summary>
@@ -259,15 +260,6 @@ namespace BudgetExecution
                     Fail( _ex );
                 }
             }
-        }
-
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
-        private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

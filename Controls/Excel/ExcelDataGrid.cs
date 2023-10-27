@@ -47,46 +47,35 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Spreadsheet;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet" />
-    /// <seealso cref="T:BudgetExecution.ISpreadsheet" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet"/>
+    /// <seealso cref="T:BudgetExecution.ISpreadsheet"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class ExcelDataGrid : Spreadsheet, ISpreadsheet
     {
-        /// <summary>
-        /// Gets or sets the grid.
-        /// </summary>
-        /// <value>
-        /// The grid.
-        /// </value>
+        /// <summary> Gets or sets the grid. </summary>
+        /// <value> The grid. </value>
         public SpreadsheetGrid Grid { get; set; }
 
-        /// <summary>
-        /// Gets or sets the model.
-        /// </summary>
-        /// <value>
-        /// The model.
-        /// </value>
+        /// <summary> Gets or sets the model. </summary>
+        /// <value> The model. </value>
         public SpreadsheetGridModel Model { get; set; }
 
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ExcelDataGrid" /> class.
+        /// <see cref="T:BudgetExecution.ExcelDataGrid"/>
+        /// class.
         /// </summary>
         public ExcelDataGrid( )
         {
@@ -112,11 +101,9 @@ namespace BudgetExecution
             AllowFiltering = true;
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Opens the file.
-        /// </summary>
-        /// <param name="file">The file.</param>
+        /// <inheritdoc/>
+        /// <summary> Opens the file. </summary>
+        /// <param name="file"> The file. </param>
         public void OpenFile( Stream file )
         {
             try
@@ -128,25 +115,21 @@ namespace BudgetExecution
             }
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Displays the message box.
-        /// </summary>
-        /// <param name="text">The text.</param>
-        /// <param name="caption">The caption.</param>
-        /// <param name="button">The button.</param>
-        /// <param name="icon">The icon.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Displays the message box. </summary>
+        /// <param name="text"> The text. </param>
+        /// <param name="caption"> The caption. </param>
+        /// <param name="button"> The button. </param>
+        /// <param name="icon"> The icon. </param>
+        /// <returns> </returns>
         public virtual bool DisplayMessageBox( string text, string caption,
-            MessageBoxButtons button, MessageBoxIcon icon )
+                                               MessageBoxButtons button, MessageBoxIcon icon )
         {
             return false;
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

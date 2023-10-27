@@ -48,6 +48,7 @@ namespace BudgetExecution
     using System.Data.OleDb;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
     using System.Windows.Forms.DataVisualization.Charting;
     using System.Xml.Linq;
@@ -64,7 +65,8 @@ namespace BudgetExecution
     public static class DataTableExtensions
     {
         /// <summary> The connection string </summary>
-        public static readonly ConnectionStringSettingsCollection Connection = ConfigurationManager.ConnectionStrings;
+        public static readonly ConnectionStringSettingsCollection Connection =
+            ConfigurationManager.ConnectionStrings;
 
         /// <summary> Converts to xml. </summary>
         /// <param name="dataTable"> The dataTable. </param>
@@ -161,7 +163,8 @@ namespace BudgetExecution
         /// <param name="filePath"> The filePath. </param>
         /// <param name="sheetName"> The sheetName. </param>
         /// <returns> </returns>
-        public static DataTable FromExcel( this DataTable dataTable, string filePath, string sheetName )
+        public static DataTable FromExcel( this DataTable dataTable, string filePath,
+                                           string sheetName )
         {
             if( !string.IsNullOrEmpty( filePath )
                && !string.IsNullOrEmpty( sheetName ) )
@@ -169,6 +172,7 @@ namespace BudgetExecution
                 try
                 {
                     var _connectionString = Connection[ "Excel" ].ConnectionString;
+
                     var _sql = "SELECT * FROM [" + sheetName + "$]";
                     using var _adapter = new OleDbDataAdapter( _sql, _connectionString );
                     var _table = new DataTable( );
@@ -205,7 +209,10 @@ namespace BudgetExecution
                     {
                         if( ( _col?.Ordinal > 0 )
                            && !_col.ColumnName.EndsWith( "Id" )
-                           && ( _col.DataType == typeof( double ) | _col.DataType == typeof( decimal ) | _col.DataType == typeof( float ) | _col.DataType == typeof( int ) ) )
+                           && ( _col.DataType == typeof( double )
+                               | _col.DataType == typeof( decimal )
+                               | _col.DataType == typeof( float )
+                               | _col.DataType == typeof( int ) ) )
                         {
                             return true;
                         }
@@ -269,7 +276,8 @@ namespace BudgetExecution
         /// <param name="dataTable"> The data table. </param>
         /// <param name="where"> The dictionary. </param>
         /// <returns> </returns>
-        public static IEnumerable<int> GetIndexValues( this DataTable dataTable, IDictionary<string, object> where )
+        public static IEnumerable<int> GetIndexValues( this DataTable dataTable,
+                                                       IDictionary<string, object> where )
         {
             try
             {
@@ -318,7 +326,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _enumerable = dataTable?.AsEnumerable( )?.Select( p => p.Field<string>( columnName ) )?.Distinct( );
+                    var _enumerable = dataTable?.AsEnumerable( )
+                        ?.Select( p => p.Field<string>( columnName ) )
+                        ?.Distinct( );
+
                     return ( _enumerable?.Any( ) == true )
                         ? _enumerable?.ToArray( )
                         : default( string[ ] );
@@ -338,7 +349,8 @@ namespace BudgetExecution
         /// <param name="columnName"> Name of the column. </param>
         /// <param name="where"> The where. </param>
         /// <returns> </returns>
-        public static string[ ] GetUniqueColumnValues( this DataTable dataTable, string columnName, IDictionary<string, object> where )
+        public static string[ ] GetUniqueColumnValues( this DataTable dataTable, string columnName,
+                                                       IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( columnName )
                && ( dataTable?.Columns?.Contains( columnName ) == true )
@@ -347,7 +359,10 @@ namespace BudgetExecution
                 try
                 {
                     var _criteria = where.ToCriteria( );
-                    var _query = dataTable.Select( _criteria )?.Select( p => p.Field<string>( columnName ) )?.Distinct( );
+                    var _query = dataTable.Select( _criteria )
+                        ?.Select( p => p.Field<string>( columnName ) )
+                        ?.Distinct( );
+
                     return ( _query?.Any( ) == true )
                         ? _query?.ToArray( )
                         : default( string[ ] );
@@ -377,7 +392,10 @@ namespace BudgetExecution
                     foreach( DataColumn _col in dataTable.Columns )
                     {
                         if( ( _col.Ordinal > 1 )
-                           && ( _col.DataType == typeof( decimal ) | _col.DataType == typeof( float ) | _col.DataType == typeof( double ) | _col.DataType == typeof( int ) ) )
+                           && ( _col.DataType == typeof( decimal )
+                               | _col.DataType == typeof( float )
+                               | _col.DataType == typeof( double )
+                               | _col.DataType == typeof( int ) ) )
                         {
                             _names.Add( _col.ColumnName );
                         }
@@ -417,7 +435,8 @@ namespace BudgetExecution
         /// <param name="dataTable"> The data table. </param>
         /// <param name="dict"> The dictionary. </param>
         /// <returns> </returns>
-        public static IEnumerable<DataRow> Filter( this DataTable dataTable, IDictionary<string, object> dict )
+        public static IEnumerable<DataRow> Filter( this DataTable dataTable,
+                                                   IDictionary<string, object> dict )
         {
             if( ( dataTable?.Columns?.Count > 0 )
                && ( dict?.Any( ) == true ) )
@@ -477,7 +496,10 @@ namespace BudgetExecution
                     foreach( DataColumn _col in dataTable.Columns )
                     {
                         if( !_col.ColumnName.EndsWith( "Id" )
-                           && ( _col.DataType == typeof( decimal ) | _col.DataType == typeof( float ) | _col.DataType == typeof( double ) | _col.DataType == typeof( int ) ) )
+                           && ( _col.DataType == typeof( decimal )
+                               | _col.DataType == typeof( float )
+                               | _col.DataType == typeof( double )
+                               | _col.DataType == typeof( int ) ) )
                         {
                             _columns.Add( _col );
                         }
@@ -510,7 +532,9 @@ namespace BudgetExecution
                     foreach( DataColumn _col in dataTable.Columns )
                     {
                         if( _col.ColumnName.EndsWith( "Date" )
-                           || ( _col.DataType == typeof( DateTime ) | _col.DataType == typeof( DateOnly ) | _col.DataType == typeof( DateTimeOffset ) ) )
+                           || ( _col.DataType == typeof( DateTime )
+                               | _col.DataType == typeof( DateOnly )
+                               | _col.DataType == typeof( DateTimeOffset ) ) )
                         {
                             _columns.Add( _col );
                         }

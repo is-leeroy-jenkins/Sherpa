@@ -40,15 +40,17 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Security.AccessControl;
+    using System.Threading;
 
     /// <summary> </summary>
     public interface IFolder
     {
         /// <summary> Creates the sub directory. </summary>
-        /// <param name = "dirName" > The folderName. </param>
+        /// <param name="dirName"> The folderName. </param>
         /// <returns> </returns>
         DirectoryInfo CreateSubDirectory( string dirName );
 
@@ -57,19 +59,19 @@ namespace BudgetExecution
         IDictionary<string, FileInfo> GetSubFileData( );
 
         /// <summary> Moves the specified fullName. </summary>
-        /// <param name = "destination" > The fullName. </param>
+        /// <param name="destination"> The fullName. </param>
         void Move( string destination );
 
         /// <summary> Sets the access control. </summary>
-        /// <param name = "security" > The security. </param>
+        /// <param name="security"> The security. </param>
         void SetAccessControl( DirectorySecurity security );
 
         /// <summary> Zips the specified destination. </summary>
-        /// <param name = "destination" > The destination. </param>
+        /// <param name="destination"> The destination. </param>
         void Zip( string destination );
 
         /// <summary> Uns the zip. </summary>
-        /// <param name = "zipPath" > The zipPath. </param>
+        /// <param name="zipPath"> The zipPath. </param>
         void UnZip( string zipPath );
 
         /// <summary> Gets the special folders. </summary>

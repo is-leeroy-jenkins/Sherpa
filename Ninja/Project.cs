@@ -43,26 +43,29 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.DataUnit" />
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.DataUnit"/>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Project : DataUnit
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Project"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Project"/>
+        /// class.
         /// </summary>
         public Project( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Project"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Project"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public Project( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -70,9 +73,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Project"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Project"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name="builder"> The builder. </param>
         public Project( IDataModel builder )
         {
             Record = builder.Record;
@@ -80,9 +85,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Project"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Project"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public Project( DataRow dataRow )
         {
             Record = dataRow;

@@ -46,66 +46,53 @@ namespace BudgetExecution
     using System;
     using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
     using System.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public sealed class FormAnimator
     {
-        /// <summary>
-        /// Gets or sets the method.
-        /// </summary>
-        /// <value>
-        /// The method.
-        /// </value>
+        /// <summary> Gets or sets the method. </summary>
+        /// <value> The method. </value>
         public AnimationMethod Method { get; set; }
 
-        /// <summary>
-        /// Gets or sets the direction.
-        /// </summary>
-        /// <value>
-        /// The direction.
-        /// </value>
+        /// <summary> Gets or sets the direction. </summary>
+        /// <value> The direction. </value>
         public AnimationDirection Direction { get; set; }
 
-        /// <summary>
-        /// Gets or sets the duration.
-        /// </summary>
-        /// <value>
-        /// The duration.
-        /// </value>
+        /// <summary> Gets or sets the duration. </summary>
+        /// <value> The duration. </value>
         public int Duration { get; set; }
 
-        /// <summary>
-        /// Gets or sets the form.
-        /// </summary>
-        /// <value>
-        /// The form.
-        /// </value>
+        /// <summary> Gets or sets the form. </summary>
+        /// <value> The form. </value>
         public Form Form { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FormAnimator"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="FormAnimator"/>
+        /// class.
         /// </summary>
-        /// <param name="form">The form.</param>
+        /// <param name="form"> The form. </param>
         public FormAnimator( Form form )
         {
             Form = form;
             Form.Load += Form_Load;
             Form.VisibleChanged += Form_VisibleChanged;
             Form.Closing += Form_Closing;
-            Duration = FormAnimator.DefaultDuration;
+            Duration = DefaultDuration;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FormAnimator"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="FormAnimator"/>
+        /// class.
         /// </summary>
-        /// <param name="form">The form.</param>
-        /// <param name="method">The method.</param>
-        /// <param name="duration">The duration.</param>
+        /// <param name="form"> The form. </param>
+        /// <param name="method"> The method. </param>
+        /// <param name="duration"> The duration. </param>
         public FormAnimator( Form form, AnimationMethod method, int duration )
             : this( form )
         {
@@ -114,140 +101,122 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FormAnimator"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="FormAnimator"/>
+        /// class.
         /// </summary>
-        /// <param name="form">The form.</param>
-        /// <param name="method">The method.</param>
-        /// <param name="direction">The direction.</param>
-        /// <param name="duration">The duration.</param>
+        /// <param name="form"> The form. </param>
+        /// <param name="method"> The method. </param>
+        /// <param name="direction"> The direction. </param>
+        /// <param name="duration"> The duration. </param>
         public FormAnimator( Form form, AnimationMethod method, AnimationDirection direction,
-            int duration )
+                             int duration )
             : this( form, method, duration )
         {
             Direction = direction;
         }
 
-        /// <summary>
-        /// The aw hide
-        /// </summary>
+        /// <summary> The aw hide </summary>
         private const int AwHide = 0x10000;
 
-        /// <summary>
-        /// The aw activate
-        /// </summary>
+        /// <summary> The aw activate </summary>
         private const int AwActivate = 0x20000;
 
-        /// <summary>
-        /// The default duration
-        /// </summary>
+        /// <summary> The default duration </summary>
         private const int DefaultDuration = 250;
 
-        /// <summary>
-        /// Handles the Load event of the Form control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Handles the Load event of the Form control. </summary>
+        /// <param name="sender"> The source of the event. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void Form_Load( object sender, EventArgs e )
         {
-            if( Form.MdiParent == null
-               || Method != AnimationMethod.Fade )
+            if( ( Form.MdiParent == null )
+               || ( Method != AnimationMethod.Fade ) )
             {
                 NativeMethods.AnimateWindow( Form.Handle, Duration,
-                    FormAnimator.AwActivate | (int)Method | (int)Direction );
+                    AwActivate | (int) Method | (int) Direction );
             }
         }
 
-        /// <summary>
-        /// Handles the VisibleChanged event of the Form control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Handles the VisibleChanged event of the Form control. </summary>
+        /// <param name="sender"> The source of the event. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void Form_VisibleChanged( object sender, EventArgs e )
         {
             if( Form.MdiParent == null )
             {
-                var flags = (int)Method | (int)Direction;
+                var flags = (int) Method | (int) Direction;
                 if( Form.Visible )
                 {
-                    flags |= FormAnimator.AwActivate;
+                    flags |= AwActivate;
                 }
                 else
                 {
-                    flags |= FormAnimator.AwHide;
+                    flags |= AwHide;
                 }
 
                 NativeMethods.AnimateWindow( Form.Handle, Duration, flags );
             }
         }
 
-        /// <summary>
-        /// Handles the Closing event of the Form control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="CancelEventArgs"/> instance containing the event data.</param>
+        /// <summary> Handles the Closing event of the Form control. </summary>
+        /// <param name="sender"> The source of the event. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="CancelEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void Form_Closing( object sender, CancelEventArgs e )
         {
             if( !e.Cancel )
             {
-                if( Form.MdiParent == null
-                   || Method != AnimationMethod.Fade )
+                if( ( Form.MdiParent == null )
+                   || ( Method != AnimationMethod.Fade ) )
                 {
                     NativeMethods.AnimateWindow( Form.Handle, Duration,
-                        FormAnimator.AwHide | (int)Method | (int)Direction );
+                        AwHide | (int) Method | (int) Direction );
                 }
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary> </summary>
         public enum AnimationMethod
         {
-            /// <summary>
-            /// The roll
-            /// </summary>
+            /// <summary> The roll </summary>
             Roll = 0x0,
 
-            /// <summary>
-            /// The center
-            /// </summary>
+            /// <summary> The center </summary>
             Center = 0x10,
 
-            /// <summary>
-            /// The slide
-            /// </summary>
+            /// <summary> The slide </summary>
             Slide = 0x40000,
 
-            /// <summary>
-            /// The fade
-            /// </summary>
+            /// <summary> The fade </summary>
             Fade = 0x80000
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary> </summary>
         [ Flags ]
         public enum AnimationDirection
         {
-            /// <summary>
-            /// The right
-            /// </summary>
+            /// <summary> The right </summary>
             Right = 0x1,
 
-            /// <summary>
-            /// The left
-            /// </summary>
+            /// <summary> The left </summary>
             Left = 0x2,
 
-            /// <summary>
-            /// Down
-            /// </summary>
+            /// <summary> Down </summary>
             Down = 0x4,
 
-            /// <summary>
-            /// Up
-            /// </summary>
+            /// <summary> Up </summary>
             Up = 0x8
         }
     }

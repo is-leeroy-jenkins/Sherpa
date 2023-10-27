@@ -1,135 +1,157 @@
-
 @import url("common.css");
 
-body {
-  display: flex;
-  box-sizing: padding-box;
-  min-height: 100vh;
-  padding: 0 48px;
-  align-items: center;
-  justify-content: center;
+body
+{
+	align-items: center;
+	box-sizing: padding-box;
+	display: flex;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 0 48px;
 }
 
-ul, ol {
-  margin: 0;
-  padding: 0;
-  -webkit-margin-start: 1em;
+ul, ol
+{
+	margin: 0;
+	-webkit-margin-start: 1em;
+	padding: 0;
 }
 
-ul > li, ol > li {
-  margin-bottom: .5em;
+ul > li, ol > li
+{
+	margin-bottom: .5em;
 }
 
-ul {
-  list-style: disc;
+ul
+{
+	list-style: disc;
 }
 
-#errorPageContainer {
-  position: relative;
-  min-width: 320px;
-  max-width: 512px;
+#errorPageContainer
+{
+	max-width: 512px;
+	min-width: 320px;
+	position: relative;
 }
 
-#errorTitleText {
-  background: url("aboutNetError_info.svg") left 0 no-repeat;
-  background-size: 1.2em;
-  -webkit-margin-start: -2em;
-  -webkit-padding-start: 2em;
+#errorTitleText
+{
+	background: url("aboutNetError_info.svg") left 0 no-repeat;
+	background-size: 1.2em;
+	-webkit-margin-start: -2em;
+	-webkit-padding-start: 2em;
 }
 
-#errorTitleText:-webkit-dir(rtl) {
-  background-position: right 0;
+#errorTitleText:-webkit-dir(rtl)
+{
+	background-position: right 0;
 }
 
-#errorTitleText[sslv3=true] {
-  background-image: url("aboutNetError_alert.svg");
+#errorTitleText[sslv3=true]
+{
+	background-image: url("aboutNetError_alert.svg");
 }
 
-#errorTryAgain {
-  margin-top: 1.2em;
-  min-width: 150px
+#errorTryAgain
+{
+	margin-top: 1.2em;
+	min-width: 150px
 }
 
-#errorContainer {
-  display: none;
+#errorContainer
+{
+	display: none;
 }
 
-@media (max-width: 675px) {
-  #errorTitleText {
-    padding-top: 0;
-    background-image: none;
-    -webkit-padding-start: 0;
-    -webkit-margin-start: 0;
-  }
+@media (max-width: 675px)
+{
+	#errorTitleText
+	{
+		background-image: none;
+		-webkit-margin-start: 0;
+		-webkit-padding-start: 0;
+		padding-top: 0;
+	}
 }
 
 /* Pressing the retry button will cause the cursor to flicker from a pointer to
  * not-allowed. Override the disabled cursor behaviour since we will never show
  * the button disabled as the initial state. */
-button:disabled {
-  cursor: pointer;
+button:disabled
+{
+	cursor: pointer;
 }
 
-div#certificateErrorReporting {
-  display: none;
-  float: right;
-  /* Align with the "Try Again" button */
-  margin-top: 24px;
-  -webkit-margin-end: 24px;
+div#certificateErrorReporting
+{
+	display: none;
+	float: right;
+	/* Align with the "Try Again" button */
+	-webkit-margin-end: 24px;
+	margin-top: 24px;
 }
 
-div#certificateErrorReporting a {
-  text-decoration: none;
+div#certificateErrorReporting a
+{
+	text-decoration: none;
 }
 
-div#certificateErrorReporting a:hover {
-  text-decoration: underline;
+div#certificateErrorReporting a:hover
+{
+	text-decoration: underline;
 }
 
-span.downArrow {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 0.6em;
-  -webkit-margin-start: 0.5em;
-  transform: scaleY(0.7);
+span.downArrow
+{
+	display: inline-block;
+	font-size: 0.6em;
+	-webkit-margin-start: 0.5em;
+	transform: scaleY(0.7);
+	vertical-align: middle;
 }
 
-div#certificateErrorReportingPanel {
-  /* Hidden until the link is clicked */
-  display: none;
-  background-color: white;
-  border: 1px lightgray solid;
-  /* Don't use top padding because the default p style has top padding, and it
-   * makes the overall div look uneven */
-  padding: 0 12px 12px 12px;
-  box-shadow: 0 0 4px #ddd;
-  font-size: 0.9em;
-  position: absolute;
-  width: 75%;
-  margin-top: 10px;
+div#certificateErrorReportingPanel
+{
+	/* Hidden until the link is clicked */
+	background-color: white;
+	border: 1px lightgray solid;
+	box-shadow: 0 0 4px #ddd;
+	/* Don't use top padding because the default p style has top padding, and it
+	 * makes the overall div look uneven */
+	display: none;
+	font-size: 0.9em;
+	margin-top: 10px;
+	padding: 0 12px 12px 12px;
+	position: absolute;
+	width: 75%;
 }
 
-div#certificateErrorReportingPanel:-webkit-dir(ltr) {
-  left: 34%;
+div#certificateErrorReportingPanel:-webkit-dir(ltr)
+{
+	left: 34%;
 }
 
-div#certificateErrorReportingPanel:-webkit-dir(rtl) {
-  right: 0;
+div#certificateErrorReportingPanel:-webkit-dir(rtl)
+{
+	right: 0;
 }
 
-#errorStatePanel {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: space-between;
-  align-items: flex-start;
+#errorStatePanel
+{
+	align-content: space-between;
+	align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
-span#hostname {
-  font-weight: bold;
+span#hostname
+{
+	font-weight: bold;
 }
 
-#automaticallyReportInFuture {
-  cursor: pointer;
+#automaticallyReportInFuture
+{
+	cursor: pointer;
 }

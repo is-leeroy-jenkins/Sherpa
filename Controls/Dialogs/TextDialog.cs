@@ -43,14 +43,14 @@
 
 namespace BudgetExecution
 {
-    using Syncfusion.Drawing;
-    using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.Edit;
-    using Syncfusion.Windows.Forms.Edit.Enums;
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
+    using Syncfusion.Drawing;
+    using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Edit;
 
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -82,18 +82,41 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TextDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="TextDialog"/>
+        /// class.
         /// </summary>
-        /// <param name="text">The text displayed by the control.</param>
+        /// <param name="text"> The text displayed by the control. </param>
         public TextDialog( string text )
             : this( )
         {
             Editor.Text = text;
         }
 
-        /// <summary>
-        /// Sets the editor configuration.
-        /// </summary>
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public virtual void OnCloseButtonClick( object sender, EventArgs e )
+        {
+            if( sender is Button _button
+               && !string.IsNullOrEmpty( _button?.Name ) )
+            {
+                try
+                {
+                    Close( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary> Sets the editor configuration. </summary>
         private void SetEditorConfiguration( )
         {
             try
@@ -105,9 +128,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the editor configuration.
-        /// </summary>
+        /// <summary> Sets the editor configuration. </summary>
         private void InitializeEditor( )
         {
             try
@@ -163,9 +184,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the title properties.
-        /// </summary>
+        /// <summary> Sets the title properties. </summary>
         private void SetTitleProperties( )
         {
             try
@@ -181,11 +200,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -195,29 +216,6 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [close button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public virtual void OnCloseButtonClick( object sender, EventArgs e )
-        {
-            if( sender is Button _button
-               && !string.IsNullOrEmpty( _button?.Name ) )
-            {
-                try
-                {
-                    Close( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
             }
         }
 

@@ -43,12 +43,13 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class Appropriation : DataUnit 
+    public class Appropriation : DataUnit
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -60,10 +61,10 @@ namespace BudgetExecution
             Source = Source.Appropriations;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Appropriation" />
+        /// <see cref="T:BudgetExecution.Appropriation"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -78,10 +79,10 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Appropriation" />
+        /// <see cref="T:BudgetExecution.Appropriation"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -96,10 +97,10 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Appropriation" />
+        /// <see cref="T:BudgetExecution.Appropriation"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -116,9 +117,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Appropriation"/> class.
+        /// <see cref="Appropriation"/>
+        /// class.
         /// </summary>
-        /// <param name="appropriation">The appropriation.</param>
+        /// <param name="appropriation"> The appropriation. </param>
         public Appropriation( Appropriation appropriation )
         {
             ID = appropriation.ID;

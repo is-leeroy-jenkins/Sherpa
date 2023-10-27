@@ -44,6 +44,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary>
     /// Program Results Codes (PRCs) were established to account for and relate resources to the Agency's
@@ -113,10 +114,10 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ProgramResultsCode" />
+        /// <see cref="T:BudgetExecution.ProgramResultsCode"/>
         /// class.
         /// </summary>
         /// <param name="dataBuilder"> The builder. </param>

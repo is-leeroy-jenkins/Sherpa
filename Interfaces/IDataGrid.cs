@@ -40,14 +40,16 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Threading;
 
     /// <summary> </summary>
     public interface IDataGrid
     {
         /// <summary> Gets the filter values. </summary>
-        /// <param name = "dict" > The dictionary. </param>
+        /// <param name="dict"> The dictionary. </param>
         /// <returns> </returns>
         string GetFilterValues( IDictionary<string, object> dict );
 

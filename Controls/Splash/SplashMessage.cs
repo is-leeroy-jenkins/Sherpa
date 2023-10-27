@@ -44,42 +44,34 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using System.Collections.Generic;
-    using System.Linq;
     using static FormAnimator;
-    using Exception = System.Exception;
     using Timer = System.Windows.Forms.Timer;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    /// <summary> </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class SplashMessage : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
+        /// <summary> Gets or sets the time. </summary>
         /// <value> The time. </value>
         public int Time { get; set; }
 
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
+        /// <summary> Gets or sets the seconds. </summary>
         /// <value> The seconds. </value>
         public int Seconds { get; set; }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether [allow focus].
-        /// </summary>
+        /// <summary> Gets or sets a value indicating whether [allow focus]. </summary>
         /// <value>
         /// <c> true </c>
         /// if [allow focus]; otherwise,
@@ -99,18 +91,15 @@ namespace BudgetExecution
         /// </value>
         public bool ShownWithoutActivation { get; set; } = true;
 
-        /// <summary>
-        /// Gets or sets the lines.
-        /// </summary>
-        /// <value>
-        /// The lines.
-        /// </value>
+        /// <summary> Gets or sets the lines. </summary>
+        /// <value> The lines. </value>
         public List<string> Lines { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SplashMessage" /> class.
+        /// <see cref="T:BudgetExecution.SplashMessage"/>
+        /// class.
         /// </summary>
         public SplashMessage( )
         {
@@ -152,20 +141,19 @@ namespace BudgetExecution
             Load += OnLoad;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SplashMessage" /> class.
+        /// <see cref="T:BudgetExecution.SplashMessage"/>
+        /// class.
         /// </summary>
-        /// <param name="message">
-        /// The message.
-        /// </param>
-        /// <param name = "duration" > </param>
-        /// <param name = "animation" > </param>
-        /// <param name = "direction" > </param>
+        /// <param name="message"> The message. </param>
+        /// <param name="duration"> </param>
+        /// <param name="animation"> </param>
+        /// <param name="direction"> </param>
         public SplashMessage( string message, int duration = 5,
-            AnimationMethod animation = AnimationMethod.Fade,
-            AnimationDirection direction = AnimationDirection.Up )
+                              AnimationMethod animation = AnimationMethod.Fade,
+                              AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
             Time = 0;
@@ -175,20 +163,19 @@ namespace BudgetExecution
             Message.Text = message;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SplashMessage" /> class.
+        /// <see cref="T:BudgetExecution.SplashMessage"/>
+        /// class.
         /// </summary>
-        /// <param name="lines">
-        /// The lines.
-        /// </param>
-        /// <param name = "duration" > </param>
-        /// <param name = "animation" > </param>
-        /// <param name = "direction" > </param>
+        /// <param name="lines"> The lines. </param>
+        /// <param name="duration"> </param>
+        /// <param name="animation"> </param>
+        /// <param name="direction"> </param>
         public SplashMessage( IEnumerable<string> lines, int duration = 5,
-            AnimationMethod animation = AnimationMethod.Fade,
-            AnimationDirection direction = AnimationDirection.Up )
+                              AnimationMethod animation = AnimationMethod.Fade,
+                              AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
             Lines = lines.ToList( );
@@ -198,60 +185,7 @@ namespace BudgetExecution
             Title.Text = "Notification";
         }
 
-        /// <summary>
-        /// Initializes the title.
-        /// </summary>
-        private protected void InitializeTitle( )
-        {
-            try
-            {
-                Title.ForeColor = Color.White;
-                Title.TextAlign = ContentAlignment.TopLeft;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the panel.
-        /// </summary>
-        private protected void InitializePanel( )
-        {
-            try
-            {
-                BackPanel.BorderColor = Color.FromArgb( 106, 189, 252 );
-                BackPanel.Margin = new Padding( 0 );
-                BackPanel.Padding = new Padding( 0 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the labels.
-        /// </summary>
-        private protected virtual void InitializeLabels( )
-        {
-            try
-            {
-                Message.BackColor = Color.FromArgb( 0, 73, 112 );
-                Message.Font = new Font( "Roboto", 11 );
-                Message.ForeColor = Color.White;
-                Message.TextAlign = ContentAlignment.TopLeft;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
+        /// <summary> Displays the control to the user. </summary>
         public new void Show( )
         {
             try
@@ -280,26 +214,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
-        private protected virtual void FadeIn( )
+        /// <summary> Notifications the close. </summary>
+        public void OnClose( )
         {
             try
             {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity += 0.02d;
-                };
-
-                _timer.Start( );
+                FadeOut( );
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -307,9 +228,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fades the out and close.
-        /// </summary>
+        /// <summary> Fades the out and close. </summary>
         private void FadeOut( )
         {
             try
@@ -335,32 +254,17 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Notifications the close.
-        /// </summary>
-        public void OnClose( )
-        {
-            try
-            {
-                FadeOut( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnClick( object sender, MouseEventArgs e )
         {
-            if( e.Button == MouseButtons.Left
-               || e.Button == MouseButtons.Right )
+            if( ( e.Button == MouseButtons.Left )
+               || ( e.Button == MouseButtons.Right ) )
             {
                 try
                 {
@@ -373,12 +277,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">
-        /// The sender.
-        /// </param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
         /// <see cref="EventArgs"/>
@@ -400,12 +300,78 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Get ErrorDialog Dialog.
-        /// </summary>
-        /// <param name="ex">
-        /// The ex.
-        /// </param>
+        /// <summary> Initializes the title. </summary>
+        private protected void InitializeTitle( )
+        {
+            try
+            {
+                Title.ForeColor = Color.White;
+                Title.TextAlign = ContentAlignment.TopLeft;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Initializes the panel. </summary>
+        private protected void InitializePanel( )
+        {
+            try
+            {
+                BackPanel.BorderColor = Color.FromArgb( 106, 189, 252 );
+                BackPanel.Margin = new Padding( 0 );
+                BackPanel.Padding = new Padding( 0 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Initializes the labels. </summary>
+        private protected virtual void InitializeLabels( )
+        {
+            try
+            {
+                Message.BackColor = Color.FromArgb( 0, 73, 112 );
+                Message.Font = new Font( "Roboto", 11 );
+                Message.ForeColor = Color.White;
+                Message.TextAlign = ContentAlignment.TopLeft;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Fades the in. </summary>
+        private protected virtual void FadeIn( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 1d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity += 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

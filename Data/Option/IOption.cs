@@ -42,54 +42,47 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <summary> </summary>
+    /// <typeparam name="T"> </typeparam>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "UnassignedGetOnlyAutoProperty" ) ]
     public interface IOption<out T>
     {
-        /// <summary>
-        /// Gets the value.
-        /// </summary>
-        /// <value>
-        /// The value.
-        /// </value>
+        /// <summary> Gets the value. </summary>
+        /// <value> The value. </value>
         T Value { get; }
 
-        /// <summary>
-        /// Gets a value indicating whether this instance is some.
-        /// </summary>
+        /// <summary> Gets a value indicating whether this instance is some. </summary>
         /// <value>
-        ///   <c>true</c> if this instance is some; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if this instance is some; otherwise,
+        /// <c> false </c>
+        /// .
         /// </value>
         bool IsSome { get; }
 
-        /// <summary>
-        /// Gets a value indicating whether this instance is none.
-        /// </summary>
+        /// <summary> Gets a value indicating whether this instance is none. </summary>
         /// <value>
-        ///   <c>true</c> if this instance is none; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if this instance is none; otherwise,
+        /// <c> false </c>
+        /// .
         /// </value>
         bool IsNone { get; }
 
-        /// <summary>
-        /// Maps the specified function.
-        /// </summary>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="func">The function.</param>
-        /// <returns></returns>
+        /// <summary> Maps the specified function. </summary>
+        /// <typeparam name="TResult"> The type of the result. </typeparam>
+        /// <param name="func"> The function. </param>
+        /// <returns> </returns>
         Option<TResult> Map<TResult>( Func<T, TResult> func );
 
-        /// <summary>
-        /// Matches the specified some function.
-        /// </summary>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="someFunc">Some function.</param>
-        /// <param name="noneFunc">The none function.</param>
-        /// <returns></returns>
+        /// <summary> Matches the specified some function. </summary>
+        /// <typeparam name="TResult"> The type of the result. </typeparam>
+        /// <param name="someFunc"> Some function. </param>
+        /// <param name="noneFunc"> The none function. </param>
+        /// <returns> </returns>
         TResult Match<TResult>( Func<T, TResult> someFunc, Func<TResult> noneFunc );
     }
 }

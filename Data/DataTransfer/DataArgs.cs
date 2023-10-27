@@ -46,101 +46,64 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Threading;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( " ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class DataArgs : StateData, IStateTransfer
     {
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the selected table.
-        /// </summary>
-        /// <value>
-        /// The selected table.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the selected table. </summary>
+        /// <value> The selected table. </value>
         public override string SelectedTable { get; set; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the selected columns.
-        /// </summary>
-        /// <value>
-        /// The selected fields.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the selected columns. </summary>
+        /// <value> The selected fields. </value>
         public IList<string> SelectedColumns { get; set; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the selected fields.
-        /// </summary>
-        /// <value>
-        /// The selected fields.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the selected fields. </summary>
+        /// <value> The selected fields. </value>
         public IList<string> SelectedFields { get; set; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the selected numerics.
-        /// </summary>
-        /// <value>
-        /// The selected numerics.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the selected numerics. </summary>
+        /// <value> The selected numerics. </value>
         public IList<string> SelectedNumerics { get; set; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the selected dates.
-        /// </summary>
-        /// <value>
-        /// The selected dates.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the selected dates. </summary>
+        /// <value> The selected dates. </value>
         public IList<DateTime> SelectedDates { get; set; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the SQL query.
-        /// </summary>
-        /// <value>
-        /// The SQL query.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the SQL query. </summary>
+        /// <value> The SQL query. </value>
         public override string SqlQuery { get; set; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
         public override Provider Provider { get; set; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         public override Source Source { get; set; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the data filter.
-        /// </summary>
-        /// <value>
-        /// The data filter.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets or sets the data filter. </summary>
+        /// <value> The data filter. </value>
         public override IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="DataArgs"/> class.
+        /// <see cref="DataArgs"/>
+        /// class.
         /// </summary>
         public DataArgs( )
         {

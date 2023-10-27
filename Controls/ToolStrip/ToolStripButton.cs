@@ -47,15 +47,16 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
+    using System.Threading;
     using System.Windows.Forms;
     using static System.Configuration.ConfigurationManager;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary> </summary>
     [ Serializable ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
-    public class ToolStripButton : ToolButtonBase, IToolStripButton
+    public class ToolStripButton : ToolButtonBase
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -98,7 +99,7 @@ namespace BudgetExecution
             Click += OnClick;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary> </summary>
         /// <param name="toolType"> </param>
         /// <param name="bindingSource"> </param>
@@ -108,7 +109,7 @@ namespace BudgetExecution
             BindingSource = bindingSource;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary> Sets the button image. </summary>
         /// <returns> </returns>
         public Image GetImage( ToolType toolType )
@@ -137,12 +138,12 @@ namespace BudgetExecution
             return default( Image );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary> Called when [mouse over]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
-        /// <see cref="T:System.EventArgs" />
+        /// <see cref="T:System.EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnMouseHover( object sender, EventArgs e )
@@ -172,12 +173,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary> Called when [mouse leave]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
-        /// <see cref="T:System.EventArgs" />
+        /// <see cref="T:System.EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnMouseLeave( object sender, EventArgs e )
@@ -196,12 +197,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary> Called when [click]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
-        /// <see cref="T:System.EventArgs" />
+        /// <see cref="T:System.EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public virtual void OnClick( object sender, EventArgs e )
@@ -213,25 +214,33 @@ namespace BudgetExecution
                     switch( _button?.ToolType )
                     {
                         case ToolType.FirstButton:
+
                         {
                             BindingSource?.MoveFirst( );
                             break;
                         }
+
                         case ToolType.PreviousButton:
+
                         {
                             BindingSource?.MovePrevious( );
                             break;
                         }
+
                         case ToolType.NextButton:
+
                         {
                             BindingSource?.MoveNext( );
                             break;
                         }
+
                         case ToolType.LastButton:
+
                         {
                             BindingSource?.MoveLast( );
                             break;
                         }
+
                         case ToolType.RemoveFiltersButton:
                         case ToolType.RefreshDataButton:
                         case ToolType.SearchDataButton:
@@ -261,20 +270,25 @@ namespace BudgetExecution
                         case ToolType.GuidanceButton:
                         case ToolType.PdfButton:
                         case ToolType.ClientButton:
+
                         {
                             break;
                         }
+
                         case ToolType.ImportDatabaseButton:
                         case ToolType.ImportButton:
                         case ToolType.CsvImportButton:
                         case ToolType.PdfImportButton:
                         case ToolType.ExcelImportButton:
+
                         {
                             var _fileDialog = new FileBrowser( );
                             _fileDialog.ShowDialog( );
                             break;
                         }
+
                         case ToolType.ExcelButton:
+
                         {
                             var _excel =
                                 @"C:\Users\terry\source\repos\BudgetExecution\Resources\Reports\Template.xlsx";
@@ -283,24 +297,29 @@ namespace BudgetExecution
                             _excelForm?.ShowDialog( );
                             break;
                         }
+
                         case ToolType.DeleteButton:
                         case ToolType.EditButton:
                         case ToolType.DataRowButton:
                         case ToolType.CopyButton:
                         case ToolType.AccountButton:
                         case ToolType.AddRecordButton:
+
                         {
                             var _dialog = new EditDialog( _button.ToolType, BindingSource );
                             _dialog?.ShowDialog( );
                             break;
                         }
+
                         case ToolType.InsertButton:
                         case ToolType.UpdateButton:
+
                         {
                             var _dialog = new SqlDialog( _button.ToolType, BindingSource );
                             _dialog?.ShowDialog( );
                             break;
                         }
+
                         case ToolType.GoButton:
                         case ToolType.GoogleButton:
                         case ToolType.BlueToothButton:
@@ -339,24 +358,31 @@ namespace BudgetExecution
                         case ToolType.UndoButton:
                         case ToolType.WordButton:
                         case ToolType.RefreshButton:
+
                         {
                             var _notification = new Notification( "NOT YET IMPLEMENTED!" );
                             _notification.Show( );
                             break;
                         }
+
                         case ToolType.CalculatorButton:
+
                         {
                             using var _calculator = new CalculationForm( );
                             _calculator?.ShowDialog( );
                             break;
                         }
+
                         case ToolType.BrowseButton:
+
                         {
                             var _browser = new FileBrowser( );
                             _browser?.ShowDialog( );
                             break;
                         }
+
                         case ToolType.WebButton:
+
                         {
                             var _notification = new Notification( "NOT YET IMPLEMENTED!" );
                             _notification.Show( );

@@ -40,13 +40,15 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Data.Common;
+    using System.Threading;
 
     /// <summary> </summary>
     public interface ICommand : ISource, IProvider
     {
         /// <summary> Sets the command. </summary>
-        /// <param name = "sqlStatement" > The SQL statement. </param>
+        /// <param name="sqlStatement"> The SQL statement. </param>
         /// <returns> </returns>
         DbCommand GetCommand( );
     }

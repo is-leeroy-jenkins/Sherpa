@@ -44,124 +44,141 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Data.OleDb;
+    using System.Threading;
     using System.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.Query" />
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.Query"/>
     public class SqlCeQuery : Query
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlCeQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
         /// </summary>
         public SqlCeQuery( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlCeQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
+        /// <param name="source"> The source. </param>
         public SqlCeQuery( Source source )
             : base( source, Provider.SqlCe, SQL.SELECT )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlCeQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="dict">The dictionary.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="dict"> The dictionary. </param>
         public SqlCeQuery( Source source, IDictionary<string, object> dict )
             : base( source, Provider.SqlCe, dict, SQL.SELECT )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlCeQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="dict">The dictionary.</param>
-        /// <param name="commandType">Type of the command.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="dict"> The dictionary. </param>
+        /// <param name="commandType"> Type of the command. </param>
         public SqlCeQuery( Source source, IDictionary<string, object> dict, SQL commandType )
             : base( source, Provider.SqlCe, dict, commandType )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlCeQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="updates">The updates.</param>
-        /// <param name="where">The where.</param>
-        /// <param name="commandType">Type of the command.</param>
-        public SqlCeQuery( Source source, IDictionary<string, object> updates, 
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+        /// <param name="source"> The source. </param>
+        /// <param name="updates"> The updates. </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public SqlCeQuery( Source source, IDictionary<string, object> updates,
+                           IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, Provider.SqlCe, updates, where, commandType )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlCeQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="columns">The columns.</param>
-        /// <param name="criteria">The criteria.</param>
-        /// <param name="commandType">Type of the command.</param>
-        public SqlCeQuery( Source source, IEnumerable<string> columns, 
-            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+        /// <param name="source"> The source. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="criteria"> The criteria. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public SqlCeQuery( Source source, IEnumerable<string> columns,
+                           IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
             : base( source, Provider.SqlCe, columns, criteria, commandType )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlCeQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="sqlStatement">The sqlStatement.</param>
+        /// <param name="sqlStatement"> The sqlStatement. </param>
         public SqlCeQuery( ISqlStatement sqlStatement )
             : base( sqlStatement )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlCeQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="sqlText">The SQL text.</param>
+        /// <param name="source"> The source. </param>
+        /// <param name="sqlText"> The SQL text. </param>
         public SqlCeQuery( Source source, string sqlText )
             : base( source, Provider.SqlCe, sqlText )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlCeQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="fullPath">The fullpath.</param>
-        /// <param name="sqlText"></param>
-        /// <param name="commandType">The commandType.</param>
+        /// <param name="fullPath"> The fullpath. </param>
+        /// <param name="sqlText"> </param>
+        /// <param name="commandType"> The commandType. </param>
         public SqlCeQuery( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
             : base( fullPath, sqlText, commandType )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlCeQuery"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
         /// </summary>
-        /// <param name="fullPath">The fullpath.</param>
-        /// <param name="commandType">The commandType.</param>
-        /// <param name="dict"></param>
+        /// <param name="fullPath"> The fullpath. </param>
+        /// <param name="commandType"> The commandType. </param>
+        /// <param name="dict"> </param>
         public SqlCeQuery( string fullPath, SQL commandType, IDictionary<string, object> dict )
             : base( fullPath, commandType, dict )
         {
         }
 
-        /// <summary>
-        /// Creates the table from excel file.
-        /// </summary>
-        /// <param name="fileName">Name of the file.</param>
-        /// <param name="sheetName">Name of the sheet.</param>
-        /// <returns></returns>
+        /// <summary> Creates the table from excel file. </summary>
+        /// <param name="fileName"> Name of the file. </param>
+        /// <param name="sheetName"> Name of the sheet. </param>
+        /// <returns> </returns>
         public DataTable CreateTableFromExcelFile( string fileName, ref string sheetName )
         {
             if( !string.IsNullOrEmpty( fileName )
@@ -198,12 +215,10 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary>
-        /// Creates the table from CSV file.
-        /// </summary>
-        /// <param name="filePath">The file path.</param>
-        /// <param name="sheetName">Name of the sheet.</param>
-        /// <returns></returns>
+        /// <summary> Creates the table from CSV file. </summary>
+        /// <param name="filePath"> The file path. </param>
+        /// <param name="sheetName"> Name of the sheet. </param>
+        /// <returns> </returns>
         public DataTable CreateTableFromCsvFile( string filePath, ref string sheetName )
         {
             if( !string.IsNullOrEmpty( filePath )
@@ -243,10 +258,26 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary>
-        /// Gets the excel file path.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
+        /// <param name="disposing">
+        /// <c> true </c>
+        /// to release both managed and unmanaged resources;
+        /// <c> false </c>
+        /// to release only unmanaged resources.
+        /// </param>
+        protected override void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                base.Dispose( disposing );
+                IsDisposed = true;
+            }
+
+            Dispose( );
+        }
+
+        /// <summary> Gets the excel file path. </summary>
+        /// <returns> </returns>
         private string GetExcelFilePath( )
         {
             try
@@ -275,16 +306,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Checks if sheet name exists.
-        /// </summary>
-        /// <param name="sheetName">Name of the sheet.</param>
-        /// <param name="schemaTable">The schema table.</param>
-        /// <returns></returns>
+        /// <summary> Checks if sheet name exists. </summary>
+        /// <param name="sheetName"> Name of the sheet. </param>
+        /// <param name="schemaTable"> The schema table. </param>
+        /// <returns> </returns>
         private bool CheckIfSheetNameExists( string sheetName, DataTable schemaTable )
         {
-            if( !string.IsNullOrEmpty( sheetName ) 
-               && schemaTable?.Columns.Count > 0 )
+            if( !string.IsNullOrEmpty( sheetName )
+               && ( schemaTable?.Columns.Count > 0 ) )
             {
                 for( var _i = 0; _i < schemaTable.Rows.Count; _i++ )
                 {
@@ -297,24 +326,6 @@ namespace BudgetExecution
             }
 
             return false;
-        }
-
-        /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
-        /// </summary>
-        /// <param name="disposing"><c> true </c>
-        /// to release both managed and unmanaged resources;
-        /// <c> false </c>
-        /// to release only unmanaged resources.</param>
-        protected override void Dispose( bool disposing )
-        {
-            if( disposing )
-            {
-                base.Dispose( disposing );
-                IsDisposed = true;
-            }
-
-            Dispose( );
         }
     }
 }

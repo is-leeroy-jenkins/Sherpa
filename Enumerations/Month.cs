@@ -45,71 +45,46 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public enum Month
     {
-        /// <summary>
-        /// The january
-        /// </summary>
+        /// <summary> The january </summary>
         January = 1,
 
-        /// <summary>
-        /// The february
-        /// </summary>
+        /// <summary> The february </summary>
         February,
 
-        /// <summary>
-        /// The march
-        /// </summary>
+        /// <summary> The march </summary>
         March,
 
-        /// <summary>
-        /// The april
-        /// </summary>
+        /// <summary> The april </summary>
         April,
 
-        /// <summary>
-        /// The may
-        /// </summary>
+        /// <summary> The may </summary>
         May,
 
-        /// <summary>
-        /// The june
-        /// </summary>
+        /// <summary> The june </summary>
         June,
 
-        /// <summary>
-        /// The july
-        /// </summary>
+        /// <summary> The july </summary>
         July,
 
-        /// <summary>
-        /// The august
-        /// </summary>
+        /// <summary> The august </summary>
         August,
 
-        /// <summary>
-        /// The september
-        /// </summary>
+        /// <summary> The september </summary>
         September,
 
-        /// <summary>
-        /// The october
-        /// </summary>
+        /// <summary> The october </summary>
         October,
 
-        /// <summary>
-        /// The november
-        /// </summary>
+        /// <summary> The november </summary>
         November,
 
-        /// <summary>
-        /// The december
-        /// </summary>
+        /// <summary> The december </summary>
         December
     }
 }

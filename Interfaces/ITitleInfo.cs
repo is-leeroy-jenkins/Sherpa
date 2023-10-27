@@ -40,7 +40,9 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Drawing;
+    using System.Threading;
     using Syncfusion.Windows.Forms.Chart;
 
     /// <summary> </summary>
@@ -55,14 +57,14 @@ namespace BudgetExecution
         ChartTitle CreateAxisTitle( );
 
         /// <summary> Gets the main title. </summary>
-        /// <param name = "color" > The color. </param>
-        /// <param name = "font" > The font. </param>
+        /// <param name="color"> The color. </param>
+        /// <param name="font"> The font. </param>
         /// <returns> </returns>
         ChartTitle CreateMainTitle( Color color, Font font );
 
         /// <summary> Gets the axis title. </summary>
-        /// <param name = "color" > The color. </param>
-        /// <param name = "font" > The font. </param>
+        /// <param name="color"> The color. </param>
+        /// <param name="font"> The font. </param>
         /// <returns> </returns>
         ChartTitle CreateAxisTitle( Color color, Font font );
     }

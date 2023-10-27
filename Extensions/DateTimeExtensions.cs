@@ -47,6 +47,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -106,12 +107,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the week ends until.
-        /// </summary>
-        /// <param name="startDate">The start date.</param>
-        /// <param name="endDate">The end date.</param>
-        /// <returns></returns>
+        /// <summary> Gets the week ends until. </summary>
+        /// <param name="startDate"> The start date. </param>
+        /// <param name="endDate"> The end date. </param>
+        /// <returns> </returns>
         public static IEnumerable<DateTime> GetWeekends( this DateTime startDate, DateTime endDate )
         {
             try
@@ -140,19 +139,17 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the holidays until.
-        /// </summary>
-        /// <param name="startDate">The start date.</param>
-        /// <param name="endDate">The end date.</param>
-        /// <returns></returns>
+        /// <summary> Gets the holidays until. </summary>
+        /// <param name="startDate"> The start date. </param>
+        /// <param name="endDate"> The end date. </param>
+        /// <returns> </returns>
         public static IEnumerable<DateTime> GetHolidays( this DateTime startDate, DateTime endDate )
         {
             try
             {
                 ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
-                int _days = 0;
+                var _days = 0;
                 var _holidays = new List<DateTime>( );
                 for( _days = 0; _days < _timeSpan.Days; _days++ )
                 {
@@ -174,17 +171,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the workdays
-        /// </summary>
-        /// <param name="startDate">
-        /// The start date.
-        /// </param>
-        /// <param name="endDate">
-        /// The end date.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <summary> Gets the workdays </summary>
+        /// <param name="startDate"> The start date. </param>
+        /// <param name="endDate"> The end date. </param>
+        /// <returns> </returns>
         public static IEnumerable<DateTime> GetWorkdays( this DateTime startDate, DateTime endDate )
         {
             try
@@ -269,7 +259,7 @@ namespace BudgetExecution
         /// .
         /// </returns>
         public static bool IsBetween( this DateTime dateTime, DateTime startDate, DateTime endDate,
-            bool compareTime = false )
+                                      bool compareTime = false )
         {
             try
             {
@@ -286,12 +276,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Adds the workdays.
-        /// </summary>
-        /// <param name="startDate">The start date.</param>
-        /// <param name="days">The days.</param>
-        /// <returns></returns>
+        /// <summary> Adds the workdays. </summary>
+        /// <param name="startDate"> The start date. </param>
+        /// <param name="days"> The days. </param>
+        /// <returns> </returns>
         public static DateTime AddWorkdays( this DateTime startDate, int days )
         {
             try
@@ -382,12 +370,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Counts the workdays.
-        /// </summary>
-        /// <param name="startDate">The start date.</param>
-        /// <param name="endDate">The end date.</param>
-        /// <returns></returns>
+        /// <summary> Counts the workdays. </summary>
+        /// <param name="startDate"> The start date. </param>
+        /// <param name="endDate"> The end date. </param>
+        /// <returns> </returns>
         public static int CountWorkdays( this DateTime startDate, DateTime endDate )
         {
             try
@@ -416,12 +402,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Counts the holidays.
-        /// </summary>
-        /// <param name="startDate">The start date.</param>
-        /// <param name="endDate">The end date.</param>
-        /// <returns></returns>
+        /// <summary> Counts the holidays. </summary>
+        /// <param name="startDate"> The start date. </param>
+        /// <param name="endDate"> The end date. </param>
+        /// <returns> </returns>
         public static int CountHolidays( this DateTime startDate, DateTime endDate )
         {
             try
@@ -461,7 +445,7 @@ namespace BudgetExecution
         public static bool IsFederalHoliday( this DateTime dateTime )
         {
             // to ease typing
-            var _nthDay = (int)Math.Ceiling( dateTime.Day / 7.0d );
+            var _nthDay = (int) Math.Ceiling( dateTime.Day / 7.0d );
             var _date = dateTime.DayOfWeek;
             var _thursday = _date == DayOfWeek.Thursday;
             var _friday = _date == DayOfWeek.Friday;
@@ -511,8 +495,10 @@ namespace BudgetExecution
                 case 12 when ( dateTime.Day == 24 ) && _friday:
                 case 12 when ( dateTime.Day == 25 ) && !_weekend:
                 case 12 when ( dateTime.Day == 26 ) && _monday:
+
                     return true;
                 default:
+
                     return false;
             }
         }

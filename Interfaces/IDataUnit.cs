@@ -40,8 +40,10 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Threading;
 
     /// <summary> </summary>
     public interface IDataUnit
@@ -60,7 +62,7 @@ namespace BudgetExecution
         public DataRow Record { get; set; }
 
         /// <summary> Determines whether the specified element is match. </summary>
-        /// <param name = "unit" > The element. </param>
+        /// <param name="unit"> The element. </param>
         /// <returns>
         /// <c> true </c>
         /// if the specified element is match; otherwise,
@@ -70,7 +72,7 @@ namespace BudgetExecution
         bool IsMatch( IDataUnit unit );
 
         /// <summary> Determines whether the specified dictionary is match. </summary>
-        /// <param name = "dict" > The dictionary. </param>
+        /// <param name="dict"> The dictionary. </param>
         /// <returns>
         /// <c> true </c>
         /// if the specified dictionary is match; otherwise,

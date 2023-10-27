@@ -45,6 +45,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Runtime.InteropServices;
+    using System.Threading;
 
     /// <summary> </summary>
     internal static class NativeMethods
@@ -66,6 +67,7 @@ namespace BudgetExecution
 
         [ DllImport( "Gdi32.dll", EntryPoint = "CreateRoundRectRgn" ) ]
         internal static extern IntPtr CreateRoundRectRgn( int nLeftRect, int nTopRect,
-            int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse );
+                                                          int nRightRect, int nBottomRect,
+                                                          int nWidthEllipse, int nHeightEllipse );
     }
 }

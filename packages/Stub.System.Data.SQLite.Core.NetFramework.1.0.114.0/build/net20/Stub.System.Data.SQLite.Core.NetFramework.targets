@@ -14,34 +14,29 @@
   **                          Load Per-User Settings                          **
   ******************************************************************************
   -->
-
-  <!--
-      NOTE: If the per-user settings file exists, import it now.  The contained
-            settings, if any, will override the default ones provided below.
-  -->
-  <Import Condition="'$(MSBuildThisFileFullPath)' != '' And
+	<!--
+		NOTE: If the per-user settings file exists, import it now.  The contained
+			  settings, if any, will override the default ones provided below.
+	-->
+	<Import Condition="'$(MSBuildThisFileFullPath)' != '' And
                      Exists('$(MSBuildThisFileFullPath).user')"
-          Project="$(MSBuildThisFileFullPath).user" />
-
-  <!--
-  ******************************************************************************
-  **                    SQLite Interop Library Build Items                    **
-  ******************************************************************************
-  -->
-
-  <ItemGroup>
+	        Project="$(MSBuildThisFileFullPath).user"/>
+	<!--
+	******************************************************************************
+	**                    SQLite Interop Library Build Items                    **
+	******************************************************************************
+	-->
+	<ItemGroup>
     <SQLiteInteropFiles Condition="'$(MSBuildThisFileDirectory)' != '' And
                                    HasTrailingSlash('$(MSBuildThisFileDirectory)')"
-                        Include="$(MSBuildThisFileDirectory)**\SQLite.Interop.*" />
+                        Include="$(MSBuildThisFileDirectory)**\SQLite.Interop.*"/>
   </ItemGroup>
-
-  <!--
-  ******************************************************************************
-  **                   SQLite Interop Library Content Items                   **
-  ******************************************************************************
-  -->
-
-  <ItemGroup Condition="'$(ContentSQLiteInteropFiles)' != '' And
+	<!--
+	******************************************************************************
+	**                   SQLite Interop Library Content Items                   **
+	******************************************************************************
+	-->
+	<ItemGroup Condition="'$(ContentSQLiteInteropFiles)' != '' And
                         '$(ContentSQLiteInteropFiles)' != 'false' And
                         '@(SQLiteInteropFiles)' != ''">
     <Content Include="@(SQLiteInteropFiles)">
@@ -49,34 +44,30 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
-  <!--
-  ******************************************************************************
-  **                   SQLite Interop Library Build Targets                   **
-  ******************************************************************************
-  -->
-
-  <Target Name="CopySQLiteInteropFiles"
-          Condition="'$(CopySQLiteInteropFiles)' != 'false' And
+	<!--
+	******************************************************************************
+	**                   SQLite Interop Library Build Targets                   **
+	******************************************************************************
+	-->
+	<Target Name="CopySQLiteInteropFiles"
+	        Condition="'$(CopySQLiteInteropFiles)' != 'false' And
                      '$(OutDir)' != '' And
                      HasTrailingSlash('$(OutDir)') And
                      Exists('$(OutDir)')"
-          Inputs="@(SQLiteInteropFiles)"
-          Outputs="@(SQLiteInteropFiles -> '$(OutDir)%(RecursiveDir)%(Filename)%(Extension)')">
+	        Inputs="@(SQLiteInteropFiles)"
+	        Outputs="@(SQLiteInteropFiles -> '$(OutDir)%(RecursiveDir)%(Filename)%(Extension)')">
     <!--
         NOTE: Copy "SQLite.Interop.dll" and all related files, for every
               architecture that we support, to the build output directory.
     -->
-    <Copy SourceFiles="@(SQLiteInteropFiles)"
-          DestinationFiles="@(SQLiteInteropFiles -> '$(OutDir)%(RecursiveDir)%(Filename)%(Extension)')" />
+		<Copy SourceFiles="@(SQLiteInteropFiles)"
+		      DestinationFiles="@(SQLiteInteropFiles -> '$(OutDir)%(RecursiveDir)%(Filename)%(Extension)')"/>
   </Target>
-
-  <!--
-  ******************************************************************************
-  -->
-
-  <Target Name="CleanSQLiteInteropFiles"
-          Condition="'$(CleanSQLiteInteropFiles)' != 'false' And
+	<!--
+	******************************************************************************
+	-->
+	<Target Name="CleanSQLiteInteropFiles"
+	        Condition="'$(CleanSQLiteInteropFiles)' != 'false' And
                      '$(OutDir)' != '' And
                      HasTrailingSlash('$(OutDir)') And
                      Exists('$(OutDir)')">
@@ -84,29 +75,25 @@
         NOTE: Delete "SQLite.Interop.dll" and all related files, for every
               architecture that we support, from the build output directory.
     -->
-    <Delete Files="@(SQLiteInteropFiles -> '$(OutDir)%(RecursiveDir)%(Filename)%(Extension)')" />
+		<Delete Files="@(SQLiteInteropFiles -> '$(OutDir)%(RecursiveDir)%(Filename)%(Extension)')"/>
   </Target>
-
-  <!--
-  ******************************************************************************
-  -->
-
-  <Target Name="CollectSQLiteInteropFiles"
-          Condition="'$(CollectSQLiteInteropFiles)' != 'false'">
+	<!--
+	******************************************************************************
+	-->
+	<Target Name="CollectSQLiteInteropFiles"
+	        Condition="'$(CollectSQLiteInteropFiles)' != 'false'">
     <ItemGroup>
       <FilesForPackagingFromProject Include="@(SQLiteInteropFiles)">
         <DestinationRelativePath>bin\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
       </FilesForPackagingFromProject>
     </ItemGroup>
   </Target>
-
-  <!--
-  ******************************************************************************
-  **                 SQLite Interop Library Build Properties                  **
-  ******************************************************************************
-  -->
-
-  <PropertyGroup>
+	<!--
+	******************************************************************************
+	**                 SQLite Interop Library Build Properties                  **
+	******************************************************************************
+	-->
+	<PropertyGroup>
     <PostBuildEventDependsOn>
       $(PostBuildEventDependsOn);
       CopySQLiteInteropFiles;
@@ -120,14 +107,12 @@
       CleanSQLiteInteropFiles;
     </CleanDependsOn>
   </PropertyGroup>
-
-  <!--
-  ******************************************************************************
-  **     SQLite Interop Library Publish Properties for Visual Studio 201x     **
-  ******************************************************************************
-  -->
-
-  <PropertyGroup Condition="'$(VisualStudioVersion)' == '' Or
+	<!--
+	******************************************************************************
+	**     SQLite Interop Library Publish Properties for Visual Studio 201x     **
+	******************************************************************************
+	-->
+	<PropertyGroup Condition="'$(VisualStudioVersion)' == '' Or
                             '$(VisualStudioVersion)' == '10.0' Or
                             '$(VisualStudioVersion)' == '11.0' Or
                             '$(VisualStudioVersion)' == '12.0' Or

@@ -41,65 +41,56 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Threading;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <seealso cref="T:BudgetExecution.IOption`1" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <typeparam name="T"> </typeparam>
+    /// <seealso cref="T:BudgetExecution.IOption`1"/>
     public abstract class Option<T> : IOption<T>
     {
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the value.
-        /// </summary>
-        /// <value>
-        /// The value.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets the value. </summary>
+        /// <value> The value. </value>
         public abstract T Value { get; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets a value indicating whether this instance is some.
-        /// </summary>
+        /// <inheritdoc/>
+        /// <summary> Gets a value indicating whether this instance is some. </summary>
         /// <value>
-        /// <c>true</c> if this instance is some; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if this instance is some; otherwise,
+        /// <c> false </c>
+        /// .
         /// </value>
         public abstract bool IsSome { get; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets a value indicating whether this instance is none.
-        /// </summary>
+        /// <inheritdoc/>
+        /// <summary> Gets a value indicating whether this instance is none. </summary>
         /// <value>
-        /// <c>true</c> if this instance is none; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if this instance is none; otherwise,
+        /// <c> false </c>
+        /// .
         /// </value>
         public abstract bool IsNone { get; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Maps the specified function.
-        /// </summary>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="func">The function.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Maps the specified function. </summary>
+        /// <typeparam name="TResult"> The type of the result. </typeparam>
+        /// <param name="func"> The function. </param>
+        /// <returns> </returns>
         public abstract Option<TResult> Map<TResult>( Func<T, TResult> func );
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Matches the specified some function.
-        /// </summary>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="someFunc">Some function.</param>
-        /// <param name="noneFunc">The none function.</param>
-        /// <returns></returns>
-        public abstract TResult Match<TResult>( Func<T, TResult> someFunc, 
-            Func<TResult> noneFunc );
+        /// <inheritdoc/>
+        /// <summary> Matches the specified some function. </summary>
+        /// <typeparam name="TResult"> The type of the result. </typeparam>
+        /// <param name="someFunc"> Some function. </param>
+        /// <param name="noneFunc"> The none function. </param>
+        /// <returns> </returns>
+        public abstract TResult Match<TResult>( Func<T, TResult> someFunc, Func<TResult> noneFunc );
 
-        /// <summary>
-        /// Fails the specified _ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified _ex. </summary>
+        /// <param name="ex"> The ex. </param>
         protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

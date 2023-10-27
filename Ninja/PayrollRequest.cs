@@ -43,36 +43,27 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.AdministrativeRequests" />
+    /// <summary> </summary>
+    /// <seealso cref="BudgetExecution.AdministrativeRequests"/>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class PayrollRequest : AdministrativeRequests
     {
-        /// <summary>
-        /// Gets or sets the original request date.
-        /// </summary>
-        /// <value>
-        /// The original request date.
-        /// </value>
+        /// <summary> Gets or sets the original request date. </summary>
+        /// <value> The original request date. </value>
         public virtual DateOnly OriginalRequestDate { get; set; }
 
-        /// <summary>
-        /// Gets or sets the last activity date.
-        /// </summary>
-        /// <value>
-        /// The last activity date.
-        /// </value>
+        /// <summary> Gets or sets the last activity date. </summary>
+        /// <value> The last activity date. </value>
         public virtual DateOnly LastActivityDate { get; set; }
 
         public PayrollRequest( )
         {
             Source = Source.PayrollRequests;
         }
-        
+
         public PayrollRequest( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -85,10 +76,12 @@ namespace BudgetExecution
             Status = Record[ "Status" ].ToString( );
             BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString( );
             Comments = Record[ "Comments" ].ToString( );
-            OriginalRequestDate = DateOnly.Parse( Record[ "OriginalRequestDate" ].ToString( ) ?? "" );
+            OriginalRequestDate =
+                DateOnly.Parse( Record[ "OriginalRequestDate" ].ToString( ) ?? "" );
+
             LastActivityDate = DateOnly.Parse( Record[ "LastActivityDate" ].ToString( ) ?? "" );
         }
-        
+
         public PayrollRequest( IDataModel builder )
         {
             Record = builder.Record;
@@ -101,10 +94,12 @@ namespace BudgetExecution
             Status = Record[ "Status" ].ToString( );
             BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString( );
             Comments = Record[ "Comments" ].ToString( );
-            OriginalRequestDate = DateOnly.Parse( Record[ "OriginalRequestDate" ].ToString( ) ?? "" );
+            OriginalRequestDate =
+                DateOnly.Parse( Record[ "OriginalRequestDate" ].ToString( ) ?? "" );
+
             LastActivityDate = DateOnly.Parse( Record[ "LastActivityDate" ].ToString( ) ?? "" );
         }
-        
+
         public PayrollRequest( DataRow dataRow )
         {
             Record = dataRow;
@@ -117,7 +112,9 @@ namespace BudgetExecution
             Status = dataRow[ "Status" ].ToString( );
             BudgetFormulationSystem = dataRow[ "BudgetFormulationSystem" ].ToString( );
             Comments = dataRow[ "Comments" ].ToString( );
-            OriginalRequestDate = DateOnly.Parse( dataRow[ "OriginalRequestDate" ].ToString( ) ?? "" );
+            OriginalRequestDate =
+                DateOnly.Parse( dataRow[ "OriginalRequestDate" ].ToString( ) ?? "" );
+
             LastActivityDate = DateOnly.Parse( dataRow[ "LastActivityDate" ].ToString( ) ?? "" );
         }
 

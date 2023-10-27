@@ -43,21 +43,21 @@
 
 namespace BudgetExecution
 {
-    using MetroSet_UI.Controls;
-    using MetroSet_UI.Enums;
     using System;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
+    using MetroSet_UI.Controls;
+    using MetroSet_UI.Enums;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="MetroSet_UI.Controls.MetroSetLink" />
+    /// <summary> </summary>
+    /// <seealso cref="MetroSet_UI.Controls.MetroSetLink"/>
     public class Hyperlink : MetroSetLink
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Hyperlink"/> class.
+        /// <see cref="Hyperlink"/>
+        /// class.
         /// </summary>
         public Hyperlink( )
         {
@@ -72,14 +72,13 @@ namespace BudgetExecution
             ThemeName = "Budget Execution";
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Hyperlink" /> class.
+        /// <see cref="T:BudgetExecution.Hyperlink"/>
+        /// class.
         /// </summary>
-        /// <param name="text">
-        /// The text displayed by the control.
-        /// </param>
+        /// <param name="text"> The text displayed by the control. </param>
         public Hyperlink( string text )
             : this( )
         {

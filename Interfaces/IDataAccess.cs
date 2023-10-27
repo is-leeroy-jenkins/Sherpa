@@ -40,8 +40,10 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Threading;
 
     /// <summary> </summary>
     public interface IDataAccess
@@ -51,8 +53,8 @@ namespace BudgetExecution
         IQuery GetQuery( );
 
         /// <summary> Gets the query. </summary>
-        /// <param name = "connectionFactory" > The connection factory. </param>
-        /// <param name = "sqlStatement" > The SQL statement. </param>
+        /// <param name="connectionFactory"> The connection factory. </param>
+        /// <param name="sqlStatement"> The SQL statement. </param>
         /// <returns> </returns>
         IQuery GetQuery( IConnectionFactory connectionFactory, ISqlStatement sqlStatement );
 
@@ -69,7 +71,7 @@ namespace BudgetExecution
         DataTable GetDataTable( );
 
         /// <summary> Sets the column captions. </summary>
-        /// <param name = "dataTable" > The dataTable. </param>
+        /// <param name="dataTable"> The dataTable. </param>
         void SetColumnCaptions( DataTable dataTable );
 
         /// <summary> Gets the column schema. </summary>
@@ -77,17 +79,17 @@ namespace BudgetExecution
         DataColumnCollection GetColumnSchema( );
 
         /// <summary> Gets the schema table. </summary>
-        /// <param name = "dataTable" > The dataTable. </param>
+        /// <param name="dataTable"> The dataTable. </param>
         /// <returns> </returns>
         DataTable GetSchemaTable( DataTable dataTable );
 
         /// <summary> Gets the primary indexes. </summary>
-        /// <param name = "data" > The Data. </param>
+        /// <param name="data"> The Data. </param>
         /// <returns> </returns>
         IEnumerable<int> GetPrimaryIndexes( IEnumerable<DataRow> data );
 
         /// <summary> Gets the column ordinals. </summary>
-        /// <param name = "data" > The Data. </param>
+        /// <param name="data"> The Data. </param>
         /// <returns> </returns>
         IEnumerable<int> GetColumnOrdinals( IEnumerable<DataColumn> data );
 

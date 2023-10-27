@@ -48,6 +48,7 @@ namespace BudgetExecution
     using System.ComponentModel;
     using System.Data;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>
@@ -85,7 +86,7 @@ namespace BudgetExecution
             try
             {
                 if( bindingSource is BindingSource _binder
-                   && _binder?.DataSource != null )
+                   && ( _binder?.DataSource != null ) )
                 {
                     try
                     {
@@ -114,8 +115,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( bindingList != null
-                   && dict?.Any( ) == true )
+                if( ( bindingList != null )
+                   && ( dict?.Any( ) == true ) )
                 {
                     try
                     {
@@ -124,14 +125,14 @@ namespace BudgetExecution
                         foreach( var _kvp in dict )
                         {
                             if( !string.IsNullOrEmpty( _kvp.Key )
-                               && _kvp.Value != null )
+                               && ( _kvp.Value != null ) )
                             {
                                 _filter += $"{_kvp.Key} = {_kvp.Value} AND";
                             }
                         }
 
-                        if( _filter?.Length > 0
-                           && _list?.DataSource != null )
+                        if( ( _filter?.Length > 0 )
+                           && ( _list?.DataSource != null ) )
                         {
                             BindingSource.DataSource = _list?.DataSource;
                             BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray( ) );
@@ -172,7 +173,7 @@ namespace BudgetExecution
         /// <param name="data"> The data. </param>
         /// <param name="dict"> The dictionary. </param>
         public virtual void SetDataSource<T1>( IEnumerable<T1> data,
-            IDictionary<string, object> dict )
+                                               IDictionary<string, object> dict )
             where T1 : IEnumerable<DataRow>
         {
             if( data?.Any( ) == true )
@@ -183,7 +184,7 @@ namespace BudgetExecution
                     foreach( var _kvp in dict )
                     {
                         if( !string.IsNullOrEmpty( _kvp.Key )
-                           && _kvp.Value != null )
+                           && ( _kvp.Value != null ) )
                         {
                             _filter += $"{_kvp.Key} = {_kvp.Value} AND";
                         }
@@ -210,7 +211,7 @@ namespace BudgetExecution
             where T1 : IEnumerable<DataRow>
             where T2 : struct
         {
-            if( data?.Any( ) == true
+            if( ( data?.Any( ) == true )
                && Enum.IsDefined( typeof( Field ), field ) )
             {
                 try
@@ -270,8 +271,8 @@ namespace BudgetExecution
             where T1 : IEnumerable<DataRow>
             where T2 : IDictionary<string, object>
         {
-            if( data?.Any( ) == true
-               && dict?.Any( ) == true )
+            if( ( data?.Any( ) == true )
+               && ( dict?.Any( ) == true ) )
             {
                 try
                 {
@@ -279,7 +280,7 @@ namespace BudgetExecution
                     foreach( var _kvp in dict )
                     {
                         if( !string.IsNullOrEmpty( _kvp.Key )
-                           && _kvp.Value != null )
+                           && ( _kvp.Value != null ) )
                         {
                             _filter += $"{_kvp.Key} = {_kvp.Value} AND";
                         }
@@ -300,11 +301,11 @@ namespace BudgetExecution
         /// <param name="field"> The field. </param>
         /// <param name="filter"> The filter. </param>
         public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field,
-            object filter = null )
+                                                   object filter = null )
             where T1 : IEnumerable<DataRow>
             where T2 : struct
         {
-            if( data?.Any( ) == true
+            if( ( data?.Any( ) == true )
                && Enum.IsDefined( typeof( Field ), field ) )
             {
                 try
@@ -328,10 +329,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

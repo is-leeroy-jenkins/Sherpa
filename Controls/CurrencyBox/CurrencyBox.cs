@@ -43,64 +43,49 @@
 
 namespace BudgetExecution
 {
-    using Syncfusion.Windows.Forms;
     using System;
-    using System.Drawing;
-    using System.Windows.Forms;
-    using Syncfusion.Windows.Forms.Tools;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
+    using System.Threading;
+    using System.Windows.Forms;
+    using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Tools;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.CurrencyBase" />
-    [ SuppressMessage("ReSharper", "MemberCanBeInternal") ]
-    [ SuppressMessage("ReSharper", "ClassNeverInstantiated.Global") ]
+    /// <seealso cref="T:BudgetExecution.CurrencyBase"/>
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class CurrencyBox : CurrencyEdit
     {
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
+        /// <summary> Gets or sets the tool tip. </summary>
+        /// <value> The tool tip. </value>
         public SmallTip ToolTip { get; set; }
 
-        /// <summary>
-        /// Gets or sets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
+        /// <summary> Gets or sets the hover text. </summary>
+        /// <value> The hover text. </value>
         public string HoverText { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data filter.
-        /// </summary>
-        /// <value>
-        /// The data filter.
-        /// </value>
+        /// <summary> Gets or sets the data filter. </summary>
+        /// <value> The data filter. </value>
         public IDictionary<string, object> DataFilter { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CurrencyBox" />
+        /// <see cref="T:BudgetExecution.CurrencyBox"/>
         /// class.
         /// </summary>
         /// <remarks>
         /// The CurrencyEdit class also creates the controls that it hosts such as the
-        /// <see cref="T:Syncfusion.Windows.Forms.Tools.CurrencyTextBox" />
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.CurrencyTextBox"/>
         /// control and the
-        /// <see cref="T:Syncfusion.Windows.Forms.Tools.PopupCalculator" />
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.PopupCalculator"/>
         /// control.
         /// </remarks>
         public CurrencyBox( )
@@ -149,18 +134,19 @@ namespace BudgetExecution
             ThemeStyle.PressedBorderColor = Color.FromArgb( 0, 120, 212 );
         }
 
-        /// <summary>
-        /// Called when [mouse over].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [mouse over]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnMouseOver( object sender, EventArgs e )
         {
             var _currencyTextBox = sender as CurrencyBox;
             try
             {
-                if( _currencyTextBox != null
+                if( ( _currencyTextBox != null )
                    && !string.IsNullOrEmpty( HoverText ) )
                 {
                     if( !string.IsNullOrEmpty( HoverText ) )
@@ -184,12 +170,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [mouse leave].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [mouse leave]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnMouseLeave( object sender, EventArgs e )
         {
             var _currencyTextBox = sender as CurrencyBox;
@@ -205,10 +192,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

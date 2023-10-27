@@ -43,52 +43,44 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.Grid" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.Grid"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class Heading : Grid
     {
-        /// <summary>
-        /// Gets or sets the span.
-        /// </summary>
-        /// <value>
-        /// The span.
-        /// </value>
+        /// <summary> Gets or sets the span. </summary>
+        /// <value> The span. </value>
         public int Span { get; set; }
 
-        /// <summary>
-        /// Gets or sets the anchor.
-        /// </summary>
-        /// <value>
-        /// The anchor.
-        /// </value>
+        /// <summary> Gets or sets the anchor. </summary>
+        /// <value> The anchor. </value>
         public (int Row, int Column) Anchor { get; set; }
 
-        /// <summary>
-        /// Gets or sets the caption.
-        /// </summary>
-        /// <value>
-        /// The caption.
-        /// </value>
+        /// <summary> Gets or sets the caption. </summary>
+        /// <value> The caption. </value>
         public IDictionary<int, string> Caption { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.Heading" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Heading"/>
+        /// class.
         /// </summary>
         public Heading( )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.Heading" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Heading"/>
+        /// class.
         /// </summary>
-        /// <param name="grid">The grid.</param>
+        /// <param name="grid"> The grid. </param>
         public Heading( IGrid grid )
         {
             Worksheet = grid.Worksheet;
@@ -99,12 +91,14 @@ namespace BudgetExecution
             Anchor = ( From.Row, From.Column );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.Heading" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Heading"/>
+        /// class.
         /// </summary>
-        /// <param name="grid">The grid.</param>
-        /// <param name="caption">The caption.</param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="caption"> The caption. </param>
         public Heading( IGrid grid, IDictionary<int, string> caption )
             : this( grid )
         {

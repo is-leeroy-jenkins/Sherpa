@@ -44,39 +44,36 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using System.Diagnostics.CodeAnalysis;
+    using Timer = System.Windows.Forms.Timer;
 
-    /// <summary>
-    /// </summary>
+    /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
-    [SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" )]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public partial class BudgetForm : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
+        /// <summary> Gets or sets the time. </summary>
         /// <value> The time. </value>
         public int Time { get; set; }
 
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
+        /// <summary> Gets or sets the seconds. </summary>
         /// <value> The seconds. </value>
         public int Seconds { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetForm" />
+        /// <see cref="T:BudgetExecution.BudgetForm"/>
         /// class.
         /// </summary>
         public BudgetForm( )
@@ -119,25 +116,7 @@ namespace BudgetExecution
             CloseButton.Click += OnCloseButtonClick;
         }
 
-        /// <summary>
-        /// Initializes the title.
-        /// </summary>
-        private protected void InitializeTitle( )
-        {
-            try
-            {
-                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
-                Title.TextAlign = ContentAlignment.TopLeft;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
+        /// <summary> Displays the control to the user. </summary>
         public new void Show( )
         {
             try
@@ -165,9 +144,35 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
+        /// <summary> Notifications the close. </summary>
+        public void OnClose( )
+        {
+            try
+            {
+                FadeOut( );
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Initializes the title. </summary>
+        private protected void InitializeTitle( )
+        {
+            try
+            {
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Title.TextAlign = ContentAlignment.TopLeft;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Fades the in. </summary>
         private protected virtual void FadeIn( )
         {
             try
@@ -192,9 +197,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fades the out and close.
-        /// </summary>
+        /// <summary> Fades the out and close. </summary>
         private protected virtual void FadeOut( )
         {
             try
@@ -220,28 +223,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Notifications the close.
-        /// </summary>
-        public void OnClose( )
-        {
-            try
-            {
-                FadeOut( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private protected virtual void OnCloseButtonClick( object sender, EventArgs e )
         {
             try
@@ -254,12 +242,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">
-        /// The sender.
-        /// </param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
         /// <see cref="EventArgs"/>
@@ -278,12 +262,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Get ErrorDialog Dialog.
-        /// </summary>
-        /// <param name="ex">
-        /// The ex.
-        /// </param>
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

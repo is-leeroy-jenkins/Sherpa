@@ -43,21 +43,23 @@
 
 namespace BudgetExecution
 {
-    using Syncfusion.Windows.Forms.Chart;
-    using Syncfusion.Windows.Forms.PivotChart;
     using System;
     using System.Drawing;
+    using System.Threading;
+    using Syncfusion.Windows.Forms.Chart;
+    using Syncfusion.Windows.Forms.PivotChart;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:Syncfusion.Windows.Forms.PivotChart.PivotChart" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Forms.PivotChart.PivotChart"/>
     public class PivotChart : Syncfusion.Windows.Forms.PivotChart.PivotChart
 
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.PivotChart" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.PivotChart"/>
+        /// class.
         /// </summary>
         public PivotChart( )
         {

@@ -10,10 +10,9 @@ Copyright (c) .NET Foundation. All rights reserved.
 <Project>
   <PropertyGroup Condition=" ('$(TargetFrameworkIdentifier)' == '.NETFramework') And ('$(TargetFrameworkVersion)' == 'v4.8') ">
     <TargetFrameworkRootPath>$(MSBuildThisFileDirectory)</TargetFrameworkRootPath>
-    
-    <!-- FrameworkPathOverride is typically not set to the correct value, and the common targets include mscorlib from FrameworkPathOverride.
-         So disable FrameworkPathOverride, set NoStdLib to true, and explicitly reference mscorlib here. -->
-    <EnableFrameworkPathOverride>false</EnableFrameworkPathOverride>
+	  <!-- FrameworkPathOverride is typically not set to the correct value, and the common targets include mscorlib from FrameworkPathOverride.
+		   So disable FrameworkPathOverride, set NoStdLib to true, and explicitly reference mscorlib here. -->
+	  <EnableFrameworkPathOverride>false</EnableFrameworkPathOverride>
     <NoStdLib>true</NoStdLib>
 
     <UseReferencedVBRuntime Condition="'$(Language)' == 'VB' And '$(UsingMicrosoftNETSdk)' == 'true'">true</UseReferencedVBRuntime>
@@ -22,9 +21,9 @@ Copyright (c) .NET Foundation. All rights reserved.
   </PropertyGroup>
   
   <ItemGroup Condition=" ('$(TargetFrameworkIdentifier)' == '.NETFramework') And ('$(TargetFrameworkVersion)' == 'v4.8') ">
-    <Reference Include="mscorlib" Pack="false" />
+    <Reference Include="mscorlib" Pack="false"/>
     <Reference Include="Microsoft.VisualBasic" Pack="false"
-               Condition="'$(Language)' == 'VB' And '$(UsingMicrosoftNETSdk)' == 'true'" />
+               Condition="'$(Language)' == 'VB' And '$(UsingMicrosoftNETSdk)' == 'true'"/>
   </ItemGroup>
 
 </Project>

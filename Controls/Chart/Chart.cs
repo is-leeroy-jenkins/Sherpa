@@ -48,53 +48,38 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using System.Windows.Forms.DataVisualization.Charting;
     using MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.ChartBase" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.ChartBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Chart : ChartBase
     {
-        /// <summary>
-        /// Gets or sets the measure.
-        /// </summary>
-        /// <value>
-        /// The measure.
-        /// </value>
+        /// <summary> Gets or sets the measure. </summary>
+        /// <value> The measure. </value>
         public STAT Measure { get; set; }
 
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
+        /// <summary> Gets or sets the data table. </summary>
+        /// <value> The data table. </value>
         public DataTable DataTable { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
+        /// <summary> Gets or sets the data. </summary>
+        /// <value> The data. </value>
         public IEnumerable<DataRow> Data { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Chart" /> class.
+        /// <see cref="T:BudgetExecution.Chart"/>
+        /// class.
         /// </summary>
         public Chart( )
         {
@@ -112,31 +97,30 @@ namespace BudgetExecution
             SetSeriesProperties( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Chart" /> class.
+        /// <see cref="T:BudgetExecution.Chart"/>
+        /// class.
         /// </summary>
-        /// <param name="bindingSource">The binding source.</param>
-        /// <param name="category">The category.</param>
-        /// <param name="values">The values.</param>
-        /// <param name="type">The type.</param>
-        /// <param name="stat">The stat.</param>
+        /// <param name="bindingSource"> The binding source. </param>
+        /// <param name="category"> The category. </param>
+        /// <param name="values"> The values. </param>
+        /// <param name="type"> The type. </param>
+        /// <param name="stat"> The stat. </param>
         public Chart( BindingSource bindingSource, string category, IEnumerable<string> values,
-            SeriesChartType type = SeriesChartType.Column, STAT stat = STAT.Total )
+                      SeriesChartType type = SeriesChartType.Column, STAT stat = STAT.Total )
             : this( )
         {
-            DataTable = (DataTable)bindingSource.DataSource;
-            BindingSource.DataSource = (DataTable)bindingSource.DataSource;
-            DataSource = (DataTable)bindingSource.DataSource;
+            DataTable = (DataTable) bindingSource.DataSource;
+            BindingSource.DataSource = (DataTable) bindingSource.DataSource;
+            DataSource = (DataTable) bindingSource.DataSource;
             Data = DataTable.AsEnumerable( );
             Series[ 0 ].ChartType = type;
             Measure = stat;
         }
 
-        /// <summary>
-        /// Sets the area properties.
-        /// </summary>
+        /// <summary> Sets the area properties. </summary>
         private void SetAreaProperties( )
         {
             if( ChartAreas.Count > 0 )
@@ -186,9 +170,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the title properties.
-        /// </summary>
+        /// <summary> Sets the title properties. </summary>
         private void SetTitleProperties( )
         {
             if( Titles.Count > 0 )
@@ -210,9 +192,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the legend properties.
-        /// </summary>
+        /// <summary> Sets the legend properties. </summary>
         private void SetLegendProperties( )
         {
             if( Legends.Count > 0 )
@@ -239,9 +219,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the series properties.
-        /// </summary>
+        /// <summary> Sets the series properties. </summary>
         private void SetSeriesProperties( )
         {
             if( Series.Count > 0 )

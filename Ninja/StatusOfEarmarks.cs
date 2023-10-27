@@ -44,6 +44,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -87,7 +88,9 @@ namespace BudgetExecution
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            UnliquidatedObligations = double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
+            UnliquidatedObligations =
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
+
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) );
             Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) );
             Used = double.Parse( Record[ "Used" ].ToString( ) );
@@ -131,7 +134,9 @@ namespace BudgetExecution
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            UnliquidatedObligations = double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
+            UnliquidatedObligations =
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
+
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) );
             Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) );
             Used = double.Parse( Record[ "Used" ].ToString( ) );
@@ -175,7 +180,9 @@ namespace BudgetExecution
             Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) );
             Posted = double.Parse( dataRow[ "Posted" ].ToString( ) );
             OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) );
-            UnliquidatedObligations = double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) );
+            UnliquidatedObligations =
+                double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) );
+
             Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) );
             Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) );
             Used = double.Parse( dataRow[ "Used" ].ToString( ) );
@@ -192,10 +199,8 @@ namespace BudgetExecution
             ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="map"></param>
+        /// <summary> </summary>
+        /// <param name="map"> </param>
         public StatusOfEarmarks( IDictionary<string, object> map )
         {
             Record = new DataBuilder( Source, map )?.Record;
@@ -217,7 +222,9 @@ namespace BudgetExecution
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            UnliquidatedObligations = double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
+            UnliquidatedObligations =
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
+
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) );
             Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) );
             Used = double.Parse( Record[ "Used" ].ToString( ) );
@@ -234,10 +241,8 @@ namespace BudgetExecution
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="allocation"></param>
+        /// <summary> </summary>
+        /// <param name="allocation"> </param>
         public StatusOfEarmarks( StatusOfEarmarks allocation )
             : this( )
         {

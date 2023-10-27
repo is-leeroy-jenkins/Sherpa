@@ -44,71 +44,61 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
-    /// <seealso cref="T:BudgetExecution.IResourcePlanningOffice" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.DataUnit"/>
+    /// <seealso cref="T:BudgetExecution.IResourcePlanningOffice"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class ResourcePlanningOffice : DataUnit, IResourcePlanningOffice
+    public class ResourcePlanningOffice : DataUnit
     {
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <inheritdoc />
+        /// <summary> Gets the source. </summary>
+        /// <inheritdoc/>
         public override Source Source { get; set; } = Source.ResourcePlanningOffices;
 
-        /// <summary>
-        /// </summary>
-        /// <inheritdoc />
+        /// <summary> </summary>
+        /// <inheritdoc/>
         public override DataRow Record { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
+        /// <summary> Gets or sets the data. </summary>
+        /// <value> The data. </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary>
-        /// </summary>
-        /// <inheritdoc />
+        /// <summary> </summary>
+        /// <inheritdoc/>
         public override int ID { get; set; }
 
-        /// <summary>
-        /// Gets the field.
-        /// </summary>
-        /// <inheritdoc />
+        /// <summary> Gets the field. </summary>
+        /// <inheritdoc/>
         public override string Code { get; set; }
 
-        /// <summary>
-        /// The name
-        /// </summary>
-        /// <inheritdoc />
+        /// <summary> The name </summary>
+        /// <inheritdoc/>
         public override string Name { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ResourcePlanningOffice"/> class.
+        /// <see cref="ResourcePlanningOffice"/>
+        /// class.
         /// </summary>
         public ResourcePlanningOffice( )
         {
             Source = Source.ResourcePlanningOffices;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ResourcePlanningOffice" /> class.
+        /// <see cref="T:BudgetExecution.ResourcePlanningOffice"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name="query"> The query. </param>
         public ResourcePlanningOffice( IQuery query )
             : this( )
         {
@@ -121,9 +111,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ResourcePlanningOffice"/> class.
+        /// <see cref="ResourcePlanningOffice"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name="builder"> The builder. </param>
         public ResourcePlanningOffice( IDataModel builder )
         {
             Record = builder?.Record;
@@ -133,12 +124,13 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ResourcePlanningOffice" /> class.
+        /// <see cref="T:BudgetExecution.ResourcePlanningOffice"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name="dataRow"> The data row. </param>
         public ResourcePlanningOffice( DataRow dataRow )
             : this( )
         {
@@ -149,12 +141,13 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ResourcePlanningOffice" /> class.
+        /// <see cref="T:BudgetExecution.ResourcePlanningOffice"/>
+        /// class.
         /// </summary>
-        /// <param name="rpioCode">The rpio code.</param>
+        /// <param name="rpioCode"> The rpio code. </param>
         public ResourcePlanningOffice( string rpioCode )
             : this( )
         {
@@ -167,31 +160,28 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ResourcePlanningOffice"/> class.
+        /// <see cref="ResourcePlanningOffice"/>
+        /// class.
         /// </summary>
-        /// <param name="rpio">The rpio.</param>
-        public ResourcePlanningOffice( IResourcePlanningOffice rpio )
+        /// <param name="rpio"> The rpio. </param>
+        public ResourcePlanningOffice( ResourcePlanningOffice rpio )
         {
             ID = rpio.ID;
             Code = rpio.Code;
             Name = rpio.Name;
         }
 
-        /// <summary>
-        /// Gets the resource planning office.
-        /// </summary>
-        /// <returns></returns>
-        public IResourcePlanningOffice GetResourcePlanningOffice( )
+        /// <summary> Gets the resource planning office. </summary>
+        /// <returns> </returns>
+        public ResourcePlanningOffice GetResourcePlanningOffice( )
         {
             return MemberwiseClone( ) as ResourcePlanningOffice;
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
+        /// <summary> Gets the identifier. </summary>
+        /// <param name="dataRow"> The data row. </param>
+        /// <returns> </returns>
         public override int GetId( DataRow dataRow )
         {
             try
@@ -207,11 +197,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the arguments.
-        /// </summary>
-        /// <param name="code">The code.</param>
-        /// <returns></returns>
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
         private IDictionary<string, object> SetArgs( string code )
         {
             if( !string.IsNullOrEmpty( code ) )

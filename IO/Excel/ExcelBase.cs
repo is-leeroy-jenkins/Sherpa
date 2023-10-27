@@ -47,103 +47,61 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
+    using System.Threading;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.ExcelConfig" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.ExcelConfig"/>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class ExcelBase : ExcelConfig
     {
-        /// <summary>
-        /// Gets or sets the data connection.
-        /// </summary>
-        /// <value>
-        /// The data connection.
-        /// </value>
+        /// <summary> Gets or sets the data connection. </summary>
+        /// <value> The data connection. </value>
         public OleDbConnection DataConnection { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data command.
-        /// </summary>
-        /// <value>
-        /// The data command.
-        /// </value>
+        /// <summary> Gets or sets the data command. </summary>
+        /// <value> The data command. </value>
         public OleDbCommand DataCommand { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data adapter.
-        /// </summary>
-        /// <value>
-        /// The data adapter.
-        /// </value>
+        /// <summary> Gets or sets the data adapter. </summary>
+        /// <value> The data adapter. </value>
         public OleDbDataAdapter DataAdapter { get; set; }
 
-        /// <summary>
-        /// Gets or sets the ext.
-        /// </summary>
-        /// <value>
-        /// The ext.
-        /// </value>
+        /// <summary> Gets or sets the ext. </summary>
+        /// <value> The ext. </value>
         public EXT Ext { get; set; }
 
-        /// <summary>
-        /// Gets or sets the file information.
-        /// </summary>
-        /// <value>
-        /// The file information.
-        /// </value>
+        /// <summary> Gets or sets the file information. </summary>
+        /// <value> The file information. </value>
         public FileInfo FileInfo { get; set; }
 
-        /// <summary>
-        /// Gets or sets the application.
-        /// </summary>
-        /// <value>
-        /// The application.
-        /// </value>
+        /// <summary> Gets or sets the application. </summary>
+        /// <value> The application. </value>
         public ExcelPackage Application { get; set; }
 
-        /// <summary>
-        /// Gets or sets the workbook.
-        /// </summary>
-        /// <value>
-        /// The workbook.
-        /// </value>
+        /// <summary> Gets or sets the workbook. </summary>
+        /// <value> The workbook. </value>
         public ExcelWorkbook Workbook { get; set; }
 
-        /// <summary>
-        /// Gets or sets the worksheet.
-        /// </summary>
-        /// <value>
-        /// The worksheet.
-        /// </value>
+        /// <summary> Gets or sets the worksheet. </summary>
+        /// <value> The worksheet. </value>
         public ExcelWorksheet Worksheet { get; set; }
 
-        /// <summary>
-        /// Gets or sets the comment.
-        /// </summary>
-        /// <value>
-        /// The comment.
-        /// </value>
+        /// <summary> Gets or sets the comment. </summary>
+        /// <value> The comment. </value>
         public IEnumerable<ExcelComment> Comment { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
+        /// <summary> Gets or sets the data. </summary>
+        /// <value> The data. </value>
         public IEnumerable<DataRow> Data { get; set; }
 
-        /// <summary>
-        /// Sets the width of the column.
-        /// </summary>
-        /// <param name="grid">The grid.</param>
-        /// <param name="width">The width.</param>
+        /// <summary> Sets the width of the column. </summary>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="width"> The width. </param>
         public void SetColumnWidth( Grid grid, double width )
         {
             try
@@ -159,11 +117,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the color of the background.
-        /// </summary>
-        /// <param name="grid">The grid.</param>
-        /// <param name="color">The color.</param>
+        /// <summary> Sets the color of the background. </summary>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="color"> The color. </param>
         public void SetBackgroundColor( Grid grid, Color color )
         {
             try
@@ -181,11 +137,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the range font.
-        /// </summary>
-        /// <param name="grid">The grid.</param>
-        /// <param name="font">The font.</param>
+        /// <summary> Sets the range font. </summary>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="font"> The font. </param>
         public void SetRangeFont( Grid grid, Font font )
         {
             try
@@ -201,11 +155,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the color of the font.
-        /// </summary>
-        /// <param name="grid">The grid.</param>
-        /// <param name="color">The color.</param>
+        /// <summary> Sets the color of the font. </summary>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="color"> The color. </param>
         public void SetFontColor( Grid grid, Color color )
         {
             try
@@ -222,12 +174,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the border style.
-        /// </summary>
-        /// <param name="grid">The grid.</param>
-        /// <param name="side">The side.</param>
-        /// <param name="style">The style.</param>
+        /// <summary> Sets the border style. </summary>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="side"> The side. </param>
+        /// <param name="style"> The style. </param>
         public void SetBorderStyle( Grid grid, BorderSide side, ExcelBorderStyle style )
         {
             if( ( grid?.Worksheet != null )
@@ -241,26 +191,35 @@ namespace BudgetExecution
                     switch( side )
                     {
                         case BorderSide.Top:
+
                         {
                             _range.Style.Border.Top.Style = style;
                             break;
                         }
+
                         case BorderSide.Bottom:
+
                         {
                             _range.Style.Border.Bottom.Style = style;
                             break;
                         }
+
                         case BorderSide.Right:
+
                         {
                             _range.Style.Border.Right.Style = style;
                             break;
                         }
+
                         case BorderSide.Left:
+
                         {
                             _range.Style.Border.Left.Style = style;
                             break;
                         }
+
                         default:
+
                         {
                             _range.Style.Border.BorderAround( ExcelBorderStyle.None );
                             break;
@@ -274,11 +233,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the horizontal alignment.
-        /// </summary>
-        /// <param name="grid">The grid.</param>
-        /// <param name="align">The align.</param>
+        /// <summary> Sets the horizontal alignment. </summary>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="align"> The align. </param>
         public void SetHorizontalAlignment( Grid grid, ExcelHorizontalAlignment align )
         {
             if( ( grid?.Worksheet != null )
@@ -297,11 +254,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the vertical alignment.
-        /// </summary>
-        /// <param name="grid">The grid.</param>
-        /// <param name="align">The align.</param>
+        /// <summary> Sets the vertical alignment. </summary>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="align"> The align. </param>
         public void SetVerticalAlignment( Grid grid, ExcelVerticalAlignment align )
         {
             if( ( grid?.Worksheet != null )
@@ -319,10 +274,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Merges the cells.
-        /// </summary>
-        /// <param name="grid">The grid.</param>
+        /// <summary> Merges the cells. </summary>
+        /// <param name="grid"> The grid. </param>
         public void MergeCells( Grid grid )
         {
             try

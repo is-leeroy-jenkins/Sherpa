@@ -45,70 +45,51 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.IDataUnit" />
-    /// <seealso cref="T:BudgetExecution.ISource" />
-    /// <seealso cref="T:BudgetExecution.IProvider" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.IDataUnit"/>
+    /// <seealso cref="T:BudgetExecution.ISource"/>
+    /// <seealso cref="T:BudgetExecution.IProvider"/>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class DataUnit : IDataUnit, ISource, IProvider
     {
-        /// <inheritdoc />
-        /// <summary>
-        /// </summary>
+        /// <inheritdoc/>
+        /// <summary> </summary>
         public virtual int ID { get; set; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the field.
-        /// </summary>
+        /// <inheritdoc/>
+        /// <summary> Gets the field. </summary>
         public virtual string Code { get; set; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// The name
-        /// </summary>
+        /// <inheritdoc/>
+        /// <summary> The name </summary>
         public virtual string Name { get; set; }
 
-        /// <summary>
-        /// Gets or sets the value.
-        /// </summary>
-        /// <value>
-        /// The value.
-        /// </value>
+        /// <summary> Gets or sets the value. </summary>
+        /// <value> The value. </value>
         public virtual object Value { get; set; }
-        
-        /// <inheritdoc />
-        /// <summary>
-        /// </summary>
+
+        /// <inheritdoc/>
+        /// <summary> </summary>
         public virtual DataRow Record { get; set; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// </summary>
+        /// <inheritdoc/>
+        /// <summary> </summary>
         public virtual Provider Provider { get; set; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
+        /// <inheritdoc/>
+        /// <summary> Gets the source. </summary>
         public virtual Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
+        /// <summary> Gets or sets the data. </summary>
+        /// <value> The data. </value>
         public virtual IDictionary<string, object> Data { get; set; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Determines whether the specified element is match.
-        /// </summary>
-        /// <param name="unit">The element.</param>
+        /// <inheritdoc/>
+        /// <summary> Determines whether the specified element is match. </summary>
+        /// <param name="unit"> The element. </param>
         /// <returns>
         /// <c> true </c>
         /// if the specified element is match; otherwise,
@@ -137,11 +118,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Determines whether the specified dictionary is match.
-        /// </summary>
-        /// <param name="dict">The dictionary.</param>
+        /// <inheritdoc/>
+        /// <summary> Determines whether the specified dictionary is match. </summary>
+        /// <param name="dict"> The dictionary. </param>
         /// <returns>
         /// <c> true </c>
         /// if the specified dictionary is match; otherwise,
@@ -164,13 +143,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Determines whether the specified primary is match.
-        /// </summary>
-        /// <param name="primary">The primary.</param>
-        /// <param name="secondary">The secondary.</param>
+        /// <summary> Determines whether the specified primary is match. </summary>
+        /// <param name="primary"> The primary. </param>
+        /// <param name="secondary"> The secondary. </param>
         /// <returns>
-        ///   <c>true</c> if the specified primary is match; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if the specified primary is match; otherwise,
+        /// <c> false </c>
+        /// .
         /// </returns>
         public virtual bool IsMatch( IDataUnit primary, IDataUnit secondary )
         {
@@ -191,20 +171,17 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="primaryKey">The primary key.</param>
-        /// <returns></returns>
+        /// <summary> Gets the identifier. </summary>
+        /// <param name="dataRow"> The data row. </param>
+        /// <param name="primaryKey"> The primary key. </param>
+        /// <returns> </returns>
         public virtual int GetId( DataRow dataRow, string primaryKey )
         {
             try
             {
-                return !string.IsNullOrEmpty( primaryKey ) 
-                    && ( dataRow != null )
-                        ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) )
-                        : -1;
+                return !string.IsNullOrEmpty( primaryKey ) && ( dataRow != null )
+                    ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) )
+                    : -1;
             }
             catch( Exception _ex )
             {
@@ -213,11 +190,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <returns></returns>
+        /// <summary> Gets the identifier. </summary>
+        /// <param name="dataRow"> The data row. </param>
+        /// <returns> </returns>
         public virtual int GetId( DataRow dataRow )
         {
             if( dataRow != null )
@@ -230,10 +205,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

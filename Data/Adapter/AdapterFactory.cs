@@ -43,53 +43,52 @@ namespace BudgetExecution
     using System;
     using System.Data.Common;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.AdapterBase" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.AdapterBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class AdapterFactory : AdapterBase
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AdapterFactory" /> class.
+        /// <see cref="T:BudgetExecution.AdapterFactory"/>
+        /// class.
         /// </summary>
         public AdapterFactory( )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AdapterFactory" /> class.
+        /// <see cref="T:BudgetExecution.AdapterFactory"/>
+        /// class.
         /// </summary>
-        /// <param name="commandFactory">The command factory.</param>
+        /// <param name="commandFactory"> The command factory. </param>
         public AdapterFactory( ICommandFactory commandFactory )
             : base( commandFactory )
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AdapterFactory" /> class.
+        /// <see cref="T:BudgetExecution.AdapterFactory"/>
+        /// class.
         /// </summary>
-        /// <param name="sqlStatement">The SQL statement.</param>
+        /// <param name="sqlStatement"> The SQL statement. </param>
         public AdapterFactory( ISqlStatement sqlStatement )
             : base( sqlStatement )
         {
         }
 
-        /// <summary>
-        /// Gets the adapter.
-        /// </summary>
-        /// <returns>
-        /// DbDataAdapter
-        /// </returns>
+        /// <summary> Gets the adapter. </summary>
+        /// <returns> DbDataAdapter </returns>
         public DbDataAdapter GetAdapter( )
         {
             if( Enum.IsDefined( typeof( Provider ), Provider )
@@ -101,21 +100,28 @@ namespace BudgetExecution
                     switch( Provider )
                     {
                         case Provider.SQLite:
+
                         {
                             return GetSQLiteAdapter( );
                         }
+
                         case Provider.SqlCe:
+
                         {
                             return GetSqlCeAdapter( );
                         }
+
                         case Provider.SqlServer:
+
                         {
                             return GetSqlAdapter( );
                         }
+
                         case Provider.Excel:
                         case Provider.CSV:
                         case Provider.Access:
                         case Provider.OleDb:
+
                         {
                             return GetOleDbAdapter( );
                         }

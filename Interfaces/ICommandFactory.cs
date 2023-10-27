@@ -42,18 +42,16 @@ namespace BudgetExecution
 {
     using System;
     using System.Data.Common;
+    using System.Threading;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:BudgetExecution.ISource" />
-    /// <seealso cref="T:BudgetExecution.IProvider" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <seealso cref="T:BudgetExecution.ISource"/>
+    /// <seealso cref="T:BudgetExecution.IProvider"/>
     public interface ICommandFactory : ISource, IProvider
     {
-        /// <summary>
-        /// Gets the command.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the command. </summary>
+        /// <returns> </returns>
         DbCommand GetCommand( );
     }
 }

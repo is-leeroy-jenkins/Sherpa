@@ -45,6 +45,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
@@ -55,8 +56,8 @@ namespace BudgetExecution
         /// <param name="source"> The source. </param>
         /// <param name="predicate"> The predicate. </param>
         /// <returns> </returns>
-        public static bool None<TSource>( this IEnumerable<TSource> source, 
-            Func<TSource, bool> predicate )
+        public static bool None<TSource>( this IEnumerable<TSource> source,
+                                          Func<TSource, bool> predicate )
         {
             return !source.Any( predicate );
         }
@@ -91,8 +92,8 @@ namespace BudgetExecution
         /// <c> false </c>
         /// .
         /// </returns>
-        public static bool HasAtLeast<TSource>( this IEnumerable<TSource> source, int minCount, 
-            Func<TSource, bool> predicate )
+        public static bool HasAtLeast<TSource>( this IEnumerable<TSource> source, int minCount,
+                                                Func<TSource, bool> predicate )
         {
             if( minCount == 0 )
             {
@@ -146,8 +147,8 @@ namespace BudgetExecution
         /// <c> false </c>
         /// .
         /// </returns>
-        public static bool HasExactly<TSource>( this IEnumerable<TSource> source, int count, 
-            Func<TSource, bool> predicate )
+        public static bool HasExactly<TSource>( this IEnumerable<TSource> source, int count,
+                                                Func<TSource, bool> predicate )
         {
             if( source is ICollection _sequence
                && ( _sequence.Count < count ) )
@@ -194,8 +195,8 @@ namespace BudgetExecution
         /// <c> false </c>
         /// .
         /// </returns>
-        public static bool HasAtMost<TSource>( this IEnumerable<TSource> source, int limit, 
-            Func<TSource, bool> predicate )
+        public static bool HasAtMost<TSource>( this IEnumerable<TSource> source, int limit,
+                                               Func<TSource, bool> predicate )
         {
             if( source is ICollection _sequence
                && ( _sequence.Count <= limit ) )

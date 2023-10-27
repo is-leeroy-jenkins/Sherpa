@@ -40,8 +40,11 @@
 
 namespace BudgetExecution
 {
+    using System;
+    using System.Threading;
+
     /// <summary> </summary>
-    /// <seealso cref = "ISource"/>
+    /// <seealso cref="ISource"/>
     public interface IProgramResultsCode : ISource
     {
         /// <summary> Gets the budget level. </summary>

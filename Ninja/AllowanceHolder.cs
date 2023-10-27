@@ -44,6 +44,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary>
     /// Generally, an organized set of activities directed toward a common purpose or goal that an agency
@@ -76,7 +77,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
-    public class AllowanceHolder : DataUnit 
+    public class AllowanceHolder : DataUnit
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -153,16 +154,18 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AllowanceHolder"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="AllowanceHolder"/>
+        /// class.
         /// </summary>
-        /// <param name="allowanceHolder">The allowance holder.</param>
+        /// <param name="allowanceHolder"> The allowance holder. </param>
         public AllowanceHolder( AllowanceHolder allowanceHolder )
         {
             ID = allowanceHolder.ID;
             Name = allowanceHolder.Name;
             Code = allowanceHolder.Code;
         }
-        
+
         /// <summary> Sets the arguments. </summary>
         /// <param name="code"> The code. </param>
         /// <returns> </returns>

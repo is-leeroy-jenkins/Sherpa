@@ -45,6 +45,7 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
 
     /// <summary> </summary>
     /// <seealso cref="DataUnit"/>
@@ -53,7 +54,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class Organization : DataUnit 
+    public class Organization : DataUnit
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -110,16 +111,18 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Organization"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Organization"/>
+        /// class.
         /// </summary>
-        /// <param name="org">The org.</param>
+        /// <param name="org"> The org. </param>
         public Organization( Organization org )
         {
             ID = org.ID;
             Code = org.Code;
             Name = org.Name;
         }
-        
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Organization"/>
@@ -151,7 +154,7 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
-        
+
         /// <summary> Sets the arguments. </summary>
         /// <param name="code"> The code. </param>
         /// <returns> </returns>

@@ -43,6 +43,7 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -144,9 +145,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobsActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="JobsActCarryoverEstimate"/>
+        /// class.
         /// </summary>
-        /// <param name="carryover">The carryover.</param>
+        /// <param name="carryover"> The carryover. </param>
         public JobsActCarryoverEstimate( JobsActCarryoverEstimate carryover )
         {
             ID = carryover.ID;

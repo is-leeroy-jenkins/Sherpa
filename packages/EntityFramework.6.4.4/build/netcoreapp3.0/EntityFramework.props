@@ -2,5 +2,5 @@
   <PropertyGroup>
     <GenerateRuntimeConfigurationFiles>True</GenerateRuntimeConfigurationFiles>
   </PropertyGroup>
-  <Import Project="..\EntityFramework.props" />
+  <Import Project="..\EntityFramework.props"/>
 </Project>

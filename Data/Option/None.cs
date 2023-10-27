@@ -42,73 +42,68 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <seealso cref="T:BudgetExecution.IOption`1" />
-    /// <seealso cref="T:BudgetExecution.IOption`1" />
+    /// <inheritdoc/>
+    /// <summary> </summary>
+    /// <typeparam name="T"> </typeparam>
+    /// <seealso cref="T:BudgetExecution.IOption`1"/>
+    /// <seealso cref="T:BudgetExecution.IOption`1"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnassignedGetOnlyAutoProperty" ) ]
     public class None<T> : Option<T>
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="None{T}"/> class.
-        /// </summary>
-        public None( )
-        {
-        }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the value.
-        /// </summary>
-        /// <value>
-        /// The value.
-        /// </value>
+        /// <inheritdoc/>
+        /// <summary> Gets the value. </summary>
+        /// <value> The value. </value>
         public override T Value { get; }
 
-        /// <summary>
-        /// Gets the default.
-        /// </summary>
-        /// <value>
-        /// The default.
-        /// </value>
+        /// <summary> Gets the default. </summary>
+        /// <value> The default. </value>
         public static T Default { get; }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets a value indicating whether this instance is some.
-        /// </summary>
+        /// <inheritdoc/>
+        /// <summary> Gets a value indicating whether this instance is some. </summary>
         /// <value>
-        /// <c>true</c> if this instance is some; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if this instance is some; otherwise,
+        /// <c> false </c>
+        /// .
         /// </value>
         public override bool IsSome
         {
             get { return false; }
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets a value indicating whether this instance is none.
-        /// </summary>
+        /// <inheritdoc/>
+        /// <summary> Gets a value indicating whether this instance is none. </summary>
         /// <value>
-        /// <c>true</c> if this instance is none; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if this instance is none; otherwise,
+        /// <c> false </c>
+        /// .
         /// </value>
         public override bool IsNone
         {
             get { return true; }
         }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Maps the specified function.
+        /// Initializes a new instance of the
+        /// <see cref="None{T}"/>
+        /// class.
         /// </summary>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="func">The function.</param>
-        /// <returns></returns>
+        public None( )
+        {
+        }
+
+        /// <inheritdoc/>
+        /// <summary> Maps the specified function. </summary>
+        /// <typeparam name="TResult"> The type of the result. </typeparam>
+        /// <param name="func"> The function. </param>
+        /// <returns> </returns>
         public override Option<TResult> Map<TResult>( Func<T, TResult> func )
         {
             try
@@ -122,16 +117,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Matches the specified some function.
-        /// </summary>
-        /// <typeparam name="TResult">The type of the result.</typeparam>
-        /// <param name="someFunc">Some function.</param>
-        /// <param name="noneFunc">The none function.</param>
-        /// <returns></returns>
-        public override TResult Match<TResult>( Func<T, TResult> someFunc, 
-            Func<TResult> noneFunc )
+        /// <inheritdoc/>
+        /// <summary> Matches the specified some function. </summary>
+        /// <typeparam name="TResult"> The type of the result. </typeparam>
+        /// <param name="someFunc"> Some function. </param>
+        /// <param name="noneFunc"> The none function. </param>
+        /// <returns> </returns>
+        public override TResult Match<TResult>( Func<T, TResult> someFunc, Func<TResult> noneFunc )
         {
             try
             {

@@ -43,12 +43,13 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class Reprogramming : Transfer, IReprogramming
+    public class Reprogramming : Transfer
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -175,7 +176,9 @@ namespace BudgetExecution
             FromTo = dataRow[ "FromTo" ].ToString( );
             Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
             ResourceType = dataRow[ "ResourceType" ].ToString( );
-            ProcessedDate = DateOnly.Parse( dataRow[ "ProcessedDate" ].ToString( ) ?? string.Empty );
+            ProcessedDate =
+                DateOnly.Parse( dataRow[ "ProcessedDate" ].ToString( ) ?? string.Empty );
+
             Quarter = dataRow[ "Quarter" ].ToString( );
             ReprogrammingNumber = dataRow[ "ReprogrammingNumber" ].ToString( );
             ControlNumber = dataRow[ "ControlNumber" ].ToString( );
@@ -189,7 +192,9 @@ namespace BudgetExecution
             NpmCode = dataRow[ "NpmCode" ].ToString( );
         }
 
-        public Reprogramming( IReprogramming reprogramming )
+        /// <summary> </summary>
+        /// <param name="reprogramming"> </param>
+        public Reprogramming( Reprogramming reprogramming )
         {
             ID = reprogramming.ID;
             BFY = reprogramming.BFY;

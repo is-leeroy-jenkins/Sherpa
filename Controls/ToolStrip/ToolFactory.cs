@@ -47,34 +47,29 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ToolFactory
     {
-        /// <summary>
-        /// Gets the image directory.
-        /// </summary>
-        /// <value>
-        /// The image directory.
-        /// </value>
+        /// <summary> Gets the image directory. </summary>
+        /// <value> The image directory. </value>
         public static string ImageDirectory { get; } =
             ConfigurationManager.AppSettings[ "ToolStrip" ];
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolFactory"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="ToolFactory"/>
+        /// class.
         /// </summary>
         public ToolFactory( )
         {
         }
 
-        /// <summary>
-        /// Creates the separator.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the separator. </summary>
+        /// <returns> </returns>
         public static ToolSeparator CreateSeparator( )
         {
             try
@@ -84,20 +79,18 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolSeparator );
             }
         }
 
-        /// <summary>
-        /// Creates the first button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the first button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateFirstButton( )
         {
             try
             {
-                var _filename = ToolFactory.ImageDirectory + "FirstButton.png";
+                var _filename = ImageDirectory + "FirstButton.png";
                 var _firstButton = new ToolStripButton( );
                 _firstButton.Image = Image.FromFile( _filename );
                 _firstButton.HoverText = "First Record";
@@ -106,20 +99,18 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
 
-        /// <summary>
-        /// Creates the previous button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the previous button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreatePreviousButton( )
         {
             try
             {
-                var _filename = ToolFactory.ImageDirectory + "PreviousButton.png";
+                var _filename = ImageDirectory + "PreviousButton.png";
                 var _previousButton = new ToolStripButton( );
                 _previousButton.Image = Image.FromFile( _filename );
                 _previousButton.HoverText = "Previous Record";
@@ -128,20 +119,18 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
 
-        /// <summary>
-        /// Creates the next button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the next button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateNextButton( )
         {
             try
             {
-                var _filename = ToolFactory.ImageDirectory + "NextButton.png";
+                var _filename = ImageDirectory + "NextButton.png";
                 var _nextButton = new ToolStripButton( );
                 _nextButton.Image = Image.FromFile( _filename );
                 _nextButton.HoverText = "Next Record";
@@ -150,20 +139,18 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
 
-        /// <summary>
-        /// Creates the last button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the last button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateLastButton( )
         {
             try
             {
-                var _filename = ToolFactory.ImageDirectory + "LastButton.png";
+                var _filename = ImageDirectory + "LastButton.png";
                 var _lastButton = new ToolStripButton( );
                 _lastButton.Image = Image.FromFile( _filename );
                 _lastButton.HoverText = "Last Record";
@@ -172,20 +159,18 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
 
-        /// <summary>
-        /// Creates the edit button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the edit button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateEditButton( )
         {
             try
             {
-                var _filename = ToolFactory.ImageDirectory + "EditButton.png";
+                var _filename = ImageDirectory + "EditButton.png";
                 var _editButton = new ToolStripButton( );
                 _editButton.Image = Image.FromFile( _filename );
                 _editButton.HoverText = "Edit Record";
@@ -194,20 +179,18 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
 
-        /// <summary>
-        /// Creates the add button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the add button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateAddButton( )
         {
             try
             {
-                var _filename = ToolFactory.ImageDirectory + "AddButton.png";
+                var _filename = ImageDirectory + "AddButton.png";
                 var _addButton = new ToolStripButton( );
                 _addButton.Image = Image.FromFile( _filename );
                 _addButton.HoverText = "Add Record";
@@ -216,20 +199,18 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
 
-        /// <summary>
-        /// Creates the delete button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the delete button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateDeleteButton( )
         {
             try
             {
-                var _filename = ToolFactory.ImageDirectory + "DeleteButton.png";
+                var _filename = ImageDirectory + "DeleteButton.png";
                 var _deleteButton = new ToolStripButton( );
                 _deleteButton.Image = Image.FromFile( _filename );
                 _deleteButton.HoverText = "Delete Record";
@@ -238,20 +219,18 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
 
-        /// <summary>
-        /// Creates the refresh button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the refresh button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateRefreshButton( )
         {
             try
             {
-                var _filename = ToolFactory.ImageDirectory + "RefreshButton.png";
+                var _filename = ImageDirectory + "RefreshButton.png";
                 var _refreshButton = new ToolStripButton( );
                 _refreshButton.Image = Image.FromFile( _filename );
                 _refreshButton.HoverText = "Refresh Data";
@@ -260,20 +239,18 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
 
-        /// <summary>
-        /// Creates the save button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the save button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateSaveButton( )
         {
             try
             {
-                var _filename = ToolFactory.ImageDirectory + "SaveButton.png";
+                var _filename = ImageDirectory + "SaveButton.png";
                 var _saveButton = new ToolStripButton( );
                 _saveButton.Image = Image.FromFile( _filename );
                 _saveButton.HoverText = "Save Changes";
@@ -282,20 +259,18 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
 
-        /// <summary>
-        /// Creates the print button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the print button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreatePrintButton( )
         {
             try
             {
-                var _filename = ToolFactory.ImageDirectory + "PrintButton.png";
+                var _filename = ImageDirectory + "PrintButton.png";
                 var _printButton = new ToolStripButton( );
                 _printButton.Image = Image.FromFile( _filename );
                 _printButton.HoverText = "Print Data";
@@ -304,20 +279,18 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
 
-        /// <summary>
-        /// Creates the excel button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the excel button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateExcelButton( )
         {
             try
             {
-                var _filename = ToolFactory.ImageDirectory + "ExcelButton.png";
+                var _filename = ImageDirectory + "ExcelButton.png";
                 var _excelButton = new ToolStripButton( );
                 _excelButton.Image = Image.FromFile( _filename );
                 _excelButton.HoverText = "Export to Excel";
@@ -326,20 +299,18 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
 
-        /// <summary>
-        /// Creates the calculator button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the calculator button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateCalculatorButton( )
         {
             try
             {
-                var _filename = ToolFactory.ImageDirectory + "CalculatorButton.png";
+                var _filename = ImageDirectory + "CalculatorButton.png";
                 var _calculatorButton = new ToolStripButton( );
                 _calculatorButton.Image = Image.FromFile( _filename );
                 _calculatorButton.HoverText = "Launch Calculator";
@@ -348,20 +319,18 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
 
-        /// <summary>
-        /// Creates the home button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the home button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateHomeButton( )
         {
             try
             {
-                var _filename = ToolFactory.ImageDirectory + "HomeButton.png";
+                var _filename = ImageDirectory + "HomeButton.png";
                 var _homeButton = new ToolStripButton( );
                 _homeButton.Image = Image.FromFile( _filename );
                 _homeButton.HoverText = "Main Menu";
@@ -370,15 +339,13 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
 
-        /// <summary>
-        /// Creates the label.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the label. </summary>
+        /// <returns> </returns>
         public static ToolStripLabel CreateLabel( )
         {
             try
@@ -388,15 +355,13 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripLabel );
             }
         }
 
-        /// <summary>
-        /// Creates the ComboBox.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the ComboBox. </summary>
+        /// <returns> </returns>
         public static ToolStripComboBoxEx CreateComboBox( )
         {
             try
@@ -406,15 +371,13 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripComboBoxEx );
             }
         }
 
-        /// <summary>
-        /// Creates the progress bar.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the progress bar. </summary>
+        /// <returns> </returns>
         public static ToolStripProgressBar CreateProgressBar( )
         {
             try
@@ -424,15 +387,13 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripProgressBar );
             }
         }
 
-        /// <summary>
-        /// Creates the text box.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the text box. </summary>
+        /// <returns> </returns>
         public static ToolStripTextBox CreateTextBox( )
         {
             try
@@ -442,15 +403,13 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                ToolFactory.Fail( _ex );
+                Fail( _ex );
                 return default( ToolStripTextBox );
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

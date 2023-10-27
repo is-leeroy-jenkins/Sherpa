@@ -46,11 +46,12 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class ToolStripLabel : ToolStripLabelBase, IToolStripLabel
+    public class ToolStripLabel : ToolStripLabelBase
     {
         /// <summary>
         /// Initializes a new instance of the

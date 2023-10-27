@@ -41,25 +41,18 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Threading;
 
-    /// <summary>
-    /// Defines the Net enumeration
-    /// </summary>
+    /// <summary> Defines the Net enumeration </summary>
     public enum NET
     {
-        /// <summary>
-        /// Defines the Zero
-        /// </summary>
+        /// <summary> Defines the Zero </summary>
         Zero = 1,
 
-        /// <summary>
-        /// Defines the Increase
-        /// </summary>
+        /// <summary> Defines the Increase </summary>
         Increase = 2,
 
-        /// <summary>
-        /// Defines the Decrease
-        /// </summary>
+        /// <summary> Defines the Decrease </summary>
         Decrease = 3
     }
 }

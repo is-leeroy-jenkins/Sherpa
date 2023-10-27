@@ -43,8 +43,9 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
@@ -53,7 +54,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class Fund : FundSymbol 
+    public class Fund : FundSymbol
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -65,10 +66,10 @@ namespace BudgetExecution
             Source = Source.Funds;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Fund" />
+        /// <see cref="T:BudgetExecution.Fund"/>
         /// class.
         /// </summary>
         /// <param name="fundCode"> The fundCode. </param>
@@ -113,10 +114,10 @@ namespace BudgetExecution
             ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Fund" />
+        /// <see cref="T:BudgetExecution.Fund"/>
         /// class.
         /// </summary>
         /// <param name="code"> The code. </param>
@@ -161,10 +162,10 @@ namespace BudgetExecution
             ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Fund" />
+        /// <see cref="T:BudgetExecution.Fund"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -209,10 +210,10 @@ namespace BudgetExecution
             ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Fund" />
+        /// <see cref="T:BudgetExecution.Fund"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -257,10 +258,10 @@ namespace BudgetExecution
             ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Fund" />
+        /// <see cref="T:BudgetExecution.Fund"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The Data. </param>
@@ -308,9 +309,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Fund"/> class.
+        /// <see cref="Fund"/>
+        /// class.
         /// </summary>
-        /// <param name="fund">The fund.</param>
+        /// <param name="fund"> The fund. </param>
         public Fund( Fund fund )
         {
             ID = fund.ID;

@@ -43,8 +43,9 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -52,10 +53,10 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class HeadquartersAuthority : StatusOfFunds
     {
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.HeadquartersAuthority" />
+        /// <see cref="T:BudgetExecution.HeadquartersAuthority"/>
         /// class.
         /// </summary>
         public HeadquartersAuthority( )
@@ -63,10 +64,10 @@ namespace BudgetExecution
             Source = Source.HeadquartersAuthority;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.HeadquartersAuthority" />
+        /// <see cref="T:BudgetExecution.HeadquartersAuthority"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -112,10 +113,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.HeadquartersAuthority" />
+        /// <see cref="T:BudgetExecution.HeadquartersAuthority"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -161,10 +162,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.HeadquartersAuthority" />
+        /// <see cref="T:BudgetExecution.HeadquartersAuthority"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -210,12 +211,13 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.HeadquartersAuthority" /> class.
+        /// <see cref="T:BudgetExecution.HeadquartersAuthority"/>
+        /// class.
         /// </summary>
-        /// <param name="allocation">The allocation.</param>
+        /// <param name="allocation"> The allocation. </param>
         public HeadquartersAuthority( HeadquartersAuthority allocation )
             : this( )
         {

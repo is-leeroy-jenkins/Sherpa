@@ -44,6 +44,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>
@@ -66,7 +67,7 @@ namespace BudgetExecution
             {
                 if( bindingSource.Current != null )
                 {
-                    return ( (DataRowView)bindingSource?.Current )?.Row;
+                    return ( (DataRowView) bindingSource?.Current )?.Row;
                 }
                 else
                 {
@@ -89,7 +90,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _table = (DataTable)bindingSource.DataSource;
+                    var _table = (DataTable) bindingSource.DataSource;
                     return _table?.Rows?.Count > 0
                         ? _table.AsEnumerable( )
                         : default( IEnumerable<DataRow> );
@@ -113,7 +114,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _table = (DataTable)bindingSource.DataSource;
+                    var _table = (DataTable) bindingSource.DataSource;
                     return _table?.Rows.Count > 0
                         ? _table
                         : default( DataTable );
