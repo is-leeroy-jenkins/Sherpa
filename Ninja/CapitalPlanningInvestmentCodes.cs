@@ -45,33 +45,40 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.DataUnit"/>
+    /// <seealso cref="T:BudgetExecution.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class CapitalPlanningInvestmentCode : DataUnit
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    public class CapitalPlanningInvestmentCodes : DataUnit
     {
-        /// <summary> Gets or sets the type. </summary>
-        /// <value> The type. </value>
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
+        /// <value>
+        /// The type.
+        /// </value>
         public string Type { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCode"/>
+        /// <see cref="CapitalPlanningInvestmentCodes"/>
         /// class.
         /// </summary>
-        public CapitalPlanningInvestmentCode( )
+        public CapitalPlanningInvestmentCodes( )
         {
             Source = Source.CapitalPlanningInvestmentCodes;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCode"/>
+        /// <see cref="T:BudgetExecution.CapitalPlanningInvestmentCodes" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public CapitalPlanningInvestmentCode( IQuery query )
+        public CapitalPlanningInvestmentCodes( IQuery query )
             : this( )
         {
             Source = Source.CapitalPlanningInvestmentCodes;
@@ -85,11 +92,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCode"/>
+        /// <see cref="CapitalPlanningInvestmentCodes"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public CapitalPlanningInvestmentCode( IDataModel builder )
+        public CapitalPlanningInvestmentCodes( IDataModel builder )
         {
             Source = Source.CapitalPlanningInvestmentCodes;
             Record = builder.Record;
@@ -102,11 +109,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCode"/>
+        /// <see cref="CapitalPlanningInvestmentCodes"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public CapitalPlanningInvestmentCode( DataRow dataRow )
+        public CapitalPlanningInvestmentCodes( DataRow dataRow )
         {
             Source = Source.CapitalPlanningInvestmentCodes;
             Record = dataRow;
@@ -119,11 +126,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCode"/>
+        /// <see cref="CapitalPlanningInvestmentCodes"/>
         /// class.
         /// </summary>
         /// <param name="code"> The code. </param>
-        public CapitalPlanningInvestmentCode( CapitalPlanningInvestmentCode code )
+        public CapitalPlanningInvestmentCodes( CapitalPlanningInvestmentCodes code )
         {
             Source = Source.CapitalPlanningInvestmentCodes;
             ID = code.ID;

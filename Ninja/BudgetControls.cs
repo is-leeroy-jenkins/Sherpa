@@ -48,7 +48,7 @@ namespace BudgetExecution
     /// <seealso cref="BudgetExecution.DataUnit"/>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public abstract class BudgetControl : DataUnit
+    public abstract class BudgetControls : DataUnit
     {
         /// <summary> Gets or sets the security org. </summary>
         /// <value> The security org. </value>
@@ -196,7 +196,7 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the authority distribution control. </summary>
         /// <value> The authority distribution control. </value>
-        protected BudgetControl( )
+        protected BudgetControls( )
         {
         }
     }

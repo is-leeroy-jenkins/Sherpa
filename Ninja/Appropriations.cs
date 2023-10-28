@@ -43,20 +43,19 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
     /// <inheritdoc/>
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class Appropriation : DataUnit
+    public class Appropriations : DataUnit
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Appropriation"/>
+        /// <see cref="Appropriations"/>
         /// class.
         /// </summary>
-        public Appropriation( )
+        public Appropriations( )
         {
             Source = Source.Appropriations;
         }
@@ -68,7 +67,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public Appropriation( IQuery query )
+        public Appropriations( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query ).Record;
@@ -86,7 +85,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public Appropriation( IDataModel builder )
+        public Appropriations( IDataModel builder )
             : this( )
         {
             Record = builder.Record;
@@ -104,7 +103,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public Appropriation( DataRow dataRow )
+        public Appropriations( DataRow dataRow )
             : this( )
         {
             Record = dataRow;
@@ -117,11 +116,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Appropriation"/>
+        /// <see cref="Appropriations"/>
         /// class.
         /// </summary>
         /// <param name="appropriation"> The appropriation. </param>
-        public Appropriation( Appropriation appropriation )
+        public Appropriations( Appropriations appropriation )
         {
             ID = appropriation.ID;
             Code = appropriation.Code;

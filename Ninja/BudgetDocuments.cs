@@ -43,79 +43,118 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
-    /// <inheritdoc/>
-    /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.BudgetUnit"/>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.BudgetUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class BudgetDocument : BudgetUnit
+    public class BudgetDocuments : BudgetUnit
     {
-        /// <inheritdoc/>
-        /// <summary> </summary>
+        /// <summary>
+        /// </summary>
+        /// <inheritdoc />
         public override int ID { get; set; }
 
-        /// <summary> Gets or sets the budget level. </summary>
-        /// <value> The budget level. </value>
+        /// <summary>
+        /// Gets or sets the budget level.
+        /// </summary>
+        /// <value>
+        /// The budget level.
+        /// </value>
         public string BudgetLevel { get; set; }
 
-        /// <summary> Gets or sets the type of the document. </summary>
-        /// <value> The type of the document. </value>
+        /// <summary>
+        /// Gets or sets the type of the document.
+        /// </summary>
+        /// <value>
+        /// The type of the document.
+        /// </value>
         public string DocumentType { get; set; }
 
-        /// <summary> Gets or sets the document number. </summary>
-        /// <value> The document number. </value>
+        /// <summary>
+        /// Gets or sets the document number.
+        /// </summary>
+        /// <value>
+        /// The document number.
+        /// </value>
         public string DocumentNumber { get; set; }
 
-        /// <summary> Gets or sets the document date. </summary>
-        /// <value> The document date. </value>
+        /// <summary>
+        /// Gets or sets the document date.
+        /// </summary>
+        /// <value>
+        /// The document date.
+        /// </value>
         public DateOnly DocumentDate { get; set; }
 
-        /// <summary> Gets or sets the budgeted. </summary>
-        /// <value> The budgeted. </value>
+        /// <summary>
+        /// Gets or sets the budgeted.
+        /// </summary>
+        /// <value>
+        /// The budgeted.
+        /// </value>
         public double Budgeted { get; set; }
 
-        /// <summary> Gets or sets the posted. </summary>
-        /// <value> The posted. </value>
+        /// <summary>
+        /// Gets or sets the posted.
+        /// </summary>
+        /// <value>
+        /// The posted.
+        /// </value>
         public double Posted { get; set; }
 
-        /// <summary> Gets or sets the carryover out. </summary>
-        /// <value> The carryover out. </value>
+        /// <summary>
+        /// Gets or sets the carryover out.
+        /// </summary>
+        /// <value>
+        /// The carryover out.
+        /// </value>
         public double CarryoverOut { get; set; }
 
-        /// <summary> Gets or sets the carryover in. </summary>
-        /// <value> The carryover in. </value>
+        /// <summary>
+        /// Gets or sets the carryover in.
+        /// </summary>
+        /// <value>
+        /// The carryover in.
+        /// </value>
         public double CarryoverIn { get; set; }
 
-        /// <summary> Gets or sets the recoveries. </summary>
-        /// <value> The recoveries. </value>
+        /// <summary>
+        /// Gets or sets the recoveries.
+        /// </summary>
+        /// <value>
+        /// The recoveries.
+        /// </value>
         public double Recoveries { get; set; }
 
-        /// <summary> Gets or sets the reimbursements. </summary>
-        /// <value> The reimbursements. </value>
+        /// <summary>
+        /// Gets or sets the reimbursements.
+        /// </summary>
+        /// <value>
+        /// The reimbursements.
+        /// </value>
         public double Reimbursements { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetDocument"/>
-        /// class.
+        /// <see cref="BudgetDocuments"/> class.
         /// </summary>
-        public BudgetDocument( )
+        public BudgetDocuments( )
         {
             Source = Source.BudgetDocuments;
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetDocument"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.BudgetDocuments" /> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
-        public BudgetDocument( IQuery query )
+        /// <param name="query">The query.</param>
+        public BudgetDocuments( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query ).Record;
@@ -140,14 +179,13 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetDocument"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.BudgetDocuments" /> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
-        public BudgetDocument( IDataModel builder )
+        /// <param name="builder">The builder.</param>
+        public BudgetDocuments( IDataModel builder )
             : this( )
         {
             Record = builder.Record;
@@ -172,14 +210,13 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetDocument"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.BudgetDocuments" /> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
-        public BudgetDocument( DataRow dataRow )
+        /// <param name="dataRow">The data row.</param>
+        public BudgetDocuments( DataRow dataRow )
             : this( )
         {
             Record = dataRow;
@@ -205,11 +242,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetDocument"/>
-        /// class.
+        /// <see cref="BudgetDocuments"/> class.
         /// </summary>
-        /// <param name="budgetDocument"> The budget document. </param>
-        public BudgetDocument( BudgetDocument budgetDocument )
+        /// <param name="budgetDocument">The budget document.</param>
+        public BudgetDocuments( BudgetDocuments budgetDocument )
         {
             Record = budgetDocument.Record;
             Data = budgetDocument.Data;

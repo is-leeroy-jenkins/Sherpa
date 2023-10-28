@@ -58,7 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    public class BudgetFiscalYear : FiscalYear 
+    public class BudgetFiscalYears : FiscalYear 
     {
         /// <summary> Gets or sets the availability. </summary>
         /// <value> The availability. </value>
@@ -82,10 +82,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetFiscalYear"/>
+        /// <see cref="BudgetFiscalYears"/>
         /// class.
         /// </summary>
-        public BudgetFiscalYear( )
+        public BudgetFiscalYears( )
         {
             Source = Source.FiscalYears;
             CurrentDate = DateTime.Today;
@@ -96,11 +96,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetFiscalYear"/>
+        /// <see cref="BudgetFiscalYears"/>
         /// class.
         /// </summary>
         /// <param name="bfy"> The bfy. </param>
-        public BudgetFiscalYear( string bfy )
+        public BudgetFiscalYears( string bfy )
             : this( )
         {
             InputYear = bfy;
@@ -121,11 +121,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetFiscalYear"/>
+        /// <see cref="BudgetFiscalYears"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public BudgetFiscalYear( IQuery query )
+        public BudgetFiscalYears( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query )?.Record;
@@ -145,11 +145,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetFiscalYear"/>
+        /// <see cref="BudgetFiscalYears"/>
         /// class.
         /// </summary>
         /// <param name="dataBuilder"> The data builder. </param>
-        public BudgetFiscalYear( IDataModel dataBuilder )
+        public BudgetFiscalYears( IDataModel dataBuilder )
             : this( )
         {
             Record = dataBuilder.Record;
@@ -171,11 +171,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetFiscalYear"/>
+        /// <see cref="BudgetFiscalYears"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public BudgetFiscalYear( DataRow dataRow )
+        public BudgetFiscalYears( DataRow dataRow )
             : this( )
         {
             Record = dataRow;
@@ -198,11 +198,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetFiscalYear"/>
+        /// <see cref="BudgetFiscalYears"/>
         /// class.
         /// </summary>
         /// <param name="fiscalYear"> The fiscal year. </param>
-        public BudgetFiscalYear( BudgetFiscalYear fiscalYear )
+        public BudgetFiscalYears( BudgetFiscalYears fiscalYear )
             : this( )
         {
             ID = fiscalYear.ID;
@@ -326,16 +326,16 @@ namespace BudgetExecution
 
         /// <summary> Gets the budget fiscal year. </summary>
         /// <returns> </returns>
-        public BudgetFiscalYear GetBudgetFiscalYear( )
+        public BudgetFiscalYears GetBudgetFiscalYear( )
         {
             try
             {
-                return MemberwiseClone( ) as BudgetFiscalYear;
+                return MemberwiseClone( ) as BudgetFiscalYears;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( BudgetFiscalYear );
+                return default( BudgetFiscalYears );
             }
         }
     }

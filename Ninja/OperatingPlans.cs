@@ -43,31 +43,33 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
+    /// <inheritdoc />
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class OperatingPlan : Allocations
+    public class OperatingPlans : Allocations
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="OperatingPlan"/>
+        /// <see cref="T:BudgetExecution.OperatingPlans" />
         /// class.
         /// </summary>
-        public OperatingPlan( )
+        public OperatingPlans( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="OperatingPlan"/>
+        /// <see cref="T:BudgetExecution.OperatingPlans" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public OperatingPlan( IQuery query )
+        public OperatingPlans( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             ID = int.Parse( Record[ "OperatingPlansId" ].ToString( ) ?? "0" );
@@ -102,13 +104,14 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="OperatingPlan"/>
+        /// <see cref="T:BudgetExecution.OperatingPlans" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public OperatingPlan( IDataModel builder )
+        public OperatingPlans( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -143,13 +146,14 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="OperatingPlan"/>
+        /// <see cref="T:BudgetExecution.OperatingPlans" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public OperatingPlan( DataRow dataRow )
+        public OperatingPlans( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
@@ -184,11 +188,11 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="allocations"></param>
-        public OperatingPlan( Allocations allocations )
+        public OperatingPlans( Allocations allocations )
         {
             ID = allocations.ID;
             BudgetLevel = allocations.BudgetLevel;

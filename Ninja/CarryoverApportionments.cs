@@ -43,87 +43,141 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.BudgetUnit"/>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.BudgetUnit" />
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class CarryoverApportionment : BudgetUnit
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    public class CarryoverApportionments : BudgetUnit
     {
-        /// <summary> </summary>
+        /// <summary>
+        /// </summary>
+        /// <inheritdoc />
         public override int ID { get; set; }
 
-        /// <summary> Gets or sets the budget account. </summary>
-        /// <value> The budget account. </value>
+        /// <summary>
+        /// Gets or sets the budget account.
+        /// </summary>
+        /// <value>
+        /// The budget account.
+        /// </value>
         public string BudgetAccount { get; set; }
 
-        /// <summary> Gets or sets the treasury account. </summary>
-        /// <value> The treasury account. </value>
+        /// <summary>
+        /// Gets or sets the treasury account.
+        /// </summary>
+        /// <value>
+        /// The treasury account.
+        /// </value>
         public string TreasuryAccount { get; set; }
 
-        /// <summary> Gets or sets the group. </summary>
-        /// <value> The group. </value>
+        /// <summary>
+        /// Gets or sets the group.
+        /// </summary>
+        /// <value>
+        /// The group.
+        /// </value>
         public string Group { get; set; }
 
-        /// <summary> Gets or sets the description. </summary>
-        /// <value> The description. </value>
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        /// <value>
+        /// The description.
+        /// </value>
         public string Description { get; set; }
 
-        /// <summary> Gets or sets the name of the line. </summary>
-        /// <value> The name of the line. </value>
+        /// <summary>
+        /// Gets or sets the name of the line.
+        /// </summary>
+        /// <value>
+        /// The name of the line.
+        /// </value>
         public string LineName { get; set; }
 
-        /// <summary> Gets or sets the type of the authority. </summary>
-        /// <value> The type of the authority. </value>
+        /// <summary>
+        /// Gets or sets the type of the authority.
+        /// </summary>
+        /// <value>
+        /// The type of the authority.
+        /// </value>
         public string AuthorityType { get; set; }
 
-        /// <summary> Gets or sets the request. </summary>
-        /// <value> The request. </value>
+        /// <summary>
+        /// Gets or sets the request.
+        /// </summary>
+        /// <value>
+        /// The request.
+        /// </value>
         public double Request { get; set; }
 
-        /// <summary> Gets or sets the balance. </summary>
-        /// <value> The balance. </value>
+        /// <summary>
+        /// Gets or sets the balance.
+        /// </summary>
+        /// <value>
+        /// The balance.
+        /// </value>
         public double Balance { get; set; }
 
-        /// <summary> Gets or sets the deobligations. </summary>
-        /// <value> The deobligations. </value>
+        /// <summary>
+        /// Gets or sets the deobligations.
+        /// </summary>
+        /// <value>
+        /// The deobligations.
+        /// </value>
         public double Deobligations { get; set; }
 
-        /// <summary> Gets or sets the amount. </summary>
-        /// <value> The amount. </value>
+        /// <summary>
+        /// Gets or sets the amount.
+        /// </summary>
+        /// <value>
+        /// The amount.
+        /// </value>
         public double Amount { get; set; }
 
-        /// <summary> Gets or sets the line number. </summary>
-        /// <value> The line number. </value>
+        /// <summary>
+        /// Gets or sets the line number.
+        /// </summary>
+        /// <value>
+        /// The line number.
+        /// </value>
         public string LineNumber { get; set; }
 
-        /// <summary> Gets or sets the line split. </summary>
-        /// <value> The line split. </value>
+        /// <summary>
+        /// Gets or sets the line split.
+        /// </summary>
+        /// <value>
+        /// The line split.
+        /// </value>
         public string LineSplit { get; set; }
 
-        /// <summary> Gets or sets the apportionment account code. </summary>
-        /// <value> The apportionment account code. </value>
+        /// <summary>
+        /// Gets or sets the apportionment account code.
+        /// </summary>
+        /// <value>
+        /// The apportionment account code.
+        /// </value>
         public string ApportionmentAccountCode { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CarryoverApportionment"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CarryoverApportionments"/> class.
         /// </summary>
-        public CarryoverApportionment( )
+        public CarryoverApportionments( )
         {
             Source = Source.CarryoverApportionments;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CarryoverApportionment"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.CarryoverApportionments" /> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
-        public CarryoverApportionment( IQuery query )
+        /// <param name="query">The query.</param>
+        public CarryoverApportionments( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query ).Record;
@@ -148,13 +202,13 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CarryoverApportionment"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.CarryoverApportionments" /> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
-        public CarryoverApportionment( IDataModel builder )
+        /// <param name="builder">The builder.</param>
+        public CarryoverApportionments( IDataModel builder )
             : this( )
         {
             Record = builder.Record;
@@ -179,13 +233,13 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CarryoverApportionment"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.CarryoverApportionments" /> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
-        public CarryoverApportionment( DataRow dataRow )
+        /// <param name="dataRow">The data row.</param>
+        public CarryoverApportionments( DataRow dataRow )
             : this( )
         {
             Record = dataRow;
@@ -210,13 +264,13 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CarryoverApportionment"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.CarryoverApportionments" /> class.
         /// </summary>
-        /// <param name="carryover"> The carryover. </param>
-        public CarryoverApportionment( CarryoverApportionment carryover )
+        /// <param name="carryover">The carryover.</param>
+        public CarryoverApportionments( CarryoverApportionments carryover )
             : this( )
         {
             ID = carryover.ID;

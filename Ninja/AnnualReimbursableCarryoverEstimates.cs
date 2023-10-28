@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 04-28-2023
+//     Created:                 05-04-2023
 // 
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="InflationReductionActCarryoverEstimate.cs" company="Terry D. Eppler">
+// <copyright file="AnnualReimbursableCarryoverEstimate.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   InflationReductionActCarryoverEstimate.cs
+//   AnnualReimbursableCarryoverEstimate.cs
 // </summary>
 // ******************************************************************************************
 
@@ -45,39 +45,43 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
+    /// <inheritdoc/>
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
-    public class InflationReductionActCarryoverEstimate : AnnualCarryoverEstimate
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public class AnnualReimbursableCarryoverEstimates : AnnualCarryoverEstimates
     {
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="InflationReductionActCarryoverEstimate"/>
+        /// <see cref="T:BudgetExecution.AnnualReimbursableCarryoverEstimate"/>
         /// class.
         /// </summary>
-        public InflationReductionActCarryoverEstimate( )
+        public AnnualReimbursableCarryoverEstimates( )
+            : base( )
         {
-            Source = Source.InflationReductionActCarryoverEstimates;
+            Source = Source.AnnualReimbursableEstimates;
         }
 
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="InflationReductionActCarryoverEstimate"/>
+        /// <see cref="T:BudgetExecution.AnnualReimbursableCarryoverEstimate"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public InflationReductionActCarryoverEstimate( IQuery query )
+        public AnnualReimbursableCarryoverEstimates( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse(
-                Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
-
+            ID = int.Parse( Record[ "AnnualReimbursableEstimatesId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
             RpioName = Record[ "RpioName" ].ToString( );
             Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
@@ -90,25 +94,24 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="InflationReductionActCarryoverEstimate"/>
+        /// <see cref="T:BudgetExecution.AnnualReimbursableCarryoverEstimate"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public InflationReductionActCarryoverEstimate( IDataModel builder )
+        public AnnualReimbursableCarryoverEstimates( IDataModel builder )
             : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            Data = Record.ToDictionary( );
-            ID = int.Parse(
-                Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
-
+            ID = int.Parse( Record[ "AnnualReimbursableEstimatesId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
             RpioName = Record[ "RpioName" ].ToString( );
             Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
@@ -121,24 +124,24 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="InflationReductionActCarryoverEstimate"/>
+        /// <see cref="T:BudgetExecution.AnnualReimbursableCarryoverEstimate"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public InflationReductionActCarryoverEstimate( DataRow dataRow )
+        public AnnualReimbursableCarryoverEstimates( DataRow dataRow )
             : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse(
-                Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
-
+            ID = int.Parse( Record[ "AnnualReimbursableEstimatesId" ].ToString( ) ?? "0" );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
             RpioCode = dataRow[ "RpioCode" ].ToString( );
             RpioName = dataRow[ "RpioName" ].ToString( );
             Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
@@ -151,14 +154,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="InflationReductionActCarryoverEstimate"/>
-        /// class.
-        /// </summary>
-        /// <param name="carryover"> The carryover. </param>
-        public InflationReductionActCarryoverEstimate(
-            InflationReductionActCarryoverEstimate carryover )
+        /// <inheritdoc/>
+        /// <summary> </summary>
+        /// <param name="carryover"> </param>
+        public AnnualReimbursableCarryoverEstimates( AnnualReimbursableCarryoverEstimates carryover )
             : this( )
         {
             ID = carryover.ID;

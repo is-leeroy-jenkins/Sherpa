@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 04-28-2023
 // 
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="JobsActCarryoverEstimate.cs" company="Terry D. Eppler">
+// <copyright file="InflationReductionActCarryoverEstimate.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   JobsActCarryoverEstimate.cs
+//   InflationReductionActCarryoverEstimate.cs
 // </summary>
 // ******************************************************************************************
 
@@ -47,30 +47,33 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class JobsActCarryoverEstimate : SupplementalCarryoverEstimate
+    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
+    public class InflationReductionActCarryoverEstimates : AnnualCarryoverEstimates
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="JobsActCarryoverEstimate"/>
+        /// <see cref="InflationReductionActCarryoverEstimates"/>
         /// class.
         /// </summary>
-        public JobsActCarryoverEstimate( )
+        public InflationReductionActCarryoverEstimates( )
         {
-            Source = Source.JobsActCarryoverEstimates;
+            Source = Source.InflationReductionActCarryoverEstimates;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="JobsActCarryoverEstimate"/>
+        /// <see cref="InflationReductionActCarryoverEstimates"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public JobsActCarryoverEstimate( IQuery query )
+        public InflationReductionActCarryoverEstimates( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "JobsActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            ID = int.Parse(
+                Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -89,17 +92,19 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="JobsActCarryoverEstimate"/>
+        /// <see cref="InflationReductionActCarryoverEstimates"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public JobsActCarryoverEstimate( IDataModel builder )
+        public InflationReductionActCarryoverEstimates( IDataModel builder )
             : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "JobsActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            ID = int.Parse(
+                Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -118,16 +123,18 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="JobsActCarryoverEstimate"/>
+        /// <see cref="InflationReductionActCarryoverEstimates"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public JobsActCarryoverEstimate( DataRow dataRow )
+        public InflationReductionActCarryoverEstimates( DataRow dataRow )
             : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "JobsActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            ID = int.Parse(
+                Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
@@ -146,11 +153,13 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="JobsActCarryoverEstimate"/>
+        /// <see cref="InflationReductionActCarryoverEstimates"/>
         /// class.
         /// </summary>
         /// <param name="carryover"> The carryover. </param>
-        public JobsActCarryoverEstimate( JobsActCarryoverEstimate carryover )
+        public InflationReductionActCarryoverEstimates(
+            InflationReductionActCarryoverEstimates carryover )
+            : this( )
         {
             ID = carryover.ID;
             BFY = carryover.BFY;

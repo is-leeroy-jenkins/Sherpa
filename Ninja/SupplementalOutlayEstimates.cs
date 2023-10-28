@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 04-28-2023
+//     Created:              05-10-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        05-10-2023
 // ******************************************************************************************
-// <copyright file="AmericanRescuePlanCarryoverEstimate.cs" company="Terry D. Eppler">
+// <copyright file="SupplementalOutlayEstimate.cs.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   AmericanRescuePlanCarryoverEstimate.cs
+//   Eppler, Terry.cs
 // </summary>
 // ******************************************************************************************
 
@@ -45,36 +45,32 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <inheritdoc/>
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class AmericanRescuePlanCarryoverEstimate : AnnualCarryoverEstimate
+    public class SupplementalOutlayEstimates : AnnualCarryoverEstimates
     {
-        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AmericanRescuePlanCarryoverEstimate"/>
+        /// <see cref="SupplementalOutlayEstimates"/>
         /// class.
         /// </summary>
-        public AmericanRescuePlanCarryoverEstimate( )
+        public SupplementalOutlayEstimates( )
         {
-            Source = Source.AmericanRescuePlanCarryoverEstimates;
+            Source = Source.SupplementalOutlayEstimates;
         }
 
-        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AmericanRescuePlanCarryoverEstimate"/>
+        /// <see cref="SupplementalOutlayEstimates"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public AmericanRescuePlanCarryoverEstimate( IQuery query )
-            : this( )
+        public SupplementalOutlayEstimates( IQuery query )
+            : base( query )
         {
+            Source = Source.SupplementalOutlayEstimates;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AmericanRescuePlanCarryoverEstimatesId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -91,20 +87,18 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AmericanRescuePlanCarryoverEstimate"/>
+        /// <see cref="SupplementalOutlayEstimates"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public AmericanRescuePlanCarryoverEstimate( IDataModel builder )
-            : this( )
+        public SupplementalOutlayEstimates( IDataModel builder )
+            : base( builder )
         {
+            Source = Source.SupplementalOutlayEstimates;
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AmericanRescuePlanCarryoverEstimatesId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -121,43 +115,37 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AmericanRescuePlanCarryoverEstimate"/>
+        /// <see cref="SupplementalOutlayEstimates"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public AmericanRescuePlanCarryoverEstimate( DataRow dataRow )
-            : this( )
+        public SupplementalOutlayEstimates( DataRow dataRow )
+            : base( dataRow )
         {
+            Source = Source.SupplementalOutlayEstimates;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "AmericanRescuePlanCarryoverEstimatesId" ].ToString( ) ?? "0" );
-            BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
-            FundCode = dataRow[ "FundCode" ].ToString( );
-            FundName = dataRow[ "FundName" ].ToString( );
-            RpioCode = dataRow[ "RpioCode" ].ToString( );
-            RpioName = dataRow[ "RpioName" ].ToString( );
-            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
-            Available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
             TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AmericanRescuePlanCarryoverEstimate"/>
-        /// class.
-        /// </summary>
-        /// <param name="carryover"> The carryover. </param>
-        public AmericanRescuePlanCarryoverEstimate( AmericanRescuePlanCarryoverEstimate carryover )
+        /// <summary> </summary>
+        /// <param name="carryover"> </param>
+        public SupplementalOutlayEstimates( SupplementalOutlayEstimates carryover )
             : this( )
         {
             ID = carryover.ID;

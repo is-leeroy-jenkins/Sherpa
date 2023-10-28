@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="AnnualCarryoverEstimate.cs" company="Terry D. Eppler">
+// <copyright file="JobsActCarryoverEstimate.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   AnnualCarryoverEstimate.cs
+//   JobsActCarryoverEstimate.cs
 // </summary>
 // ******************************************************************************************
 
@@ -46,60 +46,31 @@ namespace BudgetExecution
     using System.Threading;
 
     /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.BudgetUnit"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AnnualCarryoverEstimate : BudgetUnit
+    public class JobsActCarryoverEstimates : SupplementalCarryoverEstimates
     {
-        /// <summary> Gets or sets the rpio code. </summary>
-        /// <value> The rpio code. </value>
-        public string RpioCode { get; set; }
-
-        /// <summary> Gets or sets the name of the rpio. </summary>
-        /// <value> The name of the rpio. </value>
-        public string RpioName { get; set; }
-
-        /// <summary> Gets or sets the amount. </summary>
-        /// <value> The amount. </value>
-        public double Amount { get; set; }
-
-        /// <summary> Gets or sets the open commitments. </summary>
-        /// <value> The open commitments. </value>
-        public double OpenCommitments { get; set; }
-
-        /// <summary> Gets or sets the obligations. </summary>
-        /// <value> The obligations. </value>
-        public double Obligations { get; set; }
-
-        /// <summary> Gets or sets the available. </summary>
-        /// <value> The available. </value>
-        public double Available { get; set; }
-
-        /// <summary> Gets or sets the estimate. </summary>
-        /// <value> The estimate. </value>
-        public double Estimate { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AnnualCarryoverEstimate"/>
+        /// <see cref="JobsActCarryoverEstimates"/>
         /// class.
         /// </summary>
-        public AnnualCarryoverEstimate( )
+        public JobsActCarryoverEstimates( )
         {
-            Source = Source.AnnualCarryoverEstimates;
+            Source = Source.JobsActCarryoverEstimates;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AnnualCarryoverEstimate"/>
+        /// <see cref="JobsActCarryoverEstimates"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public AnnualCarryoverEstimate( IQuery query )
+        public JobsActCarryoverEstimates( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AnnualCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            ID = int.Parse( Record[ "JobsActCarryoverEstimatesId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -118,17 +89,17 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AnnualCarryoverEstimate"/>
+        /// <see cref="JobsActCarryoverEstimates"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public AnnualCarryoverEstimate( IDataModel builder )
+        public JobsActCarryoverEstimates( IDataModel builder )
             : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AnnualCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            ID = int.Parse( Record[ "JobsActCarryoverEstimatesId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -147,16 +118,16 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AnnualCarryoverEstimate"/>
+        /// <see cref="JobsActCarryoverEstimates"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public AnnualCarryoverEstimate( DataRow dataRow )
+        public JobsActCarryoverEstimates( DataRow dataRow )
             : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "AnnualCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            ID = int.Parse( Record[ "JobsActCarryoverEstimatesId" ].ToString( ) ?? "0" );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
@@ -175,12 +146,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AnnualCarryoverEstimate"/>
+        /// <see cref="JobsActCarryoverEstimates"/>
         /// class.
         /// </summary>
         /// <param name="carryover"> The carryover. </param>
-        public AnnualCarryoverEstimate( AnnualCarryoverEstimate carryover )
-            : this( )
+        public JobsActCarryoverEstimates( JobsActCarryoverEstimates carryover )
         {
             ID = carryover.ID;
             BFY = carryover.BFY;

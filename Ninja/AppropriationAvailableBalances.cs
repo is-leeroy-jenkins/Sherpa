@@ -43,59 +43,88 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.PRC"/>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class AppropriationAvailableBalance : PRC
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    public class AppropriationAvailableBalances : PRC
     {
-        /// <summary> Gets or sets the authority. </summary>
-        /// <value> The authority. </value>
+        /// <summary>
+        /// Gets or sets the authority.
+        /// </summary>
+        /// <value>
+        /// The authority.
+        /// </value>
         public double Authority { get; set; }
 
-        /// <summary> Gets or sets the budgeted. </summary>
-        /// <value> The budgeted. </value>
+        /// <summary>
+        /// Gets or sets the budgeted.
+        /// </summary>
+        /// <value>
+        /// The budgeted.
+        /// </value>
         public double Budgeted { get; set; }
 
-        /// <summary> Gets or sets the carryover. </summary>
-        /// <value> The carryover. </value>
+        /// <summary>
+        /// Gets or sets the carryover.
+        /// </summary>
+        /// <value>
+        /// The carryover.
+        /// </value>
         public double Carryover { get; set; }
 
-        /// <summary> Gets or sets the reimbursements. </summary>
-        /// <value> The reimbursements. </value>
+        /// <summary>
+        /// Gets or sets the reimbursements.
+        /// </summary>
+        /// <value>
+        /// The reimbursements.
+        /// </value>
         public double Reimbursements { get; set; }
 
-        /// <summary> Gets or sets the recoveries. </summary>
-        /// <value> The recoveries. </value>
+        /// <summary>
+        /// Gets or sets the recoveries.
+        /// </summary>
+        /// <value>
+        /// The recoveries.
+        /// </value>
         public double Recoveries { get; set; }
 
-        /// <summary> Gets or sets the used. </summary>
-        /// <value> The used. </value>
+        /// <summary>
+        /// Gets or sets the used.
+        /// </summary>
+        /// <value>
+        /// The used.
+        /// </value>
         public double Used { get; set; }
 
-        /// <summary> Gets or sets the available. </summary>
-        /// <value> The available. </value>
+        /// <summary>
+        /// Gets or sets the available.
+        /// </summary>
+        /// <value>
+        /// The available.
+        /// </value>
         public double Available { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AppropriationAvailableBalance"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.AppropriationAvailableBalances" /> class.
         /// </summary>
-        public AppropriationAvailableBalance( )
+        public AppropriationAvailableBalances( )
         {
             Source = Source.AppropriationAvailableBalances;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AppropriationAvailableBalance"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.AppropriationAvailableBalances" /> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
-        public AppropriationAvailableBalance( IQuery query )
+        /// <param name="query">The query.</param>
+        public AppropriationAvailableBalances( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -116,13 +145,13 @@ namespace BudgetExecution
             Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AppropriationAvailableBalance"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.AppropriationAvailableBalances" /> class.
         /// </summary>
-        /// <param name="builder"> </param>
-        public AppropriationAvailableBalance( IDataModel builder )
+        /// <param name="builder"></param>
+        public AppropriationAvailableBalances( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -143,13 +172,13 @@ namespace BudgetExecution
             Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AppropriationAvailableBalance"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.AppropriationAvailableBalances" /> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
-        public AppropriationAvailableBalance( DataRow dataRow )
+        /// <param name="dataRow">The data row.</param>
+        public AppropriationAvailableBalances( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
@@ -170,13 +199,13 @@ namespace BudgetExecution
             Available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AppropriationAvailableBalance"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.AppropriationAvailableBalances" /> class.
         /// </summary>
-        /// <param name="balance"> The balance. </param>
-        public AppropriationAvailableBalance( AppropriationAvailableBalance balance )
+        /// <param name="balance">The balance.</param>
+        public AppropriationAvailableBalances( AppropriationAvailableBalances balance )
         {
             ID = balance.ID;
             BFY = balance.BFY;

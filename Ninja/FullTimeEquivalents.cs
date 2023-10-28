@@ -58,7 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class FullTimeEquivalent : OperatingPlan
+    public class FullTimeEquivalents : OperatingPlans
     {
         /// <inheritdoc/>
         /// <summary>
@@ -66,7 +66,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.FullTimeEquivalent"/>
         /// class.
         /// </summary>
-        public FullTimeEquivalent( )
+        public FullTimeEquivalents( )
         {
             Source = Source.FullTimeEquivalents;
         }
@@ -78,7 +78,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public FullTimeEquivalent( IQuery query )
+        public FullTimeEquivalents( IQuery query )
             : base( query )
         {
             Source = Source.FullTimeEquivalents;
@@ -122,7 +122,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="builder"> The databuilder. </param>
-        public FullTimeEquivalent( IDataModel builder )
+        public FullTimeEquivalents( IDataModel builder )
             : base( builder )
         {
             Source = Source.FullTimeEquivalents;
@@ -166,7 +166,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="dataRow"> The dataRow. </param>
-        public FullTimeEquivalent( DataRow dataRow )
+        public FullTimeEquivalents( DataRow dataRow )
             : base( dataRow )
         {
             Source = Source.FullTimeEquivalents;
@@ -206,7 +206,7 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary> </summary>
         /// <param name="allocations"> </param>
-        public FullTimeEquivalent( Allocations allocations )
+        public FullTimeEquivalents( Allocations allocations )
         {
             ID = allocations.ID;
             BudgetLevel = allocations.BudgetLevel;

@@ -50,7 +50,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class BudgetControlValue : BudgetControl
+    public class BudgetControlValues : BudgetControls
     {
         /// <inheritdoc/>
         /// <summary>
@@ -58,7 +58,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.BudgetControlValue"/>
         /// class.
         /// </summary>
-        public BudgetControlValue( )
+        public BudgetControlValues( )
         {
             Source = Source.BudgetControls;
         }
@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public BudgetControlValue( IQuery query )
+        public BudgetControlValues( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query ).Record;
@@ -136,7 +136,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public BudgetControlValue( IDataModel builder )
+        public BudgetControlValues( IDataModel builder )
             : this( )
         {
             Record = builder.Record;
@@ -198,7 +198,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="row"> The data row. </param>
-        public BudgetControlValue( DataRow row )
+        public BudgetControlValues( DataRow row )
             : this( )
         {
             Record = row;
@@ -260,7 +260,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="control"> The control. </param>
-        public BudgetControlValue( BudgetControl control )
+        public BudgetControlValues( BudgetControls control )
         {
             ID = control.ID;
             Code = control.Code;

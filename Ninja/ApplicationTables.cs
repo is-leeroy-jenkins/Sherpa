@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="BudgetContact.cs" company="Terry D. Eppler">
+// <copyright file="ApplicationTable.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,119 +34,99 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   BudgetContact.cs
+//   ApplicationTable.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
     /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.DataUnit"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InheritdocConsiderUsage" ) ]
-    public class BudgetContact : DataUnit
+    public class ApplicationTables
     {
-        /// <summary> Gets or sets the first name. </summary>
-        /// <value> The first name. </value>
-        public string FirstName { get; set; }
+        /// <summary> Gets or sets the identifier. </summary>
+        /// <value> The identifier. </value>
+        public int ID { get; set; }
 
-        /// <summary> Gets or sets the last name. </summary>
-        /// <value> The last name. </value>
-        public string LastName { get; set; }
+        /// <summary> Gets or sets the name of the table. </summary>
+        /// <value> The name of the table. </value>
+        public string TableName { get; set; }
 
-        /// <summary> Gets or sets the full name. </summary>
-        /// <value> The full name. </value>
-        public string FullName { get; set; }
+        /// <summary> Gets or sets the model. </summary>
+        /// <value> The model. </value>
+        public string Model { get; set; }
 
-        /// <summary> Gets or sets the email address. </summary>
-        /// <value> The email address. </value>
-        public string EmailAddress { get; set; }
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
+        public Source Source { get; set; }
 
-        /// <summary> Gets or sets the rpio. </summary>
-        /// <value> The rpio. </value>
-        public string RPIO { get; set; }
+        /// <summary> Gets or sets the record. </summary>
+        /// <value> The record. </value>
+        public DataRow Record { get; set; }
 
-        /// <summary> Gets or sets the section. </summary>
-        /// <value> The section. </value>
-        public string Section { get; set; }
+        /// <summary> Gets or sets the data. </summary>
+        /// <value> The data. </value>
+        public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetContact"/>
+        /// <see cref="ApplicationTables"/>
         /// class.
         /// </summary>
-        public BudgetContact( )
+        public ApplicationTables( )
         {
-            Source = Source.BudgetContacts;
+            Source = Source.ApplicationTables;
         }
 
-        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetContact"/>
+        /// <see cref="ApplicationTables"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public BudgetContact( IQuery query )
-            : this( )
+        public ApplicationTables( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ContactsId" ].ToString( ) ?? "0" );
-            FirstName = Record[ "FirstName" ].ToString( );
-            LastName = Record[ "LastName" ].ToString( );
-            FullName = Record[ "FullName" ].ToString( );
-            RPIO = Record[ "RPIO" ].ToString( );
-            EmailAddress = Record[ "EmailAddress" ].ToString( );
-            Section = Record[ "Section" ].ToString( );
+            ID = int.Parse( Record[ "ApplicationTablesId" ].ToString( ) ?? "0" );
+            TableName = Record[ "TableName" ].ToString( );
+            Model = Record[ "Model" ].ToString( );
         }
 
-        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetContact"/>
+        /// <see cref="ApplicationTables"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public BudgetContact( IDataModel builder )
-            : this( )
+        public ApplicationTables( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ContactsId" ].ToString( ) ?? "0" );
-            FirstName = Record[ "FirstName" ].ToString( );
-            LastName = Record[ "LastName" ].ToString( );
-            FullName = Record[ "FullName" ].ToString( );
-            RPIO = Record[ "RPIO" ].ToString( );
-            EmailAddress = Record[ "EmailAddress" ].ToString( );
-            Section = Record[ "Section" ].ToString( );
+            ID = int.Parse( Record[ "ApplicationTablesId" ].ToString( ) ?? "0" );
+            TableName = Record[ "TableName" ].ToString( );
+            Model = Record[ "Model" ].ToString( );
         }
 
-        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetContact"/>
+        /// <see cref="ApplicationTables"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public BudgetContact( DataRow dataRow )
-            : this( )
+        public ApplicationTables( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "ContactsId" ].ToString( ) ?? "0" );
-            FirstName = dataRow[ "FirstName" ].ToString( );
-            LastName = dataRow[ "LastName" ].ToString( );
-            FullName = dataRow[ "FullName" ].ToString( );
-            RPIO = dataRow[ "RPIO" ].ToString( );
-            EmailAddress = dataRow[ "EmailAddress" ].ToString( );
-            Section = dataRow[ "Section" ].ToString( );
+            ID = int.Parse( dataRow[ "ApplicationTablesId" ].ToString( ) ?? "0" );
+            TableName = dataRow[ "TableName" ].ToString( );
+            Model = dataRow[ "Model" ].ToString( );
         }
     }
 }
