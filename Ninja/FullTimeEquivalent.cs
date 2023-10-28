@@ -205,35 +205,35 @@ namespace BudgetExecution
 
         /// <inheritdoc/>
         /// <summary> </summary>
-        /// <param name="allocation"> </param>
-        public FullTimeEquivalent( Allocation allocation )
+        /// <param name="allocations"> </param>
+        public FullTimeEquivalent( Allocations allocations )
         {
-            ID = allocation.ID;
-            BudgetLevel = allocation.BudgetLevel;
-            BFY = allocation.BFY;
-            EFY = allocation.EFY;
-            FundCode = allocation.FundCode;
-            FundName = allocation.FundName;
-            RpioCode = allocation.RpioCode;
-            RpioName = allocation.RpioName;
-            AhCode = allocation.AhCode;
-            AhName = allocation.AhName;
-            OrgCode = allocation.OrgCode;
-            OrgName = allocation.OrgName;
-            AccountCode = allocation.AccountCode;
-            BocCode = allocation.BocCode;
-            BocName = allocation.BocName;
-            Amount = allocation.Amount;
-            ProgramProjectCode = allocation.ProgramProjectCode;
-            ProgramProjectName = allocation.ProgramProjectName;
-            ProgramAreaCode = allocation.ProgramAreaCode;
-            ProgramAreaName = allocation.ProgramAreaName;
-            NpmCode = allocation.NpmCode;
-            NpmName = allocation.NpmName;
-            TreasuryAccountCode = allocation.TreasuryAccountCode;
-            TreasuryAccountName = allocation.TreasuryAccountName;
-            BudgetAccountCode = allocation.BudgetAccountCode;
-            BudgetAccountName = allocation.BudgetAccountName;
+            ID = allocations.ID;
+            BudgetLevel = allocations.BudgetLevel;
+            BFY = allocations.BFY;
+            EFY = allocations.EFY;
+            FundCode = allocations.FundCode;
+            FundName = allocations.FundName;
+            RpioCode = allocations.RpioCode;
+            RpioName = allocations.RpioName;
+            AhCode = allocations.AhCode;
+            AhName = allocations.AhName;
+            OrgCode = allocations.OrgCode;
+            OrgName = allocations.OrgName;
+            AccountCode = allocations.AccountCode;
+            BocCode = allocations.BocCode;
+            BocName = allocations.BocName;
+            Amount = allocations.Amount;
+            ProgramProjectCode = allocations.ProgramProjectCode;
+            ProgramProjectName = allocations.ProgramProjectName;
+            ProgramAreaCode = allocations.ProgramAreaCode;
+            ProgramAreaName = allocations.ProgramAreaName;
+            NpmCode = allocations.NpmCode;
+            NpmName = allocations.NpmName;
+            TreasuryAccountCode = allocations.TreasuryAccountCode;
+            TreasuryAccountName = allocations.TreasuryAccountName;
+            BudgetAccountCode = allocations.BudgetAccountCode;
+            BudgetAccountName = allocations.BudgetAccountName;
         }
 
         /// <inheritdoc/>

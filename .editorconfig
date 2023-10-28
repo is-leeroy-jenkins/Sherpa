@@ -18,7 +18,24 @@ ij_wrap_on_typing = false
 # ReSharper properties
 resharper_align_multiline_parameter = true
 resharper_csharp_wrap_parameters_style = wrap_if_long
+resharper_space_around_arrow_op = true
+resharper_space_within_array_access_brackets = true
+resharper_space_within_array_rank_brackets = true
+resharper_space_within_checked_parentheses = true
+resharper_space_within_default_parentheses = true
+resharper_space_within_list_pattern_brackets = true
+resharper_space_within_nameof_parentheses = true
+resharper_space_within_new_parentheses = true
+resharper_space_within_sizeof_parentheses = true
+resharper_space_within_typeof_parentheses = true
 resharper_wrap_parameters_style = wrap_if_long
+
+# Microsoft .NET properties
+csharp_space_between_empty_square_brackets = true
+csharp_space_between_method_call_empty_parameter_list_parentheses = true
+csharp_space_between_method_call_parameter_list_parentheses = true
+csharp_space_between_parentheses = control_flow_statements,expressions
+csharp_space_between_square_brackets = true
 
 [*.cs]
 indent_style = space

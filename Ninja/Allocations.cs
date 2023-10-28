@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="Allocation.cs" company="Terry D. Eppler">
+// <copyright file="Allocations.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Allocation.cs
+//   Allocations.cs
 // </summary>
 // ******************************************************************************************
 
@@ -53,7 +53,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class Allocation : StatusOfFunds
+    public class Allocations : StatusOfFunds
     {
         /// <summary> Gets or sets the appropriation code. </summary>
         /// <value> The appropriation code. </value>
@@ -65,21 +65,21 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Allocation"/>
+        /// <see cref="Allocations"/>
         /// class.
         /// </summary>
-        public Allocation( )
+        public Allocations( )
         {
             Source = Source.Allocations;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Allocation"/>
+        /// <see cref="Allocations"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public Allocation( IQuery query )
+        public Allocations( IQuery query )
             : base( query )
         {
             Record = new DataBuilder( query ).Record;
@@ -117,11 +117,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Allocation"/>
+        /// <see cref="Allocations"/>
         /// class.
         /// </summary>
         /// <param name="builder"> </param>
-        public Allocation( IDataModel builder )
+        public Allocations( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -158,11 +158,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Allocation"/>
+        /// <see cref="Allocations"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public Allocation( DataRow dataRow )
+        public Allocations( DataRow dataRow )
             : base( dataRow )
         {
             Record = dataRow;
@@ -200,11 +200,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Allocation"/>
+        /// <see cref="Allocations"/>
         /// class.
         /// </summary>
         /// <param name="map"> The map. </param>
-        public Allocation( IDictionary<string, object> map )
+        public Allocations( IDictionary<string, object> map )
             : base( map )
         {
             Record = new DataBuilder( Source, map )?.Record;
@@ -242,38 +242,38 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Allocation"/>
+        /// <see cref="Allocations"/>
         /// class.
         /// </summary>
-        /// <param name="allocation"> The allocation. </param>
-        public Allocation( Allocation allocation )
+        /// <param name="allocations"> The allocations. </param>
+        public Allocations( Allocations allocations )
         {
-            ID = allocation.ID;
-            BudgetLevel = allocation.BudgetLevel;
-            BFY = allocation.BFY;
-            EFY = allocation.EFY;
-            FundCode = allocation.FundCode;
-            FundName = allocation.FundName;
-            RpioCode = allocation.RpioCode;
-            RpioName = allocation.RpioName;
-            AhCode = allocation.AhCode;
-            AhName = allocation.AhName;
-            OrgCode = allocation.OrgCode;
-            OrgName = allocation.OrgName;
-            AccountCode = allocation.AccountCode;
-            BocCode = allocation.BocCode;
-            BocName = allocation.BocName;
-            Amount = allocation.Amount;
-            ProgramProjectCode = allocation.ProgramProjectCode;
-            ProgramProjectName = allocation.ProgramProjectName;
-            ProgramAreaCode = allocation.ProgramAreaCode;
-            ProgramAreaName = allocation.ProgramAreaName;
-            NpmCode = allocation.NpmCode;
-            NpmName = allocation.NpmName;
-            TreasuryAccountCode = allocation.TreasuryAccountCode;
-            TreasuryAccountName = allocation.TreasuryAccountName;
-            BudgetAccountCode = allocation.BudgetAccountCode;
-            BudgetAccountName = allocation.BudgetAccountName;
+            ID = allocations.ID;
+            BudgetLevel = allocations.BudgetLevel;
+            BFY = allocations.BFY;
+            EFY = allocations.EFY;
+            FundCode = allocations.FundCode;
+            FundName = allocations.FundName;
+            RpioCode = allocations.RpioCode;
+            RpioName = allocations.RpioName;
+            AhCode = allocations.AhCode;
+            AhName = allocations.AhName;
+            OrgCode = allocations.OrgCode;
+            OrgName = allocations.OrgName;
+            AccountCode = allocations.AccountCode;
+            BocCode = allocations.BocCode;
+            BocName = allocations.BocName;
+            Amount = allocations.Amount;
+            ProgramProjectCode = allocations.ProgramProjectCode;
+            ProgramProjectName = allocations.ProgramProjectName;
+            ProgramAreaCode = allocations.ProgramAreaCode;
+            ProgramAreaName = allocations.ProgramAreaName;
+            NpmCode = allocations.NpmCode;
+            NpmName = allocations.NpmName;
+            TreasuryAccountCode = allocations.TreasuryAccountCode;
+            TreasuryAccountName = allocations.TreasuryAccountName;
+            BudgetAccountCode = allocations.BudgetAccountCode;
+            BudgetAccountName = allocations.BudgetAccountName;
         }
     }
 }

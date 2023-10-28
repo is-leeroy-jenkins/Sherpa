@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
+    /// <inheritdoc />
     /// <summary>
     /// Generally, an organized set of activities directed toward a common purpose or goal that an agency
     /// undertakes or proposes to carry out its responsibilities. Because the term has many uses in
@@ -68,7 +69,7 @@ namespace BudgetExecution
     /// the Agency's funding with the Regional Administrator being identified as the primary regional
     /// Allowance Holder.
     /// </summary>
-    /// <seealso cref="ISource"/>
+    /// <seealso cref="T:BudgetExecution.ISource" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -77,25 +78,27 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
-    public class AllowanceHolder : DataUnit
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    public class AllowanceHolders : DataUnit
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AllowanceHolder"/>
+        /// <see cref="AllowanceHolders"/>
         /// class.
         /// </summary>
-        public AllowanceHolder( )
+        public AllowanceHolders( )
         {
             Source = Source.AllowanceHolders;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AllowanceHolder"/>
+        /// <see cref="T:BudgetExecution.AllowanceHolders" />
         /// class.
         /// </summary>
         /// <param name="dataBuilder"> The dataBuilder. </param>
-        public AllowanceHolder( DataBuilder dataBuilder )
+        public AllowanceHolders( DataBuilder dataBuilder )
             : this( )
         {
             Record = dataBuilder.Record;
@@ -105,13 +108,14 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AllowanceHolder"/>
+        /// <see cref="T:BudgetExecution.AllowanceHolders" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public AllowanceHolder( IQuery query )
+        public AllowanceHolders( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query )?.Record;
@@ -121,13 +125,14 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AllowanceHolder"/>
+        /// <see cref="T:BudgetExecution.AllowanceHolders" />
         /// class.
         /// </summary>
         /// <param name="data"> The Data. </param>
-        public AllowanceHolder( DataRow data )
+        public AllowanceHolders( DataRow data )
             : this( )
         {
             Record = data;
@@ -137,13 +142,14 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AllowanceHolder"/>
+        /// <see cref="T:BudgetExecution.AllowanceHolders" />
         /// class.
         /// </summary>
         /// <param name="ahCode"> The ahcode. </param>
-        public AllowanceHolder( string ahCode )
+        public AllowanceHolders( string ahCode )
             : this( )
         {
             Record = new DataBuilder( Source, SetArgs( ahCode ) )?.Record;
@@ -155,19 +161,23 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AllowanceHolder"/>
+        /// <see cref="AllowanceHolders"/>
         /// class.
         /// </summary>
         /// <param name="allowanceHolder"> The allowance holder. </param>
-        public AllowanceHolder( AllowanceHolder allowanceHolder )
+        public AllowanceHolders( AllowanceHolders allowanceHolder )
         {
             ID = allowanceHolder.ID;
             Name = allowanceHolder.Name;
             Code = allowanceHolder.Code;
         }
 
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="code"> The code. </param>
+        /// <summary>
+        /// Sets the arguments.
+        /// </summary>
+        /// <param name="code">
+        /// The code.
+        /// </param>
         /// <returns> </returns>
         private IDictionary<string, object> SetArgs( string code )
         {
@@ -175,7 +185,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ $"{Field.AhCode}" ] = code };
+                    return new Dictionary<string, object> 
+                    {
+                        [ $"{Field.AhCode}" ] = code
+                    };
                 }
                 catch( Exception _ex )
                 {

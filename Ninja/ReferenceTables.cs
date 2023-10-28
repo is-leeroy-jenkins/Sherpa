@@ -48,7 +48,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class ReferenceTable
+    public class ReferenceTables
     {
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
@@ -76,20 +76,20 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ReferenceTable"/>
+        /// <see cref="ReferenceTables"/>
         /// class.
         /// </summary>
-        public ReferenceTable( )
+        public ReferenceTables( )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ReferenceTable"/>
+        /// <see cref="ReferenceTables"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public ReferenceTable( IQuery query )
+        public ReferenceTables( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -97,11 +97,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ReferenceTable"/>
+        /// <see cref="ReferenceTables"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public ReferenceTable( IDataModel builder )
+        public ReferenceTables( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -109,11 +109,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ReferenceTable"/>
+        /// <see cref="ReferenceTables"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public ReferenceTable( DataRow dataRow )
+        public ReferenceTables( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

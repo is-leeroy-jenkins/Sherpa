@@ -49,7 +49,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
-    public class PayrollAuthority : Allocation
+    public class PayrollAuthority : Allocations
     {
         /// <summary>
         /// Initializes a new instance of the

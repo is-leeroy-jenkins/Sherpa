@@ -1,42 +1,45 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+﻿//  ******************************************************************************************
+//      Assembly:                Budget Execution
+//      Filename:                ApportionmentData.cs
+//      Author:                  Terry D. Eppler
+//      Created:                 05-31-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="ApportionmentData.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//      Last Modified By:        Terry D. Eppler
+//      Last Modified On:        06-01-2023
+//  ******************************************************************************************
+//  <copyright file="ApportionmentData.cs" company="Terry D. Eppler">
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//     This is a Federal Budget, Finance, and Accounting application for the
+//     US Environmental Protection Agency (US EPA).
+//     Copyright ©  2023  Terry Eppler
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//     Permission is hereby granted, free of charge, to any person obtaining a copy
+//     of this software and associated documentation files (the “Software”),
+//     to deal in the Software without restriction,
+//     including without limitation the rights to use,
+//     copy, modify, merge, publish, distribute, sublicense,
+//     and/or sell copies of the Software,
+//     and to permit persons to whom the Software is furnished to do so,
+//     subject to the following conditions:
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//     The above copyright notice and this permission notice shall be included in all
+//     copies or substantial portions of the Software.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   ApportionmentData.cs
-// </summary>
-// ******************************************************************************************
+//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//  </copyright>
+//  <summary>
+//    ApportionmentData.cs
+//  </summary>
+//  ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -45,60 +48,94 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.BudgetUnit"/>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.BudgetUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class ApportionmentData : BudgetUnit
     {
-        /// <summary> Gets or sets the fiscal year. </summary>
-        /// <value> The fiscal year. </value>
+        /// <summary>
+        /// Gets or sets the fiscal year.
+        /// </summary>
+        /// <value>
+        /// The fiscal year.
+        /// </value>
         public string FiscalYear { get; set; }
 
-        /// <summary> Gets or sets the apportionment account code. </summary>
-        /// <value> The apportionment account code. </value>
+        /// <summary>
+        /// Gets or sets the apportionment account code.
+        /// </summary>
+        /// <value>
+        /// The apportionment account code.
+        /// </value>
         public string ApportionmentAccountCode { get; set; }
 
-        /// <summary> Gets or sets the name of the apportionment account. </summary>
-        /// <value> The name of the apportionment account. </value>
+        /// <summary>
+        /// Gets or sets the name of the apportionment account.
+        /// </summary>
+        /// <value>
+        /// The name of the apportionment account.
+        /// </value>
         public string ApportionmentAccountName { get; set; }
 
-        /// <summary> Gets or sets the type of the availability. </summary>
-        /// <value> The type of the availability. </value>
+        /// <summary>
+        /// Gets or sets the type of the availability.
+        /// </summary>
+        /// <value>
+        /// The type of the availability.
+        /// </value>
         public string AvailabilityType { get; set; }
 
-        /// <summary> Gets or sets the approval date. </summary>
-        /// <value> The approval date. </value>
+        /// <summary>
+        /// Gets or sets the approval date.
+        /// </summary>
+        /// <value>
+        /// The approval date.
+        /// </value>
         public DateOnly ApprovalDate { get; set; }
 
-        /// <summary> Gets or sets the line number. </summary>
-        /// <value> The line number. </value>
+        /// <summary>
+        /// Gets or sets the line number.
+        /// </summary>
+        /// <value>
+        /// The line number.
+        /// </value>
         public string LineNumber { get; set; }
 
-        /// <summary> Gets or sets the name of the line. </summary>
-        /// <value> The name of the line. </value>
+        /// <summary>
+        /// Gets or sets the name of the line.
+        /// </summary>
+        /// <value>
+        /// The name of the line.
+        /// </value>
         public string LineName { get; set; }
 
-        /// <summary> Gets or sets the amount. </summary>
-        /// <value> The amount. </value>
+        /// <summary>
+        /// Gets or sets the amount.
+        /// </summary>
+        /// <value>
+        /// The amount.
+        /// </value>
         public double Amount { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApportionmentData"/>
-        /// class.
+        /// <see cref="ApportionmentData"/> class.
         /// </summary>
         public ApportionmentData( )
         {
             Source = Source.ApportionmentData;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApportionmentData"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.ApportionmentData" /> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public ApportionmentData( IQuery query )
             : this( )
         {
@@ -118,12 +155,12 @@ namespace BudgetExecution
             Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApportionmentData"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.ApportionmentData" /> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public ApportionmentData( IDataModel builder )
             : this( )
         {
@@ -143,12 +180,12 @@ namespace BudgetExecution
             Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApportionmentData"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.ApportionmentData" /> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public ApportionmentData( DataRow dataRow )
             : this( )
         {
@@ -170,10 +207,9 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApportionmentData"/>
-        /// class.
+        /// <see cref="ApportionmentData"/> class.
         /// </summary>
-        /// <param name="omb"> The omb. </param>
+        /// <param name="omb">The omb.</param>
         public ApportionmentData( ApportionmentData omb )
         {
             ID = omb.ID;
