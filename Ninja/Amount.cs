@@ -43,47 +43,66 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.IAmount"/>
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class Amount
     {
-        /// <summary> Gets or sets the initial. </summary>
-        /// <value> The initial. </value>
+        /// <summary>
+        /// Gets or sets the initial.
+        /// </summary>
+        /// <value>
+        /// The initial.
+        /// </value>
         public double Initial { get; set; }
 
-        /// <summary> Gets or sets the delta. </summary>
-        /// <value> The delta. </value>
+        /// <summary>
+        /// Gets or sets the delta.
+        /// </summary>
+        /// <value>
+        /// The delta.
+        /// </value>
         public double Delta { get; set; }
 
-        /// <summary> Gets the funding. </summary>
+        /// <summary>
+        /// Gets or sets the value.
+        /// </summary>
+        /// <value>
+        /// The value.
+        /// </value>
         public double Value { get; set; }
 
-        /// <summary> Gets the numeric column. </summary>
+        /// <summary>
+        /// Gets or sets the numeric.
+        /// </summary>
+        /// <value>
+        /// The numeric.
+        /// </value>
         public string Numeric { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Amount"/>
-        /// class.
+        /// <see cref="Amount"/> class.
         /// </summary>
         public Amount( )
         {
             Numeric = "Amount";
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Amount"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.Amount" /> class.
         /// </summary>
-        /// <param name="value"> The value. </param>
+        /// <param name="value">The value.</param>
         public Amount( double value = 0.0 )
             : this( )
         {
@@ -93,11 +112,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Amount"/>
-        /// class.
+        /// <see cref="Amount"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
-        /// <param name="numeric"> The numeric. </param>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="numeric">The numeric.</param>
         public Amount( DataRow dataRow, string numeric )
         {
             Numeric = numeric;
@@ -107,10 +125,9 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Amount"/>
-        /// class.
+        /// <see cref="Amount"/> class.
         /// </summary>
-        /// <param name="amount"> The amount. </param>
+        /// <param name="amount">The amount.</param>
         public Amount( Amount amount )
         {
             Numeric = amount.Numeric;
@@ -118,8 +135,10 @@ namespace BudgetExecution
             Delta = 0.0;
         }
 
-        /// <summary> Increases the specified increment. </summary>
-        /// <param name="increment"> The increment. </param>
+        /// <summary>
+        /// Increases the specified increment.
+        /// </summary>
+        /// <param name="increment">The increment.</param>
         public void Increase( int increment )
         {
             try
@@ -133,8 +152,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Decreases the specified decrement. </summary>
-        /// <param name="decrement"> The decrement. </param>
+        /// <summary>
+        /// Decreases the specified decrement.
+        /// </summary>
+        /// <param name="decrement">The decrement.</param>
         public void Decrease( int decrement )
         {
             try
@@ -148,13 +169,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Determines whether the specified amount is equal. </summary>
-        /// <param name="amount"> The amount. </param>
+        /// <summary>
+        /// Determines whether the specified amount is equal.
+        /// </summary>
+        /// <param name="amount">The amount.</param>
         /// <returns>
-        /// <c> true </c>
-        /// if the specified amount is equal; otherwise,
-        /// <c> false </c>
-        /// .
+        ///   <c>true</c> if the specified amount is equal;
+        ///   otherwise,
+        /// <c>false</c>.
         /// </returns>
         public bool IsEqual( IAmount amount )
         {
@@ -175,14 +197,13 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary> Determines whether the specified first is equal. </summary>
-        /// <param name="first"> The first. </param>
-        /// <param name="second"> The second. </param>
+        /// <summary>
+        /// Determines whether the specified first is equal.
+        /// </summary>
+        /// <param name="first">The first.</param>
+        /// <param name="second">The second.</param>
         /// <returns>
-        /// <c> true </c>
-        /// if the specified first is equal; otherwise,
-        /// <c> false </c>
-        /// .
+        ///   <c>true</c> if the specified first is equal; otherwise, <c>false</c>.
         /// </returns>
         public virtual bool IsEqual( IAmount first, IAmount second )
         {
@@ -204,13 +225,12 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary> Called when [changed]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnChanged( object sender, EventArgs e )
         {
             try
@@ -224,8 +244,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

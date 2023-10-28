@@ -44,10 +44,11 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.StatusOfFunds"/>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.StatusOfFunds" />
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
@@ -55,19 +56,27 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class Allocations : StatusOfFunds
     {
-        /// <summary> Gets or sets the appropriation code. </summary>
-        /// <value> The appropriation code. </value>
+        /// <summary>
+        /// Gets or sets the appropriation code.
+        /// </summary>
+        /// <value>
+        /// The appropriation code.
+        /// </value>
         public virtual string AppropriationCode { get; set; }
 
-        /// <summary> Gets or sets the name of the appropriation. </summary>
-        /// <value> The name of the appropriation. </value>
+        /// <summary>
+        /// Gets or sets the name of the appropriation.
+        /// </summary>
+        /// <value>
+        /// The name of the appropriation.
+        /// </value>
         public virtual string AppropriationName { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Allocations"/>
-        /// class.
+        /// <see cref="Allocations"/> class.
         /// </summary>
+        /// <inheritdoc />
         public Allocations( )
         {
             Source = Source.Allocations;
@@ -75,10 +84,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Allocations"/>
-        /// class.
+        /// <see cref="Allocations"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
+        /// <inheritdoc />
         public Allocations( IQuery query )
             : base( query )
         {
@@ -98,7 +107,7 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? string.Empty );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
@@ -117,10 +126,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Allocations"/>
-        /// class.
+        /// <see cref="Allocations"/> class.
         /// </summary>
-        /// <param name="builder"> </param>
+        /// <param name="builder"></param>
+        /// <inheritdoc />
         public Allocations( IDataModel builder )
         {
             Record = builder.Record;
@@ -158,10 +167,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Allocations"/>
-        /// class.
+        /// <see cref="Allocations"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
+        /// <inheritdoc />
         public Allocations( DataRow dataRow )
             : base( dataRow )
         {
@@ -200,10 +209,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Allocations"/>
-        /// class.
+        /// <see cref="Allocations"/> class.
         /// </summary>
-        /// <param name="map"> The map. </param>
+        /// <param name="map">The map.</param>
+        /// <inheritdoc />
         public Allocations( IDictionary<string, object> map )
             : base( map )
         {
@@ -223,7 +232,7 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? string.Empty );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
@@ -240,12 +249,12 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Allocations"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.Allocations" /> class.
         /// </summary>
-        /// <param name="allocations"> The allocations. </param>
+        /// <param name="allocations">The allocations.</param>
         public Allocations( Allocations allocations )
         {
             ID = allocations.ID;

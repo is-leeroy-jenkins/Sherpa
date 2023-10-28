@@ -42,29 +42,53 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
-    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    [SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class DescriptionBase : DataUnit
     {
-        /// <summary> Gets or sets the definition. </summary>
-        /// <value> The definition. </value>
+        /// <summary>
+        /// Gets or sets the definition.
+        /// </summary>
+        /// <value>
+        /// The definition.
+        /// </value>
         public string Definition { get; set; }
 
-        /// <summary> Gets or sets the laws. </summary>
-        /// <value> The laws. </value>
+        /// <summary>
+        /// Gets or sets the laws.
+        /// </summary>
+        /// <value>
+        /// The laws.
+        /// </value>
         public string Laws { get; set; }
 
-        /// <summary> Gets or sets the title. </summary>
-        /// <value> The title. </value>
+        /// <summary>
+        /// Gets or sets the title.
+        /// </summary>
+        /// <value>
+        /// The title.
+        /// </value>
         public string Title { get; set; }
 
-        /// <summary> Gets or sets the program area code. </summary>
-        /// <value> The program area code. </value>
+        /// <summary>
+        /// Gets or sets the program area code.
+        /// </summary>
+        /// <value>
+        /// The program area code.
+        /// </value>
         public string ProgramAreaCode { get; set; }
 
-        /// <summary> Gets or sets the name of the program area. </summary>
-        /// <value> The name of the program area. </value>
+        /// <summary>
+        /// Gets or sets the name of the program area.
+        /// </summary>
+        /// <value>
+        /// The name of the program area.
+        /// </value>
         public string ProgramAreaName { get; set; }
     }
 }

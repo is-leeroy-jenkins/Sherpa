@@ -45,7 +45,6 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Threading;
 
     /// <summary> </summary>
     /// <seealso cref="BudgetExecution.FederalHoliday"/>

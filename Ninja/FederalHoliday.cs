@@ -42,63 +42,107 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public abstract class FederalHoliday
     {
-        /// <summary> Columbus Day, the second Monday in October. </summary>
-        /// <value> Columbus Day, the second Monday in October. </value>
+        /// <summary>
+        /// Gets or sets the columbus day.
+        /// </summary>
+        /// <value>
+        /// The columbus day.
+        /// </value>
         public virtual DateOnly ColumbusDay { get; set; }
 
-        /// <summary> Veterans Day, November 11. </summary>
-        /// <value> Veterans Day, November 11. </value>
+        /// <summary>
+        /// Gets or sets the veterans day.
+        /// </summary>
+        /// <value>
+        /// The veterans day.
+        /// </value>
         public virtual DateOnly VeteransDay { get; set; }
 
-        /// <summary> Thanksgiving Day, the fourth Thursday in November. </summary>
-        /// <value> Thanksgiving Day, the fourth Thursday in November. </value>
+        /// <summary>
+        /// Gets or sets the thanksgiving day.
+        /// </summary>
+        /// <value>
+        /// The thanksgiving day.
+        /// </value>
         public virtual DateOnly ThanksgivingDay { get; set; }
 
-        /// <summary> Christmas Day, December 25. </summary>
-        /// <value> Christmas Day, December 25. </value>
+        /// <summary>
+        /// Gets or sets the christmas day.
+        /// </summary>
+        /// <value>
+        /// The christmas day.
+        /// </value>
         public virtual DateOnly ChristmasDay { get; set; }
 
-        /// <summary> New Year’s Day, January 1. </summary>
-        /// <value> New Year’s Day, January 1. </value>
+        /// <summary>
+        /// Creates new yearsday.
+        /// </summary>
+        /// <value>
+        /// The new years day.
+        /// </value>
         public virtual DateOnly NewYearsDay { get; set; }
 
         /// <summary>
-        /// Birthday of Martin Luther King, Jr., the third Monday in January.
+        /// Gets or sets the martin luther king day.
         /// </summary>
         /// <value>
-        /// Birthday of Martin Luther King, Jr., the third Monday in January.
+        /// The martin luther king day.
         /// </value>
         public virtual DateOnly MartinLutherKingDay { get; set; }
 
-        /// <summary> Washington’s Birthday, the third Monday in February. </summary>
-        /// <value> Washington’s Birthday, the third Monday in February. </value>
+        /// <summary>
+        /// Gets or sets the presidents day.
+        /// </summary>
+        /// <value>
+        /// The presidents day.
+        /// </value>
         public virtual DateOnly PresidentsDay { get; set; }
 
-        /// <summary> Memorial Day, the last Monday in May. </summary>
-        /// <value> Memorial Day, the last Monday in May. </value>
+        /// <summary>
+        /// Gets or sets the memorial day.
+        /// </summary>
+        /// <value>
+        /// The memorial day.
+        /// </value>
         public virtual DateOnly MemorialDay { get; set; }
 
-        /// <summary> Juneteenth National Independence Day, June 19. </summary>
-        /// <value> Juneteenth National Independence Day, June 19. </value>
+        /// <summary>
+        /// Gets or sets the juneteenth day.
+        /// </summary>
+        /// <value>
+        /// The juneteenth day.
+        /// </value>
         public virtual DateOnly JuneteenthDay { get; set; }
 
-        /// <summary> Independence Day, July 4. </summary>
-        /// <value> Independence Day, July 4. </value>
+        /// <summary>
+        /// Gets or sets the independence day.
+        /// </summary>
+        /// <value>
+        /// The independence day.
+        /// </value>
         public virtual DateOnly IndependenceDay { get; set; }
 
-        /// <summary> Labor Day, the first Monday in September. </summary>
-        /// <value> Labor Day, the first Monday in September. </value>
+        /// <summary>
+        /// Gets or sets the labor day.
+        /// </summary>
+        /// <value>
+        /// The labor day.
+        /// </value>
         public virtual DateOnly LaborDay { get; set; }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

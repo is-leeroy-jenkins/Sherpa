@@ -43,30 +43,32 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
+    /// <inheritdoc />
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class Deobligation : Obligation
+    [ SuppressMessage( "ReSharper", "InheritdocConsiderUsage" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    public class Deobligations : Obligations
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Deobligation"/>
+        /// <see cref="Deobligations"/>
         /// class.
         /// </summary>
-        public Deobligation( )
+        public Deobligations( )
         {
             Source = Source.Deobligations;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Deobligation"/>
+        /// <see cref="Deobligations"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public Deobligation( IQuery query )
+        public Deobligations( IQuery query )
             : base( query )
         {
             Source = Source.Deobligations;
@@ -109,7 +111,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public Deobligation( IDataModel builder )
+        public Deobligations( IDataModel builder )
             : base( builder )
         {
             Source = Source.Deobligations;
@@ -147,11 +149,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Deobligation"/>
+        /// <see cref="Deobligations"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public Deobligation( DataRow dataRow )
+        public Deobligations( DataRow dataRow )
             : base( dataRow )
         {
             Source = Source.Deobligations;
@@ -187,7 +189,7 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public Deobligation( Deobligation deobligation )
+        public Deobligations( Deobligations deobligation )
         {
             ID = deobligation.ID;
             BFY = deobligation.BFY;

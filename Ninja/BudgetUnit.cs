@@ -42,7 +42,6 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
     /// <inheritdoc/>
     /// <summary> </summary>

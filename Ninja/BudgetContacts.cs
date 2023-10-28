@@ -43,56 +43,79 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.DataUnit"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.DataUnit" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "InheritdocConsiderUsage" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class BudgetContacts : DataUnit
     {
-        /// <summary> Gets or sets the first name. </summary>
-        /// <value> The first name. </value>
+        /// <summary>
+        /// Gets or sets the first name.
+        /// </summary>
+        /// <value>
+        /// The first name.
+        /// </value>
         public string FirstName { get; set; }
 
-        /// <summary> Gets or sets the last name. </summary>
-        /// <value> The last name. </value>
+        /// <summary>
+        /// Gets or sets the last name.
+        /// </summary>
+        /// <value>
+        /// The last name.
+        /// </value>
         public string LastName { get; set; }
 
-        /// <summary> Gets or sets the full name. </summary>
-        /// <value> The full name. </value>
+        /// <summary>
+        /// Gets or sets the full name.
+        /// </summary>
+        /// <value>
+        /// The full name.
+        /// </value>
         public string FullName { get; set; }
 
-        /// <summary> Gets or sets the email address. </summary>
-        /// <value> The email address. </value>
+        /// <summary>
+        /// Gets or sets the email address.
+        /// </summary>
+        /// <value>
+        /// The email address.
+        /// </value>
         public string EmailAddress { get; set; }
 
-        /// <summary> Gets or sets the rpio. </summary>
-        /// <value> The rpio. </value>
+        /// <summary>
+        /// Gets or sets the rpio.
+        /// </summary>
+        /// <value>
+        /// The rpio.
+        /// </value>
         public string RPIO { get; set; }
 
-        /// <summary> Gets or sets the section. </summary>
-        /// <value> The section. </value>
+        /// <summary>
+        /// Gets or sets the section.
+        /// </summary>
+        /// <value>
+        /// The section.
+        /// </value>
         public string Section { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetContacts"/>
-        /// class.
+        /// <see cref="BudgetContacts"/> class.
         /// </summary>
         public BudgetContacts( )
         {
             Source = Source.BudgetContacts;
         }
 
-        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetContact"/>
-        /// class.
+        /// <see cref="BudgetContacts"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public BudgetContacts( IQuery query )
             : this( )
         {
@@ -107,13 +130,11 @@ namespace BudgetExecution
             Section = Record[ "Section" ].ToString( );
         }
 
-        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetContact"/>
-        /// class.
+        /// <see cref="BudgetContacts"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public BudgetContacts( IDataModel builder )
             : this( )
         {
@@ -128,13 +149,11 @@ namespace BudgetExecution
             Section = Record[ "Section" ].ToString( );
         }
 
-        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetContact"/>
-        /// class.
+        /// <see cref="BudgetContacts"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public BudgetContacts( DataRow dataRow )
             : this( )
         {

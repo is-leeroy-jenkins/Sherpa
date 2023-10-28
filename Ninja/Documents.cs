@@ -43,26 +43,33 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.DataUnit"/>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class Document : DataUnit
     {
-        /// <summary> Gets or sets the category. </summary>
-        /// <value> The category. </value>
+        /// <summary>
+        /// Gets or sets the category.
+        /// </summary>
+        /// <value>
+        /// The category.
+        /// </value>
         public string Category { get; set; }
 
-        /// <summary> Gets or sets the system. </summary>
-        /// <value> The system. </value>
+        /// <summary>
+        /// Gets or sets the system.
+        /// </summary>
+        /// <value>
+        /// The system.
+        /// </value>
         public string System { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Document"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Document"/> class.
         /// </summary>
         public Document( )
         {
@@ -70,11 +77,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Document"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Document"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public Document( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -87,11 +92,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Document"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Document"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public Document( IDataModel builder )
         {
             Record = builder.Record;
@@ -104,11 +107,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Document"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Document"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public Document( DataRow dataRow )
         {
             Record = dataRow;
@@ -121,11 +122,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Document"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Document"/> class.
         /// </summary>
-        /// <param name="doc"> The document. </param>
+        /// <param name="doc">The document.</param>
         public Document( Document doc )
         {
             ID = doc.ID;

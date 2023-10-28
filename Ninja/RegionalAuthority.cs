@@ -43,16 +43,18 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
+    /// <inheritdoc />
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class RegionalAuthority : StatusOfFunds
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="RegionalAuthority"/>
+        /// <see cref="T:BudgetExecution.RegionalAuthority" />
         /// class.
         /// </summary>
         public RegionalAuthority( )
@@ -60,9 +62,10 @@ namespace BudgetExecution
             Source = Source.RegionalAuthority;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="RegionalAuthority"/>
+        /// <see cref="T:BudgetExecution.RegionalAuthority" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
@@ -108,9 +111,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="RegionalAuthority"/>
+        /// <see cref="T:BudgetExecution.RegionalAuthority" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
@@ -156,9 +160,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="RegionalAuthority"/>
+        /// <see cref="T:BudgetExecution.RegionalAuthority" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
@@ -204,8 +209,8 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="allocations"></param>
         public RegionalAuthority( Allocations allocations )

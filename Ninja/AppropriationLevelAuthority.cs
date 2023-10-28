@@ -43,50 +43,72 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.PRC"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.PRC" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class AppropriationLevelAuthority : PRC
     {
-        /// <summary> Gets or sets the budgeted. </summary>
-        /// <value> The budgeted. </value>
+        /// <summary>
+        /// Gets or sets the budgeted.
+        /// </summary>
+        /// <value>
+        /// The budgeted.
+        /// </value>
         public double Budgeted { get; set; }
 
-        /// <summary> Gets or sets the carryover. </summary>
-        /// <value> The carryover. </value>
+        /// <summary>
+        /// Gets or sets the carryover.
+        /// </summary>
+        /// <value>
+        /// The carryover.
+        /// </value>
         public double Carryover { get; set; }
 
-        /// <summary> Gets or sets the reimbursements. </summary>
-        /// <value> The reimbursements. </value>
+        /// <summary>
+        /// Gets or sets the reimbursements.
+        /// </summary>
+        /// <value>
+        /// The reimbursements.
+        /// </value>
         public double Reimbursements { get; set; }
 
-        /// <summary> Gets or sets the recoveries. </summary>
-        /// <value> The recoveries. </value>
+        /// <summary>
+        /// Gets or sets the recoveries.
+        /// </summary>
+        /// <value>
+        /// The recoveries.
+        /// </value>
         public double Recoveries { get; set; }
 
-        /// <summary> Gets or sets the authority. </summary>
-        /// <value> The authority. </value>
+        /// <summary>
+        /// Gets or sets the authority.
+        /// </summary>
+        /// <value>
+        /// The authority.
+        /// </value>
         public double Authority { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AppropriationLevelAuthority"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.AppropriationLevelAuthority" /> class.
         /// </summary>
         public AppropriationLevelAuthority( )
         {
             Source = Source.AppropriationLevelAuthority;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AppropriationLevelAuthority"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.AppropriationLevelAuthority" /> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public AppropriationLevelAuthority( IQuery query )
         {
             Source = Source.AppropriationLevelAuthority;
@@ -107,12 +129,12 @@ namespace BudgetExecution
             Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AppropriationLevelAuthority"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.AppropriationLevelAuthority" /> class.
         /// </summary>
-        /// <param name="builder"> </param>
+        /// <param name="builder"></param>
         public AppropriationLevelAuthority( IDataModel builder )
         {
             Source = Source.AppropriationLevelAuthority;
@@ -133,12 +155,12 @@ namespace BudgetExecution
             Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AppropriationLevelAuthority"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.AppropriationLevelAuthority" /> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public AppropriationLevelAuthority( DataRow dataRow )
         {
             Source = Source.AppropriationLevelAuthority;
@@ -159,12 +181,12 @@ namespace BudgetExecution
             Recoveries = double.Parse( dataRow[ "Recoveries" ].ToString( ) ?? "0" );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AppropriationLevelAuthority"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.AppropriationLevelAuthority" /> class.
         /// </summary>
-        /// <param name="authority"> The authority. </param>
+        /// <param name="authority">The authority.</param>
         public AppropriationLevelAuthority( AppropriationLevelAuthority authority )
         {
             ID = authority.ID;
