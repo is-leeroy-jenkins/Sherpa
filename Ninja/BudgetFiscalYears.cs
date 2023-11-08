@@ -77,7 +77,7 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the federal holidays. </summary>
         /// <value> The federal holidays. </value>
-        public IDictionary<NationalHoliday, DateOnly> FederalHolidays { get; set; }
+        public IDictionary<Holiday, DateOnly> FederalHolidays { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -220,31 +220,31 @@ namespace BudgetExecution
 
         /// <summary> Gets the federal holidays. </summary>
         /// <returns> </returns>
-        public IDictionary<NationalHoliday, DateOnly> GetFederalHolidays( )
+        public IDictionary<Holiday, DateOnly> GetFederalHolidays( )
         {
             try
             {
-                var _holidays = new Dictionary<NationalHoliday, DateOnly>( );
+                var _holidays = new Dictionary<Holiday, DateOnly>( );
                 var _day = new HolidayFactory( Record );
-                _holidays.Add( NationalHoliday.NewYearsDay, _day.ChristmasDay );
-                _holidays.Add( NationalHoliday.MartinLutherKingDay, _day.MartinLutherKingDay );
-                _holidays.Add( NationalHoliday.MemorialDay, _day.MemorialDay );
-                _holidays.Add( NationalHoliday.WashingtonsDay, _day.PresidentsDay );
-                _holidays.Add( NationalHoliday.VeteransDay, _day.VeteransDay );
-                _holidays.Add( NationalHoliday.LaborDay, _day.LaborDay );
-                _holidays.Add( NationalHoliday.JuneteenthDay, _day.JuneteenthDay );
-                _holidays.Add( NationalHoliday.IndependenceDay, _day.IndependenceDay );
-                _holidays.Add( NationalHoliday.ColumbusDay, _day.ColumbusDay );
-                _holidays.Add( NationalHoliday.ThanksgivingDay, _day.ThanksgivingDay );
-                _holidays.Add( NationalHoliday.ChristmasDay, _day.ChristmasDay );
+                _holidays.Add( Holiday.NewYears, _day.ChristmasDay );
+                _holidays.Add( Holiday.MartinLutherKing, _day.MartinLutherKingDay );
+                _holidays.Add( Holiday.Memorial, _day.MemorialDay );
+                _holidays.Add( Holiday.Washington, _day.PresidentsDay );
+                _holidays.Add( Holiday.Veterans, _day.VeteransDay );
+                _holidays.Add( Holiday.Labor, _day.LaborDay );
+                _holidays.Add( Holiday.Juneteenth, _day.JuneteenthDay );
+                _holidays.Add( Holiday.Independence, _day.IndependenceDay );
+                _holidays.Add( Holiday.Columbus, _day.ColumbusDay );
+                _holidays.Add( Holiday.Thanksgiving, _day.ThanksgivingDay );
+                _holidays.Add( Holiday.Christmas, _day.ChristmasDay );
                 return ( _holidays?.Any( ) == true )
                     ? _holidays
-                    : default( IDictionary<NationalHoliday, DateOnly> );
+                    : default( IDictionary<Holiday, DateOnly> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IDictionary<NationalHoliday, DateOnly> );
+                return default( IDictionary<Holiday, DateOnly> );
             }
         }
 
@@ -285,7 +285,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Converts to dictionary. </summary>
+        /// <summary>
+        /// Converts to dictionary.
+        /// </summary>
         /// <returns> </returns>
         public IDictionary<string, object> ToDictionary( )
         {
@@ -302,7 +304,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Converts to string. </summary>
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
         /// <returns>
         /// A
         /// <see cref="System.String"/>
@@ -323,7 +327,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the budget fiscal year. </summary>
+        /// <summary>
+        /// Gets the budget fiscal year.
+        /// </summary>
         /// <returns> </returns>
         public BudgetFiscalYears GetBudgetFiscalYear( )
         {

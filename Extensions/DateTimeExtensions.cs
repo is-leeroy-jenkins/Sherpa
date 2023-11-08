@@ -464,7 +464,7 @@ namespace BudgetExecution
                 // President’s Day (3rd Monday in February)
                 case 2 when _monday && ( _nthDay == 3 ):
 
-                // MemorialDay Day (Last Monday in May)
+                // Memorial Day (Last Monday in May)
                 case 5 when _monday && ( dateTime.AddDays( 7 ).Month == 6 ):
 
                 // Juneteenth (June 19)
@@ -472,15 +472,15 @@ namespace BudgetExecution
                 case 6 when ( dateTime.Day == 19 ) && !_weekend:
                 case 6 when ( dateTime.Day == 20 ) && _monday:
 
-                // IndependenceDay Day (July 4, or preceding Friday/following Monday if weekend)
+                // Independence Day (July 4, or preceding Friday/following Monday if weekend)
                 case 7 when ( dateTime.Day == 3 ) && _friday:
                 case 7 when ( dateTime.Day == 4 ) && !_weekend:
                 case 7 when ( dateTime.Day == 5 ) && _monday:
 
-                // LaborDay Day (1st Monday in September)
+                // Labor Day (1st Monday in September)
                 case 9 when _monday && ( _nthDay == 1 ):
 
-                // ColumbusDay Day (2nd Monday in October)
+                // Columbus Day (2nd Monday in October)
                 case 10 when _monday && ( _nthDay == 2 ):
 
                 // Veteran’s Day (November 11, or preceding Friday/following Monday if weekend))
@@ -488,10 +488,10 @@ namespace BudgetExecution
                 case 11 when ( dateTime.Day == 11 ) && !_weekend:
                 case 11 when ( dateTime.Day == 12 ) && _monday:
 
-                // ThanksgivingDay Day (4th Thursday in November)
+                // Thanksgiving Day (4th Thursday in November)
                 case 11 when _thursday && ( _nthDay == 4 ):
 
-                // ChristmasDay Day (December 25, or preceding Friday/following Monday if weekend))
+                // Christmas Day (December 25, or preceding Friday/following Monday if weekend))
                 case 12 when ( dateTime.Day == 24 ) && _friday:
                 case 12 when ( dateTime.Day == 25 ) && !_weekend:
                 case 12 when ( dateTime.Day == 26 ) && _monday:

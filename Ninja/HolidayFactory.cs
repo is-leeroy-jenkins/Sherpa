@@ -86,16 +86,16 @@ namespace BudgetExecution
         public HolidayFactory( DataRow dataRow )
         {
             Record = dataRow;
-            NewYearsDay = DateOnly.Parse( dataRow[ "NewYearsDay" ].ToString( ) );
-            MartinLutherKingDay = DateOnly.Parse( dataRow[ "MartinLutherKingDay" ].ToString( ) );
+            NewYearsDay = DateOnly.Parse( dataRow[ "NewYears" ].ToString( ) );
+            MartinLutherKingDay = DateOnly.Parse( dataRow[ "MartinLutherKing" ].ToString( ) );
             PresidentsDay = DateOnly.Parse( dataRow[ "PresidentsDay" ].ToString( ) );
-            MemorialDay = DateOnly.Parse( dataRow[ "MemorialDay" ].ToString( ) );
-            VeteransDay = DateOnly.Parse( dataRow[ "VeteransDay" ].ToString( ) );
-            LaborDay = DateOnly.Parse( dataRow[ "LaborDay" ].ToString( ) );
-            IndependenceDay = DateOnly.Parse( dataRow[ "IndependenceDay" ].ToString( ) );
-            ColumbusDay = DateOnly.Parse( dataRow[ "ColumbusDay" ].ToString( ) );
-            ThanksgivingDay = DateOnly.Parse( dataRow[ "ThanksgivingDay" ].ToString( ) );
-            ChristmasDay = DateOnly.Parse( dataRow[ "ChristmasDay" ].ToString( ) );
+            MemorialDay = DateOnly.Parse( dataRow[ "Memorial" ].ToString( ) );
+            VeteransDay = DateOnly.Parse( dataRow[ "Veterans" ].ToString( ) );
+            LaborDay = DateOnly.Parse( dataRow[ "Labor" ].ToString( ) );
+            IndependenceDay = DateOnly.Parse( dataRow[ "Independence" ].ToString( ) );
+            ColumbusDay = DateOnly.Parse( dataRow[ "Columbus" ].ToString( ) );
+            ThanksgivingDay = DateOnly.Parse( dataRow[ "Thanksgiving" ].ToString( ) );
+            ChristmasDay = DateOnly.Parse( dataRow[ "Christmas" ].ToString( ) );
             Args = Record?.ToDictionary( );
         }
 

@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="NationalHoliday.cs" company="Terry D. Eppler">
+// <copyright file="Holiday.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   NationalHoliday.cs
+//   Holiday.cs
 // </summary>
 // ******************************************************************************************
 
@@ -44,41 +44,61 @@ namespace BudgetExecution
     using System.Threading;
 
     /// <summary> </summary>
-    public enum NationalHoliday
+    public enum Holiday
     {
-        /// <summary> New Year’s Day, January 1. </summary>
-        NewYearsDay,
+        /// <summary>
+        /// New Year’s Day, January 1.
+        /// </summary>
+        NewYears,
 
         /// <summary>
         /// Birthday of Martin Luther King, Jr., the third Monday in January.
         /// </summary>
-        MartinLutherKingDay,
+        MartinLutherKing,
 
-        /// <summary> Washington’s Birthday, the third Monday in February. </summary>
-        WashingtonsDay,
+        /// <summary>
+        /// Washington’s Birthday, the third Monday in February.
+        /// </summary>
+        Washington,
 
-        /// <summary> Memorial Day, the last Monday in May. </summary>
-        MemorialDay,
+        /// <summary>
+        /// Memorial Day, the last Monday in May.
+        /// </summary>
+        Memorial,
 
-        /// <summary> Juneteenth National Independence Day, June 19. </summary>
-        JuneteenthDay,
+        /// <summary>
+        /// Juneteenth National Independence Day, June 19.
+        /// </summary>
+        Juneteenth,
 
-        /// <summary> Independence Day, July 4. </summary>
-        IndependenceDay,
+        /// <summary>
+        /// Independence Day, July 4.
+        /// </summary>
+        Independence,
 
-        /// <summary> Veterans Day, November 11. </summary>
-        VeteransDay,
+        /// <summary>
+        /// Veterans Day, November 11.
+        /// </summary>
+        Veterans,
 
-        /// <summary> Labor Day, the first Monday in September. </summary>
-        LaborDay,
+        /// <summary>
+        /// Labor Day, the first Monday in September.
+        /// </summary>
+        Labor,
 
-        /// <summary> Columbus Day, the second Monday in October. </summary>
-        ColumbusDay,
+        /// <summary>
+        /// Columbus Day, the second Monday in October.
+        /// </summary>
+        Columbus,
 
-        /// <summary> Thanksgiving Day, the fourth Thursday in November. </summary>
-        ThanksgivingDay,
+        /// <summary>
+        /// Thanksgiving Day, the fourth Thursday in November.
+        /// </summary>
+        Thanksgiving,
 
-        /// <summary> Christmas Day, December 25. </summary>
-        ChristmasDay
+        /// <summary>
+        /// Christmas Day, December 25.
+        /// </summary>
+        Christmas
     }
 }

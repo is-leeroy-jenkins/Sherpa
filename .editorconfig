@@ -17,6 +17,7 @@ ij_wrap_on_typing = false
 
 # ReSharper properties
 resharper_align_multiline_parameter = true
+resharper_csharp_max_line_length = 100
 resharper_csharp_wrap_parameters_style = wrap_if_long
 resharper_parentheses_redundancy_style = remove_if_not_clarifies_precedence
 resharper_space_around_arrow_op = true
