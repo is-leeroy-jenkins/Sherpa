@@ -1274,13 +1274,11 @@ namespace BudgetExecution
                         break;
                     }
                     case "tinyint":
-
                     {
                         _dataType = "smallint";
                         break;
                     }
                     case "bigint":
-
                     {
                         _dataType = "integer";
                         break;
@@ -1291,7 +1289,6 @@ namespace BudgetExecution
                         break;
                     }
                     case "xml":
-
                     {
                         _dataType = "varchar";
                         break;
