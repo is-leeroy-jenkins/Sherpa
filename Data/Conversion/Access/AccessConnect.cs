@@ -45,23 +45,39 @@ namespace BudgetExecution
     using System.Data;
     using System.Data.OleDb;
     using System.Linq;
-    using System.Threading;
+    using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:System.IDisposable" />
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     public class AccessConnect : IDisposable
     {
-        /// <summary> The connection </summary>
+        /// <summary>
+        /// The connection
+        /// </summary>
         private OleDbConnection _connection;
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AccessConnect"/>
-        /// class.
+        /// Gets a value indicating whether this instance is disposed.
         /// </summary>
-        /// <param name="path"> The path. </param>
+        /// <value>
+        ///   <c>true</c> if this instance is disposed; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsDisposed { get; private set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AccessConnect"/> class.
+        /// </summary>
+        /// <param name="path">The path.</param>
         public AccessConnect( string path )
         {
-            var _connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data source="
+            var _connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;" 
+                + "Data Source="
                 + path
                 + ";Jet OLEDB:Database Password=;";
 
@@ -69,81 +85,136 @@ namespace BudgetExecution
             _connection?.Open( );
         }
 
-        /// <summary> Gets the table names. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the table names.
+        /// </summary>
+        /// <returns>
+        /// IEnumerable<string>
+        /// </returns>
         public IEnumerable<string> GetTableNames( )
-        {
-            var _names = new List<string>( );
-            var _restrictions = new string[ 4 ];
-            _restrictions[ 3 ] = "Table";
-            var _schema = _connection.GetSchema( "Tables", _restrictions );
-            for( var _i = 0; _i < _schema.Rows.Count; _i++ )
-            {
-                _names.Add( _schema.Rows[ _i ][ 2 ].ToString( ) );
-            }
-
-            return _names;
-        }
-
-        /// <summary> Gets the table. </summary>
-        /// <param name="name"> The name. </param>
-        /// <returns> </returns>
-        public DataTable GetTable( string name )
         {
             try
             {
+                var _names = new List<string>( );
+                var _restrictions = new string[ 4 ];
+                _restrictions[ 3 ] = "Table";
+                var _schema = _connection?.GetSchema( "Tables", _restrictions );
+                for( var _i = 0; _i < _schema?.Rows?.Count; _i++ )
+                {
+                    _names?.Add( _schema.Rows[ _i ][ 2 ].ToString( ) );
+                }
+
+                return _names?.Any( ) == true
+                    ? _names
+                    : default( IEnumerable<string> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<string> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the table.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
+        public DataTable CreateTable( string name )
+        {
+            try
+            {
+                ThrowIf.NullOrEmpty( name, nameof( name ) );
                 var _table = new DataTable( );
-                var _adapter = new OleDbDataAdapter( "SELECT * FROM " + name, _connection );
+                var _sql = "SELECT * FROM " + name;
+                var _adapter = new OleDbDataAdapter( _sql, _connection );
                 _adapter.Fill( _table );
+
                 return _table.Rows.Count > 0
                     ? _table
                     : default( DataTable );
             }
             catch( Exception _ex )
             {
-                Console.WriteLine( _ex );
-                throw;
+                Fail( _ex );
+                return default( DataTable );
             }
-        }
-
-        /// <summary> Gets the column names. </summary>
-        /// <param name="tableName"> The tableName. </param>
-        /// <returns> </returns>
-        public List<string> GetColumnNames( string tableName )
-        {
-            var _names = new List<string>( );
-            using var _command = new OleDbCommand( "select * from " + tableName, _connection );
-            using var _dataReader = _command.ExecuteReader( CommandBehavior.SchemaOnly );
-            var _dataTable = _dataReader.GetSchemaTable( );
-            var _dataColumn = _dataTable?.Columns[ "ColumnName" ];
-            if( _dataTable?.Rows != null )
-            {
-                foreach( DataRow _row in _dataTable?.Rows )
-                {
-                    if( _dataColumn != null )
-                    {
-                        _names.Add( _row[ _dataColumn ].ToString( ) );
-                    }
-                }
-            }
-
-            return _names?.Any( ) == true
-                ? _names
-                : default( List<string> );
         }
 
         /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged
-        /// resources.
+        /// Gets the column names.
+        /// </summary>
+        /// <param name="tableName">Name of the table.</param>
+        /// <returns></returns>
+        public List<string> GetColumnNames( string tableName )
+        {
+            try
+            {
+                ThrowIf.NullOrEmpty( tableName, nameof( tableName ) );
+                var _names = new List<string>( );
+                using var _command = new OleDbCommand( "select * from " + tableName, _connection );
+                using var _reader = _command.ExecuteReader( CommandBehavior.SchemaOnly );
+                var _table = _reader.GetSchemaTable( );
+                var _column = _table?.Columns[ "ColumnName" ];
+                if( _table?.Rows != null )
+                {
+                    foreach( DataRow _row in _table?.Rows )
+                    {
+                        if( _column != null )
+                        {
+                            _names.Add( _row[ _column ].ToString( ) );
+                        }
+                    }
+                }
+
+                return _names?.Any( ) == true
+                    ? _names
+                    : default( List<string> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( List<string> );
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>Performs application-defined tasks associated with
+        /// freeing, releasing, or resetting unmanaged resources.
         /// </summary>
         public void Dispose( )
         {
-            if( _connection.State == ConnectionState.Open )
-            {
-                _connection = null;
-            }
-
+            Dispose( true );
             GC.SuppressFinalize( this );
+        }
+
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
+        /// <param name="disposing"><c>true</c> to release both managed
+        /// and unmanaged resources; <c>false</c> to release only unmanaged resources.
+        /// </param>
+        private protected virtual void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                _connection?.Dispose( );
+                Dispose( );
+                IsDisposed = true;
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
+        private protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

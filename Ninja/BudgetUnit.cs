@@ -43,51 +43,86 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <inheritdoc/>
-    /// <summary> </summary>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    /// <seealso cref="T:BudgetExecution.IBudgetUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class BudgetUnit : DataUnit, IBudgetUnit
     {
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the bfy. </summary>
-        /// <value> The bfy. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the bfy.
+        /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
         public virtual string BFY { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the efy. </summary>
-        /// <value> The efy. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the efy.
+        /// </summary>
+        /// <value>
+        /// The efy.
+        /// </value>
         public virtual string EFY { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the fund code. </summary>
-        /// <value> The fund code. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the fund code.
+        /// </summary>
+        /// <value>
+        /// The fund code.
+        /// </value>
         public virtual string FundCode { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the name of the fund. </summary>
-        /// <value> The name of the fund. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the name of the fund.
+        /// </summary>
+        /// <value>
+        /// The name of the fund.
+        /// </value>
         public virtual string FundName { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the treasury account code. </summary>
-        /// <value> The treasury account code. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the treasury account code.
+        /// </summary>
+        /// <value>
+        /// The treasury account code.
+        /// </value>
         public virtual string TreasuryAccountCode { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the name of the treasury account. </summary>
-        /// <value> The name of the treasury account. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the name of the treasury account.
+        /// </summary>
+        /// <value>
+        /// The name of the treasury account.
+        /// </value>
         public virtual string TreasuryAccountName { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the budget account code. </summary>
-        /// <value> The budget account code. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the budget account code.
+        /// </summary>
+        /// <value>
+        /// The budget account code.
+        /// </value>
         public virtual string BudgetAccountCode { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the name of the budget account. </summary>
-        /// <value> The name of the budget account. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the name of the budget account.
+        /// </summary>
+        /// <value>
+        /// The name of the budget account.
+        /// </value>
         public virtual string BudgetAccountName { get; set; }
     }
 }

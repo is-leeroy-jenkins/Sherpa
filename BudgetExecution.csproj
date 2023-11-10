@@ -8,7 +8,7 @@
     <Nullable>disable</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>BudExNinja.png</PackageIcon>
-    <AnalysisLevel>6.0-recommended</AnalysisLevel>
+    <AnalysisLevel>6.0-minimum</AnalysisLevel>
     <LangVersion>10</LangVersion>
     <TargetFramework>net6.0-windows</TargetFramework>
     <RootNamespace>BudgetExecution</RootNamespace>
@@ -19,7 +19,7 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
     <IsPublishable>False</IsPublishable>
-    <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
+    <RunAnalyzersDuringLiveAnalysis>True</RunAnalyzersDuringLiveAnalysis>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <Configurations>Debug;Release</Configurations>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -27,6 +27,9 @@
     <BaseIntermediateOutputPath>Obj\</BaseIntermediateOutputPath>
     <BaseOutputPath>Bin\</BaseOutputPath>
     <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageProjectUrl>https://github.com/KarmaScripter/BudgetExecution</PackageProjectUrl>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051;CA1200;CA1310;CA1305;1822;CA1716;CA1812;CA1304</NoWarn>
