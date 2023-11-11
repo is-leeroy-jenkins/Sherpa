@@ -43,7 +43,6 @@ namespace BudgetExecution
     using System;
     using System.Data.Common;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -60,18 +59,6 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         public AdapterFactory( )
-        {
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AdapterFactory"/>
-        /// class.
-        /// </summary>
-        /// <param name="commandFactory"> The command factory. </param>
-        public AdapterFactory( ICommandFactory commandFactory )
-            : base( commandFactory )
         {
         }
 
@@ -100,28 +87,21 @@ namespace BudgetExecution
                     switch( Provider )
                     {
                         case Provider.SQLite:
-
                         {
                             return GetSQLiteAdapter( );
                         }
-
                         case Provider.SqlCe:
-
                         {
                             return GetSqlCeAdapter( );
                         }
-
                         case Provider.SqlServer:
-
                         {
                             return GetSqlAdapter( );
                         }
-
                         case Provider.Excel:
                         case Provider.CSV:
                         case Provider.Access:
                         case Provider.OleDb:
-
                         {
                             return GetOleDbAdapter( );
                         }

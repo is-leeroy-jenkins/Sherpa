@@ -49,11 +49,13 @@ namespace BudgetExecution
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Threading;
     using System.Threading.Tasks;
 
-    /// <inheritdoc/>
-    /// <summary> </summary>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:BudgetExecution.IProvider" />
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
@@ -61,93 +63,170 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToNullCoalescingAssignment" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public abstract class DataAccess : ISource, IProvider
     {
-        /// <summary> The busy </summary>
+        /// <summary>
+        /// The busy
+        /// </summary>
         private protected bool _busy;
 
-        /// <summary> The column names </summary>
+        /// <summary>
+        /// The column names
+        /// </summary>
         private protected IEnumerable<string> _columnNames;
 
-        /// <summary> The data columns </summary>
+        /// <summary>
+        /// The data columns
+        /// </summary>
         private protected IEnumerable<string> _dataColumns;
 
-        /// <summary> The data set </summary>
+        /// <summary>
+        /// The data set
+        /// </summary>
         private protected DataSet _dataSet;
 
-        /// <summary> The data table </summary>
+        /// <summary>
+        /// The data table
+        /// </summary>
         private protected DataTable _dataTable;
 
-        /// <summary> The dates </summary>
+        /// <summary>
+        /// The dates
+        /// </summary>
         private protected IList<string> _dates;
 
-        /// <summary> The duration </summary>
+        /// <summary>
+        /// The duration
+        /// </summary>
         private protected TimeSpan _duration;
 
-        /// <inheritdoc/>
-        /// <summary> Gets the data elements. </summary>
-        /// <value> The data elements. </value>
+        /// <summary>
+        /// The elements
+        /// </summary>
         private protected IDictionary<string, IEnumerable<string>> _elements;
 
-        /// <summary> The fields </summary>
+        /// <summary>
+        /// The fields
+        /// </summary>
         private protected IList<string> _fields;
 
-        /// <summary> The numerics </summary>
+        /// <summary>
+        /// The numerics
+        /// </summary>
         private protected IList<string> _numerics;
 
-        /// <summary> The record </summary>
+        /// <summary>
+        /// The record
+        /// </summary>
         private protected DataRow _record;
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
         public Source Source { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// </summary>
         public Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the connection factory. </summary>
-        /// <value> The connection factory. </value>
+        /// <summary>
+        /// Gets or sets the connection factory.
+        /// </summary>
+        /// <value>
+        /// The connection factory.
+        /// </value>
         public IConnectionFactory ConnectionFactory { get; set; }
 
-        /// <summary> Gets or sets the map. </summary>
-        /// <value> The map. </value>
+        /// <summary>
+        /// Gets or sets the map.
+        /// </summary>
+        /// <value>
+        /// The map.
+        /// </value>
         public IDictionary<string, object> Map { get; set; }
 
-        /// <summary> Gets or sets the SQL statement. </summary>
-        /// <value> The SQL statement. </value>
+        /// <summary>
+        /// Gets or sets the SQL statement.
+        /// </summary>
+        /// <value>
+        /// The SQL statement.
+        /// </value>
         public ISqlStatement SqlStatement { get; set; }
 
-        public DataTable DataTable { get; private set; }
+        /// <summary>
+        /// Gets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataTable DataTable
+        {
+            get
+            {
+                return _dataTable;
+            }
 
-        /// <summary> Gets or sets the data columns. </summary>
-        /// <value> The data columns. </value>
+            private set
+            {
+                _dataTable = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the data columns.
+        /// </summary>
+        /// <value>
+        /// The data columns.
+        /// </value>
         public IEnumerable<DataColumn> DataColumns { get; set; }
 
-        /// <summary> Gets or sets the column names. </summary>
-        /// <value> The column names. </value>
+        /// <summary>
+        /// Gets or sets the column names.
+        /// </summary>
+        /// <value>
+        /// The column names.
+        /// </value>
         public IEnumerable<string> ColumnNames { get; set; }
 
-        /// <summary> Gets or sets the keys. </summary>
-        /// <value> The keys. </value>
+        /// <summary>
+        /// Gets or sets the keys.
+        /// </summary>
+        /// <value>
+        /// The keys.
+        /// </value>
         public IList<int> Keys { get; set; }
 
-        /// <summary> Gets or sets the fields. </summary>
-        /// <value> The fields. </value>
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
         public IList<string> Fields { get; set; }
 
-        /// <summary> Gets or sets the dates. </summary>
-        /// <value> The dates. </value>
+        /// <summary>
+        /// Gets or sets the dates.
+        /// </summary>
+        /// <value>
+        /// The dates.
+        /// </value>
         public IList<string> Dates { get; set; }
 
-        /// <summary> Gets or sets the numeric fields. </summary>
-        /// <value> The numeric fields. </value>
+        /// <summary>
+        /// Gets or sets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
         public IList<string> Numerics { get; set; }
 
-        /// <summary> Gets the data. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<DataRow> GetData( )
         {
             try
@@ -169,8 +248,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the data table. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the data table.
+        /// </summary>
+        /// <returns></returns>
         private protected DataTable GetDataTable( )
         {
             try
@@ -197,8 +278,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the table asynchronous. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the table asynchronous.
+        /// </summary>
+        /// <returns></returns>
         private protected Task<DataTable> GetTableAsync( )
         {
             ThrowIf.Null( SqlStatement, "SqlStatement" );
@@ -226,8 +309,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the column captions. </summary>
-        /// <param name="dataTable"> The data table. </param>
+        /// <summary>
+        /// Sets the column captions.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
         private protected void SetColumnCaptions( DataTable dataTable )
         {
             try
@@ -248,8 +333,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the fields. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the fields.
+        /// </summary>
+        /// <returns></returns>
         private protected IList<string> GetFields( )
         {
             try
@@ -260,11 +347,14 @@ namespace BudgetExecution
                     _dataTable = GetDataTable( );
                 }
 
-                foreach( DataColumn _col in _dataTable.Columns )
+                if( _dataTable != null )
                 {
-                    if( _col.DataType == typeof( string ) )
+                    foreach( DataColumn _col in _dataTable.Columns )
                     {
-                        _list.Add( _col.ColumnName );
+                        if( _col.DataType == typeof( string ) )
+                        {
+                            _list.Add( _col.ColumnName );
+                        }
                     }
                 }
 
@@ -279,8 +369,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the numerics. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the numerics.
+        /// </summary>
+        /// <returns></returns>
         private protected IList<string> GetNumerics( )
         {
             try
@@ -293,8 +385,7 @@ namespace BudgetExecution
 
                 foreach( DataColumn _col in _dataTable.Columns )
                 {
-                    if( ( !_col.ColumnName.EndsWith( "Id" )
-                           && ( _col.Ordinal > 0 )
+                    if( ( !_col.ColumnName.EndsWith( "Id" ) && ( _col.Ordinal > 0 )
                            && ( _col.DataType == typeof( double ) ) )
                        || ( _col.DataType == typeof( short ) )
                        || ( _col.DataType == typeof( long ) )
@@ -316,8 +407,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the dates. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the dates.
+        /// </summary>
+        /// <returns></returns>
         private protected IList<string> GetDates( )
         {
             try
@@ -352,8 +445,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the primary keys. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the primary keys.
+        /// </summary>
+        /// <returns></returns>
         private protected IList<int> GetPrimaryKeys( )
         {
             try
@@ -375,8 +470,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
