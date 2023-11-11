@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="SqlTableSelectionHandler.cs" company="Terry D. Eppler">
+// <copyright file="TableSchema.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SqlTableSelectionHandler.cs
+//   TableSchema.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,10 +42,62 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Threading;
+    using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
-    /// <param name="schema"> The schema. </param>
-    /// <returns> </returns>
-    public delegate List<TableSchema> SqlTableSelectionHandler( List<TableSchema> schema );
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    public class TableSchema
+    {
+        /// <summary>
+        /// Gets or sets the columns.
+        /// </summary>
+        /// <value>
+        /// The columns.
+        /// </value>
+        public List<ColumnSchema> Columns { get; set; }
+
+        /// <summary>
+        /// Gets or sets the foreign keys.
+        /// </summary>
+        /// <value>
+        /// The foreign keys.
+        /// </value>
+        public List<ForeignKeySchema> ForeignKeys { get; set; }
+
+        /// <summary>
+        /// Gets or sets the indexes.
+        /// </summary>
+        /// <value>
+        /// The indexes.
+        /// </value>
+        public List<IndexSchema> Indexes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the primary key.
+        /// </summary>
+        /// <value>
+        /// The primary key.
+        /// </value>
+        public List<string> PrimaryKey { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the table.
+        /// </summary>
+        /// <value>
+        /// The name of the table.
+        /// </value>
+        public string TableName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the table schema.
+        /// </summary>
+        /// <value>
+        /// The name of the table schema.
+        /// </value>
+        public string TableSchemaName { get; set; }
+    }
 }

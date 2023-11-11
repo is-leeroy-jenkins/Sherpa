@@ -38,67 +38,71 @@
 // </summary>
 // ******************************************************************************************
 
-using System.Diagnostics.CodeAnalysis;
-
 namespace BudgetExecution
 {
     using System;
-    using System.Threading;
+    using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    public class ForeignKeySchema
+    public class ForeignKeySchema : ForeignKeyBase
     {
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets a value indicating whether [cascade on delete].
         /// </summary>
         /// <value>
         ///   <c>true</c> if [cascade on delete]; otherwise, <c>false</c>.
         /// </value>
-        public bool CascadeOnDelete { get; set; }
+        public override bool CascadeOnDelete { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the name of the column.
         /// </summary>
         /// <value>
         /// The name of the column.
         /// </value>
-        public string ColumnName { get; set; }
+        public override string ColumnName { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the name of the foreign column.
         /// </summary>
         /// <value>
         /// The name of the foreign column.
         /// </value>
-        public string ForeignColumnName { get; set; }
+        public override string ForeignColumnName { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the name of the foreign table.
         /// </summary>
         /// <value>
         /// The name of the foreign table.
         /// </value>
-        public string ForeignTableName { get; set; }
+        public override string ForeignTableName { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets a value indicating whether this instance is nullable.
         /// </summary>
         /// <value>
-        ///   <c>true</c> if this instance is nullable; otherwise, <c>false</c>.
+        /// <c>true</c> if this instance is nullable; otherwise, <c>false</c>.
         /// </value>
-        public bool IsNullable { get; set; }
+        public override bool IsNullable { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the name of the table.
         /// </summary>
         /// <value>
         /// The name of the table.
         /// </value>
-        public string TableName { get; set; }
+        public override string TableName { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-// ******************************************************************************************
+﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
 //     Created:                 03-24-2023
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ViewSchema.cs
@@ -41,15 +41,29 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Threading;
+    using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> Describes a single view schema </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class ViewSchema
     {
-        /// <summary> Contains the view name </summary>
+        /// <summary>
+        /// Gets or sets the name of the view.
+        /// </summary>
+        /// <value>
+        /// The name of the view.
+        /// </value>
         public string ViewName { get; set; }
 
-        /// <summary> Contains the view SQL statement </summary>
+        /// <summary>
+        /// Gets or sets the view SQL.
+        /// </summary>
+        /// <value>
+        /// The view SQL.
+        /// </value>
         public string ViewSql { get; set; }
     }
 }

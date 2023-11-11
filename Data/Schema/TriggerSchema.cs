@@ -1,4 +1,4 @@
-// ******************************************************************************************
+﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
 //     Created:                 03-24-2023
@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="TableSchema.cs" company="Terry D. Eppler">
+// <copyright file="TriggerSchema.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,41 +34,67 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   TableSchema.cs
+//   TriggerSchema.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    public class TableSchema
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    public class TriggerSchema : TriggerBase
     {
-        /// <summary> Gets or sets the columns. </summary>
-        /// <value> The columns. </value>
-        public List<ColumnSchema> Columns { get; set; }
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the body.
+        /// </summary>
+        /// <value>
+        /// The body.
+        /// </value>
+        public override string Body { get; set; }
 
-        /// <summary> Gets or sets the foreign keys. </summary>
-        /// <value> The foreign keys. </value>
-        public List<ForeignKeySchema> ForeignKeys { get; set; }
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the event.
+        /// </summary>
+        /// <value>
+        /// The event.
+        /// </value>
+        public override TriggerEvent Event { get; set; }
 
-        /// <summary> Gets or sets the indexes. </summary>
-        /// <value> The indexes. </value>
-        public List<IndexSchema> Indexes { get; set; }
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public override string Name { get; set; }
 
-        /// <summary> Gets or sets the primary key. </summary>
-        /// <value> The primary key. </value>
-        public List<string> PrimaryKey { get; set; }
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the table.
+        /// </summary>
+        /// <value>
+        /// The table.
+        /// </value>
+        public override string Table { get; set; }
 
-        /// <summary> Gets or sets the name of the table. </summary>
-        /// <value> The name of the table. </value>
-        public string TableName { get; set; }
-
-        /// <summary> Gets or sets the name of the table schema. </summary>
-        /// <value> The name of the table schema. </value>
-        public string TableSchemaName { get; set; }
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
+        /// <value>
+        /// The type.
+        /// </value>
+        public override TriggerType Type { get; set; }
     }
 }

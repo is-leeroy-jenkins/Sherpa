@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="FailedViewDefinitionHandler.cs" company="Terry D. Eppler">
+// <copyright file="ForeignKeyBase.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,21 +34,70 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   FailedViewDefinitionHandler.cs
+//   ForeignKeyBase.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="viewSchema">
-    /// The view schema.
-    /// </param>
-    /// <returns>
-    /// </returns>
-    public delegate string FailedViewDefinitionHandler( ViewSchema viewSchema );
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    public abstract class ForeignKeyBase
+    {
+        /// <summary>
+        /// Gets or sets a value indicating whether [cascade on delete].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [cascade on delete]; otherwise, <c>false</c>.
+        /// </value>
+        public virtual bool CascadeOnDelete { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the column.
+        /// </summary>
+        /// <value>
+        /// The name of the column.
+        /// </value>
+        public virtual string ColumnName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the foreign column.
+        /// </summary>
+        /// <value>
+        /// The name of the foreign column.
+        /// </value>
+        public virtual string ForeignColumnName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the foreign table.
+        /// </summary>
+        /// <value>
+        /// The name of the foreign table.
+        /// </value>
+        public virtual string ForeignTableName { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is nullable.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is nullable; otherwise, <c>false</c>.
+        /// </value>
+        public virtual bool IsNullable { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the table.
+        /// </summary>
+        /// <value>
+        /// The name of the table.
+        /// </value>
+        public virtual string TableName { get; set; }
+    }
 }

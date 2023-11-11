@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="DatabaseSchema.cs" company="Terry D. Eppler">
+// <copyright file="SqlConversionHandler.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,38 +34,21 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DatabaseSchema.cs
+//   SqlConversionHandler.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    public class DatabaseSchema
-    {
-        /// <summary>
-        /// Gets or sets the tables.
-        /// </summary>
-        /// <value>
-        /// The tables.
-        /// </value>
-        public List<TableSchema> Tables { get; set; }
-
-        /// <summary>
-        /// Gets or sets the views.
-        /// </summary>
-        /// <value>
-        /// The views.
-        /// </value>
-        public List<ViewSchema> Views { get; set; }
-    }
+    /// <param name="done">if set to <c>true</c> [done].</param>
+    /// <param name="success">if set to <c>true</c> [success].</param>
+    /// <param name="percent">The percent.</param>
+    /// <param name="message">The MSG.</param>
+    public delegate void ConversionCallback( bool done, bool success, 
+        int percent, string message );
 }

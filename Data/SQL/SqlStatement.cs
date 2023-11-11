@@ -43,7 +43,6 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -118,7 +117,7 @@ namespace BudgetExecution
         /// <param name="where"> </param>
         /// <param name="commandType"> </param>
         public SqlStatement( Source source, Provider provider, IDictionary<string, object> where,
-                             SQL commandType = SQL.SELECTALL )
+            SQL commandType = SQL.SELECTALL )
             : base( source, provider, where, commandType )
         {
         }
@@ -135,7 +134,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SqlStatement( Source source, Provider provider, IDictionary<string, object> updates,
-                             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
         }
@@ -151,7 +150,7 @@ namespace BudgetExecution
         /// <param name="commandType"> Type of the command. </param>
         /// <param name="where"> The arguments. </param>
         public SqlStatement( Source source, Provider provider, SQL commandType,
-                             IDictionary<string, object> where )
+            IDictionary<string, object> where )
             : base( source, provider, where, commandType )
         {
         }
@@ -168,7 +167,7 @@ namespace BudgetExecution
         /// <param name="where"> The dictionary. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SqlStatement( Source source, Provider provider, IEnumerable<string> columns,
-                             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, where, commandType )
         {
         }
@@ -186,8 +185,8 @@ namespace BudgetExecution
         /// <param name="having"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SqlStatement( Source source, Provider provider, IEnumerable<string> fields,
-                             IEnumerable<string> numerics, IDictionary<string, object> having,
-                             SQL commandType = SQL.SELECT )
+            IEnumerable<string> numerics, IDictionary<string, object> having,
+            SQL commandType = SQL.SELECT )
             : base( source, provider, fields, numerics, having,
                 commandType )
         {

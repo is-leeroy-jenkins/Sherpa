@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="TriggerSchema.cs" company="Terry D. Eppler">
+// <copyright file="DatabaseSchema.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,56 +34,38 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   TriggerSchema.cs
+//   DatabaseSchema.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
-    /// <summary> </summary>
-    public enum TriggerEvent
-    {
-        /// <summary> The delete </summary>
-        Delete,
-
-        /// <summary> The update </summary>
-        Update,
-
-        /// <summary> The insert </summary>
-        Insert
-    }
-
-    /// <summary> </summary>
-    public enum TriggerType
-    {
-        /// <summary> The after </summary>
-        After,
-
-        /// <summary> The before </summary>
-        Before
-    }
-
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    public class TriggerSchema
+    public class DataSchema
     {
-        /// <summary> The body </summary>
-        public string Body { get; set; }
+        /// <summary>
+        /// Gets or sets the tables.
+        /// </summary>
+        /// <value>
+        /// The tables.
+        /// </value>
+        public List<TableSchema> Tables { get; set; }
 
-        /// <summary> The event </summary>
-        public TriggerEvent Event { get; set; }
-
-        /// <summary> The name </summary>
-        public string Name { get; set; }
-
-        /// <summary> The table </summary>
-        public string Table { get; set; }
-
-        /// <summary> The type </summary>
-        public TriggerType Type { get; set; }
+        /// <summary>
+        /// Gets or sets the views.
+        /// </summary>
+        /// <value>
+        /// The views.
+        /// </value>
+        public List<ViewSchema> Views { get; set; }
     }
 }

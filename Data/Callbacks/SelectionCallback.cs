@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="SqlConversionHandler.cs" company="Terry D. Eppler">
+// <copyright file="SqlTableSelectionHandler.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,21 +34,18 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SqlConversionHandler.cs
+//   SqlTableSelectionHandler.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="done">if set to <c>true</c> [done].</param>
-    /// <param name="success">if set to <c>true</c> [success].</param>
-    /// <param name="percent">The percent.</param>
-    /// <param name="message">The MSG.</param>
-    public delegate void SqlConversionHandler( bool done, bool success, 
-        int percent, string message );
+    /// <summary> </summary>
+    /// <param name="schema"> The schema. </param>
+    /// <returns> </returns>
+    public delegate List<TableSchema> SelectionCallback( List<TableSchema> schema );
 }
