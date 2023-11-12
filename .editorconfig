@@ -31,7 +31,9 @@ resharper_csharp_wrap_parameters_style = wrap_if_long
 resharper_indent_braces_inside_statement_conditions = false
 resharper_max_blank_lines_between_tags = 0
 resharper_parentheses_redundancy_style = remove_if_not_clarifies_precedence
+resharper_spaces_around_eq_in_attribute = false
 resharper_space_after_last_attribute = false
+resharper_space_after_last_pi_attribute = false
 resharper_space_around_arrow_op = true
 resharper_space_within_array_access_brackets = true
 resharper_space_within_array_rank_brackets = true
@@ -43,12 +45,24 @@ resharper_space_within_new_parentheses = true
 resharper_space_within_sizeof_parentheses = true
 resharper_space_within_typeof_parentheses = true
 resharper_wrap_parameters_style = wrap_if_long
+resharper_xmldoc_attribute_style = on_single_line
 resharper_xmldoc_linebreaks_inside_tags_for_elements_longer_than = 80
 resharper_xmldoc_max_line_length = 80
+resharper_xmldoc_pi_attributes_indent = align_by_first_attribute
+resharper_xmldoc_pi_attribute_style = on_single_line
 resharper_xmldoc_spaces_around_eq_in_attribute = false
 resharper_xmldoc_spaces_around_eq_in_pi_attribute = false
 resharper_xmldoc_space_after_last_pi_attribute = false
 resharper_xmldoc_use_indent_from_vs = true
+resharper_xmldoc_wrap_tags_and_pi = true
+resharper_xml_attribute_style = on_single_line
+resharper_xml_indent_child_elements = RemoveIndent
+resharper_xml_indent_style = space
+resharper_xml_indent_text = RemoveIndent
+resharper_xml_linebreaks_inside_tags_for_elements_longer_than = 80
+resharper_xml_max_line_length = 80
+resharper_xml_pi_attribute_style = on_single_line
+resharper_xml_use_indent_from_vs = true
 
 # Microsoft .NET properties
 csharp_space_between_empty_square_brackets = true
@@ -669,3 +683,8 @@ ij_yaml_sequence_on_new_line = false
 ij_yaml_space_before_colon = false
 ij_yaml_spaces_within_braces = true
 ij_yaml_spaces_within_brackets = true
+
+[*.{appxmanifest,axaml,axml,build,config,csproj,dbml,discomap,dtd,jsproj,lsproj,njsproj,nuspec,paml,proj,props,StyleCop,targets,tasks,vbproj,xaml,xamlx,xml,xoml,xsd}]
+indent_style = space
+indent_size = 4
+tab_width = 4

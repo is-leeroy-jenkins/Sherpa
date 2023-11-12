@@ -299,7 +299,7 @@
     <Compile Update="Controls\ToolTips\SuperTip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Data\Abstractions\AdapterBase.cs">
+    <Compile Update="Data\Adapter\AdapterBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Data\Adapter\AdapterFactory.cs">

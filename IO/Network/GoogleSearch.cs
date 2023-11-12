@@ -46,30 +46,41 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Threading;
     using Google.Apis.Customsearch.v1;
     using Google.Apis.Services;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class GoogleSearch
     {
-        /// <summary> Gets the configuration. </summary>
-        /// <value> The configuration. </value>
+        /// <summary>
+        /// Gets the configuration.
+        /// </summary>
+        /// <value>
+        /// The configuration.
+        /// </value>
         public NameValueCollection Config { get; }
 
-        /// <summary> Gets or sets the query. </summary>
-        /// <value> The query. </value>
+        /// <summary>
+        /// Gets or sets the query.
+        /// </summary>
+        /// <value>
+        /// The query.
+        /// </value>
         public string Query { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="GoogleSearch"/>
-        /// class.
+        /// <see cref="GoogleSearch"/> class.
         /// </summary>
         public GoogleSearch( )
         {
@@ -78,37 +89,61 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="GoogleSearch"/>
-        /// class.
+        /// <see cref="GoogleSearch"/> class.
         /// </summary>
-        /// <param name="keywords"> The keywords. </param>
+        /// <param name="keywords">
+        /// The keywords.
+        /// </param>
         public GoogleSearch( string keywords )
         {
             Config = ConfigurationManager.AppSettings;
             Query = keywords;
         }
 
-        /// <summary> Gets the results. </summary>
-        /// <returns> </returns>
-        public List<ResultData> GetResults( )
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GoogleSearch"/> class.
+        /// </summary>
+        /// <param name="search">
+        /// The search.
+        /// </param>
+        public GoogleSearch( GoogleSearch search )
         {
-            if( !string.IsNullOrEmpty( Query ) )
+            Config = search.Config;
+            Query = search.Query;
+        }
+
+        /// <summary>
+        /// Gets the results.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public List<WebResult> GetResults( )
+        {
+            if( !string.IsNullOrEmpty( Query ) 
+               && Config?.Count > 0 )
             {
                 try
                 {
                     var _count = 0;
-                    var _data = new List<ResultData>( );
-                    var _initializer = new BaseClientService.Initializer( );
-                    _initializer.ApiKey = Config[ "ApiKey" ];
-                    var _search = new CustomsearchService( _initializer );
-                    var _request = _search?.Cse?.List( );
+                    var _data = new List<WebResult>( );
+                    var _init = new BaseClientService.Initializer( );
+                    _init.ApiKey = Config[ "ApiKey" ];
+                    var _search = new CustomsearchService( _init );
+                    var _request = _search
+                        ?.Cse
+                        ?.List( );
+
                     _request.Q = Query;
                     _request.Cx = Config[ "SearchEngineId" ];
                     _request.Start = _count;
-                    var _list = _request.Execute( )?.Items?.ToList( );
+                    var _list = _request.Execute( )
+                        ?.Items
+                        ?.ToList( );
+
                     for( var _i = 0; _i < _list.Count; _i++ )
                     {
-                        var _results = new ResultData( );
+                        var _results = new WebResult( );
                         _results.Content = _list[ _i ].Snippet;
                         _results.Link = _list[ _i ].Link;
                         _results.Title = _list[ _i ].Title;
@@ -118,20 +153,37 @@ namespace BudgetExecution
 
                     return _data?.Any( ) == true
                         ? _data
-                        : default( List<ResultData> );
+                        : default( List<WebResult> );
                 }
                 catch( Exception _ex )
                 {
                     Fail( _ex );
-                    return default( List<ResultData> );
+                    return default( List<WebResult> );
                 }
             }
 
-            return default( List<ResultData> );
+            return default( List<WebResult> );
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Deconstructs the specified configuration.
+        /// </summary>
+        /// <param name="config">
+        /// The configuration.
+        /// </param>
+        /// <param name="query">
+        /// The query.
+        /// </param>
+        public void Deconstruct( out NameValueCollection config, out string query )
+        {
+            config = Config;
+            query = Query;
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

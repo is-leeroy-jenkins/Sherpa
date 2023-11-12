@@ -41,38 +41,103 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Threading;
+    using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
-    public class ResultData
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    public class WebResult
     {
-        /// <summary> Gets or sets the link. </summary>
-        /// <value> The link. </value>
+        /// <summary>
+        /// Gets or sets the link.
+        /// </summary>
+        /// <value>
+        /// The link.
+        /// </value>
         public string Link { get; set; }
 
-        /// <summary> Gets or sets the name. </summary>
-        /// <value> The name. </value>
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public string Name { get; set; }
 
-        /// <summary> Gets or sets the content. </summary>
-        /// <value> The content. </value>
+        /// <summary>
+        /// Gets or sets the content.
+        /// </summary>
+        /// <value>
+        /// The content.
+        /// </value>
         public string Content { get; set; }
 
-        /// <summary> Gets or sets the title. </summary>
-        /// <value> The title. </value>
+        /// <summary>
+        /// Gets or sets the title.
+        /// </summary>
+        /// <value>
+        /// The title.
+        /// </value>
         public string Title { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ResultData"/>
-        /// class.
+        /// <see cref="WebResult"/> class.
         /// </summary>
-        public ResultData( )
+        public WebResult( )
         {
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="WebResult"/> class.
+        /// </summary>
+        /// <param name="link">The link.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="content">The content.</param>
+        /// <param name="title">The title.</param>
+        public WebResult( string link, string name, string content, string title )
+        {
+            Link = link;
+            Name = name;
+            Content = content;
+            Title = title;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="WebResult"/> class.
+        /// </summary>
+        /// <param name="result">The result.</param>
+        public WebResult( WebResult result )
+        {
+            Link = result.Link;
+            Name = result.Name;
+            Content = result.Content;
+            Title = result.Title;
+        }
+
+        /// <summary>
+        /// Deconstructs the specified link.
+        /// </summary>
+        /// <param name="link">The link.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="content">The content.</param>
+        /// <param name="title">The title.</param>
+        public void Deconstruct( out string link, out string name, out string content, out string title )
+        {
+            link = Link;
+            name = Name;
+            content = Content;
+            title = Title;
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

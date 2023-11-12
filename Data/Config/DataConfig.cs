@@ -47,16 +47,22 @@ namespace BudgetExecution
     /// <inheritdoc/>
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class DataConfig : ISource, IProvider
     {
         /// <inheritdoc/>
-        /// <summary> Gets or sets the provider. </summary>
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
         /// <value> The provider. </value>
         public Provider Provider { get; set; }
 
         /// <inheritdoc/>
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value> The source.
+        /// </value>
         public Source Source { get; set; }
 
         /// <summary>
@@ -81,9 +87,21 @@ namespace BudgetExecution
             Provider = provider;
         }
 
-        /// <summary> Deconstructs the specified source. </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataConfig"/> class.
+        /// </summary>
+        /// <param name="dataArgs">The data arguments.</param>
+        public DataConfig( DataConfig dataArgs )
+        {
+            Source = dataArgs.Source;
+            Provider = dataArgs.Provider;
+        }
+
+        /// <summary>
+        /// Deconstructs the specified source.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
         public void Deconstruct( out Source source, out Provider provider )
         {
             source = Source;
@@ -109,8 +127,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
