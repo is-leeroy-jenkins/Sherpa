@@ -61,12 +61,20 @@ namespace BudgetExecution
         /// </value>
         public bool IsHtml { get; set; }
 
-        /// <summary> Gets or sets the content. </summary>
-        /// <value> The content. </value>
+        /// <summary>
+        /// Gets or sets the message.
+        /// </summary>
+        /// <value>
+        /// The message.
+        /// </value>
         public string Message { get; set; }
 
-        /// <summary> Gets or sets the name of the attach file. </summary>
-        /// <value> The name of the attach file. </value>
+        /// <summary>
+        /// Gets or sets the attachment.
+        /// </summary>
+        /// <value>
+        /// The attachment.
+        /// </value>
         public string Attachment { get; set; }
 
         /// <summary>
@@ -84,17 +92,29 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="message"> The content. </param>
-        /// <param name="filepath"> Name of the attachment. </param>
+        /// <param name="filePath"> Name of the attachment. </param>
         /// <param name="isHtml">
         /// if set to
         /// <c> true </c>
         /// [is HTML].
         /// </param>
-        public EmailContent( string message, string filepath, bool isHtml = true )
+        public EmailContent( string message, string filePath, bool isHtml = true )
         {
             Message = message;
             IsHtml = isHtml;
-            Attachment = filepath;
+            Attachment = filePath;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="EmailContent"/> class.
+        /// </summary>
+        /// <param name="email">The email.</param>
+        public EmailContent( EmailContent email )
+        {
+            Message = email.Message;
+            IsHtml = email.IsHtml;
+            Attachment = email.Attachment;
         }
 
         /// <summary> Deconstructs the specified is HTML. </summary>
@@ -103,15 +123,16 @@ namespace BudgetExecution
         /// <c> true </c>
         /// [is HTML].
         /// </param>
-        /// <param name="message"> The content. </param>
-        /// Name of the attach file.
+        /// <param name="message">
+        /// The content.
         /// </param>
-        /// <param name="filepath"> </param>
-        public void Deconstruct( out bool isHtml, out string message, out string filepath )
+        /// <param name="filePath">
+        /// </param>
+        public void Deconstruct( out bool isHtml, out string message, out string filePath )
         {
             isHtml = IsHtml;
             message = Message;
-            filepath = Attachment;
+            filePath = Attachment;
         }
 
         /// <summary> Converts to string. </summary>
@@ -135,8 +156,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

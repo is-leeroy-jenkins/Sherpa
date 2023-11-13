@@ -134,7 +134,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public DataModel( Source source, Provider provider, IDictionary<string, object> updates,
-                          IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
         {
             BeginInit( );
             Source = source;
@@ -165,7 +165,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public DataModel( Source source, Provider provider, IEnumerable<string> columns,
-                          IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
         {
             BeginInit( );
             Source = source;
@@ -197,8 +197,8 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public DataModel( Source source, Provider provider, IEnumerable<string> fields,
-                          IEnumerable<string> numerics, IDictionary<string, object> where,
-                          SQL commandType )
+            IEnumerable<string> numerics, IDictionary<string, object> where,
+            SQL commandType )
         {
             BeginInit( );
             Source = source;
@@ -391,7 +391,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotFile( filePath, "filePath" );
+                ThrowIf.NotExists( filePath, "filePath" );
                 using var _package = new ExcelPackage( );
                 using var _stream = OpenRead( filePath );
                 _package.Load( _stream );

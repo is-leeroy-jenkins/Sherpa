@@ -81,7 +81,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotFile( filePath, "filePath" );
+                ThrowIf.NotExists( filePath, "filePath" );
                 var _source = new FileInfo( FullPath );
                 _source.MoveTo( filePath );
             }
@@ -97,7 +97,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotFile( filePath, "filePath" );
+                ThrowIf.NotExists( filePath, "filePath" );
                 var _source = new FileInfo( FullPath );
                 _source.CopyTo( filePath );
             }

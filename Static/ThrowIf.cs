@@ -38,6 +38,10 @@
 // </summary>
 // ******************************************************************************************
 
+using System.Net.Mail;
+using System.Windows.Forms;
+using Syncfusion.Windows.Forms;
+
 namespace BudgetExecution
 {
     using System;
@@ -78,10 +82,192 @@ namespace BudgetExecution
         /// <exception cref="System.ArgumentNullException"> </exception>
         public static void Null( object argument, string paramName )
         {
-            if( argument == null )
+            switch( argument )
             {
-                var _message = @$"The object '{paramName}' is null!";
-                throw new ArgumentNullException( _message );
+                case Action _action:
+                {
+                    if( _action == null )
+                    {
+                        var _message = @$"The Action '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case Query _query:
+                {
+                    if( _query == null )
+                    {
+                        var _message = @$"The ChromiumWebBrowser '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case DataBuilder _dataBuilder:
+                {
+                    if( _dataBuilder == null )
+                    {
+                        var _message = @$"The DataBuilder '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case IDataModel _dataModel:
+                {
+                    if( _dataModel == null )
+                    {
+                        var _message = @$"The IDataModel '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case Form _form:
+                {
+                    if( _form == null )
+                    {
+                        var _message = @$"The Form '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case Control _control:
+                {
+                    if( _control == null )
+                    {
+                        var _message = @$"The Control '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case EventArgs _eventArgs:
+                {
+                    if( _eventArgs == null )
+                    {
+                        var _message = @$"The EventArgs '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case DataConfig _dataConfig:
+                {
+                    if( _dataConfig == null )
+                    {
+                        var _message = @$"The DataConfig '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case SqlConfig _sqlConfig:
+                {
+                    if( _sqlConfig == null )
+                    {
+                        var _message = @$"The SqlConfig '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case DataUnit _dataUnit:
+                {
+                    if( _dataUnit == null )
+                    {
+                        var _message = @$"The DataUit '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case Folder _folder:
+                {
+                    if( _folder == null )
+                    {
+                        var _message = @$"The Folder '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case DataPath _path:
+                {
+                    if( _path == null )
+                    {
+                        var _message = @$"The DataPath '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case DataFile _file:
+                {
+                    if( _file == null )
+                    {
+                        var _message = @$"The DataFile '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case SqlStatement _sqlStatement:
+                {
+                    if( _sqlStatement == null )
+                    {
+                        var _message = @$"The SqlStatement '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case OutlookConfig _outlookConfig:
+                {
+                    if( _outlookConfig == null )
+                    {
+                        var _message = @$"The OutlookConfig '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case EmailContent _emailContent:
+                {
+                    if( _emailContent == null )
+                    {
+                        var _message = @$"The EmailContent '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case MailMessage _mailMessage:
+                {
+                    if( _mailMessage == null )
+                    {
+                        var _message = @$"The MailMessage '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case object _args:
+                {
+                    if( _args == null )
+                    {
+                        var _message = @$"The object '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                default:
+                {
+                    break;
+                }
             }
         }
 
@@ -93,7 +279,7 @@ namespace BudgetExecution
         {
             if( argument.Any( ) != true )
             {
-                var _message = @$"The dictionary '{paramName}' is null or empty!";
+                var _message = @$"The Dictionary<string, object> '{paramName}' is null or empty!";
                 throw new ArgumentNullException( _message );
             }
         }
@@ -142,11 +328,16 @@ namespace BudgetExecution
         /// <param name="argument"> The argument. </param>
         /// <param name="paramName"> Name of the parameter. </param>
         /// <exception cref="System.ArgumentNullException"> </exception>
-        public static void NotFile( string argument, string paramName )
+        public static void NotExists( string argument, string paramName )
         {
             if( !File.Exists( argument ) )
             {
-                var _message = @$"The file '{paramName}' does not exist!";
+                var _message = @$"The File '{paramName}' does not exist!";
+                throw new ArgumentException( _message );
+            }
+            else if( !Directory.Exists( argument ) )
+            {
+                var _message = @$"The Directory '{paramName}' does not exist!";
                 throw new ArgumentException( _message );
             }
         }
@@ -159,7 +350,7 @@ namespace BudgetExecution
         {
             if( argument.GetType( ) != typeof( Enum ) )
             {
-                var _message = @$"'{paramName}' is not an Enum!";
+                var _message = @$"The Enum '{paramName}' is invalid!";
                 throw new ArgumentException( _message );
             }
         }
@@ -172,7 +363,7 @@ namespace BudgetExecution
         {
             if( argument.GetType( ) != typeof( DateTime ) )
             {
-                var _message = @$"'{paramName}' is not a DateTime!";
+                var _message = @$"The DateTime '{paramName}' is invalid!";
                 throw new ArgumentException( _message );
             }
         }
@@ -185,7 +376,7 @@ namespace BudgetExecution
         {
             if( argument.GetType( ) != typeof( DateOnly ) )
             {
-                var _message = @$"'{paramName}' is not a DateOnly!";
+                var _message = @$"The DateOnly '{paramName}' is invalid!";
                 throw new ArgumentException( _message );
             }
         }
@@ -198,7 +389,7 @@ namespace BudgetExecution
         {
             if( argument < 0 )
             {
-                var _message = @$"'{paramName}' is negative!";
+                var _message = @$"The integer '{paramName}' is negative!";
                 throw new ArgumentOutOfRangeException( paramName, _message );
             }
         }
@@ -211,7 +402,7 @@ namespace BudgetExecution
         {
             if( argument < 0 )
             {
-                var _message = @$"'{paramName}' is negative!";
+                var _message = @$"The double '{paramName}' is negative!";
                 throw new ArgumentOutOfRangeException( paramName, _message );
             }
         }
@@ -227,7 +418,7 @@ namespace BudgetExecution
         {
             if( argument < 0 )
             {
-                var _message = @$"'{paramName}' is zero or negative!";
+                var _message = @$"The integer '{paramName}' is zero or negative!";
                 throw new ArgumentOutOfRangeException( paramName, _message );
             }
         }
@@ -243,7 +434,7 @@ namespace BudgetExecution
         {
             if( argument < 0 )
             {
-                var _message = @$"'{paramName}' is zero or negative!";
+                var _message = @$"The double '{paramName}' is zero or negative!";
                 throw new ArgumentOutOfRangeException( paramName, _message );
             }
         }

@@ -45,21 +45,34 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Threading;
     using System.Threading.Tasks;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.AsyncData" />
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class AsyncModel : AsyncData
     {
-        /// <summary> The busy </summary>
+        /// <summary>
+        /// The busy
+        /// </summary>
         private protected bool _busy;
 
         /// <inheritdoc/>
-        /// <summary> Gets the data elements. </summary>
-        /// <value> The data elements. </value>
+        /// <summary>
+        /// Gets the data elements.
+        /// </summary>
+        /// <value>
+        /// The data elements.
+        /// </value>
         public Task<IDictionary<string, IEnumerable<string>>> DataElements { get; }
 
-        /// <summary> Gets a value indicating whether this instance is busy. </summary>
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance is busy; otherwise,
@@ -149,7 +162,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public AsyncModel( Source source, Provider provider, IDictionary<string, object> updates,
-                           IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
         {
             BeginInit( );
             Source = source;
@@ -181,7 +194,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public AsyncModel( Source source, Provider provider, IEnumerable<string> columns,
-                           IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
         {
             BeginInit( );
             Source = source;
@@ -214,8 +227,8 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public AsyncModel( Source source, Provider provider, IEnumerable<string> fields,
-                           IEnumerable<string> numerics, IDictionary<string, object> where,
-                           SQL commandType )
+            IEnumerable<string> numerics, IDictionary<string, object> where,
+            SQL commandType )
         {
             BeginInit( );
             Source = source;
@@ -351,13 +364,29 @@ namespace BudgetExecution
             EndInit( );
         }
 
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private protected void BeginInit( )
+        {
+            _busy = true;
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private protected void EndInit( )
+        {
+            _busy = false;
+        }
+
         /// <summary> Gets the values asynchronous. </summary>
         /// <param name="dataRows"> The data rows. </param>
         /// <param name="columnName"> The name. </param>
         /// <param name="columnValue"> The value. </param>
         /// <returns> </returns>
         public Task<IEnumerable<string>> GetValuesAsync( IEnumerable<DataRow> dataRows,
-                                                         string columnName, string columnValue )
+            string columnName, string columnValue )
         {
             if( ( dataRows?.Any( ) == true )
                && !string.IsNullOrEmpty( columnValue ) )
@@ -447,18 +476,6 @@ namespace BudgetExecution
                 Fail( _ex );
                 return default( Task<IDictionary<string, IEnumerable<string>>> );
             }
-        }
-
-        /// <summary> Begins the initialize. </summary>
-        private protected void BeginInit( )
-        {
-            _busy = true;
-        }
-
-        /// <summary> Ends the initialize. </summary>
-        private protected void EndInit( )
-        {
-            _busy = false;
         }
     }
 }

@@ -44,40 +44,47 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
-    using System.Threading;
+    using System.Diagnostics.CodeAnalysis;
     using System.Threading.Tasks;
 
-    public abstract class AsyncData : AsyncState
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.AsyncState" />
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    public abstract class AsyncData : AsyncState 
     {
-        /// <summary> Gets the query asynchronous. </summary>
-        /// <param name="sqlStatement"> The SQL statement. </param>
-        /// <returns> </returns>
-        public Task<IQuery> GetQueryAsync( SqlStatement sqlStatement )
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the query asynchronous.
+        /// </summary>
+        /// <param name="sqlStatement">The SQL statement.</param>
+        /// <returns></returns>
+        private protected Task<IQuery> GetQueryAsync( SqlStatement sqlStatement )
         {
-            if( sqlStatement != null )
+            var _tcs = new TaskCompletionSource<IQuery>( );
+            try
             {
-                var _tcs = new TaskCompletionSource<IQuery>( );
-                try
-                {
-                    var _query = new Query( sqlStatement );
-                    _tcs.SetResult( _query );
-                    return _query != null
-                        ? _tcs.Task
-                        : default( Task<IQuery> );
-                }
-                catch( Exception _ex )
-                {
-                    _tcs.SetException( _ex );
-                    Fail( _ex );
-                    return default( Task<IQuery> );
-                }
+                ThrowIf.Null( sqlStatement, nameof( sqlStatement ) );
+                var _query = new Query( sqlStatement );
+                _tcs.SetResult( _query );
+                return _query != null
+                    ? _tcs.Task
+                    : default( Task<IQuery> );
             }
-
-            return default( Task<IQuery> );
+            catch( Exception _ex )
+            {
+                _tcs.SetException( _ex );
+                Fail( _ex );
+                return default( Task<IQuery> );
+            }
         }
 
-        /// <summary> Gets the ordinals. </summary>
-        /// <returns> </returns>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the ordinals asynchronous.
+        /// </summary>
+        /// <returns></returns>
         public Task<IEnumerable<int>> GetOrdinalsAsync( )
         {
             var _tcs = new TaskCompletionSource<IEnumerable<int>>( );
@@ -107,8 +114,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the map asynchronous. </summary>
-        /// <returns> </returns>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the map asynchronous.
+        /// </summary>
+        /// <returns></returns>
         public Task<IDictionary<string, object>> GetMapAsync( )
         {
             var _tcs = new TaskCompletionSource<IDictionary<string, object>>( );
@@ -131,8 +141,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the column schema. </summary>
-        /// <returns> </returns>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the schema asynchronous.
+        /// </summary>
+        /// <returns></returns>
         public Task<IDictionary<string, Type>> GetSchemaAsync( )
         {
             var _tcs = new TaskCompletionSource<IDictionary<string, Type>>( );
@@ -166,8 +179,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the data columns. </summary>
-        /// <returns> </returns>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the columns asynchronous.
+        /// </summary>
+        /// <returns></returns>
         public Task<IEnumerable<DataColumn>> GetColumnsAsync( )
         {
             var _tcs = new TaskCompletionSource<IEnumerable<DataColumn>>( );
@@ -203,46 +219,44 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the column names. </summary>
-        /// <returns> </returns>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the names asynchronous.
+        /// </summary>
+        /// <returns></returns>
         public Task<IEnumerable<string>> GetNamesAsync( )
         {
-            if( DataTable?.Result != null )
+            var _tcs = new TaskCompletionSource<IEnumerable<string>>( );
+            try
             {
-                var _tcs = new TaskCompletionSource<IEnumerable<string>>( );
-                try
+                var _dataTable = GetDataTable( );
+                var _columns = _dataTable.Columns;
+                if( _columns?.Count > 0 )
                 {
-                    var _dataTable = GetDataTable( );
-                    var _columns = _dataTable.Columns;
-                    if( _columns?.Count > 0 )
+                    var _names = new List<string>( );
+                    foreach( DataColumn _column in _columns )
                     {
-                        var _names = new List<string>( );
-                        foreach( DataColumn _column in _columns )
+                        if( !string.IsNullOrEmpty( _column?.ColumnName ) )
                         {
-                            if( !string.IsNullOrEmpty( _column?.ColumnName ) )
-                            {
-                                _names.Add( _column.ColumnName );
-                            }
+                            _names.Add( _column.ColumnName );
                         }
+                    }
 
-                        return _names?.Any( ) == true
-                            ? _tcs.Task
-                            : default( Task<IEnumerable<string>> );
-                    }
-                    else
-                    {
-                        return default( Task<IEnumerable<string>> );
-                    }
+                    return _names?.Any( ) == true
+                        ? _tcs.Task
+                        : default( Task<IEnumerable<string>> );
                 }
-                catch( Exception _ex )
+                else
                 {
-                    _tcs.SetException( _ex );
-                    Fail( _ex );
                     return default( Task<IEnumerable<string>> );
                 }
             }
-
-            return default( Task<IEnumerable<string>> );
+            catch( Exception _ex )
+            {
+                _tcs.SetException( _ex );
+                Fail( _ex );
+                return default( Task<IEnumerable<string>> );
+            }
         }
     }
 }

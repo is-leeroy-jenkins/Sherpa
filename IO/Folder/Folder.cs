@@ -48,18 +48,20 @@ namespace BudgetExecution
     using System.Threading;
     using static System.IO.Directory;
 
-    /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.FolderBase"/>
-    /// <seealso cref="BudgetExecution.IFolder"/>
-    /// <seealso cref="FolderBase"/>
-    /// <seealso cref="IFolder"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.FolderBase" />
+    /// <seealso cref="BudgetExecution.IFolder" />
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class Folder : FolderBase, IFolder
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Folder"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.Folder" /> class.
         /// </summary>
         public Folder( )
         {
@@ -67,17 +69,18 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Folder"/>
-        /// class.
+        /// <see cref="Folder"/> class.
         /// </summary>
-        /// <param name="dirPath"> The file. </param>
+        /// <param name="dirPath"></param>
         public Folder( string dirPath )
             : base( dirPath )
         {
         }
 
-        /// <summary> Gets the current directory. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the current directory.
+        /// </summary>
+        /// <returns></returns>
         public static string GetCurrentDirectory( )
         {
             try
@@ -93,9 +96,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the specified filepath. </summary>
-        /// <param name="fullPath"> The filepath. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the specified full path.
+        /// </summary>
+        /// <param name="fullPath">The full path.</param>
+        /// <returns></returns>
         public static DirectoryInfo Create( string fullPath )
         {
             try
@@ -111,17 +116,16 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Deletes the specified folderName. </summary>
-        /// <param name="folderName"> The folderName. </param>
+        /// <summary>
+        /// Deletes the specified folder name.
+        /// </summary>
+        /// <param name="folderName">Name of the folder.</param>
         public static void Delete( string folderName )
         {
             try
             {
-                if( !string.IsNullOrEmpty( folderName )
-                   && Exists( folderName ) )
-                {
-                    Directory.Delete( folderName, true );
-                }
+                ThrowIf.NullOrEmpty( folderName, nameof( folderName ) );
+                Directory.Delete( folderName, true );
             }
             catch( Exception _ex )
             {
@@ -129,9 +133,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the zip file. </summary>
-        /// <param name="source"> The sourcePath. </param>
-        /// <param name="destination"> The destination. </param>
+        /// <summary>
+        /// Creates the zip file.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="destination">The destination.</param>
         public static void CreateZipFile( string source, string destination )
         {
             try
@@ -147,9 +153,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the sub folder. </summary>
-        /// <param name="dirName"> The folderName. </param>
-        /// <returns> </returns>
+        /// <inheritdoc />
+        /// <summary>
+        /// Creates the sub directory.
+        /// </summary>
+        /// <param name="dirName">The folderName.</param>
+        /// <returns></returns>
         public DirectoryInfo CreateSubDirectory( string dirName )
         {
             if( !string.IsNullOrEmpty( dirName )
@@ -169,8 +178,11 @@ namespace BudgetExecution
             return default( DirectoryInfo );
         }
 
-        /// <summary> Moves the specified folder path. </summary>
-        /// <param name="destination"> The folder path. </param>
+        /// <inheritdoc />
+        /// <summary>
+        /// Moves the specified fullName.
+        /// </summary>
+        /// <param name="destination">The fullName.</param>
         public void Move( string destination )
         {
             if( !string.IsNullOrEmpty( destination ) )
@@ -187,8 +199,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Zips the specified filepath. </summary>
-        /// <param name="destination"> The filepath. </param>
+        /// <inheritdoc />
+        /// <summary>
+        /// Zips the specified destination.
+        /// </summary>
+        /// <param name="destination">The destination.</param>
         public void Zip( string destination )
         {
             try
@@ -205,8 +220,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Uns the zip. </summary>
-        /// <param name="zipPath"> The zipPath. </param>
+        /// <inheritdoc />
+        /// <summary>
+        /// Uns the zip.
+        /// </summary>
+        /// <param name="zipPath">The zipPath.</param>
         public void UnZip( string zipPath )
         {
             try
@@ -223,8 +241,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the access control. </summary>
-        /// <param name="security"> The security. </param>
+        /// <inheritdoc />
+        /// <summary>
+        /// Sets the access control.
+        /// </summary>
+        /// <param name="security">The security.</param>
         public void SetAccessControl( DirectorySecurity security )
         {
             if( security != null )

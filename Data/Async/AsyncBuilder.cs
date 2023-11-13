@@ -42,8 +42,13 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Threading;
+    using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.AsyncModel" />
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class AsyncBuilder : AsyncModel
     {
         /// <inheritdoc/>
@@ -108,7 +113,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public AsyncBuilder( Source source, Provider provider, IDictionary<string, object> updates,
-                             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
         }
@@ -125,7 +130,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public AsyncBuilder( Source source, Provider provider, IEnumerable<string> columns,
-                             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, where, commandType )
         {
         }
@@ -143,8 +148,8 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public AsyncBuilder( Source source, Provider provider, IEnumerable<string> fields,
-                             IEnumerable<string> numerics, IDictionary<string, object> where,
-                             SQL commandType )
+            IEnumerable<string> numerics, IDictionary<string, object> where,
+            SQL commandType )
             : base( source, provider, fields, numerics, where,
                 commandType )
         {

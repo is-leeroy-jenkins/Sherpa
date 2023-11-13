@@ -45,79 +45,150 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
-    using System.Threading;
+    using System.Diagnostics.CodeAnalysis;
     using System.Threading.Tasks;
 
-    /// <inheritdoc/>
-    /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.ISource"/>
-    /// <seealso cref="T:BudgetExecution.IProvider"/>
-    public abstract class AsyncState : ISource, IProvider
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:BudgetExecution.IProvider" />
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    public abstract class AsyncState : IAsyncState
     {
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
         public Source Source { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// </summary>
         public Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the connection factory. </summary>
-        /// <value> The connection factory. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the connection factory.
+        /// </summary>
+        /// <value>
+        /// The connection factory.
+        /// </value>
         public IConnectionFactory ConnectionFactory { get; set; }
 
-        /// <summary> Gets or sets the SQL statement. </summary>
-        /// <value> The SQL statement. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the SQL statement.
+        /// </summary>
+        /// <value>
+        /// The SQL statement.
+        /// </value>
         public ISqlStatement SqlStatement { get; set; }
 
-        /// <summary> Gets or sets the query. </summary>
-        /// <value> The query. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the query.
+        /// </summary>
+        /// <value>
+        /// The query.
+        /// </value>
         public IQuery Query { get; set; }
 
-        /// <summary> Gets or sets the record. </summary>
-        /// <value> The record. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the record.
+        /// </summary>
+        /// <value>
+        /// The record.
+        /// </value>
         public Task<DataRow> Record { get; set; }
 
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
         public Task<DataTable> DataTable { get; set; }
 
-        /// <summary> Gets or sets the data columns. </summary>
-        /// <value> The data columns. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the data columns.
+        /// </summary>
+        /// <value>
+        /// The data columns.
+        /// </value>
         public Task<IEnumerable<DataColumn>> DataColumns { get; set; }
 
-        /// <summary> Gets or sets the column names. </summary>
-        /// <value> The column names. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the column names.
+        /// </summary>
+        /// <value>
+        /// The column names.
+        /// </value>
         public Task<IEnumerable<string>> ColumnNames { get; set; }
 
-        /// <summary> Gets or sets the keys. </summary>
-        /// <value> The keys. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the keys.
+        /// </summary>
+        /// <value>
+        /// The keys.
+        /// </value>
         public Task<IList<int>> Keys { get; set; }
 
-        /// <summary> Gets or sets the fields. </summary>
-        /// <value> The fields. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
         public Task<IList<string>> Fields { get; set; }
 
-        /// <summary> Gets or sets the dates. </summary>
-        /// <value> The dates. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the dates.
+        /// </summary>
+        /// <value>
+        /// The dates.
+        /// </value>
         public Task<IList<string>> Dates { get; set; }
 
-        /// <summary> Gets or sets the numeric fields. </summary>
-        /// <value> The numeric fields. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
         public Task<IList<string>> Numerics { get; set; }
 
-        /// <summary> Gets or sets the map. </summary>
-        /// <value> The map. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the map.
+        /// </summary>
+        /// <value>
+        /// The map.
+        /// </value>
         public Task<IDictionary<string, object>> Map { get; set; }
 
-        /// <summary> Gets or sets the data set. </summary>
-        /// <value> The data set. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the data set.
+        /// </summary>
+        /// <value>
+        /// The data set.
+        /// </value>
         public Task<DataSet> DataSet { get; set; }
 
-        /// <summary> Gets the table asynchronous. </summary>
-        /// <returns> </returns>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the data table asynchronous.
+        /// </summary>
+        /// <returns></returns>
         public Task<DataTable> GetDataTableAsync( )
         {
             if( Query != null )
@@ -148,8 +219,11 @@ namespace BudgetExecution
             return default( Task<DataTable> );
         }
 
-        /// <summary> Gets the record asynchronous. </summary>
-        /// <returns> </returns>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the record asynchronous.
+        /// </summary>
+        /// <returns></returns>
         public Task<DataRow> GetRecordAsync( )
         {
             var _tcs = new TaskCompletionSource<DataRow>( );
@@ -171,9 +245,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the data table. </summary>
-        /// <returns> </returns>
-        private protected DataTable GetDataTable( )
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the data table.
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetDataTable( )
         {
             if( Query != null )
             {
@@ -200,9 +277,12 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary> Gets the data set asynchronous. </summary>
-        /// <returns> </returns>
-        private protected Task<DataSet> GetDataSetAsync( )
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the data set asynchronous.
+        /// </summary>
+        /// <returns></returns>
+        public Task<DataSet> GetDataSetAsync( )
         {
             if( Query != null )
             {
@@ -231,9 +311,12 @@ namespace BudgetExecution
             return default( Task<DataSet> );
         }
 
-        /// <summary> Sets the column captions. </summary>
-        /// <param name="dataTable"> The data table. </param>
-        private protected void SetColumnCaptions( DataTable dataTable )
+        /// <inheritdoc />
+        /// <summary>
+        /// Sets the column captions.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        public void SetColumnCaptions( DataTable dataTable )
         {
             if( dataTable?.Rows?.Count > 0 )
             {
@@ -255,9 +338,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the fields. </summary>
-        /// <returns> </returns>
-        private protected Task<IList<string>> GetFieldsAsync( )
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the fields asynchronous.
+        /// </summary>
+        /// <returns></returns>
+        public Task<IList<string>> GetFieldsAsync( )
         {
             var _tcs = new TaskCompletionSource<IList<string>>( );
             try
@@ -285,16 +371,19 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the numerics. </summary>
-        /// <returns> </returns>
-        private protected Task<IList<string>> GetNumericsAsync( )
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the numerics asynchronous.
+        /// </summary>
+        /// <returns></returns>
+        public Task<IList<string>> GetNumericsAsync( )
         {
             var _tcs = new TaskCompletionSource<IList<string>>( );
             try
             {
                 var _numerics = new List<string>( );
                 var _dataTable = GetDataTable( );
-                foreach( DataColumn _col in _dataTable?.Columns )
+                foreach( DataColumn _col in _dataTable.Columns )
                 {
                     if( ( !_col.ColumnName.EndsWith( "Id" )
                            && ( _col.Ordinal > 0 )
@@ -321,78 +410,76 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the dates. </summary>
-        /// <returns> </returns>
-        private protected Task<IList<string>> GetDatesAsync( )
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the dates asynchronous.
+        /// </summary>
+        /// <returns></returns>
+        public Task<IList<string>> GetDatesAsync( )
         {
-            if( DataTable != null )
+            var _tcs = new TaskCompletionSource<IList<string>>( );
+            try
             {
-                var _tcs = new TaskCompletionSource<IList<string>>( );
-                try
+                var _dates = new List<string>( );
+                var _dataTable = GetDataTable( );
+                foreach( DataColumn _col in _dataTable.Columns )
                 {
-                    var _dates = new List<string>( );
-                    var _dataTable = GetDataTable( );
-                    foreach( DataColumn _col in _dataTable.Columns )
+                    if( ( _col.Ordinal > 0 )
+                       && ( ( _col.DataType == typeof( DateTime ) )
+                           || ( _col.DataType == typeof( DateOnly ) )
+                           || ( _col.DataType == typeof( DateTimeOffset ) )
+                           || _col.ColumnName.EndsWith( "Day" )
+                           || _col.ColumnName.EndsWith( "Date" ) ) )
                     {
-                        if( ( _col.Ordinal > 0 )
-                           && ( ( _col.DataType == typeof( DateTime ) )
-                               || ( _col.DataType == typeof( DateOnly ) )
-                               || ( _col.DataType == typeof( DateTimeOffset ) )
-                               || _col.ColumnName.EndsWith( "Day" )
-                               || _col.ColumnName.EndsWith( "Date" ) ) )
-                        {
-                            _dates.Add( _col.ColumnName );
-                        }
+                        _dates.Add( _col.ColumnName );
                     }
+                }
 
-                    _tcs.SetResult( _dates );
-                    return _dates?.Any( ) == true
-                        ? _tcs.Task
-                        : default( Task<IList<string>> );
-                }
-                catch( Exception _ex )
-                {
-                    _tcs.SetException( _ex );
-                    Fail( _ex );
-                    return default( Task<IList<string>> );
-                }
+                _tcs.SetResult( _dates );
+                return _dates?.Any( ) == true
+                    ? _tcs.Task
+                    : default( Task<IList<string>> );
             }
-
-            return default( Task<IList<string>> );
-        }
-
-        /// <summary> Gets the primary keys. </summary>
-        /// <returns> </returns>
-        private protected Task<IList<int>> GetPrimaryKeysAsync( )
-        {
-            if( DataTable != null )
+            catch( Exception _ex )
             {
-                var _tcs = new TaskCompletionSource<IList<int>>( );
-                try
-                {
-                    var _dataTable = GetDataTable( );
-                    var _values = _dataTable?.AsEnumerable( )
-                        ?.Select( c => c.Field<int>( 0 ) )
-                        ?.Distinct( );
-
-                    var _list = _values?.ToList( );
-                    _tcs.SetResult( _list );
-                    return _values?.Any( ) == true
-                        ? _tcs.Task
-                        : default( Task<IList<int>> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( Task<IList<int>> );
-                }
+                _tcs.SetException( _ex );
+                Fail( _ex );
+                return default( Task<IList<string>> );
             }
-
-            return default( Task<IList<int>> );
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the primary keys asynchronous.
+        /// </summary>
+        /// <returns></returns>
+        public Task<IList<int>> GetPrimaryKeysAsync( )
+        {
+            var _tcs = new TaskCompletionSource<IList<int>>( );
+            try
+            {
+                var _dataTable = GetDataTable( );
+                var _values = _dataTable?.AsEnumerable( )
+                    ?.Select( c => c.Field<int>( 0 ) )
+                    ?.Distinct( );
+
+                var _list = _values?.ToList( );
+                _tcs.SetResult( _list );
+                return _values?.Any( ) == true
+                    ? _tcs.Task
+                    : default( Task<IList<int>> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Task<IList<int>> );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
