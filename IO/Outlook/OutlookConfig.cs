@@ -126,5 +126,67 @@ namespace BudgetExecution
             Recipient = new List<string>( );
             CarbonCopy = new List<string>( );
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OutlookConfig"/> class.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="subject">The subject.</param>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="pass">The pass.</param>
+        /// <param name="recipient">The recipient.</param>
+        /// <param name="copies">The copies.</param>
+        /// <param name="priority"> </param>
+        public OutlookConfig( string sender, string subject, string userName, 
+            string pass, IList<string> recipient, IList<string> copies, 
+            MailPriority priority = MailPriority.Normal )
+        {
+            Sender = sender;
+            Subject = subject;
+            UserName = userName;
+            Password = pass;
+            Priority = priority;
+            Recipient = recipient;
+            CarbonCopy = copies;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="OutlookConfig"/> class.
+        /// </summary>
+        /// <param name="config">The configuration.</param>
+        public OutlookConfig( OutlookConfig config )
+        {
+            Sender = config.Sender;
+            Subject = config.Subject;
+            UserName = config.UserName;
+            Password = config.Password;
+            Priority = config.Priority;
+            Recipient = config.Recipient;
+            CarbonCopy = config.CarbonCopy;
+        }
+
+        /// <summary>
+        /// Deconstructs the specified sender.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="subject">The subject.</param>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="pass">The pass.</param>
+        /// <param name="priority">The priority.</param>
+        /// <param name="recipient">The recipient.</param>
+        /// <param name="copies">The copies.</param>
+        public void Deconstruct( out string sender, out string subject, 
+            out string userName, out string pass, out MailPriority priority, 
+            out IList<string> recipient, out IList<string> copies )
+        {
+            sender = Sender;
+            subject = Subject;
+            userName = UserName;
+            pass = Password;
+            priority = Priority;
+            recipient = Recipient;
+            copies = CarbonCopy;
+        }
     }
 }

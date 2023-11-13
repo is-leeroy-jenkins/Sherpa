@@ -123,35 +123,6 @@ namespace BudgetExecution
         /// <value> The invalid name chars. </value>
         public char[ ] InvalidNameChars { get; } = Path.GetInvalidFileNameChars( );
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="PathBase"/>
-        /// class.
-        /// </summary>
-        protected PathBase( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="PathBase"/>
-        /// class.
-        /// </summary>
-        /// <param name="input"> The input. </param>
-        protected PathBase( string input )
-        {
-            Buffer = input;
-            AbsolutePath = Path.GetFullPath( input );
-            Name = new FileInfo( AbsolutePath ).Name;
-            FullPath = new FileInfo( AbsolutePath ).FullName;
-            Extension = new FileInfo( AbsolutePath ).Extension;
-            Length = new FileInfo( AbsolutePath ).Length;
-            Attributes = new FileInfo( AbsolutePath ).Attributes;
-            FileSecurity = new FileInfo( AbsolutePath ).GetAccessControl( );
-            Created = new FileInfo( AbsolutePath ).CreationTime;
-            Modified = new FileInfo( AbsolutePath ).LastWriteTime;
-        }
-
         /// <summary> Fails the specified ex. </summary>
         /// <param name="ex"> The ex. </param>
         private protected static void Fail( Exception ex )

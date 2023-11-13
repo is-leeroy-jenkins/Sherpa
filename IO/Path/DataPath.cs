@@ -38,6 +38,9 @@
 // </summary>
 // ******************************************************************************************
 
+using System.IO;
+using System.Security.AccessControl;
+
 namespace BudgetExecution
 {
     using System;
@@ -48,6 +51,8 @@ namespace BudgetExecution
     /// <summary> </summary>
     /// <seealso cref="T:BudgetExecution.PathBase"/>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class DataPath : PathBase, IPath
     {
         /// <inheritdoc/>
@@ -68,8 +73,89 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="input"> The input. </param>
         public DataPath( string input )
-            : base( input )
         {
+            Buffer = input;
+            AbsolutePath = Path.GetFullPath( input );
+            Name = Path.GetFileNameWithoutExtension( input );
+            FullPath = Path.GetFullPath( input );
+            Extension = Path.GetExtension( input );
+            Length = input.Length;
+            Attributes = File.GetAttributes( input );
+            FileSecurity = new FileSecurity( input, AccessControlSections.All );
+            Created = File.GetCreationTime( input );
+            Modified = File.GetLastWriteTime( input );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataPath"/> class.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        public DataPath( DataPath path )
+        {
+            Buffer = path.Buffer;
+            AbsolutePath = path.AbsolutePath;
+            Name = path.Name;
+            FullPath = path.FullPath;
+            Extension = path.Extension;
+            Length = path.Length;
+            Attributes = path.Attributes;
+            FileSecurity = path.FileSecurity;
+            Created = path.Created;
+            Modified = path.Modified;
+        }
+
+        /// <summary>
+        /// Deconstructs the specified buffer.
+        /// </summary>
+        /// <param name="buffer">The buffer.</param>
+        /// <param name="absPath">The abs path.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="fullPath">The full path.</param>
+        /// <param name="ext">The ext.</param>
+        /// <param name="length">The length.</param>
+        /// <param name="attrs">The attrs.</param>
+        /// <param name="fileSecurity">The file security.</param>
+        /// <param name="created">The created.</param>
+        /// <param name="modified">The modified.</param>
+        public void Deconstruct( out string buffer, out string absPath, out string name,
+            out string fullPath, out string ext, out long length,
+            out FileAttributes attrs, out FileSecurity fileSecurity,
+            out DateTime created, out DateTime modified )
+        {
+            buffer = Buffer;
+            absPath = AbsolutePath;
+            name = Name;
+            fullPath = FullPath;
+            ext = Extension;
+            length = Length;
+            attrs = Attributes;
+            fileSecurity = FileSecurity;
+            created = Created;
+            modified = Modified;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="T:System.String" />
+        /// that represents this instance.
+        /// </returns>
+        public override string ToString( )
+        {
+            try
+            {
+                return !string.IsNullOrEmpty( FullPath )
+                    ? FullPath
+                    : string.Empty;
+            }
+            catch( IOException _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
         }
     }
 }

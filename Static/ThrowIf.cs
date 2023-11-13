@@ -329,7 +329,12 @@ namespace BudgetExecution
         {
             if( !File.Exists( argument ) )
             {
-                var _message = @$"The File '{paramName}' does not exist!";
+                var _message = @$"The FileInfo '{paramName}' does not exist!";
+                throw new ArgumentException( _message );
+            }
+            else if( !new FileInfo( argument ).Exists )
+            {
+                var _message = @$"The DirectoryInfo '{paramName}' does not exist!";
                 throw new ArgumentException( _message );
             }
             else if( !Directory.Exists( argument ) )
@@ -337,17 +342,9 @@ namespace BudgetExecution
                 var _message = @$"The Directory '{paramName}' does not exist!";
                 throw new ArgumentException( _message );
             }
-        }
-
-        /// <summary> Throws exception if 'argument' </summary>
-        /// <param name="argument"> The argument. </param>
-        /// <param name="paramName"> Name of the parameter. </param>
-        /// <exception cref="System.ArgumentNullException"> </exception>
-        public static void NotEnum( Enum argument, string paramName )
-        {
-            if( argument.GetType( ) != typeof( Enum ) )
+            else if( !new DirectoryInfo( argument ).Exists )
             {
-                var _message = @$"The Enum '{paramName}' is invalid!";
+                var _message = @$"The DirectoryInfo '{paramName}' does not exist!";
                 throw new ArgumentException( _message );
             }
         }

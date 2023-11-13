@@ -47,57 +47,74 @@ namespace BudgetExecution
     using System.Security.AccessControl;
     using System.Threading;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public interface IFile
     {
-        /// <summary> Transfers the specified folder. </summary>
-        /// <param name="folder"> The folder. </param>
+        /// <summary>
+        /// Transfers the specified folder.
+        /// </summary>
+        /// <param name="folder">The folder.</param>
         void Transfer( DirectoryInfo folder );
 
-        /// <summary> Determines whether this instance contains the object. </summary>
-        /// <param name="search"> The search. </param>
+        /// <summary>
+        /// Determines whether this instance contains the object.
+        /// </summary>
+        /// <param name="search">The search.</param>
         /// <returns>
-        /// <c> true </c>
-        /// if [contains] [the specified search]; otherwise,
-        /// <c> false </c>
-        /// .
+        ///   <c>true</c> if [contains] [the specified search]; otherwise, <c>false</c>.
         /// </returns>
         bool Contains( string search );
 
-        /// <summary> Searches the specified pattern. </summary>
-        /// <param name="pattern"> The pattern. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Searches the specified pattern.
+        /// </summary>
+        /// <param name="pattern">The pattern.</param>
+        /// <returns></returns>
         IEnumerable<FileInfo> Search( string pattern );
 
-        /// <summary> Gets the parent. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the parent directory.
+        /// </summary>
+        /// <returns></returns>
         string GetParentDirectory( );
 
-        /// <summary> Moves the specified destination. </summary>
-        /// <param name="filePath"> The destination. </param>
+        /// <summary>
+        /// Moves the specified file path.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
         void Move( string filePath );
 
-        /// <summary> Copies the specified filePath. </summary>
-        /// <param name="filePath"> The filePath. </param>
+        /// <summary>
+        /// Copies the specified file path.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
         void Copy( string filePath );
 
-        /// <summary> Deletes this instance. </summary>
+        /// <summary>
+        /// Deletes this instance.
+        /// </summary>
         void Delete( );
 
-        /// <summary> Gets the file security. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the file security.
+        /// </summary>
+        /// <returns></returns>
         FileSecurity GetFileSecurity( );
 
-        /// <summary> Gets the base stream. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the base stream.
+        /// </summary>
+        /// <returns></returns>
         FileStream GetBaseStream( );
 
-        /// <summary> Converts to string. </summary>
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
         /// <returns>
-        /// A
-        /// <see cref="System.String"/>
-        /// that represents this instance.
+        /// A <see cref="System.String" /> that represents this instance.
         /// </returns>
         string ToString( );
     }

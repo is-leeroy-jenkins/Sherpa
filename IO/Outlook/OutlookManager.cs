@@ -98,6 +98,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Deconstructs the specified host.
+        /// </summary>
+        /// <param name="host">The host.</param>
+        public void Deconstruct( out string host )
+        {
+            host = HostName;
+        }
+
+        /// <summary>
         /// Sends the email.
         /// </summary>
         /// <param name="config">The configuration.</param>
