@@ -38,10 +38,6 @@
 // </summary>
 // ******************************************************************************************
 
-using System.Net.Mail;
-using System.Windows.Forms;
-using Syncfusion.Windows.Forms;
-
 namespace BudgetExecution
 {
     using System;
@@ -51,10 +47,11 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Threading;
+    using System.Net.Mail;
+    using System.Windows.Forms;
 
     /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertTypeCheckPatternToNullCheck" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
