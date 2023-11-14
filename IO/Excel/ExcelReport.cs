@@ -216,7 +216,7 @@ namespace BudgetExecution
                 {
                     Text = cellStringValue
                 };
-                
+
                 _cell.Append( _cellValue );
                 excelRow.Append( _cell );
             }
@@ -250,7 +250,7 @@ namespace BudgetExecution
                 {
                     Text = cellValue
                 };
-                
+
                 _cell.Append( _cellValue );
                 excelRow.Append( _cell );
             }
@@ -270,11 +270,11 @@ namespace BudgetExecution
                 ThrowIf.Negative( columnIndex, nameof( columnIndex ) );
                 if( columnIndex < 26 )
                 {
-                    return ( (char) ( 'A' + columnIndex ) ).ToString( );
+                    return ( (char)( 'A' + columnIndex ) ).ToString( );
                 }
 
-                var _first = (char) ( 'A' + columnIndex / 26 - 1 );
-                var _second = (char) ( 'A' + columnIndex % 26 );
+                var _first = (char)( 'A' + columnIndex / 26 - 1 );
+                var _second = (char)( 'A' + columnIndex % 26 );
                 return $"{_first}{_second}";
             }
             catch( Exception _ex )
@@ -309,7 +309,7 @@ namespace BudgetExecution
                     {
                         _part.Worksheet = new Worksheet( );
                         _part.Worksheet.AppendChild( new SheetData( ) );
-                        WriteDataTableToExcelWorksheet( _dataTable, _part );
+                        WriteDataTableToWorksheet( _dataTable, _part );
                         _part.Worksheet.Save( );
                         if( _id == 1 )
                         {
@@ -339,8 +339,7 @@ namespace BudgetExecution
         /// <summary> Writes the data table to excel worksheet. </summary>
         /// <param name="dataTable"> The data table. </param>
         /// <param name="workSheetPart"> The work sheet part. </param>
-        public void WriteDataTableToExcelWorksheet( DataTable dataTable,
-            WorksheetPart workSheetPart )
+        public void WriteDataTableToWorksheet( DataTable dataTable, WorksheetPart workSheetPart )
         {
             try
             {
@@ -371,8 +370,11 @@ namespace BudgetExecution
                 foreach( DataRow _dataRow in dataTable.Rows )
                 {
                     ++_rowIndex;
-                    var _excelRow = new Row( );
-                    _excelRow.RowIndex = _rowIndex;
+                    var _excelRow = new Row
+                    {
+                        RowIndex = _rowIndex
+                    };
+                    
                     _data?.Append( _excelRow );
                     for( var _i = 0; _i < _columns; _i++ )
                     {
