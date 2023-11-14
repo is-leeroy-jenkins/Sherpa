@@ -337,8 +337,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoElements( dataRows, "dataRows" );
-                ThrowIf.NullOrEmpty( column, "column" );
+                ThrowIf.NoData( dataRows, nameof( dataRows ) );
+                ThrowIf.NullOrEmpty( column, nameof( column ) );
                 var _query = dataRows?.Select( v => v.Field<string>( column ) )?.Distinct( );
                 return _query?.Any( ) == true
                     ? _query
@@ -357,14 +357,15 @@ namespace BudgetExecution
         /// <param name="value"> The value. </param>
         /// <returns> </returns>
         public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string name,
-                                                     string value )
+            string value )
         {
             try
             {
-                ThrowIf.NoElements( dataRows, "dataRows" );
-                ThrowIf.NullOrEmpty( name, "name" );
-                ThrowIf.NullOrEmpty( value, "value" );
-                var _query = dataRows?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
+                ThrowIf.NoData( dataRows, nameof( dataRows ) );
+                ThrowIf.NullOrEmpty( name, nameof( name ) );
+                ThrowIf.NullOrEmpty( value, nameof( value ) );
+                var _query = dataRows
+                    ?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
                     ?.Select( v => v.Field<string>( $"{name}" ) )
                     ?.Distinct( );
 
@@ -391,7 +392,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotExists( filePath, "filePath" );
+                ThrowIf.NotExists( filePath, nameof( filePath ) );
                 using var _package = new ExcelPackage( );
                 using var _stream = OpenRead( filePath );
                 _package.Load( _stream );

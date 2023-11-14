@@ -83,7 +83,6 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 int _days;
                 var _weekdays = new List<DateTime>( );
@@ -115,7 +114,6 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 int _days;
                 var _weekends = new List<DateTime>( );
@@ -147,7 +145,6 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 var _days = 0;
                 var _holidays = new List<DateTime>( );
@@ -179,7 +176,6 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 int _days;
                 var _workdays = new List<DateTime>( );
@@ -259,12 +255,10 @@ namespace BudgetExecution
         /// .
         /// </returns>
         public static bool IsBetween( this DateTime dateTime, DateTime startDate, DateTime endDate,
-                                      bool compareTime = false )
+            bool compareTime = false )
         {
             try
             {
-                ThrowIf.NotDate( startDate, "startDate" );
-                ThrowIf.NotDate( endDate, "endDate" );
                 return compareTime
                     ? ( dateTime >= startDate ) && ( dateTime <= endDate )
                     : ( dateTime.Date >= startDate.Date ) && ( dateTime.Date <= endDate.Date );
@@ -284,7 +278,8 @@ namespace BudgetExecution
         {
             try
             {
-                // start from a weekday        
+                // start from a weekday 
+                ThrowIf.Negative( days, nameof( days ) );       
                 while( startDate.IsWeekEnd( ) )
                 {
                     startDate = startDate.AddDays( 1.0 );
@@ -316,7 +311,6 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 int _days;
                 for( _days = 0; _days < _timeSpan.Days; _days++ )
@@ -339,7 +333,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Counts the number of weekends between two dates. </summary>
+        /// <summary>
+        /// Counts the number of weekends between two dates.
+        /// </summary>
         /// <param name="startDate"> The start time. </param>
         /// <param name="endDate"> The end time. </param>
         /// <returns> </returns>
@@ -347,7 +343,6 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 var _weekEnds = 0;
                 for( var _i = 0; _i < _timeSpan.Days; _i++ )
@@ -378,7 +373,6 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 int _days;
                 for( _days = 0; _days < _timeSpan.Days; _days++ )
@@ -410,7 +404,6 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotDate( endDate, "endDate" );
                 var _timeSpan = endDate - startDate;
                 int _days;
                 for( _days = 0; _days < _timeSpan.Days; _days++ )
@@ -445,7 +438,7 @@ namespace BudgetExecution
         public static bool IsFederalHoliday( this DateTime dateTime )
         {
             // to ease typing
-            var _nthDay = (int) Math.Ceiling( dateTime.Day / 7.0d );
+            var _nthDay = (int)Math.Ceiling( dateTime.Day / 7.0d );
             var _date = dateTime.DayOfWeek;
             var _thursday = _date == DayOfWeek.Thursday;
             var _friday = _date == DayOfWeek.Friday;
@@ -495,10 +488,8 @@ namespace BudgetExecution
                 case 12 when ( dateTime.Day == 24 ) && _friday:
                 case 12 when ( dateTime.Day == 25 ) && !_weekend:
                 case 12 when ( dateTime.Day == 26 ) && _monday:
-
                     return true;
                 default:
-
                     return false;
             }
         }
