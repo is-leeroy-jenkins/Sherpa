@@ -1,12 +1,12 @@
-﻿// ******************************************************************************************
+﻿// ************************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:              19-10-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="Static.cs" company="Terry D. Eppler">
+//     Last Modified On:        14-11-2023
+// ************************************************************************************************
+// <copyright file="Static.cs.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -31,13 +31,12 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Static.cs
+//   Eppler, Terry.cs
 // </summary>
-// ******************************************************************************************
-
+// ************************************************************************************************
 namespace BudgetExecution
 {
     using System;
@@ -65,31 +64,22 @@ namespace BudgetExecution
                 {
                     case "String":
                     case "Boolean":
-
                     {
                         return "Text";
                     }
-
                     case "DateTime":
-
                     {
                         return "Date";
                     }
-
                     case "Int32":
-
                     {
                         return "Double";
                     }
-
                     case "Decimal":
-
                     {
                         return "Currency";
                     }
-
                     default:
-
                     {
                         return type.Name;
                     }
@@ -111,7 +101,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( sql, "sql" );
+                ThrowIf.NullOrEmpty( sql, nameof( sql ) );
                 var _command = connection?.CreateCommand( );
                 _command.CommandText = sql;
                 return !string.IsNullOrEmpty( _command?.CommandText )
@@ -133,7 +123,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( sql, "sql" );
+                ThrowIf.NullOrEmpty( sql, nameof( sql ) );
                 using var _command = connection?.CreateCommand( sql );
                 return _command?.ExecuteNonQuery( ) ?? 0;
             }
@@ -152,7 +142,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( message, "message" );
+                ThrowIf.NullOrEmpty( message, nameof( message ) );
                 var _stringBuilder = new StringBuilder( );
                 _stringBuilder.Append( message );
                 _stringBuilder.Append( Environment.NewLine );
@@ -242,8 +232,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

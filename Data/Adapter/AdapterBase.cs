@@ -63,36 +63,60 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class AdapterBase : DbDataAdapter, ISource, IProvider
     {
-        /// <summary> Gets or sets the data connection. </summary>
-        /// <value> The data connection. </value>
+        /// <summary>
+        /// Gets or sets the data connection.
+        /// </summary>
+        /// <value>
+        /// The data connection.
+        /// </value>
         public virtual DbConnection DataConnection { get; set; }
 
-        /// <summary> Gets or sets the SQL statement. </summary>
-        /// <value> The SQL statement. </value>
+        /// <summary>
+        /// Gets or sets the SQL statement.
+        /// </summary>
+        /// <value>
+        /// The SQL statement.
+        /// </value>
         public virtual ISqlStatement SqlStatement { get; set; }
 
-        /// <summary> Gets or sets the connection factory. </summary>
-        /// <value> The connection factory. </value>
+        /// <summary>
+        /// Gets or sets the connection factory.
+        /// </summary>
+        /// <value>
+        /// The connection factory.
+        /// </value>
         public virtual IConnectionFactory ConnectionFactory { get; set; }
 
-        /// <summary> Gets or sets the commands. </summary>
-        /// <value> The commands. </value>
+        /// <summary>
+        /// Gets or sets the commands.
+        /// </summary>
+        /// <value>
+        /// The commands.
+        /// </value>
         public virtual IDictionary<string, DbCommand> Commands { get; set; }
 
-        /// <summary> Gets or sets the command factory. </summary>
-        /// <value> The command factory. </value>
+        /// <summary>
+        /// Gets or sets the command factory.
+        /// </summary>
+        /// <value> The command factory.
+        /// </value>
         public virtual ICommandFactory CommandFactory { get; set; }
 
-        /// <summary> Gets or sets the command text. </summary>
+        /// <summary>
+        /// Gets or sets the command text.
+        /// </summary>
         /// <value> The command text. </value>
         public virtual string CommandText { get; set; }
 
         /// <inheritdoc/>
-        /// <summary> </summary>
+        /// <summary>
+        /// </summary>
         public virtual Provider Provider { get; set; }
 
         /// <inheritdoc/>
-        /// <summary> Gets the source. </summary>
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
         public virtual Source Source { get; set; }
 
         /// <inheritdoc/>

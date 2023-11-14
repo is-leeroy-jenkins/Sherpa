@@ -59,24 +59,44 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public class BudgetFiscalYears : FiscalYear 
     {
-        /// <summary> Gets or sets the availability. </summary>
-        /// <value> The availability. </value>
+        /// <summary>
+        /// Gets or sets the availability.
+        /// </summary>
+        /// <value>
+        /// The availability.
+        /// </value>
         public string Availability { get; set; }
 
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public Source Source { get; set; }
 
-        /// <summary> Gets or sets the record. </summary>
-        /// <value> The record. </value>
+        /// <summary>
+        /// Gets or sets the record.
+        /// </summary>
+        /// <value>
+        /// The record.
+        /// </value>
         public DataRow Record { get; set; }
 
-        /// <summary> Gets or sets the holidays. </summary>
-        /// <value> The holidays. </value>
+        /// <summary>
+        /// Gets or sets the holidays.
+        /// </summary>
+        /// <value>
+        /// The holidays.
+        /// </value>
         public HolidayFactory Holidays { get; set; }
 
-        /// <summary> Gets or sets the federal holidays. </summary>
-        /// <value> The federal holidays. </value>
+        /// <summary>
+        /// Gets or sets the federal holidays.
+        /// </summary>
+        /// <value>
+        /// The federal holidays.
+        /// </value>
         public IDictionary<Holiday, DateOnly> FederalHolidays { get; set; }
 
         /// <summary>
