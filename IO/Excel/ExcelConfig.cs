@@ -248,7 +248,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotExists( filePath, "filePath" );
+                ThrowIf.NotExists( filePath, nameof( filePath ) );
                 FilePath = GetFileName( filePath );
             }
             catch( Exception _ex )
@@ -266,7 +266,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( filePath, "filePath" );
+                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
                 FilePath = GetFileNameWithoutExtension( filePath );
             }
             catch( Exception _ex )
@@ -285,11 +285,11 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotExists( filePath, "filePath" );
+                ThrowIf.NotExists( filePath, nameof( filePath ) );
                 var _path = GetExtension( filePath );
                 if( _path != null )
                 {
-                    var _extension = (EXT) Enum.Parse( typeof( EXT ), _path );
+                    var _extension = (EXT)Enum.Parse( typeof( EXT ), _path );
                     return Enum.IsDefined( typeof( EXT ), _extension )
                         ? _extension
                         : default( EXT );
@@ -315,8 +315,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( extension, "extension" );
-                ThrowIf.NotExists( filePath, "filePath" );
+                ThrowIf.NullOrEmpty( extension, nameof( extension ) );
+                ThrowIf.NotExists( filePath, nameof( filePath ) );
                 switch( extension?.ToUpper( ) )
                 {
                     case ".XLS":
@@ -361,8 +361,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( grid, "grid" );
-                ThrowIf.NullOrEmpty( text, "text" );
+                ThrowIf.Null( grid, nameof( grid ) );
+                ThrowIf.NullOrEmpty( text, nameof( text ) );
                 using var _range = grid?.Range;
                 var _excelComment = _range?.AddComment( text, "Budget" );
                 if( _excelComment != null )
@@ -393,7 +393,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( grid, "grid" );
+                ThrowIf.Null( grid, nameof( grid ) );
                 using var _sheet = grid.Worksheet;
                 var _row = grid.Range.Start.Row;
                 var _column = grid.Range.Start.Column;
@@ -421,8 +421,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( grid, "grid" );
-                ThrowIf.NoElements( text, "text" );
+                ThrowIf.Null( grid, nameof( grid ) );
+                ThrowIf.NoData( text, nameof( text ) );
                 foreach( var _cell in grid.Range )
                 {
                     foreach( var _caption in text )

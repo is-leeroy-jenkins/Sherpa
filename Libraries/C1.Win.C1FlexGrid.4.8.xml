@@ -136,8 +136,8 @@
 		<member name="T:GrapeCity.Common.Resources.LicenseDialogWebLinkTarget">
 			<summary>Represents the target web site for the link in license dialog.</summary>
 		</member>
-		<member name="F:GrapeCity.Common.Resources.LicenseDialogWebLinkTarget.None">
-			<summary>None target.</summary>
+		<member name="F:GrapeCity.Common.Resources.LicenseDialogWebLinkTarget.NoData">
+			<summary>NoData target.</summary>
 		</member>
 		<member name="F:GrapeCity.Common.Resources.LicenseDialogWebLinkTarget.GotoWebFAQ">
 			<summary>Goto web site http://www.grapecity.com/support/portal/.</summary>
@@ -571,7 +571,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.TreeViewBorderStyleEnum.ColumnsHeaderOnly">
 			<summary>Borders are shown only for headers of columns.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.TreeViewBorderStyleEnum.None">
+		<member name="F:C1.Win.C1Themes.Shared.TreeViewBorderStyleEnum.NoData">
 			<summary>No borders.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.TreeViewBorderStyleEnum.ColumnsLineOnly">
@@ -628,7 +628,7 @@
 		<member name="T:C1.Win.C1Themes.Shared.BorderType">
 			<summary>Used in: C1TrueDBGrid\GridBorder</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.BorderType.None">
+		<member name="F:C1.Win.C1Themes.Shared.BorderType.NoData">
 			<summary>No borders.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.BorderType.Flat">
@@ -712,7 +712,7 @@
 		<member name="T:C1.Win.C1Themes.Shared.LineStyle">
 			<summary>Used in: C1TrueDBGrid\GridLines</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.LineStyle.None">
+		<member name="F:C1.Win.C1Themes.Shared.LineStyle.NoData">
 			<summary>No line.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.LineStyle.Single">
@@ -777,7 +777,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.WeekTabStyle.Office2016">
 			<summary>Week tabs of Office2016 appearance.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.BackgroundGradient.None">
+		<member name="F:C1.Win.C1Themes.Shared.BackgroundGradient.NoData">
 			<summary>Use no background gradient.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.BackgroundGradient.Automatic">
@@ -798,7 +798,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.BackgroundGradient.Vista">
 			<summary>Use the Vista-style background gradient.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.GradientMode.None">
+		<member name="F:C1.Win.C1Themes.Shared.GradientMode.NoData">
 			<summary>No gradient.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.GradientMode.Horizontal">
@@ -918,7 +918,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.TextDirection.Down">
 			<summary>Text is draw vertically, from the top down.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.RadialMenuTooltipPosition.None">
+		<member name="F:C1.Win.C1Themes.Shared.RadialMenuTooltipPosition.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.RadialMenuTooltipPosition.Left">
@@ -970,7 +970,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Flex_BorderDirEnum.Vertical">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Flex_BorderStyleEnum.None">
+		<member name="F:C1.Win.C1Themes.Shared.Flex_BorderStyleEnum.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Flex_BorderStyleEnum.Flat">
@@ -1006,7 +1006,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Flex_DisplayEnum.Stack">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Flex_DisplayEnum.None">
+		<member name="F:C1.Win.C1Themes.Shared.Flex_DisplayEnum.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Flex_ImageAlignEnum.LeftTop">
@@ -1105,7 +1105,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Flex_TextEffectEnum.Inset">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Flex_TreeStyleFlags.None">
+		<member name="F:C1.Win.C1Themes.Shared.Flex_TreeStyleFlags.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Flex_TreeStyleFlags.Lines">
@@ -1132,7 +1132,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Flex_TreeStyleFlags.SimpleLeaf">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Flex_FocusRectEnum.None">
+		<member name="F:C1.Win.C1Themes.Shared.Flex_FocusRectEnum.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Flex_FocusRectEnum.Light">
@@ -1150,7 +1150,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Flex_FocusRectEnum.Inset">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Gantt_BarShape.None">
+		<member name="F:C1.Win.C1Themes.Shared.Gantt_BarShape.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Gantt_BarShape.ThickBar">
@@ -1225,7 +1225,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Gantt_HatchPattern.ZigZag">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Gantt_TaskProperty.None">
+		<member name="F:C1.Win.C1Themes.Shared.Gantt_TaskProperty.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Gantt_TaskProperty.Name">
@@ -1270,7 +1270,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Gantt_TaskProperty.Notes">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Gantt_ProgressLineStyle.None">
+		<member name="F:C1.Win.C1Themes.Shared.Gantt_ProgressLineStyle.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Gantt_ProgressLineStyle.Solid">
@@ -1405,7 +1405,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Chart_ColorGeneration.Verve">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Chart_GradientStyleEnum.None">
+		<member name="F:C1.Win.C1Themes.Shared.Chart_GradientStyleEnum.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Chart_GradientStyleEnum.Horizontal">
@@ -1438,7 +1438,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Chart_GradientStyleEnum.FromCenter">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Chart_HatchStyleEnum.None">
+		<member name="F:C1.Win.C1Themes.Shared.Chart_HatchStyleEnum.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Chart_HatchStyleEnum.Horizontal">
@@ -1642,7 +1642,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Chart_BorderStyleEnum.NotSet">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Chart_BorderStyleEnum.None">
+		<member name="F:C1.Win.C1Themes.Shared.Chart_BorderStyleEnum.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Chart_BorderStyleEnum.Empty">
@@ -1741,7 +1741,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.ThemeVisualStyle.WindowsXP">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.C1GaugeBorderStyle.None">
+		<member name="F:C1.Win.C1Themes.Shared.C1GaugeBorderStyle.NoData">
 			<summary>Hides the border.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.C1GaugeBorderStyle.Solid">
@@ -1774,7 +1774,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.C1MapDashStyle.DashDotDot">
 			<summary>Specifies a line consisting of a repeating pattern of dash-dot-dot.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.C1MapGradientStyle.None">
+		<member name="F:C1.Win.C1Themes.Shared.C1MapGradientStyle.NoData">
 			<summary>No gradient filling.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.C1MapGradientStyle.Horizontal">
@@ -3121,7 +3121,7 @@
 		<member name="T:C1.Win.C1FlexGrid.ConditionOperator">
 			<summary>Represents operators used in filter conditions.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.ConditionOperator.None">
+		<member name="F:C1.Win.C1FlexGrid.ConditionOperator.NoData">
 			<summary>Disables the operator.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.ConditionOperator.Equals">
@@ -3189,7 +3189,7 @@
 			<summary>
 				Clears this condition by setting the
 				<see cref="P:C1.Win.C1FlexGrid.Condition.Operator"/>
-				to 'None' and the
+				to 'NoData' and the
 				<see cref="P:C1.Win.C1FlexGrid.Condition.Parameter"/>
 				to null.
 			</summary>
@@ -3272,7 +3272,7 @@
 		<member name="F:C1.Win.C1FlexGrid.AllowFiltering.Custom">
 			<summary>Filter column using a filter specified by the caller.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.AllowFiltering.None">
+		<member name="F:C1.Win.C1FlexGrid.AllowFiltering.NoData">
 			<summary>Do not provide a filter for this column.</summary>
 		</member>
 		<member name="T:C1.Win.C1FlexGrid.GridFilterHandler">
@@ -3960,14 +3960,14 @@
 		<member name="M:C1.Win.C1FlexGrid.IC1EmbeddedEditor.C1EditorGetStyle">
 			<summary>
 				Gets the editor style, which determines the type of button that is displayed in the
-				cell before and during editing (DropDown, Modal, or None).
+				cell before and during editing (DropDown, Modal, or NoData).
 			</summary>
 			<remarks>
 				<para>
 					The default handler returns
 					<b>DropDown</b>
 					for ComboBoxes, DateTimePickers, and UpDown controls. It returns
-					<b>None</b>
+					<b>NoData</b>
 					for other control types.
 				</para>
 				<para>
@@ -3980,7 +3980,7 @@
 					,
 					<b>Modal</b>
 					, and
-					<b>None</b>
+					<b>NoData</b>
 					.
 				</para>
 			</remarks>
@@ -4237,7 +4237,7 @@
 			<summary>Specifies constants that define the grid's column pinning capabilities.
 			</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.AllowPinning.None">
+		<member name="F:C1.Win.C1FlexGrid.AllowPinning.NoData">
 			<summary>Users cannot pin columns.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.AllowPinning.SingleColumn">
@@ -4253,7 +4253,7 @@
 		<member name="T:C1.Win.C1FlexGrid.ColumnPickerSearchMode">
 			<summary>Types of the Column picker search.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.ColumnPickerSearchMode.None">
+		<member name="F:C1.Win.C1FlexGrid.ColumnPickerSearchMode.NoData">
 			<summary>No search.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.ColumnPickerSearchMode.Highlight">
@@ -4262,7 +4262,7 @@
 		<member name="T:C1.Win.C1FlexGrid.EditorValidationFailedReason">
 			<summary>Specifies a reason why validation of editor value failed.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.None">
+		<member name="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.NoData">
 			<summary>Validation of editor value didn't fail.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.Required">
@@ -5005,7 +5005,7 @@
 		<member name="T:C1.Win.C1FlexGrid.AllowMergingEnum">
 			<summary>Specifies how adjacent cells are merged for display.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.AllowMergingEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.AllowMergingEnum.NoData">
 			<summary>Do not merge any cells.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.AllowMergingEnum.Free">
@@ -5135,7 +5135,7 @@
 					To create tables with merged cells, set the
 					<see cref="P:C1.Win.C1FlexGrid.C1FlexGrid.AllowMerging"/>
 					property to a value other than
-					<see cref="F:C1.Win.C1FlexGrid.AllowMergingEnum.None"/>
+					<see cref="F:C1.Win.C1FlexGrid.AllowMergingEnum.NoData"/>
 					, and set the
 					<see cref="P:C1.Win.C1FlexGrid.RowCol.AllowMerging"/>
 					property of individual rows and columns true for the rows and columns you wish
@@ -5678,7 +5678,7 @@
 				mouse.
 			</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.AllowResizingEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.AllowResizingEnum.NoData">
 			<summary>The user may not resize rows or columns.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.AllowResizingEnum.Columns">
@@ -5719,7 +5719,7 @@
 				mouse.
 			</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.AllowFreezingEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.AllowFreezingEnum.NoData">
 			<summary>The user may not freeze rows or columns.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.AllowFreezingEnum.Columns">
@@ -5742,7 +5742,7 @@
 				mouse.
 			</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.AllowDraggingEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.AllowDraggingEnum.NoData">
 			<summary>The user may not drag rows or columns.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.AllowDraggingEnum.Columns">
@@ -5758,7 +5758,7 @@
 			<summary>Specifies whether the user should be able to sort columns with the mouse.
 			</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.AllowSortingEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.AllowSortingEnum.NoData">
 			<summary>The user may not sort columns with the mouse.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.AllowSortingEnum.SingleColumn">
@@ -5823,7 +5823,7 @@
 		<member name="T:C1.Win.C1FlexGrid.FocusRectEnum">
 			<summary>Specifies the appearance of the focus rectangle.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.FocusRectEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.FocusRectEnum.NoData">
 			<summary>No focus rectangle.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.FocusRectEnum.Light">
@@ -5852,7 +5852,7 @@
 		<member name="T:C1.Win.C1FlexGrid.AutoSizeFlags">
 			<summary>Specifies options that control auto-sizing.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.AutoSizeFlags.None">
+		<member name="F:C1.Win.C1FlexGrid.AutoSizeFlags.NoData">
 			<summary>Default behavior.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.AutoSizeFlags.SameSize">
@@ -5946,7 +5946,7 @@
 		<member name="T:C1.Win.C1FlexGrid.EditFlags">
 			<summary>Specifies options that customize the grid's editing behavior.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.EditFlags.None">
+		<member name="F:C1.Win.C1FlexGrid.EditFlags.NoData">
 			<summary>No special behavior.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.EditFlags.AutoSearch">
@@ -5996,7 +5996,7 @@
 				.
 			</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.ShowThemedHeadersEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.ShowThemedHeadersEnum.NoData">
 			<summary>Do not use themed headers.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.ShowThemedHeadersEnum.Rows">
@@ -6017,7 +6017,7 @@
 		<member name="T:C1.Win.C1FlexGrid.ScrollFlags">
 			<summary>Specifies options that customize scrollbar behavior.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.ScrollFlags.None">
+		<member name="F:C1.Win.C1FlexGrid.ScrollFlags.NoData">
 			<summary>Use the default scrolling behavior.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.ScrollFlags.AlwaysVisible">
@@ -6067,7 +6067,7 @@
 			<summary>Specifies the position of the sort glyphs within the column header cells.
 			</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.ShowSortPositionEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.ShowSortPositionEnum.NoData">
 			<summary>Do not show sort glyphs.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.ShowSortPositionEnum.Right">
@@ -9000,7 +9000,7 @@
 				</para>
 				<para>
 					If the focus rectangle is hidden (using the
-					<see cref="F:C1.Win.C1FlexGrid.FocusRectEnum.None"/>
+					<see cref="F:C1.Win.C1FlexGrid.FocusRectEnum.NoData"/>
 					setting), the current cell is painted using the
 					<see cref="P:C1.Win.C1FlexGrid.CellStyleCollection.Highlight"/>
 					style.
@@ -10563,7 +10563,7 @@
 				moving the focus to the next control in the tab order. If you set the
 				<see cref="P:C1.Win.C1FlexGrid.C1FlexGridBase.KeyActionTab"/>
 				property to a value other than
-				<see cref="F:C1.Win.C1FlexGrid.KeyActionEnum.None"/>
+				<see cref="F:C1.Win.C1FlexGrid.KeyActionEnum.NoData"/>
 				, the grid will trap the TAB key and use it for navigating cells.
 			</remarks>
 		</member>
@@ -12567,7 +12567,7 @@
 				</para>
 				<para>
 					If set to
-					<see cref="F:C1.Win.C1FlexGrid.DropModeEnum.None"/>
+					<see cref="F:C1.Win.C1FlexGrid.DropModeEnum.NoData"/>
 					(the default value), the control does not act as a drop target.
 				</para>
 				<para>
@@ -14666,7 +14666,7 @@
 				Gets or sets en expression for the cell. It is used if the
 				<see cref="P:C1.Win.C1FlexGrid.AggregateDefinition.Aggregate"/>
 				property is not set (equals
-				<see cref="F:C1.Win.C1FlexGrid.AggregateEnum.None"/>
+				<see cref="F:C1.Win.C1FlexGrid.AggregateEnum.NoData"/>
 				).
 			</summary>
 		</member>
@@ -14684,7 +14684,7 @@
 				</code>
 			</example>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.SortFlags.None">
+		<member name="F:C1.Win.C1FlexGrid.SortFlags.NoData">
 			<summary>Do not sort. This setting is useful for skipping certain columns when sorting
 				column ranges.
 			</summary>
@@ -14772,7 +14772,7 @@
 				</para>
 			</remarks>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.CheckEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.CheckEnum.NoData">
 			<summary>No check box.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.CheckEnum.Checked">
@@ -14802,7 +14802,7 @@
 				methods.
 			</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.AggregateEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.AggregateEnum.NoData">
 			<summary>
 				No aggregate. This setting is used with the
 				<see cref="M:C1.Win.C1FlexGrid.C1FlexGridBase.Subtotal(C1.Win.C1FlexGrid.AggregateEnum,System.Int32,System.Int32,System.Int32,System.Int32,System.String,C1.Win.C1FlexGrid.AggregateFlags)"/>
@@ -14871,7 +14871,7 @@
 				method.
 			</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.AggregateFlags.None">
+		<member name="F:C1.Win.C1FlexGrid.AggregateFlags.NoData">
 			<summary>Default setting. Include all rows and use numerical values only.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.AggregateFlags.ExcludeNodes">
@@ -14923,7 +14923,7 @@
 				event.
 			</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.GridChangedTypeEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.GridChangedTypeEnum.NoData">
 			<summary>No action.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.GridChangedTypeEnum.GridChanged">
@@ -15484,7 +15484,7 @@
 		<member name="T:C1.Win.C1FlexGrid.DropModeEnum">
 			<summary>Specifies the behavior of the control as an OLE drag-drop target.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.DropModeEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.DropModeEnum.NoData">
 			<summary>The control can't be used as a drop target.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.DropModeEnum.Manual">
@@ -16728,7 +16728,7 @@
 				property.
 			</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.AutoSearchEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.AutoSearchEnum.NoData">
 			<summary>No auto-searching.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.AutoSearchEnum.FromTop">
@@ -16741,7 +16741,7 @@
 			<summary>Specifies the action to perform when the ENTER and TAB keys are pressed.
 			</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.KeyActionEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.KeyActionEnum.NoData">
 			<summary>
 				No special action (allow system to handle the key). For example, the TAB key is
 				normally used to cycle through the controls on a form.
@@ -16780,7 +16780,7 @@
 		<member name="T:C1.Win.C1FlexGrid.HitTestTypeEnum">
 			<summary>Type of grid element at a specific point on the control.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.HitTestTypeEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.HitTestTypeEnum.NoData">
 			<summary>The point is in the grid's empty area.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.HitTestTypeEnum.Cell">
@@ -17771,7 +17771,7 @@
 					To create tables with merged cells, you must set the
 					<see cref="P:C1.Win.C1FlexGrid.RowCol.AllowMerging"/>
 					property to a value other than
-					<see cref="F:C1.Win.C1FlexGrid.AllowMergingEnum.None"/>
+					<see cref="F:C1.Win.C1FlexGrid.AllowMergingEnum.NoData"/>
 					, and then set the
 					<see cref="P:C1.Win.C1FlexGrid.RowCol.AllowMerging"/>
 					property of individual rows and columns true for the rows and columns you wish
@@ -19644,7 +19644,7 @@
 		<member name="T:C1.Win.C1FlexGrid.MoveCursorEnum">
 			<summary>This enumeration is for internal use only.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.MoveCursorEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.MoveCursorEnum.NoData">
 			<summary>No movement.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.MoveCursorEnum.CellPrev">
@@ -20016,7 +20016,7 @@
 		<member name="F:C1.Win.C1FlexGrid.DisplayEnum.Stack">
 			<summary>Display the text next to the image.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.DisplayEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.DisplayEnum.NoData">
 			<summary>Nothing (cell stays blank).</summary>
 		</member>
 		<member name="T:C1.Win.C1FlexGrid.TextDirectionEnum">
@@ -20034,7 +20034,7 @@
 		<member name="T:C1.Win.C1FlexGrid.BorderStyleEnum">
 			<summary>Specifies the type of cell border to display.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.BorderStyleEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.BorderStyleEnum.NoData">
 			<summary>No border.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.BorderStyleEnum.Flat">
@@ -20085,7 +20085,7 @@
 				</para>
 			</remarks>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.StyleElementFlags.None">
+		<member name="F:C1.Win.C1FlexGrid.StyleElementFlags.NoData">
 			<summary>No elements are defined.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.StyleElementFlags.Font">
@@ -21194,7 +21194,7 @@
 		<member name="T:C1.Win.C1FlexGrid.TreeStyleFlags">
 			<summary>Specifies the appearance of the outline tree.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.TreeStyleFlags.None">
+		<member name="F:C1.Win.C1FlexGrid.TreeStyleFlags.NoData">
 			<summary>Do not show the outline tree.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.TreeStyleFlags.Lines">
@@ -22103,7 +22103,7 @@
 		<member name="T:C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum">
 			<summary>Specifies the type of border to be drawn around the control.</summary>
 		</member>
-		<member name="F:C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.None">
+		<member name="F:C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.NoData">
 			<summary>No border.</summary>
 		</member>
 		<member name="F:C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.FixedSingle">
@@ -22522,7 +22522,7 @@
 				The value to check.
 			</param>
 			<returns>
-				<see cref="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.None"/>
+				<see cref="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.NoData"/>
 				if the value is valid; otherwise,
 				<see cref="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.Compare"/>
 				.
@@ -22543,7 +22543,7 @@
 				The value to check.
 			</param>
 			<returns>
-				<see cref="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.None"/>
+				<see cref="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.NoData"/>
 				if the value is valid; otherwise,
 				<see cref="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.Range"/>
 				.
@@ -22562,7 +22562,7 @@
 				The value to check.
 			</param>
 			<returns>
-				<see cref="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.None"/>
+				<see cref="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.NoData"/>
 				if the value is valid; otherwise,
 				<see cref="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.Required"/>
 				.
@@ -22585,7 +22585,7 @@
 				The value to check.
 			</param>
 			<returns>
-				<see cref="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.None"/>
+				<see cref="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.NoData"/>
 				if the value is valid; otherwise,
 				<see cref="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.StringLength"/>
 				.
@@ -22605,7 +22605,7 @@
 				The value to check.
 			</param>
 			<returns>
-				<see cref="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.None"/>
+				<see cref="F:C1.Win.C1FlexGrid.EditorValidationFailedReason.NoData"/>
 				if the value is valid; otherwise, value of corresponding reason.
 			</returns>
 			<remarks>

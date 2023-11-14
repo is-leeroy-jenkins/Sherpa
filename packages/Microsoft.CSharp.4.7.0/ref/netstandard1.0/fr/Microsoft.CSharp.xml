@@ -193,7 +193,7 @@
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.NamedArgument">
 			<summary>L'argument est un argument nommé.</summary>
 		</member>
-		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.None">
+		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.NoData">
 			<summary>Aucune information supplémentaire à représenter.</summary>
 		</member>
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.UseCompileTimeType">
@@ -230,7 +230,7 @@
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.InvokeSpecialName">
 			<summary>Le classeur représente un appel sur un nom spécial.</summary>
 		</member>
-		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.None">
+		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.NoData">
 			<summary>Aucune information supplémentaire n'est requise pour ce classeur.</summary>
 		</member>
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.ResultDiscarded">

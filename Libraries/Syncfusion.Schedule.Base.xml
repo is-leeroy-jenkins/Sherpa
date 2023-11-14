@@ -847,7 +847,7 @@
 				The Point is in the rectangle occupied by the MoreItemsBitmap.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Schedule.ItemHitType.None">
+		<member name="F:Syncfusion.Schedule.ItemHitType.NoData">
 			<summary>
 				There is no IScheduleAppointment item under the Point.
 			</summary>

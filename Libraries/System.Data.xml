@@ -9,7 +9,7 @@
                 function.
             </summary>
         </member>
-        <member name="F:Microsoft.SqlServer.Server.DataAccessKind.None">
+        <member name="F:Microsoft.SqlServer.Server.DataAccessKind.NoData">
             <summary>The method or function does not access user data.</summary>
         </member>
         <member name="F:Microsoft.SqlServer.Server.DataAccessKind.Read">
@@ -1465,7 +1465,7 @@
                 instance of SQL Server.
             </summary>
             <returns>
-                <see cref="T:Microsoft.SqlServer.Server.DataAccessKind"/>.<see langword="None"/>:
+                <see cref="T:Microsoft.SqlServer.Server.DataAccessKind"/>.<see langword="NoData"/>:
                 Does not access data.<see cref="T:Microsoft.SqlServer.Server.DataAccessKind"/>.<see
                 langword="Read"/>: Only reads user data.
             </returns>
@@ -1508,7 +1508,7 @@
                 catalogs or virtual system tables of SQL Server.
             </summary>
             <returns>
-                <see cref="T:Microsoft.SqlServer.Server.DataAccessKind"/>.<see langword="None"/>:
+                <see cref="T:Microsoft.SqlServer.Server.DataAccessKind"/>.<see langword="NoData"/>:
                 Does not access system data.<see
                 cref="T:Microsoft.SqlServer.Server.DataAccessKind"/>.<see langword="Read"/>: Only
                 reads system data.
@@ -3138,7 +3138,7 @@
                 function.
             </summary>
         </member>
-        <member name="F:Microsoft.SqlServer.Server.SystemDataAccessKind.None">
+        <member name="F:Microsoft.SqlServer.Server.SystemDataAccessKind.NoData">
             <summary>The method or function does not access system data.</summary>
         </member>
         <member name="F:Microsoft.SqlServer.Server.SystemDataAccessKind.Read">
@@ -3400,7 +3400,7 @@
         <member name="F:System.Data.AcceptRejectRule.Cascade">
             <summary>Changes are cascaded across the relationship.</summary>
         </member>
-        <member name="F:System.Data.AcceptRejectRule.None">
+        <member name="F:System.Data.AcceptRejectRule.NoData">
             <summary>No action occurs (default).</summary>
         </member>
         <member name="T:System.Data.CommandBehavior">
@@ -5696,7 +5696,7 @@
                 Invokes
                 <see
                     cref="M:System.Data.Common.DbCommand.ExecuteNonQueryAsync(System.Threading.CancellationToken)"/>
-                with CancellationToken.None.
+                with CancellationToken.NoData.
             </summary>
             <returns>A task representing the asynchronous operation.</returns>
             <exception cref="T:System.Data.Common.DbException">An error occurred while executing the
@@ -5765,7 +5765,7 @@
                 Invokes
                 <see
                     cref="M:System.Data.Common.DbCommand.ExecuteDbDataReaderAsync(System.Data.CommandBehavior,System.Threading.CancellationToken)"/>
-                with CancellationToken.None.
+                with CancellationToken.NoData.
             </summary>
             <returns>A task representing the asynchronous operation.</returns>
             <exception cref="T:System.Data.Common.DbException">An error occurred while executing the
@@ -5858,7 +5858,7 @@
                 Invokes
                 <see
                     cref="M:System.Data.Common.DbCommand.ExecuteScalarAsync(System.Threading.CancellationToken)"/>
-                with CancellationToken.None.
+                with CancellationToken.NoData.
             </summary>
             <returns>A task representing the asynchronous operation.</returns>
             <exception cref="T:System.Data.Common.DbException">An error occurred while executing the
@@ -5992,7 +5992,7 @@
                 values. The default is
                 <see langword="Both"/>
                 unless the command is automatically generated. Then the default is<see
-                    langword="None"/>.
+                    langword="NoData"/>.
             </returns>
         </member>
         <member name="T:System.Data.Common.DbCommandBuilder">
@@ -6486,7 +6486,7 @@
                 the virtual method
                 <see
                     cref="M:System.Data.Common.DbConnection.OpenAsync(System.Threading.CancellationToken)"/>
-                with CancellationToken.None.
+                with CancellationToken.NoData.
             </summary>
             <returns>A task representing the asynchronous operation.</returns>
         </member>
@@ -7939,7 +7939,7 @@
                 <see cref="T:System.Data.Common.DbDataAdapter"/>
                 must have their
                 <see cref="P:System.Data.IDbCommand.UpdatedRowSource"/>
-                property set to None or OutputParameters. An exception will be thrown otherwise.
+                property set to NoData or OutputParameters. An exception will be thrown otherwise.
             </returns>
         </member>
         <member name="P:System.Data.Common.DbDataAdapter.UpdateCommand">
@@ -8434,7 +8434,7 @@
             <param name="cancellationToken">The cancellation instruction, which propagates a
                 notification that operations should be canceled. This does not guarantee the
                 cancellation. A setting of
-                <see langword="CancellationToken.None"/>
+                <see langword="CancellationToken.NoData"/>
                 makes this method equivalent to<see
                     cref="M:System.Data.Common.DbDataReader.GetFieldValueAsync``1(System.Int32)"/>.
                 The returned task must be marked as cancelled.
@@ -8728,7 +8728,7 @@
             <param name="cancellationToken">The cancellation instruction, which propagates a
                 notification that operations should be canceled. This does not guarantee the
                 cancellation. A setting of
-                <see langword="CancellationToken.None"/>
+                <see langword="CancellationToken.NoData"/>
                 makes this method equivalent to<see
                     cref="M:System.Data.Common.DbDataReader.IsDBNullAsync(System.Int32)"/>. The
                 returned task must be marked as cancelled.
@@ -8795,7 +8795,7 @@
                 Invokes
                 <see
                     cref="M:System.Data.Common.DbDataReader.NextResultAsync(System.Threading.CancellationToken)"/>
-                with CancellationToken.None.
+                with CancellationToken.NoData.
             </summary>
             <returns>A task representing the asynchronous operation.</returns>
             <exception cref="T:System.Data.Common.DbException">An error occurred while executing the
@@ -8837,7 +8837,7 @@
                 which advances the reader to the next record in a result set. This method invokes
                 <see
                     cref="M:System.Data.Common.DbDataReader.ReadAsync(System.Threading.CancellationToken)"/>
-                with CancellationToken.None.
+                with CancellationToken.NoData.
             </summary>
             <returns>A task representing the asynchronous operation.</returns>
             <exception cref="T:System.Data.Common.DbException">An error occurred while executing the
@@ -10876,7 +10876,7 @@
         <member name="F:System.Data.Common.SupportedJoinOperators.LeftOuter">
             <summary>The data source supports left outer joins.</summary>
         </member>
-        <member name="F:System.Data.Common.SupportedJoinOperators.None">
+        <member name="F:System.Data.Common.SupportedJoinOperators.NoData">
             <summary>The data source does not support join queries.</summary>
         </member>
         <member name="F:System.Data.Common.SupportedJoinOperators.RightOuter">
@@ -13709,7 +13709,7 @@
                 cref="T:System.Data.DataRowCollection"/>.
             </summary>
             <param name="values">The array of values that are used to create the new row.</param>
-            <returns>None.</returns>
+            <returns>NoData.</returns>
             <exception cref="T:System.ArgumentException">The array is larger than the number of
                 columns in the table.
             </exception>
@@ -19370,8 +19370,8 @@
                 since been modified, it is available as<see langword="ModifiedCurrent"/>).
             </summary>
         </member>
-        <member name="F:System.Data.DataViewRowState.None">
-            <summary>None.</summary>
+        <member name="F:System.Data.DataViewRowState.NoData">
+            <summary>NoData.</summary>
         </member>
         <member name="F:System.Data.DataViewRowState.OriginalRows">
             <summary>Original rows including unchanged and deleted rows.</summary>
@@ -20152,19 +20152,19 @@
             </param>
             <param name="acceptRejectRule">One of the
                 <see cref="T:System.Data.AcceptRejectRule"/>
-                values. Possible values include<see langword="None"/>,<see langword="Cascade"/>, and
+                values. Possible values include<see langword="NoData"/>,<see langword="Cascade"/>, and
                 <see langword="Default"/>.
             </param>
             <param name="deleteRule">One of the
                 <see cref="T:System.Data.Rule"/>
                 values to use when a row is deleted. The default is<see langword="Cascade"/>.
-                Possible values include:<see langword="None"/>,<see langword="Cascade"/>,<see
+                Possible values include:<see langword="NoData"/>,<see langword="Cascade"/>,<see
                     langword="SetNull"/>,<see langword="SetDefault"/>, and<see langword="Default"/>.
             </param>
             <param name="updateRule">One of the
                 <see cref="T:System.Data.Rule"/>
                 values to use when a row is updated. The default is<see langword="Cascade"/>.
-                Possible values include:<see langword="None"/>,<see langword="Cascade"/>,<see
+                Possible values include:<see langword="NoData"/>,<see langword="Cascade"/>,<see
                     langword="SetNull"/>,<see langword="SetDefault"/>, and<see langword="Default"/>.
             </param>
             <exception cref="T:System.ArgumentNullException">One or both of the columns is<see
@@ -20208,19 +20208,19 @@
             </param>
             <param name="acceptRejectRule">One of the
                 <see cref="T:System.Data.AcceptRejectRule"/>
-                values. Possible values include<see langword="None"/>,<see langword="Cascade"/>, and
+                values. Possible values include<see langword="NoData"/>,<see langword="Cascade"/>, and
                 <see langword="Default"/>.
             </param>
             <param name="deleteRule">One of the
                 <see cref="T:System.Data.Rule"/>
                 values to use when a row is deleted. The default is<see langword="Cascade"/>.
-                Possible values include:<see langword="None"/>,<see langword="Cascade"/>,<see
+                Possible values include:<see langword="NoData"/>,<see langword="Cascade"/>,<see
                     langword="SetNull"/>,<see langword="SetDefault"/>, and<see langword="Default"/>.
             </param>
             <param name="updateRule">One of the
                 <see cref="T:System.Data.Rule"/>
                 values to use when a row is updated. The default is<see langword="Cascade"/>.
-                Possible values include:<see langword="None"/>,<see langword="Cascade"/>,<see
+                Possible values include:<see langword="NoData"/>,<see langword="Cascade"/>,<see
                     langword="SetNull"/>,<see langword="SetDefault"/>, and<see langword="Default"/>.
             </param>
             <exception cref="T:System.ArgumentNullException">One or both of the columns is<see
@@ -20239,8 +20239,8 @@
             </summary>
             <returns>One of the
                 <see cref="T:System.Data.AcceptRejectRule"/>
-                values. Possible values include<see langword="None"/>, and<see langword="Cascade"/>.
-                The default is<see langword="None"/>.
+                values. Possible values include<see langword="NoData"/>, and<see langword="Cascade"/>.
+                The default is<see langword="NoData"/>.
             </returns>
         </member>
         <member name="P:System.Data.ForeignKeyConstraint.Columns">
@@ -21132,7 +21132,7 @@
                 values. The default is
                 <see langword="Both"/>
                 unless the command is automatically generated. Then the default is<see
-                    langword="None"/>.
+                    langword="NoData"/>.
             </returns>
             <exception cref="T:System.ArgumentException">The value entered was not one of the
                 <see cref="T:System.Data.UpdateRowSource"/>
@@ -28278,7 +28278,7 @@
         <member name="F:System.Data.Rule.Cascade">
             <summary>Delete or update related rows. This is the default.</summary>
         </member>
-        <member name="F:System.Data.Rule.None">
+        <member name="F:System.Data.Rule.NoData">
             <summary>No action taken on related rows.</summary>
         </member>
         <member name="F:System.Data.Rule.SetDefault">
@@ -28991,7 +28991,7 @@
                 whose rows will be copied to the destination table.
             </param>
             <param name="cancellationToken">The cancellation instruction. A
-                <see cref="P:System.Threading.CancellationToken.None"/>
+                <see cref="P:System.Threading.CancellationToken.NoData"/>
                 value in this parameter makes this method equivalent to<see
                     cref="M:System.Data.SqlClient.SqlBulkCopy.WriteToServerAsync(System.Data.Common.DbDataReader)"/>
                 .
@@ -29065,7 +29065,7 @@
                 objects that will be copied to the destination table.
             </param>
             <param name="cancellationToken">The cancellation instruction. A
-                <see cref="P:System.Threading.CancellationToken.None"/>
+                <see cref="P:System.Threading.CancellationToken.NoData"/>
                 value in this parameter makes this method equivalent to<see
                     cref="M:System.Data.SqlClient.SqlBulkCopy.WriteToServerAsync(System.Data.DataTable)"/>
                 .
@@ -29220,7 +29220,7 @@
                 enumeration. Only rows matching the row state are copied to the destination.
             </param>
             <param name="cancellationToken">The cancellation instruction. A
-                <see cref="P:System.Threading.CancellationToken.None"/>
+                <see cref="P:System.Threading.CancellationToken.NoData"/>
                 value in this parameter makes this method equivalent to<see
                     cref="M:System.Data.SqlClient.SqlBulkCopy.WriteToServerAsync(System.Data.DataTable)"/>
                 .
@@ -29275,7 +29275,7 @@
                 whose rows will be copied to the destination table.
             </param>
             <param name="cancellationToken">The cancellation instruction. A
-                <see cref="P:System.Threading.CancellationToken.None"/>
+                <see cref="P:System.Threading.CancellationToken.NoData"/>
                 value in this parameter makes this method equivalent to<see
                     cref="M:System.Data.SqlClient.SqlBulkCopy.WriteToServerAsync(System.Data.DataTable)"/>
                 .
@@ -29385,7 +29385,7 @@
                 whose rows will be copied to the destination table.
             </param>
             <param name="cancellationToken">The cancellation instruction. A
-                <see cref="P:System.Threading.CancellationToken.None"/>
+                <see cref="P:System.Threading.CancellationToken.NoData"/>
                 value in this parameter makes this method equivalent to<see
                     cref="M:System.Data.SqlClient.SqlBulkCopy.WriteToServerAsync(System.Data.DataTable)"/>
                 .
@@ -33678,7 +33678,7 @@
                 When setting this to a value other than 1, all the commands associated with the
                 <see cref="T:System.Data.SqlClient.SqlDataAdapter"/>
                 have to have their UpdatedRowSource property set to
-                <see langword="None"/>
+                <see langword="NoData"/>
                 or<see langword="OutputParameters"/>. An exception is thrown otherwise.
             </returns>
         </member>
@@ -33894,7 +33894,7 @@
             <param name="cancellationToken">The cancellation instruction, which propagates a
                 notification that operations should be canceled. This does not guarantee the
                 cancellation. A setting of
-                <see langword="CancellationToken.None"/>
+                <see langword="CancellationToken.NoData"/>
                 makes this method equivalent to<see
                     cref="M:System.Data.SqlClient.SqlDataReader.IsDBNull(System.Int32)"/>. The
                 returned task must be marked as cancelled.
@@ -34412,7 +34412,7 @@
             <param name="cancellationToken">The cancellation instruction, which propagates a
                 notification that operations should be canceled. This does not guarantee the
                 cancellation. A setting of
-                <see langword="CancellationToken.None"/>
+                <see langword="CancellationToken.NoData"/>
                 makes this method equivalent to<see
                     cref="M:System.Data.SqlClient.SqlDataReader.IsDBNull(System.Int32)"/>. The
                 returned task must be marked as cancelled.
@@ -40519,7 +40519,7 @@
                 same characters written in half-width.
             </summary>
         </member>
-        <member name="F:System.Data.SqlTypes.SqlCompareOptions.None">
+        <member name="F:System.Data.SqlTypes.SqlCompareOptions.NoData">
             <summary>Specifies the default option settings for
                 <see cref="T:System.Data.SqlTypes.SqlString"/>
                 comparisons.
@@ -53402,7 +53402,7 @@
                 cref="T:System.Data.DataSet"/>.
             </summary>
         </member>
-        <member name="F:System.Data.UpdateRowSource.None">
+        <member name="F:System.Data.UpdateRowSource.NoData">
             <summary>Any returned parameters or rows are ignored.</summary>
         </member>
         <member name="F:System.Data.UpdateRowSource.OutputParameters">

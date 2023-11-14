@@ -164,7 +164,7 @@
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.NamedArgument">
 			<summary>인수가 명명된 인수입니다.</summary>
 		</member>
-		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.None">
+		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.NoData">
 			<summary>나타낼 추가 정보가 없습니다.</summary>
 		</member>
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.UseCompileTimeType">
@@ -192,7 +192,7 @@
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.InvokeSpecialName">
 			<summary>바인더는 특수한 이름에 대한 호출을 나타냅니다.</summary>
 		</member>
-		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.None">
+		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.NoData">
 			<summary>이 바인더에 필요한 추가 정보가 없습니다.</summary>
 		</member>
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.ResultDiscarded">

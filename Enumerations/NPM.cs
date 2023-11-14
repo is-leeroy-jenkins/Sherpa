@@ -46,7 +46,7 @@ namespace BudgetExecution
     /// <summary> Defines the NPM </summary>
     public enum NPM
     {
-        /// <summary> Defines the None </summary>
+        /// <summary> Defines the NoData </summary>
         Ns = 0,
 
         /// <summary> Defines the A </summary>

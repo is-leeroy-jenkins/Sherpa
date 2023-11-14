@@ -194,7 +194,7 @@
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.NamedArgument">
 			<summary>Аргумент является именованным аргументом.</summary>
 		</member>
-		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.None">
+		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.NoData">
 			<summary>Дополнительные сведения не представлены.</summary>
 		</member>
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.UseCompileTimeType">
@@ -229,7 +229,7 @@
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.InvokeSpecialName">
 			<summary>Связыватель представляет вызов по специальному имени.</summary>
 		</member>
-		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.None">
+		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.NoData">
 			<summary>Для данного связывателя не требуются дополнительные сведения.</summary>
 		</member>
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.ResultDiscarded">

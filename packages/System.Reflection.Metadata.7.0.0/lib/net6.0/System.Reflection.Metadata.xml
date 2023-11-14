@@ -47,11 +47,11 @@
 				</para>
 			</summary>
 		</member>
-		<member name="F:System.Reflection.AssemblyHashAlgorithm.None">
+		<member name="F:System.Reflection.AssemblyHashAlgorithm.NoData">
 			<summary>
 				<para>A mask indicating that there is no hash algorithm.</para>
 				<para>If you specify
-					<see cref="F:System.Reflection.AssemblyHashAlgorithm.None"/>
+					<see cref="F:System.Reflection.AssemblyHashAlgorithm.NoData"/>
 					for a multi-module assembly, the common language runtime defaults to the SHA1
 					algorithm, since multi-module assemblies need to generate a hash.
 				</para>
@@ -105,7 +105,7 @@
 			<summary>Check that the immediate caller has been granted the specified permission.
 			</summary>
 		</member>
-		<member name="F:System.Reflection.DeclarativeSecurityAction.None">
+		<member name="F:System.Reflection.DeclarativeSecurityAction.NoData">
 			<summary>No declarative security action.</summary>
 		</member>
 		<member name="F:System.Reflection.DeclarativeSecurityAction.PermitOnly">
@@ -2825,7 +2825,7 @@
 		<member name="T:System.Reflection.Metadata.Ecma335.FunctionPointerAttributes"/>
 		<member name="F:System.Reflection.Metadata.Ecma335.FunctionPointerAttributes.HasExplicitThis"/>
 		<member name="F:System.Reflection.Metadata.Ecma335.FunctionPointerAttributes.HasThis"/>
-		<member name="F:System.Reflection.Metadata.Ecma335.FunctionPointerAttributes.None"/>
+		<member name="F:System.Reflection.Metadata.Ecma335.FunctionPointerAttributes.NoData"/>
 		<member name="T:System.Reflection.Metadata.Ecma335.GenericTypeArgumentsEncoder"/>
 		<member name="M:System.Reflection.Metadata.Ecma335.GenericTypeArgumentsEncoder.#ctor(System.Reflection.Metadata.BlobBuilder)">
 			<param name="builder"/>
@@ -4523,7 +4523,7 @@
 				local memory.
 			</summary>
 		</member>
-		<member name="F:System.Reflection.Metadata.Ecma335.MethodBodyAttributes.None">
+		<member name="F:System.Reflection.Metadata.Ecma335.MethodBodyAttributes.NoData">
 			<summary>Performs no local memory initialization.</summary>
 		</member>
 		<member name="T:System.Reflection.Metadata.Ecma335.MethodBodyStreamEncoder">
@@ -6962,7 +6962,7 @@
 		<member name="P:System.Reflection.Metadata.LocalVariable.Name"/>
 		<member name="T:System.Reflection.Metadata.LocalVariableAttributes"/>
 		<member name="F:System.Reflection.Metadata.LocalVariableAttributes.DebuggerHidden"/>
-		<member name="F:System.Reflection.Metadata.LocalVariableAttributes.None"/>
+		<member name="F:System.Reflection.Metadata.LocalVariableAttributes.NoData"/>
 		<member name="T:System.Reflection.Metadata.LocalVariableHandle"/>
 		<member name="M:System.Reflection.Metadata.LocalVariableHandle.Equals(System.Object)">
 			<param name="obj"/>
@@ -7625,7 +7625,7 @@
 				argument.
 			</summary>
 		</member>
-		<member name="F:System.Reflection.Metadata.MetadataReaderOptions.None">
+		<member name="F:System.Reflection.Metadata.MetadataReaderOptions.NoData">
 			<summary>All options are disabled.</summary>
 		</member>
 		<member name="T:System.Reflection.Metadata.MetadataReaderProvider">
@@ -9248,7 +9248,7 @@
 				</para>
 			</summary>
 		</member>
-		<member name="F:System.Reflection.Metadata.SignatureAttributes.None">
+		<member name="F:System.Reflection.Metadata.SignatureAttributes.NoData">
 			<summary>No flags.</summary>
 		</member>
 		<member name="T:System.Reflection.Metadata.SignatureCallingConvention">
@@ -10180,7 +10180,7 @@
 				with charset-specific suffixes when searching for the imported method.
 			</summary>
 		</member>
-		<member name="F:System.Reflection.MethodImportAttributes.None">
+		<member name="F:System.Reflection.MethodImportAttributes.NoData">
 			<summary>Specifies default method import attributes.</summary>
 		</member>
 		<member name="F:System.Reflection.MethodImportAttributes.SetLastError">

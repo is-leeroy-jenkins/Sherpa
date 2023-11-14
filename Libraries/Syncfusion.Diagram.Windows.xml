@@ -731,7 +731,7 @@
 			</summary>
 			<value></value>
 			<returns>One of the values of <see cref="T:System.Windows.Forms.ImageLayout"></see> (<see
-					cref="F:System.Windows.Forms.ImageLayout.Center"></see> , <see cref="F:System.Windows.Forms.ImageLayout.None"></see>, <see
+					cref="F:System.Windows.Forms.ImageLayout.Center"></see> , <see cref="F:System.Windows.Forms.ImageLayout.NoData"></see>, <see
 					cref="F:System.Windows.Forms.ImageLayout.Stretch"></see>, <see cref="F:System.Windows.Forms.ImageLayout.Tile"></see>,
 				or <see cref="F:System.Windows.Forms.ImageLayout.Zoom"></see>). <see cref="F:System.Windows.Forms.ImageLayout.Tile"></see> is
 				the default value.
@@ -2386,7 +2386,7 @@
 				<see cref="T:System.Drawing.Design.UITypeEditor"/>
 				does not support this method, then
 				<see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle"/>
-				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None"/>.
+				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.NoData"/>.
 			</returns>
 		</member>
 		<member name="T:Syncfusion.Windows.Forms.Diagram.Controls.DocumentExplorer">
@@ -3026,7 +3026,7 @@
 				Rectangle marker
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Diagram.Controls.RectMarkers.None">
+		<member name="F:Syncfusion.Windows.Forms.Diagram.Controls.RectMarkers.NoData">
 			<summary>
 				No marker.
 			</summary>
@@ -3713,7 +3713,7 @@
 				<see cref="T:System.Drawing.Design.UITypeEditor"/>
 				does not support this method, then
 				<see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle"/>
-				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None"/>.
+				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.NoData"/>.
 			</returns>
 		</member>
 		<member name="T:Syncfusion.Windows.Forms.Diagram.Controls.PropertyEditor">
@@ -11742,7 +11742,7 @@
 				Single action tools.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Diagram.SingleActionTools.None">
+		<member name="F:Syncfusion.Windows.Forms.Diagram.SingleActionTools.NoData">
 			<summary>
 				No tool.
 			</summary>
@@ -12859,7 +12859,7 @@
 		</member>
 		<member name="P:Syncfusion.Diagram.Windows.Resources.Syncfusion_Diagram_Windows.PageSetupPrintZoomValue">
 			<summary>
-				Looks up a localized string similar to None.
+				Looks up a localized string similar to NoData.
 			</summary>
 		</member>
 		<member name="P:Syncfusion.Diagram.Windows.Resources.Syncfusion_Diagram_Windows.PageSetupZoomAdjustTo">

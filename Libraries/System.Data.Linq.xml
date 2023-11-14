@@ -104,7 +104,7 @@
 		<member name="F:System.Data.Linq.ChangeAction.Insert">
 			<summary>The entity will be inserted.</summary>
 		</member>
-		<member name="F:System.Data.Linq.ChangeAction.None">
+		<member name="F:System.Data.Linq.ChangeAction.NoData">
 			<summary>The entity will not be submitted.</summary>
 		</member>
 		<member name="F:System.Data.Linq.ChangeAction.Update">

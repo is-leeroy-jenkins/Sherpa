@@ -1810,7 +1810,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -1837,7 +1837,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -1870,7 +1870,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -1897,7 +1897,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -1930,7 +1930,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -1957,7 +1957,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -1990,7 +1990,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2017,7 +2017,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2050,7 +2050,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2077,7 +2077,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2110,7 +2110,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2137,7 +2137,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2170,7 +2170,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2197,7 +2197,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2230,7 +2230,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2257,7 +2257,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2295,7 +2295,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2322,7 +2322,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2355,7 +2355,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2382,7 +2382,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2415,7 +2415,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2425,7 +2425,7 @@
             {
             // Assign the filter effect values
             IFilterEffect filterEffect = (behavior as IFilterEffect);
-            filterEffect.Subtype = SubtypeFilterEffect.None;
+            filterEffect.Subtype = SubtypeFilterEffect.NoData;
             break;
             }
             }
@@ -2442,7 +2442,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2451,7 +2451,7 @@
             If (TypeOf behavior Is FilterEffect) Then
             'Assign the filter effect values
             Dim filterEffect As FilterEffect = TryCast(behavior,FilterEffect)
-            filterEffect.Subtype = SubtypeFilterEffect.None
+            filterEffect.Subtype = SubtypeFilterEffect.NoData
             Exit For
             End If
             Next
@@ -2480,7 +2480,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2509,7 +2509,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2544,7 +2544,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2573,7 +2573,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2608,7 +2608,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2637,7 +2637,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2672,7 +2672,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2701,7 +2701,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2736,7 +2736,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2763,7 +2763,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2796,7 +2796,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2826,7 +2826,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2862,7 +2862,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2889,7 +2889,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2922,7 +2922,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -2949,7 +2949,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -2987,7 +2987,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -3014,7 +3014,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -3047,7 +3047,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -3074,7 +3074,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -3107,7 +3107,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -3134,7 +3134,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -3167,7 +3167,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -3194,7 +3194,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -3227,7 +3227,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -3254,7 +3254,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -3287,7 +3287,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -3317,7 +3317,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -3358,7 +3358,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Teeter, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Teeter, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -3385,7 +3385,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Teeter, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Teeter, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -3418,7 +3418,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Teeter, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Teeter, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -3445,7 +3445,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Teeter, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Teeter, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -3478,7 +3478,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Teeter, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Teeter, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -3505,7 +3505,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Teeter, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Teeter, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -3543,7 +3543,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -3570,7 +3570,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -3603,7 +3603,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -3633,7 +3633,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-             Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+             Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
              'Get the behaviors list from the effect
              Dim behaviors As IBehaviors = effect.Behaviors
              'Get behavior using foreach loop
@@ -3668,7 +3668,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -3698,7 +3698,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -3734,7 +3734,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -3764,7 +3764,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -3805,7 +3805,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -3832,7 +3832,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -11698,9 +11698,9 @@
             Specifies the length of the arrowhead at the end of a line.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.ArrowheadLength.None">
+        <member name="F:Syncfusion.Presentation.ArrowheadLength.NoData">
             <summary>
-            Specifies the ArrowheadLength is None
+            Specifies the ArrowheadLength is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.ArrowheadLength.Short">
@@ -11723,9 +11723,9 @@
             Specifies the style of the arrowhead at the end of a line.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.ArrowheadStyle.None">
+        <member name="F:Syncfusion.Presentation.ArrowheadStyle.NoData">
             <summary>
-            Specifies the ArrowheadStyle is None
+            Specifies the ArrowheadStyle is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.ArrowheadStyle.Arrow">
@@ -11758,9 +11758,9 @@
             Specifies the width of the arrowhead at the end of a line.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.ArrowheadWidth.None">
+        <member name="F:Syncfusion.Presentation.ArrowheadWidth.NoData">
             <summary>
-            Specifies the ArrowheadWidth is None
+            Specifies the ArrowheadWidth is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.ArrowheadWidth.Narrow">
@@ -13023,7 +13023,7 @@
             Specifies the FillType is pattern.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.FillType.None">
+        <member name="F:Syncfusion.Presentation.FillType.NoData">
             <summary>
             Specifies the FillType is none.
             </summary>
@@ -13033,7 +13033,7 @@
             Specifies the FontAlignmentType.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.FontAlignmentType.None">
+        <member name="F:Syncfusion.Presentation.FontAlignmentType.NoData">
             <summary>
             Specifies the FontAlignmentType is none.
             </summary>
@@ -13063,7 +13063,7 @@
             Specifies the style of line cap at the line end.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.LineCapStyle.None">
+        <member name="F:Syncfusion.Presentation.LineCapStyle.NoData">
             <summary>
             Specifies the LineCapStyle is none.
             </summary>
@@ -13088,7 +13088,7 @@
             Specifies the dash style for a line.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.LineDashStyle.None">
+        <member name="F:Syncfusion.Presentation.LineDashStyle.NoData">
             <summary>
             Specifies the LineDashStyle is none.
             </summary>
@@ -13148,7 +13148,7 @@
             Specifies the type of join where two lines connects.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.LineJoinType.None">
+        <member name="F:Syncfusion.Presentation.LineJoinType.NoData">
             <summary>
             Specifies the LineJoinType is none.
             </summary>
@@ -13204,7 +13204,7 @@
             <exclude/>
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.MirrorType.None">
+        <member name="F:Syncfusion.Presentation.MirrorType.NoData">
             <summary>
             Specifies the MirrorType is none.
             </summary>
@@ -13244,7 +13244,7 @@
             Specifies the predefined size types for the PlaceHolder object
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.PlaceholderSize.None">
+        <member name="F:Syncfusion.Presentation.PlaceholderSize.NoData">
             <summary>
             Specifies the PlaceholderSize is none.
             </summary>
@@ -13504,7 +13504,7 @@
             Specifies the horizontal alignment of the text.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.HorizontalAlignmentType.None">
+        <member name="F:Syncfusion.Presentation.HorizontalAlignmentType.NoData">
             <summary>
             Specifies the HorizontalAlignmentType is none.
             </summary>
@@ -13540,7 +13540,7 @@
             <exclude/>
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.HorizontalAlignment.None">
+        <member name="F:Syncfusion.Presentation.HorizontalAlignment.NoData">
             <summary>
             Specifies the HorizontalAlignment is none.
             </summary>
@@ -13585,7 +13585,7 @@
             Specifies the vertical alignment of the text.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.VerticalAlignmentType.None">
+        <member name="F:Syncfusion.Presentation.VerticalAlignmentType.NoData">
             <summary>
             Specifies the VerticalAlignmentType is none.
             </summary>
@@ -13605,7 +13605,7 @@
             Specifies the VerticalAlignmentType is bottom.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.VerticalAlignment.None">
+        <member name="F:Syncfusion.Presentation.VerticalAlignment.NoData">
             <summary>
             Specifies the VerticalAlignmentType is none.
             </summary>
@@ -13640,7 +13640,7 @@
             Specifies the TabAlignmentType.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TabAlignmentType.None">
+        <member name="F:Syncfusion.Presentation.TabAlignmentType.NoData">
             <summary>
             Specifies the TabAlignmentType is none.
             </summary>
@@ -13670,7 +13670,7 @@
             Specifies the TextCap types.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TextCapsType.None">
+        <member name="F:Syncfusion.Presentation.TextCapsType.NoData">
             <summary>
             Specifies the TextCapsType is none.
             </summary>
@@ -13715,9 +13715,9 @@
             Specifies the TextOverflowType.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TextOverflowType.None">
+        <member name="F:Syncfusion.Presentation.TextOverflowType.NoData">
             <summary>
-            Specifies the TextOverflowType is None.
+            Specifies the TextOverflowType is NoData.
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.TextOverflowType.Clip">
@@ -13740,7 +13740,7 @@
             Specifies the types of strike through options applied for text.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TextStrikethroughType.None">
+        <member name="F:Syncfusion.Presentation.TextStrikethroughType.NoData">
             <summary>
             Specifies the TextStrikethroughType is none.
             </summary>
@@ -13760,7 +13760,7 @@
             Specifies the types of underline options applied to the text.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TextUnderlineType.None">
+        <member name="F:Syncfusion.Presentation.TextUnderlineType.NoData">
             <summary>
             Specifies the TextUnderlineType is none.
             </summary>
@@ -13850,7 +13850,7 @@
             Specifies the type of underline for text
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TextUnderline.None">
+        <member name="F:Syncfusion.Presentation.TextUnderline.NoData">
             <summary>
             Specifies the TextUnderlineType is none.
             </summary>
@@ -14140,7 +14140,7 @@
             Specifies the Black White Mode.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.BlackWhiteMode.None">
+        <member name="F:Syncfusion.Presentation.BlackWhiteMode.NoData">
             <summary>
             Specifies the Black White Mode is none.
             </summary>
@@ -14350,7 +14350,7 @@
             Specifies the Drawing types.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.DrawingType.None">
+        <member name="F:Syncfusion.Presentation.DrawingType.NoData">
             <summary>
             Specifies the Drawing types is none.
             </summary>
@@ -14485,7 +14485,7 @@
              This specifies that the corresponding path should have a slightly lighter shaded color applied to it’s fill.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.PathFillMode.None">
+        <member name="F:Syncfusion.Presentation.PathFillMode.NoData">
             <summary>
              This specifies that the corresponding path should have no fill.
             </summary>
@@ -14650,9 +14650,9 @@
             Specifies the date and time format of a Date placeholder.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.DateTimeFormatType.None">
+        <member name="F:Syncfusion.Presentation.DateTimeFormatType.NoData">
             <summary>
-            Specifies the date time format is None
+            Specifies the date time format is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.DateTimeFormatType.DateTimeMdyy">
@@ -14881,7 +14881,7 @@
             Specifies the ListType is not defined
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.ListType.None">
+        <member name="F:Syncfusion.Presentation.ListType.NoData">
             <summary>
             Specifies the ListType is none
             </summary>
@@ -15016,7 +15016,7 @@
             Specifies the NumberedListStyle is kanji simp chin database period
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.NumListStyle.None">
+        <member name="F:Syncfusion.Presentation.NumListStyle.NoData">
             <summary>
             Specifies the NumberedListStyle is none
             </summary>
@@ -15636,7 +15636,7 @@
             Specifies the BuiltInTableStyle is custom
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.BuiltInTableStyle.None">
+        <member name="F:Syncfusion.Presentation.BuiltInTableStyle.NoData">
             <summary>
             Specifies the BuiltInTableStyle is none
             </summary>
@@ -17101,9 +17101,9 @@
             Special numbering format.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.RichText.ListPatternType.None">
+        <member name="F:Syncfusion.Presentation.RichText.ListPatternType.NoData">
             <summary>
-            Specifies None numbering format.
+            Specifies NoData numbering format.
             </summary>
         </member>
         <member name="P:Syncfusion.Presentation.RichText.Font.Bidi">
@@ -25337,7 +25337,7 @@
             // Get the timeline(Animation) of the slide
             IAnimationTimeline timeLine = slide.Timeline;
             // Add animation effect on the slide with shape
-            IEffect effect = timeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = timeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Save the presentation file
             ppDoc.Save("Sample.pptx");
             // Close the presentation file
@@ -25353,7 +25353,7 @@
             'Get the timeline(Animation) of the slide
             Dim timeLine As IAnimationTimeLine  = slide.TimeLine;
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = timeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = timeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Save the presentation file
             ppDoc.Save("Sample.pptx")
             'Close the presentation file
@@ -28643,7 +28643,7 @@
              //Create font instance for text part
              IFont font = textPart.Font;
              //Set strike type for text part
-             font.StrikeType = TextStrikethroughType.None;
+             font.StrikeType = TextStrikethroughType.NoData;
              //Save the presentation
              presentation.Save("Sample.pptx");
              //Close the presentation
@@ -28661,7 +28661,7 @@
             'Create font instance for text part
             Dim font As IFont = textPart.Font
             'Set strike type for text part
-            font.StrikeType = TextStrikethroughType.None
+            font.StrikeType = TextStrikethroughType.NoData
             'Save the presentation
             presentation__1.Save("Sample.pptx")
             'Close the presentation
@@ -38883,7 +38883,7 @@
             Word 2010 encryption format.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.Security.SecurityHelper.EncrytionType.None">
+        <member name="F:Syncfusion.Presentation.Security.SecurityHelper.EncrytionType.NoData">
             <summary>
             Wrong encryption format.
             </summary>
@@ -43484,7 +43484,7 @@
             Specifies the type of the effect preset class type
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.EffectPresetClassType.None">
+        <member name="F:Syncfusion.Presentation.EffectPresetClassType.NoData">
             <summary>
             Specifies the effect preset class type is none
             </summary>
@@ -43519,9 +43519,9 @@
             Specifies the behavior additive type is Not Defined
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.BehaviorAdditiveType.None">
+        <member name="F:Syncfusion.Presentation.BehaviorAdditiveType.NoData">
             <summary>
-            Specifies the behavior additive type is None
+            Specifies the behavior additive type is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.BehaviorAdditiveType.Base">
@@ -43599,9 +43599,9 @@
             Specifies the filter effect reveal type is Not Defined
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.FilterEffectRevealType.None">
+        <member name="F:Syncfusion.Presentation.FilterEffectRevealType.NoData">
             <summary>
-            Specifies the filter effect reveal type is None
+            Specifies the filter effect reveal type is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.FilterEffectRevealType.In">
@@ -43619,9 +43619,9 @@
             Specifies the subtype of filter effect
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.SubtypeFilterEffect.None">
+        <member name="F:Syncfusion.Presentation.SubtypeFilterEffect.NoData">
             <summary>
-            Specifies the filter effect subtype is None
+            Specifies the filter effect subtype is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.SubtypeFilterEffect.Across">
@@ -43759,9 +43759,9 @@
             Specifies the type of filter effect
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.FilterEffectType.None">
+        <member name="F:Syncfusion.Presentation.FilterEffectType.NoData">
             <summary>
-            Specifies the filter effect type is None
+            Specifies the filter effect type is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.FilterEffectType.Barn">
@@ -44194,9 +44194,9 @@
             Specifies the points type of motion path
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.MotionPathPointsType.None">
+        <member name="F:Syncfusion.Presentation.MotionPathPointsType.NoData">
             <summary>
-            Specifies the motion path points type is None
+            Specifies the motion path points type is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.MotionPathPointsType.Auto">
@@ -45089,9 +45089,9 @@
             Specifies the animation effect Subtype is NotDefined
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.EffectSubtype.None">
+        <member name="F:Syncfusion.Presentation.EffectSubtype.NoData">
             <summary>
-            Specifies the animation effect Subtype is None
+            Specifies the animation effect Subtype is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.EffectSubtype.Across">
@@ -45422,7 +45422,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -45449,7 +45449,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -45482,7 +45482,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -45509,7 +45509,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -45542,7 +45542,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -45569,7 +45569,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -45602,7 +45602,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -45629,7 +45629,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -45669,7 +45669,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -45697,7 +45697,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -45731,7 +45731,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -45759,7 +45759,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -45798,7 +45798,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -45825,7 +45825,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -45858,7 +45858,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -45885,7 +45885,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -45918,7 +45918,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -45945,7 +45945,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.GrowShrink, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -45983,7 +45983,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the sequences from the effect
             ISequence effectSequence = effect.Sequence;
             // Save the presentation file
@@ -45999,7 +45999,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the sequences from the effect
             Dim effectSequence As ISequence = effect.Sequence
             'Save the presentation file
@@ -46022,7 +46022,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the build type from the effect
             BuildType effectBuildType = effect.BuildType;
             // Save the presentation file
@@ -46038,7 +46038,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the build type from the effect
             Dim effectBuildType As BuildType = effect.BuildType
             'Save the presentation file
@@ -46061,7 +46061,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors effectBehaviors = effect.Behaviors;
             // Save the presentation file
@@ -46077,7 +46077,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim effectBehaviors As IBehaviors = effect.Behaviors
             'Save the presentation file
@@ -46100,7 +46100,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the preset class type from the effect
              EffectPresetClassType effectPresetClass = effect.PresetClassType;
             // Save the presentation file
@@ -46116,7 +46116,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the effect preset class type from the effect
              Dim effectPresetClass As EffectPresetClassType = effect.PresetClassType
             'Save the presentation file
@@ -46139,7 +46139,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the subtype from the effect
             EffectSubtype effectSubType = effect.Subtype;
             // Save the presentation file
@@ -46155,7 +46155,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the subtype from the effect
             Dim effectSubType As EffectSubtype = effect.Subtype
             'Save the presentation file
@@ -46178,7 +46178,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the timing list from the effect
             ITiming effectTiming = effect.Timing;
             // Save the presentation file
@@ -46194,7 +46194,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the timing list from the effect
             Dim effectTiming As ITiming = effect.Timing
             'Save the presentation file
@@ -46217,7 +46217,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get effect type
             EffectType effectType = effect.Type;
             // Save the presentation file
@@ -46233,7 +46233,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get effect type
             Dim effectType As EffectType = effect.Type
             'Save the presentation file
@@ -46261,7 +46261,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -46292,7 +46292,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -46326,7 +46326,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -46354,7 +46354,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -46388,7 +46388,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -46416,7 +46416,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -46450,7 +46450,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -46478,7 +46478,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -46517,7 +46517,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -46545,7 +46545,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -46581,7 +46581,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -46609,7 +46609,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -46648,7 +46648,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             //Add the line command to move the shape in straight line
@@ -46679,7 +46679,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -46713,7 +46713,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -46741,7 +46741,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -46780,7 +46780,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -46808,7 +46808,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -46843,7 +46843,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -46871,7 +46871,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -46906,7 +46906,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -46934,7 +46934,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.PathCrescentMoon, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -46973,7 +46973,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -47001,7 +47001,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -47035,7 +47035,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -47063,7 +47063,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -47097,7 +47097,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -47125,7 +47125,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -47164,7 +47164,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the main sequences count from the effect
             int mainCount = ppDoc.Slides[0].Timeline.MainSequence.Count;
             // Save the presentation file
@@ -47180,7 +47180,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the main sequences count from the effect
             Dim mainCount As Integer = ppDoc.Slides(0).TimeLine.MainSequence.Count
             'Save the presentation file
@@ -47205,7 +47205,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the mainsequence effect with index
             IEffect mainEffect = ppDoc.Slides[0].Timeline.MainSequence[0];
             // Save the presentation file
@@ -47221,7 +47221,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the mainsequence effect with index from the effect
             Dim mainEffect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence(0)
             'Save the presentation file
@@ -47244,7 +47244,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the trigger shape from the mainsequence
             IShape triggerShape = ppDoc.Slides[0].Timeline.MainSequence.TriggerShape;
             // Save the presentation file
@@ -47260,7 +47260,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the trigger shape from the mainsequence
             Dim triggerShape As IShape = ppDoc.Slides(0).TimeLine.MainSequence.TriggerShape
             'Save the presentation file
@@ -47288,7 +47288,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Save the presentation file
             ppDoc.Save("Sample.pptx");
             // Close the presentation file
@@ -47302,7 +47302,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Save the presentation file
             ppDoc.Save("Sample.pptx")
             'Close the presentation file
@@ -47329,7 +47329,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Blink, EffectSubtype.None, EffectTriggerType.OnClick, BuildType.AsOneObject);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Blink, EffectSubtype.NoData, EffectTriggerType.OnClick, BuildType.AsOneObject);
             // Save the presentation file
             ppDoc.Save("Sample.pptx");
             // Close the presentation file
@@ -47343,7 +47343,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Blink, EffectSubtype.None, EffectTriggerType.OnClick, BuildType.AsOneObject)
+            ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Blink, EffectSubtype.NoData, EffectTriggerType.OnClick, BuildType.AsOneObject)
             'Save the presentation file
             ppDoc.Save("Sample.pptx")
             'Close the presentation file
@@ -47364,7 +47364,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // clear the mainsequence 
             ppDoc.Slides[0].Timeline.MainSequence.Clear();
             // Save the presentation file
@@ -47380,7 +47380,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'clear the mainsequence
             ppDoc.Slides(0).TimeLine.MainSequence.Clear()
             'Save the presentation file
@@ -47405,7 +47405,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the effects count by shape
             int effectsCount = ppDoc.Slides[0].Timeline.MainSequence.GetCount(shape);
             // Save the presentation file
@@ -47421,7 +47421,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the effects count by shape
             Dim effectsCount As Integer = pres.Slides(0).TimeLine.MainSequence.GetCount(shape)
             'Save the presentation file
@@ -47446,7 +47446,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the effects list by shape
             IEffect[] effects = ppDoc.Slides[0].Timeline.MainSequence.GetEffectsByShape(shape);
             // Save the presentation file
@@ -47462,7 +47462,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the effects list by shape
             Dim effects As IEffect() = pres.Slides(0).TimeLine.MainSequence.GetEffectsByShape(shape)
             'Save the presentation file
@@ -47487,7 +47487,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Insert effect in mainsequence with effect value
             ppDoc.Slides[0].Timeline.MainSequence.Insert(1,effect);
             // Save the presentation file
@@ -47503,7 +47503,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Insert effect in mainsequence with effect value
             ppDoc.Slides(0).TimeLine.MainSequence.Insert(1, effect)
             'Save the presentation file
@@ -47527,7 +47527,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Remove the mainsequence with effect value
             ppDoc.Slides[0].Timeline.MainSequence.Remove(effect);
             // Save the presentation file
@@ -47543,7 +47543,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Remove the mainsequence with effect value
             ppDoc.Slides(0).TimeLine.MainSequence.Remove(effect)
             'Save the presentation file
@@ -47567,7 +47567,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Remove the behavior with index value
             ppDoc.Slides[0].Timeline.MainSequence.RemoveAt(0);
             // Save the presentation file
@@ -47583,7 +47583,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Remove the behavior with index value
             ppDoc.Slides(0).TimeLine.MainSequence.RemoveAt(0)
             'Save the presentation file
@@ -47607,7 +47607,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Remove the mainsequence with shape value
             ppDoc.Slides[0].Timeline.MainSequence.RemoveByShape(shape);
             // Save the presentation file
@@ -47623,7 +47623,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Remove the mainsequence with shape value
             ppDoc.Slides(0).TimeLine.MainSequence.RemoveByShape(shape);
             'Save the presentation file
@@ -47654,7 +47654,7 @@
             // Add interactive sequence in slide with trigger shape
             ISequence seqInter = ppDoc.Slides[0].Timeline.InteractiveSequences.Add(shapeTrigger);
             // Add animation effect on the slide with shape
-            IEffect bouncePath = seqInter.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect bouncePath = seqInter.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the interactive sequences count from the effect
             int interactiveCount = ppDoc.Slides[0].Timeline.InteractiveSequences.Count;
             // Save the presentation file
@@ -47673,7 +47673,7 @@
             'Add interactive sequence in slide with trigger shape
             Dim seqInter As ISequence = pres.Slides(0).TimeLine.InteractiveSequences.Add(shapeTrigger)
             'Add animation effect on the slide with shape
-            Dim bouncePath As IEffect = seqInter.AddEffect(ashp, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim bouncePath As IEffect = seqInter.AddEffect(ashp, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the interactive sequences count from the effect
             Dim interactiveCount As Integer = ppDoc.Slides(0).TimeLine.InteractiveSequences.Count
             'Save the presentation file
@@ -47698,7 +47698,7 @@
              // Add shape on the slide
              IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
              // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
              // Get the interactive sequences effect with index from the effect
              ISequence interactiveSequence = ppDoc.Slides[0].Timeline.InteractiveSequences[0];
              // Save the presentation file
@@ -47714,7 +47714,7 @@
              'Add shape on the slide
              Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
              'Add animation effect on the slide with shape
-             Dim effect As IEffect = ppDoc.Slides(0).TimeLine.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+             Dim effect As IEffect = ppDoc.Slides(0).TimeLine.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
              'Get the interactive sequences effect with index from the effect
              Dim interactiveSequence As ISequence = ppDoc.Slides(0).TimeLine.InteractiveSequences(0)
              'Save the presentation file
@@ -47739,7 +47739,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // create shape
             IShape triggerShape = ppDoc.Slides[0].Timeline.MainSequence.TriggerShape;
             // Add trigger shape
@@ -47757,7 +47757,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'create shape
             Dim triggerShape As IShape = ppDoc.Slides(0).TimeLine.MainSequence.TriggerShape
             'Add trigger shape
@@ -47782,7 +47782,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // clear the interactive sequences
             ppDoc.Slides[0].Timeline.InteractiveSequences.Clear();
             // Save the presentation file
@@ -47798,7 +47798,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'clear the interactive sequences 
             ppDoc.Slides(0).TimeLine.InteractiveSequences.Clear()
             'Save the presentation file
@@ -47822,7 +47822,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the interactive sequence
             ISequence interactiveSequence = ppDoc.Slides[0].Timeline.InteractiveSequences[0];
             // Remove the interactive sequence with effect value
@@ -47840,7 +47840,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the interactive sequence
             Dim interactiveSequence As ISequence = ppDoc.Slides(0).TimeLine.InteractiveSequences(0)
             'Remove the interactive sequence with effect value
@@ -47866,7 +47866,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Remove the behavior with index value
             ppDoc.Slides[0].Timeline.InteractiveSequences.RemoveAt(0);
             // Save the presentation file
@@ -47882,7 +47882,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Remove the behavior with index value
             ppDoc.Slides(0).TimeLine.InteractiveSequences.RemoveAt(0)
             'Save the presentation file
@@ -47910,7 +47910,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Save the presentation file
             ppDoc.Save("Sample.pptx");
             // Close the presentation file
@@ -47924,7 +47924,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.InteractiveSequences.Add(shape).AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Save the presentation file
             ppDoc.Save("Sample.pptx")
             'Close the presentation file
@@ -47945,7 +47945,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Save the presentation file
             ppDoc.Save("Sample.pptx");
             // Close the presentation file
@@ -47959,7 +47959,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Save the presentation file
             ppDoc.Save("Sample.pptx")
             'Close the presentation file
@@ -47985,7 +47985,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the Timing properties of effect and assign it in new Timing property
             ITiming time = (effect.Timing as ITiming);
             // Assign the Set effect Accelerate property
@@ -48003,7 +48003,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the Timing properties of effect and assign it in new Timing property
             Dim time As Timing = TryCast(effect.Timing, Timing)
             'Assign the Set effect Accelerate property
@@ -48028,7 +48028,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the Timing properties of effect and assign it in new Timing property
             ITiming time = (effect.Timing as ITiming);
             // Assign the Set effect Accelerate property
@@ -48046,7 +48046,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the Timing properties of effect and assign it in new Timing property
             Dim time As Timing = TryCast(effect.Timing, Timing)
             'Assign the Set effect Accelerate property
@@ -48071,7 +48071,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the Timing properties of effect and assign it in new Timing property
             ITiming time = (effect.Timing as ITiming);
             // Assign the Set effect Accelerate property
@@ -48089,7 +48089,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the Timing properties of effect and assign it in new Timing property
             Dim time As Timing = TryCast(effect.Timing, Timing)
             'Assign the Set effect Accelerate property
@@ -48114,7 +48114,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the Timing properties of effect and assign it in new Timing property
             ITiming time = (effect.Timing as ITiming);
             // Assign the Set effect Accelerate property
@@ -48132,7 +48132,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the Timing properties of effect and assign it in new Timing property
             Dim time As Timing = TryCast(effect.Timing, Timing)
             'Assign the Set effect Accelerate property
@@ -48157,7 +48157,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the Timing properties of effect and assign it in new Timing property
             ITiming time = (effect.Timing as ITiming);
             // Assign the Set effect Accelerate property
@@ -48175,7 +48175,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the Timing properties of effect and assign it in new Timing property
             Dim time As Timing = TryCast(effect.Timing, Timing)
             'Assign the Set effect Accelerate property
@@ -48200,7 +48200,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the Timing properties of effect and assign it in new Timing property
             ITiming time = (effect.Timing as ITiming);
             // Assign the Set effect Accelerate property
@@ -48218,7 +48218,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the Timing properties of effect and assign it in new Timing property
             Dim time As Timing = TryCast(effect.Timing, Timing)
             'Assign the Set effect Accelerate property
@@ -48243,7 +48243,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the Timing properties of effect and assign it in new Timing property
             ITiming time = (effect.Timing as ITiming);
             // Assign the Set effect Accelerate property
@@ -48261,7 +48261,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the Timing properties of effect and assign it in new Timing property
             Dim time As Timing = TryCast(effect.Timing, Timing)
             'Assign the Set effect Accelerate property
@@ -48286,7 +48286,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the Timing properties of effect and assign it in new Timing property
             ITiming time = (effect.Timing as ITiming);
             // Assign the Set effect Accelerate property
@@ -48304,7 +48304,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the Timing properties of effect and assign it in new Timing property
             Dim time As Timing = TryCast(effect.Timing, Timing)
             'Assign the Set effect Accelerate property
@@ -48329,7 +48329,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the Timing properties of effect and assign it in new Timing property
             ITiming time = (effect.Timing as ITiming);
             // Assign the Set effect Accelerate property
@@ -48347,7 +48347,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the Timing properties of effect and assign it in new Timing property
             Dim time As Timing = TryCast(effect.Timing, Timing)
             'Assign the Set effect Accelerate property
@@ -48372,7 +48372,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the Timing properties of effect and assign it in new Timing property
             ITiming time = (effect.Timing as ITiming);
             // Assign the Set effect Accelerate property
@@ -48390,7 +48390,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.ChangeFillColor, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the Timing properties of effect and assign it in new Timing property
             Dim time As Timing = TryCast(effect.Timing, Timing)
             'Assign the Set effect Accelerate property
@@ -48420,7 +48420,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors count from the effect
             int count = effect.Behaviors.Count;
             // Save the presentation file
@@ -48436,7 +48436,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors count from the effect
             Dim count As Integer = effect.Behaviors.Count
             'Save the presentation file
@@ -48461,7 +48461,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behavior with index from the effect
             IBehavior behavior = effect.Behaviors[0];
             // Save the presentation file
@@ -48477,7 +48477,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behavior with index from the effect
             Dim behavior As IBehavior = effect.Behaviors(0)
             'Save the presentation file
@@ -48502,7 +48502,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors index 
             IBehavior behavior = effect.Behaviors[0];
             int index = effect.Behaviors.IndexOf(behavior);
@@ -48519,7 +48519,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Bounce, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors index 
             Dim behavior As IBehavior = effect.Behaviors(0)
             Dim index As Integer = effect.Behaviors.IndexOf(behavior)
@@ -48548,7 +48548,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -48576,7 +48576,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -48612,7 +48612,7 @@
             // Add shape on the slide
             IShape shape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150);
             // Add animation effect on the slide with shape
-            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect effect = ppDoc.Slides[0].Timeline.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick);
             // Get the behaviors list from the effect
             IBehaviors behaviors = effect.Behaviors;
             // Get behavior using foreach loop
@@ -48639,7 +48639,7 @@
             'Add shape on the slide
             Dim shape As IShape = slide.Shapes.AddShape(AutoShapeType.Diamond, 150, 150, 250, 150)
             'Add animation effect on the slide with shape
-            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.None, EffectTriggerType.OnClick)
+            Dim effect As IEffect = ppDoc.Slides(0).TimeLine.MainSequence.AddEffect(shape, EffectType.Fly, EffectSubtype.NoData, EffectTriggerType.OnClick)
             'Get the behaviors list from the effect
             Dim behaviors As IBehaviors = effect.Behaviors
             'Get behavior using foreach loop
@@ -48953,9 +48953,9 @@
             Specifies the transition effect
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TransitionEffect.None">
+        <member name="F:Syncfusion.Presentation.TransitionEffect.NoData">
             <summary>
-            Specifies the transition effect is None
+            Specifies the transition effect is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.TransitionEffect.Blinds">
@@ -49243,9 +49243,9 @@
             Specifies the transition effect option
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TransitionEffectOption.None">
+        <member name="F:Syncfusion.Presentation.TransitionEffectOption.NoData">
             <summary>
-            Specifies the transition subtype is None
+            Specifies the transition subtype is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.TransitionEffectOption.Left">
@@ -49448,9 +49448,9 @@
             Specifies the transition speed
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TransitionSpeed.None">
+        <member name="F:Syncfusion.Presentation.TransitionSpeed.NoData">
             <summary>
-            Specifies the transition speed is None
+            Specifies the transition speed is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.TransitionSpeed.Slow">
@@ -49468,9 +49468,9 @@
             Specifies the transition speed is Fast
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.Direction.None">
+        <member name="F:Syncfusion.Presentation.Direction.NoData">
             <summary>
-            Specifies the direction value is None
+            Specifies the direction value is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.Direction.Horizontal">
@@ -49483,9 +49483,9 @@
             Specifies the direction value is Vertical
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TransitionEightDirectionType.None">
+        <member name="F:Syncfusion.Presentation.TransitionEightDirectionType.NoData">
             <summary>
-            Specifies the eight direction type is None.
+            Specifies the eight direction type is NoData.
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.TransitionEightDirectionType.LeftDown">
@@ -49528,9 +49528,9 @@
             Specifies the eight direction type is Right
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TransitionSideDirectionType.None">
+        <member name="F:Syncfusion.Presentation.TransitionSideDirectionType.NoData">
             <summary>
-            Specifies the side direction is None
+            Specifies the side direction is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.TransitionSideDirectionType.Down">
@@ -49553,9 +49553,9 @@
             Specifies the side direction is Up
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TransitionInOutDirectionType.None">
+        <member name="F:Syncfusion.Presentation.TransitionInOutDirectionType.NoData">
             <summary>
-            Specifies the InOut direction is None
+            Specifies the InOut direction is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.TransitionInOutDirectionType.In">
@@ -49568,9 +49568,9 @@
             Specifies the InOut direction is Out
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TransitionCornerDirectionType.None">
+        <member name="F:Syncfusion.Presentation.TransitionCornerDirectionType.NoData">
             <summary>
-            Specifies the Corner direction is None
+            Specifies the Corner direction is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.TransitionCornerDirectionType.LeftDown">
@@ -49593,9 +49593,9 @@
             Specifies the Corner direction is RightUp
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TransitionPattern.None">
+        <member name="F:Syncfusion.Presentation.TransitionPattern.NoData">
             <summary>
-            Specifies the Pattern is None
+            Specifies the Pattern is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.TransitionPattern.Diamond">
@@ -49608,9 +49608,9 @@
             Specifies the Pattern is Hexagon
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TransitionShredPattern.None">
+        <member name="F:Syncfusion.Presentation.TransitionShredPattern.NoData">
             <summary>
-            Specifies the ShredPattern is None
+            Specifies the ShredPattern is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.TransitionShredPattern.Strip">
@@ -49623,9 +49623,9 @@
             Specifies the ShredPattern is Rectangle
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.TransitionLeftRightDirectionType.None">
+        <member name="F:Syncfusion.Presentation.TransitionLeftRightDirectionType.NoData">
             <summary>
-            Specifies the LeftRight direction is None
+            Specifies the LeftRight direction is NoData
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.TransitionLeftRightDirectionType.Left">

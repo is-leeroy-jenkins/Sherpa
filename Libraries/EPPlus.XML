@@ -6311,7 +6311,7 @@
             <summary>Specifies the tick marks shall be inside the plot area.</summary>
         </member>
         <member
-		        name="F:OfficeOpenXml.Drawing.Chart.eAxisTickMark.None">
+		        name="F:OfficeOpenXml.Drawing.Chart.eAxisTickMark.NoData">
             <summary>Specifies there shall be no tick marks.</summary>
         </member>
         <member
@@ -10312,7 +10312,7 @@
                     </item>
                     <item>
                         <term>TextQualifier</term>
-                        <description>None (\0)</description>
+                        <description>NoData (\0)</description>
                     </item>
                     <item>
                         <term>EOL</term>
@@ -11794,7 +11794,7 @@
                     A note on interoperability: Values of
                     <c>PkzipWeak</c>
                     and
-                    <c>None</c>
+                    <c>NoData</c>
                     are specified in
                     <see
 		                    href="http://www.pkware.com/documents/casestudies/APPNOTE.TXT">
@@ -11873,7 +11873,7 @@
             </remarks>
         </member>
         <member
-		        name="F:OfficeOpenXml.Packaging.Ionic.Zip.EncryptionAlgorithm.None">
+		        name="F:OfficeOpenXml.Packaging.Ionic.Zip.EncryptionAlgorithm.NoData">
             <summary>No encryption at all.</summary>
         </member>
         <member
@@ -11987,7 +11987,7 @@
                     etc) should use a
                     <c>CompressionLevel</c>
                     of
-                    <c>None</c>
+                    <c>NoData</c>
                     , or can set the compression level based on any other factor.
                 </para>
             </remarks>
@@ -14305,13 +14305,13 @@
                     indicates the compression method used on
                     the entry by the original creator of the zip. When writing a zipfile, you can
                     specify either 0x08 (Deflate) or 0x00
-                    (None). If you try setting something else, you will get an exception.
+                    (NoData). If you try setting something else, you will get an exception.
                 </para>
                 <para>
                     You may wish to set
                     <c>CompressionMethod</c>
                     to
-                    <c>CompressionMethod.None</c>
+                    <c>CompressionMethod.NoData</c>
                     (0) when zipping already-compressed data like a jpg, png, or mp3 file. This can
                     save time and cpu cycles.
                 </para>
@@ -14329,11 +14329,11 @@
                     property. If you set the
                     <c>CompressionMethod</c>
                     to a value other than
-                    <c>None</c>
+                    <c>NoData</c>
                     , and
                     <c>CompressionLevel</c>
                     is previously set to
-                    <c>None</c>
+                    <c>NoData</c>
                     , then
                     <c>CompressionLevel</c>
                     will be set to
@@ -14352,14 +14352,14 @@
                     using (ZipFile zip = new ZipFile(ZipFileToCreate)) { ZipEntry e1=
                     zip.AddFile(@"notes\Readme.txt"); ZipEntry e2=
                     zip.AddFile(@"music\StopThisTrain.mp3"); e2.CompressionMethod =
-                    CompressionMethod.None; zip.Save(); }
+                    CompressionMethod.NoData; zip.Save(); }
                 </code>
                 <code
 		                lang="VB">
                     Using zip As New ZipFile(ZipFileToCreate) zip.AddFile("notes\Readme.txt") Dim e2
                     as ZipEntry =
                     zip.AddFile("music\StopThisTrain.mp3") e2.CompressionMethod =
-                    CompressionMethod.None zip.Save End Using
+                    CompressionMethod.NoData zip.Save End Using
                 </code>
             </example>
         </member>
@@ -14402,13 +14402,13 @@
                     property. If you set the
                     <c>CompressionLevel</c>
                     to a value other than
-                    <c>None</c>
+                    <c>NoData</c>
                     ,
                     <c>CompressionMethod</c>
                     will be set to
                     <c>Deflate</c>
                     , if it was previously
-                    <c>None</c>
+                    <c>NoData</c>
                     .
                 </para>
                 <para>
@@ -14417,7 +14417,7 @@
                     is something other than
                     <c>Deflate</c>
                     or
-                    <c>None</c>
+                    <c>NoData</c>
                     .
                 </para>
             </remarks>
@@ -14544,7 +14544,7 @@
 		                    cref="P:OfficeOpenXml.Packaging.Ionic.Zip.ZipEntry.Encryption"/>
                     property was something other than
                     <see
-		                    cref="F:OfficeOpenXml.Packaging.Ionic.Zip.EncryptionAlgorithm.None"/>
+		                    cref="F:OfficeOpenXml.Packaging.Ionic.Zip.EncryptionAlgorithm.NoData"/>
                     .
                 </para>
             </remarks>
@@ -14564,7 +14564,7 @@
 		                    cref="P:OfficeOpenXml.Packaging.Ionic.Zip.ZipEntry.Password"/>
                     on the entry. If you set a value other than
                     <see
-		                    cref="F:OfficeOpenXml.Packaging.Ionic.Zip.EncryptionAlgorithm.None"/>
+		                    cref="F:OfficeOpenXml.Packaging.Ionic.Zip.EncryptionAlgorithm.NoData"/>
                     on this property and do not set a
                     <c>Password</c>
                     then the entry will not be encrypted. The
@@ -14669,11 +14669,11 @@
                     To change both the algorithm and the password, you need to Save() the zipfile
                     twice. First set the
                     <c>Encryption</c>
-                    to None, then call
+                    to NoData, then call
                     <c>Save()</c>
                     . Then set the
                     <c>Encryption</c>
-                    to the new value (not "None"), then call
+                    to the new value (not "NoData"), then call
                     <c>Save()</c>
                     once again.
                 </para>
@@ -15900,7 +15900,7 @@
             </remarks>
         </member>
         <member
-		        name="F:OfficeOpenXml.Packaging.Ionic.Zip.ZipEntryTimestamp.None">
+		        name="F:OfficeOpenXml.Packaging.Ionic.Zip.ZipEntryTimestamp.NoData">
             <summary>Default value.</summary>
         </member>
         <member
@@ -15937,7 +15937,7 @@
             </remarks>
         </member>
         <member
-		        name="F:OfficeOpenXml.Packaging.Ionic.Zip.CompressionMethod.None">
+		        name="F:OfficeOpenXml.Packaging.Ionic.Zip.CompressionMethod.NoData">
             <summary>No compression at all. For COM environments, the value is 0 (zero).</summary>
         </member>
         <member
@@ -15957,7 +15957,7 @@
             <summary>An enum that specifies the source of the ZipEntry.</summary>
         </member>
         <member
-		        name="F:OfficeOpenXml.Packaging.Ionic.Zip.ZipEntrySource.None">
+		        name="F:OfficeOpenXml.Packaging.Ionic.Zip.ZipEntrySource.NoData">
             <summary>Default value. Invalid on a bonafide ZipEntry.</summary>
         </member>
         <member
@@ -19953,7 +19953,7 @@
                     <c>null</c>
                     value (
                     <c>Nothing</c>
-                    in VB), Encryption is reset to None.
+                    in VB), Encryption is reset to NoData.
                 </para>
                 <para>
                     All of the preceding applies to writing zip archives, in other words when you
@@ -20199,7 +20199,7 @@
                     property when reading or extracting a zip archive.
                 </para>
                 <para>
-                    If you set this to something other than EncryptionAlgorithm.None, you will also
+                    If you set this to something other than EncryptionAlgorithm.NoData, you will also
                     need to set the
                     <see
 		                    cref="P:OfficeOpenXml.Packaging.Ionic.Zip.ZipFile.Password"/>
@@ -20381,7 +20381,7 @@
                     is added to the
                     <c>ZipFile</c>
                     . Setting the property to
-                    <c>Ionic.Zlib.CompressionLevel.None</c>
+                    <c>Ionic.Zlib.CompressionLevel.NoData</c>
                     means no compression will be used.
                 </para>
                 <para>
@@ -20398,7 +20398,7 @@
                     application may wish that no .mp3 files should be compressed, because they are
                     already compressed and the extra
                     compression is not worth the CPU time incurred, and so can return
-                    <c>None</c>
+                    <c>NoData</c>
                     for all .mp3 entries.
                 </para>
                 <para>
@@ -24732,7 +24732,7 @@
                     <c>Nothing</c>
                     in VB),
                     <c>Encryption</c>
-                    is reset to None.
+                    is reset to NoData.
                 </para>
                 <para>
                     Special case: if you wrap a ZipOutputStream around a non-seekable stream, and
@@ -24759,7 +24759,7 @@
                     instance.
                 </para>
                 <para>
-                    If you set this to something other than EncryptionAlgorithm.None, you will also
+                    If you set this to something other than EncryptionAlgorithm.NoData, you will also
                     need to set the
                     <see
 		                    cref="P:OfficeOpenXml.Packaging.Ionic.Zip.ZipOutputStream.Password"/>
@@ -28482,7 +28482,7 @@
             </remarks>
         </member>
         <member
-		        name="F:OfficeOpenXml.Packaging.Ionic.Zlib.FlushType.None">
+		        name="F:OfficeOpenXml.Packaging.Ionic.Zlib.FlushType.NoData">
             <summary>No flush at all.</summary>
         </member>
         <member
@@ -28532,18 +28532,18 @@
             </summary>
         </member>
         <member
-		        name="F:OfficeOpenXml.Packaging.Ionic.Zlib.CompressionLevel.None">
+		        name="F:OfficeOpenXml.Packaging.Ionic.Zlib.CompressionLevel.NoData">
             <summary>
-                None means that the data will be simply stored, with no change at all. If you are
+                NoData means that the data will be simply stored, with no change at all. If you are
                 producing ZIPs for use on Mac OSX, be
-                aware that archives produced with CompressionLevel.None cannot be opened with the
+                aware that archives produced with CompressionLevel.NoData cannot be opened with the
                 default zip reader. Use a different
                 CompressionLevel.
             </summary>
         </member>
         <member
 		        name="F:OfficeOpenXml.Packaging.Ionic.Zlib.CompressionLevel.Level0">
-            <summary>Same as None.</summary>
+            <summary>Same as NoData.</summary>
         </member>
         <member
 		        name="F:OfficeOpenXml.Packaging.Ionic.Zlib.CompressionLevel.BestSpeed">
@@ -28966,7 +28966,7 @@
                     decompressor.AvailableBytesIn = CompressedBytes.Length;
                     decompressor.OutputBuffer = buffer; // pass 1: inflate do {
                     decompressor.NextOut = 0; decompressor.AvailableBytesOut = buffer.Length; rc =
-                    decompressor.Inflate(FlushType.None); if
+                    decompressor.Inflate(FlushType.NoData); if
                     (rc != ZlibConstants.Z_OK &amp;&amp; rc != ZlibConstants.Z_STREAM_END) throw new
                     Exception("inflating: " +
                     decompressor.Message); ms.Write(decompressor.OutputBuffer, 0, buffer.Length -
@@ -29024,7 +29024,7 @@
                     compressor.AvailableBytesOut = CompressedBytes.Length; while
                     (compressor.TotalBytesIn != TextToCompress.Length &amp;
                     &amp; compressor.TotalBytesOut &lt; bufferSize) {
-                    compressor.Deflate(FlushType.None); } while (true) { int rc=
+                    compressor.Deflate(FlushType.NoData); } while (true) { int rc=
                     compressor.Deflate(FlushType.Finish); if (rc == ZlibConstants.Z_STREAM_END)
                     break; } compressor.EndDeflate();
                 </code>
@@ -29138,7 +29138,7 @@
                     compressor.OutputBuffer = buffer; //
                     pass 1: deflate do { compressor.NextOut = 0; compressor.AvailableBytesOut =
                     buffer.Length; rc =
-                    compressor.Deflate(FlushType.None); if (rc != ZlibConstants.Z_OK &amp;&amp; rc
+                    compressor.Deflate(FlushType.NoData); if (rc != ZlibConstants.Z_OK &amp;&amp; rc
                     != ZlibConstants.Z_STREAM_END) throw new
                     Exception("deflating: " + compressor.Message); ms.Write(compressor.OutputBuffer,
                     0, buffer.Length -
@@ -29180,7 +29180,7 @@
             <remarks>
                 Call this to reset the deflation state. For example if a thread is deflating
                 non-consecutive blocks, you can call
-                Reset() after the Deflate(Sync) of the first block and before the next Deflate(None)
+                Reset() after the Deflate(Sync) of the first block and before the next Deflate(NoData)
                 of the second block.
             </remarks>
             <returns>Z_OK if all goes well.</returns>
@@ -31037,7 +31037,7 @@
             <summary>Type of gradient fill</summary>
         </member>
         <member
-		        name="F:OfficeOpenXml.Style.ExcelFillGradientType.None">
+		        name="F:OfficeOpenXml.Style.ExcelFillGradientType.NoData">
             <summary>No gradient fill.</summary>
         </member>
         <member
@@ -32297,8 +32297,8 @@
             <summary>Defines the axis for a PivotTable</summary>
         </member>
         <member
-		        name="F:OfficeOpenXml.Table.PivotTable.ePivotFieldAxis.None">
-            <summary>None</summary>
+		        name="F:OfficeOpenXml.Table.PivotTable.ePivotFieldAxis.NoData">
+            <summary>NoData</summary>
         </member>
         <member
 		        name="F:OfficeOpenXml.Table.PivotTable.ePivotFieldAxis.Column">
@@ -36584,7 +36584,7 @@
             </param>
             <param
 		            name="TableStyle">
-                Will create a table with this style. If set to TableStyles.None no table will be
+                Will create a table with this style. If set to TableStyles.NoData no table will be
                 created
             </param>
             <returns>The filled range</returns>
@@ -36616,7 +36616,7 @@
             </param>
             <param
 		            name="TableStyle">
-                Will create a table with this style. If set to TableStyles.None no table will be
+                Will create a table with this style. If set to TableStyles.NoData no table will be
                 created
             </param>
             <param
@@ -36920,7 +36920,7 @@
             <summary>Line end style.</summary>
         </member>
         <member
-		        name="F:eEndStyle.None">
+		        name="F:eEndStyle.NoData">
             <summary>No end</summary>
         </member>
         <member

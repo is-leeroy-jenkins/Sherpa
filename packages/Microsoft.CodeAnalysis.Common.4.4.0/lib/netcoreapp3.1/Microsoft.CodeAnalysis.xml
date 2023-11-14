@@ -2943,7 +2943,7 @@
                 or<see cref="T:System.Collections.Generic.HashSet`1"/>.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.Collections.Internal.InsertionBehavior.None">
+        <member name="F:Microsoft.CodeAnalysis.Collections.Internal.InsertionBehavior.NoData">
             <summary>
                 The default insertion behavior.
             </summary>
@@ -6042,7 +6042,7 @@
                 Describes the kind of real signing that is being done during Emit. In the case of
                 public signing
                 this value will be<see
-                cref="F:Microsoft.CodeAnalysis.Compilation.EmitStreamSignKind.None"/>.
+                cref="F:Microsoft.CodeAnalysis.Compilation.EmitStreamSignKind.NoData"/>.
             </summary>
         </member>
         <member name="F:Microsoft.CodeAnalysis.Compilation.EmitStreamSignKind.SignedWithBuilder">
@@ -7479,7 +7479,7 @@
                 arity, only the inaccessible one would be reported in the SemanticInfo.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.CandidateReason.None">
+        <member name="F:Microsoft.CodeAnalysis.CandidateReason.NoData">
             <summary>
                 No CandidateSymbols.
             </summary>
@@ -8822,7 +8822,7 @@
                 the node's syntax offset with respect to its containing member.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.Emit.SymbolChange.None">
+        <member name="F:Microsoft.CodeAnalysis.Emit.SymbolChange.NoData">
             <summary>
                 No change to symbol or members.
             </summary>
@@ -9074,7 +9074,7 @@
                 Specifies a kind of instrumentation to be applied in generated code.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.Emit.InstrumentationKind.None">
+        <member name="F:Microsoft.CodeAnalysis.Emit.InstrumentationKind.NoData">
             <summary>
                 No instrumentation.
             </summary>
@@ -9195,7 +9195,7 @@
                 is not a valid kind.
             </exception>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.Emit.SemanticEditKind.None">
+        <member name="F:Microsoft.CodeAnalysis.Emit.SemanticEditKind.NoData">
             <summary>
                 No change.
             </summary>
@@ -11428,7 +11428,7 @@
                 appropriate.
                 <para>
                     Current usage:
-                    None. This API has been obsoleted in favor of
+                    NoData. This API has been obsoleted in favor of
                     <see cref="T:Microsoft.CodeAnalysis.Operations.IInvocationOperation"/>
                     and<see cref="T:Microsoft.CodeAnalysis.Operations.IDynamicInvocationOperation"/>
                     .
@@ -14161,7 +14161,7 @@
                 Kinds of arguments.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.Operations.ArgumentKind.None">
+        <member name="F:Microsoft.CodeAnalysis.Operations.ArgumentKind.NoData">
             <summary>
                 Represents unknown argument kind.
             </summary>
@@ -14189,7 +14189,7 @@
                 Kind of binary operator.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.Operations.BinaryOperatorKind.None">
+        <member name="F:Microsoft.CodeAnalysis.Operations.BinaryOperatorKind.NoData">
             <summary>
                 Represents unknown or error operator kind.
             </summary>
@@ -14327,7 +14327,7 @@
                 <see cref="T:Microsoft.CodeAnalysis.Operations.IBranchOperation"/>
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.Operations.BranchKind.None">
+        <member name="F:Microsoft.CodeAnalysis.Operations.BranchKind.NoData">
             <summary>
                 Represents unknown branch kind.
             </summary>
@@ -14352,7 +14352,7 @@
                 Kinds of cases.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.Operations.CaseKind.None">
+        <member name="F:Microsoft.CodeAnalysis.Operations.CaseKind.NoData">
             <summary>
                 Represents unknown case kind.
             </summary>
@@ -14558,7 +14558,7 @@
                 Kinds of loop operations.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.Operations.LoopKind.None">
+        <member name="F:Microsoft.CodeAnalysis.Operations.LoopKind.NoData">
             <summary>
                 Represents unknown loop kind.
             </summary>
@@ -14806,7 +14806,7 @@
                 Kind of unary operator
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.Operations.UnaryOperatorKind.None">
+        <member name="F:Microsoft.CodeAnalysis.Operations.UnaryOperatorKind.NoData">
             <summary>
                 Represents unknown or error operator kind.
             </summary>
@@ -16700,7 +16700,7 @@
                 Minor subsystem version
             </summary>
         </member>
-        <member name="P:Microsoft.CodeAnalysis.SubsystemVersion.None">
+        <member name="P:Microsoft.CodeAnalysis.SubsystemVersion.NoData">
             <summary>
                 Subsystem version not specified
             </summary>
@@ -16737,7 +16737,7 @@
                 representation.
             </summary>
             <param name="str">String to parse</param>
-            <param name="version">the value if successfully parsed or None otherwise</param>
+            <param name="version">the value if successfully parsed or NoData otherwise</param>
             <returns>true if parsed successfully, false otherwise</returns>
         </member>
         <member name="M:Microsoft.CodeAnalysis.SubsystemVersion.Create(System.Int32,System.Int32)">
@@ -16767,9 +16767,9 @@
                 Indicate what kinds of declaration symbols will be included
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.SymbolFilter.None">
+        <member name="F:Microsoft.CodeAnalysis.SymbolFilter.NoData">
             <summary>
-                None
+                NoData
             </summary>
         </member>
         <member name="F:Microsoft.CodeAnalysis.SymbolFilter.Namespace">
@@ -20681,7 +20681,7 @@
                 Flags to configure mode of generated code analysis.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.Diagnostics.GeneratedCodeAnalysisFlags.None">
+        <member name="F:Microsoft.CodeAnalysis.Diagnostics.GeneratedCodeAnalysisFlags.NoData">
             <summary>
                 Disable analyzer action callbacks and diagnostic reporting for generated code.
                 Analyzer driver will not make callbacks into the analyzer for entities (source
@@ -22745,7 +22745,7 @@
             </param>
             <param name="location">An optional primary location of the diagnostic. If null,
                 <see cref="P:Microsoft.CodeAnalysis.Diagnostic.Location"/>
-                will return<see cref="P:Microsoft.CodeAnalysis.Location.None"/>.
+                will return<see cref="P:Microsoft.CodeAnalysis.Location.NoData"/>.
             </param>
             <param name="messageArgs">Arguments to the message of the diagnostic</param>
             <returns>The
@@ -22766,7 +22766,7 @@
             </param>
             <param name="location">An optional primary location of the diagnostic. If null,
                 <see cref="P:Microsoft.CodeAnalysis.Diagnostic.Location"/>
-                will return<see cref="P:Microsoft.CodeAnalysis.Location.None"/>.
+                will return<see cref="P:Microsoft.CodeAnalysis.Location.NoData"/>.
             </param>
             <param name="properties">
                 An optional set of name-value pairs by means of which the analyzer that creates the
@@ -22795,7 +22795,7 @@
             </param>
             <param name="location">An optional primary location of the diagnostic. If null,
                 <see cref="P:Microsoft.CodeAnalysis.Diagnostic.Location"/>
-                will return<see cref="P:Microsoft.CodeAnalysis.Location.None"/>.
+                will return<see cref="P:Microsoft.CodeAnalysis.Location.NoData"/>.
             </param>
             <param name="additionalLocations">
                 An optional set of additional locations related to the diagnostic.
@@ -22823,7 +22823,7 @@
             </param>
             <param name="location">An optional primary location of the diagnostic. If null,
                 <see cref="P:Microsoft.CodeAnalysis.Diagnostic.Location"/>
-                will return<see cref="P:Microsoft.CodeAnalysis.Location.None"/>.
+                will return<see cref="P:Microsoft.CodeAnalysis.Location.NoData"/>.
             </param>
             <param name="additionalLocations">
                 An optional set of additional locations related to the diagnostic.
@@ -22859,7 +22859,7 @@
             </param>
             <param name="location">An optional primary location of the diagnostic. If null,
                 <see cref="P:Microsoft.CodeAnalysis.Diagnostic.Location"/>
-                will return<see cref="P:Microsoft.CodeAnalysis.Location.None"/>.
+                will return<see cref="P:Microsoft.CodeAnalysis.Location.NoData"/>.
             </param>
             <param name="effectiveSeverity">Effective severity of the diagnostic.</param>
             <param name="additionalLocations">
@@ -22913,7 +22913,7 @@
             </param>
             <param name="location">An optional primary location of the diagnostic. If null,
                 <see cref="P:Microsoft.CodeAnalysis.Diagnostic.Location"/>
-                will return<see cref="P:Microsoft.CodeAnalysis.Location.None"/>.
+                will return<see cref="P:Microsoft.CodeAnalysis.Location.NoData"/>.
             </param>
             <param name="additionalLocations">
                 An optional set of additional locations related to the diagnostic.
@@ -22976,7 +22976,7 @@
             </param>
             <param name="location">An optional primary location of the diagnostic. If null,
                 <see cref="P:Microsoft.CodeAnalysis.Diagnostic.Location"/>
-                will return<see cref="P:Microsoft.CodeAnalysis.Location.None"/>.
+                will return<see cref="P:Microsoft.CodeAnalysis.Location.NoData"/>.
             </param>
             <param name="additionalLocations">
                 An optional set of additional locations related to the diagnostic.
@@ -23101,7 +23101,7 @@
         <member name="P:Microsoft.CodeAnalysis.Diagnostic.Location">
             <summary>
                 Gets the primary location of the diagnostic, or
-                <see cref="P:Microsoft.CodeAnalysis.Location.None"/>
+                <see cref="P:Microsoft.CodeAnalysis.Location.NoData"/>
                 if no primary location.
             </summary>
         </member>
@@ -23913,7 +23913,7 @@
         </member>
         <member name="P:Microsoft.CodeAnalysis.Location.Kind">
             <summary>
-                Location kind (None/SourceFile/MetadataFile).
+                Location kind (NoData/SourceFile/MetadataFile).
             </summary>
         </member>
         <member name="P:Microsoft.CodeAnalysis.Location.IsInSource">
@@ -23984,9 +23984,9 @@
                 cref="P:Microsoft.CodeAnalysis.FileLinePositionSpan.IsValid"/>) if not available.
             </returns>
         </member>
-        <member name="P:Microsoft.CodeAnalysis.Location.None">
+        <member name="P:Microsoft.CodeAnalysis.Location.NoData">
             <summary>
-                A location of kind LocationKind.None.
+                A location of kind LocationKind.NoData.
             </summary>
         </member>
         <member
@@ -24010,7 +24010,7 @@
                 Specifies the kind of location (source vs. metadata).
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.LocationKind.None">
+        <member name="F:Microsoft.CodeAnalysis.LocationKind.NoData">
             <summary>
                 Unspecified location.
             </summary>
@@ -24385,7 +24385,7 @@
                 Order matters: least processing to most processing.
             </remarks>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.DocumentationMode.None">
+        <member name="F:Microsoft.CodeAnalysis.DocumentationMode.NoData">
             <summary>
                 Treats documentation comments as regular comments.
             </summary>
@@ -24886,7 +24886,7 @@
                 Specifies a hash algorithms used for hashing source files.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.Text.SourceHashAlgorithm.None">
+        <member name="F:Microsoft.CodeAnalysis.Text.SourceHashAlgorithm.NoData">
             <summary>
                 No algorithm specified.
             </summary>
@@ -26417,7 +26417,7 @@
                 cref="T:Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowBranch"/>.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowBranchSemantics.None">
+        <member name="F:Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowBranchSemantics.NoData">
             <summary>
                 Represents a
                 <see cref="T:Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowBranch"/>
@@ -26492,7 +26492,7 @@
                 cref="T:Microsoft.CodeAnalysis.FlowAnalysis.BasicBlock"/>.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowConditionKind.None">
+        <member name="F:Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowConditionKind.NoData">
             <summary>
                 Indicates no conditional branch from a<see
                 cref="T:Microsoft.CodeAnalysis.FlowAnalysis.BasicBlock"/>.
@@ -27075,7 +27075,7 @@
                 All of the kinds of operations, including statements and expressions.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.OperationKind.None">
+        <member name="F:Microsoft.CodeAnalysis.OperationKind.NoData">
             <summary>Indicates an
                 <see cref="T:Microsoft.CodeAnalysis.IOperation"/>
                 for a construct that is not implemented yet.
@@ -33881,7 +33881,7 @@
                 to selectively disable outputs.
             </remarks>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.IncrementalGeneratorOutputKind.None">
+        <member name="F:Microsoft.CodeAnalysis.IncrementalGeneratorOutputKind.NoData">
             <summary>
                 Represents no output kinds. Can be used when creating a driver to indicate that no
                 outputs should be disabled.
@@ -34339,7 +34339,7 @@
                 2) names in SpecialTypes.EmittedNames array.
             </remarks>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.SpecialType.None">
+        <member name="F:Microsoft.CodeAnalysis.SpecialType.NoData">
             <summary>
                 Indicates a non-special type (default value).
             </summary>
@@ -34858,7 +34858,7 @@
                 Specifies the options for how generics are displayed in the description of a symbol.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.ObjectDisplayOptions.None">
+        <member name="F:Microsoft.CodeAnalysis.ObjectDisplayOptions.NoData">
             <summary>
                 Format object using default options.
             </summary>
@@ -34891,9 +34891,9 @@
                 constants.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.SymbolDisplayCompilerInternalOptions.None">
+        <member name="F:Microsoft.CodeAnalysis.SymbolDisplayCompilerInternalOptions.NoData">
             <summary>
-                None
+                NoData
             </summary>
         </member>
         <member
@@ -35633,7 +35633,7 @@
                 Specifies the options for how generics are displayed in the description of a symbol.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.SymbolDisplayGenericsOptions.None">
+        <member name="F:Microsoft.CodeAnalysis.SymbolDisplayGenericsOptions.NoData">
             <summary>
                 Omits the type parameter list entirely.
             </summary>
@@ -35688,7 +35688,7 @@
                 Specifies which kind keywords should be included when displaying symbols.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.SymbolDisplayKindOptions.None">
+        <member name="F:Microsoft.CodeAnalysis.SymbolDisplayKindOptions.NoData">
             <summary>
                 Omits all kind keywords.
             </summary>
@@ -35716,7 +35716,7 @@
                 Specifies the options for how locals are displayed in the description of a symbol.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.SymbolDisplayLocalOptions.None">
+        <member name="F:Microsoft.CodeAnalysis.SymbolDisplayLocalOptions.NoData">
             <summary>
                 Shows only the name of the local.
                 For example, "x".
@@ -35744,7 +35744,7 @@
                 Specifies the options for how members are displayed in the description of a symbol.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.SymbolDisplayMemberOptions.None">
+        <member name="F:Microsoft.CodeAnalysis.SymbolDisplayMemberOptions.NoData">
             <summary>
                 Includes only the name of the member.
             </summary>
@@ -35818,7 +35818,7 @@
                 Specifies miscellaneous options about the format of symbol descriptions.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions.None">
+        <member name="F:Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions.NoData">
             <summary>
                 Specifies that no miscellaneous options should be applied.
             </summary>
@@ -35906,7 +35906,7 @@
                 property/indexer, or delegate) symbol.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.SymbolDisplayParameterOptions.None">
+        <member name="F:Microsoft.CodeAnalysis.SymbolDisplayParameterOptions.NoData">
             <summary>
                 Omits parameters from symbol descriptions.
                 <para>
@@ -36491,7 +36491,7 @@
                 An enumerated value that identifies certain 'special' types such as<see
                 cref="T:System.Object"/>.
                 Returns
-                <see cref="F:Microsoft.CodeAnalysis.SpecialType.None"/>
+                <see cref="F:Microsoft.CodeAnalysis.SpecialType.NoData"/>
                 if the type is not special.
             </summary>
         </member>
@@ -36587,7 +36587,7 @@
                 Attribute is conditionally omitted if it is a source attribute and both the
                 following are true:
                 (a) It has at least one applied conditional attribute AND
-                (b) None of conditional symbols are true at the attribute source location.
+                (b) NoData of conditional symbols are true at the attribute source location.
             </summary>
         </member>
         <member
@@ -36871,7 +36871,7 @@
             </summary>
         </member>
         <member
-            name="F:Microsoft.CodeAnalysis.CustomAttributesBag`1.CustomAttributeBagCompletionPart.None">
+            name="F:Microsoft.CodeAnalysis.CustomAttributesBag`1.CustomAttributeBagCompletionPart.NoData">
             <summary>
                 Bag has been created, but no decoded data or attributes have been stored.
                 CustomAttributeBag is in this state during early decoding phase.
@@ -36985,7 +36985,7 @@
         </member>
         <member name="P:Microsoft.CodeAnalysis.DecodeWellKnownAttributeArguments`3.SymbolPart">
             <summary>
-                Specific part of the symbol to which the attributes apply, or AttributeLocation.None
+                Specific part of the symbol to which the attributes apply, or AttributeLocation.NoData
                 if the attributes apply to the symbol itself.
                 Used e.g. for return type attributes of a method symbol.
             </summary>
@@ -37052,7 +37052,7 @@
         </member>
         <member name="P:Microsoft.CodeAnalysis.EarlyDecodeWellKnownAttributeArguments`4.SymbolPart">
             <summary>
-                Specific part of the symbol to which the attributes apply, or AttributeLocation.None
+                Specific part of the symbol to which the attributes apply, or AttributeLocation.NoData
                 if the attributes apply to the symbol itself.
                 Used e.g. for return type attributes of a method symbol.
             </summary>
@@ -37397,7 +37397,7 @@
         <member name="P:Microsoft.CodeAnalysis.IErrorTypeSymbol.CandidateReason">
             <summary>
                 If CandidateSymbols returns one or more symbols, returns the reason that those
-                symbols were not chosen. Otherwise, returns None.
+                symbols were not chosen. Otherwise, returns NoData.
             </summary>
         </member>
         <member name="T:Microsoft.CodeAnalysis.IEventSymbol">
@@ -37816,7 +37816,7 @@
                 Returns the top-level nullability of the type arguments that have been substituted
                 for the type parameters. If nothing has been substituted for a given type parameter,
                 then
-                <see cref="F:Microsoft.CodeAnalysis.NullableAnnotation.None"/>
+                <see cref="F:Microsoft.CodeAnalysis.NullableAnnotation.NoData"/>
                 is returned.
             </summary>
         </member>
@@ -38169,7 +38169,7 @@
                 Returns the top-level nullability of the type arguments that have been substituted
                 for the type parameters. If nothing has been substituted for a given type parameter,
                 then
-                <see cref="F:Microsoft.CodeAnalysis.NullableAnnotation.None"/>
+                <see cref="F:Microsoft.CodeAnalysis.NullableAnnotation.NoData"/>
                 is returned for that type argument.
             </summary>
         </member>
@@ -39170,7 +39170,7 @@
                 constraint that was specified for the type parameter. If there was no
                 <c>class</c>
                 constraint, this returns<see
-                cref="F:Microsoft.CodeAnalysis.NullableAnnotation.None"/>.
+                cref="F:Microsoft.CodeAnalysis.NullableAnnotation.NoData"/>.
             </summary>
         </member>
         <member name="P:Microsoft.CodeAnalysis.ITypeParameterSymbol.HasValueTypeConstraint">
@@ -39330,7 +39330,7 @@
                 An enumerated value that identifies certain 'special' types such as<see
                 cref="T:System.Object"/>.
                 Returns
-                <see cref="F:Microsoft.CodeAnalysis.SpecialType.None"/>
+                <see cref="F:Microsoft.CodeAnalysis.SpecialType.NoData"/>
                 if the type is not special.
             </summary>
         </member>
@@ -39436,7 +39436,7 @@
         <member name="P:Microsoft.CodeAnalysis.ITypeSymbol.NullableAnnotation">
             <summary>
                 Nullable annotation associated with the type, or
-                <see cref="F:Microsoft.CodeAnalysis.NullableAnnotation.None"/>
+                <see cref="F:Microsoft.CodeAnalysis.NullableAnnotation.NoData"/>
                 if there are none.
             </summary>
         </member>
@@ -39614,7 +39614,7 @@
                 to an expression used as an lvalue.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.NullableAnnotation.None">
+        <member name="F:Microsoft.CodeAnalysis.NullableAnnotation.NoData">
             <summary>
                 The expression has not been analyzed, or the syntax is
                 not an expression (such as a statement).
@@ -39649,7 +39649,7 @@
                 Represents the compiler's analysis of whether an expression may be null
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.NullableFlowState.None">
+        <member name="F:Microsoft.CodeAnalysis.NullableFlowState.NoData">
             <summary>
                 Syntax is not an expression, or was not analyzed.
             </summary>
@@ -39739,7 +39739,7 @@
                 Denotes the kind of reference.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.RefKind.None">
+        <member name="F:Microsoft.CodeAnalysis.RefKind.NoData">
             <summary>
                 Indicates a "value" parameter or return type.
             </summary>
@@ -39769,7 +39769,7 @@
                 Enumeration for kinds of scoped modifiers.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.ScopedKind.None">
+        <member name="F:Microsoft.CodeAnalysis.ScopedKind.NoData">
             <summary>
                 Not scoped.
             </summary>
@@ -40149,7 +40149,7 @@
                 parameters.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.VarianceKind.None">
+        <member name="F:Microsoft.CodeAnalysis.VarianceKind.NoData">
             <summary>
                 Invariant.
             </summary>
@@ -43451,7 +43451,7 @@
         </member>
         <member name="F:Microsoft.CodeAnalysis.SyntaxRemoveOptions.KeepNoTrivia">
             <summary>
-                None of the trivia associated with the node or token is kept.
+                NoData of the trivia associated with the node or token is kept.
             </summary>
         </member>
         <member name="F:Microsoft.CodeAnalysis.SyntaxRemoveOptions.KeepLeadingTrivia">
@@ -48157,7 +48157,7 @@
                 <see cref="F:System.Reflection.Metadata.LocalVariableAttributes.DebuggerHidden"/>
                 for locals that should
                 definitely not bind in the debugger and
-                <see cref="F:System.Reflection.Metadata.LocalVariableAttributes.None"/>
+                <see cref="F:System.Reflection.Metadata.LocalVariableAttributes.NoData"/>
                 for all other locals.
             </summary>
             <remarks>
@@ -48165,7 +48165,7 @@
                 <see cref="F:System.Reflection.Metadata.LocalVariableAttributes.DebuggerHidden"/>
                 is a sufficient, but not a necessary, condition for hiding the
                 local in the debugger. Locals with value
-                <see cref="F:System.Reflection.Metadata.LocalVariableAttributes.None"/>
+                <see cref="F:System.Reflection.Metadata.LocalVariableAttributes.NoData"/>
                 may also be hidden.
 
                 Hidden locals must still be emitted because they participate in evaluation.
@@ -48192,7 +48192,7 @@
             </summary>
             <remark>
                 Use
-                <see cref="P:Microsoft.CodeAnalysis.Location.None"/>
+                <see cref="P:Microsoft.CodeAnalysis.Location.NoData"/>
                 rather than null.
             </remark>
         </member>
@@ -48209,7 +48209,7 @@
         <member name="P:Microsoft.Cci.ILocalDefinition.SlotInfo">
             <summary>
                 Local id, or
-                <see cref="F:Microsoft.CodeAnalysis.CodeGen.LocalDebugId.None"/>
+                <see cref="F:Microsoft.CodeAnalysis.CodeGen.LocalDebugId.NoData"/>
                 if this is a local constant, short-lived temp variable,
                 or we are not emitting local variable ids (release builds).
             </summary>

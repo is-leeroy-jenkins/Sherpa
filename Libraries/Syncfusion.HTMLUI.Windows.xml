@@ -2922,7 +2922,7 @@
 			<param name="typeName">Type name of the attribute holder.</param>
 			<param name="name">Name of the attribute.</param>
 			<returns>
-				Type of reaction on changing the attribute; None if type or attribute with such name
+				Type of reaction on changing the attribute; NoData if type or attribute with such name
 				was not found.
 			</returns>
 		</member>
@@ -19085,7 +19085,7 @@
 				element changes.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.HTMLUI.ReactType.None">
+		<member name="F:Syncfusion.Windows.Forms.HTMLUI.ReactType.NoData">
 			<summary>
 				No reaction on changing attribute.
 			</summary>
@@ -19157,7 +19157,7 @@
 				Specifies the level of the document's reaction after disabling QuietMode.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.HTMLUI.ReactLevel.None">
+		<member name="F:Syncfusion.Windows.Forms.HTMLUI.ReactLevel.NoData">
 			<summary>
 				No reaction.
 			</summary>
@@ -19274,7 +19274,7 @@
 				Used in merging of formats.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.HTMLUI.MergeMask.None">
+		<member name="F:Syncfusion.Windows.Forms.HTMLUI.MergeMask.NoData">
 			<summary>
 				Nothing is changed.
 			</summary>
@@ -19764,7 +19764,7 @@
 				Specifies the border style of the element.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.HTMLUI.BordersStyle.None">
+		<member name="F:Syncfusion.Windows.Forms.HTMLUI.BordersStyle.NoData">
 			<summary>
 				No borders.
 			</summary>

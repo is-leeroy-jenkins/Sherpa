@@ -96,12 +96,12 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="value"> The value. </param>
-        /// <exception cref="System.ArgumentNullException"> value - Some value was null, use None instead </exception>
+        /// <exception cref="System.ArgumentNullException"> value - Some value was null, use NoData instead </exception>
         public Some( T value )
         {
             if( value == null )
             {
-                var _msg = "The value for 'Some' was null...use 'None' instead";
+                var _msg = "The value for 'Some' was null...use 'NoData' instead";
                 throw new ArgumentNullException( nameof( value ), _msg );
             }
 

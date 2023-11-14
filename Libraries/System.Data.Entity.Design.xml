@@ -750,7 +750,7 @@
 		<member name="F:System.Data.Entity.Design.EntityStoreSchemaFilterObjectTypes.Function">
 			<summary>Apply this filter to function object types.</summary>
 		</member>
-		<member name="F:System.Data.Entity.Design.EntityStoreSchemaFilterObjectTypes.None">
+		<member name="F:System.Data.Entity.Design.EntityStoreSchemaFilterObjectTypes.NoData">
 			<summary>Initial value. This is not a valid value to apply.</summary>
 		</member>
 		<member name="F:System.Data.Entity.Design.EntityStoreSchemaFilterObjectTypes.Table">

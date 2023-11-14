@@ -214,7 +214,7 @@
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.NamedArgument">
 			<summary>L'argomento è un argomento denominato.</summary>
 		</member>
-		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.None">
+		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.NoData">
 			<summary>Nessuna informazione aggiuntiva da rappresentare.</summary>
 		</member>
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.UseCompileTimeType">
@@ -254,7 +254,7 @@
 			<summary>Il gestore di associazione rappresenta una chiamata per uno SpecialName.
 			</summary>
 		</member>
-		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.None">
+		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.NoData">
 			<summary>Non sono presenti informazioni aggiuntive necessarie per questo gestore di
 				associazione.
 			</summary>

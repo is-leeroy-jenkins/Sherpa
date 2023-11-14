@@ -164,7 +164,7 @@
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.NamedArgument">
 			<summary>参数为命名参数。</summary>
 		</member>
-		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.None">
+		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.NoData">
 			<summary>没有要表示的附加信息。</summary>
 		</member>
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.UseCompileTimeType">
@@ -192,7 +192,7 @@
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.InvokeSpecialName">
 			<summary>此联编程序表示对特殊名称的调用。</summary>
 		</member>
-		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.None">
+		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.NoData">
 			<summary>此联编程序不需要附加信息。</summary>
 		</member>
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.ResultDiscarded">

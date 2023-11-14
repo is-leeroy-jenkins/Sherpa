@@ -168,7 +168,7 @@
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.NamedArgument">
 			<summary>引数は名前付き引数です。</summary>
 		</member>
-		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.None">
+		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.NoData">
 			<summary>追加情報はありません。</summary>
 		</member>
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags.UseCompileTimeType">
@@ -197,7 +197,7 @@
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.InvokeSpecialName">
 			<summary>このバインダーは、特別な名前での呼び出しを表します。</summary>
 		</member>
-		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.None">
+		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.NoData">
 			<summary>このバインダーに必要な追加情報はありません。</summary>
 		</member>
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.ResultDiscarded">

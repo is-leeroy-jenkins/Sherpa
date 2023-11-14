@@ -130,7 +130,7 @@
                 Specifies the style of a color cell border.
             </summary>
         </member>
-        <member name="F:Cyotek.Windows.Forms.ColorCellBorderStyle.None">
+        <member name="F:Cyotek.Windows.Forms.ColorCellBorderStyle.NoData">
             <summary>
                 No border.
             </summary>
@@ -152,7 +152,7 @@
                 control is rendered.
             </summary>
         </member>
-        <member name="F:Cyotek.Windows.Forms.ColorGridSelectedCellStyle.None">
+        <member name="F:Cyotek.Windows.Forms.ColorGridSelectedCellStyle.NoData">
             <summary>
                 The selected cell is drawn no differently to any other cell.
             </summary>
@@ -1413,9 +1413,9 @@
                 Specifies the edit mode of a<see cref="T:Cyotek.Windows.Forms.ColorGrid"/>.
             </summary>
         </member>
-        <member name="F:Cyotek.Windows.Forms.ColorEditingMode.None">
+        <member name="F:Cyotek.Windows.Forms.ColorEditingMode.NoData">
             <summary>
-                None. No editing is allowed.
+                NoData. No editing is allowed.
             </summary>
         </member>
         <member name="F:Cyotek.Windows.Forms.ColorEditingMode.CustomOnly">

@@ -1875,7 +1875,7 @@
 				Specifies the barcode text display location.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Barcode.BarcodeTextLocation.None">
+		<member name="F:Syncfusion.Windows.Forms.Barcode.BarcodeTextLocation.NoData">
 			<summary>
 				Displays, no text.
 			</summary>

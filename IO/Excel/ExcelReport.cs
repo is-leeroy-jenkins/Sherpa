@@ -55,6 +55,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "HeapView.ObjectAllocation.Evident" ) ]
     public class ExcelReport
     {
         /// <summary>
@@ -75,8 +76,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoElements( data, "data" );
-                ThrowIf.NullOrEmpty( path, "path" );
+                ThrowIf.NoData( data, nameof( data ) );
+                ThrowIf.NullOrEmpty( path, nameof( path ) );
                 var _dataSet = new DataSet( );
                 _dataSet?.Tables?.Add( ListToDataTable( data ) );
                 return CreateExcelDocument( _dataSet, path );
@@ -96,8 +97,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoData( dataTable, "dataTable" );
-                ThrowIf.NullOrEmpty( path, "path" );
+                ThrowIf.NoData( (object)dataTable, nameof( dataTable ) );
+                ThrowIf.NullOrEmpty( path, nameof( path ) );
                 var _dataSet = new DataSet( );
                 _dataSet.Tables.Add( dataTable );
                 var _document = CreateExcelDocument( _dataSet, path );
@@ -119,19 +120,15 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoData( dataSet, "dataSet" );
-                ThrowIf.NullOrEmpty( fileName, "fileName" );
-                using( var _document = Create( fileName, SpreadsheetDocumentType.Workbook ) )
-                {
-                    WriteExcelFile( dataSet, _document );
-                }
-
-                Trace.WriteLine( "Successfully created: " + fileName );
+                ThrowIf.NoData( (object)dataSet, nameof( dataSet ) );
+                ThrowIf.NullOrEmpty( fileName, nameof( fileName ) );
+                using var _document = Create( fileName, SpreadsheetDocumentType.Workbook );
+                WriteExcelFile( dataSet, _document );
                 return true;
             }
             catch( Exception _ex )
             {
-                Trace.WriteLine( "Failed, exception thrown: " + _ex.Message );
+                Fail( _ex );
                 return false;
             }
         }
@@ -144,9 +141,9 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoElements( data, "data" );
+                ThrowIf.NoData( data, nameof( data ) );
                 var _table = new DataTable( );
-                foreach( var _info in typeof( T ).GetProperties( ) )
+                foreach( var _info in typeof( T )?.GetProperties( ) )
                 {
                     var _col = new DataColumn( _info.Name, GetNullableType( _info.PropertyType ) );
                     _table?.Columns?.Add( _col );
@@ -177,7 +174,7 @@ namespace BudgetExecution
         /// <summary> Gets the type of the nullable. </summary>
         /// <param name="type"> The type. </param>
         /// <returns> </returns>
-        public Type GetNullableType( Type type )
+        private protected Type GetNullableType( Type type )
         {
             try
             {
@@ -202,18 +199,24 @@ namespace BudgetExecution
         /// <param name="cellStringValue"> The cell string value. </param>
         /// <param name="excelRow"> The excel row. </param>
         public void AppendTextCell( string cellReference, string cellStringValue,
-                                    OpenXmlElement excelRow )
+            OpenXmlElement excelRow )
         {
             try
             {
-                ThrowIf.NullOrEmpty( cellReference, "cellReference" );
-                ThrowIf.NullOrEmpty( cellStringValue, "cellStringValue" );
-                ThrowIf.Null( excelRow, "excelRow" );
-                var _cell = new Cell( );
-                _cell.CellReference = cellReference;
-                _cell.DataType = CellValues.String;
-                var _cellValue = new CellValue( );
-                _cellValue.Text = cellStringValue;
+                ThrowIf.NullOrEmpty( cellReference, nameof( cellReference ) );
+                ThrowIf.NullOrEmpty( cellStringValue, nameof( cellStringValue ) );
+                ThrowIf.Null( excelRow, nameof( excelRow ) );
+                var _cell = new Cell
+                {
+                    CellReference = cellReference,
+                    DataType = CellValues.String
+                };
+
+                var _cellValue = new CellValue
+                {
+                    Text = cellStringValue
+                };
+                
                 _cell.Append( _cellValue );
                 excelRow.Append( _cell );
             }
@@ -224,21 +227,30 @@ namespace BudgetExecution
         }
 
         /// <summary> Appends the numeric cell. </summary>
-        /// <param name="cellReference"> The cell reference. </param>
-        /// <param name="cellStringValue"> The cell string value. </param>
-        /// <param name="excelRow"> The excel row. </param>
-        public void AppendNumericCell( string cellReference, string cellStringValue,
-                                       OpenXmlElement excelRow )
+        /// <param name="cellReference">
+        /// cell reference.
+        /// </param>
+        /// <param name="cellValue">
+        /// The cell string value.
+        /// </param>
+        /// <param name="excelRow">
+        /// The excel row.
+        /// </param>
+        public void AppendNumericCell( string cellReference, string cellValue,
+            OpenXmlElement excelRow )
         {
             try
             {
-                ThrowIf.NullOrEmpty( cellReference, "cellReference" );
-                ThrowIf.NullOrEmpty( cellStringValue, "cellStringValue" );
-                ThrowIf.Null( excelRow, "excelRow" );
+                ThrowIf.NullOrEmpty( cellReference, nameof( cellReference ) );
+                ThrowIf.NullOrEmpty( cellValue, nameof( cellValue ) );
+                ThrowIf.Null( excelRow, nameof( excelRow ) );
                 var _cell = new Cell( );
                 _cell.CellReference = cellReference;
-                var _cellValue = new CellValue( );
-                _cellValue.Text = cellStringValue;
+                var _cellValue = new CellValue
+                {
+                    Text = cellValue
+                };
+                
                 _cell.Append( _cellValue );
                 excelRow.Append( _cell );
             }
@@ -255,7 +267,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Negative( columnIndex, "columnIndex" );
+                ThrowIf.Negative( columnIndex, nameof( columnIndex ) );
                 if( columnIndex < 26 )
                 {
                     return ( (char) ( 'A' + columnIndex ) ).ToString( );
@@ -279,8 +291,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoData( dataSet, "dataSet" );
-                ThrowIf.Null( spreadSheet, "spreadSheet" );
+                ThrowIf.NoData( dataSet, nameof( dataSet ) );
+                ThrowIf.Null( spreadSheet, nameof( spreadSheet ) );
                 spreadSheet.AddWorkbookPart( );
                 spreadSheet.WorkbookPart.Workbook =
                     new DocumentFormat.OpenXml.Spreadsheet.Workbook( );
@@ -328,12 +340,12 @@ namespace BudgetExecution
         /// <param name="dataTable"> The data table. </param>
         /// <param name="workSheetPart"> The work sheet part. </param>
         public void WriteDataTableToExcelWorksheet( DataTable dataTable,
-                                                    WorksheetPart workSheetPart )
+            WorksheetPart workSheetPart )
         {
             try
             {
-                ThrowIf.NoData( dataTable, "dataTable" );
-                ThrowIf.Null( workSheetPart, "workSheetPart" );
+                ThrowIf.NoData( dataTable, nameof( dataTable ) );
+                ThrowIf.Null( workSheetPart, nameof( workSheetPart ) );
                 var _worksheet = workSheetPart.Worksheet;
                 var _data = _worksheet?.GetFirstChild<SheetData>( );
                 var _columns = dataTable.Columns.Count;

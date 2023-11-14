@@ -2841,7 +2841,7 @@
 				<see cref="T:System.Drawing.Design.UITypeEditor"/>
 				does not support this method, then
 				<see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle"/>
-				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None"/>.
+				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.NoData"/>.
 			</returns>
 		</member>
 		<member name="M:Syncfusion.Windows.Forms.Diagram.HeaderFooterEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
@@ -2970,7 +2970,7 @@
 				<see cref="T:System.Drawing.Design.UITypeEditor"/>
 				does not support this method, then
 				<see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle"/>
-				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None"/>.
+				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.NoData"/>.
 			</returns>
 		</member>
 		<member name="M:Syncfusion.Windows.Forms.Diagram.ImageLayoutEditor.SelectedIndexChanged(System.Object,System.EventArgs)">
@@ -3018,7 +3018,7 @@
 				<see cref="T:System.Drawing.Design.UITypeEditor"/>
 				does not support this method, then
 				<see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle"/>
-				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None"/>.
+				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.NoData"/>.
 			</returns>
 		</member>
 		<member name="M:Syncfusion.Windows.Forms.Diagram.LabelNameEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
@@ -3091,7 +3091,7 @@
 				<see cref="T:System.Drawing.Design.UITypeEditor"/>
 				does not support this method, then
 				<see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle"/>
-				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None"/>.
+				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.NoData"/>.
 			</returns>
 		</member>
 		<member name="M:Syncfusion.Windows.Forms.Diagram.LayerNameEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
@@ -7587,7 +7587,7 @@
 				Decorator shapes.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Diagram.DecoratorShape.None">
+		<member name="F:Syncfusion.Windows.Forms.Diagram.DecoratorShape.NoData">
 			<summary>
 				No shape.
 			</summary>
@@ -20275,7 +20275,7 @@
 				Helper enumerator of heading states. Use internal only.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Diagram.OrthogonalConnector.HeadingState.None">
+		<member name="F:Syncfusion.Windows.Forms.Diagram.OrthogonalConnector.HeadingState.NoData">
 			<summary>
 				No heading state.
 			</summary>
@@ -25781,7 +25781,7 @@
 				node type.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Diagram.ActivateStyle.None">
+		<member name="F:Syncfusion.Windows.Forms.Diagram.ActivateStyle.NoData">
 			<summary>
 				Specifies that the Control will not be activated.
 			</summary>
@@ -30550,7 +30550,7 @@
 				<see cref="T:System.Drawing.Design.UITypeEditor"/>
 				does not support this method, then
 				<see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle"/>
-				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None"/>.
+				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.NoData"/>.
 			</returns>
 		</member>
 		<member name="T:Syncfusion.Windows.Forms.Diagram.FontStyle">
@@ -31075,7 +31075,7 @@
 				Specifies a rounding value for arc-ing page border corners.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Diagram.BorderStyleCornerRounding.None">
+		<member name="F:Syncfusion.Windows.Forms.Diagram.BorderStyleCornerRounding.NoData">
 			<summary>
 				No rounding.
 			</summary>
@@ -31610,7 +31610,7 @@
 				<see cref="T:System.Drawing.Design.UITypeEditor"/>
 				does not support this method, then
 				<see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle"/>
-				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None"/>.
+				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.NoData"/>.
 			</returns>
 		</member>
 		<member name="T:Syncfusion.Windows.Forms.Diagram.Guides">
@@ -31699,7 +31699,7 @@
 				Modes for interactively editing objects with selection handles.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Diagram.HandleEditMode.None">
+		<member name="F:Syncfusion.Windows.Forms.Diagram.HandleEditMode.NoData">
 			<summary>
 				No edit mode allowed.
 			</summary>
@@ -33847,7 +33847,7 @@
 				<see cref="T:System.Drawing.Design.UITypeEditor"/>
 				does not support this method, then
 				<see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle"/>
-				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None"/>.
+				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.NoData"/>.
 			</returns>
 		</member>
 		<member name="T:Syncfusion.Windows.Forms.Diagram.DictionaryPropertyGridAdapter">
@@ -36018,7 +36018,7 @@
 		</member>
 		<member name="M:Syncfusion.Windows.Forms.Diagram.Geometry.GetCompassHeading(System.Drawing.RectangleF,System.Drawing.PointF)">
 			<summary>
-				Gets the compass heading direction. Return only North, West, South, East or None
+				Gets the compass heading direction. Return only North, West, South, East or NoData
 				value.
 			</summary>
 			<param name="rcBounds">The round area.</param>
@@ -38111,7 +38111,7 @@
 				<see cref="T:System.Drawing.Design.UITypeEditor"/>
 				does not support this method, then
 				<see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle"/>
-				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None"/>.
+				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.NoData"/>.
 			</returns>
 		</member>
 		<member name="T:Syncfusion.Windows.Forms.Diagram.PageScaleEditor">
@@ -38174,7 +38174,7 @@
 				<see cref="T:System.Drawing.Design.UITypeEditor"/>
 				does not support this method, then
 				<see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle"/>
-				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None"/>.
+				will return<see cref="F:System.Drawing.Design.UITypeEditorEditStyle.NoData"/>.
 			</returns>
 		</member>
 		<member name="T:Syncfusion.Windows.Forms.Diagram.PerfCounter">
@@ -38391,7 +38391,7 @@
 				generated given one point and a CompassHeading.
 			</remarks>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Diagram.CompassHeading.None">
+		<member name="F:Syncfusion.Windows.Forms.Diagram.CompassHeading.NoData">
 			<summary>
 				No heading.
 			</summary>
@@ -38527,7 +38527,7 @@
 				lower case.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Diagram.TextCases.None">
+		<member name="F:Syncfusion.Windows.Forms.Diagram.TextCases.NoData">
 			<summary>
 				original text
 			</summary>

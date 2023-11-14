@@ -687,7 +687,7 @@
 				Specifies the options for checking the formula error strings.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Calculate.CalcEngine.FormulaArgumentType.None">
+		<member name="F:Syncfusion.Calculate.CalcEngine.FormulaArgumentType.NoData">
 			<summary>
 				Formula contains null arguments. For Example:PI,RANDOM...etc
 			</summary>
@@ -7088,7 +7088,7 @@
 				Specifies options for caching look up tables in HLookUp and VLookUp functions.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Calculate.LookupCachingMode.None">
+		<member name="F:Syncfusion.Calculate.LookupCachingMode.NoData">
 			<summary>
 				No caching is done.
 			</summary>

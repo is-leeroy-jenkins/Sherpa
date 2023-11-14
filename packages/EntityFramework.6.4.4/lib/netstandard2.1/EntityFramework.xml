@@ -13300,7 +13300,7 @@
             Kind of collection (applied to Properties)
             </summary>
         </member>
-        <member name="F:System.Data.Entity.Core.Metadata.Edm.CollectionKind.None">
+        <member name="F:System.Data.Entity.Core.Metadata.Edm.CollectionKind.NoData">
             <summary>
             Property is not a Collection
             </summary>
@@ -13396,7 +13396,7 @@
             The concurrency mode for properties.
             </summary>
         </member>
-        <member name="F:System.Data.Entity.Core.Metadata.Edm.ConcurrencyMode.None">
+        <member name="F:System.Data.Entity.Core.Metadata.Edm.ConcurrencyMode.NoData">
             <summary>
             Default concurrency mode: the property is never validated
             at write time
@@ -15168,7 +15168,7 @@
             When this method returns, it contains an <see cref="T:System.Data.Entity.Core.Metadata.Edm.EntityContainer" /> object. If there is no entity container, this output parameter contains null; otherwise, it contains the first entity container.
             </param>
         </member>
-        <member name="F:System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.ExtensionCheck.None">
+        <member name="F:System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.ExtensionCheck.NoData">
             <summary>
             Do not perform any extension check
             </summary>
@@ -15916,7 +15916,7 @@
             Represents the list of possible actions for delete operation
             </summary>
         </member>
-        <member name="F:System.Data.Entity.Core.Metadata.Edm.OperationAction.None">
+        <member name="F:System.Data.Entity.Core.Metadata.Edm.OperationAction.NoData">
             <summary>
             no action
             </summary>
@@ -16485,7 +16485,7 @@
             <returns>
             One of the <see cref="T:System.Data.Entity.Core.Metadata.Edm.OperationAction" /> values. The default is
             <see
-                cref="P:System.Data.Entity.Core.Metadata.Edm.OperationAction.None" />
+                cref="P:System.Data.Entity.Core.Metadata.Edm.OperationAction.NoData" />
             .
             </returns>
         </member>
@@ -16641,7 +16641,7 @@
             The pattern for Server Generated Properties.
             </summary>
         </member>
-        <member name="F:System.Data.Entity.Core.Metadata.Edm.StoreGeneratedPattern.None">
+        <member name="F:System.Data.Entity.Core.Metadata.Edm.StoreGeneratedPattern.NoData">
             <summary>
             Not a Server Generated Property. This is the default.
             </summary>
@@ -23630,7 +23630,7 @@
             Flags used to modify behavior of ObjectContext.SaveChanges()
             </summary>
         </member>
-        <member name="F:System.Data.Entity.Core.Objects.SaveOptions.None">
+        <member name="F:System.Data.Entity.Core.Objects.SaveOptions.NoData">
             <summary>
             Changes are saved without the DetectChanges or the AcceptAllChangesAfterSave methods being called.
             </summary>
@@ -38540,7 +38540,7 @@
             </summary>
             <param name="databaseGeneratedOption">
             The pattern used to generate values for the property in the database.
-            Setting 'null' will cause the default option to be used, which may be 'None', 'Identity', or 'Computed' depending
+            Setting 'null' will cause the default option to be used, which may be 'NoData', 'Identity', or 'Computed' depending
             on the type of the property, its semantics in the model (e.g. primary keys are treated differently), and which
             set of conventions are being used.
             </param>
@@ -38632,7 +38632,7 @@
             </summary>
             <param name="databaseGeneratedOption">
             The pattern used to generate values for the property in the database.
-            Setting 'null' will cause the default option to be used, which may be 'None', 'Identity', or 'Computed' depending
+            Setting 'null' will cause the default option to be used, which may be 'NoData', 'Identity', or 'Computed' depending
             on the type of the property, its semantics in the model (e.g. primary keys are treated differently), and which
             set of conventions are being used.
             </param>
@@ -38723,7 +38723,7 @@
             </summary>
             <param name="databaseGeneratedOption">
             The pattern used to generate values for the property in the database.
-            Setting 'null' will cause the default option to be used, which may be 'None', 'Identity', or 'Computed' depending
+            Setting 'null' will cause the default option to be used, which may be 'NoData', 'Identity', or 'Computed' depending
             on the type of the property, its semantics in the model (e.g. primary keys are treated differently), and which
             set of conventions are being used.
             </param>
@@ -38846,7 +38846,7 @@
             </summary>
             <param name="databaseGeneratedOption">
             The pattern used to generate values for the property in the database.
-            Setting 'null' will cause the default option to be used, which may be 'None', 'Identity', or 'Computed' depending
+            Setting 'null' will cause the default option to be used, which may be 'NoData', 'Identity', or 'Computed' depending
             on the type of the property, its semantics in the model (e.g. primary keys are treated differently), and which
             set of conventions are being used.
             </param>
@@ -39006,7 +39006,7 @@
             </summary>
             <param name="databaseGeneratedOption">
             The pattern used to generate values for the property in the database.
-            Setting 'null' will cause the default option to be used, which may be 'None', 'Identity', or 'Computed' depending
+            Setting 'null' will cause the default option to be used, which may be 'NoData', 'Identity', or 'Computed' depending
             on the type of the property, its semantics in the model (e.g. primary keys are treated differently), and which
             set of conventions are being used.
             </param>

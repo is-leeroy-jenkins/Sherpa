@@ -1815,7 +1815,7 @@
             <param name="syntax">Type syntax to bind.</param>
             <param name="diagnostics">Diagnostics.</param>
             <param name="keyword">
-            Set to <see cref="F:Microsoft.CodeAnalysis.CSharp.Binder.ConstraintContextualKeyword.None"/> if syntax binds to a type in the current context, otherwise
+            Set to <see cref="F:Microsoft.CodeAnalysis.CSharp.Binder.ConstraintContextualKeyword.NoData"/> if syntax binds to a type in the current context, otherwise
             syntax binds to the corresponding keyword in the current context.
             </param>
             <returns>
@@ -1972,7 +1972,7 @@
         </member>
         <member name="P:Microsoft.CodeAnalysis.CSharp.Binder.BestSymbolInfo.Index">
             <summary>
-            Returns -1 if None.
+            Returns -1 if NoData.
             </summary>
         </member>
         <member name="M:Microsoft.CodeAnalysis.CSharp.Binder.BestSymbolInfo.Sort(Microsoft.CodeAnalysis.CSharp.Binder.BestSymbolInfo@,Microsoft.CodeAnalysis.CSharp.Binder.BestSymbolInfo@)">
@@ -3866,7 +3866,7 @@
             Indicates why the compiler accepted or rejected the member during overload resolution.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.CSharp.MemberResolutionKind.None">
+        <member name="F:Microsoft.CodeAnalysis.CSharp.MemberResolutionKind.NoData">
             <summary>
             No resolution has (yet) been determined.
             </summary>
@@ -4650,7 +4650,7 @@
             <param name="boundAttributes">Bound attributes.</param>
             <param name="allAttributeSyntaxNodes">Syntax nodes of attributes in order they are specified in source, or null if there are no attributes.</param>
             <param name="diagnostics">Diagnostic bag.</param>
-            <param name="symbolPart">Specific part of the symbol to which the attributes apply, or <see cref="F:Microsoft.CodeAnalysis.CSharp.Symbols.AttributeLocation.None"/> if the attributes apply to the symbol itself.</param>
+            <param name="symbolPart">Specific part of the symbol to which the attributes apply, or <see cref="F:Microsoft.CodeAnalysis.CSharp.Symbols.AttributeLocation.NoData"/> if the attributes apply to the symbol itself.</param>
             <param name="decodedData">Decoded well-known attribute data, could be null.</param>
         </member>
         <member name="M:Microsoft.CodeAnalysis.CSharp.Symbol.LoadAndValidateAttributes(Roslyn.Utilities.OneOrMany{Microsoft.CodeAnalysis.SyntaxList{Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax}},Microsoft.CodeAnalysis.CustomAttributesBag{Microsoft.CodeAnalysis.CSharp.Symbols.CSharpAttributeData}@,Microsoft.CodeAnalysis.CSharp.Symbols.AttributeLocation,System.Boolean,Microsoft.CodeAnalysis.CSharp.Binder,System.Func{Microsoft.CodeAnalysis.CSharp.Syntax.AttributeSyntax,System.Boolean},System.Action{Microsoft.CodeAnalysis.CSharp.Syntax.AttributeSyntax},System.Action{Microsoft.CodeAnalysis.CSharp.Syntax.AttributeSyntax})">
@@ -4681,7 +4681,7 @@
             </remarks>
             <param name="attributesSyntaxLists"></param>
             <param name="lazyCustomAttributesBag"></param>
-            <param name="symbolPart">Specific part of the symbol to which the attributes apply, or <see cref="F:Microsoft.CodeAnalysis.CSharp.Symbols.AttributeLocation.None"/> if the attributes apply to the symbol itself.</param>
+            <param name="symbolPart">Specific part of the symbol to which the attributes apply, or <see cref="F:Microsoft.CodeAnalysis.CSharp.Symbols.AttributeLocation.NoData"/> if the attributes apply to the symbol itself.</param>
             <param name="earlyDecodingOnly">Indicates that only early decoding should be performed.  WARNING: the resulting bag will not be sealed.</param>
             <param name="binderOpt">Binder to use. If null, <see cref="P:Microsoft.CodeAnalysis.CSharp.Symbol.DeclaringCompilation"/> GetBinderFactory will be used.</param>
             <param name="attributeMatchesOpt">If specified, only load attributes that match this predicate, and any diagnostics produced will be dropped.</param>
@@ -4992,14 +4992,14 @@
         <member name="M:Microsoft.CodeAnalysis.CSharp.BoundExpressionExtensions.GetRefKind(Microsoft.CodeAnalysis.CSharp.BoundExpression)">
             <summary>
             Returns the RefKind if the expression represents a symbol
-            that has a RefKind, or RefKind.None otherwise.
+            that has a RefKind, or RefKind.NoData otherwise.
             </summary>
         </member>
         <member name="T:Microsoft.CodeAnalysis.CSharp.BoundLocalDeclarationKind">
             <summary>
             Indicates whether a bound local is also a declaration, and if so was it a declaration with an explicit or an inferred type.
             Ex:
-            - In `M(x)`, `x` has `LocalDeclarationKind.None`
+            - In `M(x)`, `x` has `LocalDeclarationKind.NoData`
             - In `M(out int x)`, `x` has `LocalDeclarationKind.WithExplicitType`
             - In `M(out var x)`, `x` has `LocalDeclarationKind.WithInferredType`
             </summary>
@@ -9750,7 +9750,7 @@
             <summary>
             Calls are conditionally omitted if both the following requirements are true:
              (a) IsConditional == true, i.e. it has at least one applied/inherited conditional attribute AND
-             (b) None of conditional symbols corresponding to these conditional attributes are defined in the given syntaxTree.
+             (b) NoData of conditional symbols corresponding to these conditional attributes are defined in the given syntaxTree.
             </summary>
             <remarks>
             Forces binding and decoding of attributes.
@@ -13220,7 +13220,7 @@
         <member name="P:Microsoft.CodeAnalysis.CSharp.Symbols.ErrorTypeSymbol.CandidateReason">
             <summary>
              If CandidateSymbols returns one or more symbols, returns the reason that those
-             symbols were not chosen. Otherwise, returns None.
+             symbols were not chosen. Otherwise, returns NoData.
              </summary>
         </member>
         <member name="P:Microsoft.CodeAnalysis.CSharp.Symbols.ErrorTypeSymbol.IsReferenceType">
@@ -13539,7 +13539,7 @@
             Specifies the syntactic construct that a user defined variable comes from.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.CSharp.Symbols.LocalDeclarationKind.None">
+        <member name="F:Microsoft.CodeAnalysis.CSharp.Symbols.LocalDeclarationKind.NoData">
             <summary>
             The local is not user defined nor it is a copy of a user defined local (e.g. with a substituted type).
             Check the value of <see cref="P:Microsoft.CodeAnalysis.CSharp.Symbols.LocalSymbol.SynthesizedKind"/> for the kind of synthesized variable.
@@ -14864,7 +14864,7 @@
             Uninitialized state
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.CSharp.Symbols.NullableContextKind.None">
+        <member name="F:Microsoft.CodeAnalysis.CSharp.Symbols.NullableContextKind.NoData">
             <summary>
             No [NullableContext] attribute
             </summary>
@@ -23112,11 +23112,11 @@
             <summary>
             Patch refKinds for arguments that match 'In' or 'Ref' parameters to have effective RefKind.
             For the purpose of further analysis we will mark the arguments as -
-            - In        if was originally passed as None
+            - In        if was originally passed as NoData
             - StrictIn  if was originally passed as In
             - Ref       if the argument is an interpolated string literal subject to an interpolated string handler conversion. No other types
                         are patched here.
-            Here and in the layers after the lowering we only care about None/notNone differences for the arguments
+            Here and in the layers after the lowering we only care about NoData/notNone differences for the arguments
             Except for async stack spilling which needs to know whether arguments were originally passed as "In" and must obey "no copying" rule.
             </summary>
         </member>

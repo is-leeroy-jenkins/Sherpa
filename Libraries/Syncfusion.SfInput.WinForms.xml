@@ -5320,7 +5320,7 @@
 		</member>
 		<member name="T:Syncfusion.WinForms.Input.CalendarButton">
 			<summary>
-				Represents the button control that used for Today and None button in footer of<see
+				Represents the button control that used for Today and NoData button in footer of<see
 					cref="T:Syncfusion.WinForms.Input.SfCalendar"/>.
 			</summary>
 		</member>
@@ -7454,7 +7454,7 @@
 			</summary>
 			[Description("Gets or sets a value indicating whether SfDateTimeEdit allows null
 			value.")]
-			<remarks>None Button of DropDown Calendar will be visible always when AllowNull is True
+			<remarks>NoData Button of DropDown Calendar will be visible always when AllowNull is True
 			</remarks>
 		</member>
 		<member name="P:Syncfusion.WinForms.Input.SfDateTimeEdit.AllowValueChangeOnMouseWheel">
@@ -9589,7 +9589,7 @@
 			<summary>
 				Gets or sets the height of the Footer in
 				<see cref="T:Syncfusion.WinForms.Input.SfCalendar"/>. Footer contains the Today and
-				None button.
+				NoData button.
 			</summary>
 		</member>
 		<member name="P:Syncfusion.WinForms.Input.SfCalendar.ShowHorizontalSplitter">
@@ -9682,11 +9682,11 @@
 		</member>
 		<member name="P:Syncfusion.WinForms.Input.SfCalendar.NoneButton">
 			<summary>
-				Gets the None button of the
+				Gets the NoData button of the
 				<see cref="T:Syncfusion.WinForms.Input.SfCalendar"/>
 				which used to change the
 				<see cref="P:Syncfusion.WinForms.Input.SfCalendar.SelectedDate"/>
-				to None.
+				to NoData.
 			</summary>
 		</member>
 		<member name="P:Syncfusion.WinForms.Input.SfCalendar.CalendarContainer">
@@ -10031,7 +10031,7 @@
 		</member>
 		<member name="M:Syncfusion.WinForms.Input.SfCalendar.NoneButton_VisibleChanged(System.Object,System.EventArgs)">
 			<summary>
-				Visibility of None button in
+				Visibility of NoData button in
 				<see cref="T:Syncfusion.WinForms.Input.SfCalendar"/>
 			</summary>
 			<param name="sender">
@@ -11413,7 +11413,7 @@
 		</member>
 		<member name="P:Syncfusion.WinForms.Input.Syncfusion_SfInput_WinForms.NoneButtonText">
 			<summary>
-				Looks up a localized string similar to None.
+				Looks up a localized string similar to NoData.
 			</summary>
 		</member>
 		<member name="P:Syncfusion.WinForms.Input.Syncfusion_SfInput_WinForms.TodayButtonText">

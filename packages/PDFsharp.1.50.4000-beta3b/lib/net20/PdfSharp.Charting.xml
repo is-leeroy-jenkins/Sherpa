@@ -2183,7 +2183,7 @@
 				Determines the type of the data label.
 			</summary>
 		</member>
-		<member name="F:PdfSharp.Charting.DataLabelType.None">
+		<member name="F:PdfSharp.Charting.DataLabelType.NoData">
 			<summary>
 				No DataLabel.
 			</summary>
@@ -2261,7 +2261,7 @@
 				Symbols of a data point in a line chart.
 			</summary>
 		</member>
-		<member name="F:PdfSharp.Charting.MarkerStyle.None">
+		<member name="F:PdfSharp.Charting.MarkerStyle.NoData">
 			<summary></summary>
 		</member>
 		<member name="F:PdfSharp.Charting.MarkerStyle.Circle">
@@ -2296,7 +2296,7 @@
 				Determines the position where the Tickmarks will be rendered.
 			</summary>
 		</member>
-		<member name="F:PdfSharp.Charting.TickMarkType.None">
+		<member name="F:PdfSharp.Charting.TickMarkType.NoData">
 			<summary>
 				Tickmarks are not rendered.
 			</summary>
@@ -2321,7 +2321,7 @@
 				Specifies the underline type for the font.
 			</summary>
 		</member>
-		<member name="F:PdfSharp.Charting.Underline.None">
+		<member name="F:PdfSharp.Charting.Underline.NoData">
 			<summary></summary>
 		</member>
 		<member name="F:PdfSharp.Charting.Underline.Single">

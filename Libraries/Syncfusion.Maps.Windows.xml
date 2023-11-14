@@ -1302,9 +1302,9 @@
 				To specify the map item shape as Rectangle
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Maps.MapItemShapes.None">
+		<member name="F:Syncfusion.Windows.Forms.Maps.MapItemShapes.NoData">
 			<summary>
-				To specify the map item shape as None
+				To specify the map item shape as NoData
 			</summary>
 		</member>
 		<member name="T:Syncfusion.Windows.Forms.Maps.SelectionModes">
@@ -1327,7 +1327,7 @@
 				To specify the annotation shape.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Maps.AnnotationShapes.None">
+		<member name="F:Syncfusion.Windows.Forms.Maps.AnnotationShapes.NoData">
 			<summary>
 				To specify the annotation shape as none
 			</summary>

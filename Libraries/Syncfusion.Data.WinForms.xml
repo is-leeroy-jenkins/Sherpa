@@ -1767,7 +1767,7 @@
 				event of source collection.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Data.NotificationSubscriptionMode.None">
+		<member name="F:Syncfusion.Data.NotificationSubscriptionMode.NoData">
 			<summary>
 				Denotes
 				<see cref="E:System.ComponentModel.INotifyPropertyChanging.PropertyChanging"/>,
@@ -7035,7 +7035,7 @@
 				Specifies where the placeholder for a new item appears in the collection.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Data.NewItemPlaceholderPosition.None">
+		<member name="F:Syncfusion.Data.NewItemPlaceholderPosition.NoData">
 			<summary>
 				Specifies that the collection does not use a new item placeholder. The position of
 				items that are added depends on the underlying collection. Usually, they are added

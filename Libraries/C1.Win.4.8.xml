@@ -136,8 +136,8 @@
 		<member name="T:GrapeCity.Common.Resources.LicenseDialogWebLinkTarget">
 			<summary>Represents the target web site for the link in license dialog.</summary>
 		</member>
-		<member name="F:GrapeCity.Common.Resources.LicenseDialogWebLinkTarget.None">
-			<summary>None target.</summary>
+		<member name="F:GrapeCity.Common.Resources.LicenseDialogWebLinkTarget.NoData">
+			<summary>NoData target.</summary>
 		</member>
 		<member name="F:GrapeCity.Common.Resources.LicenseDialogWebLinkTarget.GotoWebFAQ">
 			<summary>Goto web site http://www.grapecity.com/support/portal/.</summary>
@@ -382,7 +382,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.TreeViewBorderStyleEnum.ColumnsHeaderOnly">
 			<summary>Borders are shown only for headers of columns.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.TreeViewBorderStyleEnum.None">
+		<member name="F:C1.Win.C1Themes.Shared.TreeViewBorderStyleEnum.NoData">
 			<summary>No borders.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.TreeViewBorderStyleEnum.ColumnsLineOnly">
@@ -439,7 +439,7 @@
 		<member name="T:C1.Win.C1Themes.Shared.BorderType">
 			<summary>Used in: C1TrueDBGrid\GridBorder</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.BorderType.None">
+		<member name="F:C1.Win.C1Themes.Shared.BorderType.NoData">
 			<summary>No borders.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.BorderType.Flat">
@@ -523,7 +523,7 @@
 		<member name="T:C1.Win.C1Themes.Shared.LineStyle">
 			<summary>Used in: C1TrueDBGrid\GridLines</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.LineStyle.None">
+		<member name="F:C1.Win.C1Themes.Shared.LineStyle.NoData">
 			<summary>No line.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.LineStyle.Single">
@@ -588,7 +588,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.WeekTabStyle.Office2016">
 			<summary>Week tabs of Office2016 appearance.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.BackgroundGradient.None">
+		<member name="F:C1.Win.C1Themes.Shared.BackgroundGradient.NoData">
 			<summary>Use no background gradient.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.BackgroundGradient.Automatic">
@@ -609,7 +609,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.BackgroundGradient.Vista">
 			<summary>Use the Vista-style background gradient.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.GradientMode.None">
+		<member name="F:C1.Win.C1Themes.Shared.GradientMode.NoData">
 			<summary>No gradient.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.GradientMode.Horizontal">
@@ -729,7 +729,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.TextDirection.Down">
 			<summary>Text is draw vertically, from the top down.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.RadialMenuTooltipPosition.None">
+		<member name="F:C1.Win.C1Themes.Shared.RadialMenuTooltipPosition.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.RadialMenuTooltipPosition.Left">
@@ -781,7 +781,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Flex_BorderDirEnum.Vertical">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Flex_BorderStyleEnum.None">
+		<member name="F:C1.Win.C1Themes.Shared.Flex_BorderStyleEnum.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Flex_BorderStyleEnum.Flat">
@@ -817,7 +817,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Flex_DisplayEnum.Stack">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Flex_DisplayEnum.None">
+		<member name="F:C1.Win.C1Themes.Shared.Flex_DisplayEnum.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Flex_ImageAlignEnum.LeftTop">
@@ -916,7 +916,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Flex_TextEffectEnum.Inset">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Flex_TreeStyleFlags.None">
+		<member name="F:C1.Win.C1Themes.Shared.Flex_TreeStyleFlags.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Flex_TreeStyleFlags.Lines">
@@ -943,7 +943,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Flex_TreeStyleFlags.SimpleLeaf">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Flex_FocusRectEnum.None">
+		<member name="F:C1.Win.C1Themes.Shared.Flex_FocusRectEnum.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Flex_FocusRectEnum.Light">
@@ -961,7 +961,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Flex_FocusRectEnum.Inset">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Gantt_BarShape.None">
+		<member name="F:C1.Win.C1Themes.Shared.Gantt_BarShape.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Gantt_BarShape.ThickBar">
@@ -1036,7 +1036,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Gantt_HatchPattern.ZigZag">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Gantt_TaskProperty.None">
+		<member name="F:C1.Win.C1Themes.Shared.Gantt_TaskProperty.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Gantt_TaskProperty.Name">
@@ -1081,7 +1081,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Gantt_TaskProperty.Notes">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Gantt_ProgressLineStyle.None">
+		<member name="F:C1.Win.C1Themes.Shared.Gantt_ProgressLineStyle.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Gantt_ProgressLineStyle.Solid">
@@ -1216,7 +1216,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Chart_ColorGeneration.Verve">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Chart_GradientStyleEnum.None">
+		<member name="F:C1.Win.C1Themes.Shared.Chart_GradientStyleEnum.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Chart_GradientStyleEnum.Horizontal">
@@ -1249,7 +1249,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Chart_GradientStyleEnum.FromCenter">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Chart_HatchStyleEnum.None">
+		<member name="F:C1.Win.C1Themes.Shared.Chart_HatchStyleEnum.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Chart_HatchStyleEnum.Horizontal">
@@ -1453,7 +1453,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Chart_BorderStyleEnum.NotSet">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Chart_BorderStyleEnum.None">
+		<member name="F:C1.Win.C1Themes.Shared.Chart_BorderStyleEnum.NoData">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Chart_BorderStyleEnum.Empty">
@@ -1552,7 +1552,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.ThemeVisualStyle.WindowsXP">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.C1GaugeBorderStyle.None">
+		<member name="F:C1.Win.C1Themes.Shared.C1GaugeBorderStyle.NoData">
 			<summary>Hides the border.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.C1GaugeBorderStyle.Solid">
@@ -1585,7 +1585,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.C1MapDashStyle.DashDotDot">
 			<summary>Specifies a line consisting of a repeating pattern of dash-dot-dot.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.C1MapGradientStyle.None">
+		<member name="F:C1.Win.C1Themes.Shared.C1MapGradientStyle.NoData">
 			<summary>No gradient filling.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.C1MapGradientStyle.Horizontal">
@@ -6001,7 +6001,7 @@
 		<member name="T:C1.Win.C1SuperTooltip.BackgroundGradient">
 			<summary>Specifies a background gradient for the ToolTip.</summary>
 		</member>
-		<member name="F:C1.Win.C1SuperTooltip.BackgroundGradient.None">
+		<member name="F:C1.Win.C1SuperTooltip.BackgroundGradient.NoData">
 			<summary>Use no background gradient.</summary>
 		</member>
 		<member name="F:C1.Win.C1SuperTooltip.BackgroundGradient.Automatic">
@@ -6025,7 +6025,7 @@
 		<member name="T:C1.Win.C1SuperTooltip.BackgroundImageLayout">
 			<summary>Specifies the layout logic used to display the background image.</summary>
 		</member>
-		<member name="F:C1.Win.C1SuperTooltip.BackgroundImageLayout.None">
+		<member name="F:C1.Win.C1SuperTooltip.BackgroundImageLayout.NoData">
 			<summary>The image is left-aligned at the top across the control's client rectangle.
 			</summary>
 		</member>
@@ -7864,7 +7864,7 @@
 		<member name="T:C1.Win.Touch.Manipulations">
 			<summary>Represents the possible affine two-dimensional (2-D) manipulations.</summary>
 		</member>
-		<member name="F:C1.Win.Touch.Manipulations.None">
+		<member name="F:C1.Win.Touch.Manipulations.NoData">
 			<summary>No manipulations.</summary>
 		</member>
 		<member name="F:C1.Win.Touch.Manipulations.TranslateX">
@@ -8423,7 +8423,7 @@
 		<member name="T:C1.Util.GlyphFlags">
 			<summary>Provides additional information on the glyph.</summary>
 		</member>
-		<member name="F:C1.Util.GlyphFlags.None">
+		<member name="F:C1.Util.GlyphFlags.NoData">
 			<summary>No additional info.</summary>
 		</member>
 		<member name="F:C1.Util.GlyphFlags.ClusterStart">
@@ -14050,7 +14050,7 @@
 		<member name="T:C1.Util.FontSubSet.TextDecorations">
 			<summary>Defines constants that specify the decorations applied to text.</summary>
 		</member>
-		<member name="F:C1.Util.FontSubSet.TextDecorations.None">
+		<member name="F:C1.Util.FontSubSet.TextDecorations.NoData">
 			<summary>No text decorations are applied.</summary>
 		</member>
 		<member name="F:C1.Util.FontSubSet.TextDecorations.Strikethrough">
@@ -14064,7 +14064,7 @@
 				code point.
 			</summary>
 		</member>
-		<member name="F:C1.Util.FontSubSet.CodePointFlags.None">
+		<member name="F:C1.Util.FontSubSet.CodePointFlags.NoData">
 			<summary>Indicates that none of the flags are set.</summary>
 		</member>
 		<member name="F:C1.Util.FontSubSet.CodePointFlags.GraphemeStart">
@@ -16682,7 +16682,7 @@
 			</returns>
 			<remarks>Use: WM_MOUSEWHEEL - fwKeys</remarks>
 		</member>
-		<member name="F:C1.Util.Win.Win32.C1PdfAcrofieldType.None">
+		<member name="F:C1.Util.Win.Win32.C1PdfAcrofieldType.NoData">
 			<summary>A field type invalid or not found.</summary>
 		</member>
 		<member name="T:C1.Util.Win.Win32.MONITORINFOEX">
@@ -17662,7 +17662,7 @@
 		<member name="T:C1.Framework.Stretch">
 			<summary>Describes how content is resized to fill its allocated space.</summary>
 		</member>
-		<member name="F:C1.Framework.Stretch.None">
+		<member name="F:C1.Framework.Stretch.NoData">
 			<summary>The content preserves its original size.</summary>
 		</member>
 		<member name="F:C1.Framework.Stretch.Fill">
@@ -21572,7 +21572,7 @@
 				contained in a paragraph.
 			</summary>
 		</member>
-		<member name="F:C1.Framework.Element.LineBreak.None">
+		<member name="F:C1.Framework.Element.LineBreak.NoData">
 			<summary>The element does not cause line breaks.</summary>
 		</member>
 		<member name="F:C1.Framework.Element.LineBreak.Before">
@@ -23606,7 +23606,7 @@
 				Gets or sets the main color (used when
 				<see cref="P:C1.Framework.BackgroundBrushProvider.GradientMode"/>
 				is set to
-				<b>None</b>
+				<b>NoData</b>
 				).
 			</summary>
 		</member>
@@ -23615,7 +23615,7 @@
 				Gets or sets the secondary color (used when
 				<see cref="P:C1.Framework.BackgroundBrushProvider.GradientMode"/>
 				is set to a value other than
-				<b>None</b>
+				<b>NoData</b>
 				).
 			</summary>
 		</member>
@@ -23664,7 +23664,7 @@
 				Rectangle used to build the gradient brush if the
 				<see cref="P:C1.Framework.BackgroundBrushProvider.GradientMode"/>
 				property is set to a value other than
-				<b>None</b>
+				<b>NoData</b>
 				.
 			</param>
 			<returns>
@@ -24386,7 +24386,7 @@
 		<member name="T:C1.Framework.GradientMode">
 			<summary>Specifies the background gradient mode.</summary>
 		</member>
-		<member name="F:C1.Framework.GradientMode.None">
+		<member name="F:C1.Framework.GradientMode.NoData">
 			<summary>No gradient.</summary>
 		</member>
 		<member name="F:C1.Framework.GradientMode.Horizontal">
@@ -24419,7 +24419,7 @@
 		<member name="T:C1.Framework.StyleFlags">
 			<summary>Specifies flags for the style.</summary>
 		</member>
-		<member name="F:C1.Framework.StyleFlags.None">
+		<member name="F:C1.Framework.StyleFlags.NoData">
 			<summary>No special flags.</summary>
 		</member>
 		<member name="F:C1.Framework.StyleFlags.PageBreakBefore">
@@ -26495,7 +26495,7 @@
 		<member name="T:C1.Framework.AutoSizeElement">
 			<summary>Specifies how the XView control should size the element it contains.</summary>
 		</member>
-		<member name="F:C1.Framework.AutoSizeElement.None">
+		<member name="F:C1.Framework.AutoSizeElement.NoData">
 			<summary>No autosizing.</summary>
 		</member>
 		<member name="F:C1.Framework.AutoSizeElement.Width">

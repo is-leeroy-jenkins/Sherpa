@@ -3449,7 +3449,7 @@
 				Axis label intersect actions.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.SmithChart.LabelIntersectActions.None">
+		<member name="F:Syncfusion.WinForms.SmithChart.LabelIntersectActions.NoData">
 			<summary>
 				Axis label displaying without any changes
 			</summary>
@@ -3512,7 +3512,7 @@
 				multiple chart series.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.SmithChart.ChartColorPalette.None">
+		<member name="F:Syncfusion.WinForms.SmithChart.ChartColorPalette.NoData">
 			<summary>
 				No palette is set.
 			</summary>

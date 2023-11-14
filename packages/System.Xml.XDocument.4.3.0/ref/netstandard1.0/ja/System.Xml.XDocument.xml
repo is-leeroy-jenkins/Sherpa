@@ -326,7 +326,7 @@
 		<member name="T:System.Xml.Linq.LoadOptions">
 			<summary>XML を解析するときに読み込みオプションを指定します。</summary>
 		</member>
-		<member name="F:System.Xml.Linq.LoadOptions.None">
+		<member name="F:System.Xml.Linq.LoadOptions.NoData">
 			<summary>意味のない空白を保持したり、ベース URI と行情報を読み込んだりしないでください。</summary>
 		</member>
 		<member name="F:System.Xml.Linq.LoadOptions.PreserveWhitespace">
@@ -356,7 +356,7 @@
 				を読み込むときに、重複する名前空間を省略するかどうかを指定します。
 			</summary>
 		</member>
-		<member name="F:System.Xml.Linq.ReaderOptions.None">
+		<member name="F:System.Xml.Linq.ReaderOptions.NoData">
 			<summary>リーダーのオプションが指定されていません。</summary>
 		</member>
 		<member name="F:System.Xml.Linq.ReaderOptions.OmitDuplicateNamespaces">
@@ -371,7 +371,7 @@
 		<member name="F:System.Xml.Linq.SaveOptions.DisableFormatting">
 			<summary>シリアル化の際に意味のない空白がすべて保存されます。</summary>
 		</member>
-		<member name="F:System.Xml.Linq.SaveOptions.None">
+		<member name="F:System.Xml.Linq.SaveOptions.NoData">
 			<summary>シリアル化の際に XML に書式 (インデント) が設定されます。</summary>
 		</member>
 		<member name="F:System.Xml.Linq.SaveOptions.OmitDuplicateNamespaces">
@@ -3082,7 +3082,7 @@
 			<returns>名前空間の URI を格納する<see cref="T:System.String"/>。
 			</returns>
 		</member>
-		<member name="P:System.Xml.Linq.XNamespace.None">
+		<member name="P:System.Xml.Linq.XNamespace.NoData">
 			<summary>対応する名前空間がない
 				<see cref="T:System.Xml.Linq.XNamespace"/>
 				オブジェクトを取得します。

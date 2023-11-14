@@ -373,7 +373,7 @@
 		<member name="T:System.Xml.Linq.LoadOptions">
 			<summary>Gibt Ladeoptionen beim Analysieren von XML an.</summary>
 		</member>
-		<member name="F:System.Xml.Linq.LoadOptions.None">
+		<member name="F:System.Xml.Linq.LoadOptions.NoData">
 			<summary>Behält keinen nicht signifikanten Leerraum bei und lädt keine Basis-URI und
 				Zeileninformationen.
 			</summary>
@@ -404,7 +404,7 @@
 				weggelassen werden sollen.
 			</summary>
 		</member>
-		<member name="F:System.Xml.Linq.ReaderOptions.None">
+		<member name="F:System.Xml.Linq.ReaderOptions.NoData">
 			<summary>Es sind keine Reader-Optionen angegeben.</summary>
 		</member>
 		<member name="F:System.Xml.Linq.ReaderOptions.OmitDuplicateNamespaces">
@@ -419,7 +419,7 @@
 		<member name="F:System.Xml.Linq.SaveOptions.DisableFormatting">
 			<summary>Behält beim Serialisieren sämtlichen nicht signifikanten Leeraum bei.</summary>
 		</member>
-		<member name="F:System.Xml.Linq.SaveOptions.None">
+		<member name="F:System.Xml.Linq.SaveOptions.NoData">
 			<summary>Formatiert das XML (Einzug) beim Serialisieren.</summary>
 		</member>
 		<member name="F:System.Xml.Linq.SaveOptions.OmitDuplicateNamespaces">
@@ -3161,7 +3161,7 @@
 			<returns>Ein<see cref="T:System.String"/>, der den URI des Namespaces enthält.
 			</returns>
 		</member>
-		<member name="P:System.Xml.Linq.XNamespace.None">
+		<member name="P:System.Xml.Linq.XNamespace.NoData">
 			<summary>Ruft das<see cref="T:System.Xml.Linq.XNamespace"/>-Objekt ab, das keinem
 				Namespace entspricht.
 			</summary>

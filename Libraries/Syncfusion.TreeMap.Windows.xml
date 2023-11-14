@@ -2474,9 +2474,9 @@
 				To specify the legend type as Ellipse
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.TreeMap.LegendTypes.None">
+		<member name="F:Syncfusion.Windows.Forms.TreeMap.LegendTypes.NoData">
 			<summary>
-				To specify the legend type as None
+				To specify the legend type as NoData
 			</summary>
 		</member>
 		<member name="T:Syncfusion.Windows.Forms.TreeMap.LegendMode">

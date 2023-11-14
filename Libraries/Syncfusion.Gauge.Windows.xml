@@ -1366,9 +1366,9 @@
 				Metro color
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Gauge.ThemeStyle.None">
+		<member name="F:Syncfusion.Windows.Forms.Gauge.ThemeStyle.NoData">
 			<summary>
-				None
+				NoData
 			</summary>
 		</member>
 		<member name="F:Syncfusion.Windows.Forms.Gauge.ThemeStyle.Office2016Colorful">

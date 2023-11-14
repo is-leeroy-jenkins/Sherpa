@@ -5813,7 +5813,7 @@
 		</member>
 		<member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.noBottomBorder">
 			<summary>
-				BorderStyle.None border - used in marker column
+				BorderStyle.NoData border - used in marker column
 			</summary>
 		</member>
 		<member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.solidBorder">
@@ -7252,7 +7252,7 @@
 				behavior.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Schedule.ResizingCellsMode.None">
+		<member name="F:Syncfusion.Windows.Forms.Schedule.ResizingCellsMode.NoData">
 			<summary>
 				No resizing.
 			</summary>

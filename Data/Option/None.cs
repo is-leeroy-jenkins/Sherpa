@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        06-22-2023
 // ******************************************************************************************
-// <copyright file="None.cs" company="Terry D. Eppler">
+// <copyright file="NoData.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   None.cs
+//   NoData.cs
 // </summary>
 // ******************************************************************************************
 
@@ -92,7 +92,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="None{T}"/>
+        /// <see cref="NoData{T}"/>
         /// class.
         /// </summary>
         public None( )

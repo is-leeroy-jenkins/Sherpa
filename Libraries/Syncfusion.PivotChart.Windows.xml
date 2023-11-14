@@ -2000,7 +2000,7 @@
 		<member name="P:Syncfusion.Windows.Forms.PivotChart.PivotChartAreaStyles.BorderStyle">
 			<summary>
 				Gets or sets the style of the border that is to be rendered around the ChartArea.
-				Default is None.
+				Default is NoData.
 			</summary>
 		</member>
 		<member name="P:Syncfusion.Windows.Forms.PivotChart.PivotChartAreaStyles.BackImage">

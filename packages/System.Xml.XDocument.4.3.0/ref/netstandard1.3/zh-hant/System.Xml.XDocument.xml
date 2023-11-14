@@ -319,7 +319,7 @@
 		<member name="T:System.Xml.Linq.LoadOptions">
 			<summary>指定剖析 XML 時的載入選項。</summary>
 		</member>
-		<member name="F:System.Xml.Linq.LoadOptions.None">
+		<member name="F:System.Xml.Linq.LoadOptions.NoData">
 			<summary>請勿保留不重要的泛空白字元，或載入基底 URI 和行資訊。</summary>
 		</member>
 		<member name="F:System.Xml.Linq.LoadOptions.PreserveWhitespace">
@@ -349,7 +349,7 @@
 				時省略重複的命名空間。
 			</summary>
 		</member>
-		<member name="F:System.Xml.Linq.ReaderOptions.None">
+		<member name="F:System.Xml.Linq.ReaderOptions.NoData">
 			<summary>不指定讀取器選項。</summary>
 		</member>
 		<member name="F:System.Xml.Linq.ReaderOptions.OmitDuplicateNamespaces">
@@ -364,7 +364,7 @@
 		<member name="F:System.Xml.Linq.SaveOptions.DisableFormatting">
 			<summary>當序列化時保留所有不重要的泛空白字元。</summary>
 		</member>
-		<member name="F:System.Xml.Linq.SaveOptions.None">
+		<member name="F:System.Xml.Linq.SaveOptions.NoData">
 			<summary>當序列化時格式化 (縮排) XML。</summary>
 		</member>
 		<member name="F:System.Xml.Linq.SaveOptions.OmitDuplicateNamespaces">
@@ -2998,7 +2998,7 @@
 				<see cref="T:System.String"/>，其中包含命名空間的 URI。
 			</returns>
 		</member>
-		<member name="P:System.Xml.Linq.XNamespace.None">
+		<member name="P:System.Xml.Linq.XNamespace.NoData">
 			<summary>取得與無命名空間相對應的
 				<see cref="T:System.Xml.Linq.XNamespace"/>
 				物件。

@@ -46,7 +46,7 @@ namespace BudgetExecution
     /// <summary> Defines the OutlayType </summary>
     public enum ExpenseType
     {
-        /// <summary> Defines the None </summary>
+        /// <summary> Defines the NoData </summary>
         Ns = 0,
 
         /// <summary> Defines the Commitment </summary>

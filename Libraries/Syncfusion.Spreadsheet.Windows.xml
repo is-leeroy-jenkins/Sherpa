@@ -749,7 +749,7 @@
 				Specifies the options for checking the formula error strings.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.CellGrid.FormulaEngine.FormulaArgumentType.None">
+		<member name="F:Syncfusion.Windows.Forms.CellGrid.FormulaEngine.FormulaArgumentType.NoData">
 			<summary>
 				Formula contains null arguments. For Example:PI,RANDOM...etc
 			</summary>
@@ -5525,7 +5525,7 @@
 				Specifies options for caching look up tables in HLookUp and VLookUp functions.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.CellGrid.LookupCachingMode.None">
+		<member name="F:Syncfusion.Windows.Forms.CellGrid.LookupCachingMode.NoData">
 			<summary>
 				No caching is done.
 			</summary>
@@ -9607,7 +9607,7 @@
 				Specifies horizontal or vertical autoscrolling.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.CellGrid.Helpers.AutoScrollOrientation.None">
+		<member name="F:Syncfusion.Windows.Forms.CellGrid.Helpers.AutoScrollOrientation.NoData">
 			<summary>
 				No autoscrolling.
 			</summary>
@@ -9634,7 +9634,7 @@
 				The options can be combined.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.CellGrid.Helpers.GridResizeToFitOptions.None">
+		<member name="F:Syncfusion.Windows.Forms.CellGrid.Helpers.GridResizeToFitOptions.NoData">
 			<summary>
 				Uses default behavior for resizing cells to fit contents. Ignores covered cells,
 				does shrink size, does not include headers.
@@ -11571,7 +11571,7 @@
 			</summary>
 			<remarks>
 				<list type="">
-					<item>ScrollBars.None will disable scrolling.</item>
+					<item>ScrollBars.NoData will disable scrolling.</item>
 					<item>ScrollBars.Horizontal will enable horizontal scrolling.</item>
 					<item>ScrollBars.Vertical will enable vertical scrolling.</item>
 					<item>ScrollBars.Horizontal|ScrollBars.Vertical will enable both horizontal and
@@ -32171,7 +32171,7 @@
 		</member>
 		<member name="P:Syncfusion.Windows.Forms.Spreadsheet.Resources.Syncfusion_Spreadsheet_Windows.FormatCells_None">
 			<summary>
-				Looks up a localized string similar to None.
+				Looks up a localized string similar to NoData.
 			</summary>
 		</member>
 		<member name="P:Syncfusion.Windows.Forms.Spreadsheet.Resources.Syncfusion_Spreadsheet_Windows.FormatCells_NormalFont">

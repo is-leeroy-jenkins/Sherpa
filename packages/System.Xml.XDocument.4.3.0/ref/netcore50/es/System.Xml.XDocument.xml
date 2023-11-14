@@ -421,7 +421,7 @@
 		<member name="T:System.Xml.Linq.LoadOptions">
 			<summary>Especifica opciones de carga al analizar XML.</summary>
 		</member>
-		<member name="F:System.Xml.Linq.LoadOptions.None">
+		<member name="F:System.Xml.Linq.LoadOptions.NoData">
 			<summary>No conserva espacio en blanco no significativo ni carga información de URI base
 				y de línea.
 			</summary>
@@ -449,7 +449,7 @@
 				con<see cref="T:System.Xml.XmlReader"/>.
 			</summary>
 		</member>
-		<member name="F:System.Xml.Linq.ReaderOptions.None">
+		<member name="F:System.Xml.Linq.ReaderOptions.NoData">
 			<summary>No se especificó ninguna opción para el lector.</summary>
 		</member>
 		<member name="F:System.Xml.Linq.ReaderOptions.OmitDuplicateNamespaces">
@@ -464,7 +464,7 @@
 			<summary>Conserva todo el espacio en blanco insignificante mientras se serializa.
 			</summary>
 		</member>
-		<member name="F:System.Xml.Linq.SaveOptions.None">
+		<member name="F:System.Xml.Linq.SaveOptions.NoData">
 			<summary>Da formato (aplica sangría) al XML mientras se serializa.</summary>
 		</member>
 		<member name="F:System.Xml.Linq.SaveOptions.OmitDuplicateNamespaces">
@@ -3320,7 +3320,7 @@
 				que contiene el URI del espacio de nombres.
 			</returns>
 		</member>
-		<member name="P:System.Xml.Linq.XNamespace.None">
+		<member name="P:System.Xml.Linq.XNamespace.NoData">
 			<summary>Obtiene el objeto
 				<see cref="T:System.Xml.Linq.XNamespace"/>
 				que no se corresponde con ningún espacio de nombres.

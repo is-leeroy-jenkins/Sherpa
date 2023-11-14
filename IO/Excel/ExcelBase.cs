@@ -152,8 +152,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( grid, "grid" );
-                ThrowIf.NegativeOrZero( width, "width" );
+                ThrowIf.Null( grid, nameof( grid ) );
+                ThrowIf.Negative( width, nameof( width ) );
                 using var _range = grid.Range;
                 _range.AutoFitColumns( width );
             }
@@ -176,8 +176,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( grid, "grid" );
-                ThrowIf.NullOrEmpty( color, "color" );
+                ThrowIf.Null( grid, nameof( grid ) );
+                ThrowIf.NullOrEmpty( color, nameof( color ) );
                 using var _range = grid.Range;
                 _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                 _range.Style.Fill.BackgroundColor.SetColor( color );
@@ -202,8 +202,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( grid, "grid" );
-                ThrowIf.Null( font, "font" );
+                ThrowIf.Null( grid, nameof( grid ) );
+                ThrowIf.Null( font, nameof( font ) );
                 using var _range = grid.Range;
                 _range.Style.Font.SetFromFont( font.Name, font.Size );
             }
@@ -226,8 +226,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( grid, "grid" );
-                ThrowIf.NullOrEmpty( color, "color" );
+                ThrowIf.Null( grid, nameof( grid ) );
+                ThrowIf.NullOrEmpty( color, nameof( color ) );
                 using var _range = grid.Range;
                 _range.Style.Font.Color.SetColor( color );
                 _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
@@ -263,35 +263,26 @@ namespace BudgetExecution
                     switch( side )
                     {
                         case BorderSide.Top:
-
                         {
                             _range.Style.Border.Top.Style = style;
                             break;
                         }
-
                         case BorderSide.Bottom:
-
                         {
                             _range.Style.Border.Bottom.Style = style;
                             break;
                         }
-
                         case BorderSide.Right:
-
                         {
                             _range.Style.Border.Right.Style = style;
                             break;
                         }
-
                         case BorderSide.Left:
-
                         {
                             _range.Style.Border.Left.Style = style;
                             break;
                         }
-
                         default:
-
                         {
                             _range.Style.Border.BorderAround( ExcelBorderStyle.None );
                             break;

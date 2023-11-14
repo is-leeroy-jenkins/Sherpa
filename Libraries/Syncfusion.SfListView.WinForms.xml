@@ -144,7 +144,7 @@
 				Defines the AutoFit mode for<see cref="T:Syncfusion.WinForms.ListView.SfListView"/>.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.ListView.Enums.AutoFitMode.None">
+		<member name="F:Syncfusion.WinForms.ListView.Enums.AutoFitMode.NoData">
 			<summary>
 				Consider the value of
 				<see cref="P:Syncfusion.WinForms.ListView.SfListView.ItemHeight"/>

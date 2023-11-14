@@ -6664,7 +6664,7 @@
 		</member>
 		<member name="P:Syncfusion.Windows.Forms.Edit.EditControl.AutoIndentMode">
 			<summary>
-				Gets or sets the mode of auto indentation. The options provided are None, Block and
+				Gets or sets the mode of auto indentation. The options provided are NoData, Block and
 				Smart as like in Visual studio code editor.
 			</summary>
 		</member>
@@ -6684,7 +6684,7 @@
 			<summary>
 				Gets or sets a value indicating whether smart auto indent should be used. When set
 				to true, AutoIndentMode is set to smart. When set to false, AutoIndentMode is set to
-				None. Obsolete, use AutoIndentMode now.
+				NoData. Obsolete, use AutoIndentMode now.
 			</summary>
 		</member>
 		<member name="P:Syncfusion.Windows.Forms.Edit.EditControl.ShowOutliningTooltip">
@@ -14475,7 +14475,7 @@
 				perform the drawing operations during a batch of updates.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Edit.BeginUpdateOptions.None">
+		<member name="F:Syncfusion.Windows.Forms.Edit.BeginUpdateOptions.NoData">
 			<summary>
 				Specifies that the control suspends any drawing and invalidating and will do a
 				complete refresh when EndUpdate is called.
@@ -15743,9 +15743,9 @@
 				Current scrolling direction.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Edit.IntelliScrollableControl.ScrollingDirection.None">
+		<member name="F:Syncfusion.Windows.Forms.Edit.IntelliScrollableControl.ScrollingDirection.NoData">
 			<summary>
-				None direction.
+				NoData direction.
 			</summary>
 		</member>
 		<member name="F:Syncfusion.Windows.Forms.Edit.IntelliScrollableControl.ScrollingDirection.Up">
@@ -19891,7 +19891,7 @@
 		</member>
 		<member name="F:Syncfusion.Windows.Forms.Edit.Implementation.Formatting.Format.m_borderStyle">
 			<summary>
-				Border line style. No border if 'None'.
+				Border line style. No border if 'NoData'.
 			</summary>
 		</member>
 		<member name="F:Syncfusion.Windows.Forms.Edit.Implementation.Formatting.Format.m_borderWeight">
@@ -30624,7 +30624,7 @@
 		</member>
 		<member name="P:Syncfusion.Windows.Forms.Edit.StreamEditControl.AutoIndentMode">
 			<summary>
-				Gets or sets the mode of auto indentation. The options provided are None, Block and
+				Gets or sets the mode of auto indentation. The options provided are NoData, Block and
 				Smart as like in Visual studio code edito
 			</summary>
 		</member>
@@ -44229,7 +44229,7 @@
 				Specifies whether the lexem is the last region of the collapsible region.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Edit.Enums.LexemCollapsingType.None">
+		<member name="F:Syncfusion.Windows.Forms.Edit.Enums.LexemCollapsingType.NoData">
 			<summary>
 				Specifies whether the lexem is not related to the collapsible regions.
 			</summary>
@@ -44345,7 +44345,7 @@
 					cref="T:Syncfusion.Windows.Forms.Edit.EditControl"/>.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Edit.Enums.UnderlineStyle.None">
+		<member name="F:Syncfusion.Windows.Forms.Edit.Enums.UnderlineStyle.NoData">
 			<summary>
 				Specifies the no underlining of the text.
 			</summary>
@@ -44408,7 +44408,7 @@
 				<see cref="T:Syncfusion.Windows.Forms.Edit.EditControl"/>.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Edit.Enums.FrameBorderStyle.None">
+		<member name="F:Syncfusion.Windows.Forms.Edit.Enums.FrameBorderStyle.NoData">
 			<summary>
 				Defines no border.
 			</summary>
@@ -44787,7 +44787,7 @@
 				<see cref="T:Syncfusion.Windows.Forms.Edit.EditControl"/>.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Windows.Forms.Edit.Enums.AutoIndentMode.None">
+		<member name="F:Syncfusion.Windows.Forms.Edit.Enums.AutoIndentMode.NoData">
 			<summary>
 				Specifies that auto indent functionalities cannot be performed in
 				<see cref="T:Syncfusion.Windows.Forms.Edit.EditControl"/>.
@@ -47204,7 +47204,7 @@
 		</member>
 		<member name="F:Syncfusion.Windows.Forms.Localization.Localizer.EditResourceIdentifiers.ControlOptionsDialog.AutoIndentModeNoneText">
 			<summary>
-				Holds the value of AutoIndentMode as None.
+				Holds the value of AutoIndentMode as NoData.
 			</summary>
 		</member>
 		<member name="F:Syncfusion.Windows.Forms.Localization.Localizer.EditResourceIdentifiers.ControlOptionsDialog.AutoIndentModeBlockText">
@@ -50215,7 +50215,7 @@
 				Provides the functionality for the collection of the bindings.
 			</summary>
 			<remarks>
-				Command is always null and Key is always Keys.None.
+				Command is always null and Key is always Keys.NoData.
 			</remarks>
 		</member>
 		<member name="M:Syncfusion.Shared.Utils.KeyBinding.IKeyCommandListBinder.BindToCommand(System.Windows.Forms.Keys,System.String)">

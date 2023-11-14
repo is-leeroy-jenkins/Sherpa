@@ -182,7 +182,7 @@
 			<remarks>
 				<para>This color will be used by this form only when the
 					<see cref="T:System.Windows.Forms.FormBorderStyle"/>
-					is set to None.
+					is set to NoData.
 				</para>
 				<para>The form will draw a custom single-line border with this color and also draw
 					the overlapped look, if overlapped borders are available.
@@ -10333,7 +10333,7 @@
 			<remarks>
 				This color has filled to background of the button only when set the
 				<see cref="!:GradientStyle"/>
-				property to GradientStyle.None or
+				property to GradientStyle.NoData or
 				<see cref="P:Syncfusion.WinForms.Controls.Styles.ButtonVisualStyle.GradientBrush"/>
 				property to null.
 			</remarks>
@@ -10526,7 +10526,7 @@
 				<see cref="T:System.Windows.Forms.ImageLayout"/>
 				enumeration used to draw the image within the button.
 			</summary>
-			<value>The default value is <b>ImageLayout.None</b>.
+			<value>The default value is <b>ImageLayout.NoData</b>.
 			</value>
 		</member>
 		<member name="P:Syncfusion.WinForms.Controls.SfButton.FlatAppearance">

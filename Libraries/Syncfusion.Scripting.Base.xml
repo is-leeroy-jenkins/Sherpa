@@ -1024,7 +1024,7 @@
 				Describe the property type for showing in ScriptObjectBrowser
 			</summary>
 		</member>
-		<member name="F:Syncfusion.Scripting.PropertyType.None">
+		<member name="F:Syncfusion.Scripting.PropertyType.NoData">
 			<summary>
 				The common type property
 			</summary>

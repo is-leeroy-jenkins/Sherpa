@@ -1515,7 +1515,7 @@
 				Indicates which type of data is currently being parsed.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.None">
+		<member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.NoData">
 			<summary>
 				Default value.
 			</summary>

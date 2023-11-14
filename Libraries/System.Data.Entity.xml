@@ -14999,7 +14999,7 @@
 				duplicates are acceptable.
 			</summary>
 		</member>
-		<member name="F:System.Data.Metadata.Edm.CollectionKind.None">
+		<member name="F:System.Data.Metadata.Edm.CollectionKind.NoData">
 			<summary>The property is not a collection.</summary>
 		</member>
 		<member name="T:System.Data.Metadata.Edm.CollectionType">
@@ -15063,7 +15063,7 @@
 		<member name="F:System.Data.Metadata.Edm.ConcurrencyMode.Fixed">
 			<summary>The property is always validated at write time.</summary>
 		</member>
-		<member name="F:System.Data.Metadata.Edm.ConcurrencyMode.None">
+		<member name="F:System.Data.Metadata.Edm.ConcurrencyMode.NoData">
 			<summary>The property is never validated at write time. This is the default concurrency
 				mode.
 			</summary>
@@ -16959,7 +16959,7 @@
 				is deleted, its associated child ends are deleted as well.
 			</summary>
 		</member>
-		<member name="F:System.Data.Metadata.Edm.OperationAction.None">
+		<member name="F:System.Data.Metadata.Edm.OperationAction.NoData">
 			<summary>Only a parent
 				<see langword="End"/>
 				can be deleted.
@@ -17404,7 +17404,7 @@
 			<summary>Gets the operational behavior of this relationship end member.</summary>
 			<returns>One of the
 				<see cref="T:System.Data.Metadata.Edm.OperationAction"/>
-				values. The default is<see cref="F:System.Data.Metadata.Edm.OperationAction.None"/>.
+				values. The default is<see cref="F:System.Data.Metadata.Edm.OperationAction.NoData"/>.
 			</returns>
 		</member>
 		<member name="M:System.Data.Metadata.Edm.RelationshipEndMember.GetEntityType">
@@ -17511,7 +17511,7 @@
 		<member name="F:System.Data.Metadata.Edm.StoreGeneratedPattern.Identity">
 			<summary>A value is generated on insert and remains unchanged on update.</summary>
 		</member>
-		<member name="F:System.Data.Metadata.Edm.StoreGeneratedPattern.None">
+		<member name="F:System.Data.Metadata.Edm.StoreGeneratedPattern.NoData">
 			<summary>A value indicating that it is not a server generated property. This is the
 				default value.
 			</summary>
@@ -25234,7 +25234,7 @@
 				<see cref="T:System.Data.Objects.ObjectStateManager"/>.
 			</summary>
 		</member>
-		<member name="F:System.Data.Objects.SaveOptions.None">
+		<member name="F:System.Data.Objects.SaveOptions.NoData">
 			<summary>Changes are saved without the
 				<see cref="M:System.Data.Objects.ObjectContext.DetectChanges"/>
 				or the

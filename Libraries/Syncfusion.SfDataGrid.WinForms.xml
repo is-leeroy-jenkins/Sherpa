@@ -4384,7 +4384,7 @@
 			</param>
 			<returns>
 				Returns the first navigating row index in SfDataGrid. If the record count is zero
-				and AddNewRow position is None, return -1.
+				and AddNewRow position is NoData, return -1.
 			</returns>
 		</member>
 		<member name="M:Syncfusion.WinForms.DataGrid.Interactivity.SelectionHelper.GetLastNavigatingRowIndex(Syncfusion.WinForms.DataGrid.SfDataGrid)">
@@ -4396,7 +4396,7 @@
 			</param>
 			<returns>
 				Returns the last navigating row index in SfDataGrid. If the record count is zero and
-				AddNewRow position is None, return -1.
+				AddNewRow position is NoData, return -1.
 			</returns>
 		</member>
 		<member name="M:Syncfusion.WinForms.DataGrid.Interactivity.SelectionHelper.GetFirstRowIndex(Syncfusion.WinForms.DataGrid.SfDataGrid)">
@@ -4408,7 +4408,7 @@
 			</param>
 			<returns>
 				Returns the first row index in SfDataGrid. If the record count is zero and AddNewRow
-				position is None, return -1.
+				position is NoData, return -1.
 			</returns>
 		</member>
 		<member name="M:Syncfusion.WinForms.DataGrid.Interactivity.SelectionHelper.GetLastColumnIndex(Syncfusion.WinForms.DataGrid.SfDataGrid,System.Boolean)">
@@ -12633,13 +12633,13 @@
 		<member name="P:Syncfusion.WinForms.DataGrid.Styles.ProgressBarCellStyleInfo.ForegroundColor">
 			<summary>
 				Gets or sets the color to specifies the color used to draw the foreground. This
-				applies only when ForeGroundStyle is `None` or AllowSegments is enabled.
+				applies only when ForeGroundStyle is `NoData` or AllowSegments is enabled.
 			</summary>
 		</member>
 		<member name="P:Syncfusion.WinForms.DataGrid.Styles.ProgressBarCellStyleInfo.BackgroundColor">
 			<summary>
 				Gets or sets the color to specifies the color used to draw the Background. This
-				applies only when BackGroundStyle is `None` or AllowSegments is enabled.
+				applies only when BackGroundStyle is `NoData` or AllowSegments is enabled.
 			</summary>
 		</member>
 		<member name="P:Syncfusion.WinForms.DataGrid.Styles.ProgressBarCellStyleInfo.Orientation">
@@ -13284,7 +13284,7 @@
 				No edge style is set.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.None">
+		<member name="F:Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.NoData">
 			<summary>
 				No border is drawn on the cell.
 			</summary>
@@ -24694,7 +24694,7 @@
 				One of the
 				<see cref="!:Syncfusion.WinForms.DataGrid.AddNewRowPosition"/>
 				enumeration that specifies the visibility and position of AddNewRow. The default
-				value is<see cref="!:Syncfusion.WinForms.DataGrid.RowPosition.None"/>.
+				value is<see cref="!:Syncfusion.WinForms.DataGrid.RowPosition.NoData"/>.
 			</value>
 		</member>
 		<member name="P:Syncfusion.WinForms.DataGrid.SfDataGrid.NewItemPlaceholderPosition">
@@ -24706,7 +24706,7 @@
 				One of the
 				<see cref="!:System.ComponentModel.NewItemPlaceholderPosition"/>
 				enumeration that specifies position of new record in collection. The default value
-				is<see cref="!:System.ComponentModel.NewItemPlaceholderPosition.None"/>.
+				is<see cref="!:System.ComponentModel.NewItemPlaceholderPosition.NoData"/>.
 			</value>
 			<remarks>
 				This
@@ -28536,7 +28536,7 @@
 				GridUnboundColumn.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.DataGrid.ExpressionError.None">
+		<member name="F:Syncfusion.WinForms.DataGrid.ExpressionError.NoData">
 			<summary>
 				No expression error.
 			</summary>
@@ -34736,7 +34736,7 @@
 				Generates the columns based on the properties defined in the underlying data object.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.DataGrid.Enums.AutoGenerateColumnsMode.None">
+		<member name="F:Syncfusion.WinForms.DataGrid.Enums.AutoGenerateColumnsMode.NoData">
 			<summary>
 				Generates the columns based on the explicit column definition in SFDataGrid.
 			</summary>
@@ -34772,7 +34772,7 @@
 				auto generated.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.None">
+		<member name="F:Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.NoData">
 			<summary>
 				No sizing. Default column width or defined width set to column.
 			</summary>
@@ -34898,7 +34898,7 @@
 				are supported by SFDataGrid control.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.DataGrid.Enums.GridSelectionMode.None">
+		<member name="F:Syncfusion.WinForms.DataGrid.Enums.GridSelectionMode.NoData">
 			<summary>
 				No items can be selected.
 			</summary>
@@ -35092,7 +35092,7 @@
 				Defines the constants that specifies the validation mode of the SfDataGrid.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.DataGrid.Enums.GridValidationMode.None">
+		<member name="F:Syncfusion.WinForms.DataGrid.Enums.GridValidationMode.NoData">
 			<summary>
 				Specifies that the built-in validation support is disabled.
 			</summary>
@@ -35116,7 +35116,7 @@
 				top or bottom of body region in SfDataGrid.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.DataGrid.Enums.RowPosition.None">
+		<member name="F:Syncfusion.WinForms.DataGrid.Enums.RowPosition.NoData">
 			<summary>
 				No AddNewRow or FilterRow will be placed.
 			</summary>
@@ -35268,7 +35268,7 @@
 				Defines the constants that specify the possible copy option in SfDataGrid.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.DataGrid.Enums.CopyOptions.None">
+		<member name="F:Syncfusion.WinForms.DataGrid.Enums.CopyOptions.NoData">
 			<summary>
 				Specifies the copy operation is disabled.
 			</summary>
@@ -35307,7 +35307,7 @@
 				Defines the constants that specify the possible paste option in SfDataGrid.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.DataGrid.Enums.PasteOptions.None">
+		<member name="F:Syncfusion.WinForms.DataGrid.Enums.PasteOptions.NoData">
 			<summary>
 				Specifies the paste support is disabled.
 			</summary>
@@ -35380,7 +35380,7 @@
 				Specifies that the progress bar display value is in value.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.DataGrid.Enums.ProgressBarValueMode.None">
+		<member name="F:Syncfusion.WinForms.DataGrid.Enums.ProgressBarValueMode.NoData">
 			<summary>
 				Specifies that the progress bar will be displayed without value.
 			</summary>
@@ -35390,7 +35390,7 @@
 				Gets or sets the style of the progress bar.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.DataGrid.Enums.GridProgressBarStyle.None">
+		<member name="F:Syncfusion.WinForms.DataGrid.Enums.GridProgressBarStyle.NoData">
 			<summary>
 				Specifies that the foreground is drawn with foreground color.
 			</summary>
@@ -35445,7 +35445,7 @@
 				Hyperlink will be opened on double click.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.DataGrid.Enums.HyperlinkOpenBehavior.None">
+		<member name="F:Syncfusion.WinForms.DataGrid.Enums.HyperlinkOpenBehavior.NoData">
 			<summary>
 				Hyperlink will not be opened.
 			</summary>
@@ -38540,17 +38540,17 @@
 		<member name="M:Syncfusion.WinForms.DataGrid.AutoSizeController.SetNoneWidth(Syncfusion.WinForms.DataGrid.GridColumn,System.Int32)">
 			<summary>
 				Sets the width for the specified column based on
-				<see cref="!:Syncfusion.WinForms.DataGrid.AutoSizeColumnsMode.None"/>
+				<see cref="!:Syncfusion.WinForms.DataGrid.AutoSizeColumnsMode.NoData"/>
 				column sizer.
 			</summary>
 			<param name="column">
-				The corresponding column to set None width.
+				The corresponding column to set NoData width.
 			</param>
 			<param name="width">
-				The width to set as None width.
+				The width to set as NoData width.
 			</param>
 			<returns>
-				Returns the None width for the specified column.
+				Returns the NoData width for the specified column.
 			</returns>
 		</member>
 		<member name="M:Syncfusion.WinForms.DataGrid.AutoSizeController.SetAllCellsWidth(Syncfusion.WinForms.DataGrid.GridColumn,System.Double)">
@@ -38624,7 +38624,7 @@
 		</member>
 		<member name="M:Syncfusion.WinForms.DataGrid.AutoSizeController.GetColumnSizerWidth(Syncfusion.WinForms.DataGrid.GridColumn,Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode)">
 			<summary>
-				Get column width based on AutoSizeColumnsMode except star, None.
+				Get column width based on AutoSizeColumnsMode except star, NoData.
 			</summary>
 			<param name="column">The GridColumn.</param>
 			<param name="autoSizeColumnsMode">The AutoSizeColumnsMode option.</param>
@@ -38640,7 +38640,7 @@
 		</member>
 		<member name="M:Syncfusion.WinForms.DataGrid.AutoSizeController.SetRemainingWidth(System.Collections.Generic.IEnumerable{Syncfusion.WinForms.DataGrid.GridColumn})">
 			<summary>
-				Set width for column when AutoSizeColumnsMode is set to None and
+				Set width for column when AutoSizeColumnsMode is set to NoData and
 				AutoWithLastColumnFill(when column is last column).
 			</summary>
 			<param name="remainingColumns">The remaining columns collection.</param>
@@ -46457,7 +46457,7 @@
 				Specifies the column is being filtered from FilterRow filter.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.GridCommon.FilteredFrom.None">
+		<member name="F:Syncfusion.WinForms.GridCommon.FilteredFrom.NoData">
 			<summary>
 				Specifies the column is being filtered from neither CheckBox nor Advanced filter
 				control.
@@ -48570,7 +48570,7 @@
 				Defines the constants that specifies the display mode of the SfDataPager.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.DataPager.Enums.PageDisplayMode.None">
+		<member name="F:Syncfusion.WinForms.DataPager.Enums.PageDisplayMode.NoData">
 			<summary>
 				Specifies that the pager should not be displayed.
 			</summary>
@@ -48636,7 +48636,7 @@
 				Defines the constants that specifies the ellipsis mode of the SfDataPager.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.DataPager.Enums.AutoEllipsisMode.None">
+		<member name="F:Syncfusion.WinForms.DataPager.Enums.AutoEllipsisMode.NoData">
 			<summary>
 				Specifies that the ellipsis button should not be displayed.
 			</summary>
@@ -48662,7 +48662,7 @@
 				Defines the constants that specifies the position of the ellipsis button.
 			</summary>
 		</member>
-		<member name="F:Syncfusion.WinForms.DataPager.Enums.EllipsisPosition.None">
+		<member name="F:Syncfusion.WinForms.DataPager.Enums.EllipsisPosition.NoData">
 			<summary>
 				Specifies that the ellipsis button not exists.
 			</summary>
@@ -50291,7 +50291,7 @@
 				<see cref="T:System.Drawing.Design.UITypeEditorEditStyle"/>
 				value that indicates the style of editor used by the EditValue method. If the
 				<see cref="T:System.Drawing.Design.UITypeEditor"/>
-				does not support this method, then it will return None.
+				does not support this method, then it will return NoData.
 			</returns>
 		</member>
 		<member name="M:Syncfusion.WinForms.DataPager.Style.NavigationButtonImageUITypeEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">

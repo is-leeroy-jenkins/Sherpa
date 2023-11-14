@@ -411,7 +411,7 @@
 		<member name="T:System.Xml.Linq.LoadOptions">
 			<summary>Specifies load options when parsing XML.</summary>
 		</member>
-		<member name="F:System.Xml.Linq.LoadOptions.None">
+		<member name="F:System.Xml.Linq.LoadOptions.NoData">
 			<summary>Does not preserve insignificant white space or load base URI and line
 				information.
 			</summary>
@@ -438,7 +438,7 @@
 				with an<see cref="T:System.Xml.XmlReader"/>.
 			</summary>
 		</member>
-		<member name="F:System.Xml.Linq.ReaderOptions.None">
+		<member name="F:System.Xml.Linq.ReaderOptions.NoData">
 			<summary>No reader options specified.</summary>
 		</member>
 		<member name="F:System.Xml.Linq.ReaderOptions.OmitDuplicateNamespaces">
@@ -452,7 +452,7 @@
 		<member name="F:System.Xml.Linq.SaveOptions.DisableFormatting">
 			<summary>Preserve all insignificant white space while serializing.</summary>
 		</member>
-		<member name="F:System.Xml.Linq.SaveOptions.None">
+		<member name="F:System.Xml.Linq.SaveOptions.NoData">
 			<summary>Format (indent) the XML while serializing.</summary>
 		</member>
 		<member name="F:System.Xml.Linq.SaveOptions.OmitDuplicateNamespaces">
@@ -3270,7 +3270,7 @@
 				that contains the URI of the namespace.
 			</returns>
 		</member>
-		<member name="P:System.Xml.Linq.XNamespace.None">
+		<member name="P:System.Xml.Linq.XNamespace.NoData">
 			<summary>Gets the
 				<see cref="T:System.Xml.Linq.XNamespace"/>
 				object that corresponds to no namespace.

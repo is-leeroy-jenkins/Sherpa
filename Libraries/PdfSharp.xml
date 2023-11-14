@@ -770,7 +770,7 @@
 				Specifies whether and how the text is displayed at the code.
 			</summary>
 		</member>
-		<member name="F:PdfSharp.Drawing.BarCodes.TextLocation.None">
+		<member name="F:PdfSharp.Drawing.BarCodes.TextLocation.NoData">
 			<summary>
 				No text is drawn.
 			</summary>
@@ -1343,7 +1343,7 @@
 				Describes the simulation style of a font.
 			</summary>
 		</member>
-		<member name="F:PdfSharp.Drawing.XStyleSimulations.None">
+		<member name="F:PdfSharp.Drawing.XStyleSimulations.NoData">
 			<summary>
 				No font style simulation.
 			</summary>
@@ -2225,7 +2225,7 @@
 				Specifies high quality, low speed rendering.
 			</summary>
 		</member>
-		<member name="F:PdfSharp.Drawing.XSmoothingMode.None">
+		<member name="F:PdfSharp.Drawing.XSmoothingMode.NoData">
 			<summary>
 				Specifies no antialiasing.
 			</summary>
@@ -13676,7 +13676,7 @@
 		<member name="F:PdfSharp.Pdf.Annotations.PdfLinkAnnotation.Keys.H">
 			<summary>
 				(Optional; PDF 1.2) The annotation’s highlighting mode, the visual effect to be used
-				when the mouse button is pressed or held down inside its active area: N (None) No
+				when the mouse button is pressed or held down inside its active area: N (NoData) No
 				highlighting. I (Invert) Invert the contents of the annotation rectangle. O
 				(Outline) Invert the annotation’s border. P (Push) Display the annotation as if it
 				were being pushed below the surface of the page. Default value: I. Note: In PDF 1.1,
@@ -13810,7 +13810,7 @@
 		<member name="F:PdfSharp.Pdf.Annotations.PdfWidgetAnnotation.Keys.H">
 			<summary>
 				(Optional) The annotation’s highlighting mode, the visual effect to be used when the
-				mouse button is pressed or held down inside its active area: N (None) No
+				mouse button is pressed or held down inside its active area: N (NoData) No
 				highlighting. I (Invert) Invert the contents of the annotation rectangle. O
 				(Outline) Invert the annotation’s border. P (Push) Display the annotation’s down
 				appearance, if any. If no down appearance is defined, offset the contents of the
@@ -14210,7 +14210,7 @@
 				Specifies the group of operations the op-code belongs to.
 			</summary>
 		</member>
-		<member name="F:PdfSharp.Pdf.Content.Objects.OpCodeFlags.None">
+		<member name="F:PdfSharp.Pdf.Content.Objects.OpCodeFlags.NoData">
 			<summary></summary>
 		</member>
 		<member name="F:PdfSharp.Pdf.Content.Objects.OpCodeFlags.TextOut">
@@ -15919,7 +15919,7 @@
 				Specifies the security level of the PDF document.
 			</summary>
 		</member>
-		<member name="F:PdfSharp.Pdf.Security.PdfDocumentSecurityLevel.None">
+		<member name="F:PdfSharp.Pdf.Security.PdfDocumentSecurityLevel.NoData">
 			<summary>
 				Document is not protected.
 			</summary>
@@ -16047,7 +16047,7 @@
 		<member name="P:PdfSharp.Pdf.Security.PdfSecuritySettings.DocumentSecurityLevel">
 			<summary>
 				Gets or sets the document security level. If you set the security level to anything
-				but PdfDocumentSecurityLevel.None you must also set a user and/or an owner password.
+				but PdfDocumentSecurityLevel.NoData you must also set a user and/or an owner password.
 				Otherwise saving the document will fail.
 			</summary>
 		</member>
@@ -16055,14 +16055,14 @@
 			<summary>
 				Sets the user password of the document. Setting a password automatically sets the
 				PdfDocumentSecurityLevel to PdfDocumentSecurityLevel.Encrypted128Bit if its current
-				value is PdfDocumentSecurityLevel.None.
+				value is PdfDocumentSecurityLevel.NoData.
 			</summary>
 		</member>
 		<member name="P:PdfSharp.Pdf.Security.PdfSecuritySettings.OwnerPassword">
 			<summary>
 				Sets the owner password of the document. Setting a password automatically sets the
 				PdfDocumentSecurityLevel to PdfDocumentSecurityLevel.Encrypted128Bit if its current
-				value is PdfDocumentSecurityLevel.None.
+				value is PdfDocumentSecurityLevel.NoData.
 			</summary>
 		</member>
 		<member name="M:PdfSharp.Pdf.Security.PdfSecuritySettings.CanSave(System.String@)">
@@ -16127,14 +16127,14 @@
 			<summary>
 				Sets the user password of the document. Setting a password automatically sets the
 				PdfDocumentSecurityLevel to PdfDocumentSecurityLevel.Encrypted128Bit if its current
-				value is PdfDocumentSecurityLevel.None.
+				value is PdfDocumentSecurityLevel.NoData.
 			</summary>
 		</member>
 		<member name="P:PdfSharp.Pdf.Security.PdfStandardSecurityHandler.OwnerPassword">
 			<summary>
 				Sets the owner password of the document. Setting a password automatically sets the
 				PdfDocumentSecurityLevel to PdfDocumentSecurityLevel.Encrypted128Bit if its current
-				value is PdfDocumentSecurityLevel.None.
+				value is PdfDocumentSecurityLevel.NoData.
 			</summary>
 		</member>
 		<member name="P:PdfSharp.Pdf.Security.PdfStandardSecurityHandler.Permission">
@@ -16471,7 +16471,7 @@
 				All fonts are embedded.
 			</summary>
 		</member>
-		<member name="F:PdfSharp.Pdf.PdfFontEmbedding.None">
+		<member name="F:PdfSharp.Pdf.PdfFontEmbedding.NoData">
 			<summary>
 				Fonts are not embedded. This is not an option anymore.
 			</summary>
@@ -17168,7 +17168,7 @@
 				created.
 			</summary>
 		</member>
-		<member name="F:PdfSharp.Pdf.VCF.None">
+		<member name="F:PdfSharp.Pdf.VCF.NoData">
 			<summary>
 				Don't create the value.
 			</summary>
@@ -17440,7 +17440,7 @@
 		</member>
 		<member name="M:PdfSharp.Pdf.PdfDictionary.DictionaryElements.GetValue(System.String)">
 			<summary>
-				Short cut for GetValue(key, VCF.None).
+				Short cut for GetValue(key, VCF.NoData).
 			</summary>
 		</member>
 		<member name="M:PdfSharp.Pdf.PdfDictionary.DictionaryElements.GetValueType(System.String)">
@@ -20620,7 +20620,7 @@
 		<member name="F:PdfSharp.Pdf.PdfViewerPreferences.Keys.PrintScaling">
 			<summary>
 				(Optional; PDF 1.6) The page scaling option to be selected when a print dialog is
-				displayed for this document. Valid values are None, which indicates that the print
+				displayed for this document. Valid values are NoData, which indicates that the print
 				dialog should reflect no page scaling, and AppDefault, which indicates that
 				applications should use the current print scaling. If this entry has an unrecognized
 				value, applications should use the current print scaling. Default value: AppDefault.
@@ -23511,7 +23511,7 @@
 				Identifies the encryption algorithm used for an entry
 			</summary>
 		</member>
-		<member name="F:PdfSharp.SharpZipLib.Zip.EncryptionAlgorithm.None">
+		<member name="F:PdfSharp.SharpZipLib.Zip.EncryptionAlgorithm.NoData">
 			<summary>
 				No encryption has been used.
 			</summary>

@@ -1358,7 +1358,7 @@
 				The extra behavioral flags that can be applied to a connection.
 			</summary>
 		</member>
-		<member name="F:System.Data.SQLite.SQLiteConnectionFlags.None">
+		<member name="F:System.Data.SQLite.SQLiteConnectionFlags.NoData">
 			<summary>
 				No extra flags.
 			</summary>
@@ -7867,7 +7867,7 @@
 				Used internally by this provider
 			</summary>
 		</member>
-		<member name="F:System.Data.SQLite.TypeAffinity.None">
+		<member name="F:System.Data.SQLite.TypeAffinity.NoData">
 			<summary>
 				Used internally by this provider
 			</summary>
@@ -8135,7 +8135,7 @@
 				object will be called.
 			</summary>
 		</member>
-		<member name="F:System.Data.SQLite.SQLiteExecuteType.None">
+		<member name="F:System.Data.SQLite.SQLiteExecuteType.NoData">
 			<summary>
 				Do nothing. No method will be called.
 			</summary>
@@ -8182,7 +8182,7 @@
 				The action code responsible for the current call into the authorizer.
 			</summary>
 		</member>
-		<member name="F:System.Data.SQLite.SQLiteAuthorizerActionCode.None">
+		<member name="F:System.Data.SQLite.SQLiteAuthorizerActionCode.NoData">
 			<summary>
 				No action is being performed. This value should not be used from external code.
 			</summary>
@@ -14544,7 +14544,7 @@
 					xSavepoint(). A call to xRelease(X,M) invalidates all savepoints where N>=M.
 				</para>
 				<para>
-					None of the xSavepoint(), xRelease(), or xRollbackTo() methods will ever be
+					NoData of the xSavepoint(), xRelease(), or xRollbackTo() methods will ever be
 					called except in between calls to xBegin() and either xCommit() or xRollback().
 				</para>
 			</summary>
@@ -14582,7 +14582,7 @@
 					xSavepoint(). A call to xRelease(X,M) invalidates all savepoints where N>=M.
 				</para>
 				<para>
-					None of the xSavepoint(), xRelease(), or xRollbackTo() methods will ever be
+					NoData of the xSavepoint(), xRelease(), or xRollbackTo() methods will ever be
 					called except in between calls to xBegin() and either xCommit() or xRollback().
 				</para>
 			</summary>
@@ -14620,7 +14620,7 @@
 					xSavepoint(). A call to xRelease(X,M) invalidates all savepoints where N>=M.
 				</para>
 				<para>
-					None of the xSavepoint(), xRelease(), or xRollbackTo() methods will ever be
+					NoData of the xSavepoint(), xRelease(), or xRollbackTo() methods will ever be
 					called except in between calls to xBegin() and either xCommit() or xRollback().
 				</para>
 			</summary>
@@ -15046,7 +15046,7 @@
 				method.
 			</summary>
 		</member>
-		<member name="F:System.Data.SQLite.SQLiteIndexFlags.None">
+		<member name="F:System.Data.SQLite.SQLiteIndexFlags.NoData">
 			<summary>
 				No special handling. This is the default.
 			</summary>
@@ -20921,7 +20921,7 @@
 				overloads of various change set creation methods.
 			</summary>
 		</member>
-		<member name="F:System.Data.SQLite.SQLiteChangeSetStartFlags.None">
+		<member name="F:System.Data.SQLite.SQLiteChangeSetStartFlags.NoData">
 			<summary>
 				No special handling.
 			</summary>
