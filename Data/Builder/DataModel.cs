@@ -438,13 +438,14 @@ namespace BudgetExecution
         }
 
         /// <summary> Creates the series. </summary>
-        /// <param name="dataTable"> The data table. </param>
+        /// <param name="dataTable"> The data table.
+        /// </param>
         /// <returns> </returns>
         private static IDictionary<string, IEnumerable<string>> CreateSeries( DataTable dataTable )
         {
             try
             {
-                ThrowIf.Null( dataTable, "dataTable" );
+                ThrowIf.Null( dataTable, nameof( dataTable ) );
                 var _dict = new Dictionary<string, IEnumerable<string>>( );
                 var _columns = dataTable?.Columns;
                 var _rows = dataTable?.AsEnumerable( );
