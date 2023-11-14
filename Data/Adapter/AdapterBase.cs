@@ -272,7 +272,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the SQL ce adapter. </summary>
+        /// <summary>
+        /// Gets the SQL ce adapter.
+        /// </summary>
         /// <returns> </returns>
         private protected DbDataAdapter GetSqlCeAdapter( )
         {
@@ -305,7 +307,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
         /// <param name="ex"> The ex. </param>
         private protected void Fail( Exception ex )
         {

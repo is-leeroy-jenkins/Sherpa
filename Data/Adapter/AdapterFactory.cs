@@ -74,7 +74,9 @@ namespace BudgetExecution
         {
         }
 
-        /// <summary> Gets the adapter. </summary>
+        /// <summary>
+        /// Gets the adapter.
+        /// </summary>
         /// <returns> DbDataAdapter </returns>
         public DbDataAdapter GetAdapter( )
         {
