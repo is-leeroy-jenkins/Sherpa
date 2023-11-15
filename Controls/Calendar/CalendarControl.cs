@@ -51,6 +51,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Grid;
     using Syncfusion.Windows.Forms.Tools;
 
+    /// <inheritdoc />
     public partial class CalendarControl : UserControl
     {
         /// <summary> Gets or sets the selected date. </summary>

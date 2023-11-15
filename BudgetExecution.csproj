@@ -55,7 +55,6 @@
     <Content Include="Resources\Pictures\Ninja\BudExNinjaGrey.ico" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="CBComponents.HeaderTableLayoutPanel" Version="1.2.6307.23101" />
     <PackageReference Include="EPPlus" Version="7.0.1" />
     <PackageReference Include="Google.Apis" Version="1.64.0" />
     <PackageReference Include="Google.Apis.Core" Version="1.64.0" />
@@ -96,8 +95,23 @@
     <Reference Include="DocumentFormat.OpenXml">
       <HintPath>Libraries\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>Libraries\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="Expander">
       <HintPath>Libraries\Expander.dll</HintPath>
+    </Reference>
+    <Reference Include="HeaderTableLayoutPanel">
+      <HintPath>Libraries\HeaderTableLayoutPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Excel">
+      <HintPath>Libraries\Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Core">
+      <HintPath>Libraries\Interop.Microsoft.Office.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.VBIDE">
+      <HintPath>Libraries\Interop.VBIDE.dll</HintPath>
     </Reference>
     <Reference Include="LinqStatistics">
       <HintPath>Libraries\LinqStatistics.dll</HintPath>
@@ -105,8 +119,20 @@
     <Reference Include="log4net">
       <HintPath>Libraries\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="MetroSet UI">
+      <HintPath>Libraries\MetroSet UI.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp">
+      <HintPath>Libraries\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting">
+      <HintPath>Libraries\PdfSharp.Charting.dll</HintPath>
+    </Reference>
     <Reference Include="SharpBrowser">
       <HintPath>Libraries\SharpBrowser.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpPdf.Controls">
+      <HintPath>Libraries\SharpPdf.Controls.dll</HintPath>
     </Reference>
     <Reference Include="SQLite.Designer">
       <HintPath>Libraries\SQLite.Designer.dll</HintPath>
@@ -256,6 +282,15 @@
     <Reference Include="Syncfusion.XlsIO.Base">
       <HintPath>Libraries\Syncfusion.XlsIO.Base.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data">
+      <HintPath>Libraries\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Common">
+      <HintPath>Libraries\System.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <HintPath>Libraries\System.Data.DataSetExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity">
       <HintPath>Libraries\System.Data.Entity.dll</HintPath>
       <Private>True</Private>
@@ -294,6 +329,9 @@
     </Reference>
     <Reference Include="System.Runtime.Remoting">
       <HintPath>Libraries\System.Runtime.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="WinFormsExcel">
+      <HintPath>Libraries\WinFormsExcel.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

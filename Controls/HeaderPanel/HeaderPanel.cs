@@ -44,13 +44,15 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Threading;
     using System.Windows.Forms;
     using CBComponents;
 
     /// <summary> </summary>
-    /// <seealso cref="CBComponents.HeaderTableLayoutPanel"/>
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class HeaderPanel : HeaderTableLayoutPanel
     {
         /// <summary>

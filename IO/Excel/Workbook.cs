@@ -65,11 +65,11 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the font. </summary>
         /// <value> The font. </value>
-        public Font Font { get; set; } = new Font ( "Roboto", 8, FontStyle.Regular );
+        public Font Font { get; set; } = new Font( "Roboto", 8, FontStyle.Regular );
 
         /// <summary> Gets or sets the title font. </summary>
         /// <value> The title font. </value>
-        public Font TitleFont { get; set; } = new Font ( "Roboto", 10, FontStyle.Bold );
+        public Font TitleFont { get; set; } = new Font( "Roboto", 10, FontStyle.Bold );
 
         /// <summary> Gets or sets the width of the header image. </summary>
         /// <value> The width of the header image. </value>
@@ -156,7 +156,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( grid, "grid" );
+                ThrowIf.Null( grid, nameof( grid ) );
                 using( Font )
                 {
                     SetFontColor( grid, FontColor );
@@ -176,7 +176,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( grid, "grid" );
+                ThrowIf.Null( grid, nameof( grid ) );
                 using var _worksheet = grid.Worksheet;
                 using var _range = grid.Range;
                 var _row = _range.Start.Row;
@@ -204,10 +204,10 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( range, "range" );
+                ThrowIf.Null( range, nameof( range ) );
                 range.Style.Font.Color.SetColor( Color.Black );
                 using var _font = Font;
-                range.Style.Font.SetFromFont( Font.Name, Font.Size );
+                range.Style.Font.SetFromFont( Font );
                 range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                 range.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
                 range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
@@ -219,16 +219,20 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the light color row. </summary>
-        /// <param name="range"> The range. </param>
+        /// <summary>
+        /// Sets the light color row.
+        /// </summary>
+        /// <param name="range">
+        /// The range.
+        /// </param>
         public void SetLightColorRow( ExcelRange range )
         {
             try
             {
-                ThrowIf.Null( range, "range" );
+                ThrowIf.Null( range, nameof( range ) );
                 range.Style.Font.Color.SetColor( FontColor );
                 using var _font = Font;
-                range.Style.Font.SetFromFont( Font.Name, Font.Size );
+                range.Style.Font.SetFromFont( Font );
                 range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                 range.Style.Fill.BackgroundColor.SetColor( Color.White );
                 range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
@@ -240,13 +244,15 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the color of the alternating row. </summary>
+        /// <summary>
+        /// Sets the color of the alternating row.
+        /// </summary>
         /// <param name="range"> The range. </param>
         public void SetAlternatingRowColor( ExcelRange range )
         {
             try
             {
-                ThrowIf.Null( range, "range" );
+                ThrowIf.Null( range, nameof( range ) );
                 var _prc = Worksheet.Cells[ range.Start.Row, range.Start.Column, range.End.Row,
                     range.End.Column ];
 
@@ -277,7 +283,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( range, "range" );
+                ThrowIf.Null( range, nameof( range ) );
                 using( range )
                 {
                     range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
@@ -296,10 +302,10 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( grid, "grid" );
+                ThrowIf.Null( grid, nameof( grid ) );
                 SetHeaderText( grid );
                 using var _range = grid.Range;
-                _range.Style.Font.SetFromFont( TitleFont.Name, TitleFont.Size );
+                _range.Style.Font.SetFromFont( TitleFont );
                 _range.Style.Border.BorderAround( ExcelBorderStyle.Thin );
                 _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                 _range.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
@@ -317,7 +323,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( range, "range" );
+                ThrowIf.Null( range, nameof( range ) );
                 var _total = Worksheet.Cells[ range.Start.Row, range.Start.Column, range.Start.Row,
                     range.Start.Column + 6 ];
 

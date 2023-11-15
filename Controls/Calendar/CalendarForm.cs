@@ -166,7 +166,9 @@ namespace BudgetExecution
             TabControl.SelectedIndexChanged += OnSelectedTabChanged;
         }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
@@ -330,7 +332,7 @@ namespace BudgetExecution
                 _queue.Enqueue( Controls );
                 while( _queue.Count > 0 )
                 {
-                    var _collection = (Control.ControlCollection) _queue.Dequeue( );
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
                     if( _collection?.Count > 0 )
                     {
                         foreach( Control _control in _collection )
@@ -398,16 +400,13 @@ namespace BudgetExecution
                 switch( TabControl.SelectedIndex )
                 {
                     case 0:
-
                     {
                         TableButton.Visible = true;
                         ChartButton.Visible = false;
                         Separator8.Visible = false;
                         break;
                     }
-
                     case 1:
-
                     {
                         TableButton.Visible = false;
                         ChartButton.Visible = true;
@@ -506,7 +505,7 @@ namespace BudgetExecution
             {
                 if( Owner?.Visible == false )
                 {
-                    var _form = (MainForm) Program.Windows[ "MainForm" ];
+                    var _form = (MainForm)Program.Windows[ "MainForm" ];
                     _form.Refresh( );
                     _form.Visible = true;
                 }

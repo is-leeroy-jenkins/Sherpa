@@ -50,6 +50,7 @@ namespace BudgetExecution
     using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Gauge;
     using Syncfusion.Windows.Forms.Tools;
 
     /// <inheritdoc/>

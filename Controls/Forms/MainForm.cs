@@ -220,7 +220,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the tile text. </summary>
+        /// <summary>
+        /// Sets the tile text.
+        /// </summary>
         private void SetTileText( )
         {
             try
@@ -280,7 +282,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the tile properties. </summary>
+        /// <summary>
+        /// Sets the tile properties.
+        /// </summary>
         private void InitTiles( )
         {
             try
@@ -308,7 +312,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the SQL client. </summary>
+        /// <summary>
+        /// Opens the SQL client.
+        /// </summary>
         private void OpenSqlClient( )
         {
             try
@@ -321,7 +327,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Shows the loading form. </summary>
+        /// <summary>
+        /// Shows the loading form.
+        /// </summary>
         private void ShowLoadingForm( )
         {
             try
@@ -931,15 +939,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary> Fades the in. </summary>
         private protected virtual void FadeIn( )
         {
@@ -1019,5 +1018,15 @@ namespace BudgetExecution
                 return default( Control[ ] );
             }
         }
+
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
+        private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
+
     }
 }

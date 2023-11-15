@@ -49,6 +49,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Threading;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Gauge;
     using Syncfusion.Windows.Forms.Grid;
 
     /// <summary> </summary>
