@@ -54,6 +54,7 @@ namespace BudgetExecution
         | AttributeTargets.Parameter ) ]
     [ SuppressMessage( "ReSharper", "MissingBlankLines" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
     public sealed class EmailAttribute : ValidationAttribute
     {
         /// <summary>
@@ -122,7 +123,8 @@ namespace BudgetExecution
         /// <remarks>
         /// Checks whether or not the email address provided is syntactically correct.
         /// </remarks>
-        /// <returns><c>true</c> if the value is a valid email address; otherwise, <c>false</c>.</returns>
+        /// <returns><c>true</c> if the value is a valid email address;
+        /// otherwise, <c>false</c>.</returns>
         /// <param name="value">The value to validate.</param>
         public override bool IsValid( object value )
         {

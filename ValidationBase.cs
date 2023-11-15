@@ -121,7 +121,17 @@ namespace BudgetExecution
         /// <returns></returns>
         public static bool IsDigit( char c )
         {
-            return ( c >= '0' ) && ( c <= '9' );
+            try
+            {
+                var _test = c.ToString( );
+                ThrowIf.NullOrEmpty( _test, nameof( c ) );
+                return ( c >= '0' ) && ( c <= '9' );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return false;
+            }
         }
 
         /// <summary>
@@ -131,7 +141,17 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected static bool IsLetter( char c )
         {
-            return ( ( c >= 'A' ) && ( c <= 'Z' ) ) || ( ( c >= 'a' ) && ( c <= 'z' ) );
+            try
+            {
+                var _test = c.ToString( );
+                ThrowIf.NullOrEmpty( _test, nameof( c ) );
+                return ( ( c >= 'A' ) && ( c <= 'Z' ) ) || ( ( c >= 'a' ) && ( c <= 'z' ) );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return false;
+            }
         }
 
         /// <summary>
@@ -141,7 +161,17 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected static bool IsLetterOrDigit( char c )
         {
-            return IsLetter( c ) || IsDigit( c );
+            try
+            {
+                var _test = c.ToString( );
+                ThrowIf.NullOrEmpty( _test, nameof( c ) );
+                return IsLetter( c ) || IsDigit( c );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return false;
+            }
         }
 
         /// <summary>
@@ -152,14 +182,24 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected static bool IsAtom( char c, bool allowInternational )
         {
-            if( IsControl( c ) )
+            try
             {
+                var _test = c.ToString( );
+                ThrowIf.NullOrEmpty( _test, nameof( c ) );
+                if( IsControl( c ) )
+                {
+                    return false;
+                }
+
+                return c < 128
+                    ? IsLetterOrDigit( c ) || ( AtomCharacters.IndexOf( c ) != -1 )
+                    : allowInternational && !char.IsWhiteSpace( c );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
                 return false;
             }
-
-            return c < 128
-                ? IsLetterOrDigit( c ) || ( AtomCharacters.IndexOf( c ) != -1 )
-                : allowInternational && !char.IsWhiteSpace( c );
         }
 
         /// <summary>
@@ -174,6 +214,8 @@ namespace BudgetExecution
         {
             try
             {
+                var _test = c.ToString( );
+                ThrowIf.NullOrEmpty( _test, nameof( c ) );
                 if( c < 128 )
                 {
                     if( IsLetter( c )
@@ -217,31 +259,43 @@ namespace BudgetExecution
         private static bool IsDomainStart( char c, bool allowInternational, 
             out SubDomainType type )
         {
-            if( c < 128 )
+            try
             {
-                if( IsLetter( c ) )
+                var _test = c.ToString( );
+                ThrowIf.NullOrEmpty( _test, nameof( c ) );
+                if( c < 128 )
+                {
+                    if( IsLetter( c ) )
+                    {
+                        type = SubDomainType.Alphabetic;
+                        return true;
+                    }
+
+                    if( IsDigit( c ) )
+                    {
+                        type = SubDomainType.Numeric;
+                        return true;
+                    }
+
+                    type = SubDomainType.None;
+                    return false;
+                } 
+                else if( allowInternational && !char.IsWhiteSpace( c ) )
                 {
                     type = SubDomainType.Alphabetic;
                     return true;
                 }
-
-                if( IsDigit( c ) )
+                else
                 {
-                    type = SubDomainType.Numeric;
-                    return true;
+                    type = SubDomainType.None;
                 }
-
-                type = SubDomainType.None;
-                return false;
             }
-
-            if( allowInternational && !char.IsWhiteSpace( c ) )
+            catch( Exception _ex )
             {
-                type = SubDomainType.Alphabetic;
-                return true;
+                Fail( _ex );
+                type = SubDomainType.None;
             }
 
-            type = SubDomainType.None;
             return false;
         }
 
@@ -252,10 +306,13 @@ namespace BudgetExecution
         /// <param name="index"></param>
         /// <param name="allowInternational"></param>
         /// <returns></returns>
-        private protected static bool SkipAtom( string text, ref int index, bool allowInternational )
+        private protected static bool SkipAtom( string text, ref int index, 
+            bool allowInternational )
         {
             try
             {
+                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.Negative( index, nameof( index ) );
                 var startIndex = index;
                 while( ( index < text.Length )
                       && IsAtom( text[ index ], allowInternational ) )
