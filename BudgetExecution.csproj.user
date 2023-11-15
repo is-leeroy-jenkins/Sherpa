@@ -20,19 +20,19 @@
     <Compile Update="Controls\Calculator\CalculationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Calculator\CalculatorBase.cs">
+    <Compile Update="Controls\Calculator\Calculator.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Calculator\Carousel\CarouselForm.cs">
+    <Compile Update="Controls\Carousel\CarouselForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Calculator\Carousel\MinionSelector.cs">
+    <Compile Update="Controls\Carousel\MinionSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Calculator\Carousel\Selector.cs">
+    <Compile Update="Controls\Carousel\Selector.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Calculator\Carousel\WebSelector.cs">
+    <Compile Update="Controls\Carousel\WebSelector.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Calendar\CalendarControl.cs">
@@ -310,7 +310,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Clients\BudgetBrowser\net6.0-windows\Properties\Resources.resx">
+    <EmbeddedResource Update="Clients\Baby\net6.0-windows\Properties\Resources.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

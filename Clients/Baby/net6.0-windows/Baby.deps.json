@@ -1,0 +1,651 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Baby/0.0.1": {
+        "dependencies": {
+          "CefSharp.Common": "119.1.20",
+          "CefSharp.Common.NETCore": "119.1.20",
+          "CefSharp.WinForms": "119.1.20",
+          "CefSharp.WinForms.NETCore": "119.1.20",
+          "CefSharp.Wpf": "119.1.20",
+          "CefSharp.Wpf.NETCore": "119.1.20",
+          "cef.redist.x64": "119.1.2",
+          "cef.redist.x86": "119.1.2",
+          "chromiumembeddedframework.runtime.win-arm64": "119.1.2",
+          "chromiumembeddedframework.runtime.win-x64": "119.1.2",
+          "chromiumembeddedframework.runtime.win-x86": "119.1.2",
+          "CharmNotification": "1.0.0.0",
+          "MetroSet UI": "2.0.0.0",
+          "Syncfusion.Grid.Windows": "21.1.35.0",
+          "Syncfusion.Licensing": "21.1.35.0",
+          "Syncfusion.Shared.Base": "21.1.35.0",
+          "Syncfusion.Shared.Windows": "21.1.35.0",
+          "Syncfusion.SpellChecker.Base": "21.1.35.0",
+          "Syncfusion.Tools.Base": "21.1.35.0",
+          "Syncfusion.Tools.Windows": "21.1.35.0"
+        },
+        "runtime": {
+          "Baby.dll": {}
+        }
+      },
+      "cef.redist.x64/119.1.2": {},
+      "cef.redist.x86/119.1.2": {},
+      "CefSharp.Common/119.1.20": {
+        "dependencies": {
+          "cef.redist.x64": "119.1.2",
+          "cef.redist.x86": "119.1.2"
+        }
+      },
+      "CefSharp.Common.NETCore/119.1.20": {
+        "dependencies": {
+          "chromiumembeddedframework.runtime": "119.1.2"
+        },
+        "runtimeTargets": {
+          "runtimes/win-arm64/lib/netcoreapp3.1/CefSharp.Core.Runtime.dll": {
+            "rid": "win-arm64",
+            "assetType": "runtime",
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-arm64/lib/netcoreapp3.1/CefSharp.Core.dll": {
+            "rid": "win-arm64",
+            "assetType": "runtime",
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-arm64/lib/netcoreapp3.1/CefSharp.dll": {
+            "rid": "win-arm64",
+            "assetType": "runtime",
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-arm64/lib/netcoreapp3.1/Ijwhost.dll": {
+            "rid": "win-arm64",
+            "assetType": "runtime",
+            "fileVersion": "3.100.3222.56520"
+          },
+          "runtimes/win-x64/lib/netcoreapp3.1/CefSharp.Core.Runtime.dll": {
+            "rid": "win-x64",
+            "assetType": "runtime",
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-x64/lib/netcoreapp3.1/CefSharp.Core.dll": {
+            "rid": "win-x64",
+            "assetType": "runtime",
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-x64/lib/netcoreapp3.1/CefSharp.dll": {
+            "rid": "win-x64",
+            "assetType": "runtime",
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-x64/lib/netcoreapp3.1/Ijwhost.dll": {
+            "rid": "win-x64",
+            "assetType": "runtime",
+            "fileVersion": "3.100.3222.56520"
+          },
+          "runtimes/win-x86/lib/netcoreapp3.1/CefSharp.Core.Runtime.dll": {
+            "rid": "win-x86",
+            "assetType": "runtime",
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-x86/lib/netcoreapp3.1/CefSharp.Core.dll": {
+            "rid": "win-x86",
+            "assetType": "runtime",
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-x86/lib/netcoreapp3.1/CefSharp.dll": {
+            "rid": "win-x86",
+            "assetType": "runtime",
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-x86/lib/netcoreapp3.1/Ijwhost.dll": {
+            "rid": "win-x86",
+            "assetType": "runtime",
+            "fileVersion": "3.100.3222.56520"
+          },
+          "runtimes/win-arm64/native/CefSharp.BrowserSubprocess.Core.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-arm64/native/CefSharp.BrowserSubprocess.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-arm64/native/CefSharp.BrowserSubprocess.exe": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-arm64/native/CefSharp.BrowserSubprocess.runtimeconfig.json": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/CefSharp.BrowserSubprocess.Core.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-x64/native/CefSharp.BrowserSubprocess.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-x64/native/CefSharp.BrowserSubprocess.exe": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-x64/native/CefSharp.BrowserSubprocess.runtimeconfig.json": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/CefSharp.BrowserSubprocess.Core.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-x86/native/CefSharp.BrowserSubprocess.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-x86/native/CefSharp.BrowserSubprocess.exe": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "119.1.20.0"
+          },
+          "runtimes/win-x86/native/CefSharp.BrowserSubprocess.runtimeconfig.json": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "CefSharp.WinForms/119.1.20": {
+        "dependencies": {
+          "CefSharp.Common": "119.1.20"
+        },
+        "runtime": {
+          "lib/net462/CefSharp.WinForms.dll": {
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          }
+        }
+      },
+      "CefSharp.WinForms.NETCore/119.1.20": {
+        "dependencies": {
+          "CefSharp.Common.NETCore": "119.1.20"
+        }
+      },
+      "CefSharp.Wpf/119.1.20": {
+        "dependencies": {
+          "CefSharp.Common": "119.1.20"
+        },
+        "runtime": {
+          "lib/net462/CefSharp.Wpf.dll": {
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          }
+        }
+      },
+      "CefSharp.Wpf.NETCore/119.1.20": {
+        "dependencies": {
+          "CefSharp.Common.NETCore": "119.1.20"
+        }
+      },
+      "chromiumembeddedframework.runtime/119.1.2": {},
+      "chromiumembeddedframework.runtime.win-arm64/119.1.2": {
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/chrome_100_percent.pak": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/chrome_200_percent.pak": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/chrome_elf.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "119.0.6045.105"
+          },
+          "runtimes/win-arm64/native/d3dcompiler_47.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "10.0.22621.755"
+          },
+          "runtimes/win-arm64/native/icudtl.dat": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/libEGL.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "2.1.21998.0"
+          },
+          "runtimes/win-arm64/native/libGLESv2.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "2.1.21998.0"
+          },
+          "runtimes/win-arm64/native/libcef.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "119.1.2.0"
+          },
+          "runtimes/win-arm64/native/resources.pak": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/snapshot_blob.bin": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/v8_context_snapshot.bin": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/vk_swiftshader.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "5.0.0.1"
+          },
+          "runtimes/win-arm64/native/vk_swiftshader_icd.json": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/vulkan-1.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "1.3.266.0"
+          }
+        }
+      },
+      "chromiumembeddedframework.runtime.win-x64/119.1.2": {
+        "runtimeTargets": {
+          "runtimes/win-x64/native/chrome_100_percent.pak": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/chrome_200_percent.pak": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/chrome_elf.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "119.0.6045.105"
+          },
+          "runtimes/win-x64/native/d3dcompiler_47.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "10.0.22621.755"
+          },
+          "runtimes/win-x64/native/icudtl.dat": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libEGL.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "2.1.21998.0"
+          },
+          "runtimes/win-x64/native/libGLESv2.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "2.1.21998.0"
+          },
+          "runtimes/win-x64/native/libcef.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "119.1.2.0"
+          },
+          "runtimes/win-x64/native/resources.pak": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/snapshot_blob.bin": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/v8_context_snapshot.bin": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/vk_swiftshader.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "5.0.0.1"
+          },
+          "runtimes/win-x64/native/vk_swiftshader_icd.json": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/vulkan-1.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "1.3.266.0"
+          }
+        }
+      },
+      "chromiumembeddedframework.runtime.win-x86/119.1.2": {
+        "runtimeTargets": {
+          "runtimes/win-x86/native/chrome_100_percent.pak": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/chrome_200_percent.pak": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/chrome_elf.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "119.0.6045.105"
+          },
+          "runtimes/win-x86/native/d3dcompiler_47.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "10.0.22621.755"
+          },
+          "runtimes/win-x86/native/icudtl.dat": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libEGL.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "2.1.21998.0"
+          },
+          "runtimes/win-x86/native/libGLESv2.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "2.1.21998.0"
+          },
+          "runtimes/win-x86/native/libcef.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "119.1.2.0"
+          },
+          "runtimes/win-x86/native/resources.pak": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/snapshot_blob.bin": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/v8_context_snapshot.bin": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/vk_swiftshader.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "5.0.0.1"
+          },
+          "runtimes/win-x86/native/vk_swiftshader_icd.json": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/vulkan-1.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "1.3.266.0"
+          }
+        }
+      },
+      "CharmNotification/1.0.0.0": {
+        "runtime": {
+          "CharmNotification.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MetroSet UI/2.0.0.0": {
+        "runtime": {
+          "MetroSet UI.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "Syncfusion.Grid.Windows/21.1.35.0": {
+        "runtime": {
+          "Syncfusion.Grid.Windows.dll": {
+            "assemblyVersion": "21.1.35.0",
+            "fileVersion": "21.1.35.0"
+          }
+        }
+      },
+      "Syncfusion.Licensing/21.1.35.0": {
+        "runtime": {
+          "Syncfusion.Licensing.dll": {
+            "assemblyVersion": "21.1.35.0",
+            "fileVersion": "21.1.35.0"
+          }
+        }
+      },
+      "Syncfusion.Shared.Base/21.1.35.0": {
+        "runtime": {
+          "Syncfusion.Shared.Base.dll": {
+            "assemblyVersion": "21.1.35.0",
+            "fileVersion": "21.1.35.0"
+          }
+        }
+      },
+      "Syncfusion.Shared.Windows/21.1.35.0": {
+        "runtime": {
+          "Syncfusion.Shared.Windows.dll": {
+            "assemblyVersion": "21.1.35.0",
+            "fileVersion": "21.1.35.0"
+          }
+        }
+      },
+      "Syncfusion.SpellChecker.Base/21.1.35.0": {
+        "runtime": {
+          "Syncfusion.SpellChecker.Base.dll": {
+            "assemblyVersion": "21.1.35.0",
+            "fileVersion": "21.1.35.0"
+          }
+        }
+      },
+      "Syncfusion.Tools.Base/21.1.35.0": {
+        "runtime": {
+          "Syncfusion.Tools.Base.dll": {
+            "assemblyVersion": "21.1.35.0",
+            "fileVersion": "21.1.35.0"
+          }
+        }
+      },
+      "Syncfusion.Tools.Windows/21.1.35.0": {
+        "runtime": {
+          "Syncfusion.Tools.Windows.dll": {
+            "assemblyVersion": "21.1.35.0",
+            "fileVersion": "21.1.35.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Baby/0.0.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "cef.redist.x64/119.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AbAHkkfjwn6jWsAemYruIyN5inPrPlfvKfnyJImy6S9aIEm2eEKws7wcSZWlhIZcFUQADfbyo2O7hZaZ0egPiQ==",
+      "path": "cef.redist.x64/119.1.2",
+      "hashPath": "cef.redist.x64.119.1.2.nupkg.sha512"
+    },
+    "cef.redist.x86/119.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+VsGDocYm875qp+90YVZC1h4NFajpaYXPqSOE8l7jAb/CmX+fUQVm2Rxc7U7vUCfMYQpJ1GfDL98YNE1PnF/uQ==",
+      "path": "cef.redist.x86/119.1.2",
+      "hashPath": "cef.redist.x86.119.1.2.nupkg.sha512"
+    },
+    "CefSharp.Common/119.1.20": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4bBYnrtNIsMkm9anVWEKFe9lyVfyRWVPgkxgpt4j7sLJAqIb2wSF77UdqQ+kRJlv67ETVlJwDRyn73O8JAbFHA==",
+      "path": "cefsharp.common/119.1.20",
+      "hashPath": "cefsharp.common.119.1.20.nupkg.sha512"
+    },
+    "CefSharp.Common.NETCore/119.1.20": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2UWf0iWTilUt2qiD3rgc98TkqkinDz0GVDGX3ZrGZDSQvbCLIB2qs03UuzMGtidaz2DTZMHKoh8QtX7MZkdU9A==",
+      "path": "cefsharp.common.netcore/119.1.20",
+      "hashPath": "cefsharp.common.netcore.119.1.20.nupkg.sha512"
+    },
+    "CefSharp.WinForms/119.1.20": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rL9trKYArmhKlqOokK/O7ecA9MvUJxJnUWwdFPUBOG9+tm2EtdzXG9Z8E01T9VQewlY6tn6/Lex0/I5I3l6I9Q==",
+      "path": "cefsharp.winforms/119.1.20",
+      "hashPath": "cefsharp.winforms.119.1.20.nupkg.sha512"
+    },
+    "CefSharp.WinForms.NETCore/119.1.20": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HFSyoF5a6Ub5qCUWPMJG7K1A9DmFtH443BZlU7+PrN4W59XXzwl7f6/av0kd7XyLXi6UnkHj5lX+eGI9lVgMUg==",
+      "path": "cefsharp.winforms.netcore/119.1.20",
+      "hashPath": "cefsharp.winforms.netcore.119.1.20.nupkg.sha512"
+    },
+    "CefSharp.Wpf/119.1.20": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ObmX5rfoADS7NeK66s/uJx0aHKnWylyZQPX0k3iC5L3dgcpo62W4ucqSWGoPuC00l21+FHXMkb0SaKDmsyA/IQ==",
+      "path": "cefsharp.wpf/119.1.20",
+      "hashPath": "cefsharp.wpf.119.1.20.nupkg.sha512"
+    },
+    "CefSharp.Wpf.NETCore/119.1.20": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2177Td3kafa6YSyqBdNDnpBtuLXYuii7LSHSYtmstt0qjnoZyvDB5PW6lGNiTZXNzaQKyQzmpB7bHBE+41d3SQ==",
+      "path": "cefsharp.wpf.netcore/119.1.20",
+      "hashPath": "cefsharp.wpf.netcore.119.1.20.nupkg.sha512"
+    },
+    "chromiumembeddedframework.runtime/119.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZrvNBQNrQ6mwgP0bMtHVkDbEi/nQWPNpclfl2Wk+HajrHD35gri5+R6awkG6aWZmHS1Y1G0dOEVNKd51TE/JKg==",
+      "path": "chromiumembeddedframework.runtime/119.1.2",
+      "hashPath": "chromiumembeddedframework.runtime.119.1.2.nupkg.sha512"
+    },
+    "chromiumembeddedframework.runtime.win-arm64/119.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EzFXX42SzhQW7nLgNIBVhY05AExXn6ErOQGxTuSxTilFFhptLSGB0FNMvbiZIn/U+gc1l8LkSYNygvFLFppyPA==",
+      "path": "chromiumembeddedframework.runtime.win-arm64/119.1.2",
+      "hashPath": "chromiumembeddedframework.runtime.win-arm64.119.1.2.nupkg.sha512"
+    },
+    "chromiumembeddedframework.runtime.win-x64/119.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JeKqBzrp/2fPjyATZBclz7jEmDJTfvz3AWWf7Svlui0mHdf+6Jp3nDtPGcrAYCYsVF7JbOj+7Jzt0C0ygUyavg==",
+      "path": "chromiumembeddedframework.runtime.win-x64/119.1.2",
+      "hashPath": "chromiumembeddedframework.runtime.win-x64.119.1.2.nupkg.sha512"
+    },
+    "chromiumembeddedframework.runtime.win-x86/119.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WrE5LwEa6Tg6iNoGm94Pk54p2TSiTOGJgUl+M4GCxQjeXtzLtoVYVZN+4GhH1cWRuFK4sZeNMNZ/GrjZzb6Fkg==",
+      "path": "chromiumembeddedframework.runtime.win-x86/119.1.2",
+      "hashPath": "chromiumembeddedframework.runtime.win-x86.119.1.2.nupkg.sha512"
+    },
+    "CharmNotification/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MetroSet UI/2.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Syncfusion.Grid.Windows/21.1.35.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Syncfusion.Licensing/21.1.35.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Syncfusion.Shared.Base/21.1.35.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Syncfusion.Shared.Windows/21.1.35.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Syncfusion.SpellChecker.Base/21.1.35.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Syncfusion.Tools.Base/21.1.35.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Syncfusion.Tools.Windows/21.1.35.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

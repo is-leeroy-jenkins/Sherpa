@@ -136,7 +136,7 @@ namespace BudgetExecution
             : this( )
         {
             InitialValue = initial;
-            Calculator.Value = new CalculatorValue( InitialValue );
+            Calculator.Value = new CalculatorValue( initial );
             ValueLabel.Text = Calculator.Value.ToString( );
         }
 
@@ -172,10 +172,10 @@ namespace BudgetExecution
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
-        /// <see cref="CalculatorValueCalculatedEventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        public void OnCalculationValueChanged( object sender, CalculatorValueCalculatedEventArgs e )
+        public void OnCalculationValueChanged( object sender, EventArgs e )
         {
             if( sender != null )
             {
