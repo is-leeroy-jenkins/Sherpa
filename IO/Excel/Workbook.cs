@@ -150,8 +150,12 @@ namespace BudgetExecution
             Worksheet.HeaderFooter.ScaleWithDocument = true;
         }
 
-        /// <summary> Sets the header format. </summary>
-        /// <param name="grid"> The grid. </param>
+        /// <summary>
+        /// Sets the header format.
+        /// </summary>
+        /// <param name="grid">
+        /// The grid.
+        /// </param>
         public void SetHeaderFormat( Grid grid )
         {
             try
@@ -170,8 +174,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the header text. </summary>
-        /// <param name="grid"> The grid. </param>
+        /// <summary>
+        /// Sets the header text.
+        /// </summary>
+        /// <param name="grid">
+        /// The grid.
+        /// </param>
         public void SetHeaderText( Grid grid )
         {
             try

@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   Grid.cs
@@ -55,14 +55,20 @@ namespace BudgetExecution
     public class Grid : ExcelCellBase, IGrid
     {
         /// <inheritdoc/>
-        /// <summary> The range </summary>
+        /// <summary>
+        /// The range
+        /// </summary>
         public ExcelRange Range { get; set; }
 
         /// <inheritdoc/>
-        /// <summary> The workSheet </summary>
+        /// <summary>
+        /// The workSheet
+        /// </summary>
         public ExcelWorksheet Worksheet { get; set; }
 
-        /// <summary> The address </summary>
+        /// <summary>
+        /// The address
+        /// </summary>
         public ExcelAddress Address { get; set; }
 
         /// <inheritdoc/>
@@ -95,11 +101,10 @@ namespace BudgetExecution
         {
             Worksheet = workSheet;
             Range = range;
-            Address = new ExcelAddress( Range.Start.Row, Range.Start.Column, Range.End.Row,
-                Range.End.Row );
-
             From = ( Address.Start.Row, Address.Start.Column );
             To = ( Address.End.Row, Address.End.Column );
+            Address = new ExcelAddress( Range.Start.Row, Range.Start.Column, Range.End.Row,
+                Range.End.Row );
         }
 
         /// <summary>
@@ -129,15 +134,14 @@ namespace BudgetExecution
         /// <param name="toRow"> To row. </param>
         /// <param name="toColumn"> To column. </param>
         public Grid( ExcelWorksheet workSheet, int fromRow = 1, int fromColumn = 1, int toRow = 55,
-                     int toColumn = 12 )
+            int toColumn = 12 )
         {
             Worksheet = workSheet;
+            From = ( Address.Start.Row, Address.Start.Column );
+            To = ( Address.End.Row, Address.End.Column );
             Range = Worksheet.Cells[ fromRow, fromColumn, toRow, toColumn ];
             Address = new ExcelAddress( Range.Start.Row, Range.Start.Column, Range.End.Row,
                 Range.End.Row );
-
-            From = ( Address.Start.Row, Address.Start.Column );
-            To = ( Address.End.Row, Address.End.Column );
         }
 
         /// <summary>
@@ -167,7 +171,7 @@ namespace BudgetExecution
         /// <param name="from"> From. </param>
         /// <param name="to"> To. </param>
         public Grid( ExcelWorksheet workSheet, (int Row, int Column) from,
-                     (int Row, int Column) to )
+            (int Row, int Column) to )
         {
             Worksheet = workSheet;
             Range = Worksheet.Cells[ from.Row, from.Column, to.Row, to.Column ];
@@ -187,7 +191,7 @@ namespace BudgetExecution
         /// <param name="from"> From. </param>
         public Grid( ExcelWorksheet workSheet, (int Row, int Column) from )
         {
-            ThrowIf.Null( workSheet, "workSheet" );
+            ThrowIf.Null( workSheet, nameof( workSheet ) );
             Worksheet = workSheet;
             Range = Worksheet.Cells[ from.Row, from.Column ];
             Address = new ExcelAddress( Range.Start.Row, Range.Start.Column, Range.Start.Row,
@@ -205,13 +209,13 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( range, "range" );
+                ThrowIf.Null( range, nameof( range ) );
                 return range?.Rows * range?.Columns ?? default( int );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return -1;
+                return 0;
             }
         }
 
