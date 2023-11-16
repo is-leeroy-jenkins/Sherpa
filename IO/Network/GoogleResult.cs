@@ -48,7 +48,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class WebResult
+    public class GoogleResult
     {
         /// <summary>
         /// Gets or sets the link.
@@ -84,21 +84,21 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="WebResult"/> class.
+        /// <see cref="GoogleResult"/> class.
         /// </summary>
-        public WebResult( )
+        public GoogleResult( )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="WebResult"/> class.
+        /// <see cref="GoogleResult"/> class.
         /// </summary>
         /// <param name="link">The link.</param>
         /// <param name="name">The name.</param>
         /// <param name="content">The content.</param>
         /// <param name="title">The title.</param>
-        public WebResult( string link, string name, string content, string title )
+        public GoogleResult( string link, string name, string content, string title )
         {
             Link = link;
             Name = name;
@@ -108,10 +108,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="WebResult"/> class.
+        /// <see cref="GoogleResult"/> class.
         /// </summary>
         /// <param name="result">The result.</param>
-        public WebResult( WebResult result )
+        public GoogleResult( GoogleResult result )
         {
             Link = result.Link;
             Name = result.Name;
@@ -126,7 +126,8 @@ namespace BudgetExecution
         /// <param name="name">The name.</param>
         /// <param name="content">The content.</param>
         /// <param name="title">The title.</param>
-        public void Deconstruct( out string link, out string name, out string content, out string title )
+        public void Deconstruct( out string link, out string name, 
+            out string content, out string title )
         {
             link = Link;
             name = Name;

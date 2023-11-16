@@ -118,7 +118,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public List<WebResult> GetResults( )
+        public List<GoogleResult> GetResults( )
         {
             if( !string.IsNullOrEmpty( Query ) 
                && Config?.Count > 0 )
@@ -126,7 +126,7 @@ namespace BudgetExecution
                 try
                 {
                     var _count = 0;
-                    var _data = new List<WebResult>( );
+                    var _data = new List<GoogleResult>( );
                     var _init = new BaseClientService.Initializer( );
                     _init.ApiKey = Config[ "ApiKey" ];
                     var _search = new CustomsearchService( _init );
@@ -143,7 +143,7 @@ namespace BudgetExecution
 
                     for( var _i = 0; _i < _list.Count; _i++ )
                     {
-                        var _results = new WebResult( );
+                        var _results = new GoogleResult( );
                         _results.Content = _list[ _i ].Snippet;
                         _results.Link = _list[ _i ].Link;
                         _results.Title = _list[ _i ].Title;
@@ -153,16 +153,16 @@ namespace BudgetExecution
 
                     return _data?.Any( ) == true
                         ? _data
-                        : default( List<WebResult> );
+                        : default( List<GoogleResult> );
                 }
                 catch( Exception _ex )
                 {
                     Fail( _ex );
-                    return default( List<WebResult> );
+                    return default( List<GoogleResult> );
                 }
             }
 
-            return default( List<WebResult> );
+            return default( List<GoogleResult> );
         }
 
         /// <summary>

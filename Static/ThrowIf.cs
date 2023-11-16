@@ -261,7 +261,7 @@ namespace BudgetExecution
 
                     break;
                 }
-                case OutlookConfig _outlookConfig:
+                case EmailConfig _outlookConfig:
                 {
                     if( _outlookConfig == null )
                     {

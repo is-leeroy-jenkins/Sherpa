@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="OutlookConfig.cs" company="Terry D. Eppler">
+// <copyright file="EmailConfig.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   OutlookConfig.cs
+//   EmailConfig.cs
 // </summary>
 // ******************************************************************************************
 
@@ -51,7 +51,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class OutlookConfig
+    public class EmailConfig
     {
         /// <summary>
         /// Gets or sets the recipient.
@@ -119,31 +119,31 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="OutlookConfig"/> class.
+        /// <see cref="EmailConfig"/> class.
         /// </summary>
-        public OutlookConfig( )
+        public EmailConfig( )
         {
             Recipient = new List<string>( );
             CarbonCopy = new List<string>( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OutlookConfig"/> class.
+        /// Initializes a new instance of the <see cref="EmailConfig"/> class.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="subject">The subject.</param>
-        /// <param name="userName">Name of the user.</param>
+        /// <param name="user">Name of the user.</param>
         /// <param name="pass">The pass.</param>
         /// <param name="recipient">The recipient.</param>
         /// <param name="copies">The copies.</param>
         /// <param name="priority"> </param>
-        public OutlookConfig( string sender, string subject, string userName, 
+        public EmailConfig( string sender, string subject, string user, 
             string pass, IList<string> recipient, IList<string> copies, 
             MailPriority priority = MailPriority.Normal )
         {
             Sender = sender;
             Subject = subject;
-            UserName = userName;
+            UserName = user;
             Password = pass;
             Priority = priority;
             Recipient = recipient;
@@ -152,10 +152,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="OutlookConfig"/> class.
+        /// <see cref="EmailConfig"/> class.
         /// </summary>
         /// <param name="config">The configuration.</param>
-        public OutlookConfig( OutlookConfig config )
+        public EmailConfig( EmailConfig config )
         {
             Sender = config.Sender;
             Subject = config.Subject;

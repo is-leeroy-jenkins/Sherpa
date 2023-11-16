@@ -1,12 +1,51 @@
-﻿using System;
-using System.Text;
+﻿// ************************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:              13-11-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        16-11-2023
+// ************************************************************************************************
+// <copyright file="BabyBoy.cs.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   Eppler, Terry.cs
+// </summary>
+// ************************************************************************************************
 
-namespace BudgetExecution.IO.Network
+namespace BudgetExecution
 {
     using System.Diagnostics.CodeAnalysis;
     using System.Net;
     using System.Net.Sockets;
     using System.Threading;
+    using System;
+    using System.Text;
 
     /// <summary>
     /// 
@@ -15,7 +54,7 @@ namespace BudgetExecution.IO.Network
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" ) ]
-    public class BabyClient
+    public class BabyBoy
     {
         /// <summary>
         /// Gets or sets the bytes.
@@ -83,9 +122,9 @@ namespace BudgetExecution.IO.Network
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BabyClient"/> class.
+        /// <see cref="BabyBoy"/> class.
         /// </summary>
-        public BabyClient( )
+        public BabyBoy( )
         {
             Bytes = 1024;
             Port = 9055;
@@ -97,12 +136,12 @@ namespace BudgetExecution.IO.Network
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BabyClient"/> class.
+        /// Initializes a new instance of the <see cref="BabyBoy"/> class.
         /// </summary>
         /// <param name="ipAddress">The ip address.</param>
         /// <param name="portNumber">The port number.</param>
         /// <param name="bufferSize">Size of the buffer.</param>
-        public BabyClient( string ipAddress, int portNumber = 9055, int bufferSize = 1024 )
+        public BabyBoy( string ipAddress, int portNumber = 9055, int bufferSize = 1024 )
         {
             Bytes = bufferSize;
             Port = portNumber;
@@ -114,12 +153,12 @@ namespace BudgetExecution.IO.Network
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BabyClient"/> class.
+        /// Initializes a new instance of the <see cref="BabyBoy"/> class.
         /// </summary>
         /// <param name="ipAddress">The ip address.</param>
         /// <param name="portNumber">The port.</param>
         /// <param name="bufferSize"> </param>
-        public BabyClient( IPAddress ipAddress, int portNumber = 9055, int bufferSize = 1024 )
+        public BabyBoy( IPAddress ipAddress, int portNumber = 9055, int bufferSize = 1024 )
         {
             Bytes = bufferSize;
             Port = portNumber;
@@ -131,11 +170,11 @@ namespace BudgetExecution.IO.Network
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BabyClient"/> class.
+        /// Initializes a new instance of the <see cref="BabyBoy"/> class.
         /// </summary>
         /// <param name="ipEndPoint">The ip address.</param>
         /// <param name="bufferSize">Size of the buffer.</param>
-        public BabyClient( IPEndPoint ipEndPoint, int bufferSize = 1024 )
+        public BabyBoy( IPEndPoint ipEndPoint, int bufferSize = 1024 )
         {
             Bytes = bufferSize;
             Port = ipEndPoint.Port;
@@ -148,10 +187,10 @@ namespace BudgetExecution.IO.Network
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BabyClient"/> class.
+        /// <see cref="BabyBoy"/> class.
         /// </summary>
         /// <param name="client">The client.</param>
-        public BabyClient( BabyClient client )
+        public BabyBoy( BabyBoy client )
         {
             Bytes = client.Bytes;
             Port = client.Port;

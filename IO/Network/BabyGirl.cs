@@ -41,10 +41,9 @@
 //  </summary>
 //  ******************************************************************************************
 
-using System;
-
-namespace BudgetExecution.IO.Network
+namespace BudgetExecution
 {
+    using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Net;
     using System.Net.Sockets;
@@ -60,7 +59,7 @@ namespace BudgetExecution.IO.Network
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
-    public class BabyServer
+    public class BabyGirl
     {
         /// <summary>
         /// Gets or sets the bytes.
@@ -129,9 +128,9 @@ namespace BudgetExecution.IO.Network
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BabyServer"/> class.
+        /// <see cref="BabyGirl"/> class.
         /// </summary>
-        public BabyServer( )
+        public BabyGirl( )
         {
             Bytes = 1024;
             Port = 9050;
@@ -144,53 +143,53 @@ namespace BudgetExecution.IO.Network
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BabyClient"/> class.
+        /// <see cref="BabyBoy"/> class.
         /// </summary>
-        /// <param name="ipAddress">The ip address.</param>
-        /// <param name="portNumber">The port.</param>
-        /// <param name="bufferSize"> </param>
-        public BabyServer( IPAddress ipAddress, int portNumber = 9050, int bufferSize = 1024 )
+        /// <param name="address">The ip address.</param>
+        /// <param name="port">The port.</param>
+        /// <param name="size"> </param>
+        public BabyGirl( IPAddress address, int port = 9050, int size = 1024 )
         {
-            Bytes = bufferSize;
-            Port = portNumber;
-            Data = new byte[ bufferSize ];
-            Address = ipAddress;
-            EndPoint = new IPEndPoint( ipAddress, portNumber );
+            Bytes = size;
+            Port = port;
+            Data = new byte[ size ];
+            Address = address;
+            EndPoint = new IPEndPoint( address, port );
             Socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
             IsConnected = false;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BabyClient"/> class.
+        /// <see cref="BabyBoy"/> class.
         /// </summary>
-        /// <param name="ipAddress">The ip address.</param>
-        /// <param name="portNumber">The port number.</param>
-        /// <param name="bufferSize">Size of the buffer.</param>
-        public BabyServer( string ipAddress, int portNumber = 9050, int bufferSize = 1024 )
+        /// <param name="address">The ip address.</param>
+        /// <param name="port">The port number.</param>
+        /// <param name="size">Size of the buffer.</param>
+        public BabyGirl( string address, int port = 9050, int size = 1024 )
         {
-            Bytes = bufferSize;
-            Port = portNumber;
-            Data = new byte[ bufferSize ];
-            Address = IPAddress.Parse( ipAddress );
-            EndPoint = new IPEndPoint( Address, portNumber );
+            Bytes = size;
+            Port = port;
+            Data = new byte[ size ];
+            Address = IPAddress.Parse( address );
+            EndPoint = new IPEndPoint( Address, port );
             Socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
             IsConnected = false;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BabyServer"/> class.
+        /// Initializes a new instance of the <see cref="BabyGirl"/> class.
         /// </summary>
-        /// <param name="server">The client.</param>
-        public BabyServer( BabyServer server )
+        /// <param name="girl">The client.</param>
+        public BabyGirl( BabyGirl girl )
         {
-            Bytes = server.Bytes;
-            Port = server.Port;
-            Data = server.Data;
-            Address = server.Address;
-            EndPoint = server.EndPoint;
-            Socket = server.Socket;
-            IsConnected = server.IsConnected;
+            Bytes = girl.Bytes;
+            Port = girl.Port;
+            Data = girl.Data;
+            Address = girl.Address;
+            EndPoint = girl.EndPoint;
+            Socket = girl.Socket;
+            IsConnected = girl.IsConnected;
         }
 
         /// <summary>

@@ -22047,7 +22047,7 @@
 			<summary>
 				construct instance using specified buffer size
 			</summary>
-			<param name="bufferSize">
+			<param name="size">
 				size to use for internal buffer
 			</param>
 		</member>
@@ -22532,7 +22532,7 @@
 			<param name="deflater">
 				The underlying deflater to use
 			</param>
-			<param name="bufferSize">
+			<param name="size">
 				The buffer size in bytes to use when deflating (minimum value 512)
 			</param>
 			<exception cref="T:System.ArgumentOutOfRangeException">
@@ -22786,7 +22786,7 @@
 				<see cref="T:PdfSharp.SharpZipLib.Zip.Compression.Streams.InflaterInputBuffer"/>
 			</summary>
 			<param name="stream">The stream to buffer.</param>
-			<param name="bufferSize">The size to use for the buffer</param>
+			<param name="size">The size to use for the buffer</param>
 			<remarks>A minimum buffer size of 1KB is permitted. Lower sizes are treated as 1KB.
 			</remarks>
 		</member>
@@ -22928,7 +22928,7 @@
 			<param name="inflater">
 				The decompressor to use
 			</param>
-			<param name="bufferSize">
+			<param name="size">
 				Size of the buffer to use
 			</param>
 		</member>

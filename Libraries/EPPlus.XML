@@ -28954,8 +28954,8 @@
             </remarks>
             <example>
                 <code>
-                    private void InflateBuffer() { int bufferSize = 1024; byte[] buffer = new
-                    byte[bufferSize]; ZlibCodec decompressor =
+                    private void InflateBuffer() { int size = 1024; byte[] buffer = new
+                    byte[size]; ZlibCodec decompressor =
                     new ZlibCodec();
                     Console.WriteLine("\n============================================");
                     Console.WriteLine("Size of Buffer
@@ -29013,8 +29013,8 @@
             </remarks>
             <example>
                 <code>
-                    int bufferSize = 40000; byte[] CompressedBytes = new byte[bufferSize]; byte[]
-                    DecompressedBytes = new byte[bufferSize];
+                    int size = 40000; byte[] CompressedBytes = new byte[size]; byte[]
+                    DecompressedBytes = new byte[size];
                     ZlibCodec compressor = new ZlibCodec();
                     compressor.InitializeDeflate(CompressionLevel.Default); compressor.InputBuffer
                     = System.Text.ASCIIEncoding.ASCII.GetBytes(TextToCompress); compressor.NextIn =
@@ -29023,7 +29023,7 @@
                     compressor.NextOut = 0;
                     compressor.AvailableBytesOut = CompressedBytes.Length; while
                     (compressor.TotalBytesIn != TextToCompress.Length &amp;
-                    &amp; compressor.TotalBytesOut &lt; bufferSize) {
+                    &amp; compressor.TotalBytesOut &lt; size) {
                     compressor.Deflate(FlushType.NoData); } while (true) { int rc=
                     compressor.Deflate(FlushType.Finish); if (rc == ZlibConstants.Z_STREAM_END)
                     break; } compressor.EndDeflate();
@@ -29126,8 +29126,8 @@
             </remarks>
             <example>
                 <code>
-                    private void DeflateBuffer(CompressionLevel level) { int bufferSize = 1024;
-                    byte[] buffer = new byte[bufferSize];
+                    private void DeflateBuffer(CompressionLevel level) { int size = 1024;
+                    byte[] buffer = new byte[size];
                     ZlibCodec compressor = new ZlibCodec();
                     Console.WriteLine("\n============================================");
                     Console.WriteLine("Size of Buffer to Deflate: {0} bytes.",

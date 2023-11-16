@@ -3251,11 +3251,11 @@
 				Initialize class by instance of stream and user defined cache size
 			</summary>
 			<param name="stream">Stream which our class must wrap</param>
-			<param name="bufferSize">User defined cache size</param>
+			<param name="size">User defined cache size</param>
 			<exception cref="T:System.ArgumentException">stream does not support Read and Write
 				operations
 			</exception>
-			<exception cref="T:System.ArgumentOutOfRangeException">bufferSize is equel or less of
+			<exception cref="T:System.ArgumentOutOfRangeException">size is equel or less of
 				zero
 			</exception>
 		</member>
@@ -3833,7 +3833,7 @@
 			<param name="share">A FileShare constant that determines how the file will be shared by
 				processes
 			</param>
-			<param name="bufferSize">size of internal buffer used for read/write operations
+			<param name="size">size of internal buffer used for read/write operations
 				optimizations
 			</param>
 		</member>
@@ -3884,7 +3884,7 @@
 			<param name="controlStream">True - if TokenStream instance must close input stream on
 				own Close, otherwise false
 			</param>
-			<param name="bufferSize">Size of the Stream</param>
+			<param name="size">Size of the Stream</param>
 		</member>
 		<member name="M:Syncfusion.IO.TokenStream.#ctor(System.IO.Stream,System.Text.Encoding,System.Boolean,System.Int32)">
 			<summary>
@@ -3897,7 +3897,7 @@
 			<param name="controlStream">True - if TokenStream instance must close input stream on
 				own Close, otherwise false
 			</param>
-			<param name="bufferSize">Size of the Stream</param>
+			<param name="size">Size of the Stream</param>
 		</member>
 		<member name="M:Syncfusion.IO.TokenStream.FromString(System.String)">
 			<summary>

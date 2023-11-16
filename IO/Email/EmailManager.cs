@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="OutlookManager.cs" company="Terry D. Eppler">
+// <copyright file="EmailManager.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   OutlookManager.cs
+//   EmailManager.cs
 // </summary>
 // ******************************************************************************************
 
@@ -59,7 +59,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class OutlookManager
+    public class EmailManager
     {
         /// <summary>
         /// Gets or sets the name of the host.
@@ -71,28 +71,28 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="OutlookManager"/> class.
+        /// <see cref="EmailManager"/> class.
         /// </summary>
-        public OutlookManager( )
+        public EmailManager( )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="OutlookManager"/> class.
+        /// <see cref="EmailManager"/> class.
         /// </summary>
         /// <param name="hostName">Name of the host.</param>
-        public OutlookManager( string hostName )
+        public EmailManager( string hostName )
         {
             HostName = hostName;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="OutlookManager"/> class.
+        /// <see cref="EmailManager"/> class.
         /// </summary>
         /// <param name="outlook">The outlook.</param>
-        public OutlookManager( OutlookManager outlook )
+        public EmailManager( EmailManager outlook )
         {
             HostName = outlook.HostName;
         }
@@ -111,7 +111,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="config">The configuration.</param>
         /// <param name="content">The content.</param>
-        public void SendEmail( OutlookConfig config, EmailContent content )
+        public void SendEmail( EmailConfig config, EmailContent content )
         {
             try
             {
@@ -131,19 +131,19 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="config">The configuration.</param>
-        private void SendEmail( MailMessage message, OutlookConfig config )
+        private void SendEmail( MailMessage message, EmailConfig config )
         {
             try
             {
                 ThrowIf.Null( message, nameof( message ) );
                 ThrowIf.Null( config, nameof( config ) );
-                var _smtpClient = new SmtpClient( );
-                _smtpClient.UseDefaultCredentials = false;
-                _smtpClient.Credentials = new NetworkCredential( config.UserName, config.Password );
-                _smtpClient.Host = HostName;
-                _smtpClient.Port = 25;
-                _smtpClient.EnableSsl = true;
-                _smtpClient.Send( message );
+                var _client = new SmtpClient( );
+                _client.UseDefaultCredentials = false;
+                _client.Credentials = new NetworkCredential( config.UserName, config.Password );
+                _client.Host = HostName;
+                _client.Port = 25;
+                _client.EnableSsl = true;
+                _client.Send( message );
             }
             catch( Exception _ex )
             {
@@ -198,7 +198,7 @@ namespace BudgetExecution
         /// <param name="config">The configuration.</param>
         /// <param name="content">The content.</param>
         /// <returns></returns>
-        public MailMessage CreateMessage( OutlookConfig config, EmailContent content )
+        public MailMessage CreateMessage( EmailConfig config, EmailContent content )
         {
             try
             {
