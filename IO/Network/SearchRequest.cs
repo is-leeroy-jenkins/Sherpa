@@ -60,7 +60,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class GoogleSearch
+    public class SearchRequest
     {
         /// <summary>
         /// Gets the configuration.
@@ -80,21 +80,21 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="GoogleSearch"/> class.
+        /// <see cref="SearchRequest"/> class.
         /// </summary>
-        public GoogleSearch( )
+        public SearchRequest( )
         {
             Config = ConfigurationManager.AppSettings;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="GoogleSearch"/> class.
+        /// <see cref="SearchRequest"/> class.
         /// </summary>
         /// <param name="keywords">
         /// The keywords.
         /// </param>
-        public GoogleSearch( string keywords )
+        public SearchRequest( string keywords )
         {
             Config = ConfigurationManager.AppSettings;
             Query = keywords;
@@ -102,12 +102,12 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="GoogleSearch"/> class.
+        /// <see cref="SearchRequest"/> class.
         /// </summary>
         /// <param name="search">
         /// The search.
         /// </param>
-        public GoogleSearch( GoogleSearch search )
+        public SearchRequest( SearchRequest search )
         {
             Config = search.Config;
             Query = search.Query;
@@ -118,7 +118,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public List<GoogleResult> GetResults( )
+        public List<SearchResult> GetResults( )
         {
             if( !string.IsNullOrEmpty( Query ) 
                && Config?.Count > 0 )
@@ -126,7 +126,7 @@ namespace BudgetExecution
                 try
                 {
                     var _count = 0;
-                    var _data = new List<GoogleResult>( );
+                    var _data = new List<SearchResult>( );
                     var _init = new BaseClientService.Initializer( );
                     _init.ApiKey = Config[ "ApiKey" ];
                     var _search = new CustomsearchService( _init );
@@ -143,7 +143,7 @@ namespace BudgetExecution
 
                     for( var _i = 0; _i < _list.Count; _i++ )
                     {
-                        var _results = new GoogleResult( );
+                        var _results = new SearchResult( );
                         _results.Content = _list[ _i ].Snippet;
                         _results.Link = _list[ _i ].Link;
                         _results.Title = _list[ _i ].Title;
@@ -153,16 +153,16 @@ namespace BudgetExecution
 
                     return _data?.Any( ) == true
                         ? _data
-                        : default( List<GoogleResult> );
+                        : default( List<SearchResult> );
                 }
                 catch( Exception _ex )
                 {
                     Fail( _ex );
-                    return default( List<GoogleResult> );
+                    return default( List<SearchResult> );
                 }
             }
 
-            return default( List<GoogleResult> );
+            return default( List<SearchResult> );
         }
 
         /// <summary>

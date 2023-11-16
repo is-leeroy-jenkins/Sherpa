@@ -434,7 +434,7 @@ namespace BudgetExecution
             try
             {
                 var _keywords = StatutoryAuthorityTextBox.Text;
-                var _search = new GoogleSearch( _keywords );
+                var _search = new SearchRequest( _keywords );
                 var _list = _search.GetResults( );
                 ProgramDescriptionTextBox.Text = string.Empty;
                 var _results = new StringBuilder( );

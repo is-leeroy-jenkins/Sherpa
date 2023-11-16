@@ -48,7 +48,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class GoogleResult
+    public class SearchResult
     {
         /// <summary>
         /// Gets or sets the link.
@@ -84,21 +84,21 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="GoogleResult"/> class.
+        /// <see cref="SearchResult"/> class.
         /// </summary>
-        public GoogleResult( )
+        public SearchResult( )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="GoogleResult"/> class.
+        /// <see cref="SearchResult"/> class.
         /// </summary>
         /// <param name="link">The link.</param>
         /// <param name="name">The name.</param>
         /// <param name="content">The content.</param>
         /// <param name="title">The title.</param>
-        public GoogleResult( string link, string name, string content, string title )
+        public SearchResult( string link, string name, string content, string title )
         {
             Link = link;
             Name = name;
@@ -108,10 +108,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="GoogleResult"/> class.
+        /// <see cref="SearchResult"/> class.
         /// </summary>
         /// <param name="result">The result.</param>
-        public GoogleResult( GoogleResult result )
+        public SearchResult( SearchResult result )
         {
             Link = result.Link;
             Name = result.Name;
