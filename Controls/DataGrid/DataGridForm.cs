@@ -41,26 +41,28 @@
 //  </summary>
 //  ******************************************************************************************
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
+using Syncfusion.Windows.Forms;
+using Syncfusion.Windows.Forms.Tools;
+
 namespace BudgetExecution
 {
     using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.Data;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
-    using System.IO;
-    using System.Linq;
-    using System.Threading;
-    using System.Windows.Forms;
-    using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.Tools;
-    using Timer = System.Windows.Forms.Timer;
 
-    /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -74,6 +76,11 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class DataGridForm : MetroForm
     {
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private Action _statusUpdate;
+
         /// <summary> Gets or sets the time. </summary>
         /// <value> The time. </value>
         public int Time { get; set; }
@@ -246,6 +253,8 @@ namespace BudgetExecution
             Load += OnLoad;
             MouseClick += OnRightClick;
             Closing += OnClose;
+            _statusUpdate += UpdateStatus;
+            Timer.Tick += OnTimerTick;
         }
 
         /// <inheritdoc/>
@@ -258,7 +267,7 @@ namespace BudgetExecution
         public DataGridForm( BindingSource bindingSource )
             : this( )
         {
-            SelectedTable = ( (DataTable) bindingSource.DataSource ).TableName;
+            SelectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
             Source = DataBuilder.GetSource( SelectedTable );
             DataModel = new DataBuilder( Source, Provider );
             DataTable = DataModel.DataTable;
@@ -732,8 +741,7 @@ namespace BudgetExecution
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -759,8 +767,7 @@ namespace BudgetExecution
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -786,8 +793,7 @@ namespace BudgetExecution
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -954,10 +960,10 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <returns> </returns>
         private string CreateSqlText( IEnumerable<string> columns,
-                                      IDictionary<string, object> where )
+            IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( columns?.Any( ) == true )
+            if( where?.Any( ) == true
+               && columns?.Any( ) == true
                && !string.IsNullOrEmpty( SelectedTable ) )
             {
                 try
@@ -970,8 +976,7 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
                 catch( Exception _ex )
@@ -990,11 +995,11 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <returns> </returns>
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
-                                      IDictionary<string, object> where )
+            IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( fields?.Any( ) == true )
-               && ( numerics?.Any( ) == true ) )
+            if( where?.Any( ) == true
+               && fields?.Any( ) == true
+               && numerics?.Any( ) == true )
             {
                 try
                 {
@@ -1013,8 +1018,7 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception _ex )
@@ -1077,7 +1081,6 @@ namespace BudgetExecution
                             case ToolType.EditColumnButton:
                             case ToolType.DeleteColumnButton:
                             case ToolType.EditSqlButton:
-
                             {
                                 var _tool = type.ToString( );
                                 var _file = _files?.Where( f => f.Contains( _tool ) )?.First( );
@@ -1126,6 +1129,24 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Updates the status label.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+                var _dateTime = DateTime.Now;
+                var _dateString = _dateTime.ToLongDateString( );
+                var _timeString = _dateTime.ToLongTimeString( );
+                ToolStrip.Label.Text = _dateString + "  " + _timeString;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary> Resets the data. </summary>
         /// <param name="where"> The where. </param>
         private void BindData( IDictionary<string, object> where )
@@ -1158,8 +1179,8 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( cols?.Any( ) == true ) )
+            if( where?.Any( ) == true
+               && cols?.Any( ) == true )
             {
                 try
                 {
@@ -1187,10 +1208,10 @@ namespace BudgetExecution
         /// <param name="numerics"> The numerics. </param>
         /// <param name="where"> The where. </param>
         private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
-                               IDictionary<string, object> where )
+            IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( fields?.Any( ) == true ) )
+            if( where?.Any( ) == true
+               && fields?.Any( ) == true )
             {
                 try
                 {
@@ -1262,7 +1283,7 @@ namespace BudgetExecution
             {
                 if( Owner?.Visible == false )
                 {
-                    var _form = (MainForm) Program.Windows[ "MainForm" ];
+                    var _form = (MainForm)Program.Windows[ "MainForm" ];
                     _form.Refresh( );
                     _form.Visible = true;
                 }
@@ -1348,7 +1369,7 @@ namespace BudgetExecution
                     SelectedTable = _title?.Replace( " ", "" );
                     if( !string.IsNullOrEmpty( SelectedTable ) )
                     {
-                        Source = (Source) Enum.Parse( typeof( Source ), SelectedTable );
+                        Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                     }
 
                     DataModel = new DataBuilder( Source, Provider );
@@ -1719,28 +1740,21 @@ namespace BudgetExecution
                     switch( _type?.ToUpper( ) )
                     {
                         case "EXECUTION":
-
                         {
                             PopulateExecutionTables( );
                             break;
                         }
-
                         case "REFERENCE":
-
                         {
                             PopulateReferenceTables( );
                             break;
                         }
-
                         case "MAINTENANCE":
-
                         {
                             PopulateMaintenanceTables( );
                             break;
                         }
-
                         default:
-
                         {
                             PopulateExecutionTables( );
                             break;
@@ -1812,7 +1826,6 @@ namespace BudgetExecution
                 switch( TabControl.SelectedIndex )
                 {
                     case 0:
-
                     {
                         TableTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
@@ -1823,9 +1836,7 @@ namespace BudgetExecution
                         PopulateExecutionTables( );
                         break;
                     }
-
                     case 1:
-
                     {
                         FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
@@ -1835,9 +1846,7 @@ namespace BudgetExecution
                         ResetListBoxVisibility( );
                         break;
                     }
-
                     case 2:
-
                     {
                         GroupTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
@@ -1846,9 +1855,7 @@ namespace BudgetExecution
                         ProviderTable.Visible = false;
                         break;
                     }
-
                     case 3:
-
                     {
                         CalendarTabPage.TabVisible = true;
                         GroupTabPage.TabVisible = false;
@@ -2079,7 +2086,7 @@ namespace BudgetExecution
                     var _name = _button.Tag?.ToString( );
                     if( !string.IsNullOrEmpty( _name ) )
                     {
-                        Provider = (Provider) Enum.Parse( typeof( Provider ), _name );
+                        Provider = (Provider)Enum.Parse( typeof( Provider ), _name );
                         SetFormIcon( );
                     }
                 }
@@ -2088,6 +2095,17 @@ namespace BudgetExecution
                     Fail( _ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            BeginInvoke( _statusUpdate );
         }
 
         /// <summary> Fails the specified ex. </summary>
@@ -2110,7 +2128,7 @@ namespace BudgetExecution
                 _queue.Enqueue( Controls );
                 while( _queue.Count > 0 )
                 {
-                    var _collection = (Control.ControlCollection) _queue.Dequeue( );
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
                     foreach( Control _control in _collection )
                     {
                         _list.Add( _control );

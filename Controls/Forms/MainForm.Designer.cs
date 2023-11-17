@@ -133,7 +133,7 @@ namespace BudgetExecution
             ResourceTable = new HeaderPanel( );
             ResourcePanel = new Layout( );
             Timer = new System.Windows.Forms.Timer( components );
-            ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             BrowserTable.SuspendLayout( );
             BrowserPanel.SuspendLayout( );
             ClientTable.SuspendLayout( );
@@ -149,7 +149,7 @@ namespace BudgetExecution
             // LookupTile
             // 
             LookupTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            LookupTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            LookupTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem1.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem1.HubTile = LookupTile;
             textItem1.TextColor = System.Drawing.Color.DarkGray;
@@ -170,8 +170,8 @@ namespace BudgetExecution
             textItem3.TextColor = System.Drawing.Color.DarkGray;
             LookupTile.Footer = textItem3;
             LookupTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            LookupTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            LookupTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            LookupTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            LookupTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             LookupTile.HoverText = null;
             LookupTile.Location = new System.Drawing.Point( 18, 19 );
             LookupTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -192,7 +192,7 @@ namespace BudgetExecution
             // ToolTip
             // 
             ToolTip.AutoPopDelay = 5000;
-            ToolTip.BackColor = System.Drawing.Color.FromArgb(   5  ,   5  ,   5   );
+            ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
             ToolTip.BindingSource = null;
             ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
             ToolTip.ForeColor = System.Drawing.Color.White;
@@ -212,7 +212,7 @@ namespace BudgetExecution
             // VisualizationTile
             // 
             VisualizationTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            VisualizationTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            VisualizationTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem5.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem5.HubTile = VisualizationTile;
             textItem5.TextColor = System.Drawing.Color.DarkGray;
@@ -233,8 +233,8 @@ namespace BudgetExecution
             textItem7.TextColor = System.Drawing.Color.DarkGray;
             VisualizationTile.Footer = textItem7;
             VisualizationTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            VisualizationTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            VisualizationTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            VisualizationTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            VisualizationTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             VisualizationTile.HoverText = null;
             VisualizationTile.Location = new System.Drawing.Point( 266, 19 );
             VisualizationTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -255,7 +255,7 @@ namespace BudgetExecution
             // GuidanceTile
             // 
             GuidanceTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            GuidanceTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            GuidanceTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem9.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem9.HubTile = GuidanceTile;
             textItem9.TextColor = System.Drawing.Color.DarkGray;
@@ -276,8 +276,8 @@ namespace BudgetExecution
             textItem11.TextColor = System.Drawing.Color.DarkGray;
             GuidanceTile.Footer = textItem11;
             GuidanceTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            GuidanceTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            GuidanceTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            GuidanceTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            GuidanceTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             GuidanceTile.HoverText = null;
             GuidanceTile.Location = new System.Drawing.Point( 24, 14 );
             GuidanceTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -298,7 +298,7 @@ namespace BudgetExecution
             // BrowserTile
             // 
             BrowserTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            BrowserTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            BrowserTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem13.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem13.HubTile = BrowserTile;
             textItem13.TextColor = System.Drawing.Color.DarkGray;
@@ -319,8 +319,8 @@ namespace BudgetExecution
             textItem15.TextColor = System.Drawing.Color.DarkGray;
             BrowserTile.Footer = textItem15;
             BrowserTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            BrowserTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            BrowserTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            BrowserTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            BrowserTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             BrowserTile.HoverText = null;
             BrowserTile.Location = new System.Drawing.Point( 18, 184 );
             BrowserTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -341,7 +341,7 @@ namespace BudgetExecution
             // SqlServerTile
             // 
             SqlServerTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            SqlServerTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            SqlServerTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem17.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem17.HubTile = SqlServerTile;
             textItem17.TextColor = System.Drawing.Color.DarkGray;
@@ -362,8 +362,8 @@ namespace BudgetExecution
             textItem19.TextColor = System.Drawing.Color.DarkGray;
             SqlServerTile.Footer = textItem19;
             SqlServerTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            SqlServerTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            SqlServerTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            SqlServerTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            SqlServerTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SqlServerTile.HoverText = null;
             SqlServerTile.Location = new System.Drawing.Point( 275, 148 );
             SqlServerTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -384,7 +384,7 @@ namespace BudgetExecution
             // AccessTile
             // 
             AccessTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            AccessTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            AccessTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem21.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem21.HubTile = AccessTile;
             textItem21.TextColor = System.Drawing.Color.DarkGray;
@@ -405,8 +405,8 @@ namespace BudgetExecution
             textItem23.TextColor = System.Drawing.Color.DarkGray;
             AccessTile.Footer = textItem23;
             AccessTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            AccessTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            AccessTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            AccessTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            AccessTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             AccessTile.HoverText = null;
             AccessTile.Location = new System.Drawing.Point( 27, 18 );
             AccessTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -427,7 +427,7 @@ namespace BudgetExecution
             // SQLiteTile
             // 
             SQLiteTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            SQLiteTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            SQLiteTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem25.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem25.HubTile = SQLiteTile;
             textItem25.TextColor = System.Drawing.Color.DarkGray;
@@ -448,8 +448,8 @@ namespace BudgetExecution
             textItem27.TextColor = System.Drawing.Color.DarkGray;
             SQLiteTile.Footer = textItem27;
             SQLiteTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            SQLiteTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            SQLiteTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            SQLiteTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            SQLiteTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SQLiteTile.HoverText = null;
             SQLiteTile.Location = new System.Drawing.Point( 27, 148 );
             SQLiteTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -470,7 +470,7 @@ namespace BudgetExecution
             // ExcelDataTile
             // 
             ExcelDataTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            ExcelDataTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            ExcelDataTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem29.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem29.HubTile = ExcelDataTile;
             textItem29.TextColor = System.Drawing.Color.DarkGray;
@@ -491,8 +491,8 @@ namespace BudgetExecution
             textItem31.TextColor = System.Drawing.Color.DarkGray;
             ExcelDataTile.Footer = textItem31;
             ExcelDataTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            ExcelDataTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            ExcelDataTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            ExcelDataTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            ExcelDataTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             ExcelDataTile.HoverText = null;
             ExcelDataTile.Location = new System.Drawing.Point( 266, 149 );
             ExcelDataTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -513,7 +513,7 @@ namespace BudgetExecution
             // SqlCeTile
             // 
             SqlCeTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            SqlCeTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            SqlCeTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem33.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem33.HubTile = SqlCeTile;
             textItem33.TextColor = System.Drawing.Color.DarkGray;
@@ -534,8 +534,8 @@ namespace BudgetExecution
             textItem35.TextColor = System.Drawing.Color.DarkGray;
             SqlCeTile.Footer = textItem35;
             SqlCeTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            SqlCeTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            SqlCeTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            SqlCeTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            SqlCeTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SqlCeTile.HoverText = null;
             SqlCeTile.Location = new System.Drawing.Point( 275, 18 );
             SqlCeTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -556,7 +556,7 @@ namespace BudgetExecution
             // ChromeTile
             // 
             ChromeTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            ChromeTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            ChromeTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem37.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem37.HubTile = ChromeTile;
             textItem37.TextColor = System.Drawing.Color.DarkGray;
@@ -577,8 +577,8 @@ namespace BudgetExecution
             textItem39.TextColor = System.Drawing.Color.DarkGray;
             ChromeTile.Footer = textItem39;
             ChromeTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            ChromeTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            ChromeTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            ChromeTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            ChromeTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             ChromeTile.HoverText = null;
             ChromeTile.Location = new System.Drawing.Point( 266, 184 );
             ChromeTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -599,7 +599,7 @@ namespace BudgetExecution
             // EdgeTile
             // 
             EdgeTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            EdgeTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            EdgeTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem41.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem41.HubTile = EdgeTile;
             textItem41.TextColor = System.Drawing.Color.DarkGray;
@@ -620,8 +620,8 @@ namespace BudgetExecution
             textItem43.TextColor = System.Drawing.Color.DarkGray;
             EdgeTile.Footer = textItem43;
             EdgeTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            EdgeTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            EdgeTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            EdgeTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            EdgeTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             EdgeTile.HoverText = null;
             EdgeTile.Location = new System.Drawing.Point( 18, 15 );
             EdgeTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -642,7 +642,7 @@ namespace BudgetExecution
             // FirefoxTile
             // 
             FirefoxTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            FirefoxTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            FirefoxTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem45.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem45.HubTile = FirefoxTile;
             textItem45.TextColor = System.Drawing.Color.DarkGray;
@@ -663,8 +663,8 @@ namespace BudgetExecution
             textItem47.TextColor = System.Drawing.Color.DarkGray;
             FirefoxTile.Footer = textItem47;
             FirefoxTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            FirefoxTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            FirefoxTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            FirefoxTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            FirefoxTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             FirefoxTile.HoverText = null;
             FirefoxTile.Location = new System.Drawing.Point( 266, 15 );
             FirefoxTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -685,7 +685,7 @@ namespace BudgetExecution
             // CalendarTile
             // 
             CalendarTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            CalendarTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            CalendarTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem49.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem49.HubTile = CalendarTile;
             textItem49.TextColor = System.Drawing.Color.DarkGray;
@@ -706,8 +706,8 @@ namespace BudgetExecution
             textItem51.TextColor = System.Drawing.Color.DarkGray;
             CalendarTile.Footer = textItem51;
             CalendarTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            CalendarTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            CalendarTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            CalendarTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            CalendarTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             CalendarTile.HoverText = null;
             CalendarTile.Location = new System.Drawing.Point( 22, 17 );
             CalendarTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -728,7 +728,7 @@ namespace BudgetExecution
             // SqlEditorTile
             // 
             SqlEditorTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            SqlEditorTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            SqlEditorTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem53.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem53.HubTile = SqlEditorTile;
             textItem53.TextColor = System.Drawing.Color.DarkGray;
@@ -749,8 +749,8 @@ namespace BudgetExecution
             textItem55.TextColor = System.Drawing.Color.DarkGray;
             SqlEditorTile.Footer = textItem55;
             SqlEditorTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            SqlEditorTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            SqlEditorTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            SqlEditorTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            SqlEditorTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SqlEditorTile.HoverText = null;
             SqlEditorTile.Location = new System.Drawing.Point( 18, 149 );
             SqlEditorTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -771,7 +771,7 @@ namespace BudgetExecution
             // ProgramProjectTile
             // 
             ProgramProjectTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            ProgramProjectTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            ProgramProjectTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem57.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem57.HubTile = ProgramProjectTile;
             textItem57.TextColor = System.Drawing.Color.DarkGray;
@@ -792,8 +792,8 @@ namespace BudgetExecution
             textItem59.TextColor = System.Drawing.Color.DarkGray;
             ProgramProjectTile.Footer = textItem59;
             ProgramProjectTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            ProgramProjectTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            ProgramProjectTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            ProgramProjectTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            ProgramProjectTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             ProgramProjectTile.HoverText = null;
             ProgramProjectTile.Location = new System.Drawing.Point( 272, 14 );
             ProgramProjectTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -814,7 +814,7 @@ namespace BudgetExecution
             // MessageTile
             // 
             MessageTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            MessageTile.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            MessageTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             textItem61.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem61.HubTile = MessageTile;
             textItem61.TextColor = System.Drawing.Color.DarkGray;
@@ -835,8 +835,8 @@ namespace BudgetExecution
             textItem63.TextColor = System.Drawing.Color.DarkGray;
             MessageTile.Footer = textItem63;
             MessageTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            MessageTile.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            MessageTile.HoveredBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            MessageTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            MessageTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             MessageTile.HoverText = null;
             MessageTile.Location = new System.Drawing.Point( 275, 16 );
             MessageTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -862,9 +862,9 @@ namespace BudgetExecution
             TestButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             TestButton.DisabledForeColor = System.Drawing.Color.Transparent;
             TestButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            TestButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            TestButton.HoverBorderColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            TestButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            TestButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            TestButton.HoverBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            TestButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             TestButton.HoverText = null;
             TestButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             TestButton.IsDerivedStyle = true;
@@ -874,8 +874,8 @@ namespace BudgetExecution
             TestButton.NormalColor = System.Drawing.Color.Transparent;
             TestButton.NormalTextColor = System.Drawing.Color.Transparent;
             TestButton.Padding = new System.Windows.Forms.Padding( 1 );
-            TestButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            TestButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            TestButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            TestButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             TestButton.PressTextColor = System.Drawing.Color.White;
             TestButton.Size = new System.Drawing.Size( 78, 26 );
             TestButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -894,9 +894,9 @@ namespace BudgetExecution
             ExitButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             ExitButton.DisabledForeColor = System.Drawing.Color.Transparent;
             ExitButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ExitButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ExitButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            ExitButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            ExitButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ExitButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ExitButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             ExitButton.HoverText = null;
             ExitButton.HoverTextColor = System.Drawing.Color.White;
             ExitButton.IsDerivedStyle = true;
@@ -906,8 +906,8 @@ namespace BudgetExecution
             ExitButton.NormalColor = System.Drawing.Color.Transparent;
             ExitButton.NormalTextColor = System.Drawing.Color.Transparent;
             ExitButton.Padding = new System.Windows.Forms.Padding( 1 );
-            ExitButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ExitButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ExitButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ExitButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ExitButton.PressTextColor = System.Drawing.Color.White;
             ExitButton.Size = new System.Drawing.Size( 78, 26 );
             ExitButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -921,7 +921,7 @@ namespace BudgetExecution
             // ContextMenu
             // 
             ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             ContextMenu.ForeColor = System.Drawing.Color.White;
             ContextMenu.IsDerivedStyle = false;
             ContextMenu.Name = "ContextMenu";
@@ -934,7 +934,7 @@ namespace BudgetExecution
             // 
             // BrowserTable
             // 
-            BrowserTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BrowserTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BrowserTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             BrowserTable.CaptionText = "Browsers";
             BrowserTable.ColumnCount = 1;
@@ -953,7 +953,7 @@ namespace BudgetExecution
             // BrowserPanel
             // 
             BrowserPanel.BackColor = System.Drawing.Color.Transparent;
-            BrowserPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BrowserPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BrowserPanel.BindingSource = null;
             BrowserPanel.BorderColor = System.Drawing.Color.Transparent;
             BrowserPanel.BorderThickness = 1;
@@ -981,7 +981,7 @@ namespace BudgetExecution
             // 
             // ClientTable
             // 
-            ClientTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ClientTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ClientTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             ClientTable.CaptionText = "Database Clients";
             ClientTable.ColumnCount = 1;
@@ -1000,7 +1000,7 @@ namespace BudgetExecution
             // ClientPanel
             // 
             ClientPanel.BackColor = System.Drawing.Color.Transparent;
-            ClientPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ClientPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ClientPanel.BindingSource = null;
             ClientPanel.BorderColor = System.Drawing.Color.Transparent;
             ClientPanel.BorderThickness = 1;
@@ -1028,7 +1028,7 @@ namespace BudgetExecution
             // 
             // UtilityTable
             // 
-            UtilityTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            UtilityTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             UtilityTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             UtilityTable.CaptionText = "Utilities";
             UtilityTable.ColumnCount = 1;
@@ -1047,7 +1047,7 @@ namespace BudgetExecution
             // UtilityPanel
             // 
             UtilityPanel.BackColor = System.Drawing.Color.Transparent;
-            UtilityPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            UtilityPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             UtilityPanel.BindingSource = null;
             UtilityPanel.BorderColor = System.Drawing.Color.Transparent;
             UtilityPanel.BorderThickness = 1;
@@ -1073,7 +1073,7 @@ namespace BudgetExecution
             // 
             // DataManagementTable
             // 
-            DataManagementTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            DataManagementTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataManagementTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             DataManagementTable.CaptionText = "Data Management";
             DataManagementTable.ColumnCount = 1;
@@ -1092,7 +1092,7 @@ namespace BudgetExecution
             // DataManagementPanel
             // 
             DataManagementPanel.BackColor = System.Drawing.Color.Transparent;
-            DataManagementPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            DataManagementPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataManagementPanel.BindingSource = null;
             DataManagementPanel.BorderColor = System.Drawing.Color.Transparent;
             DataManagementPanel.BorderThickness = 1;
@@ -1120,7 +1120,7 @@ namespace BudgetExecution
             // 
             // ResourceTable
             // 
-            ResourceTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ResourceTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ResourceTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             ResourceTable.CaptionText = "Resources";
             ResourceTable.ColumnCount = 1;
@@ -1139,7 +1139,7 @@ namespace BudgetExecution
             // ResourcePanel
             // 
             ResourcePanel.BackColor = System.Drawing.Color.Transparent;
-            ResourcePanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ResourcePanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ResourcePanel.BindingSource = null;
             ResourcePanel.BorderColor = System.Drawing.Color.Transparent;
             ResourcePanel.BorderThickness = 1;
@@ -1167,14 +1167,14 @@ namespace BudgetExecution
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CaptionBarColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
-            CaptionButtonColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CaptionForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ClientSize = new System.Drawing.Size( 1338, 738 );
             ControlBox = false;
             Controls.Add( ResourceTable );
@@ -1186,10 +1186,10 @@ namespace BudgetExecution
             Controls.Add( TestButton );
             Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ForeColor = System.Drawing.Color.LightGray;
-            Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
+            Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
-            MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1350, 750 );
             Name = "MainForm";
@@ -1198,7 +1198,7 @@ namespace BudgetExecution
             ShowMinimizeBox = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             BrowserTable.ResumeLayout( false );
             BrowserPanel.ResumeLayout( false );
             ClientTable.ResumeLayout( false );

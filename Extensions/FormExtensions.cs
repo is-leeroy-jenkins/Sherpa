@@ -7,6 +7,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Windows.Forms;
+    using Syncfusion.Windows.Forms;
 
     /// <summary>
     /// 
@@ -75,7 +76,7 @@ namespace BudgetExecution
             var _length = g.MeasureString( control.Text, control.Font ).Width;
             control.Width = (int)Math.Ceiling( _length );
         }
-        
+
         /// <summary> Gets the controls. </summary>
         /// <returns> </returns>
         public static IEnumerable<Control> GetControls( this Form form )
@@ -88,10 +89,13 @@ namespace BudgetExecution
                 while( _queue.Count > 0 )
                 {
                     var _collection = (Control.ControlCollection)_queue.Dequeue( );
-                    foreach( Control _control in _collection )
+                    if( _collection != null )
                     {
-                        _list.Add( _control );
-                        _queue.Enqueue( _control.Controls );
+                        foreach( Control _control in _collection )
+                        {
+                            _list.Add( _control );
+                            _queue.Enqueue( _control.Controls );
+                        }
                     }
                 }
 

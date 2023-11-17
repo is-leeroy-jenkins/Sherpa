@@ -401,7 +401,7 @@ namespace BudgetExecution
             {
                 case IListSource _listSource:
                 {
-                    if( _listSource?.ContainsListCollection == true )
+                    if( _listSource == null )
                     {
                         var _message = @$"The IListSource '{paramName}' is empty!";
                         throw new ArgumentException( _message );
@@ -411,7 +411,7 @@ namespace BudgetExecution
                 }
                 case IEnumerable<string> _list:
                 {
-                    if( _list?.Any( ) == true )
+                    if( _list == null )
                     {
                         var _message = @$"The IEnumerable<string> '{paramName}' is empty!";
                         throw new ArgumentException( _message );
@@ -421,7 +421,7 @@ namespace BudgetExecution
                 }
                 case IEnumerable<DataRow> _rows:
                 {
-                    if( _rows?.Any( ) == true )
+                    if( _rows == null )
                     {
                         var _message = @$"The IEnumerable<DataRow> '{paramName}' is empty!";
                         throw new ArgumentException( _message );
@@ -431,7 +431,7 @@ namespace BudgetExecution
                 }
                 case ICollection _collection:
                 {
-                    if( _collection?.IsEmpty( ) == true )
+                    if( _collection == null )
                     {
                         var _message = @$"The ICollection '{paramName}' is empty!";
                         throw new ArgumentException( _message );
@@ -441,7 +441,7 @@ namespace BudgetExecution
                 }
                 case IDictionary<string, object> _dict:
                 {
-                    if( _dict?.Any( ) != null )
+                    if( _dict == null )
                     {
                         var _message = @$"The IDictionary<string, object> '{paramName}' is empty!";
                         throw new ArgumentException( _message );
