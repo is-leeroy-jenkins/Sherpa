@@ -51,27 +51,31 @@ namespace BudgetExecution
     using DocumentFormat.OpenXml.Spreadsheet;
     using static DocumentFormat.OpenXml.Packaging.SpreadsheetDocument;
 
-    /// <summary> </summary>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "HeapView.ObjectAllocation.Evident" ) ]
-    public class ExcelReport
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    public class ReportFactory : ReportBase
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ExcelReport"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ReportFactory"/> class.
         /// </summary>
-        public ExcelReport( )
+        public ReportFactory( )
         {
         }
 
-        /// <summary> Creates the excel document. </summary>
-        /// <typeparam name="T"> </typeparam>
-        /// <param name="data"> The data. </param>
-        /// <param name="path"> The path. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the excel document.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data">The data.</param>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
         public bool CreateExcelDocument<T>( IEnumerable<T> data, string path )
         {
             try
@@ -89,10 +93,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the excel document. </summary>
-        /// <param name="dataTable"> The data table. </param>
-        /// <param name="path"> The path. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the excel document.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
         public bool CreateExcelDocument( DataTable dataTable, string path )
         {
             try
@@ -112,10 +118,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the excel document. </summary>
-        /// <param name="dataSet"> The data set. </param>
-        /// <param name="fileName"> Name of the file. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the excel document.
+        /// </summary>
+        /// <param name="dataSet">The data set.</param>
+        /// <param name="fileName">Name of the file.</param>
+        /// <returns></returns>
         public bool CreateExcelDocument( DataSet dataSet, string fileName )
         {
             try
@@ -133,160 +141,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Lists to data table. </summary>
-        /// <typeparam name="T"> </typeparam>
-        /// <param name="data"> The data. </param>
-        /// <returns> </returns>
-        public DataTable ListToDataTable<T>( IEnumerable<T> data )
-        {
-            try
-            {
-                ThrowIf.NoData( data, nameof( data ) );
-                var _table = new DataTable( );
-                foreach( var _info in typeof( T )?.GetProperties( ) )
-                {
-                    var _col = new DataColumn( _info.Name, GetNullableType( _info.PropertyType ) );
-                    _table?.Columns?.Add( _col );
-                }
-
-                foreach( var _t in data )
-                {
-                    var _row = _table.NewRow( );
-                    foreach( var _info in typeof( T ).GetProperties( ) )
-                    {
-                        _row[ _info.Name ] = !IsNullableType( _info.PropertyType )
-                            ? _info.GetValue( _t, null )
-                            : _info.GetValue( _t, null ) ?? DBNull.Value;
-                    }
-
-                    _table.Rows.Add( _row );
-                }
-
-                return _table;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( DataTable );
-            }
-        }
-
-        /// <summary> Gets the type of the nullable. </summary>
-        /// <param name="type"> The type. </param>
-        /// <returns> </returns>
-        private protected Type GetNullableType( Type type )
-        {
-            try
-            {
-                var _returnType = type;
-                if( type.IsGenericType
-                   && ( type.GetGenericTypeDefinition( ) == typeof( Nullable<> ) ) )
-                {
-                    _returnType = Nullable.GetUnderlyingType( type );
-                }
-
-                return _returnType;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( Type );
-            }
-        }
-
-        /// <summary> Appends the text cell. </summary>
-        /// <param name="cellReference"> The cell reference. </param>
-        /// <param name="cellStringValue"> The cell string value. </param>
-        /// <param name="excelRow"> The excel row. </param>
-        public void AppendTextCell( string cellReference, string cellStringValue,
-            OpenXmlElement excelRow )
-        {
-            try
-            {
-                ThrowIf.NullOrEmpty( cellReference, nameof( cellReference ) );
-                ThrowIf.NullOrEmpty( cellStringValue, nameof( cellStringValue ) );
-                ThrowIf.Null( excelRow, nameof( excelRow ) );
-                var _cell = new Cell
-                {
-                    CellReference = cellReference,
-                    DataType = CellValues.String
-                };
-
-                var _cellValue = new CellValue
-                {
-                    Text = cellStringValue
-                };
-
-                _cell.Append( _cellValue );
-                excelRow.Append( _cell );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Appends the numeric cell. </summary>
-        /// <param name="cellReference">
-        /// cell reference.
-        /// </param>
-        /// <param name="cellValue">
-        /// The cell string value.
-        /// </param>
-        /// <param name="excelRow">
-        /// The excel row.
-        /// </param>
-        public void AppendNumericCell( string cellReference, string cellValue,
-            OpenXmlElement excelRow )
-        {
-            try
-            {
-                ThrowIf.NullOrEmpty( cellReference, nameof( cellReference ) );
-                ThrowIf.NullOrEmpty( cellValue, nameof( cellValue ) );
-                ThrowIf.Null( excelRow, nameof( excelRow ) );
-                var _cell = new Cell( );
-                _cell.CellReference = cellReference;
-                var _cellValue = new CellValue
-                {
-                    Text = cellValue
-                };
-
-                _cell.Append( _cellValue );
-                excelRow.Append( _cell );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Gets the name of the excel column. </summary>
-        /// <param name="columnIndex"> Index of the column. </param>
-        /// <returns> </returns>
-        public string GetExcelColumnName( int columnIndex )
-        {
-            try
-            {
-                ThrowIf.Negative( columnIndex, nameof( columnIndex ) );
-                if( columnIndex < 26 )
-                {
-                    return ( (char)( 'A' + columnIndex ) ).ToString( );
-                }
-
-                var _first = (char)( 'A' + columnIndex / 26 - 1 );
-                var _second = (char)( 'A' + columnIndex % 26 );
-                return $"{_first}{_second}";
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( string );
-            }
-        }
-
-        /// <summary> Writes the excel file. </summary>
-        /// <param name="dataSet"> The data set. </param>
-        /// <param name="spreadSheet"> The spread sheet. </param>
+        /// <summary>
+        /// Writes the excel file.
+        /// </summary>
+        /// <param name="dataSet">The data set.</param>
+        /// <param name="spreadSheet">The spread sheet.</param>
         public void WriteExcelFile( DataSet dataSet, SpreadsheetDocument spreadSheet )
         {
             try
@@ -336,9 +195,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Writes the data table to excel worksheet. </summary>
-        /// <param name="dataTable"> The data table. </param>
-        /// <param name="workSheetPart"> The work sheet part. </param>
+        /// <summary>
+        /// Writes the data table to worksheet.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <param name="workSheetPart">The work sheet part.</param>
         public void WriteDataTableToWorksheet( DataTable dataTable, WorksheetPart workSheetPart )
         {
             try
@@ -363,8 +224,8 @@ namespace BudgetExecution
                 {
                     var _column = dataTable.Columns[ _colinx ];
                     AppendTextCell( _names[ _colinx ] + "1", _column.ColumnName, _row );
-                    _isNumeric[ _colinx ] = ( _column.DataType.FullName == "System.Decimal" )
-                        || ( _column.DataType.FullName == "System.Int32" );
+                    _isNumeric[ _colinx ] = _column.DataType.FullName == "System.Decimal"
+                        || _column.DataType.FullName == "System.Int32";
                 }
 
                 foreach( DataRow _dataRow in dataTable.Rows )
@@ -398,41 +259,6 @@ namespace BudgetExecution
             {
                 Fail( _ex );
             }
-        }
-
-        /// <summary>
-        /// Determines whether [is nullable type] [the specified type].
-        /// </summary>
-        /// <param name="type"> The type. </param>
-        /// <returns>
-        /// <c> true </c>
-        /// if [is nullable type] [the specified type]; otherwise,
-        /// <c> false </c>
-        /// .
-        /// </returns>
-        protected bool IsNullableType( Type type )
-        {
-            try
-            {
-                return ( type == typeof( string ) )
-                    || type.IsArray
-                    || ( type.IsGenericType
-                        && ( type.GetGenericTypeDefinition( ) == typeof( Nullable<> ) ) );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return false;
-            }
-        }
-
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        protected static void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

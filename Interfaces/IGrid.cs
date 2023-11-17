@@ -44,24 +44,27 @@ namespace BudgetExecution
     using System.Threading;
     using OfficeOpenXml;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IGrid
     {
         /// <summary> The range </summary>
-        ExcelRange Range { get; set; }
+        ExcelRange Range { get; }
 
         /// <summary> The workSheet </summary>
-        ExcelWorksheet Worksheet { get; set; }
+        ExcelWorksheet Worksheet { get; }
 
         /// <summary> The address </summary>
-        ExcelAddress Address { get; set; }
+        ExcelAddress Address { get; }
 
         /// <summary> Gets or sets from. </summary>
         /// <value> From. </value>
-        ( int Row, int Column ) From { get; set; }
+        ( int Row, int Column ) From { get; }
 
         /// <summary> Gets or sets to. </summary>
         /// <value> To. </value>
-        ( int Row, int Column ) To { get; set; }
+        ( int Row, int Column ) To { get; }
 
         /// <summary> Counts the cells. </summary>
         /// <param name="range"> The range. </param>

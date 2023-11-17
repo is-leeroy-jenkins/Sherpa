@@ -42,11 +42,16 @@
 //  ******************************************************************************************
 
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using OfficeOpenXml.Style;
 
 namespace BudgetExecution
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public interface IExcelConfig
     {
         /// <summary>

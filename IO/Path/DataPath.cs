@@ -38,13 +38,12 @@
 // </summary>
 // ******************************************************************************************
 
-using System.IO;
-using System.Security.AccessControl;
-
 namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
+    using System.Security.AccessControl;
     using System.Threading;
 
     /// <inheritdoc/>
@@ -53,6 +52,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
     public class DataPath : PathBase, IPath
     {
         /// <inheritdoc/>

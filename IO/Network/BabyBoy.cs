@@ -127,7 +127,7 @@ namespace BudgetExecution
         public BabyBoy( )
         {
             Bytes = 1024;
-            Port = 9055;
+            Port = 5000;
             Data = new byte[ Bytes ];
             Address = IPAddress.Any;
             EndPoint = new IPEndPoint( Address, Port );
@@ -138,16 +138,16 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="BabyBoy"/> class.
         /// </summary>
-        /// <param name="ipAddress">The ip address.</param>
-        /// <param name="portNumber">The port number.</param>
-        /// <param name="bufferSize">Size of the buffer.</param>
-        public BabyBoy( string ipAddress, int portNumber = 9055, int bufferSize = 1024 )
+        /// <param name="address">The ip address.</param>
+        /// <param name="port">The port number.</param>
+        /// <param name="size">Size of the buffer.</param>
+        public BabyBoy( string address, int port = 5000, int size = 1024 )
         {
-            Bytes = bufferSize;
-            Port = portNumber;
+            Bytes = size;
+            Port = port;
             Data = new byte[ Bytes ];
-            Address = IPAddress.Parse( ipAddress );
-            EndPoint = new IPEndPoint( Address, portNumber );
+            Address = IPAddress.Parse( address );
+            EndPoint = new IPEndPoint( Address, port );
             Socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
             IsConnected = false;
         }
@@ -155,16 +155,16 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="BabyBoy"/> class.
         /// </summary>
-        /// <param name="ipAddress">The ip address.</param>
-        /// <param name="portNumber">The port.</param>
-        /// <param name="bufferSize"> </param>
-        public BabyBoy( IPAddress ipAddress, int portNumber = 9055, int bufferSize = 1024 )
+        /// <param name="address">The ip address.</param>
+        /// <param name="port">The port.</param>
+        /// <param name="size"> </param>
+        public BabyBoy( IPAddress address, int port = 5000, int size = 1024 )
         {
-            Bytes = bufferSize;
-            Port = portNumber;
-            Data = new byte[ bufferSize ];
-            Address = ipAddress;
-            EndPoint = new IPEndPoint( ipAddress, portNumber );
+            Bytes = size;
+            Port = port;
+            Data = new byte[ size ];
+            Address = address;
+            EndPoint = new IPEndPoint( address, port );
             Socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
             IsConnected = false;
         }
@@ -172,15 +172,15 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="BabyBoy"/> class.
         /// </summary>
-        /// <param name="ipEndPoint">The ip address.</param>
-        /// <param name="bufferSize">Size of the buffer.</param>
-        public BabyBoy( IPEndPoint ipEndPoint, int bufferSize = 1024 )
+        /// <param name="endPoint">The ip address.</param>
+        /// <param name="size">Size of the buffer.</param>
+        public BabyBoy( IPEndPoint endPoint, int size = 1024 )
         {
-            Bytes = bufferSize;
-            Port = ipEndPoint.Port;
-            Data = new byte[ bufferSize ];
-            Address = ipEndPoint.Address;
-            EndPoint = ipEndPoint;
+            Bytes = size;
+            Port = endPoint.Port;
+            Data = new byte[ size ];
+            Address = endPoint.Address;
+            EndPoint = endPoint;
             Socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
             IsConnected = false;
         }

@@ -341,6 +341,16 @@ namespace BudgetExecution
 
                     break;
                 }
+                case ExcelCellBase _cell:
+                {
+                    if( _cell == null )
+                    {
+                        var _message = @$"The '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
                 default:
                 {
                     if( argument == null )

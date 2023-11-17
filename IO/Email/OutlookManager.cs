@@ -59,7 +59,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class EmailManager
+    public class OutlookManager
     {
         /// <summary>
         /// Gets or sets the name of the host.
@@ -71,28 +71,28 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="EmailManager"/> class.
+        /// <see cref="OutlookManager"/> class.
         /// </summary>
-        public EmailManager( )
+        public OutlookManager( )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="EmailManager"/> class.
+        /// <see cref="OutlookManager"/> class.
         /// </summary>
         /// <param name="hostName">Name of the host.</param>
-        public EmailManager( string hostName )
+        public OutlookManager( string hostName )
         {
             HostName = hostName;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="EmailManager"/> class.
+        /// <see cref="OutlookManager"/> class.
         /// </summary>
         /// <param name="outlook">The outlook.</param>
-        public EmailManager( EmailManager outlook )
+        public OutlookManager( OutlookManager outlook )
         {
             HostName = outlook.HostName;
         }
@@ -169,13 +169,13 @@ namespace BudgetExecution
                 _items = _inbox.Items;
                 foreach ( MailItem _item in _items )
                 {
-                    var _stringBuilder = new StringBuilder( );
-                    _stringBuilder.AppendLine( "From: " + _item.SenderEmailAddress );
-                    _stringBuilder.AppendLine( "To: " + _item.To );
-                    _stringBuilder.AppendLine( "CC: " + _item.CC );
-                    _stringBuilder.AppendLine( "" );
-                    _stringBuilder.AppendLine( "Subject: " + _item.Subject );
-                    _stringBuilder.AppendLine( _item.Body );
+                    var _builder = new StringBuilder( );
+                    _builder.AppendLine( "From: " + _item.SenderEmailAddress );
+                    _builder.AppendLine( "To: " + _item.To );
+                    _builder.AppendLine( "CC: " + _item.CC );
+                    _builder.AppendLine( "" );
+                    _builder.AppendLine( "Subject: " + _item.Subject );
+                    _builder.AppendLine( _item.Body );
                     Marshal.ReleaseComObject( _item );
                 }
             }

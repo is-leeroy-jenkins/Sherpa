@@ -41,65 +41,34 @@
 //  </summary>
 //  ******************************************************************************************
 
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+using Syncfusion.Windows.Forms;
+
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
-    using System.Linq;
-    using System.Threading;
-    using System.Windows.Forms;
-    using Syncfusion.Windows.Forms;
     using static FormAnimator;
-    using Timer = System.Windows.Forms.Timer;
 
-    /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class SplashMessage : MetroForm
     {
-        /// <summary> Gets or sets the time. </summary>
-        /// <value> The time. </value>
-        public int Time { get; set; }
-
-        /// <summary> Gets or sets the seconds. </summary>
-        /// <value> The seconds. </value>
-        public int Seconds { get; set; }
-
-        /// <summary> Gets or sets a value indicating whether [allow focus]. </summary>
-        /// <value>
-        /// <c> true </c>
-        /// if [allow focus]; otherwise,
-        /// <c> false </c>
-        /// .
-        /// </value>
-        public bool AllowFocus { get; set; }
-
-        /// <summary>
-        /// Gets a value indicating whether [shown without activation].
-        /// </summary>
-        /// <value>
-        /// <c> true </c>
-        /// if [shown without activation]; otherwise,
-        /// <c> false </c>
-        /// .
-        /// </value>
-        public bool ShownWithoutActivation { get; set; } = true;
-
-        /// <summary> Gets or sets the lines. </summary>
-        /// <value> The lines. </value>
-        public List<string> Lines { get; set; }
-
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SplashMessage"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.SplashMessage" /> class.
         /// </summary>
         public SplashMessage( )
         {
@@ -141,19 +110,19 @@ namespace BudgetExecution
             Load += OnLoad;
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SplashMessage"/>
-        /// class.
+        ///
+        /// <see cref="T:BudgetExecution.SplashMessage" /> class.
         /// </summary>
-        /// <param name="message"> The message. </param>
-        /// <param name="duration"> </param>
-        /// <param name="animation"> </param>
-        /// <param name="direction"> </param>
+        /// <param name="message">The message.</param>
+        /// <param name="duration">The duration.</param>
+        /// <param name="animation">The animation.</param>
+        /// <param name="direction">The direction.</param>
         public SplashMessage( string message, int duration = 5,
-                              AnimationMethod animation = AnimationMethod.Fade,
-                              AnimationDirection direction = AnimationDirection.Up )
+            AnimationMethod animation = AnimationMethod.Fade,
+            AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
             Time = 0;
@@ -163,19 +132,18 @@ namespace BudgetExecution
             Message.Text = message;
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SplashMessage"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.SplashMessage" /> class.
         /// </summary>
-        /// <param name="lines"> The lines. </param>
-        /// <param name="duration"> </param>
-        /// <param name="animation"> </param>
-        /// <param name="direction"> </param>
+        /// <param name="lines">The lines.</param>
+        /// <param name="duration">The duration.</param>
+        /// <param name="animation">The animation.</param>
+        /// <param name="direction">The direction.</param>
         public SplashMessage( IEnumerable<string> lines, int duration = 5,
-                              AnimationMethod animation = AnimationMethod.Fade,
-                              AnimationDirection direction = AnimationDirection.Up )
+            AnimationMethod animation = AnimationMethod.Fade,
+            AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
             Lines = lines.ToList( );
@@ -185,7 +153,49 @@ namespace BudgetExecution
             Title.Text = "Notification";
         }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
+        public int Time { get; set; }
+
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
+        public int Seconds { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether [allow focus].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [allow focus]; otherwise, <c>false</c>.
+        /// </value>
+        public bool AllowFocus { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether [shown without activation].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [shown without activation]; otherwise, <c>false</c>.
+        /// </value>
+        public bool ShownWithoutActivation { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets the lines.
+        /// </summary>
+        /// <value>
+        /// The lines.
+        /// </value>
+        public List<string> Lines { get; set; }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
@@ -214,7 +224,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Notifications the close. </summary>
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
         public void OnClose( )
         {
             try
@@ -228,7 +240,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the out and close. </summary>
+        /// <summary>
+        /// Fades the out.
+        /// </summary>
         private void FadeOut( )
         {
             try
@@ -254,17 +268,15 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void OnClick( object sender, MouseEventArgs e )
         {
-            if( ( e.Button == MouseButtons.Left )
-               || ( e.Button == MouseButtons.Right ) )
+            if( e.Button == MouseButtons.Left
+               || e.Button == MouseButtons.Right )
             {
                 try
                 {
@@ -277,13 +289,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -300,7 +310,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the title. </summary>
+        /// <summary>
+        /// Initializes the title.
+        /// </summary>
         private protected void InitializeTitle( )
         {
             try
@@ -314,7 +326,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the panel. </summary>
+        /// <summary>
+        /// Initializes the panel.
+        /// </summary>
         private protected void InitializePanel( )
         {
             try
@@ -329,7 +343,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the labels. </summary>
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
         private protected virtual void InitializeLabels( )
         {
             try
@@ -345,7 +361,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the in. </summary>
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
         private protected virtual void FadeIn( )
         {
             try
@@ -370,8 +388,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
