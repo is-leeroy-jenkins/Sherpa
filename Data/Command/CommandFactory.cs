@@ -1,13 +1,13 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Baby
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:         11-16-2023
 // ******************************************************************************************
-// <copyright file="CommandFactory.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
+// <copyright file="SafeDictionary.cs" company="Terry D. Eppler">
+//    Baby is a small web browser used in a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
@@ -34,17 +34,19 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   CommandFactory.cs
+//   SafeDictionary.cs
 // </summary>
 // ******************************************************************************************
+
+using System;
+using System.Collections.Generic;
+using System.Data.Common;
+using System.Diagnostics.CodeAnalysis;
+using static BudgetExecution.CommandFactory;
 
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
-    using System.Data.Common;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -88,7 +90,7 @@ namespace BudgetExecution
         /// <param name="where"> The dictionary. </param>
         /// <param name="commandType"> </param>
         public CommandFactory( Source source, Provider provider, IDictionary<string, object> where,
-                               SQL commandType = SQL.SELECTALL )
+            SQL commandType = SQL.SELECTALL )
             : base( source, provider, where, commandType )
         {
         }
@@ -105,7 +107,7 @@ namespace BudgetExecution
         /// <param name="where"> The criteria. </param>
         /// <param name="commandType"> </param>
         public CommandFactory( Source source, Provider provider, IDictionary<string, object> update,
-                               IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, provider, update, where, commandType )
         {
         }
@@ -118,7 +120,7 @@ namespace BudgetExecution
         /// <param name="where"> </param>
         /// <param name="commandType"> </param>
         public CommandFactory( Source source, Provider provider, IEnumerable<string> columns,
-                               IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, where, commandType )
         {
         }
@@ -136,8 +138,8 @@ namespace BudgetExecution
         /// <param name="having"> The having. </param>
         /// <param name="commandType"> Type of the command. </param>
         public CommandFactory( Source source, Provider provider, IEnumerable<string> fields,
-                               IEnumerable<string> numerics, IDictionary<string, object> having,
-                               SQL commandType = SQL.SELECT )
+            IEnumerable<string> numerics, IDictionary<string, object> having,
+            SQL commandType = SQL.SELECT )
             : base( source, provider, fields, numerics, having,
                 commandType )
         {
@@ -165,35 +167,26 @@ namespace BudgetExecution
                 switch( SqlStatement.Provider )
                 {
                     case Provider.SQLite:
-
                     {
                         return GetSQLiteCommand( );
                     }
-
                     case Provider.SqlCe:
-
                     {
                         return GetSqlCeCommand( );
                     }
-
                     case Provider.SqlServer:
-
                     {
                         return GetSqlCommand( );
                     }
-
                     case Provider.Excel:
                     case Provider.CSV:
                     case Provider.Access:
                     case Provider.Text:
                     case Provider.OleDb:
-
                     {
                         return GetOleDbCommand( );
                     }
-
                     default:
-
                     {
                         return default( DbCommand );
                     }
