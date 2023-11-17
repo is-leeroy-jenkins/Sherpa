@@ -359,7 +359,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( grid, "grid" );
+                ThrowIf.Null( grid, nameof( grid ) );
                 using var _range = grid.Range;
                 _range.Merge = true;
             }
