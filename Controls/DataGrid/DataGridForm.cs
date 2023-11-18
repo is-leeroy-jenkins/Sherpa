@@ -1139,7 +1139,7 @@ namespace BudgetExecution
                 var _dateTime = DateTime.Now;
                 var _dateString = _dateTime.ToLongDateString( );
                 var _timeString = _dateTime.ToLongTimeString( );
-                ToolStrip.Label.Text = _dateString + "  " + _timeString;
+                StatusLabel.Text = _dateString + "  " + _timeString;
             }
             catch( Exception _ex )
             {
@@ -1347,6 +1347,7 @@ namespace BudgetExecution
                 DataGrid.PascalizeHeaders( );
                 DataGrid.FormatColumns( );
                 UpdateLabelText( );
+                UpdateStatus( );
                 FadeIn( );
             }
             catch( Exception _ex )
