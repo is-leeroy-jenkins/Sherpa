@@ -325,24 +325,6 @@ namespace BudgetExecution
             return default( IEnumerable<SQLiteParameter> );
         }
 
-        /// <inheritdoc/>
-        /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
-        /// <param name="disposing">
-        /// <c> true </c>
-        /// to release both managed and unmanaged resources;
-        /// <c> false </c>
-        /// to release only unmanaged resources.
-        /// </param>
-        protected override void Dispose( bool disposing )
-        {
-            if( disposing )
-            {
-                base.Dispose( disposing );
-            }
-
-            IsDisposed = true;
-        }
-
         /// <summary> Gets the command builder. </summary>
         /// <param name="adapter"> The adapter. </param>
         /// <returns> </returns>

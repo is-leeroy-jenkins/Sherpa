@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="commandType"> The commandType. </param>
         public Query( Source source, Provider provider = Provider.Access,
-                      SQL commandType = SQL.SELECTALL )
+            SQL commandType = SQL.SELECTALL )
             : base( source, provider, commandType )
         {
         }
@@ -88,7 +88,7 @@ namespace BudgetExecution
         /// <param name="where"> The dictionary of parameters. </param>
         /// <param name="commandType"> The type of sql command. </param>
         public Query( Source source, Provider provider, IDictionary<string, object> where,
-                      SQL commandType )
+            SQL commandType )
             : base( source, provider, where, commandType )
         {
         }
@@ -105,7 +105,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public Query( Source source, Provider provider, IDictionary<string, object> updates,
-                      IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
         }
@@ -122,7 +122,7 @@ namespace BudgetExecution
         /// <param name="where"> The criteria. </param>
         /// <param name="commandType"> Type of the command. </param>
         public Query( Source source, Provider provider, IEnumerable<string> columns,
-                      IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, where, commandType )
         {
         }
@@ -140,8 +140,8 @@ namespace BudgetExecution
         /// <param name="having"> The having. </param>
         /// <param name="commandType"> Type of the command. </param>
         public Query( Source source, Provider provider, IEnumerable<string> columns,
-                      IEnumerable<string> numerics, IDictionary<string, object> having,
-                      SQL commandType = SQL.SELECT )
+            IEnumerable<string> numerics, IDictionary<string, object> having,
+            SQL commandType = SQL.SELECT )
             : base( source, provider, columns, having, commandType )
         {
         }
@@ -212,51 +212,6 @@ namespace BudgetExecution
         public Query( string fullPath, SQL commandType, IDictionary<string, object> where )
             : base( fullPath, commandType, where )
         {
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged
-        /// resources.
-        /// </summary>
-        public virtual void Dispose( )
-        {
-            try
-            {
-                Dispose( true );
-                GC.SuppressFinalize( this );
-                IsDisposed = true;
-            }
-            catch( Exception _ex )
-            {
-                IsDisposed = false;
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
-        /// <param name="disposing">
-        /// <c> true </c>
-        /// to release both managed and unmanaged resources;
-        /// <c> false </c>
-        /// to release only unmanaged resources.
-        /// </param>
-        protected virtual void Dispose( bool disposing )
-        {
-            if( disposing && ( ConnectionFactory?.Connection != null ) )
-            {
-                try
-                {
-                    ConnectionFactory?.Connection?.Close( );
-                    ConnectionFactory?.Connection?.Dispose( );
-                    IsDisposed = true;
-                }
-                catch( Exception _ex )
-                {
-                    IsDisposed = false;
-                    Fail( _ex );
-                }
-            }
         }
     }
 }

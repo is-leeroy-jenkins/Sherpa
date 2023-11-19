@@ -257,24 +257,6 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
-        /// <param name="disposing">
-        /// <c> true </c>
-        /// to release both managed and unmanaged resources;
-        /// <c> false </c>
-        /// to release only unmanaged resources.
-        /// </param>
-        protected override void Dispose( bool disposing )
-        {
-            if( disposing )
-            {
-                base.Dispose( disposing );
-                IsDisposed = true;
-            }
-
-            Dispose( );
-        }
-
         /// <summary> Gets the excel file path. </summary>
         /// <returns> </returns>
         private string GetExcelFilePath( )
