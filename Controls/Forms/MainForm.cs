@@ -41,6 +41,8 @@
 //  </summary>
 //  ******************************************************************************************
 
+using OfficeOpenXml.FormulaParsing.Utilities;
+
 namespace BudgetExecution
 {
     using System;
@@ -136,30 +138,71 @@ namespace BudgetExecution
             Time = 0;
             Seconds = 5;
 
-            // Event Wiring
-            ExitButton.Click += OnExitButtonClick;
-            LookupTile.Click += OnLookupTileClick;
-            CalendarTile.Click += OnCalendarTileClick;
-            ProgramProjectTile.Click += OnProgramProjectTileClick;
-            MessageTile.Click += OnMessageTileClick;
-            SqlEditorTile.Click += OnSqlEditorTileClick;
-            VisualizationTile.Click += OnVisualizationTileClick;
-            ExcelDataTile.Click += OnExcelDataTileClick;
-            SQLiteTile.Click += OnSQLiteTileClick;
-            SqlCeTile.Click += OnSqlCeTileClick;
-            GuidanceTile.Click += OnGuidanceTileClick;
-            BrowserTile.Click += OnBrowserTileClick;
-            EdgeTile.Click += OnEdgeTileClick;
-            ChromeTile.Click += OnChromeTileClick;
-            FirefoxTile.Click += OnFirefoxTileClick;
-            BrowserTile.Click += OnBrowserTileClick;
-            MessageTile.Click += OnMessageTileClick;
-            SqlServerTile.Click += OnSqlServerTileClick;
-            TestButton.Click += OnTestButtonClick;
-            AccessTile.Click += OnAccessTileClick;
+            // Wire Events
             Load += OnLoad;
             Shown += OnShown;
             MouseClick += OnRightClick;
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            // Event Wiring
+            try
+            {
+                ExitButton.Click += OnExitButtonClick;
+                LookupTile.Click += OnLookupTileClick;
+                CalendarTile.Click += OnCalendarTileClick;
+                ProgramProjectTile.Click += OnProgramProjectTileClick;
+                MessageTile.Click += OnMessageTileClick;
+                SqlEditorTile.Click += OnSqlEditorTileClick;
+                VisualizationTile.Click += OnVisualizationTileClick;
+                ExcelDataTile.Click += OnExcelDataTileClick;
+                SQLiteTile.Click += OnSQLiteTileClick;
+                SqlCeTile.Click += OnSqlCeTileClick;
+                GuidanceTile.Click += OnGuidanceTileClick;
+                BrowserTile.Click += OnBrowserTileClick;
+                EdgeTile.Click += OnEdgeTileClick;
+                ChromeTile.Click += OnChromeTileClick;
+                FirefoxTile.Click += OnFirefoxTileClick;
+                BrowserTile.Click += OnBrowserTileClick;
+                MessageTile.Click += OnMessageTileClick;
+                SqlServerTile.Click += OnSqlServerTileClick;
+                TestButton.Click += OnTestButtonClick;
+                AccessTile.Click += OnAccessTileClick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the tiles.
+        /// </summary>
+        private void InitializeTiles( )
+        {
+            try
+            {
+                if( Tiles?.Any( ) == true )
+                {
+                    foreach( var _tile in Tiles )
+                    {
+                        _tile.Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                        _tile.Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                        _tile.Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
+                        _tile.Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
+                        _tile.BackColor = Color.FromArgb( 40, 40, 40 );
+                        _tile.TurnLiveTileOn = true;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -294,37 +337,6 @@ namespace BudgetExecution
                 MessageTile.Title.Text = "Email";
                 MessageTile.Body.Text = string.Empty;
                 MessageTile.Banner.Text = string.Empty;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the tiles.
-        /// </summary>
-        private void InitTiles( )
-        {
-            try
-            {
-                if( Tiles?.Any( ) == true )
-                {
-                    var _textColor = Color.FromArgb( 106, 189, 252 );
-                    foreach( var _tile in Tiles )
-                    {
-                        _tile.Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                        _tile.Title.TextColor = _textColor;
-                        _tile.Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                        _tile.Body.TextColor = _textColor;
-                        _tile.Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
-                        _tile.Footer.TextColor = _textColor;
-                        _tile.Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
-                        _tile.Banner.TextColor = _textColor;
-                        _tile.BackColor = Color.FromArgb( 40, 40, 40 );
-                        _tile.TurnLiveTileOn = true;
-                    }
-                }
             }
             catch( Exception _ex )
             {
@@ -639,6 +651,92 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Fades the in.
+        /// </summary>
+        private protected virtual void FadeIn( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 1d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity += 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out.
+        /// </summary>
+        private protected virtual void FadeOut( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 0d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity -= 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns></returns>
+        private protected IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    foreach( Control _control in _collection )
+                    {
+                        _list.Add( _control );
+                        _queue.Enqueue( _control.Controls );
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( Control[ ] );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Control[ ] );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -647,7 +745,8 @@ namespace BudgetExecution
         {
             try
             {
-                InitTiles( );
+                InitializeCallbacks( );
+                InitializeTiles( );
                 SetTileText( );
                 FadeIn( );
             }
@@ -941,92 +1040,6 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
-        private protected virtual void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity += 0.02d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out.
-        /// </summary>
-        private protected virtual void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity -= 0.02d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Gets the controls.
-        /// </summary>
-        /// <returns></returns>
-        private protected IEnumerable<Control> GetControls( )
-        {
-            var _list = new List<Control>( );
-            var _queue = new Queue( );
-            try
-            {
-                _queue.Enqueue( Controls );
-                while( _queue.Count > 0 )
-                {
-                    var _collection = (Control.ControlCollection) _queue.Dequeue( );
-                    foreach( Control _control in _collection )
-                    {
-                        _list.Add( _control );
-                        _queue.Enqueue( _control.Controls );
-                    }
-                }
-
-                return _list?.Any( ) == true
-                    ? _list.ToArray( )
-                    : default( Control[ ] );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( Control[ ] );
             }
         }
 
