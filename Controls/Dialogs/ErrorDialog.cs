@@ -55,6 +55,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public partial class ErrorDialog : MetroForm
     {
         /// <summary> Gets or sets the exception. </summary>
@@ -102,7 +103,7 @@ namespace BudgetExecution
 
             // TextBox Properties
             TextBox.Font = new Font( "Roboto", 8 );
-            TextBox.ForeColor = Color.White;
+            TextBox.ForeColor = Color.FromArgb( 106, 189, 252 );
             TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
             TextBox.BorderColor = Color.Maroon;
             TextBox.HoverColor = Color.Maroon;
@@ -112,9 +113,10 @@ namespace BudgetExecution
             CloseButton.Click += OnCloseButtonClick;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ErrorDialog"/>
+        /// <see cref="T:BudgetExecution.ErrorDialog" />
         /// class.
         /// </summary>
         /// <param name="ext"> The ext. </param>
@@ -125,9 +127,10 @@ namespace BudgetExecution
             TextBox.Text = ext.ToLogString( Exception?.Message );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ErrorDialog"/>
+        /// <see cref="T:BudgetExecution.ErrorDialog" />
         /// class.
         /// </summary>
         /// <param name="message"> The message. </param>

@@ -76,9 +76,10 @@ namespace BudgetExecution
         /// <value> The host. </value>
         public ToolStripControlHost Host { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ColumnConfiguration"/>
+        /// <see cref="T:BudgetExecution.ColumnConfiguration" />
         /// class.
         /// </summary>
         public ColumnConfiguration( )
@@ -86,12 +87,12 @@ namespace BudgetExecution
             InitializeComponent( );
             BorderColor = Color.FromArgb( 0, 120, 212 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderThickness = 2;
+            BorderThickness = 1;
             Size = new Size( 250, 350 );
             MaximumSize = new Size( 250, 350 );
             MinimumSize = new Size( 250, 350 );
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             CaptionBarHeight = 5;
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
@@ -105,9 +106,10 @@ namespace BudgetExecution
             Visible = true;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ColumnConfiguration"/>
+        /// <see cref="T:BudgetExecution.ColumnConfiguration" />
         /// class.
         /// </summary>
         /// <param name="dataGrid"> The data grid. </param>
@@ -120,7 +122,7 @@ namespace BudgetExecution
             ColumnListBox.ItemCheck += OnListItemChecked;
             CloseButton.Click += OnCloseButtonClick;
             HeaderLabel.Font = new Font( "Roboto", 10 );
-            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            HeaderLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
             Load += OnLoad;
         }
 

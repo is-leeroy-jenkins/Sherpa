@@ -69,7 +69,7 @@ namespace BudgetExecution
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Size = new Size( 326, 407 );
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
             ShowIcon = false;
@@ -78,14 +78,14 @@ namespace BudgetExecution
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20);
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 106, 189, 252 );
 
             // Color Picker Properties
-            ColorPicker.ForeColor = Color.LightGray;
+            ColorPicker.ForeColor = Color.FromArgb( 106, 189, 252 );
             ColorPicker.Font = new Font( "Roboto", 9 );
-            ColorPicker.MetroForeColor = Color.LightGray;
+            ColorPicker.MetroForeColor = Color.FromArgb( 106, 189, 252 );
             ColorPicker.BorderStyle = BorderStyle.None;
             ColorPicker.MetroColor = Color.FromArgb( 0, 120, 212 );
             ColorPicker.BackColor = Color.FromArgb( 20, 20, 20 );

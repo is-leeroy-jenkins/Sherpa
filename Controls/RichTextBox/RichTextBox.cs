@@ -41,6 +41,8 @@
 //  </summary>
 //  ******************************************************************************************
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace BudgetExecution
 {
     using System;
@@ -52,6 +54,7 @@ namespace BudgetExecution
     using MetroSet_UI.Enums;
 
     /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class RichTextBox : MetroSetRichTextBox
     {
         /// <summary> Gets or sets the binding source. </summary>
@@ -87,7 +90,7 @@ namespace BudgetExecution
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 8 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             BackColor = Color.FromArgb( 30, 30, 30 );
             Enabled = true;
             Visible = true;
@@ -99,9 +102,10 @@ namespace BudgetExecution
             HoverColor = Color.FromArgb( 0, 120, 212 );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="RichTextBox"/>
+        /// <see cref="T:BudgetExecution.RichTextBox" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -113,9 +117,10 @@ namespace BudgetExecution
             Location = location;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="RichTextBox"/>
+        /// <see cref="T:BudgetExecution.RichTextBox" />
         /// class.
         /// </summary>
         /// <param name="location"> The location. </param>
@@ -131,9 +136,10 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="RichTextBox"/>
+        /// <see cref="T:BudgetExecution.RichTextBox" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -149,9 +155,10 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="RichTextBox"/>
+        /// <see cref="T:BudgetExecution.RichTextBox" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -166,9 +173,10 @@ namespace BudgetExecution
             Parent.Controls.Add( this );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="RichTextBox"/>
+        /// <see cref="T:BudgetExecution.RichTextBox" />
         /// class.
         /// </summary>
         /// <param name="title"> The title. </param>
@@ -216,8 +224,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the backColor of the back. </summary>
-        /// <param name="backColor"> The backColor. </param>
+        /// <summary>
+        /// Sets the color of the back.
+        /// </summary>
+        /// <param name="backColor">Color of the back.</param>
         public void SetBackColor( Color backColor )
         {
             if( backColor != Color.Empty )
@@ -233,8 +243,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

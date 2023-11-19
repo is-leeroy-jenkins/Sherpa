@@ -89,7 +89,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
@@ -231,8 +231,8 @@ namespace BudgetExecution
         {
             try
             {
-                ClearButton.ForeColor = Color.DarkGray;
-                CloseButton.ForeColor = Color.DarkGray;
+                ClearButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
             }
             catch( Exception _ex )
             {
@@ -245,9 +245,9 @@ namespace BudgetExecution
         {
             try
             {
-                FirstRadioButton.ForeColor = Color.FromArgb( 0, 120, 212 );
-                SecondRadioButton.ForeColor = Color.FromArgb( 0, 120, 212 );
-                ThirdRadioButton.ForeColor = Color.FromArgb( 0, 120, 212 );
+                FirstRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                SecondRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                ThirdRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
             }
             catch( Exception _ex )
             {
@@ -260,7 +260,7 @@ namespace BudgetExecution
         {
             try
             {
-                Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Title.Text = "Email";
             }
             catch( Exception _ex )
@@ -341,7 +341,7 @@ namespace BudgetExecution
             {
                 if( Owner?.Visible == false )
                 {
-                    var _form = (MainForm) Program.Windows[ "MainForm" ];
+                    var _form = (MainForm)Program.Windows[ "MainForm" ];
                     _form.Refresh( );
                     _form.Visible = true;
                 }

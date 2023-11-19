@@ -95,7 +95,7 @@ namespace BudgetExecution
             MinimumSize = new Size( 446, 373 );
             MaximumSize = new Size( 446, 373 );
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
@@ -107,7 +107,7 @@ namespace BudgetExecution
             CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionForeColor = Color.FromArgb( 106, 189, 252 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
@@ -118,23 +118,24 @@ namespace BudgetExecution
 
             // Close Button
             CloseButton.NormalTextColor = Color.FromArgb( 20, 20, 20 );
-            CloseButton.HoverTextColor = Color.White;
+            CloseButton.HoverTextColor = Color.FromArgb( 106, 189, 252 );
             CloseButton.HoverBorderColor = Color.FromArgb( 50, 93, 129 );
             CloseButton.Text = "Close";
             CloseButton.HoverText = "Close Calendar";
 
             // HeaderLabel Settings
             HeaderLabel.Font = new Font( "Roboto", 11 );
-            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            HeaderLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
             HeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
 
             // Event Wiring
             Load += OnLoad;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CalendarDialog"/>
+        /// <see cref="T:BudgetExecution.CalendarDialog" />
         /// class.
         /// </summary>
         /// <param name="dateTime"> The date time. </param>

@@ -41,17 +41,18 @@
 //  </summary>
 //  ******************************************************************************************
 
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+using Syncfusion.Windows.Forms;
+
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
-    using System.Linq;
-    using System.Threading;
-    using System.Windows.Forms;
-    using Syncfusion.Windows.Forms;
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
@@ -166,7 +167,7 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             BorderColor = Color.FromArgb( 20, 20, 20 );
             ShowIcon = false;
@@ -175,7 +176,7 @@ namespace BudgetExecution
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionForeColor = Color.FromArgb( 106, 189, 252 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             ShowMouseOver = false;
@@ -186,26 +187,6 @@ namespace BudgetExecution
             MinimumSize = new Size( 1340, 674 );
 
             // Event Wiring
-            TabControl.TabIndexChanged += OnActiveTabChanged;
-            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
-            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
-            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
-            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
-            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
-            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-            FourthComboBox.SelectedValueChanged += OnFourthComboBoxItemSelected;
-            FourthListBox.SelectedValueChanged += OnFourthListBoxItemSelected;
-            ClearButton.Click += OnClearButtonClick;
-            SelectButton.Click += OnSelectButtonClick;
-            GroupButton.Click += OnGroupButtonClick;
-            CloseButton.Click += OnCloseButtonClick;
-            AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
-            SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
-            SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
-            SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
-            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
-            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
             Load += OnLoad;
             MouseClick += OnRightClick;
         }
@@ -241,9 +222,9 @@ namespace BudgetExecution
         public FilterDialog( BindingSource bindingSource )
             : this( )
         {
-            DataTable = (DataTable) bindingSource.DataSource;
+            DataTable = (DataTable)bindingSource.DataSource;
             SelectedTable = DataTable.TableName;
-            Source = (Source) Enum.Parse( typeof( Source ), SelectedTable );
+            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
             Provider = Provider.Access;
             DataModel = new DataBuilder( Source, Provider );
             BindingSource.DataSource = DataModel.DataTable;
@@ -287,6 +268,40 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Initializes the callback.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            try
+            {
+                TabControl.TabIndexChanged += OnActiveTabChanged;
+                TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+                FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
+                FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
+                SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
+                SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
+                ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
+                ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
+                FourthComboBox.SelectedValueChanged += OnFourthComboBoxItemSelected;
+                FourthListBox.SelectedValueChanged += OnFourthListBoxItemSelected;
+                ClearButton.Click += OnClearButtonClick;
+                SelectButton.Click += OnSelectButtonClick;
+                GroupButton.Click += OnGroupButtonClick;
+                CloseButton.Click += OnCloseButtonClick;
+                AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
+                SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
+                SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
+                SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
+                NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
+                FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary> Binds the data. </summary>
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
@@ -295,7 +310,7 @@ namespace BudgetExecution
         {
             if( Enum.IsDefined( typeof( Source ), source )
                && Enum.IsDefined( typeof( Provider ), provider )
-               && ( where?.Any( ) == true ) )
+               && where?.Any( ) == true )
             {
                 try
                 {
@@ -321,8 +336,8 @@ namespace BudgetExecution
         {
             if( Enum.IsDefined( typeof( Source ), Source )
                && Enum.IsDefined( typeof( Provider ), Provider )
-               && ( where?.Any( ) == true )
-               && ( cols?.Any( ) == true ) )
+               && where?.Any( ) == true
+               && cols?.Any( ) == true )
             {
                 try
                 {
@@ -346,12 +361,12 @@ namespace BudgetExecution
         /// <param name="numerics"> The numerics. </param>
         /// <param name="where"> The where. </param>
         private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
-                               IDictionary<string, object> where )
+            IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), Source )
                && Enum.IsDefined( typeof( Provider ), Provider )
-               && ( where?.Any( ) == true )
-               && ( fields?.Any( ) == true ) )
+               && where?.Any( ) == true
+               && fields?.Any( ) == true )
             {
                 try
                 {
@@ -509,11 +524,11 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <returns> </returns>
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
-                                      IDictionary<string, object> where )
+            IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( fields?.Any( ) == true )
-               && ( numerics?.Any( ) == true ) )
+            if( where?.Any( ) == true
+               && fields?.Any( ) == true
+               && numerics?.Any( ) == true )
             {
                 try
                 {
@@ -551,10 +566,10 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <returns> </returns>
         private string CreateSqlText( IEnumerable<string> columns,
-                                      IDictionary<string, object> where )
+            IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( columns?.Any( ) == true )
+            if( where?.Any( ) == true
+               && columns?.Any( ) == true
                && !string.IsNullOrEmpty( SelectedTable ) )
             {
                 try
@@ -706,7 +721,7 @@ namespace BudgetExecution
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
 
-                for( var _i = 0; _i < ( _names?.Count - 1 ); _i++ )
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var _name = _names[ _i ];
                     TableListBox.Items?.Add( _name );
@@ -717,7 +732,7 @@ namespace BudgetExecution
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
 
-                for( var _i = 0; _i < ( _references?.Count - 1 ); _i++ )
+                for( var _i = 0; _i < _references?.Count - 1; _i++ )
                 {
                     var _name = _references[ _i ];
                     ReferenceListBox.Items?.Add( _name );
@@ -727,7 +742,7 @@ namespace BudgetExecution
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
 
-                for( var _i = 0; _i < ( _mx?.Count - 1 ); _i++ )
+                for( var _i = 0; _i < _mx?.Count - 1; _i++ )
                 {
                     var _name = _mx[ _i ];
                     MaintenanceListBox.Items?.Add( _name );
@@ -862,6 +877,9 @@ namespace BudgetExecution
         {
             try
             {
+                InitializeCallbacks( );
+                InitializeRadioButtons( );
+                InitializeLabels( );
                 SqlQuery = string.Empty;
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
@@ -914,7 +932,7 @@ namespace BudgetExecution
                     {
                         var _source = SelectedTable.Replace( " ", "" );
                         BindingSource.DataSource = null;
-                        Source = (Source) Enum.Parse( typeof( Source ), _source );
+                        Source = (Source)Enum.Parse( typeof( Source ), _source );
                         DataModel = new DataBuilder( Source, Provider );
                         DataTable = DataModel.DataTable;
                         BindingSource.DataSource = DataModel.DataTable;
@@ -1388,14 +1406,14 @@ namespace BudgetExecution
         private void OnRadioButtonChecked( object sender )
         {
             if( sender is RadioButton _radio
-               && ( _radio.Tag != null ) )
+               && _radio.Tag != null )
             {
                 try
                 {
                     var _tag = _radio.Tag.ToString( );
                     if( !string.IsNullOrEmpty( _tag ) )
                     {
-                        Provider = (Provider) Enum.Parse( typeof( Provider ), _tag );
+                        Provider = (Provider)Enum.Parse( typeof( Provider ), _tag );
                     }
                 }
                 catch( Exception _ex )
@@ -1419,7 +1437,6 @@ namespace BudgetExecution
                 switch( TabControl.SelectedIndex )
                 {
                     case 0:
-
                     {
                         ProviderTable.Visible = true;
                         TableTabPage.TabVisible = true;
@@ -1432,9 +1449,7 @@ namespace BudgetExecution
                         UpdateHeaderText( );
                         break;
                     }
-
                     case 1:
-
                     {
                         ProviderTable.Visible = false;
                         FilterTabPage.TabVisible = true;
@@ -1447,9 +1462,7 @@ namespace BudgetExecution
                         UpdateHeaderText( );
                         break;
                     }
-
                     case 2:
-
                     {
                         ProviderTable.Visible = false;
                         GroupTabPage.TabVisible = true;
@@ -1464,9 +1477,7 @@ namespace BudgetExecution
                         PopulateNumericListBox( );
                         break;
                     }
-
                     case 3:
-
                     {
                         ProviderTable.Visible = false;
                         CalendarTabPage.TabVisible = true;

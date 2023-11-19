@@ -61,7 +61,7 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref="T:BudgetExecution.EditBase" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
@@ -143,7 +143,7 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
+            TabPage.TabForeColor = Color.FromArgb( 106, 189, 252 );
             FirstButton.Text = "Save";
             ThirdButton.Text = "Exit";
 
@@ -274,7 +274,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the labels.
         /// </summary>
-        private void InitLabels( )
+        private void InitializeLabels( )
         {
             try
             {
@@ -288,7 +288,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callback.
         /// </summary>
-        private void InitCallbacks( )
+        private void InitializeCallbacks( )
         {
             try
             {
@@ -302,7 +302,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the timers.
         /// </summary>
-        private void InitTimers( )
+        private void InitializeTimers( )
         {
             try
             {
@@ -316,7 +316,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the buttons.
         /// </summary>
-        private void InitButtons( )
+        private void InitializeButtons( )
         {
             try
             {
@@ -330,7 +330,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the tool strip.
         /// </summary>
-        private void InitToolStrip( )
+        private void InitializeToolStrip( )
         {
             try
             {

@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <UseWindowsForms>true</UseWindowsForms>
     <StartupObject>BudgetExecution.Program</StartupObject>
-    <ApplicationIcon>Resources\Pictures\Ninja\BudExNinjaGrey.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Pictures\Forms\Application.ico</ApplicationIcon>
     <Nullable>disable</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>BudExNinja.png</PackageIcon>
@@ -52,7 +52,7 @@
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Resources\Pictures\Ninja\BudExNinjaGrey.ico" />
+    <Content Include="Resources\Pictures\Forms\Application.ico" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="7.0.1" />

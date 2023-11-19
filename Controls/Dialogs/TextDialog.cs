@@ -52,8 +52,13 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Edit;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class TextDialog : MetroForm
     {
         public TextDialog( )
@@ -190,7 +195,7 @@ namespace BudgetExecution
             try
             {
                 Title.Font = new Font( "Roboto", 9, FontStyle.Bold );
-                Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Title.TextAlign = ContentAlignment.TopLeft;
                 Title.Text = "Text Editor";
             }

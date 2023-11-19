@@ -103,14 +103,15 @@ namespace BudgetExecution
             // Back color SeriesConfiguration
             BackColor = Color.FromArgb( 20, 20, 20 );
             BackgroundColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             BorderColor = Color.FromArgb( 65, 65, 65 );
             BorderStyle = BorderStyle.FixedSingle;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Layout"/>
+        /// <see cref="T:BudgetExecution.Layout" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -122,9 +123,10 @@ namespace BudgetExecution
             Location = location;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Layout"/>
+        /// <see cref="T:BudgetExecution.Layout" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -139,13 +141,15 @@ namespace BudgetExecution
             Parent.Controls.Add( this );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Layout"/>
+        /// <see cref="T:BudgetExecution.Layout" />
         /// class.
         /// </summary>
         /// <param name="parent"> The parent. </param>
-        public Layout( Control parent )
+        public Layout( Control parent ) 
+            : this( )
         {
             Parent = parent;
             Parent.Controls.Add( this );

@@ -88,12 +88,12 @@ namespace BudgetExecution
             Visible = true;
 
             // Title Properties
-            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Title.ForeColor = Color.FromArgb( 106, 189, 252 );
 
             // Control Properties
             CloseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             CloseButton.Text = "Close";
-            CloseButton.ForeColor = Color.FromArgb( 0, 120, 212 );
+            CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
             CloseButton.BackColor = Color.FromArgb( 20, 20, 20 );
             TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
             CloseButton.Focus( );
@@ -214,15 +214,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
-        private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e"> instance containing the event data. </param>
@@ -230,7 +221,7 @@ namespace BudgetExecution
         {
             try
             {
-                Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
             }
             catch( Exception _ex )
             {
@@ -261,5 +252,15 @@ namespace BudgetExecution
                 }
             }
         }
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
+
     }
 }

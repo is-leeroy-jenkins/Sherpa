@@ -86,7 +86,7 @@ namespace BudgetExecution
             // Basic Properties
             Font = new Font( "Roboto", 9 );
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Size = new Size( 373, 451 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
@@ -99,30 +99,8 @@ namespace BudgetExecution
             MaximizeBox = false;
             StartPosition = FormStartPosition.CenterParent;
 
-            // Calculator Configuration
-            Calculator.Font = new Font( "Roboto", 10 );
-            Calculator.Dock = DockStyle.Fill;
-            Calculator.BorderStyle = Border3DStyle.Adjust;
-            Calculator.HorizontalSpacing = 10;
-            Calculator.VerticalSpacing = 10;
-            Calculator.UseVerticalAndHorizontalSpacing = true;
-            Calculator.ShowDisplayArea = false;
-            Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
-
-            // Label Configuration
-            ValueLabel.Font = new Font( "Roboto", 14 );
-            ValueLabel.Dock = DockStyle.Top;
-            ValueLabel.BackColor = Color.Transparent;
-            ValueLabel.ForeColor = Color.White;
-            ValueLabel.TextAlign = ContentAlignment.MiddleCenter;
-
-            // Timer Properties
-            Time = 0;
-            Seconds = 5;
-
             // Event Wiring
             Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClick;
         }
 
         /// <inheritdoc/>
@@ -138,6 +116,82 @@ namespace BudgetExecution
             InitialValue = initial;
             Calculator.Value = new CalculatorValue( initial );
             ValueLabel.Text = Calculator.Value.ToString( );
+        }
+
+        /// <summary>
+        /// Initializes the calculator.
+        /// </summary>
+        private void InitializeCalculator( )
+        {
+            try
+            {
+                // Calculator Configuration
+                Calculator.Font = new Font( "Roboto", 10 );
+                Calculator.Dock = DockStyle.Fill;
+                Calculator.BorderStyle = Border3DStyle.Adjust;
+                Calculator.HorizontalSpacing = 10;
+                Calculator.VerticalSpacing = 10;
+                Calculator.UseVerticalAndHorizontalSpacing = true;
+                Calculator.ShowDisplayArea = false;
+                Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                // Label Configuration
+                ValueLabel.Font = new Font( "Roboto", 14 );
+                ValueLabel.Dock = DockStyle.Top;
+                ValueLabel.BackColor = Color.Transparent;
+                ValueLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
+                ValueLabel.TextAlign = ContentAlignment.MiddleCenter;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callback.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            try
+            {
+                Calculator.ValueCalculated += OnCalculationValueChanged;
+                CloseButton.Click += OnCloseButtonClick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                // Timer Properties
+                Time = 0;
+                Seconds = 5;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary> Displays the control to the user. </summary>
@@ -165,28 +219,6 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [calculation value changed]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnCalculationValueChanged( object sender, EventArgs e )
-        {
-            if( sender != null )
-            {
-                try
-                {
-                    ValueLabel.Text = Calculator.Value.ToString( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
             }
         }
 
@@ -252,7 +284,10 @@ namespace BudgetExecution
             try
             {
                 FadeIn( );
-                Calculator.ValueCalculated += OnCalculationValueChanged;
+                InitializeLabels( );
+                InitializeCallbacks( );
+                InitializeTimers( );
+                InitializeCalculator( );
                 Calculator.BorderStyle = Border3DStyle.Adjust;
                 Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
                 CloseButton.HoverText = "Exit Calculator";
@@ -260,6 +295,28 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary> Called when [calculation value changed]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnCalculationValueChanged( object sender, EventArgs e )
+        {
+            if( sender != null )
+            {
+                try
+                {
+                    ValueLabel.Text = Calculator.Value.ToString( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 

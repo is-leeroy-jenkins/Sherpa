@@ -79,10 +79,10 @@ namespace BudgetExecution
             Table.ColumnCount = 1;
             Table.RowCount = 2;
             Table.Font = new Font( "Roboto", 9 );
-            Table.ForeColor = Color.White;
+            Table.ForeColor = Color.FromArgb( 106, 189, 252 );
 
             // TextBox Properties
-            TextBox.ForeColor = Color.White;
+            TextBox.ForeColor = Color.FromArgb( 106, 189, 252 );
             TextBox.BorderColor = Color.FromArgb( 50, 93, 129 );
             TextBox.HoverColor = Color.FromArgb( 0, 120, 212 );
             TextBox.BackColor = Color.FromArgb( 40, 40, 40 );

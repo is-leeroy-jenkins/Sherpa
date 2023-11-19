@@ -130,7 +130,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor =Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
@@ -156,14 +156,6 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClick;
-            MenuButton.Click += OnMainMenuButtonClicked;
-            FirstCalendar.SelectionChanged += OnFirstCalendarSelectionChanged;
-            SecondCalendar.SelectionChanged += OnSecondCalendarSelectionChanged;
-            ChartButton.Click += OnChartButtonClick;
-            TableButton.Click += OnTableButtonClick;
-            RefreshButton.Click += OnRefreshButtonClick;
-            TabControl.SelectedIndexChanged += OnSelectedTabChanged;
         }
 
         /// <summary>
@@ -216,8 +208,44 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Initializes the callback.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            try
+            {
+                CloseButton.Click += OnCloseButtonClick;
+                MenuButton.Click += OnMainMenuButtonClicked;
+                FirstCalendar.SelectionChanged += OnFirstCalendarSelectionChanged;
+                SecondCalendar.SelectionChanged += OnSecondCalendarSelectionChanged;
+                ChartButton.Click += OnChartButtonClick;
+                TableButton.Click += OnTableButtonClick;
+                RefreshButton.Click += OnRefreshButtonClick;
+                TabControl.SelectedIndexChanged += OnSelectedTabChanged;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary> Initializes the title. </summary>
-        private void InitializeTitle( )
+        private void InitializeLabels( )
         {
             try
             {
@@ -321,8 +349,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the controls. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private IEnumerable<Control> GetControls( )
         {
             var _list = new List<Control>( );
@@ -373,8 +404,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the fiscal years. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the fiscal years.
+        /// </summary>
+        /// <returns>
+        /// DataTable
+        /// </returns>
         private DataTable GetFiscalYears( )
         {
             try
@@ -392,7 +427,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the active tab. </summary>
+        /// <summary>
+        /// Sets the active tab.
+        /// </summary>
         private void SetActiveTab( )
         {
             try
@@ -532,13 +569,14 @@ namespace BudgetExecution
         {
             try
             {
-                DataArgs = new DataArgs( );
-                TabControl.SelectedIndex = 0;
                 InitializeToolStrip( );
-                InitializeTitle( );
+                InitializeLabels( );
+                InitializeCallbacks( );
                 SetActiveTab( );
                 ClearLabels( );
                 FadeIn( );
+                DataArgs = new DataArgs( );
+                TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {
@@ -701,10 +739,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name="_ex"> The ex. </param>
-        private void Fail( Exception _ex )
+        /// <param name="ex"> The ex. </param>
+        private void Fail( Exception ex )
         {
-            using var _error = new ErrorDialog( _ex );
+            using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

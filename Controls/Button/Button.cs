@@ -47,7 +47,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
@@ -59,6 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class Button : MetroSetButton
     {
         /// <summary> Gets or sets the tool tip. </summary>
@@ -89,7 +89,7 @@ namespace BudgetExecution
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";
             Font = new Font( "Roboto", 8 );
-            ForeColor = Color.FromArgb( 0, 120, 212 );
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Size = new Size( 90, 30 );
@@ -101,7 +101,7 @@ namespace BudgetExecution
             // Normal Color Configuration
             NormalColor = Color.FromArgb( 40, 40, 40 );
             NormalBorderColor = Color.FromArgb( 40, 40, 40 );
-            NormalTextColor = Color.DarkGray;
+            NormalTextColor = Color.FromArgb( 106, 189, 252 );
 
             // Hover Color Configuration
             HoverBorderColor = Color.FromArgb( 50, 93, 129 );

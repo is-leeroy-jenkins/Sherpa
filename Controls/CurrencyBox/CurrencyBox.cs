@@ -58,22 +58,39 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.CurrencyBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class CurrencyBox : CurrencyEdit
     {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
         public SmallTip ToolTip { get; set; }
 
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
         public string HoverText { get; set; }
 
-        /// <summary> Gets or sets the data filter. </summary>
-        /// <value> The data filter. </value>
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
         public IDictionary<string, object> DataFilter { get; set; }
 
         /// <inheritdoc/>
@@ -96,7 +113,7 @@ namespace BudgetExecution
             Margin = new Padding( 1 );
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 9 );
-            ForeColor = Color.White;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Enabled = true;
             Visible = true;
             Border3DStyle = Border3DStyle.Adjust;
@@ -114,7 +131,7 @@ namespace BudgetExecution
             TextBox.Style = TextBoxExt.theme.Office2016Black;
             TextBox.CurrencyDecimalDigits = 2;
             TextBox.NegativeColor = Color.Red;
-            TextBox.PositiveColor = Color.White;
+            TextBox.PositiveColor = Color.FromArgb( 106, 189, 252 );
             TextBox.BackGroundColor = Color.FromArgb( 40, 40, 40 );
             TextBox.Border3DStyle = Border3DStyle.Adjust;
             TextBox.BorderColor = Color.FromArgb( 50, 93, 129 );
@@ -193,8 +210,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

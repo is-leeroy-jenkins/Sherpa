@@ -89,13 +89,13 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.None;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
             TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
-            TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
+            TabPage.TabForeColor = Color.FromArgb( 106, 189, 252 );
             SelectButton.Text = "Save";
             CloseButton.Text = "Exit";
             Frames = GetFrames( );

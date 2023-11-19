@@ -57,6 +57,7 @@ namespace BudgetExecution
     /// <seealso cref="MetroSet_UI.Controls.MetroSetCheckBox"/>
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class CheckBox : MetroSetCheckBox
     {
         /// <summary> Gets or sets the tool tip. </summary>
@@ -90,7 +91,7 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 20, 20, 20 );
             DisabledBorderColor = Color.FromArgb( 20, 20, 20 );
             Font = new Font( "Roboto", 8 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Cursor = Cursors.Hand;
@@ -161,8 +162,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

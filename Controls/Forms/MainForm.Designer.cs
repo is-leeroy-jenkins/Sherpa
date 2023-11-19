@@ -169,7 +169,7 @@ namespace BudgetExecution
             textItem3.HubTile = LookupTile;
             textItem3.TextColor = System.Drawing.Color.DarkGray;
             LookupTile.Footer = textItem3;
-            LookupTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            LookupTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             LookupTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             LookupTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             LookupTile.HoverText = null;
@@ -184,7 +184,7 @@ namespace BudgetExecution
             textItem4.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem4.HubTile = LookupTile;
             textItem4.Text = "Data Lookup";
-            textItem4.TextColor = System.Drawing.Color.DarkGray;
+            textItem4.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             LookupTile.Title = textItem4;
             LookupTile.ToolTip = ToolTip;
             LookupTile.TurnLiveTileOn = true;
@@ -232,7 +232,7 @@ namespace BudgetExecution
             textItem7.HubTile = VisualizationTile;
             textItem7.TextColor = System.Drawing.Color.DarkGray;
             VisualizationTile.Footer = textItem7;
-            VisualizationTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            VisualizationTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             VisualizationTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             VisualizationTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             VisualizationTile.HoverText = null;
@@ -247,7 +247,7 @@ namespace BudgetExecution
             textItem8.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem8.HubTile = VisualizationTile;
             textItem8.Text = "Data Visualization";
-            textItem8.TextColor = System.Drawing.Color.DarkGray;
+            textItem8.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             VisualizationTile.Title = textItem8;
             VisualizationTile.ToolTip = ToolTip;
             VisualizationTile.TurnLiveTileOn = true;
@@ -275,7 +275,7 @@ namespace BudgetExecution
             textItem11.HubTile = GuidanceTile;
             textItem11.TextColor = System.Drawing.Color.DarkGray;
             GuidanceTile.Footer = textItem11;
-            GuidanceTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            GuidanceTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             GuidanceTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             GuidanceTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             GuidanceTile.HoverText = null;
@@ -290,7 +290,7 @@ namespace BudgetExecution
             textItem12.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem12.HubTile = GuidanceTile;
             textItem12.Text = "Guidance";
-            textItem12.TextColor = System.Drawing.Color.DarkGray;
+            textItem12.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             GuidanceTile.Title = textItem12;
             GuidanceTile.ToolTip = ToolTip;
             GuidanceTile.TurnLiveTileOn = true;
@@ -318,7 +318,7 @@ namespace BudgetExecution
             textItem15.HubTile = BrowserTile;
             textItem15.TextColor = System.Drawing.Color.DarkGray;
             BrowserTile.Footer = textItem15;
-            BrowserTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            BrowserTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             BrowserTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             BrowserTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             BrowserTile.HoverText = null;
@@ -333,7 +333,7 @@ namespace BudgetExecution
             textItem16.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem16.HubTile = BrowserTile;
             textItem16.Text = "Baby";
-            textItem16.TextColor = System.Drawing.Color.DarkGray;
+            textItem16.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             BrowserTile.Title = textItem16;
             BrowserTile.ToolTip = ToolTip;
             BrowserTile.TurnLiveTileOn = true;
@@ -361,7 +361,7 @@ namespace BudgetExecution
             textItem19.HubTile = SqlServerTile;
             textItem19.TextColor = System.Drawing.Color.DarkGray;
             SqlServerTile.Footer = textItem19;
-            SqlServerTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            SqlServerTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SqlServerTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SqlServerTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SqlServerTile.HoverText = null;
@@ -376,7 +376,7 @@ namespace BudgetExecution
             textItem20.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem20.HubTile = SqlServerTile;
             textItem20.Text = "SQL Server";
-            textItem20.TextColor = System.Drawing.Color.DarkGray;
+            textItem20.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SqlServerTile.Title = textItem20;
             SqlServerTile.ToolTip = ToolTip;
             SqlServerTile.TurnLiveTileOn = true;
@@ -404,7 +404,7 @@ namespace BudgetExecution
             textItem23.HubTile = AccessTile;
             textItem23.TextColor = System.Drawing.Color.DarkGray;
             AccessTile.Footer = textItem23;
-            AccessTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            AccessTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             AccessTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             AccessTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             AccessTile.HoverText = null;
@@ -419,7 +419,7 @@ namespace BudgetExecution
             textItem24.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem24.HubTile = AccessTile;
             textItem24.Text = "Access  ";
-            textItem24.TextColor = System.Drawing.Color.DarkGray;
+            textItem24.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             AccessTile.Title = textItem24;
             AccessTile.ToolTip = null;
             AccessTile.TurnLiveTileOn = true;
@@ -447,7 +447,7 @@ namespace BudgetExecution
             textItem27.HubTile = SQLiteTile;
             textItem27.TextColor = System.Drawing.Color.DarkGray;
             SQLiteTile.Footer = textItem27;
-            SQLiteTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            SQLiteTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SQLiteTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SQLiteTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SQLiteTile.HoverText = null;
@@ -462,7 +462,7 @@ namespace BudgetExecution
             textItem28.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem28.HubTile = SQLiteTile;
             textItem28.Text = "SQLite";
-            textItem28.TextColor = System.Drawing.Color.DarkGray;
+            textItem28.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SQLiteTile.Title = textItem28;
             SQLiteTile.ToolTip = ToolTip;
             SQLiteTile.TurnLiveTileOn = true;
@@ -490,7 +490,7 @@ namespace BudgetExecution
             textItem31.HubTile = ExcelDataTile;
             textItem31.TextColor = System.Drawing.Color.DarkGray;
             ExcelDataTile.Footer = textItem31;
-            ExcelDataTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            ExcelDataTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ExcelDataTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             ExcelDataTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             ExcelDataTile.HoverText = null;
@@ -505,7 +505,7 @@ namespace BudgetExecution
             textItem32.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem32.HubTile = ExcelDataTile;
             textItem32.Text = "Excel Data";
-            textItem32.TextColor = System.Drawing.Color.DarkGray;
+            textItem32.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ExcelDataTile.Title = textItem32;
             ExcelDataTile.ToolTip = ToolTip;
             ExcelDataTile.TurnLiveTileOn = true;
@@ -533,7 +533,7 @@ namespace BudgetExecution
             textItem35.HubTile = SqlCeTile;
             textItem35.TextColor = System.Drawing.Color.DarkGray;
             SqlCeTile.Footer = textItem35;
-            SqlCeTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            SqlCeTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SqlCeTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SqlCeTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SqlCeTile.HoverText = null;
@@ -548,7 +548,7 @@ namespace BudgetExecution
             textItem36.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem36.HubTile = SqlCeTile;
             textItem36.Text = "SQL Compact";
-            textItem36.TextColor = System.Drawing.Color.DarkGray;
+            textItem36.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SqlCeTile.Title = textItem36;
             SqlCeTile.ToolTip = ToolTip;
             SqlCeTile.TurnLiveTileOn = true;
@@ -576,7 +576,7 @@ namespace BudgetExecution
             textItem39.HubTile = ChromeTile;
             textItem39.TextColor = System.Drawing.Color.DarkGray;
             ChromeTile.Footer = textItem39;
-            ChromeTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            ChromeTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ChromeTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             ChromeTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             ChromeTile.HoverText = null;
@@ -591,7 +591,7 @@ namespace BudgetExecution
             textItem40.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem40.HubTile = ChromeTile;
             textItem40.Text = "Google ";
-            textItem40.TextColor = System.Drawing.Color.DarkGray;
+            textItem40.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ChromeTile.Title = textItem40;
             ChromeTile.ToolTip = ToolTip;
             ChromeTile.TurnLiveTileOn = true;
@@ -619,7 +619,7 @@ namespace BudgetExecution
             textItem43.HubTile = EdgeTile;
             textItem43.TextColor = System.Drawing.Color.DarkGray;
             EdgeTile.Footer = textItem43;
-            EdgeTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            EdgeTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             EdgeTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             EdgeTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             EdgeTile.HoverText = null;
@@ -634,7 +634,7 @@ namespace BudgetExecution
             textItem44.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem44.HubTile = EdgeTile;
             textItem44.Text = "Edge";
-            textItem44.TextColor = System.Drawing.Color.DarkGray;
+            textItem44.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             EdgeTile.Title = textItem44;
             EdgeTile.ToolTip = ToolTip;
             EdgeTile.TurnLiveTileOn = true;
@@ -662,7 +662,7 @@ namespace BudgetExecution
             textItem47.HubTile = FirefoxTile;
             textItem47.TextColor = System.Drawing.Color.DarkGray;
             FirefoxTile.Footer = textItem47;
-            FirefoxTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            FirefoxTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             FirefoxTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             FirefoxTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             FirefoxTile.HoverText = null;
@@ -677,7 +677,7 @@ namespace BudgetExecution
             textItem48.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem48.HubTile = FirefoxTile;
             textItem48.Text = "Firefox ";
-            textItem48.TextColor = System.Drawing.Color.DarkGray;
+            textItem48.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             FirefoxTile.Title = textItem48;
             FirefoxTile.ToolTip = ToolTip;
             FirefoxTile.TurnLiveTileOn = true;
@@ -705,7 +705,7 @@ namespace BudgetExecution
             textItem51.HubTile = CalendarTile;
             textItem51.TextColor = System.Drawing.Color.DarkGray;
             CalendarTile.Footer = textItem51;
-            CalendarTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            CalendarTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             CalendarTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             CalendarTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             CalendarTile.HoverText = null;
@@ -720,7 +720,7 @@ namespace BudgetExecution
             textItem52.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem52.HubTile = CalendarTile;
             textItem52.Text = "Fiscal Year";
-            textItem52.TextColor = System.Drawing.Color.DarkGray;
+            textItem52.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             CalendarTile.Title = textItem52;
             CalendarTile.ToolTip = ToolTip;
             CalendarTile.TurnLiveTileOn = true;
@@ -748,7 +748,7 @@ namespace BudgetExecution
             textItem55.HubTile = SqlEditorTile;
             textItem55.TextColor = System.Drawing.Color.DarkGray;
             SqlEditorTile.Footer = textItem55;
-            SqlEditorTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            SqlEditorTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SqlEditorTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SqlEditorTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SqlEditorTile.HoverText = null;
@@ -763,7 +763,7 @@ namespace BudgetExecution
             textItem56.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem56.HubTile = SqlEditorTile;
             textItem56.Text = "SQL Editor";
-            textItem56.TextColor = System.Drawing.Color.DarkGray;
+            textItem56.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SqlEditorTile.Title = textItem56;
             SqlEditorTile.ToolTip = ToolTip;
             SqlEditorTile.TurnLiveTileOn = true;
@@ -791,7 +791,7 @@ namespace BudgetExecution
             textItem59.HubTile = ProgramProjectTile;
             textItem59.TextColor = System.Drawing.Color.DarkGray;
             ProgramProjectTile.Footer = textItem59;
-            ProgramProjectTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            ProgramProjectTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ProgramProjectTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             ProgramProjectTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             ProgramProjectTile.HoverText = null;
@@ -806,7 +806,7 @@ namespace BudgetExecution
             textItem60.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem60.HubTile = ProgramProjectTile;
             textItem60.Text = "Program Projects";
-            textItem60.TextColor = System.Drawing.Color.DarkGray;
+            textItem60.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ProgramProjectTile.Title = textItem60;
             ProgramProjectTile.ToolTip = ToolTip;
             ProgramProjectTile.TurnLiveTileOn = true;
@@ -834,7 +834,7 @@ namespace BudgetExecution
             textItem63.HubTile = MessageTile;
             textItem63.TextColor = System.Drawing.Color.DarkGray;
             MessageTile.Footer = textItem63;
-            MessageTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            MessageTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             MessageTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             MessageTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             MessageTile.HoverText = null;
@@ -849,7 +849,7 @@ namespace BudgetExecution
             textItem64.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             textItem64.HubTile = MessageTile;
             textItem64.Text = "Messages";
-            textItem64.TextColor = System.Drawing.Color.DarkGray;
+            textItem64.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             MessageTile.Title = textItem64;
             MessageTile.ToolTip = ToolTip;
             MessageTile.TurnLiveTileOn = true;

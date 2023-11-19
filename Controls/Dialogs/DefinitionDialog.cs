@@ -41,17 +41,18 @@
 //  </summary>
 //  ******************************************************************************************
 
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+using Syncfusion.Windows.Forms.Tools;
+
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
-    using System.Linq;
-    using System.Threading;
-    using System.Windows.Forms;
-    using Syncfusion.Windows.Forms.Tools;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -90,7 +91,7 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.None;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             ShowMouseOver = false;
             MinimizeBox = false;
@@ -142,9 +143,9 @@ namespace BudgetExecution
             : this( tool )
         {
             BindingSource = bindingSource;
-            DataTable = (DataTable) bindingSource.DataSource;
+            DataTable = (DataTable)bindingSource.DataSource;
             BindingSource.DataSource = DataTable;
-            Source = (Source) Enum.Parse( typeof( Source ), DataTable.TableName );
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             Columns = DataTable.GetColumnNames( );
         }
 
@@ -154,7 +155,7 @@ namespace BudgetExecution
             try
             {
                 TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
-                TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
+                TabPage.TabForeColor = Color.FromArgb( 106, 189, 252 );
                 TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
             }
             catch( Exception _ex )
@@ -176,7 +177,7 @@ namespace BudgetExecution
                     ?.Select( dr => dr.Field<string>( "TableName" ) )
                     ?.ToList( );
 
-                for( var _i = 0; _i < ( _names?.Count - 1 ); _i++ )
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var _name = _names[ _i ];
                     TableNameComboBox.Items.Add( _name );
@@ -223,55 +224,42 @@ namespace BudgetExecution
                     switch( Tool )
                     {
                         case ToolType.AddDatabaseButton:
-
                         {
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
-
                         case ToolType.AddTableButton:
-
                         {
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
-
                         case ToolType.EditColumnButton:
-
                         {
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
-
                         case ToolType.DeleteColumnButton:
-
                         {
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
-
                         case ToolType.DeleteTableButton:
-
                         {
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
-
                         case ToolType.DeleteDatabaseButton:
-
                         {
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
-
                         default:
-
                         {
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
@@ -456,7 +444,7 @@ namespace BudgetExecution
                     var _name = _button.Tag?.ToString( );
                     if( !string.IsNullOrEmpty( _name ) )
                     {
-                        Provider = (Provider) Enum.Parse( typeof( Provider ), _name );
+                        Provider = (Provider)Enum.Parse( typeof( Provider ), _name );
                         DataTypes = GetDataTypes( Provider );
                         PopulateDataTypeComboBoxItems( );
                         PopulateTableComboBoxItems( );
