@@ -50,7 +50,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
@@ -59,7 +58,6 @@ namespace BudgetExecution
     using static System.Configuration.ConfigurationManager;
     using static System.IO.File;
     using Image = System.Drawing.Image;
-    using Timer = System.Windows.Forms.Timer;
 
     /// <inheritdoc/>
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
@@ -144,7 +142,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
@@ -171,23 +169,7 @@ namespace BudgetExecution
 
             // Default Provider
             Provider = Provider.Access;
-
-            // Control Event Wiring
-            TabControl.SelectedIndexChanged += OnActiveTabChanged;
-            QueryListBox.SelectedValueChanged += OnQueryListBoxItemSelected;
-            RefreshButton.Click += OnRefreshButtonClick;
-            SaveButton.Click += OnSaveButtonClick;
-            GoButton.Click += OnGoButtonClick;
-            CloseButton.Click += OnCloseButtonClick;
-            EditSqlButton.Click += OnEditSqlButtonClick;
-            EditDataButton.Click += OnEditDataButtonClick;
-            TableButton.Click += OnTableButtonClick;
-            LookupButton.Click += OnLookupButtonClick;
-            HomeButton.Click += OnMainMenuButtonClicked;
-            ClientButton.Click += OnClientButtonClick;
-            TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
-            ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
-            CommandComboBox.SelectedIndexChanged += OnCommandComboBoxItemSelected;
+            InitCallbacks( );
 
             //Default Provider
             Provider = Provider.Access;
@@ -249,11 +231,12 @@ namespace BudgetExecution
                 TableListBox.SelectedItem = string.Empty;
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Select( dr => dr.Field<string>( "TableName" ) )
+                var _names = _data
+                    ?.Select( dr => dr.Field<string>( "TableName" ) )
                     ?.Distinct( )
                     ?.ToList( );
 
-                for( var _i = 0; _i < ( _names?.Count - 1 ); _i++ )
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var _name = _names[ _i ];
                     TableListBox.Items?.Add( _name );
@@ -304,11 +287,10 @@ namespace BudgetExecution
                 TableNameComboBox.SelectedItem = string.Empty;
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Select( dr => dr.Field<string>( "TableName" ) )
-                    ?.Distinct( )
+                var _names = _data?.Select( dr => dr.Field<string>( "TableName" ) )?.Distinct( )
                     ?.ToList( );
 
-                for( var _i = 0; _i < ( _names?.Count - 1 ); _i++ )
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var _name = _names[ _i ];
                     TableNameComboBox.Items.Add( _name );
@@ -385,9 +367,7 @@ namespace BudgetExecution
                 Editor.WordWrap = true;
                 Editor.WordWrapColumn = 100;
                 Editor.Dock = DockStyle.None;
-                Editor.Anchor = AnchorStyles.Top
-                    | AnchorStyles.Bottom
-                    | AnchorStyles.Left
+                Editor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left
                     | AnchorStyles.Right;
             }
             catch( Exception _ex )
@@ -397,7 +377,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Initializes the Title. </summary>
-        private void InitializeTitle( )
+        private void InitLabels( )
         {
             try
             {
@@ -411,7 +391,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Initializes the PictureBox. </summary>
-        private void InitializePictureBox( )
+        private void InitPictureBox( )
         {
             try
             {
@@ -425,7 +405,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the tool strip properties. </summary>
-        private void InitializeToolStrip( )
+        private void InitToolStrip( )
         {
             try
             {
@@ -454,45 +434,66 @@ namespace BudgetExecution
                 switch( Provider )
                 {
                     case Provider.SQLite:
-
                     {
                         ClientButton.Visible = true;
                         ClientSeparator.Visible = true;
                         break;
                     }
-
                     case Provider.Access:
-
                     {
                         ClientButton.Visible = true;
                         ClientSeparator.Visible = true;
                         break;
                     }
-
                     case Provider.SqlServer:
-
                     {
                         ClientButton.Visible = false;
                         ClientSeparator.Visible = false;
                         break;
                     }
-
                     case Provider.SqlCe:
-
                     {
                         ClientButton.Visible = true;
                         ClientSeparator.Visible = true;
                         break;
                     }
-
                     default:
-
                     {
                         ClientButton.Visible = true;
                         ClientSeparator.Visible = true;
                         break;
                     }
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitCallbacks( )
+        {
+            // Control Event Wiring
+            try
+            {
+                TabControl.SelectedIndexChanged += OnActiveTabChanged;
+                QueryListBox.SelectedValueChanged += OnQueryListBoxItemSelected;
+                RefreshButton.Click += OnRefreshButtonClick;
+                SaveButton.Click += OnSaveButtonClick;
+                GoButton.Click += OnGoButtonClick;
+                CloseButton.Click += OnCloseButtonClick;
+                EditSqlButton.Click += OnEditSqlButtonClick;
+                EditDataButton.Click += OnEditDataButtonClick;
+                TableButton.Click += OnTableButtonClick;
+                LookupButton.Click += OnLookupButtonClick;
+                HomeButton.Click += OnMainMenuButtonClicked;
+                ClientButton.Click += OnClientButtonClick;
+                TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
+                ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
+                CommandComboBox.SelectedIndexChanged += OnCommandComboBoxItemSelected;
             }
             catch( Exception _ex )
             {
@@ -620,7 +621,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _provider = (Provider) Enum.Parse( typeof( Provider ), provider );
+                var _provider = (Provider)Enum.Parse( typeof( Provider ), provider );
                 if( Enum.IsDefined( typeof( Provider ), _provider ) )
                 {
                     Provider = _provider switch
@@ -667,7 +668,6 @@ namespace BudgetExecution
             switch( TabControl.SelectedIndex )
             {
                 case 0:
-
                 {
                     SqlTab.TabVisible = true;
                     DataTab.TabVisible = false;
@@ -679,9 +679,7 @@ namespace BudgetExecution
                     PopulateSqlComboBox( Commands );
                     break;
                 }
-
                 case 1:
-
                 {
                     DataTab.TabVisible = true;
                     LookupTab.TabVisible = false;
@@ -695,9 +693,7 @@ namespace BudgetExecution
                     PopulateSqlComboBox( Commands );
                     break;
                 }
-
                 case 2:
-
                 {
                     DataTab.TabVisible = false;
                     LookupTab.TabVisible = true;
@@ -710,9 +706,7 @@ namespace BudgetExecution
                     ValueListBox.SelectedValue = string.Empty;
                     break;
                 }
-
                 case 3:
-
                 {
                     SchemaTab.TabVisible = true;
                     DataTab.TabVisible = false;
@@ -814,7 +808,7 @@ namespace BudgetExecution
         /// <param name="numerics"> The numerics. </param>
         /// <param name="where"> The where. </param>
         private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
-                               IDictionary<string, object> where )
+            IDictionary<string, object> where )
         {
             try
             {
@@ -861,7 +855,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <returns> </returns>
         private string CreateSqlText( IEnumerable<string> columns,
-                                      IDictionary<string, object> where )
+            IDictionary<string, object> where )
         {
             try
             {
@@ -875,8 +869,7 @@ namespace BudgetExecution
 
                 var _criteria = where.ToCriteria( );
                 var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_names} FROM {SelectedTable} "
-                    + $"WHERE {_criteria} "
+                return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
                     + $"GROUP BY {_names} ;";
             }
             catch( Exception _ex )
@@ -892,7 +885,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <returns> </returns>
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
-                                      IDictionary<string, object> where )
+            IDictionary<string, object> where )
         {
             try
             {
@@ -914,8 +907,7 @@ namespace BudgetExecution
                 var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                 var _criteria = where.ToCriteria( );
                 var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_columns} FROM {Source} "
-                    + $"WHERE {_criteria} "
+                return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
                     + $"GROUP BY {_groups};";
             }
             catch( Exception _ex )
@@ -1151,7 +1143,7 @@ namespace BudgetExecution
             {
                 if( Owner?.Visible == false )
                 {
-                    var _form = (MainForm) Program.Windows[ "MainForm" ];
+                    var _form = (MainForm)Program.Windows[ "MainForm" ];
                     _form.Refresh( );
                     _form.Visible = true;
                 }
@@ -1242,21 +1234,16 @@ namespace BudgetExecution
                 switch( Provider )
                 {
                     case Provider.Access:
-
                     {
                         Minion.RunAccess( );
                         break;
                     }
-
                     case Provider.SqlCe:
-
                     {
                         Minion.RunSqlCe( );
                         break;
                     }
-
                     case Provider.SQLite:
-
                     {
                         Minion.RunSQLite( );
                         break;
@@ -1281,10 +1268,10 @@ namespace BudgetExecution
             try
             {
                 InitializeEditor( );
-                InitializeToolStrip( );
+                InitToolStrip( );
                 InitializeButtons( );
-                InitializeTitle( );
-                InitializePictureBox( );
+                InitLabels( );
+                InitPictureBox( );
                 SetImage( );
                 TabPages = GetTabPages( );
                 Panels = GetPanels( );
@@ -1347,8 +1334,7 @@ namespace BudgetExecution
                     if( _selection?.Contains( " " ) == true )
                     {
                         SelectedCommand = _selection.Replace( " ", "" );
-                        var _path = _prefix
-                            + _dbpath
+                        var _path = _prefix + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}";
 
                         var _files = Directory.GetFiles( _path );
@@ -1362,8 +1348,7 @@ namespace BudgetExecution
                     else
                     {
                         SelectedCommand = _comboBox.SelectedItem?.ToString( );
-                        var _path = _prefix
-                            + _dbpath
+                        var _path = _prefix + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}";
 
                         var _names = Directory.GetFiles( _path );
@@ -1400,13 +1385,12 @@ namespace BudgetExecution
                     var _dbpath = AppSettings[ "DatabaseDirectory" ];
                     Editor.Text = string.Empty;
                     SelectedQuery = _listBox.SelectedItem?.ToString( );
-                    if( ( SelectedQuery?.Contains( " " ) == true )
-                       || ( SelectedCommand?.Contains( " " ) == true ) )
+                    if( SelectedQuery?.Contains( " " ) == true
+                       || SelectedCommand?.Contains( " " ) == true )
                     {
                         var _command = SelectedCommand?.Replace( " ", "" );
                         var _query = SelectedQuery?.Replace( " ", "" );
-                        var _filePath = _prefix
-                            + _dbpath
+                        var _filePath = _prefix + _dbpath
                             + @$"\{Provider}\DataModels\{_command}\{_query}.sql";
 
                         using var _stream = OpenRead( _filePath );
@@ -1416,8 +1400,7 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        var _path = _prefix
-                            + _dbpath
+                        var _path = _prefix + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}\{SelectedQuery}.sql";
 
                         using var _stream = OpenRead( _path );
@@ -1680,7 +1663,7 @@ namespace BudgetExecution
                 var _value = _listBox?.SelectedItem.ToString( );
                 if( !string.IsNullOrEmpty( _value ) )
                 {
-                    var _source = (Source) Enum.Parse( typeof( Source ), _value );
+                    var _source = (Source)Enum.Parse( typeof( Source ), _value );
                     DataModel = new DataBuilder( _source, Provider.Access );
                     BindingSource.DataSource = DataModel.DataTable;
                     var _columns = DataModel.DataColumns;

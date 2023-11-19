@@ -73,6 +73,11 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class ExcelDataForm : MetroForm
     {
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private System.Action _statusUpdate;
+
         /// <summary> Gets or sets the time. </summary>
         /// <value> The time. </value>
         public int Time { get; set; }
@@ -168,7 +173,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
@@ -197,15 +202,7 @@ namespace BudgetExecution
 
             // Default Provider
             Provider = Provider.Access;
-
-            // Event Wiring
-            Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
-            Header.MouseClick += OnRightClick;
-            FiltersButton.Click += OnRemoveFilterButtonClick;
-            LookupButton.Click += OnLookupButtonClicked;
-            CloseButton.Click += OnCloseButtonClick;
-            UploadButton.Click += OnUploadButtonClick;
-            MenuButton.Click += OnMainMenuButtonClicked;
+            InitializeCallbacks( );
             Load += OnLoad;
         }
 
@@ -302,28 +299,124 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnLoad( object sender, EventArgs e )
+        /// <summary> Gets the controls. </summary>
+        /// <returns> </returns>
+        private protected IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    foreach( Control _control in _collection )
+                    {
+                        _list.Add( _control );
+                        _queue.Enqueue( _control.Controls );
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( IEnumerable<Control> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<Control> );
+            }
+        }
+        
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            // Event Wiring
+            try
+            {
+                Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
+                Header.MouseClick += OnRightClick;
+                FiltersButton.Click += OnRemoveFilterButtonClick;
+                LookupButton.Click += OnLookupButtonClicked;
+                CloseButton.Click += OnCloseButtonClick;
+                UploadButton.Click += OnUploadButtonClick;
+                MenuButton.Click += OnMainMenuButtonClicked;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Sets the tool strip properties. </summary>
+        private void InitializeToolStrip( )
         {
             try
             {
-                DataArgs = new DataArgs( );
+                ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ShowCaption = true;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
+                ToolStripTextBox.Size = new Size( 190, 28 );
+                ToolStripTextBox.Font = new Font( "Roboto", 8 );
+                ToolStripTextBox.ForeColor = Color.White;
+                ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
+                ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Initializes the icon. </summary>
+        private void InitializeIcon( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 40, 18 );
+                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Initializes the title. </summary>
+        private void InitializeTitle( )
+        {
+            try
+            {
                 Header.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Header.Font = new Font( "Roboto", 11 );
                 Header.TextAlign = ContentAlignment.TopLeft;
-                Ribbon.Spreadsheet = Spreadsheet;
-                FiltersButton.Visible = false;
-                FilterSeparator.Visible = false;
-                InitToolStrip( );
-                InitTitle( );
-                InitIcon( );
-                FadeIn( );
             }
             catch( Exception _ex )
             {
@@ -331,62 +424,20 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [cell enter]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
-        public void OnCellEnter( object sender, CurrentCellActivatedEventArgs e )
+        /// <summary> Sets the table properties. </summary>
+        private void InitializeTable( )
         {
             try
             {
-                if( !string.IsNullOrEmpty( Spreadsheet.CurrentCellValue )
-                   && ( e.ActivationTrigger == ActivationTrigger.Mouse ) )
-                {
-                    var _value = Spreadsheet.CurrentCellRange.DisplayText;
-                    if( !string.IsNullOrEmpty( _value )
-                       && ( _value.Length > 25 ) )
-                    {
-                        var _editDialog = new TextDialog( _value );
-                        _editDialog.ShowDialog( );
-                        Spreadsheet.ActiveGrid.SetCellValue( Spreadsheet.CurrentCellRange,
-                            _editDialog.Editor.Text );
-                    }
-                    else if( !string.IsNullOrEmpty( _value )
-                            && ( _value.Length >= 6 )
-                            && ( _value.Length <= 9 )
-                            && ( _value.Substring( 0, 3 ) == "000" ) )
-                    {
-                        var _code = _value.Substring( 4, 2 );
-                        var _dialog = new ProgramProjectDialog( _code );
-                        _dialog.ShowDialog( );
-                    }
-                    else if( decimal.TryParse( _value, out var _decimal ) )
-                    {
-                        var _double = Convert.ToDouble( _decimal );
-                        var _calculator = new CalculationForm( _double );
-                        _calculator.ShowDialog( );
-                        Spreadsheet.ActiveGrid.SetCellValue( Spreadsheet.CurrentCellRange,
-                            _calculator.Calculator.Value.ToString( ) );
-                    }
-                    else if( double.TryParse( _value, out var _double ) )
-                    {
-                        var _calculator = new CalculationForm( _double );
-                        _calculator.ShowDialog( );
-                        Spreadsheet.ActiveGrid.SetCellValue( Spreadsheet.CurrentCellRange,
-                            _calculator.Calculator.Value.ToString( ) );
-                    }
-                    else if( DateTime.TryParse( _value, out var _dateTime ) )
-                    {
-                        var _form = new CalendarDialog( _dateTime );
-                        _form.ShowDialog( );
-                        Spreadsheet.ActiveGrid.SetCellValue( Spreadsheet.CurrentCellRange,
-                            _form.Calendar.SelectedDate.ToString( ) );
-                    }
-                }
+                Spreadsheet?.SetActiveSheet( "Sheet1" );
+                Spreadsheet?.RenameSheet( "Sheet1", "Data" );
+                Spreadsheet?.SetZoomFactor( "Data", 100 );
+                Spreadsheet?.SetGridLinesVisibility( false );
+                var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
+                ToolStripTextBox.Text = $"  Rows: {_activeSheet.Rows.Length} "
+                    + $"Columns: {_activeSheet.Columns.Length}";
+
+                Spreadsheet?.ActiveGrid?.InvalidateCells( );
             }
             catch( Exception _ex )
             {
@@ -394,20 +445,35 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [right click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="MouseEventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnRightClick( object sender, MouseEventArgs e )
+        /// <summary> Sets the table properties. </summary>
+        /// <param name="table"> The table. </param>
+        private void InitializeTable( DataTable table )
         {
-            if( e.Button == MouseButtons.Right )
+            if( table?.Rows?.Count > 0 )
             {
                 try
                 {
-                    ContextMenu.Show( this, e.Location );
+                    Spreadsheet?.SetActiveSheet( "Sheet1" );
+                    Spreadsheet?.RenameSheet( "Sheet1", "Data" );
+                    Spreadsheet?.SetZoomFactor( "Data", 100 );
+                    Spreadsheet?.ActiveSheet?.ImportDataTable( table, true, 1, 1 );
+                    Spreadsheet?.SetGridLinesVisibility( false );
+                    var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
+                    var _usedRange = _activeSheet?.UsedRange;
+                    var _table = _activeSheet?.ListObjects?.Create( table.TableName, _usedRange );
+                    _usedRange.CellStyle.Font.FontName = "Roboto";
+                    _usedRange.CellStyle.Font.Size = 10;
+                    _usedRange.CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+                    _usedRange.CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
+                    var _topRow = _activeSheet?.Range[ 1, 1, 1, 60 ];
+                    RowCount = DataTable.Rows.Count;
+                    ColCount = DataTable.Columns.Count;
+                    ToolStripTextBox.Text = $"  Rows: {RowCount}  Columns: {ColCount}";
+                    _topRow?.FreezePanes( );
+                    _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
+                    var _title = table?.TableName.SplitPascal( );
+                    Spreadsheet?.ActiveGrid?.InvalidateCells( );
+                    Header.Text = $"{_title} Data Table";
                 }
                 catch( Exception _ex )
                 {
@@ -416,65 +482,19 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [lookup button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnLookupButtonClicked( object sender, EventArgs e )
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( System.Action action )
         {
-            try
+            if( InvokeRequired )
             {
-                ShowTableDialog( );
+                BeginInvoke( action );
             }
-            catch( Exception _ex )
+            else
             {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [remove filter button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnRemoveFilterButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                ShowFilterDialog( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [upload button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnUploadButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                if( sender is ToolStripButton _button
-                   && ( _button.ToolType == ToolType.UploadButton ) )
-                {
-                    var _dialog = new LoadingForm( Status.Waiting );
-                    _dialog.ShowDialog( this );
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
+                action.Invoke( );
             }
         }
 
@@ -562,120 +582,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the tool strip properties. </summary>
-        private void InitToolStrip( )
-        {
-            try
-            {
-                ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
-                ToolStrip.Visible = true;
-                ToolStrip.Text = string.Empty;
-                ToolStrip.Office12Mode = true;
-                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
-                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
-                ToolStrip.LauncherStyle = LauncherStyle.Office12;
-                ToolStrip.ShowCaption = true;
-                ToolStrip.ImageSize = new Size( 16, 16 );
-                ToolStrip.ImageScalingSize = new Size( 16, 16 );
-                ToolStripTextBox.Size = new Size( 190, 28 );
-                ToolStripTextBox.Font = new Font( "Roboto", 8 );
-                ToolStripTextBox.ForeColor = Color.White;
-                ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-                ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Initializes the icon. </summary>
-        private void InitIcon( )
-        {
-            try
-            {
-                PictureBox.Size = new Size( 40, 18 );
-                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Initializes the title. </summary>
-        private void InitTitle( )
-        {
-            try
-            {
-                Header.ForeColor = Color.FromArgb( 106, 189, 252 );
-                Header.Font = new Font( "Roboto", 11 );
-                Header.TextAlign = ContentAlignment.TopLeft;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Sets the table properties. </summary>
-        private void InitTable( )
-        {
-            try
-            {
-                Spreadsheet?.SetActiveSheet( "Sheet1" );
-                Spreadsheet?.RenameSheet( "Sheet1", "Data" );
-                Spreadsheet?.SetZoomFactor( "Data", 100 );
-                Spreadsheet?.SetGridLinesVisibility( false );
-                var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
-                ToolStripTextBox.Text = $"  Rows: {_activeSheet.Rows.Length} "
-                    + $"Columns: {_activeSheet.Columns.Length}";
-
-                Spreadsheet?.ActiveGrid?.InvalidateCells( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Sets the table properties. </summary>
-        /// <param name="table"> The table. </param>
-        private void InitTable( DataTable table )
-        {
-            if( table?.Rows?.Count > 0 )
-            {
-                try
-                {
-                    Spreadsheet?.SetActiveSheet( "Sheet1" );
-                    Spreadsheet?.RenameSheet( "Sheet1", "Data" );
-                    Spreadsheet?.SetZoomFactor( "Data", 100 );
-                    Spreadsheet?.ActiveSheet?.ImportDataTable( table, true, 1, 1 );
-                    Spreadsheet?.SetGridLinesVisibility( false );
-                    var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
-                    var _usedRange = _activeSheet?.UsedRange;
-                    var _table = _activeSheet?.ListObjects?.Create( table.TableName, _usedRange );
-                    _usedRange.CellStyle.Font.FontName = "Roboto";
-                    _usedRange.CellStyle.Font.Size = 10;
-                    _usedRange.CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
-                    _usedRange.CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
-                    var _topRow = _activeSheet?.Range[ 1, 1, 1, 60 ];
-                    RowCount = DataTable.Rows.Count;
-                    ColCount = DataTable.Columns.Count;
-                    ToolStripTextBox.Text = $"  Rows: {RowCount}  Columns: {ColCount}";
-                    _topRow?.FreezePanes( );
-                    _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
-                    var _title = table?.TableName.SplitPascal( );
-                    Spreadsheet?.ActiveGrid?.InvalidateCells( );
-                    Header.Text = $"{_title} Data Table";
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
         /// <summary> Sets the worksheet properties. </summary>
         private void SetWorksheetConfiguration( )
         {
@@ -703,11 +609,11 @@ namespace BudgetExecution
             {
                 if( DataTable != null )
                 {
-                    InitTable( DataTable );
+                    InitializeTable( DataTable );
                 }
                 else
                 {
-                    InitTable( );
+                    InitializeTable( );
                 }
             }
             catch( Exception _ex )
@@ -761,9 +667,9 @@ namespace BudgetExecution
                 Spreadsheet.ForeColor = Color.Black;
                 Spreadsheet.AllowZooming = true;
                 Spreadsheet.AllowFiltering = true;
-                var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
-                RowCount = _activeSheet.Rows.Length;
-                ColCount = _activeSheet.Columns.Length;
+                var _sheet = Spreadsheet?.Workbook?.ActiveSheet;
+                RowCount = _sheet.Rows.Length;
+                ColCount = _sheet.Columns.Length;
                 Spreadsheet.DefaultColumnCount = ColCount;
                 Spreadsheet.DefaultRowCount = RowCount;
             }
@@ -935,7 +841,7 @@ namespace BudgetExecution
             {
                 if( Owner?.Visible == false )
                 {
-                    var _form = (MainForm) Program.Windows[ "MainForm" ];
+                    var _form = (MainForm)Program.Windows[ "MainForm" ];
                     _form.Refresh( );
                     _form.Visible = true;
                 }
@@ -943,6 +849,182 @@ namespace BudgetExecution
                 {
                     var _mainForm = new MainForm( );
                     _mainForm.Show( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+        
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                DataArgs = new DataArgs( );
+                Header.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Header.Font = new Font( "Roboto", 11 );
+                Header.TextAlign = ContentAlignment.TopLeft;
+                Ribbon.Spreadsheet = Spreadsheet;
+                FiltersButton.Visible = false;
+                FilterSeparator.Visible = false;
+                InitializeToolStrip( );
+                InitializeTitle( );
+                InitializeIcon( );
+                FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Called when [cell enter]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+        public void OnCellEnter( object sender, CurrentCellActivatedEventArgs e )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( Spreadsheet.CurrentCellValue )
+                   && ( e.ActivationTrigger == ActivationTrigger.Mouse ) )
+                {
+                    var _value = Spreadsheet.CurrentCellRange.DisplayText;
+                    if( !string.IsNullOrEmpty( _value )
+                       && ( _value.Length > 25 ) )
+                    {
+                        var _editDialog = new TextDialog( _value );
+                        _editDialog.ShowDialog( );
+                        Spreadsheet.ActiveGrid.SetCellValue( Spreadsheet.CurrentCellRange,
+                            _editDialog.Editor.Text );
+                    }
+                    else if( !string.IsNullOrEmpty( _value )
+                            && ( _value.Length >= 6 )
+                            && ( _value.Length <= 9 )
+                            && ( _value.Substring( 0, 3 ) == "000" ) )
+                    {
+                        var _code = _value.Substring( 4, 2 );
+                        var _dialog = new ProgramProjectDialog( _code );
+                        _dialog.ShowDialog( );
+                    }
+                    else if( decimal.TryParse( _value, out var _decimal ) )
+                    {
+                        var _double = Convert.ToDouble( _decimal );
+                        var _calculator = new CalculationForm( _double );
+                        _calculator.ShowDialog( );
+                        Spreadsheet.ActiveGrid.SetCellValue( Spreadsheet.CurrentCellRange,
+                            _calculator.Calculator.Value.ToString( ) );
+                    }
+                    else if( double.TryParse( _value, out var _double ) )
+                    {
+                        var _calculator = new CalculationForm( _double );
+                        _calculator.ShowDialog( );
+                        Spreadsheet.ActiveGrid.SetCellValue( Spreadsheet.CurrentCellRange,
+                            _calculator.Calculator.Value.ToString( ) );
+                    }
+                    else if( DateTime.TryParse( _value, out var _dateTime ) )
+                    {
+                        var _form = new CalendarDialog( _dateTime );
+                        _form.ShowDialog( );
+                        Spreadsheet.ActiveGrid.SetCellValue( Spreadsheet.CurrentCellRange,
+                            _form.Calendar.SelectedDate.ToString( ) );
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Called when [right click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="MouseEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    ContextMenu.Show( this, e.Location );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary> Called when [lookup button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnLookupButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                ShowTableDialog( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Called when [remove filter button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnRemoveFilterButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                ShowFilterDialog( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Called when [upload button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnUploadButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && ( _button.ToolType == ToolType.UploadButton ) )
+                {
+                    var _dialog = new LoadingForm( Status.Waiting );
+                    _dialog.ShowDialog( this );
                 }
             }
             catch( Exception _ex )
@@ -1049,34 +1131,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the controls. </summary>
-        /// <returns> </returns>
-        private protected IEnumerable<Control> GetControls( )
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
         {
-            var _list = new List<Control>( );
-            var _queue = new Queue( );
-            try
-            {
-                _queue.Enqueue( Controls );
-                while( _queue.Count > 0 )
-                {
-                    var _collection = (Control.ControlCollection) _queue.Dequeue( );
-                    foreach( Control _control in _collection )
-                    {
-                        _list.Add( _control );
-                        _queue.Enqueue( _control.Controls );
-                    }
-                }
-
-                return _list?.Any( ) == true
-                    ? _list.ToArray( )
-                    : default( IEnumerable<Control> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IEnumerable<Control> );
-            }
+            InvokeIf( _statusUpdate );
         }
 
         /// <summary> Fails the specified ex. </summary>

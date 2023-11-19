@@ -41,17 +41,17 @@
 //  </summary>
 //  ******************************************************************************************
 
+using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
+using System.Windows.Forms;
+using Syncfusion.Windows.Forms;
+
 namespace BudgetExecution
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
-    using System.Threading;
-    using System.Windows.Forms;
-    using Syncfusion.Windows.Forms;
-    using static System.Windows.Forms.Screen;
+    using static Screen;
     using static FormAnimator;
-    using Timer = System.Windows.Forms.Timer;
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
@@ -79,9 +79,7 @@ namespace BudgetExecution
         /// </value>
         public bool AllowFocus { get; set; }
 
-        /// <summary>
-        /// Gets a value indicating whether [shown without activation].
-        /// </summary>
+        /// <summary> Gets a value indicating whether [shown without activation]. </summary>
         /// <value>
         /// <c> true </c>
         /// if [shown without activation]; otherwise,
@@ -118,12 +116,12 @@ namespace BudgetExecution
             Padding = new Padding( 0 );
             Panel.BackColor = Color.FromArgb( 0, 73, 112 );
             Panel.BorderColor = Color.FromArgb( 0, 73, 112 );
-            Title.ForeColor = Color.White;
+            Title.ForeColor = Color.FromArgb( 106, 189, 252 );
             BorderColor = Color.FromArgb( 0, 73, 112 );
             BackColor = Color.FromArgb( 0, 73, 112 );
             CaptionBarColor = Color.FromArgb( 0, 73, 112 );
             Message.BackColor = Color.FromArgb( 0, 73, 112 );
-            Message.ForeColor = Color.White;
+            Message.ForeColor = Color.FromArgb( 106, 189, 252 );
 
             // Event Wiring
             Resize += OnResized;
@@ -140,8 +138,8 @@ namespace BudgetExecution
         /// <param name="animation"> The animation. </param>
         /// <param name="direction"> The direction. </param>
         public Notification( string body, int duration = 5,
-                             AnimationMethod animation = AnimationMethod.Fade,
-                             AnimationDirection direction = AnimationDirection.Up )
+            AnimationMethod animation = AnimationMethod.Fade,
+            AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
             Load += OnLoad;
@@ -151,9 +149,7 @@ namespace BudgetExecution
             Title.Text = "Notification";
             Message.Text = body;
             Click += ( s, e ) => Close( );
-
             Message.Click += ( s, e ) => Close( );
-
             Title.Click += ( s, e ) => Close( );
         }
 
@@ -169,8 +165,8 @@ namespace BudgetExecution
         /// <param name="animation"> The animation. </param>
         /// <param name="direction"> The direction. </param>
         public Notification( string title, string body, int duration = 5,
-                             AnimationMethod animation = AnimationMethod.Fade,
-                             AnimationDirection direction = AnimationDirection.Up )
+            AnimationMethod animation = AnimationMethod.Fade,
+            AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
             Load += OnLoad;
@@ -180,9 +176,7 @@ namespace BudgetExecution
             Title.Text = title;
             Message.Text = body;
             Click += ( s, e ) => Close( );
-
             Message.Click += ( s, e ) => Close( );
-
             Title.Click += ( s, e ) => Close( );
         }
 
@@ -208,43 +202,6 @@ namespace BudgetExecution
                 }
 
                 base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Notifications the close. </summary>
-        public void OnClose( )
-        {
-            try
-            {
-                FadeOut( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-                Location = new Point( PrimaryScreen.WorkingArea.Width - Width - 5,
-                    PrimaryScreen.WorkingArea.Height - Height - 5 );
-
-                FadeIn( );
-                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -296,6 +253,43 @@ namespace BudgetExecution
                 };
 
                 _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Notifications the close. </summary>
+        public void OnClose( )
+        {
+            try
+            {
+                FadeOut( );
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                Location = new Point( PrimaryScreen.WorkingArea.Width - Width - 5,
+                    PrimaryScreen.WorkingArea.Height - Height - 5 );
+
+                FadeIn( );
+                Timer.Start( );
             }
             catch( Exception _ex )
             {

@@ -41,18 +41,17 @@
 //  </summary>
 //  ******************************************************************************************
 
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
-using Syncfusion.Windows.Forms;
-
 namespace BudgetExecution
 {
     using System;
     using static FormAnimator;
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
+    using System.Linq;
+    using System.Windows.Forms;
+    using Syncfusion.Windows.Forms;
 
     /// <summary>
     /// 
@@ -65,6 +64,46 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class SplashMessage : MetroForm
     {
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
+        public int Time { get; set; }
+
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
+        public int Seconds { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether [allow focus].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [allow focus]; otherwise, <c>false</c>.
+        /// </value>
+        public bool AllowFocus { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether [shown without activation].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [shown without activation]; otherwise, <c>false</c>.
+        /// </value>
+        public bool ShownWithoutActivation { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets the lines.
+        /// </summary>
+        /// <value>
+        /// The lines.
+        /// </value>
+        public List<string> Lines { get; set; }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -98,7 +137,7 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterScreen;
             SizeGripStyle = SizeGripStyle.Hide;
             Padding = new Padding( 0 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
 
             // Wire Events
@@ -152,46 +191,6 @@ namespace BudgetExecution
             Timer.Interval = duration * 1000;
             Title.Text = "Notification";
         }
-
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time { get; set; }
-
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether [allow focus].
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if [allow focus]; otherwise, <c>false</c>.
-        /// </value>
-        public bool AllowFocus { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether [shown without activation].
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if [shown without activation]; otherwise, <c>false</c>.
-        /// </value>
-        public bool ShownWithoutActivation { get; set; } = true;
-
-        /// <summary>
-        /// Gets or sets the lines.
-        /// </summary>
-        /// <value>
-        /// The lines.
-        /// </value>
-        public List<string> Lines { get; set; }
 
         /// <summary>
         /// Displays the control to the user.
@@ -272,7 +271,8 @@ namespace BudgetExecution
         /// Called when [click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Left
@@ -293,7 +293,8 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -317,7 +318,7 @@ namespace BudgetExecution
         {
             try
             {
-                Title.ForeColor = Color.White;
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Title.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )
@@ -352,7 +353,7 @@ namespace BudgetExecution
             {
                 Message.BackColor = Color.FromArgb( 0, 73, 112 );
                 Message.Font = new Font( "Roboto", 11 );
-                Message.ForeColor = Color.White;
+                Message.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Message.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )

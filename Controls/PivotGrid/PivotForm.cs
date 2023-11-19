@@ -64,6 +64,11 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
     public partial class PivotForm : MetroForm
     {
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private System.Action _statusUpdate;
+
         /// <summary> Gets or sets the time. </summary>
         /// <value> The time. </value>
         public int Time { get; set; }
@@ -163,7 +168,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
@@ -182,24 +187,14 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             ControlBox = false;
+            Text = string.Empty;
 
             // Timer Properties
             Time = 0;
             Seconds = 5;
 
-            // Event Wiring
-            TabControl.SelectedIndexChanged += OnActiveTabChanged;
-            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
-            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
-            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
-            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
-            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
-            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
-            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
-            FirstCalendar.SelectionChanged += OnStartDateSelected;
-            SecondCalendar.SelectionChanged += OnEndDateSelected;
+            // Wire Events
+            Load += OnLoad;
         }
 
         /// <summary> Displays the control to the user. </summary>
@@ -231,7 +226,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the tool strip properties. </summary>
-        private void InitToolStrip( )
+        private void InitializeToolStrip( )
         {
             try
             {
@@ -251,7 +246,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Initializes the tab control. </summary>
-        private void InitTabControl( )
+        private void InitializeTabControl( )
         {
             try
             {
@@ -267,7 +262,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Initializes the labels. </summary>
-        private void InitLabels( )
+        private void InitializeLabels( )
         {
             try
             {
@@ -278,6 +273,80 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callback.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            try
+            {
+                // Event Wiring
+                TabControl.SelectedIndexChanged += OnActiveTabChanged;
+                TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+                FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
+                FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
+                SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
+                SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
+                ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
+                ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
+                FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
+                NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
+                FirstCalendar.SelectionChanged += OnStartDateSelected;
+                SecondCalendar.SelectionChanged += OnEndDateSelected;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( System.Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
             }
         }
 
@@ -297,6 +366,39 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary> Gets the controls. </summary>
+        /// <returns> </returns>
+        private protected IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    if( _collection != null )
+                    {
+                        foreach( Control _control in _collection )
+                        {
+                            _list.Add( _control );
+                            _queue.Enqueue( _control.Controls );
+                        }
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( Control[ ] );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Control[ ] );
             }
         }
 
@@ -903,9 +1005,11 @@ namespace BudgetExecution
             try
             {
                 ClearSelections( );
-                InitToolStrip( );
-                InitLabels( );
-                InitTabControl( );
+                InitializeToolStrip( );
+                InitializeLabels( );
+                InitializeTabControl( );
+                InitializeTimers( );
+                InitializeCallbacks( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
@@ -1416,6 +1520,16 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
+        }
+
         /// <summary> Called when [end date selected]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -1443,39 +1557,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary> Gets the controls. </summary>
-        /// <returns> </returns>
-        private protected IEnumerable<Control> GetControls( )
-        {
-            var _list = new List<Control>( );
-            var _queue = new Queue( );
-            try
-            {
-                _queue.Enqueue( Controls );
-                while( _queue.Count > 0 )
-                {
-                    var _collection = (Control.ControlCollection) _queue.Dequeue( );
-                    if( _collection != null )
-                    {
-                        foreach( Control _control in _collection )
-                        {
-                            _list.Add( _control );
-                            _queue.Enqueue( _control.Controls );
-                        }
-                    }
-                }
-
-                return _list?.Any( ) == true
-                    ? _list.ToArray( )
-                    : default( Control[ ] );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( Control[ ] );
-            }
         }
     }
 }

@@ -50,7 +50,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
@@ -58,49 +57,76 @@ namespace BudgetExecution
     using static System.Configuration.ConfigurationManager;
     using CheckState = MetroSet_UI.Enums.CheckState;
 
-    /// <inheritdoc/>
-    /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.EditBase"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.EditBase" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class SqlDialog : EditBase
     {
-        /// <summary> Gets or sets the current. </summary>
-        /// <value> The current. </value>
+        /// <summary>
+        /// Gets or sets the current.
+        /// </summary>
+        /// <value>
+        /// The current.
+        /// </value>
         public DataRow Current { get; set; }
 
-        /// <summary> Gets or sets the frames. </summary>
-        /// <value> The frames. </value>
+        /// <summary>
+        /// Gets or sets the frames.
+        /// </summary>
+        /// <value>
+        /// The frames.
+        /// </value>
         public IEnumerable<Frame> Frames { get; set; }
 
-        /// <summary> Gets or sets the database directory. </summary>
-        /// <value> The database directory. </value>
+        /// <summary>
+        /// Gets or sets the database directory.
+        /// </summary>
+        /// <value>
+        /// The database directory.
+        /// </value>
         public string DatabaseDirectory { get; set; }
 
-        /// <summary> Gets or sets the selected command. </summary>
-        /// <value> The selected command. </value>
+        /// <summary>
+        /// Gets or sets the selected command.
+        /// </summary>
+        /// <value>
+        /// The selected command.
+        /// </value>
         public string SelectedCommand { get; set; }
 
-        /// <summary> Gets or sets the selected query. </summary>
-        /// <value> The selected query. </value>
+        /// <summary>
+        /// Gets or sets the selected query.
+        /// </summary>
+        /// <value>
+        /// The selected query.
+        /// </value>
         public string SelectedQuery { get; set; }
 
-        /// <summary> Gets or sets the commands. </summary>
-        /// <value> The commands. </value>
+        /// <summary>
+        /// Gets or sets the commands.
+        /// </summary>
+        /// <value>
+        /// The commands.
+        /// </value>
         public IList<string> Commands { get; set; }
 
-        /// <summary> Gets or sets the statements. </summary>
-        /// <value> The statements. </value>
+        /// <summary>
+        /// Gets or sets the statements.
+        /// </summary>
+        /// <value>
+        /// The statements.
+        /// </value>
         public IDictionary<string, object> Statements { get; set; }
 
-        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlDialog"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="SqlDialog"/> class.
         /// </summary>
+        /// <inheritdoc />
         public SqlDialog( )
         {
             InitializeComponent( );
@@ -112,7 +138,7 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.None;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             ShowMouseOver = false;
             MinimizeBox = false;
@@ -127,14 +153,12 @@ namespace BudgetExecution
             MouseClick += OnRightClick;
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SqlDialog"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlDialog" /> class.
         /// </summary>
-        /// <param name="bindingSource"> The binding source. </param>
-        /// <param name="provider"> The provider. </param>
+        /// <param name="bindingSource">The binding source.</param>
+        /// <param name="provider">The provider.</param>
         public SqlDialog( BindingSource bindingSource, Provider provider = Provider.Access )
             : this( )
         {
@@ -142,7 +166,7 @@ namespace BudgetExecution
             BindingSource = bindingSource;
             Provider = provider;
             DataTable = BindingSource.GetDataTable( );
-            Source = (Source) Enum.Parse( typeof( Source ), DataTable.TableName );
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             DataModel = new DataBuilder( Source, Provider );
             Columns = DataTable.GetColumnNames( );
             Current = BindingSource.GetCurrentDataRow( );
@@ -150,38 +174,34 @@ namespace BudgetExecution
             Statements = new Dictionary<string, object>( );
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SqlDialog"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlDialog" /> class.
         /// </summary>
-        /// <param name="tool"> Type of the tool. </param>
-        /// <param name="bindingSource"> The binding source. </param>
-        /// <param name="provider"> The provider. </param>
+        /// <param name="tool">The tool.</param>
+        /// <param name="bindingSource">The binding source.</param>
+        /// <param name="provider">The provider.</param>
         public SqlDialog( ToolType tool, BindingSource bindingSource,
-                          Provider provider = Provider.Access )
+            Provider provider = Provider.Access )
             : this( )
         {
             Tool = tool;
             BindingSource = bindingSource;
             Provider = provider;
             DataTable = BindingSource.GetDataTable( );
-            Source = (Source) Enum.Parse( typeof( Source ), DataTable.TableName );
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             DataModel = new DataBuilder( Source, Provider );
             Columns = DataTable.GetColumnNames( );
             Current = BindingSource.GetCurrentDataRow( );
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SqlDialog"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlDialog" /> class.
         /// </summary>
-        /// <param name="tool"> Type of the tool. </param>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
+        /// <param name="tool">The tool.</param>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
         public SqlDialog( ToolType tool, Source source, Provider provider = Provider.Access )
             : this( )
         {
@@ -195,7 +215,9 @@ namespace BudgetExecution
             Current = BindingSource.GetCurrentDataRow( );
         }
 
-        /// <summary> Sets the editor configuration. </summary>
+        /// <summary>
+        /// Initializes the editor.
+        /// </summary>
         private void InitializeEditor( )
         {
             try
@@ -240,9 +262,7 @@ namespace BudgetExecution
                 Editor.WordWrap = true;
                 Editor.WordWrapColumn = 100;
                 Editor.Dock = DockStyle.None;
-                Editor.Anchor = AnchorStyles.Top
-                    | AnchorStyles.Bottom
-                    | AnchorStyles.Left
+                Editor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left
                     | AnchorStyles.Right;
             }
             catch( Exception _ex )
@@ -251,7 +271,79 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Clears the selections. </summary>
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitLabels( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callback.
+        /// </summary>
+        private void InitCallbacks( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitTimers( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitButtons( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the tool strip.
+        /// </summary>
+        private void InitToolStrip( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
         private void ClearSelections( )
         {
             try
@@ -270,22 +362,23 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the provider. </summary>
-        /// <param name="provider"> The provider. </param>
+        /// <summary>
+        /// Sets the provider.
+        /// </summary>
+        /// <param name="provider">The provider.</param>
         private void SetProvider( string provider )
         {
             if( !string.IsNullOrEmpty( provider ) )
             {
                 try
                 {
-                    var _provider = (Provider) Enum.Parse( typeof( Provider ), provider );
+                    var _provider = (Provider)Enum.Parse( typeof( Provider ), provider );
                     if( Enum.IsDefined( typeof( Provider ), _provider ) )
                     {
                         Commands.Clear( );
                         switch( _provider )
                         {
                             case Provider.Access:
-
                             {
                                 Provider = Provider.Access;
                                 AccessRadioButton.CheckState = CheckState.Checked;
@@ -293,9 +386,7 @@ namespace BudgetExecution
                                 PopulateSqlComboBox( Commands );
                                 break;
                             }
-
                             case Provider.SQLite:
-
                             {
                                 Provider = Provider.SQLite;
                                 SQLiteRadioButton.CheckState = CheckState.Checked;
@@ -303,9 +394,7 @@ namespace BudgetExecution
                                 PopulateSqlComboBox( Commands );
                                 break;
                             }
-
                             case Provider.SqlCe:
-
                             {
                                 Provider = Provider.SqlCe;
                                 SqlCeRadioButton.CheckState = CheckState.Checked;
@@ -313,9 +402,7 @@ namespace BudgetExecution
                                 PopulateSqlComboBox( Commands );
                                 break;
                             }
-
                             case Provider.SqlServer:
-
                             {
                                 Provider = Provider.SqlServer;
                                 SqlServerRadioButton.CheckState = CheckState.Checked;
@@ -323,9 +410,7 @@ namespace BudgetExecution
                                 PopulateSqlComboBox( Commands );
                                 break;
                             }
-
                             default:
-
                             {
                                 Provider = Provider.Access;
                                 SetProvider( Provider.ToString( ) );
@@ -343,8 +428,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the SQL ComboBox. </summary>
-        /// <param name="list"> The list. </param>
+        /// <summary>
+        /// Populates the SQL ComboBox.
+        /// </summary>
+        /// <param name="list">The list.</param>
         private void PopulateSqlComboBox( IList<string> list )
         {
             if( list?.Any( ) == true )
@@ -394,13 +481,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -424,9 +509,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the command list. </summary>
-        /// <param name="provider"> The provider. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the command list.
+        /// </summary>
+        /// <param name="provider">The provider.</param>
+        /// <returns></returns>
         private IList<string> CreateCommandList( Provider provider )
         {
             try
@@ -461,9 +548,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the query list. </summary>
-        /// <param name="provider"> The provider. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the query list.
+        /// </summary>
+        /// <param name="provider">The provider.</param>
+        /// <returns></returns>
         private IList<string> CreateQueryList( Provider provider )
         {
             try
@@ -498,8 +587,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the query text. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the query text.
+        /// </summary>
+        /// <returns></returns>
         private string GetQueryText( )
         {
             try
@@ -513,13 +604,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [RadioButton checked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [RadioButton checked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnRadioButtonChecked( object sender, EventArgs e )
         {
             if( sender is RadioButton _button )
@@ -539,13 +628,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [ComboBox item selected]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -560,8 +647,7 @@ namespace BudgetExecution
                         SelectedCommand = _selection.Replace( " ", "" );
                         var _prefix = AppSettings[ "PathPrefix" ];
                         var _dbpath = AppSettings[ "DatabaseDirectory" ];
-                        var _path = _prefix
-                            + _dbpath
+                        var _path = _prefix + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}";
 
                         var _files = Directory.GetFiles( _path );
@@ -577,8 +663,7 @@ namespace BudgetExecution
                         SelectedCommand = _comboBox.SelectedItem?.ToString( );
                         var _prefix = AppSettings[ "PathPrefix" ];
                         var _dbpath = AppSettings[ "DatabaseDirectory" ];
-                        var _path = _prefix
-                            + _dbpath
+                        var _path = _prefix + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}";
 
                         var _names = Directory.GetFiles( _path );
@@ -597,8 +682,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [ListBox item selected]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
         private void OnListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
@@ -607,15 +694,14 @@ namespace BudgetExecution
                 {
                     Editor.Text = string.Empty;
                     SelectedQuery = _listBox.SelectedItem?.ToString( );
-                    if( ( SelectedQuery?.Contains( " " ) == true )
-                       || ( SelectedCommand?.Contains( " " ) == true ) )
+                    if( SelectedQuery?.Contains( " " ) == true
+                       || SelectedCommand?.Contains( " " ) == true )
                     {
                         var _prefix = AppSettings[ "PathPrefix" ];
                         var _dbpath = AppSettings[ "DatabaseDirectory" ];
                         var _command = SelectedCommand?.Replace( " ", "" );
                         var _query = SelectedQuery?.Replace( " ", "" );
-                        var _filePath = _prefix
-                            + _dbpath
+                        var _filePath = _prefix + _dbpath
                             + @$"\{Provider}\DataModels\{_command}\{_query}.sql";
 
                         var _stream = File.OpenRead( _filePath );
@@ -627,8 +713,7 @@ namespace BudgetExecution
                     {
                         var _prefix = AppSettings[ "PathPrefix" ];
                         var _dbpath = AppSettings[ "DatabaseDirectory" ];
-                        var _path = _prefix
-                            + _dbpath
+                        var _path = _prefix + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}\{SelectedQuery}.sql";
 
                         var _stream = File.OpenRead( _path );
@@ -644,13 +729,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [clear button click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [clear button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnClearButtonClick( object sender, EventArgs e )
         {
             try
@@ -663,13 +746,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [right click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="MouseEventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -685,13 +766,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [close button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [close button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private protected void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try

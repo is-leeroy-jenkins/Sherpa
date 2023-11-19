@@ -110,7 +110,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
@@ -310,16 +310,17 @@ namespace BudgetExecution
             {
                 if( Tiles?.Any( ) == true )
                 {
+                    var _textColor = Color.FromArgb( 106, 189, 252 );
                     foreach( var _tile in Tiles )
                     {
                         _tile.Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                        _tile.Title.TextColor = Color.DarkGray;
+                        _tile.Title.TextColor = _textColor;
                         _tile.Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                        _tile.Body.TextColor = Color.DarkGray;
+                        _tile.Body.TextColor = _textColor;
                         _tile.Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
-                        _tile.Footer.TextColor = Color.DarkGray;
+                        _tile.Footer.TextColor = _textColor;
                         _tile.Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
-                        _tile.Banner.TextColor = Color.DarkGray;
+                        _tile.Banner.TextColor = _textColor;
                         _tile.BackColor = Color.FromArgb( 40, 40, 40 );
                         _tile.TurnLiveTileOn = true;
                     }

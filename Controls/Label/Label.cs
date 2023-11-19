@@ -58,6 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class Label : MetroSetLabel
     {
         /// <summary> Gets or sets the binding source. </summary>
@@ -89,7 +90,7 @@ namespace BudgetExecution
             ThemeName = "Budget Execution";
             Size = new Size( 165, 23 );
             BackColor = Color.Transparent;
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 8 );
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
@@ -105,9 +106,10 @@ namespace BudgetExecution
             MouseHover += OnMouseOver;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Label"/>
+        /// <see cref="T:BudgetExecution.Label" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -119,9 +121,10 @@ namespace BudgetExecution
             Location = location;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Label"/>
+        /// <see cref="T:BudgetExecution.Label" />
         /// class.
         /// </summary>
         /// <param name="label"> The label. </param>
@@ -130,9 +133,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Label"/>
+        /// <see cref="T:BudgetExecution.Label" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -145,9 +149,10 @@ namespace BudgetExecution
             Parent.Controls.Add( this );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Label"/>
+        /// <see cref="T:BudgetExecution.Label" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -160,9 +165,10 @@ namespace BudgetExecution
             Text = text;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Label"/>
+        /// <see cref="T:BudgetExecution.Label" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>

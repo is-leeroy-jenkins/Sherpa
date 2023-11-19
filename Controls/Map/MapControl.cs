@@ -44,12 +44,17 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
+    using System.Linq;
+    using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Maps;
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.Maps.Maps"/>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class MapControl : Maps
     {
         /// <inheritdoc/>
@@ -63,9 +68,120 @@ namespace BudgetExecution
             // Control Properties
             Size = new Size( 400, 250 );
             BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
-            MapItemFont = new Font( "Roboto", 8 );
-            ThemeStyle.Font = new Font( "Roboto", 8 );
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitLabels( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callback.
+        /// </summary>
+        private void InitCallbacks( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitTimers( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitButtons( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the tool strip.
+        /// </summary>
+        private void InitToolStrip( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Gets the controls. </summary>
+        /// <returns> </returns>
+        private protected IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    if( _collection != null )
+                    {
+                        foreach( Control _control in _collection )
+                        {
+                            _list.Add( _control );
+                            _queue.Enqueue( _control.Controls );
+                        }
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( Control[ ] );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Control[ ] );
+            }
+        }
+
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
+        private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

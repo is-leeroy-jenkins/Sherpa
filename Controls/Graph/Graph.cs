@@ -52,8 +52,10 @@ namespace BudgetExecution
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Chart;
 
+    /// <inheritdoc />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class Graph : GraphBase
     {
         // Initializes Properties
@@ -144,6 +146,76 @@ namespace BudgetExecution
             Legend.ShowItemsShadow = true;
             Legend.ShowBorder = false;
             Legend.Visible = true;
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitLabels( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callback.
+        /// </summary>
+        private void InitCallbacks( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitTimers( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitButtons( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the tool strip.
+        /// </summary>
+        private void InitToolStrip( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary> Sets the size. </summary>

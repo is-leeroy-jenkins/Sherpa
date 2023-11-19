@@ -94,11 +94,81 @@ namespace BudgetExecution
             Margin = new Padding( 1 );
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 8, FontStyle.Regular );
-            ForeColor = Color.Black;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             DefaultColumnCount = 40;
             DefaultRowCount = 60;
             AllowZooming = true;
             AllowFiltering = true;
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitLabels( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callback.
+        /// </summary>
+        private void InitCallbacks( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitTimers( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitButtons( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the tool strip.
+        /// </summary>
+        private void InitToolStrip( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <inheritdoc/>
@@ -123,7 +193,7 @@ namespace BudgetExecution
         /// <param name="icon"> The icon. </param>
         /// <returns> </returns>
         public virtual bool DisplayMessageBox( string text, string caption,
-                                               MessageBoxButtons button, MessageBoxIcon icon )
+            MessageBoxButtons button, MessageBoxIcon icon )
         {
             return false;
         }

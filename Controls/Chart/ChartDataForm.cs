@@ -41,21 +41,21 @@
 //  </summary>
 //  ******************************************************************************************
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using Syncfusion.Windows.Forms;
+using Syncfusion.Windows.Forms.Tools;
+
 namespace BudgetExecution
 {
     using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
-    using System.Linq;
-    using System.Threading;
-    using System.Windows.Forms;
-    using System.Windows.Forms.DataVisualization.Charting;
-    using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.Tools;
-    using Timer = System.Windows.Forms.Timer;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -75,6 +75,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
     public partial class ChartDataForm : MetroForm
     {
+        /// <summary> The status update </summary>
+        private Action _statusUpdate;
+
         /// <summary> Gets or sets the time. </summary>
         /// <value> The time. </value>
         public int Time { get; set; }
@@ -206,7 +209,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
@@ -236,30 +239,6 @@ namespace BudgetExecution
             // Timer Properties
             Time = 0;
             Seconds = 5;
-
-            // Event Wiring
-            ExitButton.Click += null;
-            MenuButton.Click += null;
-            RefreshDataButton.Click += null;
-            RemoveFiltersButton.Click += null;
-            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
-            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
-            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
-            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
-            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
-            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
-            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
-            TabControl.SelectedIndexChanged += OnActiveTabChanged;
-            ExitButton.Click += OnExitButtonClicked;
-            MenuButton.Click += OnMainMenuButtonClicked;
-            GroupButton.Click += OnGroupButtonClicked;
-            RemoveFiltersButton.Click += OnRemoveFiltersButtonClicked;
-            RefreshDataButton.Click += OnRefreshDataButtonClicked;
-            ChartSeriesComboBox.SelectedIndexChanged += OnChartTypeSelected;
-            MetricsComboBox.SelectedIndexChanged += OnMetricSelected;
-            MouseClick += OnRightClick;
             Load += OnLoad;
         }
 
@@ -273,8 +252,8 @@ namespace BudgetExecution
         public ChartDataForm( BindingSource bindingSource )
             : this( )
         {
-            DataTable = (DataTable) bindingSource.DataSource;
-            Source = (Source) Enum.Parse( typeof( Source ), DataTable.TableName );
+            DataTable = (DataTable)bindingSource.DataSource;
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             SelectedTable = DataTable.TableName;
             DataModel = new DataBuilder( Source, Provider );
             BindingSource.DataSource = DataModel.DataTable;
@@ -330,6 +309,20 @@ namespace BudgetExecution
             Chart.DataSource = DataModel.DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
+        }
+
+        /// <summary> Invokes if needed. </summary>
+        /// <param name="action"> The action. </param>
+        public void InvokeIf( Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
+            }
         }
 
         /// <summary> Displays the control to the user. </summary>
@@ -528,23 +521,62 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the tool strip properties. </summary>
-        private void InitToolStrip( )
+        /// <summary> Initializes the labels. </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Initializes the timers. </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Initializes the buttons. </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Initializes the tool strip. </summary>
+        private void InitializeToolStrip( )
         {
             try
             {
                 ToolStrip.Visible = true;
                 ToolStrip.Text = string.Empty;
-                ToolStrip.Office12Mode = true;
                 ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.Office12Mode = true;
                 ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -811,8 +843,8 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( cols?.Any( ) == true ) )
+            if( where?.Any( ) == true
+               && cols?.Any( ) == true )
             {
                 try
                 {
@@ -848,11 +880,11 @@ namespace BudgetExecution
         /// <param name="numerics"> The numerics. </param>
         /// <param name="where"> The where. </param>
         private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
-                               IDictionary<string, object> where )
+            IDictionary<string, object> where )
         {
-            if( ( where?.Any( ) == true )
-               && ( numerics?.Any( ) == true )
-               && ( fields?.Any( ) == true ) )
+            if( where?.Any( ) == true
+               && numerics?.Any( ) == true
+               && fields?.Any( ) == true )
             {
                 try
                 {
@@ -888,8 +920,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( ( SelectedFields?.Any( ) == true )
-                   && ( SelectedNumerics?.Any( ) == true ) )
+                if( SelectedFields?.Any( ) == true
+                   && SelectedNumerics?.Any( ) == true )
                 {
                     if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
@@ -951,11 +983,12 @@ namespace BudgetExecution
         private string CreateSqlText( IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
-               && ( where?.Any( ) == true ) )
+               && where?.Any( ) == true )
             {
                 try
                 {
-                    return $"SELECT * FROM {SelectedTable} " + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {SelectedTable} "
+                        + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -973,12 +1006,12 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <returns> </returns>
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
-                                      IDictionary<string, object> where )
+            IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
-               && ( where?.Any( ) == true )
-               && ( fields?.Any( ) == true )
-               && ( numerics?.Any( ) == true ) )
+               && where?.Any( ) == true
+               && fields?.Any( ) == true
+               && numerics?.Any( ) == true )
             {
                 try
                 {
@@ -1016,11 +1049,11 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <returns> </returns>
         private string CreateSqlText( IEnumerable<string> columns,
-                                      IDictionary<string, object> where )
+            IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
-               && ( where?.Any( ) == true )
-               && ( columns?.Any( ) == true ) )
+               && where?.Any( ) == true
+               && columns?.Any( ) == true )
             {
                 try
                 {
@@ -1135,7 +1168,6 @@ namespace BudgetExecution
             switch( TabControl.SelectedIndex )
             {
                 case 0:
-
                 {
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
@@ -1150,9 +1182,7 @@ namespace BudgetExecution
                     PopulateExecutionTables( );
                     break;
                 }
-
                 case 1:
-
                 {
                     FilterTabPage.TabVisible = true;
                     TableTabPage.TabVisible = false;
@@ -1168,9 +1198,7 @@ namespace BudgetExecution
                     ResetFilterTableVisibility( );
                     break;
                 }
-
                 case 2:
-
                 {
                     GroupTabPage.TabVisible = true;
                     TableTabPage.TabVisible = false;
@@ -1226,7 +1254,7 @@ namespace BudgetExecution
             {
                 if( Owner?.Visible == false )
                 {
-                    var _form = (MainForm) Program.Windows[ "MainForm" ];
+                    var _form = (MainForm)Program.Windows[ "MainForm" ];
                     _form.Refresh( );
                     _form.Visible = true;
                 }
@@ -1300,7 +1328,8 @@ namespace BudgetExecution
                     var _types = Enum.GetNames( typeof( SeriesChartType ) );
                     if( _types?.Contains( type ) == true )
                     {
-                        ChartType = (SeriesChartType) Enum.Parse( typeof( SeriesChartType ), type );
+                        ChartType =
+                            (SeriesChartType)Enum.Parse( typeof( SeriesChartType ), type );
                     }
                 }
                 catch( Exception ex )
@@ -1321,7 +1350,7 @@ namespace BudgetExecution
                     var _measures = Enum.GetNames( typeof( STAT ) );
                     if( _measures?.Contains( stat ) == true )
                     {
-                        Metric = (STAT) Enum.Parse( typeof( STAT ), stat );
+                        Metric = (STAT)Enum.Parse( typeof( STAT ), stat );
                     }
                 }
                 catch( Exception ex )
@@ -1342,7 +1371,7 @@ namespace BudgetExecution
         {
             try
             {
-                InitToolStrip( );
+                InitializeToolStrip( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
@@ -1413,7 +1442,7 @@ namespace BudgetExecution
                     SelectedTable = _title?.Replace( " ", "" );
                     if( !string.IsNullOrEmpty( SelectedTable ) )
                     {
-                        Source = (Source) Enum.Parse( typeof( Source ), SelectedTable );
+                        Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                         DataModel = new DataBuilder( Source, Provider );
                         DataTable = DataModel.DataTable;
                         BindingSource.DataSource = DataModel.DataTable;
@@ -1706,8 +1735,8 @@ namespace BudgetExecution
                     NumericTable.Visible = true;
                 }
 
-                if( ( SelectedFields.Count >= 2 )
-                   && ( SelectedNumerics.Count >= 1 ) )
+                if( SelectedFields.Count >= 2
+                   && SelectedNumerics.Count >= 1 )
                 {
                     BindData( SelectedFields, SelectedNumerics, FormFilter );
                     SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
@@ -1878,7 +1907,7 @@ namespace BudgetExecution
             {
                 if( Owner?.Visible == false )
                 {
-                    var _mainForm = (MainForm) Program.Windows[ "MainForm" ];
+                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     Close( );
@@ -1915,7 +1944,7 @@ namespace BudgetExecution
                    && _names.Contains( _selection ) )
                 {
                     ChartType =
-                        (SeriesChartType) Enum.Parse( typeof( SeriesChartType ), _selection );
+                        (SeriesChartType)Enum.Parse( typeof( SeriesChartType ), _selection );
 
                     _notify.Show( );
                 }
@@ -1945,7 +1974,7 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( _selection )
                    && _names.Contains( _selection ) )
                 {
-                    Metric = (STAT) Enum.Parse( typeof( STAT ), _selection );
+                    Metric = (STAT)Enum.Parse( typeof( STAT ), _selection );
                     _notify.Show( );
                 }
             }
@@ -1966,7 +1995,7 @@ namespace BudgetExecution
                 _queue.Enqueue( Controls );
                 while( _queue.Count > 0 )
                 {
-                    var _collection = (Control.ControlCollection) _queue.Dequeue( );
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
                     if( _collection?.Count > 0 )
                     {
                         foreach( Control _control in _collection )

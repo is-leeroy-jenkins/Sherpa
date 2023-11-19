@@ -45,7 +45,9 @@ namespace BudgetExecution
 {
     using System;
     using System.Drawing;
-    using System.Threading;
+    using System.Windows.Forms;
+    using Syncfusion.Windows;
+    using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.PivotChart;
 
@@ -68,6 +70,7 @@ namespace BudgetExecution
             Skins = Skins.Office2016Black;
             ShowPivotTableFieldList = false;
             BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             ChartTypes = PivotChartTypes.Column;
         }
     }
