@@ -46,10 +46,26 @@ namespace BudgetExecution
     using System;
     using System.Drawing;
     using System.Threading;
+    using System.Diagnostics.CodeAnalysis;
     using Syncfusion.Drawing;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Forms.Tools.SplashPanel" />
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class SplashPanel : Syncfusion.Windows.Forms.Tools.SplashPanel
     {
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.SplashPanel" /> class.
+        /// </summary>
+        /// <remarks>
+        /// The default value for the <see cref="P:Syncfusion.Windows.Forms.Tools.SplashPanel.TimerInterval" /> is set to
+        /// 5000 milliseconds.
+        /// The splash panel has animation turned and by default will appear in the
+        /// middle of the screen.
+        /// </remarks>
         public SplashPanel( )
         {
             // Control Properties
@@ -58,7 +74,7 @@ namespace BudgetExecution
             BackgroundColor = new BrushInfo( GradientStyle.PathEllipse,
                 Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 70, 70, 70 ) );
 
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
         }
     }
 }

@@ -58,6 +58,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class TextBox : MetroSetTextBox
     {
         /// <summary> Gets or sets the binding source. </summary>
@@ -92,7 +94,7 @@ namespace BudgetExecution
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";
             BackColor = Color.FromArgb( 40, 40, 40 );
-            ForeColor = Color.White;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             BorderColor = Color.FromArgb( 50, 93, 129 );
             Font = new Font( "Roboto", 8 );
             HoverColor = Color.FromArgb( 0, 120, 212 );

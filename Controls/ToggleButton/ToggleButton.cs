@@ -48,14 +48,23 @@ namespace BudgetExecution
     using System.Threading;
     using Syncfusion.Windows.Forms.Tools;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Forms.Tools.ToggleButton" />
     public class ToggleButton : Syncfusion.Windows.Forms.Tools.ToggleButton
     {
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ToggleButton" /> class.
+        /// </summary>
         public ToggleButton( )
         {
             // Control Properties
             Font = new Font( "Roboto", 9 );
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Size = new Size( 60, 20 );
             VisualStyle = ToggleButtonStyle.Office2016Black;
         }

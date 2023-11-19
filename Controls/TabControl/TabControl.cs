@@ -51,8 +51,9 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Gauge;
     using Syncfusion.Windows.Forms.Tools;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Tools.TabControlAdv"/>
+    /// <seealso cref="T:Syncfusion.Windows.Forms.Tools.TabControlAdv" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class TabControl : TabControlAdv
     {
@@ -64,9 +65,10 @@ namespace BudgetExecution
         /// <value> The tool tip. </value>
         public SmallTip ToolTip { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="TabControl"/>
+        /// <see cref="T:BudgetExecution.TabControl" />
         /// class.
         /// </summary>
         public TabControl( )
@@ -75,7 +77,7 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 20, 20, 20 );
             Size = new Size( 350, 500 );
             Font = new Font( "Roboto", 9 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             BorderStyle = BorderStyle.None;
             CloseButtonBackColor = Color.FromArgb( 20, 20, 20 );
             CloseButtonForeColor = Color.FromArgb( 20, 20, 20 );
@@ -89,7 +91,7 @@ namespace BudgetExecution
             CanApplyTheme = true;
             ActiveTabColor = Color.FromArgb( 20, 20, 20 );
             ActiveTabFont = new Font( "Roboto", 8 );
-            ActiveTabForeColor = Color.DarkGray;
+            ActiveTabForeColor = Color.FromArgb( 106, 189, 252 );
             InActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
             InactiveCloseButtonForeColor = Color.FromArgb( 20, 20, 20 );
             InactiveTabColor = Color.FromArgb( 20, 20, 20 );
@@ -99,7 +101,7 @@ namespace BudgetExecution
             ThemeStyle.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
             ThemeStyle.TabStyle.ActiveBackColor = Color.FromArgb( 20, 20, 20 );
             ThemeStyle.TabStyle.ActiveFont = new Font( "Roboto", 8 );
-            ThemeStyle.TabStyle.ActiveForeColor = Color.DarkGray;
+            ThemeStyle.TabStyle.ActiveForeColor = Color.FromArgb( 106, 189, 252 );
             ThemeStyle.TabStyle.SeparatorColor = Color.FromArgb( 20, 20, 20 );
             ThemeStyle.TabStyle.ActiveBackColor = Color.FromArgb( 20, 20, 20 );
         }

@@ -14,9 +14,6 @@
     <Compile Update="Controls\Browser\FileBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Browser\FolderBrowser.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Controls\Calculator\CalculationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,6 +303,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\GridSheet\SheetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Browser\FolderBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
