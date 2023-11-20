@@ -57,22 +57,40 @@ namespace BudgetExecution
     /// <summary> </summary>
     /// <seealso cref="T:BudgetExecution.ChartBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class Chart : ChartBase
     {
-        /// <summary> Gets or sets the measure. </summary>
-        /// <value> The measure. </value>
+        /// <summary>
+        /// Gets or sets the measure.
+        /// </summary>
+        /// <value>
+        /// The measure.
+        /// </value>
         public STAT Measure { get; set; }
 
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
         public DataTable DataTable { get; set; }
 
-        /// <summary> Gets or sets the data. </summary>
-        /// <value> The data. </value>
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
         public IEnumerable<DataRow> Data { get; set; }
 
         /// <inheritdoc/>
@@ -85,7 +103,7 @@ namespace BudgetExecution
         {
             BackColor = Color.FromArgb( 20, 20, 20 );
             BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             BorderlineColor = Color.FromArgb( 20, 20, 20 );
             BorderSkin.BackColor = Color.FromArgb( 20, 20, 20 );
             BorderSkin.BackSecondaryColor = Color.FromArgb( 20, 20, 20 );

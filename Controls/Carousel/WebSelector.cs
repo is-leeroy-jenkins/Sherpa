@@ -72,8 +72,10 @@ namespace BudgetExecution
         /// </value>
         public string ImagePath { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="WebSelector"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.WebSelector" /> class.
         /// </summary>
         public WebSelector( )
         {
@@ -127,7 +129,8 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             if( !string.IsNullOrEmpty( ImagePath ) )
@@ -159,7 +162,8 @@ namespace BudgetExecution
         /// Called when [item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnItemSelected( object sender, EventArgs e )
         {
             if( sender is Selector _carousel )

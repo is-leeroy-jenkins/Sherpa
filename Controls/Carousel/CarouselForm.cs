@@ -75,10 +75,11 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 1400, 750 );
-            MaximumSize = new Size( 1400, 800 );
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
@@ -90,7 +91,7 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionFont = new Font( "Roboto", 11 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.LightSteelBlue;
+            CaptionForeColor = Color.FromArgb( 106, 189, 252 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.Red;
             MinimizeBox = false;
@@ -98,7 +99,7 @@ namespace BudgetExecution
 
             // Header Properties
             Header.Font = new Font( "Roboto", 16, FontStyle.Bold );
-            Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Header.ForeColor = Color.FromArgb( 106, 189, 252 );
 
             // Event Wiring
             Carousel.OnCarouselItemSelectionChanged += OnItemSelected;

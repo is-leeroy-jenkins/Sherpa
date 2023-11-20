@@ -41,6 +41,10 @@
 //  </summary>
 //  ******************************************************************************************
 
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace BudgetExecution
 {
     using System;
@@ -62,13 +66,98 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public partial class BudgetForm : MetroForm
     {
-        /// <summary> Gets or sets the time. </summary>
-        /// <value> The time. </value>
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private System.Action _statusUpdate;
+
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
         public int Time { get; set; }
 
-        /// <summary> Gets or sets the seconds. </summary>
-        /// <value> The seconds. </value>
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
         public int Seconds { get; set; }
+
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source { get; set; }
+
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected table.
+        /// </summary>
+        /// <value>
+        /// The selected table.
+        /// </value>
+        public string SelectedTable { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedColumns { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected fields.
+        /// </summary>
+        /// <value>
+        /// The selected fields.
+        /// </value>
+        public IList<string> SelectedFields { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected numerics.
+        /// </summary>
+        /// <value>
+        /// The selected numerics.
+        /// </value>
+        public IList<string> SelectedNumerics { get; set; }
+
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
+        public string SqlQuery { get; set; }
+
+        /// <summary>
+        /// Gets or sets the form filter.
+        /// </summary>
+        /// <value>
+        /// The form filter.
+        /// </value>
+        public IDictionary<string, object> FormFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data arguments.
+        /// </summary>
+        /// <value>
+        /// The data arguments.
+        /// </value>
+        public DataArgs DataArgs { get; set; }
 
         /// <inheritdoc/>
         /// <summary>
@@ -87,7 +176,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
@@ -116,7 +205,45 @@ namespace BudgetExecution
             CloseButton.Click += OnCloseButtonClick;
         }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        private IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    if( _collection?.Count > 0 )
+                    {
+                        foreach( Control _control in _collection )
+                        {
+                            _list.Add( _control );
+                            _queue.Enqueue( _control.Controls );
+                        }
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( Control[ ] );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Control[ ] );
+            }
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
@@ -137,34 +264,6 @@ namespace BudgetExecution
                 }
 
                 base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Notifications the close. </summary>
-        public void OnClose( )
-        {
-            try
-            {
-                FadeOut( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Initializes the title. </summary>
-        private protected void InitializeTitle( )
-        {
-            try
-            {
-                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
-                Title.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )
             {
@@ -223,6 +322,157 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">
+        /// The action.
+        /// </param>
+        public void InvokeIf( System.Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Title.TextAlign = ContentAlignment.TopLeft;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the tool strip.
+        /// </summary>
+        private void InitializeToolStrip( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Captures the state.
+        /// </summary>
+        private void CaptureState( )
+        {
+            try
+            {
+                DataArgs.Provider = Provider;
+                DataArgs.Source = Source;
+                DataArgs.DataFilter = FormFilter;
+                DataArgs.SelectedTable = SelectedTable;
+                DataArgs.SelectedFields = SelectedFields;
+                DataArgs.SelectedNumerics = SelectedNumerics;
+                DataArgs.SqlQuery = SqlQuery;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
+        }
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        public void OnClose( )
+        {
+            try
+            {
+                FadeOut( );
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary> Called when [click]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -253,7 +503,7 @@ namespace BudgetExecution
         {
             try
             {
-                InitializeTitle( );
+                InitializeLabels( );
                 FadeIn( );
             }
             catch( Exception _ex )

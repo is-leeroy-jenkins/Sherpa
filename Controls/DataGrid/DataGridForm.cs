@@ -303,7 +303,7 @@ namespace BudgetExecution
             // Form Event Wiring
             Load += OnLoad;
             MouseClick += OnRightClick;
-            Closing += OnClose;
+            Closed += OnClose;
         }
 
         /// <inheritdoc />
@@ -328,7 +328,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataGridForm" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataGridForm" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -349,7 +350,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataGridForm" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataGridForm" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -695,6 +697,38 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns></returns>
+        private protected IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    foreach( Control _control in _collection )
+                    {
+                        _list.Add( _control );
+                        _queue.Enqueue( _control.Controls );
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( Control[ ] );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Control[ ] );
             }
         }
 
@@ -1480,14 +1514,9 @@ namespace BudgetExecution
             {
                 if( Owner?.Visible == false )
                 {
-                    var _form = (MainForm)Program.Windows[ "MainForm" ];
-                    _form.Refresh( );
+                    var _form = (MainForm)Owner;
+                    _form.StartPosition = FormStartPosition.CenterScreen;
                     _form.Visible = true;
-                }
-                else
-                {
-                    var _mainForm = new MainForm( );
-                    _mainForm.Show( );
                 }
             }
             catch( Exception _ex )
@@ -1830,7 +1859,8 @@ namespace BudgetExecution
         /// Called when [test button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnTestButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1848,7 +1878,8 @@ namespace BudgetExecution
         /// Called when [exit button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnExitButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1866,7 +1897,8 @@ namespace BudgetExecution
         /// Called when [main menu button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1885,7 +1917,8 @@ namespace BudgetExecution
         /// Called when [remove filter button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRemoveFilterButtonClicked( object sender, EventArgs e )
         {
             try
@@ -2284,38 +2317,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the controls.
-        /// </summary>
-        /// <returns></returns>
-        private protected IEnumerable<Control> GetControls( )
-        {
-            var _list = new List<Control>( );
-            var _queue = new Queue( );
-            try
-            {
-                _queue.Enqueue( Controls );
-                while( _queue.Count > 0 )
-                {
-                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
-                    foreach( Control _control in _collection )
-                    {
-                        _list.Add( _control );
-                        _queue.Enqueue( _control.Controls );
-                    }
-                }
-
-                return _list?.Any( ) == true
-                    ? _list.ToArray( )
-                    : default( Control[ ] );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( Control[ ] );
-            }
-        }
-
-        /// <summary>
         /// Raises the Close event.
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -2326,6 +2327,7 @@ namespace BudgetExecution
             {
                 ClearSelections( );
                 ClearCollections( );
+                FadeOut( );
             }
             catch( Exception _ex )
             {
@@ -2343,6 +2345,5 @@ namespace BudgetExecution
             _error?.SetText( );
             _error?.ShowDialog( );
         }
-
     }
 }
