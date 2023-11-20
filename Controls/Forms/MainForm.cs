@@ -142,6 +142,7 @@ namespace BudgetExecution
             Load += OnLoad;
             Shown += OnShown;
             MouseClick += OnRightClick;
+            VisibleChanged += OnVisibleChanged;
         }
 
         /// <summary>
@@ -215,14 +216,14 @@ namespace BudgetExecution
                 Opacity = 0;
                 if( Seconds != 0 )
                 {
-                    Timer = new Timer( );
-                    Timer.Interval = 1000;
-                    Timer.Tick += ( sender, args ) =>
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
                     {
                         Time++;
                         if( Time == Seconds )
                         {
-                            Timer.Stop( );
+                            _timer.Stop( );
                         }
                     };
                 }
@@ -623,8 +624,8 @@ namespace BudgetExecution
             try
             {
                 var _dataGridForm = new DataGridForm( );
-                _dataGridForm.Owner = this;
                 _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
+                _dataGridForm.Owner = this;
                 _dataGridForm.Show( );
                 Hide( );
             }
@@ -785,7 +786,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows[ "MainForm" ] = this;
+                FadeIn( );
             }
             catch( Exception _ex )
             {
@@ -928,7 +929,8 @@ namespace BudgetExecution
         /// Called when [excel data tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnExcelDataTileClick( object sender, EventArgs e )
         {
             OpenExcelDataForm( );
@@ -938,7 +940,8 @@ namespace BudgetExecution
         /// Called when [lookup tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnLookupTileClick( object sender, EventArgs e )
         {
             OpenDataGridForm( );
@@ -948,7 +951,8 @@ namespace BudgetExecution
         /// Called when [SQL editor tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSqlEditorTileClick( object sender, EventArgs e )
         {
             OpenSqlEditor( );
@@ -958,7 +962,8 @@ namespace BudgetExecution
         /// Called when [visualization tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnVisualizationTileClick( object sender, EventArgs e )
         {
             OpenChartDataForm( );
@@ -1036,6 +1041,27 @@ namespace BudgetExecution
                 FadeOut( );
                 Close( );
                 Application.Exit( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [visible changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnVisibleChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                var _form = sender as MainForm;
+                if( _form.Visible == false )
+                {
+                    FadeIn( );
+                }
             }
             catch( Exception _ex )
             {

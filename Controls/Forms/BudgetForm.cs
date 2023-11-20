@@ -41,10 +41,6 @@
 //  </summary>
 //  ******************************************************************************************
 
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-
 namespace BudgetExecution
 {
     using System;
@@ -54,10 +50,13 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Timer = System.Windows.Forms.Timer;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -69,7 +68,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private System.Action _statusUpdate;
+        private Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets the time.
@@ -391,6 +390,10 @@ namespace BudgetExecution
         {
             try
             {
+                // Timer Properties
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
             }
             catch( Exception _ex )
             {

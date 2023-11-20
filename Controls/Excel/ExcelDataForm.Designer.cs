@@ -41,7 +41,7 @@
             CloseButton = new ToolStripButton( );
             ToolTip = new SmallTip( );
             Separator1 = new ToolSeparator( );
-            Label2 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
+            StatusLabel = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
             Separator2 = new ToolSeparator( );
             ToolStripTextBox = new ToolStripTextBox( );
             Separator3 = new ToolSeparator( );
@@ -71,11 +71,11 @@
             PictureBox = new System.Windows.Forms.PictureBox( );
             LabelSeparator = new ToolSeparator( );
             Timer = new System.Windows.Forms.Timer( components );
-            ( (System.ComponentModel.ISupportInitialize) Ribbon  ).BeginInit( );
-            ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)Ribbon ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             ToolStrip.SuspendLayout( );
             HeaderPanel.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             SuspendLayout( );
             // 
             // Ribbon
@@ -89,7 +89,7 @@
             Ribbon.MenuButtonFont = new System.Drawing.Font( "Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Ribbon.MenuButtonText = "FILE";
             Ribbon.MenuButtonWidth = 56;
-            Ribbon.MenuColor = System.Drawing.Color.FromArgb(   54  ,   54  ,   54   );
+            Ribbon.MenuColor = System.Drawing.Color.FromArgb( 54, 54, 54 );
             Ribbon.Name = "Ribbon";
             Ribbon.Office2013ColorScheme = Syncfusion.Windows.Forms.Tools.Office2013ColorScheme.DarkGray;
             Ribbon.Office2016ColorScheme = Syncfusion.Windows.Forms.Tools.Office2016ColorScheme.Black;
@@ -112,7 +112,7 @@
             Ribbon.TabIndex = 0;
             Ribbon.Text = "spreadsheetRibbon1";
             Ribbon.ThemeName = "Default";
-            Ribbon.ThemeStyle.MoreCommandsStyle.PropertyGridViewBorderColor = System.Drawing.Color.FromArgb(   171  ,   171  ,   171   );
+            Ribbon.ThemeStyle.MoreCommandsStyle.PropertyGridViewBorderColor = System.Drawing.Color.FromArgb( 171, 171, 171 );
             Ribbon.TitleColor = System.Drawing.Color.White;
             Ribbon.TitleFont = new System.Drawing.Font( "Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             // 
@@ -133,7 +133,7 @@
             Spreadsheet.DefaultRowCount = 100;
             Spreadsheet.DisplayAlerts = true;
             Spreadsheet.Dock = System.Windows.Forms.DockStyle.Fill;
-            Spreadsheet.FileName = "Book3";
+            Spreadsheet.FileName = "Book1";
             Spreadsheet.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Spreadsheet.ForeColor = System.Drawing.Color.Black;
             Spreadsheet.FormulaBarVisibility = true;
@@ -189,7 +189,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, Label2, Separator2, ToolStripTextBox, Separator3, Label3, FunctionLabel, Separator5, UploadButton, Separator7, FilterSpacer, FilterLabel, DataSourceSeparator, LookupButton, FilterSeparator, FiltersButton, SqlSeparator, MenuButton, BackButtonSeparator, LastLabel, Separator10, CloseButton } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, Separator2, ToolStripTextBox, Separator3, Label3, FunctionLabel, Separator5, UploadButton, Separator7, FilterSpacer, FilterLabel, DataSourceSeparator, LookupButton, FilterSeparator, FiltersButton, SqlSeparator, MenuButton, BackButtonSeparator, LastLabel, Separator10, CloseButton } );
             ToolStrip.Label = null;
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
@@ -217,11 +217,11 @@
             ToolStrip.ThemeStyle.ArrowColor = System.Drawing.Color.SteelBlue;
             ToolStrip.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
             ToolStrip.ThemeStyle.BottomToolStripBackColor = System.Drawing.Color.Transparent;
-            ToolStrip.ThemeStyle.CaptionBackColor = System.Drawing.Color.FromArgb(   28  ,   28  ,   28   );
+            ToolStrip.ThemeStyle.CaptionBackColor = System.Drawing.Color.FromArgb( 28, 28, 28 );
             ToolStrip.ThemeStyle.CaptionForeColor = System.Drawing.Color.Black;
-            ToolStrip.ThemeStyle.ComboBoxStyle.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            ToolStrip.ThemeStyle.ComboBoxStyle.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             ToolStrip.ThemeStyle.ComboBoxStyle.HoverBorderColor = System.Drawing.Color.SteelBlue;
-            ToolStrip.ThemeStyle.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            ToolStrip.ThemeStyle.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             ToolStrip.ThemeStyle.HoverItemBackColor = System.Drawing.Color.SteelBlue;
             ToolStrip.ThemeStyle.HoverItemForeColor = System.Drawing.Color.White;
             ToolStrip.VisualStyle = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray;
@@ -251,7 +251,7 @@
             // ToolTip
             // 
             ToolTip.AutoPopDelay = 5000;
-            ToolTip.BackColor = System.Drawing.Color.FromArgb(   5  ,   5  ,   5   );
+            ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
             ToolTip.BindingSource = null;
             ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
             ToolTip.ForeColor = System.Drawing.Color.White;
@@ -276,13 +276,14 @@
             Separator1.Padding = new System.Windows.Forms.Padding( 1 );
             Separator1.Size = new System.Drawing.Size( 6, 28 );
             // 
-            // Label2
+            // StatusLabel
             // 
-            Label2.BackColor = System.Drawing.Color.Transparent;
-            Label2.ForeColor = System.Drawing.Color.Transparent;
-            Label2.Name = "Label2";
-            Label2.Size = new System.Drawing.Size( 106, 27 );
-            Label2.Text = "toolStripLabelExt1";
+            StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            StatusLabel.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            StatusLabel.ForeColor = System.Drawing.Color.Black;
+            StatusLabel.Name = "StatusLabel";
+            StatusLabel.Size = new System.Drawing.Size( 98, 27 );
+            StatusLabel.Text = "toolStripLabelExt1";
             // 
             // Separator2
             // 
@@ -294,7 +295,7 @@
             // 
             // ToolStripTextBox
             // 
-            ToolStripTextBox.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ToolStripTextBox.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ToolStripTextBox.BindingSource = null;
             ToolStripTextBox.Field = Field.AccountCode;
             ToolStripTextBox.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -303,7 +304,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 168, 28 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 164, 28 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -325,7 +326,7 @@
             // 
             // FunctionLabel
             // 
-            FunctionLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            FunctionLabel.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             FunctionLabel.BindingSource = null;
             FunctionLabel.DataFilter = null;
             FunctionLabel.Field = Field.AccountCode;
@@ -380,7 +381,7 @@
             // 
             // FilterSpacer
             // 
-            FilterSpacer.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            FilterSpacer.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             FilterSpacer.BindingSource = null;
             FilterSpacer.DataFilter = null;
             FilterSpacer.Field = Field.AccountCode;
@@ -397,7 +398,7 @@
             // 
             // FilterLabel
             // 
-            FilterLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            FilterLabel.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             FilterLabel.BindingSource = null;
             FilterLabel.DataFilter = null;
             FilterLabel.Field = Field.AccountCode;
@@ -509,7 +510,7 @@
             // 
             // LastLabel
             // 
-            LastLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            LastLabel.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             LastLabel.BindingSource = null;
             LastLabel.DataFilter = null;
             LastLabel.Field = Field.AccountCode;
@@ -568,7 +569,7 @@
             // ContextMenu
             // 
             ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             ContextMenu.ForeColor = System.Drawing.Color.White;
             ContextMenu.IsDerivedStyle = false;
             ContextMenu.Name = "ContextMenu";
@@ -639,15 +640,15 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             BorderThickness = 2;
-            CaptionBarColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
-            CaptionButtonColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
-            CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CaptionForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ClientSize = new System.Drawing.Size( 1338, 739 );
             Controls.Add( Spreadsheet );
             Controls.Add( ToolStrip );
@@ -656,10 +657,10 @@
             Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ForeColor = System.Drawing.Color.LightGray;
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
+            Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
-            MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1350, 750 );
             Name = "ExcelDataForm";
@@ -667,12 +668,12 @@
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            ( (System.ComponentModel.ISupportInitialize) Ribbon  ).EndInit( );
-            ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)Ribbon ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
             HeaderPanel.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
             ResumeLayout( false );
             PerformLayout( );
         }
@@ -693,7 +694,7 @@
         public SmallTip ToolTip;
         public ToolStripButton RefreshDataButton;
         public ToolSeparator Separator6;
-        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt Label2;
+        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt StatusLabel;
         public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt Label3;
         public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt Label4;
         public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt Label6;

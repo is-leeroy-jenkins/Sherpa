@@ -51,7 +51,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.CellGrid.Helpers;
@@ -78,80 +77,156 @@ namespace BudgetExecution
         /// </summary>
         private System.Action _statusUpdate;
 
-        /// <summary> Gets or sets the time. </summary>
-        /// <value> The time. </value>
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
         public int Time { get; set; }
 
-        /// <summary> Gets or sets the seconds. </summary>
-        /// <value> The seconds. </value>
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
         public int Seconds { get; set; }
 
-        /// <summary> Gets or sets the row count. </summary>
-        /// <value> The row count. </value>
+        /// <summary>
+        /// Gets or sets the row count.
+        /// </summary>
+        /// <value>
+        /// The row count.
+        /// </value>
         public int RowCount { get; set; }
 
-        /// <summary> Gets or sets the col count. </summary>
-        /// <value> The col count. </value>
+        /// <summary>
+        /// Gets or sets the col count.
+        /// </summary>
+        /// <value>
+        /// The col count.
+        /// </value>
         public int ColCount { get; set; }
 
-        /// <summary> Gets or sets the file path. </summary>
-        /// <value> The file path. </value>
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
+        /// <value>
+        /// The file path.
+        /// </value>
         public string FilePath { get; set; }
 
-        /// <summary> Gets or sets the name of the file. </summary>
-        /// <value> The name of the file. </value>
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
         public string FileName { get; set; }
 
-        /// <summary> Gets or sets the selected table. </summary>
-        /// <value> The selected table. </value>
+        /// <summary>
+        /// Gets or sets the selected table.
+        /// </summary>
+        /// <value>
+        /// The selected table.
+        /// </value>
         public string SelectedTable { get; set; }
 
-        /// <summary> Gets or sets the SQL query. </summary>
-        /// <value> The SQL query. </value>
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
         public string SqlQuery { get; set; }
 
-        /// <summary> Gets or sets the form filter. </summary>
-        /// <value> The form filter. </value>
+        /// <summary>
+        /// Gets or sets the form filter.
+        /// </summary>
+        /// <value>
+        /// The form filter.
+        /// </value>
         public IDictionary<string, object> FormFilter { get; set; }
 
-        /// <summary> Gets or sets the selected columns. </summary>
-        /// <value> The selected columns. </value>
+        /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
         public IList<string> SelectedColumns { get; set; }
 
-        /// <summary> Gets or sets the selected fields. </summary>
-        /// <value> The selected fields. </value>
+        /// <summary>
+        /// Gets or sets the selected fields.
+        /// </summary>
+        /// <value>
+        /// The selected fields.
+        /// </value>
         public IList<string> SelectedFields { get; set; }
 
-        /// <summary> Gets or sets the selected numerics. </summary>
-        /// <value> The selected numerics. </value>
+        /// <summary>
+        /// Gets or sets the selected numerics.
+        /// </summary>
+        /// <value>
+        /// The selected numerics.
+        /// </value>
         public IList<string> SelectedNumerics { get; set; }
 
-        /// <summary> Gets or sets the grid. </summary>
-        /// <value> The grid. </value>
+        /// <summary>
+        /// Gets or sets the grid.
+        /// </summary>
+        /// <value>
+        /// The grid.
+        /// </value>
         public SpreadsheetGrid Grid { get; set; }
 
-        /// <summary> Gets or sets the model. </summary>
-        /// <value> The model. </value>
+        /// <summary>
+        /// Gets or sets the model.
+        /// </summary>
+        /// <value>
+        /// The model.
+        /// </value>
         public SpreadsheetGridModel Model { get; set; }
 
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public Source Source { get; set; }
 
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
         public Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
         public DataTable DataTable { get; set; }
 
-        /// <summary> Gets or sets the data model. </summary>
-        /// <value> The data model. </value>
+        /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
         public DataBuilder DataModel { get; set; }
 
-        /// <summary> Gets or sets the state of the view. </summary>
-        /// <value> The state of the view. </value>
+        /// <summary>
+        /// Gets or sets the data arguments.
+        /// </summary>
+        /// <value>
+        /// The data arguments.
+        /// </value>
         public DataArgs DataArgs { get; set; }
 
         /// <inheritdoc/>
@@ -163,6 +238,8 @@ namespace BudgetExecution
         public ExcelDataForm( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            InitializeCallbacks( );
 
             // Form Properties
             Size = new Size( 1350, 750 );
@@ -180,7 +257,7 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -193,17 +270,13 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
-            // Timer Properties
-            Time = 0;
-            Seconds = 5;
-
             // Ribbon Properties
             Ribbon.Spreadsheet = Spreadsheet;
 
             // Default Provider
             Provider = Provider.Access;
-            InitializeCallbacks( );
             Load += OnLoad;
+            Closing += OnClosing;
         }
 
         /// <inheritdoc/>
@@ -232,10 +305,10 @@ namespace BudgetExecution
         public ExcelDataForm( BindingSource bindingSource )
             : this( )
         {
-            BindingSource.DataSource = (DataTable) bindingSource.DataSource;
-            DataTable = (DataTable) bindingSource.DataSource;
-            SelectedTable = ( (DataTable) bindingSource.DataSource ).TableName;
-            Source = (Source) Enum.Parse( typeof( Source ), SelectedTable );
+            BindingSource.DataSource = (DataTable)bindingSource.DataSource;
+            DataTable = (DataTable)bindingSource.DataSource;
+            SelectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
+            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
             Header.Text = $"{SelectedTable.SplitPascal( )} ";
         }
 
@@ -251,7 +324,7 @@ namespace BudgetExecution
         {
             DataTable = dataTable;
             BindingSource.DataSource = dataTable;
-            Source = (Source) Enum.Parse( typeof( Source ), DataTable.TableName );
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
         }
 
@@ -263,14 +336,14 @@ namespace BudgetExecution
                 Opacity = 0;
                 if( Seconds != 0 )
                 {
-                    Timer = new Timer( );
-                    Timer.Interval = 10;
-                    Timer.Tick += ( sender, args ) =>
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
                     {
                         Time++;
                         if( Time == Seconds )
                         {
-                            Timer.Stop( );
+                            _timer.Stop( );
                         }
                     };
                 }
@@ -283,12 +356,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Clears the data. </summary>
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
         public void ClearData( )
         {
             try
             {
-                SelectedTable = string.Empty;
                 DataModel = null;
                 DataTable = null;
                 Spreadsheet.ActiveSheet.ClearData( );
@@ -299,8 +373,58 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the controls. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                SelectedTable = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+                if( FormFilter?.Any( ) == true )
+                {
+                    FormFilter.Clear( );
+                }
+
+                if( SelectedColumns?.Any( ) == true )
+                {
+                    SelectedColumns.Clear( );
+                }
+
+                if( SelectedFields?.Any( ) == true )
+                {
+                    SelectedFields.Clear( );
+                }
+
+                if( SelectedNumerics?.Any( ) == true )
+                {
+                    SelectedNumerics.Clear( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns></returns>
         private protected IEnumerable<Control> GetControls( )
         {
             var _list = new List<Control>( );
@@ -328,7 +452,22 @@ namespace BudgetExecution
                 return default( IEnumerable<Control> );
             }
         }
-        
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatusLabel;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
@@ -344,6 +483,7 @@ namespace BudgetExecution
                 CloseButton.Click += OnCloseButtonClick;
                 UploadButton.Click += OnUploadButtonClick;
                 MenuButton.Click += OnMainMenuButtonClicked;
+                Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
             {
@@ -351,21 +491,22 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the tool strip properties. </summary>
+        /// <summary>
+        /// Initializes the tool strip.
+        /// </summary>
         private void InitializeToolStrip( )
         {
             try
             {
-                ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
                 ToolStrip.Visible = true;
                 ToolStrip.Text = string.Empty;
-                ToolStrip.Office12Mode = true;
                 ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.Office12Mode = true;
                 ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
-                ToolStrip.ShowCaption = true;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
+                ToolStrip.ShowCaption = false;
                 ToolStripTextBox.Size = new Size( 190, 28 );
                 ToolStripTextBox.Font = new Font( "Roboto", 8 );
                 ToolStripTextBox.ForeColor = Color.White;
@@ -410,7 +551,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Initializes the title. </summary>
-        private void InitializeTitle( )
+        private void InitializeLabels( )
         {
             try
             {
@@ -679,7 +820,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the active grid properties. </summary>
+        /// <summary>
+        /// Sets the active grid configuration.
+        /// </summary>
         private void SetActiveGridConfiguration( )
         {
             try
@@ -699,8 +842,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the grid properties. </summary>
-        /// <param name="dataTable"> The data table. </param>
+        /// <summary>
+        /// Sets the grid properties.
+        /// </summary>
+        /// <param name="dataTable">
+        /// The data table.
+        /// </param>
         private void SetGridProperties( DataTable dataTable )
         {
             if( dataTable != null )
@@ -744,7 +891,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the grid properties. </summary>
+        /// <summary>
+        /// Sets the grid properties.
+        /// </summary>
         private void SetGridProperties( )
         {
             try
@@ -781,7 +930,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Shows the table dialog. </summary>
+        /// <summary>
+        /// Shows the table dialog.
+        /// </summary>
         private void ShowTableDialog( )
         {
             try
@@ -806,7 +957,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Shows the filter dialog. </summary>
+        /// <summary>
+        /// Shows the filter dialog.
+        /// </summary>
         private void ShowFilterDialog( )
         {
             try
@@ -834,29 +987,42 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the main form. </summary>
+        /// <summary>
+        /// Opens the main form.
+        /// </summary>
         private void OpenMainForm( )
         {
             try
             {
-                if( Owner?.Visible == false )
-                {
-                    var _form = (MainForm)Program.Windows[ "MainForm" ];
-                    _form.Refresh( );
-                    _form.Visible = true;
-                }
-                else
-                {
-                    var _mainForm = new MainForm( );
-                    _mainForm.Show( );
-                }
+                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.TopMost = true;
+                _form.Visible = true;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
         }
-        
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatusLabel( )
+        {
+            try
+            {
+                var _dateTime = DateTime.Now;
+                var _dateString = _dateTime.ToLongDateString( );
+                var _timeString = _dateTime.ToLongTimeString( );
+                StatusLabel.Text = _dateString + "  " + _timeString;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -868,6 +1034,11 @@ namespace BudgetExecution
         {
             try
             {
+                InitializeTimers( );
+                InitializeToolStrip( );
+                InitializeLabels( );
+                InitializeIcon( );
+                InitializeCallbacks( );
                 DataArgs = new DataArgs( );
                 Header.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Header.Font = new Font( "Roboto", 11 );
@@ -875,9 +1046,6 @@ namespace BudgetExecution
                 Ribbon.Spreadsheet = Spreadsheet;
                 FiltersButton.Visible = false;
                 FilterSeparator.Visible = false;
-                InitializeToolStrip( );
-                InitializeTitle( );
-                InitializeIcon( );
                 FadeIn( );
             }
             catch( Exception _ex )
@@ -1139,6 +1307,24 @@ namespace BudgetExecution
         private void OnTimerTick( object sender, EventArgs e )
         {
             InvokeIf( _statusUpdate );
+        }
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary> Fails the specified ex. </summary>

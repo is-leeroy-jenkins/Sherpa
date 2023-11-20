@@ -277,7 +277,7 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -290,10 +290,6 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
-            // Timer Properties
-            Time = 0;
-            Seconds = 5;
-
             // Initialize Default Provider
             Provider = Provider.Access;
 
@@ -303,7 +299,7 @@ namespace BudgetExecution
             // Form Event Wiring
             Load += OnLoad;
             MouseClick += OnRightClick;
-            Closed += OnClose;
+            Closing += OnClosing;
         }
 
         /// <inheritdoc />
@@ -398,14 +394,14 @@ namespace BudgetExecution
                 Opacity = 0;
                 if( Seconds != 0 )
                 {
-                    Timer = new Timer( );
-                    Timer.Interval = 10;
-                    Timer.Tick += ( sender, args ) =>
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
                     {
                         Time++;
                         if( Time == Seconds )
                         {
-                            Timer.Stop( );
+                            _timer.Stop( );
                         }
                     };
                 }
@@ -579,6 +575,7 @@ namespace BudgetExecution
         {
             try
             {
+                // Timer Properties
                 Timer.Enabled = true;
                 Timer.Interval = 500;
                 Timer.Start( );
@@ -662,7 +659,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.02d;
+                    Opacity += 0.01d;
                 };
 
                 _timer.Start( );
@@ -689,7 +686,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity -= 0.02d;
+                    Opacity -= 0.01d;
                 };
 
                 _timer.Start( );
@@ -1512,12 +1509,10 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner?.Visible == false )
-                {
-                    var _form = (MainForm)Owner;
-                    _form.StartPosition = FormStartPosition.CenterScreen;
-                    _form.Visible = true;
-                }
+                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.TopMost = true;
+                _form.Visible = true;
             }
             catch( Exception _ex )
             {
@@ -1529,7 +1524,8 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -1542,7 +1538,6 @@ namespace BudgetExecution
                 InitializeLabels( );
                 InitializeTabControl( );
                 InitializeLayouts( );
-                InitializeCallbacks( );
                 InitializeTimer( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
@@ -1904,8 +1899,8 @@ namespace BudgetExecution
             try
             {
                 FadeOut( );
-                Close( );
                 OpenMainForm( );
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -2321,13 +2316,12 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnClose( object sender, EventArgs e )
+        public void OnClosing( object sender, EventArgs e )
         {
             try
             {
                 ClearSelections( );
                 ClearCollections( );
-                FadeOut( );
             }
             catch( Exception _ex )
             {

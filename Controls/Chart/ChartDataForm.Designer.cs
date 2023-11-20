@@ -649,7 +649,7 @@
             // StatusLabel
             // 
             StatusLabel.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            StatusLabel.BindingSource = null;
+            StatusLabel.BindingSource = BindingSource;
             StatusLabel.DataFilter = null;
             StatusLabel.Field = Field.AccountCode;
             StatusLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -1913,6 +1913,11 @@
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
+            // 
+            // Timer
+            // 
+            Timer.Enabled = true;
+            Timer.Interval = 500;
             // 
             // ChartDataForm
             // 

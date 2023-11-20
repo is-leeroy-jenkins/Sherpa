@@ -349,7 +349,7 @@ namespace BudgetExecution
             Provider = Provider.Access;
             Metric = STAT.Total;
             ChartType = SeriesChartType.Column;
-            PictureBox.Size = new Size( 40, 18 );
+            PictureBox.Size = new Size( 24, 20 );
             PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
             // Timer Properties
@@ -441,6 +441,41 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns></returns>
+        private protected IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    if( _collection?.Count > 0 )
+                    {
+                        foreach( Control _control in _collection )
+                        {
+                            _list.Add( _control );
+                            _queue.Enqueue( _control.Controls );
+                        }
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( Control[ ] );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Control[ ] );
+            }
+        }
+
+        /// <summary>
         /// Displays the control to the user.
         /// </summary>
         public new void Show( )
@@ -450,14 +485,14 @@ namespace BudgetExecution
                 Opacity = 0;
                 if( Seconds != 0 )
                 {
-                    Timer = new Timer( );
-                    Timer.Interval = 10;
-                    Timer.Tick += ( sender, args ) =>
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
                     {
                         Time++;
                         if( Time == Seconds )
                         {
-                            Timer.Stop( );
+                            _timer.Stop( );
                         }
                     };
                 }
@@ -669,6 +704,7 @@ namespace BudgetExecution
         {
             try
             {
+                // Timer Properties
                 Timer.Enabled = true;
                 Timer.Interval = 500;
                 Timer.Start( );
@@ -716,6 +752,31 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            _statusUpdate += UpdateStatusLabel;
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            try
+            {
+                MenuButton.Click += OnMainMenuButtonClicked;
+                ExitButton.Click += OnExitButtonClicked;
+                Timer.Tick += OnTimerTick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Fades the in.
         /// </summary>
         private void FadeIn( )
@@ -731,7 +792,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.02d;
+                    Opacity += 0.12d;
                 };
 
                 _timer.Start( );
@@ -758,7 +819,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity -= 0.02d;
+                    Opacity -= 0.01d;
                 };
 
                 _timer.Start( );
@@ -1388,6 +1449,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatusLabel( )
+        {
+            try
+            {
+                var _dateTime = DateTime.Now;
+                var _dateString = _dateTime.ToLongDateString( );
+                var _timeString = _dateTime.ToLongTimeString( );
+                StatusLabel.Text = _dateString + "  " + _timeString;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Updates the label text.
         /// </summary>
         private void UpdateLabelText( )
@@ -1433,17 +1512,10 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner?.Visible == false )
-                {
-                    var _form = (MainForm)Program.Windows[ "MainForm" ];
-                    _form.Refresh( );
-                    _form.Visible = true;
-                }
-                else
-                {
-                    var _mainForm = new MainForm( );
-                    _mainForm.Show( );
-                }
+                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.TopMost = true;
+                _form.Visible = true;
             }
             catch( Exception _ex )
             {
@@ -1559,10 +1631,14 @@ namespace BudgetExecution
             try
             {
                 InitializeToolStrip( );
+                InitializeDelegates( );
+                InitializeTimers( );
+                InitializeCallbacks( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
+                DataArgs = new DataArgs( );
                 NumericListBox.MultiSelect = true;
                 FieldListBox.MultiSelect = true;
                 Text = string.Empty;
@@ -1588,6 +1664,8 @@ namespace BudgetExecution
                     UpdateLabelText( );
                 }
 
+                UpdateStatusLabel( );
+                Timer.Start( );
                 PopulateToolBarDropDownItems( );
                 FadeIn( );
             }
@@ -1827,8 +1905,8 @@ namespace BudgetExecution
             try
             {
                 FadeOut( );
-                Close( );
                 OpenMainForm( );
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -2154,38 +2232,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the controls.
+        /// Called when [timer tick].
         /// </summary>
-        /// <returns></returns>
-        private protected IEnumerable<Control> GetControls( )
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
         {
-            var _list = new List<Control>( );
-            var _queue = new Queue( );
-            try
-            {
-                _queue.Enqueue( Controls );
-                while( _queue.Count > 0 )
-                {
-                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
-                    if( _collection?.Count > 0 )
-                    {
-                        foreach( Control _control in _collection )
-                        {
-                            _list.Add( _control );
-                            _queue.Enqueue( _control.Controls );
-                        }
-                    }
-                }
-
-                return _list?.Any( ) == true
-                    ? _list.ToArray( )
-                    : default( Control[ ] );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( Control[ ] );
-            }
+            InvokeIf( _statusUpdate );
         }
 
         /// <summary>
