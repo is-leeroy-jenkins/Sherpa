@@ -57,65 +57,113 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
     using Timer = System.Windows.Forms.Timer;
 
-    /// <inheritdoc/>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     public sealed partial class CalendarForm : MetroForm
     {
-        /// <summary> Gets or sets the time. </summary>
-        /// <value> The time. </value>
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
         public int Time { get; set; }
 
-        /// <summary> Gets or sets the seconds. </summary>
-        /// <value> The seconds. </value>
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
         public int Seconds { get; set; }
 
-        /// <summary> Gets or sets the date string. </summary>
-        /// <value> The date string. </value>
+        /// <summary>
+        /// Gets or sets the date string.
+        /// </summary>
+        /// <value>
+        /// The date string.
+        /// </value>
         public string DateString { get; set; }
 
-        /// <summary> Gets or sets the selected start date. </summary>
-        /// <value> The selected start date. </value>
+        /// <summary>
+        /// Gets or sets the start date.
+        /// </summary>
+        /// <value>
+        /// The start date.
+        /// </value>
         public DateTime StartDate { get; set; }
 
-        /// <summary> Gets or sets the selected end date. </summary>
-        /// <value> The selected end date. </value>
+        /// <summary>
+        /// Gets or sets the end date.
+        /// </summary>
+        /// <value>
+        /// The end date.
+        /// </value>
         public DateTime EndDate { get; set; }
 
-        /// <summary> Gets or sets the selected start date. </summary>
-        /// <value> The selected start date. </value>
+        /// <summary>
+        /// Gets or sets the selected start.
+        /// </summary>
+        /// <value>
+        /// The selected start.
+        /// </value>
         public string SelectedStart { get; set; }
 
-        /// <summary> Gets or sets the selected end date. </summary>
-        /// <value> The selected end date. </value>
+        /// <summary>
+        /// Gets or sets the selected end.
+        /// </summary>
+        /// <value>
+        /// The selected end.
+        /// </value>
         public string SelectedEnd { get; set; }
 
-        /// <summary> Gets or sets the data. </summary>
-        /// <value> The data. </value>
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
         public DataSet Data { get; set; }
 
-        /// <summary> Gets or sets the holidays. </summary>
-        /// <value> The holidays. </value>
+        /// <summary>
+        /// Gets or sets the holidays.
+        /// </summary>
+        /// <value>
+        /// The holidays.
+        /// </value>
         public DataTable Holidays { get; set; }
 
-        /// <summary> Gets or sets the fiscal years. </summary>
-        /// <value> The fiscal years. </value>
+        /// <summary>
+        /// Gets or sets the fiscal years.
+        /// </summary>
+        /// <value>
+        /// The fiscal years.
+        /// </value>
         public DataTable FiscalYears { get; set; }
 
-        /// <summary> Gets or sets the data model. </summary>
-        /// <value> The data model. </value>
+        /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
         public DataBuilder DataModel { get; set; }
 
-        /// <summary> Gets or sets the state of the view. </summary>
-        /// <value> The state of the view. </value>
+        /// <summary>
+        /// Gets or sets the data arguments.
+        /// </summary>
+        /// <value>
+        /// The data arguments.
+        /// </value>
         public DataArgs DataArgs { get; set; }
 
-        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CalendarForm"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CalendarForm"/> class.
         /// </summary>
         public CalendarForm( )
         {
@@ -188,7 +236,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the tool strip properties. </summary>
+        /// <summary>
+        /// Initializes the tool strip.
+        /// </summary>
         private void InitializeToolStrip( )
         {
             try
@@ -209,7 +259,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the callback.
+        /// Initializes the callbacks.
         /// </summary>
         private void InitializeCallbacks( )
         {
@@ -244,7 +294,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the title. </summary>
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
         private void InitializeLabels( )
         {
             try
@@ -258,7 +310,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the in. </summary>
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
         private void FadeIn( )
         {
             try
@@ -283,7 +337,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the out and close. </summary>
+        /// <summary>
+        /// Fades the out.
+        /// </summary>
         private void FadeOut( )
         {
             try
@@ -309,7 +365,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the title text. </summary>
+        /// <summary>
+        /// Sets the title text.
+        /// </summary>
+        /// <param name="text">The text.</param>
         private void SetTitleText( string text )
         {
             try
@@ -325,7 +384,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Clears the labels. </summary>
+        /// <summary>
+        /// Clears the labels.
+        /// </summary>
         private void ClearLabels( )
         {
             try
@@ -352,8 +413,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the controls.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         private IEnumerable<Control> GetControls( )
         {
             var _list = new List<Control>( );
@@ -385,8 +445,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the federal holidays. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the federal holidays.
+        /// </summary>
+        /// <returns></returns>
         private DataTable GetFederalHolidays( )
         {
             try
@@ -407,9 +469,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the fiscal years.
         /// </summary>
-        /// <returns>
-        /// DataTable
-        /// </returns>
+        /// <returns></returns>
         private DataTable GetFiscalYears( )
         {
             try
@@ -461,9 +521,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Updates the label text. </summary>
-        /// <param name="start"> The start. </param>
-        /// <param name="end"> The end. </param>
+        /// <summary>
+        /// Updates the label text.
+        /// </summary>
+        /// <param name="start">The start.</param>
+        /// <param name="end">The end.</param>
         private void UpdateLabelText( DateTime start, DateTime end )
         {
             try
@@ -496,9 +558,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Binds the column chart. </summary>
-        /// <param name="start"> The start. </param>
-        /// <param name="end"> The end. </param>
+        /// <summary>
+        /// Binds the chart.
+        /// </summary>
+        /// <param name="start">The start.</param>
+        /// <param name="end">The end.</param>
         private void BindChart( DateTime start, DateTime end )
         {
             try
@@ -535,7 +599,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the main form. </summary>
+        /// <summary>
+        /// Opens the main form.
+        /// </summary>
         private void OpenMainForm( )
         {
             try
@@ -558,13 +624,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -584,13 +648,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [main menu button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [main menu button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
@@ -605,13 +667,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [close button click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [close button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnCloseButtonClick( object sender, EventArgs e )
         {
             try
@@ -624,13 +684,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [first calendar selection changed]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [first calendar selection changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnFirstCalendarSelectionChanged( object sender, EventArgs e )
         {
             try
@@ -655,13 +713,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [second calendar selection changed]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [second calendar selection changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnSecondCalendarSelectionChanged( object sender, EventArgs e )
         {
             try
@@ -676,49 +732,41 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [table button click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [table button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnTableButtonClick( object sender, EventArgs e )
         {
             TabControl.SelectedIndex = 1;
         }
 
-        /// <summary> Called when [chart button click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [chart button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnChartButtonClick( object sender, EventArgs e )
         {
             TabControl.SelectedIndex = 0;
         }
 
-        /// <summary> Called when [selected tab changed]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [selected tab changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnSelectedTabChanged( object sender, EventArgs e )
         {
             SetActiveTab( );
         }
 
-        /// <summary> Called when [refresh button click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [refresh button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnRefreshButtonClick( object sender, EventArgs e )
         {
             try
@@ -738,8 +786,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

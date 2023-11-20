@@ -117,7 +117,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SQLiteQuery( Source source, IDictionary<string, object> updates,
-                            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, Provider.SQLite, updates, where, commandType )
         {
         }
@@ -133,7 +133,7 @@ namespace BudgetExecution
         /// <param name="criteria"> The criteria. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SQLiteQuery( Source source, IEnumerable<string> columns,
-                            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
             : base( source, Provider.SQLite, columns, criteria, commandType )
         {
         }
@@ -379,9 +379,10 @@ namespace BudgetExecution
         /// <returns> </returns>
         private bool CheckIfSheetNameExists( string sheetName, DataTable dataSchema )
         {
-            if( !string.IsNullOrEmpty( sheetName )
-               && ( dataSchema?.Columns.Count > 0 ) )
+            try
             {
+                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
+                ThrowIf.NoData( dataSchema, nameof( dataSchema ) );
                 for( var _i = 0; _i < dataSchema.Rows.Count; _i++ )
                 {
                     var _dataRow = dataSchema.Rows[ _i ];
@@ -390,9 +391,14 @@ namespace BudgetExecution
                         return true;
                     }
                 }
-            }
 
-            return false;
+                return false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return false;
+            }
         }
 
         /// <summary> Creates the database. </summary>
@@ -403,7 +409,7 @@ namespace BudgetExecution
                                       [Key] NVARCHAR(2048)  NULL,
                                       [Value] VARCHAR(2048)  NULL )";
 
-            using var _connection = new SQLiteConnection( "Data source=databaseFile.db" );
+            using var _connection = new SQLiteConnection( "Data source=Data.db" );
             var _command = new SQLiteCommand( _connection );
             _connection.Open( );
             _command.CommandText = _commandText;
@@ -419,28 +425,6 @@ namespace BudgetExecution
             _command.CommandText = "SELECT * FROM MyTable";
             _command.ExecuteReader( );
             _connection.Close( );
-        }
-
-        /// <summary> </summary>
-        public enum ColDataType
-        {
-            /// <summary> The default </summary>
-            Default,
-
-            /// <summary> The text </summary>
-            Text,
-
-            /// <summary> The date time </summary>
-            DateTime,
-
-            /// <summary> The integer </summary>
-            Integer,
-
-            /// <summary> The decimal </summary>
-            Decimal,
-
-            /// <summary> The BLOB </summary>
-            Blob
         }
     }
 }

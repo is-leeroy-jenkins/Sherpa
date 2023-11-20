@@ -44,24 +44,29 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Data.OleDb;
+    using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.Query"/>
+    /// <seealso cref="T:BudgetExecution.Query" />
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class SqlCeQuery : Query
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlCeQuery"/>
+        /// <see cref="T:BudgetExecution.SqlCeQuery" />
         /// class.
         /// </summary>
         public SqlCeQuery( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlCeQuery"/>
+        /// <see cref="T:BudgetExecution.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -70,9 +75,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlCeQuery"/>
+        /// <see cref="T:BudgetExecution.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -82,9 +88,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlCeQuery"/>
+        /// <see cref="T:BudgetExecution.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -95,9 +102,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlCeQuery"/>
+        /// <see cref="T:BudgetExecution.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -105,14 +113,15 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SqlCeQuery( Source source, IDictionary<string, object> updates,
-                           IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, Provider.SqlCe, updates, where, commandType )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlCeQuery"/>
+        /// <see cref="T:BudgetExecution.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -120,14 +129,15 @@ namespace BudgetExecution
         /// <param name="criteria"> The criteria. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SqlCeQuery( Source source, IEnumerable<string> columns,
-                           IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
             : base( source, Provider.SqlCe, columns, criteria, commandType )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlCeQuery"/>
+        /// <see cref="T:BudgetExecution.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="sqlStatement"> The sqlStatement. </param>
@@ -136,9 +146,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlCeQuery"/>
+        /// <see cref="T:BudgetExecution.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -148,9 +159,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlCeQuery"/>
+        /// <see cref="T:BudgetExecution.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="fullPath"> The fullpath. </param>
@@ -161,9 +173,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlCeQuery"/>
+        /// <see cref="T:BudgetExecution.SqlCeQuery" />
         /// class.
         /// </summary>
         /// <param name="fullPath"> The fullpath. </param>
@@ -175,40 +188,37 @@ namespace BudgetExecution
         }
 
         /// <summary> Creates the table from excel file. </summary>
-        /// <param name="fileName"> Name of the file. </param>
+        /// <param name="filePath"> Name of the file. </param>
         /// <param name="sheetName"> Name of the sheet. </param>
         /// <returns> </returns>
-        public DataTable CreateTableFromExcelFile( string fileName, ref string sheetName )
+        public DataTable CreateTableFromExcelFile( string filePath, ref string sheetName )
         {
-            if( !string.IsNullOrEmpty( fileName )
-               && !string.IsNullOrEmpty( sheetName ) )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
+                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
+                var _dataSet = new DataSet( );
+                var _dataTable = new DataTable( );
+                _dataSet.DataSetName = sheetName;
+                _dataTable.TableName = sheetName;
+                _dataSet.Tables.Add( _dataTable );
+                var _sql = $"SELECT * FROM {sheetName}$";
+                if( !string.IsNullOrEmpty( filePath ) )
                 {
-                    var _dataSet = new DataSet( );
-                    var _dataTable = new DataTable( );
-                    _dataSet.DataSetName = fileName;
-                    _dataTable.TableName = sheetName;
-                    _dataSet.Tables.Add( _dataTable );
-                    var _sql = $"SELECT * FROM {sheetName}$";
-                    var _cstring = GetExcelFilePath( );
-                    if( !string.IsNullOrEmpty( _cstring ) )
-                    {
-                        var _excelQuery = new ExcelQuery( _cstring, _sql );
-                        var _connection = DataConnection as OleDbConnection;
-                        _connection?.Open( );
-                        var _dataAdapter = _excelQuery.GetAdapter( );
-                        _dataAdapter.Fill( _dataSet );
-                        return _dataTable.Columns.Count > 0
-                            ? _dataTable
-                            : default( DataTable );
-                    }
+                    var _excelQuery = new ExcelQuery( filePath, _sql );
+                    var _connection = DataConnection as OleDbConnection;
+                    _connection?.Open( );
+                    var _dataAdapter = _excelQuery.GetAdapter( );
+                    _dataAdapter.Fill( _dataSet );
+                    return _dataTable.Columns.Count > 0
+                        ? _dataTable
+                        : default( DataTable );
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( DataTable );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( DataTable );
             }
 
             return default( DataTable );
@@ -217,48 +227,50 @@ namespace BudgetExecution
         /// <summary> Creates the table from CSV file. </summary>
         /// <param name="filePath"> The file path. </param>
         /// <param name="sheetName"> Name of the sheet. </param>
-        /// <returns> </returns>
+        /// <returns>
+        /// DataTable 
+        /// </returns>
         public DataTable CreateTableFromCsvFile( string filePath, ref string sheetName )
         {
-            if( !string.IsNullOrEmpty( filePath )
-               && !string.IsNullOrEmpty( sheetName ) )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
+                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
+                var _dataSet = new DataSet( );
+                var _dataTable = new DataTable( );
+                var _fileName = ConnectionFactory?.FileName;
+                if( _fileName != null )
                 {
-                    var _dataSet = new DataSet( );
-                    var _dataTable = new DataTable( );
-                    var _fileName = ConnectionFactory?.FileName;
-                    if( _fileName != null )
-                    {
-                        _dataSet.DataSetName = _fileName;
-                    }
+                    _dataSet.DataSetName = _fileName;
+                }
 
-                    _dataTable.TableName = sheetName;
-                    _dataSet.Tables.Add( _dataTable );
-                    var _cstring = GetExcelFilePath( );
-                    if( !string.IsNullOrEmpty( _cstring ) )
-                    {
-                        var _sql = $"SELECT * FROM {sheetName}$";
-                        var _csvQuery = new CsvQuery( _cstring, _sql );
-                        var _dataAdapter = _csvQuery.GetAdapter( ) as OleDbDataAdapter;
-                        _dataAdapter?.Fill( _dataSet, sheetName );
-                        return _dataTable.Columns.Count > 0
-                            ? _dataTable
-                            : default( DataTable );
-                    }
-                }
-                catch( Exception _ex )
+                _dataTable.TableName = sheetName;
+                _dataSet.Tables.Add( _dataTable );
+                var _cstring = GetExcelFilePath( );
+                if( !string.IsNullOrEmpty( _cstring ) )
                 {
-                    Fail( _ex );
-                    return default( DataTable );
+                    var _sql = $"SELECT * FROM {sheetName}$";
+                    using var _csvQuery = new CsvQuery( _cstring, _sql );
+                    var _dataAdapter = _csvQuery.GetAdapter( ) as OleDbDataAdapter;
+                    _dataAdapter?.Fill( _dataSet, sheetName );
+                    return _dataTable.Columns.Count > 0
+                        ? _dataTable
+                        : default( DataTable );
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( DataTable );
             }
 
             return default( DataTable );
         }
 
-        /// <summary> Gets the excel file path. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the excel file path.
+        /// </summary>
+        /// <returns></returns>
         private string GetExcelFilePath( )
         {
             try
@@ -287,15 +299,20 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Checks if sheet name exists. </summary>
+        /// <summary>
+        /// Checks if sheet name exists.
+        /// </summary>
         /// <param name="sheetName"> Name of the sheet. </param>
         /// <param name="schemaTable"> The schema table. </param>
-        /// <returns> </returns>
+        /// <returns>
+        /// boolean
+        /// </returns>
         private bool CheckIfSheetNameExists( string sheetName, DataTable schemaTable )
         {
-            if( !string.IsNullOrEmpty( sheetName )
-               && ( schemaTable?.Columns.Count > 0 ) )
+            try
             {
+                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
+                ThrowIf.NoData( schemaTable, nameof( schemaTable ) );
                 for( var _i = 0; _i < schemaTable.Rows.Count; _i++ )
                 {
                     var _dataRow = schemaTable.Rows[ _i ];
@@ -304,9 +321,14 @@ namespace BudgetExecution
                         return true;
                     }
                 }
-            }
 
-            return false;
+                return false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return false;
+            }
         }
     }
 }

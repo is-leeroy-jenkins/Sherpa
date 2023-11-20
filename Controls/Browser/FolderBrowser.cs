@@ -1,25 +1,20 @@
-﻿
+﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
+using Syncfusion.Windows.Forms;
 
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Windows.Forms;
-    using Syncfusion.Windows.Forms;
 
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -67,10 +62,11 @@ namespace BudgetExecution
         /// </value>
         public IEnumerable<string> DirPaths { get; set; }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FolderBrowser" /> class.
+        /// <see cref="T:BudgetExecution.FolderBrowser"/>
+        /// class.
         /// </summary>
         public FolderBrowser( )
         {
@@ -99,27 +95,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Populates the ListBox.
-        /// </summary>
-        private protected virtual void PopulateListBox( )
-        {
-            if( DirPaths?.Any( ) == true )
-            {
-                try
-                {
-                    foreach( var _path in DirPaths )
-                    {
-                        FileList.Items.Add( _path );
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
         /// Invokes if needed.
         /// </summary>
         /// <param name="action">
@@ -134,6 +109,63 @@ namespace BudgetExecution
             else
             {
                 action.Invoke( );
+            }
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
+        public new void Show( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        Time++;
+                        if( Time == Seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            if( DirPaths?.Any( ) == true )
+            {
+                try
+                {
+                    InitializeLabels( );
+                    InitializeButtons( );
+                    InitializeCallbacks( );
+                    PopulateListBox( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
@@ -205,38 +237,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> 
-        /// Displays the control to the user. 
-        /// </summary>
-        public new void Show( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( Seconds != 0 )
-                {
-                    Timer = new Timer( );
-                    Timer.Interval = 1000;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        Time++;
-                        if( Time == Seconds )
-                        {
-                            Timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> 
-        /// Fades the in. 
+        /// <summary>
+        /// Fades the in.
         /// </summary>
         private void FadeIn( )
         {
@@ -262,8 +264,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> 
-        /// Fades the out and close. 
+        /// <summary>
+        /// Fades the out and close.
         /// </summary>
         private void FadeOut( )
         {
@@ -326,9 +328,41 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex"> The ex. </param>
+        private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Populates the ListBox.
+        /// </summary>
+        private protected virtual void PopulateListBox( )
+        {
+            if( DirPaths?.Any( ) == true )
+            {
+                try
+                {
+                    foreach( var _path in DirPaths )
+                    {
+                        FileList.Items.Add( _path );
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
         /// Gets the ListView paths.
         /// </summary>
-        /// <returns></returns>
+        /// <returns> </returns>
         private protected IEnumerable<string> GetListViewPaths( )
         {
             if( InitialDirPaths?.Any( ) == true )
@@ -390,34 +424,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnLoad( object sender, EventArgs e )
-        {
-            if( DirPaths?.Any( ) == true )
-            {
-                try
-                {
-                    InitializeLabels( );
-                    InitializeButtons( );
-                    InitializeCallbacks( );
-                    PopulateListBox( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
         /// Called when [path selected].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender"> The sender. </param>
         private protected virtual void OnPathSelected( object sender )
         {
             if( sender is ListBox _listBox
@@ -438,8 +447,12 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [find button clicked].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private protected virtual void OnFindButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button )
@@ -464,8 +477,12 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [close button clicked].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private protected virtual void OnCloseButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button )
@@ -479,17 +496,6 @@ namespace BudgetExecution
                     Fail( _ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }
