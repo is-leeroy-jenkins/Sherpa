@@ -55,9 +55,9 @@ namespace BudgetExecution
     /// <inheritdoc/>
     /// <summary> </summary>
     /// <seealso cref="T:BudgetExecution.EditBase"/>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class DefinitionDialog : EditBase
     {
         /// <summary>
