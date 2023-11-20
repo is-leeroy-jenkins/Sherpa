@@ -44,17 +44,19 @@
 namespace BudgetExecution
 {
     using System;
+    using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
@@ -62,16 +64,17 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class MinionSelector : MetroForm
     {
-        /// <summary> Gets or sets the image path. </summary>
-        /// <value> The image path. </value>
+        /// <summary>
+        /// Gets or sets the image path.
+        /// </summary>
+        /// <value>
+        /// The image path.
+        /// </value>
         public string ImagePath { get; set; } =
             @"C:\Users\terry\source\repos\BudgetExecution\Resources\Pictures\Carousel\Minion";
 
-        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MinionSelector"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="MinionSelector"/> class.
         /// </summary>
         public MinionSelector( )
         {
@@ -82,7 +85,7 @@ namespace BudgetExecution
             MaximumSize = new Size( 1200, 600 );
             MinimumSize = new Size( 1200, 600 );
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 20, 20, 20 );
@@ -103,7 +106,7 @@ namespace BudgetExecution
 
             // Header Properties
             Header.Font = new Font( "Roboto", 16, FontStyle.Regular );
-            Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Header.ForeColor = Color.FromArgb( 106, 189, 252 );
 
             // Panel Properties
             SelectionPanel.BorderColor = Color.Transparent;
@@ -114,13 +117,10 @@ namespace BudgetExecution
             Load += OnLoad;
         }
 
-        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.MinionSelector"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="MinionSelector"/> class.
         /// </summary>
-        /// <param name="directoryPath"> The directory path. </param>
+        /// <param name="directoryPath">The directory path.</param>
         public MinionSelector( string directoryPath )
             : this( )
         {
@@ -129,13 +129,11 @@ namespace BudgetExecution
             Load += OnLoad;
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             if( !string.IsNullOrEmpty( ImagePath ) )
@@ -168,13 +166,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [item selected]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnItemSelected( object sender, EventArgs e )
         {
             if( sender is Selector _carousel )
@@ -186,47 +182,36 @@ namespace BudgetExecution
                     switch( _provider )
                     {
                         case Provider.SQLite:
-
                         {
                             Minion.RunSQLite( );
                             Close( );
                             break;
                         }
-
                         case Provider.SqlCe:
-
                         {
                             Minion.RunSqlCe( );
                             Close( );
                             break;
                         }
-
                         case Provider.SqlServer:
-
                         {
                             Minion.RunSqlCe( );
                             Close( );
                             break;
                         }
-
                         case Provider.Access:
-
                         {
                             Minion.RunAccess( );
                             Close( );
                             break;
                         }
-
                         case Provider.Excel:
-
                         {
                             Minion.OpenExcel( );
                             Close( );
                             break;
                         }
-
                         default:
-
                         {
                             Minion.RunSQLite( );
                             Close( );
@@ -241,13 +226,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [close button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [close button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnCloseButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button _button )
@@ -263,8 +246,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

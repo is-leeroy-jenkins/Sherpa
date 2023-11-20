@@ -50,7 +50,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using System.Windows.Forms.DataVisualization.Charting;
     using Syncfusion.Windows.Forms;
@@ -61,9 +60,10 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public sealed partial class CalendarForm : MetroForm
     {
         /// <summary>
@@ -162,8 +162,10 @@ namespace BudgetExecution
         /// </value>
         public DataArgs DataArgs { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="CalendarForm"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.CalendarForm" /> class.
         /// </summary>
         public CalendarForm( )
         {
@@ -178,7 +180,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor =Color.FromArgb( 106, 189, 252 );
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
@@ -573,7 +575,6 @@ namespace BudgetExecution
                 var _weekends = start.CountWeekEnds( end );
                 var _workdays = start.CountWorkdays( end );
                 var _holidays = start.CountHolidays( end );
-                var _total = ( end - start ).TotalDays;
                 var _data = new Dictionary<string, double>( );
                 _data.Add( "Weekdays", _weekdays );
                 _data.Add( "Workdays", _workdays );

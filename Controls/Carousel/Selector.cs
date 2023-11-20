@@ -52,36 +52,48 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.Windows.Forms.Gauge;
 
-    /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Tools.Carousel"/>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Forms.Tools.Carousel" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class Selector : Syncfusion.Windows.Forms.Tools.Carousel
     {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the images. </summary>
-        /// <value> The images. </value>
+        /// <summary>
+        /// Gets or sets the images.
+        /// </summary>
+        /// <value>
+        /// The images.
+        /// </value>
         public virtual List<Image> Images { get; set; }
 
-        /// <summary> Gets or sets the size of the image. </summary>
-        /// <value> The size of the image. </value>
+        /// <summary>
+        /// Gets or sets the size of the image.
+        /// </summary>
+        /// <value>
+        /// The size of the image.
+        /// </value>
         public Size ImageSize { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Selector"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Selector"/> class.
         /// </summary>
         public Selector( )
         {
             // Basic Carousel Properties
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.White;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 8 );
             CarouselPath = CarouselPath.Default;
             ImageSlides = true;
@@ -101,7 +113,7 @@ namespace BudgetExecution
             // ThemeStyle Properties
             ThemeStyle.BackColor = Color.Transparent;
             ThemeStyle.Font = new Font( "Roboto", 9 );
-            ThemeStyle.ForeColor = Color.FromArgb( 0, 120, 212 );
+            ThemeStyle.ForeColor = Color.FromArgb( 106, 189, 252 );;
             ThemeStyle.HoverImageBorderColor = Color.FromArgb( 0, 120, 212 );
             ThemeStyle.HoverImageBorderThickness = 3;
             ThemeStyle.ImageShadeColor = Color.FromArgb( 18, 18, 18 );
@@ -110,8 +122,10 @@ namespace BudgetExecution
             ImageSize = new Size( 250, 250 );
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
