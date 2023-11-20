@@ -322,7 +322,7 @@ namespace BudgetExecution
             {
                 ClearSelections( );
                 ClearCollections( );
-                SelectedTable = string.Empty;
+                TableName = string.Empty;
                 DataGrid.DataSource = null;
                 BindingSource.DataSource = null;
                 DataModel = null;
@@ -841,7 +841,7 @@ namespace BudgetExecution
                 var _sql = CreateSqlText( where );
                 DataModel = new DataBuilder( Source, Provider, _sql );
                 DataTable = DataModel?.DataTable;
-                SelectedTable = DataTable?.TableName;
+                TableName = DataTable?.TableName;
                 BindingSource.DataSource = DataTable;
                 DataGrid.DataSource = BindingSource;
                 DataGrid.PascalizeHeaders( );
@@ -868,7 +868,7 @@ namespace BudgetExecution
                 var _sql = CreateSqlText( columns, where );
                 DataModel = new DataBuilder( Source, Provider, _sql );
                 DataTable = DataModel?.DataTable;
-                SelectedTable = DataTable?.TableName;
+                TableName = DataTable?.TableName;
                 BindingSource.DataSource = DataTable;
                 DataGrid.DataSource = BindingSource;
                 DataGrid.PascalizeHeaders( );
@@ -898,7 +898,7 @@ namespace BudgetExecution
                 var _sql = CreateSqlText( fields, numerics, where );
                 DataModel = new DataBuilder( Source, Provider, _sql );
                 DataTable = DataModel?.DataTable;
-                SelectedTable = DataTable?.TableName;
+                TableName = DataTable?.TableName;
                 BindingSource.DataSource = DataTable;
                 DataGrid.DataSource = BindingSource;
                 DataGrid.PascalizeHeaders( );
@@ -949,7 +949,7 @@ namespace BudgetExecution
 
                 var _criteria = where.ToCriteria( );
                 var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
+                return $"SELECT {_names} FROM {TableName} " + $"WHERE {_criteria} "
                     + $"GROUP BY {_names} ;";
             }
             catch( Exception _ex )

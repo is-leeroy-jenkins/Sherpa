@@ -349,8 +349,6 @@ namespace BudgetExecution
             Provider = Provider.Access;
             Metric = STAT.Total;
             ChartType = SeriesChartType.Column;
-            PictureBox.Size = new Size( 24, 20 );
-            PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
             // Timer Properties
             Time = 0;
@@ -690,6 +688,22 @@ namespace BudgetExecution
         {
             try
             {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the icon.
+        /// </summary>
+        private void InitializeIcon( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 24, 20 );
+                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception _ex )
             {

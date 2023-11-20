@@ -124,7 +124,7 @@ namespace BudgetExecution
             CloseButton.HoverText = "Close Calendar";
 
             // HeaderLabel Settings
-            HeaderLabel.Font = new Font( "Roboto", 11 );
+            HeaderLabel.Font = new Font( "Roboto", 10 );
             HeaderLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
             HeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
 

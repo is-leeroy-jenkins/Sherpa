@@ -121,12 +121,14 @@ namespace BudgetExecution
         public IList<string> SelectedNumerics { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LookupDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="LookupDialog"/> class.
         /// </summary>
         /// <inheritdoc />
         public LookupDialog( )
         {
             InitializeComponent( );
+            InitializeCallbacks( );
 
             // Basic Properties
             Size = new Size( 1340, 674 );
@@ -142,13 +144,111 @@ namespace BudgetExecution
             MaximizeBox = false;
             Panels = GetPanels( );
             RadioButtons = GetRadioButtons( );
-            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
 
             // Wire Events
-            CloseButton.Click += OnCloseButtonClicked;
-            TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
-            ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
             Load += OnLoad;
+        }
+
+        /// <summary>
+        /// Initializes the tab control.
+        /// </summary>
+        private void InitializeTabControl( )
+        {
+            try
+            {
+                TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+                // Command Buttons
+                SelectButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                RefreshButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+
+                // Radio Buttons
+                SqliteRadioButton.Tag = "SQLite";
+                SqlServerRadioButton.Tag = "SqlServer";
+                AccessRadioButton.Tag = "Access";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                SourceTable.CaptionText = TablePrefix + TableListBox.Items.Count;
+                ColumnTable.CaptionText = ColumnPrefix;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the combo boxes.
+        /// </summary>
+        private void InitializeComboBoxes( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            try
+            {
+                CloseButton.Click += OnCloseButtonClicked;
+                TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
+                ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
+                SelectButton.Click += OnSelectButtonClick;
+                CloseButton.Click += OnCloseButtonClicked;
+                RefreshButton.Click += OnClearButtonClick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -159,8 +259,15 @@ namespace BudgetExecution
             try
             {
                 FormFilter?.Clear( );
+                DataArgs = null;
                 DataTable = null;
                 BindingSource.DataSource = null;
+                Fields?.Clear( );
+                Numerics?.Clear( );
+                Columns?.Clear( );
+                Dates?.Clear( );
+                SelectedFields?.Clear( );
+                SelectedColumns?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -204,10 +311,43 @@ namespace BudgetExecution
                 DataArgs.Provider = Provider;
                 DataArgs.Source = Source;
                 DataArgs.DataFilter = FormFilter;
-                DataArgs.SelectedTable = SelectedTable;
+                DataArgs.SelectedTable = TableName;
                 DataArgs.SelectedFields = SelectedFields;
                 DataArgs.SelectedNumerics = SelectedNumerics;
                 DataArgs.SqlQuery = SqlQuery;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+                if( FormFilter?.Any( ) == true )
+                {
+                    FormFilter.Clear( );
+                }
+
+                if( Columns?.Any( ) == true )
+                {
+                    Columns.Clear( );
+                }
+
+                if( Fields?.Any( ) == true )
+                {
+                    Fields.Clear( );
+                }
+
+                if( Numerics?.Any( ) == true )
+                {
+                    Numerics.Clear( );
+                }
             }
             catch( Exception _ex )
             {
@@ -226,7 +366,7 @@ namespace BudgetExecution
                 SelectedFields?.Clear( );
                 SelectedNumerics?.Clear( );
                 FormFilter?.Clear( );
-                SelectedTable = string.Empty;
+                TableName = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -406,11 +546,14 @@ namespace BudgetExecution
             try
             {
                 DataArgs = new DataArgs( );
+                Fields = new List<string>( );
+                Columns = new List<string>( );
+                Dates = new List<DateTime>( );
                 DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
                 BindingSource.DataSource = DataModel.DataTable;
                 PopulateTableListBoxItems( );
-                SourceTable.CaptionText = TablePrefix + TableListBox.Items.Count;
-                ColumnTable.CaptionText = ColumnPrefix;
+                InitializeTabControl( );
+                InitializeLabels( );
             }
             catch( Exception _ex )
             {
@@ -486,7 +629,8 @@ namespace BudgetExecution
         /// Called when [clear button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnClearButtonClick( object sender, EventArgs e )
         {
             try
@@ -504,7 +648,8 @@ namespace BudgetExecution
         /// Called when [select button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSelectButtonClick( object sender, EventArgs e )
         {
             try
@@ -512,7 +657,7 @@ namespace BudgetExecution
                 DataArgs.Provider = Provider;
                 DataArgs.Source = Source;
                 DataArgs.DataFilter = FormFilter;
-                DataArgs.SelectedTable = SelectedTable;
+                DataArgs.SelectedTable = TableName;
                 DataArgs.SelectedFields = SelectedFields;
                 DataArgs.SelectedNumerics = SelectedNumerics;
                 DataArgs.SqlQuery = SqlQuery;
@@ -527,7 +672,8 @@ namespace BudgetExecution
         /// Called when [close button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private protected void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try

@@ -490,10 +490,13 @@ namespace BudgetExecution
         {
             try
             {
+                Fields = new List<string>( );
+                Columns = new List<string>( );
+                Dates = new List<DateTime>( );
+                DataArgs = new DataArgs( );
                 AccessRadioButton.Checked = true;
                 Commands = new List<string>( );
                 Statements = new Dictionary<string, object>( );
-                DataArgs = new DataArgs( );
                 AccessRadioButton.Click += OnRadioButtonChecked;
                 SQLiteRadioButton.Click += OnRadioButtonChecked;
                 SqlCeRadioButton.Click += OnRadioButtonChecked;

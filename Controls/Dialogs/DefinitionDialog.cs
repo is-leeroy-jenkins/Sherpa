@@ -55,22 +55,34 @@ namespace BudgetExecution
     /// <inheritdoc/>
     /// <summary> </summary>
     /// <seealso cref="T:BudgetExecution.EditBase"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
     public partial class DefinitionDialog : EditBase
     {
-        /// <summary> Gets or sets the selected provider. </summary>
-        /// <value> The selected provider. </value>
-        public Provider SelectedProvider { get; set; }
+        /// <summary>
+        /// Gets or sets the type of the selected.
+        /// </summary>
+        /// <value>
+        /// The type of the selected.
+        /// </value>
+        public string DataType { get; set; }
 
-        /// <summary> Gets or sets the type of the selected. </summary>
-        /// <value> The type of the selected. </value>
-        public string SelectedType { get; set; }
-
-        /// <summary> Gets or sets the name of the column. </summary>
-        /// <value> The name of the column. </value>
+        /// <summary>
+        /// Gets or sets the name of the column.
+        /// </summary>
+        /// <value>
+        /// The name of the column.
+        /// </value>
         public string ColumnName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
+        public string SqlQuery { get; set; }
 
         /// <inheritdoc/>
         /// <summary>
@@ -95,11 +107,6 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            SqliteRadioButton.Tag = "SQLite";
-            SqlServerRadioButton.Tag = "SqlServer";
-            AccessRadioButton.Tag = "Access";
-            DataTypeComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
-            TableNameComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
 
             // Populate Controls
             TabPages = GetTabPages( );
@@ -161,15 +168,57 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the labels.
+        /// Initializes the text boxes.
         /// </summary>
-        private void InitializeLabels( )
+        private void InitializeTextBoxes( )
         {
             try
             {
-                TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
-                TabPage.TabForeColor = Color.FromArgb( 106, 189, 252 );
-                TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
+                TableNameTextBox.Font = new Font( "Roboto", 8, FontStyle.Regular );
+                TableNameTextBox.ForeColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+                // Command Buttons
+                DeleteColumnButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                AddColumnButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                AddTableButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                DeleteTableButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                SelectButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                ClearButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+
+                // Radio Buttons
+                SqliteRadioButton.Tag = "SQLite";
+                SqlServerRadioButton.Tag = "SqlServer";
+                AccessRadioButton.Tag = "Access";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the combo boxes.
+        /// </summary>
+        private void InitializeComboBoxes( )
+        {
+            try
+            {
+                DataTypeComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
+                TableNameComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
             }
             catch( Exception _ex )
             {
@@ -224,7 +273,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the data type ComboBox items. </summary>
+        /// <summary>
+        /// Populates the data type ComboBox items.
+        /// </summary>
         private void PopulateDataTypeComboBoxItems( )
         {
             if( DataTypes?.Any( ) == true )
@@ -311,8 +362,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the tab pages. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the tab pages.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private IDictionary<string, TabPageAdv> GetTabPages( )
         {
             if( TabControl.TabPages?.Count > 0 )
@@ -342,8 +396,11 @@ namespace BudgetExecution
             return default( IDictionary<string, TabPageAdv> );
         }
 
-        /// <summary> Gets the radio buttons. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the radio buttons.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private IDictionary<string, RadioButton> GetRadioButtons( )
         {
             try
@@ -368,8 +425,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the combo boxes. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the combo boxes.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private IDictionary<string, ComboBox> GetComboBoxes( )
         {
             try
@@ -394,8 +454,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the panels. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the panels.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private IDictionary<string, Layout> GetPanels( )
         {
             try
@@ -420,8 +483,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the list boxes. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the list boxes.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private IDictionary<string, ListBox> GetListBoxes( )
         {
             try
@@ -458,11 +524,17 @@ namespace BudgetExecution
             try
             {
                 DataArgs = new DataArgs( );
+                Fields = new List<string>( );
+                Columns = new List<string>( );
+                Dates = new List<DateTime>( );
                 CloseButton.Text = "Exit";
                 DataTypes = GetDataTypes( Provider );
+                SetActiveTab( );
                 PopulateTableComboBoxItems( );
                 PopulateDataTypeComboBoxItems( );
-                SetActiveTab( );
+                InitializeButtons( );
+                InitializeTabControl( );
+                InitializeComboBoxes( );
             }
             catch( Exception _ex )
             {
@@ -470,8 +542,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [provider button checked]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [provider button checked].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         private void OnProviderButtonChecked( object sender )
         {
             if( sender is RadioButton _button )

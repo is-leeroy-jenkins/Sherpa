@@ -44,12 +44,12 @@
 namespace BudgetExecution
 {
     using System;
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
@@ -64,6 +64,38 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class EditDialog : EditBase
     {
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
+        public string SqlQuery { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedColumns { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected fields.
+        /// </summary>
+        /// <value>
+        /// The selected fields.
+        /// </value>
+        public IList<string> SelectedFields { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected numerics.
+        /// </summary>
+        /// <value>
+        /// The selected numerics.
+        /// </value>
+        public IList<string> SelectedNumerics { get; set; }
+
         /// <summary> Gets or sets the current. </summary>
         /// <value> The current. </value>
         public DataRow Current { get; set; }
@@ -81,6 +113,7 @@ namespace BudgetExecution
         public EditDialog( )
         {
             InitializeComponent( );
+            InitializeCallbacks( );
 
             // Basic Properties
             Size = new Size( 1340, 674 );
@@ -94,20 +127,12 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
-            TabPage.TabForeColor = Color.FromArgb( 106, 189, 252 );
-            SelectButton.Text = "Save";
-            CloseButton.Text = "Exit";
             Frames = GetFrames( );
             TabPages = GetTabPages( );
 
             // Form Event Wiring
             Load += OnLoad;
             MouseClick += OnRightClick;
-
-            // Control Event Wiring
-            CloseButton.Click += OnCloseButtonClicked;
-            TabPage.MouseClick += OnRightClick;
         }
 
         /// <inheritdoc/>
@@ -124,7 +149,7 @@ namespace BudgetExecution
             Tool = tool;
             BindingSource = bindingSource;
             DataTable = BindingSource.GetDataTable( );
-            Source = (Source) Enum.Parse( typeof( Source ), DataTable.TableName );
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             DataModel = new DataBuilder( Source, Provider );
             Columns = DataTable.GetColumnNames( );
             Current = BindingSource.GetCurrentDataRow( );
@@ -178,6 +203,57 @@ namespace BudgetExecution
             Current = BindingSource.GetCurrentDataRow( );
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            // Control Event Wiring
+            try
+            {
+                CloseButton.Click += OnCloseButtonClicked;
+                TabPage.MouseClick += OnRightClick;
+                RefreshButton.Click += OnClearButtonClicked;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the tab control.
+        /// </summary>
+        private void InitializeTabControl( )
+        {
+            try
+            {
+                TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
+                TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
+                TabPage.TabForeColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+                SelectButton.Text = "Save";
+                CloseButton.Text = "Exit";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary> Sets the frame visibility. </summary>
@@ -267,6 +343,20 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Wires up frame events.
+        /// </summary>
+        private void WireUpFrameEvents( )
+        {
+            if( Frames?.Any( ) == true )
+            {
+                foreach( var _frame in Frames )
+                {
+                    _frame.TextBox.MouseClick += OnContentClick;
+                }
+            }
+        }
+
         /// <summary> Sets the active tab. </summary>
         private void SetActiveTab( )
         {
@@ -277,43 +367,32 @@ namespace BudgetExecution
                     switch( Tool )
                     {
                         case ToolType.CopyButton:
-
                         {
                             ActiveTab = TabPage;
                             break;
                         }
-
                         case ToolType.AddRecordButton:
-
                         {
                             ActiveTab = TabPage;
                             break;
                         }
-
                         case ToolType.AddButton:
-
                         {
                             ActiveTab = TabPage;
                             break;
                         }
-
                         case ToolType.EditRecordButton:
-
                         {
                             ActiveTab = TabPage;
                             break;
                         }
-
                         case ToolType.DeleteRecordButton:
-
                         {
                             ActiveTab = TabPage;
                             SelectButton.Text = "Delete";
                             break;
                         }
-
                         default:
-
                         {
                             ActiveTab = TabPage;
                             break;
@@ -349,8 +428,8 @@ namespace BudgetExecution
         /// <summary> Sets the table location. </summary>
         private void SetTableLocation( )
         {
-            if( ( FrameTable != null )
-               && ( Columns?.Any( ) == true ) )
+            if( FrameTable != null
+               && Columns?.Any( ) == true )
             {
                 try
                 {
@@ -359,7 +438,6 @@ namespace BudgetExecution
                     {
                         case >= 43:
                         case < 43 and >= 35:
-
                             FrameTable.Location = new Point( 12, 25 );
                             break;
                         case < 35 and >= 28:
@@ -367,7 +445,6 @@ namespace BudgetExecution
                         case < 21 and >= 14:
                         case < 14 and > 7:
                         case <= 7:
-
                             FrameTable.Location = new Point( 12, 81 );
                             break;
                     }
@@ -382,9 +459,9 @@ namespace BudgetExecution
         /// <summary> Binds the record data. </summary>
         private void BindRecord( )
         {
-            if( ( Current != null )
-               && ( Frames?.Any( ) == true )
-               && ( Columns?.Any( ) == true ) )
+            if( Current != null
+               && Frames?.Any( ) == true
+               && Columns?.Any( ) == true )
             {
                 try
                 {
@@ -395,7 +472,7 @@ namespace BudgetExecution
                     {
                         _frames[ _i ].Label.Text = _cols[ _i ].SplitPascal( );
                         var _text = _items[ _i ]?.ToString( );
-                        if( ( Numerics?.Contains( _cols[ _i ] ) == true )
+                        if( Numerics?.Contains( _cols[ _i ] ) == true
                            && !string.IsNullOrEmpty( _text ) )
                         {
                             var _value = double.Parse( _text );
@@ -433,15 +510,55 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Wires up frame events. </summary>
-        private void WireUpFrameEvents( )
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
         {
-            if( Frames?.Any( ) == true )
+            try
             {
-                foreach( var _frame in Frames )
+                if( FormFilter?.Any( ) == true )
                 {
-                    _frame.TextBox.MouseClick += OnContentClick;
+                    FormFilter.Clear( );
                 }
+
+                if( Columns?.Any( ) == true )
+                {
+                    Columns.Clear( );
+                }
+
+                if( Fields?.Any( ) == true )
+                {
+                    Fields.Clear( );
+                }
+
+                if( Numerics?.Any( ) == true )
+                {
+                    Numerics.Clear( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                SelectedColumns?.Clear( );
+                SelectedFields?.Clear( );
+                SelectedNumerics?.Clear( );
+                FormFilter?.Clear( );
+                TableName = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -456,6 +573,11 @@ namespace BudgetExecution
         {
             try
             {
+                DataArgs = new DataArgs( );
+                Fields = new List<string>( );
+                Numerics = new List<string>( );
+                Columns = new List<string>( );
+                Dates = new List<DateTime>( );
                 SetActiveTab( );
                 SetTableLocation( );
                 SetFrameColors( );
@@ -463,6 +585,8 @@ namespace BudgetExecution
                 BindRecord( );
                 SetFrameVisibility( );
                 WireUpFrameEvents( );
+                InitializeTabControl( );
+                InitializeButtons( );
             }
             catch( Exception _ex )
             {
@@ -480,22 +604,22 @@ namespace BudgetExecution
         private void OnContentClick( object sender, MouseEventArgs e )
         {
             if( sender is TextBox _currentCell
-               && ( e.Button == MouseButtons.Left )
+               && e.Button == MouseButtons.Left
                && !string.IsNullOrEmpty( _currentCell.Text ) )
             {
                 try
                 {
                     var _value = _currentCell.Text;
                     if( !string.IsNullOrEmpty( _value )
-                       && ( _value.Length > 25 ) )
+                       && _value.Length > 25 )
                     {
                         var _editDialog = new TextDialog( _value );
                         _editDialog.ShowDialog( this );
                     }
                     else if( !string.IsNullOrEmpty( _value )
-                            && ( _value.Length >= 6 )
-                            && ( _value.Length <= 9 )
-                            && ( _value.Substring( 0, 3 ) == "000" ) )
+                            && _value.Length >= 6
+                            && _value.Length <= 9
+                            && _value.Substring( 0, 3 ) == "000" )
                     {
                         var _code = _value.Substring( 4, 2 );
                         var _dialog = new ProgramProjectDialog( _code );
@@ -555,6 +679,24 @@ namespace BudgetExecution
         /// instance containing the event data.
         /// </param>
         private protected void OnCloseButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [clear button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private protected void OnClearButtonClicked( object sender, EventArgs e )
         {
             try
             {

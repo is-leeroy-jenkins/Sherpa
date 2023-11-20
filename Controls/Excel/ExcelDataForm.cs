@@ -257,7 +257,7 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -434,7 +434,7 @@ namespace BudgetExecution
             try
             {
                 Header.ForeColor = Color.FromArgb( 106, 189, 252 );
-                Header.Font = new Font( "Roboto", 11 );
+                Header.Font = new Font( "Roboto", 10 );
                 Header.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )
